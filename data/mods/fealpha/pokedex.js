@@ -1,0 +1,133 @@
+'use strict';
+
+/**@type {{[k: string]: SpeciesData}} */
+let BattlePokedex = {
+uranus: {
+	num: 1.5,
+	species: "Uranus",
+	types: ["Water", "Ground"],
+	baseStats: {hp: 110, atk: 100, def: 110, spa: 80, spd: 70, spe: 45},
+	abilities: {0: "Unamused"},
+},
+saturn: {
+	num: 2.5,
+	species: "Saturn",
+	types: ["Dragon", "Psychic"],
+	baseStats: {hp: 114, atk: 65, def: 80, spa: 115, spd: 104, spe: 90},
+	abilities: {0: "Pressure Bounce"},
+},
+doot: {
+	num: 3.5,
+	species: "Doot",
+	types: ["Water", "Poison"],
+	baseStats: {hp: 82, atk: 94, def: 146, spa: 56, spd: 136, spe: 37},
+	abilities: {0: "Au Revoir"},
+},
+mrgross: {
+	num: 4.5,
+	species: "Mr. Gross",
+	types: ["Steel", "Psychic"],
+	baseStats: {hp: 100, atk: 110, def: 110, spa: 109, spd: 110, spe: 70},
+	abilities: {0: "Clear Cleaner"},
+},
+pluto: {
+	num: 5.5,
+	species: "Pluto",
+	types: ["Ice", "Ghost"],
+	baseStats: {hp: 59, atk: 107, def: 83, spa: 131, spd: 97, spe: 107},
+	abilities: {0: "Terraform"},
+},
+zeus: {
+	num: 6.5,
+	species: "Zeus",
+	types: ["Electric", "Normal"],
+	baseStats: {hp: 101, atk: 126, def: 85, spa: 71, spd: 75, spe: 126},
+	abilities: {0: "Thunderclap"},
+},
+picante: {
+	num: 7.5,
+	species: "Picante",
+	types: ["Grass", "Fire"],
+	baseStats: {hp: 95, atk: 115, def: 100, spa: 107, spd: 80, spe: 85},
+	abilities: {0: "Passion Star"},
+},
+mrvolcano: {
+	num: 8.5,
+	species: "Mr. Volcano",
+	types: ["Fire", "Fairy"],
+	baseStats: {hp: 60, atk: 77, def: 102, spa: 120, spd: 110, spe: 100},
+	abilities: {0: "Volcanicity"},
+},
+vespithorn: {
+	num: 9.5,
+	species: "Vespithorn",
+	types: ["Bug", "Steel"],
+	baseStats: {hp: 82, atk: 87, def: 136, spa: 67, spd: 119, spe: 30},
+	abilities: {0: "Iron Stinger"},
+},
+ishtar: {
+	num: 10.5,
+	species: "Ishtar",
+	types: ["Electric", "Fairy"],
+	baseStats: {hp: 80, atk: 60, def: 105, spa: 115, spd: 125, spe: 85},
+	abilities: {0: "Spell Master"},
+},
+ananke: {
+	num: 11.5,
+	species: "Ananke",
+	types: ["Rock", "Fighting"],
+	baseStats: {hp: 88, atk: 137, def: 82, spa: 63, spd: 82, spe: 120},
+	abilities: {0: "Compulsive"},
+},
+darkrose: {
+	num: 12.5,
+	species: "Dark Rose",
+	types: ["Dark", "Poison"],
+	baseStats: {hp: 65, atk: 100, def: 90, spa: 131, spd: 100, spe: 110},
+	abilities: {0: "Bad Program"},
+},
+kratos: {
+	num: 13.5,
+	species: "Kratos",
+	types: ["Ground", "Flying"],
+	baseStats: {hp: 95, atk: 133, def: 90, spa: 62, spd: 80, spe: 111},
+	abilities: {0: "Intimidate"},
+},
+whiterider: {
+	num: 14.5,
+	species: "White Rider",
+	types: ["Dragon", "Flying"],
+	baseStats: {hp: 90, atk: 80, def: 84, spa: 115, spd: 125, spe: 90},
+	abilities: {0: "Foul Breath"},
+},
+curchyspeed: {
+	num: 15.5,
+	species: "Curchys-Peed",
+	types: ["Electric", "Psychic"],
+	baseStats: {hp: 49, atk: 118, def: 92, spa: 93, spd: 87, spe: 117},
+	abilities: {0: "Galvaforce"},
+},
+corvilord: {
+	num: 16.5,
+	species: "Corvilord",
+	types: ["Steel", "Water"],
+	baseStats: {hp: 139, atk: 98, def: 95, spa: 76, spd: 90, spe: 68},
+	abilities: {0: "Pressure"},
+},
+kord: {
+	num: 17.5,
+	species: "Kord",
+	types: ["Dark", "Ghost"],
+	baseStats: {hp: 134, atk: 100, def: 114, spa: 81, spd: 114, spe: 44},
+	abilities: {0: "Pressure Boost"},
+},
+sirpassd: {
+	num: 18.5,
+	species: "Sir Pass'd",
+	types: ["Fighting"],
+	baseStats: {hp: 101, atk: 127, def: 92, spa: 54, spd: 71, spe: 92},
+	abilities: {0: "Chivalry"},
+},
+};
+
+exports.BattlePokedex = BattlePokedex;

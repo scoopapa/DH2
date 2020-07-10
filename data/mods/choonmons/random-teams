@@ -1,0 +1,85 @@
+'use strict';
+
+const RandomTeams = require('../../data/random-teams');
+
+class RandomSeasonalTeams extends RandomTeams {
+	randomSeasonalMeleeTeam(side) {
+		let team = [];
+		let variant = (this.random(2) === 1);
+		let sets = {
+			
+			'Pikachu Libre' : {
+				species: 'Pikachu-Libre', ability: 'Iron Fist', item: 'Life Orb',
+				moves: ['fakeout', 'volttackle', 'imprisonedstrike', 'extremespeed'],
+				evs: {atk: 252, spe: 252, spd: 4},
+				nature:'Jolly',
+			},
+			'Porygon-Z' : {
+				species: 'Porygon-Z', ability: 'Adaptability', item: 'Choice Scarf',
+				moves: ['shadowball', 'thunderbolt', 'icebeam', 'trick'],
+				evs: {spa: 252, spe: 252, spd: 4},
+				nature:'Timid',
+			},
+			'Mega Charizard X' : {
+				species: 'Charizard', ability: 'Blaze', item: 'Charizardite X',
+				moves: ['dragondance', 'dragonclaw', 'flareblitz', 'earthquake'],
+				signatureMove: "Protect", evs: {atk: 252, spe: 252, spd: 4},
+				nature:'Jolly',
+			},
+			'Gastrodon' : {
+				species: 'Gastrodon', ability: 'Storm Drain', item: 'Leftovers",
+				moves: ['scald', 'earthpower', 'recover', 'toxic'],
+				evs: {hp: 252, def: 252, spd: 4},
+				nature:'Bold',
+			},
+			'Gengar' : {
+				species: 'Gengar-Z', ability: 'Prankster', item: 'Focus Sash ',
+				moves: ['shadowball', 'thunderbolt', 'icebeam', 'trick'],
+				evs: {spa: 252, spe: 252, spd: 4},
+				nature:'Timid',
+			},
+			'Mega Feraligatr' : {
+				species: 'Feraligatr', ability: 'Torrent', item: 'Feraligatrite',
+				moves: ['dragondance', 'dragonclaw', 'waterfall', 'crunch'],
+				evs: {atk: 252, spe: 252, spd: 4},
+				nature:'Jolly',
+			},
+			'Pikachu-Pop-Star' : {
+				species: 'Pikachu-Pop-Star', ability: 'Magic Guard', item: 'Life Orb',
+				moves: ['lightofruin', 'dynamocannon', 'icebeam', 'nastyplot'],
+				evs: {spa: 252, spe: 252, spd: 4},
+				nature:'Jolly',
+			},
+				'Heracross' : {
+				species: 'Heracross', ability: 'Moxie', item: 'Choice Scarf',
+				moves: ['closecombat', 'megahorn', 'knockoff', 'stoneedge'],
+				evs: {atk: 252, spe: 252, spd: 4},
+				nature:'Jolly',
+			},
+		};
+
+		// Generate the team randomly.
+		let pool = Object.keys(sets);
+		for (let i = 0; i < 6; i++) {
+			let name = this.sampleNoReplace(pool);
+			let set = sets[name];
+			set.level = 100;
+			set.name = name;
+			if (!set.ivs) {
+				set.ivs = {hp:31, atk:31, def:31, spa:31, spd:31, spe:31};
+			} else {
+				for (let iv in {hp:31, atk:31, def:31, spa:31, spd:31, spe:31}) {
+					set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
+				}
+			}
+			// Assuming the hardcoded set evs are all legal.
+			if (!set.evs) set.evs = {hp:84, atk:84, def:84, spa:84, spd:84, spe:84};
+			set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
+			team.push(set);
+		}
+
+		return team;
+	}
+}
+
+module.exports = RandomSeasonalTeams;
