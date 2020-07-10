@@ -60,7 +60,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove: function (pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.getMove(moveSlot.id).flags['gravity']) {
+					if (this.dex.getMove(moveSlot.id).flags['gravity']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -183,15 +183,12 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Needle Arm", target);
-		},
-		onTry: function (source, target) {
-			let action = this.willMove(target);
-			if (!action || action.choice !== 'move' || (action.move.category === 'Status' && action.move.id !== 'mefirst') || target.volatiles.mustrecharge) {
-				this.attrLastMove('[still]');
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles.mustrecharge) {
 				this.add('-fail', source);
+				this.attrLastMove('[still]');
 				return null;
 			}
 		},
