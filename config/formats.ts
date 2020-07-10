@@ -1046,7 +1046,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
   		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Dynamax Clause', 'Standard NatDex'],
 		mod: 'cleanslatemicro',
-		banlist: ['Baton Pass'],
+		banlist: ['Baton Pass', 'Heracross-Mega', 'Heracronite'],
 		onSwitchIn: function (pokemon) {
             this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
         },
@@ -1054,14 +1054,13 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				console.log( this.dex.speciesCache[set.species] );
-				let template = this.dex.speciesCache[set.species];
+				let template = this.dex.speciesCache.get(toID(set.species));
 				if (speciesTable[template.species]) {
 					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom formes). ", "You have more than one " + template.baseSpecies + "."];
 				}
 				speciesTable[template.species] = true;
 				if ( template.tier !== 'CSM' ) {
-					return [template.species + ' is not useable in Clean Slate: Micro.'];
+					return [set.species + ' is not useable in Clean Slate: Micro.'];
 				}
 			}
 		},
