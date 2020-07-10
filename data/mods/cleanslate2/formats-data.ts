@@ -108,4 +108,7 @@ export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naganadel: {
 		tier: "CS2",
 	},
+	stonjourner: {
+		tier: "CS2",
+	},
 };
