@@ -539,7 +539,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function(item, source) {
-            if (source.baseTemplate.baseSpecies === 'Farfetch'd' || source.baseTemplate.baseSpecies === 'Sirfetch'd') return false;
+            if (source.baseTemplate.baseSpecies === "Farfetch'd" || source.baseTemplate.baseSpecies === "Sirfetch'd") return false;
             return true;
         },
         itemUser: ["Farfetch'd", "Sirfetch'd"],
