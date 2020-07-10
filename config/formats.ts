@@ -903,19 +903,35 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	}, 
 	{
 		name: "[Gen 8 Pet Mod] Clean Slate 2",
-		desc: `A brand new metagame created from scratch, with the ultimate goal of creating a unique metagame different from any other tier.`,
+		desc: `Ubers clean slate. Ubers clean slate.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
 		mod: 'cleanslate2',
-		banlist: ['All Pokemon'],
-		unbanlist: [
-			'Weezing-Galar', 'Orbeetle', 'Stonjourner', 'Cherrim-Sunshine', 'Zacian', 'Dubwool', 'Gumshoos', 'Seismitoad', 'Snorlax-Gmax', 'Walrein', 'Dhelmise', 'Togekiss', 'Scolipede', 'Cursola', 'Torkoal', 'Gligar', 'Octillery', 'Necrozma', 'Dunsparce', 'Victreebel', 'Runerigus', 'Aerodactyl', 'Unown-M', 'Unown-S', 'Unown-P', 'Shaymin', 'Shaymin-Sky', 'Scrafty', 'Weavile', 'Salamence', 'Vivillon', 'Centiskorch', 'Abomasnow', 'Duraludon', 'Cobalion', 'Naganadel',
-		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
 		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'CS2' ) {
+					return [set.species + ' is not useable in Clean Slate 2.'];
+				}
+			}
+		},
+		onModifySpecies(species, target, source, effect) {
+			let stats = this.unownStats[ species.id ];
+			if (stats) {
+				return Object.assign({}, species, 
+					{baseStats: stats.baseStats},
+					{abilities: stats.abilities},
+					{types: stats.types},
+				);
+			} 
+		}
 	},
 	{
 		name: "[Gen 8] PKMN YB OU",
@@ -1026,6 +1042,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	{
   		name: "[Gen 7] Clean Slate",
   		desc: [
+			"A brand new micrometagame made from scratch",
 			"&bullet; <a href=https://www.smogon.com/forums/threads/.3639262/>Clean Slate</a>",
 			"&bullet; <a href=https://www.smogon.com/forums/threads/clean-slate-resources.3643897/>Clean Slate Resources</a>",
 		      ],
@@ -1039,7 +1056,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.speciesCache.get(toID(set.species));
+				let template = this.dex.getSpecies(set.species);
 				if ( template.tier !== 'CS1' ) {
 					return [set.species + ' is not useable in Clean Slate.'];
 				}
@@ -1048,7 +1065,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
   	},
 	{
   		name: "[Gen 7] Clean Slate: Micro",
-		desc: `A brand new micrometagame from scratch, varied compact metagame existing separately from any tier.`,
+		desc: `, with only 21 pokemon. The first PMOTM.`,
   		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/.3652540/">Clean Slate: Micro</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1GNLvQsM1F6pw1JS7IA6IyrgME1iJ4M0UWLrieGSPQuU/edit#gid=1994258282">Spreadsheet of Changes</a>`,
@@ -1064,7 +1081,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.speciesCache.get(toID(set.species));
+				let template = this.dex.getSpecies(set.species);
 				if (speciesTable[template.species]) {
 					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom formes). ", "You have more than one " + template.baseSpecies + "."];
 				}

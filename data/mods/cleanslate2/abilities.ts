@@ -80,32 +80,32 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Vivillon, its secondary type changes to the current weather condition's type. If this Pokemon is holding Utility Umbrella and the weather condition is Sunny Day, Desolate Land, Rain Dance, or Primordial Sea, it will not change types.",
 		shortDesc: "Castform's type changes to the current weather condition's type, except Sandstorm.",
 		onUpdate(pokemon) {
-			if (pokemon.baseTemplate.baseSpecies !== 'Vivillon' || pokemon.transformed) return;
+			if (pokemon.baseSpecies.name !== 'Vivillon' || pokemon.transformed) return;
 			let type = "None";
 			let forme = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.template.speciesid !== 'vivillonsun' && !pokemon.getTypes().includes( "Fire" )){
+				if (pokemon.baseSpecies.id !== 'vivillonsun' && !pokemon.getTypes().includes( "Fire" )){
 					type = 'Fire';
 					forme = 'Vivillon-Sun';
 				}
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.template.speciesid !== 'vivillonmarine' && !pokemon.getTypes().includes( "Water" )){
+				if (pokemon.baseSpecies.id !== 'vivillonmarine' && !pokemon.getTypes().includes( "Water" )){
 					type = 'Water';
 					forme = 'Vivillon-Marine';
 				}
 				break;
 			case 'hail':
-				if (pokemon.template.speciesid !== 'vivillonpolar' && !pokemon.getTypes().includes( "Ice" )){
+				if (pokemon.baseSpecies.id !== 'vivillonpolar' && !pokemon.getTypes().includes( "Ice" )){
 					type = 'Ice';
 					forme = 'Vivillon-Polar';
 				}
 				break;
 			case 'sandstorm':
-			if (pokemon.template.speciesid !== 'vivillonsandstorm' && !pokemon.getTypes().includes( "Rock" )){
+			if (pokemon.baseSpecies.id !== 'vivillonsandstorm' && !pokemon.getTypes().includes( "Rock" )){
 				type = 'Rock';
 				forme = 'Vivillon-Sandstorm';
 			}
