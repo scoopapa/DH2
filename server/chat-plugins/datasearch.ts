@@ -63,7 +63,6 @@ function escapeHTML(str?: string) {
 }
 
 export const commands: ChatCommands = {
-	'!dexsearch': true,
 	ds: 'dexsearch',
 	ds1: 'dexsearch',
 	ds2: 'dexsearch',
@@ -143,12 +142,11 @@ export const commands: ChatCommands = {
 			`You can search for info in a specific generation by appending the generation to ds; e.g. <code>/ds1 normal</code> searches for all Pok\u00e9mon that were Normal type in Generation I.<br/>` +
 			`<code>/dexsearch</code> will search the Galar Pokedex; you can search the National Pokedex by using <code>/nds</code> or by adding <code>natdex</code> as a parameter.<br/>` +
 			`Searching for a Pok\u00e9mon with both egg group and type parameters can be differentiated by adding the suffix <code>group</code> onto the egg group parameter; e.g., seaching for <code>grass, grass group</code> will show all Grass types in the Grass egg group.<br/>` +
-			`The parameter <code>monotype</code> will only show Pok\u00e9mon that are not dual-typed.<br/>` +
+			`The parameter <code>monotype</code> will only show Pok\u00e9mon that are single-typed.<br/>` +
 			`The order of the parameters does not matter.<br/>`
 		);
 	},
 
-	'!randommove': true,
 	rollmove: 'randommove',
 	randmove: 'randommove',
 	randommove(target, room, user, connection, cmd, message) {
@@ -194,7 +192,6 @@ export const commands: ChatCommands = {
 		`/randommove uses the same parameters as /movesearch (see '/help ms').`,
 		`Adding a number as a parameter returns that many random Pok\u00e9mon Moves, e.g., '/randmove 6' returns 6 random Pok\u00e9mon Moves.`,
 	],
-	'!randompokemon': true,
 	rollpokemon: 'randompokemon',
 	randpoke: 'randompokemon',
 	randompokemon(target, room, user, connection, cmd, message) {
@@ -241,7 +238,6 @@ export const commands: ChatCommands = {
 		`Adding a number as a parameter returns that many random Pok\u00e9mon, e.g., '/randpoke 6' returns 6 random Pok\u00e9mon.`,
 	],
 
-	'!movesearch': true,
 	ms: 'movesearch',
 	ms1: 'movesearch',
 	ms2: 'movesearch',
@@ -303,7 +299,6 @@ export const commands: ChatCommands = {
 		);
 	},
 
-	'!itemsearch': true,
 	isearch: 'itemsearch',
 	is: 'itemsearch',
 	is2: 'itemsearch',
@@ -349,7 +344,6 @@ export const commands: ChatCommands = {
 		);
 	},
 
-	'!abilitysearch': true,
 	asearch: 'abilitysearch',
 	as: 'abilitysearch',
 	as3: 'abilitysearch',
@@ -392,7 +386,6 @@ export const commands: ChatCommands = {
 		);
 	},
 
-	'!learn': true,
 	learnset: 'learn',
 	learnall: 'learn',
 	learn5: 'learn',
@@ -830,18 +823,13 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		}
 	}
 	if (
-		showAll && searches.length === 0 && !maxGen &&
+		showAll && searches.length === 0 && !maxGen && !singleTypeSearch &&
 		megaSearch === null && gmaxSearch === null && fullyEvolvedSearch === null
 	) {
 		return {
 			error: "No search parameters other than 'all' were found. Try '/help dexsearch' for more information on this command.",
 		};
 	}
-
-	if (singleTypeSearch && Object.values(searches)
-		.map(search => Object.keys(search.types).filter(type => search.types[type])[0])
-		.filter(type => type).length !== 1
-	) return {error: "A monotype search must include only one type."};
 
 	if (!maxGen) maxGen = 8;
 	const mod = Dex.mod('gen' + maxGen);
@@ -946,10 +934,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 
 			for (const type in alts.types) {
-				if (
-					(!singleTypeSearch || Object.keys(dex[mon].types).length === 1) &&
-					dex[mon].types.includes(type) === alts.types[type]
-				) {
+				if (dex[mon].types.includes(type) === alts.types[type]) {
 					matched = true;
 					break;
 				}
@@ -1050,6 +1035,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	}
 	let results: string[] = [];
 	for (const mon of Object.keys(dex).sort()) {
+		if (singleTypeSearch && dex[mon].types.length !== 1) continue;
 		const isAlola = dex[mon].forme === "Alola" && dex[mon].name !== "Pikachu-Alola";
 		const allowGmax = (gmaxSearch || tierSearch);
 		if (!isAlola && dex[mon].baseSpecies && results.includes(dex[mon].baseSpecies)) continue;
