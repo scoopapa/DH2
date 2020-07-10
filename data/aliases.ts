@@ -42,10 +42,13 @@ export const BattleAliases: {[alias: string]: string} = {
 	gen7bsd: "[Gen 7] Battle Spot Doubles",
 	gen6mono: "[Gen 6] Monotype",
 	gen6ag: "[Gen 6] Anything Goes",
-	crossevo: "[Gen 8] Cross Evolution",
-	pmots: "[Gen 8] Megamax",
-	mbh: "[Gen 8] National Dex BH",
-	opti: "[Gen 8] Optimons",
+	csm: "[Gen 7] Clean Slate: Micro",
+	cs2: "[Gen 8 Pet Mod] Clean Slate 2",
+	mbh: "[Gen 8] More Balanced Hackmons",
+	ccv2: "[Gen 8] Crossover Chaos V2",
+	ccex: "[Gen 8] Crossover Chaos Expanded",
+	ccubers: "[Gen 8] Crossover Chaos V2 + Expanded Ubers",
+	roulette: "[Gen 8] Roulettemons",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
