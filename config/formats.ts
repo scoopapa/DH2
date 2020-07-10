@@ -1029,12 +1029,22 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			"&bullet; <a href=https://www.smogon.com/forums/threads/.3639262/>Clean Slate</a>",
 			"&bullet; <a href=https://www.smogon.com/forums/threads/clean-slate-resources.3643897/>Clean Slate Resources</a>",
 		      ],
-  		ruleset: ['Sleep Clause Mod', 'Dynamax Clause', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+  		ruleset: ['Standard'],
+		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
 		mod: 'cleanslate',
-		banlist: ['Unreleased'],
 		onSwitchIn: function (pokemon) {
             this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
         },
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.speciesCache.get(toID(set.species));
+				if ( template.tier !== 'CS1' ) {
+					return [set.species + ' is not useable in Clean Slate.'];
+				}
+			}
+		},
   	},
 	{
   		name: "[Gen 7] Clean Slate: Micro",
