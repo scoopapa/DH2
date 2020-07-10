@@ -41,7 +41,7 @@ export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	celesteela: {
 		tier: "CS1",
 	},
-	ratocatealolatotem: {
+	raticatealolatotem: {
 		tier: "CS1",
 	},
 	rhydon: {
