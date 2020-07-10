@@ -88,63 +88,63 @@ exports.BattleItems = {
 	"adamantorb": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Dialga') return false;
+			if (source.baseSpecies.name === 'Dialga') return false;
 			return true;
 		},
 	},
 	"deepseascale": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Clamperl') return false;
+			if (source.baseSpecies.name === 'Clamperl') return false;
 			return true;
 		},
 	},
 	"deepseatooth": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Clamperl') return false;
+			if (source.baseSpecies.name === 'Clamperl') return false;
 			return true;
 		},
 	},
 	"griseousorb": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Giratina') return false;
+			if (source.baseSpecies.name === 'Giratina') return false;
 			return true;
 		},
 	},
 	"luckypunch": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Chansey') return false;
+			if (source.baseSpecies.name === 'Chansey') return false;
 			return true;
 		},
 	},
 	"lustrousorb": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Palkia') return false;
+			if (source.baseSpecies.name === 'Palkia') return false;
 			return true;
 		},
 	},
 	"metalpowder": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Ditto') return false;
+			if (source.baseSpecies.name === 'Ditto') return false;
 			return true;
 		},
 	},
 	"quickpowder": {
 		inherit: true,
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Ditto') return false;
+			if (source.baseSpecies.name === 'Ditto') return false;
 			return true;
 		},
 	},
 	"stick": {
 		inherit: true,
 		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseTemplate.num === 83) || pokemon.baseTemplate.num === 83) {
+			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
 				return false;
 			}
 			return true;
@@ -153,7 +153,7 @@ exports.BattleItems = {
 	"thickclub": {
 		inherit: true,
 		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseTemplate.num === 105) || pokemon.baseTemplate.num === 105) {
+			if ((source && source.baseSpecies.num === 105) || pokemon.baseSpecies.num === 105) {
 				return false;
 			}
 			return true;
@@ -164,7 +164,7 @@ exports.BattleItems = {
 		name: "Graduation Scale",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Graduation Scale');
-			if (pokemon.baseTemplate.baseSpecies === 'Wishiwashi') {
+			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
 				pokemon.formeChange("Wishiwashi-School");
 				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
@@ -178,12 +178,12 @@ exports.BattleItems = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseTemplate.num === 746) && (move.type === 'Water')) {
+			if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Wishiwashi') return false;
+			if (source.baseSpecies.name === 'Wishiwashi') return false;
 			return true;
 		},
 		gen: 7,
@@ -194,7 +194,7 @@ exports.BattleItems = {
 		name: "Rage Candy Bar",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.baseTemplate.baseSpecies === 'Darmanitan') {
+			if (pokemon.baseSpecies.name === 'Darmanitan') {
 				this.add('-formechange', pokemon, 'Darmanitan-Zen', '[msg]');
 				pokemon.formeChange("Darmanitan-Zen");
 			}
@@ -204,12 +204,12 @@ exports.BattleItems = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseTemplate.num === 555) && (move.type === 'Psychic')) {
+			if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseTemplate.num === 555) || pokemon.baseTemplate.num === 555) {
+			if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
 				return false;
 			}
 			return true;
@@ -222,7 +222,7 @@ exports.BattleItems = {
 		name: "Relic Charm",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Relic Charm');
-			if (pokemon.baseTemplate.baseSpecies === 'Meloetta') {
+			if (pokemon.baseSpecies.name === 'Meloetta') {
 				this.add('-formechange', pokemon, 'Meloetta-Pirouette', '[msg]');
 				pokemon.formeChange("Meloetta-Pirouette");
 			}
@@ -542,18 +542,18 @@ exports.BattleItems = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			if (pokemon.baseTemplate.baseSpecies === 'Pikachu' || pokemon.baseTemplate.baseSpecies === 'Pichu' || pokemon.baseTemplate.baseSpecies === 'Raichu' || pokemon.baseTemplate.baseSpecies === 'Plusle' || pokemon.baseTemplate.baseSpecies === 'Minun' || pokemon.baseTemplate.baseSpecies === 'Pachirisu' || pokemon.baseTemplate.baseSpecies === 'Emolga' || pokemon.baseTemplate.baseSpecies === 'Dedenne' || pokemon.baseTemplate.baseSpecies === 'Togedemaru') {
+			if (pokemon.baseSpecies.name === 'Pikachu' || pokemon.baseSpecies.name === 'Pichu' || pokemon.baseSpecies.name === 'Raichu' || pokemon.baseSpecies.name === 'Plusle' || pokemon.baseSpecies.name === 'Minun' || pokemon.baseSpecies.name === 'Pachirisu' || pokemon.baseSpecies.name === 'Emolga' || pokemon.baseSpecies.name === 'Dedenne' || pokemon.baseSpecies.name === 'Togedemaru') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA: function(spa, pokemon) {
-			if (pokemon.baseTemplate.baseSpecies === 'Pikachu' || pokemon.baseTemplate.baseSpecies === 'Pichu' || pokemon.baseTemplate.baseSpecies === 'Raichu' || pokemon.baseTemplate.baseSpecies === 'Plusle' || pokemon.baseTemplate.baseSpecies === 'Minun' || pokemon.baseTemplate.baseSpecies === 'Pachirisu' || pokemon.baseTemplate.baseSpecies === 'Emolga' || pokemon.baseTemplate.baseSpecies === 'Dedenne' || pokemon.baseTemplate.baseSpecies === 'Togedemaru') {
+			if (pokemon.baseSpecies.name === 'Pikachu' || pokemon.baseSpecies.name === 'Pichu' || pokemon.baseSpecies.name === 'Raichu' || pokemon.baseSpecies.name === 'Plusle' || pokemon.baseSpecies.name === 'Minun' || pokemon.baseSpecies.name === 'Pachirisu' || pokemon.baseSpecies.name === 'Emolga' || pokemon.baseSpecies.name === 'Dedenne' || pokemon.baseSpecies.name === 'Togedemaru') {
 				return this.chainModify(2);
 			}
 		},
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Pikachu' || source.baseTemplate.baseSpecies === 'Pichu' || source.baseTemplate.baseSpecies === 'Raichu' || source.baseTemplate.baseSpecies === 'Plusle' || source.baseTemplate.baseSpecies === 'Minun' || source.baseTemplate.baseSpecies === 'Pachirisu' || source.baseTemplate.baseSpecies === 'Emolga' || source.baseTemplate.baseSpecies === 'Dedenne' || source.baseTemplate.baseSpecies === 'Togedemaru') return false;
+			if (source.baseSpecies.name === 'Pikachu' || source.baseSpecies.name === 'Pichu' || source.baseSpecies.name === 'Raichu' || source.baseSpecies.name === 'Plusle' || source.baseSpecies.name === 'Minun' || source.baseSpecies.name === 'Pachirisu' || source.baseSpecies.name === 'Emolga' || source.baseSpecies.name === 'Dedenne' || source.baseSpecies.name === 'Togedemaru') return false;
 			return true;
 		},
 		num: 236,
