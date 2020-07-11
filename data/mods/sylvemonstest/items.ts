@@ -568,23 +568,29 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			if (pokemon.baseTemplate.baseSpecies === 'Pikachu' || pokemon.baseTemplate.baseSpecies === 'Pichu' || pokemon.baseTemplate.baseSpecies === 'Raichu' || pokemon.baseTemplate.baseSpecies === 'Plusle' || pokemon.baseTemplate.baseSpecies === 'Minun' || pokemon.baseTemplate.baseSpecies === 'Pachirisu' || pokemon.baseTemplate.baseSpecies === 'Emolga' || pokemon.baseTemplate.baseSpecies === 'Dedenne' || pokemon.baseTemplate.baseSpecies === 'Togedemaru' || pokemon.baseTemplate.baseSpecies === 'Morpeko') {
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA: function(spa, pokemon) {
-			if (pokemon.baseTemplate.baseSpecies === 'Pikachu' || pokemon.baseTemplate.baseSpecies === 'Pichu' || pokemon.baseTemplate.baseSpecies === 'Raichu' || pokemon.baseTemplate.baseSpecies === 'Plusle' || pokemon.baseTemplate.baseSpecies === 'Minun' || pokemon.baseTemplate.baseSpecies === 'Pachirisu' || pokemon.baseTemplate.baseSpecies === 'Emolga' || pokemon.baseTemplate.baseSpecies === 'Dedenne' || pokemon.baseTemplate.baseSpecies === 'Togedemaru' || pokemon.baseTemplate.baseSpecies === 'Morpeko') {
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
 				return this.chainModify(2);
 			}
 		},
 		onTakeItem: function(item, source) {
-			if (source.baseTemplate.baseSpecies === 'Pikachu' || source.baseTemplate.baseSpecies === 'Pichu' || source.baseTemplate.baseSpecies === 'Raichu' || source.baseTemplate.baseSpecies === 'Plusle' || source.baseTemplate.baseSpecies === 'Minun' || source.baseTemplate.baseSpecies === 'Pachirisu' || source.baseTemplate.baseSpecies === 'Emolga' || source.baseTemplate.baseSpecies === 'Dedenne' || source.baseTemplate.baseSpecies === 'Togedemaru' || source.baseTemplate.baseSpecies === 'Morpeko') return false;
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
+				return false;
+			}
 			return true;
 		},
+		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru'],
 		num: 236,
 		gen: 2,
-		desc: "If held by a Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne, Togedemaru, or a Morpeko, its Attack and Sp. Atk are doubled.",
+		desc: "If held by a Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru, its Attack and Sp. Atk are doubled.",
 	},
 	"weatherwarriorscrystal": {
 		shortDesc: "When a weather is active, increases the holder's Atk and Sp Atk stats by 1 stage each.",
