@@ -580,7 +580,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		onTakeItem: function(item, source) {
+		onTakeItem: function(item, pokemon) {
 			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return false;
