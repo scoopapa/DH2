@@ -1762,7 +1762,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn: function (pokemon) {
 				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.getMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getMove('stickyweb'));
 			},
 		},
 	},
