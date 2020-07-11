@@ -15,5 +15,4 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "Holder's Multi-Attack is Flying type. Shaymin holding this will enter battle as Shaymin-Sky",
 	},
-	
 };

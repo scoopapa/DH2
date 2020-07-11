@@ -939,7 +939,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		threads: [
 			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
-		mod: 'cleanslate2',
+		mod: 'cleanslatetiershift',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: ['Eviolite'],
 		onSwitchIn(pokemon) {
@@ -967,8 +967,8 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			};
 			if (!species.baseStats) return;
 			const boosts: {[tier: string]: number} = {
-				CSM: 25,
-				CS1: 20,
+				csm: 25,
+				cs1: 20,
 			};
 			const tier = toID(species.tier) || 'ou';
 			if (!(tier in boosts)) return;
