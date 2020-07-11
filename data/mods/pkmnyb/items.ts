@@ -164,7 +164,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -186,7 +186,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -208,7 +208,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -230,7 +230,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -252,7 +252,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -274,7 +274,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -296,7 +296,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -318,7 +318,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -340,7 +340,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -362,7 +362,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -384,7 +384,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -406,7 +406,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -428,7 +428,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -450,7 +450,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -472,7 +472,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -494,7 +494,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -516,7 +516,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function (item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
+            if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
                 return false;
             }
             return true;
@@ -534,12 +534,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         spritenum: 475,
         onModifyCritRatio(critRatio, user) {
-            if (["Farfetch'd", "Sirfetch'd"].includes(user.baseTemplate.baseSpecies)) {
+            if (["Farfetch'd", "Sirfetch'd"].includes(user.baseSpecies.baseSpecies)) {
                 return critRatio + 2;
             }
         },
         onTakeItem: function(item, source) {
-            if (source.baseTemplate.baseSpecies === "Farfetch'd" || source.baseTemplate.baseSpecies === "Sirfetch'd") return false;
+            if (source.baseSpecies.baseSpecies === "Farfetch'd" || source.baseSpecies.baseSpecies === "Sirfetch'd") return false;
             return true;
         },
         itemUser: ["Farfetch'd", "Sirfetch'd"],
@@ -557,18 +557,18 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         onModifyAtkPriority: 1,
         onModifyAtk(atk, pokemon) {
-            if (pokemon.baseTemplate.baseSpecies === 'Pikachu') {
+            if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
                 return this.chainModify(2);
             }
         },
         onModifySpAPriority: 1,
         onModifySpA(spa, pokemon) {
-            if (pokemon.baseTemplate.baseSpecies === 'Pikachu') {
+            if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
                 return this.chainModify(2);
             }
         },
         onTakeItem: function(item, source) {
-            if (source.baseTemplate.baseSpecies === 'Pikachu') return false;
+            if (source.baseSpecies.baseSpecies === 'Pikachu') return false;
             return true;
         },
         onResidualOrder: 26,
@@ -586,7 +586,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         name: "RageCandyBar",
         onStart: function(pokemon) {
             this.add('-item', pokemon, 'Rage Candy Bar');
-            if (pokemon.baseTemplate.baseSpecies === 'Darmanitan') {
+            if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
                 pokemon.addVolatile('zenmode');
             }
         },
@@ -595,12 +595,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         onBasePowerPriority: 6,
         onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseTemplate.num === 555) && (move.type === 'Psychic')) {
+            if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
                 return this.chainModify([0x1333, 0x1000]);
             }
         },
         onTakeItem: function(item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 555) || pokemon.baseTemplate.num === 555) {
+            if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
                 return false;
             }
             return true;
@@ -613,7 +613,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         name: "RageCandyBar",
         onStart: function(pokemon) {
             this.add('-item', pokemon, 'MintyRageCandyBar');
-            if (pokemon.baseTemplate.baseSpecies === 'Darmanitan') {
+            if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
                 pokemon.addVolatile('zenmode');
             }
         },
@@ -622,12 +622,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         onBasePowerPriority: 6,
         onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseTemplate.num === 555) && (move.type === 'Fire')) {
+            if (move && (user.baseSpecies.num === 555) && (move.type === 'Fire')) {
                 return this.chainModify([0x1333, 0x1000]);
             }
         },
         onTakeItem: function(item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 555) || pokemon.baseTemplate.num === 555) {
+            if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
                 return false;
             }
             return true;
@@ -640,7 +640,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         name: "Relic Charm",
         onStart: function(pokemon) {
             this.add('-item', pokemon, 'Relic Charm');
-            if (pokemon.baseTemplate.baseSpecies === 'Meloetta') {
+            if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
                 this.add('-formechange', pokemon, 'Meloetta-Pirouette', '[msg]');
                 pokemon.formeChange("Meloetta-Pirouette");
             }
@@ -650,12 +650,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         onBasePowerPriority: 6,
         onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseTemplate.num === 648) && (move.type === 'Fighting')) {
+            if (move && (user.baseSpecies.num === 648) && (move.type === 'Fighting')) {
                 return this.chainModify([0x1333, 0x1000]);
             }
         },
         onTakeItem: function(item, pokemon, source) {
-            if ((source && source.baseTemplate.num === 648) || pokemon.baseTemplate.num === 648) {
+            if ((source && source.baseSpecies.num === 648) || pokemon.baseSpecies.num === 648) {
                 return false;
             }
             return true;
@@ -668,7 +668,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         name: "Graduation Scale",
         onStart: function(pokemon) {
             this.add('-item', pokemon, 'Graduation Scale');
-            if (pokemon.baseTemplate.baseSpecies === 'Wishiwashi') {
+            if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
                 this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
                 pokemon.formeChange("Wishiwashi-School");
                 let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
@@ -678,7 +678,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
             }
         },
         onTakeItem: function(item, source) {
-            if (source.baseTemplate.baseSpecies === 'Wishiwashi' || source.baseTemplate.baseSpecies === 'Wishiwashi-School') return false;
+            if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
             return true;
         },
         fling: {
@@ -686,7 +686,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         },
         onBasePowerPriority: 6,
         onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseTemplate.num === 746) && (move.type === 'Water')) {
+            if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
                 return this.chainModify([0x1333, 0x1000]);
             }
         },
@@ -707,7 +707,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Meganium-Mega",
         megaEvolves: "Meganium",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Meganium, this item allows it to Mega Evolve in battle.",
@@ -718,7 +718,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Meganium-Mega",
         megaEvolves: "Meganium",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Typhlosion, this item allows it to Mega Evolve in battle.",
@@ -729,7 +729,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Feraligatr-Mega",
         megaEvolves: "Feraligatr",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Feraligatr, this item allows it to Mega Evolve in battle.",
@@ -740,7 +740,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Slowbro-Galar-Mega",
         megaEvolves: "Slowbro-Galar",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Galarian Slowbro, this item allows it to Mega Evolve in battle.",
@@ -751,7 +751,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Slowking-Mega",
         megaEvolves: "Slowking",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Slowking, this item allows it to Mega Evolve in battle.",
@@ -762,7 +762,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Froslass-Mega",
         megaEvolves: "Froslass",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Froslass, this item allows it to Mega Evolve in battle.",
@@ -773,7 +773,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Butterfree-Mega",
         megaEvolves: "Butterfree",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Butterfree, this item allows it to Mega Evolve in battle.",
@@ -784,7 +784,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Milotic-Mega",
         megaEvolves: "Milotic",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Milotic, this item allows it to Mega Evolve in battle.",
@@ -795,7 +795,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Dragonite-Mega",
         megaEvolves: "Dragonite",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Dragonite, this item allows it to Mega Evolve in battle.",
@@ -806,7 +806,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Dusknoir-Mega",
         megaEvolves: "Dusknoir",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Dusknoir, this item allows it to Mega Evolve in battle.",
@@ -817,7 +817,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Flygon-Mega",
         megaEvolves: "Flygon",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Flygon, this item allows it to Mega Evolve in battle.",
@@ -828,7 +828,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Hydreigon-Mega",
         megaEvolves: "Hydreigon",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Hydreigon, this item allows it to Mega Evolve in battle.",
@@ -839,7 +839,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Mienshao-Mega",
         megaEvolves: "Mienshao",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Mienshao, this item allows it to Mega Evolve in battle.",
@@ -850,7 +850,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Musharna-Mega",
         megaEvolves: "Musharna",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Musharna, this item allows it to Mega Evolve in battle.",
@@ -861,7 +861,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Zoroark-Mega",
         megaEvolves: "Zoroark",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Zoroark, this item allows it to Mega Evolve in battle.",
@@ -872,7 +872,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Zebstrika-Mega",
         megaEvolves: "Zebstrika",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Zebstrika, this item allows it to Mega Evolve in battle.",
@@ -883,7 +883,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Goodra-Mega",
         megaEvolves: "Goodra",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Goodra, this item allows it to Mega Evolve in battle.",
@@ -894,7 +894,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Talonflame-Mega",
         megaEvolves: "Talonflame",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Goodra, this item allows it to Mega Evolve in battle.",
@@ -905,7 +905,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Gogoat-Mega",
         megaEvolves: "Gogoat",
         onTakeItem: function (item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If held by a Gogoat, this item allows it to Mega Evolve in battle.",
@@ -916,7 +916,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Barbaracle-Mega",
         megaEvolves: "Barbaracle",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Barbaracle, this item allows it to Mega Evolve in battle.",
@@ -927,7 +927,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Meowstic-Mega",
         megaEvolves: "Meowstic",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a male Meowstic, this item allows it to Mega Evolve in battle.",
@@ -938,7 +938,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Meowstic-F-Mega",
         megaEvolves: "Meowstic-F",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a female Meowstic, this item allows it to Mega Evolve in battle.",
@@ -949,7 +949,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Golisopod-Mega",
         megaEvolves: "Golisopod",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Golisopod, this item allows it to Mega Evolve in battle.",
@@ -960,7 +960,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Kommo-o-Mega",
         megaEvolves: "Kommo-o",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Kommo-o, this item allows it to Mega Evolve in battle.",
@@ -971,7 +971,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Shiinotic-Mega",
         megaEvolves: "Shiinotic",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Shiinotic, this item allows it to Mega Evolve in battle.",
@@ -982,7 +982,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Turtonator-Mega",
         megaEvolves: "Turtonator",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Turtonator, this item allows it to Mega Evolve in battle.",
@@ -993,7 +993,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Drampa-Mega",
         megaEvolves: "Drampa",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Drampa, this item allows it to Mega Evolve in battle.",
@@ -1004,7 +1004,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Corviknight-Mega",
         megaEvolves: "Corviknight",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Corviknight, this item allows it to Mega Evolve in battle.",
@@ -1015,7 +1015,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Boltund-Mega",
         megaEvolves: "Boltund",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Boltund, this item allows it to Mega Evolve in battle.",
@@ -1026,7 +1026,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Falinks-Mega",
         megaEvolves: "Falinks",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Falinks, this item allows it to Mega Evolve in battle.",
@@ -1037,7 +1037,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Indeedee-Mega",
         megaEvolves: "Indeedee",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a male Indeedee, this item allows it to Mega Evolve in battle.",
@@ -1048,7 +1048,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Indeedee-F-Mega",
         megaEvolves: "Indeedee-F",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a female Indeedee, this item allows it to Mega Evolve in battle.",
@@ -1059,7 +1059,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Dragapult-Mega",
         megaEvolves: "Dragapult",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Dragapult, this item allows it to Mega Evolve in battle.",
@@ -1070,7 +1070,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Synthinobi-Mega",
         megaEvolves: "Synthinobi",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Synthinobi, this item allows it to Mega Evolve in battle.",
@@ -1081,7 +1081,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Chemicander-Mega",
         megaEvolves: "Chemicander",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Chemicander, this item allows it to Mega Evolve in battle.",
@@ -1092,7 +1092,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
         megaStone: "Primadillo-Mega",
         megaEvolves: "Primadillo",
         onTakeItem: function(item, source) {
-            if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
         },
         desc: "If holder is a Primadillo, this item allows it to Mega Evolve in battle.",

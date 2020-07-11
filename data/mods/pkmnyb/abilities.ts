@@ -144,27 +144,27 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
             delete this.effectData.forme;
         },
         onUpdate(pokemon) {
-            if (!pokemon.isActive || pokemon.baseTemplate.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+            if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
             if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-                if (pokemon.template.speciesid !== 'cherrimsunshine') {
+                if (pokemon.species.speciesid !== 'cherrimsunshine') {
                     pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
                 }
             } else {
-                if (pokemon.template.speciesid === 'cherrimsunshine') {
+                if (pokemon.species.speciesid === 'cherrimsunshine') {
                     pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
                 }
             }
         },
         onAllyModifyAtkPriority: 3,
         onAllyModifyAtk(atk, pokemon) {
-            if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+            if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
             if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
                 return this.chainModify(1.5);
             }
         },
         onModifySpDPriority: 4,
         onAllyModifySpD(spd, pokemon) {
-            if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+            if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
             if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
                 return this.chainModify(1.5);
             }
