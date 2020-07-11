@@ -950,7 +950,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				let tiers = { 'CSM', 'CS1', 'CS2' };
+				let tiers = [ 'CSM', 'CS1', 'CS2' ];
 				if ( !tiers.includes( template.tier )) {
 					return [set.species + ' is not useable in Clean Slate Tier Shift.'];
 				}
