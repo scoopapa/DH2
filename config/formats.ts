@@ -934,7 +934,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		}
 	},
 	{
-		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift",
+		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift (BETA)",
 		desc: `Clean slate but we forgot to clean the slate between slates.`,
 		threads: [
 			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,

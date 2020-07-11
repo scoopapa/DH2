@@ -568,20 +568,20 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' };
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA: function(spa, pokemon) {
-			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onTakeItem: function(item, source) {
-			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return false;
 			}
