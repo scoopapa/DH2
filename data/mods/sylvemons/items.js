@@ -542,20 +542,26 @@ exports.BattleItems = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			if (pokemon.baseSpecies.name === 'Pikachu' || pokemon.baseSpecies.name === 'Pichu' || pokemon.baseSpecies.name === 'Raichu' || pokemon.baseSpecies.name === 'Plusle' || pokemon.baseSpecies.name === 'Minun' || pokemon.baseSpecies.name === 'Pachirisu' || pokemon.baseSpecies.name === 'Emolga' || pokemon.baseSpecies.name === 'Dedenne' || pokemon.baseSpecies.name === 'Togedemaru') {
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA: function(spa, pokemon) {
-			if (pokemon.baseSpecies.name === 'Pikachu' || pokemon.baseSpecies.name === 'Pichu' || pokemon.baseSpecies.name === 'Raichu' || pokemon.baseSpecies.name === 'Plusle' || pokemon.baseSpecies.name === 'Minun' || pokemon.baseSpecies.name === 'Pachirisu' || pokemon.baseSpecies.name === 'Emolga' || pokemon.baseSpecies.name === 'Dedenne' || pokemon.baseSpecies.name === 'Togedemaru') {
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
 				return this.chainModify(2);
 			}
 		},
 		onTakeItem: function(item, source) {
-			if (source.baseSpecies.name === 'Pikachu' || source.baseSpecies.name === 'Pichu' || source.baseSpecies.name === 'Raichu' || source.baseSpecies.name === 'Plusle' || source.baseSpecies.name === 'Minun' || source.baseSpecies.name === 'Pachirisu' || source.baseSpecies.name === 'Emolga' || source.baseSpecies.name === 'Dedenne' || source.baseSpecies.name === 'Togedemaru') return false;
+			let pikaClones = { 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' }
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies) {
+				return false;
+			}
 			return true;
 		},
+		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru'],
 		num: 236,
 		gen: 2,
 		desc: "If held by a Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru, its Attack and Sp. Atk are doubled.",
