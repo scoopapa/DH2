@@ -68,6 +68,9 @@ export const BattleLearnsets = {
 		spitup: ["8E", "7E", "6E", "5E"],
 		stockpile: ["8E", "7E", "6E", "5E"],
 		swallow: ["8E", "7E", "6E", "5E"],
+		corrosivegas: ["8L1"],
+		mistyexplosion: ["8L1"],
+		terrainpulse: ["8L1"],
 	}},
 	orbeetle: {learnset: {
 		afteryou: ["8L40"],
@@ -126,6 +129,7 @@ export const BattleLearnsets = {
 		zenheadbutt: ["8M"],
 		recover: ["8M"],
 		infestation: ["8M"],
+		expandingforce: ["8L1"],
 	}},
 	stonjourner: {learnset: {
 		ancientpower: ["8E"],
@@ -172,6 +176,7 @@ export const BattleLearnsets = {
 		swordsdance: ["7L1"],
 		wideguard: ["8L48"],
 		wonderroom: ["8M"],
+		meteorbeam: ["8L1"],
 	}},
 	cherrimsunshine: {learnset: {
 		aromatherapy: ["8E", "7E", "6E", "5E", "4E"],
@@ -234,6 +239,7 @@ export const BattleLearnsets = {
 		toxic: ["7M", "6M", "5M", "4M"],
 		weatherball: ["8M", "7E", "6E", "5E", "4E"],
 		worryseed: ["8L40", "7T", "7L28", "6T", "6L28", "5T", "5L28", "4T", "4L28"],
+		grassyglide: ["8L1"],
 	}},
 	zacian: {learnset: {
 		agility: ["8M"],
@@ -288,6 +294,7 @@ export const BattleLearnsets = {
 		uturn: ["7L1"],
 		wildcharge: ["8M"],
 		workup: ["8M"],
+		mistyexplosion: ["8L1"],
 	}},
 	dubwool: {learnset: {
 		agility: ["8M"],
@@ -337,6 +344,7 @@ export const BattleLearnsets = {
 		thunderwave: ["8M"],
 		wildcharge: ["8M"],
 		zenheadbutt: ["8M"],
+		grassyglide: ["8L1"],
 	}},
 	gumshoos: {learnset: {
 		attract: ["7M"],
@@ -624,6 +632,8 @@ export const BattleLearnsets = {
 		thousandwaves: ["8M"],
 		gigadrain: ["8M"],
 		earthpower: ["8M"],
+		expandingforce: ["8L1"],
+		steelroller: ["8L1"],
 	}},
 	walrein: {learnset: {
 		anchorshot: ["7L1"],
@@ -780,6 +790,9 @@ export const BattleLearnsets = {
 		whirlpool: ["8M", "8L32", "7L27"],
 		wish: ["7L1"],
 		wrap: ["8L8", "7L9"],
+		grassyglide: ["8L1"],
+		poltergeist: ["8L1"],
+		steelroller: ["8L1"],
 	}},
 	togekiss: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -914,6 +927,8 @@ export const BattleLearnsets = {
 		voltswitch: ["8M"],
 		discharge: ["8M"],
 		thunder: ["8M"],
+		dualwingbeat: ["8L1"],
+		risingvoltage: ["8L1"],
 	}},
 	scolipede: {learnset: {
 		agility: ["7L32", "6L32", "5L32"],
@@ -1063,6 +1078,9 @@ export const BattleLearnsets = {
 		thunderwave: ["8M"],
 		earthpower: ["8M"],
 		icebeam: ["8M"],
+		meteorbeam: ["8L1"],
+		burningjealousy: ["8L1"],
+		poltergeist: ["8L1"],
 	}},
 	torkoal: {learnset: {
 		afteryou: ["7T", "6T", "5T"],
@@ -1144,6 +1162,8 @@ export const BattleLearnsets = {
 		willowisp: ["8M", "7M", "6M", "5M", "4M"],
 		withdraw: ["8L4", "7L7", "6L7", "5L7", "4L7"],
 		yawn: ["8E", "7E", "6E", "5E", "4E", "3E"],
+		burningjealousy: ["8L1"],
+		scorchingsands: ["8L1"],
 	}},
 	gligar: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -1324,6 +1344,8 @@ export const BattleLearnsets = {
 		voltswitch: ["8L1"],
 		thunderbolt: ["8L1"],
 		thunder: ["8L1"],
+		skittersmack: ["8L1"],
+		risingvoltage: ["8L1"],
 	}},
 	necrozma: {learnset: {
 		aerialace: ["7M"],
@@ -1410,6 +1432,9 @@ export const BattleLearnsets = {
 		trickroom: ["8M", "7M"],
 		wringout: ["7L67", "7S0"],
 		xscissor: ["8M", "7M"],
+		expandingforce: ["8L1"],
+		meteorbeam: ["8L1"],
+		lashout: ["8L1"],
 	}},
 	dunsparce: {learnset: {
 		agility: ["7E", "6E", "5E", "4E"],
@@ -1510,6 +1535,14 @@ export const BattleLearnsets = {
 		yawn: ["7L16", "7L13", "6L16", "5L8", "4L9", "3L11"],
 		zapcannon: ["7V"],
 		zenheadbutt: ["7T", "6T", "5T", "4T"],
+		helpinghand: ["8L1"],
+		amnesia: ["8L1"],
+		batonpass: ["8L1"],
+		storedpower: ["8L1"],
+		terrainpulse: ["8L1"],
+		dualwingbeat: ["8L1"],
+		skittersmack: ["8L1"],
+		scaleshot: ["8L1"],
 	}},
 	victreebel: {learnset: {
 		acid: ["7L24", "7V", "6L23", "5L23", "4L23", "3L24"],
@@ -1595,6 +1628,8 @@ export const BattleLearnsets = {
 		wringout: ["7L58", "6L47", "5L47", "4L47"],
 		strengthsap: ["7L1"],
 		weatherball: ["7L1"],
+		grassyglide: ["7L1"],
+		scaleshot: ["7L1"],
 	}},
 	runerigus: {learnset: {
 		allyswitch: ["8M"],
@@ -1667,6 +1702,11 @@ export const BattleLearnsets = {
 		weatherball: ["7L1"],
 		wonderroom: ["8M"],
 		zenheadbutt: ["8M"],
+		poltergeist: ["7L1"],
+		weatherball: ["7L1"],
+		meteorbeam: ["7L1"],
+		risingvoltage: ["7L1"],
+		burningjealousy: ["7L1"],
 	}},
 	aerodactyl: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -1763,21 +1803,22 @@ export const BattleLearnsets = {
 		whirlwind: ["7E", "7V", "6E", "5E", "4E", "3E"],
 		wideguard: ["7E", "7S1", "6E"],
 		wingattack: ["7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
+		meteorbeam: ["7L1"],
 	}},
 	unown: {learnset: {
-		rapidspin: ["7L1"],
-		knockoff: ["7L1"],
-		darkpulse: ["7L1"],
-		uturn: ["7L1"],
-		firstimpression: ["7L1"],
-		lunge: ["7L1"],
-		bugbuzz: ["7L1"],
-		overdrive: ["7L1"],
-		smartstrike: ["7L1"],
-		substitute: ["7L1"],
-		rest: ["7L1"],
-		protect: ["7L1"],
-		sleeptalk: ["7L1"],
+		rapidspin: ["8L1"],
+		knockoff: ["8L1"],
+		darkpulse: ["8L1"],
+		uturn: ["8L1"],
+		firstimpression: ["8L1"],
+		lunge: ["8L1"],
+		bugbuzz: ["8L1"],
+		overdrive: ["8L1"],
+		smartstrike: ["8L1"],
+		substitute: ["8L1"],
+		rest: ["8L1"],
+		protect: ["8L1"],
+		sleeptalk: ["8L1"],
 	}},
 	scrafty: {learnset: {
 		amnesia: ["8M"],
@@ -1802,7 +1843,7 @@ export const BattleLearnsets = {
 		endure: ["8M"],
 		facade: ["8M", "8L16", "7M", "7L45", "6M", "6L45", "5M", "5L45"],
 		faketears: ["8M"],
-		feintattack: ["7L1", "6L1", "5L1"],
+		feintattack: ["8L1", "6L1", "5L1"],
 		firepunch: ["8M", "7T", "6T", "5T", "5S0"],
 		fling: ["8M", "7M", "6M", "5M"],
 		focusblast: ["8M", "7M", "6M", "5M"],
@@ -1869,6 +1910,7 @@ export const BattleLearnsets = {
 		zenheadbutt: ["8M", "7T", "6T", "5T"],
 		suckerpunch: ["8M"],
 		rapidspin: ["8M"],
+		lashout: ["8L1"],
 	}},
 	shaymin: {learnset: {
 		aircutter: ["4T"],
@@ -1936,6 +1978,7 @@ export const BattleLearnsets = {
 		bravebird: ["7M", "6M", "5M", "4M"],
 		woodhammer: ["7M", "6M", "5M", "4M"],
 		defog: ["7M", "6M", "5M", "4M"],
+		grassyglide: ["8L1"],
 	}},
 	shayminsky: {
 		eventOnly: false,
@@ -2025,6 +2068,8 @@ export const BattleLearnsets = {
 		toxic: ["7M", "6M", "5M", "4M", "3M"],
 		twister: ["4T"],
 		zenheadbutt: ["7T", "7L35", "6T", "6L35", "5T", "5L37", "4T", "4L37"],
+		scaleshot: ["8L1"],
+		dualwingbeat: ["8L1"],
 	}},
 	centiskorch: {learnset: {
 		attract: ["8M"],
@@ -2077,6 +2122,8 @@ export const BattleLearnsets = {
 		willowisp: ["8M"],
 		wrap: ["8L5"],
 		xscissor: ["8M"],
+		scorchingsands: ["8L1"],
+		skittersmack: ["8L1"],
 	}},
 	weavile: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -2191,6 +2238,8 @@ export const BattleLearnsets = {
 		toxic: ["7M", "7V", "6M", "5M", "4M", "3M"],
 		whirlpool: ["8M", "4M"],
 		xscissor: ["8M", "7M", "6M", "5M", "4M"],
+		tripleaxel: ["8L1"],
+		lashout: ["8L1"],
 	}},
 	vivillon: {learnset: {
 		acrobatics: ["7M", "6M"],
@@ -2254,7 +2303,7 @@ export const BattleLearnsets = {
 		thief: ["7M", "6M"],
 		toxic: ["7M", "6M"],
 		uturn: ["7M", "6M"],
-		weatherball: ["7L1"],
+		weatherball: ["8L1"],
 	}},
 	abomasnow: {learnset: {
 		attract: ["8M", "7M", "6M", "5M", "4M"],
@@ -2342,6 +2391,7 @@ export const BattleLearnsets = {
 		weatherball: ["8M"],
 		woodhammer: ["8L41", "7L36", "6L36", "5L36", "4L36"],
 		worryseed: ["7T", "6T", "5T", "4T"],
+		grassyglide: ["8L1"],
 	}},
 	duraludon: {learnset: {
 		attract: ["8M"],
@@ -2402,6 +2452,7 @@ export const BattleLearnsets = {
 		thunder: ["8M"],
 		thunderbolt: ["8M"],
 		thunderwave: ["8M"],
+		steelroller: ["8L1"],
 	}},
 	cobalion: {learnset: {
 		aerialace: ["7M", "6M", "5M"],
@@ -2539,5 +2590,6 @@ export const BattleLearnsets = {
 		venoshock: ["7M", "7L13"],
 		whirlwind: ["7L1"],
 		xscissor: ["7M"],
+		scorchingsands: ["8L1"],
 	}},
 };
