@@ -934,6 +934,55 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		}
 	},
 	{
+		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift",
+		desc: `Clean slate but we forgot to clean the slate between slates.`,
+		threads: [
+			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
+		],
+		mod: 'cleanslate2',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['Eviolite'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				let tiers = { 'CSM', 'CS1', 'CS2' };
+				if ( !tiers.includes( template.tier )) {
+					return [set.species + ' is not useable in Clean Slate Tier Shift.'];
+				}
+			}
+		},
+		onModifySpecies(species, target, source, effect) {
+			let stats = this.unownStats[ species.id ];
+			if (stats) {
+				return Object.assign({}, species, 
+					{baseStats: stats.baseStats},
+					{abilities: stats.abilities},
+					{types: stats.types},
+				);
+			};
+			if (!species.baseStats) return;
+			const boosts: {[tier: string]: number} = {
+				CSM: 25,
+				CS1: 20,
+			};
+			const tier = toID(species.tier) || 'ou';
+			if (!(tier in boosts)) return;
+			const pokemon: Species = this.dex.deepClone(species);
+			const boost = boosts[tier];
+			let statName: StatName;
+			for (statName in pokemon.baseStats) {
+				if (statName === 'hp') continue;
+				pokemon.baseStats[statName] = Utils.clampIntRange(pokemon.baseStats[statName] + boost, 1, 255);
+			}
+			return pokemon;
+		}
+	},
+	{
 		name: "[Gen 8] PKMN YB OU",
 		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236</a>",],
 		mod: 'pkmnyb',	
