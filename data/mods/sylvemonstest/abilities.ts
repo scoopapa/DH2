@@ -31,17 +31,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			switch (this.field.effectiveWeather()) {
 				case 'sunnyday':
 				case 'desolateland':
-					if (pokemon.template.speciesid !== 'castformsunny') forme = 'Castform-Sunny';
+					if (pokemon.species.speciesid !== 'castformsunny') forme = 'Castform-Sunny';
 					break;
 				case 'raindance':
 				case 'primordialsea':
-					if (pokemon.template.speciesid !== 'castformrainy') forme = 'Castform-Rainy';
+					if (pokemon.species.speciesid !== 'castformrainy') forme = 'Castform-Rainy';
 					break;
 				case 'hail':
-					if (pokemon.template.speciesid !== 'castformsnowy') forme = 'Castform-Snowy';
+					if (pokemon.species.speciesid !== 'castformsnowy') forme = 'Castform-Snowy';
 					break;
 				default:
-					if (pokemon.template.speciesid !== 'castform') forme = 'Castform';
+					if (pokemon.species.speciesid !== 'castform') forme = 'Castform';
 					break;
 			}
 			if (pokemon.isActive && forme) {
@@ -75,12 +75,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.template.speciesid === 'wishiwashi') {
+				if (pokemon.species.speciesid === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 					this.add('-formechange', pokemon, 'Wishiwashi-School', '[from] ability: Schooling');
 				}
 			} else {
-				if (pokemon.template.speciesid === 'wishiwashischool') {
+				if (pokemon.species.speciesid === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
 					this.add('-formechange', pokemon, 'Wishiwashi', '[from] ability: Schooling');
 				}
@@ -90,12 +90,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.template.speciesid === 'wishiwashi') {
+				if (pokemon.species.speciesid === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 					this.add('-formechange', pokemon, 'Wishiwashi-School', '[from] ability: Schooling');
 				}
 			} else {
-				if (pokemon.template.speciesid === 'wishiwashischool' && !pokemon.hasItem('graduationscale')) {
+				if (pokemon.species.speciesid === 'wishiwashischool' && !pokemon.hasItem('graduationscale')) {
 					pokemon.formeChange('Wishiwashi');
 					this.add('-formechange', pokemon, 'Wishiwashi', '[from] ability: Schooling');
 				}
@@ -906,9 +906,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
-			if ((pokemon.hp <= pokemon.maxhp / 2 || pokemon.hasItem('ragecandybar')) && pokemon.template.speciesid === 'darmanitan') {
+			if ((pokemon.hp <= pokemon.maxhp / 2 || pokemon.hasItem('ragecandybar')) && pokemon.species.speciesid === 'darmanitan') {
 				pokemon.addVolatile('zenmode');
-			} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.template.speciesid === 'darmanitanzen') {
+			} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.species.speciesid === 'darmanitanzen') {
 				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
 				pokemon.removeVolatile('zenmode');
 			}
@@ -921,7 +921,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		effect: {
 			onStart(pokemon) {
-				if (pokemon.template.speciesid !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				if (pokemon.species.speciesid !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
 			},
 			onEnd(pokemon) {
 				pokemon.formeChange('Darmanitan');
