@@ -679,4 +679,62 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
         type: "Flying",
         contestType: "Beautiful",
     },
+	 "fullmooncrash": {
+		  accuracy: 100,
+		  basePower: 120,
+		  category: "Physical",
+		  desc: "The user receives 1/3 damage inflicted in recoil. Has a 10% chance to decrease the target's Atk by 1 stage.",
+		  shortDesc: "33% recoil. Has a 10% chance to decrease the target's Atk by 1 stage.",
+		  id: "fullmooncrash",
+		  isViable: true,
+		  name: "Full Moon Crash",
+		  pp: 10,
+		  priority: 0,
+		  flags: {
+			  contact: 1,
+			  protect: 1,
+			  mirror: 1
+		  },
+		  recoil: [1, 3],
+		  secondary: null
+		  },
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Double Edge", target);
+		  },
+		  target: "normal",
+		  type: "Fairy",
+		  zMovePower: 180,
+		  contestType: "Cute",
+	 },
+	 "corrosiveacid": {
+		  accuracy: 100,
+		  basePower: 60,
+		  category: "Special",
+		  desc: "Power doubles if the target is poisoned or burned. 30% chance to poison or burn the target",
+		  shortDesc: "Power doubles if the target is poisoned or burned. 30% chance to burn or poison",
+		  name: "Corrosive Acid",
+		  pp: 10,
+		  priority: 0,
+		  flags: {protect: 1, mirror: 1},
+		  onBasePower(basePower, pokemon, target) {
+			  if (target.status === 'psn' || target.status === 'tox' || target.status === 'brn' ) {
+				  return this.chainModify(2);
+			  }
+		  },
+		  secondary: {
+			  chance: 30,
+			  onHit(target, source) {
+				  const result = this.random(2);
+				  if (result === 0) {
+					  target.trySetStatus('brn', source);
+				  } else if (result === 1) {
+					  target.trySetStatus('psn', source);
+				  }
+			  },
+		  },
+		  target: "normal",
+		  type: "Poison",
+		  contestType: "Beautiful",
+	 },		
 };    
