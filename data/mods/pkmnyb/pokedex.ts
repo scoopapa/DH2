@@ -1379,7 +1379,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
     },
     electzal: {
         num: 9013,
-        species: "ampeck",
+        species: "electzal",
         types: ["Electric", "Flying"],
         baseStats: {hp: 80, atk: 50, def: 125, spa: 105, spd: 95, spe: 50},
         abilities: {0: "Big Pecks", 1: "Lightning Rod", H: "Serene Grace"},
@@ -1644,7 +1644,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
         baseStats: {hp: 70, atk: 93, def: 68, spa: 112, spd: 75, spe: 112},
         abilities: {0: "No Guard", 1: "Filter", H: "Static"},
         weightkg: 50,
-        evos: ["radaroo"],
+        prevo: ["radaroo"],
     },
     serpentorch: {
         num: 9043,
@@ -2032,7 +2032,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
     },
     tyrecent: {
         num: 9086,
-        species: "timidon",
+        species: "tyrecent",
         types: ["Dragon"],
         baseStats: {hp: 90, atk: 90, def: 90, spa: 50, spd: 50, spe: 50},
         abilities: {0: "Solid Rock", H: "Tough Claws"},
@@ -2067,7 +2067,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
     },
     ultratom: {
         num: 9090,
-        species: "balatadi",
+        species: "ultratom",
         types: ["Electric", "Psychic"],
         baseStats: {hp: 60, atk: 80, def: 160, spa: 80, spd: 160, spe: 60},
         abilities: {0: "Atom Smasher"},
@@ -2098,7 +2098,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
         species: "mytheon",
         types: ["Dragon"],
         genderRatio: {M: 0.875, F: 0.125},
-        baseStats: {hp: 95, atk: 110, def: 60, spa: 65, spd: 66, spe: 130},
+        baseStats: {hp: 95, atk: 110, def: 60, spa: 65, spd: 65, spe: 130},
         abilities: {0: "Pressure", H: "Tough Claws"},
         weightkg: 26,
         prevo: "Eevee",
