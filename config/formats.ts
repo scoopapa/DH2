@@ -984,7 +984,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 	{
 		name: "[Gen 8] PKMN YB OU",
-		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236</a>",],
+		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236",],
 		mod: 'pkmnyb',	
 		ruleset: ['Standard NatDex', 'Team Preview', 'Dynamax Clause'],
 		unbanlist: ['Deoxys-Base', 'Blaziken'],
@@ -995,7 +995,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 		{
 		name: "[Gen 8] PKMN YB VGC",
-		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236</a>",],
+		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236",],
 		mod: 'pkmnyb',
 		gameType: 'doubles',	
 		ruleset: ['Minimal GBU', 'VGC Timer', 'Dynamax Clause'],
@@ -1016,7 +1016,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 				 "&bullet; <a href=https://docs.google.com/spreadsheets/d/18DiYjbZXv1Nm7tU-W0OMgPow0ZO7J2ETJF-hWapwM-o/edit>SylveMons Archive</a>",
 		      ],
 		mod: 'sylvemonstest',
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Time Warp', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Stalwart + Calm Mind', 'Stakataka', 'Raichu-Alola', 'Regice', 'Buzzwole + Perseverance', 'Reverse Core'],
 		unbanlist: ['Blaziken'],
 		onSwitchIn(pokemon) {
