@@ -8501,22 +8501,19 @@ exports.BattleAbilities = {
 	    onModifyAtkPriority: 5,
 		 onModifyAtk(atk, attacker, defender, move) {
 				let statName = 'atk';
-				let bestStat = 0;
+				let bestStat = attacker.storedStats['atk'];
 				/** @type {StatNameExceptHP} */
 				let s;
 				for (s in attacker.storedStats) {
 					if (attacker.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = attacker.storedStats[s];
+						return;
 					}
 				}
-	        if (attacker.status && statName === 'atk') {
-	            if (attacker.status === 'brn' && move.id !== 'facade') {
-	                return this.chainModify(3);
-	            } else {
-	                return this.chainModify(1.5);
-	            }
-	        }
+	         if (attacker.status === 'brn' && move.id !== 'facade') {
+	            return this.chainModify(3);
+	         } else {
+	            return this.chainModify(1.5);
+	         }
 	    },
 	    onModifyDefPriority: 6,
 	    onModifyDef(def, pokemon) {
@@ -8526,6 +8523,9 @@ exports.BattleAbilities = {
 				let s;
 				for (s in pokemon.storedStats) {
 					if (pokemon.storedStats[s] > bestStat) {
+						if (statName == 'def') {
+							return;
+						}
 						statName = s;
 						bestStat = pokemon.storedStats[s];
 					}
@@ -8567,22 +8567,20 @@ exports.BattleAbilities = {
 	        }
 	    },
 	    onModifySpe(spe, pokemon) {
-				let statName = 'atk';
-				let bestStat = 0;
+				let statName = 'spe';
+				let bestStat = pokemon.storedStats['spe'];
 				/** @type {StatNameExceptHP} */
 				let s;
 				for (s in pokemon.storedStats) {
-					if (pokemon.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = pokemon.storedStats[s];
+					if (s == 'spe') {
+						continue;
+					}
+					if (pokemon.storedStats[s] >= bestStat) {
+						return;
 					}
 				}
-	        if (pokemon.status && statName === 'spe') {
-	            if (pokemon.status === 'par') {
-	                return this.chainModify(3);
-	            } else {
-	                return this.chainModify(1.5);
-	            }
+	        if (pokemon.status) {
+                return this.chainModify(pokemon.status === 'par' ? 3 : 1.5);
 	        }
 	    },
 	    id: "gutsybeast",
