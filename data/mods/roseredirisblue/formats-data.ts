@@ -286,9 +286,6 @@ export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["blizzard", "amnesia"],
 		essentialMove: "surf",
 		exclusiveMoves: ["bodyslam", "seismictoss", "rest", "hydropump"],
-		eventPokemon: [
-			{"generation": 1, "level": 15, "moves": ["scratch", "amnesia"]},
-		],
 		tier: "LC",
 	},
 	golduck: {

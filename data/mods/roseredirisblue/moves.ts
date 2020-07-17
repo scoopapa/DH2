@@ -229,7 +229,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.add('-start', source, 'typechange', source.types.join(', '), '[from] move: Conversion', '[of] ' + source);
 		},
 	},
-	counter: {
+	/*counter: {
 		inherit: true,
 		ignoreImmunity: true,
 		willCrit: false,
@@ -242,6 +242,28 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			if (lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) && this.lastDamage > 0 && !this.willMove(target)) {
 				return 2 * this.lastDamage;
 			}
+			this.add('-fail', pokemon);
+			return false;
+		},
+	},*/
+	counter: {
+		inherit: true,
+		desc: "Deals damage to the opposing Pokemon equal to twice the damage dealt by the last move used in the battle. This move ignores type immunity. Fails if the user moves first, or if the opposing side's last move was Counter, had 0 power, or was not Normal or Fighting type. Fails if the last move used by either side did 0 damage and was not Confuse Ray, Conversion, Focus Energy, Glare, Haze, Leech Seed, Light Screen, Mimic, Mist, Poison Gas, Poison Powder, Recover, Reflect, Rest, Soft-Boiled, Splash, Stun Spore, Substitute, Supersonic, Teleport, Thunder Wave, Toxic, or Transform.",
+		ignoreImmunity: true,
+		willCrit: false,
+		damageCallback(pokemon, target) {
+			// Counter mechanics on gen 1 might be hard to understand.
+			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
+			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
+			// That means that, if opponent switches, counter will use last counter damage * 2.
+			const lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
+			if (
+				lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) &&
+				this.lastDamage > 0 && !this.queue.willMove(target)
+			) {
+				return 2 * this.lastDamage;
+			}
+			this.debug("Gen 1 Counter failed due to conditions not met");
 			this.add('-fail', pokemon);
 			return false;
 		},
@@ -274,49 +296,39 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	disable: {
-		//inherit: true,
-		accuracy: 100,
-		category: "Status",
-		id: "disable",
-		isViable: true,
-		name: "Disable",
-		pp: 1.875,
-		noPPBoosts: true,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onHit: function (target, source) {
-			if (!target.moves.length) return false;
-			let sideCondition = target.side.sideConditions['disable'];
-			if (sideCondition) {
-				target.side.removeSideCondition('disable');
-			}
-			target.side.addSideCondition('disable', target);
-		},
+		inherit: true,
+		desc: "For 0 to 7 turns, one of the target's known moves that has at least 1 PP remaining becomes disabled, at random. Fails if one of the target's moves is already disabled, or if none of the target's moves have PP remaining. If any Pokemon uses Haze, this effect ends. Whether or not this move was successful, it counts as a hit for the purposes of the opponent's use of Rage.",
+		shortDesc: "For 0-7 turns, disables one of the target's moves.",
 		effect: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart: function (side, target) {
-				let moves = target.moves;
-				let moveId = moves[this.random(moves.length)];
-				if (!moveId) return false;
-				let move = this.getMove(moveId);
-				this.add('-start', target, 'Disable', move.name);
+			duration: 4,
+			durationCallback(target, source, effect) {
+				const duration = this.random(1, 7);
+				return duration;
+			},
+			onStart(pokemon) {
+				if (!this.queue.willMove(pokemon)) {
+					this.effectData.duration++;
+				}
+				const moves = pokemon.moves;
+				const move = this.dex.getMove(this.sample(moves));
+				this.add('-start', pokemon, 'Disable', move.name);
 				this.effectData.move = move.id;
 				return;
 			},
-			onBeforeMovePriority: 7,
-			onBeforeMove: function (attacker, defender, move) {
-				if (this.effectData.source !== attacker) return;
+			onResidualOrder: 14,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Disable');
+			},
+			onBeforeMove(attacker, defender, move) {
 				if (move.id === this.effectData.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
-			onDisableMove: function (pokemon) {
-				if (this.effectData.source !== pokemon) return;
-				let moves = pokemon.moveset;
-				for (let i = 0; i < moves.length; i++) {
-					if (moves[i].id === this.effectData.move) {
-						pokemon.disableMove(moves[i].id);
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === this.effectData.move) {
+						pokemon.disableMove(moveSlot.id);
 					}
 				}
 			},
@@ -342,11 +354,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		basePower: 180,
 		drain: [1, 1],
 		type: "Ghost",
-		onTryHit: function (target) {
-			if (target.status !== 'psn' && target.status !== 'tox' && target.status !== 'slp') {
-				this.add('-immune', target, '[msg]');
-				return null;
-			}
+		onTryImmunity(target) {
+			return target.status === 'slp' || target.status === 'psn' || target.status === 'tox';
 		},
 	},
 	ember: {
@@ -595,28 +604,25 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	mimic: {
 		inherit: true,
-		desc: "This move is replaced by a random move on target's moveset. The copied move has the maximum PP for that move. Ignores a target's Substitute.",
-		shortDesc: "A random target's move replaces this one.",
-		onHit: function (target, source) {
-			let moveslot = source.moves.indexOf('mimic');
+		desc: "While the user remains active, this move is replaced by a random move known by the target, even if the user already knows that move. The copied move keeps the remaining PP for this move, regardless of the copied move's maximum PP. Whenever one PP is used for a copied move, one PP is used for this move.",
+		shortDesc: "Random move known by the target replaces this.",
+		onHit(target, source) {
+			const moveslot = source.moves.indexOf('mimic');
 			if (moveslot < 0) return false;
-			let moves = target.moves;
-			let move = moves[this.random(moves.length)];
-			if (!move) return false;
-			move = this.getMove(move);
-			let mimicMove = {
+			const moves = target.moves;
+			const moveid = this.sample(moves);
+			if (!moveid) return false;
+			const move = this.dex.getMove(moveid);
+			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,
-				pp: source.moveset[moveslot].pp,
+				pp: source.moveSlots[moveslot].pp,
 				maxpp: move.pp * 8 / 5,
 				target: move.target,
 				disabled: false,
 				used: false,
 				virtual: true,
 			};
-			source.moveset[moveslot] = mimicMove;
-			source.baseMoveset[moveslot] = mimicMove;
-			source.moves[moveslot] = toId(move.name);
 			this.add('-start', source, 'Mimic', move.name);
 		},
 	},
@@ -1023,6 +1029,10 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 	},
+	transform: {
+		inherit: true,
+		desc: "The user transforms into the target. The target's current stats, stat stages, types, moves, DVs, species, and sprite are copied. The user's level and HP remain the same and each copied move receives only 5 PP. This move can hit a target using Dig or Fly.",
+	},
 	triattack: {
 		inherit: true,
 		onHit: function () {},
@@ -1033,7 +1043,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 40,
 	},
-	vicegrip: {
+	visegrip: {
 		inherit: true,
 		type: "Bug",
 		critRatio: 2,
