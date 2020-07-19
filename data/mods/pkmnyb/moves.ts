@@ -696,7 +696,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			  mirror: 1
 		  },
 		  recoil: [1, 3],
-		  secondary: null
+		  secondary: null,
 		  onPrepareHit: function(target, source, move) {
 			  this.attrLastMove('[still]');
 			  this.add('-anim', source, "Double Edge", target);
