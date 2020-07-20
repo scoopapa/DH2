@@ -211,12 +211,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.field.removePseudoWeather('magicroom');
 			this.field.removePseudoWeather('wonderroom');
 			this.field.removePseudoWeather('inverseroom');
-			let sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
-			for (const condition of sideConditions) {
-				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.getEffect(condition).name, '[from] ability: Housekeeping', '[of] ' + pokemon);
-				}
-			}
+         const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+         for (const condition of sideConditions) {
+            if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+               this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+            }
+          }
 		},
 		id: "housekeeping",
 		name: "Housekeeping",
