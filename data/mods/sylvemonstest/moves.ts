@@ -822,7 +822,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Ice",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
 	},
