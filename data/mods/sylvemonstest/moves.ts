@@ -2076,75 +2076,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMovePower: 200,
 		contestType: "Beautiful",
 	},
-	"flamewheel": {
-		num: 228,
-		accuracy: 100,
-		basePower: 40,
-		basePowerCallback: function (pokemon, target, move) {
-			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack) {
-				this.debug('Flame Wheel damage boost');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
-		category: "Physical",
-		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
-		shortDesc: "Power doubles if a foe is switching out.",
-		id: "flamewheel",
-		isViable: true,
-		name: "Flame Wheel",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		beforeTurnCallback: function (pokemon) {
-			for (const side of this.sides) {
-				if (side === pokemon.side) continue;
-				side.addSideCondition('flamewheel', pokemon);
-				if (!side.sideConditions['flamewheel'].sources) {
-					side.sideConditions['flamewheel'].sources = [];
-				}
-				side.sideConditions['flamewheel'].sources.push(pokemon);
-			}
-		},
-		onModifyMove: function (move, source, target) {
-			if (target && target.beingCalledBack) move.accuracy = true;
-		},
-		onTryHit: function (target, pokemon) {
-			target.side.removeSideCondition('flamewheel');
-		},
-		effect: {
-			duration: 1,
-			onBeforeSwitchOut: function (pokemon) {
-				this.debug('Flame Wheel start');
-				let alreadyAdded = false;
-				for (const source of this.effectData.sources) {
-					if (!this.cancelMove(source) || !source.hp) continue;
-					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Flame Wheel');
-						alreadyAdded = true;
-					}
-					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
-					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.runMegaEvo(source);
-								this.queue.splice(actionIndex, 1);
-								break;
-							}
-						}
-					}
-					this.runMove('flamewheel', source, this.getTargetLoc(pokemon, source));
-				}
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		zMovePower: 100,
-		contestType: "Clever",
-	},
 	"heartbeat": {
 		num: 331,
 		accuracy: 100,
@@ -2865,4 +2796,75 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		  type: "Flying",
 		  maxMove: {basePower: 130},
 	 },
+	"flamewheel": {
+		num: 228,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the flame wheel succeeds
+			if (target.beingCalledBack) {
+				this.debug('Flame Wheel damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "Power doubles if a foe is switching out.",
+		id: "flamewheel",
+		isViable: true,
+		name: "Flame Wheel",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('flamewheel', pokemon);
+				const data = side.getSideConditionData('flamewheel');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('flamewheel');
+		},
+		effect: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Flame Wheel start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Flame Wheel');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Flame Wheel user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('flamewheel', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMovePower: 100,
+		contestType: "Clever",
+	},
 };
