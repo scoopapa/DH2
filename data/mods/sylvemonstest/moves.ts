@@ -1325,9 +1325,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Ghost",
-		zMoveBoost: {
-			spe: 1
-		},
+		zMove: {boost: {spe: 1}},
 	},
 	"aircurrent": {
 		accuracy: true,
@@ -1347,9 +1345,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Flying",
-		zMoveBoost: {
-			spe: 1
-		},
+		zMove: {boost: {spe: 1}},
 	},
 	"hurricane": {
 		num: 542,
