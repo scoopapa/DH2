@@ -1763,9 +1763,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn: function (pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'))
 			},
 		},
 	},
