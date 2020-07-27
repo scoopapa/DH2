@@ -365,7 +365,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
-		shortDesc: "-1 evasion; clears user and target side's hazards, clears rooms.",
+		shortDesc: "-1 evasion; clears user and target side's hazards, terrain, and rooms.",
 		id: "defog",
 		isViable: true,
 		name: "Defog",
@@ -377,26 +377,29 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			mirror: 1,
 			authentic: 1
 		},
-		onHit: function(target, source, move) {
-			if (!target.volatiles['substitute'] || move.infiltrates) this.boost({
-				evasion: -1
-			});
-			let removeTarget = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
-			let removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+		onHit(target, source, move) {
 			let success = false;
-			for (let targetCondition of removeTarget) {
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + target);
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
-			for (let sideCondition of removeAll) {
+			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
+			this.field.clearTerrain();
 			return success;
 		},
 		onTryHit: function(target, source) {
@@ -819,7 +822,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Ice",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
 	},
@@ -1322,9 +1325,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Ghost",
-		zMoveBoost: {
-			spe: 1
-		},
+		zMove: {boost: {spe: 1}},
 	},
 	"aircurrent": {
 		accuracy: true,
@@ -1344,9 +1345,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Flying",
-		zMoveBoost: {
-			spe: 1
-		},
+		zMove: {boost: {spe: 1}},
 	},
 	"hurricane": {
 		num: 542,
@@ -1760,41 +1759,54 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn: function (pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'))
 			},
 		},
 	},
 	"toxicspikes": {
-		inherit: true,
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Sets up a hazard on the opposing side of the field, poisoning each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Can be used up to two times before failing. Opposing Pokemon become poisoned with one layer and badly poisoned with two layers. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, is hit by Defog, or a grounded Poison-type Pokemon switches in. Safeguard prevents the opposing party from being poisoned on switch-in, but a substitute does not.",
+		shortDesc: "Poisons grounded foes on switch-in. Max 2 layers.",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'toxicspikes',
 		effect: {
 			// this is a side condition
-			onStart: function (side) {
+			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectData.layers = 1;
 			},
-			onRestart: function (side) {
+			onRestart(side) {
 				if (this.effectData.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectData.layers++;
 			},
-			onSwitchIn: function (pokemon) {
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks') ) {
+					return;
+				} else if (this.effectData.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
-					if (!pokemon.runImmunity('Poison')) return;
-					if (!pokemon.hasItem('safetysocks')) return;
-					if (this.effectData.layers >= 2) {
-						pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
-					} else {
-						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-					}
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
 				}
 			},
 		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
 	},
 "fairylock": {
 		num: 587,
@@ -2059,75 +2071,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMovePower: 200,
 		contestType: "Beautiful",
-	},
-	"flamewheel": {
-		num: 228,
-		accuracy: 100,
-		basePower: 40,
-		basePowerCallback: function (pokemon, target, move) {
-			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack) {
-				this.debug('Flame Wheel damage boost');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
-		category: "Physical",
-		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
-		shortDesc: "Power doubles if a foe is switching out.",
-		id: "flamewheel",
-		isViable: true,
-		name: "Flame Wheel",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		beforeTurnCallback: function (pokemon) {
-			for (const side of this.sides) {
-				if (side === pokemon.side) continue;
-				side.addSideCondition('flamewheel', pokemon);
-				if (!side.sideConditions['flamewheel'].sources) {
-					side.sideConditions['flamewheel'].sources = [];
-				}
-				side.sideConditions['flamewheel'].sources.push(pokemon);
-			}
-		},
-		onModifyMove: function (move, source, target) {
-			if (target && target.beingCalledBack) move.accuracy = true;
-		},
-		onTryHit: function (target, pokemon) {
-			target.side.removeSideCondition('flamewheel');
-		},
-		effect: {
-			duration: 1,
-			onBeforeSwitchOut: function (pokemon) {
-				this.debug('Flame Wheel start');
-				let alreadyAdded = false;
-				for (const source of this.effectData.sources) {
-					if (!this.cancelMove(source) || !source.hp) continue;
-					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Flame Wheel');
-						alreadyAdded = true;
-					}
-					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
-					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.runMegaEvo(source);
-								this.queue.splice(actionIndex, 1);
-								break;
-							}
-						}
-					}
-					this.runMove('flamewheel', source, this.getTargetLoc(pokemon, source));
-				}
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		zMovePower: 100,
-		contestType: "Clever",
 	},
 	"heartbeat": {
 		num: 331,
@@ -2849,4 +2792,75 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		  type: "Flying",
 		  maxMove: {basePower: 130},
 	 },
+	"flamewheel": {
+		num: 228,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the flame wheel succeeds
+			if (target.beingCalledBack) {
+				this.debug('Flame Wheel damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "Power doubles if a foe is switching out.",
+		id: "flamewheel",
+		isViable: true,
+		name: "Flame Wheel",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('flamewheel', pokemon);
+				const data = side.getSideConditionData('flamewheel');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('flamewheel');
+		},
+		effect: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Flame Wheel start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Flame Wheel');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Flame Wheel user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('flamewheel', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMovePower: 100,
+		contestType: "Clever",
+	},
 };
