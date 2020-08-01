@@ -93,16 +93,16 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 139,
 	},
 	
-		let statName = 'atk';
-		let bestStat = 0;
-		let s: StatNameExceptHP;
-		for (s in source.storedStats) {
-			if (source.storedStats[s] > bestStat) {
-				statName = s;
-				bestStat = source.storedStats[s];
-			}
-		}
-		this.boost({[statName]: length}, source);
+		// let statName = 'atk';
+		// let bestStat = 0;
+		// let s: StatNameExceptHP;
+		// for (s in source.storedStats) {
+			// if (source.storedStats[s] > bestStat) {
+				// statName = s;
+				// bestStat = source.storedStats[s];
+			// }
+		// }
+		// this.boost({[statName]: length}, source);
 };
 
 exports.BattleAbilities = BattleAbilities;
