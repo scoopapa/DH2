@@ -1,6 +1,6 @@
 'use strict';
 exports.BattleAbilities = {
-	"stench": {
+	stench: {
 		shortDesc: "Grants immunity to Fairy-type moves.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') { // adding the immunity
@@ -13,7 +13,7 @@ exports.BattleAbilities = {
 		rating: 0.5,
 		num: 1,
 	},
-	"anticipation": {
+	anticipation: {
 		desc: "On switch-in, this Pokemon is alerted if any opposing Pokemon has an attack that is super effective on this Pokemon, or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves. Being alerted will cause the user's speed to be raised by one stage.",
 		shortDesc: "On switch-in, this Pokemon shudders if any foe has a supereffective or OHKO move. Shuddering raises Speed by one stage.",
 		onStart(pokemon) {
@@ -37,7 +37,7 @@ exports.BattleAbilities = {
 		rating: 0.5,
 		num: 107,
 	},
-	"battery": {
+	battery: {
 		shortDesc: "Upon switching in, the user will automatically use Charge.",
 		onStart(pokemon){
 			pokemon.addVolatile('charge'); // fortunately 'charge' is a volatile
@@ -48,7 +48,7 @@ exports.BattleAbilities = {
 		rating: 0,
 		num: 217,
 	},
-	"klutz": {
+	klutz: {
 		desc: "The user's contact moves will remove the opponent's items, but it will lose its own item upon being hit by any attack.",
 		shortDesc: "Removes Item when making contact, loses Item when receiving contact.",
 		onAfterMoveSecondary(target, source, move) { // inspired to Knock Off
@@ -72,7 +72,7 @@ exports.BattleAbilities = {
 		rating: -1,
 		num: 103,
 	},
-	"receiver": {
+	receiver: {
 		desc: "This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "This Pokemon copies the Ability of an ally that faints.",
 		onStart(pokemon) {
@@ -94,13 +94,13 @@ exports.BattleAbilities = {
 		rating: 0,
 		num: 222,
 	},
-"damp": {
-shortDesc: "On switch-in, this Pokemon summons Mud Sport and Water Sport.",
-onStart(source) {
-this.field.addPseudoWeather('mudsport');
-this.field.addPseudoWeather('watersport');
-},        
-id: "damp",        
-name: "Damp",
-},
+	damp: {
+		shortDesc: "On switch-in, this Pokemon summons Mud Sport and Water Sport.",
+		onStart(source) {
+			this.field.addPseudoWeather('mudsport');
+			this.field.addPseudoWeather('watersport');
+		},        
+		id: "damp",        
+		name: "Damp",
+	},
 };
