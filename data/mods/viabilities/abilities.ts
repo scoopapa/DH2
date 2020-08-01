@@ -94,4 +94,13 @@ exports.BattleAbilities = {
 		rating: 0,
 		num: 222,
 	},
+"damp": {
+shortDesc: "On switch-in, this Pokemon summons Mud Sport and Water Sport.",
+onStart(source) {
+this.field.addPseudoWeather('mudsport');
+this.field.addPseudoWeather('watersport');
+},        
+id: "damp",        
+name: "Damp",
+},
 };
