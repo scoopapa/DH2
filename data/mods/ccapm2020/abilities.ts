@@ -16,7 +16,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Electric moves; Electric immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && source.types.contains(move.type)) {
-        this.add('-immune', target, '[from] ability: Camo');
+				this.add('-immune', target, '[from] ability: Camo');
 				return null;
 			}
 		},
@@ -54,11 +54,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	},
 	adaptive: {
 		shortDesc: "After taking damage (except passive damage such as burns), the Pokémon's HP is restored by 1/8 of the damage taken.",
-		onStart(pokemon) {
-			onAfterMoveSecondarySelfPriority: -1,
-			onAfterMoveSecondarySelf(pokemon, target, move) {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.lastDamage / 8, pokemon);
+				this.heal(pokemon.lastDamage / 4, pokemon);
 			}
 		},
 		name: "Terror",
