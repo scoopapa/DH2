@@ -463,7 +463,6 @@ this.modData('Learnsets', 'phione').learnset.dazzlinggleam = ['7L1'];
 this.modData('Learnsets', 'phione').learnset.nastyplot = ['7L1']; 
 this.modData('Learnsets', 'manaphy').learnset.moonblast = ['7L1']; 
 this.modData('Learnsets', 'shaymin').learnset.petalblizzard = ['7L1']; 
-this.modData('Learnsets', 'shayminsky').learnset.petalblizzard = ['7L1'];
 this.modData('Learnsets', 'oshawott').learnset.psychocut = ['7L1']; 
 this.modData('Learnsets', 'dewott').learnset.psychocut = ['7L1']; 
 this.modData('Learnsets', 'samurott').learnset.psychocut = ['7L1'];
