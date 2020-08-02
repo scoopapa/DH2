@@ -103,4 +103,164 @@ exports.BattleAbilities = {
 		id: "damp",        
 		name: "Damp",
 	},
+	"healer": {
+		id: "healer",
+		name: "Healer",
+		onResidualOrder: 5,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
+		desc: "At the end of every turn, this Pokemon and its allies restore 1/16 of their max HP.",
+		num: 131,
+	},
+	illuminate: {
+		desc: "If a Pokemon uses a Ghost- or Dark-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "Ghost/Dark-type moves against this Pokemon deal damage with a halved attacking stat.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Illuminate",
+		rating: 3.5,
+		num: 35,
+	},
+"telepathy": {
+		desc: "This Pokemon's Normal-type moves become Psychic-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Psychic type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Normal' && !['judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Psychic';
+				move.telepathyBoosted = true;
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.telepathyBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		id: "telepathy",
+		name: "Telepathy",
+		rating: 4,
+		num: 140,
+	},
+"sweetveil": {
+    shortDesc: "For five turns after switch-in: Heal active team members by 6.25% of Max HP.",
+    onStart(pokemon) {
+        pokemon.side.addSideCondition('sweetveil');
+    },
+    condition: {
+      duration: 5,
+      durationCallBack(target, source, effect) {
+        if (source?.hasItem('lightclay')) {
+          return 8;
+        }
+      },
+      onStart(side, source) {
+        this.add('-sidestart', 'Sweet Veil', '[from] ability: Sweet Veil', '[of] ' + source); 
+      }
+      onResidualOrder: 5,
+      onResidualSubOrder: 5,
+      onResidual(side) {
+    for (const pokemon of side.active) {
+      this.heal(pokemon.baseMaxhp / 16);
+    }
+      },
+      onEnd(side) {
+        this.add('-sideend', side, 'Sweet Veil');
+      },
+ 
+    },
+    id: "sweetveil",        
+    name: "Sweet Veil",
+},
+    runaway: {
+        desc: "On any Pokemon's switch-in, this Pokemon switches out if any opposing Pokemon has an attack that is super effective on this Pokemon, or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
+        shortDesc: "On any Pokemon's switch-in, this Pokemon switches out if any foe has a supereffective or OHKO move.",
+        onStart(pokemon) {
+            for (const target of pokemon.side.foe.active) {
+                if (!target || target.fainted) continue;
+                for (const moveSlot of target.moveSlots) {
+                    const move = this.dex.getMove(moveSlot.move);
+                    if (move.category === 'Status') continue;
+                    const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+                    if (
+                        this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+                        move.ohko
+                    ) {
+                        this.add('-ability', pokemon, 'Run Away'); 
+                        pokemon.useMove('teleport');
+                        return;
+                    }
+                }
+            }
+        },
+        onFoeSwitchIn(target) {
+          for (const moveSlot of target.moveSlots) {
+            const move = this.dex.getMove(moveSlot.move);
+            if (move.category === 'Status') continue;
+            const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+            if (this.dex.getImmunity(moveType, this.effectData.source) && this.dex.getEffectiveness(moveType, this.effectData.source) > 0 || move.ohko) {
+              this.add('-ability', this.effectData.source, 'Run Away'); 
+              this.effectData.source.useMove('teleport');
+              return;
+            }
+          }
+        },
+        name: "Run Away",
+    },
+"mummy": {
+  shortDesc: "On switch-in, all Pokemon, including this one, suffer Heal Block.",
+  onStart (pokemon) {
+    for (const side of this.sides)
+      for (const target of side) {
+        target.addVolatile('healblock', pokemon);
+      }
+    }
+  },
+  id: "mummy"
+  name: "Mummy",
+},
+"ironfist": {
+  shortDesc: "This Pokemon's punch-based attacks are SE against Fairy-types.",
+  onSourceEffectiveness(move, typeMod, type, pokemon) {
+    if (type == 'Fairy' && move.flags['punch']) {
+      return typeMod > 0 ? typeMod + 1 : 1;
+    } else if (typeMod < 0 && pokemon.hasType('Fairy')) {
+      return 0;
+    }
+  }, 
+  name: "Iron Fist",
+  rating: 3,
+  num: 89,     
+},
+"shellarmor": {
+  shortDesc: "When this Pokemon doesn't have a status, all incoming attacks target its Defense, regardless of category.",
+  onSourceModifyMove(move, attacker, defender) {
+    if (!defender.status) {
+      move.defensiveCategory = "Physical";
+    }
+  }
+  onAfterMove(pokemon, target, move) {
+    if (move.id === 'shellsmash') {
+      pokemon.setAbility('weakarmor');
+    }
+  },
+  name: "Shell Armor",
+},
 };
