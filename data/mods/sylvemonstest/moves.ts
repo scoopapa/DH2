@@ -725,7 +725,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Acid", target);
 		},
-		onEffectiveness: function(typeMod, type) {
+		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
 		secondary: {
