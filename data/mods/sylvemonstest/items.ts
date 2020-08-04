@@ -447,20 +447,18 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
 	},
-	"assaultshield": {
-		id: "assaultshield",
+	assaultshield: {
 		name: "Assault Shield",
-		spritenum: 581,
 		fling: {
 			basePower: 80,
 		},
 		onModifyDefPriority: 1,
-		onModifyDef: function(def) {
+		onModifyDef(def) {
 			return this.chainModify(1.5);
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.getMove(moveSlot.move).category === 'Status') {
+				if (this.dex.getMove(moveSlot.move).category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
