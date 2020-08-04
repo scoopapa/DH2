@@ -490,10 +490,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"angerpoint": {
 		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a move.",
-		onAfterDamage (damage, target, source, effect) {
-			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.boost({atk: 1});
-			}
+		onDamagingHit(damage, target, source, effect) {
+             this.boost({atk: 1});
 		},
 		id: "angerpoint",
 		name: "Anger Point",
@@ -502,33 +500,29 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	},	
 	"infuriation": {
 		shortDesc: "This Pokemon's Special Attack is raised by 1 stage after it is damaged by a move.",
-		onAfterDamage (damage, target, source, effect) {
-			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.boost({spa: 1});
-			}
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({spa: 1});
 		},
 		id: "infuriation",
 		name: "Infuriation",
 	},	
 	"perseverance": {
 		shortDesc: "This Pokemon's Special Defense is raised by 1 stage after it is damaged by a move.",
-		onAfterDamage (damage, target, source, effect) {
-			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.boost({spd: 1});
-			}
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({spd: 1});
 		},
 		id: "perseverance",
 		name: "Perseverance",
 	},	                             
 	"stalwart": {
 		shortDesc: "This Pokemon's Speed is raised by 1 stage after it is damaged by a move.",
-		onAfterDamage (damage, target, source, effect) {
-			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.boost({spe: 1});
-			}
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({spe: 1});
 		},
 		id: "stalwart",
 		name: "Stalwart",
+		rating: 3,
+		num: 242,
 	},	    
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
