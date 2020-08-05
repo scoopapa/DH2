@@ -26,7 +26,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 				if (move && !this.getImmunity(move, type)) return 1;
-				return -typeMod;
+				return typeMod * -1;
 			},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
 	},
