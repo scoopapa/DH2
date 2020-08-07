@@ -9,7 +9,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Trigger Finger",
 		rating: 4,
-		num: 158,
+		num: 99991,
 	},
 	camo: {
 		desc: "The Pokémon is immune to moves of its own types..",
@@ -22,7 +22,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Camo",
 		rating: 3.5,
-		num: 10,
+		num: 99992,
 	},
 	embargoact: {
 		shortDesc: "As long as the Pokémon is on the field, its opponent's item does not function..",
@@ -32,6 +32,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 		onResidualOrder: 18,
 		name: "Embargo Act",
+		num: 99993,
 	},
 	terror: {
 		shortDesc: "When the Pokémon enters, its opponent's Speed is reduced by one stage.",
@@ -51,6 +52,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Terror",
+		num: 99994,
 	},
 	adaptive: {
 		shortDesc: "After taking damage (except passive damage such as burns), the Pokémon's HP is restored by 1/8 of the damage taken.",
@@ -61,6 +63,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Adaptive",
+		num: 99995,
 	},
 	exhaust: {
 		desc: "The Pokémon's attacking moves consume 2 PP instead of 1, but their damage is increased by 20%..",
@@ -75,7 +78,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Exhaust",
 		rating: 2.5,
-		num: 46,
+		num: 99996,
 	},
 	forager: {
 		desc: "Gluttony effect + The Pokémon recycles any Berry it has consumed when it switches out.",
@@ -89,7 +92,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 2.5,
-		num: 139,
+		num: 99997,
 	},
 	inextremis: {
 		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage from an attack bringing it to 1/2 or less of its maximum HP, its Special Attack is raised by 1 stage. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",
@@ -114,7 +117,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "In Extremis",
 		rating: 2.5,
-		num: 201,
+		num: 99998,
 	},
 	prepared: {
 		desc: "On switch-in, this Pokemon is alerted if any opposing Pokemon has an attack that is super effective on this Pokemon, or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
@@ -139,7 +142,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Prepared",
 		rating: 0.5,
-		num: 107,
+		num: 99999,
 	},
 	countershield: {
 		shortDesc: "When the Pokémon is hit by a super effective move, the move's damage is reduced by 1/4, and the attacker's HP is reduced by 1/8.",
@@ -152,7 +155,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Counter Shield",
 		rating: 3,
-		num: 111,
+		num: 99910,
 	},
 	identitytheft: {
 		shortDesc: "Pokemon making contact with this Pokemon have their Ability swapped with this one.",
@@ -174,7 +177,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Identity Theft",
 		rating: 2.5,
-		num: 254,
+		num: 99911,
 	},
 	lagbehind: {
 		shortDesc: "This Pokemon moves last among Pokemon using the same or greater priority moves.",
@@ -184,7 +187,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Lag Behind",
 		rating: -1,
-		num: 100,
+		num: 99912,
 	},
 	terror: {
 		desc: "On switch-in, this Pokemon lowers the Speed of adjacent opposing Pokemon by 1 stage. Pokemon behind a substitute are immune.",
@@ -207,7 +210,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		id: "terror",
 		name: "Terror",
 		rating: 3.5,
-		num: 22,
+		num: 99913,
 	},
 	survey: {
 		shortDesc: "On switch-in, this Pokemon's Accuracy is raised by 1 stage.",
@@ -216,7 +219,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Survey",
 		rating: 3,
-		num: 235,
+		num: 99914,
 	},
 	contradict: {
 		desc: "The physical and special categories of this pokemon's attacks are swapped.",
@@ -232,7 +235,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Contradict",
 		rating: 3.5,
-		num: 55,
+		num: 99915,
 	},
 	unflagging: {
 		desc: "If this Pokemon is poisoned, it restores 1/8 of its maximum HP, rounded down, at the end of each turn instead of losing HP.",
@@ -246,7 +249,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Unflagging",
 		rating: 4,
-		num: 90,
+		num: 99916,
 	},
 };
 
