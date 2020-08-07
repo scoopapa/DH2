@@ -177,9 +177,9 @@ exports.BattleAbilities = {
       onResidualOrder: 5,
       onResidualSubOrder: 5,
       onResidual(side) {
-    for (const pokemon of side.active) {
-      this.heal(pokemon.baseMaxhp / 16);
-    }
+		for (const pokemon of side.active) {
+		  this.heal(pokemon.baseMaxhp / 16);
+		}
       },
       onEnd(side) {
         this.add('-sideend', side, 'Sweet Veil');
