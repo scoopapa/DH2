@@ -17,16 +17,16 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem: false,
-		onStart: function (pokemon) {
+		onStart(pokemon) {
 			this.add('-item', pokemon, pokemon.getItem());
 		},
 		onModifyMovePriority: -5,
 		onSourceModifyMove(move) {
 			move.ignoreImmunity = true;
 		},
-		onEffectiveness: function(typeMod, target, type, move) {
+		onEffectiveness(typeMod, target, type, move) {
 				if (move && !this.getImmunity(move, type)) return 1;
-				return -typeMod;
+				return typeMod * -1;
 			},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
 	},
@@ -44,7 +44,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onDamage: function(damage, target, source, effect) {
+		onDamage(damage, target, source, effect) {
 			if (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes') {
 				if (!this.activeMove) throw new Error("Battle.activeMove is null");
 				return null;
@@ -59,7 +59,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onAfterEachBoost: function(boost, target, source) {
+		onAfterEachBoost(boost, target, source) {
 			if (!source || target.side === source.side) {
 				return;
 			}
@@ -90,63 +90,63 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 	},
 	"adamantorb": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Dialga') return false;
 			return true;
 		},
 	},
 	"deepseascale": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
 			return true;
 		},
 	},
 	"deepseatooth": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
 			return true;
 		},
 	},
 	"griseousorb": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Giratina') return false;
 			return true;
 		},
 	},
 	"luckypunch": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Chansey') return false;
 			return true;
 		},
 	},
 	"lustrousorb": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Palkia') return false;
 			return true;
 		},
 	},
 	"metalpowder": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
 			return true;
 		},
 	},
 	"quickpowder": {
 		inherit: true,
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
 			return true;
 		},
 	},
 	"stick": {
 		inherit: true,
-		onTakeItem: function(item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
 				return false;
 			}
@@ -155,7 +155,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 	},
 	"thickclub": {
 		inherit: true,
-		onTakeItem: function(item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 105) || pokemon.baseSpecies.num === 105) {
 				return false;
 			}
@@ -293,7 +293,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onAfterDamage: function(damage, target, source, effect) {
+		onAfterDamage(damage, target, source, effect) {
 			if (effect && target.useItem()) {
 				this.add('-item', target, 'Mimic Orb');
 				let move = this.getMove('mimic');
@@ -333,7 +333,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onAfterDamage: function(damage, target, source, effect) {
+		onAfterDamage(damage, target, source, effect) {
 			if (effect && effect.flags['contact'] && target.useItem()) {
 				this.add('-item', target, 'Voodoo Doll');
 				source.addVolatile('torment');
@@ -348,7 +348,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onAfterDamage: function(damage, target, source, effect) {
+		onAfterDamage(damage, target, source, effect) {
 			if (effect && effect.flags['contact'] && target.useItem()) {
 				this.add('-item', target, 'Poppy');
 				source.addVolatile('yawn');
@@ -363,7 +363,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 50,
 		},
-		onModifySecondaries: function(secondaries) {
+		onModifySecondaries(secondaries) {
 			this.debug('Shield Dust prevent secondary');
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
@@ -376,12 +376,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onUpdate: function(pokemon) {
+		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
 				pokemon.eatItem();
 			}
 		},
-		onEat: function(source) {
+		onEat(source) {
 			this.useMove('Stealth Rock', source);
 		},
 		desc: "When at 1/4 HP or less, consumes Berry and sets Stealth Rock on the foe's side",
@@ -394,7 +394,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onModifyMovePriority: -5,
-		onModifyMove: function(move) {
+		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity = true;
@@ -447,20 +447,18 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
 	},
-	"assaultshield": {
-		id: "assaultshield",
+	assaultshield: {
 		name: "Assault Shield",
-		spritenum: 581,
 		fling: {
 			basePower: 80,
 		},
 		onModifyDefPriority: 1,
-		onModifyDef: function(def) {
+		onModifyDef(def) {
 			return this.chainModify(1.5);
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.getMove(moveSlot.move).category === 'Status') {
+				if (this.dex.getMove(moveSlot.move).category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -497,7 +495,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onUpdate: function(pokemon) {
+		onUpdate(pokemon) {
 			if (this.field.pseudoWeather.trickroom && pokemon.useItem()) {
 				this.boost({
 					spe: -1
@@ -508,19 +506,17 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		desc: "If the terrain is Trick Room, lowers holder's Speed by 1 stage. Single use.",
 	},
 	"stunorb": {
-		id: "stunorb",
 		name: "Stun Orb",
-		spritenum: 515,
 		fling: {
 			basePower: 30,
 			status: 'par',
 		},
 		onResidualOrder: 26,
 		onResidualSubOrder: 2,
-		onResidual: function(pokemon) {
+		onResidual(pokemon) {
 			pokemon.trySetStatus('par', pokemon);
 		},
-		gen: 4,
+		gen: 7,
 		desc: "At the end of every turn, this item attempts to paralyze the holder.",
 	},
 	"shellbell": {
@@ -531,7 +527,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf: function(pokemon, target, move) {
+		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
 				this.heal(pokemon.lastDamage / 4, pokemon);
 			}
@@ -544,10 +540,10 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		id: "iceskates",
 		name: "Ice Skates",
 		spritenum: 664,
-		onImmunity: function(type, pokemon) {
+		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifySpe: function(spe) {
+		onModifySpe(spe) {
 			if (this.field.isWeather('hail')) {
 				return this.chainModify(2);
 			}
@@ -568,26 +564,26 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA: function(spa, pokemon) {
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onTakeItem: function(item, pokemon) {
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru' ];
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return false;
 			}
 			return true;
 		},
-		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru'],
+		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'],
 		num: 236,
 		gen: 2,
 		desc: "If held by a Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru, its Attack and Sp. Atk are doubled.",
@@ -595,7 +591,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 	"weatherwarriorscrystal": {
 		shortDesc: "When a weather is active, increases the holder's Atk and Sp Atk stats by 1 stage each.",
 		onUpdate: function(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'rainyday', 'primordialsea', 'sandstorm', 'shadowsky', 'aircurrent']) && pokemon.useItem()) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm', 'shadowsky', 'aircurrent']) && pokemon.useItem()) {
 				this.boost({
 					atk: 1,
 					spa: 1
@@ -1056,12 +1052,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onUpdate: function(pokemon) {
+		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
 				pokemon.eatItem();
 			}
 		},
-		onEat: function(source) {
+		onEat(source) {
 			this.useMove('Spikes', source);
 		},
 		desc: "When at 1/4 HP or less, consumes Berry and sets Spikes on the foe's side",
