@@ -254,7 +254,7 @@ exports.BattleAbilities = {
     if (!defender.status) {
       move.defensiveCategory = "Physical";
     }
-  }
+  },
   onAfterMove(pokemon, target, move) {
     if (move.id === 'shellsmash') {
       pokemon.setAbility('weakarmor');
