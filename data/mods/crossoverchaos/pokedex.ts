@@ -2873,7 +2873,7 @@ whispywoods: {
 			baseStats: {hp: 90, atk: 100, def: 130, spa: 90, spd: 90, spe: 30},
 			abilities: {0: "Forest Breeze", H: "Harvest"},
 			otherFormes: ["Whispy Woods-Revenge"],
-			formeOrder: ["Whispy Woods", "Whispy Woods-Revenge"]
+			formeOrder: ["Whispy Woods", "Whispy Woods-Revenge"],
 			heightm: 2.3,
 			weightkg: 300,
 },
