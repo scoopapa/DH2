@@ -6,7 +6,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirby: {
 		num: 6000001,
-		species: "Kirby",
+		name: "Kirby",
 		types: ["Flying"],
 		gender: "M",
 		baseStats: {hp: 130, atk: 120, def: 80, spa: 120, spd: 80, spe: 70}, //"No holding back" version is 150/140/90/140/90/90
@@ -14,12 +14,15 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.2,
    			weightkg: 1,
 		color: "Pink",
-		otherFormes: ["kirbybug", "kirbydark", "kirbydragon", "kirbyelectric", "kirbyfairy", "kirbyfighting", "kirbyfire", "kirbynormal", "kirbyghost", "kirbygrass", "kirbyground", "kirbyice", "kirbypoison", "kirbypsychic", "kirbyrock", "kirbysteel", "kirbywater"],
+		otherFormes: ["Kirby-Bug", "Kirby-Dark", "Kirby-Dragon", "Kirby-Electric", "Kirby-Fairy", "Kirby-Fighting", "Kirby-Fire", "Kirby-Normal", "Kirby-Ghost", "Kirby-Grass", "Kirby-Ground", "Kirby-Ice", "Kirby-Poison", "Kirby-Psychic", "Kirby-Rock", "Kirby-Steel", "Kirby-Water"],
+		formeOrder: [
+			"Kirby", "Kirby-Normal", "Kirby-Fighting", "Kirby-Poison", "Kirby-Ground", "Kirby-Rock", "Kirby-Bug", "Kirby-Ghost", "Kirby-Steel", "Kirby-Fire", "Kirby-Water", "Kirby-Grass", "Kirby-Electric", "Kirby-Psychic", "Kirby-Ice", "Kirby-Dragon", "Kirby-Dark", "Kirby-Fairy",
+		],
 	},
 	
 	kirbybug: {
 		num: 6000001,
-		species: "Kirby-Bug",
+		name: "Kirby-Bug",
 		baseSpecies: "Kirby",
 		forme: "Bug",
 		formeLetter: "B",
@@ -34,7 +37,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbydark: {
 		num: 6000001,
-		species: "Kirby-Dark",
+		name: "Kirby-Dark",
 		baseSpecies: "Kirby",
 		forme: "Dark",
 		formeLetter: "D",
@@ -49,7 +52,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbydragon: {
 		num: 6000001,
-		species: "Kirby-Dragon",
+		name: "Kirby-Dragon",
 		baseSpecies: "Kirby",
 		forme: "Dragon",
 		formeLetter: "D",
@@ -64,7 +67,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyelectric: {
 		num: 6000001,
-		species: "Kirby-Electric",
+		name: "Kirby-Electric",
 		baseSpecies: "Kirby",
 		forme: "Electric",
 		formeLetter: "E",
@@ -79,7 +82,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyfairy: {
 		num: 6000001,
-		species: "Kirby-Fairy",
+		name: "Kirby-Fairy",
 		baseSpecies: "Kirby",
 		forme: "Fairy",
 		formeLetter: "F",
@@ -94,7 +97,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyfighting: {
 		num: 6000001,
-		species: "Kirby-Fighting",
+		name: "Kirby-Fighting",
 		baseSpecies: "Kirby",
 		forme: "Fighting",
 		formeLetter: "F",
@@ -109,7 +112,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyfire: {
 		num: 6000001,
-		species: "Kirby-Fire",
+		name: "Kirby-Fire",
 		baseSpecies: "Kirby",
 		forme: "Fire",
 		formeLetter: "F",
@@ -124,7 +127,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyghost: {
 		num: 6000001,
-		species: "Kirby-Ghost",
+		name: "Kirby-Ghost",
 		baseSpecies: "Kirby",
 		forme: "Ghost",
 		formeLetter: "G",
@@ -139,7 +142,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbygrass: {
 		num: 6000001,
-		species: "Kirby-Grass",
+		name: "Kirby-Grass",
 		baseSpecies: "Kirby",
 		forme: "Grass",
 		formeLetter: "G",
@@ -154,7 +157,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyground: {
 		num: 6000001,
-		species: "Kirby-Ground",
+		name: "Kirby-Ground",
 		baseSpecies: "Kirby",
 		forme: "Ground",
 		formeLetter: "G",
@@ -169,7 +172,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyice: {
 		num: 6000001,
-		species: "Kirby-Ice",
+		name: "Kirby-Ice",
 		baseSpecies: "Kirby",
 		forme: "Ice",
 		formeLetter: "I",
@@ -184,7 +187,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbynormal: {
 		num: 6000001,
-		species: "Kirby-Normal",
+		name: "Kirby-Normal",
 		baseSpecies: "Kirby",
 		forme: "Normal",
 		formeLetter: "N",
@@ -199,7 +202,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbypoison: {
 		num: 6000001,
-		species: "Kirby-Poison",
+		name: "Kirby-Poison",
 		baseSpecies: "Kirby",
 		forme: "Poison",
 		formeLetter: "P",
@@ -214,7 +217,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbypsychic: {
 		num: 6000001,
-		species: "Kirby-Psychic",
+		name: "Kirby-Psychic",
 		baseSpecies: "Kirby",
 		forme: "Psychic",
 		formeLetter: "P",
@@ -229,7 +232,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbyrock: {
 		num: 6000001,
-		species: "Kirby-Rock",
+		name: "Kirby-Rock",
 		baseSpecies: "Kirby",
 		forme: "Rock",
 		formeLetter: "R",
@@ -244,7 +247,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbysteel: {
 		num: 6000001,
-		species: "Kirby-Steel",
+		name: "Kirby-Steel",
 		baseSpecies: "Kirby",
 		forme: "Steel",
 		formeLetter: "S",
@@ -259,7 +262,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	kirbywater: {
 		num: 6000001,
-		species: "Kirby-Water",
+		name: "Kirby-Water",
 		baseSpecies: "Kirby",
 		forme: "Water",
 		formeLetter: "W",
@@ -274,32 +277,32 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	inkling: {
 		num: 6000002,
-		species: "Inkling", /* Splatoon */
-		baseForme: "Squid",
-		types: ["Poison"],
-		baseStats: {hp: 70, atk: 60, def: 65, spa: 90, spd: 85, spe: 130},
-		abilities: {0: "Inky Surge", H: "Soundproof"},
-		otherFormes: ["inklingkid"],
-		heightm: 0.5,
- 		  weightkg: 10,
+		name: "Inkling", /* Splatoon */
+		baseForme: "Kid",
+		types: ["Poison", "Normal"],
+		baseStats: {hp: 80, atk: 75, def: 65, spa: 105, spd: 85, spe: 100},
+		abilities: {0: "Squid Change", 1: "Inky Surge", H: "Hydrophobia"},
+		otherFormes: ["inklingsquid"],
+		heightm: 1.4,
+ 		  weightkg: 30,
 	},
 	
-	inklingkid: {
+	inklingsquid: {
 		num: 6000002,
-		species: "Inkling-Kid",
+		name: "Inkling-Squid",
 		baseSpecies: "Inkling",
-		forme: "Kid",
-		formeLetter: "K",
-		types: ["Poison", "Normal"],
-		baseStats: {hp: 80, atk: 90, def: 65, spa: 120, spd: 95, spe: 100},
-		abilities: {0: "Inky Surge", H: "Soundproof"},
-		heightm: 1.4,
+		forme: "Squid",
+		formeLetter: "S",
+		types: ["Poison"],
+		baseStats: {hp: 80, atk: 60, def: 65, spa: 90, spd: 85, spe: 130},
+		abilities: {0: "Squid Change"},
+		heightm: 0.5,
  		  weightkg: 30,
 	},
 	
 	corrin: {
 		num: 6000003, 
-		species: "Corrin", /* Fire Emblem: Fates */
+		name: "Corrin", /* Fire Emblem: Fates */
 		baseForme: "Human",
 		types:["Dragon", "Water"],
 		baseStats: {hp: 90, atk: 125, def: 95, spa: 85, spd: 65, spe: 115}, 
@@ -311,7 +314,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	corrindragon: {
 		num: 6000003,
-		species: "Corrin-Dragon",
+		name: "Corrin-Dragon",
 		baseSpecies: "Corrin",
 		forme: "Dragon",
 		formeLetter: "D",
@@ -324,7 +327,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	dedede: {
 		num: 6000004, 
-		species: "Dedede", /* Kirby */
+		name: "Dedede", /* Kirby */
 		baseForme: "King",
 		types: ["Fighting", "Flying"],
 		gender: "M",
@@ -337,7 +340,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	dededemasked: {
 		num: 6000004,
-		species: "Dedede-Masked",
+		name: "Dedede-Masked",
 		baseSpecies: "Dedede",
 		forme: "Masked",
 		formeLetter: "M",
@@ -351,7 +354,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	
 plagueknight: {
 			num: 6000005,
-			species: "Plague Knight", /* Shovel Knight: Treasure Trove */
+			name: "Plague Knight", /* Shovel Knight: Treasure Trove */
 			types: ["Poison"],
 		genderRatio: {M: 0.875, F: 0.125},
 			baseStats: {hp: 60, atk: 70, def: 75, spa: 130, spd: 115, spe: 115},
@@ -361,7 +364,7 @@ plagueknight: {
 },
 chihirofujisaki: {
 			num: 6000006,
-			species: "Chihiro Fujisaki", /* Danganronpa */
+			name: "Chihiro Fujisaki", /* Danganronpa */
 			types: ["Electric", "Ghost"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 60, def: 65, spa: 120, spd: 80, spe: 105},
@@ -371,7 +374,7 @@ chihirofujisaki: {
 },
 metaknight: {
 			num: 6000007,
-			species: "Meta Knight", /* Kirby */
+			name: "Meta Knight", /* Kirby */
 			types: ["Fighting", "Flying"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 120, def: 80, spa: 110, spd: 80, spe: 130},
@@ -381,26 +384,26 @@ metaknight: {
 },
 pit: {
 			num: 6000008,
-			species: "Pit", /* Kid Icarus */
+			name: "Pit", /* Kid Icarus */
 			types: ["Fairy"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 120, def: 80, spa: 110, spd: 80, spe: 110},
-			abilities: {0: "Oblivious", 1: "Unaware", H: "Mold Breaker"},
+			abilities: {0: "Oblivious", 1: "Unaware", H: "Serene Grace"},
 		heightm: 1.6,
 			weightkg: 45,
 },
 iceclimbers: {
 			num: 6000009,
-			species: "Ice Climbers",
+			name: "Ice Climbers",
 			types: ["Ice", "Normal"],
-			baseStats: {hp: 90, atk: 115, def: 70, spa: 75, spd: 70, spe: 120},
+			baseStats: {hp: 90, atk: 115, def: 70, spa: 75, spd: 70, spe: 100},
 			abilities: {0: "Cold Combo", H: "Oblivious"},
    heightm: 1.3,
 			weightkg: 50,
 },
 bandanawaddledee: {
 			num: 6000010,
-			species: "Bandana Waddle Dee", /* Kirby */
+			name: "Bandana Waddle Dee", /* Kirby */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 120, atk: 120, def: 80, spa: 80, spd: 80, spe: 70},
@@ -410,17 +413,17 @@ bandanawaddledee: {
 },
 specterknight: {
 			num: 6000011,
-			species: "Specter Knight", /* Shovel Knight: Treasure Trove */
+			name: "Specter Knight", /* Shovel Knight: Treasure Trove */
 			types: ["Ghost"],
 		genderRatio: {M: 0.875, F: 0.125},
-			baseStats: {hp: 130, atk: 115, def: 105, spa: 70, spd: 60, spe: 85},
-			abilities: {0: "Levitate", 1: "Cursed Body", H: "Incorporeal"},
+			baseStats: {hp: 90, atk: 115, def: 105, spa: 70, spd: 80, spe: 105},
+			abilities: {0: "Levitate", 1: "Cursed Body", H: "Regenerator"},
 		heightm: 1.9,
 			weightkg: 50,
 },
 gale: {
 			num: 6000012,
-			species: "Gale", /* Phoenotopia */
+			name: "Gale", /* Phoenotopia */
 			types: ["Fighting", "Electric"],
 		gender: "F",
 			baseStats: {hp: 99, atk: 119, def: 79, spa: 99, spd: 79, spe: 105},
@@ -430,7 +433,7 @@ gale: {
 },
 titandweevil: {
 			num: 6000013,
-			species: "Titan Dweevil", /* Pikmin 2 */
+			name: "Titan Dweevil", /* Pikmin 2 */
 			types: ["Bug", "Steel"],
 		gender: "N",
 			baseStats: {hp: 120, atk: 80, def: 120, spa: 150, spd: 120, spe: 80},
@@ -440,17 +443,17 @@ titandweevil: {
 },
 lordfredrik: {
 			num: 6000014,
-			species: "Lord Fredrik", /* Donkey Kong Country: Tropical Freeze */
+			name: "Lord Fredrik", /* Donkey Kong Country: Tropical Freeze */
 			types: ["Ice"],
 		gender: "M",
-		baseStats: {hp: 120, atk: 155, def: 110, spa: 130, spd: 90, spe: 75},
+		baseStats: {hp: 120, atk: 155, def: 110, spa: 120, spd: 90, spe: 75},
 			abilities: {0: "Snow Warning", 1: "Thick Fat", H: "Mountain Call"},
 		heightm: 4.5,
 			weightkg: 900,
 },
 stardream: {
 			num: 6000015,
-			species: "Star Dream", /* Kirby: Planet Robobot */
+			name: "Star Dream", /* Kirby: Planet Robobot */
 			types: ["Steel", "Psychic"],
 		gender: "N",
 			baseStats: {hp: 120, atk: 100, def: 120, spa: 150, spd: 90, spe: 100},
@@ -462,7 +465,7 @@ stardream: {
 },
 stardreamark: {
 			num: 6000015,
-			species: "Star Dream-Ark",
+			name: "Star Dream-Ark",
 		baseSpecies: "Star Dream",
 		forme: "Ark",
 		formeLetter: "A",
@@ -476,7 +479,7 @@ stardreamark: {
 },
 stardreamstar: {
 			num: 6000015,
-			species: "Star Dream-Star",
+			name: "Star Dream-Star",
 		baseSpecies: "Star Dream",
 		forme: "Star",
 		formeLetter: "S",
@@ -490,7 +493,7 @@ stardreamstar: {
 },
 stardreamsoulos: {
 			num: 6000015,
-			species: "Star Dream-Soul OS",
+			name: "Star Dream-Soul OS",
 		baseSpecies: "Star Dream",
 		forme: "Soul OS",
 		formeLetter: "S",
@@ -504,7 +507,7 @@ stardreamsoulos: {
 },
 stardreamsoulosark: {
 			num: 6000015,
-			species: "Star Dream-Soul OS-Ark",
+			name: "Star Dream-Soul OS-Ark",
 		baseSpecies: "Star Dream",
 		forme: "Soul OS-Ark",
 		formeLetter: "S",
@@ -518,7 +521,7 @@ stardreamsoulosark: {
 },
 stardreamsoulosstar: {
 			num: 6000015,
-			species: "Star Dream-Soul OS-Star",
+			name: "Star Dream-Soul OS-Star",
 		baseSpecies: "Star Dream",
 		forme: "Soul OS-Star",
 		formeLetter: "S",
@@ -532,7 +535,7 @@ stardreamsoulosstar: {
 },
 stardreamsoulosheart: {
 			num: 6000015,
-			species: "Star Dream-Soul OS-Heart",
+			name: "Star Dream-Soul OS-Heart",
 		baseSpecies: "Star Dream",
 		forme: "Soul OS-Heart",
 		formeLetter: "S",
@@ -546,7 +549,7 @@ stardreamsoulosheart: {
 },
 daroach: {
 			num: 6000016,
-			species: "Daroach", /* Kirby */
+			name: "Daroach", /* Kirby */
 			types: ["Ice", "Dark"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 110, def: 70, spa: 130, spd: 70, spe: 110},
@@ -556,7 +559,7 @@ daroach: {
 },
 darkdaroach: {
 			num: 6000016,
-			species: "Dark Daroach",
+			name: "Dark Daroach",
 		baseSpecies: "Daroach",
 		forme: "Dark",
 		formeLetter: "D",
@@ -569,7 +572,7 @@ darkdaroach: {
 },
 propellerknight: {
 			num: 6000017,
-			species: "Propeller Knight", /* Shovel Knight Treasure Trove */
+			name: "Propeller Knight", /* Shovel Knight Treasure Trove */
 			types: ["Flying"],
 		genderRatio: {M: 0.875, F: 0.125},
 			baseStats: {hp: 60, atk: 115, def: 70, spa: 105, spd: 85, spe: 130},
@@ -579,7 +582,7 @@ propellerknight: {
 },
 zarya: {
 			num: 6000018,
-			species: "Zarya", /* Overwatch */
+			name: "Zarya", /* Overwatch */
 			types: ["Psychic", "Fighting"],
 		gender: "F",
 			baseStats: {hp: 100, atk: 110, def: 100, spa: 100, spd: 70, spe: 60},
@@ -589,18 +592,18 @@ zarya: {
 },
 bowser: {
 			num: 6000019,
-			species: "Bowser", /* Super Mario */
+			name: "Bowser", /* Super Mario */
 			types: ["Fire", "Dark"],
 		gender: "M",
 			baseStats: {hp: 120, atk: 130, def: 130, spa: 100, spd: 70, spe: 50},
-			abilities: {0: "Intimidate", H: "Regenerator"},
+			abilities: {0: "Intimidate", H: "Shell Armor"},
 		heightm: 2.5,
 			weightkg: 375,
 		color: "Green",
 },
 shulk: {
 			num: 6000020,
-			species: "Shulk", /* Xenoblade Chronicles */
+			name: "Shulk", /* Xenoblade Chronicles */
 			types: ["Psychic", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 77, atk: 125, def: 86, spa: 90, spd: 90, spe: 102},
@@ -610,7 +613,7 @@ shulk: {
 },
 lloydirving: {
 			num: 6000021,
-			species: "Lloyd Irving", /* Tales of Symphonia */
+			name: "Lloyd Irving", /* Tales of Symphonia */
 			types: ["Fighting", "Fire"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 125, def: 105, spa: 50, spd: 80, spe: 110},
@@ -620,7 +623,7 @@ lloydirving: {
 },
 marx: {
 			num: 6000022,
-			species: "Marx", /* Kirby Super Star */
+			name: "Marx", /* Kirby Super Star */
 			types: ["Dark"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 150, def: 90, spa: 120, spd: 90, spe: 130},
@@ -631,7 +634,7 @@ marx: {
 },
 marxunwinged: {
 			num: 6000022,
-			species: "Marx-Unwinged",
+			name: "Marx-Unwinged",
 		baseSpecies: "Marx",
 		forme: "Unwinged",
 		formeLetter: "U",
@@ -644,7 +647,7 @@ marxunwinged: {
 },
 marxsoul: {
 			num: 6000022,
-			species: "Marx Soul",
+			name: "Marx Soul",
 			types: ["Dark", "Ghost"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 180, def: 120, spa: 130, spd: 120, spe: 130},
@@ -654,7 +657,7 @@ marxsoul: {
 },
 primrose: {
 			num: 6000023,
-			species: "Primrose", /* Octopath Traveler */
+			name: "Primrose", /* Octopath Traveler */
 			types: ["Dark"],
 		gender: "F",
 			baseStats: {hp: 60, atk: 100, def: 70, spa: 110, spd: 80, spe: 120},
@@ -664,7 +667,7 @@ primrose: {
 },
 chibiterasu: {
 			num: 6000024,
-			species: "Chibiterasu", /* Okamiden */
+			name: "Chibiterasu", /* Okamiden */
 			types: ["Fire", "Grass"],
 		gender: "M",
 			baseStats: {hp: 64, atk: 95, def: 75, spa: 95, spd: 105, spe: 121},
@@ -674,7 +677,7 @@ chibiterasu: {
 },
 shovelknight: {
 			num: 6000025,
-			species: "Shovel Knight", /* Shovel Knight Treasure Trove */
+			name: "Shovel Knight", /* Shovel Knight Treasure Trove */
 			types: ["Ground", "Steel"],
 		genderRatio: {M: 0.875, F: 0.125},
 			baseStats: {hp: 90, atk: 125, def: 100, spa: 75, spd: 95, spe: 100},
@@ -684,7 +687,7 @@ shovelknight: {
 },
 kuro: {
 			num: 6000026,
-			species: "Kuro", /* Ori and the Blind Forest */
+			name: "Kuro", /* Ori and the Blind Forest */
 			types: ["Dark", "Flying"],
 		gender: "F",
 			baseStats: {hp: 100, atk: 120, def: 90, spa: 120, spd: 90, spe: 100},
@@ -694,7 +697,7 @@ kuro: {
 },
 flowey: {
 			num: 6000027,
-			species: "Flowey", /* Undertale */
+			name: "Flowey", /* Undertale */
 			types: ["Grass", "Fairy"],
 		gender: "M",
 			baseStats: {hp: 55, atk: 35, def: 50, spa: 95, spd: 60, spe: 100},
@@ -705,11 +708,11 @@ flowey: {
 },
 floweyomega: {
 			num: 6000027,
-			species: "Flowey-Omega",
+			name: "Flowey-Omega",
 			baseSpecies: "Flowey",
 			forme: "Omega",
 			formeLetter: "O",
-			types: ["Grass", "Steel"],
+			types: ["Grass", "Ghost"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 110, def: 100, spa: 190, spd: 120, spe: 50},
 			abilities: {0: "Adaptability"},
@@ -718,7 +721,7 @@ floweyomega: {
 },
 zanpartizanne: {
 			num: 6000028,
-			species: "Zan Partizanne", /* Kirby: Star Allies */
+			name: "Zan Partizanne", /* Kirby: Star Allies */
 			types: ["Electric"],
 		gender: "F",
 			baseStats: {hp: 70, atk: 120, def: 70, spa: 120, spd: 70, spe: 130},
@@ -728,7 +731,7 @@ zanpartizanne: {
 },
 wyvern: {
 			num: 6000029,
-			species: "Wyvern", /* Dragon Age II */
+			name: "Wyvern", /* Dragon Age II */
 			types: ["Dragon", "Poison"],
 			baseStats: {hp: 78, atk: 122, def: 82, spa: 70, spd: 72, spe: 116},
 			abilities: {0: "Corrosion", 1: "Poison Touch", H: "Merciless"},
@@ -737,10 +740,10 @@ wyvern: {
 },
 sonic: {
 			num: 6000030,
-			species: "Sonic", /* Sonic the Hedgehog */
-			types: ["Ground"],
+			name: "Sonic", /* Sonic the Hedgehog */
+			types: ["Normal"],
 		gender: "M",
-			baseStats: {hp: 80, atk: 110, def: 80, spa: 90, spd: 70, spe: 170},
+			baseStats: {hp: 80, atk: 100, def: 80, spa: 90, spd: 70, spe: 180},
 			abilities: {0: "Sonic Wind"},
 		heightm: 1,
 			weightkg: 35,
@@ -748,20 +751,20 @@ sonic: {
 },
 sonicsuper: {
 			num: 6000030,
-			species: "Sonic-Super",
+			name: "Sonic-Super",
 			baseSpecies: "Sonic",
 			forme: "Super",
 			formeLetter: "S",
-			types: ["Ground", "Flying"],
+			types: ["Normal", "Flying"],
 		gender: "M",
-			baseStats: {hp: 80, atk: 140, def: 110, spa: 100, spd: 100, spe: 170},
+			baseStats: {hp: 80, atk: 110, def: 120, spa: 100, spd: 110, spe: 180},
 			abilities: {0: "Sonic Wind"},
 		heightm: 1,
 			weightkg: 35,
 },
 fludd: {
 			num: 6000031,
-			species: "FLUDD", /* Super Mario Sunshine */
+			name: "FLUDD", /* Super Mario Sunshine */
 			types: ["Water", "Steel"],
 		gender: "N",
 			baseStats: {hp: 50, atk: 65, def: 80, spa: 110, spd: 85, spe: 90},
@@ -771,7 +774,7 @@ fludd: {
 },
 palico: {
 			num: 6000032,
-			species: "Palico", /* Monster Hunter */
+			name: "Palico", /* Monster Hunter */
 			types: ["Normal", "Fairy"],
 			baseStats: {hp: 120, atk: 65, def: 80, spa: 99, spd: 105, spe: 60},
 			abilities: {0: "Regenerator", H: "Antidotation"},
@@ -780,7 +783,7 @@ palico: {
 },
 gooey: {
 			num: 6000033,
-			species: "Gooey", /* Kirby */
+			name: "Gooey", /* Kirby */
 			types: ["Water", "Dark"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 120, def: 80, spa: 120, spd: 80, spe: 60},
@@ -790,17 +793,17 @@ gooey: {
 },
 luigi: {
 			num: 6000034,
-			species: "Luigi", /* Super Mario */
-			types: ["Normal", "Electric"],
+			name: "Luigi", /* Super Mario */
+			types: ["Normal", "Flying"],
 		gender: "M",
 			baseStats: {hp: 105, atk: 84, def: 101, spa: 95, spd: 109, spe: 101},
-			abilities: {0: "Rattled", 1: "Wimp Out", H: "Super Luck"},
+			abilities: {0: "Rattled", 1: "Wimp Out", H: "Scuttle"},
 		heightm: 1.76,
 			weightkg: 90,
 },
 rathalos: {
 			num: 6000035,
-			species: "Rathalos", /* Monster Hunter */
+			name: "Rathalos", /* Monster Hunter */
 			types: ["Fire", "Flying"],
 		gender: "M",
 			baseStats: {hp: 105, atk: 90, def: 110, spa: 100, spd: 70, spe: 80},
@@ -810,7 +813,7 @@ rathalos: {
 },
 rathian: {
 			num: 6000035,
-			species: "Rathian", /* Monster Hunter */
+			name: "Rathian", /* Monster Hunter */
 			types: ["Fire", "Poison"],
 		gender: "F",
 			baseStats: {hp: 105, atk: 90, def: 110, spa: 100, spd: 70, spe: 80},
@@ -820,7 +823,7 @@ rathian: {
 },
 zero: {
 			num: 6000036,
-			species: "Zero", /* Mega Man X and Mega Man Zero */
+			name: "Zero", /* Mega Man X and Mega Man Zero */
 			types: ["Steel", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 60, atk: 120, def: 60, spa: 80, spd: 60, spe: 125},
@@ -831,7 +834,7 @@ zero: {
 },
 zeroawakened: {
 			num: 6000036,
-			species: "Zero-Awakened",
+			name: "Zero-Awakened",
 			baseSpecies: "Zero",
 			forme: "Awakened",
 			formeLetter: "A",
@@ -844,7 +847,7 @@ zeroawakened: {
 },
 theknight: {
 			num: 6000037,
-			species: "The Knight", /* Hollow Knight */
+			name: "The Knight", /* Hollow Knight */
 			types: ["Ghost", "Bug"],
 		gender: "N",
 			baseStats: {hp: 60, atk: 115, def: 95, spa: 115, spd: 95, spe: 120},
@@ -854,7 +857,7 @@ theknight: {
 },
 theknightshade: {
 			num: 6000037,
-			species: "The Knight-Shade",
+			name: "The Knight-Shade",
 			baseSpecies: "The Knight",
 			forme: "Shade",
 			formeLetter: "S",
@@ -866,7 +869,7 @@ theknightshade: {
 },
 falseknight: {
 			num: 6000038,
-			species: "False Knight", /* Hollow Knight */
+			name: "False Knight", /* Hollow Knight */
 			types: ["Bug", "Steel"],
 		gender: "M",
 			baseStats: {hp: 50, atk: 150, def: 140, spa: 50, spd: 90, spe: 80},
@@ -876,7 +879,7 @@ falseknight: {
 },
 falseknightunarmored: {
 			num: 6000038,
-			species: "False Knight-Unarmored",
+			name: "False Knight-Unarmored",
 			baseSpecies: "False Knight",
 			forme: "Unarmored",
 			formeLetter: "U",
@@ -889,7 +892,7 @@ falseknightunarmored: {
 },
 sans: {
 			num: 6000039,
-			species: "Sans", /* Undertale */
+			name: "Sans", /* Undertale */
 			types: ["Ghost", "Psychic"],
 		gender: "M",
 			baseStats: {hp: 5, atk: 5, def: 5, spa: 5, spd: 5, spe: 150},
@@ -899,7 +902,7 @@ sans: {
 },
 megaman: {
 			num: 6000040,
-			species: "Mega Man", /* Mega Man */
+			name: "Mega Man", /* Mega Man */
 			types: ["Steel"],
 		gender: "M",
 			baseStats: {hp: 102, atk: 99, def: 89, spa: 125, spd: 90, spe: 95},
@@ -909,7 +912,7 @@ megaman: {
 },
 megamanexe: {
 			num: 6000040,
-			species: "Mega Man-EXE", /* Mega Man: Battle Network */
+			name: "Mega Man-EXE", /* Mega Man: Battle Network */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 82, atk: 109, def: 89, spa: 125, spd: 95, spe: 100},
@@ -919,47 +922,47 @@ megamanexe: {
 },
 stonetalus: {
 			num: 6000041,
-			species: "Stone Talus", /* Legend of Zelda: Breath of the Wild */
+			name: "Stone Talus", /* Legend of Zelda: Breath of the Wild */
 			types: ["Rock"],
 		gender: "N",
-			baseStats: {hp: 100, atk: 150, def: 150, spa: 50, spd: 80, spe: 25},
+			baseStats: {hp: 40, atk: 120, def: 150, spa: 50, spd: 80, spe: 55},
 			abilities: {0: "Sturdy", 1: "Pressure", H: "Solid Rock"},
 		heightm: 3.8,
 			weightkg: 800,
 },
 sandstonetalus: {
 			num: 6000042,
-			species: "Sandstone Talus", /* Legend of Zelda: Breath of the Wild */
+			name: "Sandstone Talus", /* Legend of Zelda: Breath of the Wild */
 			types: ["Rock", "Ground"],
 		gender: "N",
-			baseStats: {hp: 100, atk: 130, def: 130, spa: 50, spd: 120, spe: 25},
+			baseStats: {hp: 40, atk: 130, def: 100, spa: 50, spd: 120, spe: 55},
 			abilities: {0: "Sand Force", 1: "Pressure", H: "Solid Rock"},
 		heightm: 3.8,
 			weightkg: 800,
 },
 igneotalus: {
 			num: 6000043,
-			species: "Igneo Talus", /* Legend of Zelda: Breath of the Wild */
+			name: "Igneo Talus", /* Legend of Zelda: Breath of the Wild */
 			types: ["Rock", "Fire"],
 		gender: "N",
-			baseStats: {hp: 100, atk: 130, def: 170, spa: 50, spd: 80, spe: 25},
+			baseStats: {hp: 40, atk: 130, def: 170, spa: 50, spd: 80, spe: 55},
 			abilities: {0: "Flame Body", 1: "Pressure", H: "Solid Rock"},
 		heightm: 3.8,
 			weightkg: 800,
 },
 frosttalus: {
 			num: 6000044,
-			species: "Frost Talus", /* Legend of Zelda: Breath of the Wild */
+			name: "Frost Talus", /* Legend of Zelda: Breath of the Wild */
 			types: ["Rock", "Ice"],
 		gender: "N",
-			baseStats: {hp: 100, atk: 160, def: 140, spa: 50, spd: 80, spe: 25},
+			baseStats: {hp: 40, atk: 160, def: 140, spa: 50, spd: 80, spe: 55},
 			abilities: {0: "Ice Body", 1: "Rock Head", H: "Solid Rock"},
 		heightm: 3.8,
 			weightkg: 800,
 },
 x: {
 			num: 6000045,
-			species: "X", /* Mega Man X */
+			name: "X", /* Mega Man X */
 			types: ["Steel"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 70, def: 70, spa: 100, spd: 80, spe: 100},
@@ -970,7 +973,7 @@ x: {
 },
 xfourth: {
 			num: 6000045,
-			species: "X-Fourth",
+			name: "X-Fourth",
 			baseSpecies: "X",
 			forme: "Fourth",
 			formeLetter: "F",
@@ -983,7 +986,7 @@ xfourth: {
 },
 xfalcon: {
 			num: 6000045,
-			species: "X-Falcon",
+			name: "X-Falcon",
 			baseSpecies: "X",
 			forme: "Falcon",
 			formeLetter: "F",
@@ -996,7 +999,7 @@ xfalcon: {
 },
 xgaea: {
 			num: 6000045,
-			species: "X-Gaea",
+			name: "X-Gaea",
 			baseSpecies: "X",
 			forme: "Gaea",
 			formeLetter: "G",
@@ -1009,7 +1012,7 @@ xgaea: {
 },
 xblade: {
 			num: 6000045,
-			species: "X-Blade",
+			name: "X-Blade",
 			baseSpecies: "X",
 			forme: "Blade",
 			formeLetter: "B",
@@ -1022,7 +1025,7 @@ xblade: {
 },
 xshadow: {
 			num: 6000045,
-			species: "X-Shadow",
+			name: "X-Shadow",
 			baseSpecies: "X",
 			forme: "Shadow",
 			formeLetter: "S",
@@ -1035,7 +1038,7 @@ xshadow: {
 },
 kingboo: {
 			num: 6000046,
-			species: "King Boo", /* Luigi's Mansion */
+			name: "King Boo", /* Luigi's Mansion */
 			types: ["Ghost", "Dark"],
 		gender: "M",
 			baseStats: {hp: 105, atk: 86, def: 115, spa: 120, spd: 109, spe: 55},
@@ -1045,7 +1048,7 @@ kingboo: {
 },
 majora: {
 			num: 6000047,
-			species: "Majora", /* The Legend of Zelda: Majora's Mask */
+			name: "Majora", /* The Legend of Zelda: Majora's Mask */
 		baseForme: "Mask",
 			types: ["Ghost", "Dark"],
 		gender: "N",
@@ -1057,7 +1060,7 @@ majora: {
 },
 majoraincarnation: {
 			num: 6000047,
-			species: "Majora-Incarnation",
+			name: "Majora-Incarnation",
 			baseSpecies: "Majora",
 			forme: "Incarnation",
 			formeLetter: "I",
@@ -1070,7 +1073,7 @@ majoraincarnation: {
 },
 majorawrath: {
 			num: 6000047,
-			species: "Majora-Wrath",
+			name: "Majora-Wrath",
 			baseSpecies: "Majora",
 			forme: "Wrath",
 			formeLetter: "W",
@@ -1083,7 +1086,7 @@ majorawrath: {
 },
 zerokirby: {
 			num: 6000048,
-			species: "Zero (Kirby)",
+			name: "Zero (Kirby)",
 			types: ["Dark", "Poison"],
 		gender: "N",
 			baseStats: {hp: 100, atk: 90, def: 130, spa: 120, spd: 80, spe: 80},
@@ -1094,7 +1097,7 @@ zerokirby: {
 },
 zeroiris: { //Writing it as "0iris" would've done problems.
 			num: 6000048,
-			species: "Zero-Iris",
+			name: "Zero-Iris",
 			baseSpecies: "Zero (Kirby)",
 			forme: "Iris",
 			formeLetter: "I",
@@ -1107,7 +1110,7 @@ zeroiris: { //Writing it as "0iris" would've done problems.
 },
 zero2: {
 			num: 6000048,
-			species: "Zero^2",
+			name: "Zero^2",
 			baseSpecies: "Zero (Kirby)",
 			forme: "2",
 			formeLetter: "2",
@@ -1120,7 +1123,7 @@ zero2: {
 },
 chaoskin: {
 			num: 6000049,
-			species: "Chaos Kin", /* Kid Icarus: Uprising */
+			name: "Chaos Kin", /* Kid Icarus: Uprising */
 			types: ["Dark", "Bug"],
 		gender: "N",
 			baseStats: {hp: 105, atk: 140, def: 55, spa: 125, spd: 55, spe: 120},
@@ -1131,7 +1134,7 @@ chaoskin: {
 },
 chaoskinash: {
 			num: 6000049,
-			species: "Chaos Kin-Ash",
+			name: "Chaos Kin-Ash",
 			baseSpecies: "Chaos Kin",
 			forme: "Ash",
 			formeLetter: "A",
@@ -1144,7 +1147,7 @@ chaoskinash: {
 },
 captainfalcon: {
 			num: 6000050,
-			species: "Captain Falcon", /* F-Zero */
+			name: "Captain Falcon", /* F-Zero */
 			types: ["Fire", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 125, def: 75, spa: 75, spd: 75, spe: 120},
@@ -1154,7 +1157,7 @@ captainfalcon: {
 },
 waluigi: {
 			num: 6000051,
-			species: "Waluigi", /* Super Mario */
+			name: "Waluigi", /* Super Mario */
 			types: ["Dark"],
 		gender: "M",
 			baseStats: {hp: 89, atk: 105, def: 85, spa: 101, spd: 91, spe: 122},
@@ -1164,7 +1167,7 @@ waluigi: {
 },
 nailsagesly: {
 			num: 6000052,
-			species: "Nailsage Sly", /* Hollow Knight */
+			name: "Nailsage Sly", /* Hollow Knight */
 			types: ["Bug"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 120, def: 85, spa: 60, spd: 70, spe: 130},
@@ -1173,7 +1176,7 @@ nailsagesly: {
 },
 haltmann: {
 			num: 6000053,
-			species: "Haltmann", /* Kirby: Planet Robobot */
+			name: "Haltmann", /* Kirby: Planet Robobot */
 			types: ["Electric"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 130, def: 130, spa: 80, spd: 70, spe: 90},
@@ -1183,7 +1186,7 @@ haltmann: {
 },
 wario: {
 			num: 6000054,
-			species: "Wario", /* Wario Land */
+			name: "Wario", /* Wario Land */
 			types: ["Dark", "Poison"],
 			baseStats: {hp: 121, atk: 129, def: 100, spa: 65, spd: 76, spe: 89},
 			abilities: {0: "Stench", 1: "Pickpocket", H: "Treasure Mastery"},
@@ -1192,16 +1195,16 @@ wario: {
 },
 drybones: {
 			num: 6000055,
-			species: "Dry Bones", /* Super Mario */
+			name: "Dry Bones", /* Super Mario */
 			types: ["Ghost", "Ground"],
-			baseStats: {hp: 75, atk: 115, def: 130, spa: 85, spd: 65, spe: 75},
+			baseStats: {hp: 75, atk: 105, def: 120, spa: 75, spd: 55, spe: 65},
 			abilities: {0: "Shell Armor", 1: "Weak Armor", H: "Regenerator"},
 		heightm: 0.9,
 			weightkg: 50,
 },
 dewy: {
 			num: 6000056,
-			species: "Dewy", /* Dewy's Adventure */
+			name: "Dewy", /* Dewy's Adventure */
 		baseForme: "Dew",
 			types: ["Water", "Fairy"],
 		gender: "M",
@@ -1213,7 +1216,7 @@ dewy: {
 },
 dewyice: {
 			num: 6000056,
-			species: "Dewy-Ice",
+			name: "Dewy-Ice",
 			baseSpecies: "Dewy",
 			forme: "Ice",
 			formeLetter: "I",
@@ -1226,7 +1229,7 @@ dewyice: {
 },
 dewymist: {
 			num: 6000056,
-			species: "Dewy-Mist",
+			name: "Dewy-Mist",
 			baseSpecies: "Dewy",
 			forme: "Mist",
 			formeLetter: "M",
@@ -1239,7 +1242,7 @@ dewymist: {
 },
 hyness: {
 			num: 6000057,
-			species: "Hyness", /* Kirby: Star Allies */
+			name: "Hyness", /* Kirby: Star Allies */
 		baseForme: "Hooded",
 			types: ["Dark", "Psychic"],
 		gender: "M",
@@ -1251,7 +1254,7 @@ hyness: {
 },
 hynessunhooded: {
 			num: 6000057,
-			species: "Hyness-Unhooded",
+			name: "Hyness-Unhooded",
 			baseSpecies: "Hyness",
 			forme: "Unhooded",
 			formeLetter: "U",
@@ -1264,7 +1267,7 @@ hynessunhooded: {
 },
 waterwraith: {
 			num: 6000058,
-			species: "Waterwraith", /* Pikmin 2 */
+			name: "Waterwraith", /* Pikmin 2 */
 			types: ["Ghost", "Water"],
 		gender: "N",
 			baseStats: {hp: 90, atk: 130, def: 80, spa: 70, spd: 150, spe: 80},
@@ -1275,7 +1278,7 @@ waterwraith: {
 },
 samus: {
 			num: 6000059,
-			species: "Samus", /* Metroid */
+			name: "Samus", /* Metroid */
 			types: ["Electric", "Fighting"],
 		gender: "F",
 			baseStats: {hp: 105, atk: 80, def: 95, spa: 145, spd: 95, spe: 85},
@@ -1285,7 +1288,7 @@ samus: {
 },
 taranza: {
 			num: 6000060,
-			species: "Taranza", /* Kirby: Triple Deluxe */
+			name: "Taranza", /* Kirby: Triple Deluxe */
 			types: ["Bug", "Psychic"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 90, def: 80, spa: 140, spd: 90, spe: 110},
@@ -1295,7 +1298,7 @@ taranza: {
 },
 donkeykong: {
 			num: 6000061,
-			species: "Donkey Kong",
+			name: "Donkey Kong",
 			types: ["Ground", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 130, atk: 140, def: 80, spa: 80, spd: 70, spe: 80},
@@ -1306,7 +1309,7 @@ donkeykong: {
 },
 galeem: {
 			num: 6000062,
-			species: "Galeem", /* Super Smash Bros. Ultimate */
+			name: "Galeem", /* Super Smash Bros. Ultimate */
 			types: ["Fairy", "Psychic"],
 		gender: "N",
 			baseStats: {hp: 100, atk: 60, def: 60, spa: 130, spd: 130, spe: 100},
@@ -1318,7 +1321,7 @@ galeem: {
 },
 galeemultimate: {
 			num: 6000062,
-			species: "Galeem-Ultimate",
+			name: "Galeem-Ultimate",
 		baseSpecies: "Galeem",
 		forme: "Ultimate",
 		formeLetter: "U",
@@ -1332,7 +1335,7 @@ galeemultimate: {
 },
 isabelle: {
 			num: 6000063,
-			species: "Isabelle", /* Animal Crossing: New Leaf */
+			name: "Isabelle", /* Animal Crossing: New Leaf */
 			types: ["Normal"],
 		gender: "F",
 			baseStats: {hp: 140, atk: 40, def: 70, spa: 40, spd: 130, spe: 110},
@@ -1341,17 +1344,17 @@ isabelle: {
 },
 joker: {
 			num: 6000064,
-			species: "Joker", /* Persona 5 */
+			name: "Joker", /* Persona 5 */
 			types: ["Dark"],
 		gender: "M",
-			baseStats: {hp: 70, atk: 120, def: 70, spa: 120, spd: 70, spe: 140},
+			baseStats: {hp: 85, atk: 100, def: 80, spa: 100, spd: 80, spe: 105},
 			abilities: {0: "Moxie", 1: "Mold Breaker", H: "Persona Change"},
 		heightm: 1.76,
-			weightkg: 55,
+			weightkg: 60,
 },
 riki: {
 			num: 6000065,
-			species: "Riki", /* Xenoblade Chronicles */
+			name: "Riki", /* Xenoblade Chronicles */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 145, atk: 67, def: 90, spa: 80, spd: 80, spe: 108},
@@ -1361,7 +1364,7 @@ riki: {
 },
 jevil: {
 			num: 6000066,
-			species: "Jevil", /* Deltarune */
+			name: "Jevil", /* Deltarune */
 			types: ["Dark", "Psychic"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 110, def: 95, spa: 110, spd: 105, spe: 105},
@@ -1370,17 +1373,17 @@ jevil: {
 },
 mario: {
 			num: 6000067,
-			species: "Mario", /* Super Mario */
+			name: "Mario", /* Super Mario */
 			types: ["Normal", "Fire"],
 		gender: "M",
-			baseStats: {hp: 100, atk: 110, def: 90, spa: 100, spd: 90, spe: 110},
+			baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 			abilities: {0: "Thick Fat", H: "Sheer Force"},
 		heightm: 1.55,
 			weightkg: 90,
 },
 	mariopaper: {
 		num: 6000067,
-		species: "Mario-Paper", /* Paper Mario */
+		name: "Mario-Paper", /* Paper Mario */
 		baseSpecies: "Mario",
 		forme: "Paper",
 		formeLetter: "P",
@@ -1392,27 +1395,72 @@ mario: {
 	},
 nagitokomaeda: {
 			num: 6000068,
-			species: "Nagito Komaeda", /* Danganronpa 2: Goodbye Despair */
+			name: "Nagito Komaeda", /* Danganronpa 2: Goodbye Despair */
 			types: ["Dark", "Fairy"],
 		gender: "M",
 			baseStats: {hp: 125, atk: 85, def: 70, spa: 90, spd: 85, spe: 100},
-			abilities: {0: "Serene Grace", H: "Merciless"},
+			abilities: {0: "Serene Grace", 1: "Super Luck", H: "Merciless"},
 		heightm: 1.8,
 			weightkg: 65,
 },
 yoshi: {
 			num: 6000069,
-			species: "Yoshi", /* Yoshi's Island */
+			name: "Yoshi", /* Yoshi's Island */
+			baseForme: "Green",
 			types: ["Dragon", "Normal"],
 		gender: "M",
 			baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 80, spe: 110},
-			abilities: {0: "Stamina", 1: "Hustle", H: "Scrappy"},
+			abilities: {0: "Stamina", 1: "Gluttony", H: "Scrappy"},
 		heightm: 1.75,
 			weightkg: 75.4,
+  color: "Green",
+		otherFormes: ["yoshired", "yoshiblue", "yoshiyellow"],
+},
+yoshired: {
+			num: 6000069,
+			name: "Yoshi-Red",
+			baseSpecies: "Yoshi",
+			forme: "Red",
+			formeLetter: "R",
+			types: ["Dragon", "Fire"],
+		gender: "M",
+			baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 80, spe: 110},
+			abilities: {0: "Stamina", 1: "Gluttony", H: "Scrappy"},
+		heightm: 1.75,
+			weightkg: 75.4,
+  color: "Red",
+},
+yoshiblue: {
+			num: 6000069,
+			name: "Yoshi-Blue",
+			baseSpecies: "Yoshi",
+			forme: "Blue",
+			formeLetter: "B",
+			types: ["Dragon", "Flying"],
+		gender: "M",
+			baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 80, spe: 110},
+			abilities: {0: "Stamina", 1: "Gluttony", H: "Scrappy"},
+		heightm: 1.75,
+			weightkg: 75.4,
+  color: "Blue",
+},
+yoshiyellow: {
+			num: 6000069,
+			name: "Yoshi-Yellow",
+			baseSpecies: "Yoshi",
+			forme: "Yellow",
+			formeLetter: "Y",
+			types: ["Dragon", "Ground"],
+		gender: "M",
+			baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 80, spe: 110},
+			abilities: {0: "Stamina", 1: "Gluttony", H: "Scrappy"},
+		heightm: 1.75,
+			weightkg: 75.4,
+  color: "Yellow",
 },
 masterchief: {
 			num: 6000070,
-			species: "Master Chief", /* Halo */
+			name: "Master Chief", /* Halo */
 			types: ["Steel", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 115, def: 120, spa: 125, spd: 80, spe: 80},
@@ -1421,17 +1469,17 @@ masterchief: {
 },
 spy: {
 			num: 6000071,
-			species: "Spy", /* Team Fortress 2 */
+			name: "Spy", /* Team Fortress 2 */
 			types: ["Dark"],
 		gender: "M",
-			baseStats: {hp: 50, atk: 150, def: 40, spa: 50, spd: 40, spe: 107},
+			baseStats: {hp: 63, atk: 150, def: 40, spa: 50, spd: 40, spe: 92},
 			abilities: {0: "Illusion", H: "Dead Ringer"},
 		heightm: 1.8,
 			weightkg: 53,
 },
 magolor: {
 			num: 6000072,
-			species: "Magolor", /* Kirby Returns to Dream Land */
+			name: "Magolor", /* Kirby Returns to Dream Land */
 			types: ["Psychic"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 100, def: 85, spa: 130, spd: 85, spe: 110},
@@ -1442,7 +1490,7 @@ magolor: {
 },
 magolorcrowned: {
 			num: 6000072,
-			species: "Magolor-Crowned",
+			name: "Magolor-Crowned",
 			baseSpecies: "Magolor",
 			forme: "Crowned",
 			formeLetter: "C",
@@ -1455,7 +1503,7 @@ magolorcrowned: {
 },
 magolorsoul: {
 			num: 6000072,
-			species: "Magolor-Soul",
+			name: "Magolor-Soul",
 			baseSpecies: "Magolor",
 			forme: "Soul",
 			formeLetter: "S",
@@ -1468,7 +1516,7 @@ magolorsoul: {
 },
 galleom: {
 			num: 6000073,
-			species: "Galleom", /* Super Smash Bros. */
+			name: "Galleom", /* Super Smash Bros. */
 			types: ["Steel", "Ground"],
 		gender: "N",
 			baseStats: {hp: 120, atk: 130, def: 100, spa: 80, spd: 85, spe: 85},
@@ -1478,7 +1526,7 @@ galleom: {
 },
 tenshihinanawi: {
 			num: 6000074,
-			species: "Tenshi Hinanawi", /* Touhou */
+			name: "Tenshi Hinanawi", /* Touhou */
 			types: ["Ground", "Rock"],
 		gender: "F",
 			baseStats: {hp: 120, atk: 110, def: 120, spa: 50, spd: 100, spe: 60},
@@ -1488,7 +1536,7 @@ tenshihinanawi: {
 },
 masterhand: {
 			num: 6000075,
-			species: "Master Hand", /* Super Smash Bros. */
+			name: "Master Hand", /* Super Smash Bros. */
 			types: ["Normal"],
 		gender: "N",
 			baseStats: {hp: 120, atk: 120, def: 100, spa: 100, spd: 80, spe: 80},
@@ -1498,27 +1546,27 @@ masterhand: {
 },
 subzero: {
 			num: 6000076,
-			species: "Sub-Zero", /* Mortal Kombat */
+			name: "Sub-Zero", /* Mortal Kombat */
 			types: ["Ice", "Fighting"],
 		gender: "M",
-			baseStats: {hp: 80, atk: 135, def: 85, spa: 115, spd: 65, spe: 100},
+			baseStats: {hp: 80, atk: 120, def: 80, spa: 110, spd: 60, spe: 90},
 			abilities: {0: "Iron Fist", 1: "Justified", H: "Chilling Atmosphere"},
 		heightm: 1.8,
 			weightkg: 70,
 },
 fi: {
 			num: 6000077,
-			species: "Fi", /* The Legend of Zelda: Skyward Sword */
+			name: "Fi", /* The Legend of Zelda: Skyward Sword */
 			types: ["Steel"],
 		gender: "N",
 			baseStats: {hp: 80, atk: 80, def: 80, spa: 125, spd: 90, spe: 125},
-			abilities: {0: "Sword Spirit"},
+			abilities: {0: "Sword Spirit", H: "Levitate"},
 		heightm: 1.7,
 			weightkg: 10,
 },
 makiharukawa: {
 			num: 6000078,
-			species: "Maki Harukawa", /* Danganronpa V3: Killing Harmony */
+			name: "Maki Harukawa", /* Danganronpa V3: Killing Harmony */
 			types: ["Dark", "Fighting"],
 		gender: "F",
 			baseStats: {hp: 130, atk: 125, def: 75, spa: 50, spd: 50, spe: 101},
@@ -1528,7 +1576,7 @@ makiharukawa: {
 },
 olimar: {
 			num: 6000079,
-			species: "Olimar", /* Pikmin */
+			name: "Olimar", /* Pikmin */
 			types: ["Bug"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 100, def: 90, spa: 60, spd: 90, spe: 100},
@@ -1538,7 +1586,7 @@ olimar: {
 },
 rosalina: {
 			num: 6000080,
-			species: "Rosalina", /* Super Mario Galaxy */
+			name: "Rosalina", /* Super Mario Galaxy */
 			types: ["Psychic", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 100, atk: 60, def: 80, spa: 110, spd: 140, spe: 80},
@@ -1548,7 +1596,7 @@ rosalina: {
 },
 galaxyman: {
 			num: 6000081,
-			species: "Galaxy Man", /* Mega Man 9 */
+			name: "Galaxy Man", /* Mega Man 9 */
 			types: ["Psychic", "Steel"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 80, def: 95, spa: 135, spd: 95, spe: 40},
@@ -1558,7 +1606,7 @@ galaxyman: {
 },
 urdnotwrex: {
 			num: 6000082,
-			species: "Urdnot Wrex", /* Mass Effect */
+			name: "Urdnot Wrex", /* Mass Effect */
 			types: ["Dragon", "Psychic"],
 		gender: "M",
 			baseStats: {hp: 105, atk: 130, def: 110, spa: 115, spd: 70, spe: 70},
@@ -1568,7 +1616,7 @@ urdnotwrex: {
 },
 somacruz: {
 			num: 6000083,
-			species: "Soma Cruz", /* Castlevania: Aria of Sorrow */
+			name: "Soma Cruz", /* Castlevania: Aria of Sorrow */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 50, atk: 55, def: 40, spa: 55, spd: 40, spe: 60},
@@ -1579,7 +1627,7 @@ somacruz: {
 },
 somacruzawakened: {
 			num: 6000083,
-			species: "Soma Cruz-Awakened",
+			name: "Soma Cruz-Awakened",
 			baseSpecies: "Soma Cruz",
 			forme: "Awakened",
 			formeLetter: "A",
@@ -1591,7 +1639,7 @@ somacruzawakened: {
 },
 fujiwaranomokou: {
 			num: 6000084,
-			species: "Fujiwara no Mokou", /* Touhou */
+			name: "Fujiwara no Mokou", /* Touhou */
 			types: ["Fire", "Fighting"],
 		gender: "F",
 			baseStats: {hp: 180, atk: 120, def: 100, spa: 80, spd: 120, spe: 80},
@@ -1602,7 +1650,7 @@ fujiwaranomokou: {
 },
 fujiwaranomokoureborn: {
 			num: 6000084,
-			species: "Fujiwara no Mokou-Reborn",
+			name: "Fujiwara no Mokou-Reborn",
 			baseSpecies: "Fujiwara no Mokou",
 			forme: "Reborn",
 			formeLetter: "R",
@@ -1615,7 +1663,7 @@ fujiwaranomokoureborn: {
 },
 link: {
 			num: 6000085,
-			species: "Link", /* The Legend of Zelda (This one's from Ocarina of Time) */
+			name: "Link", /* The Legend of Zelda (This one's from Ocarina of Time) */
 			types: ["Fighting"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 125, def: 110, spa: 80, spd: 85, spe: 105},
@@ -1624,7 +1672,7 @@ link: {
 },
 saber: {
 			num: 6000086,
-			species: "Saber", /* Fate Series */
+			name: "Saber", /* Fate Series */
 			types: ["Dragon", "Steel"],
 		gender: "F",
 			baseStats: {hp: 80, atk: 100, def: 90, spa: 130, spd: 110, spe: 100},
@@ -1634,7 +1682,7 @@ saber: {
 },
 shieldknight: {
 			num: 6000087,
-			species: "Shield Knight", /* Shovel Knight Treasure Trove */
+			name: "Shield Knight", /* Shovel Knight Treasure Trove */
 			types: ["Steel", "Fighting"],
 		genderRatio: {M: 0.125, F: 0.875},
 			baseStats: {hp: 95, atk: 100, def: 130, spa: 65, spd: 100, spe: 100},
@@ -1644,7 +1692,7 @@ shieldknight: {
 },
 neroclaudius: {
 			num: 6000088,
-			species: "Nero Claudius", /* Fate Series */
+			name: "Nero Claudius", /* Fate Series */
 			types: ["Fire", "Grass"],
 		gender: "F",
 			baseStats: {hp: 60, atk: 80, def: 70, spa: 70, spd: 90, spe: 130},
@@ -1655,7 +1703,7 @@ neroclaudius: {
 },
 nerobride: {
 			num: 6000088,
-			species: "Nero Bride",
+			name: "Nero Bride",
 		baseSpecies: "Nero Claudius",
 		forme: "Bride",
 		formeLetter: "B",
@@ -1668,7 +1716,7 @@ nerobride: {
 },
 zelda: {
 			num: 6000089,
-			species: "Zelda", /* The Legend of Zelda */
+			name: "Zelda", /* The Legend of Zelda */
 			types: ["Psychic"],
 		gender: "F",
 			baseStats: {hp: 75, atk: 85, def: 85, spa: 110, spd: 115, spe: 110},
@@ -1677,7 +1725,7 @@ zelda: {
 },
 morphoknight: {
 			num: 6000090,
-			species: "Morpho Knight", /* Kirby: Star Allies */
+			name: "Morpho Knight", /* Kirby: Star Allies */
 			types: ["Bug", "Ghost"],
 		gender: "N",
 			baseStats: {hp: 90, atk: 130, def: 90, spa: 120, spd: 90, spe: 80},
@@ -1688,7 +1736,7 @@ morphoknight: {
 },
 morphoknightex: {
 			num: 6000090,
-			species: "Morpho Knight-EX",
+			name: "Morpho Knight-EX",
 			baseSpecies: "Morpho Knight",
 			forme: "EX",
 			formeLetter: "X",
@@ -1701,7 +1749,7 @@ morphoknightex: {
 },
 theprince: {
 			num: 6000091,
-			species: "The Prince", /* Katamari Damacy */
+			name: "The Prince", /* Katamari Damacy */
 			types: ["Psychic"],
 		gender: "M",
 			baseStats: {hp: 50, atk: 90, def: 70, spa: 60, spd: 70, spe: 100},
@@ -1711,11 +1759,11 @@ theprince: {
 },
 landia: {
 			num: 6000092,
-			species: "Landia", /* Kirby Returns to Dream Land */
+			name: "Landia", /* Kirby Returns to Dream Land */
 			types: ["Dragon", "Flying"],
 		gender: "M",
 		baseForme: "Four",
-			baseStats: {hp: 130, atk: 130, def: 90, spa: 150, spd: 90, spe: 90},
+			baseStats: {hp: 130, atk: 130, def: 90, spa: 140, spd: 90, spe: 90},
 			abilities: {0: "Four Heads", H: "Stakeout"},
 		heightm: 0.8,
 			weightkg: 10,
@@ -1723,7 +1771,7 @@ landia: {
 },
 landiaone: {
 			num: 6000092,
-			species: "Landia-One",
+			name: "Landia-One",
 			baseSpecies: "Landia",
 			forme: "One",
 			formeLetter: "O",
@@ -1736,7 +1784,7 @@ landiaone: {
 },
 cirno: {
 			num: 6000093,
-			species: "Cirno", /* Touhou */
+			name: "Cirno", /* Touhou */
 			types: ["Ice", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 99, atk: 99, def: 99, spa: 99, spd: 99, spe: 99},
@@ -1747,7 +1795,7 @@ cirno: {
 },
 cirnotanned: {
 			num: 6000093,
-			species: "Cirno-Tanned",
+			name: "Cirno-Tanned",
 			baseSpecies: "Cirno",
 			forme: "Tanned",
 			formeLetter: "T",
@@ -1760,7 +1808,7 @@ cirnotanned: {
 },
 monokuma: {
 			num: 6000094,
-			species: "Monokuma", /* Danganronpa */
+			name: "Monokuma", /* Danganronpa */
 			types: ["Steel", "Dark"],
 		gender: "N",
 			baseStats: {hp: 60, atk: 115, def: 80, spa: 125, spd: 90, spe: 100},
@@ -1770,7 +1818,7 @@ monokuma: {
 },
 princesspeach: {
 			num: 6000095,
-			species: "Princess Peach", /* Super Mario */
+			name: "Princess Peach", /* Super Mario */
 			types: ["Normal", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 100, atk: 90, def: 75, spa: 105, spd: 125, spe: 95},
@@ -1780,7 +1828,7 @@ princesspeach: {
 },
 banjokazooie: {
 			num: 6000096,
-			species: "Banjo & Kazooie",
+			name: "Banjo & Kazooie",
 			types: ["Normal", "Flying"],
 			baseStats: {hp: 90, atk: 120, def: 90, spa: 60, spd: 90, spe: 100},
 			abilities: {0: "Honey Gather", 1: "Big Pecks", H: "Thick Fat"},
@@ -1790,7 +1838,7 @@ banjokazooie: {
 },
 banjokazooiewashingmachine: {
 			num: 6000096,
-			species: "Banjo & Kazooie-Washing Machine",
+			name: "Banjo & Kazooie-Washing Machine",
 			baseSpecies: "Banjo & Kazooie",
 			forme: "Washing Machine",
 			formeLetter: "W",
@@ -1802,7 +1850,7 @@ banjokazooiewashingmachine: {
 },
 banjokazooiedragonkazooie: {
 			num: 6000096,
-			species: "Banjo & Kazooie-Dragon Kazooie",
+			name: "Banjo & Kazooie-Dragon Kazooie",
 			baseSpecies: "Banjo & Kazooie",
 			forme: "Dragon Kazooie",
 			formeLetter: "D",
@@ -1814,7 +1862,7 @@ banjokazooiedragonkazooie: {
 },
 toriel: {
 			num: 6000097,
-			species: "Toriel", /* Undertale */
+			name: "Toriel", /* Undertale */
 			types: ["Fire", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 110, atk: 30, def: 50, spa: 130, spd: 150, spe: 70},
@@ -1824,7 +1872,7 @@ toriel: {
 },
 glados: {
 			num: 6000098,
-			species: "GLaDOS", /* Portal */
+			name: "GLaDOS", /* Portal */
 			types: ["Poison", "Steel"],
 		gender: "F",
 			baseStats: {hp: 120, atk: 80, def: 130, spa: 130, spd: 90, spe: 50},
@@ -1834,17 +1882,17 @@ glados: {
 },
 kyoko: {
 			num: 6000099,
-			species: "Kyoko", /* Suguri and 100% Orange Juice */
+			name: "Kyoko", /* SUGURI / 100% Orange Juice */
 			types: ["Ice"],
 		gender: "F",
-			baseStats: {hp: 90, atk: 50, def: 60, spa: 60, spd: 60, spe: 50},
-			abilities: {0: "Crystal Barrier"},
-		heightm: 1.7,
+			baseStats: {hp: 90, atk: 50, def: 160, spa: 60, spd: 160, spe: 50},
+			abilities: {0: "No Guard", 1: "Clear Body", H: "Crystal Barrier"},
+			heightm: 1.7,
 			weightkg: 55,
 },
 steve: {
 			num: 6000100,
-			species: "Steve?", /* Minecraft */
+			name: "Steve?", /* Minecraft */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
@@ -1854,7 +1902,7 @@ steve: {
 },
 dimentio: {
 			num: 6000101,
-			species: "Dimentio", /* Super Paper Mario */
+			name: "Dimentio", /* Super Paper Mario */
 			types: ["Psychic"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 64, def: 64, spa: 144, spd: 112, spe: 96},
@@ -1865,7 +1913,7 @@ dimentio: {
 },
 dimentiosuper: {
 			num: 6000101,
-			species: "Dimentio-Super",
+			name: "Dimentio-Super",
 			baseSpecies: "Dimentio",
 			forme: "Super",
 			formeLetter: "S",
@@ -1878,7 +1926,7 @@ dimentiosuper: {
 },
 traitorlord: {
 			num: 6000102,
-			species: "Traitor Lord", /* Hollow Knight */
+			name: "Traitor Lord", /* Hollow Knight */
 			types: ["Dark", "Bug"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 120, def: 85, spa: 90, spd: 75, spe: 90},
@@ -1888,7 +1936,7 @@ traitorlord: {
 },
 archer: {
 			num: 6000103,
-			species: "Archer", /* Fate/stay night */
+			name: "Archer", /* Fate/stay night */
 			types: ["Steel"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 100, def: 80, spa: 50, spd: 80, spe: 90},
@@ -1898,7 +1946,7 @@ archer: {
 },
 magus: {
 			num: 6000104,
-			species: "Magus", /* Chrono Trigger */
+			name: "Magus", /* Chrono Trigger */
 			types: ["Psychic", "Dark"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 96, def: 90, spa: 140, spd: 120, spe: 110},
@@ -1908,7 +1956,7 @@ magus: {
 },
 silver: {
 			num: 6000105,
-			species: "Silver", /* Sonic the Hedgehog */
+			name: "Silver", /* Sonic the Hedgehog */
 			types: ["Psychic"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 90, def: 90, spa: 120, spd: 80, spe: 140},
@@ -1919,7 +1967,7 @@ silver: {
 },
 silversuper: {
 			num: 6000105,
-			species: "Silver-Super",
+			name: "Silver-Super",
 		baseSpecies: "Silver",
 		forme: "Super",
 		formeLetter: "S",
@@ -1932,7 +1980,7 @@ silversuper: {
 },
 tamamonomae: {
 			num: 6000106,
-			species: "Tamamo no Mae", /* Fate/EXTRA */
+			name: "Tamamo no Mae", /* Fate/EXTRA */
 			types: ["Fire", "Ghost"],
 		gender: "F",
 			baseStats: {hp: 108, atk: 27, def: 63, spa: 99, spd: 99, spe: 99},
@@ -1943,7 +1991,7 @@ tamamonomae: {
 },
 tamamonomaesummer: {
 			num: 6000106,
-			species: "Tamamo no Mae-Summer",
+			name: "Tamamo no Mae-Summer",
 			baseSpecies: "Tamamo no Mae",
 			forme: "Summer",
 			formeLetter: "S",
@@ -1956,7 +2004,7 @@ tamamonomaesummer: {
 },
 tamamonomaeninetails: {
 			num: 6000106,
-			species: "Tamamo no Mae-Nine-Tails",
+			name: "Tamamo no Mae-Nine-Tails",
 			baseSpecies: "Tamamo no Mae",
 			forme: "Nine-Tails",
 			formeLetter: "9",
@@ -1969,7 +2017,7 @@ tamamonomaeninetails: {
 },
 knuckles: {
 			num: 6000107,
-			species: "Knuckles", /* Sonic the Hedgehog series */
+			name: "Knuckles", /* Sonic the Hedgehog series */
 			types: ["Ground", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 85, atk: 135, def: 105, spa: 70, spd: 85, spe: 110},
@@ -1979,7 +2027,7 @@ knuckles: {
 },
 hrh: {
 			num: 6000108,
-			species: "HR-H", /* Kirby 64 */
+			name: "HR-H", /* Kirby 64 */
 			types: ["Steel"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 125, def: 105, spa: 115, spd: 80, spe: 65},
@@ -1989,7 +2037,7 @@ hrh: {
 },
 uumuu: {
 			num: 6000109,
-			species: "Uumuu", /* Hollow Knight */
+			name: "Uumuu", /* Hollow Knight */
 			types: ["Electric", "Poison"],
 		gender: "N",
 			baseStats: {hp: 70, atk: 50, def: 140, spa: 100, spd: 140, spe: 30},
@@ -1999,7 +2047,7 @@ uumuu: {
 },
 ringoando: {
 			num: 6000110,
-			species: "Ringo Ando", /* Puyo Puyo */
+			name: "Ringo Ando", /* Puyo Puyo */
 			types: ["Electric", "Water"],
 		gender: "F",
 			baseStats: {hp: 80, atk: 100, def: 80, spa: 100, spd: 120, spe: 60},
@@ -2009,7 +2057,7 @@ ringoando: {
 },
 highpriest: {
 			num: 6000111,
-			species: "High Priest", /* Enter the Gungeon */
+			name: "High Priest", /* Enter the Gungeon */
 			types: ["Psychic", "Steel"],
 		gender: "N",
 			baseStats: {hp: 73, atk: 77, def: 76, spa: 122, spd: 114, spe: 108},
@@ -2020,7 +2068,7 @@ highpriest: {
 },
 sectonia: {
 			num: 6000112,
-			species: "Sectonia", /* Kirby: Triple Deluxe */
+			name: "Sectonia", /* Kirby: Triple Deluxe */
 			types: ["Bug", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 80, atk: 125, def: 75, spa: 115, spd: 85, spe: 120},
@@ -2031,7 +2079,7 @@ sectonia: {
 },
 sectoniadreamstalk: {
 			num: 6000112,
-			species: "Sectonia-Dreamstalk", 
+			name: "Sectonia-Dreamstalk", 
 		baseSpecies: "Sectonia",
 		forme: "Dreamstalk",
 		formeLetter: "D",
@@ -2044,7 +2092,7 @@ sectoniadreamstalk: {
 },
 sectoniasoul: {
 			num: 6000112,
-			species: "Sectonia-Soul", 
+			name: "Sectonia-Soul", 
 		baseSpecies: "Sectonia",
 		forme: "Soul",
 		formeLetter: "S",
@@ -2057,7 +2105,7 @@ sectoniasoul: {
 },
 sectoniasoulunrooted: {
 			num: 6000112,
-			species: "Sectonia-Soul-Unrooted", 
+			name: "Sectonia-Soul-Unrooted", 
 		baseSpecies: "Sectonia",
 		forme: "Soul-Unrooted",
 		formeLetter: "S",
@@ -2070,7 +2118,7 @@ sectoniasoulunrooted: {
 },
 creeper: {
 			num: 6000113,
-			species: "Creeper", /* Minecraft */
+			name: "Creeper", /* Minecraft */
 			types: ["Grass"],
 		gender: "N",
 			baseStats: {hp: 95, atk: 120, def: 50, spa: 55, spd: 50, spe: 50},
@@ -2082,7 +2130,7 @@ creeper: {
 },
 creepercharged: {
 			num: 6000113,
-			species: "Creeper-Charged",
+			name: "Creeper-Charged",
 		baseSpecies: "Creeper",
 		forme: "Charged",
 		formeLetter: "C",
@@ -2096,8 +2144,8 @@ creepercharged: {
 },
 darkmind: {
 			num: 6000114,
-			species: "Dark Mind", /* Kirby and the Amazing Mirror */
-			types: ["Rock", "Fire"],
+			name: "Dark Mind", /* Kirby and the Amazing Mirror */
+			types: ["Psychic", "Rock"],
 		gender: "N",
 			baseStats: {hp: 60, atk: 60, def: 110, spa: 130, spd: 110, spe: 110},
 			abilities: {0: "Levitate", H: "Emergency Exit"},
@@ -2106,11 +2154,11 @@ darkmind: {
 },
 darkmindtrue: {
 			num: 6000114,
-			species: "Dark Mind-True", 
+			name: "Dark Mind-True", 
 		baseSpecies: "Dark Mind",
 		forme: "True",
 		formeLetter: "T",
-			types: ["Rock", "Fire"],
+			types: ["Psychic", "Fire"],
 		gender: "N",
 			baseStats: {hp: 120, atk: 60, def: 100, spa: 140, spd: 100, spe: 80},
 			abilities: {0: "Levitate", H: "Emergency Exit"},
@@ -2120,7 +2168,7 @@ darkmindtrue: {
 },
 flandrescarlet: {
 			num: 6000115,
-			species: "Flandre Scarlet", /* Touhou */
+			name: "Flandre Scarlet", /* Touhou */
 			types: ["Fire", "Dark"],
 		gender: "F",
 			baseStats: {hp: 90, atk: 150, def: 50, spa: 150, spd: 50, spe: 130},
@@ -2130,32 +2178,32 @@ flandrescarlet: {
 },
 zeromus: {
 			num: 6000116,
-			species: "Zeromus", /* Final Fantasy IV / XII */
+			name: "Zeromus", /* Final Fantasy IV / XII */
 			types: ["Ghost"],
 		gender: "M",
 			baseStats: {hp: 40, atk: 40, def: 40, spa: 100, spd: 40, spe: 40},
 			abilities: {0: "Noncorporeal"},
 		heightm: 5,
 			weightkg: 100,
-		evos: ["truezeromus"]
+		evos: ["True Zeromus"]
 },
 truezeromus: {
 			num: 6000117,
-			species: "True Zeromus",
+			name: "True Zeromus",
 			types: ["Ghost", "Dark"],
 		gender: "M",
 			baseStats: {hp: 150, atk: 158, def: 148, spa: 101, spd: 52, spe: 59},
 			abilities: {0: "Flash Fire"},
 		heightm: 6.5,
 			weightkg: 500,
-		prevo: "zeromus"
+		prevo: "Zeromus"
 },
 dharkon: {
 			num: 6000118,
-			species: "Dharkon", /* Super Smash Bros. Ultimate */
+			name: "Dharkon", /* Super Smash Bros. Ultimate */
 			types: ["Dark", "Poison"],
 		gender: "N",
-			baseStats: {hp: 97, atk: 142, def: 101, spa: 65, spd: 88, spe: 100},
+			baseStats: {hp: 97, atk: 132, def: 131, spa: 65, spd: 58, spe: 100},
 			abilities: {0: "Bane of Light"},
   color: "Black",
 		heightm: 10.3,
@@ -2164,10 +2212,10 @@ dharkon: {
 },
 dharkonultimate: {
 			num: 6000118,
-			species: "Dharkon-Ultimate",
+			name: "Dharkon-Ultimate",
 			types: ["Dark", "Poison"],
 		gender: "N",
-			baseStats: {hp: 97, atk: 192, def: 104, spa: 75, spd: 88, spe: 110},
+			baseStats: {hp: 107, atk: 172, def: 171, spa: 65, spd: 58, spe: 110},
 			abilities: {0: "Bane of Light"},
   color: "Black",
 		heightm: 10.3,
@@ -2175,7 +2223,7 @@ dharkonultimate: {
 },
 deliciousfruit: {
 			num: 6000119,
-			species: "Delicious Fruit", /* I Wanna Be The Guy */
+			name: "Delicious Fruit", /* I Wanna Be The Guy */
 			types: ["Grass", "Poison"],
 		gender: "N",
 			baseStats: {hp: 30, atk: 150, def: 30, spa: 30, spd: 30, spe: 135},
@@ -2186,7 +2234,7 @@ deliciousfruit: {
 },
 ratsplatman: {
 			num: 6000120,
-			species: "Rat Splat Man", /* Rat Splat (Oric-1)*/
+			name: "Rat Splat Man", /* Rat Splat (Oric-1)*/
 			types: ["Fighting", "Poison"],
 		gender: "M",
 			baseStats: {hp: 72, atk: 125, def: 90, spa: 65, spd: 70, spe: 125},
@@ -2196,7 +2244,7 @@ ratsplatman: {
 },
 enderman: {
 			num: 6000121,
-			species: "Enderman", /* Minecraft */
+			name: "Enderman", /* Minecraft */
 			types: ["Psychic"],
 		gender: "N",
 			baseStats: {hp: 113, atk: 127, def: 71, spa: 61, spd: 71, spe: 127},
@@ -2207,7 +2255,7 @@ enderman: {
 },
 gargantuar: {
 			num: 6000122,
-			species: "Gargantuar", /* Plants vs. Zombies */
+			name: "Gargantuar", /* Plants vs. Zombies */
 			types: ["Ghost", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 140, atk: 140, def: 85, spa: 75, spd: 85, spe: 25},
@@ -2217,7 +2265,7 @@ gargantuar: {
 },
 imp: {
 			num: 5999987,
-			species: "Imp", /* Plants vs. Zombies (NOTE: THIS CANNOT BE USED IN COMBAT.) */
+			name: "Imp", /* Plants vs. Zombies (NOTE: THIS CANNOT BE USED IN COMBAT.) */
 			types: ["Ghost"],
 		gender: "M",
 			baseStats: {hp: 40, atk: 50, def: 20, spa: 20, spd: 20, spe: 100},
@@ -2227,58 +2275,61 @@ imp: {
 },
 smallfry: {
 			num: 6000123,
-			species: "Smallfry", /* Splatoon 2 */
+			name: "Smallfry", /* Splatoon 2 */
 			types: ["Poison", "Water"],
 			baseStats: {hp: 45, atk: 35, def: 30, spa: 25, spd: 30, spe: 85},
 			abilities: {0: "Little Pests", H: "Rattled"},
-		evos: ["chum"]
+		evos: ["Chum"]
 },
 chum: {
 			num: 6000124,
-			species: "Chum",
+			name: "Chum",
 			types: ["Poison", "Water"],
 			baseStats: {hp: 80, atk: 90, def: 85, spa: 50, spd: 75, spe: 90},
 			abilities: {0: "Restless", H: "Hustle"},
-		prevo: "smallfry",
-		evos: ["cohock"],
-		otherFormes: ["chumrestless"],
+			prevo: "Smallfry",
+			evos: ["Cohock"],
+			otherFormes: ["Chumrestless"],
+			formeOrder: ["Chum", "Chum-Restless"]
 },
 chumrestless: {
 			num: 6000124,
-			species: "Chum-Restless",
+			name: "Chum-Restless",
 		baseSpecies: "Chum",
 		forme: "Restless",
 		formeLetter: "R",
 			types: ["Poison", "Water"],
 			baseStats: {hp: 40, atk: 90, def: 85, spa: 50, spd: 75, spe: 130},
 			abilities: {0: "Restless"},
-		prevo: "smallfry",
-		evos: ["cohock"],
+		prevo: "Smallfry",
+		evos: ["Cohock"],
 },
 cohock: {
 			num: 6000125,
-			species: "Cohock",
+			name: "Cohock",
 			types: ["Poison", "Water"],
 			baseStats: {hp: 130, atk: 110, def: 105, spa: 50, spd: 85, spe: 60},
 			abilities: {0: "Thick Fat", H: "Sturdy"},
-		prevo: "chum",
+			prevo: "Chum",
 },
 	fairies: {
 		num: 6000126,
-		species: "Fairies", /* Touhou */
+		name: "Fairies", /* Touhou */
 		types: ["Fairy"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 50, spa: 70, spd: 50, spe: 100},
 		abilities: {0: "Fairy Swarm"},	
 		heightm: 1.2,
-   		weightkg: 30,
-		
-		otherFormes: ["fairiesbug", "fairiesdark", "fairiesdragon", "fairieselectric", "fairiesflying", "fairiesfighting", "fairiesfire", "fairiesnormal", "fairiesghost", "fairiesgrass", "fairiesground", "fairiesice", "fairiespoison", "fairiespsychic", "fairiesrock", "fairiessteel", "fairieswater"],
+  		weightkg: 30,
+		otherFormes: ["Fairies-Bug", "Fairies-Dark", "Fairies-Dragon", "Fairies-Electric", "Fairies-Flying", "Fairies-Fighting", "Fairies-fire", "Fairies-normal", "Fairies-ghost", "Fairies-grass", "Fairies-Ground", "Fairies-Ice", "Fairies-Poison", "Fairies-Psychic", "Fairies-Rock", "Fairies-Steel", "Fairies-Water"],
+		formeOrder: [
+			"Fairies", "Fairies-Normal", "Fairies-Fighting", "Fairies-Flying", "Fairies-Poison", "Fairies-Ground", "Fairies-Rock", "Fairies-Bug", "Fairies-Ghost", "Fairies-Steel", "Fairies-Fire", "Fairies-Water", "Fairies-Grass", "Fairies-Electric", "Fairies-Psychic", "Fairies-Ice", "Fairies-Dragon", "Fairies-Dark",
+		],
 	},
 	
 	fairiesbug: {
 		num: 6000126,
-		species: "Fairies-Bug",
+		name: "Fairies-Bug",
 		baseSpecies: "Fairies",
 		forme: "Bug",
 		formeLetter: "B",
@@ -2293,7 +2344,7 @@ cohock: {
 	
 	fairiesdark: {
 		num: 6000126,
-		species: "Fairies-Dark",
+		name: "Fairies-Dark",
 		baseSpecies: "Fairies",
 		forme: "Dark",
 		formeLetter: "D",
@@ -2308,7 +2359,7 @@ cohock: {
 	
 	fairiesdragon: {
 		num: 6000126,
-		species: "Fairies-Dragon",
+		name: "Fairies-Dragon",
 		baseSpecies: "Fairies",
 		forme: "Dragon",
 		formeLetter: "D",
@@ -2323,7 +2374,7 @@ cohock: {
 	
 	fairieselectric: {
 		num: 6000126,
-		species: "Fairies-Electric",
+		name: "Fairies-Electric",
 		baseSpecies: "Fairies",
 		forme: "Electric",
 		formeLetter: "E",
@@ -2338,7 +2389,7 @@ cohock: {
 	
 	fairiesflying: {
 		num: 6000126,
-		species: "Fairies-Flying",
+		name: "Fairies-Flying",
 		baseSpecies: "Fairies",
 		forme: "Flying",
 		formeLetter: "F",
@@ -2353,7 +2404,7 @@ cohock: {
 	
 	fairiesfighting: {
 		num: 6000126,
-		species: "Fairies-Fighting",
+		name: "Fairies-Fighting",
 		baseSpecies: "Fairies",
 		forme: "Fighting",
 		formeLetter: "F",
@@ -2368,7 +2419,7 @@ cohock: {
 	
 	fairiesfire: {
 		num: 6000126,
-		species: "Fairies-Fire",
+		name: "Fairies-Fire",
 		baseSpecies: "Fairies",
 		forme: "Fire",
 		formeLetter: "F",
@@ -2383,7 +2434,7 @@ cohock: {
 	
 	fairiesghost: {
 		num: 6000126,
-		species: "Fairies-Ghost",
+		name: "Fairies-Ghost",
 		baseSpecies: "Fairies",
 		forme: "Ghost",
 		formeLetter: "G",
@@ -2398,7 +2449,7 @@ cohock: {
 	
 	fairiesgrass: {
 		num: 6000126,
-		species: "Fairies-Grass",
+		name: "Fairies-Grass",
 		baseSpecies: "Fairies",
 		forme: "Grass",
 		formeLetter: "G",
@@ -2413,7 +2464,7 @@ cohock: {
 	
 	fairiesground: {
 		num: 6000126,
-		species: "Fairies-Ground",
+		name: "Fairies-Ground",
 		baseSpecies: "Fairies",
 		forme: "Ground",
 		formeLetter: "G",
@@ -2428,7 +2479,7 @@ cohock: {
 	
 	fairiesice: {
 		num: 6000126,
-		species: "Fairies-Ice",
+		name: "Fairies-Ice",
 		baseSpecies: "Fairies",
 		forme: "Ice",
 		formeLetter: "I",
@@ -2443,7 +2494,7 @@ cohock: {
 	
 	fairiesnormal: {
 		num: 6000126,
-		species: "Fairies-Normal",
+		name: "Fairies-Normal",
 		baseSpecies: "Fairies",
 		forme: "Normal",
 		formeLetter: "N",
@@ -2458,7 +2509,7 @@ cohock: {
 	
 	fairiespoison: {
 		num: 6000126,
-		species: "Fairies-Poison",
+		name: "Fairies-Poison",
 		baseSpecies: "Fairies",
 		forme: "Poison",
 		formeLetter: "P",
@@ -2473,7 +2524,7 @@ cohock: {
 	
 	fairiespsychic: {
 		num: 6000126,
-		species: "Fairies-Psychic",
+		name: "Fairies-Psychic",
 		baseSpecies: "Fairies",
 		forme: "Psychic",
 		formeLetter: "P",
@@ -2488,7 +2539,7 @@ cohock: {
 	
 	fairiesrock: {
 		num: 6000126,
-		species: "Fairies-Rock",
+		name: "Fairies-Rock",
 		baseSpecies: "Fairies",
 		forme: "Rock",
 		formeLetter: "R",
@@ -2503,7 +2554,7 @@ cohock: {
 	
 	fairiessteel: {
 		num: 6000126,
-		species: "Fairies-Steel",
+		name: "Fairies-Steel",
 		baseSpecies: "Fairies",
 		forme: "Steel",
 		formeLetter: "S",
@@ -2518,7 +2569,7 @@ cohock: {
 	
 	fairieswater: {
 		num: 6000126,
-		species: "Fairies-Water",
+		name: "Fairies-Water",
 		baseSpecies: "Fairies",
 		forme: "Water",
 		formeLetter: "W",
@@ -2532,29 +2583,29 @@ cohock: {
 	},
 nightmarespowerorb: {
 			num: 6000127,
-			species: "Nightmare's Power Orb", /* Kirby's Adventure */
+			name: "Nightmare's Power Orb", /* Kirby's Adventure */
 			types: ["Flying", "Ghost"],
-			baseStats: {hp: 50, atk: 50, def: 110, spa: 100, spd: 110, spe: 100},
+			baseStats: {hp: 110, atk: 50, def: 80, spa: 100, spd: 80, spe: 100},
 			abilities: {0: "Bad Dreams"},
   color: "Blue",
   heightm: 0.4,
   weightkg: 10,
-		evos: ["nightmarewizard"]
+		evos: ["Nightmare Wizard"]
 },
 nightmarewizard: {
 			num: 6000128,
-			species: "Nightmare Wizard",
+			name: "Nightmare Wizard",
 			types: ["Flying", "Ghost"],
 			baseStats: {hp: 70, atk: 60, def: 120, spa: 120, spd: 120, spe: 110},
 			abilities: {0: "Bad Dreams"},
   color: "Purple",
   heightm: 1.5,
   weightkg: 10,
-		prevo: "nightmarespowerorb",
+		prevo: "Nightmare's Power Orb",
 },
 woodman: {
 			num: 6000129,
-			species: "Wood Man", /* Mega Man 2 */
+			name: "Wood Man", /* Mega Man 2 */
 			types: ["Grass"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 125, def: 140, spa: 55, spd: 105, spe: 55},
@@ -2565,7 +2616,7 @@ woodman: {
 },
 soulelizabethravenous: {
 			num: 6000130,
-			species: "Soul Elizabeth Ravenous", /* Dreamshatter Rondo */
+			name: "Soul Elizabeth Ravenous", /* Dreamshatter Rondo */
 			types: ["Ghost", "Steel"],
 		gender: "F",
 			baseStats: {hp: 125, atk: 135, def: 90, spa: 130, spd: 90, spe: 80},
@@ -2576,7 +2627,7 @@ soulelizabethravenous: {
 },
 camilla: {
 			num: 6000131,
-			species: "Camilla", /* Fire Emblem: Fates */
+			name: "Camilla", /* Fire Emblem: Fates */
 			types: ["Flying", "Dragon"],
 		gender: "F",
 			baseStats: {hp: 60, atk: 130, def: 90, spa: 80, spd: 120, spe: 120},
@@ -2587,7 +2638,7 @@ camilla: {
 },
 romulus: {
 			num: 6000132,
-			species: "Romulus", /* Fate: Grand Order */
+			name: "Romulus", /* Fate: Grand Order */
 			types: ["Grass"],
 			gender: "M",
 			baseStats: {hp: 120, atk: 100, def: 130, spa: 60, spd: 90, spe: 110},
@@ -2598,7 +2649,7 @@ romulus: {
 },
 lucina: {
 			num: 6000133,
-			species: "Lucina", /* Fire Emblem: Awakening */
+			name: "Lucina", /* Fire Emblem: Awakening */
 			types: ["Fighting", "Psychic"],
 			gender: "F",
 			baseStats: {hp: 85, atk: 105, def: 80, spa: 55, spd: 80, spe: 125},
@@ -2609,7 +2660,7 @@ lucina: {
 },
 austincarter: {
 			num: 6000134,
-			species: "Austin Carter", /* Nitrome */
+			name: "Austin Carter", /* Nitrome */
 			types: ["Fire"],
 			gender: "M",
 			baseStats: {hp: 80, atk: 125, def: 70, spa: 125, spd: 70, spe: 95,},
@@ -2620,7 +2671,7 @@ austincarter: {
 },
 biolizard: {
 			num: 6000135,
-			species: "Biolizard", /* Sonic Adventure 2 */
+			name: "Biolizard", /* Sonic Adventure 2 */
 			types: ["Dragon"],
 			gender: "N",
 			baseStats: {hp: 150, atk: 50, def: 120, spa: 60, spd: 100, spe: 20,},
@@ -2628,11 +2679,11 @@ biolizard: {
 			color: "Red",
 			heightm: 10,
 			weightkg: 500,
-			evos: ["finalhazard"],
+			evos: ["Finalhazard"],
 },
 finalhazard: {
 			num: 6000136,
-			species: "Finalhazard",
+			name: "Finalhazard",
 			types: ["Dragon", "Rock"],
 			gender: "N",
 			baseStats: {hp: 180, atk: 100, def: 140, spa: 120, spd: 110, spe: 30,},
@@ -2640,13 +2691,13 @@ finalhazard: {
 			color: "Red",
 			heightm: 2700,
 			weightkg: 999.9,
-			prevo: "biolizard",
+			prevo: "Biolizard",
 			evoType: "levelHold",
 			evoItem: "Chaos Emeralds",
 },
 whambamrock: {
 			num: 6000137,
-			species: "Wham Bam Rock", /* Kirby Super Star */
+			name: "Wham Bam Rock", /* Kirby Super Star */
 			types: ["Rock"],
 			gender: "M",
 			baseStats: {hp: 90, atk: 130, def: 90, spa: 60, spd: 60, spe: 50,},
@@ -2654,11 +2705,11 @@ whambamrock: {
 			color: "Brown",
 			heightm: 1.1,
 			weightkg: 70,
-			evos: ["whambamjewel"]
+			evos: ["Wham Bam Jewel"]
 },
 whambamjewel: {
 			num: 6000138,
-			species: "Wham Bam Jewel",
+			name: "Wham Bam Jewel",
 			types: ["Rock"],
 			gender: "M",
 			baseStats: {hp: 110, atk: 150, def: 110, spa: 80, spd: 80, spe: 70,},
@@ -2666,21 +2717,22 @@ whambamjewel: {
 			color: "Blue",
 			heightm: 1.4,
 			weightkg: 70,
-			prevo: "whambamrock",
+			prevo: "Wham Bam Rock",
 },
 radiance: {
 			num: 6000139,
-			species: "Radiance", /* Hollow Knight */
+			name: "Radiance", /* Hollow Knight */
 			types: ["Psychic", "Fire"],
 			gender: "F",
 			baseStats: {hp: 110, atk: 120, def: 80, spa: 140, spd: 120, spe: 100,},
 			abilities: {0: "Dazzling", H: "Drought"},
 			color: "White",
-			otherFormes: ["radianceabsolute"],
+			otherFormes: ["Radiance-Absolute"],
+			formeOrder: ["Radiance", "Radiance-Absolute"]
 },
 radianceabsolute: {
 			num: 6000139,
-			species: "Radiance-Absolute",
+			name: "Radiance-Absolute",
 			baseSpecies: "Radiance",
 			forme: "Absolute",
 			formeLetter: "A",
@@ -2692,19 +2744,19 @@ radianceabsolute: {
 },
 bluebaby: {
 			num: 6000140,
-			species: "Blue Baby", /* Binding of Isaac */
+			name: "Blue Baby", /* Binding of Isaac */
 			types: ["Ghost", "Fairy"],
 			gender: "M",
-			baseStats: {hp: 10, atk: 78, def: 161, spa: 105, spd: 161, spe: 105,},
+			baseStats: {hp: 10, atk: 78, def: 111, spa: 105, spd: 111, spe: 105,},
 			abilities: {0: "Still Heart"},
 			color: "Blue",
 			heightm: 1,
 			weightkg: 15,
-			evos: ["hush"],
+			evos: ["Hush"],
 },
 hush: {
 			num: 6000141,
-			species: "Hush", /* Binding of Isaac: Afterbirth */
+			name: "Hush", /* Binding of Isaac: Afterbirth */
 			types: ["Ghost", "Ground"],
 			gender: "M",
 			baseStats: {hp: 144, atk: 78, def: 144, spa: 105, spd: 144, spe: 5,},
@@ -2712,22 +2764,23 @@ hush: {
 			color: "Blue",
 			heightm: 3,
 			weightkg: 150,
-			prevo: "bluebaby",
+			prevo: "Blue Baby",
 			evoType: "trade",
 			evoItem: "Reaper Cloth",
 },
 promestein: {
 			num: 6000142,
-			species: "Promestein", /* Monster Girl Quest */
+			name: "Promestein", /* Monster Girl Quest */
 			types: ["Psychic", "Grass"],
 			gender: "F",
 			baseStats: {hp: 130, atk: 95, def: 90, spa: 100, spd: 95, spe: 90},
 			abilities: {0: "Regenerator", 1: "Chlorophyll", H: "Mad Scientist Angel"},
-			otherFormes: ["promesteinultimate"],
+			otherFormes: ["Promestein-Ultimate"],
+			formeOrder: ["Promestein", "Promestein-Ultimate"]
 },
 promesteinultimate: {
 			num: 6000142,
-			species: "Promestein-Ultimate",
+			name: "Promestein-Ultimate",
 			baseSpecies: "Promestein",
 			forme: "Ultimate",
 			formeLetter: "U",
@@ -2738,25 +2791,25 @@ promesteinultimate: {
 },
 zotethemighty: {
 			num: 6000143,
-			species: "Zote the Mighty", /* Hollow Knight */
+			name: "Zote the Mighty", /* Hollow Knight */
 			types: ["Bug"],
 			gender: "M",
 			baseStats: {hp: 30, atk: 35, def: 30, spa: 20, spd: 35, spe: 50},
 			abilities: {0: "Klutz"},
-		evos: ["greyprincezote"]
+		evos: ["Grey Prince Zote"]
 },
 greyprincezote: {
 			num: 6000144,
-			species: "Grey Prince Zote",
+			name: "Grey Prince Zote",
 			types: ["Bug", "Psychic"],
 			gender: "M",
 			baseStats: {hp: 100, atk: 150, def: 85, spa: 80, spd: 85, spe: 100},
 			abilities: {0: "Klutz"},
-		prevo: "zotethemighty",
+		prevo: "Zote the Mighty",
 },
 ghast: {
 			num: 6000145,
-			species: "Ghast", /* Minecraft */
+			name: "Ghast", /* Minecraft */
 			types: ["Fire"],
 			gender: "N",
 			baseStats: {hp: 70, atk: 125, def: 60, spa: 90, spd: 60, spe: 85},
@@ -2764,16 +2817,17 @@ ghast: {
 },
 undyne: {
 			num: 6000146,
-			species: "Undyne", /* Undertale */
+			name: "Undyne", /* Undertale */
 			types: ["Fighting", "Water"],
 			gender: "F",
 			baseStats: {hp: 100, atk: 120, def: 90, spa: 80, spd: 80, spe: 60},
 			abilities: {0: "Justified", 1: "Battle Armor", H: "Undying Determination"},
-			otherFormes: ["undynetheundying"],
+			otherFormes: ["Undyne-The Undying"],
+			formeOrder: ["Undyne", "Undyne-The Undying"]
 },
 undynetheundying: {
 			num: 6000146,
-			species: "Undyne-The Undying",
+			name: "Undyne-The Undying",
 			baseSpecies: "Undyne",
 			forme: "Undying",
 			formeLetter: "U",
@@ -2784,7 +2838,7 @@ undynetheundying: {
 },
 rebel: {
 			num: 6000147,
-			species: "Rebel", /* Nuclear Throne */
+			name: "Rebel", /* Nuclear Throne */
 			types: ["Dark"],
 			gender: "F",
 			baseStats: {hp: 80, atk: 70, def: 60, spa: 110, spd: 90, spe: 90},
@@ -2792,16 +2846,17 @@ rebel: {
 },
 drawcia: {
 			num: 6000148,
-			species: "Drawcia", /* Kirby */
+			name: "Drawcia", /* Kirby */
 			types: ["Poison", "Psychic"],
 			gender: "F",
 			baseStats: {hp: 90, atk: 80, def: 70, spa: 130, spd: 120, spe: 110},
 			abilities: {0: "Levitate"},
-			otherFormes: ["drawciasoul"],
+			otherFormes: ["Drawcia-Soul"],
+			formeOrder: ["Drawcia", "Drawcia-Soul"]
 },
 drawciasoul: {
 			num: 6000148,
-			species: "Drawcia-Soul",
+			name: "Drawcia-Soul",
 			baseSpecies: "Drawcia",
 			forme: "Soul",
 			formeLetter: "S",
@@ -2812,18 +2867,19 @@ drawciasoul: {
 },
 whispywoods: {
 			num: 6000149,
-			species: "Whispy Woods", /* Kirby */
+			name: "Whispy Woods", /* Kirby */
 			types: ["Grass"],
 			gender: "M",
 			baseStats: {hp: 90, atk: 100, def: 130, spa: 90, spd: 90, spe: 30},
 			abilities: {0: "Forest Breeze", H: "Harvest"},
-			otherFormes: ["whispywoodsrevenge"],
+			otherFormes: ["Whispy Woods-Revenge"],
+			formeOrder: ["Whispy Woods", "Whispy Woods-Revenge"]
 			heightm: 2.3,
 			weightkg: 300,
 },
 whispywoodsrevenge: {
 			num: 6000149,
-			species: "Whispy Woods-Revenge",
+			name: "Whispy Woods-Revenge",
 			baseSpecies: "Whispy Woods",
 			forme: "Revenge",
 			formeLetter: "R",
@@ -2836,7 +2892,7 @@ whispywoodsrevenge: {
 },
 melting: {
 			num: 6000150,
-			species: "Melting", /* Nuclear Throne */
+			name: "Melting", /* Nuclear Throne */
 			types: ["Normal", "Ghost"],
 			gender: "M",
 			baseStats: {hp: 20, atk: 85, def: 50, spa: 85, spd: 50, spe: 90},
@@ -2844,7 +2900,7 @@ melting: {
 },
 trouppleking: {
 			num: 6000151,
-			species: "Troupple King", /* Shovel Knight */
+			name: "Troupple King", /* Shovel Knight */
 			types: ["Water", "Grass"],
 			gender: "M",
 			baseStats: {hp: 130, atk: 120, def: 70, spa: 110, spd: 70, spe: 70},
@@ -2852,7 +2908,7 @@ trouppleking: {
 },
 kyokokirigiri: {
 			num: 6000152,
-			species: "Kyoko Kirigiri", /* Danganronpa */
+			name: "Kyoko Kirigiri", /* Danganronpa */
 			types: ["Psychic"],
 			gender: "F",
 			baseStats: {hp: 68, atk: 75, def: 80, spa: 98, spd: 127, spe: 87},
@@ -2861,27 +2917,27 @@ kyokokirigiri: {
 },
 	guardian: {
 		num: 6000153,
-		species: "Guardian", /* Minecraft */
+		name: "Guardian", /* Minecraft */
 		types: ["Water", "Rock"],
 		baseStats: {hp: 80, atk: 60, def: 90, spa: 100, spd: 70, spe: 70},
 		abilities: {0: "Swift Swim", H: "Rough Skin"},
 		heightm: 1,
 		weightkg: 50,
-		evos: ["elderguardian"],
+		evos: ["Elder Guardian"],
 	},
 	elderguardian: {
 		num: 6000154,
-		species: "Elder Guardian",
+		name: "Elder Guardian",
 		types: ["Water", "Rock"],
 		baseStats: {hp: 130, atk: 80, def: 100, spa: 130, spd: 80, spe: 70},
 		abilities: {0: "Mining Fatigue", H: "Rough Skin"},
 		heightm: 1.7,
 		weightkg: 99,
-		prevo: ["guardian"],
+		prevo: ["Guardian"],
 	},
 	ridley: {
 		num: 6000155,
-		species: "Ridley", /* Metroid */
+		name: "Ridley", /* Metroid */
 		types: ["Dark", "Dragon"],
 		gender: "M",
 		baseStats: {hp: 102, atk: 126, def: 96, spa: 95, spd: 86, spe: 75},
@@ -2891,18 +2947,19 @@ kyokokirigiri: {
 	},
 	batter: {
 		num: 6000156,
-		species: "Batter", /* OFF */
+		name: "Batter", /* OFF */
 		types: ["Fighting", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 130, def: 72, spa: 60, spd: 72, spe: 111},
 		abilities: {0: "Justified", 1: "Inner Focus", H: "Sheer Force"},
 		heightm: 1.8,
 		weightkg: 88,
-		otherFormes: ["batterbad"],
+		otherFormes: ["Batter-Bad"],
+		formeOrder: ["Batter", "Batter-Bad"]
 	},
 	batterbad: {
 		num: 6000156,
-		species: "Batter-Bad",
+		name: "Batter-Bad",
 		baseSpecies: "Batter",
 		forme: "Bad",
 		formeLetter: "B",
@@ -2915,17 +2972,18 @@ kyokokirigiri: {
 	},
 	bigrig: {
 		num: 6000157,
-		species: "Big Rig", /* Big Rigs: Over the Road Racing */
+		name: "Big Rig", /* Big Rigs: Over the Road Racing */
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 90, atk: 60, def: 80, spa: 40, spd: 75, spe: 25},
 		abilities: {0: "Infinite Acceleration", H: "Flash Fire"},
 		heightm: 2.2,
-		weightkg: 0.1,
-		otherFormes: ["bigrighyperspeed"],
+		weightkg: 750,
+		otherFormes: ["Big Rig-Hyperspeed"],
+		formeOrder: ["Big Rig", "Big Rig-Hyperspeed"]
 	},
 	bigrighyperspeed: {
 		num: 6000157,
-		species: "Big Rig-Hyperspeed",
+		name: "Big Rig-Hyperspeed",
 		baseSpecies: "Big Rig",
 		forme: "Hyperspeed",
 		formeLetter: "H",
@@ -2937,22 +2995,23 @@ kyokokirigiri: {
 	},
 	shantae: {
 		num: 6000158,
-		species: "Shantae",
-		types: ["Fairy"],
+		name: "Shantae",
+		types: ["Psychic", "Normal"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 95, def: 75, spa: 95, spd: 75, spe: 75},
 		abilities: {0: "Belly Dances"},
 		heightm: 1.6,
 		weightkg: 62,
-		otherFormes: ["shantaeelephant", "shantaespider", "shantaeharpy"]
+		otherFormes: ["Shantae-Elephant", "Shantae-Spider", "Shantae-Harpy"],
+		formeOrder: ["Shantae", "Shantae-Elephant", "Shantae-Spider", "Shantae-Harpy"]
 	},
 	shantaeelephant: {
 		num: 6000158,
-		species: "Shantae-Elephant",
+		name: "Shantae-Elephant",
 		baseSpecies: "Shantae",
 		forme: "Elephant",
 		formeLetter: "E",
-		types: ["Fairy", "Ground"],
+		types: ["Psychic", "Ground"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 150, def: 130, spa: 55, spd: 55, spe: 25},
 		abilities: {0: "Belly Dances"},
@@ -2961,11 +3020,11 @@ kyokokirigiri: {
 	},
 	shantaespider: {
 		num: 6000158,
-		species: "Shantae-Spider",
+		name: "Shantae-Spider",
 		baseSpecies: "Shantae",
 		forme: "Spider",
 		formeLetter: "S",
-		types: ["Fairy", "Poison"],
+		types: ["Psychic", "Poison"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 50, def: 75, spa: 115, spd: 75, spe: 100},
 		abilities: {0: "Belly Dances"},
@@ -2974,11 +3033,11 @@ kyokokirigiri: {
 	},
 	shantaeharpy: {
 		num: 6000158,
-		species: "Shantae-Harpy",
+		name: "Shantae-Harpy",
 		baseSpecies: "Shantae",
 		forme: "Harpy",
 		formeLetter: "H",
-		types: ["Fairy", "Flying"],
+		types: ["Psychic", "Flying"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 105, def: 40, spa: 105, spd: 45, spe: 120},
 		abilities: {0: "Belly Dances"},
@@ -2987,17 +3046,17 @@ kyokokirigiri: {
 	},
 	kingprotea: {
 		num: 6000159,
-		species: "Kingprotea", /* Fate/EXTRA */
+		name: "Kingprotea", /* Fate/EXTRA */
 		types: ["Grass", "Water"],
 		gender: "F",
-		baseStats: {hp: 165, atk: 145, def: 115, spa: 70, spd: 115, spe: 110},
+		baseStats: {hp: 150, atk: 150, def: 110, spa: 60, spd: 110, spe: 110},
 		abilities: {0: "Pressure", H: "Huge Scale"},
 		heightm: 5,
 		weightkg: 999.9,
 	},
 	reimuhakurei: {
 		num: 6000160,
-		species: "Reimu Hakurei", /* Touhou */
+		name: "Reimu Hakurei", /* Touhou */
 		types: ["Flying", "Psychic"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 95, spd: 140, spe: 85},
@@ -3007,18 +3066,19 @@ kyokokirigiri: {
 	},
 	orochi: {
 		num: 6000161,
-		species: "Orochi", /* Okami */
+		name: "Orochi", /* Okami */
 		types: ["Dragon"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 104, def: 120, spa: 128, spd: 80, spe: 56},
 		abilities: {0: "Eight Elemental Heads"},
 		heightm: 10,
 		weightkg: 888.8,
-		otherFormes: ["orochitrue"],
+		otherFormes: ["Orochi-True"],
+		formeOrder: ["Orochi", "Orochi-True"]
 	},
 	orochitrue: {
 		num: 6000161,
-		species: "Orochi-True",
+		name: "Orochi-True",
 		baseSpecies: "Orochi",
 		forme: "True",
 		formeLetter: "T",
@@ -3031,7 +3091,7 @@ kyokokirigiri: {
 	},
 	vortexpillar: {
 		num: 6000162,
-		species: "Vortex Pillar", /* Terraria */
+		name: "Vortex Pillar", /* Terraria */
 		types: ["Rock", "Bug"],
 		gender: "N",
 		baseStats: {hp: 127, atk: 113, def: 89, spa: 61, spd: 137, spe: 53},
@@ -3041,7 +3101,7 @@ kyokokirigiri: {
 	},
 	stardustpillar: {
 		num: 6000163,
-		species: "Stardust Pillar",
+		name: "Stardust Pillar",
 		types: ["Rock", "Water"],
 		gender: "N",
 		baseStats: {hp: 127, atk: 61, def: 137, spa: 113, spd: 89, spe: 53},
@@ -3051,7 +3111,7 @@ kyokokirigiri: {
 	},
 	nebulapillar: {
 		num: 6000164,
-		species: "Nebula Pillar",
+		name: "Nebula Pillar",
 		types: ["Rock", "Psychic"],
 		gender: "N",
 		baseStats: {hp: 127, atk: 89, def: 61, spa: 137, spd: 113, spe: 53},
@@ -3061,7 +3121,7 @@ kyokokirigiri: {
 	},
 	solarpillar: {
 		num: 6000165,
-		species: "Solar Pillar",
+		name: "Solar Pillar",
 		types: ["Rock", "Fire"],
 		gender: "N",
 		baseStats: {hp: 127, atk: 137, def: 113, spa: 89, spd: 61, spe: 53},
@@ -3071,7 +3131,7 @@ kyokokirigiri: {
 	},
 	chromedino: {
 		num: 6000166,
-		species: "Chrome Dino", /* google chrome no connection endless running game */
+		name: "Chrome Dino", /* google chrome no connection endless running game */
 		types: ["Dragon"],
 		baseStats: {hp: 255, atk: 80, def: 30, spa: 30, spd: 30, spe: 80},
 		abilities: {0: "Speed Boost", H: "No Wi-Fi"},
@@ -3080,7 +3140,7 @@ kyokokirigiri: {
 	},
 	ori: {
 		num: 6000167,
-		species: "Ori", /* Ori and the Blind Forest */
+		name: "Ori", /* Ori and the Blind Forest */
 		types: ["Fairy"],
 		gender: "N",
 		baseStats: {hp: 85, atk: 110, def: 60, spa: 120, spd: 70, spe: 125},
@@ -3090,7 +3150,7 @@ kyokokirigiri: {
 	},
 	orion: {
 		num: 6000168,
-		species: "Orion", /* Fate/Grand Order */
+		name: "Orion", /* Fate/Grand Order */
 		baseForme: "Super",
 		types: ["Fighting"],
 		gender: "M",
@@ -3098,10 +3158,12 @@ kyokokirigiri: {
 		abilities: {0: "Stout Arm of Brutality", 1: "Long Reach", H: "Sniper"},
 		heightm: 2.3,
 		weightkg: 187,
+		otherFormes: ["Orion-Grand", "Orion-Artemis"],
+		formeOrder: ["Orion", "Orion-Artemis", "Orion-Grand"],
 	},
 	oriongrand: {
 		num: 6000168,
-		species: "Orion-Grand",
+		name: "Orion-Grand",
 		baseSpecies: "Orion",
 		forme: "Grand",
 		formeLetter: "G",
@@ -3114,7 +3176,7 @@ kyokokirigiri: {
 	},
 	orionartemis: {
 		num: 6000168,
-		species: "Orion-Artemis",
+		name: "Orion-Artemis",
 		baseSpecies: "Orion",
 		forme: "Artemis",
 		formeLetter: "A",
@@ -3127,51 +3189,54 @@ kyokokirigiri: {
 	},
 	matt: {
 		num: 6000169,
-		species: "Matt", /* Wii Sports */
+		name: "Matt", /* Wii Sports */
 		types: ["Normal", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 150, def: 40, spa: 20, spd: 30, spe: 135},
 		abilities: {0: "Master Champion", 1: "Receiver", H: "Sword of Swords"},
 		heightm: 1.9,
-		weightkg: 105,
+		weightkg: 85,
 	},
 	pandora: {
 		num: 6000170,
-		species: "Pandora", /* Kid Icarus */
-		types: ["Dark", "Ghost"],
+		name: "Pandora", /* Kid Icarus */
+		types: ["Dark", "Fire"],
 		gender: "F",
 		baseStats: {hp: 101, atk: 88, def: 73, spa: 102, spd: 127, spe: 63},
 		abilities: {0: "Levitate", 1: "Prankster", H: "Cursed Body"},
 		heightm: 3,
 		weightkg: 60,
+		otherFormes: ["Pandora"],
+		formeOrder: ["Pandora", "Pandora-Amazon"],
 	},
 	pandoraamazon: {
 		num: 6000171,
-		species: "Pandora-Amazon",
+		name: "Pandora-Amazon",
 		baseSpecies: "Pandora",
 		forme: "Amazon",
 		formeLetter: "A",
 		types: ["Dark", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 91, atk: 108, def: 63, spa: 112, spd: 77, spe: 103},
-		abilities: {0: "Levitate", 1: "Prankster", H: "Serene Grace"},
+		abilities: {0: "Levitate", 1: "Prankster", H: "Cute Charm"},
 		heightm: 1.75,
 		weightkg: 60,
 	},
 	tamamo: {
 		num: 6000172,
-		species: "Tamamo", /* Monster Girl Quest */
+		name: "Tamamo", /* Monster Girl Quest */
 		types: ["Ground", "Rock"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 120, def: 120, spa: 80, spd: 110, spe: 50},
 		abilities: {0: "Fluffy", 1: "Breath of the Earth", H: "Skill Link"},
 		heightm: 1.6,
 		weightkg: 65,
-		otherFormes: ["tamamoancestor"],
+		otherFormes: ["Tamamo-Ancestor"],
+		formeOrder: ["Tamamo", "Tamamo-Ancestor"],
 	},
 	tamamoancestor: {
 		num: 6000172,
-		species: "Tamamo-Ancestor",
+		name: "Tamamo-Ancestor",
 		baseSpecies: "Tamamo",
 		forme: "Ancestor",
 		formeLetter: "A",
@@ -3184,7 +3249,7 @@ kyokokirigiri: {
 	},
 	medic: {
 		num: 6000173,
-		species: "Medic", /* Team Fortress 2 */
+		name: "Medic", /* Team Fortress 2 */
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 97, def: 80, spa: 80, spd: 85, spe: 92},
@@ -3194,7 +3259,7 @@ kyokokirigiri: {
 	},
 	vi: {
 		num: 6000174,
-		species: "Vi", /* Bug Fables */
+		name: "Vi", /* Bug Fables */
 		types: ["Bug", "Flying"],
 		gender: "F",
 		baseStats: {hp: 78, atk: 117, def: 65, spa: 55, spd: 70, spe: 115},
@@ -3204,18 +3269,19 @@ kyokokirigiri: {
 	},
 	kiarasesshouin: {
 		num: 6000175,
-		species: "Kiara Sesshouin", /* Fate/EXTRA CCC */
+		name: "Kiara Sesshouin", /* Fate/EXTRA CCC */
 		types: ["Psychic", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 100, def: 80, spa: 110, spd: 90, spe: 105},
 		abilities: {0: "Triage", H: "Infiltrator"},
 		heightm: 1.66,
 		weightkg: 53,
-		otherFormes: ["kiarashesshouinheavenshole", "kiarasesshouinbeastiiir"],
+		otherFormes: ["Kiara Sesshouin-Heaven's Hole", "Kiara Sesshouin-Beast III/R"],
+		formeOrder: ["Kiara Sesshouin", "Kiara Sesshouin-Heaven's Hole", "Kiara Sesshouin-Beast III/R"],
 	},
 	kiarasesshouinheavenshole: {
 		num: 6000175,
-		species: "Kiara Sesshouin-Heaven's Hole",
+		name: "Kiara Sesshouin-Heaven's Hole",
 		baseSpecies: "Kiara Sesshouin",
 		forme: "Heaven's Hole",
 		formeLetter: "H",
@@ -3228,7 +3294,7 @@ kyokokirigiri: {
 	},
 	kiarasesshouinbeastiiir: {
 		num: 6000175,
-		species: "Kiara Sesshouin-Beast III/R",
+		name: "Kiara Sesshouin-Beast III/R",
 		baseSpecies: "Kiara Sesshouin",
 		forme: "Beast III/R",
 		formeLetter: "Beast",
@@ -3241,73 +3307,75 @@ kyokokirigiri: {
 	},
 	eggrobo: {
 		num: 6000176,
-		species: "Eggrobo", /* Sonic 3 & Knuckles */
+		name: "Eggrobo", /* Sonic 3 & Knuckles */
 		types: ["Steel"],
 		gender: "N",
 		baseStats: {hp: 40, atk: 50, def: 80, spa: 80, spd: 60, spe: 70},
 		abilities: {0: "Levitate"},
 		heightm: 1.2,
 		weightkg: 50,
-		evos: ["heavygunner", "heavyshinobi", "heavymagician", "heavyrider", "heavyking"],
+		evos: ["Heavy Gunner", "Heavy Shinobi", "Heavy Magician", "Heavy Rider", "Heavy King"],
 	},
 	heavygunner: {
 		num: 6000177,
-		species: "Heavy Gunner", /* Sonic Mania */
+		name: "Heavy Gunner", /* Sonic Mania */
 		types: ["Steel", "Flying"],
 		gender: "M",
 		baseStats: {hp: 70, atk: 110, def: 90, spa: 80, spd: 70, spe: 120},
 		abilities: {0: "Mega Launcher"},
-		prevo: "eggrobo",
+		prevo: "Eggrobo",
 		heightm: 1.2,
 		weightkg: 50,
 	},
 	heavyshinobi: {
 		num: 6000178,
-		species: "Heavy Shinobi", /* Sonic Mania */
+		name: "Heavy Shinobi", /* Sonic Mania */
 		types: ["Steel", "Ice"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 110, def: 110, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Refrigerate"},
-		prevo: "eggrobo",
+		prevo: "Eggrobo",
 		heightm: 1.2,
 		weightkg: 50,
 	},
 	heavymagician: {
 		num: 6000179,
-		species: "Heavy Magician", /* Sonic Mania */
+		name: "Heavy Magician", /* Sonic Mania */
 		types: ["Steel"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 90, def: 110, spa: 90, spd: 100, spe: 90},
 		abilities: {0: "Illusion"},
-		prevo: "eggrobo",
+		prevo: "Eggrobo",
 		heightm: 1.2,
 		weightkg: 50,
 	},
 	heavyrider: {
 		num: 6000180,
-		species: "Heavy Rider", /* Sonic Mania */
+		name: "Heavy Rider", /* Sonic Mania */
 		types: ["Steel", "Bug"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 110, def: 90, spa: 90, spd: 70, spe: 120},
 		abilities: {0: "Reckless", H: "Flash Fire"},
-		prevo: "eggrobo",
+		prevo: "Eggrobo",
 		heightm: 1.2,
 		weightkg: 50,
 	},
 	heavyking: {
 		num: 6000181,
-		species: "Heavy King", /* Sonic Mania */
+		name: "Heavy King", /* Sonic Mania */
 		types: ["Steel", "Electric"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 110, def: 100, spa: 130, spd: 70, spe: 80},
 		abilities: {0: "Levitate"},
-		prevo: "eggrobo",
+		prevo: "Eggrobo",
 		heightm: 2,
 		weightkg: 250,
+		otherFormes: ["Heavy King-Phantom"],
+		formeOrder: ["Heavy King", "Heavy King-Phantom"],
 	},
 	heavykingphantom: {
 		num: 6000181,
-		species: "Heavy King-Phantom",
+		name: "Heavy King-Phantom",
 		baseSpecies: "Heavy King",
 		forme: "Phantom",
 		formeLetter: "P",
@@ -3321,7 +3389,7 @@ kyokokirigiri: {
 	/* As a variant, Paper Mario is handled at Mario's dex number */
 	minanishizawa: {
 		num: 6000182,
-		species: "Mina Nishizawa", /* Hyperdimension Neptunia */
+		name: "Mina Nishizawa", /* Hyperdimension Neptunia */
 		types: ["Ice", "Electric"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 100, spa: 120, spd: 150, spe: 70},
@@ -3331,7 +3399,7 @@ kyokokirigiri: {
 	},
 	wither: {
 		num: 6000183,
-		species: "Wither", /* Minecraft */
+		name: "Wither", /* Minecraft */
 		types: ["Ghost", "Ground"],
 		gender: "N",
 		baseStats: {hp: 200, atk: 130, def: 80, spa: 90, spd: 80, spe: 90},
@@ -3341,19 +3409,20 @@ kyokokirigiri: {
 	},
 	starbreaker: {
 		num: 6000184,
-		species: "Star Breaker", /* SUGURI series */
+		name: "Star Breaker", /* SUGURI series */
 		types: ["Fire"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 115, def: 75, spa: 140, spd: 85, spe: 70},
 		abilities: {0: "Conflagrate", H: "Blaze"},
-		heightm: 1.6,
-		weightkg: 67,
+		heightm: 1.4,
+		weightkg: 37,
+		isGigantamax: "G-Max Star-Blasting Light",
 	},
 	starbreakergmax: {
 		num: 6000184,
-		species: "Star Breaker-GMax",
+		name: "Star Breaker-Gmax",
 		baseSpecies: "Star Breaker",
-		forme: "GMax",
+		forme: "Gmax",
 		formeLetter: "G",
 		types: ["Fire"],
 		gender: "F",
@@ -3361,20 +3430,22 @@ kyokokirigiri: {
 		abilities: {0: "Conflagrate", H: "Blaze"},
 		heightm: 20,
 		weightkg: 0,
+		changesFrom: "Star Breaker",
 	},
 	saffron: {
 		num: 6000185,
-		species: "Saffron", /* One Step From Eden */
+		name: "Saffron", /* One Step From Eden */
 		types: ["Normal"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Simple", H: "Drawing Dead"},
 		heightm: 1.6,
 		weightkg: 65,
+		isGigantamax: "G-Max Ragnarok",
 	},
 	saffrongmax: {
 		num: 6000185,
-		species: "Saffron-GMax",
+		name: "Saffron-GMax",
 		baseSpecies: "Saffron",
 		forme: "Gmax",
 		formeLetter: "G",
@@ -3384,10 +3455,11 @@ kyokokirigiri: {
 		abilities: {0: "Simple", H: "Drawing Dead"},
 		heightm: 16,
 		weightkg: 0,
+		changesFrom: "Saffron",
 	},
 	yorhano2typeb: {
 		num: 6000186,
-		species: "YoRHa No.2 Type B", /* NieR: Automata */
+		name: "YoRHa No.2 Type B", /* NieR: Automata */
 		types: ["Steel", "Fighting"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 140},
@@ -3397,7 +3469,7 @@ kyokokirigiri: {
 	},
 	monika: {
 		num: 6000187,
-		species: "Monika", /* Doki Doki Literature Club */
+		name: "Monika", /* Doki Doki Literature Club */
 		types: ["Normal"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 60, spa: 140, spd: 60, spe: 100},
@@ -3407,7 +3479,7 @@ kyokokirigiri: {
 	},
 	kikuri: {
 		num: 6000188,
-		species: "Kikuri", /* Touhou Project */
+		name: "Kikuri", /* Touhou Project */
 		types: ["Steel", "Fire"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 70, def: 110, spa: 100, spd: 120, spe: 70},
@@ -3417,17 +3489,19 @@ kyokokirigiri: {
 	},
 	sora: {
 		num: 6000189,
-		species: "Sora", /* SUGURI series */
+		name: "Sora", /* SUGURI series */
 		types: ["Fighting", "Flying"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 100, spd: 80, spe: 110},
 		abilities: {0: "Motor Drive", H: "Extraordinary Specs"},
-		heightm: 1.6,
-		weightkg: 67,
+		heightm: 1.55,
+		weightkg: 48,
+		otherFormes: ["Sora-Military"],
+		formeOrder: ["Sora", "Sora-Military"],
 	},
 	soramilitary: {
 		num: 6000189,
-		species: "Sora-Military",
+		name: "Sora-Military",
 		baseSpecies: "Sora",
 		forme: "Military",
 		formeLetter: "M",
@@ -3435,12 +3509,12 @@ kyokokirigiri: {
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 100, spd: 80, spe: 110},
 		abilities: {0: "Motor Drive", H: "Sturdy"},
-		heightm: 1.6,
-		weightkg: 67,
+		heightm: 1.55,
+		weightkg: 48,
 	},
 	paleking: {
 		num: 6000190,
-		species: "Pale King", /* Hollow Knight */
+		name: "Pale King", /* Hollow Knight */
 		types: ["Dragon", "Bug"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 130, def: 120, spa: 110, spd: 90, spe: 90},
@@ -3450,17 +3524,17 @@ kyokokirigiri: {
 	},
 	lucca: {
 		num: 6000191,
-		species: "Lucca", /* Chrono Trigger */
-		types: ["Fire", "Steel"],
+		name: "Lucca", /* Chrono Trigger */
+		types: ["Fire"],
 		gender: "F",
 		baseStats: {hp: 94, atk: 42, def: 116, spa: 137, spd: 88, spe: 63},
-		abilities: {0: "Technician"},
+		abilities: {0: "Technician", H: "Steelworker"},
 		heightm: 1.5,
 		weightkg: 45,
 	},
 	void: {
 		num: 6000192,
-		species: "Void", /* Kirby: Star Allies */
+		name: "Void", /* Kirby: Star Allies */
 		types: ["Water"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 160, def: 140, spa: 170, spd: 140, spe: 100},
@@ -3470,7 +3544,7 @@ kyokokirigiri: {
 	},
 	voidtermina: {
 		num: 6000192,
-		species: "Void Termina",
+		name: "Void Termina",
 		baseSpecies: "Void",
 		forme: "Demon God",
 		formeLetter: "D",
@@ -3483,7 +3557,7 @@ kyokokirigiri: {
 	},
 	voidterminatrue: {
 		num: 6000192,
-		species: "Void Termina-True",
+		name: "Void Termina-True",
 		baseSpecies: "Void",
 		forme: "Demon God True",
 		formeLetter: "T",
@@ -3496,10 +3570,10 @@ kyokokirigiri: {
 	},
 	voidterminafirstcore: {
 		num: 6000192,
-		species: "Void Termina-First Core",
+		name: "Void Termina-First Core",
 		baseSpecies: "Void",
 		forme: "First Core",
-		formeLetter: "1",
+		formeLetter: "F",
 		types: ["Poison"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 70, def: 100, spa: 100, spd: 100, spe: 5},
@@ -3509,11 +3583,12 @@ kyokokirigiri: {
 	},
 	voidterminaangel: {
 		num: 6000192,
-		species: "Void Termina-Angel",
+		name: "Void Termina-Angel",
 		baseSpecies: "Void",
 		forme: "Angel",
 		formeLetter: "A",
 		types: ["Flying"],
+		gender: "M",
 		baseStats: {hp: 100, atk: 140, def: 130, spa: 100, spd: 130, spe: 90},
 		abilities: {0: "Serene Grace"},
 		heightm: 15,
@@ -3521,11 +3596,12 @@ kyokokirigiri: {
 	},
 	voidterminaangeltrue: {
 		num: 6000192,
-		species: "Void Termina-Angel-True",
+		name: "Void Termina-Angel-True",
 		baseSpecies: "Void",
 		forme: "Angel-True",
 		formeLetter: "A",
 		types: ["Flying"],
+		gender: "M",
 		baseStats: {hp: 100, atk: 160, def: 130, spa: 160, spd: 130, spe: 110},
 		abilities: {0: "Serene Grace"},
 		heightm: 15,
@@ -3533,11 +3609,12 @@ kyokokirigiri: {
 	},
 	voidterminafinalcore: {
 		num: 6000192,
-		species: "Void Termina-Final Core",
+		name: "Void Termina-Final Core",
 		baseSpecies: "Void",
 		forme: "Final Core",
 		formeLetter: "F",
 		types: ["Water"],
+		gender: "M",
 		baseStats: {hp: 120, atk: 110, def: 110, spa: 110, spd: 110, spe: 90},
 		abilities: {0: "Protean"},
 		heightm: 1,
@@ -3545,11 +3622,12 @@ kyokokirigiri: {
 	},
 	voidsoul: {
 		num: 6000192,
-		species: "Void Soul",
+		name: "Void Soul",
 		baseSpecies: "Void",
 		forme: "Soul",
 		formeLetter: "S",
 		types: ["Water", "Ghost"],
+		gender: "M",
 		baseStats: {hp: 120, atk: 140, def: 130, spa: 140, spd: 130, spe: 90},
 		abilities: {0: "Protean"},
 		heightm: 1,
@@ -3558,28 +3636,230 @@ kyokokirigiri: {
 	/// MegaMan.EXE is handled at Mega Man's dex number
 	naraku: {
 		num: 6000193,
-		species: "Naraku", /* Senran Kagura */
+		name: "Naraku", /* Senran Kagura */
 		types: ["Normal", "Ghost"],
+		gender: "F",
 		baseStats: {hp: 75, atk: 115, def: 65, spa: 75, spd: 65, spe: 105},
 		abilities: {0: "Steelworker", H: "Unburden"},
 		heightm: 1.6,
 		weightkg: 100,
+		otherFormes: ["Naraku-Shinobi"],
+		formeOrder: ["Naraku", "Naraku-Shinobi"],
 	},
 	narakushinobi: {
 		num: 6000193,
-		species: "Naraku-Shinobi",
+		name: "Naraku-Shinobi",
 		baseSpecies: "Naraku",
 		forme: "Shinobi",
 		formeLetter: "S",
 		types: ["Normal", "Ghost"],
+		gender: "F",
 		baseStats: {hp: 75, atk: 135, def: 65, spa: 125, spd: 65, spe: 135},
 		abilities: {0: "Steelworker"},
 		heightm: 1.6,
 		weightkg: 100,
 	},
+	aiai: {
+		num: 6000194,
+		name: "AiAi", /* Super Monkey Ball */
+		types: ["Normal"],
+		gender: "M",
+		baseStats: {hp: 50, atk: 90, def: 130, spa: 50, spd: 130, spe: 80},
+		abilities: {0: "Overcoat", H: "Filter"},
+		heightm: 1,
+		weightkg: 30,
+	},
+	bonanzabros: {
+		num: 6000195,
+		name: "Bonanza Bros.", /* Bonanza Bros. */
+		types: ["Dark"],
+		gender: "M",
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 50, spd: 70, spe: 80},
+		abilities: {0: "Technician", 1: "Infiltrator", H: "Emergency Exit"},
+		heightm: 1.6,
+		weightkg: 100,
+		otherFormes: ["Bonanza Bros.-Western"],
+		formeOrder: ["Bonanza Bros.", "Bonanza Bros.-Western"],
+	},
+	bonanzabroswestern: {
+		num: 6000195,
+		name: "Bonanza Bros.-Western",
+		baseSpecies: "Bonanza Bros.",
+		forme: "Western Release",
+		formeLetter: "W",
+		types: ["Normal"],
+		gender: "M",
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 50, spd: 70, spe: 80},
+		abilities: {0: "Technician", 1: "Infiltrator", H: "Stakeout"},
+		heightm: 1.6,
+		weightkg: 100,
+	},
+	metalsonic: {
+		num: 6000196,
+		name: "Metal Sonic", /* Sonic the Hedgehog */
+		types: ["Steel"],
+		gender: "M",
+		baseStats: {hp: 80, atk: 100, def: 80, spa: 90, spd: 70, spe: 180},
+		abilities: {0: "Trace"},
+		heightm: 1,
+		weightkg: 60,
+	},
+	callie: {
+		num: 6000197,
+		name: "Callie", /* Splatoon */
+		types: ["Poison"],
+		gender: "F",
+		baseStats: {hp: 80, atk: 115, def: 55, spa: 95, spd: 75, spe: 100},
+		abilities: {0: "Dancer", 1: "Inky Voice"},
+		heightm: 1.5,
+		weightkg: 45,
+	},
+	yunarukami: {
+		num: 6000198,
+		name: "Yu Narukami", /* Persona */
+		types: ["Electric"],
+		gender: "M",
+		baseStats: {hp: 100, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
+		abilities: {0: "Justified", 1: "Mold Breaker", H: "Persona Change"},
+		heightm: 1.8,
+		weightkg: 60,
+		otherFormes: ["Yu Narukami-Ultimate Awakening"],
+		formeOrder: ["Yu Narukami", "Yu Narukami-Ultimate Awakening"],
+	},
+	yunarukamiultimateawakening: {
+		num: 6000198,
+		name: "Yu Narukami-Ultimate Awakening",
+		baseSpecies: "Yu Narukami",
+		forme: "Ultimate Awakening",
+		formeLetter: "U",
+		types: ["Electric", "Normal"],
+		gender: "M",
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 120, spd: 100, spe: 110},
+		abilities: {0: "Truth Seeker"},
+		heightm: 1.8,
+		weightkg: 60,
+	},
+	yuyukosaigyouji: {
+		num: 6000199,
+		name: "Yuyuko Saigyouji", /* Touhou */
+		types: ["Ghost", "Grass"],
+		gender: "F",
+		baseStats: {hp: 120, atk: 92, def: 64, spa: 140, spd: 120, spe: 64},
+		abilities: {0: "Analytic", 1: "Flower Veil", H: "Perish Body"},
+		heightm: 1.6,
+		weightkg: 60,
+		otherFormes: ["Yuyuko Saigyouji-Casual"],
+		formeOrder: ["Yuyuko Saigyouji", "Yuyuko Saigyouji-Casual"],
+	},
+	yuyukosaigyoujicasual: {
+		num: 6000199,
+		name: "Yuyuko Saigyouji-Casual",
+		baseSpecies: "Yuyuko Saigyouji",
+		forme: "Casual",
+		formeLetter: "C",
+		types: ["Ghost", "Grass"],
+		gender: "F",
+		baseStats: {hp: 108, atk: 72, def: 64, spa: 104, spd: 108, spe: 64},
+		abilities: {0: "Gluttony", 1: "Cursed Body", H: "Perish Body"},
+		heightm: 1.6,
+		weightkg: 60,
+	},
+	ug: {
+		num: 6000200,
+		name: "Ug", /* Luigi's Mansion 3 */
+		types: ["Ghost", "Rock"],
+		gender: "M",
+		baseStats: {hp: 90, atk: 120, def: 110, spa: 85, spd: 60, spe: 75},
+		abilities: {0: "Fossil Change"},
+		heightm: 4,
+		weightkg: 675,
+		otherFormes: ["Ug-Spirit"],
+		formeOrder: ["Ug", "Ug-Spirit"],
+	},
+	ugspirit: {
+		num: 6000200,
+		name: "Ug-Spirit",
+		baseSpecies: "Ug",
+		forme: "Spirit",
+		formeLetter: "S",
+		types: ["Ghost", "Rock"],
+		gender: "M",
+		baseStats: {hp: 90, atk: 110, def: 120, spa: 60, spd: 85, spe: 75},
+		abilities: {0: "Fossil Change"},
+		heightm: 2,
+		weightkg: 67.5,
+	},
+	stoneagebase: {
+		num: 6000201,
+		name: "Stone Age Base", /* Age of War */
+		types: ["Rock"],
+		gender: "N",
+		baseStats: {hp: 60, atk: 80, def: 120, spa: 40, spd: 45, spe: 5},
+		abilities: {0: "Long Reach", 1: "Skill Link", H: "Slow Start"},
+		heightm: 5,
+		weightkg: 600,
+		evos: ["Middle Age Base"],
+	},
+	middleagebase: {
+		num: 6000202,
+		name: "Middle Age Base",
+		types: ["Rock"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 90, def: 135, spa: 50, spd: 65, spe: 5},
+		abilities: {0: "Long Reach", 1: "Skill Link", H: "Steadfast"},
+		heightm: 7,
+		weightkg: 999.9,
+		prevo: "Stone Age Base",
+		evos: ["Renaissance Age Base"],
+	},
+	renaissanceagebase: {
+		num: 6000203,
+		name: "Renaissance Age Base",
+		types: ["Rock"],
+		gender: "N",
+		baseStats: {hp: 110, atk: 100, def: 135, spa: 80, spd: 90, spe: 5},
+		abilities: {0: "Long Reach", 1: "Skill Link", H: "Artillery"},
+		heightm: 8,
+		weightkg: 999.9,
+		prevo: "Middle Age Base",
+		evos: ["Modern Age Base"],
+	},
+	modernagebase: {
+		num: 6000204,
+		name: "Modern Age Base",
+		types: ["Steel"],
+		gender: "N",
+		baseStats: {hp: 110, atk: 115, def: 135, spa: 100, spd: 105, spe: 5},
+		abilities: {0: "Long Reach", 1: "Skill Link", H: "Artillery"},
+		heightm: 10,
+		weightkg: 999.9,
+		prevo: "Renaissance Age Base",
+		evos: ["Future Age Base"],
+	},
+	futureagebase: {
+		num: 6000205,
+		name: "Future Age Base", 
+		types: ["Steel"],
+		gender: "N",
+		baseStats: {hp: 115, atk: 120, def: 145, spa: 140, spd: 145, spe: 5},
+		abilities: {0: "Long Reach", 1: "Skill Link", H: "No Guard"},
+		heightm: 7,
+		weightkg: 999.9,
+		prevo: "Modern Age Base",
+	},
+	darkeatermidir: {
+		num: 6000206,
+		name: "Darkeater Midir", /* Dark Souls */
+		types: ["Dragon", "Fire"],
+		gender: "M",
+		baseStats: {hp: 110, atk: 130, def: 90, spa: 100, spd: 110, spe: 80},
+		abilities: {0: "Berserk", H: "Darkeater"},
+		heightm: 4,
+		weightkg: 600,
+	},
 	walle: {
 		num: 7000001,
-		species: "WALL-E", /* WALL-E */
+		name: "WALL-E", /* WALL-E */
 		types: ["Steel", "Normal"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 70, def: 100, spa: 70, spd: 100, spe: 100},
@@ -3589,7 +3869,7 @@ kyokokirigiri: {
 	},
 	shaggy: {
 		num: 7000002,
-		species: "Shaggy", /* Scooby-Doo */
+		name: "Shaggy", /* Scooby-Doo */
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 95, def: 100, spa: 75, spd: 75, spe: 124},
@@ -3599,29 +3879,29 @@ kyokokirigiri: {
 	},
 	sayakamiki: {
 		num: 7000003,
-		species: "Sayaka Miki", /* Puella Magi Madoka Magica */
+		name: "Sayaka Miki", /* Puella Magi Madoka Magica */
 		types: ["Fighting"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 80, spa: 50, spd: 70, spe: 100},
 		abilities: {0: "Regenerator", H: "Unaware"},
 		heightm: 1.6,
 		weightkg: 48,
-		evos: ["oktaviavonseckendorff"]
+		evos: ["Oktavia von Seckendorff"]
 	},
 	oktaviavonseckendorff: {
 		num: 7000004,
-		species: "Oktavia von Seckendorff", /* Puella Magi Madoka Magica */
+		name: "Oktavia von Seckendorff", /* Puella Magi Madoka Magica */
 		types: ["Fighting"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 135, def: 110, spa: 80, spd: 90, spe: 30},
 		abilities: {0: "Regenerator", H: "Unaware"},
 		heightm: 10,
 		weightkg: 480,
-		prevo: "sayakamiki"
+		prevo: "Sayaka Miki"
 	},
 skipper: {
 			num: 7000005,
-			species: "Skipper", /* Madagascar */
+			name: "Skipper", /* Madagascar */
 			types: ["Water", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 110, def: 90, spa: 60, spd: 80, spe: 120},
@@ -3631,7 +3911,7 @@ skipper: {
 },
 rohankishibe: {
 			num: 7000006,
-			species: "Rohan Kishibe", /* JoJo's Bizzare Adventure */
+			name: "Rohan Kishibe", /* JoJo's Bizzare Adventure */
 			types: ["Psychic"],
 		gender: "M",
 			baseStats: {hp: 99, atk: 100, def: 77, spa: 80, spd: 97, spe: 127},
@@ -3641,7 +3921,7 @@ rohankishibe: {
 },
 arthurkingofbritons: {
 			num: 7000007,
-			species: "Arthur, King of Britons", /* Monty Python */
+			name: "Arthur, King of Britons", /* Monty Python */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 99, atk: 111, def: 99, spa: 44, spd: 88, spe: 99},
@@ -3651,7 +3931,7 @@ arthurkingofbritons: {
 },
 siivagunner: {
 			num: 7000008,
-			species: "SiIvaGunner", /* SiIvaGunner */
+			name: "SiIvaGunner", /* SiIvaGunner */
 			types: ["Rock"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 70, def: 110, spa: 130, spd: 90, spe: 110},
@@ -3661,7 +3941,7 @@ siivagunner: {
 },
 blackrabbit: {
 			num: 7000009,
-			species: "Black Rabbit", /* Problem Children Are Coming From Another World, Aren't They? */
+			name: "Black Rabbit", /* Problem Children Are Coming From Another World, Aren't They? */
 			types: ["Electric", "Fairy"],
 		gender: "F",
 			baseStats: {hp: 65, atk: 100, def: 84, spa: 100, spd: 96, spe: 135},
@@ -3671,7 +3951,7 @@ blackrabbit: {
 },
 momoyaoyorozu: {
 			num: 7000010,
-			species: "Momo Yaoyorozu", /* My Hero Academia */
+			name: "Momo Yaoyorozu", /* My Hero Academia */
 			types: ["Normal"],
 		gender: "F",
 			baseStats: {hp: 100, atk: 80, def: 105, spa: 80, spd: 120, spe: 85},
@@ -3681,7 +3961,7 @@ momoyaoyorozu: {
 },
 shaihulud: {
 			num: 7000011,
-			species: "Shai Hulud", /* Dune */
+			name: "Shai Hulud", /* Dune */
 			types: ["Ground"],
 			baseStats: {hp: 180, atk: 140, def: 90, spa: 60, spd: 60, spe: 70},
 			abilities: {0: "Dry Body"},
@@ -3690,7 +3970,7 @@ shaihulud: {
 },
 irongiant: {
 			num: 7000012,
-			species: "Iron Giant", /* The Iron Giant */
+			name: "Iron Giant", /* The Iron Giant */
 			types: ["Steel"],
 		gender: "M",
 			baseStats: {hp: 110, atk: 160, def: 110, spa: 90, spd: 80, spe: 30},
@@ -3700,30 +3980,30 @@ irongiant: {
 },
 smolnozomi: {
 			num: 7000013,
-			species: "Smol Nozomi", /* SiIvaGunner */
+			name: "Smol Nozomi", /* SiIvaGunner */
 			types: ["Ice"],
 		gender: "F",
 			baseStats: {hp: 60, atk: 60, def: 60, spa: 75, spd: 65, spe: 100},
 			abilities: {0: "Clear Body", H: "Snow Warning"},
 		heightm: 0.2,
 			weightkg: 1,
-		evos: ["smolitzer"],
+		evos: ["Smolitzer"],
 },
 smolitzer: {
 			num: 7000014,
-			species: "Smolitzer", /* SiIvaGunner */
+			name: "Smolitzer", /* SiIvaGunner */
 			types: ["Ice", "Steel"],
 		gender: "F",
 			baseStats: {hp: 110, atk: 135, def: 110, spa: 85, spd: 100, spe: 60},
 			abilities: {0: "Iron Fist", H: "Snow Warning"},
 		heightm: 2.1,
 			weightkg: 350,
-		prevo: ["smolnozomi"],
-		otherFormes: ["smolitzermega"],
+		prevo: ["Smol Nozomi"],
+		otherFormes: ["Smolitzer-Mega"],
 },
 smolitzermega: {
 			num: 7000014,
-			species: "Smolitzer-Mega", /* SiIvaGunner */
+			name: "Smolitzer-Mega", /* SiIvaGunner */
 			baseSpecies: "Smolitzer",
 			forme: "Mega",
 			formeLetter: "M",
@@ -3736,7 +4016,7 @@ smolitzermega: {
 },
 rin: {
 			num: 7000015,
-			species: "Rin", /* Shelter */
+			name: "Rin", /* Shelter */
 			types: ["Normal"],
 		gender: "F",
 			baseStats: {hp: 110, atk: 50, def: 70, spa: 70, spd: 115, spe: 70},
@@ -3746,7 +4026,7 @@ rin: {
 },
 oldspiceguy: {
 			num: 7000016,
-			species: "Old Spice Guy", /* Old Spice commercials */
+			name: "Old Spice Guy", /* Old Spice commercials */
 			types: ["Fighting", "Steel"],
 		gender: "M",
 			baseStats: {hp: 95, atk: 130, def: 103, spa: 107, spd: 75, spe: 90},
@@ -3756,7 +4036,7 @@ oldspiceguy: {
 },
 dalek: {
 			num: 7000017,
-			species: "Dalek", /* Doctor Who */
+			name: "Dalek", /* Doctor Who */
 			types: ["Steel", "Dark"],
 			baseStats: {hp: 50, atk: 90, def: 150, spa: 100, spd: 150, spe: 30},
 			abilities: {0: "Filter", 1: "Download", H: "Mega Launcher"},
@@ -3765,7 +4045,7 @@ dalek: {
 },
 devil: {
 			num: 7000018,
-			species: "Devil", /* Lanterne of Light */
+			name: "Devil", /* Lanterne of Light */
 			types: ["Dark"],
 			baseStats: {hp: 91, atk: 101, def: 101, spa: 101, spd: 101, spe: 91},
 			abilities: {0: "Devil's Disguise"},
@@ -3774,7 +4054,7 @@ devil: {
 },
 beelzebub: {
 			num: 7000018,
-			species: "Beelzebub",
+			name: "Beelzebub",
 		baseSpecies: "Devil",
 		forme: "Beelzebub",
 		formeLetter: "B",
@@ -3786,7 +4066,7 @@ beelzebub: {
 },
 satan: {
 			num: 7000018,
-			species: "Satan",
+			name: "Satan",
 		baseSpecies: "Devil",
 		forme: "Satan",
 		formeLetter: "S",
@@ -3798,7 +4078,7 @@ satan: {
 },
 asmodeus: {
 			num: 7000018,
-			species: "Asmodeus",
+			name: "Asmodeus",
 		baseSpecies: "Devil",
 		forme: "Asmodeus",
 		formeLetter: "A",
@@ -3810,7 +4090,7 @@ asmodeus: {
 },
 lucifer: {
 			num: 7000018,
-			species: "Lucifer",
+			name: "Lucifer",
 		baseSpecies: "Devil",
 		forme: "Lucifer",
 		formeLetter: "L",
@@ -3822,7 +4102,7 @@ lucifer: {
 },
 leviathan: {
 			num: 7000018,
-			species: "Leviathan",
+			name: "Leviathan",
 		baseSpecies: "Devil",
 		forme: "Leviathan",
 		formeLetter: "L",
@@ -3834,7 +4114,7 @@ leviathan: {
 },
 mammon: {
 			num: 7000018,
-			species: "Mammon",
+			name: "Mammon",
 		baseSpecies: "Devil",
 		forme: "Mammon",
 		formeLetter: "M",
@@ -3846,7 +4126,7 @@ mammon: {
 },
 belphegor: {
 			num: 7000018,
-			species: "Belphegor",
+			name: "Belphegor",
 		baseSpecies: "Devil",
 		forme: "Belphegor",
 		formeLetter: "B",
@@ -3858,7 +4138,7 @@ belphegor: {
 },
 	kars: {
 		num: 7000019,
-		species: "Kars", /* JoJo's Bizzare Adventure */
+		name: "Kars", /* JoJo's Bizzare Adventure */
 		types: ["Dark", "Rock"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 130, def: 80, spa: 90, spd: 90, spe: 130},
@@ -3868,7 +4148,7 @@ belphegor: {
 	},
 karsultimate: {
 			num: 7000019,
-			species: "Kars-Ultimate",
+			name: "Kars-Ultimate",
 		baseSpecies: "Kars",
 		forme: "Ultimate",
 		formeLetter: "U",
@@ -3881,7 +4161,7 @@ karsultimate: {
 },
 shelob: {
 			num: 7000020,
-			species: "Shelob", /* Lord of the Rings */
+			name: "Shelob", /* Lord of the Rings */
 			types: ["Bug", "Dark"],
 		gender: "F",
 			baseStats: {hp: 150, atk: 125, def: 95, spa: 75, spd: 65, spe: 60},
@@ -3891,7 +4171,7 @@ shelob: {
 },
 unregisteredhypercam2: {
 			num: 7000021,
-			species: "Unregistered Hypercam 2", /* SiIvaGunner */
+			name: "Unregistered Hypercam 2", /* SiIvaGunner */
 			types: ["Steel"],
 		gender: "N",
 			baseStats: {hp: 90, atk: 70, def: 110, spa: 130, spd: 90, spe: 110},
@@ -3901,7 +4181,7 @@ unregisteredhypercam2: {
 },
 gigan: {
 			num: 7000022,
-			species: "Gigan", /* Godzilla */
+			name: "Gigan", /* Godzilla */
 			types: ["Steel", "Dark"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 150, def: 80, spa: 130, spd: 70, spe: 110},
@@ -3911,7 +4191,7 @@ gigan: {
 },
 anguirus: {
 			num: 7000023,
-			species: "Anguirus", /* Godzilla */
+			name: "Anguirus", /* Godzilla */
 			types: ["Ground", "Dragon"],
 		gender: "M",
 			baseStats: {hp: 140, atk: 110, def: 150, spa: 40, spd: 70, spe: 90},
@@ -3921,7 +4201,7 @@ anguirus: {
 },
 sakinikaido: {
 			num: 7000024,
-			species: "Saki Nikaido", /* Zombie Land SAGA */
+			name: "Saki Nikaido", /* Zombie Land SAGA */
 			types: ["Dark", "Ghost"],
 		gender: "F",
 			baseStats: {hp: 120, atk: 120, def: 60, spa: 100, spd: 90, spe: 110},
@@ -3931,7 +4211,7 @@ sakinikaido: {
 },
 majinbuu: {
 			num: 7000025,
-			species: "Majin Buu", /* Dragon Ball */
+			name: "Majin Buu", /* Dragon Ball */
 			types: ["Fairy", "Fighting"],
 		gender: "M",
 			baseStats: {hp: 160, atk: 105, def: 50, spa: 115, spd: 100, spe: 100},
@@ -3941,7 +4221,7 @@ majinbuu: {
 },
 hansolo: {
 			num: 7000026,
-			species: "Han Solo", /* Star Wars */
+			name: "Han Solo", /* Star Wars */
 			types: ["Normal"],
 		gender: "M",
 			baseStats: {hp: 80, atk: 104, def: 90, spa: 30, spd: 80, spe: 130},
@@ -3951,7 +4231,7 @@ hansolo: {
 },
 goku: {
 			num: 7000027,
-			species: "Goku", /* Dragon Ball */
+			name: "Goku", /* Dragon Ball */
 			types: ["Fighting"],
 		gender: "M",
 			baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 100},
@@ -3962,7 +4242,7 @@ goku: {
 },
 gokusupersaiyan: {
 			num: 7000027,
-			species: "Goku-Super Saiyan",
+			name: "Goku-Super Saiyan",
 		baseSpecies: "Goku",
 		forme: "Super Saiyan",
 		formeLetter: "S",
@@ -3975,7 +4255,7 @@ gokusupersaiyan: {
 },
 gokusupersaiyangod: {
 			num: 7000027,
-			species: "Goku-Super Saiyan God",
+			name: "Goku-Super Saiyan God",
 		baseSpecies: "Goku",
 		forme: "Super Saiyan God",
 		formeLetter: "G",
@@ -3988,7 +4268,7 @@ gokusupersaiyangod: {
 },
 	gokusupersaiyanblue: {
 		num: 7000027,
-		species: "Goku-Super Saiyan Blue",
+		name: "Goku-Super Saiyan Blue",
 		baseSpecies: "Goku",
 		forme: "Super Saiyan Blue",
 		formeLetter: "B",
@@ -4001,7 +4281,7 @@ gokusupersaiyangod: {
 	},
 	gokuultainstinct: {
 		num: 7000027,
-		species: "Goku-Ultra Instinct",
+		name: "Goku-Ultra Instinct",
 		baseSpecies: "Goku",
 		forme: "Ultra Instinct",
 		formeLetter: "U",
@@ -4014,7 +4294,7 @@ gokusupersaiyangod: {
 	},
 	gokuoozaru: {
 		num: 7000027,
-		species: "Goku-Oozaru",
+		name: "Goku-Oozaru",
 		baseSpecies: "Goku",
 		forme: "Oozaru",
 		formeLetter: "O",
@@ -4027,7 +4307,7 @@ gokusupersaiyangod: {
 	},
 	gokusupersaiyan4: {
 		num: 7000027,
-		species: "Goku-Super Saiyan 4",
+		name: "Goku-Super Saiyan 4",
 		baseSpecies: "Goku",
 		forme: "Super Saiyan 4",
 		formeLetter: "4",
@@ -4039,7 +4319,7 @@ gokusupersaiyangod: {
 	},
 	jonathanjoestar: {
 		num: 7000028,
-		species: "Jonathan Joestar", /* JoJo's Bizzare Adventure */
+		name: "Jonathan Joestar", /* JoJo's Bizzare Adventure */
 		types: ["Fighting"],
 		gender: "M",
 		baseStats: {hp: 115, atk: 135, def: 90, spa: 70, spd: 70, spe: 70},
@@ -4049,7 +4329,7 @@ gokusupersaiyangod: {
 	},
 	orga: {
 		num: 7000029,
-		species: "Orga", /* Godzilla */
+		name: "Orga", /* Godzilla */
 		types: ["Dragon", "Psychic"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 150, def: 80, spa: 110, spd: 60, spe: 90},
@@ -4059,7 +4339,7 @@ gokusupersaiyangod: {
 	},
 	thanos: {
 		num: 7000030,
-		species: "Thanos", /* Marvel */
+		name: "Thanos", /* Marvel */
 		types: ["Dark", "Normal"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 130, def: 100, spa: 80, spd: 90, spe: 90},
@@ -4069,7 +4349,7 @@ gokusupersaiyangod: {
 	},
 	thanosspace: {
 		num: 7000030,
-		species: "Thanos-Space", 
+		name: "Thanos-Space", 
 		baseSpecies: "Thanos",
 		forme: "Space",
 		formeLetter: "S",
@@ -4082,7 +4362,7 @@ gokusupersaiyangod: {
 	},
 	thanosmind: {
 		num: 7000030,
-		species: "Thanos-Mind", 
+		name: "Thanos-Mind", 
 		baseSpecies: "Thanos",
 		forme: "Mind",
 		formeLetter: "M",
@@ -4095,7 +4375,7 @@ gokusupersaiyangod: {
 	},
 	thanosreality: {
 		num: 7000030,
-		species: "Thanos-Reality", 
+		name: "Thanos-Reality", 
 		baseSpecies: "Thanos",
 		forme: "Reality",
 		formeLetter: "R",
@@ -4108,7 +4388,7 @@ gokusupersaiyangod: {
 	},
 	thanospower: {
 		num: 7000030,
-		species: "Thanos-Power", 
+		name: "Thanos-Power", 
 		baseSpecies: "Thanos",
 		forme: "Power",
 		formeLetter: "P",
@@ -4121,7 +4401,7 @@ gokusupersaiyangod: {
 	},
 	thanostime: {
 		num: 7000030,
-		species: "Thanos-Time", 
+		name: "Thanos-Time", 
 		baseSpecies: "Thanos",
 		forme: "Time",
 		formeLetter: "T",
@@ -4134,7 +4414,7 @@ gokusupersaiyangod: {
 	},
 	thanossoul: {
 		num: 7000030,
-		species: "Thanos-Soul", 
+		name: "Thanos-Soul", 
 		baseSpecies: "Thanos",
 		forme: "Soul",
 		formeLetter: "S",
@@ -4147,7 +4427,7 @@ gokusupersaiyangod: {
 	},
 	thanosinfinity: {
 		num: 7000030,
-		species: "Thanos-Infinity", 
+		name: "Thanos-Infinity", 
 		baseSpecies: "Thanos",
 		forme: "Infinity",
 		formeLetter: "I",
@@ -4160,7 +4440,7 @@ gokusupersaiyangod: {
 	},
 	iroh: {
 		num: 7000031,
-		species: "Iroh", /* Avatar: The Last Airbender*/
+		name: "Iroh", /* Avatar: The Last Airbender*/
 		types: ["Fire", "Dragon"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 95, def: 100, spa: 140, spd: 110, spe: 50},
@@ -4170,7 +4450,7 @@ gokusupersaiyangod: {
 	},
 	homersimpson: {
 		num: 7000032, /* The Simpsons */
-		species: "Homer Simpson",
+		name: "Homer Simpson",
 		types: ["Poison"],
 		gender: "M",
 		baseStats: {hp: 167, atk: 107, def: 80, spa: 44, spd: 74, spe: 60},
@@ -4180,7 +4460,7 @@ gokusupersaiyangod: {
 	},
 	moongirl: {
 		num: 7000033,
-		species: "Moon Girl", /* Marvel */
+		name: "Moon Girl", /* Marvel */
 		types: ["Normal"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 65, def: 55, spa: 130, spd: 80, spe: 70},
@@ -4192,7 +4472,7 @@ gokusupersaiyangod: {
 does marvel's big ol mutant trex exist? who knows
 	devildinosaur: {
 		num: 7000034,
-		species: "Devil Dinosaur", / Marvel /
+		name: "Devil Dinosaur", / Marvel /
 		types: ["Dragon"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 160, def: 105, spa: 80, spd: 90, spe: 95},
@@ -4203,7 +4483,7 @@ does marvel's big ol mutant trex exist? who knows
 */
 	elmer: {
 		num: 7000035,
-		species: "Elmer", /* Sandsverse */
+		name: "Elmer", /* Sandsverse */
 		types: ["Grass"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 110, spd: 80, spe: 120},
@@ -4214,7 +4494,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	everylivingmonkeyexactsrevenge: {
 		num: 7000035,
-		species: "Every Living Monkey Exacts Revenge",
+		name: "Every Living Monkey Exacts Revenge",
 		baseSpecies: "Elmer",
 		forme: "Lent",
 		formeLetter: "L",
@@ -4227,7 +4507,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	gregheffley: {
 		num: 7000036,
-		species: "Greg Heffley", /* Diary of a Wimpy Kid */
+		name: "Greg Heffley", /* Diary of a Wimpy Kid */
 		types: ["Ice"],
 		gender: "M",
 		baseStats: {hp: 60, atk: 60, def: 60, spa: 60, spd: 60, spe: 150},
@@ -4237,7 +4517,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	aimizuno: {
 		num: 7000037,
-		species: "Ai Mizuno", /* Zombie Land SAGA */
+		name: "Ai Mizuno", /* Zombie Land SAGA */
 		types: ["Ghost", "Electric"],
 		gender: "F",
 		baseStats: {hp: 150, atk: 60, def: 50, spa: 120, spd: 50, spe: 100},
@@ -4247,7 +4527,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	rapunzel: {
 		num: 7000038,
-		species: "Rapunzel", /* Tangled */
+		name: "Rapunzel", /* Tangled */
 		types: ["Grass", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 105, def: 40, spa: 80, spd: 130, spe: 65},
@@ -4257,7 +4537,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	elphaba: {
 		num: 7000039,
-		species: "Elphaba", /* Wicked */
+		name: "Elphaba", /* Wicked */
 		types: ["Dark", "Flying"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 60, def: 80, spa: 130, spd: 95, spe: 120},
@@ -4267,7 +4547,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	trashman: {
 		num: 7000040,
-		species: "trash man",
+		name: "trash man",
 		types: ["Poison", "Ghost"],
 		gender: "M",
 		baseStats: {hp: 4, atk: 107, def: 57, spa: 86, spd: 45, spe: 30},
@@ -4277,7 +4557,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	pelones: {
 		num: 7000041,
-		species: "Pelones", /* Sr Pelo */
+		name: "Pelones", /* Sr Pelo */
 		types: ["Normal", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 77, def: 74, spa: 77, spd: 83, spe: 90},
@@ -4287,7 +4567,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	tamatoa: {
 		num: 7000042,
-		species: "Tamatoa", /* Moana */
+		name: "Tamatoa", /* Moana */
 		types: ["Water", "Steel"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 130, def: 150, spa: 50, spd: 70, spe: 80},
@@ -4297,7 +4577,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegeta: {
 		num: 7000043,
-		species: "Vegeta", /* Dragon Ball */
+		name: "Vegeta", /* Dragon Ball */
 		types: ["Fighting"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 115, def: 75, spa: 115, spd: 75, spe: 110},
@@ -4308,7 +4588,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegetasupersaiyan: {
 		num: 7000043,
-		species: "Vegeta-Super Saiyan",
+		name: "Vegeta-Super Saiyan",
 		baseSpecies: "Vegeta",
 		forme: "Super Saiyan",
 		formeLetter: "S",
@@ -4321,7 +4601,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegetasupersaiyanblue: {
 		num: 7000043,
-		species: "Vegeta-Super Saiyan Blue",
+		name: "Vegeta-Super Saiyan Blue",
 		baseSpecies: "Vegeta",
 		forme: "Super Saiyan Blue",
 		formeLetter: "B",
@@ -4334,7 +4614,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegetamajin: {
 		num: 7000043,
-		species: "Vegeta-Majin",
+		name: "Vegeta-Majin",
 		baseSpecies: "Vegeta",
 		forme: "Majin",
 		formeLetter: "M",
@@ -4347,7 +4627,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegetaoozaru: {
 		num: 7000043,
-		species: "Vegeta-Oozaru",
+		name: "Vegeta-Oozaru",
 		baseSpecies: "Vegeta",
 		forme: "Oozaru",
 		formeLetter: "O",
@@ -4360,7 +4640,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	vegetasupersaiyan4: {
 		num: 7000043,
-		species: "Vegeta-Super Saiyan 4",
+		name: "Vegeta-Super Saiyan 4",
 		baseSpecies: "Vegeta",
 		forme: "Super Saiyan 4",
 		formeLetter: "4",
@@ -4373,7 +4653,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	shark: {
 		num: 7000044,
-		species: "Shark", /* Yu-Gi-Oh */
+		name: "Shark", /* Yu-Gi-Oh */
 		types: ["Water", "Dark"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 115, def: 75, spa: 115, spd: 75, spe: 95},
@@ -4383,7 +4663,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	megamind: {
 		num: 7000045,
-		species: "Megamind", /* Megamind */
+		name: "Megamind", /* Megamind */
 		types: ["Psychic", "Electric"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 60, def: 60, spa: 120, spd: 70, spe: 110},
@@ -4393,7 +4673,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	milesmorales: {
 		num: 7000046,
-		species: "Miles Morales", /* Spider Man: Into the Spiderverse */
+		name: "Miles Morales", /* Spider Man: Into the Spiderverse */
 		types: ["Bug", "Electric"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 100, spa: 75, spd: 85, spe: 115},
@@ -4403,7 +4683,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	shrek: {
 		num: 7000047,
-		species: "Shrek",
+		name: "Shrek",
 		types: ["Poison", "Ground"],
 		gender: "M",
 		baseStats: {hp: 108, atk: 130, def: 105, spa: 45, spd: 90, spe: 67},
@@ -4413,7 +4693,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	siren: {
 		num: 7000048,
-		species: "Siren", /* Divine Bestiary */
+		name: "Siren", /* Divine Bestiary */
 		types: ["Water", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 115, spd: 95, spe: 105},
@@ -4423,7 +4703,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	calcifer: {
 		num: 7000049,
-		species: "Calcifer", /* Howl's Moving Castle */
+		name: "Calcifer", /* Howl's Moving Castle */
 		types: ["Fire"],
 		gender: "M",
 		baseStats: {hp: 56, atk: 46, def: 66, spa: 146, spd: 96, spe: 106},
@@ -4433,7 +4713,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	petshop: {
 		num: 7000050,
-		species: "Pet Shop", /* JoJo's Bizarre Adventure */
+		name: "Pet Shop", /* JoJo's Bizarre Adventure */
 		types: ["Flying", "Ice"],
 		gender: "M",
 		baseStats: {hp: 70, atk: 125, def: 60, spa: 60, spd: 110, spe: 115},
@@ -4443,7 +4723,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	tama: {
 		num: 7000051,
-		species: "Tama", /* JoJo's Bizarre Adventure */
+		name: "Tama", /* JoJo's Bizarre Adventure */
 		types: ["Grass", "Ghost"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 70, def: 90, spa: 110, spd: 110, spe: 10},
@@ -4453,7 +4733,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	theasset: {
 		num: 7000052,
-		species: "The Asset", /* Shape of Water */
+		name: "The Asset", /* Shape of Water */
 		types: ["Water"],
 		gender: "M",
 		baseStats: {hp: 85, atk: 128, def: 73, spa: 67, spd: 96, spe: 92},
@@ -4463,7 +4743,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	motokoaoyama: {
 		num: 7000053,
-		species: "Motoko Aoyama", /* Love Hina */
+		name: "Motoko Aoyama", /* Love Hina */
 		types: ["Fighting"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 125, def: 47, spa: 125, spd: 47, spe: 100},
@@ -4473,7 +4753,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	normanbates: {
 		num: 7000054,
-		species: "Norman Bates", /* Psycho */
+		name: "Norman Bates", /* Psycho */
 		types: ["Normal", "Dark"],
 		gender: "M",
 		baseStats: {hp: 60, atk: 105, def: 70, spa: 105, spd: 75, spe: 110},
@@ -4483,7 +4763,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	tomcat: {
 		num: 7000055,
-		species: "Tom Cat", /* Tom and Jerry */
+		name: "Tom Cat", /* Tom and Jerry */
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 65, atk: 115, def: 65, spa: 115, spd: 65, spe: 107},
@@ -4494,7 +4774,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mickeymouse: {
 		num: 7000056,
-		species: "Mickey Mouse", /* Disney */
+		name: "Mickey Mouse", /* Disney */
 		types: ["Fairy", "Psychic"],
 		gender: "M",
 		baseStats: {hp: 78, atk: 100, def: 63, spa: 100, spd: 75, spe: 115},
@@ -4505,7 +4785,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	achilles: {
 		num: 7000057,
-		species: "Achilles", /* The Iliad */
+		name: "Achilles", /* The Iliad */
 		types: ["Fighting", "Steel"],
 		gender: "M",
 		baseStats: {hp: 105, atk: 130, def: 120, spa: 45, spd: 45, spe: 75},
@@ -4515,7 +4795,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	killerrabbit: {
 		num: 7000058,
-		species: "Killer Rabbit", /* Monty Python */
+		name: "Killer Rabbit", /* Monty Python */
 		types: ["Dark"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 125, def: 85, spa: 30, spd: 35, spe: 120},
@@ -4525,7 +4805,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	superman: {
 		num: 7000059,
-		species: "Superman", 
+		name: "Superman", 
 		types: ["Steel", "Flying"],
 		gender: "M",
 		baseStats: {hp: 95, atk: 135, def: 105, spa: 105, spd: 85, spe: 105},
@@ -4535,7 +4815,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	nicorobin: {
 		num: 7000060,
-		species: "Nico Robin", /* One Piece */
+		name: "Nico Robin", /* One Piece */
 		types: ["Grass"],
 		gender: "F",
 		baseStats: {hp: 78, atk: 112, def: 70, spa: 70, spd: 70, spe: 125},
@@ -4543,7 +4823,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	moonknight: {
 		num: 7000061,
-		species: "Moon Knight", /* Marvel Comics */
+		name: "Moon Knight", /* Marvel Comics */
 		types: ["Fighting", "Psychic"],
 		gender: "M",
 		baseStats: {hp: 105, atk: 100, def: 95, spa: 60, spd: 80, spe: 99},
@@ -4551,7 +4831,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	twilightsparkle: {
 		num: 7000062,
-		species: "Twilight Sparkle", /* My Little Pony: Friendship is Magic */
+		name: "Twilight Sparkle", /* My Little Pony: Friendship is Magic */
 		types: ["Fairy", "Psychic"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 80, def: 55, spa: 115, spd: 120, spe: 95},
@@ -4561,7 +4841,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	twilightsparklemega: {
 		num: 70000621,
-		species: "Twilight Sparkle-Mega",
+		name: "Twilight Sparkle-Mega",
 		baseSpecies: "Twilight Sparkle",
 		forme: "Mega",
 		formeLetter: "M",
@@ -4573,7 +4853,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	josephjoestar: {
 		num: 7000063,
-		species: "Joseph Joestar", /* JoJo's Bizarre Adventure */
+		name: "Joseph Joestar", /* JoJo's Bizarre Adventure */
 		types: ["Psychic", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 110, def: 70, spa: 100, spd: 70, spe: 110},
@@ -4584,7 +4864,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	josephjoestarold: {
 		num: 7000063,
-		species: "Joseph Joestar-Old",
+		name: "Joseph Joestar-Old",
 		baseSpecies: "Joseph Joestar",
 		forme: "Old",
 		formeLetter: "O",
@@ -4597,7 +4877,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	psylocke: {
 		num: 7000064,
-		species: "Psylocke", /* Marvel */
+		name: "Psylocke", /* Marvel */
 		types: ["Psychic"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 100, def: 50, spa: 95, spd: 117, spe: 117},
@@ -4607,7 +4887,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahu: {
 		num: 7000065,
-		species: "Toa Tahu", /* Bionicle */
+		name: "Toa Tahu", /* Bionicle */
 		types: ["Fire", "Steel"],
 		gender: "M",
 		baseStats: {hp: 95, atk: 110, def: 90, spa: 90, spd: 100, spe: 80},
@@ -4618,7 +4898,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahushielding: {
 		num: 7000065,
-		species: "Toa Tahu-Shielding",
+		name: "Toa Tahu-Shielding",
 		baseSpecies: "Toa Tahu",
 		forme: "Shielding",
 		formeLetter: "S",
@@ -4631,7 +4911,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahushielding2: {
 		num: 7000065,
-		species: "Toa Tahu-Shielding 2", /* not an official form but needed for ability to work */
+		name: "Toa Tahu-Shielding 2", /* not an official form but needed for ability to work */
 		baseSpecies: "Toa Tahu",
 		forme: "Shielding 2",
 		formeLetter: "S",
@@ -4644,7 +4924,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahuxray: {
 		num: 7000065,
-		species: "Toa Tahu-X-Ray",
+		name: "Toa Tahu-X-Ray",
 		baseSpecies: "Toa Tahu",
 		forme: "X-Ray",
 		formeLetter: "X",
@@ -4657,7 +4937,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahuspeed: {
 		num: 7000065,
-		species: "Toa Tahu-Speed",
+		name: "Toa Tahu-Speed",
 		baseSpecies: "Toa Tahu",
 		forme: "Speed",
 		formeLetter: "S",
@@ -4670,7 +4950,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahulevitation: {
 		num: 7000065,
-		species: "Toa Tahu-Levitation",
+		name: "Toa Tahu-Levitation",
 		baseSpecies: "Toa Tahu",
 		forme: "Levitation",
 		formeLetter: "L",
@@ -4683,7 +4963,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahustrength: {
 		num: 7000065,
-		species: "Toa Tahu-Strength",
+		name: "Toa Tahu-Strength",
 		baseSpecies: "Toa Tahu",
 		forme: "Strength",
 		formeLetter: "S",
@@ -4696,7 +4976,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	toatahuwaterbreathing: {
 		num: 7000065,
-		species: "Toa Tahu-Water Breathing",
+		name: "Toa Tahu-Water Breathing",
 		baseSpecies: "Toa Tahu",
 		forme: "Water Breathing",
 		formeLetter: "W",
@@ -4709,7 +4989,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	azula: {
 		num: 7000066,
-		species: "Azula", /* Avatar: The Last Airbender */
+		name: "Azula", /* Avatar: The Last Airbender */
 		types: ["Fire", "Dark"],
 		gender: "F",
 		baseStats: {hp: 71, atk: 75, def: 75, spa: 120, spd: 80, spe: 109},
@@ -4719,7 +4999,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	santaclaus: {
 		num: 7000067,
-		species: "Santa Claus",
+		name: "Santa Claus",
 		types: ["Ice", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 95, def: 90, spa: 105, spd: 95, spe: 75},
@@ -4729,7 +5009,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	rudolph: {
 		num: 7000068,
-		species: "Rudolph", /* Rudolph the Red-Nosed Reindeer */
+		name: "Rudolph", /* Rudolph the Red-Nosed Reindeer */
 		types: ["Normal", "Ice"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 105, def: 70, spa: 100, spd: 70, spe: 95},
@@ -4739,7 +5019,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	jackskellington: {
 		num: 7000069,
-		species: "Jack Skellington", /* The Nightmare Before Christmas */
+		name: "Jack Skellington", /* The Nightmare Before Christmas */
 		types: ["Fire", "Ghost"],
 		gender: "M",
 		baseStats: {hp: 78, atk: 110, def: 75, spa: 130, spd: 85, spe: 110},
@@ -4749,7 +5029,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	drdoofenshmirtz: {
 		num: 7000070,
-		species: "Dr. Doofenshmirtz", /* Phineas and Ferb */
+		name: "Dr. Doofenshmirtz", /* Phineas and Ferb */
 		types: ["Normal", "Dark"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 55, def: 85, spa: 110, spd: 88, spe: 102},
@@ -4759,7 +5039,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	kenshiro: {
 		num: 7000071,
-		species: "Kenshiro", /* Fist of the North Star */
+		name: "Kenshiro", /* Fist of the North Star */
 		types: ["Fighting"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 100, spd: 80, spe: 110},
@@ -4769,7 +5049,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	sailormoon: {
 		num: 7000072,
-		species: "Sailor Moon", /* Sailor Moon... what else would she be from? */
+		name: "Sailor Moon", /* Sailor Moon... what else would she be from? */
 		types: ["Fairy", "Normal"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 100, def: 70, spa: 110, spd: 90, spe: 110},
@@ -4780,7 +5060,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	sailormoonsuper: {
 		num: 7000072,
-		species: "Sailor Moon-Super",
+		name: "Sailor Moon-Super",
 		baseSpecies: "Sailor Moon",
 		forme: "Super",
 		formeLetter: "S",
@@ -4793,7 +5073,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	sailormooneternal: {
 		num: 7000072,
-		species: "Sailor Moon-Eternal",
+		name: "Sailor Moon-Eternal",
 		baseSpecies: "Sailor Moon",
 		forme: "Eternal",
 		formeLetter: "E",
@@ -4806,7 +5086,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	neoqueenserenity: {
 		num: 7000072,
-		species: "Neo-Queen Serenity",
+		name: "Neo-Queen Serenity",
 		baseSpecies: "Sailor Moon",
 		forme: "Neo-Queen",
 		formeLetter: "N",
@@ -4819,7 +5099,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	froppy: {
 		num: 7000073,
-		species: "Froppy", /* My Hero Academia */
+		name: "Froppy", /* My Hero Academia */
 		types: ["Water"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 105, def: 90, spa: 115, spd: 80, spe: 85},
@@ -4829,7 +5109,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguy: {
 		num: 7000074,
-		species: "Might Guy", /* Naruto */
+		name: "Might Guy", /* Naruto */
 		types: ["Fighting"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 100, def: 80, spa: 40, spd: 80, spe: 100},
@@ -4840,7 +5120,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguyfirstgate: {
 		num: 7000074,
-		species: "Might Guy-First Gate",
+		name: "Might Guy-First Gate",
 		baseSpecies: "Might Guy",
 		forme: "First Gate",
 		formeLetter: "1",
@@ -4853,7 +5133,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguysecondgate: {
 		num: 7000074,
-		species: "Might Guy-Second Gate",
+		name: "Might Guy-Second Gate",
 		baseSpecies: "Might Guy",
 		forme: "Second Gate",
 		formeLetter: "2",
@@ -4866,7 +5146,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguythirdgate: {
 		num: 7000074,
-		species: "Might Guy-Third Gate",
+		name: "Might Guy-Third Gate",
 		baseSpecies: "Might Guy",
 		forme: "Third Gate",
 		formeLetter: "3",
@@ -4879,7 +5159,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguyfourthgate: {
 		num: 7000074,
-		species: "Might Guy-Fourth Gate",
+		name: "Might Guy-Fourth Gate",
 		baseSpecies: "Might Guy",
 		forme: "Fourth Gate",
 		formeLetter: "4",
@@ -4892,7 +5172,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguyfifthgate: {
 		num: 7000074,
-		species: "Might Guy-Fifth Gate",
+		name: "Might Guy-Fifth Gate",
 		baseSpecies: "Might Guy",
 		forme: "Fifth Gate",
 		formeLetter: "5",
@@ -4905,7 +5185,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguysixthgate: {
 		num: 7000074,
-		species: "Might Guy-Sixth Gate",
+		name: "Might Guy-Sixth Gate",
 		baseSpecies: "Might Guy",
 		forme: "Sixth Gate",
 		formeLetter: "6",
@@ -4918,7 +5198,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguysixthgate: {
 		num: 7000074,
-		species: "Might Guy-Sixth Gate",
+		name: "Might Guy-Sixth Gate",
 		baseSpecies: "Might Guy",
 		forme: "Sixth Gate",
 		formeLetter: "6",
@@ -4931,7 +5211,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguyseventhgate: {
 		num: 7000074,
-		species: "Might Guy-Seventh Gate",
+		name: "Might Guy-Seventh Gate",
 		baseSpecies: "Might Guy",
 		forme: "Seventh Gate",
 		formeLetter: "7",
@@ -4944,7 +5224,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mightguyeighthgate: {
 		num: 7000074,
-		species: "Might Guy-Eighth Gate",
+		name: "Might Guy-Eighth Gate",
 		baseSpecies: "Might Guy",
 		forme: "Eighth Gate",
 		formeLetter: "8",
@@ -4957,7 +5237,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	yoda: {
 		num: 7000075,
-		species: "Yoda", /* Star Wars */
+		name: "Yoda", /* Star Wars */
 		types: ["Psychic", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 70, atk: 60, def: 80, spa: 150, spd: 140, spe: 70},
@@ -4967,7 +5247,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	thechild: {
 		num: 7000076,
-		species: "The Child", /* Star Wars */
+		name: "The Child", /* Star Wars */
 		types: ["Psychic"],
 		gender: "M",
 		baseStats: {hp: 40, atk: 5, def: 5, spa: 20, spd: 5, spe: 5},
@@ -4977,7 +5257,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	scp743: {
 		num: 7000077,
-		species: "SCP-743", /* SCP Foundation */
+		name: "SCP-743", /* SCP Foundation */
 		types: ["Fairy", "Bug"],
 		gender: "N",
 		baseStats: {hp: 110, atk: 90, def: 140, spa: 80, spd: 110, spe: 5},
@@ -4987,7 +5267,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	beatricerappacini: {
 		num: 7000078,
-		species: "Beatrice Rappacini", /* Rappacini's Daughter */
+		name: "Beatrice Rappacini", /* Rappacini's Daughter */
 		types: ["Poison"],
 		gender: "F",
 		baseStats: {hp: 182, atk: 80, def: 75, spa: 80, spd: 75, spe: 30},
@@ -4997,7 +5277,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	naofumiiwatani: {
 		num: 7000079,
-		species: "Naofumi Iwatani", /* Rising of the Shield Hero */
+		name: "Naofumi Iwatani", /* Rising of the Shield Hero */
 		types: ["Dark"],
 		gender: "M",
 		baseStats: {hp: 65, atk: 5, def: 135, spa: 5, spd: 135, spe: 95},
@@ -5007,83 +5287,83 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	orc: {
 		num: 7000080,
-		species: "Orc", /* Dungeons and Dragons */
+		name: "Orc", /* Dungeons and Dragons */
 		types: ["Dark"],
 		baseStats: {hp: 60, atk: 90, def: 70, spa: 30, spd: 60, spe: 70},
 		abilities: {0: "Intimidate", H: "Hustle"},
 		heightm: 1.7,
 		weightkg: 90,
-		evos: ["orceyeofgruumsh"],
+		evos: ["Orc Eye of Gruumsh"],
 	},
 	orceyeofgruumsh: {
 		num: 7000081,
-		species: "Orc Eye of Gruumsh", 
+		name: "Orc Eye of Gruumsh", 
 		types: ["Dark", "Psychic"],
 		baseStats: {hp: 80, atk: 130, def: 100, spa: 50, spd: 80, spe: 75},
 		abilities: {0: "Intimidate", H: "Long Reach"},
-		prevo: "orc",
+		prevo: "Orc",
 		heightm: 1.7,
 		weightkg: 90,
 	},
 	diobrando: {
 		num: 7000082,
-		species: "Dio Brando", /* JoJo's Bizarre Adventure */
+		name: "Dio Brando", /* JoJo's Bizarre Adventure */
 		types: ["Ghost", "Ice"],
 		gender: "M",
 		baseStats: {hp: 130, atk: 100, def: 50, spa: 70, spd: 70, spe: 100},
 		abilities: {0: "Vampire", 1: "Sturdy", H: "Intimidate"},
 		heightm: 1.9,
 		weightkg: 100,
-		evos: ["dio"],
+		evos: ["DIO"],
 	},
 	dio: {
 		num: 700083,
-		species: "DIO",
+		name: "DIO",
 		types: ["Ghost", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 115, atk: 130, def: 95, spa: 70, spd: 70, spe: 120},
 		abilities: {0: "Vampire", 1: "Scrappy", H: "Intimidate"},
-		prevo: "diobrando",
+		prevo: "Dio Brando",
 		heightm: 1.95,
 		weightkg: 105,
 	},
 	slimerimuru: {
 		num: 7000084,
-		species: "Slime Rimuru", /* That Time I Got Reincarnated As A Slime */
+		name: "Slime Rimuru", /* That Time I Got Reincarnated As A Slime */
 		types: ["Water"],
 		gender: "N",
 		baseStats: {hp: 95, atk: 60, def: 80, spa: 75, spd: 80, spe: 60},
 		abilities: {0: "Trace", 1: "Intimidate", H: "Great Sage"},
 		heightm: 1,
 		weightkg: 10,
-		evos: ["humanrimuru"],
+		evos: ["Human Rimuru"],
 	},
 	humanrimuru: {
 		num: 7000085,
-		species: "Human Rimuru",
+		name: "Human Rimuru",
 		types: ["Water"],
 		gender: "N",
 		baseStats: {hp: 105, atk: 70, def: 105, spa: 85, spd: 105, spe: 70},
 		abilities: {0: "Thick Fat", 1: "Conflagrate", H: "Great Sage"},
-		prevo: "slimerimuru",
+		prevo: "Slime Rimuru",
 		heightm: 1.5,
 		weightkg: 55,
-		evos: ["demonlordrimuru"],
+		evos: ["Demon Lord Rimuru"],
 	},
 	demonlordrimuru: {
 		num: 7000086,
-		species: "Demon Lord Rimuru",
+		name: "Demon Lord Rimuru",
 		types: ["Water", "Dark"],
 		gender: "N",
 		baseStats: {hp: 110, atk: 70, def: 120, spa: 110, spd: 120, spe: 100},
 		abilities: {0: "Regenerator", 1: "Protean", H: "Raphael"},
-		prevo: "humanrimuru",
+		prevo: "Human Rimuru",
 		heightm: 1.7,
 		weightkg: 70,
 	},
 	earthchan: {
 		num: 7000087,
-		species: "Earth-Chan",
+		name: "Earth-Chan",
 		types: ["Rock", "Water"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 95, def: 105, spa: 105, spd: 70, spe: 70},
@@ -5093,29 +5373,29 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	alexanderthegreat: {
 		num: 7000088,
-		species: "Alexander the Great", /* technically he's from Fate/Grand Order but he inherits Expanded membership from his evolution, who was introduced first */
+		name: "Alexander the Great", /* technically he's from Fate/Grand Order but he inherits Expanded membership from his evolution, who was introduced first */
 		types: ["Electric"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 60, def: 90, spa: 60, spd: 90, spe: 90},
 		abilities: {0: "Cute Charm", H: "Zeus Thunder"},
 		heightm: 1.51,
 		weightkg: 40,
-		evos: ["iskandar"],
+		evos: ["Iskandar"],
 	},
 	iskandar: {
 		num: 7000089,
-		species: "Iskandar", /* Fate/Zero */
+		name: "Iskandar", /* Fate/Zero */
 		types: ["Electric", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 110, def: 120, spa: 70, spd: 110, spe: 40},
 		abilities: {0: "Charisma", H: "Sand Rush"},
-		prevo: "alexanderthegreat",
+		prevo: "Alexander the Great",
 		heightm: 2.12,
 		weightkg: 130,
 	},
 	tenmillionfireflies: {
 		num: 7000090,
-		species: "Ten Million Fireflies", /* "Fireflies" by Owl City */
+		name: "Ten Million Fireflies", /* "Fireflies" by Owl City */
 		types: ["Bug"],
 		baseStats: {hp: 240, atk: 5, def: 5, spa: 45, spd: 90, spe: 45},
 		abilities: {0: "Illuminate", H: "Drizzle"},
@@ -5124,7 +5404,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	maple: {
 		num: 7000091,
-		species: "Maple", /* BOFURI: I Don't Want to Be Hurt, So I'll Max Out My Defense */
+		name: "Maple", /* BOFURI: I Don't Want to Be Hurt, So I'll Max Out My Defense */
 		types: ["Steel", "Poison"],
 		gender: "F",
 		baseStats: {hp: 42, atk: 10, def: 255, spa: 10, spd: 255, spe: 10},
@@ -5134,7 +5414,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	maplemega: {
 		num: 7000091,
-		species: "Maple-Mega",
+		name: "Maple-Mega",
 		baseSpecies: "Maple",
 		forme: "Mega",
 		formeLetter: "M",
@@ -5147,7 +5427,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	riofutaba: {
 		num: 7000092,
-		species: "Rio Futaba",
+		name: "Rio Futaba",
 		types: ["Poison", "Psychic"], /* Rascal Does Not Dream of Bunny Girl Senpai */
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 40, spa: 100, spd: 200, spe: 40},
@@ -5157,7 +5437,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	mrfreeze: {
 		num: 7000093,
-		species: "Mr. Freeze",  /* Batman */
+		name: "Mr. Freeze",  /* Batman */
 		types: ["Ice"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 70, def: 115, spa: 135, spd: 125, spe: 85},
@@ -5167,7 +5447,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	hawks: {
 		num: 7000094,
-		species: "Hawks", /* My Hero Academia */
+		name: "Hawks", /* My Hero Academia */
 		types: ["Flying"],
 		gender: "M",
 		baseStats: {hp: 84, atk: 109, def: 83, spa: 47, spd: 86, spe: 131},
@@ -5177,7 +5457,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	bloom: {
 		num: 7000095,
-		species: "Bloom", /* ugly */
+		name: "Bloom", /* ugly */
 		types: ["Dragon", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 55, def: 75, spa: 120, spd: 120, spe: 125},
@@ -5187,7 +5467,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	bloombutterflix: {
 		num: 7000095,
-		species: "Bloom-Butterflix",
+		name: "Bloom-Butterflix",
 		baseSpecies: "Bloom",
 		forme: "Butterflix",
 		formeLetter: "B",
@@ -5200,7 +5480,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	bloomsirenix: {
 		num: 7000095,
-		species: "Bloom-Sirenix",
+		name: "Bloom-Sirenix",
 		baseSpecies: "Bloom",
 		forme: "Sirenix",
 		formeLetter: "S",
@@ -5213,7 +5493,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	hazers: {
 		num: 7000096,
-		species: "Hazers", /* Marble League */
+		name: "Hazers", /* Marble League */
 		types: ["Rock", "Ice"],
 		gender: "N",
 		baseStats: {hp: 205, atk: 10, def: 10, spa: 10, spd: 10, spe: 155},
@@ -5223,7 +5503,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	tophbeifong: {
 		num: 7000097,
-		species: "Toph Beifong", /* Avatar: The Last Airbender */
+		name: "Toph Beifong", /* Avatar: The Last Airbender */
 		types: ["Ground", "Rock"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 139, def: 105, spa: 41, spd: 70, spe: 90},
@@ -5233,41 +5513,41 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	cell: {
 		num: 7000098,
-		species: "Cell", /* Dragon Ball */
+		name: "Cell", /* Dragon Ball */
 		types: ["Bug", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 75, def: 45, spa: 60, spd: 65, spe: 70},
 		abilities: {0: "Sturdy", 1: "Regenerator", H: "Zenkai Boost"},
 		heightm: 2.13,
 		weightkg: 87,
-		evos: ["semiperfectcell"],
+		evos: ["Semi-Perfect Cell"],
 	},
 	semiperfectcell: {
 		num: 7000099,
-		species: "Semi-Perfect Cell", /* Dragon Ball */
+		name: "Semi-Perfect Cell", /* Dragon Ball */
 		types: ["Bug", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 95, atk: 100, def: 65, spa: 70, spd: 75, spe: 75},
 		abilities: {0: "Sturdy", 1: "Regenerator", H: "Zenkai Boost"},
-		prevo: "cell",
+		prevo: "Cell",
 		heightm: 2.46,
 		weightkg: 127,
-		evos: ["perfectcell"],
+		evos: ["Perfect Cell"],
 	},
 	semiperfectcell: {
 		num: 7000099,
-		species: "Semi-Perfect Cell", /* Dragon Ball */
+		name: "Semi-Perfect Cell", /* Dragon Ball */
 		types: ["Bug", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 120, def: 90, spa: 95, spd: 95, spe: 90},
 		abilities: {0: "Sturdy", 1: "Regenerator", H: "Zenkai Boost"},
-		prevo: "semiperfectcell",
+		prevo: "Semi-Perfect Cell",
 		heightm: 2.13,
 		weightkg: 87,
 	},
 	theresealexandrite: {
 		num: 7000100,
-		species: "Therese Alexandrite", /* Rising of the Shield Hero */
+		name: "Therese Alexandrite", /* Rising of the Shield Hero */
 		types: ["Rock", "Psychic"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 55, def: 100, spa: 145, spd: 90, spe: 60},
@@ -5277,7 +5557,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	blackknight: {
 		num: 7000101,
-		species: "Black Knight", /* Monty Python and the Holy Grail */
+		name: "Black Knight", /* Monty Python and the Holy Grail */
 		types: ["Steel"],
 		gender: "M",
 		baseStats: {hp: 255, atk: 93, def: 119, spa: 27, spd: 20, spe: 81},
@@ -5287,17 +5567,19 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	blackrockshooter: {
 		num: 7000102,
-		species: "Black★Rock Shooter", /* Black★Rock Shooter */
+		name: "Black★Rock Shooter", /* Black★Rock Shooter */
 		types: ["Fire", "Rock"],
 		gender: "F",
 		baseStats: {hp: 160, atk: 110, def: 60, spa: 110, spd: 60, spe: 100},
 		abilities: {0: "Regenerator", H: "Telepathy"},
 		heightm: 1.5,
 		weightkg: 50,
+		otherFormes: ["Black★Rock Shooter-Insane"],
+		formeOrder: ["Black★Rock Shooter", "Black★Rock Shooter-Insane"],
 	},
 	blackrockshooterinsane: {
 		num: 7000103,
-		species: "Black★Rock Shooter-Insane",
+		name: "Black★Rock Shooter-Insane",
 		baseSpecies: "Black★Rock Shooter",
 		forme: "Insane",
 		formeLetter: "I",
@@ -5310,7 +5592,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	shizouheiwajima: {
 		num: 7000104,
-		species: "Shizou Heijawjima", /* Durarara! */
+		name: "Shizou Heijawjima", /* Durarara! */
 		types: ["Fighting"],
 		gender: "M",
 		baseStats: {hp: 85, atk: 150, def: 100, spa: 65, spd: 55, spe: 75},
@@ -5320,17 +5602,20 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	overhaul: {
 		num: 7000105,
-		species: "Overhaul", /* My Hero Academia */
+		name: "Overhaul", /* My Hero Academia */
 		types: ["Poison", "Dark"],
 		gender: "M",
 		baseStats: {hp: 104, atk: 129, def: 83, spa: 67, spd: 76, spe: 101},
 		abilities: {0: "Regenerator", 1: "Poison Touch", H: "Healer"},
 		heightm: 1.7,
 		weightkg: 84,
+		otherFormes: ["Overhaul-Mega"],
+		formeOrder: ["Overhaul", "Overhaul-Mega"],
+		isGigantamax: "G-Max Life Drain",
 	},
 	overhaulmega: {
 		num: 7000105,
-		species: "Overhaul-Mega",
+		name: "Overhaul-Mega",
 		baseSpecies: "Overhaul",
 		forme: "Mega",
 		formeLetter: "M",
@@ -5342,7 +5627,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	overhaulgmax: {
 		num: 7000105,
-		species: "Overhaul-GMax",
+		name: "Overhaul-GMax",
 		baseSpecies: "Overhaul",
 		forme: "GMax",
 		formeLetter: "G",
@@ -5351,10 +5636,11 @@ does marvel's big ol mutant trex exist? who knows
 		abilities: {0: "Regenerator", 1: "Poison Touch", H: "Healer"},
 		heightm: 50,
 		weightkg: 0,
+		changesFrom: "Overhaul",
 	},
 	jotarokujo: {
 		num: 7000106,
-		species: "Jotaro Kujo", /* JoJo's Bizarre Adventure */
+		name: "Jotaro Kujo", /* JoJo's Bizarre Adventure */
 		types: ["Fighting", "Ghost"],
 		baseStats: {hp: 75, atk: 139, def: 115, spa: 60, spd: 75, spe: 121},
 		abilities: {0: "Iron Fist", 1: "Scrappy", H: "Keen Eye"},
@@ -5363,7 +5649,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	waldo: {
 		num: 7000107,
-		species: "Waldo", /* Where's Waldo? */
+		name: "Waldo", /* Where's Waldo? */
 		types: ["Normal"],
 		baseStats: {hp: 117, atk: 80, def: 80, spa: 58, spd: 58, spe: 127},
 		abilities: {0: "Where's Waldo?", H: "Technician"},
@@ -5372,7 +5658,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	shototodoroki: {
 		num: 7000108,
-		species: "Shoto Todoroki", /* My Hero Academia */
+		name: "Shoto Todoroki", /* My Hero Academia */
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 90, atk: 65, def: 75, spa: 130, spd: 80, spe: 100},
 		abilities: {0: "Ice Body", H: "Flame Body"},
@@ -5381,7 +5667,7 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	wadeld: {
 		num: 7000109,
-		species: "Wade L. D.", /* SiIvaGunner */
+		name: "Wade L. D.", /* SiIvaGunner */
 		types: ["Normal"],
 		baseStats: {hp: 100, atk: 100, def: 60, spa: 60, spd: 60, spe: 100},
 		abilities: {0: "Skill Link", 1: "Anger Point", H: "Friend Guard"},
@@ -5390,12 +5676,116 @@ does marvel's big ol mutant trex exist? who knows
 	},
 	tomurashigaraki: {
 		num: 7000110,
-		species: "Tomura Shigaraki", /* My Hero Academia */
+		name: "Tomura Shigaraki", /* My Hero Academia */
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 85, atk: 125, def: 85, spa: 75, spd: 85, spe: 105},
 		abilities: {0: "Decay", H: "All For One"},
 		heightkg: 1.7,
 		weightkg: 60,
+	},
+	redriot: {
+		num: 7000111,
+		name: "Red Riot", /* My Hero Academia */
+		types: ["Fighting", "Rock"],
+		gender: "M",
+		baseStats: {hp: 109, atk: 95, def: 135, spa: 30, spd: 100, spe: 81},
+		abilities: {0: "Sturdy", 1: "Rough Skin", H: "Guts"},
+		heightm: 1.7,
+		weightkg: 60,
+		otherFormes: ["Red Riot-Mega"],
+		formeOrder: ["Red Riot", "Overhaul-Mega"],
+	},
+	redriotmega: {
+		num: 7000105,
+		name: "Red Riot-Mega",
+		baseSpecies: "Red Riot",
+		forme: "Mega",
+		formeLetter: "M",
+		types: ["Fighting", "Rock"],
+		baseStats: {hp: 109, atk: 115, def: 165, spa: 60, spd: 140, spe: 61},
+		abilities: {0: "Rock Head"},
+		heightm: 1.7,
+		weightkg: 80,
+	},
+	darkness: {
+		num: 7000106,
+		name: "Darkness", /* KonoSuba */
+		types: ["Steel"],
+		gender: "F",
+		baseStats: {hp: 100, atk: 70, def: 150, spa: 50, spd: 150, spe: 80},
+		abilities: {0: "Hustle", 1: "Anticipation", H: "Sturdy"},
+		heightm: 1.7,
+		weightkg: 75,
+	},
+	storm: {
+		num: 7000107,
+		name: "Storm", /* Marvel */
+		types: ["Electric", "Flying"],
+		gender: "F",
+		baseStats: {hp: 75, atk: 60, def: 60, spa: 133, spd: 120, spe: 105},
+		abilities: {0: "Drizzle", H: "Snow Warning"},
+		heightm: 1.8,
+		weightkg: 65.8,
+	},
+	indianajones: {
+		num: 7000108,
+		name: "Indiana Jones",
+		types: ["Ground"],
+		gender: "M",
+		baseStats: {hp: 81, atk: 118, def: 93, spa: 53, spd: 82, spe: 107},
+		abilities: {0: "Defiant", 1: "Long Reach", H: "Emergency Exit"},
+		heightm: 1.85,
+		weightkg: 83,
+	},
+	crocodile: {
+		num: 7000109,
+		name: "Crocodile", /* One Piece */
+		types: ["Ground"],
+		gender: "M",
+		baseStats: {hp: 110, atk: 96, def: 82, spa: 96, spd: 82, spe: 82},
+		abilities: {0: "Sand Stream", 1: "Sand Veil", H: "Sand Rush"},
+		heightm: 2,
+		weightkg: 100,
+	},
+	honokakousaka: {
+		num: 7000110,
+		name: "Honoka Kousaka", /* Love Live */
+		types: ["Normal"],
+		gender: "F",
+		baseStats: {hp: 100, atk: 40, def: 70, spa: 100, spd: 70, spe: 100},
+		abilities: {0: "Unaware", 1: "Dancer", H: "Huge Power"},
+		heightm: 1.57,
+		weightkg: 60,
+	},
+	sokka: {
+		num: 7000111,
+		name: "Sokka", /* Avatar */
+		types: ["Normal"],
+		gender: "M",
+		baseStats: {hp: 73, atk: 97, def: 106, spa: 49, spd: 71, spe: 114},
+		abilities: {0: "Adept Weaponry"},
+		heightm: 1.4,
+		weightkg: 40,
+	},
+	smaug: {
+		num: 7000112,
+		name: "Smaug", /* The Hobbit */
+		types: ["Dragon", "Fire"],
+		gender: "M",
+		baseStats: {hp: 90, atk: 100, def: 130, spa: 100, spd: 90, spe: 90},
+		abilities: {0: "Levitate", 1: "Heavy Metal", H: "Hoarder"},
+		heightm: 15,
+		weightkg: 250,
+	},
+	pannacottafugo: {
+		num: 7000113,
+		name: "Pannacotta Fugo", /* JoJo's Bizarre Adventure */
+		types: ["Poison", "Dark"],
+		gender: "M",
+		baseStats: {hp: 70, atk: 100, def: 65, spa: 128, spd: 85, spe: 95},
+		abilities: {0: "Anger Point", H: "Purple Haze"},
+		heightm: 1.72,
+		weightkg: 55,
 	},
 		
 };
