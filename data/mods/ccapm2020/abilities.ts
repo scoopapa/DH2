@@ -75,7 +75,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	exhaust: {
 		desc: "The Pokémon's attacking moves consume 2 PP instead of 1, but their damage is increased by 20%..",
 		shortDesc: "The Pokémon's attacking moves consume 2 PP instead of 1, but their damage is increased by 20%..",
-		onDeductPP(target, source) {
+		onSourceDeductPP(target, source) {
 			if (target.side !== source.side) return;
 			return 1;
 		},
