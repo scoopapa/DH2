@@ -233,7 +233,7 @@ exports.BattleAbilities = {
       }
     }
   },
-  id: "mummy"
+  id: "mummy",
   name: "Mummy",
 },
 "ironfist": {
