@@ -118,7 +118,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						bestStat = target.storedStats[s];
 					}
 				}
-				this.boost({[statName]: 1}, target);
+				this.boost({[statName]: 1});
 			}
 		},
 		name: "In Extremis",
