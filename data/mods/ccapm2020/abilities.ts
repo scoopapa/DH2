@@ -11,7 +11,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		  }
 		},
 		onBasePower(basePower, attacker, defender, move) {
-			if (pokemon.activeMoveActions < 1 && !move.tfBoosted) {
+			if (attacker.activeMoveActions < 1 && !move.tfBoosted) {
 				move.tfBoosted = true;
 				return this.chainModify(0.667);
 			}
@@ -24,7 +24,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "The Pokémon is immune to moves of its own types..",
 		shortDesc: "The Pokémon is immune to moves of its own types..",
 		onTryHit(target, source, move) {
-			if (target !== source && source.types.includes(move.type)) {
+			if (target !== source && target.types.includes(move.type)) {
 				this.add('-immune', target, '[from] ability: Elemental');
 				return null;
 			}
@@ -156,8 +156,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Counter Shield neutralize');
-				this.damage(source.baseMaxhp / 8, source, target);
 				return this.chainModify(0.75);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
 		name: "Counter Shield",
