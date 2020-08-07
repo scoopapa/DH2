@@ -173,7 +173,7 @@ exports.BattleAbilities = {
       },
       onStart(side, source) {
         this.add('-sidestart', 'Sweet Veil', '[from] ability: Sweet Veil', '[of] ' + source); 
-      }
+      },
       onResidualOrder: 5,
       onResidualSubOrder: 5,
       onResidual(side) {
