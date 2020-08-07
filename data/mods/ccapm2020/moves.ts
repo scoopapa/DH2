@@ -6,7 +6,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		desc: "The user restores 1/2 of its maximum HP, rounded half up.",
 		shortDesc: "Heals the user by 50% of its max HP.",
-		isNonstandard: "Past",
 		name: "Heal Order",
 		pp: 10,
 		priority: 0,
