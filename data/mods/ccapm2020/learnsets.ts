@@ -394,6 +394,7 @@ export const BattleLearnsets = {
 		wildcharge: ["7M", "6M", "5M"],
 		workup: ["7M", "5M"],
 		zapcannon: ["7V"],
+		mistyexplosion: ["7V"],
 	}},
 	wormadamtrash: {learnset: {
 		allyswitch: ["7T"],
@@ -521,6 +522,7 @@ export const BattleLearnsets = {
 		spitup: ["8L20", "7L56", "6L50", "5L56"],
 		stockpile: ["8L20", "7L56", "6L50", "5L56"],
 		stompingtantrum: ["8M", "7T"],
+		scorchingsands: ["8M", "7T"],
 		substitute: ["8M", "7M", "6M", "5M"],
 		sunnyday: ["8M", "7M", "6M", "5M"],
 		superpower: ["8M", "7T", "6T", "5T"],
@@ -534,6 +536,7 @@ export const BattleLearnsets = {
 		toxic: ["7M", "6M", "5M"],
 		willowisp: ["8M", "7M", "6M", "5M"],
 		wrap: ["7E", "6E", "5E"],
+		burningjealousy: ["7E", "6E", "5E"],
 	}},
 	beheeyem: {learnset: {
 		afteryou: ["7T", "6T", "5T"],
@@ -860,6 +863,7 @@ export const BattleLearnsets = {
 		workup: ["8M", "7M"],
 		zenheadbutt: ["8M", "7T"],
 		zingzap: ["8L40", "7L33"],
+		steelroller: ["8L40", "7L33"],
 	}},
 	garchomp: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M"],
@@ -1101,6 +1105,7 @@ export const BattleLearnsets = {
 		toxic: ["8L27", "7M", "7L27", "6M", "6L27", "5M", "5L27", "4M", "4L20"],
 		venomdrench: ["8M", "8L42", "7L37"],
 		venoshock: ["8M", "8L21", "7M", "6M", "5M"],
+		lashout: ["8M", "8L21", "7M", "6M", "5M"],
 	}},
 	lycanrocdusk: {learnset: {
 		accelerock: ["7L1"],
@@ -1209,6 +1214,7 @@ export const BattleLearnsets = {
 		uturn: ["8M"],
 		weatherball: ["8M"],
 		wideguard: ["8L48"],
+		tripleaxel: ["8L48"],
 	}},
 	dragonair: {learnset: {
 		agility: ["7L25", "7V", "6L25", "5L25", "4L25", "3L36"],
@@ -1356,6 +1362,7 @@ export const BattleLearnsets = {
 		snore: ["8M", "7T", "6T", "5T"],
 		solarbeam: ["8M", "7M", "6M", "5M"],
 		steelwing: ["8M", "7M", "6M"],
+		scorchingsands: ["8M", "7M", "6M"],
 		stoneedge: ["8M", "7M", "6M", "5M"],
 		strength: ["6M", "5M"],
 		substitute: ["8M", "7M", "6M", "5M"],
