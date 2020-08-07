@@ -983,6 +983,17 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		}
 	},
 	{
+		name: "[Gen 8] CCAPM 2020",
+		desc: `AAACS.`,
+		threads: [
+		],
+		mod: 'ccapm2020',
+		ruleset: ['Obtainable', '!Obtainable Abilities', 'Species Clause', 'Nickname Clause', 'Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod', 'Endless Battle Clause'],
+		banlist: ['All', 'Baton Pass'],
+		unbanlist['porygon2', 'jellicent', 'crabominable', 'oricoriosensu', 'wigglytuff', 'wormadamtrash', 'heatmor', 'beheeyem', 'golbat', 'eelektross', 'togedemaru', 'garchomp',
+					'whimsicott', 'skuntank', 'lycanrocdusk', 'frosmoth', 'dragonair', 'reshiram', 'aegislash', 'camerupt', 'explosion', 'chesnaught', 'delibird'],
+	},
+	{
 		name: "[Gen 8] PKMN YB OU",
 		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8365236",],
 		mod: 'pkmnyb',	
