@@ -4,6 +4,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onModifyPriority(priority, pokemon, target, move) {
 		  if (pokemon.activeMoveActions < 1) {
 			move.pranksterBoosted = true;
+			this.add('-ability', pokemon, 'Trigger Finger');
 			return priority + 1;
 		  }
 		},
@@ -58,7 +59,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "After taking damage (except passive damage such as burns), the Pokémon's HP is restored by 1/8 of the damage taken.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.category !== 'Status') {
-				this.heal(target.lastDamage / 4, target);
+				this.heal(damage / 4, target);
 			}
 		},
 		name: "Adaptive",
@@ -229,10 +230,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-			if (move.category === 'Physical') {
+			if (move.category === 'Status') {
+				return;
+			} else if (move.category === 'Physical') {
 				move.category = 'Special';
 			} else if (move.category === 'Special') {
 				move.category = 'Physical';
+			}
+			if (move.boosts) {
+				if (move.boosts.atk || move.boosts.spa){
+					let c = move.boosts.atk;
+					move.boosts.atk = move.boosts.spa;
+					move.boosts.spa = c;
+				}
 			}
 		},
 		name: "Contradict",
