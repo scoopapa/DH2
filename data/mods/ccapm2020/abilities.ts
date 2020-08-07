@@ -159,16 +159,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
-			if (['illusion', 'neutralizinggas', 'identitytheft', 'wonderguard'].includes(source.ability)) return;
-			if (move.flags['contact']) {
-				const sourceAbility = source.setAbility('identitytheft', target);
-				if (!sourceAbility) return;
-				if (target.side === source.side) {
-					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
-				} else {
-					this.add('-activate', target, 'ability: Identity Theft', this.dex.getAbility(sourceAbility).name, 'Identity Theft', '[of] ' + source);
+				if (['illusion', 'neutralizinggas', 'identitytheft', 'wonderguard'].includes(source.ability)) return;
+				if (move.flags['contact']) {
+					const sourceAbility = source.setAbility('identitytheft', target);
+					if (!sourceAbility) return;
+					if (target.side === source.side) {
+						this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+					} else {
+						this.add('-activate', target, 'ability: Identity Theft', this.dex.getAbility(sourceAbility).name, 'Identity Theft', '[of] ' + source);
+					}
+					target.setAbility(sourceAbility);
 				}
-				target.setAbility(sourceAbility);
 			}
 		},
 		name: "Identity Theft",
