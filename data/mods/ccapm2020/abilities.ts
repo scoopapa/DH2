@@ -174,14 +174,14 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (target !== source && move.category !== 'Status') {
 				if (['illusion', 'neutralizinggas', 'identitytheft', 'wonderguard'].includes(target.ability)) return;
 				if (move.flags['contact']) {
-					const sourceAbility = source.setAbility('identitytheft', target);
-					if (!sourceAbility) return;
+					const targetAbility = target.setAbility('identitytheft', source);
+					if (!targetAbility) return;
 					if (target.side === source.side) {
 						this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 					} else {
-						this.add('-activate', target, 'ability: Identity Theft', this.dex.getAbility(sourceAbility).name, 'Identity Theft', '[of] ' + source);
+						this.add('-activate', target, 'ability: Identity Theft', this.dex.getAbility(targetAbility).name, 'Identity Theft', '[of] ' + source);
 					}
-					target.setAbility(sourceAbility);
+					source.setAbility(targetAbility);
 				}
 			}
 		},
@@ -247,11 +247,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			} else if (move.category === 'Special') {
 				move.category = 'Physical';
 			}
-			if (move.boosts) {
-				if (move.boosts.atk || move.boosts.spa){
+			if (move.self && move.self.boosts) {
+				if (move.self.boosts.atk || move.self.boosts.spa){
 					let c = move.boosts.atk;
-					move.boosts.atk = move.boosts.spa;
-					move.boosts.spa = c;
+					move.self.boosts.atk = move.self.boosts.spa;
+					move.self.boosts.spa = c;
 				}
 			}
 		},
@@ -260,8 +260,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 99915,
 	},
 	unflagging: {
-		desc: "If this Pokemon is poisoned, it restores 1/8 of its maximum HP, rounded down, at the end of each turn instead of losing HP.",
-		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when poisoned; no HP loss.",
+		shortDesc: "Heals 1/16 at the end of each turn when statused and is immune to non-damage effects of status. Rest fails.",
 		onDamagePriority: 1,
 		onResidualOrder: 8,
 		onResidual(pokemon) {
