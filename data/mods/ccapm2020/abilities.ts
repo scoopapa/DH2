@@ -248,7 +248,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (move.self && move.self.boosts) {
 				if (move.self.boosts.atk || move.self.boosts.spa){
-					let c = move.boosts.atk;
+					let c = move.self.boosts.atk;
 					move.self.boosts.atk = move.self.boosts.spa;
 					move.self.boosts.spa = c;
 				}
