@@ -12,8 +12,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 158,
 	},
 	camo: {
-		desc: "This Pokemon is immune to Electric-type moves and restores 1/4 of its maximum HP, rounded down, when hit by an Electric-type move.",
-		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Electric moves; Electric immunity.",
+		desc: "The Pokémon is immune to moves of its own types..",
+		shortDesc: "The Pokémon is immune to moves of its own types..",
 		onTryHit(target, source, move) {
 			if (target !== source && source.types.contains(move.type)) {
 				this.add('-immune', target, '[from] ability: Camo');
@@ -25,7 +25,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 10,
 	},
 	embargoact: {
-		shortDesc: "As long as the Pokémon is on the field, its opponent's item does not function.",
+		shortDesc: "As long as the Pokémon is on the field, its opponent's item does not function..",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Embargo Act');
 		},
@@ -63,8 +63,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Adaptive",
 	},
 	exhaust: {
-		desc: "If this Pokemon is the target of an opposing Pokemon's move, that move loses one additional PP.",
-		shortDesc: "If this Pokemon is the target of a foe's move, that move loses one additional PP.",
+		desc: "The Pokémon's attacking moves consume 2 PP instead of 1, but their damage is increased by 20%..",
+		shortDesc: "The Pokémon's attacking moves consume 2 PP instead of 1, but their damage is increased by 20%..",
 		onDeductPP(target, source) {
 			if (target.side !== source.side) return;
 			return 1;
@@ -78,8 +78,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 46,
 	},
 	forager: {
-		desc: "If the last item this Pokemon used is a Berry, there is a 50% chance it gets restored at the end of each turn. If Sunny Day is active, this chance is 100%.",
-		shortDesc: "If last item used is a Berry, 50% chance to restore it each end of turn. 100% in Sun.",
+		desc: "Gluttony effect + The Pokémon recycles any Berry it has consumed when it switches out.",
+		shortDesc: "Gluttony effect + The Pokémon recycles any Berry it has consumed when it switches out.",
 		name: "Forager",
 		onSwitchOut(pokemon) {
 			if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
@@ -142,7 +142,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 107,
 	},
 	countershield: {
-		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
+		shortDesc: "When the Pokémon is hit by a super effective move, the move's damage is reduced by 1/4, and the attacker's HP is reduced by 1/8.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Counter Shield neutralize');
