@@ -80,7 +80,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAfterMove(target, source, move){
 			source.deductPP(move.id, 1);
-		}
+		},
 		name: "Exhaust",
 		rating: 2.5,
 		num: 99996,
