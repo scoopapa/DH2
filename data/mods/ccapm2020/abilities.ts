@@ -20,7 +20,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		name: "Volt Absorb",
+		name: "Camo",
 		rating: 3.5,
 		num: 10,
 	},
@@ -60,7 +60,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.lastDamage / 4, pokemon);
 			}
 		},
-		name: "Terror",
+		name: "Adaptive",
 	},
 	exhaust: {
 		desc: "If this Pokemon is the target of an opposing Pokemon's move, that move loses one additional PP.",
@@ -244,7 +244,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.baseMaxhp / 16);
 			}
 		},
-		name: "Poison Heal",
+		name: "Unflagging",
 		rating: 4,
 		num: 90,
 	},
