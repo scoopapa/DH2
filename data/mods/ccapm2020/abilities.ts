@@ -233,6 +233,20 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 55,
 	},
+	unflagging: {
+		desc: "If this Pokemon is poisoned, it restores 1/8 of its maximum HP, rounded down, at the end of each turn instead of losing HP.",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when poisoned; no HP loss.",
+		onDamagePriority: 1,
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (pokemon.status) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		name: "Poison Heal",
+		rating: 4,
+		num: 90,
+	},
 };
 
 exports.BattleAbilities = BattleAbilities;
