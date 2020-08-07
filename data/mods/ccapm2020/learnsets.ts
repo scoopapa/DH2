@@ -1601,6 +1601,7 @@ export const BattleLearnsets = {
 		watersport: ["7L11", "6L11", "5L11", "4L11"],
 		whirlpool: ["7L37", "6L37", "5L37", "4M", "4L37"],
 		workup: ["7M"],
+		yawn: ["7M"],
 	}},
 	chesnaught: {learnset: {
 		aerialace: ["7M", "6M"],
