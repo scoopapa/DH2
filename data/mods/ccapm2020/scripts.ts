@@ -84,7 +84,7 @@ export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 	pokemon: {
 		ignoringItem() {
 			let embargoAct = false;
-			for (const target of pokemon.side.foe.active) {
+			for (const target of this.side.foe.active) {
 				if (target.ability === "Embargo Act") {
 						embargoAct = true;
 						break;
