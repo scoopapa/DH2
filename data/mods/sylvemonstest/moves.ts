@@ -1384,10 +1384,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		num: 311,
 		accuracy: 100,
 		basePower: 50,
-		basePowerCallback: function(pokemon, target, move) {
-			if (this.weather) return move.basePower * 2;
-			return move.basePower;
-		},
 		category: "Special",
 		desc: "Power doubles during weather effects and this move's type changes to match; Ice type during Hail, Water type during Rain Dance, Rock type during Sandstorm, and Fire type during Sunny Day.",
 		shortDesc: "Power doubles and type varies in each weather.",
@@ -1400,25 +1396,52 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
-		onModifyMove: function(move) {
-			switch (this.field.effectiveWeather()) {
-				case 'sunnyday':
-				case 'desolateland':
-					move.type = 'Fire';
-					break;
-				case 'raindance':
-				case 'primordialsea':
-					move.type = 'Water';
-					break;
-				case 'sandstorm':
-					move.type = 'Rock';
-					break;
-				case 'hail':
-					move.type = 'Ice';
-					break;
-				case 'aircurrent':
-					move.type = 'Flying';
-					break;
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+				move.type = 'Ice';
+				break;
+			case 'aircurrent':
+				move.type = 'Flying';
+				break;
+			case 'shadowsky':
+				move.type = 'Ghost';
+				break;					
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+				move.basePower *= 2;
+				break;
+			case 'aircurrent':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
+				move.basePower *= 2;
+				break;					
 			}
 		},
 		secondary: null,
