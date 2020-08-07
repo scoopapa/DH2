@@ -56,10 +56,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	},
 	adaptive: {
 		shortDesc: "After taking damage (except passive damage such as burns), the Pokémon's HP is restored by 1/8 of the damage taken.",
-		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
+		onDamagingHit(damage, target, source, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.lastDamage / 4, pokemon);
+				this.heal(target.lastDamage / 4, target);
 			}
 		},
 		name: "Adaptive",
@@ -88,7 +87,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
 				pokemon.setItem(pokemon.lastItem);
 				pokemon.lastItem = '';
-				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Forager');
 			}
 		},
 		rating: 2.5,
@@ -225,6 +224,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "The physical and special categories of this pokemon's attacks are swapped.",
 		shortDesc: "The physical and special categories of this pokemon's attacks are swapped",
 		// This should be applied directly to the stat as opposed to chaining with the others
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Contradict');
+		},
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category === 'Physical') {

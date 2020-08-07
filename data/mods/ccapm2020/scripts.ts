@@ -85,7 +85,7 @@ export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 		ignoringItem() {
 			let embargoAct = false;
 			for (const target of this.side.foe.active) {
-				if (target.ability === "Embargo Act") {
+				if (target.hasAbility('embargoact') {
 						embargoAct = true;
 						break;
 				}
