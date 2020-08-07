@@ -1,12 +1,20 @@
 export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	triggerfinger: {
-		shortDesc: "Upon entering the field, this pokemon's first move has +1 priority.",
-		onModifyPriority(priority, pokemon, target, move) {
-		  if (pokemon.activeMoveActions < 1) {
-			move.pranksterBoosted = true;
+		shortDesc: "When the Pokémon enters, its first move has +1 priority, but that move's damage is reduced by 1/3.",
+		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Trigger Finger');
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+		  if (pokemon.activeMoveActions < 1 && !move.pranksterBoosted) {
+			move.pranksterBoosted = true;
 			return priority + 1;
 		  }
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (pokemon.activeMoveActions < 1 && !move.tfBoosted) {
+				move.tfBoosted = true;
+				return this.chainModify(0.667);
+			}
 		},
 		name: "Trigger Finger",
 		rating: 4,
@@ -16,7 +24,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "The Pokémon is immune to moves of its own types..",
 		shortDesc: "The Pokémon is immune to moves of its own types..",
 		onTryHit(target, source, move) {
-			if (target !== source && source.types.contains(move.type)) {
+			if (target !== source && source.types.includes(move.type)) {
 				this.add('-immune', target, '[from] ability: Elemental');
 				return null;
 			}
@@ -72,8 +80,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (target.side !== source.side) return;
 			return 1;
 		},
-		onAllyBasePowerPriority: 8,
-		onAllyBasePower(basePower, attacker, defender, move) {
+		onBasePower(basePower, attacker, defender, move) {
 			return this.chainModify(1.2);
 		},
 		name: "Exhaust",
