@@ -16,11 +16,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "The Pokémon is immune to moves of its own types..",
 		onTryHit(target, source, move) {
 			if (target !== source && source.types.contains(move.type)) {
-				this.add('-immune', target, '[from] ability: Camo');
+				this.add('-immune', target, '[from] ability: Elemental');
 				return null;
 			}
 		},
-		name: "Camo",
+		name: "Elemental",
 		rating: 3.5,
 		num: 99992,
 	},
