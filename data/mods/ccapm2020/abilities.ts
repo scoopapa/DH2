@@ -11,7 +11,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 99991,
 	},
-	camo: {
+	elemental: {
 		desc: "The Pokémon is immune to moves of its own types..",
 		shortDesc: "The Pokémon is immune to moves of its own types..",
 		onTryHit(target, source, move) {
