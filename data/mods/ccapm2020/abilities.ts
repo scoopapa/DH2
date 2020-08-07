@@ -172,7 +172,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
-				if (['illusion', 'neutralizinggas', 'identitytheft', 'wonderguard'].includes(source.ability)) return;
+				if (['illusion', 'neutralizinggas', 'identitytheft', 'wonderguard'].includes(target.ability)) return;
 				if (move.flags['contact']) {
 					const sourceAbility = source.setAbility('identitytheft', target);
 					if (!sourceAbility) return;
