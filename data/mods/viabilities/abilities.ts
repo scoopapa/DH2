@@ -231,8 +231,7 @@ exports.BattleAbilities = {
       for (const target of side) {
         target.addVolatile('healblock', pokemon);
       }
-    }
-  },
+    },
   id: "mummy",
   name: "Mummy",
 },
