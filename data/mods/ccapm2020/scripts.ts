@@ -80,5 +80,19 @@ export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		// ...but 16-bit truncation happens even later, and can truncate to 0
 		return tr(baseDamage, 16);
-	}
+	},
+	pokemon: {
+		ignoringItem() {
+			let embargoAct = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.ability === "Embargo Act") {
+						embargoAct = true;
+						break;
+				}
+			}
+		return !!((this.battle.gen >= 5 && !this.isActive) ||
+				(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) ||
+				this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom'] || embargoAct );
+		}
+	},
 };
