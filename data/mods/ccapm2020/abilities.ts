@@ -5,14 +5,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Trigger Finger');
 		},
 		onModifyPriority(priority, pokemon, target, move) {
-		  if (pokemon.activeMoveActions < 1 && !move.pranksterBoosted) {
+		  if (pokemon.activeMoveActions < 1) {
 			move.pranksterBoosted = true;
 			return priority + 1;
 		  }
 		},
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.activeMoveActions < 1 && !move.tfBoosted) {
-				move.tfBoosted = true;
+			if (attacker.activeMoveActions < 1) {
 				return this.chainModify(0.667);
 			}
 		},
