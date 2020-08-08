@@ -1106,11 +1106,62 @@ export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		requiredItem: "Soul Orb",
 	},
 	naraku: {
-		tier: "OU",
+		tier: "V2",
 	},
 	narakushinobi: {
 		requiredItem: "Secret Ninja Art Scroll",
-		tier: "OU",
+		tier: "V2",
+	},
+	aiai: {
+		tier: "V2",
+	},
+	bonanzabros: {
+		tier: "V2",
+	},
+	bonanzabroswestern: {
+		tier: "V2",
+	},
+	metalsonic: {
+		tier: "V2",
+	},
+	callie: {
+		tier: "V2",
+	},
+	yunarukami: {
+		tier: "V2",
+	},
+	yunarukamiultimateawakening: {
+		requiredItem: "IzanaginoOkamium Z",
+		tier: "Uber",
+	},
+	yuyukosaigyouji: {
+		tier: "Uber",
+	},
+	yuyukosaigyoujicasual: {
+		tier: "V2",
+	},
+	ug: {
+		tier: "V2",
+	},
+	ugspirit: {
+	},
+	stoneagebase: {
+		tier: "LC",
+	},
+	middleagebase: {
+		tier: "NFE",
+	},
+	renaissanceagebase: {
+		tier: "V2",
+	},
+	modernagebase: {
+		tier: "Uber",
+	},
+	futureagebase: {
+		tier: "Uber",
+	},
+	darkeatermidir: {
+		tier: "V2",
 	},
 	 walle: {
 		  tier: "EX",
@@ -1670,6 +1721,37 @@ absolutely FUCK devil dinosaur and everything he stands for, it's such a pain in
 		tier: "EX",
 	},
 	tomurashigaraki: {
+		tier: "EX",
+	},
+	redriot: {
+		tier: "EX",
+	},
+	redriotmega: {
+		requiredItem: "Red Riotite",
+		tier: "EX",
+	},
+	darkness: {
+		tier: "EX",
+	},
+	storm: {
+		tier: "EX",
+	},
+	indianajones: {
+		tier: "EX",
+	},
+	crocodile: {
+		tier: "EX",
+	},
+	honokakousaka: {
+		tier: "EX",
+	},
+	sokka: {
+		tier: "EX",
+	},
+	smaug: {
+		tier: "EX",
+	},
+	pannacottafugo: {
 		tier: "EX",
 	},
 	
