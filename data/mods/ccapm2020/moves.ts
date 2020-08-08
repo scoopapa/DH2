@@ -38,4 +38,23 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	signalbeam: {
+		num: 324,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		desc: "Has a 10% chance to confuse the target.",
+		shortDesc: "10% chance to confuse the target.",
+		name: "Signal Beam",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
+	},
 };
