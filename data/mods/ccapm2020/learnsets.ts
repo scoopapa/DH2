@@ -1703,6 +1703,7 @@ export const BattleLearnsets = {
 		workup: ["7M"],
 		worryseed: ["7T", "6T"],
 		zenheadbutt: ["7T", "6T"],
+		spikes: ["7T", "6T"],
 	}},
 	delibird: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
