@@ -554,7 +554,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeMaybeTrapPokemon (pokemon, source) {
 			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Water')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
