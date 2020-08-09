@@ -664,12 +664,12 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	natu: {
 		inherit: true,
-		types: ["Psychic"],
+		types: ["Psychic", "Flying"],
       abilities: {0: "Magic Warp", 1: "Time Warp", H: "Magic Bounce"},
 	},
 	xatu: {
 		inherit: true,
-		types: ["Psychic"],
+		types: ["Psychic", "Flying"],
       abilities: {0: "Magic Warp", 1: "Time Warp", H: "Magic Bounce"},
 	},
 	munna: {
