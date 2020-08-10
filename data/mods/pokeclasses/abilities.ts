@@ -1,5 +1,5 @@
 'use strict';
-exports.BattleAbilities = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"intimidate": {
 		inherit: true,
 		onStart(pokemon) {

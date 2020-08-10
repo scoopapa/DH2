@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {ModdedBattleScriptsData} */
-exports.BattleScripts = {
+export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		this.modData('Movedex', 'sacredsword').flags.blade = 1;
 		this.modData('Movedex', 'secretsword').flags.blade = 1;
