@@ -2814,7 +2814,27 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		  target: "normal",
 		  type: "Flying",
 		  maxMove: {basePower: 130},
-	 },
+	 },  
+	 "drumbeating": {
+		  num: 778,
+		  accuracy: 100,
+		  basePower: 80,
+		  category: "Physical",
+		  desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
+		  shortDesc: "100% chance to lower the target's Speed by 1.",
+		  name: "Drum Beating",
+		  pp: 10,
+		  priority: 0,
+		  flags: {protect: 1, mirror: 1, sound: 1},
+		  secondary: {
+			  chance: 100,
+			  boosts: {
+			 	   spe: -1,
+			  },
+		  },
+		  target: "normal",
+		  type: "Grass",
+	},	
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
