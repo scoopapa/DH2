@@ -40,7 +40,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onStart(side) {
 				this.add('-sidestart', side, 'Reflect');
-				this.effectData.sourceClass = 
+				// this.effectData.sourceClass = 
 			},
 			onResidualOrder: 21,
 			onEnd(side) {
