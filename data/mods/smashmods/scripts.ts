@@ -2,7 +2,6 @@
 
 /**@type {ModdedBattleScriptsData} */
 let BattleScripts = {
-	inherit: 'gen7',
 	init()	{
 		this.modData('Learnsets', 'abomasnow').learnset.hornleech = ['7L1'];
 		this.modData('Learnsets', 'abomasnow').learnset.liquidation = ['7L1'];
