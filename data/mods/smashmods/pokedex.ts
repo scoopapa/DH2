@@ -887,7 +887,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	frankenstrike: {
-		num: 450,
+		num: 999,
 		species: "Frankenstrike",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 110, atk: 105, def: 105, spa: 90, spd: 80, spe: 70},
