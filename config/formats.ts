@@ -1469,7 +1469,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
   		name: "[Gen 7] Super Smash Mods",
   		desc: ["None Yet!",
 		      ],
-  		ruleset: ['Standard', '+Past'],
+  		ruleset: ['Standard'],
 		mod: 'smashmods',
 		//banlist: [],
 	},
