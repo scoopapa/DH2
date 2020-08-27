@@ -1468,7 +1468,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	{
   		name: "[Gen 7] Super Smash Mods",
   		desc: [],
-  		ruleset: ['Standard', '+Past'],
+  		ruleset: ['Obtainable', '+Past'],
 		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
 		mod: 'smashmods',
 		onSwitchIn: function (pokemon) {
