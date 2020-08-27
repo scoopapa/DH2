@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	"covetabnormal": {
 		num: 343,
 		accuracy: 100,
@@ -2785,6 +2782,65 @@ let BattleMovedex = {
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
 	},
+	teleport: {
+		num: 100,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members.",
+		shortDesc: "User switches out.",
+		name: "Teleport",
+		pp: 20,
+		priority: -6,
+		flags: {},
+		onTryHit: true,
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		desc: "If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field. Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 };
-
-exports.BattleMovedex = BattleMovedex;

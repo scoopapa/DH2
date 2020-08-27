@@ -38,6 +38,28 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	icehammer: {
+		num: 665,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		desc: "Lowers the user's Speed by 1 stage.",
+		shortDesc: "Lowers the user's Speed by 1.",
+		isNonstandard: "Past",
+		name: "Ice Hammer",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
 	signalbeam: {
 		num: 324,
 		accuracy: 100,

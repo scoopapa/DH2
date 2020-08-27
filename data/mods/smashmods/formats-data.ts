@@ -1,23 +1,26 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let BattleFormatsData = {
+export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	steve: {
-		inherit: true,
 		tier: 'OU',
+		isNonStandard: 'Past',
 	},
 	gengaralola: {
 		tier: 'OU',
+		isNonStandard: 'Past',
 	},
 	gengaralolamega: {
 		tier: 'OU',
+		isNonStandard: 'Past',
 	},
 	latiasdeltamega: {
 		tier: 'OU',
+		isNonStandard: 'Past',
 	},
 	latiasdelta: {
 		tier: 'OU',
+		isNonStandard: 'Past',
 	},
+	aurorus: {
+		tier: 'OU',
+		isNonStandard: 'Past',
+	}
 };
-
-exports.BattleFormatsData = BattleFormatsData;

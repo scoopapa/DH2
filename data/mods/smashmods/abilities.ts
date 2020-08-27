@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedAbilityData}} */
-let BattleAbilities = {
+export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	"hunger": {
 		desc: "If this Pokemon loses its held item for any reason, its Speed is doubled. This boost is lost if it switches out or gains a new item or Ability.",
 		shortDesc: "Speed is doubled on held item loss; boost is lost if it switches, gets new item/Ability.",
@@ -433,5 +430,3 @@ let BattleAbilities = {
 		num: 171,
 	},
 };
-
-exports.BattleAbilities = BattleAbilities;

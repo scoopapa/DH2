@@ -1,6 +1,4 @@
-'use strict';
-
-let BattlePokedex = {
+export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 	baloon: {
 		num: 1026,
 		species: "Baloon",
@@ -889,7 +887,7 @@ let BattlePokedex = {
 		eggGroups: ["Field"],
 	},
 	frankenstrike: {
-		num: 450,
+		num: 999,
 		species: "Frankenstrike",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 110, atk: 105, def: 105, spa: 90, spd: 80, spe: 70},
@@ -901,5 +899,3 @@ let BattlePokedex = {
 		eggGroups: ["Field"],
 	},
 };
-
-exports.BattlePokedex = BattlePokedex;

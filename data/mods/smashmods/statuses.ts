@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedEffectData}} */
-let BattleStatuses = {
+export const BattleStatuses: {[k: string]: EffectData} = {
 	frz: {
 		name: 'frz',
 		id: 'frz',
@@ -403,5 +400,3 @@ let BattleStatuses = {
 		},
 	},
 };
-
-exports.BattleStatuses = BattleStatuses;

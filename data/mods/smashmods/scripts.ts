@@ -1,7 +1,5 @@
-'use strict';
-
-/**@type {ModdedBattleScriptsData} */
-let BattleScripts = {
+export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+	// inherit: 'gen7',
 	init()	{
 		this.modData('Learnsets', 'abomasnow').learnset.hornleech = ['7L1'];
 		this.modData('Learnsets', 'abomasnow').learnset.liquidation = ['7L1'];
@@ -86,5 +84,3 @@ let BattleScripts = {
 		this.modData('Learnsets', 'hippowdon').learnset.desertswhirlwind = ['7L1'];
 	},
 };
-
-exports.BattleScripts = BattleScripts;
