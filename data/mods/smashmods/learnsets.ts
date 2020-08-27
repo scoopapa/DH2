@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */
-let BattleLearnsets = {
+export const BattleLearnsets = {
 poliwreck: {learnset: {
 	machpunch: ["7L1"],
 	drainpunch: ["7L1"],
@@ -2129,5 +2126,3 @@ steve: {learnset: {
 }},
 
  };
-
-exports.BattleLearnsets = BattleLearnsets;

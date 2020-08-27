@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let BattleFormatsData = {
+export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	steve: {
 		inherit: true,
 		tier: 'OU',
@@ -19,5 +16,3 @@ let BattleFormatsData = {
 		tier: 'OU',
 	},
 };
-
-exports.BattleFormatsData = BattleFormatsData;

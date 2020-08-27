@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedItemData}} */
-let BattleItems = {
+export const BattleItems: {[k: string]: ModdedItemData} = {
 	"safetysocks": {
 		id: "safetysocks",
 		name: "Safety Socks",
@@ -616,5 +613,3 @@ let BattleItems = {
 		desc: "If the holder is Water 1 Egg Group, raises their Sp. Def by 50%. It they aren't already Water-type, makes their secondary type Water.",
 	},
 };
-
-exports.BattleItems = BattleItems;

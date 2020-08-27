@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	"covetabnormal": {
 		num: 343,
 		accuracy: 100,
@@ -2786,5 +2783,3 @@ let BattleMovedex = {
 		contestType: "Beautiful",
 	},
 };
-
-exports.BattleMovedex = BattleMovedex;
