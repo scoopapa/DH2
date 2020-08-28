@@ -392,7 +392,7 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 621,
 		species: "Druddigon",
 		types: ["Dragon", "Ghost"],
-		baseStats: {hp: 90, atk: 120, def: 90, spa: 75, spd: 90, spe: 65},
+		baseStats: {hp: 90, atk: 120, def: 90, spa: 75, spd: 90, spe: 55},
 		abilities: {0: "Mold Breaker", H: "Defiant"},
 		weightkg: 139,
 	},
