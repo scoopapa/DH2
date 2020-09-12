@@ -97,12 +97,27 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 	"graduationscale": {
 		id: "graduationscale",
 		name: "Graduation Scale",
+		onStart: function(pokemon) {
+			this.add('-item', pokemon, 'Graduation Scale');
+			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
+				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
+				pokemon.formeChange("Wishiwashi-School");
+				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
+				}
+			}
+		},
+		onTakeItem: function(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
+			return true;
+		},
 		fling: {
 			basePower: 20,
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseTemplate.num === 746) && (move.type === 'Water')) {
+			if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
@@ -199,13 +214,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		name: "Rage Candy Bar",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.baseTemplate.baseSpecies === 'Darmanitan') {
-				this.add('-formechange', pokemon, 'Darmanitan-Zen', '[msg]');
-				pokemon.formeChange("Darmanitan-Zen");
-				let oldAbility = pokemon.setAbility('sheerforce', pokemon, 'sheerforce', true);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Sheer Force', oldAbility, '[of] ' + pokemon);
-				}
+			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
+				pokemon.addVolatile('zenmode');
 			}
 		},
 		fling: {
@@ -213,12 +223,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseTemplate.num === 555) && (move.type === 'Psychic')) {
+			if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseTemplate.num === 555) || pokemon.baseTemplate.num === 555) {
+			if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
 				return false;
 			}
 			return true;
@@ -234,42 +244,38 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 40,
 		},
 		onModifyAtkPriority: 2,
-		onModifyAtk: function (atk, pokemon) {
-			if (pokemon.baseTemplate.nfe) {
+		onModifyAtk: function(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 2,
-		onModifySpA: function (spa, pokemon) {
-			if (pokemon.baseTemplate.nfe) {
+		onModifySpA: function(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
-		num: 538,
 		gen: 5,
-		desc: "If holder's species can evolve, its Attack and Sp. Atk are 1.5x.",
+		desc: "If holder's species can evolve, its Atk and Sp. Atk are 1.5x.",
 	},
-		"assaultshield": {
-		id: "assaultshield",
+	"assaultshield": {
 		name: "Assault Shield",
-		spritenum: 581,
 		fling: {
 			basePower: 80,
 		},
 		onModifyDefPriority: 1,
-		onModifyDef: function (def) {
+		onModifyDef(def) {
 			return this.chainModify(1.5);
 		},
-		onDisableMove: function (pokemon) {
+		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.getMove(moveSlot.move).category === 'Status') {
+				if (this.dex.getMove(moveSlot.move).category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
 		},
-		num: 640,
-		gen: 6,
-		desc: "Holder's Defense is 1.5x, but it can only select damaging moves.",
+		gen: 7,
+		desc: "Holder's Def is 1.5x, but it can only select damaging moves.",
 	},
 	"allrounderbadge": {
 		id: "allrounderbadge",
