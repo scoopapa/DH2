@@ -1556,6 +1556,14 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		banlist: ['Unreleased', ],
 		mod: 'zmoveseverywhere',
 	},
+	{
+		name: "[Gen 8] Megas For All v6",
+		desc: ["&bullet; Megas",
+		      ],
+		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+		banlist: [],
+		mod: 'm4av6',
+	},
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
