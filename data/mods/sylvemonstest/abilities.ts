@@ -110,7 +110,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.5x",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.name === 'Psycho Cut' || move.name === 'Cut' || move.name === 'Slash' || move.name === 'Night Slash' || move.name === 'Solar Blade' || move.name === 'Leaf Blade' || move.name === 'X-Scissor' || move.name === 'Cross Poison' || move.name === 'Air Slash' || move.name === 'Air Cutter' || move.name === 'Fury Cutter' || move.name === 'Sacred Sword' || move.name === 'Secret Sword' || move.name === 'Razor Shell') {
+			if (move.name === 'Psycho Cut' || move.name === 'Cut' || move.name === 'Slash' || move.name === 'Night Slash' || move.name === 'Solar Blade' || move.name === 'Leaf Blade' || move.name === 'X-Scissor' || move.name === 'Cross Poison' || move.name === 'Air Slash' || move.name === 'Air Cutter' || move.name === 'Fury Cutter' || move.name === 'Sacred Sword' || move.name === 'Secret Sword' || move.name === 'Razor Shell' || move.name === 'Guillotine' || move.name === 'Meteor Assault' || move.name === 'Behemoth Blade' || move.name === 'Stalwart Sword') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -554,7 +554,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeMaybeTrapPokemon (pokemon, source) {
 			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Water')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -565,7 +565,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's kick-based attacks have 1.2x power.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Low Sweep' || move.name === 'Rolling Kick' || move.name === 'Triple Kick' || move.name === 'Stomp' || move.name === 'High Horsepower' || move.name === 'Behemoth Blade' || move.name === 'Meteor Assault' || move.name === 'Guillotine') {
+			if (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Low Sweep' || move.name === 'Rolling Kick' || move.name === 'Triple Kick' || move.name === 'Stomp' || move.name === 'High Horsepower' || move.name === 'Triple Axel' || move.name === 'Stomping Tantrum') {
 				return this.chainModify(1.2);
 			}
 		},
@@ -724,8 +724,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 22,
 	},
 	"blockmaster": {
-		desc: "This Pokemon is immune to punch moves, excepting Sucker Punch.",
-		shortDesc: "Makes user immune to punch moves, excepting Sucker Punch.",
+		desc: "This Pokemon is immune to punch moves, except for Sucker Punch.",
+		shortDesc: "Makes user immune to punch moves, except for Sucker Punch.",
 		onTryHit (pokemon, target, move) {
 			if (move.flags['punch']) {
 				this.add('-immune', pokemon, '[from] ability: Block Master');
