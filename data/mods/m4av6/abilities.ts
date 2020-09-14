@@ -30,10 +30,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1002,
 	},
 	grounded: {
-		desc: "While this Pokémon is active, the effects of terrains are disabled. (BUT ACTUALLY IT DOES NOTHING RIGHT NOW! WIP)",
-		shortDesc: "While this Pokémon is active, the effects of terrains are disabled.",
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Grounded');
+		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
+		shortDesc: "This Pokémon shuts down all terrains.",
+		onStart(source) {
+			this.field.clearTerrain();
+		},
+		onAnyTerrainStart(target, source, terrain) {
+			this.field.clearTerrain();
 		},
 		name: "Grounded",
 		rating: 2,
@@ -79,5 +82,40 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sharp Striker",
 		rating: 3,
 		num: -1005,
+	},
+	coldsweat: {
+		desc: "On switch-in, this Pokémon summons hail. It changes the weather to rain if any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
+		shortDesc: "On switch-in, this Pokémon summons hail. Summons rain if the foe has a supereffective or OHKO move.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.field.setWeather('raindance');
+						return;
+					}
+					else {
+						this.field.setWeather('hail');
+						return;
+					}
+				}
+			}
+		},
+		name: "Cold Sweat",
+		rating: 4,
+		num: -1006,
+	},
+	trashcompactor: {
+		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it clears the hazard and Stockpiles 1.",
+		shortDesc: "Hazard immunity. Clears hazards, Stockpiles 1 if switched in on them.",
+		name: "Trash Compactor",
+		rating: 5,
+		num: -1007,
 	},
 }
