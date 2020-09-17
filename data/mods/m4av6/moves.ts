@@ -86,8 +86,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor')) {
-					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('gmaxsteelsurge');
 					if (
 						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
@@ -97,6 +95,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('gmaxsteelsurge');
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
@@ -140,8 +140,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('spikes');
 					if (
 						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
@@ -151,6 +149,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('spikes');
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
@@ -182,8 +182,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor')) {
-					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('stealthrock');
 					if (
 						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
@@ -193,6 +191,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('stealthrock');
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
@@ -224,8 +224,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('stickyweb');
 					if (
 						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
@@ -235,6 +233,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('stickyweb');
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
@@ -273,8 +273,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
 					if (
 						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
@@ -284,6 +282,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
 				}
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
