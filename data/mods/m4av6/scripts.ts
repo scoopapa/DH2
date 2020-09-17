@@ -33,5 +33,7 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'klinklang').learnset.rapidspin = ['7L1'];
 		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ['7L1'];
 		this.modData('Learnsets', 'garbodor').learnset.knockoff = ['7L1'];
+		this.modData('Learnsets', 'jolteon').learnset.calmmind = ['7L1'];
+		this.modData('Learnsets', 'flareon').learnset.burnup = ['7L1'];
 	},
 };
