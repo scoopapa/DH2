@@ -151,6 +151,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
@@ -184,7 +185,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stealthrock');
 					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1)
+						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
 						return;
 					}
@@ -192,6 +193,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
@@ -225,7 +227,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stickyweb');
 					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1)
+						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
 						return;
 					}
@@ -233,6 +235,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
@@ -273,7 +276,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
 					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1)
+						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
 						return;
 					}
@@ -281,6 +284,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+				}
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
