@@ -127,4 +127,35 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -1007,
 	},
+	tempestuous: {
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted. If one of this Pokémon's party members fainted on the turn before, the power of its Electric-type moves is doubled.",
+		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onStart(pokemon) {
+			if (pokemon.side.faintedThisTurn) {
+				this.boost({spd: 1}, pokemon);
+			}
+		},
+		onBasePowerPriority: 9,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric' && pokemon.side.faintedLastTurn) {
+				this.debug('tempestuous boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Tempestuous",
+		rating: 3,
+		num: -1008,
+	},
+	sootguard: {
+		shortDesc: "This Pokemon receives 3/4 damage from neutrally effective attacks.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod = 0) {
+				this.debug('Soot Guard neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Soot Guard",
+		rating: 3,
+		num: -1009,
+	},
 }
