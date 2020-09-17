@@ -97,6 +97,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						this.useMove('stockpile', pokemon);
 						return;
 					}
+				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
