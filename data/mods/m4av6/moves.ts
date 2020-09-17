@@ -89,7 +89,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
 					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1)
+						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
 						return;
 					}
