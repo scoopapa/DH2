@@ -33,9 +33,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
 		shortDesc: "This Pokémon shuts down all terrains.",
 		onStart(source) {
+			this.add('-ability', pokemon, 'Grounded');
 			this.field.clearTerrain();
 		},
 		onAnyTerrainStart(target, source, terrain) {
+			this.add('-ability', pokemon, 'Grounded');
 			this.field.clearTerrain();
 		},
 		name: "Grounded",
@@ -97,14 +99,21 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance');
-						return;
-					}
-					else {
-						this.field.setWeather('hail');
+      		      pokemon.addVolatile('coldsweat');
 						return;
 					}
 				}
+			}
+			if (
+				(pokemon.volatiles['coldsweat'])
+			) {
+				this.field.setWeather('raindance');
+				pokemon.removeVolatile('coldsweat');
+				return;
+			}
+			else {
+				this.field.setWeather('hail');
+				return;
 			}
 		},
 		name: "Cold Sweat",
