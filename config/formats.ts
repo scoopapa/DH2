@@ -1104,6 +1104,21 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
      ruleset: ['Standard', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod']
 
 	},
+	{
+		name: "[Gen 8] Megas For All",
+		desc: ["&bullet; Megas For All v6",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+		],
+		mod: 'm4av6',
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
@@ -1555,14 +1570,6 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		ruleset: ['[Gen 7] Ubers'],
 		banlist: ['Unreleased', ],
 		mod: 'zmoveseverywhere',
-	},
-	{
-		name: "[Gen 8] Megas For All v6",
-		desc: ["&bullet; Megas",
-		      ],
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
-		banlist: [],
-		mod: 'm4av6',
 	},
 
 	// Other Metagames

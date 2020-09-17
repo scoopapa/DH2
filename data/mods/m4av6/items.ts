@@ -265,4 +265,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by an Inteleon, this item allows it to Mega Evolve in battle.",
 	},
+	klinklite: {
+		name: "Klinklite",
+		spritenum: 578,
+		megaStone: "Klinklang-Mega",
+		megaEvolves: "Klinklang",
+		itemUser: ["Klinklang"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1020,
+		gen: 8,
+		desc: "If held by a Klinklang, this item allows it to Mega Evolve in battle.",
+	},
+	vanillite: {
+		name: "Vanillite",
+		spritenum: 578,
+		megaStone: "Vanilluxe-Mega",
+		megaEvolves: "Vanilluxe",
+		itemUser: ["Vanilluxe"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1021,
+		gen: 8,
+		desc: "If held by a Vanilluxe, this item allows it to Mega Evolve in battle.",
+	},
+	garbodorite: {
+		name: "Garbodorite",
+		spritenum: 578,
+		megaStone: "Garbodor-Mega",
+		megaEvolves: "Garbodor",
+		itemUser: ["Garbodor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1022,
+		gen: 8,
+		desc: "If held by a Garbodor, this item allows it to Mega Evolve in battle.",
+	},
 }
