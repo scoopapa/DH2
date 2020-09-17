@@ -143,7 +143,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('spikes');
 					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1)
+						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
 					) {
 						return;
 					}
