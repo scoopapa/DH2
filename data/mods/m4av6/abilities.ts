@@ -147,7 +147,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1008,
 	},
 	sootguard: {
-		shortDesc: "This Pokemon receives 3/4 damage from neutrally effective attacks.",
+		shortDesc: "This Pokémon receives 3/4 damage from neutrally effective attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod = 0) {
 				this.debug('Soot Guard neutralize');
@@ -157,5 +157,43 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Soot Guard",
 		rating: 3,
 		num: -1009,
+	},
+	dustscatter: {
+		shortDesc: "This Pokémon bypasses immunuties to its spore and powder moves.",
+		onModifyMove(move) {
+			delete move.flags['powder'];
+		},
+		name: "Dust Scatter",
+		rating: 2,
+		num: -1010,
+	},
+	counterclockwisespiral: {
+		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
+		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
+		onStart(source) {
+			this.field.removePseudoWeather('trickroom');
+			this.field.addPseudoWeather('trickroom');
+		},
+		onAnyTryMove(target, source, effect) {
+			if (['trickroom'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			if (this.field.pseudoWeatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('counterclockwisespiral')) {
+					this.field.pseudoWeatherData.source = target;
+					return;
+				}
+			}
+			this.field.removePseudoWeather('trickroom');
+		},
+		name: "Counter-Clockwise Spiral",
+		rating: 4.5,
+		num: -1011,
 	},
 }
