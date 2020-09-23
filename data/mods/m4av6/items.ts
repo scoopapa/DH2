@@ -349,4 +349,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Flareon, this item allows it to Mega Evolve in battle.",
 	},
+	butterfrite: {
+		name: "Butterfrite",
+		spritenum: 578,
+		megaStone: "Butterfree-Mega",
+		megaEvolves: "Butterfree",
+		itemUser: ["Butterfree"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
+	},
+	Slowkinite: {
+		name: "Slowkinite",
+		spritenum: 578,
+		megaStone: "Slowking-Mega",
+		megaEvolves: "Slowking",
+		itemUser: ["Slowking"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1027,
+		gen: 8,
+		desc: "If held by a Slowking, this item allows it to Mega Evolve in battle.",
+	},
+	Froslassite: {
+		name: "Froslassite",
+		spritenum: 578,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1028,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
 }
