@@ -303,4 +303,47 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
+	trickroom: {
+		num: 433,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the Speed of every Pokemon is recalculated for the purposes of determining turn order. During the effect, each Pokemon's Speed is considered to be (10000 - its normal Speed), and if this value is greater than 8191, 8192 is subtracted from it. If this move is used during the effect, the effect ends.",
+		shortDesc: "Goes last. For 5 turns, turn order is reversed.",
+		name: "Trick Room",
+		pp: 5,
+		priority: -7,
+		flags: {mirror: 1},
+		pseudoWeather: 'trickroom',
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				if (source?.hasAbility('counterclockwisespiral')) {
+					this.add('-activate', source, 'ability: Counter-Clockwise Spiral', effect);
+					return 0;
+				}
+				return 5;
+			},
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+			},
+			onRestart(target, source) {
+				this.field.removePseudoWeather('trickroom');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Trick Room');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Clever",
+	},
 }
