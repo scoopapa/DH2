@@ -363,7 +363,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
 	},
-	Slowkinite: {
+	slowkinite: {
 		name: "Slowkinite",
 		spritenum: 578,
 		megaStone: "Slowking-Mega",
@@ -377,7 +377,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Slowking, this item allows it to Mega Evolve in battle.",
 	},
-	Froslassite: {
+	froslassite: {
 		name: "Froslassite",
 		spritenum: 578,
 		megaStone: "Froslass-Mega",
