@@ -35,5 +35,7 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'garbodor').learnset.knockoff = ['7L1'];
 		this.modData('Learnsets', 'jolteon').learnset.calmmind = ['7L1'];
 		this.modData('Learnsets', 'flareon').learnset.burnup = ['7L1'];
+		this.modData('Learnsets', 'butterfree').learnset.taunt = ['7L1'];
+		this.modData('Learnsets', 'butterfree').learnset.earthpower = ['7L1'];
 	},
 };
