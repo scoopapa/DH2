@@ -307,4 +307,88 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Garbodor, this item allows it to Mega Evolve in battle.",
 	},
+	vaporeonite: {
+		name: "Vaporeonite",
+		spritenum: 578,
+		megaStone: "Vaporeon-Mega",
+		megaEvolves: "Vaporeon",
+		itemUser: ["Vaporeon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1023,
+		gen: 8,
+		desc: "If held by a Vaporeon, this item allows it to Mega Evolve in battle.",
+	},
+	jolteonite: {
+		name: "Jolteonite",
+		spritenum: 578,
+		megaStone: "Jolteon-Mega",
+		megaEvolves: "Jolteon",
+		itemUser: ["Jolteon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1024,
+		gen: 8,
+		desc: "If held by a Jolteon, this item allows it to Mega Evolve in battle.",
+	},
+	flareonite: {
+		name: "Flareonite",
+		spritenum: 578,
+		megaStone: "Flareon-Mega",
+		megaEvolves: "Flareon",
+		itemUser: ["Flareon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1025,
+		gen: 8,
+		desc: "If held by a Flareon, this item allows it to Mega Evolve in battle.",
+	},
+	butterfrite: {
+		name: "Butterfrite",
+		spritenum: 578,
+		megaStone: "Butterfree-Mega",
+		megaEvolves: "Butterfree",
+		itemUser: ["Butterfree"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
+	},
+	slowkinite: {
+		name: "Slowkinite",
+		spritenum: 578,
+		megaStone: "Slowking-Mega",
+		megaEvolves: "Slowking",
+		itemUser: ["Slowking"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1027,
+		gen: 8,
+		desc: "If held by a Slowking, this item allows it to Mega Evolve in battle.",
+	},
+	froslassite: {
+		name: "Froslassite",
+		spritenum: 578,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1028,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
 }
