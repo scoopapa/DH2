@@ -434,9 +434,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.field.removePseudoWeather('wonderroom');
 			this.field.removePseudoWeather('inverseroom');
 		},
-		onHit(target, source, move) {
+		onHit() {
 			this.field.clearTerrain();
-			return success;
 		},
 		isZ: "lycaniumz",
 		secondary: null,
