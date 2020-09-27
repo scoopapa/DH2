@@ -41,7 +41,7 @@ exports.BattleScripts = {
 };
 
 pokemon: {
-	setStatus(status, source = null, sourceEffect, ignoreImmunities) {
+	setStatus(status, source, sourceEffect, ignoreImmunities) {
 		if (!this.hp) return false;
 		status = this.battle.dex.getEffect(status);
 		if (this.battle.event) {
