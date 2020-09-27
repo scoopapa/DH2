@@ -136,7 +136,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBasePowerPriority: 9,
-		onBasePower(basePower, attacker, defender, move) {
+		onBasePower(basePower, pokemon, move) {
 			if (move.type === 'Electric' && pokemon.side.faintedLastTurn) {
 				this.debug('tempestuous boost');
 				return this.chainModify(2);
