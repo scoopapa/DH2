@@ -1101,7 +1101,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
      ],
  
      mod: 'viabilities',
-     ruleset: ['Standard', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod']
+     ruleset: ['Standard', 'Dynamax Clause']
 
 	},
 	{
