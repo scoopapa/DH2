@@ -100,5 +100,5 @@ exports.BattleScripts = {
 			}
 			return true;
 		}
-	};
+	},
 };
