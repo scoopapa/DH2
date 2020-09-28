@@ -11,6 +11,7 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'orbeetle').learnset.teleport = ['8L1'];
 		this.modData('Learnsets', 'thievul').learnset.focusblast = ['8L1'];
 		this.modData('Learnsets', 'thievul').learnset.aurasphere = ['8L1'];
+		this.modData('Learnsets', 'thievul').learnset.hiddenpower = ['8L1'];
 		this.modData('Learnsets', 'gumshoos').learnset.coil = ['7L1'];
 		this.modData('Learnsets', 'gumshoos').learnset.bodyslam = ['7L1'];
 		this.modData('Learnsets', 'vikavolt').learnset.leafblade = ['7L1'];
