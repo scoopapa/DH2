@@ -33,11 +33,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
 		shortDesc: "This Pokémon shuts down all terrains.",
 		onStart(source) {
-			this.add('-ability', pokemon, 'Grounded');
+			this.add('-ability', source, 'Grounded');
 			this.field.clearTerrain();
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			this.add('-ability', pokemon, 'Grounded');
 			this.field.clearTerrain();
 		},
 		name: "Grounded",
@@ -86,8 +85,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1005,
 	},
 	coldsweat: {
-		desc: "On switch-in, this Pokémon summons hail. It changes the weather to rain if any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
-		shortDesc: "On switch-in, this Pokémon summons hail. Summons rain if the foe has a supereffective or OHKO move.",
+		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
+		shortDesc: "Summons hail on switch-in. Changes weather to rain if the foe has a supereffective or OHKO move.",
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -99,21 +101,29 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-      		      pokemon.addVolatile('coldsweat');
+						this.field.setWeather('raindance');
+						this.add('-ability', pokemon, 'Cold Sweat');
 						return;
 					}
 				}
 			}
-			if (
-				(pokemon.volatiles['coldsweat'])
-			) {
-				this.field.setWeather('raindance');
-				pokemon.removeVolatile('coldsweat');
-				return;
-			}
-			else {
-				this.field.setWeather('hail');
-				return;
+		},
+		onUpdate(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.field.setWeather('raindance');
+						this.add('-ability', pokemon, 'Cold Sweat');
+						return;
+					}
+				}
 			}
 		},
 		name: "Cold Sweat",
@@ -128,18 +138,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1007,
 	},
 	tempestuous: {
-		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted. If one of this Pokémon's party members fainted on the turn before, the power of its Electric-type moves is doubled.",
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn. Does not activate on the turn of Mega Evolution.",
 		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
+				pokemon.addVolatile('charge');
 				this.boost({spd: 1}, pokemon);
-			}
-		},
-		onBasePowerPriority: 9,
-		onBasePower(basePower, pokemon, move) {
-			if (move.type === 'Electric' && pokemon.side.faintedLastTurn) {
-				this.debug('tempestuous boost');
-				return this.chainModify(2);
 			}
 		},
 		name: "Tempestuous",
@@ -195,5 +199,84 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counter-Clockwise Spiral",
 		rating: 4.5,
 		num: -1011,
+	},
+	nightmareheart: {
+		desc: "When this Pokémon faints, the Pokémon that knocked it out is cursed, losing 1/4 of its maximum HP, rounded down, at the end of each turn while it is active. In addition, the Pokémon that knocked it out permanently receives this Ability, which persists even through switching, until it is knocked out and the Ability is passed along again.",
+		shortDesc: "If this Pokémon is KOed, the attacker is cursed, then permanently receives this Ability.",
+		onFaint(target, source, effect) {
+			if (!source || !effect || target.side === source.side) return;
+			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+				const bannedAbilities = [
+					'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+				];
+				if (bannedAbilities.includes(source.ability)) {
+					return;
+				} else {
+					source.addVolatile('curse');
+					const oldAbility = source.setAbility('nightmareheart');
+					if (oldAbility) {
+						this.add('-ability', source 'Nightmare Heart', '[from] Ability: Nightmare Heart');
+					}
+					source.side.foe.removeSideCondition('nightmareheart');
+					source.side.addSideCondition('nightmareheart');
+				}
+			}
+		},
+		effect: {
+			onSwitchIn(pokemon) {
+				if(pokemon === this.effectData.source) {
+					const bannedAbilities = [
+						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+					];
+					if (bannedAbilities.includes(pokemon.ability)) {
+						return;
+					} else {
+						const oldAbility = pokemon.setAbility('nightmareheart');
+						if (oldAbility) {
+							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
+						}
+					}
+				}
+			},
+			onUpdate(pokemon) {
+				if(pokemon === this.effectData.source) {
+					const bannedAbilities = [
+						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+					];
+					if (bannedAbilities.includes(pokemon.ability)) {
+						return;
+					} else {
+						const oldAbility = pokemon.setAbility('nightmareheart');
+						if (oldAbility) {
+							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
+						}
+					}
+				}
+			}
+		},
+		name: "Nightmare Heart",
+		rating: 3,
+		num: -1012,
+	},
+	executioner: {
+		desc: "When this Pokémon's target has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using an attack.",
+		shortDesc: "This Pokémon's attacking stat is 1.5x when its target has 1/2 or less HP.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (defender.hp <= defender.maxhp / 3) {
+				this.debug('Executioner boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (defender.hp <= defender.maxhp / 2) {
+				this.debug('Executioner boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Executioner",
+		rating: 4,
+		num: -1013,
 	},
 }
