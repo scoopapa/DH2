@@ -346,4 +346,82 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
+	stunspore: {
+		num: 78,
+		accuracy: 75,
+		basePower: 0,
+		category: "Status",
+		desc: "Paralyzes the target.",
+		shortDesc: "Paralyzes the target.",
+		name: "Stun Spore",
+		pp: 30,
+		priority: 0,
+		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
+		status: 'par',
+		volatileStatus: 'dustscatter',
+		onTryHit(target, source, move) {
+			if (source.hasAbility('dustscatter') && target.hasType('Electric')) {
+				delete move.status;
+			} else {
+				delete move.volatileStatus;
+				delete move.onHit;
+			}
+		},
+		onHit(target, source) {
+			this.add('-ability', source, 'Dust Scatter');
+			target.addVolatile('dustscatter');
+			source.trySetStatus('par', target);
+			target.removeVolatile('dustscatter');
+		},
+		effect: {
+			duration: 1,
+			onResidualOrder: 20,
+			onStart(target) {
+				this.add('-singleturn', target, 'Ability: Dust Scatter');
+			},
+			onTypePriority: -1,
+			onType(types, pokemon) {
+				this.effectData.typeWas = types;
+				return types.filter(type => type !== 'Electric' && type !== 'Poison' && type !== 'Steel');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
+	poisonpowder: {
+		num: 77,
+		accuracy: 75,
+		basePower: 0,
+		category: "Status",
+		desc: "Poisons the target.",
+		shortDesc: "Poisons the target.",
+		name: "Poison Powder",
+		pp: 35,
+		priority: 0,
+		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
+		status: 'psn',
+		volatileStatus: 'dustscatter',
+		onTryHit(target, source, move) {
+			if (source.hasAbility('dustscatter') && (target.hasType('Poison') || target.hasType ('Steel'))) {
+				delete move.status;
+			} else {
+				delete move.volatileStatus;
+				delete move.onHit;
+			}
+		},
+		onHit(target, source) {
+			this.add('-ability', source, 'Dust Scatter');
+			target.addVolatile('dustscatter');
+			source.trySetStatus('psn', target);
+			target.removeVolatile('dustscatter');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 }
