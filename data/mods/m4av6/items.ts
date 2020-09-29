@@ -419,8 +419,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Gothitelle, this item allows it to Mega Evolve in battle.",
 	},
-	chandelurite: {
-		name: "Chandelurite",
+	chandelite: {
+		name: "Chandelite",
 		spritenum: 578,
 		megaStone: "Chandelure-Mega",
 		megaEvolves: "Chandelure",
