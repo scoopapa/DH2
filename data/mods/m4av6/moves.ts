@@ -370,7 +370,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			this.add('-ability', source, 'Dust Scatter');
 			target.addVolatile('dustscatter');
-			source.trySetStatus('par', target);
+			target.trySetStatus('par', source);
 			target.removeVolatile('dustscatter');
 		},
 		effect: {
@@ -415,7 +415,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			this.add('-ability', source, 'Dust Scatter');
 			target.addVolatile('dustscatter');
-			source.trySetStatus('psn', target);
+			target.trySetStatus('psn', source);
 			target.removeVolatile('dustscatter');
 		},
 		secondary: null,
