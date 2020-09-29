@@ -531,7 +531,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 34.3,
 		color: "Black",
 		eggGroups: ["Amorphous"],
-		requiredItem: ["Chandelurite"],
+		requiredItem: ["Chandelite"],
 	},
 	bisharp: {
 		num: 625,
