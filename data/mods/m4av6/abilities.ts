@@ -186,6 +186,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('counterclockwisespiral')) {
+					return;
+				}
+			}
 			this.field.removePseudoWeather('trickroom');
 		},
 		name: "Counter-Clockwise Spiral",
