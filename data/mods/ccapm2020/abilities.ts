@@ -79,6 +79,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.2);
 		},
 		onDeductPP(target, source) {
+			console.log('target ' + target.id )
+			console.log('source ' + source.id )
 			if (target.side !== source.side) return;
 			return 1;
 		},
