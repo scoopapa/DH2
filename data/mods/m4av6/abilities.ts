@@ -88,39 +88,36 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. Changes weather to rain if the foe has a supereffective or OHKO move.",
 		onStart(source) {
+			this.add('-ability', source, 'Cold Sweat');
 			this.field.setWeather('hail');
-		},
-		onStart(pokemon) {
-			for (const target of pokemon.side.foe.active) {
+			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
 						this.field.setWeather('raindance');
-						this.add('-ability', pokemon, 'Cold Sweat');
 						return;
 					}
 				}
 			}
 		},
-		onUpdate(pokemon) {
-			for (const target of pokemon.side.foe.active) {
+		onAnySwitchIn(source) {
+			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
 						this.field.setWeather('raindance');
-						this.add('-ability', pokemon, 'Cold Sweat');
 						return;
 					}
 				}
@@ -261,7 +258,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's attacking stat is 1.5x when its target has 1/2 or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (defender.hp <= defender.maxhp / 3) {
+			if (defender.hp <= defender.maxhp / 2) {
 				this.debug('Executioner boost');
 				return this.chainModify(1.5);
 			}
