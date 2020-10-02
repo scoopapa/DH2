@@ -41,8 +41,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Goodra, this item allows it to Mega Evolve in battle.",
 	},
-	kommoonite: {
-		name: "Kommo-onite",
+	kommonite: {
+		name: "Kommonite",
 		spritenum: 580,
 		megaStone: "Kommo-o-Mega",
 		megaEvolves: "Kommo-o",
@@ -139,8 +139,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Gumshoos, this item allows it to Mega Evolve in battle.",
 	},
-	lycanroitedusk: {
-		name: "Lycanroite-Dusk",
+	dusklycanite: {
+		name: "Dusk Lycanite",
 		spritenum: 602,
 		megaStone: "Lycanroc-Dusk-Mega",
 		megaEvolves: "Lycanroc-Dusk",
@@ -153,8 +153,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lycanroc in its Dusk Form, this item allows it to Mega Evolve in battle.",
 	},
-	lycanroitemidday: {
-		name: "Lycanroite-Midday",
+	middaylycanite: {
+		name: "Midday Lycanite",
 		spritenum: 602,
 		megaStone: "Lycanroc-Mega",
 		megaEvolves: "Lycanroc",
@@ -167,8 +167,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lycanroc in its Midday Form, this item allows it to Mega Evolve in battle.",
 	},
-	lycanroitemidnight: {
-		name: "Lycanroite-Midnight",
+	midnightlycanite: {
+		name: "Midnight Lycanite",
 		spritenum: 602,
 		megaStone: "Lycanroc-Midnight-Mega",
 		megaEvolves: "Lycanroc-Midnight",
@@ -251,8 +251,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Cinderace, this item allows it to Mega Evolve in battle.",
 	},
-	inteleite: {
-		name: "Inteleite",
+	inteleonite: {
+		name: "Inteleonite",
 		spritenum: 608,
 		megaStone: "Inteleon-Mega",
 		megaEvolves: "Inteleon",
@@ -390,5 +390,61 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		num: -1028,
 		gen: 8,
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
+	conkeldite: {
+		name: "Conkeldite",
+		spritenum: 578,
+		megaStone: "Conkeldurr-Mega",
+		megaEvolves: "Conkeldurr",
+		itemUser: ["Conkeldurr"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1029,
+		gen: 8,
+		desc: "If held by a Conkeldurr, this item allows it to Mega Evolve in battle.",
+	},
+	gothitite: {
+		name: "Gothitite",
+		spritenum: 578,
+		megaStone: "Gothitelle-Mega",
+		megaEvolves: "Gothitelle",
+		itemUser: ["Gothitelle"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1030,
+		gen: 8,
+		desc: "If held by a Gothitelle, this item allows it to Mega Evolve in battle.",
+	},
+	chandelite: {
+		name: "Chandelite",
+		spritenum: 578,
+		megaStone: "Chandelure-Mega",
+		megaEvolves: "Chandelure",
+		itemUser: ["Chandelure"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1031,
+		gen: 8,
+		desc: "If held by a Chandelure, this item allows it to Mega Evolve in battle.",
+	},
+	bisharpite: {
+		name: "Bisharpite",
+		spritenum: 578,
+		megaStone: "Bisharp-Mega",
+		megaEvolves: "Bisharp",
+		itemUser: ["Bisharp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1032,
+		gen: 8,
+		desc: "If held by a Bisharp, this item allows it to Mega Evolve in battle.",
 	},
 }
