@@ -1105,8 +1105,8 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 
 	},
 	{
-		name: "[Gen 8] Megas For All",
-		desc: ["&bullet; Megas For All v6",
+		name: "Megas for All",
+		desc: ["&bullet; Megas for All v7",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
@@ -1118,6 +1118,22 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
 		mod: 'm4av6',
+	},
+	{
+		name: "M4A Doubles",
+		desc: ["&bullet; Hidden format for potential tour use",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Mewtwo', 'Lugia', 'Ho-Oh', 'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Dialga', 'Palkia', 'Giratina',
+			'Giratina-Origin', 'Arceus', 'Volcarona', 'Reshiram', 'Zekrom', 'Kyurem-Black', 'Kyurem-White', 'Xerneas',
+			'Yveltal', 'Solgaleo', 'Lunala', 'Magearna', 'Marshadow', 'Necrozma-Dusk Mane', 'Necrozma-Dawn Wings',
+			'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus', 'Urshifu',
+		],
+		mod: 'm4av6',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
