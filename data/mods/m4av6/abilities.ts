@@ -213,7 +213,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					source.addVolatile('curse');
 					const oldAbility = source.setAbility('nightmareheart');
 					if (oldAbility) {
-						this.add('-ability', source 'Nightmare Heart', '[from] Ability: Nightmare Heart');
+						this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
 					}
 					source.side.foe.removeSideCondition('nightmareheart');
 					source.side.addSideCondition('nightmareheart');
