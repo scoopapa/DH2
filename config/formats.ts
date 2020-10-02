@@ -1105,7 +1105,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 
 	},
 	{
-		name: "Megas for All",
+		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
@@ -1120,8 +1120,8 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'm4av6',
 	},
 	{
-		name: "M4A Doubles",
-		desc: ["&bullet; Hidden format for potential tour use",
+		name: "[Gen 8] M4A Doubles",
+		desc: ["&bullet; Megas for All v7 but it's a doubles format",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
