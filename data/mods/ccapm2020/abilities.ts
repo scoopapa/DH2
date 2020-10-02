@@ -78,8 +78,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			return this.chainModify(1.2);
 		},
-		onSourceAfterMove(target, source, move){
-			source.deductPP(move.id, 1);
+		onDeductPP(target, source) {
+			if (target.side !== source.side) return;
+			return 1;
 		},
 		name: "Exhaust",
 		rating: 2.5,
