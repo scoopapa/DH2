@@ -88,7 +88,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. Changes weather to rain if the foe has a supereffective or OHKO move.",
 		onStart(source) {
-			this.add('-ability', source, 'Cold Sweat');
 			this.field.setWeather('hail');
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -106,7 +105,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnySwitchIn(source) {
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
