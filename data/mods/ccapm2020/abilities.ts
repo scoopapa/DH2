@@ -78,10 +78,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			return this.chainModify(1.2);
 		},
-		onDeductPP(target, source) {
-			console.log('target ' + target.id )
-			console.log('source ' + source.id )
-			if (target.side !== source.side) return;
+		onSourceDeductPP(target, source) {
 			return 1;
 		},
 		name: "Exhaust",
