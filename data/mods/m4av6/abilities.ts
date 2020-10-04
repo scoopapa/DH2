@@ -136,8 +136,14 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1007,
 	},
 	tempestuous: {
-		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn. Does not activate on the turn of Mega Evolution.",
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
 		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				pokemon.addVolatile('charge');
+				this.boost({spd: 1}, pokemon);
+			}
+		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
 				pokemon.addVolatile('charge');
