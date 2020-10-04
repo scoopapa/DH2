@@ -236,7 +236,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 	dragonitemega: {
 		num: 149,
 		name: "Dragonite-Mega",
-		baseSpecies: "Dragonite-Mega",
+		baseSpecies: "Dragonite",
 		forme: "Mega",
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 91, atk: 164, def: 110, spa: 122, spd: 122, spe: 91},
@@ -800,8 +800,8 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 	lycanrocmidnightmega: {
 		num: 745,
 		name: "Lycanroc-Midnight-Mega",
-		baseSpecies: "Lycanroc",
-		forme: "Midnight-Mega",
+		baseSpecies: "Lycanroc-Midnight",
+		forme: "Mega",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 85, atk: 155, def: 115, spa: 65, spd: 75, spe: 92},
 		abilities: {0: "Reckless"},
@@ -814,8 +814,8 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 	lycanrocduskmega: {
 		num: 745,
 		name: "Lycanroc-Dusk-Mega",
-		baseSpecies: "Lycanroc",
-		forme: "Dusk-Mega",
+		baseSpecies: "Lycanroc-Dusk",
+		forme: "Mega",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 75, atk: 150, def: 80, spa: 65, spd: 75, spe: 142},
 		abilities: {0: "Mold Breaker"},
