@@ -1213,7 +1213,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Boltund-Mega",
 		forme: "Boltund-Mega",
 		types: ["Electric", "Fairy"],
-		baseStats: {hp: 69, atk: 140, def: 60, spa: 125, spd: 60, spe: 146},
+		baseStats: {hp: 69, atk: 140, def: 60, spa: 115, spd: 60, spe: 146},
 		abilities: {0: "Adrenaline"},
 		heightm: 1,
 		weightkg: 34,
