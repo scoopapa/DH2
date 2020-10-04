@@ -447,4 +447,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Bisharp, this item allows it to Mega Evolve in battle.",
 	},
+	gigalite: {
+		name: "Gigalite",
+		spritenum: 578,
+		megaStone: "Gigalith-Mega",
+		megaEvolves: "Gigalith",
+		itemUser: ["Gigalith"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1033,
+		gen: 8,
+		desc: "If held by a Gigalith, this item allows it to Mega Evolve in battle.",
+	},
+	reunite: {
+		name: "Reunite",
+		spritenum: 578,
+		megaStone: "Reuniclus-Mega",
+		megaEvolves: "Reuniclus",
+		itemUser: ["Reuniclus"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1034,
+		gen: 8,
+		desc: "If held by a Reuniclus, this item allows it to Mega Evolve in battle.",
+	},
+	boltundite: {
+		name: "Boltundite",
+		spritenum: 578,
+		megaStone: "Boltund-Mega",
+		megaEvolves: "Boltund",
+		itemUser: ["Boltund"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1035,
+		gen: 8,
+		desc: "If held by a Boltund, this item allows it to Mega Evolve in battle.",
+	},
 }
