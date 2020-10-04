@@ -275,4 +275,51 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1013,
 	},
+	solarcore: {
+		shortDesc: "During intense sunlight, this Pokémon can skip the charging turn of its moves.",
+		onChargeMove(pokemon, target, move) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('Solar Core - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		name: "Solar Core",
+		rating: 2,
+		num: -1014,
+	},
+	twominded: {
+		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
+		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
+		onBoost(boost, target, source, effect) {
+			if (boost.atk && effect.id !== 'twominded') {
+				this.boost({spa: (boost.atk * -1)});
+			}
+			if (boost.def && effect.id !== 'twominded') {
+				this.boost({spd: (boost.def * -1)});
+			}
+			if (boost.spa && effect.id !== 'twominded') {
+				this.boost({atk: (boost.spa * -1)});
+			}
+			if (boost.spd && effect.id !== 'twominded') {
+				this.boost({def: (boost.spd * -1)});
+			}
+		},
+		name: "Two-Minded",
+		rating: 4,
+		num: -1015,
+	},
+	adrenaline: {
+		desc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and knocks out another Pokémon.",
+		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and KOs another Pokémon.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('laserfocus');
+			}
+		},
+		name: "Adrenaline",
+		rating: 3,
+		num: -1016,
+	},
 }
