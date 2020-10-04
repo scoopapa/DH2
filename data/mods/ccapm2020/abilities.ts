@@ -79,6 +79,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.2);
 		},
 		onSourceDeductPP(target, source) {
+			if (!source.lastMove || source.lastMove.category === "Status") return;
 			this.add('-ability', source, 'Exhaust');
 			return 1;
 		},
