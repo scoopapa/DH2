@@ -79,7 +79,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.2);
 		},
 		onSourceDeductPP(target, source) {
-			this.add('-ability', target, 'Exhaust');
+			this.add('-ability', source, 'Exhaust');
 			return 1;
 		},
 		name: "Exhaust",
