@@ -14,8 +14,8 @@ export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'porygon2').learnset.teleport;
 		delete this.modData('Learnsets', 'porygon').learnset.teleport;
 		
-		this.modData('Learnsets', 'oricoriosensu').learnset.reflecttype = ['7L1'];
-		delete this.modData('Learnsets', 'oricoriosensu').learnset.calmmind;
+		this.modData('Learnsets', 'oricorio').learnset.reflecttype = ['7L1'];
+		delete this.modData('Learnsets', 'oricorio').learnset.calmmind;
 		
 		this.modData('Learnsets', 'wigglytuff').learnset.earthquake = ['7L1'];
 		this.modData('Learnsets', 'wigglytuff').learnset.jumpkick = ['7L1'];
