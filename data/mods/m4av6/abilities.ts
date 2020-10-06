@@ -88,7 +88,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. Changes weather to rain if the foe has a supereffective or OHKO move.",
 		onStart(source) {
-			this.add('-ability', source, 'Cold Sweat');
 			this.field.setWeather('hail');
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -106,7 +105,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnySwitchIn(source) {
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
@@ -135,8 +136,14 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1007,
 	},
 	tempestuous: {
-		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn. Does not activate on the turn of Mega Evolution.",
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
 		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				pokemon.addVolatile('charge');
+				this.boost({spd: 1}, pokemon);
+			}
+		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
 				pokemon.addVolatile('charge');
@@ -273,5 +280,52 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Executioner",
 		rating: 4,
 		num: -1013,
+	},
+	solarcore: {
+		shortDesc: "During intense sunlight, this Pokémon can skip the charging turn of its moves.",
+		onChargeMove(pokemon, target, move) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('Solar Core - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		name: "Solar Core",
+		rating: 2,
+		num: -1014,
+	},
+	twominded: {
+		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
+		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
+		onBoost(boost, target, source, effect) {
+			if (boost.atk && effect.id !== 'twominded') {
+				this.boost({spa: (boost.atk * -1)});
+			}
+			if (boost.def && effect.id !== 'twominded') {
+				this.boost({spd: (boost.def * -1)});
+			}
+			if (boost.spa && effect.id !== 'twominded') {
+				this.boost({atk: (boost.spa * -1)});
+			}
+			if (boost.spd && effect.id !== 'twominded') {
+				this.boost({def: (boost.spd * -1)});
+			}
+		},
+		name: "Two-Minded",
+		rating: 4,
+		num: -1015,
+	},
+	adrenaline: {
+		desc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and knocks out another Pokémon.",
+		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and KOs another Pokémon.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('laserfocus');
+			}
+		},
+		name: "Adrenaline",
+		rating: 3,
+		num: -1016,
 	},
 }

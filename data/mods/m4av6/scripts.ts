@@ -43,5 +43,11 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'gothitelle').learnset.teleport = ['7L1'];
 		this.modData('Learnsets', 'gothitelle').learnset.doomdesire = ['7L1'];
 		this.modData('Learnsets', 'gothitelle').learnset.flashcannon = ['7L1'];
+		this.modData('Learnsets', 'gigalith').learnset.skullbash = ['7L1'];
+		this.modData('Learnsets', 'gigalith').learnset.sunnyday = ['7L1'];
+		this.modData('Learnsets', 'gigalith').learnset.synthesis = ['7L1'];
+		this.modData('Learnsets', 'reuniclus').learnset.photongeyser = ['7L1'];
+		this.modData('Learnsets', 'reuniclus').learnset.psychoboost = ['7L1'];
+		this.modData('Learnsets', 'boltund').learnset.pursuit = ['8L1'];
 	},
 };

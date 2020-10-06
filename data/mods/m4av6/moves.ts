@@ -382,7 +382,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onTypePriority: -1,
 			onType(types, pokemon) {
 				this.effectData.typeWas = types;
-				return types.filter(type => type !== 'Electric' && type !== 'Poison' && type !== 'Steel');
+				return types.filter(type => type !== 'Electric').filter(type => type !== 'Poison').filter(type => type !== 'Steel');
 			},
 		},
 		secondary: null,
@@ -422,6 +422,49 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	charge: {
+		num: 268,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Raises the user's Special Defense by 1 stage. If the user uses an Electric-type attack on the next turn, its power will be doubled.",
+		shortDesc: "+1 SpD, user's Electric move next turn 2x power.",
+		name: "Charge",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'charge',
+		onHit(pokemon) {
+			this.add('-activate', pokemon, 'move: Charge');
+		},
+		effect: {
+			duration: 2,
+			durationCallback(source, effect) {
+				if (effect.id === 'tempestuous') {
+					return 1;
+				}
+				return 2;
+			},
+			onRestart(pokemon) {
+				this.effectData.duration = 2;
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+		},
+		boosts: {
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
 }
