@@ -1242,7 +1242,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Dragapult",
 		forme: "Mega",
 		types: ["Dragon", "Ghost"],
-		baseStats: {hp: 88, atk: 135, def: 90, spa: 130, spd: 85, spe: 172},
+		baseStats: {hp: 88, atk: 144, def: 93, spa: 130, spd: 93, spe: 152},
 		abilities: {0: "Trace"},
 		heightm: 3,
 		weightkg: 50,
