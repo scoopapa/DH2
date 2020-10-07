@@ -131,6 +131,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	trashcompactor: {
 		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it clears the hazard and Stockpiles 1.",
 		shortDesc: "Hazard immunity. Clears hazards, Stockpiles 1 if switched in on them.",
+		onAfterMega(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Trash Compactor');
+						activated = true;
+						this.useMove('stockpile', pokemon);
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+			}
+		},
 		name: "Trash Compactor",
 		rating: 5,
 		num: -1007,
