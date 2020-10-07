@@ -146,7 +146,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaEvolves: "Lycanroc-Dusk",
 		itemUser: ["Lycanroc-Dusk"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name === 'Lycanroc-Dusk' || source.species.name === 'Lycanroc-Dusk-Mega') return false;
 			return true;
 		},
 		num: -1011,
@@ -174,7 +174,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaEvolves: "Lycanroc-Midnight",
 		itemUser: ["Lycanroc-Midnight"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name === 'Lycanroc-Midnight' || source.species.name === 'Lycanroc-Midnight-Mega') return false;
 			return true;
 		},
 		num: -1013,
