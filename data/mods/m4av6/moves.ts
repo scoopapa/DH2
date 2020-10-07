@@ -381,8 +381,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectData.typeWas = types;
-				return types.filter(type => type !== 'Electric').filter(type => type !== 'Poison').filter(type => type !== 'Steel');
+				let type = 'Normal';
+				return [type];
 			},
 		},
 		secondary: null,
@@ -442,7 +442,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		effect: {
 			duration: 2,
 			durationCallback(source, effect) {
-				if (effect.id === 'tempestuous') {
+				if (source?.hasAbility('tempestuous')) {
 					return 1;
 				}
 				return 2;
