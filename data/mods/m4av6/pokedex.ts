@@ -820,8 +820,8 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 25,
 		evoCondition: "during the day",
 		eggGroups: ["Field"],
-		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Midnight-Mega", "Lycanroc-Dusk-Mega"],
-		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Midnight-Mega", "Lycanroc-Dusk-Mega"],
+		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Mega-Midnight", "Lycanroc-Mega-Dusk"],
+		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Mega-Midnight", "Lycanroc-Mega-Dusk"],
 	},
 	lycanrocmidnight: {
 		num: 745,
@@ -869,11 +869,11 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Midday Lycanite",
 	},
-	lycanrocmidnightmega: {
+	lycanrocmegamidnight: {
 		num: 745,
-		name: "Lycanroc-Midnight-Mega",
-		baseSpecies: "Lycanroc-Midnight",
-		forme: "Mega",
+		name: "Lycanroc-Mega-Midnight",
+		baseSpecies: "Lycanroc",
+		forme: "Mega-Midnight",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 85, atk: 155, def: 115, spa: 65, spd: 75, spe: 92},
 		abilities: {0: "Reckless"},
@@ -883,11 +883,11 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Midnight Lycanite",
 	},
-	lycanrocduskmega: {
+	lycanrocmegadusk: {
 		num: 745,
-		name: "Lycanroc-Dusk-Mega",
-		baseSpecies: "Lycanroc-Dusk",
-		forme: "Mega",
+		name: "Lycanroc-Mega-Dusk",
+		baseSpecies: "Lycanroc",
+		forme: "Mega-Dusk",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 75, atk: 150, def: 80, spa: 65, spd: 75, spe: 142},
 		abilities: {0: "Mold Breaker"},
