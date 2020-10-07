@@ -493,7 +493,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Reuniclus-Mega",
 		baseSpecies: "Reuniclus",
 		forme: "Mega",
-		types: ["Psychic"],
+		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 110, atk: 110, def: 115, spa: 165, spd: 85, spe: 5},
 		abilities: {0: "Two-Minded"},
 		heightm: 1,
