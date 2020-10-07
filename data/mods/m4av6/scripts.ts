@@ -5,7 +5,6 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'dragonite').learnset.playrough = ['7L1'];
 		this.modData('Learnsets', 'goodra').learnset.gigadrain = ['7L1'];
 		this.modData('Learnsets', 'goodra').learnset.drainpunch = ['7L1'];
-		this.modData('Learnsets', 'dragapult').learnset.recover = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.icebeam = ['8L1'];
 		this.modData('Learnsets', 'orbeetle').learnset.focusblast = ['8L1'];
 		this.modData('Learnsets', 'orbeetle').learnset.teleport = ['8L1'];
