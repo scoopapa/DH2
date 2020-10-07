@@ -118,7 +118,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance');
+						this.field.setWeather('raindance', source);
 						return;
 					}
 				}
@@ -141,12 +141,14 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMega(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
 				pokemon.addVolatile('charge');
+				this.add('-activate', pokemon, 'Ability: Tempestuous');
 				this.boost({spd: 1}, pokemon);
 			}
 		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
 				pokemon.addVolatile('charge');
+				this.add('-activate', pokemon, 'Ability: Tempestuous');
 				this.boost({spd: 1}, pokemon);
 			}
 		},
@@ -219,16 +221,20 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					if (oldAbility) {
 						this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
 					}
-					source.side.foe.removeSideCondition('nightmareheart');
-					source.side.addSideCondition('nightmareheart');
+					target.side.removeSideCondition('nightmareheart');
+					source.side.addSideCondition('nightmareheart', source);
 				}
 			}
 		},
 		effect: {
+			duration: 0,
+			onStart(side) {
+				this.add('-sidestart', side, 'Ability: Nightmare Heart' + this.effectData.source.name);
+			},
 			onSwitchIn(pokemon) {
-				if(pokemon === this.effectData.source) {
+				if(this.effectData.source === pokemon) {
 					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'nightmareheart', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
 					];
 					if (bannedAbilities.includes(pokemon.ability)) {
 						return;
@@ -240,10 +246,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			},
-			onUpdate(pokemon) {
-				if(pokemon === this.effectData.source) {
+			onAfterMega(pokemon) {
+				if(this.effectData.source === pokemon) {
 					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'nightmareheart', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
 					];
 					if (bannedAbilities.includes(pokemon.ability)) {
 						return;
