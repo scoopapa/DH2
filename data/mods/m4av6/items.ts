@@ -265,8 +265,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Rillaboom, this item allows it to Mega Evolve in battle.",
 	},
-	cinderacite: {
-		name: "Cinderacite",
+	cinderite: {
+		name: "Cinderite",
 		spritenum: 590,
 		megaStone: "Cinderace-Mega",
 		megaEvolves: "Cinderace",
