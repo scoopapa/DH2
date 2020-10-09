@@ -154,14 +154,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMega(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
 				pokemon.addVolatile('charge');
-				this.add('-activate', pokemon, 'Ability: Tempestuous');
 				this.boost({spd: 1}, pokemon);
 			}
 		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
 				pokemon.addVolatile('charge');
-				this.add('-activate', pokemon, 'Ability: Tempestuous');
 				this.boost({spd: 1}, pokemon);
 			}
 		},
