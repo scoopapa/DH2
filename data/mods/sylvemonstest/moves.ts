@@ -138,7 +138,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {
 			protect: 1,
 			mirror: 1,
-			sound: 1
+			sound: 1,
+			authentic: 1
 		},
 		secondary: {
 			chance: 30,
@@ -2107,7 +2108,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		name: "Heartbeat",
 		pp: 30,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1, sound: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1, sound: 1, authentic: 1},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
@@ -2127,7 +2128,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		name: "Metal Sound",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, pulse: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1, sound: 1, authentic: 1},
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -2825,7 +2826,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		  name: "Drum Beating",
 		  pp: 10,
 		  priority: 0,
-		  flags: {protect: 1, mirror: 1, sound: 1},
+		  flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		  secondary: {
 			  chance: 100,
 			  boosts: {
