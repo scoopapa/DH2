@@ -336,8 +336,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1015,
 	},
 	adrenaline: {
-		desc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and knocks out another Pokémon.",
-		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and KOs another Pokémon.",
+		desc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and knocks out another Pokémon.",
+		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and KOs another Pokémon.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.addVolatile('laserfocus');
