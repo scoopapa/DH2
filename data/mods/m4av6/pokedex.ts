@@ -1029,7 +1029,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 33,
 		color: "White",
 		eggGroups: ["Field", "Human-Like"],
-		requiredItem: "Cinderacite",
+		requiredItem: "Cinderite",
 	},
 	inteleon: {
 		num: 818,
