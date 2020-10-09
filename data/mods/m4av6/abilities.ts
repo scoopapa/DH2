@@ -223,55 +223,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
 			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+				source.addVolatile('curse');
 				const bannedAbilities = [
 					'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
 				];
 				if (bannedAbilities.includes(source.ability)) {
 					return;
 				} else {
-					source.addVolatile('curse');
-					const oldAbility = source.setAbility('nightmareheart');
-					if (oldAbility) {
-						this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-					}
-					target.side.removeSideCondition('nightmareheart');
-					source.side.addSideCondition('nightmareheart', source);
-				}
-			}
-		},
-		effect: {
-			duration: 0,
-			onStart(side) {
-				this.add('-sidestart', side, 'Ability: Nightmare Heart' + this.effectData.source.name);
-			},
-			onSwitchIn(pokemon) {
-				if(this.effectData.source === pokemon) {
-					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'nightmareheart', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
-					];
-					if (bannedAbilities.includes(pokemon.ability)) {
-						return;
-					} else {
-						const oldAbility = pokemon.setAbility('nightmareheart');
-						if (oldAbility) {
-							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-						}
-					}
-				}
-			},
-			onAfterMega(pokemon) {
-				if(this.effectData.source === pokemon) {
-					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'nightmareheart', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
-					];
-					if (bannedAbilities.includes(pokemon.ability)) {
-						return;
-					} else {
-						const oldAbility = pokemon.setAbility('nightmareheart');
-						if (oldAbility) {
-							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-						}
-					}
+					source.setAbility('nightmareheart');
+					source.baseAbility = 'nightmareheart';
+					source.ability = 'nightmareheart';
+					this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
 				}
 			}
 		},
