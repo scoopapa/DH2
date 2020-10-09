@@ -463,7 +463,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Gothitelle-Mega",
 		baseSpecies: "Gothitelle",
 		forme: "Mega",
-		types: ["Psychic"],
+		types: ["Psychic", "Steel"],
 		genderRatio: {M: 0.25, F: 0.75},
 		baseStats: {hp: 70, atk: 55, def: 120, spa: 130, spd: 150, spe: 65},
 		abilities: {0: "Magic Guard"},
