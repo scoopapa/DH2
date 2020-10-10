@@ -307,4 +307,51 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1016,
 	},
+	ambush: {
+		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) return 5;
+		},
+		name: "Ambush",
+		rating: 4,
+		num: -1017,
+	},
+	birdofprey: {
+		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
+		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Flying')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Bird of Prey",
+		rating: 4.5,
+		num: -1018,
+	},
+	secondwind: {
+		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
+		shortDesc: "While this Pokémon has more than 1/2 of its max HP, its Attack and Sp. Atk are halved.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Second Wind",
+		rating: -1,
+		num: -1019,
+	},
 }
