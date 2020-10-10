@@ -517,4 +517,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Boltund, this item allows it to Mega Evolve in battle.",
 	},
+	luxrite: {
+		name: "Luxrite",
+		spritenum: 578,
+		megaStone: "Luxray-Mega",
+		megaEvolves: "Luxray",
+		itemUser: ["Luxray"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1036,
+		gen: 8,
+		desc: "If held by a Luxray, this item allows it to Mega Evolve in battle.",
+	},
+	archeonite: {
+		name: "Archeonite",
+		spritenum: 578,
+		megaStone: "Archeops-Mega",
+		megaEvolves: "Archeops",
+		itemUser: ["Archeops"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1037,
+		gen: 8,
+		desc: "If held by an Archeops, this item allows it to Mega Evolve in battle.",
+	},
+	talonflite: {
+		name: "Talonflite",
+		spritenum: 578,
+		megaStone: "Talonflame-Mega",
+		megaEvolves: "Talonflame",
+		itemUser: ["Talonflame"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1038,
+		gen: 8,
+		desc: "If held by a Talonflame, this item allows it to Mega Evolve in battle.",
+	},
 }
