@@ -29,17 +29,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1002,
 	},
-	grounded: {
+	downtoearth: {
 		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
 		shortDesc: "This Pokémon shuts down all terrains.",
 		onStart(source) {
-			this.add('-ability', source, 'Grounded');
+			this.add('-ability', source, 'Down-to-Earth');
 			this.field.clearTerrain();
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			this.field.clearTerrain();
 		},
-		name: "Grounded",
+		name: "Down-to-Earth",
 		rating: 2,
 		num: -1003,
 	},
