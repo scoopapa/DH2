@@ -355,8 +355,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				let type = 'Normal';
-				return [type];
+				this.effectData.typeWas = types;
+				return types.filter(type => type !== 'Electric').filter(type => type !== 'Poison').filter(type => type !== 'Steel');
 			},
 		},
 		secondary: null,
