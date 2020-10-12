@@ -91,6 +91,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
+					return;
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
@@ -139,6 +140,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('spikes');
+					return;
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
@@ -175,6 +177,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stealthrock');
+					return;
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
@@ -211,6 +214,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stickyweb');
+					return;
 				}
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
@@ -254,6 +258,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
+					return;
 				}
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
@@ -331,14 +336,13 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'dustscatter',
 		onTryHit(target, source, move) {
 			if (source.hasAbility('dustscatter') && target.hasType('Electric')) {
-				delete move.status;
+				this.add('-ability', source, 'Dust Scatter');
 			} else {
 				delete move.volatileStatus;
 				delete move.onHit;
 			}
 		},
 		onHit(target, source) {
-			this.add('-ability', source, 'Dust Scatter');
 			target.addVolatile('dustscatter');
 			target.trySetStatus('par', source);
 			target.removeVolatile('dustscatter');
@@ -349,7 +353,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-singleturn', target, 'Ability: Dust Scatter');
 			},
-			onTypePriority: -1,
+			onTypePriority: 1,
 			onType(types, pokemon) {
 				let type = 'Normal';
 				return [type];
@@ -376,7 +380,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'dustscatter',
 		onTryHit(target, source, move) {
 			if (source.hasAbility('dustscatter') && (target.hasType('Poison') || target.hasType ('Steel'))) {
-				delete move.status;
+				this.add('-ability', source, 'Dust Scatter');
 			} else {
 				delete move.volatileStatus;
 				delete move.onHit;
