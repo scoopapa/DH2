@@ -145,8 +145,9 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega-Dusk",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon, item) {
+		onUpdate(pokemon) {
 			if (pokemon.species.name !== 'Lycanroc-Dusk') {
+				const item = pokemon.item;
 				delete item.megaStone;
 				delete item.megaEvolves;
 				delete item.itemUser;
@@ -166,8 +167,9 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon, item) {
+		onUpdate(pokemon) {
 			if (pokemon.species.name !== 'Lycanroc') {
+				const item = pokemon.item;
 				delete item.megaStone;
 				delete item.megaEvolves;
 				delete item.itemUser;
@@ -187,8 +189,9 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega-Midnight",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon, item) {
+		onUpdate(pokemon) {
 			if (pokemon.species.name !== 'Lycanroc-Midnight') {
+				const item = pokemon.item;
 				delete item.megaStone;
 				delete item.megaEvolves;
 				delete item.itemUser;
@@ -222,8 +225,9 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Raichu-Mega",
 		megaEvolves: "Raichu",
 		itemUser: ["Raichu"],
-		onUpdate(pokemon, item) {
+		onUpdate(pokemon) {
 			if (pokemon.species.name !== 'Raichu') {
+				const item = pokemon.item;
 				delete item.megaStone;
 				delete item.megaEvolves;
 				delete item.itemUser;
