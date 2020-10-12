@@ -145,14 +145,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega-Dusk",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon) {
-			if (pokemon.species.name !== 'Lycanroc-Dusk') {
-				const item = pokemon.item;
-				delete item.megaStone;
-				delete item.megaEvolves;
-				delete item.itemUser;
-			}
-		},
 		onTakeItem(item, source) {
 			if (source.species.name === 'Lycanroc-Dusk' || source.species.name === 'Lycanroc-Mega-Dusk') return false;
 			return true;
@@ -167,14 +159,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon) {
-			if (pokemon.species.name !== 'Lycanroc') {
-				const item = pokemon.item;
-				delete item.megaStone;
-				delete item.megaEvolves;
-				delete item.itemUser;
-			}
-		},
 		onTakeItem(item, source) {
 			if (source.species.name === 'Lycanroc' || source.species.name === 'Lycanroc-Mega') return false;
 			return true;
@@ -189,14 +173,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Lycanroc-Mega-Midnight",
 		megaEvolves: "Lycanroc",
 		itemUser: ["Lycanroc"],
-		onUpdate(pokemon) {
-			if (pokemon.species.name !== 'Lycanroc-Midnight') {
-				const item = pokemon.item;
-				delete item.megaStone;
-				delete item.megaEvolves;
-				delete item.itemUser;
-			}
-		},
 		onTakeItem(item, source) {
 			if (source.species.name === 'Lycanroc-Midnight' || source.species.name === 'Lycanroc-Mega-Midnight') return false;
 			return true;
@@ -225,14 +201,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaStone: "Raichu-Mega",
 		megaEvolves: "Raichu",
 		itemUser: ["Raichu"],
-		onUpdate(pokemon) {
-			if (pokemon.species.name !== 'Raichu') {
-				const item = pokemon.item;
-				delete item.megaStone;
-				delete item.megaEvolves;
-				delete item.itemUser;
-			}
-		},
 		onTakeItem(item, source) {
 			if (source.species.name === 'Raichu' || source.species.name === 'Raichu-Mega') return false;
 			return true;
