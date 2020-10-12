@@ -353,7 +353,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-singleturn', target, 'Ability: Dust Scatter');
 			},
-			onTypePriority: 1,
+			onTypePriority: -1,
 			onType(types, pokemon) {
 				let type = 'Normal';
 				return [type];
