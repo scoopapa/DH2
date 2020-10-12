@@ -950,7 +950,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Mega",
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 75, atk: 130, def: 115, spa: 55, spd: 75, spe: 137},
-		abilities: {0: "Grounded"},
+		abilities: {0: "Down-to-Earth"},
 		heightm: 0.8,
 		weightkg: 25,
 		color: "Brown",
