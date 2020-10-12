@@ -86,14 +86,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor')) {
-					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
-					) {
-						return;
-					}
-					else {
+					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
-						return;
 					}
 					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
@@ -140,14 +134,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
-					) {
-						return;
-					}
-					else {
+					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
-						return;
 					}
 					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('spikes');
@@ -182,14 +170,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor')) {
-					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
-					) {
-						return;
-					}
-					else {
+					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
-						return;
 					}
 					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stealthrock');
@@ -224,14 +206,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
-					) {
-						return;
-					}
-					else {
+					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
-						return;
 					}
 					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stickyweb');
@@ -273,14 +249,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('trashcompactor')) {
-					if (
-						pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 1
-					) {
-						return;
-					}
-					else {
+					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
-						return;
 					}
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
@@ -381,8 +351,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectData.typeWas = types;
-				return types.filter(type => type !== 'Electric').filter(type => type !== 'Poison').filter(type => type !== 'Steel');
+				let type = 'Normal';
+				return [type];
 			},
 		},
 		secondary: null,
@@ -442,7 +412,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		effect: {
 			duration: 2,
 			durationCallback(source, effect) {
-				if (effect.id === 'tempestuous') {
+				if (source?.hasAbility('tempestuous')) {
 					return 1;
 				}
 				return 2;

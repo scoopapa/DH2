@@ -5,7 +5,6 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'dragonite').learnset.playrough = ['7L1'];
 		this.modData('Learnsets', 'goodra').learnset.gigadrain = ['7L1'];
 		this.modData('Learnsets', 'goodra').learnset.drainpunch = ['7L1'];
-		this.modData('Learnsets', 'dragapult').learnset.recover = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.icebeam = ['8L1'];
 		this.modData('Learnsets', 'orbeetle').learnset.focusblast = ['8L1'];
 		this.modData('Learnsets', 'orbeetle').learnset.teleport = ['8L1'];
@@ -49,5 +48,9 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'reuniclus').learnset.photongeyser = ['7L1'];
 		this.modData('Learnsets', 'reuniclus').learnset.psychoboost = ['7L1'];
 		this.modData('Learnsets', 'boltund').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'archeops').learnset.fireblast = ['7L1'];
+		this.modData('Learnsets', 'archeops').learnset.dualwingbeat = ['7L1'];
+		this.modData('Learnsets', 'archeops').learnset.bravebird = ['7L1'];
+		this.modData('Learnsets', 'talonflame').learnset.scorchingsands = ['7L1'];
 	},
 };

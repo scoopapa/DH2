@@ -29,17 +29,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1002,
 	},
-	grounded: {
+	downtoearth: {
 		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
 		shortDesc: "This Pokémon shuts down all terrains.",
 		onStart(source) {
-			this.add('-ability', source, 'Grounded');
+			this.add('-ability', source, 'Down-to-Earth');
 			this.field.clearTerrain();
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			this.field.clearTerrain();
 		},
-		name: "Grounded",
+		name: "Down-to-Earth",
 		rating: 2,
 		num: -1003,
 	},
@@ -118,7 +118,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance');
+						this.field.setWeather('raindance', source);
 						return;
 					}
 				}
@@ -131,6 +131,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	trashcompactor: {
 		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it clears the hazard and Stockpiles 1.",
 		shortDesc: "Hazard immunity. Clears hazards, Stockpiles 1 if switched in on them.",
+		onAfterMega(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Trash Compactor');
+						activated = true;
+						this.useMove('stockpile', pokemon);
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+			}
+		},
 		name: "Trash Compactor",
 		rating: 5,
 		num: -1007,
@@ -208,51 +221,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
 			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+				source.addVolatile('curse');
 				const bannedAbilities = [
 					'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
 				];
 				if (bannedAbilities.includes(source.ability)) {
 					return;
 				} else {
-					source.addVolatile('curse');
-					const oldAbility = source.setAbility('nightmareheart');
-					if (oldAbility) {
-						this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-					}
-					source.side.foe.removeSideCondition('nightmareheart');
-					source.side.addSideCondition('nightmareheart');
-				}
-			}
-		},
-		effect: {
-			onSwitchIn(pokemon) {
-				if(pokemon === this.effectData.source) {
-					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
-					];
-					if (bannedAbilities.includes(pokemon.ability)) {
-						return;
-					} else {
-						const oldAbility = pokemon.setAbility('nightmareheart');
-						if (oldAbility) {
-							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-						}
-					}
-				}
-			},
-			onUpdate(pokemon) {
-				if(pokemon === this.effectData.source) {
-					const bannedAbilities = [
-						'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
-					];
-					if (bannedAbilities.includes(pokemon.ability)) {
-						return;
-					} else {
-						const oldAbility = pokemon.setAbility('nightmareheart');
-						if (oldAbility) {
-							this.add('-ability', pokemon, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
-						}
-					}
+					source.setAbility('nightmareheart');
+					source.baseAbility = 'nightmareheart';
+					source.ability = 'nightmareheart';
+					this.add('-ability', source, 'Nightmare Heart', '[from] Ability: Nightmare Heart');
 				}
 			}
 		},
@@ -317,8 +296,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1015,
 	},
 	adrenaline: {
-		desc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and knocks out another Pokémon.",
-		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit it attacks and KOs another Pokémon.",
+		desc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and knocks out another Pokémon.",
+		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and KOs another Pokémon.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.addVolatile('laserfocus');
@@ -327,5 +306,52 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Adrenaline",
 		rating: 3,
 		num: -1016,
+	},
+	ambush: {
+		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) return 5;
+		},
+		name: "Ambush",
+		rating: 4,
+		num: -1017,
+	},
+	birdofprey: {
+		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
+		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Flying')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Bird of Prey",
+		rating: 4.5,
+		num: -1018,
+	},
+	secondwind: {
+		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
+		shortDesc: "While this Pokémon has more than 1/2 of its max HP, its Attack and Sp. Atk are halved.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Second Wind",
+		rating: -1,
+		num: -1019,
 	},
 }
