@@ -141,6 +141,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.useMove('stockpile', pokemon);
 					}
 					pokemon.side.removeSideCondition(sideCondition);
+					this.add('-sideend', pokemon.side, this.dex.getEffect(sideCondition).name, '[from] Ability: Trash Compactor', '[of] ' + pokemon);
 				}
 			}
 		},
