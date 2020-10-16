@@ -30,14 +30,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1002,
 	},
 	downtoearth: {
-		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
-		shortDesc: "This Pokémon shuts down all terrains.",
+		shortDesc: "While this Pokémon is active, the effects of terrains are disabled.",
 		onStart(source) {
-			this.add('-ability', source, 'Down-to-Earth');
-			this.field.clearTerrain();
+			if (this.field.terrain) {
+				this.add('-ability', source, 'Down-to-Earth');
+				this.add('-message', `${source.name} suppresses the effects of the terrain!`);
+			}
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			this.field.clearTerrain();
+			this.add('-ability', source, 'Down-to-Earth');
+			this.add('-message', `${source.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(source) {
+			this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
 		},
 		name: "Down-to-Earth",
 		rating: 2,
@@ -51,13 +56,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('grassyterrain');
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			if(target !== source){
-				this.field.clearTerrain();
-				this.field.setTerrain('grassyterrain');
+			if(this.field.isTerrain('grassyterrain') && !source.hasAbility('arenarock')){
+				return false;
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon) return;
+			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('arenarock')) {
