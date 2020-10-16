@@ -43,10 +43,160 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(source) {
 			this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('mimicry')) {
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('electricseed')} {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('electricseed')} {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('psychicseed')} {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('grassyseed')} {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('mistyseed')} {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
+						pokemon.useItem();
+					}
+				}
+			}
 		},
 		name: "Down-to-Earth",
 		rating: 2,
 		num: -1003,
+	},
+	grasspelt: {
+		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Defense increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		name: "Grass Pelt",
+		rating: 0.5,
+		num: 179,
+	},
+	mimicry: {
+		shortDesc: "This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",
+		onStart(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			if (this.field.terrain) {
+				pokemon.addVolatile('mimicry');
+			} else {
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			}
+		},
+		onAnyTerrainStart() {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			const pokemon = this.effectData.target;
+			delete pokemon.volatiles['mimicry'];
+			pokemon.addVolatile('mimicry');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['mimicry'];
+		},
+		effect: {
+			onStart(pokemon) {
+				let newType;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				}
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+			},
+			onUpdate(pokemon) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents type change');
+						const types = pokemon.species.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-activate', pokemon, 'ability: Mimicry');
+						this.add('-end', pokemon, 'typechange', '[silent]');
+						pokemon.removeVolatile('mimicry');
+					}
+				}
+				if (!this.field.terrain) {
+					const types = pokemon.species.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-activate', pokemon, 'ability: Mimicry');
+					this.add('-end', pokemon, 'typechange', '[silent]');
+					pokemon.removeVolatile('mimicry');
+				}
+			},
+		},
+		name: "Mimicry",
+		rating: 0.5,
+		num: 250,
+	},
+	surgesurfer: {
+		shortDesc: "If Electric Terrain is active, this Pokemon's Speed is doubled.",
+		onModifySpe(spe) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Speed increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Surge Surfer",
+		rating: 2.5,
+		num: 207,
 	},
 	arenarock: {
 		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
