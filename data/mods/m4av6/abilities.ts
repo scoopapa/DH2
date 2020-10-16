@@ -370,11 +370,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.addVolatile('healblock');
 			}
 		},
-		beforeTurnCallback(pokemon) {
-			if (pokemon.hasAbility('regenerator')) {
-				pokemon.addVolatile('gastroacid');
-			}
-		},
 		onEnd(pokemon) {
 			for (const target of this.getAllActive()) {
 				target.removeVolatile('healblock');
@@ -383,6 +378,20 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Showdown",
 		rating: 3.5,
 		num: -1020,
+	},
+	regenerator: {
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('showdown')) {
+					return;
+				}
+			}
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Regenerator",
+		rating: 4.5,
+		num: 144,
 	},
 	hardworker: {
 		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
