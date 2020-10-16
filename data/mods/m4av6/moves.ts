@@ -713,7 +713,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			}
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
-			this.add('-start', taret, 'typechange', newType);
+			this.add('-start', target, 'typechange', newType);
 		},
 		secondary: null,
 		target: "self",
