@@ -384,8 +384,10 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (source?.hasAbility('showdown')) {
-					return 0;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('showdown')) {
+						return 0;
+					}
 				}
 				return 5;
 			},
