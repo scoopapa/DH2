@@ -780,8 +780,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						}
 						return success;
 					}
-				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
 				}
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
 			}
