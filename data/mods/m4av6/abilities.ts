@@ -200,7 +200,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('grassyterrain');
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			if(this.field.isTerrain('grassyterrain') && !source.hasAbility('arenarock')){
+			if(this.field.isTerrain('grassyterrain') && source.hasAbility('arenarock')){
 				return false;
 			}
 		},
