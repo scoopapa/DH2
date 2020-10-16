@@ -364,4 +364,61 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
+	healblock: {
+		num: 377,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the target is prevented from restoring any HP as long as it remains active. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. If an affected Pokemon uses Baton Pass, the replacement will remain unable to restore its HP. Pain Split and the Regenerator Ability are unaffected.",
+		shortDesc: "For 5 turns, the foe(s) is prevented from healing.",
+		isNonstandard: "Past",
+		name: "Heal Block",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'healblock',
+		effect: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				if (source?.hasAbility('showdown')) {
+					return 0;
+				}
+				return 5;
+			},
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Heal Block');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onResidualOrder: 17,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Heal Block');
+			},
+			onTryHeal(damage, target, source, effect) {
+				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
+				return false;
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+	},
 }
