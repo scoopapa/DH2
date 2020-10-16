@@ -771,12 +771,16 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let success = false;
 			if (this.field.isTerrain('grassyterrain')) {
-				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
 						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
 						success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+						if (success && target.side !== source.side) {
+							target.staleness = 'external';
+						}
+						return success;
 					}
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
 				}
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
