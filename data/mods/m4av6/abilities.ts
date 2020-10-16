@@ -38,8 +38,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			this.add('-ability', source, 'Down-to-Earth');
-			this.add('-message', `${source.name} suppresses the effects of the terrain!`);
+			const pokemon = this.effectData.target;
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
 		},
 		onEnd(source) {
 			this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
