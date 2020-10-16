@@ -187,6 +187,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onAnyTerrainStart() {
 			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('electricterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
 				pokemon.useItem();
 			}
 		},
@@ -217,6 +223,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onAnyTerrainStart() {
 			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('psychicterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
 				pokemon.useItem();
 			}
 		},
@@ -247,6 +259,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onAnyTerrainStart() {
 			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('mistyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
 				pokemon.useItem();
 			}
 		},
@@ -277,6 +295,12 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onAnyTerrainStart() {
 			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
 				pokemon.useItem();
 			}
 		},
