@@ -50,35 +50,28 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('electricseed')} {
+				if (pokemon.hasItem('electricseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
 						pokemon.useItem();
 					}
 				}
 			}
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('electricseed')} {
-					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
-						pokemon.useItem();
-					}
-				}
-			}
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('psychicseed')} {
+				if (pokemon.hasItem('psychicseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
 						pokemon.useItem();
 					}
 				}
 			}
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('grassyseed')} {
+				if (pokemon.hasItem('grassyseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
 						pokemon.useItem();
 					}
 				}
 			}
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('mistyseed')} {
+				if (pokemon.hasItem('mistyseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
 						pokemon.useItem();
 					}
