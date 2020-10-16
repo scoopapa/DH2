@@ -531,4 +531,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Talonflame, this item allows it to Mega Evolve in battle.",
 	},
+	staraptorite: {
+		name: "Staraptorite",
+		spritenum: 578,
+		megaStone: "Staraptor-Mega",
+		megaEvolves: "Staraptor",
+		itemUser: ["Staraptor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1039,
+		gen: 8,
+		desc: "If held by a Staraptor, this item allows it to Mega Evolve in battle.",
+	},
+	bibarelite: {
+		name: "Bibarelite",
+		spritenum: 578,
+		megaStone: "Bibarel-Mega",
+		megaEvolves: "Bibarel",
+		itemUser: ["Bibarel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1040,
+		gen: 8,
+		desc: "If held by a Bibarel, this item allows it to Mega Evolve in battle.",
+	},
+	kricketite: {
+		name: "Kricketite",
+		spritenum: 578,
+		megaStone: "Kricketune-Mega",
+		megaEvolves: "Kricketune",
+		itemUser: ["Kricketune"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1041,
+		gen: 8,
+		desc: "If held by a Kricketune, this item allows it to Mega Evolve in battle.",
+	},
 }
