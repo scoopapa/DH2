@@ -317,25 +317,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1017,
 	},
-	birdofprey: {
-		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
-		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Flying')) {
-				pokemon.maybeTrapped = true;
-			}
-		},
-		name: "Bird of Prey",
-		rating: 4.5,
-		num: -1018,
-	},
 	secondwind: {
 		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
 		shortDesc: "While this Pokémon has more than 1/2 of its max HP, its Attack and Sp. Atk are halved.",
@@ -353,6 +334,68 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Second Wind",
 		rating: -1,
+		num: -1018,
+	},
+	birdofprey: {
+		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
+		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Flying')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Bird of Prey",
+		rating: 4.5,
 		num: -1019,
+	},
+	showdown: {
+		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
+		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
+		onStart(source) {
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.volatiles['healblock']) {
+					pokemon.addVolatile('healblock');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['healblock']) {
+				pokemon.addVolatile('healblock');
+			}
+		},
+		beforeTurnCallback(pokemon) {
+			if (pokemon.hasAbility('regenerator')) {
+				pokemon.addVolatile('gastroacid');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('healblock');
+			}
+		},
+		name: "Showdown",
+		rating: 3.5,
+		num: -1020,
+	},
+	hardworker: {
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
+		shortDesc: "This Pokémon's HM moves have 1.5x power.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['cut', 'fly', 'surf', 'strength', 'whirlpool', 'waterfall', 'rocksmash', 'dive', 'rockclimb'].includes(effect.id)) {
+				this.debug('Hard Worker boost');
+				return this.chainModify([1.5]);
+			}
+		},
+		name: "Hard Worker",
+		rating: 3,
+		num: -1021,
 	},
 }
