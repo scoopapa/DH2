@@ -43,16 +43,38 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
 		},
 		onEnd(source) {
-			this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
+			if (this.field.terrain) {
+				this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
+			}
 			source.abilityData.ending = true;
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('mimicry')) {
-					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth') &&& target !== source) {
+							this.debug('Down-to-Earth prevents type change');
+							return;
+						}
+					}
+					if (this.field.terrain) {
+						pokemon.addVolatile('mimicry');
+					} else {
+						const types = pokemon.baseSpecies.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+						this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
 				}
 			}
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasItem('electricseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
 						pokemon.useItem();
 					}
 				}
@@ -60,6 +82,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasItem('psychicseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
 						pokemon.useItem();
 					}
 				}
@@ -67,6 +96,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasItem('grassyseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
 						pokemon.useItem();
 					}
 				}
@@ -74,6 +110,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasItem('mistyseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
 						pokemon.useItem();
 					}
 				}
@@ -542,7 +585,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: 144,
 	},
 	hardworker: {
-		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
 		shortDesc: "This Pokémon's HM moves have 1.5x power.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
