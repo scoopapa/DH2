@@ -1157,7 +1157,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			'Weavile', 'Tangrowth', 'Electivire', 'Magmortar', 'Yanmega', 'Gliscor', 'Dusknoir', 'Froslass', 'Rotom', 'Purrloin', 'Liepard', 'Gigalith', 'Woobat', 'Swoobat',
 			'Venipede', 'Whirlipede', 'Scolipede', 'Basculin', 'Krokorok', 'Krookodile', 'Yamask', 'Yamask-Galar', 'Cofagrigus', 'Trubbish', 'Garbodor', 'Zorua', 'Zoroark',
 			'Gothita', 'Gothorita', 'Gothitelle', 'Frillish', 'Jellicent', 'Joltik', 'Galvantula', 'Elgyem', 'Beheeyem', 'Litwick', 'Lampent', 'Chandelure', 'Golett', 'Golurk',
-			'Bisharp', 'Vullaby', 'Mandibuzz', 'Zweilous', 'Hydreigon', 'Larvesta', 'Volcarona', 'Fennekin', 'Braixen', 'Delphox', 'Pancham', 'Pangoro', 'Espurr', 'Meowstic',
+			'Bisharp', 'Vullaby', 'Mandibuzz', 'Zweilous', 'Hydreigon', 'Larvesta', 'Fennekin', 'Braixen', 'Delphox', 'Pancham', 'Pangoro', 'Espurr', 'Meowstic',
 			'Meowstic-F', 'Honedge', 'Doublade', 'Aegislash', 'Swirlix', 'Slurpuff', 'Spritzee', 'Aromatisse', 'Malamar', 'Phantump', 'Trevenant', 'Pumpkaboo', 'Gourgeist',
 			'Noibat', 'Noivern', 'Hoopa', 'Hoopa-Unbound', 'Decidueye', 'Incineroar', 'Lycanroc-Midnight', 'Mareanie', 'Toxapex', 'Dewpider', 'Araquanid', 'Shiinotic',
 			'Salandit', 'Salazzle', 'Stufful', 'Bewear', 'Golisopod', 'Sandygast', 'Palossand', 'Type: Null', 'Silvally', 'Mimikyu', 'Dhelmise', 'Nihilego', 'Xurkitree',
