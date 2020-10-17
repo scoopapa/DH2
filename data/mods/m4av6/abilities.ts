@@ -50,7 +50,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('mimicry')) {
 					for (const target of this.getAllActive()) {
-						if (target.hasAbility('downtoearth') &&& target !== source) {
+						if (target.hasAbility('downtoearth') && target !== source) {
 							this.debug('Down-to-Earth prevents type change');
 							return;
 						}
