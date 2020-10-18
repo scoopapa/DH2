@@ -30,18 +30,210 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1002,
 	},
 	downtoearth: {
-		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
-		shortDesc: "This Pokémon shuts down all terrains.",
+		shortDesc: "While this Pokémon is active, the effects of terrains are disabled.",
 		onStart(source) {
-			this.add('-ability', source, 'Down-to-Earth');
-			this.field.clearTerrain();
+			if (this.field.terrain) {
+				this.add('-ability', source, 'Down-to-Earth');
+				this.add('-message', `${source.name} suppresses the effects of the terrain!`);
+			}
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			this.field.clearTerrain();
+			const pokemon = this.effectData.target;
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(source) {
+			if (this.field.terrain) {
+				this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
+			}
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('mimicry')) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth') && target !== source) {
+							this.debug('Down-to-Earth prevents type change');
+							return;
+						}
+					}
+					if (this.field.terrain) {
+						pokemon.addVolatile('mimicry');
+					} else {
+						const types = pokemon.baseSpecies.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+						this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('electricseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('psychicseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('grassyseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('mistyseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
 		},
 		name: "Down-to-Earth",
 		rating: 2,
 		num: -1003,
+	},
+	grasspelt: {
+		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Defense increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		name: "Grass Pelt",
+		rating: 0.5,
+		num: 179,
+	},
+	mimicry: {
+		shortDesc: "This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",
+		onStart(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			if (this.field.terrain) {
+				pokemon.addVolatile('mimicry');
+			} else {
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			}
+		},
+		onAnyTerrainStart() {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			const pokemon = this.effectData.target;
+			delete pokemon.volatiles['mimicry'];
+			pokemon.addVolatile('mimicry');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['mimicry'];
+		},
+		effect: {
+			onStart(pokemon) {
+				let newType;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				}
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+			},
+			onUpdate(pokemon) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents type change');
+						const types = pokemon.species.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-activate', pokemon, 'ability: Mimicry');
+						this.add('-end', pokemon, 'typechange', '[silent]');
+						pokemon.removeVolatile('mimicry');
+					}
+				}
+				if (!this.field.terrain) {
+					const types = pokemon.species.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-activate', pokemon, 'ability: Mimicry');
+					this.add('-end', pokemon, 'typechange', '[silent]');
+					pokemon.removeVolatile('mimicry');
+				}
+			},
+		},
+		name: "Mimicry",
+		rating: 0.5,
+		num: 250,
+	},
+	surgesurfer: {
+		shortDesc: "If Electric Terrain is active, this Pokemon's Speed is doubled.",
+		onModifySpe(spe) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Speed increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Surge Surfer",
+		rating: 2.5,
+		num: 207,
 	},
 	arenarock: {
 		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
@@ -51,13 +243,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('grassyterrain');
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			if(target !== source){
-				this.field.clearTerrain();
+			if (!source.hasAbility('arenarock')) {
 				this.field.setTerrain('grassyterrain');
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon) return;
+			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('arenarock')) {
@@ -317,25 +508,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1017,
 	},
-	birdofprey: {
-		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
-		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Flying')) {
-				pokemon.maybeTrapped = true;
-			}
-		},
-		name: "Bird of Prey",
-		rating: 4.5,
-		num: -1018,
-	},
 	secondwind: {
 		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
 		shortDesc: "While this Pokémon has more than 1/2 of its max HP, its Attack and Sp. Atk are halved.",
@@ -353,6 +525,76 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Second Wind",
 		rating: -1,
+		num: -1018,
+	},
+	birdofprey: {
+		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
+		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Flying')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Bird of Prey",
+		rating: 4.5,
 		num: -1019,
+	},
+	showdown: {
+		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
+		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
+		onStart(source) {
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.volatiles['healblock']) {
+					pokemon.addVolatile('healblock');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['healblock']) {
+				pokemon.addVolatile('healblock');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('healblock');
+			}
+		},
+		name: "Showdown",
+		rating: 3.5,
+		num: -1020,
+	},
+	regenerator: {
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('showdown')) {
+					return;
+				}
+			}
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Regenerator",
+		rating: 4.5,
+		num: 144,
+	},
+	hardworker: {
+		shortDesc: "This Pokémon's HM moves have 1.5x power.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['cut', 'fly', 'surf', 'strength', 'whirlpool', 'waterfall', 'rocksmash', 'dive', 'rockclimb'].includes(move.id)) {
+				this.debug('Hard Worker boost');
+				return this.chainModify([1.5]);
+			}
+		},
+		name: "Hard Worker",
+		rating: 3,
+		num: -1021,
 	},
 }

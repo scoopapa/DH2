@@ -167,6 +167,150 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lycanroc in its Midday Form, this item allows it to Mega Evolve in battle.",
 	},
+	electricseed: {
+		name: "Electric Seed",
+		spritenum: 664,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isTerrain('electricterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			def: 1,
+		},
+		num: 881,
+		gen: 7,
+		desc: "If the terrain is Electric Terrain, raises holder's Defense by 1 stage. Single use.",
+	},
+	psychicseed: {
+		name: "Psychic Seed",
+		spritenum: 665,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isTerrain('psychicterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			spd: 1,
+		},
+		num: 882,
+		gen: 7,
+		desc: "If the terrain is Psychic Terrain, raises holder's Sp. Def by 1 stage. Single use.",
+	},
+	mistyseed: {
+		name: "Misty Seed",
+		spritenum: 666,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isTerrain('mistyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			spd: 1,
+		},
+		num: 883,
+		gen: 7,
+		desc: "If the terrain is Misty Terrain, raises holder's Sp. Def by 1 stage. Single use.",
+	},
+	grassyseed: {
+		name: "Grassy Seed",
+		spritenum: 667,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents Seed use');
+						return;
+					}
+				}
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			def: 1,
+		},
+		num: 884,
+		gen: 7,
+		desc: "If the terrain is Grassy Terrain, raises holder's Defense by 1 stage. Single use.",
+	},
 	midnightlycanite: {
 		name: "Midnight Lycanite",
 		spritenum: 602,
@@ -530,5 +674,47 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		num: -1038,
 		gen: 8,
 		desc: "If held by a Talonflame, this item allows it to Mega Evolve in battle.",
+	},
+	staraptorite: {
+		name: "Staraptorite",
+		spritenum: 578,
+		megaStone: "Staraptor-Mega",
+		megaEvolves: "Staraptor",
+		itemUser: ["Staraptor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1039,
+		gen: 8,
+		desc: "If held by a Staraptor, this item allows it to Mega Evolve in battle.",
+	},
+	bibarelite: {
+		name: "Bibarelite",
+		spritenum: 578,
+		megaStone: "Bibarel-Mega",
+		megaEvolves: "Bibarel",
+		itemUser: ["Bibarel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1040,
+		gen: 8,
+		desc: "If held by a Bibarel, this item allows it to Mega Evolve in battle.",
+	},
+	kricketite: {
+		name: "Kricketite",
+		spritenum: 578,
+		megaStone: "Kricketune-Mega",
+		megaEvolves: "Kricketune",
+		itemUser: ["Kricketune"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1041,
+		gen: 8,
+		desc: "If held by a Kricketune, this item allows it to Mega Evolve in battle.",
 	},
 }

@@ -52,5 +52,12 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'archeops').learnset.dualwingbeat = ['7L1'];
 		this.modData('Learnsets', 'archeops').learnset.bravebird = ['7L1'];
 		this.modData('Learnsets', 'talonflame').learnset.scorchingsands = ['7L1'];
+		this.modData('Learnsets', 'staraptor').learnset.roleplay = ['7L1'];
+		this.modData('Learnsets', 'staraptor').learnset.superfang = ['7L1'];
+		this.modData('Learnsets', 'bibarel').learnset.fly = ['7L1'];
+		this.modData('Learnsets', 'kricketune').learnset.drainpunch = ['7L1'];
+		this.modData('Learnsets', 'kricketune').learnset.dualwingbeat = ['7L1'];
+		this.modData('Learnsets', 'kricketune').learnset.firstimpression = ['7L1'];
+		this.modData('Learnsets', 'kricketune').learnset.powertrip = ['7L1'];
 	},
 };
