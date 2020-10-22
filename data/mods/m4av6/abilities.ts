@@ -611,18 +611,27 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', source, 'Alchemist');
 					target.setStatus('brn', source);
 				} else if (r < 3) {
-					this.add('-ability', source, 'Alchemist');
-					target.setStatus('tox', source);
+					if (target.setStatus('tox', source)) {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${target.name}'s poison became more severe!`);
+					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
-					target.addVolatile('confusion');
+					if (!target.addVolatile('confusion')) {
+						this.add('-message', `${target.name} is already confused!`);
+					}
 				} else if (r < 5) {
 					this.add('-ability', source, 'Alchemist');
-					target.addVolatile('encore');
+					if (!target.addVolatile('encore')) {
+						this.add('-message', `${target.name} is already doing an encore!`);
+					}
 				} else if (r < 6) {
 					this.add('-ability', source, 'Alchemist');
-					target.addVolatile('torment');
+					if (!target.addVolatile('torment')) {
+						this.add('-message', `${target.name} is already subjected to Torment!`);
+					}
 				} else if (r < 7) {
+					this.add('-ability', source, 'Alchemist');
 					let randStat1 = this.random(5);
 					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
@@ -651,6 +660,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spe: -1}, target, source, null, true);
 					}
 				} else if (r < 8) {
+					this.add('-ability', source, 'Alchemist');
 					let randStat1 = this.random(5);
 					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
@@ -679,6 +689,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spe: -1}, target, source, null, true);
 					}
 				} else if (r < 9) {
+					this.add('-ability', source, 'Alchemist');
 					let randStat1 = this.random(5);
 					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
@@ -707,9 +718,13 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spe: 1}, target, source, null, true);
 					}
 				} else if (r < 10) {
+					this.add('-ability', source, 'Alchemist');
 					if (target.hp >= target.maxhp / 4) {
+						this.add('-ability', source, 'Alchemist');
 						if (target.addVolatile('curse')) {
 							this.add('-message', `${source.name}'s HP was not cut!`);
+						} else {
+							this.add('-message', `${target.name} is already cursed!`);
 						}
 					} else {
 						this.add('-ability', source, 'Alchemist');
@@ -723,19 +738,16 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.add('-message', `${target.name} was transformed into a Seismitoad...!?`);
 						let targetForme = target.species.id = 'Seismitoad';
 						target.formeChange('Seismitoad', this.effect, true);
-						target.setAbility('poisontouch');
 					} else if (randForm < 2) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into an Ariados...!?`);
 						let targetForme = target.species.id = 'Ariados';
 						target.formeChange('Ariados', this.effect, true);
-						target.setAbility('insomnia');
 					} else {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Butterfree...!?`);
 						target.species.id = 'Butterfree';
 						target.formeChange('Butterfree', this.effect, true);
-						target.setAbility('compoundeyes');
 					}
 				}
 			}
