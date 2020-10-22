@@ -617,83 +617,95 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				} else if (r < 6) {
 					target.addVolatile('torment');
 				} else if (r < 7) {
-					let stats: BoostName[] = [];
-					const boost: SparseBoostsTable = {};
-					let statPlus: BoostName;
-					for (statPlus in target.boosts) {
-						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-						if (target.boosts[statPlus] < 6) {
-							stats.push(statPlus);
-						}
+					const randStat1 = this.random(5);
+					const randStat2 = this.random(4);
+					if (randStat2 < randStat1) {
+						continue;
+					} else {
+						randStat2 += 1;
 					}
-					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = -1;
-
-					stats = [];
-					let statMinus: BoostName;
-					for (statMinus in target.boosts) {
-						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
-							stats.push(statMinus);
-						}
-					}
-					randomStat = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = -1;
-
-					const source = this.effectData.target;
-					this.boost(boost, target, source);
+					if (randStat1 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					},
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					},
 				} else if (r < 8) {
-					let stats: BoostName[] = [];
-					const boost: SparseBoostsTable = {};
-					let statPlus: BoostName;
-					for (statPlus in target.boosts) {
-						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-						if (target.boosts[statPlus] < 6) {
-							stats.push(statPlus);
-						}
+					const randStat1 = this.random(5);
+					const randStat2 = this.random(4);
+					if (randStat2 < randStat1) {
+						continue;
+					} else {
+						randStat2 += 1;
 					}
-					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = 1;
-
-					stats = [];
-					let statMinus: BoostName;
-					for (statMinus in target.boosts) {
-						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
-							stats.push(statMinus);
-						}
-					}
-					randomStat = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = -1;
-
-					const source = this.effectData.target;
-					this.boost(boost, target, source);
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					},
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					},
 				} else if (r < 9) {
-					let stats: BoostName[] = [];
-					const boost: SparseBoostsTable = {};
-					let statPlus: BoostName;
-					for (statPlus in target.boosts) {
-						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-						if (target.boosts[statPlus] < 6) {
-							stats.push(statPlus);
-						}
+					const randStat1 = this.random(5);
+					const randStat2 = this.random(4);
+					if (randStat2 < randStat1) {
+						continue;
+					} else {
+						randStat2 += 1;
 					}
-					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = 1;
-
-					stats = [];
-					let statMinus: BoostName;
-					for (statMinus in target.boosts) {
-						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
-							stats.push(statMinus);
-						}
-					}
-					randomStat = stats.length ? this.sample(stats) : undefined;
-					if (randomStat) boost[randomStat] = 1;
-
-					const source = this.effectData.target;
-					this.boost(boost, target, source);
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					},
+					if (randStat2 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					},
 				} else if (r < 10) {
 					if (target.hp >= target.maxhp / 4) {
 						if (target.addVolatile('curse')) {
@@ -704,21 +716,22 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				} else {
 					const r = this.random(3);
+					const pokemon = target;
 					if (r < 1) {
 						this.add('-message', `${target.name} was transformed into a Seismitoad!?`);
-						const targetForme = target.template.species === 'Seismitoad';
-						target.formeChange(targetForme);
-						target.setAbility('poisontouch');
+						const targetForme = pokemon.template.species === 'Seismitoad';
+						pokemon.formeChange(targetForme);
+						pokemon.setAbility('poisontouch');
 					} else if (r < 2) {
 						this.add('-message', `${target.name} was transformed into an Ariados!?`);
-						const targetForme = target.template.species === 'Ariados';
-						target.formeChange(targetForme);
-						target.setAbility('insomnia');
+						const targetForme = pokemon.template.species === 'Ariados';
+						pokemon.formeChange(targetForme);
+						pokemon.setAbility('insomnia');
 					} else {
 						this.add('-message', `${target.name} was transformed into a Butterfree!?`);
-						const targetForme = target.template.species === 'Butterfree';
-						target.formeChange(targetForme);
-						target.setAbility('compoundeyes');
+						const targetForme = pokemon.template.species === 'Butterfree';
+						pokemon.formeChange(targetForme);
+						pokemon.setAbility('compoundeyes');
 					}
 				}
 			}
