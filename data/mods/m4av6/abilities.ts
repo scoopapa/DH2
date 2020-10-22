@@ -640,7 +640,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					randomStat = stats.length ? this.sample(stats) : undefined;
 					if (randomStat) boost[randomStat] = -1;
 
-					this.boost(boost, source, target, null, true);
+					this.boost(boost, target, source);
 				} else if (r < 8) {
 					let stats: BoostName[] = [];
 					const boost: SparseBoostsTable = {};
@@ -665,7 +665,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					randomStat = stats.length ? this.sample(stats) : undefined;
 					if (randomStat) boost[randomStat] = -1;
 
-					this.boost(boost, source, target, null, true);
+					this.boost(boost, target, source);
 				} else if (r < 9) {
 					let stats: BoostName[] = [];
 					const boost: SparseBoostsTable = {};
@@ -690,10 +690,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					randomStat = stats.length ? this.sample(stats) : undefined;
 					if (randomStat) boost[randomStat] = 1;
 
-					this.boost(boost, source, target, null, true);
+					this.boost(boost, target, source);
 				} else if (r < 10) {
 					if (target.hp >= target.maxhp / 4) {
 						target.addVolatile('curse');
+						this.add('-message', `${source.name}'s HP was not cut!`);
 					} else {
 						this.useMove('explosion', target);
 					}
@@ -701,16 +702,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					const r = this.random(3);
 					if (r < 1) {
 						if (target.species.baseSpecies = 'Seismitoad' || target.transformed) return;
+						this.add('-message', `${target.name} was transformed into a Seismitoad!?`);
 						const targetForme = target.template.species === 'Seismitoad';
 						target.formeChange(targetForme);
 						target.setAbility('poisontouch');
 					} else if (r < 2) {
 						if (target.species.baseSpecies = 'Ariados' || target.transformed) return;
+						this.add('-message', `${target.name} was transformed into an Ariados!?`);
 						const targetForme = target.template.species === 'Ariados';
 						target.formeChange(targetForme);
 						target.setAbility('insomnia');
 					} else {
 						if (target.species.baseSpecies = 'Butterfree' || target.transformed) return;
+						this.add('-message', `${target.name} was transformed into a Butterfree!?`);
 						const targetForme = target.template.species === 'Butterfree';
 						target.formeChange(targetForme);
 						target.setAbility('compoundeyes');
