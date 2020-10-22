@@ -59,5 +59,15 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'kricketune').learnset.dualwingbeat = ['7L1'];
 		this.modData('Learnsets', 'kricketune').learnset.firstimpression = ['7L1'];
 		this.modData('Learnsets', 'kricketune').learnset.powertrip = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.sludgebomb = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.sludgewave = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.toxicspikes = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.poisonfang = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.partingshot = ['7L1'];
+		this.modData('Learnsets', 'mismagius').learnset.fling = ['7L1'];
+		this.modData('Learnsets', 'murkrow').learnset.partingshot = ['7L1'];
+		this.modData('Learnsets', 'honchkrow').learnset.partingshot = ['7L1'];
+		this.modData('Learnsets', 'honchkrow').learnset.dualwingbeat = ['7L1'];
+		this.modData('Learnsets', 'spiritomb').learnset.partingshot = ['7L1'];
 	},
 };
