@@ -732,28 +732,31 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.useMove('explosion', target);
 					}
 				} else {
-					const randForm = this.random(3);
-					if (randForm < 1) {
-						this.add('-ability', source, 'Alchemist');
-						this.add('-message', `${target.name} was transformed into a Seismitoad...!?`);
-						let transfiguration = target;
-						transfiguration.species.id = 'Seismitoad';
-						target.transformInto(transfiguration);
-					} else if (randForm < 2) {
-						this.add('-ability', source, 'Alchemist');
-						this.add('-message', `${target.name} was transformed into an Ariados...!?`);
-						let transfiguration = target;
-						transfiguration.species.id = 'Ariados';
-						target.transformInto(transfiguration);
-					} else {
-						this.add('-ability', source, 'Alchemist');
-						this.add('-message', `${target.name} was transformed into a Butterfree...!?`);
-						let transfiguration = target;
-						transfiguration.species.id = 'Butterfree';
-						target.transformInto(transfiguration);
-					}
+					this.add('-ability', source, 'Alchemist');
+					this.add('-message', `${target.name} is being transformed...!?`);
+					target.addVolatile('alchemist');
 				}
 			}
+		},
+		effect: {
+			onStart(pokemon) {
+				const randForm = this.random(3);
+					if (randForm < 1) {
+						this.add('-message', `It became a Seismitoad!`);
+						pokemon.formeChange('Seismitoad');
+					} else if (randForm < 2) {
+						this.add('-message', `It became an Ariados!`);
+						pokemon.formeChange('Ariados');
+					} else {
+						this.add('-message', `It became an Ariados!`);
+						pokemon.formeChange('Butterfree');
+					}
+			},
+			onEnd(pokemon) {
+				if (['Seismitoad', 'Ariados', 'Butterfree'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
 		},
 		name: "Alchemist",
 		rating: 3,
