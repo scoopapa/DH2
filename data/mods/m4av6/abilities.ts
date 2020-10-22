@@ -741,16 +741,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		effect: {
 			onStart(pokemon) {
 				const randForm = this.random(3);
-					if (randForm < 1) {
-						this.add('-message', `It became a Seismitoad!`);
-						pokemon.formeChange('Seismitoad');
-					} else if (randForm < 2) {
-						this.add('-message', `It became an Ariados!`);
-						pokemon.formeChange('Ariados');
-					} else {
-						this.add('-message', `It became an Ariados!`);
-						pokemon.formeChange('Butterfree');
-					}
+				if (randForm < 1) {
+					this.add('-message', `It became a Seismitoad!`);
+					pokemon.formeChange('Seismitoad');
+					pokemon.setAbility('poisontouch');
+				} else if (randForm < 2) {
+					this.add('-message', `It became an Ariados!`);
+					pokemon.formeChange('Ariados');
+					pokemon.setAbility('insomnia');
+				} else {
+					this.add('-message', `It became a Butterfree!`);
+					pokemon.formeChange('Butterfree');
+					pokemon.setAbility('compoundeyes');
+				}
 			},
 			onEnd(pokemon) {
 				if (['Seismitoad', 'Ariados', 'Butterfree'].includes(pokemon.species.forme)) {
