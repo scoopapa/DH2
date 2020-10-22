@@ -618,17 +618,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('confusion')) {
-						this.add('-message', `${target.name} is already confused!`);
+						this.add('-message', `${target.name} could not be confused!`);
 					}
 				} else if (r < 5) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('encore')) {
-						this.add('-message', `${target.name} is already doing an encore!`);
+						this.add('-message', `${target.name} could not be affected by Encore!`);
 					}
 				} else if (r < 6) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('torment')) {
-						this.add('-message', `${target.name} is already subjected to Torment!`);
+						this.add('-message', `${target.name} could not be affected by Torment!`);
 					}
 				} else if (r < 7) {
 					this.add('-ability', source, 'Alchemist');
@@ -724,7 +724,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						if (target.addVolatile('curse')) {
 							this.add('-message', `${source.name}'s HP was not cut!`);
 						} else {
-							this.add('-message', `${target.name} is already cursed!`);
+							this.add('-message', `${target.name} could not be cursed!`);
 						}
 					} else {
 						this.add('-ability', source, 'Alchemist');
@@ -736,17 +736,17 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					if (randForm < 1) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Seismitoad...!?`);
-						let targetForme = target.species.id = 'Seismitoad';
+						target.template.species = 'Seismitoad';
 						target.formeChange('Seismitoad', this.effect, true);
 					} else if (randForm < 2) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into an Ariados...!?`);
-						let targetForme = target.species.id = 'Ariados';
+						target.template.species = 'Ariados';
 						target.formeChange('Ariados', this.effect, true);
 					} else {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Butterfree...!?`);
-						target.species.id = 'Butterfree';
+						target.templatespecies = 'Butterfree';
 						target.formeChange('Butterfree', this.effect, true);
 					}
 				}
