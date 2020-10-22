@@ -625,7 +625,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				} else if (r < 7) {
 					const randStat1 = this.random(5);
 					const randStat2 = this.random(4);
-					if (randStat2 = randStat1) {
+					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
 					if (randStat1 < 1) {
@@ -653,7 +653,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				} else if (r < 8) {
 					const randStat1 = this.random(5);
 					const randStat2 = this.random(4);
-					if (randStat2 = randStat1) {
+					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
 					if (randStat1 < 1) {
@@ -681,7 +681,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				} else if (r < 9) {
 					const randStat1 = this.random(5);
 					const randStat2 = this.random(4);
-					if (randStat2 = randStat1) {
+					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
 					if (randStat1 < 1) {
