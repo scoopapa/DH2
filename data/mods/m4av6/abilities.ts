@@ -746,7 +746,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					} else {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Butterfree...!?`);
-						target.templatespecies = 'Butterfree';
+						target.template.species = 'Butterfree';
 						target.formeChange('Butterfree', this.effect, true);
 					}
 				}
