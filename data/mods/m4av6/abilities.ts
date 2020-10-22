@@ -710,22 +710,21 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				} else {
 					const r = this.random(3);
-					const pokemon = target;
 					if (r < 1) {
 						this.add('-message', `${target.name} was transformed into a Seismitoad!?`);
-						const targetForme = pokemon.template.species === 'Seismitoad';
-						pokemon.formeChange(targetForme);
-						pokemon.setAbility('poisontouch');
+						let targetForme = target.template.species === 'Seismitoad';
+						target.formeChange(targetForme);
+						target.setAbility('poisontouch');
 					} else if (r < 2) {
 						this.add('-message', `${target.name} was transformed into an Ariados!?`);
-						const targetForme = pokemon.template.species === 'Ariados';
-						pokemon.formeChange(targetForme);
-						pokemon.setAbility('insomnia');
+						let targetForme = target.template.species === 'Ariados';
+						target.formeChange(targetForme);
+						target.setAbility('insomnia');
 					} else {
 						this.add('-message', `${target.name} was transformed into a Butterfree!?`);
-						const targetForme = pokemon.template.species === 'Butterfree';
-						pokemon.formeChange(targetForme);
-						pokemon.setAbility('compoundeyes');
+						let targetForme = target.template.species === 'Butterfree';
+						target.formeChange(targetForme);
+						target.setAbility('compoundeyes');
 					}
 				}
 			}
