@@ -597,4 +597,166 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1021,
 	},
+	alchemist: {
+		desc: "After attacking a poisoned target with a Poison-type move, this Pokémon has an equal chance to cause one of various random effects. Possible effects include: replacing the poison status with paralysis, burn or toxic poison; afflicting the target with confusion, Torment or Encore; choosing two random stats and either boosting or lowering each one; causing the target to use Explosion if its current HP is 25% or less or afflicting it with a Curse if not; or transforming the target into Seismitoad, Ariados or Butterfree until it switches out.",
+		shortDesc: "Poison-type move on poisoned target: random chance of 11 different effects.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
+				const r = this.random(11);
+				if (r < 1) {
+					target.cureStatus();
+					source.setStatus('par', target);
+				} else if (r < 2) {
+					target.cureStatus();
+					source.setStatus('brn', target);
+				} else if (r < 3) {
+					target.cureStatus();
+					source.setStatus('tox', target);
+				} else if (r < 4) {
+					target.addVolatile('confusion');
+				} else if (r < 5) {
+					target.addVolatile('encore');
+				} else if (r < 6) {
+					target.addVolatile('torment');
+				} else if (r < 7) {
+					let stats: BoostName[] = [];
+					const boost: SparseBoostsTable = {};
+					let statPlus: BoostName;
+					for (statPlus in target.boosts) {
+						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+						if (target.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = -1;
+
+					stats = [];
+					let statMinus: BoostName;
+					for (statMinus in target.boosts) {
+						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
+						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
+							stats.push(statMinus);
+						}
+					}
+					randomStat = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = -1;
+
+					this.boost(boost);
+				} else if (r < 8) {
+					let stats: BoostName[] = [];
+					const boost: SparseBoostsTable = {};
+					let statPlus: BoostName;
+					for (statPlus in target.boosts) {
+						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+						if (target.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = 1;
+
+					stats = [];
+					let statMinus: BoostName;
+					for (statMinus in target.boosts) {
+						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
+						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
+							stats.push(statMinus);
+						}
+					}
+					randomStat = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = -1;
+
+					this.boost(boost);
+				} else if (r < 9) {
+					let stats: BoostName[] = [];
+					const boost: SparseBoostsTable = {};
+					let statPlus: BoostName;
+					for (statPlus in target.boosts) {
+						if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+						if (target.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = 1;
+
+					stats = [];
+					let statMinus: BoostName;
+					for (statMinus in target.boosts) {
+						if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
+						if (target.boosts[statMinus] > -6 && statMinus !== randomStat) {
+							stats.push(statMinus);
+						}
+					}
+					randomStat = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = 1;
+
+					this.boost(boost);
+				} else if (r < 10) {
+					if (target.hp >= target.maxhp / 4) {
+						target.addVolatile('curse');
+					} else {
+						this.useMove('explosion', target);
+					}
+				} else {
+					const r = this.random(3);
+					if (r < 1) {
+						if (target.species.baseSpecies = 'Seismitoad' || target.transformed) return;
+						const targetForme = target.species.name = 'Seismitoad';
+						target.formeChange(targetForme);
+						target.setAbility('poisontouch');
+					} else if (r < 2) {
+						if (target.species.baseSpecies = 'Ariados' || target.transformed) return;
+						const targetForme = target.species.name = 'Ariados';
+						target.formeChange(targetForme);
+						target.setAbility('insomnia');
+					} else {
+						if (target.species.baseSpecies = 'Seismitoad' || target.transformed) return;
+						const targetForme = target.species.name = 'Seismitoad';
+						target.formeChange(targetForme);
+						target.setAbility('compoundeyes');
+					}
+				}
+			}
+		},
+		name: "Alchemist",
+		rating: 3,
+		num: -1022,
+	},
+	blackmail: {
+		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
+		shortDesc: "Physical Dark moves: permanently replace target's Ability, preventing it from KOing this Pokémon. Permanently becomes Keen Eye after activating once.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || target.side === source.side) return;
+			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
+				target.setAbility('orderlytarget');
+				target.baseAbility = 'orderlytarget';
+				target.ability = 'orderlytarget';
+				this.add('-ability', target, 'Orderly Target', '[from] Ability: Blackmail');
+				source.setAbility('keeneye');
+				source.baseAbility = 'keeneye';
+				source.ability = 'keeneye';
+				this.add('-ability', source, 'Keen Eye', '[from] Ability: Blackmail');
+			}
+		},
+		name: "Blackmail",
+		rating: 3,
+		num: -1023,
+	},
+	orderlytarget: {
+		desc: "If the target of this Pokémon's move is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		shortDesc: "If this Pokémon's target is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		onDamagePriority: -100,
+		onAnyDamage(damage, target, source, effect) {
+			if (source === this.effectData.target && target.species.id === 'honchkrowmega' && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', source, 'Orderly Target');
+				return target.hp - 1;
+			}
+		},
+		name: "Orderly Target",
+		rating: -1,
+		num: -1024,
+	},
 }
