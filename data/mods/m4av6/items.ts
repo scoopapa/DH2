@@ -717,4 +717,46 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Kricketune, this item allows it to Mega Evolve in battle.",
 	},
+	mismaginite: {
+		name: "Mismaginite",
+		spritenum: 578,
+		megaStone: "Mismagius-Mega",
+		megaEvolves: "Mismagius",
+		itemUser: ["Mismagius"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1042,
+		gen: 8,
+		desc: "If held by a Mismagius, this item allows it to Mega Evolve in battle.",
+	},
+	honchkronite: {
+		name: "Honchkronite",
+		spritenum: 578,
+		megaStone: "Honchkrow-Mega",
+		megaEvolves: "Honchkrow",
+		itemUser: ["Honchkrow"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1043,
+		gen: 8,
+		desc: "If held by a Honchkrow, this item allows it to Mega Evolve in battle.",
+	},
+	oddkeystone: {
+		name: "Odd Keystone",
+		spritenum: 578,
+		megaStone: "Spiritomb-Mega",
+		megaEvolves: "Spiritomb",
+		itemUser: ["Spiritomb"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1044,
+		gen: 8,
+		desc: "If held by a Spiritomb, this item allows it to Mega Evolve in battle.",
+	},
 }
