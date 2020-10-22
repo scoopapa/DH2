@@ -736,18 +736,21 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					if (randForm < 1) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Seismitoad...!?`);
-						target.template.species = 'Seismitoad';
-						target.formeChange('Seismitoad', this.effect, true);
+						let transfiguration = target;
+						transfiguration.species.id = 'Seismitoad';
+						target.transformInto(transfiguration);
 					} else if (randForm < 2) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into an Ariados...!?`);
-						target.template.species = 'Ariados';
-						target.formeChange('Ariados', this.effect, true);
+						let transfiguration = target;
+						transfiguration.species.id = 'Ariados';
+						target.transformInto(transfiguration);
 					} else {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Butterfree...!?`);
-						target.template.species = 'Butterfree';
-						target.formeChange('Butterfree', this.effect, true);
+						let transfiguration = target;
+						transfiguration.species.id = 'Butterfree';
+						target.transformInto(transfiguration);
 					}
 				}
 			}
