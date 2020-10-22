@@ -605,14 +605,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
 				const r = this.random(11);
 				if (r < 1) {
-					target.cureStatus();
-					source.setStatus('par', target);
+					target.setStatus('par', source);
 				} else if (r < 2) {
-					target.cureStatus();
-					source.setStatus('brn', target);
+					target.setStatus('brn', source);
 				} else if (r < 3) {
-					target.cureStatus();
-					source.setStatus('tox', target);
+					target.setStatus('tox', source);
 				} else if (r < 4) {
 					target.addVolatile('confusion');
 				} else if (r < 5) {
@@ -704,18 +701,15 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					const r = this.random(3);
 					if (r < 1) {
 						if (target.species.baseSpecies = 'Seismitoad' || target.transformed) return;
-						const targetForme = target.species.name = 'Seismitoad';
-						target.formeChange(targetForme);
+						target.species.id = target.species.name = 'Seismitoad';
 						target.setAbility('poisontouch');
 					} else if (r < 2) {
 						if (target.species.baseSpecies = 'Ariados' || target.transformed) return;
-						const targetForme = target.species.name = 'Ariados';
-						target.formeChange(targetForme);
+						target.species.id = target.species.name = 'Ariados';
 						target.setAbility('insomnia');
 					} else {
-						if (target.species.baseSpecies = 'Seismitoad' || target.transformed) return;
-						const targetForme = target.species.name = 'Seismitoad';
-						target.formeChange(targetForme);
+						if (target.species.baseSpecies = 'Butterfree' || target.transformed) return;
+						target.species.id = target.species.name = 'Butterfree';
 						target.setAbility('compoundeyes');
 					}
 				}
