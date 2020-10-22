@@ -634,7 +634,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: -1}, target, source, null, true);
 					} else {
 						this.boost({spe: -1}, target, source, null, true);
-					},
+					}
 					if (randStat2 < 1) {
 						this.boost({atk: -1}, target, source, null, true);
 					} else if (randStat2 < 2) {
@@ -645,7 +645,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: -1}, target, source, null, true);
 					} else {
 						this.boost({spe: -1}, target, source, null, true);
-					},
+					}
 				} else if (r < 8) {
 					const randStat1 = this.random(5);
 					const randStat2 = this.random(4);
@@ -664,7 +664,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: 1}, target, source, null, true);
 					} else {
 						this.boost({spe: 1}, target, source, null, true);
-					},
+					}
 					if (randStat2 < 1) {
 						this.boost({atk: -1}, target, source, null, true);
 					} else if (randStat2 < 2) {
@@ -675,7 +675,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: -1}, target, source, null, true);
 					} else {
 						this.boost({spe: -1}, target, source, null, true);
-					},
+					}
 				} else if (r < 9) {
 					const randStat1 = this.random(5);
 					const randStat2 = this.random(4);
@@ -694,7 +694,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: 1}, target, source, null, true);
 					} else {
 						this.boost({spe: 1}, target, source, null, true);
-					},
+					}
 					if (randStat2 < 1) {
 						this.boost({atk: 1}, target, source, null, true);
 					} else if (randStat2 < 2) {
@@ -705,7 +705,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spd: 1}, target, source, null, true);
 					} else {
 						this.boost({spe: 1}, target, source, null, true);
-					},
+					}
 				} else if (r < 10) {
 					if (target.hp >= target.maxhp / 4) {
 						if (target.addVolatile('curse')) {
