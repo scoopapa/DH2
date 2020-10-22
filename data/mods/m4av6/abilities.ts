@@ -623,8 +623,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', source, 'Alchemist');
 					target.addVolatile('torment');
 				} else if (r < 7) {
-					const randStat1 = this.random(5);
-					const randStat2 = this.random(4);
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
@@ -651,8 +651,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spe: -1}, target, source, null, true);
 					}
 				} else if (r < 8) {
-					const randStat1 = this.random(5);
-					const randStat2 = this.random(4);
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
@@ -679,8 +679,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.boost({spe: -1}, target, source, null, true);
 					}
 				} else if (r < 9) {
-					const randStat1 = this.random(5);
-					const randStat2 = this.random(4);
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
@@ -717,14 +717,14 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 						this.useMove('explosion', target);
 					}
 				} else {
-					const r = this.random(3);
-					if (r < 1) {
+					const randForm = this.random(3);
+					if (randForm < 1) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into a Seismitoad...!?`);
 						let targetForme = target.species.id = 'Seismitoad';
 						target.formeChange('Seismitoad', this.effect, true);
 						target.setAbility('poisontouch');
-					} else if (r < 2) {
+					} else if (randForm < 2) {
 						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} was transformed into an Ariados...!?`);
 						let targetForme = target.species.id = 'Ariados';
