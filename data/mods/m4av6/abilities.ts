@@ -597,4 +597,206 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1021,
 	},
+	alchemist: {
+		desc: "After attacking a poisoned target with a Poison-type move, this Pokémon has an equal chance to cause one of various random effects. Possible effects include: replacing the poison status with paralysis, burn or toxic poison; afflicting the target with confusion, Torment or Encore; choosing two random stats and either boosting or lowering each one; causing the target to use Explosion if its current HP is 25% or less or afflicting it with a Curse if not; or transforming the target into Seismitoad, Ariados or Butterfree until it switches out.",
+		shortDesc: "Poison-type move on poisoned target: random chance of 11 different effects.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
+				const r = this.random(11);
+				if (r < 1) {
+					this.add('-ability', source, 'Alchemist');
+					target.setStatus('par', source);
+				} else if (r < 2) {
+					this.add('-ability', source, 'Alchemist');
+					target.setStatus('brn', source);
+				} else if (r < 3) {
+					if (target.setStatus('tox', source)) {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${target.name}'s poison became more severe!`);
+					}
+				} else if (r < 4) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('confusion')) {
+						this.add('-message', `${target.name} could not be confused!`);
+					}
+				} else if (r < 5) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('encore')) {
+						this.add('-message', `${target.name} could not be affected by Encore!`);
+					}
+				} else if (r < 6) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('torment')) {
+						this.add('-message', `${target.name} could not be affected by Torment!`);
+					}
+				} else if (r < 7) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+				} else if (r < 8) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+				} else if (r < 9) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+				} else if (r < 10) {
+					this.add('-ability', source, 'Alchemist');
+					if (target.hp >= target.maxhp / 4) {
+						this.add('-ability', source, 'Alchemist');
+						if (target.addVolatile('curse')) {
+							this.add('-message', `${source.name}'s HP was not cut!`);
+						} else {
+							this.add('-message', `${target.name} could not be cursed!`);
+						}
+					} else {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${target.name} suddenly exploded!`);
+						this.useMove('explosion', target);
+					}
+				} else {
+					this.add('-ability', source, 'Alchemist');
+					this.add('-message', `${target.name} is being transformed...!?`);
+					target.addVolatile('alchemist');
+				}
+			}
+		},
+		effect: {
+			onStart(pokemon) {
+				const randForm = this.random(3);
+				if (randForm < 1) {
+					this.add('-message', `It became a Seismitoad!`);
+					pokemon.formeChange('Seismitoad');
+					pokemon.setAbility('poisontouch');
+				} else if (randForm < 2) {
+					this.add('-message', `It became an Ariados!`);
+					pokemon.formeChange('Ariados');
+					pokemon.setAbility('insomnia');
+				} else {
+					this.add('-message', `It became a Butterfree!`);
+					pokemon.formeChange('Butterfree');
+					pokemon.setAbility('compoundeyes');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Seismitoad', 'Ariados', 'Butterfree'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		name: "Alchemist",
+		rating: 3,
+		num: -1022,
+	},
+	blackmail: {
+		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
+		shortDesc: "Physical Dark moves: permanently replace target's Ability, preventing it from KOing this Pokémon. Permanently becomes Keen Eye after activating once.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || target.side === source.side) return;
+			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
+				target.setAbility('orderlytarget');
+				target.baseAbility = 'orderlytarget';
+				target.ability = 'orderlytarget';
+				this.add('-ability', target, 'Orderly Target', '[from] Ability: Blackmail');
+				source.setAbility('keeneye');
+				source.baseAbility = 'keeneye';
+				source.ability = 'keeneye';
+				this.add('-ability', source, 'Keen Eye', '[from] Ability: Blackmail');
+			}
+		},
+		name: "Blackmail",
+		rating: 3,
+		num: -1023,
+	},
+	orderlytarget: {
+		desc: "If the target of this Pokémon's move is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		shortDesc: "If this Pokémon's target is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		onDamagePriority: -100,
+		onAnyDamage(damage, target, source, effect) {
+			if (source === this.effectData.target && target.species.id === 'honchkrowmega' && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', source, 'Orderly Target');
+				return target.hp - 1;
+			}
+		},
+		name: "Orderly Target",
+		rating: -1,
+		num: -1024,
+	},
 }
