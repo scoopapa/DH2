@@ -431,7 +431,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Mismagius",
 		forme: "Mega",
 		types: ["Ghost", "Poison"],
-		baseStats: {hp: 60, atk: 95, def: 95, spa: 135, spd: 110, spe: 95},
+		baseStats: {hp: 60, atk: 95, def: 95, spa: 140, spd: 110, spe: 95},
 		abilities: {0: "Alchemist"},
 		heightm: 0.9,
 		weightkg: 4.4,
