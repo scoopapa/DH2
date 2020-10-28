@@ -800,6 +800,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1024,
 	},
 	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay.",
 		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
 		onStart(source) {
 			if (this.field.addPseudoWeather('stickyresidues')) {
@@ -823,11 +824,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1025,
 	},
 	spectralanger: {
-		desc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack. Does not affect Doom Desire and Future Sight.",
-		shortDesc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack.",
+		shortDesc: "This Pokémon's Attack rises after it uses an attack that is super effective on the target.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 				this.boost({atk: 1}, source);
 			}
 		},
