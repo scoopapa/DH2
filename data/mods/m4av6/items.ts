@@ -150,7 +150,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			return true;
 		},
 		onAfterMega(source) {
-			this.send('/ds $source.species.name');
+			Chat.parse('/ds $source.species.name');
 		},
 		num: -1011,
 		gen: 8,
@@ -771,9 +771,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
-		},
-		onAfterMega(source) {
-			this.battle.send('/ds $source.species.name');
 		},
 		num: -1045,
 		gen: 8,
