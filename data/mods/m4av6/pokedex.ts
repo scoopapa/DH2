@@ -900,7 +900,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		requiredItem: "Mimikyunite",
 		battleOnly: "Mimikyu",
 	},
-	mimikyumegabusted: {
+	mimikyubustedmega: {
 		num: 778,
 		name: "Mimikyu-Busted-Mega",
 		baseSpecies: "Mimikyu",
