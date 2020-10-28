@@ -151,7 +151,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onAfterMega(source) {
 			this.parse('/ds $source.species.name');
-		}
+		},
 		num: -1011,
 		gen: 8,
 		desc: "If held by a Lycanroc, this item allows it to Mega Evolve in battle.",
