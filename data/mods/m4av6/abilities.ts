@@ -811,9 +811,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('lightclay')) {
-					return 8,
+					return 8;
 				}
-				return 5,
+				return 5;
 			},
 			onEnd() {
 				this.add('-message', `The sticky residues disappeared from the battlefield!`);
