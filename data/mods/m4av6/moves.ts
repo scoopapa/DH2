@@ -1168,6 +1168,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			}
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
+				if (this.field.pseudoWeather.stickyresidues && (condition === 'spikes' || condition === 'toxicspikes' || condition === 'stealthrock' || condition === 'stickyweb' || condition === 'gmaxsteelsurge')) continue;
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
