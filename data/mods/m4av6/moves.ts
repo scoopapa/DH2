@@ -1062,6 +1062,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source, move) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			const removeTarget = [
@@ -1115,6 +1118,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		isMax: "Corviknight",
 		self: {
 			onHit(source) {
+				if (this.field.pseudoWeather.stickyresidues) {
+					this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+				}
 				let success = false;
 				const removeTarget = [
 					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
@@ -1163,6 +1169,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onAfterHit(target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
@@ -1178,6 +1187,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onAfterSubDamage(damage, target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
@@ -1216,6 +1228,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1},
 		onHitField(target, source) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
 			const sourceSide = source.side;
 			const targetSide = source.side.foe;
 			const sideConditions = [
