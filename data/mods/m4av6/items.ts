@@ -150,7 +150,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			return true;
 		},
 		onAfterMega(source) {
-			Chat.parse('/ds $source.species.name');
+			this.add(`c|@Mega Evolution|!dt $source.species.name`);
 		},
 		num: -1011,
 		gen: 8,
