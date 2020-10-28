@@ -325,7 +325,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMega(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
-				if (pokemon.side.getSideCondition(sideCondition)) {
+				if (pokemon.side.getSideCondition(sideCondition) && !this.field.pseudoWeather.stickyresidues) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Trash Compactor');
 						activated = true;
@@ -798,6 +798,42 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Orderly Target",
 		rating: -1,
 		num: -1024,
+	},
+	stickyresidues: {
+		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8,
+				}
+				return 5,
+			},
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -1025,
+	},
+	spectralanger: {
+		desc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack. Does not affect Doom Desire and Future Sight.",
+		shortDesc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
+				this.boost({atk: 1}, source);
+			}
+		},
+		name: "Spectral Anger",
+		rating: 3,
+		num: -1026,
 	},
 	curiousmedicine: {
 		onStart(pokemon) {
