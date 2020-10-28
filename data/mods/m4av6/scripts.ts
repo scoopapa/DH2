@@ -82,4 +82,45 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'mimikyu').learnset.strengthsap = ['7L1'];
 		this.modData('Learnsets', 'mimikyu').learnset.uturn = ['7L1'];
 	},
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Midnight") {
+			return "Lycanroc-Midnight-Mega";
+		}
+		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Dusk") {
+			return "Lycanroc-Dusk-Mega";
+		}
+		if (item.name === "Raichunite" && pokemon.baseSpecies.name === "Raichu-Alola") {
+			return null;
+		}
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Alola") {
+			return null;
+		}
+		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Alola") {
+			return null;
+		}
+		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") {
+			return "Gourgeist-Small-Mega";
+		}
+		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Large") {
+			return "Gourgeist-Large-Mega";
+		}
+		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") {
+			return "Gourgeist-Super-Mega";
+		}
+		if (item.name === "Mimikyu" && (pokemon.baseSpecies.name === "Mimikyu-Busted" || pokemon.baseSpecies.name === "Mimikyu-Busted-Totem")) {
+			return "Mimikyu-Busted-Mega";
+		}
+		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+			return null;
+		}
+		return item.megaStone;
+	},
 };
