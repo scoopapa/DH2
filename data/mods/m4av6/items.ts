@@ -149,8 +149,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		onAfterMega(source) {
-			const species = this.dex.getSpecies(source);
+		onAfterMega(pokemon) {
+			const species = this.dex.getSpecies(pokemon);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types['0'];
