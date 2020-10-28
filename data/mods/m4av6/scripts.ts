@@ -100,10 +100,10 @@ exports.BattleScripts = {
 		if (item.name === "Raichunite" && pokemon.baseSpecies.name === "Raichu-Alola") {
 			return null;
 		}
-		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Alola") {
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
 			return null;
 		}
-		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Alola") {
+		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
 			return null;
 		}
 		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") {
