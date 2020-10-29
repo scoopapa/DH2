@@ -857,9 +857,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
-				if (pokemon.canMegaEvo === 'mimikyumega') {
-					pokemon.canMegaEvo = 'mimikyubustedmega';
-				}
+			}
+			if (pokemon.canMegaEvo && this.effectData.busted) {
+				pokemon.canMegaEvo = 'mimikyubustedmega';
 			}
 		},
 		name: "Disguise",
