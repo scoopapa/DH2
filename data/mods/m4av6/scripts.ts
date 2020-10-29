@@ -115,7 +115,7 @@ exports.BattleScripts = {
 		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") {
 			return "Gourgeist-Super-Mega";
 		}
-		if (item.name === "Mimikyunite" && (pokemon.species.name === "Mimikyu-Busted" || pokemon.species.name === "Mimikyu-Busted-Totem")) {
+		if (item.name === "Mimikyunite" && (pokemon.baseSpecies.name === "Mimikyu-Busted" || pokemon.baseSpecies.name === "Mimikyu-Busted-Totem")) {
 			return "Mimikyu-Busted-Mega";
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
