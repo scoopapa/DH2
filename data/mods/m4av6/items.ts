@@ -1294,7 +1294,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		megaEvolves: "Mimikyu",
 		itemUser: ["Mimikyu"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			const pokemon = this.effectData.target;
+			if (((source && source !== pokemon) || this.activeMove.id === 'knockoff') && item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		onAfterMega(pokemon) {
