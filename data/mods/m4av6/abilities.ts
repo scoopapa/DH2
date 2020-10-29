@@ -799,6 +799,23 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: -1,
 		num: -1024,
 	},
+	stickyresidues: {
+		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		effect: {
+			duration: 5,
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -1025,
+	},
 	disguise: {
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
 		shortDesc: "(Mimikyu only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
@@ -848,30 +865,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Disguise",
 		rating: 4,
 		num: 209,
-	},
-	stickyresidues: {
-		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay.",
-		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
-		onStart(source) {
-			if (this.field.addPseudoWeather('stickyresidues')) {
-				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
-			}
-		},
-		effect: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasItem('lightclay')) {
-					return 8;
-				}
-				return 5;
-			},
-			onEnd() {
-				this.add('-message', `The sticky residues disappeared from the battlefield!`);
-			},
-		},
-		name: "Sticky Residues",
-		rating: 3,
-		num: -1025,
 	},
 	spectralanger: {
 		shortDesc: "This Pokémon's Attack rises after it uses an attack that is super effective on the target.",
