@@ -911,7 +911,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 0.7,
 		color: "Yellow",
 		eggGroups: ["Amorphous"],
-		requiredItem: "Mimikyunite",
+		requiredItem: "Busted Mimikyunite",
 		battleOnly: "Mimikyu",
 	},
 	kommoo: {
