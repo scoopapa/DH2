@@ -841,7 +841,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
 				if (pokemon.item === 'mimikyunite') {
-					pokemon.item = 'bustedmimikyunite';
+					pokemon.useItem();
+					pokemon.setItem('bustedmimikyunite');
 				}
 			}
 		},
