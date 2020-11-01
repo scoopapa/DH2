@@ -344,7 +344,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -352,7 +352,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
 				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
@@ -393,7 +393,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -401,7 +401,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('spikes');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -430,7 +430,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -438,7 +438,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stealthrock');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
@@ -467,7 +467,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -475,7 +475,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stickyweb');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -511,7 +511,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -519,10 +519,10 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('toxicspikes');
 					return;
 				}
-				if (pokemon.hasType('Poison')) {
+				if (pokemon.hasType('Poison') && !this.field.pseudoWeather.stickyresidues) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') || pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1062,6 +1062,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source, move) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			const removeTarget = [
@@ -1078,6 +1081,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				}
 			}
 			for (const sideCondition of removeAll) {
+				if (this.field.pseudoWeather.stickyresidues) continue;
 				if (source.side.removeSideCondition(sideCondition)) {
 					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
@@ -1114,6 +1118,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		isMax: "Corviknight",
 		self: {
 			onHit(source) {
+				if (this.field.pseudoWeather.stickyresidues) {
+					this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+				}
 				let success = false;
 				const removeTarget = [
 					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
@@ -1127,6 +1134,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				for (const sideCondition of removeAll) {
+					if (this.field.pseudoWeather.stickyresidues) continue;
 					if (source.side.removeSideCondition(sideCondition)) {
 						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
 						success = true;
@@ -1148,6 +1156,123 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Cool",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		desc: "If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field. Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (this.field.pseudoWeather.stickyresidues && (condition === 'spikes' || condition === 'toxicspikes' || condition === 'stealthrock' || condition === 'stickyweb' || condition === 'gmaxsteelsurge')) continue;
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (this.field.pseudoWeather.stickyresidues && (condition === 'spikes' || condition === 'toxicspikes' || condition === 'stealthrock' || condition === 'stickyweb' || condition === 'gmaxsteelsurge')) continue;
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	courtchange: {
+		num: 756,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "Switches the Mist, Light Screen, Reflect, Spikes, Safeguard, Tailwind, Toxic Spikes, Stealth Rock, Water Pledge, Fire Pledge, Grass Pledge, Sticky Web, Aurora Veil, G-Max Steelsurge, G-Max Cannonade, G-Max Vine Lash, and G-Max Wildfire effects from the user's side to the opposing side and vice versa.",
+		shortDesc: "Swaps user's field effects with the opposing side.",
+		name: "Court Change",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHitField(target, source) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			const sourceSide = source.side;
+			const targetSide = source.side.foe;
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			for (const id of sideConditions) {
+				const effectName = this.dex.getEffect(id).name;
+				if (this.field.pseudoWeather.stickyresidues && (id === 'spikes' || id === 'toxicspikes' || id === 'stealthrock' || id === 'stickyweb' || id === 'gmaxsteelsurge')) continue;
+				if (sourceSide.sideConditions[id] && targetSide.sideConditions[id]) {
+					[sourceSide.sideConditions[id], targetSide.sideConditions[id]] = [
+						targetSide.sideConditions[id], sourceSide.sideConditions[id],
+					];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else if (sourceSide.sideConditions[id] && !targetSide.sideConditions[id]) {
+					targetSide.sideConditions[id] = sourceSide.sideConditions[id];
+					delete sourceSide.sideConditions[id];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+				} else if (targetSide.sideConditions[id] && !sourceSide.sideConditions[id]) {
+					sourceSide.sideConditions[id] = targetSide.sideConditions[id];
+					delete targetSide.sideConditions[id];
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else {
+					continue;
+				}
+				let sourceLayers = sourceSide.sideConditions[id] ? (sourceSide.sideConditions[id].layers || 1) : 0;
+				let targetLayers = targetSide.sideConditions[id] ? (targetSide.sideConditions[id].layers || 1) : 0;
+				for (; sourceLayers > 0; sourceLayers--) {
+					this.add('-sidestart', sourceSide, effectName, '[silent]');
+				}
+				for (; targetLayers > 0; targetLayers--) {
+					this.add('-sidestart', targetSide, effectName, '[silent]');
+				}
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
 	},
 	splinteredstormshards: {
 		num: 727,
@@ -1176,5 +1301,134 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+	},
+	thundercage: {
+		num: 819,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Thunder Cage",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
+	dragonenergy: {
+		num: 820,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower * pokemon.hp / pokemon.maxhp;
+		},
+		category: "Special",
+		name: "Dragon Energy",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+	},
+	freezingglare: {
+		num: 821,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Freezing Glare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	fierywrath: {
+		num: 822,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Fiery Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+	},
+	thunderouskick: {
+		num: 823,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thunderous Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	glaciallance: {
+		num: 824,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Glacial Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	astralbarrage: {
+		num: 825,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Astral Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+	},
+	eeriespell: {
+		num: 826,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Eerie Spell",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onHit(target) {
+			if (!target.hp) return;
+			const move = target.lastMove;
+			if (!move || move.isZ || move.isMax) return;
+
+			const ppDeducted = target.deductPP(move.id, 3);
+			if (!ppDeducted) return;
+
+			this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
 	},
 }
