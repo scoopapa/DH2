@@ -81,6 +81,12 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'mimikyu').learnset.firstimpression = ['7L1'];
 		this.modData('Learnsets', 'mimikyu').learnset.strengthsap = ['7L1'];
 		this.modData('Learnsets', 'mimikyu').learnset.uturn = ['7L1'];
+		this.modData('Learnsets', 'nidoqueen').learnset.milkdrink = ['7L1'];
+		this.modData('Learnsets', 'walrein').learnset.darkpulse = ['7L1'];
+		this.modData('Learnsets', 'walrein').learnset.focusblast = ['7L1'];
+		this.modData('Learnsets', 'walrein').learnset.freezedry = ['7L1'];
+		this.modData('Learnsets', 'aurorus').learnset.rapidspin = ['7L1'];
+		this.modData('Learnsets', 'aurorus').learnset.voltswitch = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
