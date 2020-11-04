@@ -878,6 +878,23 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1026,
 	},
+	diamonddust: {
+		shortDesc: "During hail, this Pokémon is immune to all Rock-type attacks and Stealth Rock.",
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock' && this.field.isWeather('hail')) {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && this.field.isWeather('hail')) {
+				this.add('-immune', target, '[from] ability: Diamond Dust');
+				return null;
+			}
+		},
+		name: "Diamond Dust",
+		rating: 3,
+		num: -1027,
+	},
 	curiousmedicine: {
 		onStart(pokemon) {
 			for (const ally of pokemon.side.active) {
