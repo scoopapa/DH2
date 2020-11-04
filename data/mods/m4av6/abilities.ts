@@ -800,6 +800,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1024,
 	},
 	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
 		onStart(source) {
 			if (this.field.addPseudoWeather('stickyresidues')) {
@@ -808,6 +809,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		effect: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
 			onEnd() {
 				this.add('-message', `The sticky residues disappeared from the battlefield!`);
 			},
