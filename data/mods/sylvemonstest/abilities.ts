@@ -16,7 +16,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.addType('Ice');
 				this.field.setWeather('hail');
 			} else if (pokemon.item === 'shadowrock') {
-				pokemon.addType('Dark');
+				pokemon.addType('Ghost');
 				this.field.setWeather('shadowsky');
 			} else if (pokemon.item === 'breezerock') {
 				pokemon.addType('Flying');
