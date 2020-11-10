@@ -62,6 +62,7 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'kricketune').learnset.dualwingbeat = ['7L1'];
 		this.modData('Learnsets', 'kricketune').learnset.firstimpression = ['7L1'];
 		this.modData('Learnsets', 'kricketune').learnset.powertrip = ['7L1'];
+		this.modData('Learnsets', 'kricketune').learnset.tripleaxel = ['7L1'];
 		this.modData('Learnsets', 'mismagius').learnset.sludgebomb = ['7L1'];
 		this.modData('Learnsets', 'mismagius').learnset.sludgewave = ['7L1'];
 		this.modData('Learnsets', 'mismagius').learnset.toxicspikes = ['7L1'];
@@ -87,6 +88,8 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'walrein').learnset.freezedry = ['7L1'];
 		this.modData('Learnsets', 'aurorus').learnset.rapidspin = ['7L1'];
 		this.modData('Learnsets', 'aurorus').learnset.voltswitch = ['7L1'];
+		this.modData('Learnsets', 'trevenant').learnset.floralhealing = ['7L1'];
+		this.modData('Learnsets', 'trevenant').learnset.synthesis = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
