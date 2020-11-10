@@ -902,6 +902,19 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1027,
 	},
+	prehistoricrage: {
+		shortDesc: "This Pokémon can hit Fairy-types with Dragon-type moves.",
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dragon'] = true;
+			}
+		},
+		name: "Prehistoric Rage",
+		rating: 3,
+		num: -1028,
+	},
 	curiousmedicine: {
 		onStart(pokemon) {
 			for (const ally of pokemon.side.active) {
