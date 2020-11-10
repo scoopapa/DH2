@@ -524,6 +524,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Usually goes first. Sound Move.",
 		name: "Sonic Boom",
 		priority: 1,
+		isNonstandard: null,
 		flags: {sound: 1, protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
