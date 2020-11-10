@@ -1,4 +1,162 @@
 export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+	electricterrain: {
+		num: 604,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the terrain becomes Electric Terrain. During the effect, the power of Electric-type attacks made by grounded Pokemon is multiplied by 1.3 and grounded Pokemon cannot fall asleep; Pokemon already asleep do not wake up. Camouflage transforms the user into an Electric type, Nature Power becomes Thunderbolt, and Secret Power has a 30% chance to cause paralysis. Fails if the current terrain is Electric Terrain.",
+		shortDesc: "5 turns. Grounded: +Electric power, can't sleep.",
+		name: "Electric Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		terrain: 'electricterrain',
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
+					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								return;
+							}
+						}
+						this.add('-activate', target, 'move: Electric Terrain');
+					}
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					return false;
+				}
+			},
+			onTryAddVolatile(status, target) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'yawn') {
+					this.add('-activate', target, 'move: Electric Terrain');
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					this.debug('electric terrain boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Electric Terrain');
+				}
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd() {
+				this.add('-fieldend', 'move: Electric Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Electric",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
+	psychicterrain: {
+		num: 678,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the terrain becomes Psychic Terrain. During the effect, the power of Psychic-type attacks made by grounded Pokemon is multiplied by 1.3 and grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Psychic type, Nature Power becomes Psychic, and Secret Power has a 30% chance to lower the target's Speed by 1 stage. Fails if the current terrain is Psychic Terrain.",
+		shortDesc: "5 turns. Grounded: +Psychic power, priority-safe.",
+		name: "Psychic Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		terrain: 'psychicterrain',
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable() || target.side === source.side) return;
+				if (!target.isGrounded()) {
+					const baseMove = this.dex.getMove(effect.id);
+					if (baseMove.priority > 0) {
+						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
+					}
+					return;
+				}
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+						return;
+					}
+				}
+				this.add('-activate', target, 'move: Psychic Terrain');
+				return null;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					this.debug('psychic terrain boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Psychic Terrain');
+				}
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd() {
+				this.add('-fieldend', 'move: Psychic Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
 	grassyterrain: {
 		num: 580,
 		accuracy: true,
@@ -14,22 +172,34 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		effect: {
 			duration: 5,
 			durationCallback(source, effect) {
-                if (source?.hasItem('terrainextender')) {
-                    return 8;
-                }
-                if (source?.hasAbility('arenarock')) {
-                    return 0;
-                }
-                return 5;
-            },
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				if (source?.hasAbility('arenarock')) {
+					return 0;
+				}
+				return 5;
+			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
 				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
 				if (weakenedMoves.includes(move.id)) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
 					this.debug('move weakened by grassy terrain');
 					return this.chainModify(0.5);
 				}
 				if (move.type === 'Grass' && attacker.isGrounded()) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
 					this.debug('grassy terrain boost');
 					return this.chainModify([0x14CD, 0x1000]);
 				}
@@ -44,6 +214,12 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 5,
 			onResidualSubOrder: 3,
 			onResidual() {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+						return;
+					}
+				}
 				this.eachEvent('Terrain');
 			},
 			onTerrain(pokemon) {
@@ -61,6 +237,89 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Grass",
 		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	mistyterrain: {
+		num: 581,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the terrain becomes Misty Terrain. During the effect, the power of Dragon-type attacks used against grounded Pokemon is multiplied by 0.5 and grounded Pokemon cannot be inflicted with a major status condition nor confusion. Camouflage transforms the user into a Fairy type, Nature Power becomes Moonblast, and Secret Power has a 30% chance to lower Special Attack by 1 stage. Fails if the current terrain is Misty Terrain.",
+		shortDesc: "5 turns. Can't status,-Dragon power vs grounded.",
+		name: "Misty Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		terrain: 'mistyterrain',
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							return;
+						}
+					}
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+						return;
+					}
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'confusion') {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd(side) {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
 	},
 	gmaxsteelsurge: {
@@ -85,7 +344,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -93,7 +352,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
 				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
@@ -134,7 +393,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -142,7 +401,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('spikes');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -171,7 +430,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -179,7 +438,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stealthrock');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
@@ -208,7 +467,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -216,7 +475,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stickyweb');
 					return;
 				}
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -252,7 +511,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor')) {
+				if (pokemon.hasAbility('trashcompactor') && !this.field.pseudoWeather.stickyresidues) {
 					if (!pokemon.volatiles['stockpile']) {
 						this.useMove('stockpile', pokemon);
 					}
@@ -260,10 +519,10 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('toxicspikes');
 					return;
 				}
-				if (pokemon.hasType('Poison')) {
+				if (pokemon.hasType('Poison') && !this.field.pseudoWeather.stickyresidues) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') || pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -363,5 +622,813 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
+	},
+	healblock: {
+		num: 377,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, the target is prevented from restoring any HP as long as it remains active. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. If an affected Pokemon uses Baton Pass, the replacement will remain unable to restore its HP. Pain Split and the Regenerator Ability are unaffected.",
+		shortDesc: "For 5 turns, the foe(s) is prevented from healing.",
+		isNonstandard: "Past",
+		name: "Heal Block",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'healblock',
+		effect: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('showdown')) {
+						return 0;
+					}
+				}
+				return 5;
+			},
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Heal Block');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onResidualOrder: 17,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Heal Block');
+			},
+			onTryHeal(damage, target, source, effect) {
+				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
+				return false;
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+	},
+	camouflage: {
+		num: 293,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The user's type changes based on the battle terrain. Normal type on the regular Wi-Fi terrain, Electric type during Electric Terrain, Fairy type during Misty Terrain, Grass type during Grassy Terrain, and Psychic type during Psychic Terrain. Fails if the user's type cannot be changed or if the user is already purely that type.",
+		shortDesc: "Changes user's type by terrain (default Normal).",
+		isNonstandard: "Past",
+		name: "Camouflage",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(target) {
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			}
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+					newType = 'Normal';
+				}
+			}
+
+			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
+			this.add('-start', target, 'typechange', newType);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {evasion: 1}},
+		contestType: "Clever",
+	},
+	expandingforce: {
+		num: 797,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		desc: "If the current terrain is Psychic Terrain and the user is grounded, this move hits all opposing Pokemon and has its power multiplied by 1.5.",
+		shortDesc: "User on Psychic Terrain: 1.5x power, hits foes.",
+		name: "Expanding Force",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						return;
+					}
+				}
+				this.debug('terrain buff');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						return;
+					}
+				}
+				move.target = 'allAdjacentFoes';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	floralhealing: {
+		num: 666,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The target restores 1/2 of its maximum HP, rounded half up. If the terrain is Grassy Terrain, the target instead restores 2/3 of its maximum HP, rounded half down.",
+		shortDesc: "Heals the target by 50% of its max HP.",
+		name: "Floral Healing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, heal: 1, mystery: 1},
+		onHit(target, source) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+						success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+						if (success && target.side !== source.side) {
+							target.staleness = 'external';
+						}
+						return success;
+					}
+				}
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && target.side !== source.side) {
+				target.staleness = 'external';
+			}
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	grassyglide: {
+		num: 803,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		desc: "If the current terrain is Grassy Terrain and the user is grounded, this move has its priority increased by 1.",
+		shortDesc: "User on Grassy Terrain: +1 priority.",
+		name: "Grassy Glide",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mystery: 1},
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						return;
+					}
+				}
+				return priority + 1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	mistyexplosion: {
+		num: 802,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+		shortDesc: "User faints. User on Misty Terrain: 1.5x power.",
+		name: "Misty Explosion",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						return;
+					}
+				}
+				this.debug('misty terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Fairy",
+	},
+	naturepower: {
+		num: 267,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "This move calls another move for use based on the battle terrain. Tri Attack on the regular Wi-Fi terrain, Thunderbolt during Electric Terrain, Moonblast during Misty Terrain, Energy Ball during Grassy Terrain, and Psychic during Psychic Terrain.",
+		shortDesc: "Attack depends on terrain (default Tri Attack).",
+		name: "Nature Power",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			}
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+					move = 'triattack';
+				}
+			}
+			this.useMove(move, pokemon, target);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	risingvoltage: {
+		num: 804,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		desc: "If the current terrain is Electric Terrain and the target is grounded, this move's power is doubled.",
+		shortDesc: "2x power if target is grounded in Electric Terrain.",
+		name: "Rising Voltage",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isTerrain('electricterrain') && target.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						return;
+					}
+				}
+				this.debug('terrain buff');
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
+	secretpower: {
+		num: 290,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		desc: "Has a 30% chance to cause a secondary effect on the target based on the battle terrain. Causes paralysis on the regular Wi-Fi terrain, causes paralysis during Electric Terrain, lowers Special Attack by 1 stage during Misty Terrain, causes sleep during Grassy Terrain and lowers Speed by 1 stage during Psychic Terrain.",
+		shortDesc: "Effect varies with terrain. (30% paralysis chance)",
+		isNonstandard: "Past",
+		name: "Secret Power",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+					return;
+				}
+			}
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	steelroller: {
+		num: 798,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		desc: "Fails if there is no terrain active. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
+		shortDesc: "Fails if there is no terrain active. Ends the effects of terrain.",
+		name: "Steel Roller",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit() {
+			if (this.field.isTerrain('')) return false;
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+					return false;
+				}
+			}
+		},
+		onHit() {
+			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('arenarock')) {
+						return;
+					}
+				}
+			}
+			this.field.clearTerrain();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		desc: "Power doubles if the user is grounded and a terrain is active, and this move's type changes to match. Electric type during Electric Terrain, Grass type during Grassy Terrain, Fairy type during Misty Terrain, and Psychic type during Psychic Terrain.",
+		shortDesc: "User on terrain: power doubles, type varies.",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					return;
+				}
+			}
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+						return;
+					}
+				}
+				move.basePower *= 2;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+	},
+	defog: {
+		num: 432,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared.",
+		shortDesc: "-1 evasion; clears terrain and hazards on both sides.",
+		name: "Defog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit(target, source, move) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (this.field.pseudoWeather.stickyresidues) continue;
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('arenarock')) {
+						return success;
+					}
+				}
+			} else {
+				this.field.clearTerrain();
+				return success;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	gmaxwindrage: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		desc: "Power is equal to the base move's Max Move power. If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
+		shortDesc: "Base move affects power. Ends Terrain, hazards.",
+		name: "G-Max Wind Rage",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Corviknight",
+		self: {
+			onHit(source) {
+				if (this.field.pseudoWeather.stickyresidues) {
+					this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+				}
+				let success = false;
+				const removeTarget = [
+					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+				];
+				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const targetCondition of removeTarget) {
+					if (source.side.foe.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', source.side.foe, this.dex.getEffect(targetCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (this.field.pseudoWeather.stickyresidues) continue;
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				if (this.field.isTerrain('grassyterrain')) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('arenarock')) {
+							return success;
+						}
+					}
+				} else {
+					this.field.clearTerrain();
+					return success;
+				}
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		desc: "If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field. Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (this.field.pseudoWeather.stickyresidues && (condition === 'spikes' || condition === 'toxicspikes' || condition === 'stealthrock' || condition === 'stickyweb' || condition === 'gmaxsteelsurge')) continue;
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (this.field.pseudoWeather.stickyresidues && (condition === 'spikes' || condition === 'toxicspikes' || condition === 'stealthrock' || condition === 'stickyweb' || condition === 'gmaxsteelsurge')) continue;
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	courtchange: {
+		num: 756,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "Switches the Mist, Light Screen, Reflect, Spikes, Safeguard, Tailwind, Toxic Spikes, Stealth Rock, Water Pledge, Fire Pledge, Grass Pledge, Sticky Web, Aurora Veil, G-Max Steelsurge, G-Max Cannonade, G-Max Vine Lash, and G-Max Wildfire effects from the user's side to the opposing side and vice versa.",
+		shortDesc: "Swaps user's field effects with the opposing side.",
+		name: "Court Change",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHitField(target, source) {
+			if (this.field.pseudoWeather.stickyresidues) {
+				this.add('-message', `Sticky residues keep hazards stuck to the field!`);
+			}
+			const sourceSide = source.side;
+			const targetSide = source.side.foe;
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			for (const id of sideConditions) {
+				const effectName = this.dex.getEffect(id).name;
+				if (this.field.pseudoWeather.stickyresidues && (id === 'spikes' || id === 'toxicspikes' || id === 'stealthrock' || id === 'stickyweb' || id === 'gmaxsteelsurge')) continue;
+				if (sourceSide.sideConditions[id] && targetSide.sideConditions[id]) {
+					[sourceSide.sideConditions[id], targetSide.sideConditions[id]] = [
+						targetSide.sideConditions[id], sourceSide.sideConditions[id],
+					];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else if (sourceSide.sideConditions[id] && !targetSide.sideConditions[id]) {
+					targetSide.sideConditions[id] = sourceSide.sideConditions[id];
+					delete sourceSide.sideConditions[id];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+				} else if (targetSide.sideConditions[id] && !sourceSide.sideConditions[id]) {
+					sourceSide.sideConditions[id] = targetSide.sideConditions[id];
+					delete targetSide.sideConditions[id];
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else {
+					continue;
+				}
+				let sourceLayers = sourceSide.sideConditions[id] ? (sourceSide.sideConditions[id].layers || 1) : 0;
+				let targetLayers = targetSide.sideConditions[id] ? (targetSide.sideConditions[id].layers || 1) : 0;
+				for (; sourceLayers > 0; sourceLayers--) {
+					this.add('-sidestart', sourceSide, effectName, '[silent]');
+				}
+				for (; targetLayers > 0; targetLayers--) {
+					this.add('-sidestart', targetSide, effectName, '[silent]');
+				}
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
+	},
+	splinteredstormshards: {
+		num: 727,
+		accuracy: true,
+		basePower: 190,
+		category: "Physical",
+		desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
+		shortDesc: "Ends the effects of terrain.",
+		isNonstandard: "Past",
+		name: "Splintered Stormshards",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onHit() {
+			if (this.field.isTerrain('grassyterrain')) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('arenarock')) {
+						return;
+					}
+				}
+			}
+			this.field.clearTerrain();
+		},
+		isZ: "lycaniumz",
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	thundercage: {
+		num: 819,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Thunder Cage",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
+	dragonenergy: {
+		num: 820,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower * pokemon.hp / pokemon.maxhp;
+		},
+		category: "Special",
+		name: "Dragon Energy",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+	},
+	freezingglare: {
+		num: 821,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Freezing Glare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	fierywrath: {
+		num: 822,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Fiery Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+	},
+	thunderouskick: {
+		num: 823,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thunderous Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	glaciallance: {
+		num: 824,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Glacial Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	astralbarrage: {
+		num: 825,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Astral Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+	},
+	eeriespell: {
+		num: 826,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Eerie Spell",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onHit(target) {
+			if (!target.hp) return;
+			const move = target.lastMove;
+			if (!move || move.isZ || move.isMax) return;
+
+			const ppDeducted = target.deductPP(move.id, 3);
+			if (!ppDeducted) return;
+
+			this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
 	},
 }

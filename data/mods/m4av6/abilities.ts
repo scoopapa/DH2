@@ -30,18 +30,210 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		num: -1002,
 	},
 	downtoearth: {
-		desc: "This Pokémon clears terrains on entry. It also prevents any new terrains from being set while it is present.",
-		shortDesc: "This Pokémon shuts down all terrains.",
+		shortDesc: "While this Pokémon is active, the effects of terrains are disabled.",
 		onStart(source) {
-			this.add('-ability', source, 'Down-to-Earth');
-			this.field.clearTerrain();
+			if (this.field.terrain) {
+				this.add('-ability', source, 'Down-to-Earth');
+				this.add('-message', `${source.name} suppresses the effects of the terrain!`);
+			}
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			this.field.clearTerrain();
+			const pokemon = this.effectData.target;
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(source) {
+			if (this.field.terrain) {
+				this.add('-message', `${source.name} is no longer suppressing the effects of the terrain!`);
+			}
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('mimicry')) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth') && target !== source) {
+							this.debug('Down-to-Earth prevents type change');
+							return;
+						}
+					}
+					if (this.field.terrain) {
+						pokemon.addVolatile('mimicry');
+					} else {
+						const types = pokemon.baseSpecies.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+						this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('electricseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('psychicseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('grassyseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('mistyseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
 		},
 		name: "Down-to-Earth",
 		rating: 2,
 		num: -1003,
+	},
+	grasspelt: {
+		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Defense increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		name: "Grass Pelt",
+		rating: 0.5,
+		num: 179,
+	},
+	mimicry: {
+		shortDesc: "This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",
+		onStart(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			if (this.field.terrain) {
+				pokemon.addVolatile('mimicry');
+			} else {
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			}
+		},
+		onAnyTerrainStart() {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents type change');
+					return;
+				}
+			}
+			const pokemon = this.effectData.target;
+			delete pokemon.volatiles['mimicry'];
+			pokemon.addVolatile('mimicry');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['mimicry'];
+		},
+		effect: {
+			onStart(pokemon) {
+				let newType;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				}
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+			},
+			onUpdate(pokemon) {
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('downtoearth')) {
+						this.debug('Down-to-Earth prevents type change');
+						const types = pokemon.species.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-activate', pokemon, 'ability: Mimicry');
+						this.add('-end', pokemon, 'typechange', '[silent]');
+						pokemon.removeVolatile('mimicry');
+					}
+				}
+				if (!this.field.terrain) {
+					const types = pokemon.species.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-activate', pokemon, 'ability: Mimicry');
+					this.add('-end', pokemon, 'typechange', '[silent]');
+					pokemon.removeVolatile('mimicry');
+				}
+			},
+		},
+		name: "Mimicry",
+		rating: 0.5,
+		num: 250,
+	},
+	surgesurfer: {
+		shortDesc: "If Electric Terrain is active, this Pokemon's Speed is doubled.",
+		onModifySpe(spe) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Speed increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Surge Surfer",
+		rating: 2.5,
+		num: 207,
 	},
 	arenarock: {
 		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
@@ -51,13 +243,12 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('grassyterrain');
 		},
 		onAnyTerrainStart(target, source, terrain) {
-			if(target !== source){
-				this.field.clearTerrain();
+			if (!source.hasAbility('arenarock')) {
 				this.field.setTerrain('grassyterrain');
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon) return;
+			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('arenarock')) {
@@ -134,7 +325,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMega(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
-				if (pokemon.side.getSideCondition(sideCondition)) {
+				if (pokemon.side.getSideCondition(sideCondition) && !this.field.pseudoWeather.stickyresidues) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Trash Compactor');
 						activated = true;
@@ -317,25 +508,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1017,
 	},
-	birdofprey: {
-		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
-		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Flying')) {
-				pokemon.maybeTrapped = true;
-			}
-		},
-		name: "Bird of Prey",
-		rating: 4.5,
-		num: -1018,
-	},
 	secondwind: {
 		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
 		shortDesc: "While this Pokémon has more than 1/2 of its max HP, its Attack and Sp. Atk are halved.",
@@ -353,6 +525,480 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Second Wind",
 		rating: -1,
+		num: -1018,
+	},
+	birdofprey: {
+		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
+		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Flying')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Bird of Prey",
+		rating: 4.5,
 		num: -1019,
+	},
+	showdown: {
+		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
+		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
+		onStart(source) {
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.volatiles['healblock']) {
+					pokemon.addVolatile('healblock');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['healblock']) {
+				pokemon.addVolatile('healblock');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('healblock');
+			}
+		},
+		name: "Showdown",
+		rating: 3.5,
+		num: -1020,
+	},
+	regenerator: {
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('showdown')) {
+					return;
+				}
+			}
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Regenerator",
+		rating: 4.5,
+		num: 144,
+	},
+	hardworker: {
+		shortDesc: "This Pokémon's HM moves have 1.5x power.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['cut', 'fly', 'surf', 'strength', 'whirlpool', 'waterfall', 'rocksmash', 'dive', 'rockclimb'].includes(move.id)) {
+				this.debug('Hard Worker boost');
+				return this.chainModify([1.5]);
+			}
+		},
+		name: "Hard Worker",
+		rating: 3,
+		num: -1021,
+	},
+	alchemist: {
+		desc: "After attacking a poisoned target with a Poison-type move, this Pokémon has an equal chance to cause one of various random effects. Possible effects include: replacing the poison status with paralysis, burn or toxic poison; afflicting the target with confusion, Torment or Encore; choosing two random stats and either boosting or lowering each one; causing the target to use Explosion if its current HP is 25% or less or afflicting it with a Curse if not; or transforming the target into Seismitoad, Ariados or Butterfree until it switches out.",
+		shortDesc: "Poison-type move on poisoned target: random chance of 11 different effects.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
+				const r = this.random(11);
+				if (r < 1) {
+					this.add('-ability', source, 'Alchemist');
+					target.setStatus('par', source);
+				} else if (r < 2) {
+					this.add('-ability', source, 'Alchemist');
+					target.setStatus('brn', source);
+				} else if (r < 3) {
+					if (target.setStatus('tox', source)) {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${target.name}'s poison became more severe!`);
+					}
+				} else if (r < 4) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('confusion')) {
+						this.add('-message', `${target.name} could not be confused!`);
+					}
+				} else if (r < 5) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('encore')) {
+						this.add('-message', `${target.name} could not be affected by Encore!`);
+					}
+				} else if (r < 6) {
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('torment')) {
+						this.add('-message', `${target.name} could not be affected by Torment!`);
+					}
+				} else if (r < 7) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+				} else if (r < 8) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: -1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: -1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: -1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: -1}, target, source, null, true);
+					} else {
+						this.boost({spe: -1}, target, source, null, true);
+					}
+				} else if (r < 9) {
+					this.add('-ability', source, 'Alchemist');
+					let randStat1 = this.random(5);
+					let randStat2 = this.random(4);
+					if (randStat2 === randStat1) {
+						randStat2 = 4;
+					}
+					if (randStat1 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat1 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat1 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat1 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+					if (randStat2 < 1) {
+						this.boost({atk: 1}, target, source, null, true);
+					} else if (randStat2 < 2) {
+						this.boost({def: 1}, target, source, null, true);
+					} else if (randStat2 < 3) {
+						this.boost({spa: 1}, target, source, null, true);
+					} else if (randStat2 < 4) {
+						this.boost({spd: 1}, target, source, null, true);
+					} else {
+						this.boost({spe: 1}, target, source, null, true);
+					}
+				} else if (r < 10) {
+					this.add('-ability', source, 'Alchemist');
+					if (target.hp >= target.maxhp / 4) {
+						this.add('-ability', source, 'Alchemist');
+						if (target.addVolatile('curse')) {
+							this.add('-message', `${source.name}'s HP was not cut!`);
+						} else {
+							this.add('-message', `${target.name} could not be cursed!`);
+						}
+					} else {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${target.name} suddenly exploded!`);
+						this.useMove('explosion', target);
+					}
+				} else {
+					this.add('-ability', source, 'Alchemist');
+					this.add('-message', `${target.name} is being transformed...!?`);
+					target.addVolatile('alchemist');
+				}
+			}
+		},
+		effect: {
+			onStart(pokemon) {
+				const randForm = this.random(3);
+				if (randForm < 1) {
+					this.add('-message', `It became a Seismitoad!`);
+					pokemon.formeChange('Seismitoad');
+					pokemon.setAbility('poisontouch');
+				} else if (randForm < 2) {
+					this.add('-message', `It became an Ariados!`);
+					pokemon.formeChange('Ariados');
+					pokemon.setAbility('insomnia');
+				} else {
+					this.add('-message', `It became a Butterfree!`);
+					pokemon.formeChange('Butterfree');
+					pokemon.setAbility('compoundeyes');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Seismitoad', 'Ariados', 'Butterfree'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		name: "Alchemist",
+		rating: 3,
+		num: -1022,
+	},
+	blackmail: {
+		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
+		shortDesc: "Physical Dark moves: permanently replace target's Ability, preventing it from KOing this Pokémon. Permanently becomes Keen Eye after activating once.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || target.side === source.side) return;
+			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
+				target.setAbility('orderlytarget');
+				target.baseAbility = 'orderlytarget';
+				target.ability = 'orderlytarget';
+				this.add('-ability', target, 'Orderly Target', '[from] Ability: Blackmail');
+				source.setAbility('keeneye');
+				source.baseAbility = 'keeneye';
+				source.ability = 'keeneye';
+				this.add('-ability', source, 'Keen Eye', '[from] Ability: Blackmail');
+			}
+		},
+		name: "Blackmail",
+		rating: 3,
+		num: -1023,
+	},
+	orderlytarget: {
+		desc: "If the target of this Pokémon's move is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		shortDesc: "If this Pokémon's target is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		onDamagePriority: -100,
+		onAnyDamage(damage, target, source, effect) {
+			if (source === this.effectData.target && target.species.id === 'honchkrowmega' && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', source, 'Orderly Target');
+				return target.hp - 1;
+			}
+		},
+		name: "Orderly Target",
+		rating: -1,
+		num: -1024,
+	},
+	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
+		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		effect: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -1025,
+	},
+	disguise: {
+		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
+		shortDesc: "(Mimikyu only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' &&
+				['mimikyu', 'mimikyutotem'].includes(target.species.id) && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Disguise');
+				this.effectData.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectData.busted) {
+				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
+				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+			}
+			if (pokemon.canMegaEvo && this.effectData.busted) {
+				pokemon.canMegaEvo = 'mimikyubustedmega';
+			}
+		},
+		name: "Disguise",
+		rating: 4,
+		num: 209,
+	},
+	spectralanger: {
+		shortDesc: "This Pokémon's Attack rises after it uses an attack that is super effective on the target.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+				this.boost({atk: 1}, source);
+			}
+		},
+		name: "Spectral Anger",
+		rating: 3,
+		num: -1026,
+	},
+	diamonddust: {
+		shortDesc: "During hail, this Pokémon is immune to all Rock-type attacks and Stealth Rock.",
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock' && this.field.isWeather('hail')) {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && this.field.isWeather('hail')) {
+				this.add('-immune', target, '[from] ability: Diamond Dust');
+				return null;
+			}
+		},
+		name: "Diamond Dust",
+		rating: 3,
+		num: -1027,
+	},
+	prehistoricrage: {
+		shortDesc: "This Pokémon can hit Fairy-types with Dragon-type moves.",
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dragon'] = true;
+			}
+		},
+		name: "Prehistoric Rage",
+		rating: 3,
+		num: -1028,
+	},
+	curiousmedicine: {
+		onStart(pokemon) {
+			for (const ally of pokemon.side.active) {
+				if (ally !== pokemon) {
+					ally.clearBoosts();
+					this.add('-clearboost', ally, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
+			}
+		},
+		name: "Curious Medicine",
+		rating: 0,
+		num: 261,
+	},
+	transistor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
+	},
+	dragonsmaw: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Dragon's Maw",
+		rating: 3.5,
+		num: 263,
+	},
+	chillingneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		name: "Chilling Neigh",
+		rating: 3,
+		num: 264,
+	},
+	grimneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source);
+			}
+		},
+		name: "Grim Neigh",
+		rating: 3,
+		num: 265,
+	},
+	asone: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One', pokemon.side.foe);
+		},
+		onFoeTryEatItem: false,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				if (source.species.id === 'calyrexice') this.boost({atk: length}, source);
+				if (source.species.id === 'calyrexshadow') this.boost({spa: length}, source);
+			}
+		},
+		name: "As One",
+		rating: 3.5,
+		num: 266,
 	},
 }
