@@ -560,7 +560,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		basePowerCallback(source, target, move) {
 			move.allies = source.side.pokemon.filter(ally => ally !== source && ally.fainted);
-			return 60 + move.allies.length;
+			let basePower = 60 + move.allies.length;
+			console.log(basePower);
+			return basePower;
 		},
 		category: "Special",
 		desc: "The power of this move is based on the amount of PP remaining after normal PP reduction and the Pressure Ability resolve. 200 power for 0 PP, 80 power for 1 PP, 60 power for 2 PP, 50 power for 3 PP, and 40 power for 4 or more PP.",

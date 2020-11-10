@@ -85,6 +85,53 @@ export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		// Bouffalant
 		this.modData('Learnsets', 'bouffalant').learnset.flareblitz = ['8L1'];
+		
+		// Sky Uppercut
+		this.modData('Learnsets', 'mankey').learnset.skyuppercut = ['8L1'];
+		this.modData('Learnsets', 'primeape').learnset.skyuppercut = ['8L1'];
+		this.modData('Learnsets', 'poliwrath').learnset.skyuppercut = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.skyuppercut = ['8L1'];
+		this.modData('Learnsets', 'clobbopus').learnset.skyuppercut = ['8L1'];
+		delete this.modData('Learnsets', 'kommoo').learnset.skyuppercut;
+		delete this.modData('Learnsets', 'hakamoo').learnset.skyuppercut;
+		delete this.modData('Learnsets', 'jangmoo').learnset.skyuppercut;
+		
+		// Pursuit
+		this.modData('Learnsets', 'zigzagoongalar').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'linoonegalar').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'obstagoon').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'nickit').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'thievul').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'arrokuda').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'barraskewda').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'falinks').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'dreepy').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'drakloak').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'dragapult').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'zarude').learnset.pursuit = ['8L1'];
+		
+		// Sonic Boom
+		this.modData('Learnsets', 'noibat').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'noivern').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'exploud').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'toxtricity').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'toxtricitylowkey').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'primarina').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'indeedee').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'indeedeef').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'drampa').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'jigglypuff').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'wigglytuff').learnset.sonicboom = ['8L1'];
+		
+		// Trump Card
+		this.modData('Learnsets', 'indeedeef').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'mimejr').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'mrmime').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'mrmimegalar').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'mrrime').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'silvally').learnset.trumpcard = ['8L1'];
+		this.modData('Learnsets', 'keldeo').learnset.trumpcard = ['8L1'];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
