@@ -26,7 +26,7 @@ exports.BattleStatuses = {
 			}
 		},
 		onModifyMovePriority: -5,
-		onModifyMove(attacker, defender, target) {
+		onModifyMove(attacker, defender, target, move) {
 			if (move.type === 'Poison' && defender.isGrounded() && !defender.isSemiInvulnerable() && defender.hasType('Steel')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
