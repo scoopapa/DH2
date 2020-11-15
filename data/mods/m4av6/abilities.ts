@@ -190,6 +190,9 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				case 'psychicterrain':
 					newType = 'Psychic';
 					break;
+				case 'acidicterrain':
+					newType = 'Poison';
+					break;
 				}
 				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
 				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
@@ -914,6 +917,94 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prehistoric Rage",
 		rating: 3,
 		num: -1028,
+	},
+	lusterswap: {
+		shortDesc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
+		onStart(pokemon) {
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, target) > 0
+					) {
+						if (!pokemon.setType(moveType)) return false;
+						this.add('-message', `${pokemon.name} changed its type to match its ${move.name}!`);
+						this.add('-start', pokemon, 'typechange', moveType);
+						return;
+					}
+				}
+				this.add('-message', `${pokemon.name} can't hit ${target.name} super effectively!`);
+				return;
+			}
+		},
+		name: "Luster Swap",
+		rating: 3,
+		num: -1029,
+	},
+	acidicsurge: {
+		desc: "On switch-in, this Pokémon summons Acidic Terrain for 5 turns. During the effect, the power of Poison-type attacks made by grounded Pokémon is multiplied by 1.3, and grounded Steel-types are not immune to Poison-type damage. Steel-type Pokémon are still immune to being poisoned and badly poisoned, except by Pokémon with Corrosion. Camouflage transforms the user into a Poison-type, Nature Power becomes Sludge Bomb, and Secret Power has a 30% chance to cause poison. Lasts for 8 turns if the user is holding a Terrain Extender (such as through Skill Swap).",
+		shortDesc: "5 turns. Grounded: +Poison power, Steel not immune to Poison type.",
+		onStart(source) {
+			this.field.setTerrain('acidicterrain');
+		},
+		effect: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Poison' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					this.debug('acidic terrain boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(attacker, defender, target) {
+				if (move.type === 'Poison' && defender.isGrounded() && !defender.isSemiInvulnerable() && defender.hasType('Steel')) {
+					for (const target of this.getAllActive()) {
+						if (target.hasAbility('downtoearth')) {
+							this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+							return;
+						}
+					}
+					if (!move.ignoreImmunity) move.ignoreImmunity = {};
+					if (move.ignoreImmunity !== true) {
+						move.ignoreImmunity['Steel'] = true;
+					}
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Acidic Terrain');
+				}
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd() {
+				this.add('-fieldend', 'move: Acidic Terrain');
+			},
+		},
+		name: "Acidic Surge",
+		rating: 4,
+		num: -1030,
 	},
 	curiousmedicine: {
 		onStart(pokemon) {
