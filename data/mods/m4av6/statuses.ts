@@ -27,7 +27,7 @@ exports.BattleStatuses = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			if (target.isGrounded() && !target.isSemiInvulnerable() && target.hasType('Steel')) {
+			if (move.type === 'Poison' && target.isGrounded() && !target.isSemiInvulnerable() && target.hasType('Steel')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
 						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
@@ -36,7 +36,7 @@ exports.BattleStatuses = {
 				}
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Steel'] = true;
+					move.ignoreImmunity['Poison'] = true;
 				}
 			}
 		},
