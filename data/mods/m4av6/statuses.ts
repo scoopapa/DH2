@@ -26,8 +26,8 @@ exports.BattleStatuses = {
 			}
 		},
 		onModifyMovePriority: -5,
-		onModifyMove(attacker, defender, target, move) {
-			if (move.type === 'Poison' && defender.isGrounded() && !defender.isSemiInvulnerable() && defender.hasType('Steel')) {
+		onModifyMove(move, source, target) {
+			if (target.isGrounded() && !target.isSemiInvulnerable() && target.hasType('Steel')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
 						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
@@ -43,6 +43,8 @@ exports.BattleStatuses = {
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-message', "Poison-type moves used by grounded Pokémon will have their power increased.");
+				this.add('-message', "Grounded Steel-type Pokémon will also lose their immunity to Poison-type moves.");
 			} else {
 				this.add('-fieldstart', 'move: Acidic Terrain');
 			}
