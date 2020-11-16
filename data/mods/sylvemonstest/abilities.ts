@@ -1004,7 +1004,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	"mindtrick": {
 		desc: "When this Pokémon's stat stages would be modified, other Pokémon's stat stages are modified instead. When other Pokémon's stat stages would be modified, this Pokémon's stat stages are modified instead.",
 		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker.",
-		onBoost(boost, target, source, effect) {
+		onAnyBoost(boost, target, source, effect) {
 			// Don't bounce self stat changes, or boosts that have already bounced
 			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'mindtrick') return;
 			if (target === this.effectData.target) {
