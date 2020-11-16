@@ -1022,4 +1022,38 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
         rating: 3,
         num: 4,
     },
+
+	mindtrick: {
+		desc: "When this Pokémon's stat stages would be modified, other Pokémon's stat stages are modified instead. When other Pokémon's stat stages would be modified, this Pokémon's stat stages are modified instead.",
+		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker.",
+		onBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'mindtrick') return;
+			if (target === source) {
+				let b: BoostName;
+				for (b in boost) {
+					const bouncedBoost: SparseBoostsTable = {};
+					bouncedBoost[b] = boost[b];
+					delete boost[b];
+					this.add('-ability', this.effectData.target, 'Mind Trick');
+					for (const pokemon of this.getAllActive()) {
+						if (pokemon === this.effectData.target || pokemon.fainted) continue;
+						this.boost(bouncedBoost, pokemon, this.effectData.target, null, true);
+					}
+				}
+			} else {
+				let b: BoostName;
+				for (b in boost) {
+					const stolenBoost: SparseBoostsTable = {};
+					stolenBoost[b] = boost[b];
+					delete boost[b];
+					this.add('-ability', this.effectData.target, 'Mind Trick');
+					this.boost(stolenBoost, this.effectData.target, this.effectData.target, null, true);
+				}
+			}
+		},
+		name: "Mirror Armor",
+		rating: 2,
+		num: 240,
+	},
 };
