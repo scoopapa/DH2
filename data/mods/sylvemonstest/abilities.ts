@@ -1012,7 +1012,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				for (b in boost) {
 					const bouncedBoost: SparseBoostsTable = {};
 					bouncedBoost[b] = boost[b];
-					this.add('-ability', this.effectData.target, 'Mind Trick');
+					if (!activated) {
+						this.add('-ability', this.effectData.target, 'Mind Trick');
+						activated = true;
+					}
 					delete boost[b];
 					for (const pokemon of this.getAllActive()) {
 						if (pokemon === this.effectData.target || pokemon.fainted) continue;
@@ -1024,7 +1027,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				for (b in boost) {
 					const stolenBoost: SparseBoostsTable = {};
 					stolenBoost[b] = boost[b];
-					this.add('-ability', this.effectData.target, 'Mind Trick');
+					if (!activated) {
+						this.add('-ability', this.effectData.target, 'Mind Trick');
+						activated = true;
+					}
 					delete boost[b];
 					this.boost(stolenBoost, this.effectData.target, this.effectData.target, null, true);
 				}
