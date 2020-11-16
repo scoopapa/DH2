@@ -78,7 +78,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				return null;
 			},
 			onEffectiveness: function(typeMod, target, type, move) {
-				if (move && !this.getImmunity(move, type)) return 1;
+				if (move && this.dex.getImmunity(move, type) === false) return 3;
 				return -typeMod;
 			},
 			onResidualOrder: 23,
