@@ -672,10 +672,11 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (!this.field.isWeather(['shadowsky'])) return;
 			let stat = 'atk';
 			let bestStat = 0;
-			for (let i in pokemon.stats) {
-				if (pokemon.stats[i] > bestStat) {
+			let i: StatNameExceptHP;
+			for (let i in pokemon.storedStats) {
+				if (pokemon.storedStats[i] > bestStat) {
 					stat = i;
-					bestStat = pokemon.stats[i];
+					bestStat = pokemon.storedStats[i];
 				}
 			}
 			this.boost({[stat]: 1}, pokemon);
@@ -938,16 +939,28 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
        num: 170,
     },
 	
-    "cursedbody": {
-        shortDesc: "On switch-in, the opposing Pokemon is taunted.",
-        onStart(source) {
-            this.useMove("Taunt", source);
-        },
-        id: "cursedbody",
-        name: "Cursed Body",
-        rating: 2,
-        num: 130,
-    },
+	"cursedbody": {
+		shortDesc: "On switch-in, the opposing Pokémon is taunted unless it has a Substitute.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Cursed Body');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					target.addVolatile('taunt');
+				}
+			}
+		},
+		id: "cursedbody",
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
 	
     "loudspeaker": {
         desc: "Boosts the power of sound-based moves.",
