@@ -21,11 +21,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			this.add('-item', pokemon, pokemon.getItem());
 		},
 		onModifyMovePriority: -5,
-		onSourceModifyMove(move) {
-			move.ignoreImmunity = true;
-		},
 		onEffectiveness(typeMod, target, type, move) {
-				if (move && !this.getImmunity(move, type)) return 1;
+				if (move && this.dex.getImmunity(move, type) === false) return 3;
 				return typeMod * -1;
 			},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
