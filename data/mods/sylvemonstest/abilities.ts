@@ -1010,6 +1010,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (target === this.effectData.target) {
 				let b: BoostName;
 				for (b in boost) {
+					let activated = false;
 					const bouncedBoost: SparseBoostsTable = {};
 					bouncedBoost[b] = boost[b];
 					if (!activated) {
@@ -1025,6 +1026,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			} else {
 				let b: BoostName;
 				for (b in boost) {
+					let activated = false;
 					const stolenBoost: SparseBoostsTable = {};
 					stolenBoost[b] = boost[b];
 					if (!activated) {
