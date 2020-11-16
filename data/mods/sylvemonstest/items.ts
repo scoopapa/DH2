@@ -17,7 +17,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onModifyMovePriority: -5,
 		onEffectiveness(typeMod, target, type, move) {
-				if (move && this.dex.getImmunity(move, type) === false) return 3;
+				if (move && this.dex.getImmunity(move, type) === false) return 1;
 				return typeMod * -1;
 			},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
@@ -190,7 +190,11 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Rage Candy Bar');
 			if (pokemon.species.baseSpecies === 'Darmanitan') {
-				pokemon.addVolatile('zenmode');
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
 			}
 		},
 		fling: {
@@ -198,7 +202,10 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
+			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
