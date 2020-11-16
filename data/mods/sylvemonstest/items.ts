@@ -11,6 +11,10 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem: false,
+		onModifyMovePriority: -5,
+		onSourceModifyMove(move) {
+			move.ignoreImmunity = true;
+		},
 		onStart(target) {
 			this.add('-item', target, 'Reverse Core');
 			this.add('-message', `${target.name} is cloaked in a mysterious power!`);
