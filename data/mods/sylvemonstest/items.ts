@@ -2,12 +2,6 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 	"safetysocks": {
 		id: "safetysocks",
 		name: "Safety Socks",
-		onDamage: function (damage, target, source, effect) {
-			let hazards = ["stealthrock", "stickyweb"];
-			if (effect.sideCondition !== 'Move') {
-				return false;
-			}
-		},
 		desc: "Holder is unaffected by Hazards.",
 	},
 	"reversecore": {
@@ -17,8 +11,9 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem: false,
-		onStart(pokemon) {
-			this.add('-item', pokemon, pokemon.getItem());
+		onStart(target) {
+			this.add('-item', target, 'Reverse Core');
+			this.add('-message', `${target.name} is cloaked in a mysterious power!`);
 		},
 		onModifyMovePriority: -5,
 		onEffectiveness(typeMod, target, type, move) {
@@ -194,7 +189,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		name: "Rage Candy Bar",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
+			if (pokemon.species.baseSpecies === 'Darmanitan') {
 				pokemon.addVolatile('zenmode');
 			}
 		},
