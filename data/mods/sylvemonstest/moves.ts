@@ -262,24 +262,26 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
-		onModifyMove: function(move) {
-			switch (this.effectiveTerrain()) {
-				case 'electricterrain':
-					move.type = 'Electric';
-					move.basePower *= 2;
-					break;
-				case 'psychicterrain':
-					move.type = 'Psychic';
-					move.basePower *= 2;
-					break;
-				case 'mistyterrain':
-					move.type = 'Fairy';
-					move.basePower *= 2;
-					break;
-				case 'grassyterrain':
-					move.type = 'Grass';
-					move.basePower *= 2;
-					break;
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
 			}
 		},
 		onPrepareHit: function(target, source, move) {
