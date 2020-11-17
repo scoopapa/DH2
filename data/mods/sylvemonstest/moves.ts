@@ -53,7 +53,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "For 5 turns, all Pokémon on the field are resistant to normally super-effective types and weak to normally not-very-effective or ineffective types (as in Inverse Battles) ",
 		id: "inverseroom",
 		name: "Inverse Room",
-		pp: 8,
+		pp: 5,
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'inverseroom',
@@ -103,7 +103,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "shadowcharge",
 		isViable: true,
 		name: "Shadow Charge",
-		pp: 24,
+		pp: 15,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -133,7 +133,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "hauntingscream",
 		isViable: true,
 		name: "Haunting Scream",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -215,26 +215,52 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
-		onModifyMove: function(move) {
-			switch (this.field.effectiveWeather()) {
-				case 'sunnyday':
-				case 'desolateland':
-					move.type = 'Fire';
-					move.basePower *= 2;
-					break;
-				case 'raindance':
-				case 'primordialsea':
-					move.type = 'Water';
-					move.basePower *= 2;
-					break;
-				case 'sandstorm':
-					move.type = 'Rock';
-					move.basePower *= 2;
-					break;
-				case 'hail':
-					move.type = 'Ice';
-					move.basePower *= 2;
-					break;
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+				move.type = 'Ice';
+				break;
+			case 'aircurrent':
+				move.type = 'Flying';
+				break;
+			case 'shadowsky':
+				move.type = 'Ghost';
+				break;					
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+				move.basePower *= 2;
+				break;
+			case 'aircurrent':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
+				move.basePower *= 2;
+				break;					
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -336,9 +362,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.debug('misty terrain weaken');
 					return this.chainModify(0.5);
 				}
-				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-					this.debug('electric terrain boost');
-					return this.chainModify(1.5);
+				if (move.type === 'Fairy' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('misty terrain boost');
+					return this.chainModify(1.3);
 				}
 			},
 			onStart: function(battle, source, effect) {
@@ -577,7 +603,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "The user switches out after successful use.",
 		id: "teleport",
 		name: "Teleport",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -599,7 +625,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "plumecannon",
 		isViable: true,
 		name: "Plume Cannon",
-		pp: 8,
+		pp: 5,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -625,7 +651,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "slipstream",
 		isViable: true,
 		name: "Slipstream",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -686,7 +712,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "rinseoff",
 		isViable: true,
 		name: "Rinse Off",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -718,7 +744,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "acidmelt",
 		isViable: true,
 		name: "Acid Melt",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -782,7 +808,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "jetstream",
 		isViable: true,
 		name: "Jetstream",
-		pp: 48,
+		pp: 30,
 		priority: 1,
 		flags: {
 			protect: 1,
@@ -916,7 +942,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "morningsun",
 		isViable: true,
 		name: "Morning Sun",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -943,7 +969,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "moonlight",
 		isViable: true,
 		name: "Moonlight",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -970,7 +996,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "synthesis",
 		isViable: true,
 		name: "Synthesis",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -996,7 +1022,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "bugbite",
 		name: "Bug Bite",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1043,7 +1069,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "pluck",
 		name: "Pluck",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1089,7 +1115,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "incinerate",
 		name: "Incinerate",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1129,13 +1155,13 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	doublehit: {
 		inherit: true,
 		basePower: 50,
-		pp: 16,
+		pp: 10,
 		zMovePower: 100,
 	},
 	doublekick: {
 		inherit: true,
 		basePower: 50,
-		pp: 16,
+		pp: 10,
 		zMovePower: 100,
 	},
 	"twineedle": {
@@ -1147,7 +1173,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Hits 2 times. Each hit has 20% chance to poison.",
 		id: "twineedle",
 		name: "Twineedle",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1167,7 +1193,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	dualchop: {
 		inherit: true,
 		basePower: 50,
-		pp: 16,
+		pp: 10,
 		zMovePower: 100,
 	},
 	"seedbomb": { // 50% chance to seed the target
@@ -1230,7 +1256,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "dragonrage",
 		name: "Dragon Rage",
-		pp: 16,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1252,7 +1278,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "sonicboom",
 		name: "Sonic Boom",
-		pp: 32,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1274,7 +1300,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "psywave",
 		name: "Psywave",
-		pp: 24,
+		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1296,7 +1322,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "geargrind",
 		isViable: true,
 		name: "Gear Grind",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1317,7 +1343,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Summons Shadow Sky",
 		id: "shadowsky",
 		name: "Shadow Sky",
-		pp: 16,
+		pp: 5,
 		priority: 0,
 		flags: {},
 		onPrepareHit: function(target, source, move) {
@@ -1337,7 +1363,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Summons Air Current",
 		id: "aircurrent",
 		name: "Air Current",
-		pp: 16,
+		pp: 5,
 		priority: 0,
 		flags: {},
 		onPrepareHit: function(target, source, move) {
