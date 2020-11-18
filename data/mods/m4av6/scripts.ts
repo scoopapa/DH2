@@ -90,6 +90,16 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'aurorus').learnset.voltswitch = ['7L1'];
 		this.modData('Learnsets', 'trevenant').learnset.floralhealing = ['7L1'];
 		this.modData('Learnsets', 'trevenant').learnset.synthesis = ['7L1'];
+		this.modData('Learnsets', 'eelektross').learnset.recover = ['7L1'];
+		this.modData('Learnsets', 'eelektross').learnset.scald = ['7L1'];
+		this.modData('Learnsets', 'trevenant').learnset.floralhealing = ['7L1'];
+		this.modData('Learnsets', 'trevenant').learnset.synthesis = ['7L1'];
+		this.modData('Learnsets', 'dragalge').learnset.acidspray = ['7L1'];
+		this.modData('Learnsets', 'dragalge').learnset.gastroacid = ['7L1'];
+		this.modData('Learnsets', 'dragalge').learnset.roost = ['7L1'];
+		this.modData('Learnsets', 'dragalge').learnset.terrainpulse = ['7L1'];
+		this.modData('Learnsets', 'dhelmise').learnset.flipturn = ['7L1'];
+		this.modData('Learnsets', 'dhelmise').learnset.superpower = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);

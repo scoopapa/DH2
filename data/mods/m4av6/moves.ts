@@ -704,6 +704,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				newType = 'Psychic';
+			} else if (this.field.isTerrain('acidicterrain')) {
+				newType = 'Poison';
 			}
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('downtoearth')) {
@@ -870,6 +872,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				move = 'moonblast';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				move = 'psychic';
+			} else if (this.field.isTerrain('acidicterrain')) {
+				move = 'sludgebomb';
 			}
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('downtoearth')) {
@@ -956,6 +960,11 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 						spe: -1,
 					},
 				});
+			} else if (this.field.isTerrain('acidicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'psn',
+				});
 			}
 		},
 		secondary: {
@@ -1030,6 +1039,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				break;
 			case 'psychicterrain':
 				move.type = 'Psychic';
+				break;
+			case 'acidicterrain':
+				move.type = 'Poison';
 				break;
 			}
 		},
