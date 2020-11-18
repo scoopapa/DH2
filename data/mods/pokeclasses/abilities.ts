@@ -71,7 +71,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 37,
 	},
-	warrior: {
+	mage: {
 		shortDesc: "This Pokemon's Attack is doubled.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(stat) {
