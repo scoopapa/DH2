@@ -39,7 +39,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Heavy Slam", target);
 		},
-		//useTargetOffensive: true,
+		useSourceDefensiveAsOffensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -78,7 +78,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				return null;
 			},
 			onEffectiveness: function(typeMod, target, type, move) {
-				if (move && !this.getImmunity(move, type)) return 1;
+				if (move && this.dex.getImmunity(move, type) === false) return 3;
 				return -typeMod;
 			},
 			onResidualOrder: 23,
@@ -1784,7 +1784,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMovePower: 140,
 		contestType: "Tough",
 	},
-"wildcharge": {
+	"wildcharge": {
 		num: 528,
 		accuracy: 80,
 		basePower: 150,
@@ -1804,6 +1804,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMovePower: 200,
 		contestType: "Tough",
 	},
+
 	"stickyweb": {
 		inherit: true,
 		effect: {
@@ -1811,7 +1812,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn: function (pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks') || pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'))
 			},
@@ -1845,7 +1846,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks') ) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1860,7 +1861,111 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
-"fairylock": {
+	gmaxsteelsurge: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		desc: "Power is equal to the base move's Max Move power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		shortDesc: "Base move affects power. Foes: Steel hazard.",
+		name: "G-Max Steelsurge",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isMax: "Copperajah",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxsteelsurge');
+			},
+		},
+		effect: {
+			onStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/4 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		shortDesc: "Hurts grounded foes on switch-in. Max 3 layers.",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'spikes',
+		effect: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'stealthrock',
+		effect: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+
+	"fairylock": {
 		num: 587,
 		accuracy: 100,
 		basePower: 80,
