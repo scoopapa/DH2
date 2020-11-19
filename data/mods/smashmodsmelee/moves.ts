@@ -259,7 +259,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	bodyslam: {
 		inherit: true,
-		onModifyMove(pokemon, move) {
+		onModifyMove(move, pokemon) {
 			if (pokemon.species.id === 'miltank') {
 				move.type = 'Ground';
 			}
