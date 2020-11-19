@@ -13,7 +13,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} 
 				else if ( target.hasAbility(['Inner Focus', 'Oblivious', 'Own Tempo', 'Scrappy']) 
-					|| (target.pokeClass && target.pokeClass === 'warrior' ))
+					|| (target.pokeClass && target.pokeClass === 'warrior' ) || (target.pokeSkill && target.pokeSkill === 'blade' ))
 				{
 					this.add('-immune', target, `[from] ability: ${target.getAbility().name}`);
 				}
