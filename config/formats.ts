@@ -1175,6 +1175,12 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 			'Vanilluxe', 'Raichu-Base', 'Raichu-Mega', 'Trubbish-Marshadow', 'Beheeyem', 'Garbodor-Base', 'Garbodor-Mega', 'Pyukchin', 'Thundahi',
 			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol',
 		],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
 		mod: 'smashmodsmelee',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
