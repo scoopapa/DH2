@@ -1080,7 +1080,7 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Dhelmise-Mega",
 		baseSpecies: "Dhelmise",
 		forme: "Mega",
-		types: ["Ghost", "Grass"],
+		types: ["Ghost", "Steel"],
 		gender: "N",
 		baseStats: {hp: 70, atk: 151, def: 110, spa: 86, spd: 110, spe: 90},
 		abilities: {0: "Primordial Sea"},
