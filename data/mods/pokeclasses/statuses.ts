@@ -31,6 +31,19 @@ export const BattleStatuses: {[k: string]: ModdedStatusData} = {
 			if ( move.type === "Ice" ) source.side.foe.addSideCondition('icestorm');
 			if ( move.type === "Electric" ) source.side.foe.addSideCondition('thunderstorm');
 		},
+		onModifyAtk(stat) {
+			return this.chainModify(0.8);
+		},
+		onModifyDef(stat) {
+			return this.chainModify(0.8);
+		},
+		onModifyMove(move) {
+			if (move.secondaries) {
+				for (const secondary of move.secondaries) {
+					if ( secondary.chance && ['Fire','Ice','Electric'].contains( move.type )) secondary.chance *= 2;
+				}
+			}
+		},
 	},
 	//destruction effects
 	firestorm: {
