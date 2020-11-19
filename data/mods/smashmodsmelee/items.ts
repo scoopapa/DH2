@@ -130,4 +130,15 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If there is a weather effect, raises holder's Attack and Sp. Atk by 1 stage. Single use.",
 	},
+	marshadiumz: {
+		name: "Marshadium Z",
+		spritenum: 654,
+		onTakeItem: false,
+		zMove: "Scum-Stealing 7-Scrap Strike",
+		zMoveFrom: "Spectral Residue",
+		itemUser: ["Trubbish-Marshadow"],
+		num: 802,
+		gen: 7,
+		desc: "If held by Trubbish-Marshadow with Spectral Residue, it can use Scum-Stealing 7-Scrap Strike.",
+	},
 };
