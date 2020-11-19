@@ -103,8 +103,16 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Dragon"],
 	},
 	miltank: {
-		inherit: true,
+		num: 241,
+		name: "Miltank",
 		types: ["Ground", "Fairy"],
+		gender: "F",
+		baseStats: {hp: 95, atk: 80, def: 105, spa: 40, spd: 70, spe: 100},
+		abilities: {0: "Thick Fat", 1: "Scrappy", H: "Sap Sipper"},
+		heightm: 1.2,
+		weightkg: 75.5,
+		color: "Pink",
+		eggGroups: ["Field"],
 	},
 	kecleon: {
 		inherit: true,
