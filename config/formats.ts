@@ -1165,6 +1165,18 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
+	{
+		name: "[Gen 8] Super Smash Mods Melee",
+		desc: ["&bullet; Super Smash Mods Melee",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+			'Vanilluxe', 'Raichu-Base', 'Raichu-Mega', 'Trubbish-Marshadow', 'Beheeyem', 'Garbodor-Base', 'Garbodor-Mega', 'Pyukchin', 'Thundahi',
+			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol',
+		],
+		mod: 'smashmodsmelee',
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
