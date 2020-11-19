@@ -257,4 +257,12 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
+	bodyslam: {
+		inherit: true,
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Miltank')) {
+				move.type = 'Ground';
+			}
+		},
+	},
 };
