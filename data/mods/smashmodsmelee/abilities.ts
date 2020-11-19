@@ -118,4 +118,23 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: -1004,
 	},
+	damp: {
+		desc: "While this Pokemon is active, Explosion, Mind Blown, Self-Destruct, Sparksplosion and the Aftermath Ability are prevented from having an effect.",
+		shortDesc: "Prevents Explosion/Mind Blown/Self-Destruct/Aftermath while this Pokemon is active.",
+		onAnyTryMove(target, source, effect) {
+			if (['explosion', 'mindblown', 'selfdestruct', 'mistyexplosion', 'sparksplosion'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
+			}
+		},
+		name: "Damp",
+		rating: 1,
+		num: 6,
+	},
 };
