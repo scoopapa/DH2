@@ -56,28 +56,28 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Mineral"],
 		requiredItem: "Vanillite",
 	},
-	marshadow: {
+	trubbish: {
 		inherit: true,
-		otherFormes: ["Marshadow-Trubbish"],
-		formeOrder: ["Marshadow", "Marshadow-Trubbish"],
+		otherFormes: ["Trubbish-Marshadow"],
+		formeOrder: ["Trubbish", "Trubbish-Marshadow"],
 	},
-	marshadowtrubbish: {
+	trubbishmarshadow: {
 		num: 802,
-		name: "Marshadow-Trubbish",
-    baseSpecies: "Marshadow",
-    forme: "Trubbish",
+		name: "Trubbish-Marshadow",
+		baseSpecies: "Marshadow",
+		forme: "Marshadow",
 		types: ["Poison"],
 		gender: "N",
 		baseStats: {hp: 91, atk: 91, def: 114, spa: 72, spd: 114, spe: 118},
 		abilities: {0: "Technician"},
-		heightm: 0.7,
-		weightkg: 22.2,
-		color: "Gray",
-		eggGroups: ["Undiscovered"],
+		heightm: 0.6,
+		weightkg: 31,
+		color: "Green",
+		eggGroups: ["Mineral"],
 	},
 	beheeyem: {
-    inherit: true,
-    abilities: {0: "Time Warp", 1: "Space Warp", H: "Analytic"},
+		inherit: true,
+		abilities: {0: "Time Warp", 1: "Space Warp", H: "Analytic"},
 	},
 	pyukchin: {
 		num: 771,
@@ -102,14 +102,14 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 	},
-  miltank: {
-    inherit: true,
-    types: ["Ground", "Fairy"],
-  },
-  kecleon: {
-    inherit: true,
-    evos: ["Camomander"],
-  },
+	miltank: {
+		inherit: true,
+		types: ["Ground", "Fairy"],
+	},
+	kecleon: {
+		inherit: true,
+		evos: ["Camomander"],
+	},
 	camomander: {
 		num: -1001,
 		name: "Camomander",
