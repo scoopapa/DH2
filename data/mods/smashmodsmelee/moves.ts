@@ -259,8 +259,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	bodyslam: {
 		inherit: true,
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Miltank')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Miltank') {
 				move.type = 'Ground';
 			}
 		},
@@ -443,15 +443,15 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onTry(pokemon, target) {
-			if (pokemon.species && (pokemon.baseSpecies.baseSpecies === 'Beheeyem') && pokemon.activeMoveActions > 1) {
+			if (pokemon.species.baseSpecies === 'Beheeyem' && pokemon.activeMoveActions > 1) {
 				this.attrLastMove('[still]');
 				this.add('-fail', pokemon);
 				this.hint("For Beheeyem from Sylvemons, Astonish only works on your first turn out.");
 				return null;
 			}
 		},
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Beheeyem')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Beheeyem') {
 				move.secondaries.push({
 					chance: 100,
 					volatileStatus: 'flinch',
@@ -471,7 +471,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			if (pokemon.species && (pokemon.baseSpecies.baseSpecies === 'Beheeyem')) {
+			if (pokemon.species.baseSpecies === 'Beheeyem') {
 				return pokemon.level;
 			}
 			return (this.random(50, 151) * pokemon.level) / 100;
@@ -502,8 +502,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		selfSwitch: true,
 		onTryHit: true,
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Beheeyem')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Beheeyem') {
 				move.accuracy = 100;
 				delete move.onTryHit;
 				move.category = 'Special';
@@ -521,13 +521,14 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "No additional effect.",
+		desc: "For Claydol from CFM, this move's base power is 90, its PP is 24, and it has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "CFM Claydol: 90 BP, 24 PP, 10% to lower SpD.",
 		name: "Power Gem",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Claydol') {
 				move.power = 90;
 				move.pp = 15;
 				move.secondaries.push({
@@ -549,14 +550,14 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		defensiveCategory: "Physical",
-		desc: "Deals damage to the target based on its Defense instead of Special Defense.",
-		shortDesc: "Damages target based on Defense, not Sp. Def. CFM Claydol: 90 BP, 10% to lower Def.",
+		desc: "Deals damage to the target based on its Defense instead of Special Defense. For Claydol from CFM, this move's base power is 90, and it has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "Damages target based on Defense, not Sp. Def. CFM Claydol only: 90 BP, 10% to lower Def.",
 		name: "Psyshock",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Claydol') {
 				move.power = 90;
 				move.secondaries.push({
 					chance: 10,
@@ -576,14 +577,14 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 80,
 		category: "Physical",
-		desc: "Has a 20% chance to flinch the target.",
-		shortDesc: "20% chance to flinch the target. CFM Claydol:",
+		desc: "Has a 20% chance to flinch the target. For Claydol from CFM, this move's base power is 90, and its accuracy is 100%.",
+		shortDesc: "20% chance to flinch the target. CFM Claydol: 90 BP, 100 acc.",
 		name: "Zen Headbutt",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(source, move) {
-			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+		onModifyMove(pokemon, move) {
+			if (pokemon.species.baseSpecies === 'Claydol') {
 				move.power = 90;
 				move.accuracy = 100;
 			}
