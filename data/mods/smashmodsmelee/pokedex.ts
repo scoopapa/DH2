@@ -97,10 +97,10 @@ export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
 		gender: "N",
 		baseStats: {hp: 70, atk: 60, def: 90, spa: 80, spd: 130, spe: 80},
 		abilities: {0: "Aftermath", 1: "Storm Drain", H: "Drought"},
-		heightm: 2.9,
-		weightkg: 345,
+		heightm: 3.5,
+		weightkg: 211.7,
 		color: "Yellow",
-		eggGroups: ["Undiscovered"],
+		eggGroups: ["Dragon"],
 	},
 	miltank: {
 		inherit: true,
