@@ -260,7 +260,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	bodyslam: {
 		inherit: true,
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Miltank') {
+			if (pokemon.species.id === 'Miltank') {
 				move.type = 'Ground';
 			}
 		},
@@ -443,7 +443,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onTry(pokemon, target) {
-			if (pokemon.species.baseSpecies === 'Beheeyem' && pokemon.activeMoveActions > 1) {
+			if (pokemon.species.id === 'Beheeyem' && pokemon.activeMoveActions > 1) {
 				this.attrLastMove('[still]');
 				this.add('-fail', pokemon);
 				this.hint("For Beheeyem from Sylvemons, Astonish only works on your first turn out.");
@@ -451,7 +451,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Beheeyem') {
+			if (pokemon.species.id === 'Beheeyem') {
 				move.secondaries.push({
 					chance: 100,
 					volatileStatus: 'flinch',
@@ -471,7 +471,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			if (pokemon.species.baseSpecies === 'Beheeyem') {
+			if (pokemon.species.id === 'Beheeyem') {
 				return pokemon.level;
 			}
 			return (this.random(50, 151) * pokemon.level) / 100;
@@ -503,7 +503,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		onTryHit: true,
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Beheeyem') {
+			if (pokemon.species.id === 'Beheeyem') {
 				move.accuracy = 100;
 				delete move.onTryHit;
 				move.category = 'Special';
@@ -528,7 +528,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Claydol') {
+			if (pokemon.species.id === 'Claydol') {
 				move.power = 90;
 				move.pp = 15;
 				move.secondaries.push({
@@ -557,7 +557,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Claydol') {
+			if (pokemon.species.id === 'Claydol') {
 				move.power = 90;
 				move.secondaries.push({
 					chance: 10,
@@ -584,7 +584,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.baseSpecies === 'Claydol') {
+			if (pokemon.species.id === 'Claydol') {
 				move.power = 90;
 				move.accuracy = 100;
 			}
