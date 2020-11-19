@@ -516,4 +516,84 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cool",
 	},
+	powergem: {
+		num: 408,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "No additional effect.",
+		name: "Power Gem",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+				move.power = 90;
+				move.pp = 15;
+				move.secondaries.push({
+					chance: 10,
+					boosts: {
+						spd: -1,
+					},
+				});
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	psyshock: {
+		num: 473,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		defensiveCategory: "Physical",
+		desc: "Deals damage to the target based on its Defense instead of Special Defense.",
+		shortDesc: "Damages target based on Defense, not Sp. Def. CFM Claydol: 90 BP, 10% to lower Def.",
+		name: "Psyshock",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+				move.power = 90;
+				move.secondaries.push({
+					chance: 10,
+					boosts: {
+						def: -1,
+					},
+				});
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
+	zenheadbutt: {
+		num: 428,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		desc: "Has a 20% chance to flinch the target.",
+		shortDesc: "20% chance to flinch the target. CFM Claydol:",
+		name: "Zen Headbutt",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Claydol')) {
+				move.power = 90;
+				move.accuracy = 100;
+			}
+		},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 };
