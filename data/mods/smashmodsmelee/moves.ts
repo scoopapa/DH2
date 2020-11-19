@@ -265,4 +265,255 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	spectralresidue: {
+		num: -1001,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage.",
+		shortDesc: "Steals target's boosts before dealing damage.",
+		name: "Spectral Residue",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		stealsBoosts: true,
+		// Boost stealing implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	scumstealing7scrapstrike: {
+		num: -1002,
+		accuracy: true,
+		basePower: 195,
+		category: "Physical",
+		shortDesc: "No additional effect.",
+		name: "Scum-Stealing 7-Scrap Strike",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1},
+		isZ: "marshadiumz",
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	sparksplosion: {
+		num: -1003,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		desc: "The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokémon has the Damp Ability.",
+		shortDesc: "Hits, paralyzes adjacent Pokémon. The user faints.",
+		name: "Sparksplosion",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zap Cannon", target);
+		},
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	inverseroom: {
+		num: -1004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For 5 turns, all Pokémon on the field are resistant to normally super-effective types and weak to normally not-very-effective types (as in Inverse Battles). Immunities are not bypassed.",
+		shortDesc: "For 5 turns, simulates Inverse Battle. Immunities are NOT bypassed.",
+		name: "Inverse Room",
+		pp: 5,
+		priority: 0,
+		flags: {mirror: 1},
+		pseudoWeather: 'inverseroom',
+		effect: {
+			duration: 5,
+			durationCallback: function(source, effect) {
+				if (source && source.hasAbility('persistent')) {
+					return 7;
+				}
+				else if (source && source.hasItem('roomextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onStart: function(target, source) {
+				this.add('-fieldstart', 'move: Inverse Room', '[of] ' + source);
+			},
+			onRestart: function (target, source) {
+				return null;
+			},
+			onEffectiveness: function(typeMod, target, type, move) {
+				if (move && this.dex.getImmunity(move, type) === false) return 3;
+				return -typeMod;
+			},
+			onResidualOrder: 23,
+			onEnd: function() {
+				this.add('-fieldend', 'move: Inverse Room');
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Sunny Day", source);
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMoveBoost: {acc: 1},
+	},
+	meteorshower: {
+		num: -1005,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		desc: "Lowers the user's Special Attack by 2 stages.",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
+		name: "Meteor Shower",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Draco Meteor", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	pragmastrike: {
+		num: -1006,
+		accuracy: 100,
+		basePower: 75,
+		basePowerCallback: function (pokemon, target, move) {
+			if (this.field.pseudoWeather.trickroom || this.field.pseudoWeather.wonderroom || this.field.pseudoWeather.inverseroom || this.field.pseudoWeather.magicroom) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "If a Room is active, 1.5x power; destroys the Room.",
+		name: "Pragma-Strike",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1,
+			mirror: 1,
+		},
+		secondary: null,
+		onAfterHit: function(target, source) {
+			this.field.removePseudoWeather('trickroom');
+			this.field.removePseudoWeather('magicroom');
+			this.field.removePseudoWeather('wonderroom');
+			this.field.removePseudoWeather('inverseroom');
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Trip", target);
+		},
+		target: "normal",
+		type: "Dark",
+		zMovePower: 140,
+		contestType: "Tough",
+	},
+	astonish: {
+		num: 310,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		desc: "Has a 30% chance to flinch the target. For Beheeyem from Sylvemons, has a 100% chance to flinch the target but fails unless it is the user's first turn on the field.",
+		shortDesc: "30% chance to flinch the target. For Beheeyem, clone of Fake Out.",
+		name: "Astonish",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTry(pokemon, target) {
+			if (pokemon.species && (pokemon.baseSpecies.baseSpecies === 'Beheeyem') && pokemon.activeMoveActions > 1) {
+				this.attrLastMove('[still]');
+				this.add('-fail', pokemon);
+				this.hint("For Beheeyem from Sylvemons, Astonish only works on your first turn out.");
+				return null;
+			}
+		},
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Beheeyem')) {
+				move.secondaries.push({
+					chance: 100,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cute",
+	},
+	psywave: {
+		num: 149,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			if (pokemon.species && (pokemon.baseSpecies.baseSpecies === 'Beheeyem')) {
+				return pokemon.level;
+			}
+			return (this.random(50, 151) * pokemon.level) / 100;
+		},
+		category: "Special",
+		desc: "Deals damage to the target equal to (user's level) * (X + 50) / 100, where X is a random number from 0 to 100, rounded down, but not less than 1 HP. For Beheeyem from Sylvemons, instead deals damage to the target equal to the user's level.",
+		shortDesc: "Random damage equal to 0.5x-1.5x user's level. For Beheeyem, clone of Night Shade.",
+		isNonstandard: "Past",
+		name: "Psywave",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	teleport: {
+		num: 100,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members. For Beheeyem from Sylvemons, if this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
+		shortDesc: "User switches out. For Beheeyem, clone of Volt Switch.",
+		name: "Teleport",
+		pp: 20,
+		priority: -6,
+		flags: {},
+		selfSwitch: true,
+		onTryHit: true,
+		onModifyMove(source, move) {
+			if (source.species && (source.baseSpecies.baseSpecies === 'Beheeyem')) {
+				move.accuracy = 100;
+				delete move.onTryHit;
+				move.category = 'Special';
+				move.priority = 0;
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
+	},
 };
