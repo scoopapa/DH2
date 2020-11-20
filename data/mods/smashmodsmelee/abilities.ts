@@ -2,7 +2,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 	thunderhead: {
 		desc: "This Pokémon ignores other Pokémon's Attack, Special Attack, and accuracy stat stages when taking damage, and ignores other Pokémon's Defense, Special Defense, and evasiveness stat stages when dealing damage. When this Pokémon is hit by an attack, Electric Terrain begins.",
 		shortDesc: "Ignores stat changes. Sets Electric Terrain when attacked.",
-		name: "Unaware",
+		name: "Thunderhead",
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectData.target;
 			if (unawareUser === pokemon) return;
