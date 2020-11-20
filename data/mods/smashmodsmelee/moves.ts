@@ -259,8 +259,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	bodyslam: {
 		inherit: true,
-		onModifyMove(move, pokemon) {
-			if (pokemon.species.id === 'miltank') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
 				move.type = 'Ground';
 			}
 		},
@@ -450,8 +450,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onModifyMove(pokemon, move) {
-			if (pokemon.species.id === 'beheeyem') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'beheeyem') {
 				move.secondaries.push({
 					chance: 100,
 					volatileStatus: 'flinch',
@@ -502,8 +502,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		selfSwitch: true,
 		onTryHit: true,
-		onModifyMove(pokemon, move) {
-			if (pokemon.species.id === 'beheeyem') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'beheeyem') {
 				move.accuracy = 100;
 				delete move.onTryHit;
 				move.category = 'Special';
@@ -527,8 +527,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(pokemon, move) {
-			if (pokemon.species.id === 'claydol') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'claydol') {
 				move.power = 90;
 				move.pp = 15;
 				move.secondaries.push({
@@ -556,8 +556,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(pokemon, move) {
-			if (pokemon.species.id === 'claydol') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'claydol') {
 				move.power = 90;
 				move.secondaries.push({
 					chance: 10,
@@ -583,8 +583,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(pokemon, move) {
-			if (pokemon.species.id === 'claydol') {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'claydol') {
 				move.power = 90;
 				move.accuracy = 100;
 			}
