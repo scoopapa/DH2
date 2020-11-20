@@ -597,9 +597,19 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	present: {
 		inherit: true,
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'miltank') {
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.id === 'miltank') {
 				move.type = 'Ice';
+			}
+			const rand = this.random(10);
+			if (rand < 2) {
+				move.heal = [1, 4];
+			} else if (rand < 6) {
+				move.basePower = 40;
+			} else if (rand < 9) {
+				move.basePower = 80;
+			} else {
+				move.basePower = 120;
 			}
 		},
 		onUseMoveMessage(pokemon, target, move) {
@@ -675,9 +685,36 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	},
 	secretpower: {
 		inherit: true,
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'miltank') {
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.id === 'miltank') {
 				move.type = 'Psychic';
+			}
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
 			}
 		},
 		onUseMoveMessage(pokemon, target, move) {
@@ -990,6 +1027,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'beheeyem') {
+				move.secondaries = [];
 				move.secondaries.push({
 					chance: 100,
 					volatileStatus: 'flinch',
@@ -1044,10 +1082,14 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				move.accuracy = 100;
 				move.category = 'Special';
 				move.basePower = 70;
-				move.priority = 0;
 				move.target = 'normal';
 			} else {
 				move.onTryHit = true;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (source.species.id === 'beheeyem') {
+				return 0;
 			}
 		},
 		secondary: null,
@@ -1071,6 +1113,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			if (source.species.id === 'claydol') {
 				move.basePower = 90;
 				move.pp = 15;
+				move.secondaries = [];
 				move.secondaries.push({
 					chance: 10,
 					boosts: {
@@ -1099,6 +1142,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
 				move.basePower = 90;
+				move.secondaries = [];
 				move.secondaries.push({
 					chance: 10,
 					boosts: {
