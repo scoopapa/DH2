@@ -1112,7 +1112,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
 				move.basePower = 90;
-				move.pp = 15;
 				move.secondaries = [];
 				move.secondaries.push({
 					chance: 10,
