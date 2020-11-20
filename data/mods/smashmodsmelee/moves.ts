@@ -1043,6 +1043,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			if (source.species.id === 'beheeyem') {
 				move.accuracy = 100;
 				move.category = 'Special';
+				move.basePower = 70;
 				move.priority = 0;
 				move.target = 'normal';
 			} else {
@@ -1068,7 +1069,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
-				move.power = 90;
+				move.basePower = 90;
 				move.pp = 15;
 				move.secondaries.push({
 					chance: 10,
@@ -1097,7 +1098,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
-				move.power = 90;
+				move.basePower = 90;
 				move.secondaries.push({
 					chance: 10,
 					boosts: {
@@ -1124,7 +1125,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
-				move.power = 90;
+				move.basePower = 90;
 				move.accuracy = 100;
 			}
 		},
