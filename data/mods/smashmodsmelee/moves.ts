@@ -1083,6 +1083,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				move.category = 'Special';
 				move.basePower = 70;
 				move.target = 'normal';
+				move.ignoreImmunity = false;
+				move.flags.protect = 1;
+				move.flags.mirror = 1;
 			} else {
 				move.onTryHit = true;
 			}
