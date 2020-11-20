@@ -257,11 +257,544 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
+	afteryou: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	attract: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	bide: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	block: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
 	bodyslam: {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Ground';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	captivate: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	confide: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	defensecurl: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	dizzypunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	doubleteam: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Ghost';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	doubleedge: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Steel';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	echoedvoice: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Flying';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	endure: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fighting';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	facade: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fighting';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	frustration: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	gigaimpact: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	growl: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	headbutt: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	healbell: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Steel';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	helpinghand: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	hyperbeam: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	megakick: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fighting';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	megapunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fighting';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	metronome: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	milkdrink: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	mimic: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	present: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Ice';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	protect: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	psychup: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	retaliate: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	return: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	round: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Flying';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	sleeptalk: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	snore: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	stomp: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Ground';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	strength: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	substitute: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Poison';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	swagger: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	sweetscent: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Grass';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	tackle: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Ground';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	workup: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Fairy';
 			}
 		},
 		onUseMoveMessage(pokemon, target, move) {
@@ -506,13 +1039,14 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {},
 		selfSwitch: true,
-		onTryHit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'beheeyem') {
 				move.accuracy = 100;
 				move.category = 'Special';
 				move.priority = 0;
 				move.target = 'normal';
+			} else {
+				move.onTryHit = true;
 			}
 		},
 		secondary: null,
