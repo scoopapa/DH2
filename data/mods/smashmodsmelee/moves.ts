@@ -264,6 +264,11 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				move.type = 'Ground';
 			}
 		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
 	},
 	spectralresidue: {
 		num: -1001,
@@ -505,9 +510,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'beheeyem') {
 				move.accuracy = 100;
-				delete move.onTryHit;
 				move.category = 'Special';
 				move.priority = 0;
+				move.target = 'normal';
 			}
 		},
 		secondary: null,
