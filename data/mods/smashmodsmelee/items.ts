@@ -120,7 +120,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		},
 		onAnySetWeather(target, source, weather) {
 			if (this.field.getWeather().id === '') return;
-      pokemon.useItem();
+			this.effectData.target.useItem();
 		},
 		boosts: {
 			atk: 1,
