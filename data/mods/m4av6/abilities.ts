@@ -121,6 +121,20 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('acidicseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('acidicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
 		},
 		name: "Down-to-Earth",
 		rating: 2,
