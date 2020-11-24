@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "bodyslam"],
 		essentialMove: "razorleaf",
@@ -799,4 +799,4 @@ let BattleFormatsData = {
 	},
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormatsData = {
+exports.export const FormatsData: = {
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "gigadrain", "growth", "hiddenpowerfire", "hiddenpowerice", "sludgebomb", "swordsdance", "powerwhip", "leechseed", "synthesis"],
 		eventPokemon: [

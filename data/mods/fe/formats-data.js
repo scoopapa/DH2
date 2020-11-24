@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormatsData = { //
+exports.export const FormatsData: = { //
 
     inkip: {
         randomBattleMoves: ["foulplay", "superpower", "psychocut", "waterfall", "knockoff", "doubleedge"],

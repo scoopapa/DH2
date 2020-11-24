@@ -1,7 +1,7 @@
 	'use strict';
 
 /**@type {{[k: string]: SpeciesFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
   venusaurmegaz: {
         tier: "OU",
         doublesTier: "DOU",
@@ -136,4 +136,4 @@ let BattleFormatsData = {
     },
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

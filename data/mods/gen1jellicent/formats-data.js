@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormatsData = {
+exports.export const FormatsData: = {
 	bulbasaur: {
 		randomBattleMoves: ["razorleaf", "sleeppowder", "swordsdance", "bodyslam", "toxic", "leechseed"],
 		tier: "LC",

@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 
 	heatblast: {
 		tier: "OU",
@@ -20,4 +20,4 @@ let BattleFormatsData = {
 
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	triggerfinger: {
 		shortDesc: "When the Pokémon enters, its first move has +1 priority, but that move's damage is reduced by 1/3.",
 		onStart(pokemon) {

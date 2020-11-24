@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 	pikachupartner: {
 		inherit: true,
 		isUnreleased: true,
@@ -69,4 +69,4 @@ let BattleFormatsData = {
 	},
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

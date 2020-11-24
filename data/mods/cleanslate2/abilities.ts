@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"powerspot": {
 		shortDesc: "This Pokemon and it's allies have the base power of their moves multiplied by 1.3.",
 		onAllyBasePowerPriority: 8,

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormatsData = {
+exports.export const FormatsData: = {
 	yddraig: {
 		randomBattleMoves: ["fireblast", "clangingscales", "defog", "roost"],
 		tier: "New",

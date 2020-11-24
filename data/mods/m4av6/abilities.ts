@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	gravitas: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
 		onStart(source) {

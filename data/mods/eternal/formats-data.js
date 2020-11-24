@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 
 floette: {
 		randomBattleMoves: ["moonblast", "toxic", "wish", "psychic", "aromatherapy", "protect", "calmmind"],
@@ -14,4 +14,4 @@ floette: {
 	},
  };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

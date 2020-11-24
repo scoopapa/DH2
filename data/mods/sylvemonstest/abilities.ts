@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"forecast": {
 		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
 		shortDesc: "If this Pokémon is holding a Weather Rock, its secondary typing becomes Water/Fire/Rock/Ice/Flying/Dark (depending on the rock) and summon the corresponding weather upon entering the field. Under Strong Winds, this mon gains the added Flying type.",

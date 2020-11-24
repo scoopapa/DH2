@@ -1,6 +1,6 @@
 'use strict';
 
-let BattleFormatsData = {
+let export const FormatsData: = {
 	sawsbuckautumn: {
 		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute"],
 		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute", "synthesis", "protect"],
@@ -50,5 +50,5 @@ let BattleFormatsData = {
 		doublesTier: "DUU",
 	},
 };
-exports.BattleFormatsData =  BattleFormatsData;
+exports.export const FormatsData: =  export const FormatsData:;
 

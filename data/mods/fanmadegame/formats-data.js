@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 
 shucklemega: {
 randomBattleMoves: [], 
@@ -47,4 +47,4 @@ tier: "OU",
 	
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

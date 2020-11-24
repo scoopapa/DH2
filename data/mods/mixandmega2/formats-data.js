@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormatsData = {
+exports.export const FormatsData: = {
 	aegislash: {
 		inherit: true,
 		tier: "OU",

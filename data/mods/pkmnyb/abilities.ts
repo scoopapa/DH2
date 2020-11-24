@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
     "cacophony": {
         desc: "Boosts the power of sound-based moves.",
         shortDesc: "Boosts sound move power.",

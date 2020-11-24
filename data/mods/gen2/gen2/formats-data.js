@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let BattleFormatsData = {
+let export const FormatsData: = {
 	bulbasaur: {
 		eventPokemon: [
 			{"generation": 2, "level": 5, "shiny": 1, "moves": ["tackle", "growl", "ancientpower"]},
@@ -3675,4 +3675,4 @@ let BattleFormatsData = {
 	},
 };
 
-exports.BattleFormatsData = BattleFormatsData;
+exports.export const FormatsData: = export const FormatsData:;

@@ -1,4 +1,4 @@
-export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
   karmicretribution: {
     desc:
       "This Pokemon's damaging moves become multi-hit moves that hit five times, each with their own accuracy. Does not affect moves that have multiple targets or moves that use the target's attacking stats instead of the user's.",
