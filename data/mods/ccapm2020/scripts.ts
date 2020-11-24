@@ -107,7 +107,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		delete this.modData('Learnsets', 'delibird').learnset.destinybond;
 	},
->>>>>>> parent of e35fc418e... Clown Tundra
 	//Modded functions
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
