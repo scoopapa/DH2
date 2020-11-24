@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 export const Moves: {[k: string]: ModdedMoveData} = {
-=======
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	electricterrain: {
 		num: 604,
 		accuracy: true,

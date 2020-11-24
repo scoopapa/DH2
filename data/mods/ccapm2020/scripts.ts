@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-=======
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){
 		this.modData('Learnsets', 'jellicent').learnset.haze = ['7L1'];
 		delete this.modData('Learnsets', 'jellicent').learnset.recover;

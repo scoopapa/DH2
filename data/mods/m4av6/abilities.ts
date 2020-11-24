@@ -121,8 +121,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
-<<<<<<< HEAD
-=======
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasItem('acidicseed')) {
 					if (!pokemon.ignoringItem() && this.field.isTerrain('acidicterrain')) {
@@ -137,7 +135,6 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
->>>>>>> parent of e35fc418e... Clown Tundra
 		},
 		name: "Down-to-Earth",
 		rating: 2,
@@ -1079,8 +1076,4 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 266,
 	},
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> parent of e35fc418e... Clown Tundra

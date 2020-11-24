@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 export const Statuses: {[k: string]: ModdedStatusData} = {
-=======
-export const BattleStatuses: {[k: string]: ModdedStatusData} = {
-
 	par: {
 		name: 'par',
 		effectType: 'Status',
@@ -27,7 +23,6 @@ export const BattleStatuses: {[k: string]: ModdedStatusData} = {
 			}
 		},
 	},
->>>>>>> parent of e35fc418e... Clown Tundra
 	hail: {
 		effectType: 'Weather',
 		duration: 5,
