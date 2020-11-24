@@ -1,9 +1,4 @@
-// Note: This is the list of formats
-// The rules that formats use are stored in data/rulesets.js
-import {Utils} from './../lib/utils';
-
-export const Formats: (FormatsData | {section: string, column?: number})[] = [
-
+export const Formats: FormatList = [
 	// Sw/Sh Singles
 	///////////////////////////////////////////////////////////////////
 
