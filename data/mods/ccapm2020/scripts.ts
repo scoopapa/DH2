@@ -1,4 +1,4 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	//Modded functions
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false

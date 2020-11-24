@@ -1,4 +1,4 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	unownStats: {
 		unownp: {
 			num: 201,

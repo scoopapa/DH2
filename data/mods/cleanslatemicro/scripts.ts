@@ -1,3 +1,3 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen7',
 };

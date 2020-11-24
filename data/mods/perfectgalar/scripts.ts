@@ -1,4 +1,4 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
 		// Butterfree
 		this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['8L1'];

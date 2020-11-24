@@ -1,4 +1,4 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 	init: function () {
 this.modData('Learnsets', 'charizard').learnset.dualchop = ['7L1'];

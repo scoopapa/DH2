@@ -1,4 +1,4 @@
-export const BattleScripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
 		this.modData('Movedex', 'sacredsword').flags.blade = 1;
 		this.modData('Movedex', 'secretsword').flags.blade = 1;
