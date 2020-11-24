@@ -1,4 +1,4 @@
-export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 35, def: 70, spa: 95, spd: 80, spe: 85},

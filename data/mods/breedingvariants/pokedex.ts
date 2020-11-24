@@ -1,4 +1,4 @@
-export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// As the name implies, Breeding Variants are part of the evolutionary family.
 	goodra: {
 		inherit: true,
