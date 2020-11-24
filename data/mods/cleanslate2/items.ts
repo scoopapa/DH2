@@ -1,4 +1,4 @@
-export const BattleItems: {[k: string]: ModdedItemData} = {
+export const Items: {[k: string]: ModdedItemData} = {
 	flyingmemory: {
 		name: "Flying Memory",
 		spritenum: 669,

@@ -1,4 +1,4 @@
-export const BattleItems: {[k: string]: ModdedItemData} = {
+export const Items: {[k: string]: ModdedItemData} = {
   "banettiteb": {
     id: "banettiteb",
     name: "Banettite B",
