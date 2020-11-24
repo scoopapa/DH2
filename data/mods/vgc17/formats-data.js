@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let FormatsData: = {
+let FormatsData = {
 	pikachupartner: {
 		inherit: true,
 		isUnreleased: true,

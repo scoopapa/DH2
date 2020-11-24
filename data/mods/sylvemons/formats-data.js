@@ -1,6 +1,6 @@
 'use strict';
 
-let FormatsData: = {
+let FormatsData = {
 	sawsbuckautumn: {
 		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute"],
 		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute", "synthesis", "protect"],

@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let FormatsData: = {
+let FormatsData = {
 	bulbasaur: {
 		eventPokemon: [
 			{"generation": 2, "level": 5, "shiny": 1, "moves": ["tackle", "growl", "ancientpower"]},

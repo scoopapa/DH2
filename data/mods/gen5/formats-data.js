@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let FormatsData: = {
+let FormatsData = {
 	bulbasaur: {
 		inherit: true,
 		randomBattleMoves: ["sleeppowder", "gigadrain", "hiddenpowerfire", "hiddenpowerice", "sludgebomb", "powerwhip", "leechseed", "synthesis"],

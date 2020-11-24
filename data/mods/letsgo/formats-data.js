@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let FormatsData: = {
+let FormatsData = {
 	bulbasaur: {
 		inherit: true,
 		eventPokemon: [
