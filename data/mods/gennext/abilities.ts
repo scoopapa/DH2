@@ -685,4 +685,3 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 };
 
-exports.BattleAbilities = BattleAbilities;

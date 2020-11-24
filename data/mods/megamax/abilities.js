@@ -88,4 +88,3 @@ corrosivepincers: {
   
 };
 
-exports.BattleAbilities = BattleAbilities;

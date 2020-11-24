@@ -280,4 +280,3 @@ let BattleAbilities = {
 		num: 59,
 	},
 };
-exports.BattleAbilities = BattleAbilities;

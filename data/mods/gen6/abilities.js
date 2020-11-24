@@ -149,4 +149,3 @@ let BattleAbilities = {
 	},
 };
 
-exports.BattleAbilities = BattleAbilities;
