@@ -121,6 +121,20 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('acidicseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('acidicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
 		},
 		name: "Down-to-Earth",
 		rating: 2,
@@ -958,6 +972,23 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Acidic Surge",
 		rating: 4,
 		num: -1030,
+	},
+	savage: {
+		desc: "This Pokémon's biting moves become multi-hit moves that hit two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
+		shortDesc: "This Pokémon's biting moves hit two to five times. Each hit's damage is cut to one third.",
+		onPrepareHit(source, target, move) {
+			if (move.multihit) return;
+			if (move.flags['bite'] && !move.isZ && !move.isMax) {
+				move.multihit = [2, 5];
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['bite']) return this.chainModify([0x0555, 0x1000]);
+		},
+		name: "Savage",
+		rating: 3.5,
+		num: -1031,
 	},
 	curiousmedicine: {
 		onStart(pokemon) {
