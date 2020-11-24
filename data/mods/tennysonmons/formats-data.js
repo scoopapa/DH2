@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	heatblast: {
 		tier: "OU",
@@ -20,4 +20,4 @@ let FormatsData = {
 
 };
 
-exports.FormatsData = FormatsData;
+

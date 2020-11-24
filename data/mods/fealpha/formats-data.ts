@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: SpeciesFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	uranus: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -74,7 +74,6 @@ let FormatsData = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-
 };
 
-exports.FormatsData = FormatsData;
+

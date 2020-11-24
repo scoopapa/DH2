@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 electiviremega: {
 randomBattleMoves: [], 
@@ -18,4 +18,4 @@ tier: "OU",
 
 };
 
-exports.FormatsData = FormatsData;
+

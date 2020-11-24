@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		inherit: true,
 		isUnreleased: false,
@@ -5748,4 +5748,4 @@ let FormatsData = {
 	},
 };
 
-exports.FormatsData = FormatsData;
+

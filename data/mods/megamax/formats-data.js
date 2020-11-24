@@ -1,7 +1,7 @@
 	'use strict';
 
 /**@type {{[k: string]: SpeciesFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
   venusaurmegaz: {
         tier: "OU",
         doublesTier: "DOU",
@@ -136,4 +136,4 @@ let FormatsData = {
     },
 };
 
-exports.FormatsData = FormatsData;
+

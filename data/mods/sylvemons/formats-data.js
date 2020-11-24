@@ -1,6 +1,6 @@
 'use strict';
 
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sawsbuckautumn: {
 		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute"],
 		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute", "synthesis", "protect"],

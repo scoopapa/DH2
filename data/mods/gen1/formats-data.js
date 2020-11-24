@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "bodyslam"],
 		essentialMove: "razorleaf",
@@ -799,4 +799,4 @@ let FormatsData = {
 	},
 };
 
-exports.FormatsData = FormatsData;
+
