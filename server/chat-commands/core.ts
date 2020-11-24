@@ -13,10 +13,9 @@
  * @license MIT
  */
 
-
 /* eslint no-else-return: "error" */
 import {Utils} from '../../lib/utils';
-type UserSettings = import('../users').User['settings'];
+import type {UserSettings} from '../users';
 
 const avatarTable = new Set([
 	'aaron',
@@ -113,7 +112,7 @@ const avatarTable = new Set([
 	'emmet',
 	'engineer-gen1', 'engineer-gen1rb', 'engineer-gen3',
 	'erika-gen1', 'erika-gen1rb', 'erika-gen2', 'erika-gen3', 'erika',
-	'ethan-gen2c', 'ethan-gen2', 'ethan',
+	'ethan-gen2c', 'ethan-gen2', 'ethan-pokeathlon', 'ethan',
 	'eusine-gen2', 'eusine',
 	'expertf-gen3',
 	'expert-gen3',
@@ -136,7 +135,7 @@ const avatarTable = new Set([
 	'glacia-gen3',
 	'greta-gen3',
 	'grimsley',
-	'guitarist-gen3', 'guitarist-gen4', 'guitarist',
+	'guitarist-gen2', 'guitarist-gen3', 'guitarist-gen4', 'guitarist',
 	'harlequin',
 	'hexmaniac-gen3jp', 'hexmaniac-gen3',
 	'hiker-gen1', 'hiker-gen1rb', 'hiker-gen2', 'hiker-gen3', 'hiker-gen3rs', 'hiker-gen4', 'hiker',
@@ -180,9 +179,9 @@ const avatarTable = new Set([
 	'lucas-gen4pt', 'lucas',
 	'lucian',
 	'lucy-gen3',
-	'lyra',
+	'lyra-pokeathlon', 'lyra',
 	'madame-gen4dp', 'madame-gen4', 'madame',
-	'maid',
+	'maid-gen4', 'maid',
 	'marley',
 	'marlon',
 	'marshal',
@@ -219,7 +218,7 @@ const avatarTable = new Set([
 	'pokefanf-gen2', 'pokefanf-gen3', 'pokefanf-gen4', 'pokefanf',
 	'pokefan-gen2', 'pokefan-gen3', 'pokefan-gen4', 'pokefan',
 	'pokekid',
-	'pokemaniac-gen1', 'pokemaniac-gen1rb', 'pokemaniac-gen3', 'pokemaniac-gen3rs', 'pokemaniac',
+	'pokemaniac-gen1', 'pokemaniac-gen1rb', 'pokemaniac-gen2', 'pokemaniac-gen3', 'pokemaniac-gen3rs', 'pokemaniac',
 	'pokemonbreederf-gen3', 'pokemonbreederf-gen3frlg', 'pokemonbreederf-gen4', 'pokemonbreederf',
 	'pokemonbreeder-gen3', 'pokemonbreeder-gen4', 'pokemonbreeder',
 	'pokemonrangerf-gen3', 'pokemonrangerf-gen3rs', 'pokemonrangerf-gen4', 'pokemonrangerf',
@@ -345,11 +344,12 @@ export const commands: ChatCommands = {
 
 	version(target, room, user) {
 		if (!this.runBroadcast()) return;
-		this.sendReplyBox(`Server version: <b>${Chat.packageData.version}</b>`);
+		const version = Chat.packageData.version;
+		this.sendReplyBox(this.tr`Server version: <b>${version}</b>`);
 	},
 
 	userlist(target, room, user) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		const userList = [];
 
 		for (const id in room.users) {
@@ -368,10 +368,9 @@ export const commands: ChatCommands = {
 	mee: 'me',
 	me(target, room, user) {
 		if (this.cmd === 'mee' && /[A-Z-a-z0-9/]/.test(target.charAt(0))) {
-			return this.errorReply(`/mee - must not start with a letter or number`);
+			return this.errorReply(this.tr`/mee - must not start with a letter or number`);
 		}
-		(target as string | null) = this.canTalk(`/${this.cmd} ${target || ''}`);
-		if (!target) return;
+		target = this.checkChat(`/${this.cmd} ${target || ''}`);
 
 		if (this.message.startsWith(`/ME`)) {
 			const uppercaseIdentity = user.getIdentity(room?.roomid).toUpperCase();
@@ -391,28 +390,28 @@ export const commands: ChatCommands = {
 	shrug(target) {
 		target = target ? ' ' + target + ' ' : '';
 		if (target.startsWith(' /me')) target = target.slice(1);
-		return this.canTalk(target + '¯\\_(ツ)_/¯');
+		return this.checkChat(target + '¯\\_(ツ)_/¯');
 	},
 	shrughelp: ['/shrug [message] - Sends the given message, if any, appended with ¯\\_(ツ)_/¯'],
 
 	tableflip(target) {
 		target = target ? ' ' + target + ' ' : '';
 		if (target.startsWith(' /me')) target = target.slice(1);
-		return this.canTalk(target + '(╯°□°）╯︵ ┻━┻');
+		return this.checkChat(target + '(╯°□°）╯︵ ┻━┻');
 	},
 	tablefliphelp: ['/tableflip [message] - Sends the given message, if any, appended with (╯°□°）╯︵ ┻━┻'],
 
 	tableunflip(target) {
 		target = target ? ' ' + target + ' ' : '';
 		if (target.startsWith(' /me')) target = target.slice(1);
-		return this.canTalk(target + '┬──┬◡ﾉ(° -°ﾉ)');
+		return this.checkChat(target + '┬──┬◡ﾉ(° -°ﾉ)');
 	},
 	tableunfliphelp: ['/tableunflip [message] - Sends the given message, if any, appended with ┬──┬◡ﾉ(° -°ﾉ)'],
 
 	'battle!': 'battle',
 	battle(target, room, user, connection, cmd) {
 		if (cmd === 'battle') {
-			return this.sendReply("What?! How are you not more excited to battle?! Try /battle! to show me you're ready.");
+			return this.sendReply(this.tr("What?! How are you not more excited to battle?! Try /battle! to show me you're ready."));
 		}
 		if (!target) target = "randombattle";
 		return this.parse(`/search ${target}`);
@@ -455,9 +454,9 @@ export const commands: ChatCommands = {
 		if (!avatarIsValid) {
 			if (parts[1]) return false;
 			if (avatar.startsWith('#')) {
-				this.errorReply("Access denied for custom avatar - make sure you're on the right account?");
+				this.errorReply(this.tr("Access denied for custom avatar - make sure you're on the right account?"));
 			} else {
-				this.errorReply("Invalid avatar.");
+				this.errorReply(this.tr("Invalid avatar."));
 			}
 			return false;
 		}
@@ -465,9 +464,9 @@ export const commands: ChatCommands = {
 		user.avatar = avatar;
 		const avatarUrl = avatar.startsWith('#') ? `trainers-custom/${avatar.slice(1)}.png` : `trainers/${avatar}.png`;
 		if (!parts[1]) {
-			this.sendReply(`Avatar changed to:\n|raw|<img src="//${Config.routes.client}/sprites/${avatarUrl}" alt="${avatar}" width="80" height="80" class="pixelated" />`);
+			this.sendReply(`${this.tr`Avatar changed to:`}\n|raw|<img src="//${Config.routes.client}/sprites/${avatarUrl}" alt="${avatar}" width="80" height="80" class="pixelated" />`);
 			if (avatarTableBeliot419.has(avatar)) {
-				this.sendReply(`|raw|(Artist: <a href="https://www.deviantart.com/beliot419">Beliot419</a>)`);
+				this.sendReply(`|raw|(${this.tr`Artist: `}<a href="https://www.deviantart.com/beliot419">Beliot419</a>)`);
 			}
 		}
 	},
@@ -478,11 +477,17 @@ export const commands: ChatCommands = {
 		user.resetName();
 	},
 
+	noreply(target, room, user) {
+		if (!target.startsWith('/')) return this.parse('/help noreply');
+		return this.parse(target, true);
+	},
+	noreplyhelp: [`/noreply [command] - Runs the command without displaying the response.`],
+
 	r: 'reply',
 	reply(target, room, user) {
 		if (!target) return this.parse('/help reply');
 		if (!user.lastPM) {
-			return this.errorReply("No one has PMed you yet.");
+			return this.errorReply(this.tr("No one has PMed you yet."));
 		}
 		return this.parse(`/msg ${user.lastPM || ''}, ${target}`);
 	},
@@ -494,17 +499,18 @@ export const commands: ChatCommands = {
 	msg(target, room, user, connection) {
 		if (!target) return this.parse('/help msg');
 		if (!target.includes(',')) {
-			this.errorReply("You forgot the comma.");
+			this.errorReply(this.tr("You forgot the comma."));
 			return this.parse('/help msg');
 		}
 		target = this.splitTarget(target);
 		const targetUser = this.targetUser;
-		if (this.targetUsername === '~') {
+		const targetUsername = this.targetUsername;
+		if (targetUsername === '~') {
 			this.pmTarget = null;
 			this.room = null;
 		} else if (!targetUser) {
-			let error = `User ${this.targetUsername} not found. Did you misspell their name?`;
-			error = `|pm|${this.user.getIdentity()}| ${this.targetUsername}|/error ${error}`;
+			let error = this.tr`User ${targetUsername} not found. Did you misspell their name?`;
+			error = `|pm|${this.user.getIdentity()}| ${targetUsername}|/error ${error}`;
 			connection.send(error);
 			return;
 		} else {
@@ -513,7 +519,7 @@ export const commands: ChatCommands = {
 		}
 
 		if (targetUser && !targetUser.connected) {
-			return this.errorReply(`User ${this.targetUsername} is offline.`);
+			return this.errorReply(this.tr`User ${targetUsername} is offline.`);
 		}
 
 		this.parse(target);
@@ -523,7 +529,6 @@ export const commands: ChatCommands = {
 	inv: 'invite',
 	invite(target, room, user) {
 		if (!target) return this.parse('/help invite');
-		if (!this.canTalk()) return;
 		if (room) target = this.splitTarget(target) || room.roomid;
 		let targetRoom = Rooms.search(target);
 		if (targetRoom && !targetRoom.checkModjoin(user)) {
@@ -531,28 +536,40 @@ export const commands: ChatCommands = {
 		}
 
 		if (room) {
-			if (!this.targetUser) return this.errorReply(`The user "${this.targetUsername}" was not found.`);
-			if (!targetRoom) return this.errorReply(`The room "${target}" was not found.`);
+			const targetUsername = this.targetUsername;
+			if (!this.targetUser) return this.errorReply(this.tr`The user "${targetUsername}" was not found.`);
+			if (!targetRoom) return this.errorReply(this.tr`The room "${target}" was not found.`);
 
-			return this.parse(`/pm ${this.targetUsername}, /invite ${targetRoom.roomid}`);
+			return this.parse(`/pm ${targetUsername}, /invite ${targetRoom.roomid}`);
 		}
 
-		const targetUser = this.pmTarget!; // not room means it's a PM
+		const targetUser = this.pmTarget; // not room means it's a PM
 
 		if (!targetRoom) {
-			return this.errorReply(`The room "${target}" was not found.`);
+			return this.errorReply(this.tr`The room "${target}" was not found.`);
+		}
+		if (!targetUser) {
+			return this.parse('/help invite');
+		}
+
+		const invitesBlocked = targetUser.settings.blockInvites;
+		if (invitesBlocked) {
+			if (invitesBlocked === true ? !user.can('lock') : !Users.globalAuth.atLeast(user, invitesBlocked as GroupSymbol)) {
+				Chat.maybeNotifyBlocked('invite', targetUser, user);
+				return this.errorReply(`This user is currently blocking room invites.`);
+			}
 		}
 		if (!targetRoom.checkModjoin(targetUser)) {
 			this.room = targetRoom;
 			this.parse(`/roomvoice ${targetUser.name}`);
 			if (!targetRoom.checkModjoin(targetUser)) {
-				return this.errorReply(`You do not have permission to invite people into this room.`);
+				return this.errorReply(this.tr`You do not have permission to invite people into this room.`);
 			}
 		}
 		if (targetUser.id in targetRoom.users) {
-			return this.errorReply(`This user is already in "${targetRoom.title}".`);
+			return this.errorReply(this.tr`This user is already in "${targetRoom.title}".`);
 		}
-		return `/invite ${targetRoom.roomid}`;
+		return this.checkChat(`/invite ${targetRoom.roomid}`);
 	},
 	invitehelp: [
 		`/invite [username] - Invites the player [username] to join the room you sent the command to.`,
@@ -567,8 +584,8 @@ export const commands: ChatCommands = {
 		if (user.settings.blockPMs === (target || true)) {
 			return this.errorReply(this.tr("You are already blocking private messages! To unblock, use /unblockpms"));
 		}
-		if (target in Config.groups) {
-			user.settings.blockPMs = target as GroupSymbol;
+		if (Users.Auth.isAuthLevel(target)) {
+			user.settings.blockPMs = target;
 			this.sendReply(this.tr `You are now blocking private messages, except from staff and ${target}.`);
 		} else if (target === 'autoconfirmed' || target === 'trusted' || target === 'unlocked') {
 			user.settings.blockPMs = target;
@@ -599,6 +616,34 @@ export const commands: ChatCommands = {
 	},
 	unblockpmshelp: [`/unblockpms - Unblocks private messages. Block them with /blockpms.`],
 
+	unblockinvites: 'blockinvites',
+	blockinvites(target, room, user, connection, cmd) {
+		const unblock = cmd.includes('unblock');
+		if (unblock) {
+			if (!user.settings.blockInvites) {
+				return this.errorReply(`You are not blocking room invites! To block, use /blockinvites.`);
+			}
+			user.settings.blockInvites = false;
+			this.sendReply(`You are no longer blocking room invites.`);
+		} else {
+			if (toID(target) === 'ac') target = 'autoconfirmed';
+			if (user.settings.blockInvites === (target || true)) {
+				return this.errorReply("You are already blocking room invites - to unblock, use /unblockinvites");
+			}
+			if (target in Config.groups) {
+				user.settings.blockInvites = target as GroupSymbol;
+				this.sendReply(this.tr `You are now blocking room invites, except from staff and ${target}.`);
+			} else if (target === 'autoconfirmed' || target === 'trusted' || target === 'unlocked') {
+				user.settings.blockInvites = target;
+				this.sendReply(this.tr `You are now blocking room invites, except from staff and ${target} users.`);
+			} else {
+				user.settings.blockInvites = true;
+				this.sendReply(this.tr("You are now blocking room invites, except from staff."));
+			}
+		}
+		return user.update();
+	},
+
 	status(target, room, user, connection, cmd) {
 		if (user.locked || user.semilocked) {
 			return this.errorReply(this.tr("Your status cannot be updated while you are locked or semilocked."));
@@ -620,17 +665,24 @@ export const commands: ChatCommands = {
 		 `Use /clearstatus to clear your status message.`,
 	],
 
-	busy(target, room, user) {
+	donotdisturb: 'busy',
+	dnd: 'busy',
+	busy(target, room, user, connection, cmd) {
 		if (target) {
-			this.errorReply("Setting status messages in /busy is no longer supported. Set a status using /status.");
+			this.errorReply(this.tr("Setting status messages in /busy is no longer supported. Set a status using /status."));
 		}
 		user.setStatusType('busy');
-		this.parse('/blockpms +');
-		this.parse('/blockchallenges');
+		const isDND = ['dnd', 'donotdisturb'].includes(cmd);
+		if (isDND) {
+			this.parse('/blockpms +');
+			this.parse('/blockchallenges');
+			user.settings.doNotDisturb = true;
+		}
 		this.sendReply(this.tr("You are now marked as busy."));
 	},
 	busyhelp: [
-		`/busy - Marks you as busy, blocking private messages and challenges.`,
+		`/busy OR /donotdisturb - Marks you as busy.`,
+		`Use /donotdisturb to also block private messages and challenges.`,
 		`Use /back to mark yourself as back.`,
 	 ],
 
@@ -639,7 +691,7 @@ export const commands: ChatCommands = {
 	brb: 'away',
 	away(target, room, user, connection, cmd) {
 		if (target) {
-			this.errorReply("Setting status messages in /away is no longer supported. Set a status using /status.");
+			this.errorReply(this.tr("Setting status messages in /away is no longer supported. Set a status using /status."));
 		}
 		user.setStatusType('idle');
 		this.sendReply(this.tr("You are now marked as away. Send a message or use /back to indicate you are back."));
@@ -649,24 +701,26 @@ export const commands: ChatCommands = {
 	cs: 'clearstatus',
 	clearstatus(target, room, user) {
 		if (target) {
+			room = this.requireRoom();
 			// Clearing another user's status
 			const reason = this.splitTarget(target);
 			const targetUser = this.targetUser;
-			if (!targetUser) return this.errorReply(`User '${target}' not found.`);
-			if (!targetUser.userMessage) return this.errorReply(`${targetUser.name} does not have a status set.`);
-			if (!this.can('forcerename', targetUser)) return false;
+			if (!targetUser) return this.errorReply(this.tr`User '${target}' not found.`);
+			if (!targetUser.userMessage) return this.errorReply(this.tr`${targetUser.name} does not have a status set.`);
+			this.checkCan('forcerename', targetUser);
 
-			this.privateModAction(`(${targetUser.name}'s status "${targetUser.userMessage}" was cleared by ${user.name}${reason ? `: ${reason}` : ``})`);
-			this.globalModlog('CLEARSTATUS', targetUser, ` from "${targetUser.userMessage}" by ${user.name}${reason ? `: ${reason}` : ``}`);
+			const displayReason = reason ? `: ${reason}` : ``;
+			this.privateGlobalModAction(room.tr`${targetUser.name}'s status "${targetUser.userMessage}" was cleared by ${user.name}${displayReason}.`);
+			this.globalModlog('CLEARSTATUS', targetUser, ` from "${targetUser.userMessage}"${displayReason}`);
 			targetUser.clearStatus();
-			targetUser.popup(`${user.name} has cleared your status message for being inappropriate${reason ? `: ${reason}` : '.'}`);
+			targetUser.popup(`${user.name} has cleared your status message for being inappropriate${displayReason || '.'}`);
 			return;
 		}
 
-		if (!user.userMessage) return this.sendReply("You don't have a status message set.");
+		if (!user.userMessage) return this.sendReply(this.tr("You don't have a status message set."));
 		user.setUserMessage('');
 
-		return this.sendReply("You have cleared your status message.");
+		return this.sendReply(this.tr("You have cleared your status message."));
 	},
 	clearstatushelp: [
 		`/clearstatus - Clears your status message.`,
@@ -676,54 +730,104 @@ export const commands: ChatCommands = {
 	unaway: 'back',
 	unafk: 'back',
 	back(target, room, user) {
-		if (user.statusType === 'online') return this.errorReply("You are already marked as back.");
+		if (user.statusType === 'online') return this.errorReply(this.tr("You are already marked as back."));
 		const statusType = user.statusType;
 		user.setStatusType('online');
 
-		if (statusType === 'busy') {
+		if (user.settings.doNotDisturb) {
 			this.parse('/unblockpms');
 			this.parse('/unblockchallenges');
+			user.settings.doNotDisturb = false;
 		}
 
 		if (statusType) {
-			return this.sendReply(`You are no longer marked as ${statusType}.`);
+			return this.sendReply(this.tr`You are no longer marked as busy.`);
 		}
 
-		return this.sendReply("You have cleared your status message.");
+		return this.sendReply(this.tr("You have cleared your status message."));
 	},
 	backhelp: [`/back - Marks you as back if you are away.`],
 
-	rank(target, room, user) {
+	async rank(target, room, user) {
 		if (!target) target = user.name;
 
-		return Ladders.visualizeAll(target).then(values => {
-			let buffer = `<div class="ladder"><table>`;
-			buffer += Utils.html`<tr><td colspan="8">User: <strong>${target}</strong></td></tr>`;
+		const values = await Ladders.visualizeAll(target);
+		let buffer = `<div class="ladder"><table>`;
+		buffer += Utils.html`<tr><td colspan="8">User: <strong>${target}</strong></td></tr>`;
 
-			const ratings = values.join(``);
-			if (!ratings) {
-				buffer += `<tr><td colspan="8"><em>This user has not played any ladder games yet.</em></td></tr>`;
-			} else {
-				buffer += `<tr><th>Format</th><th><abbr title="Elo rating">Elo</abbr></th><th>W</th><th>L</th><th>Total</th>`;
-				buffer += ratings;
-			}
-			buffer += `</table></div>`;
+		const ratings = values.join(``);
+		if (!ratings) {
+			buffer += `<tr><td colspan="8"><em>${this.tr`This user has not played any ladder games yet.`}</em></td></tr>`;
+		} else {
+			buffer += `<tr><th>${this.tr`Format`}</th><th><abbr title="Elo rating">Elo</abbr></th><th>${this.tr`W`}</th><th>${this.tr`L`}</th><th>${this.tr`Total`}</th>`;
+			buffer += ratings;
+		}
+		buffer += `</table></div>`;
 
-			this.sendReply(`|raw|${buffer}`);
-		});
+		this.sendReply(`|raw|${buffer}`);
 	},
+
+	showrank: 'hiderank',
+	hiderank(target, room, user, connection, cmd) {
+		const userGroup = Users.Auth.getGroup(Users.globalAuth.get(user.id));
+		if (!userGroup['hiderank'] || !user.registered) {
+			return this.errorReply(`/hiderank - Access denied.`);
+		}
+
+		const isShow = cmd === 'showrank';
+		const group = (isShow ? Users.globalAuth.get(user.id) : (target.trim() || Users.Auth.defaultSymbol()) as GroupSymbol);
+		if (user.tempGroup === group) {
+			return this.errorReply(this.tr`You already have the temporary symbol '${group}'.`);
+		}
+		if (!Users.Auth.isValidSymbol(group) || !(group in Config.groups)) {
+			return this.errorReply(this.tr`You must specify a valid group symbol.`);
+		}
+		if (!isShow && Config.groups[group].rank > Config.groups[user.tempGroup].rank) {
+			return this.errorReply(this.tr`You may only set a temporary symbol below your current rank.`);
+		}
+		user.tempGroup = group;
+		user.updateIdentity();
+		this.sendReply(`|c|~|${this.tr`Your temporary group symbol is now`} \`\`${user.tempGroup}\`\`.`);
+	},
+	showrankhelp: 'hiderankhelp',
+	hiderankhelp: [
+		`/hiderank [rank] - Displays your global rank as the given [rank].`,
+		`/showrank - Displays your true global rank instead of the rank you're hidden as.`,
+	],
+
+	language(target, room, user) {
+		if (!target) {
+			const language = Chat.languages.get(user.language || 'english' as ID);
+			return this.sendReply(this.tr`Currently, you're viewing Pokémon Showdown in ${language}.`);
+		}
+		const languageID = toID(target);
+		if (!Chat.languages.has(languageID)) {
+			const languages = [...Chat.languages.values()].join(', ');
+			return this.errorReply(this.tr`Valid languages are: ${languages}`);
+		}
+		user.language = languageID;
+		user.update();
+		const language = Chat.languages.get(languageID);
+		return this.sendReply(this.tr`Pokémon Showdown will now be displayed in ${language} (except in language rooms).`);
+	},
+	languagehelp: [
+		`/language - View your current language setting.`,
+		`/language [language] - Changes the language Pokémon Showdown will be displayed to you in.`,
+		`Note that rooms can set their own language, which will override this setting.`,
+	],
 
 	updatesettings(target, room, user) {
 		const settings: Partial<UserSettings> = {};
 		try {
 			const raw = JSON.parse(target);
 			if (typeof raw !== 'object' || Array.isArray(raw) || !raw) {
-				this.errorReply("/updatesettings expects JSON encoded object.");
+				this.errorReply(this.tr("/updatesettings expects JSON encoded object."));
 			}
+			if (typeof raw.language === 'string') this.parse(`/noreply /language ${raw.language}`);
 			for (const setting in user.settings) {
 				if (setting in raw) {
 					if (setting === 'blockPMs' &&
-						(raw[setting] in Config.groups || ['autoconfirmed', 'trusted', 'unlocked'].includes(raw[setting]))) {
+						Users.Auth.isAuthLevel(raw[setting])) {
 						settings[setting] = raw[setting];
 					} else {
 						settings[setting as keyof UserSettings] = !!raw[setting];
@@ -733,7 +837,7 @@ export const commands: ChatCommands = {
 			Object.assign(user.settings, settings);
 			user.update();
 		} catch {
-			this.errorReply("Unable to parse settings in /updatesettings!");
+			this.errorReply(this.tr("Unable to parse settings in /updatesettings!"));
 		}
 	},
 
@@ -742,29 +846,29 @@ export const commands: ChatCommands = {
 	 *********************************************************/
 
 	allowexportinputlog(target, room, user) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		const battle = room.battle;
 		if (!battle) {
-			return this.errorReply(`Must be in a battle.`);
+			return this.errorReply(this.tr`Must be in a battle.`);
 		}
 		const targetUser = Users.getExact(target);
 		if (!targetUser) {
-			return this.errorReply(`User ${target} not found.`);
+			return this.errorReply(this.tr`User ${target} not found.`);
 		}
 		if (!battle.playerTable[user.id]) {
-			return this.errorReply("Must be a player in this battle.");
+			return this.errorReply(this.tr("Must be a player in this battle."));
 		}
 		if (!battle.allowExtraction[targetUser.id]) {
-			return this.errorReply(`${targetUser.name} has not requested extraction.`);
+			return this.errorReply(this.tr`${targetUser.name} has not requested extraction.`);
 		}
 		if (battle.allowExtraction[targetUser.id].has(user.id)) {
-			return this.errorReply(`You have already consented to extraction with ${targetUser.name}.`);
+			return this.errorReply(this.tr`You have already consented to extraction with ${targetUser.name}.`);
 		}
 		battle.allowExtraction[targetUser.id].add(user.id);
-		this.addModAction(`${user.name} consents to sharing battle team and choices with ${targetUser.name}.`);
-		if (!battle.inputLog) return this.errorReply('No input log found.');
+		this.addModAction(room.tr`${user.name} consents to sharing battle team and choices with ${targetUser.name}.`);
+		if (!battle.inputLog) return this.errorReply(this.tr('No input log found.'));
 		if (Object.keys(battle.playerTable).length === battle.allowExtraction[targetUser.id].size) {
-			this.addModAction(`${targetUser.name} has extracted the battle input log.`);
+			this.addModAction(room.tr`${targetUser.name} has extracted the battle input log.`);
 			const inputLog = battle.inputLog.map(Utils.escapeHTML).join(`<br />`);
 			targetUser.sendTo(
 				room,
@@ -775,20 +879,20 @@ export const commands: ChatCommands = {
 
 	requestinputlog: 'exportinputlog',
 	exportinputlog(target, room, user) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		const battle = room.battle;
 		if (!battle) {
-			return this.errorReply(`This command only works in battle rooms.`);
+			return this.errorReply(this.tr`This command only works in battle rooms.`);
 		}
 		if (!battle.inputLog) {
-			this.errorReply(`This command only works when the battle has ended - if the battle has stalled, use /offertie.`);
-			if (user.can('forcewin')) this.errorReply(`Alternatively, you can end the battle with /forcetie.`);
+			this.errorReply(this.tr`This command only works when the battle has ended - if the battle has stalled, use /offertie.`);
+			if (user.can('forcewin')) this.errorReply(this.tr`Alternatively, you can end the battle with /forcetie.`);
 			return;
 		}
-		if (!this.can('exportinputlog', null, room)) return;
+		this.checkCan('exportinputlog', null, room);
 		if (user.can('forcewin')) {
-			if (!battle.inputLog) return this.errorReply('No input log found.');
-			this.addModAction(`${user.name} has extracted the battle input log.`);
+			if (!battle.inputLog) return this.errorReply(this.tr('No input log found.'));
+			this.addModAction(room.tr`${user.name} has extracted the battle input log.`);
 			const inputLog = battle.inputLog.map(Utils.escapeHTML).join(`<br />`);
 			user.sendTo(
 				room,
@@ -808,7 +912,7 @@ export const commands: ChatCommands = {
 					);
 				}
 			}
-			this.addModAction(`${user.name} wants to extract the battle input log.`);
+			this.addModAction(room.tr`${user.name} wants to extract the battle input log.`);
 		} else {
 			// Re-request to make the buttons appear again for users who have not allowed extraction
 			let logExported = true;
@@ -818,23 +922,23 @@ export const commands: ChatCommands = {
 				logExported = false;
 				playerUser.sendTo(
 					room,
-					Utils.html`|html|${user.name} wants to extract the battle input log. <button name="send" value="/allowexportinputlog ${user.id}">Share your team and choices with "${user.name}"</button>`,
+					Utils.html`|html|${user.name} wants to extract the battle input log. <button name="send" value="/allowexportinputlog ${user.id}">Share your team and choices with "${user.name}"</button>`
 				);
 			}
-			if (logExported) return this.errorReply(`You already extracted the battle input log.`);
-			this.sendReply(`Battle input log re-requested.`);
+			if (logExported) return this.errorReply(this.tr`You already extracted the battle input log.`);
+			this.sendReply(this.tr`Battle input log re-requested.`);
 		}
 	},
 	exportinputloghelp: [`/exportinputlog - Asks players in a battle for permission to export an inputlog. Requires: &`],
 
 	importinputlog(target, room, user, connection) {
-		if (!this.can('importinputlog')) return;
+		this.checkCan('importinputlog');
 		const formatIndex = target.indexOf(`"formatid":"`);
 		const nextQuoteIndex = target.indexOf(`"`, formatIndex + 12);
-		if (formatIndex < 0 || nextQuoteIndex < 0) return this.errorReply(`Invalid input log.`);
+		if (formatIndex < 0 || nextQuoteIndex < 0) return this.errorReply(this.tr`Invalid input log.`);
 		target = target.replace(/\r/g, '');
 		if ((`\n` + target).includes(`\n>eval `) && !user.hasConsoleAccess(connection)) {
-			return this.errorReply(`Your input log contains untrusted code - you must have console access to use it.`);
+			return this.errorReply(this.tr`Your input log contains untrusted code - you must have console access to use it.`);
 		}
 
 		const formatid = target.slice(formatIndex + 12, nextQuoteIndex);
@@ -859,35 +963,80 @@ export const commands: ChatCommands = {
 	},
 	importinputloghelp: [`/importinputlog [inputlog] - Starts a battle with a given inputlog. Requires: + % @ &`],
 
+	showteam: 'showset',
+	async showset(target, room, user, connection, cmd) {
+		this.checkChat();
+		const showAll = cmd === 'showteam';
+		const hideStats = toID(target) === 'hidestats';
+		room = this.requireRoom();
+		const battle = room.battle;
+		if (!showAll && !target) return this.parse(`/help showset`);
+		if (!battle) return this.errorReply(this.tr("This command can only be used in a battle."));
+		let teamStrings = await battle.getTeam(user);
+		if (!teamStrings) return this.errorReply(this.tr("Only players can extract their team."));
+		if (!showAll) {
+			const parsed = parseInt(target);
+			if (parsed > 6) return this.errorReply(this.tr`Use a number between 1-6 to view a specific set.`);
+			if (isNaN(parsed)) {
+				const matchedSet = teamStrings.filter(set => {
+					const id = toID(target);
+					return toID(set.name) === id || toID(set.species) === id;
+				})[0];
+				if (!matchedSet) return this.errorReply(this.tr`The Pokemon "${target}" is not in your team.`);
+				teamStrings = [matchedSet];
+			} else {
+				const setIndex = parsed - 1;
+				const indexedSet = teamStrings[setIndex];
+				if (!indexedSet) return this.errorReply(this.tr`That Pokemon is not in your team.`);
+				teamStrings = [indexedSet];
+			}
+		}
+		const nicknames = teamStrings.map(set => {
+			const species = Dex.getSpecies(set.species).baseSpecies;
+			return species !== set.name ? set.name : species;
+		});
+		let resultString = Dex.stringifyTeam(teamStrings, nicknames, hideStats);
+		if (showAll) {
+			resultString = `<details><summary>${this.tr`View team`}</summary>${resultString}</details>`;
+		}
+		this.runBroadcast(true);
+		return this.sendReplyBox(resultString);
+	},
+	showsethelp: [
+		`!showteam - show the team you're using in the current battle (must be used in a battle you're a player in).`,
+		`!showteam hidestats - show the team you're using in the current battle, without displaying any stat-related information.`,
+		`!showset [number] - shows the set of the pokemon corresponding to that number (in original Team Preview order, not necessarily current order)`,
+	],
+
 	acceptdraw: 'offertie',
 	accepttie: 'offertie',
 	offerdraw: 'offertie',
 	requesttie: 'offertie',
 	offertie(target, room, user, connection, cmd) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		const battle = room.battle;
-		if (!battle) return this.errorReply("Must be in a battle room.");
+		if (!battle) return this.errorReply(this.tr("Must be in a battle room."));
 		if (!Config.allowrequestingties) {
-			return this.errorReply("This server does not allow offering ties.");
+			return this.errorReply(this.tr("This server does not allow offering ties."));
 		}
 		if (room.tour) {
-			return this.errorReply("You can't offer ties in tournaments.");
+			return this.errorReply(this.tr("You can't offer ties in tournaments."));
 		}
 		if (battle.turn < 100) {
-			return this.errorReply("It's too early to tie, please play until turn 100.");
+			return this.errorReply(this.tr("It's too early to tie, please play until turn 100."));
 		}
-		if (!this.can('roomvoice', null, room)) return;
+		this.checkCan('roomvoice', null, room);
 		if (cmd === 'accepttie' && !battle.players.some(player => player.wantsTie)) {
-			return this.errorReply("No other player is requesting a tie right now. It was probably canceled.");
+			return this.errorReply(this.tr("No other player is requesting a tie right now. It was probably canceled."));
 		}
 		const player = battle.playerTable[user.id];
 		if (!battle.players.some(curPlayer => curPlayer.wantsTie)) {
-			this.add(`${user.name} is offering a tie.`);
+			this.add(this.tr`${user.name} is offering a tie.`);
 			room.update();
 			for (const otherPlayer of battle.players) {
 				if (otherPlayer !== player) {
 					otherPlayer.sendRoom(
-						Utils.html`|uhtml|offertie|<button class="button" name="send" value="/accepttie"><strong>Accept tie</strong></button> <button class="button" name="send" value="/rejecttie">Reject</button>`
+						Utils.html`|uhtml|offertie|<button class="button" name="send" value="/accepttie"><strong>${this.tr`Accept tie`}</strong></button> <button class="button" name="send" value="/rejecttie">${this.tr`Reject`}</button>`
 					);
 				} else {
 					player.wantsTie = true;
@@ -895,18 +1044,18 @@ export const commands: ChatCommands = {
 			}
 		} else {
 			if (!player) {
-				return this.errorReply("Must be a player to accept ties.");
+				return this.errorReply(this.tr("Must be a player to accept ties."));
 			}
 			if (!player.wantsTie) {
 				player.wantsTie = true;
 			} else {
-				return this.errorReply("You have already agreed to a tie.");
+				return this.errorReply(this.tr("You have already agreed to a tie."));
 			}
 			player.sendRoom(Utils.html`|uhtmlchange|offertie|`);
-			this.add(`${user.name} accepted the tie.`);
+			this.add(this.tr`${user.name} accepted the tie.`);
 			if (battle.players.every(curPlayer => curPlayer.wantsTie)) {
 				if (battle.players.length > 2) {
-					this.add(`All players have accepted the tie.`);
+					this.add(this.tr`All players have accepted the tie.`);
 				}
 				battle.tie();
 			}
@@ -916,21 +1065,21 @@ export const commands: ChatCommands = {
 
 	rejectdraw: 'rejecttie',
 	rejecttie(target, room, user) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		const battle = room.battle;
-		if (!battle) return this.errorReply("Must be in a battle room.");
+		if (!battle) return this.errorReply(this.tr("Must be in a battle room."));
 		const player = battle.playerTable[user.id];
 		if (!player) {
-			return this.errorReply("Must be a player to reject ties.");
+			return this.errorReply(this.tr("Must be a player to reject ties."));
 		}
 		if (!battle.players.some(curPlayer => curPlayer.wantsTie)) {
-			return this.errorReply("No other player is requesting a tie right now. It was probably canceled.");
+			return this.errorReply(this.tr("No other player is requesting a tie right now. It was probably canceled."));
 		}
 		if (player.wantsTie) player.wantsTie = false;
 		for (const otherPlayer of battle.players) {
 			otherPlayer.sendRoom(Utils.html`|uhtmlchange|offertie|`);
 		}
-		return this.add(`${user.name} rejected the tie.`);
+		return this.add(this.tr`${user.name} rejected the tie.`);
 	},
 	rejecttiehelp: [`/rejecttie - Rejects a tie offered by another player in a battle.`],
 
@@ -944,21 +1093,25 @@ export const commands: ChatCommands = {
 	 *********************************************************/
 
 	forfeit(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.game) return this.errorReply("This room doesn't have an active game.");
+		room = this.requireRoom();
+		if (!room.game) return this.errorReply(this.tr("This room doesn't have an active game."));
 		if (!room.game.forfeit) {
-			return this.errorReply("This kind of game can't be forfeited.");
+			return this.errorReply(this.tr("This kind of game can't be forfeited."));
 		}
 		room.game.forfeit(user);
 	},
 
+	guess: 'choose',
 	choose(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.game) return this.errorReply("This room doesn't have an active game.");
-		if (!room.game.choose) return this.errorReply("This game doesn't support /choose");
-
+		room = this.requireRoom();
+		if (!room.game) return this.errorReply(this.tr("This room doesn't have an active game."));
+		if (!room.game.choose) return this.errorReply(this.tr("This game doesn't support /choose"));
+		if (room.game.checkChat) this.checkChat();
 		room.game.choose(user, target);
 	},
+	choosehelp: [
+		`/choose [text] - Make a choice for the currently active game.`,
+	],
 
 	mv: 'move',
 	attack: 'move',
@@ -976,9 +1129,9 @@ export const commands: ChatCommands = {
 	},
 
 	undo(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.game) return this.errorReply("This room doesn't have an active game.");
-		if (!room.game.undo) return this.errorReply("This game doesn't support /undo");
+		room = this.requireRoom();
+		if (!room.game) return this.errorReply(this.tr("This room doesn't have an active game."));
+		if (!room.game.undo) return this.errorReply(this.tr("This game doesn't support /undo"));
 
 		room.game.undo(user, target);
 	},
@@ -986,7 +1139,7 @@ export const commands: ChatCommands = {
 	uploadreplay: 'savereplay',
 	async savereplay(target, room, user, connection) {
 		if (!room || !room.battle) {
-			return this.errorReply(`You can only save replays for battles.`);
+			return this.errorReply(this.tr`You can only save replays for battles.`);
 		}
 
 		const options = (target === 'forpunishment' || target === 'silent') ? target : undefined;
@@ -994,42 +1147,43 @@ export const commands: ChatCommands = {
 	},
 
 	hidereplay(target, room, user, connection) {
-		if (!room || !room.battle || !this.can('joinbattle', null, room)) return;
+		if (!room || !room.battle) return this.errorReply(`Must be used in a battle.`);
+		this.checkCan('joinbattle', null, room);
 		if (room.tour?.forcePublic) {
-			return this.errorReply(`This battle can't have hidden replays, because the tournament is set to be forced public.`);
+			return this.errorReply(this.tr`This battle can't have hidden replays, because the tournament is set to be forced public.`);
 		}
-		if (room.hideReplay) return this.errorReply(`The replay for this battle is already set to hidden.`);
+		if (room.hideReplay) return this.errorReply(this.tr`The replay for this battle is already set to hidden.`);
 		room.hideReplay = true;
 		// If a replay has already been saved, /savereplay again to update the uploaded replay's hidden status
 		if (room.battle.replaySaved) this.parse('/savereplay');
-		this.addModAction(`${user.name} hid the replay of this battle.`);
+		this.addModAction(room.tr`${user.name} hid the replay of this battle.`);
 	},
 
 	addplayer(target, room, user) {
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		if (!target) return this.parse('/help addplayer');
-		if (!room.battle) return this.errorReply("You can only do this in battle rooms.");
-		if (room.rated) return this.errorReply("You can only add a Player to unrated battles.");
+		if (!room.battle) return this.errorReply(this.tr("You can only do this in battle rooms."));
+		if (room.rated) return this.errorReply(this.tr("You can only add a Player to unrated battles."));
 
 		target = this.splitTarget(target, true).trim();
 		if (target !== 'p1' && target !== 'p2') {
-			this.errorReply(`Player must be set to "p1" or "p2", not "${target}".`);
+			this.errorReply(this.tr`Player must be set to "p1" or "p2", not "${target}".`);
 			return this.parse('/help addplayer');
 		}
 
 		const targetUser = this.targetUser;
 		const name = this.targetUsername;
 
-		if (!targetUser) return this.errorReply(`User ${name} not found.`);
+		if (!targetUser) return this.errorReply(this.tr`User ${name} not found.`);
 		if (!targetUser.inRooms.has(room.roomid)) {
-			return this.errorReply(`User ${name} must be in the battle room already.`);
+			return this.errorReply(this.tr`User ${name} must be in the battle room already.`);
 		}
-		if (!this.can('joinbattle', null, room)) return;
+		this.checkCan('joinbattle', null, room);
 		if (room.battle[target].id) {
-			return this.errorReply(`This room already has a player in slot ${target}.`);
+			return this.errorReply(this.tr`This room already has a player in slot ${target}.`);
 		}
 		if (targetUser.id in room.battle.playerTable) {
-			return this.errorReply(`${targetUser.name} is already a player in this battle.`);
+			return this.errorReply(this.tr`${targetUser.name} is already a player in this battle.`);
 		}
 
 		room.auth.set(targetUser.id, Users.PLAYER_SYMBOL);
@@ -1038,7 +1192,8 @@ export const commands: ChatCommands = {
 			room.auth.delete(targetUser.id);
 			return;
 		}
-		this.addModAction(`${name} was added to the battle as Player ${target.slice(1)} by ${user.name}.`);
+		const playerNum = target.slice(1);
+		this.addModAction(room.tr`${name} was added to the battle as Player ${playerNum} by ${user.name}.`);
 		this.modlog('ROOMPLAYER', targetUser.getLastId());
 	},
 	addplayerhelp: [
@@ -1047,22 +1202,22 @@ export const commands: ChatCommands = {
 	],
 
 	restoreplayers(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.battle) return this.errorReply("You can only do this in battle rooms.");
-		if (room.rated) return this.errorReply("You can only add a Player to unrated battles.");
+		room = this.requireRoom();
+		if (!room.battle) return this.errorReply(this.tr("You can only do this in battle rooms."));
+		if (room.rated) return this.errorReply(this.tr("You can only add a Player to unrated battles."));
 
 		let didSomething = false;
 		if (!room.battle.p1.id && room.battle.p1.name !== 'Player 1') {
 			this.parse(`/addplayer ${room.battle.p1.name}, p1`);
 			didSomething = true;
 		}
-		if (!room.battle.p2.id && room.battle.p2.name !== 'Player 2') {
+		if (!room.battle.p2.id && room.battle.p2.name !== this.tr('Player 2')) {
 			this.parse(`/addplayer ${room.battle.p2.name}, p2`);
 			didSomething = true;
 		}
 
 		if (!didSomething) {
-			return this.errorReply(`Players could not be restored (maybe this battle already has two players?).`);
+			return this.errorReply(this.tr`Players could not be restored (maybe this battle already has two players?).`);
 		}
 	},
 	restoreplayershelp: [
@@ -1071,9 +1226,9 @@ export const commands: ChatCommands = {
 
 	joinbattle: 'joingame',
 	joingame(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.game) return this.errorReply("This room doesn't have an active game.");
-		if (!room.game.joinGame) return this.errorReply("This game doesn't support /joingame");
+		room = this.requireRoom();
+		if (!room.game) return this.errorReply(this.tr("This room doesn't have an active game."));
+		if (!room.game.joinGame) return this.errorReply(this.tr("This game doesn't support /joingame"));
 
 		room.game.joinGame(user, target);
 	},
@@ -1081,28 +1236,30 @@ export const commands: ChatCommands = {
 	leavebattle: 'leavegame',
 	partbattle: 'leavegame',
 	leavegame(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.game) return this.errorReply("This room doesn't have an active game.");
-		if (!room.game.leaveGame) return this.errorReply("This game doesn't support /leavegame");
+		room = this.requireRoom();
+		if (!room.game) return this.errorReply(this.tr("This room doesn't have an active game."));
+		if (!room.game.leaveGame) return this.errorReply(this.tr("This game doesn't support /leavegame"));
 
 		room.game.leaveGame(user);
 	},
 
 	kickbattle: 'kickgame',
 	kickgame(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!room.battle) return this.errorReply("You can only do this in battle rooms.");
+		room = this.requireRoom();
+		if (!room.battle) return this.errorReply(this.tr("You can only do this in battle rooms."));
 		if (room.battle.challengeType === 'tour' || room.battle.rated) {
-			return this.errorReply("You can only do this in unrated non-tour battles.");
+			return this.errorReply(this.tr("You can only do this in unrated non-tour battles."));
 		}
 		target = this.splitTarget(target);
 		const targetUser = this.targetUser;
 		if (!targetUser || !targetUser.connected) {
-			return this.errorReply(`User ${this.targetUsername} not found.`);
+			const targetUsername = this.targetUsername;
+			return this.errorReply(this.tr`User ${targetUsername} not found.`);
 		}
-		if (!this.can('kick', targetUser, room)) return false;
+		this.checkCan('kick', targetUser, room);
 		if (room.battle.leaveGame(targetUser)) {
-			this.addModAction(`${targetUser.name} was kicked from a battle by ${user.name} ${(target ? ` (${target})` : ``)}`);
+			const displayTarget = target ? ` (${target})` : ``;
+			this.addModAction(room.tr`${targetUser.name} was kicked from a battle by ${user.name} ${displayTarget}`);
 			this.modlog('KICKBATTLE', targetUser, target, {noip: 1, noalts: 1});
 		} else {
 			this.errorReply("/kickbattle - User isn't in battle.");
@@ -1116,59 +1273,61 @@ export const commands: ChatCommands = {
 
 	timer(target, room, user) {
 		target = toID(target);
-		if (!room) return this.requiresRoom();
+		room = this.requireRoom();
 		if (!room.game || !room.game.timer) {
-			return this.errorReply(`You can only set the timer from inside a battle room.`);
+			return this.errorReply(this.tr`You can only set the timer from inside a battle room.`);
 		}
 		const timer = room.game.timer as any;
 		if (!timer.timerRequesters) {
-			return this.sendReply(`This game's timer is managed by a different command.`);
+			return this.sendReply(this.tr`This game's timer is managed by a different command.`);
 		}
 		if (!target) {
 			if (!timer.timerRequesters.size) {
-				return this.sendReply(`The game timer is OFF.`);
+				return this.sendReply(this.tr`The game timer is OFF.`);
 			}
-			return this.sendReply(`The game timer is ON (requested by ${[...timer.timerRequesters].join(', ')})`);
+			const requester = [...timer.timerRequesters].join(', ');
+			return this.sendReply(this.tr`The game timer is ON (requested by ${requester})`);
 		}
 		const force = user.can('timer', null, room);
 		if (!force && !room.game.playerTable[user.id]) {
-			return this.errorReply(`Access denied.`);
+			return this.errorReply(this.tr`Access denied.`);
 		}
 		if (this.meansNo(target) || target === 'stop') {
 			if (timer.timerRequesters.size) {
 				timer.stop(force ? undefined : user);
 				if (force) {
-					room.send(`|inactiveoff|Timer was turned off by staff. Please do not turn it back on until our staff say it's okay.`);
+					room.send(`|inactiveoff|${room.tr`Timer was turned off by staff. Please do not turn it back on until our staff say it's okay.`}`);
 				}
 			} else {
-				this.errorReply(`The timer is already off.`);
+				this.errorReply(this.tr`The timer is already off.`);
 			}
 		} else if (this.meansYes(target) || target === 'start') {
 			timer.start(user);
 		} else {
-			this.errorReply(`"${target}" is not a recognized timer state.`);
+			this.errorReply(this.tr`"${target}" is not a recognized timer state.`);
 		}
 	},
 
 	autotimer: 'forcetimer',
 	forcetimer(target, room, user) {
+		room = this.requireRoom();
 		target = toID(target);
-		if (!this.can('autotimer')) return;
+		this.checkCan('autotimer');
 		if (this.meansNo(target) || target === 'stop') {
 			Config.forcetimer = false;
-			this.addModAction(`Forcetimer is now OFF: The timer is now opt-in. (set by ${user.name})`);
+			this.addModAction(room.tr`Forcetimer is now OFF: The timer is now opt-in. (set by ${user.name})`);
 		} else if (this.meansYes(target) || target === 'start' || !target) {
 			Config.forcetimer = true;
-			this.addModAction(`Forcetimer is now ON: All battles will be timed. (set by ${user.name})`);
+			this.addModAction(room.tr`Forcetimer is now ON: All battles will be timed. (set by ${user.name})`);
 		} else {
-			this.errorReply(`'${target}' is not a recognized forcetimer setting.`);
+			this.errorReply(this.tr`'${target}' is not a recognized forcetimer setting.`);
 		}
 	},
 
 	forcetie: 'forcewin',
 	forcewin(target, room, user) {
-		if (!room) return this.requiresRoom();
-		if (!this.can('forcewin')) return false;
+		room = this.requireRoom();
+		this.checkCan('forcewin');
 		if (!room.battle) {
 			this.errorReply("/forcewin - This is not a battle room.");
 			return false;
@@ -1181,7 +1340,7 @@ export const commands: ChatCommands = {
 			return false;
 		}
 		const targetUser = Users.getExact(target);
-		if (!targetUser) return this.errorReply(`User '${target}' not found.`);
+		if (!targetUser) return this.errorReply(this.tr`User '${target}' not found.`);
 
 		room.battle.win(targetUser);
 		this.modlog('FORCEWIN', targetUser.id);
@@ -1195,17 +1354,21 @@ export const commands: ChatCommands = {
 	 * Challenging and searching commands
 	 *********************************************************/
 
-	search(target, room, user, connection) {
+	async search(target, room, user, connection) {
 		if (target) {
-			if (Config.laddermodchat) {
-				const userGroup = user.group;
-				if (Config.groupsranking.indexOf(userGroup) < Config.groupsranking.indexOf(Config.laddermodchat)) {
-					const groupName = Config.groups[Config.laddermodchat].name || Config.laddermodchat;
-					this.popupReply(`On this server, you must be of rank ${groupName} or higher to search for a battle.`);
-					return false;
-				}
+			if (Config.laddermodchat && !Users.globalAuth.atLeast(user, Config.laddermodchat)) {
+				const groupName = Config.groups[Config.laddermodchat].name || Config.laddermodchat;
+				this.popupReply(this.tr`This server requires you to be rank ${groupName} or higher to search for a battle.`);
+				return false;
 			}
-			return Ladders(target).searchBattle(user, connection);
+			const ladder = Ladders(target);
+			if (!user.registered && Config.forceregisterelo && await ladder.getRating(user.id) >= Config.forceregisterelo) {
+				user.send(
+					Utils.html`|popup||html|${this.tr`Since you have reached ${Config.forceregisterelo} ELO in ${target}, you must register your account to continue playing that format on ladder.`}<p style="text-align: center"><button name="register" value="${user.id}"><b>${this.tr`Register`}</b></button></p>`
+				);
+				return false;
+			}
+			return ladder.searchBattle(user, connection);
 		}
 		return Ladders.cancelSearches(user);
 	},
@@ -1223,21 +1386,22 @@ export const commands: ChatCommands = {
 		target = this.splitTarget(target);
 		const targetUser = this.targetUser;
 		if (!targetUser || !targetUser.connected) {
-			return this.popupReply(`The user '${this.targetUsername}' was not found.`);
+			const targetUsername = this.targetUsername;
+			return this.popupReply(this.tr`The user '${targetUsername}' was not found.`);
 		}
 		if (user.locked && !targetUser.locked) {
-			return this.popupReply(`You are locked and cannot challenge unlocked users.`);
+			return this.popupReply(this.tr`You are locked and cannot challenge unlocked users.`);
 		}
 		if (Punishments.isBattleBanned(user)) {
-			return this.popupReply(`You are banned from battling and cannot challenge users.`);
+			return this.popupReply(this.tr`You are banned from battling and cannot challenge users.`);
 		}
-		if (Config.pmmodchat) {
-			const userGroup = user.group;
-			if (Config.groupsranking.indexOf(userGroup) < Config.groupsranking.indexOf(Config.pmmodchat as GroupSymbol)) {
-				const groupName = Config.groups[Config.pmmodchat].name || Config.pmmodchat;
-				this.popupReply(`Because moderated chat is set, you must be of rank ${groupName} or higher to challenge users.`);
-				return false;
-			}
+		if (!user.named) {
+			return this.popupReply(this.tr`You must choose a username before you challenge someone.`);
+		}
+		if (Config.pmmodchat && !user.hasSysopAccess() && !Users.globalAuth.atLeast(user, Config.pmmodchat as GroupSymbol)) {
+			const groupName = Config.groups[Config.pmmodchat].name || Config.pmmodchat;
+			this.popupReply(this.tr`This server requires you to be rank ${groupName} or higher to challenge users.`);
+			return false;
 		}
 		return Ladders(target).makeChallenge(connection, targetUser);
 	},
@@ -1275,9 +1439,10 @@ export const commands: ChatCommands = {
 
 	accept(target, room, user, connection) {
 		target = this.splitTarget(target);
-		if (target) return this.popupReply(`This command does not support specifying multiple users`);
+		if (target) return this.popupReply(this.tr`This command does not support specifying multiple users`);
 		const targetUser = this.targetUser || this.pmTarget;
-		if (!targetUser) return this.popupReply(`User "${this.targetUsername}" not found.`);
+		const targetUsername = this.targetUsername;
+		if (!targetUser) return this.popupReply(this.tr`User "${targetUsername}" not found.`);
 		return Ladders.acceptChallenge(connection, targetUser);
 	},
 
@@ -1297,23 +1462,43 @@ export const commands: ChatCommands = {
 		if (Monitor.countPrepBattle(connection.ip, connection)) {
 			return;
 		}
-		if (!target) return this.errorReply("Provide a valid format.");
+		if (!target) return this.errorReply(this.tr("Provide a valid format."));
 		const originalFormat = Dex.getFormat(target);
 		// Note: The default here of [Gen 8] Anything Goes isn't normally hit; since the web client will send a default format
 		const format = originalFormat.effectType === 'Format' ? originalFormat : Dex.getFormat(
 			'[Gen 8] Anything Goes'
 		);
-		if (format.effectType !== 'Format') return this.popupReply("Please provide a valid format.");
+		if (format.effectType !== this.tr('Format')) return this.popupReply(this.tr("Please provide a valid format."));
 
 		return TeamValidatorAsync.get(format.id).validateTeam(user.battleSettings.team).then(result => {
-			const matchMessage = (originalFormat === format ? "" : `The format '${originalFormat.name}' was not found.`);
+			const matchMessage = (originalFormat === format ? "" : this.tr`The format '${originalFormat.name}' was not found.`);
 			if (result.charAt(0) === '1') {
-				connection.popup(`${(matchMessage ? matchMessage + "\n\n" : "")}Your team is valid for ${format.name}.`);
+				connection.popup(`${(matchMessage ? matchMessage + "\n\n" : "")}${this.tr`Your team is valid for ${format.name}.`}`);
 			} else {
-				connection.popup(`${(matchMessage ? matchMessage + "\n\n" : "")}Your team was rejected for the following reasons:\n\n- ${result.slice(1).replace(/\n/g, '\n- ')}`);
+				connection.popup(`${(matchMessage ? matchMessage + "\n\n" : "")}${this.tr`Your team was rejected for the following reasons:`}\n\n- ${result.slice(1).replace(/\n/g, '\n- ')}`);
 			}
 		});
 	},
+
+	hbtc: 'hidebattlesfromtrainercard',
+	sbtc: 'hidebattlesfromtrainercard',
+	showbattlesinusercard: 'hidebattlesfromtrainercard',
+	hidebattlesfromusercard: 'hidebattlesfromtrainercard',
+	showbattlesintrainercard: 'hidebattlesfromtrainercard',
+	hidebattlesfromtrainercard(target, room, user, connection, cmd) {
+		const shouldHide = cmd.includes('hide') || cmd === 'hbtc';
+		user.settings.hideBattlesFromTrainerCard = shouldHide;
+		user.update();
+		if (shouldHide) {
+			this.sendReply(this.tr`Battles are now hidden (except to staff) in your trainer card.`);
+		} else {
+			this.sendReply(this.tr`Battles are now visible in your trainer card.`);
+		}
+	},
+	hidebattlesfromtrainercardhelp: [
+		`/hidebattlesfromtrainercard OR /hbtc - Hides your battles in your trainer card.`,
+		`/showbattlesintrainercard OR /sbtc - Displays your battles in your trainer card.`,
+	],
 
 	/*********************************************************
 	 * Low-level
@@ -1324,14 +1509,9 @@ export const commands: ChatCommands = {
 	crq(target, room, user, connection) {
 		// In emergency mode, clamp down on data returned from crq's
 		const trustable = (!Config.emergency || (user.named && user.registered));
-		const spaceIndex = target.indexOf(' ');
-		let cmd = target;
-		if (spaceIndex > 0) {
-			cmd = target.substr(0, spaceIndex);
-			target = target.substr(spaceIndex + 1);
-		} else {
-			target = '';
-		}
+		let cmd;
+		[cmd, target] = Utils.splitFirst(target, ' ');
+
 		if (cmd === 'userdetails') {
 			if (target.length > 18) {
 				connection.send('|queryresponse|userdetails|null');
@@ -1351,7 +1531,6 @@ export const commands: ChatCommands = {
 			interface RoomData {p1?: string; p2?: string; isPrivate?: boolean | 'hidden' | 'voice'}
 			let roomList: {[roomid: string]: RoomData} | false = {};
 			for (const roomid of targetUser.inRooms) {
-				if (roomid === 'global') continue;
 				const targetRoom = Rooms.get(roomid);
 				if (!targetRoom) continue; // shouldn't happen
 				const roomData: RoomData = {};
@@ -1360,6 +1539,7 @@ export const commands: ChatCommands = {
 					roomData.isPrivate = true;
 				}
 				if (targetRoom.battle) {
+					if (targetUser.settings.hideBattlesFromTrainerCard && user.id !== targetUser.id && !user.can('lock')) continue;
 					const battle = targetRoom.battle;
 					roomData.p1 = battle.p1 ? ' ' + battle.p1.name : '';
 					roomData.p2 = battle.p2 ? ' ' + battle.p2.name : '';
@@ -1371,12 +1551,15 @@ export const commands: ChatCommands = {
 				roomList[roomidWithAuth] = roomData;
 			}
 			if (!targetUser.connected) roomList = false;
+			let group = targetUser.tempGroup;
+			if (targetUser.locked) group = Config.punishgroups?.locked?.symbol ?? '\u203d';
+			if (targetUser.namelocked) group = Config.punishgroups?.namelocked?.symbol ?? '✖';
 			const userdetails: AnyObject = {
 				id: target,
 				userid: targetUser.id,
 				name: targetUser.name,
 				avatar: targetUser.avatar,
-				group: targetUser.group,
+				group: group,
 				autoconfirmed: !!targetUser.autoconfirmed,
 				status: targetUser.getStatus(),
 				rooms: roomList,
@@ -1456,21 +1639,10 @@ export const commands: ChatCommands = {
 	trn(target, room, user, connection) {
 		if (target === user.name) return false;
 
-		let commaIndex = target.indexOf(',');
-		let targetName = target;
-		let targetRegistered = false;
-		let targetToken = '';
-		if (commaIndex >= 0) {
-			targetName = target.substr(0, commaIndex);
-			target = target.substr(commaIndex + 1);
-			commaIndex = target.indexOf(',');
-			targetRegistered = !!target;
-			if (commaIndex >= 0) {
-				targetRegistered = !!parseInt(target.substr(0, commaIndex));
-				targetToken = target.substr(commaIndex + 1);
-			}
-		}
-		return user.rename(targetName, targetToken, targetRegistered, connection);
+		const [name, registeredString, token] = Utils.splitFirst(target, ',', 2);
+		const registered = !!parseInt(registeredString);
+
+		return user.rename(name, token || '', registered, connection);
 	},
 
 	/*********************************************************
@@ -1494,7 +1666,7 @@ export const commands: ChatCommands = {
 			this.sendReply(`${this.tr('OPTION COMMANDS')}: /nick, /avatar, /ignore, /status, /away, /busy, /back, /timestamps, /highlight, /showjoins, /hidejoins, /blockchallenges, /blockpms`);
 			this.sendReply(`${this.tr('INFORMATIONAL/RESOURCE COMMANDS')}: /groups, /faq, /rules, /intro, /formatshelp, /othermetas, /analysis, /punishments, /calc, /git, /cap, /roomhelp, /roomfaq ${broadcastMsg}`);
 			this.sendReply(`${this.tr('DATA COMMANDS')}: /data, /dexsearch, /movesearch, /itemsearch, /learn, /statcalc, /effectiveness, /weakness, /coverage, /randommove, /randompokemon ${broadcastMsg}`);
-			if (user.group !== Users.Auth.defaultSymbol()) {
+			if (user.tempGroup !== Users.Auth.defaultSymbol()) {
 				this.sendReply(`${this.tr('DRIVER COMMANDS')}: /warn, /mute, /hourmute, /unmute, /alts, /forcerename, /modlog, /modnote, /modchat, /lock, /weeklock, /unlock, /announce`);
 				this.sendReply(`${this.tr('MODERATOR COMMANDS')}: /globalban, /unglobalban, /ip, /markshared, /unlockip`);
 				this.sendReply(`${this.tr('ADMIN COMMANDS')}: /declare, /forcetie, /forcewin, /promote, /demote, /banip, /host, /unbanall, /ipsearch`);
@@ -1508,7 +1680,7 @@ export const commands: ChatCommands = {
 
 		let namespace = Chat.commands;
 
-		let currentBestHelp: {help: string[] | Chat.ChatHandler, for: string[]} | null = null;
+		let currentBestHelp: {help: string[] | Chat.AnnotatedChatHandler, for: string[]} | null = null;
 
 		for (const [i, cmd] of cmds.entries()) {
 			let nextNamespace = namespace[cmd];
@@ -1525,11 +1697,21 @@ export const commands: ChatCommands = {
 				throw new Error(`Recursive alias in "${target}"`);
 			}
 			if (Array.isArray(nextNamespace)) {
-				this.sendReply(`'/${cmds.slice(0, i + 1).join(' ')}' is a help command.`);
+				const command = cmds.slice(0, i + 1).join(' ');
+				this.sendReply(this.tr`'/${command}' is a help command.`);
 				return this.parse(`/${target}`);
 			}
-			if (!nextNamespace || typeof nextNamespace === 'boolean') {
-				return this.errorReply(`The command '/${target}' does not exist.`);
+			if (!nextNamespace) {
+				for (const g in Config.groups) {
+					const groupid = Config.groups[g].id;
+					if (new RegExp(`(global)?(un|de)?${groupid}`).test(target)) {
+						return this.parse(`/help promote`);
+					}
+					if (new RegExp(`room(un|de)?${groupid}`).test(target)) {
+						return this.parse(`/help roompromote`);
+					}
+				}
+				return this.errorReply(this.tr`The command '/${target}' does not exist.`);
 			}
 
 			const help = namespace[`${cmd}help`];
@@ -1539,19 +1721,22 @@ export const commands: ChatCommands = {
 				};
 			}
 
-			if (!nextNamespace) {
-				return this.errorReply(`The command '/${target}' does not exist.`);
-			}
-			if (typeof nextNamespace !== 'object') break;
-			namespace = nextNamespace;
+			if (typeof nextNamespace === 'function') break;
+			namespace = nextNamespace as import('../chat').AnnotatedChatCommands;
 		}
 
 		if (!currentBestHelp) {
-			return this.errorReply(`Could not find help for '/${target}'. Try /help for general help.`);
+			return this.errorReply(this.tr`Could not find help for '/${target}'. Try /help for general help.`);
 		}
 
+		const closestHelp = currentBestHelp.for.join(' ');
 		if (currentBestHelp.for.length < cmds.length) {
-			this.errorReply(`Could not find help for '/${target}' - displaying help for '/${currentBestHelp.for.join(' ')}' instead`);
+			this.errorReply(this.tr`Could not find help for '/${target}' - displaying help for '/${closestHelp}' instead`);
+		}
+
+		const curHandler = Chat.parseCommand(`/${closestHelp}`)?.handler;
+		if (curHandler?.isPrivate && !user.can('lock')) {
+			return this.errorReply(this.tr`The command '/${target}' does not exist.`);
 		}
 
 		if (typeof currentBestHelp.help === 'function') {

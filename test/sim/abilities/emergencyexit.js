@@ -57,11 +57,13 @@ describe(`Emergency Exit`, function () {
 	});
 
 	it(`should not request switch-out if attacked and healed by berry`, function () {
-		battle = common.createBattle([
-			[{species: "Golisopod", ability: 'emergencyexit', moves: ['sleeptalk'], item: 'sitrusberry', ivs: EMPTY_IVS}, {species: "Clefable", ability: 'Unaware', moves: ['metronome']}],
-			[{species: "Raticate", ability: 'guts', moves: ['superfang']}],
-		]);
-		battle.makeChoices('move sleeptalk', 'move superfang');
+		battle = common.createBattle([[
+			{species: "Golisopod", ability: 'emergencyexit', moves: ['sleeptalk'], item: 'sitrusberry', ivs: EMPTY_IVS},
+			{species: "Clefable", ability: 'unaware', moves: ['metronome']},
+		], [
+			{species: "Raticate", ability: 'guts', moves: ['superfang']},
+		]]);
+		battle.makeChoices();
 		assert.equal(battle.requestState, 'move');
 	});
 
@@ -119,7 +121,7 @@ describe(`Emergency Exit`, function () {
 		assert.equal(battle.requestState, 'switch');
 	});
 
-	it(`should not request switch-out after taking residual damage and getting healed by berry`, function () {
+	it(`should not request switch-out after taking entry hazard damage and getting healed by berry`, function () {
 		battle = common.createBattle([
 			[{species: "Golisopod", ability: 'emergencyexit', moves: ['uturn', 'sleeptalk'], item: 'sitrusberry'}, {species: "Magikarp", ability: 'swiftswim', moves: ['splash']}],
 			[{species: "Ferrothorn", ability: 'ironbarbs', moves: ['stealthrock', 'spikes', 'protect']}],
@@ -133,7 +135,7 @@ describe(`Emergency Exit`, function () {
 		assert.equal(battle.requestState, 'move');
 	});
 
-	it.skip(`should not request switch-out after taking poison damage and getting healed by berry`, function () {
+	it(`should not request switch-out after taking poison damage and getting healed by berry`, function () {
 		battle = common.createBattle([
 			[{species: "Golisopod", ability: 'emergencyexit', moves: ['substitute', 'sleeptalk'], item: 'sitrusberry'}, {species: "Magikarp", moves: ['splash']}],
 			[{species: "Gengar", moves: ['toxic', 'nightshade', 'protect']}],
@@ -157,7 +159,7 @@ describe(`Emergency Exit`, function () {
 		assert.equal(battle.requestState, 'move');
 	});
 
-	it(`should prevent Volt Switch after-switches`, function () {
+	it(`should prevent Volt Switch after switches`, function () {
 		battle = common.createBattle([
 			[{species: "Golisopod", ability: 'emergencyexit', moves: ['sleeptalk'], ivs: EMPTY_IVS}, {species: "Clefable", ability: 'Unaware', moves: ['metronome']}],
 			[{species: "Zekrom", ability: 'pressure', moves: ['voltswitch']}, {species: "Clefable", ability: 'Unaware', moves: ['metronome']}],
@@ -248,5 +250,42 @@ describe(`Emergency Exit`, function () {
 		battle.makeChoices('switch 2', 'move healpulse');
 		battle.makeChoices('auto', 'move superfang');
 		assert.equal(battle.requestState, 'switch');
+	});
+
+	it('should not request switchout if its HP is already below 50% and an effect heals it', function () {
+		battle = common.createBattle([[
+			{species: "Golisopod", level: 65, item: 'figyberry', ability: 'emergencyexit', moves: ['sleeptalk']},
+			{species: "Wynaut", moves: ['sleeptalk']},
+		], [
+			{species: "ursaring", ability: 'sheerforce', moves: ['falseswipe', 'crunch']},
+		]]);
+		battle.makeChoices('auto', 'move crunch');
+		battle.makeChoices();
+		assert.equal(battle.requestState, 'move');
+	});
+
+	it('should request switchout if its HP drops to below 50% while dynamaxed', function () {
+		battle = common.createBattle([
+			[{species: "Golisopod", ability: 'emergencyexit', moves: ['closecombat'], ivs: EMPTY_IVS, level: 30}, {species: "Clefable", ability: 'Unaware', moves: ['metronome']}],
+			[{species: "Gengar", ability: 'cursedbody', moves: ['nightshade']}],
+		]);
+		const eePokemon = battle.p1.active[0];
+		battle.makeChoices('move maxknuckle dynamax', 'move nightshade');
+		assert.atMost(eePokemon.hp, eePokemon.maxhp / 2);
+		assert.equal(battle.requestState, 'switch');
+	});
+
+	it('should not request switchout if its HP is below 50% when its dynamax ends', function () {
+		battle = common.createBattle([
+			[{species: "Golisopod", ability: 'emergencyexit', moves: ['drillrun'], ivs: EMPTY_IVS}, {species: "Clefable", ability: 'Unaware', moves: ['metronome']}],
+			[{species: "Landorus", ability: 'sheerforce', moves: ['sludgewave']}],
+		]);
+		const eePokemon = battle.p1.active[0];
+		battle.makeChoices('move maxquake dynamax', 'move sludgewave');
+		battle.makeChoices();
+		battle.makeChoices();
+		assert.false.fainted(eePokemon);
+		assert.atMost(eePokemon.hp, eePokemon.maxhp / 2);
+		assert.equal(battle.requestState, 'move');
 	});
 });

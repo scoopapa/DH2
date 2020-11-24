@@ -53,6 +53,7 @@ if (('Config' in global) &&
 
 export const Monitor = new class {
 	connections = new TimedCounter();
+	netRequests = new TimedCounter();
 	battles = new TimedCounter();
 	battlePreps = new TimedCounter();
 	groupChats = new TimedCounter();
@@ -68,11 +69,16 @@ export const Monitor = new class {
 
 	updateServerLock = false;
 	cleanInterval: NodeJS.Timeout | null = null;
+	/**
+	 * Inappropriate userid : number of times the name has been forcerenamed
+	 */
+	readonly forceRenames = new Map<ID, number>();
 
 	/*********************************************************
 	 * Logging
 	 *********************************************************/
-	crashlog(error: Error, source = 'The main process', details: {} | null = null) {
+	crashlog(error: Error, source = 'The main process', details: AnyObject | null = null) {
+		if (!error) error = {} as any;
 		if ((error.stack || '').startsWith('@!!@')) {
 			try {
 				const stack = (error.stack || '');
@@ -113,6 +119,11 @@ export const Monitor = new class {
 		}
 	}
 
+	error(text: string) {
+		(Rooms.get('development') || Rooms.get('staff') || Rooms.get('lobby'))?.add(`|error|${text}`).update();
+		if (Config.loglevel <= 3) console.error(text);
+	}
+
 	debug(text: string) {
 		if (Config.loglevel <= 1) console.log(text);
 	}
@@ -141,6 +152,7 @@ export const Monitor = new class {
 	 * Counts a connection. Returns true if the connection should be terminated for abuse.
 	 */
 	countConnection(ip: string, name = '') {
+		if (Config.noipchecks || Config.nothrottle) return false;
 		const [count, duration] = this.connections.increment(ip, 30 * 60 * 1000);
 		if (count === 500) {
 			this.adminlog(`[ResourceMonitor] IP ${ip} banned for cflooding (${count} times in ${Chat.toDurationString(duration)}${name ? ': ' + name : ''})`);
@@ -165,6 +177,7 @@ export const Monitor = new class {
 	 * terminated for abuse.
 	 */
 	countBattle(ip: string, name = '') {
+		if (Config.noipchecks || Config.nothrottle) return false;
 		const [count, duration] = this.battles.increment(ip, 30 * 60 * 1000);
 		if (duration < 5 * 60 * 1000 && count % 30 === 0) {
 			this.adminlog(`[ResourceMonitor] IP ${ip} has battled ${count} times in the last ${Chat.toDurationString(duration)}${name ? ': ' + name : ''})`);
@@ -183,6 +196,7 @@ export const Monitor = new class {
 	 * Counts team validations. Returns true if too many.
 	 */
 	countPrepBattle(ip: string, connection: Connection) {
+		if (Config.noipchecks || Config.nothrottle) return false;
 		const count = this.battlePreps.increment(ip, 3 * 60 * 1000)[0];
 		if (count <= 12) return false;
 		if (count < 120 && Punishments.sharedIps.has(ip)) return false;
@@ -194,6 +208,7 @@ export const Monitor = new class {
 	 * Counts concurrent battles. Returns true if too many.
 	 */
 	countConcurrentBattle(count: number, connection: Connection) {
+		if (Config.noipchecks || Config.nothrottle) return false;
 		if (count <= 5) return false;
 		connection.popup(`Due to high load, you are limited to 5 games at the same time.`);
 		return true;
@@ -202,14 +217,27 @@ export const Monitor = new class {
 	 * Counts group chat creation. Returns true if too much.
 	 */
 	countGroupChat(ip: string) {
+		if (Config.noipchecks) return false;
 		const count = this.groupChats.increment(ip, 60 * 60 * 1000)[0];
 		return count > 4;
+	}
+
+	/**
+	 * Counts commands that use HTTPs requests. Returns true if too many.
+	 */
+	countNetRequests(ip: string) {
+		if (Config.noipchecks || Config.nothrottle) return false;
+		const [count] = this.netRequests.increment(ip, 1 * 60 * 1000);
+		if (count <= 10) return false;
+		if (count < 120 && Punishments.sharedIps.has(ip)) return false;
+		return true;
 	}
 
 	/**
 	 * Counts ticket creation. Returns true if too much.
 	 */
 	countTickets(ip: string) {
+		if (Config.noipchecks || Config.nothrottle) return false;
 		const count = this.tickets.increment(ip, 60 * 60 * 1000)[0];
 		if (Punishments.sharedIps.has(ip)) {
 			return count >= 20;
@@ -223,7 +251,12 @@ export const Monitor = new class {
 	 * message, as well as the data length in the server's response.
 	 */
 	countNetworkUse(size: number) {
-		if (!Config.emergency || typeof this.activeIp !== 'string') return;
+		if (
+			!Config.emergency || typeof this.activeIp !== 'string' ||
+			Config.noipchecks || Config.nothrottle
+		) {
+			return;
+		}
 		if (this.activeIp in this.networkUse) {
 			this.networkUse[this.activeIp] += size;
 			this.networkCount[this.activeIp]++;

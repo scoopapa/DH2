@@ -46,12 +46,22 @@ function endLottery(roomid: RoomID, winners: string[]) {
 	Object.freeze(lottery);
 	writeLotteries();
 }
+
+function isSignedUp(roomid: RoomID, user: User) {
+	const lottery = lotteries[roomid];
+	if (!lottery) return;
+	const participants = lottery.participants;
+	const participantNames = Object.values(participants).map(toID);
+	if (participantNames.includes(user.id)) return true;
+	if (Config.noipchecks) return false;
+	return !!participants[user.latestIp];
+}
+
 function addUserToLottery(roomid: RoomID, user: User) {
 	const lottery = lotteries[roomid];
 	if (!lottery) return;
 	const participants = lottery.participants;
-	const userSignedup = participants[user.latestIp] || Object.values(participants).map(toID).includes(user.id);
-	if (!userSignedup) {
+	if (!isSignedUp(roomid, user)) {
 		participants[user.latestIp] = user.name;
 		writeLotteries();
 		return true;
@@ -88,7 +98,7 @@ function getWinnersInLottery(roomid: RoomID) {
 export const commands: ChatCommands = {
 	lottery: {
 		''(target, room) {
-			if (!room) return this.requiresRoom();
+			room = this.requireRoom();
 			const lottery = lotteries[room.roomid];
 			if (!lottery) {
 				return this.errorReply("This room doesn't have a lottery running.");
@@ -97,8 +107,8 @@ export const commands: ChatCommands = {
 		},
 		edit: 'create',
 		create(target, room, user, connection, cmd) {
-			if (!room) return this.requiresRoom();
-			if (!this.can('declare', null, room)) return;
+			room = this.requireRoom();
+			this.checkCan('declare', null, room);
 			if (room.battle || !room.persist) {
 				return this.errorReply('This room does not support the creation of lotteries.');
 			}
@@ -114,7 +124,7 @@ export const commands: ChatCommands = {
 				return this.errorReply("You're missing a command parameter - see /help lottery for this command's syntax.");
 			}
 			const maxWinnersNum = parseInt(maxWinners);
-			if (!this.canHTML(markup)) return;
+			this.checkHTML(markup);
 			if (isNaN(maxWinnersNum)) {
 				return this.errorReply(`${maxWinners} is not a valid number.`);
 			}
@@ -138,8 +148,8 @@ export const commands: ChatCommands = {
 			this.modlog(`LOTTERY ${edited ? 'EDIT' : 'CREATE'} ${name}`, null, `${maxWinnersNum} max winners`);
 		},
 		delete(target, room, user) {
-			if (!room) return this.requiresRoom();
-			if (!this.can('declare', null, room)) return;
+			room = this.requireRoom();
+			this.checkCan('declare', null, room);
 			const lottery = lotteries[room.roomid];
 			if (!lottery) {
 				return this.errorReply('This room does not have a lottery running.');
@@ -150,8 +160,8 @@ export const commands: ChatCommands = {
 			this.sendReply('The lottery was successfully deleted.');
 		},
 		end(target, room) {
-			if (!room) return this.requiresRoom();
-			if (!this.can('declare', null, room)) return;
+			room = this.requireRoom();
+			this.checkCan('declare', null, room);
 			const lottery = lotteries[room.roomid];
 			if (!lottery) {
 				return this.errorReply('This room does not have a lottery running.');
@@ -232,18 +242,18 @@ export const commands: ChatCommands = {
 			}
 		},
 		participants(target, room, user) {
-			if (!room) return this.requiresRoom();
+			room = this.requireRoom();
 			const lottery = lotteries[room.roomid];
 			if (!lottery) {
 				return this.errorReply('This room does not have a lottery running.');
 			}
-			const canSeeIps = user.can('globalban');
-			const participants = Object.entries(lottery.participants).map(([ip, participant]) => {
-				return `- ${participant}${canSeeIps ? ' (IP: ' + ip + ')' : ''}`;
-			});
+			const canSeeIps = user.can('ip');
+			const participants = Object.entries(lottery.participants).map(
+				([ip, participant]) => `- ${participant}${canSeeIps ? ' (IP: ' + ip + ')' : ''}`
+			);
 			let buf = '';
 			if (user.can('declare', null, room)) {
-				buf += `<details class="readmore"><summary><b>List of participants (${participants.length}):</b></summary><p>${participants.join('\n')}</p></details>`;
+				buf += `<details class="readmore"><summary><strong>List of participants (${participants.length}):</strong></summary>${participants.join('<br>')}</details>`;
 			} else {
 				buf += `${participants.length} participant(s) joined this lottery.`;
 			}
@@ -268,8 +278,7 @@ export const commands: ChatCommands = {
 export const pages: PageTable = {
 	lottery(query, user) {
 		this.title = 'Lottery';
-		const room = this.extractRoom();
-		if (!room) return;
+		const room = this.requireRoom();
 
 		let buf = '<div class="pad">';
 		const lottery = lotteries[room.roomid];

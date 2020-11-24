@@ -18,7 +18,8 @@ describe('Dex data', function () {
 				// entry is a forme of a base species
 				const baseEntry = Pokedex[toID(entry.baseSpecies)];
 				assert(baseEntry && !baseEntry.forme, `Forme ${entry.name} should have a valid baseSpecies`);
-				assert((baseEntry.otherFormes || []).includes(entry.name), `Base species ${entry.baseSpecies} should have ${entry.name} listed as an otherForme`);
+				// Gmax formes are not actually formes, they are only included in pokedex.ts for convenience
+				if (!entry.name.includes('Gmax')) assert((baseEntry.otherFormes || []).includes(entry.name), `Base species ${entry.baseSpecies} should have ${entry.name} listed as an otherForme`);
 				assert(!entry.otherFormes, `Forme ${entry.baseSpecies} should not have a forme list (the list goes in baseSpecies).`);
 				assert(!entry.cosmeticFormes, `Forme ${entry.baseSpecies} should not have a cosmetic forme list (the list goes in baseSpecies).`);
 				assert(!entry.baseForme, `Forme ${entry.baseSpecies} should not have a baseForme (its forme name goes in forme) (did you mean baseSpecies?).`);
@@ -82,11 +83,17 @@ describe('Dex data', function () {
 			}
 			if (entry.formeOrder) {
 				for (const forme of entry.formeOrder) {
+					if (toID(forme).includes('gmax')) continue;
 					 // formeOrder contains other formes and 'cosmetic' formes which do not have entries in Pokedex but should have aliases
 					const formeEntry = Dex.getSpecies(toID(forme));
 					assert.equal(forme, formeEntry.name, `Misspelled/nonexistent forme "${forme}" of ${entry.name}`);
 					assert(entry.formeOrder.includes(formeEntry.baseSpecies), `${entry.name}'s formeOrder does not contain its base species ${formeEntry.baseSpecies}`);
 				}
+			}
+
+			if (entry.evoItem) {
+				const item = Dex.getItem(entry.evoItem);
+				assert.equal(entry.evoItem, item.exists && item.name, `Misspelled/nonexistent evo item "${entry.evoItem}" of ${entry.name}`);
 			}
 
 			const battleOnly = ['Mega', 'Mega-X', 'Mega-Y', 'Primal'].includes(entry.forme) ? entry.baseSpecies : entry.battleOnly;
@@ -111,10 +118,10 @@ describe('Dex data', function () {
 		}
 	});
 
-	it('should have valid Movedex entries', function () {
-		const Movedex = Dex.data.Movedex;
-		for (const moveid in Movedex) {
-			const entry = Movedex[moveid];
+	it('should have valid Moves entries', function () {
+		const Moves = Dex.data.Moves;
+		for (const moveid in Moves) {
+			const entry = Moves[moveid];
 			assert.equal(toID(entry.name), moveid, `Mismatched Move key "${moveid}" of "${entry.name}"`);
 			assert.equal(typeof entry.num, 'number', `Move ${entry.name} should have a number`);
 			assert.false(entry.infiltrates, `Move ${entry.name} should not have an 'infiltrates' property (no real move has it)`);
@@ -139,6 +146,15 @@ describe('Dex data', function () {
 		}
 	});
 
+	it('should have valid Natures entries', function () {
+		const Natures = Dex.data.Natures;
+		for (const natureid in Natures) {
+			const entry = Natures[natureid];
+			assert.equal(toID(entry.name), natureid, `Mismatched Nature key "${natureid}" of "${entry.name}"`);
+			assert.equal(!!entry.plus, !!entry.minus, `Mismatched Nature values "+${entry.plus}"/"-${entry.minus}" of "${entry.name}"`);
+		}
+	});
+
 	it('should have valid Learnsets entries', function () {
 		this.timeout(0);
 		const learnsetsArray = [Dex.mod('gen2').data.Learnsets, Dex.mod('letsgo').data.Learnsets, Dex.data.Learnsets];
@@ -156,7 +172,7 @@ describe('Dex data', function () {
 
 					let prevLearnedGen = 10;
 					let prevLearnedTypeIndex = -1;
-					const LEARN_ORDER = 'MTLREDSVC';
+					const LEARN_ORDER = 'MTLREVDSC';
 					for (const learned of entry.learnset[moveid]) {
 						// See the definition of MoveSource in sim/global-types
 						assert(/^[1-8][MTLREDSVC]/.test(learned), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid`);
@@ -167,7 +183,7 @@ describe('Dex data', function () {
 						const learnedTypeIndex = LEARN_ORDER.indexOf(learned.charAt(1));
 						assert(learnedGen <= prevLearnedGen, `Learn method "${learned}" for ${species.name}'s ${move.name} should be in order from newest to oldest gen`);
 						if (learnedGen === prevLearnedGen) {
-							assert(learnedTypeIndex >= prevLearnedTypeIndex, `Learn method "${learned}" for ${species.name}'s ${move.name} should be in MTLREDSVC order`);
+							assert(learnedTypeIndex >= prevLearnedTypeIndex, `Learn method "${learned}" for ${species.name}'s ${move.name} should be in MTLREVDSC order`);
 						}
 						prevLearnedGen = learnedGen;
 						prevLearnedTypeIndex = learnedTypeIndex;
@@ -186,18 +202,21 @@ describe('Dex data', function () {
 							assert(eventEntry.moves.includes(moveid), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid: an event move's event entry should include that move`);
 							break;
 						default:
-							assert.strictEqual(learned, learned.slice(0, 2), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid: it should be 2 characters long`);
+							assert.equal(learned, learned.slice(0, 2), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid: it should be 2 characters long`);
 							break;
 						}
 					}
 				}
 
 				if (entry.eventData) {
-					if (speciesid.startsWith('pokestar')) continue;
 					for (const [i, eventEntry] of entry.eventData.entries()) {
 						if (eventEntry.moves) {
 							const learned = `${eventEntry.generation}S${i}`;
 							for (const eventMove of eventEntry.moves) {
+								if (speciesid.startsWith('pokestar')) {
+									assert(Dex.data.Moves[eventMove], `${species.name}'s event move ${Dex.getMove(eventMove).name} should exist`);
+									continue;
+								}
 								assert(entry.learnset, `${species.name} has event moves but no learnset`);
 								assert(entry.learnset[eventMove].includes(learned), `${species.name}'s event move ${Dex.getMove(eventMove).name} should exist as "${learned}"`);
 							}

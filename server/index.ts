@@ -52,14 +52,13 @@
 try {
 	// I've gotten enough reports by people who don't use the launch
 	// script that this is worth repeating here
-	RegExp("\\p{Emoji}", "u");
+	[].flatMap(x => x);
 } catch (e) {
-	throw new Error("We require Node.js version 10 or later; you're using " + process.version);
+	throw new Error("We require Node.js version 12 or later; you're using " + process.version);
 }
 
 try {
 	require.resolve('../.sim-dist/index');
-	// tslint:disable-next-line
 	const sucraseVersion = require('sucrase').getVersion().split('.');
 	if (
 		parseInt(sucraseVersion[0]) < 3 ||
@@ -76,9 +75,6 @@ import {FS} from '../lib/fs';
 /*********************************************************
  * Load configuration
  *********************************************************/
-
-// global becomes much easier to use if declared as an object
-declare const global: any;
 
 import * as ConfigLoader from './config-loader';
 global.Config = ConfigLoader.Config;
@@ -107,7 +103,7 @@ if (Config.watchconfig) {
 
 import {Dex} from '../sim/dex';
 global.Dex = Dex;
-global.toID = Dex.getId;
+global.toID = Dex.toID;
 
 import {LoginServer} from './loginserver';
 global.LoginServer = LoginServer;
@@ -126,6 +122,8 @@ global.Punishments = Punishments;
 
 import {Rooms} from './rooms';
 global.Rooms = Rooms;
+// We initialize the global room here because roomlogs.ts needs the Rooms global
+Rooms.global = new Rooms.GlobalRoomState();
 
 import * as Verifier from './verifier';
 global.Verifier = Verifier;
@@ -136,7 +134,7 @@ global.Tournaments = Tournaments;
 
 import {IPTools} from './ip-tools';
 global.IPTools = IPTools;
-void IPTools.loadDatacenters();
+void IPTools.loadHostsAndRanges();
 
 if (Config.crashguard) {
 	// graceful crash - allow current battles to finish before restarting
@@ -144,10 +142,8 @@ if (Config.crashguard) {
 		Monitor.crashlog(err, 'The main process');
 	});
 
-	// Typescript doesn't like this call
-	// @ts-ignore
-	process.on('unhandledRejection', (err: Error, promise: Promise<any>) => {
-		Monitor.crashlog(err, 'A main process Promise');
+	process.on('unhandledRejection', err => {
+		Monitor.crashlog(err as any, 'A main process Promise');
 	});
 }
 

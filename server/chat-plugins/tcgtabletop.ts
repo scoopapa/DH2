@@ -2,7 +2,7 @@
 * TCG & Tabletop: Yugioh wiki plugin
 * This is a command that allows users to search the yugioh wiki for cards.
 * It will display the closest match with a given query, or a separate message if there isn't anything found.
-* By Asheviere with help from ascriptmaster, codelegend and the PS development team.
+* By bumbadadabum with help from ascriptmaster, codelegend and the PS development team.
 */
 
 
@@ -16,7 +16,7 @@ async function getFandom(site: string, pathName: string, search: AnyObject) {
 	const body = await Net(`https://${site}.fandom.com/${pathName}`).get({query: search});
 	const json = JSON.parse(body);
 	if (!json) throw new Error(`Malformed data`);
-	if (json.exception) throw new Error(Dex.getString(json.exception.message) || `Not found`);
+	if (json.exception) throw new Error(Utils.getString(json.exception.message) || `Not found`);
 	return json;
 }
 
@@ -45,37 +45,40 @@ async function getCardDetails(site: string, id: string) {
 export const commands: ChatCommands = {
 	ygo: 'yugioh',
 	yugioh(target, room, user) {
-		if (!this.canBroadcast()) return;
-		if (!room) return this.requiresRoom();
-		if (room.roomid !== 'tcgtabletop') return this.errorReply("This command can only be used in the TCG & Tabletop room.");
+		this.checkBroadcast();
+		room = this.requireRoom('tcgtabletop' as RoomID);
 		const subdomain = 'yugioh';
 		const query = target.trim();
 		if (!query) return this.parse('/help yugioh');
 
 		return searchFandom(subdomain, query).then((data: {url: unknown, title: unknown, id: unknown}) => {
 			if (!this.runBroadcast()) return;
-			const entryUrl = Dex.getString(data.url);
-			const entryTitle = Dex.getString(data.title);
-			const id = Dex.getString(data.id);
+			const entryUrl = Utils.getString(data.url);
+			const entryTitle = Utils.getString(data.title);
+			const id = Utils.getString(data.id);
 			let htmlReply = Utils.html`<strong>Best result for ${query}:</strong><br /><a href="${entryUrl}">${entryTitle}</a>`;
 			if (id) {
 				getCardDetails(subdomain, id).then((card: {thumbnail: unknown}) => {
-					const thumb = Dex.getString(card.thumbnail);
+					if (!room) return; // do nothing if the room doesn't exist anymore
+					const thumb = Utils.getString(card.thumbnail);
 					if (thumb) {
 						htmlReply = `<table><tr><td style="padding-right:5px;"><img src="${Utils.escapeHTML(thumb)}" width=80 height=115></td><td>${htmlReply}</td></tr></table>`;
 					}
 					if (!this.broadcasting) return this.sendReply(`|raw|<div class="infobox">${htmlReply}</div>`);
 					room.addRaw(`<div class="infobox">${htmlReply}</div>`).update();
 				}, () => {
+					if (!room) return; // do nothing if the room doesn't exist anymore
 					if (!this.broadcasting) return this.sendReply(`|raw|<div class="infobox">${htmlReply}</div>`);
 					room.addRaw(`<div class="infobox">${htmlReply}</div>`).update();
 				});
 			} else {
+				if (!room) return; // do nothing if the room doesn't exist anymore
 				if (!this.broadcasting) return this.sendReply(`|raw|<div class="infobox">${htmlReply}</div>`);
 				room.addRaw(`<div class="infobox">${htmlReply}</div>`).update();
 			}
 		}, (err: Error & {code: string}) => {
 			if (!this.runBroadcast()) return;
+			if (!room) return; // do nothing if the room doesn't exist anymore
 
 			if (err instanceof SyntaxError || err.message === 'Malformed data') {
 				if (!this.broadcasting) return this.sendReply(`Error: Something went wrong in the request: ${err.message}`);

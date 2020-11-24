@@ -101,6 +101,8 @@ export interface PokemonAction {
 	pokemon: Pokemon;
 	/** `runSwitch` only: the pokemon forcing this pokemon to switch in */
 	dragger?: Pokemon;
+	/** `event` only: the event to run */
+	event?: string;
 }
 
 export type Action = MoveAction | SwitchAction | TeamAction | FieldAction | PokemonAction;
@@ -269,7 +271,12 @@ export class BattleQueue {
 	addChoice(choices: ActionChoice | ActionChoice[]) {
 		if (!Array.isArray(choices)) choices = [choices];
 		for (const choice of choices) {
-			this.list.push(...this.resolveAction(choice));
+			const resolvedChoices = this.resolveAction(choice);
+			this.list.push(...resolvedChoices);
+			const resolvedChoice = resolvedChoices[0];
+			if (resolvedChoice && resolvedChoice.choice === 'move' && resolvedChoice.move.id !== 'recharge') {
+				resolvedChoice.pokemon.side.lastSelectedMove = resolvedChoice.move.id;
+			}
 		}
 	}
 
@@ -353,9 +360,8 @@ export class BattleQueue {
 		this.list = [];
 	}
 
-	debug(action?: Action): string {
+	debug(action?: any): string {
 		if (action) {
-			// @ts-ignore
 			return `${action.order || ''}:${action.priority || ''}:${action.speed || ''}:${action.subOrder || ''} - ${action.choice}${action.pokemon ? ' ' + action.pokemon : ''}${action.move ? ' ' + action.move : ''}`;
 		}
 		return this.list.map(

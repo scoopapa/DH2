@@ -38,28 +38,6 @@ function formatItem(item: Item | string) {
 	}
 }
 
-function trimmedItemsArray(items: string[]) {
-	const data: string[] = [];
-	for (const item of items) {
-		if (data.includes(toID(item) === "" ? "No Item" : item)) continue;
-		if (toID(item) === "") {
-			data.push("No Item");
-		} else {
-			data.push(item);
-		}
-	}
-	return data.sort();
-}
-
-function trimmedMovesArray(moves: string[]) {
-	const data: string[] = [];
-	for (const move of moves) {
-		if (data.includes(move)) continue;
-		data.push(move);
-	}
-	return data.sort();
-}
-
 function getRBYMoves(species: string | Species) {
 	species = Dex.mod(`gen1`).getSpecies(species);
 	let buf = ``;
@@ -88,32 +66,6 @@ function getRBYMoves(species: string | Species) {
 		!species.exclusiveMoves && !species.essentialMove
 	) {
 		return false;
-	}
-	return buf;
-}
-
-function getGSCMoves(species: string | Species) {
-	species = Dex.mod('gen2').getSpecies(species);
-	let buf = ``;
-	if (!species.randomSets || !species.randomSets.length) return false;
-	for (const [i, set] of species.randomSets.entries()) {
-		buf += `<details><summary>Set ${i + 1}</summary>`;
-		buf += `<ul style="list-style-type:none;">`;
-		buf += `<li>${species.name}`;
-		if (set.item) {
-			const items = trimmedItemsArray(set.item).map(formatItem).join(" / ");
-			buf += ` @ ${items}`;
-		}
-		buf += `</li>`;
-		if (set.baseMove1) buf += `<li>- ${formatMove(set.baseMove1)}</li>`;
-		if (set.baseMove2) buf += `<li>- ${formatMove(set.baseMove2)}</li>`;
-		if (set.baseMove3) buf += `<li>- ${formatMove(set.baseMove3)}</li>`;
-		if (set.baseMove4) buf += `<li>- ${formatMove(set.baseMove4)}</li>`;
-		if (set.fillerMoves1) buf += `<li>- ${trimmedMovesArray(set.fillerMoves1).map(formatMove).join(" / ")}</li>`;
-		if (set.fillerMoves2) buf += `<li>- ${trimmedMovesArray(set.fillerMoves2).map(formatMove).join(" / ")}</li>`;
-		if (set.fillerMoves3) buf += `<li>- ${trimmedMovesArray(set.fillerMoves3).map(formatMove).join(" / ")}</li>`;
-		if (set.fillerMoves4) buf += `<li>- ${trimmedMovesArray(set.fillerMoves4).map(formatMove).join(" / ")}</li>`;
-		buf += `</ul></details>`;
 	}
 	return buf;
 }
@@ -308,7 +260,7 @@ export const commands: ChatCommands = {
 			dex = Dex.mod(format.mod);
 			if (format.mod === 'letsgo') isLetsGo = true;
 		}
-		const species = dex.getSpecies(args[0]);
+		let species = dex.getSpecies(args[0]);
 		if (!species.exists) {
 			return this.errorReply(`Error: Pok\u00e9mon '${args[0].trim()}' does not exist.`);
 		}
@@ -320,13 +272,6 @@ export const commands: ChatCommands = {
 			}
 			return this.sendReplyBox(`<span style="color:#999999;">Moves for ${species.name} in ${formatName}:</span><br />${rbyMoves}`);
 		}
-		if (dex.gen === 2) {
-			const gscMoves = getGSCMoves(species);
-			if (!gscMoves) {
-				return this.errorReply(`Error: ${species.name} has no Random Battle data in ${GEN_NAMES[toID(args[1])]}`);
-			}
-			return this.sendReplyBox(`<span style="color:#999999;">Moves for ${species.name} in ${formatName}:</span><br />${gscMoves}`);
-		}
 		if (isLetsGo) {
 			formatName = `[Gen 7 Let's Go] Random Battle`;
 			const lgpeMoves = getLetsGoMoves(species);
@@ -335,12 +280,18 @@ export const commands: ChatCommands = {
 			}
 			return this.sendReplyBox(`<span style="color:#999999;">Moves for ${species.name} in ${formatName}:</span><br />${lgpeMoves}`);
 		}
-		if (!species.randomBattleMoves) {
-			return this.errorReply(`Error: No moves data found for ${species.name}${`gen${dex.gen}` in GEN_NAMES ? ` in ${GEN_NAMES[`gen${dex.gen}`]}` : ``}.`);
+		let randomMoves = species.randomBattleMoves;
+		if (!randomMoves) {
+			const gmaxSpecies = dex.getSpecies(`${args[0]}gmax`);
+			if (!gmaxSpecies.exists || !gmaxSpecies.randomBattleMoves) {
+				return this.errorReply(`Error: No moves data found for ${species.name}${`gen${dex.gen}` in GEN_NAMES ? ` in ${GEN_NAMES[`gen${dex.gen}`]}` : ``}.`);
+			}
+			species = gmaxSpecies;
+			randomMoves = gmaxSpecies.randomBattleMoves;
 		}
 		const moves: string[] = [];
 		// Done because species.randomBattleMoves is readonly
-		for (const move of species.randomBattleMoves) {
+		for (const move of randomMoves) {
 			moves.push(move);
 		}
 		const m = moves.sort().map(formatMove);
@@ -370,19 +321,25 @@ export const commands: ChatCommands = {
 				return this.parse(`/help randomdoublesbattle`);
 			}
 		}
-		const species = dex.getSpecies(args[0]);
+		let species = dex.getSpecies(args[0]);
 		const formatName = dex.gen > 6 ? dex.getFormat(`gen${dex.gen}randomdoublesbattle`).name : dex.gen === 6 ?
 			'[Gen 6] Random Doubles Battle' : dex.gen === 5 ?
 				'[Gen 5] Random Doubles Battle' : '[Gen 4] Random Doubles Battle';
 		if (!species.exists) {
 			return this.errorReply(`Error: Pok\u00e9mon '${args[0].trim()}' does not exist.`);
 		}
-		if (!species.randomDoubleBattleMoves) {
-			return this.errorReply(`Error: No doubles moves data found for ${species.name}${`gen${dex.gen}` in GEN_NAMES ? ` in ${GEN_NAMES[`gen${dex.gen}`]}` : ``}.`);
+		let randomMoves = species.randomDoubleBattleMoves;
+		if (!randomMoves) {
+			const gmaxSpecies = dex.getSpecies(`${args[0]}gmax`);
+			if (!gmaxSpecies.exists || !gmaxSpecies.randomDoubleBattleMoves) {
+				return this.errorReply(`Error: No doubles moves data found for ${species.name}${`gen${dex.gen}` in GEN_NAMES ? ` in ${GEN_NAMES[`gen${dex.gen}`]}` : ``}.`);
+			}
+			species = gmaxSpecies;
+			randomMoves = gmaxSpecies.randomDoubleBattleMoves;
 		}
 		const moves: string[] = [];
 		// Done because species.randomDoubleBattleMoves is readonly
-		for (const move of species.randomDoubleBattleMoves) {
+		for (const move of randomMoves) {
 			moves.push(move);
 		}
 		const m = moves.sort().map(formatMove);
