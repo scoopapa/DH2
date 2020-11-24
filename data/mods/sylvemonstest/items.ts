@@ -2,12 +2,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	"safetysocks": {
 		id: "safetysocks",
 		name: "Safety Socks",
-		onDamage: function (damage, target, source, effect) {
-			let hazards = ["stealthrock", "stickyweb"];
-			if (effect.sideCondition !== 'Move') {
-				return false;
-			}
-		},
 		desc: "Holder is unaffected by Hazards.",
 	},
 	"reversecore": {
@@ -17,15 +11,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem: false,
-		onStart(pokemon) {
-			this.add('-item', pokemon, pokemon.getItem());
-		},
 		onModifyMovePriority: -5,
 		onSourceModifyMove(move) {
 			move.ignoreImmunity = true;
 		},
+		onStart(target) {
+			this.add('-item', target, 'Reverse Core');
+			this.add('-message', `${target.name} is cloaked in a mysterious power!`);
+		},
+		onModifyMovePriority: -5,
 		onEffectiveness(typeMod, target, type, move) {
-				if (move && !this.getImmunity(move, type)) return 1;
+				if (move && this.dex.getImmunity(move, type) === false) return 1;
 				return typeMod * -1;
 			},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
@@ -197,8 +193,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Rage Candy Bar",
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
-				pokemon.addVolatile('zenmode');
+			if (pokemon.species.baseSpecies === 'Darmanitan') {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
 			}
 		},
 		fling: {
@@ -206,7 +206,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
+			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},

@@ -78,8 +78,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			return this.chainModify(1.2);
 		},
-		onAfterMove(target, source, move){
-			source.deductPP(move.id, 1);
+		onSourceDeductPP(target, source) {
+			if (!source.lastMove || source.lastMove.category === "Status") return;
+			this.add('-ability', source, 'Exhaust');
+			return 1;
 		},
 		name: "Exhaust",
 		rating: 2.5,

@@ -13,7 +13,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} 
 				else if ( target.hasAbility(['Inner Focus', 'Oblivious', 'Own Tempo', 'Scrappy']) 
-					|| (target.pokeClass && target.pokeClass === 'blade' ))
+					|| (target.pokeClass && target.pokeClass === 'warrior' ) || (target.pokeSkill && target.pokeSkill === 'blade' ))
 				{
 					this.add('-immune', target, `[from] ability: ${target.getAbility().name}`);
 				}
@@ -24,7 +24,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	warrior: {
-		shortDesc: "This Pokemon's Attack is doubled.",
+		shortDesc: "",
 		onModifyAtkPriority: 5,
 		onModifyAtk(stat) {
 			return this.chainModify(1.2);
@@ -71,8 +71,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 37,
 	},
-	warrior: {
-		shortDesc: "This Pokemon's Attack is doubled.",
+	mage: {
+		shortDesc: "",
 		onModifyAtkPriority: 5,
 		onModifyAtk(stat) {
 			return this.chainModify(0.7);
@@ -104,7 +104,57 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([0x14CC, 0x1000]);
 			}
 		},
+		onBasePower(basePower, attacker, defender, move) {
+			if( move.id === 'hiddenpower'){
+				return this.chainModify(1.1);
+			}
+		},
 		name: "mage",
+		rating: 5,
+		num: 37,
+	},
+	thief: {
+		shortDesc: "",
+		onModifyAtkPriority: 5,
+		onModifySpe(stat) {
+			return this.chainModify(1.3);
+		},
+		onModifyAtk(stat) {
+			return this.chainModify(1.15);
+		},
+		onModifyDef(stat) {
+			return this.chainModify(0.9);
+		},
+		onModifySpD(stat) {
+			return this.chainModify(0.85);
+		},
+		onModifySpA(stat) {
+			return this.chainModify(0.85);
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 55) {
+				this.debug('Thief boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.spe && boost.spe < 0) {
+				delete boost.spe;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Speed", "[from] ability: Thief", "[of] " + target);
+				}
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.name === 'Thief' || move.name === 'Trick' || move.name === 'Covet') {
+				return priority + 1;
+			}
+		},
+		name: "thief",
 		rating: 5,
 		num: 37,
 	},

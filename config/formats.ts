@@ -1112,8 +1112,92 @@ export const Formats: FormatList = [
      ],
  
      mod: 'viabilities',
-     ruleset: ['Standard', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod']
+     ruleset: ['Standard', 'Dynamax Clause']
 
+	},
+	{
+		name: "[Gen 8] Megas for All",
+		desc: ["&bullet; Megas for All v7",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
+			'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
+			'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
+			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
+			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'Baton Pass',
+		],
+		unbanlist: ['Zarude'],
+		mod: 'm4av6',
+	},
+	{
+		name: "[Gen 8] M4A Doubles",
+		desc: ["&bullet; Megas for All v7 but it's a doubles format",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Mewtwo', 'Lugia', 'Ho-Oh', 'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Dialga', 'Palkia', 'Giratina',
+			'Giratina-Origin', 'Arceus', 'Volcarona', 'Reshiram', 'Zekrom', 'Kyurem-Black', 'Kyurem-White', 'Xerneas',
+			'Yveltal', 'Solgaleo', 'Lunala', 'Magearna', 'Marshadow', 'Necrozma-Dusk Mane', 'Necrozma-Dawn Wings',
+			'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus', 'Urshifu', 'Calyrex-Ice', 'Calyrex-Shadow',
+		],
+		unbanlist: ['Zarude'],
+		mod: 'm4av6',
+		gameType: 'doubles',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] M4A: Mega Spooky Cup",
+		desc: ["&bullet; Megas for All Halloween tour rules",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['All Pokemon', 'Gengarite'],
+		unbanlist: [
+			'Rattata', 'Rattata-Alola', 'Raticate', 'Raticate-Alola', 'Ekans', 'Arbok', 'Pikachu', 'Clefable', 'Zubat', 'Golbat', 'Vileplume', 'Paras', 'Parasect',
+			'Meowth-Alola', 'Meowth-Galar', 'Persian-Alola', 'Victreebel', 'Tentacool', 'Tentacruel', 'Grimer', 'Grimer-Alola', 'Muk', 'Muk-Alola', 'Gastly', 'Haunter',
+			'Gengar', 'Drowzee', 'Hypno', 'Cubone', 'Marowak', 'Marowak-Alola', 'Koffing', 'Weezing', 'Weezing-Galar', 'Tangela', 'Mr. Mime', 'Pinsir', 'Ditto', 'Eevee',
+			'Vaporeon', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Aerodactyl', 'Articuno-Galar', 'Moltres-Galar', 'Hoothoot', 'Noctowl', 'Spinarak', 'Ariados', 'Crobat',
+			'Espeon', 'Umbreon', 'Murkrow', 'Slowking-Galar', 'Misdreavus', 'Unown', 'Wobbuffet', 'Gligar', 'Granbull', 'Sneasel', 'Corsola-Galar', 'Houndour', 'Houndoom',
+			'Mightyena', 'Zigzagoon-Galar', 'Linoone-Galar', 'Dustox', 'Shiftry', 'Shedinja', 'Whismur', 'Loudred', 'Exploud', 'Sableye', 'Mawile', 'Gulpin', 'Swalot', 'Carvanha',
+			'Sharpedo', 'Cacnea', 'Cacturne', 'Zangoose', 'Seviper', 'Lunatone', 'Crawdaunt', 'Baltoy', 'Claydol', 'Shuppet', 'Banette', 'Duskull', 'Dusclops', 'Absol', 'Snorunt',
+			'Glalie', 'Huntail', 'Drifloon', 'Drifblim', 'Mismagius', 'Honchkrow', 'Stunky', 'Skuntank', 'Spiritomb', 'Skorupi', 'Drapion', 'Croagunk', 'Toxicroak', 'Carnivine',
+			'Abomasnow', 'Weavile', 'Tangrowth', 'Electivire', 'Magmortar', 'Yanmega', 'Gliscor', 'Dusknoir', 'Froslass', 'Rotom', 'Purrloin', 'Liepard', 'Gigalith', 'Woobat',
+			'Swoobat', 'Venipede', 'Whirlipede', 'Scolipede', 'Basculin', 'Krokorok', 'Krookodile', 'Yamask', 'Yamask-Galar', 'Cofagrigus', 'Trubbish', 'Garbodor', 'Zorua',
+			'Zoroark', 'Gothita', 'Gothorita', 'Gothitelle', 'Frillish', 'Jellicent', 'Joltik', 'Galvantula', 'Elgyem', 'Beheeyem', 'Litwick', 'Lampent', 'Chandelure', 'Golett',
+			'Golurk', 'Bisharp', 'Vullaby', 'Mandibuzz', 'Zweilous', 'Hydreigon', 'Larvesta', 'Fennekin', 'Braixen', 'Delphox', 'Pancham', 'Pangoro', 'Espurr', 'Meowstic',
+			'Meowstic-F', 'Honedge', 'Doublade', 'Aegislash', 'Swirlix', 'Slurpuff', 'Spritzee', 'Aromatisse', 'Malamar', 'Phantump', 'Trevenant', 'Pumpkaboo', 'Gourgeist',
+			'Noibat', 'Noivern', 'Hoopa', 'Hoopa-Unbound', 'Decidueye', 'Incineroar', 'Lycanroc-Midnight', 'Mareanie', 'Toxapex', 'Dewpider', 'Araquanid', 'Shiinotic',
+			'Salandit', 'Salazzle', 'Stufful', 'Bewear', 'Golisopod', 'Sandygast', 'Palossand', 'Type: Null', 'Silvally', 'Mimikyu', 'Dhelmise', 'Nihilego', 'Xurkitree',
+			'Guzzlord', 'Necrozma-Base', 'Poipole', 'Blacephalon', 'Inteleon', 'Corviknight', 'Blipbug', 'Dottler', 'Orbeetle', 'Nickit', 'Thievul', 'Coalossal', 'Silicobra',
+			'Sandaconda', 'Toxtricity', 'Sizzlipede', 'Centiskorch', 'Sinistea', 'Polteageist', 'Hatenna', 'Hattrem', 'Hatterene', 'Impidimp', 'Morgrem', 'Grimmsnarl', 'Obstagoon',
+			'Perrserker', 'Cursola', 'Runerigus', 'Morpeko', 'Arctovish', 'Arctozolt', 'Dracozolt', 'Dreepy', 'Drakloak', 'Dragapult', 'Zarude', 'Regidrago', 'Spectrier',
+		],
+		mod: 'm4av6',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] Super Smash Mods Melee",
+		desc: ["&bullet; Super Smash Mods Melee",
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+		banlist: [
+			'All Pokemon', 'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
+			'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z',
+			'Mewnium Z', 'Mimikium Z', 'Normalium Z', 'Pikanium Z', 'Pikashunium Z', 'Poisonium Z', 'Primarium Z', 'Psychium Z', 'Rockium Z', 'Snorlium Z', 'Solganium Z',
+			'Steelium Z', 'Tapunium Z', 'Ultranecrozium Z', 'Waterium Z',
+		],
+		unbanlist: [
+			'Vanilluxe', 'Raichu-Base', 'Raichu-Mega', 'Trubbish-Marshadow', 'Beheeyem', 'Garbodor-Base', 'Garbodor-Mega', 'Pyukchin', 'Thundahi',
+			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol',
+		],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		mod: 'smashmodsmelee',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
@@ -1566,14 +1650,6 @@ export const Formats: FormatList = [
 		ruleset: ['[Gen 7] Ubers'],
 		banlist: ['Unreleased', ],
 		mod: 'zmoveseverywhere',
-	},
-	{
-		name: "[Gen 8] Megas For All v6",
-		desc: ["&bullet; Megas",
-		      ],
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
-		banlist: [],
-		mod: 'm4av6',
 	},
 
 	// Other Metagames

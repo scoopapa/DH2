@@ -485,26 +485,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove: function (move, pokemon) {
-			if (this.isTerrain('')) return;
+			if (this.field.isTerrain('')) return;
 			move.secondaries = [];
-			if (this.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('electricterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'par',
 				});
-			} else if (this.isTerrain('grassyterrain')) {
+			} else if (this.field.isTerrain('grassyterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'slp',
 				});
-			} else if (this.isTerrain('mistyterrain')) {
+			} else if (this.field.isTerrain('mistyterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
 						spa: -1,
 					},
 				});
-			} else if (this.isTerrain('psychicterrain')) {
+			} else if (this.field.isTerrain('psychicterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -1615,7 +1615,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		onHit: function (pokemon) {
-			if (this.isWeather(['raindance', 'primordialsea'])) {
+			if (this.field.isWeather(['raindance', 'primordialsea'])) {
 				return this.heal(this.modify(pokemon.maxhp, 0.667));
 			} else {
 				return this.heal(this.modify(pokemon.maxhp, 0.5));
@@ -1877,7 +1877,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		onModifyMove: function (move) {
-			switch (this.effectiveWeather()) {
+			switch (this.field.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';
@@ -2770,7 +2770,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		onHit: function (pokemon) {
-			if (this.isTerrain("electricterrain")) {
+			if (this.field.isTerrain("electricterrain")) {
 				return this.heal(this.modify(pokemon.maxhp, 0.667));
 			} else {
 				return this.heal(this.modify(pokemon.maxhp, 0.5));

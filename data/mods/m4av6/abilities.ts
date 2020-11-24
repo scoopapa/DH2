@@ -121,6 +121,23 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
+<<<<<<< HEAD
+=======
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasItem('acidicseed')) {
+					if (!pokemon.ignoringItem() && this.field.isTerrain('acidicterrain')) {
+						for (const target of this.getAllActive()) {
+							if (target.hasAbility('downtoearth')) {
+								if (target === source) continue;
+								this.debug('Down-to-Earth prevents Seed use');
+								return;
+							}
+						}
+						pokemon.useItem();
+					}
+				}
+			}
+>>>>>>> parent of e35fc418e... Clown Tundra
 		},
 		name: "Down-to-Earth",
 		rating: 2,
@@ -1062,4 +1079,8 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 266,
 	},
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of e35fc418e... Clown Tundra

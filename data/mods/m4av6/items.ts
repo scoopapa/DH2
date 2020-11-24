@@ -1662,4 +1662,8 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Feraligatr, this item allows it to Mega Evolve in battle.",
 	},
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of e35fc418e... Clown Tundra
