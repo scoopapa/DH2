@@ -190,7 +190,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual: function (pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return;
+			if (this.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Grass')) {
 				this.heal(pokemon.maxhp / 16);
 			} else {
@@ -198,7 +198,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onTerrain: function (pokemon) {
-			if (!this.field.isTerrain('grassyterrain')) return;
+			if (!this.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Grass')) {
 				this.heal(pokemon.maxhp / 16);
 			} else {
@@ -424,14 +424,14 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual: function (pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return;
-			if (this.field.isWeather('hail')) {
+			if (this.isTerrain('grassyterrain')) return;
+			if (this.isWeather('hail')) {
 				this.heal(pokemon.maxhp / 8);
 			}
 		},
 		onTerrain: function (pokemon) {
-			if (!this.field.isTerrain('grassyterrain')) return;
-			if (this.field.isWeather('hail')) {
+			if (!this.isTerrain('grassyterrain')) return;
+			if (this.isWeather('hail')) {
 				this.heal(pokemon.maxhp / 8);
 			}
 		},
@@ -513,7 +513,7 @@ export const BattleItems: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onSourceModifyDamage: function (damage, source, target, move) {
-			if (this.field.isWeather('raindance')) {
+			if (this.isWeather('raindance')) {
 				return this.chainModify(0.75);
 			}
 		},

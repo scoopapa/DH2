@@ -9,13 +9,13 @@ export const BattlePokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Alcremie",
 		inherit: true,
 		baseStats: {hp: 79, atk: 45, def: 79, spa: 119, spd: 136, spe: 62},
-		abilities: {0: "Sweet Veil", H: "Aroma Veil"},
+		abilities: {0: "Sweet Veil", 1: "NA", H: "Aroma Veil"},
 	},
 	aromatisse: {
 		name: "Aromatisse",
 		inherit: true,
 		baseStats: {hp: 111, atk: 62, def: 82, spa: 99, spd: 89, spe: 41},
-		abilities: {0: "Healer", H: "Aroma Veil"},
+		abilities: {0: "Healer", 1: "NA", H: "Aroma Veil"},
 	},
 	barbaracle: {
 		name: "Barbaracle",

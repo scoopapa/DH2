@@ -137,7 +137,6 @@ exports.BattleAbilities = {
 			}
 		},
 		name: "Illuminate",
-		id: "illuminate",
 		rating: 3.5,
 		num: 35,
 	},
@@ -224,7 +223,6 @@ exports.BattleAbilities = {
           }
         },
         name: "Run Away",
-		 id: "runaway",
     },
 "mummy": {
   shortDesc: "On switch-in, all Pokemon, including this one, suffer Heal Block.",

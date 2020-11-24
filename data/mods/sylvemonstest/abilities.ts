@@ -16,7 +16,7 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.addType('Ice');
 				this.field.setWeather('hail');
 			} else if (pokemon.item === 'shadowrock') {
-				pokemon.addType('Ghost');
+				pokemon.addType('Dark');
 				this.field.setWeather('shadowsky');
 			} else if (pokemon.item === 'breezerock') {
 				pokemon.addType('Flying');
@@ -672,11 +672,10 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 			if (!this.field.isWeather(['shadowsky'])) return;
 			let stat = 'atk';
 			let bestStat = 0;
-			let i: StatNameExceptHP;
-			for (let i in pokemon.storedStats) {
-				if (pokemon.storedStats[i] > bestStat) {
+			for (let i in pokemon.stats) {
+				if (pokemon.stats[i] > bestStat) {
 					stat = i;
-					bestStat = pokemon.storedStats[i];
+					bestStat = pokemon.stats[i];
 				}
 			}
 			this.boost({[stat]: 1}, pokemon);
@@ -893,6 +892,41 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bloodsucker",
 	},
 	
+	"zenmode": {
+		desc: "If this Pokemon is a Darmanitan, it changes to Zen Mode if it has 1/2 or less of its maximum HP at the end of a turn. If Darmanitan's HP is above 1/2 of its maximum HP at the end of a turn, it changes back to Standard Mode. This Ability cannot be removed or suppressed.",
+		shortDesc: "If Darmanitan, at end of turn changes Mode to Standard if > 1/2 max HP, else Zen.",
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+				return;
+			}
+			if ((pokemon.hp <= pokemon.maxhp / 2 || pokemon.hasItem('ragecandybar')) && pokemon.species.speciesid === 'darmanitan') {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.species.speciesid === 'darmanitanzen') {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			pokemon.formeChange('Darmanitan', this.effect, false, '[silent]');
+		},
+		effect: {
+			onStart(pokemon) {
+				if (pokemon.species.speciesid !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+			},
+			onEnd(pokemon) {
+				pokemon.formeChange('Darmanitan');
+			},
+		},
+		id: "zenmode",
+		name: "Zen Mode",
+		rating: -1,
+		num: 161,
+	},
+	
 	 "magician": {
        shortDesc: "On switch-in, this Pokemon switches its item with the opponent's.",
        onStart(source) {
@@ -904,28 +938,16 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
        num: 170,
     },
 	
-	"cursedbody": {
-		shortDesc: "On switch-in, the opposing Pokémon is taunted unless it has a Substitute.",
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
-				if (!activated) {
-					this.add('-ability', pokemon, 'Cursed Body');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
-					target.addVolatile('taunt');
-				}
-			}
-		},
-		id: "cursedbody",
-		name: "Cursed Body",
-		rating: 2,
-		num: 130,
-	},
+    "cursedbody": {
+        shortDesc: "On switch-in, the opposing Pokemon is taunted.",
+        onStart(source) {
+            this.useMove("Taunt", source);
+        },
+        id: "cursedbody",
+        name: "Cursed Body",
+        rating: 2,
+        num: 130,
+    },
 	
     "loudspeaker": {
         desc: "Boosts the power of sound-based moves.",
@@ -1000,46 +1022,4 @@ export const BattleAbilities: {[k: string]: ModdedAbilityData} = {
         rating: 3,
         num: 4,
     },
-
-	"mindtrick": {
-		desc: "When this Pokémon's stat stages would be modified, other Pokémon's stat stages are modified instead. When other Pokémon's stat stages would be modified, this Pokémon's stat stages are modified instead.",
-		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker.",
-		onAnyBoost(boost, target, source, effect) {
-			// Don't bounce self stat changes, or boosts that have already bounced
-			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'mindtrick') return;
-			if (target === this.effectData.target) {
-				let b: BoostName;
-				for (b in boost) {
-					let activated = false;
-					const bouncedBoost: SparseBoostsTable = {};
-					bouncedBoost[b] = boost[b];
-					if (!activated) {
-						this.add('-ability', this.effectData.target, 'Mind Trick');
-						activated = true;
-					}
-					delete boost[b];
-					for (const pokemon of this.getAllActive()) {
-						if (pokemon === this.effectData.target || pokemon.fainted) continue;
-						this.boost(bouncedBoost, pokemon, this.effectData.target, null, true);
-					}
-				}
-			} else {
-				let b: BoostName;
-				for (b in boost) {
-					let activated = false;
-					const stolenBoost: SparseBoostsTable = {};
-					stolenBoost[b] = boost[b];
-					if (!activated) {
-						this.add('-ability', this.effectData.target, 'Mind Trick');
-						activated = true;
-					}
-					delete boost[b];
-					this.boost(stolenBoost, this.effectData.target, this.effectData.target, null, true);
-				}
-			}
-		},
-		id: "mindtrick",
-		name: "Mind Trick",
-		rating: 2,
-	},
 };

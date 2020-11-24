@@ -39,7 +39,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Heavy Slam", target);
 		},
-		useSourceDefensiveAsOffensive: true,
+		//useTargetOffensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -53,7 +53,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "For 5 turns, all Pokémon on the field are resistant to normally super-effective types and weak to normally not-very-effective or ineffective types (as in Inverse Battles) ",
 		id: "inverseroom",
 		name: "Inverse Room",
-		pp: 5,
+		pp: 8,
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'inverseroom',
@@ -78,7 +78,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				return null;
 			},
 			onEffectiveness: function(typeMod, target, type, move) {
-				if (move && this.dex.getImmunity(move, type) === false) return 3;
+				if (move && !this.getImmunity(move, type)) return 1;
 				return -typeMod;
 			},
 			onResidualOrder: 23,
@@ -103,7 +103,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "shadowcharge",
 		isViable: true,
 		name: "Shadow Charge",
-		pp: 15,
+		pp: 24,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -133,13 +133,12 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "hauntingscream",
 		isViable: true,
 		name: "Haunting Scream",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			protect: 1,
 			mirror: 1,
-			sound: 1,
-			authentic: 1
+			sound: 1
 		},
 		secondary: {
 			chance: 30,
@@ -215,52 +214,26 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
-		onModifyType(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				move.type = 'Fire';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				move.type = 'Water';
-				break;
-			case 'sandstorm':
-				move.type = 'Rock';
-				break;
-			case 'hail':
-				move.type = 'Ice';
-				break;
-			case 'aircurrent':
-				move.type = 'Flying';
-				break;
-			case 'shadowsky':
-				move.type = 'Ghost';
-				break;					
-			}
-		},
-		onModifyMove(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				move.basePower *= 2;
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				move.basePower *= 2;
-				break;
-			case 'sandstorm':
-				move.basePower *= 2;
-				break;
-			case 'hail':
-				move.basePower *= 2;
-				break;
-			case 'aircurrent':
-				move.basePower *= 2;
-				break;
-			case 'shadowsky':
-				move.basePower *= 2;
-				break;					
+		onModifyMove: function(move) {
+			switch (this.field.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.type = 'Fire';
+					move.basePower *= 2;
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.type = 'Water';
+					move.basePower *= 2;
+					break;
+				case 'sandstorm':
+					move.type = 'Rock';
+					move.basePower *= 2;
+					break;
+				case 'hail':
+					move.type = 'Ice';
+					move.basePower *= 2;
+					break;
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -288,26 +261,24 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
-		onModifyType(move, pokemon) {
-			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				move.type = 'Electric';
-				break;
-			case 'grassyterrain':
-				move.type = 'Grass';
-				break;
-			case 'mistyterrain':
-				move.type = 'Fairy';
-				break;
-			case 'psychicterrain':
-				move.type = 'Psychic';
-				break;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.field.terrain && pokemon.isGrounded()) {
-				move.basePower *= 2;
+		onModifyMove: function(move) {
+			switch (this.effectiveTerrain()) {
+				case 'electricterrain':
+					move.type = 'Electric';
+					move.basePower *= 2;
+					break;
+				case 'psychicterrain':
+					move.type = 'Psychic';
+					move.basePower *= 2;
+					break;
+				case 'mistyterrain':
+					move.type = 'Fairy';
+					move.basePower *= 2;
+					break;
+				case 'grassyterrain':
+					move.type = 'Grass';
+					move.basePower *= 2;
+					break;
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -362,9 +333,9 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 					this.debug('misty terrain weaken');
 					return this.chainModify(0.5);
 				}
-				if (move.type === 'Fairy' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-					this.debug('misty terrain boost');
-					return this.chainModify(1.3);
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('electric terrain boost');
+					return this.chainModify(1.5);
 				}
 			},
 			onStart: function(battle, source, effect) {
@@ -463,8 +434,8 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 			this.field.removePseudoWeather('wonderroom');
 			this.field.removePseudoWeather('inverseroom');
 		},
-		onHit() {
-			this.field.clearTerrain();
+		onHit: function() {
+			this.clearTerrain();
 		},
 		isZ: "lycaniumz",
 		secondary: null,
@@ -603,7 +574,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "The user switches out after successful use.",
 		id: "teleport",
 		name: "Teleport",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -625,7 +596,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "plumecannon",
 		isViable: true,
 		name: "Plume Cannon",
-		pp: 5,
+		pp: 8,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -651,7 +622,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "slipstream",
 		isViable: true,
 		name: "Slipstream",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -712,7 +683,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "rinseoff",
 		isViable: true,
 		name: "Rinse Off",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -744,7 +715,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "acidmelt",
 		isViable: true,
 		name: "Acid Melt",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -808,7 +779,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "jetstream",
 		isViable: true,
 		name: "Jetstream",
-		pp: 30,
+		pp: 48,
 		priority: 1,
 		flags: {
 			protect: 1,
@@ -942,7 +913,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "morningsun",
 		isViable: true,
 		name: "Morning Sun",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -969,7 +940,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "moonlight",
 		isViable: true,
 		name: "Moonlight",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -996,7 +967,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "synthesis",
 		isViable: true,
 		name: "Synthesis",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			snatch: 1,
@@ -1022,7 +993,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "bugbite",
 		name: "Bug Bite",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1069,7 +1040,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "pluck",
 		name: "Pluck",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1115,7 +1086,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "incinerate",
 		name: "Incinerate",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1155,13 +1126,13 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	doublehit: {
 		inherit: true,
 		basePower: 50,
-		pp: 10,
+		pp: 16,
 		zMovePower: 100,
 	},
 	doublekick: {
 		inherit: true,
 		basePower: 50,
-		pp: 10,
+		pp: 16,
 		zMovePower: 100,
 	},
 	"twineedle": {
@@ -1173,7 +1144,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Hits 2 times. Each hit has 20% chance to poison.",
 		id: "twineedle",
 		name: "Twineedle",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1193,7 +1164,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 	dualchop: {
 		inherit: true,
 		basePower: 50,
-		pp: 10,
+		pp: 16,
 		zMovePower: 100,
 	},
 	"seedbomb": { // 50% chance to seed the target
@@ -1256,7 +1227,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "dragonrage",
 		name: "Dragon Rage",
-		pp: 20,
+		pp: 16,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1278,7 +1249,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "sonicboom",
 		name: "Sonic Boom",
-		pp: 20,
+		pp: 32,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1300,7 +1271,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "psywave",
 		name: "Psywave",
-		pp: 20,
+		pp: 24,
 		priority: 0,
 		flags: {
 			protect: 1,
@@ -1322,7 +1293,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		id: "geargrind",
 		isViable: true,
 		name: "Gear Grind",
-		pp: 10,
+		pp: 16,
 		priority: 0,
 		flags: {
 			contact: 1,
@@ -1343,7 +1314,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Summons Shadow Sky",
 		id: "shadowsky",
 		name: "Shadow Sky",
-		pp: 5,
+		pp: 16,
 		priority: 0,
 		flags: {},
 		onPrepareHit: function(target, source, move) {
@@ -1363,7 +1334,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Summons Air Current",
 		id: "aircurrent",
 		name: "Air Current",
-		pp: 5,
+		pp: 16,
 		priority: 0,
 		flags: {},
 		onPrepareHit: function(target, source, move) {
@@ -1784,7 +1755,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMovePower: 140,
 		contestType: "Tough",
 	},
-	"wildcharge": {
+"wildcharge": {
 		num: 528,
 		accuracy: 80,
 		basePower: 150,
@@ -1804,7 +1775,6 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMovePower: 200,
 		contestType: "Tough",
 	},
-
 	"stickyweb": {
 		inherit: true,
 		effect: {
@@ -1812,7 +1782,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn: function (pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('safetysocks') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'))
 			},
@@ -1846,7 +1816,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks') ) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1861,111 +1831,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
-	gmaxsteelsurge: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		desc: "Power is equal to the base move's Max Move power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Base move affects power. Foes: Steel hazard.",
-		name: "G-Max Steelsurge",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		isMax: "Copperajah",
-		self: {
-			onHit(source) {
-				source.side.foe.addSideCondition('gmaxsteelsurge');
-			},
-		},
-		effect: {
-			onStart(side) {
-				this.add('-sidestart', side, 'move: G-Max Steelsurge');
-			},
-			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
-				// Ice Face and Disguise correctly get typed damage from Stealth Rock
-				// because Stealth Rock bypasses Substitute.
-				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
-				// so we're going to test the damage of a Steel-type Stealth Rock instead.
-				const steelHazard = this.dex.getActiveMove('Stealth Rock');
-				steelHazard.type = 'Steel';
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-		secondary: null,
-		target: "adjacentFoe",
-		type: "Steel",
-		contestType: "Cool",
-	},
-	spikes: {
-		num: 191,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/4 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Hurts grounded foes on switch-in. Max 3 layers.",
-		name: "Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		sideCondition: 'spikes',
-		effect: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
-			},
-			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
-				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Ground",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
-	},
-	stealthrock: {
-		num: 446,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
-		name: "Stealth Rock",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1},
-		sideCondition: 'stealthrock',
-		effect: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('safetysocks')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Rock",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
-	},
-
-	"fairylock": {
+"fairylock": {
 		num: 587,
 		accuracy: 100,
 		basePower: 80,
@@ -2241,7 +2107,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		name: "Heartbeat",
 		pp: 30,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1, sound: 1, authentic: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1, sound: 1},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
@@ -2261,7 +2127,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		name: "Metal Sound",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, pulse: 1, mirror: 1, sound: 1, authentic: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1, sound: 1},
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -2959,7 +2825,7 @@ export const BattleMovedex: {[k: string]: ModdedMoveData} = {
 		  name: "Drum Beating",
 		  pp: 10,
 		  priority: 0,
-		  flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		  flags: {protect: 1, mirror: 1, sound: 1},
 		  secondary: {
 			  chance: 100,
 			  boosts: {
