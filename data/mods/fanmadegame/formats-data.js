@@ -47,4 +47,4 @@ tier: "OU",
 	
 };
 
-exports.export const FormatsData: = export const FormatsData:;
+exports.FormatsData: = FormatsData;

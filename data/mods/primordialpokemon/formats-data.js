@@ -1,4 +1,4 @@
-exports.export const FormatsData: = {
+exports.FormatsData: = {
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","leechseed","synthesis"],
 		randomDoubleBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","protect"],

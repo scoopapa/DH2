@@ -1,4 +1,4 @@
-export const export const FormatsData:: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData:: {[k: string]: ModdedSpeciesFormatsData} = {
 	goodraflame: {
 		tier: "OU",
 		doublesTier: "DOU",

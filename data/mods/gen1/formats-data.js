@@ -799,4 +799,4 @@ let export const FormatsData: = {
 	},
 };
 
-exports.export const FormatsData: = export const FormatsData:;
+exports.FormatsData: = FormatsData;

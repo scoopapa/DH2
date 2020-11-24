@@ -1,5 +1,5 @@
 'use strict'
-exports.export const FormatsData: = {
+exports.FormatsData: = {
 
 buzzasoarmega: {
 requiredItem: "Buzzasoarite",

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.export const FormatsData: = {
+exports.FormatsData: = {
 	solsprite: {
 		randomBattleMoves: ["calmmind", "lavaplume", "moonblast", "morningsun"],
 		tier: "New",

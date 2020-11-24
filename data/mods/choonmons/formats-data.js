@@ -1,6 +1,6 @@
 'use strict';
 
-exports.export const FormatsData: = { //
+exports.FormatsData: = { //
 /*pikachulibre: {
 		randomBattleMoves: ["volttackle", "knockoff", "extremespeed", "imprisonedstrike"],
 		tier: "OU",

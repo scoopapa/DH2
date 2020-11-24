@@ -1,6 +1,6 @@
 'use strict';
 
-exports.export const FormatsData: = {
+exports.FormatsData: = {
 
 zangoosemega: {
 randomBattleMoves: ["", "", "", "", "",], 
