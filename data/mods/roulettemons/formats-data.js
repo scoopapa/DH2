@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedSpeciesFormatsData}} */
-let export const FormatsData: = {
+let FormatsData: = {
 	koatric: {
 		tier: "Roulettemons",
 		doublesTier: "DOU",

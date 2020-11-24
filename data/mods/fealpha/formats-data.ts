@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: SpeciesFormatsData}} */
-let export const FormatsData: = {
+let FormatsData: = {
 	uranus: {
 		tier: "OU",
 		doublesTier: "DOU",

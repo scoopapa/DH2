@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let export const FormatsData: = {
+let FormatsData: = {
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "bodyslam"],
 		essentialMove: "razorleaf",

@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: TemplateFormatsData}} */
-let export const FormatsData: = {
+let FormatsData: = {
 
 	heatblast: {
 		tier: "OU",
