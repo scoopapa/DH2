@@ -3,7 +3,7 @@
  * Some moves have had major changes, such as Bite's typing.
  */
 
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	acid: {
 		inherit: true,
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",

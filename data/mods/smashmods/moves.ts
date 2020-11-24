@@ -1,4 +1,4 @@
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	"covetabnormal": {
 		num: 343,
 		accuracy: 100,

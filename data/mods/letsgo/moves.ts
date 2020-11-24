@@ -1,4 +1,4 @@
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	absorb: {
 		inherit: true,
 		basePower: 40,

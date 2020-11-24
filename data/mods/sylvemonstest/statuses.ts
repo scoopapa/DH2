@@ -1,4 +1,4 @@
-export const BattleStatuses: {[k: string]: ModdedStatusData} = {
+export const Statuses: {[k: string]: ModdedStatusData} = {
 	hail: {
 		effectType: 'Weather',
 		duration: 5,

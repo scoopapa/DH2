@@ -1,4 +1,4 @@
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	grassyterrain: {
 		num: 580,
 		accuracy: true,

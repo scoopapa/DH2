@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedMoveData}} */
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	//------------------------------Skills------------------------------------------------
 	"blade": {
 		num: 10000,

@@ -8,7 +8,7 @@
  * under certain conditions and re-applied under other conditions.
  */
 
-export const BattleStatuses: {[k: string]: ModdedPureEffectData} = {
+export const Statuses: {[k: string]: ModdedPureEffectData} = {
 	brn: {
 		name: 'brn',
 		effectType: 'Status',

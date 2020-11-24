@@ -1,4 +1,4 @@
-export const BattleStatuses: {[k: string]: EffectData} = {
+export const Statuses: {[k: string]: EffectData} = {
 	raindance: {
 		name: 'RainDance',
 		id: 'raindance',

@@ -1,4 +1,4 @@
-export const BattleStatuses: {[k: string]: EffectData} = {
+export const Statuses: {[k: string]: EffectData} = {
 	dynamax: {
 		name: 'Dynamax',
 		id: 'dynamax',

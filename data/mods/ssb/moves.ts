@@ -2,7 +2,7 @@
 import {RandomStaffBrosTeams} from './random-teams';
 import {Pokemon, EffectState} from '../../../sim/pokemon';
 
-export const BattleMovedex: {[k: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	/*
 	// Example
 	"moveid": {
