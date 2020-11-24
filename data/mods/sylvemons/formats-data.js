@@ -50,5 +50,5 @@ let FormatsData = {
 		doublesTier: "DUU",
 	},
 };
-exports.FormatsData: =  export const FormatsData:;
+exports.FormatsData =  export const FormatsData:;
 

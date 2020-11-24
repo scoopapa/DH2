@@ -1,6 +1,6 @@
 'use strict';
 
-exports.FormatsData: = { //
+exports.FormatsData = { //
 
     inkip: {
         randomBattleMoves: ["foulplay", "superpower", "psychocut", "waterfall", "knockoff", "doubleedge"],

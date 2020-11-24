@@ -1,6 +1,6 @@
 'use strict';
 
-exports.FormatsData: = {	
+exports.FormatsData = {	
 	fearowmega: {
 		randomBattleMoves: ["return", "drillpeck", "doubleedge", "uturn", "pursuit", "drillrun"],
 		randomDoubleBattleMoves: ["return", "drillpeck", "doubleedge", "uturn", "quickattack", "drillrun", "protect"],

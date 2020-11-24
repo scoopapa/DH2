@@ -14,4 +14,4 @@ floette: {
 	},
  };
 
-exports.FormatsData: = FormatsData;
+exports.FormatsData = FormatsData;

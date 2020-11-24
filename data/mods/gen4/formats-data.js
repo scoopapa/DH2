@@ -2121,4 +2121,4 @@ let FormatsData = {
 	},
 };
 
-exports.FormatsData: = FormatsData;
+exports.FormatsData = FormatsData;

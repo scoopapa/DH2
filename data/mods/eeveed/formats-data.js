@@ -1,5 +1,5 @@
 'use strict'
-exports.FormatsData: = {
+exports.FormatsData = {
 
 buzzasoarmega: {
 requiredItem: "Buzzasoarite",

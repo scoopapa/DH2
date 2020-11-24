@@ -1,6 +1,6 @@
 'use strict';
 
-exports.FormatsData: = {
+exports.FormatsData = {
 	angealous: {
         tier: "OU",
         doublesTier: "DOU",

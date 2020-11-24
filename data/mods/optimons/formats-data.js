@@ -1,6 +1,6 @@
 'use strict';
 
-exports.FormatsData: = {
+exports.FormatsData = {
 	magmortar: {
 		tier: "OU",
 		doublesTier: "DOU",
