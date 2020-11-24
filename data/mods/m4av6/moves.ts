@@ -157,7 +157,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
->>>>>>> parent of e35fc418e... Clown Tundra
 	grassyterrain: {
 		num: 580,
 		accuracy: true,
