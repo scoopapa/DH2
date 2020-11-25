@@ -54,7 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	transistor: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type ==== 'Electric') {
+			if (move.type === 'Electric') {
 				move.flags.contact = 1;
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -66,7 +66,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	dragonsmaw: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type ==== 'Dragon') {
+			if (move.type === 'Dragon') {
 				move.flags.bite = 1;
 				return this.chainModify(1.3);
 			}
