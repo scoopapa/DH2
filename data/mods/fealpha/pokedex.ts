@@ -87,7 +87,7 @@ picante: {
 	species: "Picante",
 	types: ["Grass", "Fire"],
 	baseStats: {hp: 95, atk: 115, def: 100, spa: 107, spd: 80, spe: 85},
-	abilities: {0: "Passion Star", 1: "Illuminate"},
+	abilities: {0: "Passion Star"},
 	weightkg: 2.5,
 	prevo: 'Applin',
 },
