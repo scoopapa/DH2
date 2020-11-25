@@ -345,7 +345,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			toxtricitylowkey: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },
 			urshifu: { hp: 0, atk: 15, def: 10, spa: 0, spd: 25, spe: 10 },
 			urshifurapidstrike: { hp: 0, atk: 10, def: 5, spa: 0, spd: 5, spe: 30 },
-		}
+		};
 		let boostType = statBoosts.dynamax;
 		if ( pokemon.canGigantamax ) boostType = statBoosts[ pokemon.speciesid ];
 		let statBoost = boostType[ statName ];
