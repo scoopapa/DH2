@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleScripts = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
 		this.modData('Learnsets', 'raichu').learnset.highjumpkick = ['7L1'];
 		this.modData('Learnsets', 'trubbishmarshadow').learnset.spectralresidue = ['7L1'];
