@@ -1176,6 +1176,15 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
+	/*
+	{
+		name: "[Gen 8] M4A Random Battle",
+
+		mod: 'm4av6',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+	},
+	*/
 	{
 		name: "[Gen 8] Super Smash Mods Melee",
 		desc: ["&bullet; Super Smash Mods Melee",
@@ -1198,6 +1207,11 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 		},
 		mod: 'smashmodsmelee',
+	},
+	{
+		name: "[Gen 8] Fusion Evolution Alpha",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		mod: 'fealpha',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{

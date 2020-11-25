@@ -1,4 +1,4 @@
-export const BattlePokedex: {[speciesid: string]: SpeciesData} = {
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	butterfree: {
 		inherit: true,
 		otherFormes: ["Butterfree-Gmax", "Butterfree-Mega"],
