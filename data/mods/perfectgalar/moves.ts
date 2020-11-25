@@ -554,7 +554,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Cool",
 	},
-	trumpcard: {
+	"trumpcard": {
 		num: 376,
 		accuracy: true,
 		basePower: 0,
@@ -579,6 +579,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
+	},
+	"crushgrip": {
+		num: 462,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thunderous Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
+	},
+	"thundercage": {
+		inherit: true,
+		accuracy: 100,
+		basePower: 90,
+	},
+	"wickedblow": {
+		inherit: true,
+		basePower: 75,
+	},
+	"astralbarrage": {
+		inherit: true,
+		basePower: 100,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.speciesid === 'calyrexshadowrider') return 120;
+		}
+	},
+	"glaciallance": {
+		inherit: true,
+		basePower: 100,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.speciesid === 'calyrexicerider') return 130;
+		}
 	},
 //------------------------------------------------------ Gigantamax Moves ------------------------------------------------------------------
 	"gmaxbefuddle": {
