@@ -80,8 +80,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ( !pokemon.slowStartTurns ) {
 				pokemon.slowStartTurns = 5;
 				for (const pokemon of pokemon.side.active) {
-					if ["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( pokemon.species )
-					pokemon.slowStartTurns--;
+					if (["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( pokemon.species )) pokemon.slowStartTurns--;
 				}
 			}
 		},
