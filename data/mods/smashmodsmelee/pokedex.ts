@@ -77,7 +77,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	beheeyem: {
 		inherit: true,
-		abilities: {0: "Time Warp", 1: "Space Warp", H: "Analytic"},
+		abilities: {0: "Time Warp", 1: "Synchronize", H: "Analytic"},
 	},
 	pyukchin: {
 		num: 771,
