@@ -95,7 +95,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			duration: 5,
 			durationCallback(pokemon) {
 				return pokemon.slowStartTurns
-			}
+			},
 			onStart(target) {
 				this.add('-start', target, 'ability: Slow Start');
 			},
