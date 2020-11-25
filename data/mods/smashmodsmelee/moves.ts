@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: {[moveid: string]: ModdedMoveData} = {
 	gmaxsteelsurge: {
 		num: 1000,
 		accuracy: true,
