@@ -1,4 +1,6 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+'use strict';
+
+exports.BattleScripts = {
 	init: function () {
 		this.modData('Learnsets', 'dragonite').learnset.playrough = ['7L1'];
 		this.modData('Learnsets', 'goodra').learnset.gigadrain = ['7L1'];
