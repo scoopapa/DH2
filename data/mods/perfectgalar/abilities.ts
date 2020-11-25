@@ -45,7 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lightmetal: {
 		onSourceModifyDamage(damage, source, target, move) {
-=			if (move.flags.contact) return this.chainModify(0.75);
+			if (move.flags['contact']) return this.chainModify(0.75);
 		},
 		name: "Light Metal",
 		rating: 1,
