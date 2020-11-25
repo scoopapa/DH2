@@ -341,7 +341,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			orbeetle: { hp: 0, atk: 0, def: 0, spa: 30, spd: 0, spe: 20 },
 			pikachu: { hp: 30, atk: 10, def: 10, spa: 20, spd: 10, spe: -30 },
 			sandaconda: { hp: 0, atk: 0, def: 20, spa: 0, spd: 0, spe: 30 },
-			toxtricity: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },tox
+			toxtricity: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },
 			toxtricitylowkey: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },
 			urshifu: { hp: 0, atk: 15, def: 10, spa: 0, spd: 25, spe: 10 },
 			urshifurapidstrike: { hp: 0, atk: 10, def: 5, spa: 0, spd: 5, spe: 30 },

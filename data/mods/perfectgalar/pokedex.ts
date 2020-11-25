@@ -97,9 +97,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body", H: "Heatproof"},
 	},
-	registeel: {
-		inherit: true,
-	},
 	regieleki: {
 		inherit: true,
 		abilities: {0: "Clear Body", H: "Transistor"},
