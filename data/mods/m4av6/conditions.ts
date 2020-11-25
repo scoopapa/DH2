@@ -1,7 +1,6 @@
 'use strict';
 
-exports.BattleStatuses = {
-
+export const Conditions: {[k: string]: ConditionData} = {
 	acidicterrain: {
 		name: 'Acidic Terrain',
 		effectType: 'Terrain',

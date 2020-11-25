@@ -1,4 +1,4 @@
-export const BattleItems: {[k: string]: ModdedItemData} = {
+export const Items: {[itemid: string]: ModdedItemData} = {
 	draconite: {
 		name: "Draconite",
 		spritenum: 586,
