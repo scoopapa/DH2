@@ -1165,13 +1165,15 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
+	/*
 	{
-		name: "[Gen 8] M4A Random Battle (Beta)",
+		name: "[Gen 8] M4A Random Battle Beta",
 
 		mod: 'm4av6',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
+	*/
 	{
 		name: "[Gen 8] Fusion Evolution Alpha",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
