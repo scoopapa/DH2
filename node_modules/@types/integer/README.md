@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/integer`
+
+# Summary
+This package contains type definitions for integer (https://github.com/JoshuaWise/integer#readme).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/integer.
+
+### Additional Details
+ * Last updated: Fri, 15 May 2020 04:09:41 GMT
+ * Dependencies: none
+ * Global values: none
+
+# Credits
+These definitions were written by [Ben Davies](https://github.com/Morfent).
