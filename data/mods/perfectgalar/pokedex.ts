@@ -95,11 +95,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	regice: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Ice Body", H: "Heatproof"},
+		abilities: {0: "Clear Body", H: "Heatproof"},
 	},
 	registeel: {
 		inherit: true,
-	
+	},
+	regieleki: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Transistor"},
+	},
+	regidrago: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Dragon's Maw"},
+	},
 	articunogalar: {
 		inherit: true,
 		abilities: {0: "Pressure", H: "Competitive"},

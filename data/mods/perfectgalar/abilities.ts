@@ -43,6 +43,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	curiousmedicine: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of this.getAllActive()) {
+				if (!activated && (target.status || target.boosts)) {
+					this.add('-ability', pokemon, 'Curious Medicine');
+					activated = true;
+				}
+				target.clearBoosts();
+				target.cureStatus();
+			}
+		},
+		name: "Curious Medicine",
+		rating: 0,
+		num: 261,
+	},
 	lightmetal: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.flags['contact']) return this.chainModify(0.75);
@@ -56,6 +72,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Electric') {
 				move.flags.contact = 1;
+			}
+			if (move.flags['contact']) {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
@@ -68,7 +86,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Dragon') {
 				move.flags.bite = 1;
-				return this.chainModify(1.3);
+			}
+			if (move.flags['bite']) {
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		name: "Dragon's Maw",
