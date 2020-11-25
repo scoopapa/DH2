@@ -1165,6 +1165,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
+	/*
 	{
 		name: "[Gen 8] M4A Random Battle",
 
@@ -1172,12 +1173,20 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
+	*/
+	{
+		name: "[Gen 8] Fusion Evolution Alpha",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		mod: 'fealpha',
+		searchShow: false,
+	},
+	/*
 	{
 		name: "[Gen 8] Ink's Dynamax Adventure",
 		ruleset: ['OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Team Preview', 'Cancel Mod', 'HP Percentage Mod',],
 		mod: "inksdynamaxadventure",
 	},
-	
+	*/
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
