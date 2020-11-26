@@ -43,7 +43,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		accuracy: true,
 		ignoreEvasion: true,
-		effect: {
+		condition: {
 			duration: 2,
 			durationCallback: function (target, source, effect) {
 				return this.random(3, 4);
@@ -277,7 +277,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide and Swift.",
 		basePower: 100,
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'dig',
 			onTryImmunity: function (target, source, move) {
@@ -299,7 +299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "For 0 to 7 turns, one of the target's known moves that has at least 1 PP remaining becomes disabled, at random. Fails if one of the target's moves is already disabled, or if none of the target's moves have PP remaining. If any Pokemon uses Haze, this effect ends. Whether or not this move was successful, it counts as a hit for the purposes of the opponent's use of Rage.",
 		shortDesc: "For 0-7 turns, disables one of the target's moves.",
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				const duration = this.random(1, 7);
@@ -415,7 +415,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fly: {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide and Swift.",
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'fly',
 			onTryImmunity: function (target, source, move) {
@@ -437,7 +437,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "If the attack deals critical hits sometimes, then the chance of its happening is quartered. If a move has a high chance of dealing a critical hit, if the user iis currently faster than the opposing Pokemon its critical hit ratio is not decreased. If it's slower, its chances of dealing a critical hit is cut by 50%. If the user is significantly slower than the opposing Pokemon, then the user will be unable to deal critical hits to the opposing Pokemon.",
 		shortDesc: "Reduces the user's chance for a critical hit.",
-		effect: {
+		condition: {
 			onStart: function (pokemon) {
 				this.add('-start', pokemon, 'move: Focus Energy');
 			},
@@ -539,7 +539,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	leechseed: {
 		inherit: true,
 		onHit: function () {},
-		effect: {
+		condition: {
 			onStart: function (target) {
 				this.add('-start', target, 'move: Leech Seed');
 			},
@@ -581,7 +581,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart: function (pokemon) {
 				this.add('-start', pokemon, 'Light Screen');
 			},
@@ -683,7 +683,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			volatileStatus: 'rage',
 		},
-		effect: {
+		condition: {
 			// Rage lock
 			duration: 255,
 			onStart: function (target, source, effect) {
@@ -744,7 +744,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart: function (pokemon) {
 				this.add('-start', pokemon, 'Reflect');
 			},
@@ -914,7 +914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.directDamage(target.maxhp / 4, target, target);
 			}
 		},
-		effect: {
+		condition: {
 			onStart: function (target) {
 				this.add('-start', target, 'Substitute');
 				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;

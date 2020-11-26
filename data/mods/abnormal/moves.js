@@ -474,7 +474,7 @@ exports.BattleMovedex = {
     inherit: true,
     desc: "As long as the target remains active, its evasiveness stat stage is ignored during accuracy checks against it if it is greater than 0, and Fighting-type attacks can hit the target if it is a Ghost type. Fails if the target is already affected, or affected by Foresight or Miracle Eye.",
     shortDesc: "Fighting hits Ghost. Evasiveness ignored.",
-    effect: {
+    condition: {
       noCopy: true,
       onStart(pokemon) {
         this.add('-start', pokemon, 'Foresight');
@@ -787,7 +787,7 @@ exports.BattleMovedex = {
   "roost": {
     inherit: true,
     desc: "The user restores 1/2 of its maximum HP, rounded half up. Until the end of the turn, Flying-type users lose their Flying type and pure Flying-type users become Ground type. Does nothing if the user's HP is full.",
-    effect: {
+    condition: {
       duration: 1,
       onResidualOrder: 20,
       onStart(target) {
