@@ -597,6 +597,10 @@ export class RandomTeams {
 			forme = species.name.slice(0, -5);
 			mega = true;
 		}
+		else if (species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Y')) {
+			forme = species.name.slice(0, -7);
+			mega = true;
+		}
 
 		const randMoves = !isDoubles ? species.randomBattleMoves : (species.randomDoubleBattleMoves || species.randomBattleMoves);
 		const movePool = (randMoves || Object.keys(this.dex.data.Learnsets[species.id]!.learnset!)).slice();
@@ -1250,6 +1254,8 @@ export class RandomTeams {
 				if (hasAbility['Telepathy'] && (ability === 'Pressure' || hasAbility['Analytic'])) ability = 'Telepathy';
 				if (hasAbility['Triage']) ability = 'Triage';
 			}
+		} else if ((forme === 'Gourgeist' || forme === 'Gourgeist-Small' || forme === 'Gourgeist-Large' || forme === 'Gourgeist-Super') && mega) {
+			ability = 'Frisk';
 		} else {
 			ability = ability0.name;
 		}
@@ -1757,10 +1763,10 @@ export class RandomTeams {
 
 				
 				// Track what the team has
-				if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails['rain'] = 1;
+				if (set.ability === 'Drizzle' || set.moves.includes('raindance') || species === 'Vanilluxe-Mega') teamDetails['rain'] = 1;
 				if (set.ability === 'Drought' || set.moves.includes('sunnyday')) teamDetails['sun'] = 1;
-				if (set.ability === 'Sand Stream') teamDetails['sand'] = 1;
-				if (set.ability === 'Snow Warning') teamDetails['hail'] = 1;
+				if (set.ability === 'Sand Stream'|| set.ability === 'Sand Spit') teamDetails['sand'] = 1;
+				if (set.ability === 'Snow Warning' || species === 'Vanilluxe-Mega') teamDetails['hail'] = 1;
 				if (set.moves.includes('spikes')) teamDetails['spikes'] = (teamDetails['spikes'] || 0) + 1;
 				if (set.moves.includes('stealthrock')) teamDetails['stealthRock'] = 1;
 				if (set.moves.includes('stickyweb')) teamDetails['stickyWeb'] = 1;
