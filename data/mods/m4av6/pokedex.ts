@@ -1231,8 +1231,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	boltundmega: {
 		num: 836,
 		name: "Boltund-Mega",
-		baseSpecies: "Boltund-Mega",
-		forme: "Boltund-Mega",
+		baseSpecies: "Boltund",
+		forme: "Mega",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 69, atk: 140, def: 60, spa: 115, spd: 60, spe: 146},
 		abilities: {0: "Adrenaline"},
