@@ -58,7 +58,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'inverseroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -172,7 +172,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Rain Dance", target);
 		},
 		sideCondition: 'swampland',
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback: function(target, source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -307,7 +307,7 @@ exports.BattleMovedex = {
 			nonsky: 1
 		},
 		terrain: 'mistyterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasItem('terrainextender')) {
@@ -1427,7 +1427,7 @@ exports.BattleMovedex = {
 			mirror: 1
 		},
 		pseudoWeather: 'trickroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1475,7 +1475,7 @@ exports.BattleMovedex = {
 			mirror: 1
 		},
 		pseudoWeather: 'magicroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1522,7 +1522,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'wonderroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function (source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1739,7 +1739,7 @@ exports.BattleMovedex = {
 	},
 	"stickyweb": {
 		inherit: true,
-		effect: {
+		condition: {
 			onStart: function (side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
@@ -1752,7 +1752,7 @@ exports.BattleMovedex = {
 	},
 	"toxicspikes": {
 		inherit: true,
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart: function (side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');

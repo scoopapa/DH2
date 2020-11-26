@@ -3,7 +3,7 @@
 exports.BattleMovedex = {
 	"tailwind": {
 		inherit: true,
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback( target, source, effect ) {
 				if ( source && ( source.hasAbility( 'persistent' ) 
