@@ -43,6 +43,117 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	curiousmedicine: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of this.getAllActive()) {
+				if (!activated && (target.status || target.boosts)) {
+					this.add('-ability', pokemon, 'Curious Medicine');
+					activated = true;
+				}
+				target.clearBoosts();
+				target.cureStatus();
+			}
+		},
+		name: "Curious Medicine",
+		rating: 0,
+		num: 261,
+	},
+	lightmetal: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['contact']) return this.chainModify(0.75);
+		},
+		name: "Light Metal",
+		rating: 1,
+		num: 135,
+	},
+	transistor: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				move.flags.contact = 1;
+			}
+			if (move.flags['contact']) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
+	},
+	dragonsmaw: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				move.flags.bite = 1;
+			}
+			if (move.flags['bite']) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Dragon's Maw",
+		rating: 3.5,
+		num: 263,
+	},
+	slowstart: {
+		onStart(pokemon) {
+			if ( !pokemon.slowStartTurns ) {
+				pokemon.slowStartTurns = 5;
+				for (const pokemon of pokemon.side.active) {
+					if (["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( pokemon.species )) pokemon.slowStartTurns--;
+				}
+			}
+		},
+		onResidual(pokemon) {
+			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['slowstart'];
+			this.add('-end', pokemon, 'Slow Start', '[silent]');
+		},
+		condition: {
+			duration: 5,
+			durationCallback(pokemon) {
+				return pokemon.slowStartTurns
+			},
+			onStart(target) {
+				this.add('-start', target, 'ability: Slow Start');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify(0.8);
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(0.8);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Slow Start');
+			},
+		},
+		name: "Slow Start",
+		rating: -1,
+		num: 112,
+	},
+	grimneigh: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Grim Neigh', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Grim Neigh",
+		rating: 3,
+		num: 265,
+	},
 //-----------------------------forme changes---------------------------------------------------------------------------------
 	"stancechange": {
 		inherit: true,

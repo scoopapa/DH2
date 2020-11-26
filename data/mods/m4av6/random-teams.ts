@@ -1381,6 +1381,7 @@ export class RandomTeams {
 			item = 'Chesto Berry';
 		} else if (hasMove['hypnosis'] && ability === 'Beast Boost') {
 			item = 'Blunder Policy';
+
 		// General Z-Crystal Recommendations: 
 		} else if (hasMove['bellydrum']) {
 			if (ability === 'Gluttony') {
@@ -1434,6 +1435,7 @@ export class RandomTeams {
 			item = 'Darkinium Z';
 		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
 			item = 'Heavy-Duty Boots';
+
 
 		// Doubles
 		} else if (isDoubles && (hasMove['dragonenergy'] || hasMove['eruption'] || hasMove['waterspout']) && counter.damagingMoves.length >= 4) {

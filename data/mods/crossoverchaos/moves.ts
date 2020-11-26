@@ -497,7 +497,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'minimize',
-		effect: {
+		condition: {
 			noCopy: true,
 			onSourceModifyDamage(damage, source, target, move) {
 				if (['stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'etherealroller'].includes(move.id)) {
@@ -543,7 +543,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!source.volatiles['purry']) return false;
 			if (source.volatiles['purry'].position === null) return false;
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
@@ -704,7 +704,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onStart(target) {
 				this.add('-singleturn', target, 'move: Protect');
@@ -904,7 +904,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, slash: 1},
 		multihit: [2, 5],
 		volatileStatus: 'cycloneslash',
-		effect: {
+		condition: {
 			duration: 1,
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
@@ -1439,7 +1439,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'inkyterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source && source.hasItem('terrainextender')) {
@@ -1851,7 +1851,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.chainModify(pokemon.volatiles['leafshield'].leaves*1.0 / 4.0)
 		},
 		//effect for user.
-		effect: {
+		condition: {
 			duration: 2,
 			onStart() {
 				this.effectData.leaves = 4;
@@ -2250,7 +2250,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		effect: {
+		condition: {
 				duration: 1,
 				onBeforeMovePriority: 8,
 				onBeforeMove(pokemon) {
@@ -2282,7 +2282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		effect: {
+		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
 				if (type === 'sandstorm' || type === 'hail') return false;
@@ -2489,7 +2489,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		selfSwitch: true,
 		sideCondition: 'meowtivate',
-		effect: { /* code shamelessly swiped from Dirty Escape in Fusion Evolution */
+		condition: { /* code shamelessly swiped from Dirty Escape in Fusion Evolution */
 			duration: 1,
 			onStart(source) {
 				let side = source.side;
@@ -2786,7 +2786,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'mine',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Mine');
@@ -2847,7 +2847,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spd: 1,
 		},
 		volatileStatus: 'summonearthspirit',
-		effect: {
+		condition: {
 			onStart(target, source, effect) {
 				if (effect && (['imposter', 'transform'].includes(effect.id))) {
 					this.add('-start', target, 'move: Summon Earth Spirit', '[silent]');
@@ -2879,7 +2879,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'pandorasbox',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Pandora\'s Box');
@@ -2963,7 +2963,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slash: 1},
 		volatileStatus: 'carnage',
-		effect: {
+		condition: {
 			duration: 3,
 			onStart(pokemon) {
 				this.add('-activate', pokemon, 'Carnage');
@@ -3624,7 +3624,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onStart(target) {
 				this.add('-singleturn', target, 'move: Protect');
@@ -3856,7 +3856,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onStart(target) {
 				this.add('-singleturn', target, 'move: Protect');
@@ -3945,7 +3945,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('hotcupofcoffee');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onStart(pokemon) {
 				this.add('-singleturn', pokemon, 'move: Hot Cup of Coffee');
@@ -4138,7 +4138,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				source.side.foe.addSideCondition('gmaxsteelsurge');
 			},
 		},
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
@@ -4173,7 +4173,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'spikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
@@ -4212,7 +4212,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stealthrock',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
@@ -4243,7 +4243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
@@ -4274,7 +4274,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'toxicspikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
@@ -4321,7 +4321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		pseudoWeather: 'gravity',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4408,7 +4408,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		volatileStatus: 'healblock',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4466,7 +4466,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'magicroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4510,7 +4510,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		sideCondition: 'safeguard',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4572,7 +4572,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		sideCondition: 'tailwind',
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4616,7 +4616,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -7,
 		flags: {mirror: 1},
 		pseudoWeather: 'trickroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -4660,7 +4660,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'wonderroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source && source.hasAbility('persistent')) {

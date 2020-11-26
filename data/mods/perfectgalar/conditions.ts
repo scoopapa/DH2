@@ -1,4 +1,6 @@
-export const Statuses: {[k: string]: EffectData} = {
+'use strict';
+
+export const Conditions: {[k: string]: ConditionData} = {
 	dynamax: {
 		name: 'Dynamax',
 		id: 'dynamax',

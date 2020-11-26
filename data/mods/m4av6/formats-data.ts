@@ -26,6 +26,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	butterfree: {
 		randomBattleMoves: ["sleeppowder", "quiverdance", "bugbuzz", "hurricane", "energyball", "hiddenpowerground"],
 		randomDoubleBattleMoves: ["quiverdance", "bugbuzz", "sleeppowder", "airslash", "protect"],
+		tier: "PUBL",
+		doublesTier: "(DUU)",
 	},
 	butterfreemega: {
 		randomBattleMoves: ["sleeppowder", "quiverdance", "bugbuzz", "hurricane", "earthpower"],
@@ -113,6 +115,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	raichu: {
 		randomBattleMoves: ["nastyplot", "encore", "thunderbolt", "grassknot", "hiddenpowerice", "focusblast", "voltswitch"],
 		randomDoubleBattleMoves: ["fakeout", "encore", "thunderbolt", "grassknot", "hiddenpowerice", "focusblast", "voltswitch", "protect"],
+		tier: "(PU)",
+		doublesTier: "DUU",
 	},
 	raichualola: {
 		randomBattleMoves: ["nastyplot", "thunderbolt", "psyshock", "focusblast", "voltswitch", "surf", "knockoff", "extremespeed"],
@@ -140,8 +144,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sandslashalola: {
 		randomBattleMoves: ["swordsdance", "iciclecrash", "ironhead", "earthquake", "rapidspin", "stealthrock", "knockoff"],
 		randomDoubleBattleMoves: ["protect", "swordsdance", "iciclecrash", "ironhead", "drillrun"],
+		tier: "PU",
+		doublesTier: "(DUU)",
 	},
-	
+	/*
 	sandslashmega: {
 		
 	},	
@@ -199,6 +205,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	
+	/*
 	ninetalesmega: {
 		
 	},	

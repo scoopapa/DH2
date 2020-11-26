@@ -83,7 +83,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	"octolock": {
 		inherit: true,
 		onTryImmunity: null,
-		effect: {
+		condition: {
 			onStart(pokemon, source) {
 				this.add('-activate', pokemon, 'move: Octolock', '[of] ' + source);
 			},
@@ -116,7 +116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'toxicspikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.effectData.gMaxLayers = 0;
@@ -181,7 +181,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		volatileStatus: 'torment',
-		effect: {
+		condition: {
 			noCopy: true,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Torment');
@@ -214,7 +214,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		volatileStatus: 'encore',
-		effect: {
+		condition: {
 			duration: 3,
 			noCopy: true, // doesn't get copied by Z-Baton Pass
 			onStart(target) {
@@ -492,7 +492,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'Max Strike');
@@ -554,7 +554,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Cool",
 	},
-	trumpcard: {
+	"trumpcard": {
 		num: 376,
 		accuracy: true,
 		basePower: 0,
@@ -579,6 +579,71 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
+	},
+	"crushgrip": {
+		num: 462,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Crush Grip",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
+	},
+	"thundercage": {
+		inherit: true,
+		accuracy: 100,
+		basePower: 90,
+	},
+	"wickedblow": {
+		inherit: true,
+		basePower: 75,
+	},
+	"astralbarrage": {
+		inherit: true,
+		basePower: 100,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.speciesid === 'calyrexshadowrider') return 120;
+		}
+	},
+	"glaciallance": {
+		inherit: true,
+		basePower: 100,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.speciesid === 'calyrexicerider') return 130;
+		}
+	},
+	junglehealing: {
+		num: 818,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Jungle Healing",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain')) {
+				success = !!this.heal(this.modify(pokemon.maxhp, 0.75));
+			} else {
+				success = !!this.heal(Math.ceil(pokemon.maxhp * 0.5));
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {condition: 'clearnegativeboost'},
+		contestType: "Clever",
 	},
 //------------------------------------------------------ Gigantamax Moves ------------------------------------------------------------------
 	"gmaxbefuddle": {
@@ -639,7 +704,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'G-Max Cuddle');
@@ -716,7 +781,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'G-Max Cuddle');
@@ -777,7 +842,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'Max Strike');
@@ -846,7 +911,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
@@ -931,7 +996,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		effect: {
+		condition: {
 			duration: 4,
 			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'G-Max Volcalith');

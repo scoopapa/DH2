@@ -21,7 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//--------------------------------modified moves-------------------------------------------
 	reflect: {
 		inherit: true,
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source.pokeClass === 'mage') this.effectData.sourceClass = 'mage';
@@ -67,7 +67,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		sideCondition: 'lightscreen',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source.pokeClass === 'mage') this.effectData.sourceClass = 'mage';

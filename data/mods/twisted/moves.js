@@ -1,5 +1,5 @@
 
-export const BattleMovedex = {
+export const Moves = {
 	/*
 	// Example
 	"moveid": {

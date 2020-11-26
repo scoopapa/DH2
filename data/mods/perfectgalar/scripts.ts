@@ -1,5 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
+		//These are in roughly chronological order by slate
 		// Butterfree
 		this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['8L1'];
 		this.modData('Learnsets', 'butterfree').learnset.defog = ['8L1'];
@@ -132,6 +133,88 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mrrime').learnset.trumpcard = ['8L1'];
 		this.modData('Learnsets', 'silvally').learnset.trumpcard = ['8L1'];
 		this.modData('Learnsets', 'keldeo').learnset.trumpcard = ['8L1'];
+		
+		// Regirock
+		this.modData('Learnsets', 'regirock').learnset.bulkup = ['8L1'];
+		this.modData('Learnsets', 'regirock').learnset.shoreup = ['8L1'];
+		
+		// Regice
+		this.modData('Learnsets', 'regice').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.freezyfrost = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.dazzlinggleam = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.rapidspin = ['8L1'];
+		
+		// Registeel
+		this.modData('Learnsets', 'registeel').learnset.icebeam = ['8L1'];
+		this.modData('Learnsets', 'registeel').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'registeel').learnset.shiftgear = ['8L1'];
+		this.modData('Learnsets', 'registeel').learnset.painsplit = ['8L1'];
+		
+		//Regieleki
+		this.modData('Learnsets', 'regieleki').learnset.flashcannon = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.smartstrike = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.sonicboom = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.thundercage = ['8L1'];
+		
+		//Regidrago
+		this.modData('Learnsets', 'regidrago').learnset.aurasphere = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.fireblast = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.icefang = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.poisonfang = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.superpower = ['8L1'];
+		
+		//Regigigas
+		this.modData('Learnsets', 'regigigas').learnset.crushgrip = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.dragonclaw = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.dragonpulse = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.flashcannon = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.icebeam = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.meteormash = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.outrage = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.powergem = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.stealthrock = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.triattack = ['8L1'];
+		
+		//Articuno-Galar
+		this.modData('Learnsets', 'articunogalar').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'articunogalar').learnset.icebeam = ['8L1'];
+		this.modData('Learnsets', 'articunogalar').learnset.focusblast = ['8L1'];
+		
+		//Zapdos-Galar
+		this.modData('Learnsets', 'zapdosgalar').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'zapdosgalar').learnset.wildcharge = ['8L1'];
+		this.modData('Learnsets', 'zapdosgalar').learnset.highjumpkick = ['8L1'];
+		
+		//Moltres-Galar
+		this.modData('Learnsets', 'moltresgalar').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.wildcharge = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.highjumpkick = ['8L1'];
+		
+		//Crobat
+		this.modData('Learnsets', 'crobat').learnset.toxicspikes = ['8L1'];
+		this.modData('Learnsets', 'crobat').learnset.sludgewave = ['8L1'];
+		this.modData('Learnsets', 'crobat').learnset.clearsmog = ['8L1'];
+		
+		//Slowking-Galar
+		this.modData('Learnsets', 'slowkinggalar').learnset.recover = ['8L1'];
+		
+		//Urshifu
+		delete this.modData('Learnsets', 'urshifu').learnset.suckerpunch;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.aquajet;
+		
+		//Zarude
+		this.modData('Learnsets', 'zarude').learnset.knockoff = ['8L1'];
+		
+		//Glastrier
+		this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.iceshard = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.trickroom = ['8L1'];
+		
+		//Spectrier
+		this.modData('Learnsets', 'spectrier').learnset.astralbarrage = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.extrasensory = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.gigadrain = ['8L1'];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
@@ -259,7 +342,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			pikachu: { hp: 30, atk: 10, def: 10, spa: 20, spd: 10, spe: -30 },
 			sandaconda: { hp: 0, atk: 0, def: 20, spa: 0, spd: 0, spe: 30 },
 			toxtricity: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },
-		}
+			toxtricitylowkey: { hp: 0, atk: 20, def: 0, spa: 4, spd: 16, spe: 10 },
+			urshifu: { hp: 0, atk: 15, def: 10, spa: 0, spd: 25, spe: 10 },
+			urshifurapidstrike: { hp: 0, atk: 10, def: 5, spa: 0, spd: 5, spe: 30 },
+		};
 		let boostType = statBoosts.dynamax;
 		if ( pokemon.canGigantamax ) boostType = statBoosts[ pokemon.speciesid ];
 		let statBoost = boostType[ statName ];

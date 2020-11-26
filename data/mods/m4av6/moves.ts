@@ -11,7 +11,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'electricterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'psychicterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -169,7 +169,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'grassyterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -251,7 +251,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'mistyterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -339,7 +339,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				source.side.foe.addSideCondition('gmaxsteelsurge');
 			},
 		},
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
@@ -380,7 +380,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'spikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
@@ -424,7 +424,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stealthrock',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
@@ -461,7 +461,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
@@ -498,7 +498,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'toxicspikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
@@ -549,7 +549,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: -7,
 		flags: {mirror: 1},
 		pseudoWeather: 'trickroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasAbility('persistent')) {
@@ -595,7 +595,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			this.add('-activate', pokemon, 'move: Charge');
 		},
-		effect: {
+		condition: {
 			duration: 2,
 			durationCallback(source, effect) {
 				if (source?.hasAbility('tempestuous')) {
@@ -636,7 +636,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		volatileStatus: 'healblock',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source?.hasAbility('persistent')) {
@@ -1313,134 +1313,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
-	},
-	thundercage: {
-		num: 819,
-		accuracy: 90,
-		basePower: 80,
-		category: "Special",
-		name: "Thunder Cage",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
-		secondary: null,
-		target: "normal",
-		type: "Electric",
-	},
-	dragonenergy: {
-		num: 820,
-		accuracy: 100,
-		basePower: 150,
-		basePowerCallback(pokemon, target, move) {
-			return move.basePower * pokemon.hp / pokemon.maxhp;
-		},
-		category: "Special",
-		name: "Dragon Energy",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Dragon",
-	},
-	freezingglare: {
-		num: 821,
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		name: "Freezing Glare",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			status: 'frz',
-		},
-		target: "normal",
-		type: "Psychic",
-	},
-	fierywrath: {
-		num: 822,
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		name: "Fiery Wrath",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 20,
-			volatileStatus: 'flinch',
-		},
-		target: "allAdjacentFoes",
-		type: "Dark",
-	},
-	thunderouskick: {
-		num: 823,
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		name: "Thunderous Kick",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				def: -1,
-			},
-		},
-		target: "normal",
-		type: "Fighting",
-	},
-	glaciallance: {
-		num: 824,
-		accuracy: 100,
-		basePower: 130,
-		category: "Physical",
-		name: "Glacial Lance",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Ice",
-	},
-	astralbarrage: {
-		num: 825,
-		accuracy: 100,
-		basePower: 120,
-		category: "Special",
-		name: "Astral Barrage",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Ghost",
-	},
-	eeriespell: {
-		num: 826,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Eerie Spell",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onHit(target) {
-			if (!target.hp) return;
-			const move = target.lastMove;
-			if (!move || move.isZ || move.isMax) return;
-
-			const ppDeducted = target.deductPP(move.id, 3);
-			if (!ppDeducted) return;
-
-			this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
 	},
 }

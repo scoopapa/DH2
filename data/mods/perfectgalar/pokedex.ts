@@ -93,4 +93,45 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 109, atk: 91, def: 75, spa: 111, spd: 81, spe: 68},
 	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Heatproof"},
+	},
+	regieleki: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Transistor"},
+	},
+	regidrago: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Dragon's Maw"},
+	},
+	articunogalar: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Competitive"},
+	},
+	zapdosgalar: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Defiant"},
+	},
+	moltresgalar: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Berserk"},
+	},
+	crobat: {
+		inherit: true,
+		abilities: {0: "Competitive", 1: "Infiltrator", H: "Corrosion"},
+		baseStats: {hp: 85, atk: 70, def: 80, spa: 90, spd: 80, spe: 130},
+	},
+	slowkinggalar: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 55, def: 90, spa: 110, spd: 110, spe: 30},
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 115, def: 80, spa: 63, spd: 80, spe: 112},
+	},
+	regigigas: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 160, def: 100, spa: 100, spd: 100, spe: 100},
+	},
 };
