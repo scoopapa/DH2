@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	weezinggalar: {learnset: {
 		aromatherapy: ["8L24"],
 		aromaticmist: ["8L1"],

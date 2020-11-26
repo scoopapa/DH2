@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	scyther: {learnset: {
 		aerialace: ["7M", "6M", "5M", "4M", "3M"],
 		agility: ["7L17", "7V", "7V", "6L17", "5L17", "5S2", "4L17", "3L21"],

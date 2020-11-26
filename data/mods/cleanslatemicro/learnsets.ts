@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	typenull: {learnset: {
 		aerialace: ["7M", "7L20"],
 		airslash: ["7L60"],

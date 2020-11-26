@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	poliwreck: {learnset: {
 		machpunch: ["7L1"],
 		drainpunch: ["7L1"],

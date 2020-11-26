@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleScripts = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
   init: function() {
 	  
 	  this.modData('Pokedex', 'sawsbuckwinter').types = ['Grass', 'Ice'];

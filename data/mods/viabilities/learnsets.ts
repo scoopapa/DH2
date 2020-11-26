@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	accelgor: {learnset: {
 		absorb: ["8L1", "7L1"],
 		acid: ["8L4", "7L4", "6L4", "5D", "5L4"],

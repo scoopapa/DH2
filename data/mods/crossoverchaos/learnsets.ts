@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 /*
 TMs/Tutors sorted by last generation they carry that status (for kirby, nero, etc.)
 	Gen 8:

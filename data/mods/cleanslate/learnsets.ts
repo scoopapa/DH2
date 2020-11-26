@@ -1,4 +1,4 @@
-export const BattleLearnsets = {
+export const Learnsets = {
 	cofagrigus: {learnset: {
         afteryou: ["7T", "6T", "5T"],
         allyswitch: ["7T"],
