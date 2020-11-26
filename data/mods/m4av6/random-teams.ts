@@ -1738,10 +1738,13 @@ export class RandomTeams {
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
 					
-					// Actually limit the number of Megas to one
+					// Actually limit the number of Megas to one, 
+					// but make sure we always have one by the last member if we dont already
 					if (isMega) {
 						if (megaCount >= 1) continue;
 						else megaCount++;
+					} else {
+						if (megaCount === 0 && pokemon.length === 5) continue;
 					}
 				}
 
