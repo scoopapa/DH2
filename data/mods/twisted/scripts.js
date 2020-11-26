@@ -1,4 +1,4 @@
-export const BattleScripts = {
+export const Scripts = {
     pokemon: {
         inherit: true,
         isTwist: '0' // This field indicates if the Pokémon has to twist left or right, '0' means it doesnt have to twist

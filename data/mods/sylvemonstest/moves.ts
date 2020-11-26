@@ -57,7 +57,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'inverseroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -172,7 +172,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rain Dance", target);
 		},
 		sideCondition: 'swampland',
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback: function(target, source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -335,7 +335,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			nonsky: 1
 		},
 		terrain: 'mistyterrain',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasItem('terrainextender')) {
@@ -1224,7 +1224,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"leechseed": {
 		inherit: true,
-		effect: {
+		condition: {
 			onStart(target) {
 				if (target.hasType('Grass')) { 
 					target.removeVolatile('leechseed'); 
@@ -1494,7 +1494,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			mirror: 1
 		},
 		pseudoWeather: 'trickroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1542,7 +1542,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			mirror: 1
 		},
 		pseudoWeather: 'magicroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function(source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1589,7 +1589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1},
 		pseudoWeather: 'wonderroom',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function (source, effect) {
 				if (source && source.hasAbility('persistent')) {
@@ -1807,7 +1807,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 	"stickyweb": {
 		inherit: true,
-		effect: {
+		condition: {
 			onStart: function (side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
@@ -1830,7 +1830,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'toxicspikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
@@ -1878,7 +1878,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				source.side.foe.addSideCondition('gmaxsteelsurge');
 			},
 		},
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
@@ -1911,7 +1911,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'spikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
@@ -1947,7 +1947,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stealthrock',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
@@ -3007,7 +3007,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(target, pokemon) {
 			target.side.removeSideCondition('flamewheel');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onBeforeSwitchOut(pokemon) {
 				this.debug('Flame Wheel start');

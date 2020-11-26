@@ -1,4 +1,4 @@
-export const Statuses: {[k: string]: ModdedStatusData} = {
+export const Conditions: {[k: string]: ConditionData} = {
 	par: {
 		name: 'par',
 		effectType: 'Status',

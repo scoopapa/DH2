@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleStatuses = {
+exports.Conditions = {
 	hail: {
 		effectType: 'Weather',
 		duration: 5,

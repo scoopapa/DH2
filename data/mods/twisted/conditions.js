@@ -1,4 +1,4 @@
-export const BattleStatuses = {
+export const Conditions = {
 	par: {
 		name: 'par',
 		effectType: 'Status',
