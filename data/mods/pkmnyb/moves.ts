@@ -404,7 +404,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         onHit(pokemon) {
             pokemon.addVolatile('stall');
         },
-        effect: {
+        condition: {
             duration: 1,
             onStart(target) {
                 this.add('-singleturn', target, 'Protect');
@@ -642,7 +642,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         priority: 0,
         flags: {reflectable: 1},
         sideCondition: 'sharpsteel',
-        effect: {
+        condition: {
             // this is a side condition
             onStart(side) {
                 this.add('-sidestart', side, 'move: Sharp Steel');

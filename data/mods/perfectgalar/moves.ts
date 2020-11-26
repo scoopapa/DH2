@@ -83,7 +83,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	"octolock": {
 		inherit: true,
 		onTryImmunity: null,
-		effect: {
+		condition: {
 			onStart(pokemon, source) {
 				this.add('-activate', pokemon, 'move: Octolock', '[of] ' + source);
 			},
@@ -116,7 +116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'toxicspikes',
-		effect: {
+		condition: {
 			// this is a side condition
 			onStart(side) {
 				this.effectData.gMaxLayers = 0;
@@ -181,7 +181,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		volatileStatus: 'torment',
-		effect: {
+		condition: {
 			noCopy: true,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Torment');
@@ -214,7 +214,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		volatileStatus: 'encore',
-		effect: {
+		condition: {
 			duration: 3,
 			noCopy: true, // doesn't get copied by Z-Baton Pass
 			onStart(target) {
@@ -492,7 +492,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'Max Strike');
@@ -642,7 +642,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Grass",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {condition: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
 //------------------------------------------------------ Gigantamax Moves ------------------------------------------------------------------
@@ -704,7 +704,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'G-Max Cuddle');
@@ -781,7 +781,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'G-Max Cuddle');
@@ -842,7 +842,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			volatileStatus: 'maxstrike',
-			effect: {
+			condition: {
 				noCopy: true,
 				onStart(pokemon) {
 					this.add('-start', pokemon, 'Max Strike');
@@ -911,7 +911,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		effect: {
+		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
@@ -996,7 +996,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		effect: {
+		condition: {
 			duration: 4,
 			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'G-Max Volcalith');

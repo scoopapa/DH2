@@ -1176,7 +1176,6 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
-	/*
 	{
 		name: "[Gen 8] M4A Random Battle",
 
@@ -1184,7 +1183,6 @@ export const Formats: FormatList = [
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
-	*/
 	{
 		name: "[Gen 8] Super Smash Mods Melee",
 		desc: ["&bullet; Super Smash Mods Melee",
