@@ -1264,7 +1264,7 @@ export class RandomTeams {
 		} else if ((forme === 'Jolteon') && mega) {
 			ability = 'Volt Absorb';
 		} else if ((forme === 'Gigalith') && mega) {
-			ability = 'Sturdy';
+			if (teamDetails['sun']) ability = 'Sturdy';
 		} else if ((forme === 'Slowking') && mega) {
 			ability = 'Regenerator';
 		} else if ((forme === 'Aurorus') && mega) {
