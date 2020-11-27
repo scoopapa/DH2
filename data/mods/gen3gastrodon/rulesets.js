@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormats = {
+exports.Formats = {
 	pokemon: {
 		effectType: 'Banlist',
 		onValidateSet: function (set, format, pokemon) {

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormats = {
+exports.Formats = {
 	batonpassclause: {
 		effectType: 'Banlist',
 		name: 'Baton Pass Clause',

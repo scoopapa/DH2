@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormats = {
+exports.Formats = {
 	pokemon: {
 		inherit: true,
 		effectType: 'Banlist',

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormats = {
+exports.Formats = {
 trademarkclause: {
 		effectType: 'Rule',
 		onStart: function () {

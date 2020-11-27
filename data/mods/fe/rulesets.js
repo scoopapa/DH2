@@ -32,4 +32,4 @@ extremespeedclause: {
     },
  };
 
-exports.BattleFormats = BattleFormats;
+exports.Formats = BattleFormats;
