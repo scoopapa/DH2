@@ -248,4 +248,4 @@ pokemon2: {
 	},
   };
 
-exports.BattleFormats = BattleFormats;
+exports.Formats = BattleFormats;

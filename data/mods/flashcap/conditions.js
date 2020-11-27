@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: EffectData}} */
-let BattleStatuses = {
+let Conditions = {
 	chamereon: {
 		name: 'Chamereon',
 		id: 'chamereon',
@@ -22,4 +22,4 @@ let BattleStatuses = {
 	},
 };
 
-exports.BattleStatuses = BattleStatuses;
+exports.Conditions = Conditions;

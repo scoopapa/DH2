@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleStatuses = {
+exports.Conditions = {
 	slp: {
 		name: 'slp',
 		id: 'slp',

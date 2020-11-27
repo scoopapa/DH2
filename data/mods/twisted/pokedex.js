@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattlePokedex = {
+exports.Pokedex = {
 	sudowoodoltwist: {
 		num: 185,
 		 species: "Sudowoodo-LT",

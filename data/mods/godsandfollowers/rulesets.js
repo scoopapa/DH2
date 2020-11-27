@@ -1,4 +1,4 @@
-exports.BattleFormats = {
+exports.Formats = {
 	followersclause: {
 		effectType: 'Rule',
 		onValidateTeam: function(team) {

@@ -10,4 +10,4 @@ let BattleFormats = {
 	},
 };
 
-exports.BattleFormats = BattleFormats;
+exports.Formats = BattleFormats;

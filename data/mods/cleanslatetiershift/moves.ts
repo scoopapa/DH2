@@ -67,7 +67,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		pseudoWeather: 'gravity',
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback: function (source, effect) {
 				if (effect && effect.effectType === 'Ability') {
@@ -269,7 +269,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		beforeTurnCallback: function (pokemon) {
 			pokemon.addVolatile('venomslam');
 		},
-		effect: {
+		condition: {
 			duration: 1,
 			onStart: function ( pokemon, source, move ) {
 				this.add('-singleturn', pokemon, 'move: Venom Slam');

@@ -1,4 +1,4 @@
-exports.BattleFormats = {
+exports.Formats = {
    "godclause": {
      effectType: 'Rule',
      onValidateTeam: function (team) {

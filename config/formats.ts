@@ -1176,13 +1176,7 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
-	{
-		name: "[Gen 8] M4A Random Battle",
-
-		mod: 'm4av6',
-		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
-	},
+	
 	{
 		name: "[Gen 8] Super Smash Mods Melee",
 		desc: ["&bullet; Super Smash Mods Melee",
@@ -2044,6 +2038,23 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Species Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
+	
+	{
+		name: "[Gen 8] M4A Random Battle",
+		mod: 'm4av6',
+		team: 'random',
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+	},
+	
+	{
+		name: "[Gen 8] M4A Random (Dynamax)",
+
+		mod: 'm4av6',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+		searchShow: false,
+	},
+	
 	{
 		name: "[Gen 7] Random Battle",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with sets that are generated to be competitively viable.`,

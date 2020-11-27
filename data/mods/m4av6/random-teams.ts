@@ -1254,8 +1254,27 @@ export class RandomTeams {
 				if (hasAbility['Telepathy'] && (ability === 'Pressure' || hasAbility['Analytic'])) ability = 'Telepathy';
 				if (hasAbility['Triage']) ability = 'Triage';
 			}
+		//Fix certain Mega abilities
 		} else if ((forme === 'Gourgeist' || forme === 'Gourgeist-Small' || forme === 'Gourgeist-Large' || forme === 'Gourgeist-Super') && mega) {
 			ability = 'Frisk';
+		} else if ((forme === 'Flareon') && mega) {
+			ability = 'Flash Fire';
+		} else if ((forme === 'Vaporeon') && mega) {
+			ability = 'Water Absorb';
+		} else if ((forme === 'Jolteon') && mega) {
+			ability = 'Volt Absorb';
+		} else if ((forme === 'Gigalith') && mega) {
+			if (teamDetails['sun']) ability = 'Sturdy';
+		} else if ((forme === 'Slowking') && mega) {
+			ability = 'Regenerator';
+		} else if ((forme === 'Aurorus') && mega) {
+			ability = 'Snow Warning';
+		} else if ((forme === 'Reuniclus') && mega) {
+			ability = 'Regenerator';
+		} else if ((forme === 'Raichu') && mega) {
+			ability = 'Lightning Rod';
+		} else if ((forme === 'Luxray' || forme === 'Staraptor') && mega) {
+			ability = 'Intimidate';
 		} else {
 			ability = ability0.name;
 		}
@@ -1336,7 +1355,7 @@ export class RandomTeams {
 			}
 		} else if (species.name === 'Unown') {
 			item = 'Choice Specs';
-		} else if (species.evos.length && !hasMove['uturn']) {
+		} else if (species.evos.length && !hasMove['uturn'] && !hasMove['partingshot']) {
 			item = 'Eviolite';
 		} else if (hasMove['bellydrum']) {
 			item = (!!counter['priority'] || !hasMove['substitute']) ? 'Sitrus Berry' : 'Salac Berry';
@@ -1344,6 +1363,8 @@ export class RandomTeams {
 			item = 'Power Herb';
 		} else if (hasMove['shellsmash']) {
 			item = (ability === 'Sturdy' && !isLead && !isDoubles) ? 'Heavy-Duty Boots' : 'White Herb';
+		} else if (ability === 'Guts' && counter.Physical >= 1 && hasMove['burnup']) {
+			item = 'Flame Orb';
 		} else if (ability === 'Guts' && (counter.Physical > 2 || isDoubles)) {
 			item = hasType['Fire'] ? 'Toxic Orb' : 'Flame Orb';
 		} else if (ability === 'Magic Guard' && counter.damagingMoves.length > 1) {
@@ -1360,8 +1381,7 @@ export class RandomTeams {
 			item = 'Chesto Berry';
 		} else if (hasMove['hypnosis'] && ability === 'Beast Boost') {
 			item = 'Blunder Policy';
-		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
-			item = 'Heavy-Duty Boots';
+
 		// General Z-Crystal Recommendations: 
 		} else if (hasMove['bellydrum']) {
 			if (ability === 'Gluttony') {
@@ -1411,6 +1431,11 @@ export class RandomTeams {
 			} else {
 				item = (ability === 'Forecast') ? 'Heat Rock' : 'Life Orb';
 			}
+		} else if ((hasMove['partingshot'] || hasMove['memento']) && !teamDetails.zMove) {
+			item = 'Darkinium Z';
+		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
+			item = 'Heavy-Duty Boots';
+
 
 		// Doubles
 		} else if (isDoubles && (hasMove['dragonenergy'] || hasMove['eruption'] || hasMove['waterspout']) && counter.damagingMoves.length >= 4) {
@@ -1713,10 +1738,13 @@ export class RandomTeams {
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
 					
-					// Actually limit the number of Megas to one
+					// Actually limit the number of Megas to one, 
+					// but make sure we always have one by the last member if we dont already
 					if (isMega) {
 						if (megaCount >= 1) continue;
 						else megaCount++;
+					} else {
+						if (megaCount === 0 && pokemon.length === 5) continue;
 					}
 				}
 

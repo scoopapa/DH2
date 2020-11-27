@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleFormats = {
+exports.Formats = {
 	stoneclause: {
 		effectType: 'ValidatorRule',
 		name: 'Stone Clause',
