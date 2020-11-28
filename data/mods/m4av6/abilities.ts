@@ -973,6 +973,40 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1030,
 	},
+	flowergift: {
+		onStart(pokemon) {
+			delete this.effectData.forme;
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onAllyModifyAtkPriority: 3,
+		onAllyModifyAtk(atk, pokemon) {
+			if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim' && this.effectData.target.species.name !== 'Meganium-Mega') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyModifySpDPriority: 4,
+		onAllyModifySpD(spd, pokemon) {
+			if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim' && this.effectData.target.species.name !== 'Meganium-Mega') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Flower Gift",
+		rating: 1,
+		num: 122,
+	},
 	savage: {
 		desc: "This Pokémon's biting moves become multi-hit moves that hit two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
 		shortDesc: "This Pokémon's biting moves hit two to five times. Each hit's damage is cut to one third.",
