@@ -2503,15 +2503,33 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	regirockmega: {
+		randomBattleMoves: ["stealthrock", "thunderwave", "stoneedge", "drainpunch", "bodypress", "curse", "rest", "rockslide", "toxic"],
+		randomDoubleBattleMoves: ["stealthrock", "thunderwave", "stoneedge", "drainpunch", "bodypress", "curse", "rockslide", "protect", "rest"],
+		tier: "PU",
+		doublesTier: "(DUU)",
+	},
 	regice: {
 		randomBattleMoves: ["thunderwave", "icebeam", "thunderbolt", "rest", "sleeptalk", "focusblast", "rockpolish"],
 		randomDoubleBattleMoves: ["thunderwave", "icebeam", "thunderbolt", "icywind", "protect", "rockpolish"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
+	regicemega: {
+		randomBattleMoves: ["auroraveil", "teleport", "thunderwave", "icebeam", "thunderbolt", "rest", "sleeptalk", "focusblast", "rockpolish"],
+		randomDoubleBattleMoves: ["auroraveil", "thunderwave", "icebeam", "thunderbolt", "icywind", "protect", "rockpolish"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	registeel: {
 		randomBattleMoves: ["stealthrock", "toxic", "curse", "ironhead", "rest", "sleeptalk"],
 		randomDoubleBattleMoves: ["stealthrock", "ironhead", "curse", "rest", "thunderwave", "protect", "seismictoss"],
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
+	registeelmega: {
+		randomBattleMoves: ["stealthrock", "toxic", "curse", "ironhead", "heavyslam", "rest", "sleeptalk"],
+		randomDoubleBattleMoves: ["stealthrock", "ironhead", "heavyslam", "curse", "rest", "thunderwave", "protect", "seismictoss"],
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
