@@ -391,7 +391,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				boosts['accuracy'] = 0;
 			}
 		},
-		onDamagingHit(damage, target, source, move) { // Currently reports that the ability belongs to the thing that got hit
+		onDamagingHit(damage, target, source, move) {
 			if (this.field.getWeather().id !== 'sandstorm') {
 				this.field.setWeather('sandstorm', this.effectData.target);
 			}
@@ -642,5 +642,129 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 	},
+	
+	//----------------------------
+	"faustianpact": {
+		shortDesc: "Swaps abilities with target before landing a contact move",
+		id: "faustianpact",
+		name: "Faustian Pact",
+		onSourceHit(target, source, move) {
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability) ||
+				source.volatiles['dynamax']
+			) {
+				return;
+			}
+
+			if (move.flags['contact']) {
+				const targetAbility = target.setAbility('faustianpact', source);
+				if (!targetAbility) return;
+				if (target.side === source.side) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + target);
+				} else {
+					this.add('-activate', target, 'ability: Faustian Pact', this.dex.getAbility(targetAbility).name, 'Faustian Pact', '[of] ' + source);
+				}
+				source.setAbility(targetAbility);
+			}
+		},
+	}, 
+	
+	"sandfilling": {
+		shortDesc: "Sets Sandstorm. In Sand: Heal from status effects",
+		id: "sandfilling",
+		name: "Sand Filling",
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sandstorm'].includes(pokemon.effectiveWeather())) {
+				this.debug('sandfilling');
+				this.add('-activate', pokemon, 'ability: Sand Filling');
+				pokemon.cureStatus();
+			}
+		},
+	},
+	
+	"abysmalsurge": {
+		shortDesc: "Fire attacks have 45% brn chance; other attacks have 35% brn chance",
+		id: "abysmalsurge",
+		name: "Abysmal Surge",
+		onModifyMove(move) {
+			if (!move || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			if (move.type === 'Fire') {
+				move.secondaries.push({
+					chance: 45,
+					status: 'brn',
+					ability: this.dex.getAbility('abysmalsurge'),
+				});
+			} else {
+				move.secondaries.push({
+					chance: 30,
+					status: 'brn',
+					ability: this.dex.getAbility('abysmalsurge'),
+				});
+			}
+		},
+	}, 
+	
+	"crystalize": {
+		shortDesc: "Normal attacks become Rock; 1.3x power",
+		id: "crystalize",
+		name: "Crystalize",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Rock';
+				move.refrigerateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+	}, 
+	
+	"parasomnia": {
+		shortDesc: "Upon a KO or falling asleep, highest stat is raised by 1 stage",
+		id: "parasomnia",
+		name: "Parasomnia",
+		onSourceFaint(target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				/** @type {StatNameExceptHP} */
+				let s;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, source);
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status !== 'slp') return; 
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			this.boost({[statName]: 1}, this.effectData.target);
+		},
+	}, 
 };
 

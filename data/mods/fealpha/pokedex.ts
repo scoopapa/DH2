@@ -15,6 +15,7 @@ name: {
 	baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 	abilities: {0: ""},
 	weightkg: ,
+	//prevo: ,
 },
 
 	*/
@@ -314,7 +315,7 @@ ares: { //done
 	weightkg: 40.3,
 	prevo: 'Wingull',
 },
-armalion: { 
+armalion: { //done
 	// Armaldo + Cobalion
 	num: 30.5,
 	species: "Armalion",
@@ -325,4 +326,56 @@ armalion: {
 	prevo: 'Anorith',
 },
 // 9 -----------------
+nug: { //done
+	// Runerigus + Decidueye
+	num: 31.5,
+	species: "Nug",
+	types: ["Ground", "Ghost"],
+	baseStats: {hp: 80, atk: 118, def: 121, spa: 75, spd: 102, spe: 50},
+	abilities: {0: "Faustian Pact"},
+	weightkg: 51.6,
+	prevo: 'Dartrix', //Galarian Yamask implemented in learnsets.ts
+},
+tyragor: { //done
+	// Tyranitar + Accelgor
+	num: 32.5,
+	species: "Tyragor",
+	types: ["Rock", "Bug"],
+	baseStats: {hp: 90, atk: 192, def: 75, spa: 102, spd: 95, spe: 123},
+	abilities: {0: "Sand Filling"},
+	weightkg: 113.65,
+	prevo: 'Pupitar', //Shelmet implemented in learnsets.ts
+},
+palerider: { //done
+	// Infernape + Chandelure
+	num: 33.5,
+	species: "Pale Rider",
+	types: ["Fire", "Ghost"],
+	baseStats: {hp: 80, atk: 86, def: 80, spa: 125, spd: 80, spe: 114},
+	abilities: {0: "Abysmal Surge"},
+	weightkg: 44.65,
+	prevo: 'Monferno', //Litwick + Lampent implemented in learnsets.ts
+},
+laurorusorus: { //done
+	// Landorus + Aurorus
+	num: 34.5,
+	species: "Laurorusorus",
+	types: ["Ground", "Rock"],
+	baseStats: {hp: 106, atk: 101, def: 81, spa: 127, spd: 86, spe: 99},
+	abilities: {0: "Crystalize"},
+	weightkg: 146.5,
+	prevo: 'Amaura',
+},
+hypnihil: { //done
+	// Hypno + Nihilego
+	num: 35.5,
+	species: "Hypnihil",
+	types: ["Psychic", "Rock"],
+	baseStats: {hp: 101, atk: 67, def: 61, spa: 113, spd: 127, spe: 97},
+	abilities: {0: "Parasomnia"},
+	weightkg: 65.55,
+	prevo: 'Drowzee',
+},
+// 10 --------------------------
+
 };
