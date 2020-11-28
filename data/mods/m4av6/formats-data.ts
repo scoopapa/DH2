@@ -2516,8 +2516,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	regicemega: {
-		randomBattleMoves: ["auroraveil", "teleport", "thunderwave", "icebeam", "thunderbolt", "rest", "sleeptalk", "focusblast", "rockpolish"],
-		randomDoubleBattleMoves: ["auroraveil", "thunderwave", "icebeam", "thunderbolt", "icywind", "protect", "rockpolish"],
+		randomBattleMoves: ["auroraveil", "teleport", "thunderwave", "blizzard", "thunderbolt", "rest", "sleeptalk", "focusblast", "rockpolish"],
+		randomDoubleBattleMoves: ["auroraveil", "thunderwave", "blizzard", "thunderbolt", "icywind", "protect", "rockpolish"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
