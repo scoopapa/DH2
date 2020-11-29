@@ -286,6 +286,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gmaxPower: 140,
 		contestType: "Clever",
 	},
+	"playrough": {
+		inherit: true,
+		accuracy: 100,
+	},
+	"zenheadbutt": {
+		inherit: true,
+		accuracy: 100,
+	},
+	"psychocut": {
+		inherit: true,
+		basePower: 90,
+	},
 //------------------------------------------------------ Dynamax Moves ------------------------------------------------------------------
 	"maxairstream": {
 		inherit: true,

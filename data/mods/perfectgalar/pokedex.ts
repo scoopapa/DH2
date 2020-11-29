@@ -134,4 +134,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 110, atk: 160, def: 100, spa: 100, spd: 100, spe: 100},
 	},
+	rapidashgalar: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 120, def: 60, spa: 70, spd: 100, spe: 110},
+	},
+	raichu: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 65, spa: 90, spd: 80, spe: 110},
+		abilities: {0: "Static", 1: "Competitve", H: "Lightning Rod"},
+	},
+	cursola: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 50, def: 95, spa: 145, spd: 130, spe: 30},
+		abilities: {0: "Regenerator", H: "Perish Body"},
+	},
+	manectric: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 75, def: 80, spa: 105, spd: 60, spe: 125
+		abilities: {0: "Intimidate", 1: "Lightning Rod", H: "Minus"},
+	},
+	vespiquen: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 80, def: 112, spa: 70, spd: 102, spe: 40},
+		abilities: {0: "Pressure", H: "Prankster"},
+	},
 };

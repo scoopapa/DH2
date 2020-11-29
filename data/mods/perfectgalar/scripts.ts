@@ -215,6 +215,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'spectrier').learnset.astralbarrage = ['8L1'];
 		this.modData('Learnsets', 'spectrier').learnset.extrasensory = ['8L1'];
 		this.modData('Learnsets', 'spectrier').learnset.gigadrain = ['8L1'];
+		
+		//Cursola
+		this.modData('Learnsets', 'cursola').learnset.focusblast = ['8L1'];
+		this.modData('Learnsets', 'cursola').learnset.psyshock = ['8L1'];
+		this.modData('Learnsets', 'cursola').learnset.thunderwave = ['8L1'];
+		
+		//Vespiquen
+		this.modData('Learnsets', 'vespiquen').learnset.spikes = ['8L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ['8L1'];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {

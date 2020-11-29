@@ -154,6 +154,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 265,
 	},
+	pastelveil: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Poison') {
+				return null;
+			}
+		},
+		name: "Pastel Veil",
+		rating: 2,
+		num: 257,
+	},
+	minus: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Minus', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spd: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Minus",
+		rating: 3.5,
+		num: 58,
+	},
 //-----------------------------forme changes---------------------------------------------------------------------------------
 	"stancechange": {
 		inherit: true,

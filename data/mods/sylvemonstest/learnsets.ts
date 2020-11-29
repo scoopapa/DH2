@@ -150,5 +150,4 @@ export const Learnsets = {
 		venoshock: ["7M", "6M", "5M"],
 		xscissor: ["7M", "7L41", "6M", "6L41", "6S4", "5M", "5L41", "4M", "4L41", "4S1"],
 	}},
- 
  };
