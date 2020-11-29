@@ -108,6 +108,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'feraligatr').learnset.firefang = ['7L1'];
 		this.modData('Learnsets', 'feraligatr').learnset.suckerpunch = ['7L1'];
 		this.modData('Learnsets', 'feraligatr').learnset.thunderfang = ['7L1'];
+		this.modData('Learnsets', 'regice').learnset.teleport = ['7L1'];
+		this.modData('Learnsets', 'regice').learnset.freezedry = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -141,6 +143,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") {
 			return "Gourgeist-Super-Mega";
+		}
+		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Regice") {
+			return "Regice-Mega";
+		}
+		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") {
+			return "Registeel-Mega";
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
