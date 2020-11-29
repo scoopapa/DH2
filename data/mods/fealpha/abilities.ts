@@ -647,29 +647,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	"faustianpact": {
 		shortDesc: "Swaps abilities with target before landing a contact move",
 		id: "faustianpact",
-		name: "Faustian Pact",
-		onSourceHit(target, source, move) {
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
-			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability) ||
-				source.volatiles['dynamax']
-			) {
-				return;
-			}
-
-			if (move.flags['contact']) {
-				const targetAbility = target.setAbility('faustianpact', source);
-				if (!targetAbility) return;
-				if (target.side === source.side) {
-					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + target);
-				} else {
-					this.add('-activate', target, 'ability: Faustian Pact', this.dex.getAbility(targetAbility).name, 'Faustian Pact', '[of] ' + source);
-				}
-				source.setAbility(targetAbility);
-			}
-		},
+		name: "Faustian Pact",	
+		// Effect coded directly in scripts.ts. 
+		// It's hitchhiking on Spectral Thief's "hitStepStealBoosts" effect, 
+		// since I don't think I can add new scripts *specifically to the battle step order* 
+		// and Spectral Thief has basically the same place in the hitstep, so it probably is fine there.
 	}, 
 	
-	"sandfilling": {
+	"sandfilling": { // Seems functional
 		shortDesc: "Sets Sandstorm. In Sand: Heal from status effects",
 		id: "sandfilling",
 		name: "Sand Filling",
@@ -687,7 +672,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	},
 	
-	"abysmalsurge": {
+	"abysmalsurge": { // Seems functional
 		shortDesc: "Fire attacks have 45% brn chance; other attacks have 35% brn chance",
 		id: "abysmalsurge",
 		name: "Abysmal Surge",
@@ -712,7 +697,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	}, 
 	
-	"crystalize": {
+	"crystalize": { // Seems functional
 		shortDesc: "Normal attacks become Rock; 1.3x power",
 		id: "crystalize",
 		name: "Crystalize",
@@ -732,7 +717,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	}, 
 	
-	"parasomnia": {
+	"parasomnia": { // Seems functional
 		shortDesc: "Upon a KO or falling asleep, highest stat is raised by 1 stage",
 		id: "parasomnia",
 		name: "Parasomnia",
@@ -751,8 +736,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.boost({[statName]: 1}, source);
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (status !== 'slp') return; 
+		onSetStatus(status, target, source, effect) { 
 			let statName = 'atk';
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
@@ -763,7 +747,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
-			this.boost({[statName]: 1}, this.effectData.target);
+			if (status.id === 'slp') {
+				this.boost({[statName]: 1}, this.effectData.target);
+			}
 		},
 	}, 
 };
