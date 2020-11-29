@@ -1204,10 +1204,10 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Fusion Evolution Alpha",
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-			'All Pokemon', 'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
+			'All Pokemon', /*'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
 			'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z',
 			'Mewnium Z', 'Mimikium Z', 'Normalium Z', 'Pikanium Z', 'Pikashunium Z', 'Poisonium Z', 'Primarium Z', 'Psychium Z', 'Rockium Z', 'Snorlium Z', 'Solganium Z',
-			'Steelium Z', 'Tapunium Z', 'Ultranecrozium Z', 'Waterium Z',
+			'Steelium Z', 'Tapunium Z', 'Ultranecrozium Z', 'Waterium Z',*/
 		],
 		unbanlist: [
 			//Slate 1
