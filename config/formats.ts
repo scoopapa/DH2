@@ -1202,6 +1202,8 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Fusion Evolution Alpha",
+		desc: ["&bullet; Fusion Evolution Alpha",
+		      ],
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
 			'All Pokemon', /*'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
