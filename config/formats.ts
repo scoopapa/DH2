@@ -1202,7 +1202,40 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Fusion Evolution Alpha",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		ruleset: ['Standard', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'All Pokemon', 'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
+			'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z',
+			'Mewnium Z', 'Mimikium Z', 'Normalium Z', 'Pikanium Z', 'Pikashunium Z', 'Poisonium Z', 'Primarium Z', 'Psychium Z', 'Rockium Z', 'Snorlium Z', 'Solganium Z',
+			'Steelium Z', 'Tapunium Z', 'Ultranecrozium Z', 'Waterium Z',
+		],
+		unbanlist: [
+			//Slate 1
+				'Uranus', 'Saturn', 
+			//Slate 2
+				'Doot', 'Mr. Gross', 'Pluto', 'Zeus', 
+			//Slate 3
+				'Picante', 'Mr. Volcano', 'Vespithorn', 'Ishtar', 
+			//Slate 4
+				'Ananke', 'Dark Rose', 'Kratos', 'White Rider', 
+			//Slate 5
+				'Curchys-Peed', 'Corvilord', 'Kord', "Sir Pass'd", 
+			//Slate 6
+				'Teepee', 'Composite', 'Alilat', 'Umbrisse', 
+			//Slate 7
+				'Black Rider', 'Frother', 'Beezone', 'Toxiking',
+			//Slate 8
+				'Norn', 'Oni', 'Ares', 'Armalion', 
+			//Slate 9
+				'Nug', 'Tyragor', 'Pale Rider', 'Laurorusorus', 'Hypnihil', 
+			//
+		], 
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
 		mod: 'fealpha',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
