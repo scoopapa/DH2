@@ -224,6 +224,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Vespiquen
 		this.modData('Learnsets', 'vespiquen').learnset.spikes = ['8L1'];
 		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ['8L1'];
+		
+		
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {

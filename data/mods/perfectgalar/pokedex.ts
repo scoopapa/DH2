@@ -150,7 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	manectric: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 75, def: 80, spa: 105, spd: 60, spe: 125
+		baseStats: {hp: 70, atk: 75, def: 80, spa: 105, spd: 60, spe: 125},
 		abilities: {0: "Intimidate", 1: "Lightning Rod", H: "Minus"},
 	},
 	vespiquen: {
