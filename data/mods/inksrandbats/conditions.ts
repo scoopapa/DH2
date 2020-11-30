@@ -5,18 +5,43 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 0,
 		onStart(battle) {
 			this.add('-weather', 'Hail');
+			if (!battle.activeTurns) {
+				this.effectData.layers = 1; 
+			}
+			this.effectData.stage = 0;
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			this.add('-weather', 'Hail', '[upkeep]');
+			//this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
+			this.effectData.stage++;
+			
+			if (this.effectData.stage > 2) {
+				if (this.randomChance(1,4)) {
+					this.effectData.layers = 0; 
+					this.hint("The snow falls gently.");
+				} else if (this.randomChance(1,4)) {
+					this.effectData.layers = 1; 
+					this.hint("Hail is falling on the battlefield.");
+				} else if (this.randomChance(1,4)) {
+					this.effectData.layers = 2; 
+					this.hint("The hail is getting treacherous.");
+				} else {
+					this.effectData.layers = 3; 
+					this.hint("The hailstorm is blowing wildly!");
+				}
+				this.effectData.stage = 0;
+			}
 		},
 		onWeather(target) {
-			this.damage(target.baseMaxhp / 16);
+			if (this.effectData.layers > 0) {
+				this.damage(target.baseMaxhp * (this.effectData.layers / 16));
+			}
 		},
 		onEnd() {
 			this.add('-weather', 'none');
 		},
+			
 	},
 	
 	sandstorm: {

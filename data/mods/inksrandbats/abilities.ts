@@ -63,4 +63,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 248,
 	},
+	
+	snowwarning: {
+		onStart(source) {
+			this.field.weatherData.layers ++; 
+			this.add('-activate', source, 'ability: Snow Warning');
+			this.hint("The hailstorm has worsened!");
+		},
+		name: "Snow Warning",
+		rating: 4,
+		num: 117,
+	},
 };
