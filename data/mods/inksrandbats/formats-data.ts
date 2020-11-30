@@ -1163,13 +1163,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Custom",
 		tier: "Illegal",
 	},
-	vulpix: {
-		tier: "LC",
-	},
-	vulpixalola: {
-		tier: "LC Uber",
-	},
-	
 	igglybuff: {
 		tier: "LC",
 	},
@@ -2973,9 +2966,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
-	snover: {
-		tier: "LC",
-	},
 	
 	abomasnowmega: {
 		isNonstandard: "Past",
@@ -3037,14 +3027,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	darkrai: {
-		isNonstandard: "Past",
-		tier: "Illegal",
-	},
-	shaymin: {
-		isNonstandard: "Past",
-		tier: "Illegal",
-	},
-	shayminsky: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
