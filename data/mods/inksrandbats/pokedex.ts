@@ -27,4 +27,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
 	},
+	
+	gallade: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Trace", H: "Justified"}
+	},
 };
