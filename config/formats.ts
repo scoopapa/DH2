@@ -1237,6 +1237,12 @@ export const Formats: FormatList = [
 		},
 		mod: 'fealpha',
 	},
+	
+	{
+		name: '[Gen 8] Inks Randbats Test',
+		mod: 'inksrandbats',
+		ruleset: ['Permasnow', 'HP Percentage Mod', 'Cancel Mod'],
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",

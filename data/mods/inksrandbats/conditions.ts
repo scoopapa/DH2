@@ -12,7 +12,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			//this.add('-weather', 'Hail', '[upkeep]');
+			if (this.effectData.layers < 1) {
+				this.hint("The snow is falling gently.");
+			} else this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 			this.effectData.stage++;
 			
