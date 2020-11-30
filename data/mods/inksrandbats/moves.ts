@@ -23,8 +23,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onImmunity(type, pokemon) {
 				if (type === 'hail') return false;
 			},
-			onStart(side) {
+			onStart(side, source) {
+				this.attrLastMove('[still]');
 				this.add('-sidestart', side, 'move: Snow Fort');
+				this.addMove('-anim', source, "Hold Hands", side);
 			},
 			onResidualOrder: 21,
 			onResidualSubOrder: 1,
