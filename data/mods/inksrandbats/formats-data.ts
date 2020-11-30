@@ -1,6 +1,10 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	sandshrewalola: {
+		["earthquake", "ironhead", "knockoff", "rapidspin", "honeclaws", "tripleaxel"],
+		tier: "LC",
+	},
 	sandslashalola: { //---------------------
-		randomBattleMoves: ["earthquake", "ironhead", "knockoff", "rapidspin", "swordsdance", "tripleaxel"],
+		randomBattleMoves: ["earthquake", "ironhead", "knockoff", "rapidspin", "honeclaws", "tripleaxel"],
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["drillrun", "ironhead", "protect", "swordsdance", "tripleaxel"],
 		randomDoubleBattleLevel: 84,
@@ -14,6 +18,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleLevel: 84,
 		tier: "RU",
 		doublesTier: "(DUU)",
+	},
+	vulpix: {
+		["fireblast", "nastyplot", "scorchingsands", "solarbeam", "willowisp"],
+		tier: "LC",
+	},
+	vulpixalola: {
+		["auroraveil", "blizzard", "encore", "freezedry", "moonblast", "nastyplot"],
+		tier: "LC Uber",
 	},
 	ninetales: {  //---------------------
 		randomBattleMoves: ["fireblast", "nastyplot", "scorchingsands", "solarbeam", "willowisp"],
@@ -414,6 +426,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleLevel: 84,
 		tier: "RU",
 		doublesTier: "(DUU)",
+	},
+	snover: {
+		randomBattleMoves: ["auroraveil", "blizzard", "earthquake", "iceshard", "woodhammer"],
+		tier: "LC",
 	},
 	abomasnow: {
 		randomBattleMoves: ["auroraveil", "blizzard", "earthquake", "iceshard", "woodhammer"],
@@ -859,6 +875,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "protect"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
+	},
+	shaymin: {
+		randomBattleMoves: ["seedflare", "earthpower", "airslash", "psychic", "rest", "substitute", "leechseed"],
+		randomDoubleBattleMoves: ["seedflare", "earthpower", "airslash", "rest", "substitute", "leechseed", "tailwind", "protect"],
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
+	shayminsky: {
+		randomBattleMoves: ["seedflare", "airslash", "earthpower", "hiddenpowerice", "substitute", "leechseed"],
+		randomDoubleBattleMoves: ["seedflare", "earthpower", "airslash", "rest", "tailwind", "protect", "hiddenpowerice"],
+		tier: "Uber",
+		doublesTier: "DUU",
 	},
 	
 	/*
