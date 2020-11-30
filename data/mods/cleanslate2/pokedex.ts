@@ -186,7 +186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		species: "Aerodactyl",
 		types: ["Rock", "Flying"],
-		baseStats: {hp: 100, atk: 60, def: 105, spa: 135, spd: 105, spe: 110},
+		baseStats: {hp: 100, atk: 135, def: 105, spa: 60, spd: 105, spe: 110},
 		abilities: {0: "Sand Stream", 1: "Pressure", H: "Sand Force"},
 	},
 	unown: {

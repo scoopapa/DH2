@@ -712,6 +712,7 @@ export const Learnsets = {
 		spitup: ["7E", "6E", "5E", "4E", "3E"],
 		stockpile: ["7E", "6E", "5E", "4E", "3E"],
 		swallow: ["7E", "6E", "5E", "4E", "3E"],
+		swordsdance: ["8L1", "6E", "5E", "4E", "3E"],
 	}},
 	dhelmise: {learnset: {
 		absorb: ["8L1", "7L1"],
@@ -1804,6 +1805,10 @@ export const Learnsets = {
 		wideguard: ["7E", "7S1", "6E"],
 		wingattack: ["7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 		meteorbeam: ["7L1"],
+		diamondstorm: ["7L1"],
+		dragonascent: ["7L1"],
+		accelerock: ["7L1"],
+		dragondance: ["7L1"],
 	}},
 	unown: {learnset: {
 		rapidspin: ["8L1"],
