@@ -129,7 +129,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 81,
 	},
 	
-	icebody: {
+	icebody: { //Doesn't activate on level 0 hail
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
 				this.heal(target.baseMaxhp / 16);
@@ -142,4 +142,33 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 115,
 	},
-};
+	
+	flurryrush: { //Doesn't activate on level 0 hail
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('hail')) {
+				if (this.field.weatherData.layers > 3) return this.chainModify(2.5);
+				else if (this.field.weatherData.layers === 3) return this.chainModify(2);
+				else if (this.field.weatherData.layers === 2) return this.chainModify(1.5); 
+				else if (this.field.weatherData.layers === 1) return; 
+				else return this.chainModify(0.75); 
+			}
+		},
+		name: "Flurry Rush",
+		rating: 3,
+		num: 202,
+	},
+	
+	icebody: { //Alt version of Ice Body, that uses the variable hail damage amount, for something that REALLY needs a buff
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
+				this.heal(target.baseMaxhp * (this.field.weatherData.layers / 16));
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		name: "Ice Body",
+		rating: 1,
+		num: 115,
+	},
+}; 
