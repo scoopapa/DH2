@@ -146,11 +146,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true); 
 			}
+			this.effectData.startTime = 2;
+			this.effectData.time = this.effectData.startTime;
+		},
+		onResidual() {
+			this.effectData.time --;  
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost']) return;
-			if (this.randomChance(1, 5)) {
+			if (this.effectData.time === 0) {
 				pokemon.cureStatus();
 				return;
 			}
@@ -169,7 +174,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onCriticalHit(target, source, move) {
 			if (move.category !== 'Status') {
-				target.cureStatus();
+				this.hint('The attack shattered the ice!');
+				this.effectData.target.setStatus('');
 			}
 		},
 	},
