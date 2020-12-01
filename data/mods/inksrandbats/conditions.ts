@@ -176,5 +176,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.effectData.target.setStatus('');
 			}
 		},
+		onHit(target, source, move) {
+			if (move.thawsTarget || move.type === 'Fire' && move.category !== 'Status') {
+				target.cureStatus();
+			}
+		},
 	},
 };

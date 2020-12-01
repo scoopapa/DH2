@@ -26,7 +26,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(side, source) {
 				this.attrLastMove('[still]');
 				this.add('-sidestart', side, 'move: Snow Fort');
-				this.addMove('-anim', source, "Hold Hands", side);
+				this.addMove('-anim', source, "Hail", side);
 			},
 			onResidualOrder: 21,
 			onResidualSubOrder: 1,
