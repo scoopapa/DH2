@@ -149,9 +149,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectData.startTime = 2;
 			this.effectData.time = this.effectData.startTime;
 		},
-		onResidual() {
-			this.effectData.time --;  
-		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost']) return;
@@ -159,6 +156,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.cureStatus();
 				return;
 			}
+			this.effectData.time --;  
 			this.add('cant', pokemon, 'frz');
 			return false;
 		},
