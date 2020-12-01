@@ -1238,11 +1238,6 @@ export const Formats: FormatList = [
 		mod: 'fealpha',
 	},
 	
-	{
-		name: '[Gen 8] Inks Randbats Test',
-		mod: 'inksrandbats',
-		ruleset: ['Permasnow', 'HP Percentage Mod', 'Cancel Mod'],
-	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
@@ -2099,7 +2094,7 @@ export const Formats: FormatList = [
 		desc: `Play around both your opponent and the treacherous weather conditions in this randomized micrometa!`,
 		mod: 'inksrandbats',
 		team: 'random', 
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Permasnow'],
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Permasnow'],
 		searchShow: false,
 		//challengeShow: false,
 	},
