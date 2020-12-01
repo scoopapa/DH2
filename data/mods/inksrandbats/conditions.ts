@@ -163,8 +163,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.setStatus('');
 			}
 		},
-		onHit(target, source, move) {
-			if (move.thawsTarget || move.type === 'Fire' && move.category !== 'Status') {
+		onSourceModifyCritRatio(target, source, move) {
+			if (!target) return;
+			return 5; 
+		},
+		onCriticalHit(target, source, move) {
+			if (move.category !== 'Status') {
 				target.cureStatus();
 			}
 		},
