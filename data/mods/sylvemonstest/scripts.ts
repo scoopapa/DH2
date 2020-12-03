@@ -3790,25 +3790,28 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 	 * This function handles all changes to stats, ability, type, template, etc.
 	 * as well as sending all relevant messages sent to the client.
 	 */
-	formeChange(templateId, source, isPermanent, message, abilitySlot = '0') {
-		const rawTemplate = this.battle.getTemplate(templateId);
+	formeChange(
+		speciesId: string | Species, source: Effect = this.battle.effect,
+		isPermanent?: boolean, message?: string
+	) {
+		const rawSpecies = this.battle.dex.getSpecies(speciesId);
 
-		const template = this.setTemplate(rawTemplate, source);
-		if (!template) return false;
+		const species = this.setSpecies(rawSpecies, source);
+		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
 
 		// The species the opponent sees
 		const apparentSpecies =
-			this.illusion ? this.illusion.template.species : template.baseSpecies;
+			this.illusion ? this.illusion.species.species : species.baseSpecies;
 		if (isPermanent) {
-			this.baseTemplate = rawTemplate;
-			this.details = template.species + (this.level === 100 ? '' : ', L' + this.level) +
+			this.baseSpecies = rawSpecies;
+			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
 			this.battle.add('detailschange', this, (this.illusion || this).details);
 			if (source.effectType === 'Item') {
 				if (source.zMove) {
-					this.battle.add('-burst', this, apparentSpecies, template.requiredItem);
+					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
 					this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
 				} else if (source.onPrimal) {
 					if (this.illusion) {
@@ -3818,25 +3821,25 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 						this.battle.add('-primal', this);
 					}
 				} else {
-					this.battle.add('-mega', this, apparentSpecies, template.requiredItem);
+					this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
 					this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 				}
 			} else if (source.effectType === 'Status') {
 				// Shaymin-Sky -> Shaymin
-				this.battle.add('-formechange', this, template.species, message);
+				this.battle.add('-formechange', this, species.name, message);
 			}
 		} else {
 			if (source.effectType === 'Ability') {
-				this.battle.add('-formechange', this, template.species, message, `[from] ability: ${source.name}`);
+				this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
 			} else {
-				this.battle.add('-formechange', this, this.illusion ? this.illusion.template.species : template.species, message);
+				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 			}
 		}
 		if (source.effectType !== 'Ability' && source.id !== 'reliccharm' && source.id !== 'relicsong' && source.id !== 'zenmode') {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
-			this.setAbility(template.abilities[abilitySlot], null, true);
+			this.setAbility(species.abilities['0'], null, true); //
 			if (isPermanent) this.baseAbility = this.ability;
 		}
 		return true;
