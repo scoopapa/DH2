@@ -3374,7 +3374,6 @@ this.modData('Learnsets', 'snover').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'abomasnow').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'leafeon').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'shaymin').learnset.shedleaves = ['7L1'];
-this.modData('Learnsets', 'shayminsky').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'snivy').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'servine').learnset.shedleaves = ['7L1'];
 this.modData('Learnsets', 'serperior').learnset.shedleaves = ['7L1'];
