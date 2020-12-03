@@ -1043,6 +1043,9 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
 		},
+		onMegaEvo(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+		},
 	},
 		{  
 		name: "[Gen 8] SylveMons AG",
@@ -1052,6 +1055,9 @@ export const Formats: FormatList = [
 		mod: 'sylvemonstest',
 		ruleset: ['Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview'],
 		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+		},
+		onMegaEvo(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
 		},
 	},			
