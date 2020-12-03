@@ -13,4 +13,4 @@ let BattleAliases = {
 	"sawsbuckwinter": "Sawsbuck-Winter",
 };
 
-exports.BattleAliases = BattleAliases;
+exports.Aliases = BattleAliases;
