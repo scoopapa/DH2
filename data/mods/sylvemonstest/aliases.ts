@@ -1,4 +1,4 @@
-export const BattleAliases = {
+export const Aliases = {
 
 	// basically deerling & sawsbuck formes
 	"deerlingspring": "Deerling-Spring",
