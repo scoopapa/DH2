@@ -3835,7 +3835,7 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 			}
 		}
-		if (source.effectType !== 'Ability' && source.id !== 'reliccharm' && source.id !== 'relicsong' && source.id !== 'zenmode') {
+		if (source.effectType !== 'Ability' && source.id !== 'reliccharm' && source.id !== 'relicsong' && source.id !== 'ragecandybar' && source.id !== 'zenmode') {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
