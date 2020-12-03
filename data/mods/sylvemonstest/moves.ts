@@ -2598,7 +2598,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	"souldrain": {
-		num: 532,
+		num: 9999,
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
