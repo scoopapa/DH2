@@ -1514,11 +1514,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	magcargomega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["recover", "lavaplume", "toxic", "hiddenpowergrass", "stealthrock", "overheat", "earthpower", "curse", "shellsmash", "ancientpower"],
+		randomDoubleBattleMoves: ["protect", "heatwave", "willowisp", "stealthrock", "overheat", "curse", "incinerate", "earthpower"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	mamoswine: {
 		randomBattleMoves: ["iceshard", "earthquake", "endeavor", "iciclecrash", "stealthrock", "superpower", "knockoff"],
 		randomDoubleBattleMoves: ["iceshard", "earthquake", "rockslide", "iciclecrash", "protect", "superpower", "knockoff"],
@@ -2727,11 +2728,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	bastiodonmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["stealthrock", "earthpower", "fireblast", "blizzard", "thunder", "toxic"],
+		randomDoubleBattleMoves: ["stealthrock", "earthpower", "fireblast", "blizzard", "thunder", "protect", "wideguard", "guardsplit"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	wormadam: {
 		randomBattleMoves: ["gigadrain", "bugbuzz", "quiverdance", "hiddenpowerrock", "leafstorm"],
 		randomDoubleBattleMoves: ["leafstorm", "gigadrain", "bugbuzz", "stringshot", "protect"],
@@ -3517,16 +3519,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},	
 	*/
 	leavanny: {
-		randomBattleMoves: ["stickyweb", "swordsdance", "leafblade", "xscissor", "knockoff"],
-		randomDoubleBattleMoves: ["swordsdance", "leafblade", "xscissor", "protect", "stickyweb"],
+		randomBattleMoves: ["stickyweb", "swordsdance", "leafblade", "lunge", "knockoff"],
+		randomDoubleBattleMoves: ["swordsdance", "leafblade", "lunge", "protect", "stickyweb"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	leavannymega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["stickyweb", "swordsdance", "quiverdance", "synthesis", "lunge", "leafblade", "appleacid", "bugbuzz", "electroweb", "airslash"],
+		randomDoubleBattleMoves: ["swordsdance", "quiverdance", "lunge", "appleacid", "electroweb", "airslash", "protect", "stickyweb"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	scolipede: {
 		randomBattleMoves: ["protect", "spikes", "toxicspikes", "megahorn", "rockslide", "earthquake", "swordsdance", "poisonjab"],
 		randomDoubleBattleMoves: ["protect", "megahorn", "rockslide", "poisonjab", "swordsdance", "aquatail", "superpower"],
