@@ -110,6 +110,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'feraligatr').learnset.thunderfang = ['7L1'];
 		this.modData('Learnsets', 'regice').learnset.teleport = ['7L1'];
 		this.modData('Learnsets', 'regice').learnset.freezedry = ['7L1'];
+		this.modData('Learnsets', 'magcargo').learnset.firelash = ['7L1'];
+		this.modData('Learnsets', 'magcargo').learnset.energyball = ['7L1'];
+		this.modData('Learnsets', 'bastiodon').learnset.earthpower = ['7L1'];
+		this.modData('Learnsets', 'leavanny').learnset.appleacid = ['7L1'];
+		this.modData('Learnsets', 'leavanny').learnset.lunge = ['7L1'];
+		this.modData('Learnsets', 'leavanny').learnset.quiverdance = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
