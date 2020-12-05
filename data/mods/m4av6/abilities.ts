@@ -1005,17 +1005,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
+			const sideConditions = [
+				'volcanicsinge',
+			];
 			let i: BoostName;
 			for (i in boost) {
-				if (boost[i]! < 0) {
-					if (target.sideConditions['volcanicsinge']) {
-						target.sideConditions['volcanicsinge'].duration += i;
-						this.hint(`Volcanic Singe was extended for another {i} turns!`);
-						this.hint(`It will last {target.sideConditions['volcanicsinge'].duration} turns!`);
-					} else {
-						target.side.addSideCondition('volcanicsinge');
-						target.sideConditions['volcanicsinge'].duration = i;
-						this.hint(`Volcanic Singe will last {i} turns!`);
+				for (const id of sideConditions) {
+					if (boost[i]! < 0) {
+						if (target.sideConditions[id]) {
+							target.sideConditions[id].duration += i;
+							this.hint(`Volcanic Singe was extended for another {i} turns!`);
+							this.hint(`It will last {target.sideConditions[id].duration} turns!`);
+						} else {
+							target.side.addSideCondition('volcanicsinge');
+							target.sideConditions[id].duration = i;
+							this.hint(`Volcanic Singe will last {i} turns!`);
+						}
 					}
 				}
 			}
@@ -1054,34 +1059,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				movesetCheck++;
 				const slotMove = this.dex.getMove(moveSlot.move);
-				if (move.id !== slotMove) continue;
-				if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
-					move.category = 'Physical';
-					move.defensiveCategory = 'Special';
-					move.hasSheerForce = true;
-					pokemon.addVolatile('settle1');
-				} else if (movesetCheck === 2 && !pokemon.volatiles['settle2']) {
-					move.category = 'Physical';
-					move.defensiveCategory = 'Special';
-					move.hasSheerForce = true;
-					pokemon.addVolatile('settle1');
-				} else if (movesetCheck === 3 && !pokemon.volatiles['settle3']) {
-					move.category = 'Physical';
-					move.defensiveCategory = 'Special';
-					move.hasSheerForce = true;
-					pokemon.addVolatile('settle1');
-				} else if (movesetCheck === 4 && !pokemon.volatiles['settle4']) {
-					move.category = 'Physical';
-					move.defensiveCategory = 'Special';
-					move.hasSheerForce = true;
-					pokemon.addVolatile('settle1');
+				if (move.id === slotMove) {
+					if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
+						pokemon.addVolatile('settle1');
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+					} else if (movesetCheck === 2 && !pokemon.volatiles['settle2']) {
+						pokemon.addVolatile('settle2');
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+					} else if (movesetCheck === 3 && !pokemon.volatiles['settle3']) {
+						pokemon.addVolatile('settle3');
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+					} else if (movesetCheck === 4 && !pokemon.volatiles['settle4']) {
+						pokemon.addVolatile('settle4');
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+					}
 				}
 			}
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.hasSheerForce) return this.chainModify([0x1333, 0x1000]);
-			this.hint(`${move.name} was boosted by Settle!`);
+			if (move.hasSheerForce) {
+				this.hint(`${move.name} was boosted by Settle!`);
+				return this.chainModify([0x1333, 0x1000]);
+			}
 		},
 		rating: 3,
 		num: -1033,
