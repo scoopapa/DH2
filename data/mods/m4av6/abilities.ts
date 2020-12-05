@@ -1005,16 +1005,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
-			let activated = false;
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					let num = boost[i];
 					while (num !== 0) {
-						if (!activated) {
-							this.add('-ability', target, 'Volcanic Singe');
-							activated = true;
-						}
 						target.side.addSideCondition('volcanicsinge');
 						num++;
 					}
@@ -1024,6 +1019,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 2,
 			onStart(side) {
+				this.add('-ability', this.effectData.source, 'Volcanic Singe');
 				this.add('-message', `The air around ${this.effectData.source.name}'s team was superheated!`);
 				this.hint(`During Volcanic Singe, making contact with a Pokémon on ${this.effectData.source.name}'s team will result in a burn!`);
 				this.hint(`The effect is extended each time ${this.effectData.source.name}'s stats are lowered!`);
