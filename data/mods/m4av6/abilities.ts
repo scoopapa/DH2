@@ -1008,14 +1008,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					if (target.side.sideConditions['volcanicsinge']) {
-						target.side.sideConditions['volcanicsinge'].duration += i;
-						this.hint(`Volcanic Singe was extended for another {i} turns!`);
+					if (target.side.sideConditions('volcanicsinge')) {
+						target.side.sideConditions('volcanicsinge').duration -= boost[i];
+						this.hint(`Volcanic Singe was extended for another {boost[i]} turns!`);
 						this.hint(`It will last {target.sideConditions[id].duration} turns!`);
 					} else {
 						target.side.addSideCondition('volcanicsinge');
-						target.sideConditions['volcanicsinge'].duration = i;
-						this.hint(`Volcanic Singe will last {i} turns!`);
+						target.side.sideConditions('volcanicsinge').duration = boost[i]*-1;
+						this.hint(`Volcanic Singe will last {boost[i]} turns!`);
 					}
 				}
 			}
