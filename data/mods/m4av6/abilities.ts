@@ -1024,7 +1024,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 2,
 			onStart(side) {
-				this.add('-message', `The air around ${this.effectData.source}'s team was superheated!`);
+				this.add('-message', `The air around ${this.effectData.source.name}'s team was superheated!`);
+				this.hint(`During Volcanic Singe, making contact with a Pokémon on ${this.effectData.source.name}'s team will result in a burn!`);
+				this.hint(`The effect is extended each time ${this.effectData.source.name}'s stats are lowered!`);
 				this.effectData.duration = 2;
 			},
 			onRestart(side) {
@@ -1032,9 +1034,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onHit(target, source, move) {
 				if (target.side === this.effectData.target && move.flags['contact']) {
-					if (source.trySetStatus('brn', target)) {
-						this.add('-message', `${source.name} was burned by the superheated air!`);
-					}
+					source.trySetStatus('brn', target);
 				}
 			},
 			onResidualOrder: 10,
@@ -1046,7 +1046,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 			onEnd(side) {
-				this.add('-message', `The air around ${this.effectData.source}'s team cooled down!`);
+				this.add('-message', `The air around ${this.effectData.source.name}'s team cooled down!`);
 			},
 		},
 		rating: 3.5,
