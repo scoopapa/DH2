@@ -57,20 +57,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 	settle1: {
 		name: 'settle1',
 		duration: 4,
-		onStart(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 1) {
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 1) {
 					this.add('-message', `${pokemon.name} needs to settle down after using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 1) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 1) {
 					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
@@ -79,20 +81,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 	settle2: {
 		name: 'settle2',
 		duration: 4,
-		onStart(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 2) {
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 2) {
 					this.add('-message', `${pokemon.name} needs to settle down after using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 2) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 2) {
 					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
@@ -101,20 +105,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 	settle3: {
 		name: 'settle3',
 		duration: 4,
-		onStart(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 3) {
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 3) {
 					this.add('-message', `${pokemon.name} needs to settle down after using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 3) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 3) {
 					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
@@ -123,20 +129,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 	settle4: {
 		name: 'settle4',
 		duration: 4,
-		onStart(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 4) {
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 4) {
 					this.add('-message', `${pokemon.name} needs to settle down after using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			let movesetCheck = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				movesetCheck++;
-				if (movesetCheck === 4) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 4) {
 					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
 				}
 			}
