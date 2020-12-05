@@ -318,7 +318,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Magcargo-Mega",
 		baseSpecies: "Magcargo",
 		forme: "Mega",
-		types: ["Fire", "Rock"],
+		types: ["Fire"],
 		baseStats: {hp: 60, atk: 135, def: 80, spa: 135, spd: 80, spe: 40},
 		abilities: {0: "Volcanic Singe"},
 		heightm: 0.8,
