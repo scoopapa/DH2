@@ -208,7 +208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Thundigeist",
 		types: ["Electric", "Ghost"],
 		gender: "N",
-		baseStats: {hp: 79, atk: 61, def: 61, spa: 137, spd: 107, spe: 131},
+		baseStats: {hp: 73, atk: 61, def: 61, spa: 137, spd: 107, spe: 131},
 		abilities: {0: "Beast Boost"},
 		heightm: 1.6,
 		weightkg: 25.5,
