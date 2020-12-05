@@ -116,34 +116,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	clangoroussoul: {
-		num: 775,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Clangorous Soul",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, sound: 1, dance: 1},
-		onTryHit(pokemon, target, move) {
-			if (pokemon.hp <= (pokemon.maxhp * 33 / 100) || pokemon.maxhp === 1) {
-				return false;
-			}
-			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
-			delete move.boosts;
-		},
-		onHit(pokemon) {
-			this.directDamage(pokemon.maxhp * 33 / 100);
-		},
-		boosts: {
-			atk: 1,
-			def: 1,
-			spa: 1,
-			spd: 1,
-			spe: 1,
-		},
-		secondary: null,
-		target: "self",
-		type: "Dragon",
+		inherit: true,
+		isNonstandard: null,
+		gen: 7,
 	},
 	clangoroussoulblaze: {
 		inherit: true,
