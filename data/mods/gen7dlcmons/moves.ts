@@ -607,8 +607,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage, pokemon, target, '[silent]');
 				if (damage) {
-					this.add('-message', `${pokemon.name} was hurt by the infection!`);
-					this.heal(damage, target, pokemon, '[silent]');
+					this.heal(damage, target, pokemon);
 				}
 			},
 		},
