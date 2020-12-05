@@ -1005,25 +1005,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
+			let activated = false;
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					if (target.side.sideConditions['volcanicsinge']) {
-						target.side.sideCondition['volcanicsinge'].duration -= boost[i];
-						this.hint(`Volcanic Singe was extended for another ${boost[i]*-1} turns!`);
-						this.hint(`It will last ${target.side.sideCondition['volcanicsinge'].duration} turns!`);
-					} else {
+					let num = boost[i];
+					while (num < 0) {
+						if (!activated) {
+							this.add('-ability', target, 'Volcanic Singe');
+							activated = true;
+						}
 						target.side.addSideCondition['volcanicsinge'];
-						target.side.sideCondition['volcanicsinge'].duration = boost[i]*-1;
-						this.hint(`Volcanic Singe will last ${target.side.sideCondition['volcanicsinge'].duration} turns!`);
+						num ++;
 					}
 				}
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onStart(side) {
 				this.add('-sidestart', side, 'Ability: Volcanic Singe');
+			},
+			onRetart(side) {
+				this.effectData.duration ++;
 			},
 			onHit(target, source, move) {
 				if (target.side === this.effectData.target && move.flags['contact']) {
@@ -1034,7 +1038,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onResidual(side) {
 				if (this.effectData.duration > 1) {
 					this.hint(`There are ${this.effectData.duration} turns left of Volcanic Singe!`);
-				} else {
+				} else if (this.effectData.duration = 1) {
 					this.hint(`There is one turn left of Volcanic Singe!`);
 				}
 			},
