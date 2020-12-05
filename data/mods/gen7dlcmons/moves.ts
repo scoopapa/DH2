@@ -606,7 +606,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user has 1/16 of its maximum HP restored at the end of each turn, but it is prevented from switching out and other Pokemon cannot force the user to switch out. The user can still switch out if it uses Baton Pass, Parting Shot, U-turn, or Volt Switch. If the user leaves the field using Baton Pass, the replacement will remain trapped and still receive the healing effect. During the effect, the user can be hit normally by Ground-type attacks and be affected by Spikes, Toxic Spikes, and Sticky Web, even if the user is a Flying type or has the Levitate Ability.",
 	},
 	infection: {
-		num: 73,
+		num: -1001,
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
