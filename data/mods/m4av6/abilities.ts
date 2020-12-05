@@ -1050,32 +1050,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "When using a special move, this Pokémon uses its Attack stat, and the power is increased by 20%.",
 		name: "Settle",
 		onModifyMove(move, pokemon) {
-				let movesetCheck = 0;
-				for (const moveSlot of pokemon.moveSlots) {
-					movesetCheck++;
-					const slotMove = this.dex.getMove(moveSlot.move);
-					if (move.id !== slotMove) continue;
-					if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
-						move.category = 'Physical';
-						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
-						pokemon.addVolatile('settle1');
-					} else if (movesetCheck === 2 && !pokemon.volatiles['settle2']) {
-						move.category = 'Physical';
-						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
-						pokemon.addVolatile('settle1');
-					} else if (movesetCheck === 3 && !pokemon.volatiles['settle3']) {
-						move.category = 'Physical';
-						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
-						pokemon.addVolatile('settle1');
-					} else if (movesetCheck === 4 && !pokemon.volatiles['settle4']) {
-						move.category = 'Physical';
-						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
-						pokemon.addVolatile('settle1');
-					}
+			let movesetCheck = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				movesetCheck++;
+				const slotMove = this.dex.getMove(moveSlot.move);
+				if (move.id !== slotMove) continue;
+				if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
+					move.category = 'Physical';
+					move.defensiveCategory = 'Special';
+					move.hasSheerForce = true;
+					pokemon.addVolatile('settle1');
+				} else if (movesetCheck === 2 && !pokemon.volatiles['settle2']) {
+					move.category = 'Physical';
+					move.defensiveCategory = 'Special';
+					move.hasSheerForce = true;
+					pokemon.addVolatile('settle1');
+				} else if (movesetCheck === 3 && !pokemon.volatiles['settle3']) {
+					move.category = 'Physical';
+					move.defensiveCategory = 'Special';
+					move.hasSheerForce = true;
+					pokemon.addVolatile('settle1');
+				} else if (movesetCheck === 4 && !pokemon.volatiles['settle4']) {
+					move.category = 'Physical';
+					move.defensiveCategory = 'Special';
+					move.hasSheerForce = true;
+					pokemon.addVolatile('settle1');
 				}
 			}
 		},
