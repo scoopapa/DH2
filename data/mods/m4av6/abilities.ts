@@ -1005,18 +1005,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
-			let activated = false;
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					let num = boost[i];
-					while (num < 0) {
-						if (!activated) {
-							this.add('-ability', target, 'Volcanic Singe');
-							activated = true;
-						}
-						target.side.addSideCondition['volcanicsinge'];
-						num ++;
+					while (num !== 0) {
+						target.side.addSideCondition('volcanicsinge');
+						num++;
 					}
 				}
 			}
@@ -1025,21 +1020,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 2,
 			onStart(side) {
 				this.add('-sidestart', side, 'Ability: Volcanic Singe');
+				this.effectData.duration = 2;
 			},
-			onRetart(side) {
-				this.effectData.duration ++;
+			onRestart(side) {
+				this.effectData.duration++;
 			},
 			onHit(target, source, move) {
 				if (target.side === this.effectData.target && move.flags['contact']) {
-					source.trySetStatus('brn', source);
+					source.trySetStatus('brn', target);
 				}
 			},
 			onResidualOrder: 10,
 			onResidual(side) {
 				if (this.effectData.duration > 1) {
-					this.hint(`There are ${this.effectData.duration} turns left of Volcanic Singe!`);
+					this.add('-message', `There are ${this.effectData.duration} turns left of Volcanic Singe!`);
 				} else if (this.effectData.duration = 1) {
-					this.hint(`There is one turn left of Volcanic Singe!`);
+					this.add('-message', `There is one turn left of Volcanic Singe!`);
 				}
 			},
 			onEnd(side) {
