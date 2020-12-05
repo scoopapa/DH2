@@ -1005,22 +1005,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
-			const sideConditions = [
-				'volcanicsinge',
-			];
 			let i: BoostName;
 			for (i in boost) {
-				for (const id of sideConditions) {
-					if (boost[i]! < 0) {
-						if (target.sideConditions[id]) {
-							target.sideConditions[id].duration += i;
-							this.hint(`Volcanic Singe was extended for another {i} turns!`);
-							this.hint(`It will last {target.sideConditions[id].duration} turns!`);
-						} else {
-							target.side.addSideCondition('volcanicsinge');
-							target.sideConditions[id].duration = i;
-							this.hint(`Volcanic Singe will last {i} turns!`);
-						}
+				if (boost[i]! < 0) {
+					if (target.side.sideConditions['volcanicsinge']) {
+						target.side.sideConditions['volcanicsinge'].duration += i;
+						this.hint(`Volcanic Singe was extended for another {i} turns!`);
+						this.hint(`It will last {target.sideConditions[id].duration} turns!`);
+					} else {
+						target.side.addSideCondition('volcanicsinge');
+						target.sideConditions['volcanicsinge'].duration = i;
+						this.hint(`Volcanic Singe will last {i} turns!`);
 					}
 				}
 			}
@@ -1058,8 +1053,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let movesetCheck = 0;
 			for (const moveSlot of pokemon.moveSlots) {
 				movesetCheck++;
-				const slotMove = this.dex.getMove(moveSlot.move);
-				if (move.id === slotMove) {
+				if (move.id === this.dex.getMove(moveSlot.move.id)) {
 					if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
 						pokemon.addVolatile('settle1');
 						move.category = 'Physical';
