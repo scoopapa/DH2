@@ -816,30 +816,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: -1,
 		num: -1024,
 	},
-	stickyresidues: {
-		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
-		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
-		onStart(source) {
-			if (this.field.addPseudoWeather('stickyresidues')) {
-				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
-			}
-		},
-		effect: {
-			duration: 5,
-			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay')) {
-					return 8;
-				}
-				return 5;
-			},
-			onEnd() {
-				this.add('-message', `The sticky residues disappeared from the battlefield!`);
-			},
-		},
-		name: "Sticky Residues",
-		rating: 3,
-		num: -1025,
-	},
 	disguise: {
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
 		shortDesc: "(Mimikyu only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
@@ -1023,5 +999,116 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Savage",
 		rating: 3.5,
 		num: -1031,
+	},
+	volcanicsinge: {
+		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
+		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
+		name: "Volcanic Singe",
+		onBoost(boost, target, source, effect) {
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					if (target.sideConditions['volcanicsinge']) {
+						target.sideConditions['volcanicsinge'].duration += i;
+						this.hint(`Volcanic Singe was extended for another {i} turns!`);
+						this.hint(`It will last {target.sideConditions['volcanicsinge'].duration} turns!`);
+					} else {
+						target.side.addSideCondition('volcanicsinge');
+						target.sideConditions['volcanicsinge'].duration = i;
+						this.hint(`Volcanic Singe will last {i} turns!`);
+					}
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(side) {
+				this.add('-sidestart', side, 'Ability: Volcanic Singe');
+			},
+			onHit(target, source, move) {
+				if (target.side === this.effectData.target && move.flags['contact']) {
+					source.trySetStatus('brn', source);
+				}
+			},
+			onResidualOrder: 10,
+			onResidual(side) {
+				if (this.effectData.duration > 1) {
+					this.hint(`There are ${this.effectData.duration} turns left of Volcanic Singe!`);
+				} else {
+					this.hint(`There is one turn left of Volcanic Singe!`);
+				}
+			},
+			onEnd(side) {
+				this.add('-sideend', side, 'Ability: Volcanic Singe');
+			},
+		},
+		rating: 3.5,
+		num: -1032,
+	},
+	settle: {
+		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 20%. Has no effect if the same special move has been used in the last three turns.",
+		shortDesc: "When using a special move, this Pokémon uses its Attack stat, and the power is increased by 20%.",
+		name: "Settle",
+		onModifyMove(move, pokemon) {
+				let movesetCheck = 0;
+				for (const moveSlot of pokemon.moveSlots) {
+					movesetCheck++;
+					const slotMove = this.dex.getMove(moveSlot.move);
+					if (move.id !== slotMove) continue;
+					if (movesetCheck === 1 && !pokemon.volatiles['settle1']) {
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+						pokemon.addVolatile('settle1');
+					} else if (movesetCheck === 2 && !pokemon.volatiles['settle2']) {
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+						pokemon.addVolatile('settle1');
+					} else if (movesetCheck === 3 && !pokemon.volatiles['settle3']) {
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+						pokemon.addVolatile('settle1');
+					} else if (movesetCheck === 4 && !pokemon.volatiles['settle4']) {
+						move.category = 'Physical';
+						move.defensiveCategory = 'Special';
+						move.hasSheerForce = true;
+						pokemon.addVolatile('settle1');
+					}
+				}
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x1333, 0x1000]);
+			this.hint(`${move.name} was boosted by Settle!`);
+		},
+		rating: 3,
+		num: -1033,
+	},
+	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
+		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		effect: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -1025,
 	},
 }
