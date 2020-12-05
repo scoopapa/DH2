@@ -1240,6 +1240,17 @@ export const Formats: FormatList = [
 		},
 		mod: 'fealpha',
 	},
+	{
+		name: "[Gen 7] DLCmons",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/dlcmons-ultra-ultra-beast-movepool-and-design-slate.3673357/">Thread in Pet Mods</a>`,
+		],
+		mod: 'gen7dlcmons',
+		ruleset: ['Obtainable', 'Alola Pokedex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		unbanlist: [
+			'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
+		],
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
