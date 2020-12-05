@@ -53,6 +53,57 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd() {
 			this.add('-fieldend', 'move: Acidic Terrain');
 		},
-  },
-
+ 	},
+	settle1: {
+		name: 'settle1',
+		duration: 4,
+		onEnd(pokemon) {
+			let movesetCheck = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				movesetCheck++;
+				if (movesetCheck === 1) {
+					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
+				}
+			}
+		},
+	},
+	settle2: {
+		name: 'settle2',
+		duration: 4,
+		onEnd(pokemon) {
+			let movesetCheck = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				movesetCheck++;
+				if (movesetCheck === 2) {
+					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
+				}
+			}
+		},
+	},
+	settle3: {
+		name: 'settle3',
+		duration: 4,
+		onEnd(pokemon) {
+			let movesetCheck = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				movesetCheck++;
+				if (movesetCheck === 3) {
+					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
+				}
+			}
+		},
+	},
+	settle4: {
+		name: 'settle4',
+		duration: 4,
+		onEnd(pokemon) {
+			let movesetCheck = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				movesetCheck++;
+				if (movesetCheck === 4) {
+					this.add('-message', `${pokemon.name} settled down from using ${this.dex.getMove(moveSlot.move.name)}!`);
+				}
+			}
+		},
+	},
 };
