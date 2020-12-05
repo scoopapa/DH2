@@ -605,11 +605,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage, pokemon, target);
+				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage, pokemon, target, '[silent]');
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.add('-message', `${pokemon.name} was hurt by the infection!`);
+					this.heal(damage, target, pokemon, '[silent]');
 				}
 			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icy Wind", target);
 		},
 		secondary: null,
 		target: "normal",
