@@ -379,5 +379,3 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		};
 	}
 }
-
-export default RandomGen1Teams;

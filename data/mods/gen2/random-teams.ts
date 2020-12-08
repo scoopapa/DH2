@@ -309,5 +309,3 @@ export class RandomGen2Teams extends RandomGen3Teams {
 		} while (!done);
 	}
 }
-
-export default RandomGen2Teams;
