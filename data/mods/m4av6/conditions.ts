@@ -53,6 +53,109 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd() {
 			this.add('-fieldend', 'move: Acidic Terrain');
 		},
-  },
-
+ 	},
+	settle1: {
+		name: 'settle1',
+		duration: 4,
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 1) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 1) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
+				}
+			}
+		},
+	},
+	settle2: {
+		name: 'settle2',
+		duration: 4,
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 2) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 2) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
+				}
+			}
+		},
+	},
+	settle3: {
+		name: 'settle3',
+		duration: 4,
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 3) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 3) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
+				}
+			}
+		},
+	},
+	settle4: {
+		name: 'settle4',
+		duration: 4,
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (this.effectData.duration !== 3) return;
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 4) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			let num = 0;
+			for (const moveSlot of this.effectData.target.moveSlots) {
+				num++;
+				if (num === 4) {
+					const move = this.dex.getMove(moveSlot.move);
+					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
+				}
+			}
+		},
+	},
 };
