@@ -10,7 +10,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 name: { 
 	// P1 + P2
 	num: x.5,
-	species: "Name",
+	name: "Name",
 	types: [""],
 	baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 	abilities: {0: ""},
@@ -23,7 +23,7 @@ name: {
 uranus: {
 	// Quagsire + Hippowdon
 	num: 1.5,
-	species: "Uranus",
+	name: "Uranus",
 	types: ["Water", "Ground"],
 	baseStats: {hp: 110, atk: 100, def: 110, spa: 80, spd: 70, spe: 45},
 	abilities: {0: "Unamused"},
@@ -35,7 +35,7 @@ uranus: {
 saturn: {
 	// Eternatus + Hattrem
 	num: 2.5,
-	species: "Saturn",
+	name: "Saturn",
 	types: ["Dragon", "Psychic"],
 	baseStats: {hp: 114, atk: 65, def: 80, spa: 115, spd: 104, spe: 90},
 	abilities: {0: "Pressure Bounce"},
@@ -46,7 +46,7 @@ saturn: {
 doot: {
 	// Toxapex + Golisopod
 	num: 3.5,
-	species: "Doot",
+	name: "Doot",
 	types: ["Water", "Poison"],
 	baseStats: {hp: 82, atk: 94, def: 146, spa: 56, spd: 136, spe: 37},
 	abilities: {0: "Au Revoir"},
@@ -56,7 +56,7 @@ doot: {
 mrgross: {
 	// Mr. Rime + Metagross
 	num: 4.5,
-	species: "Mr. Gross",
+	name: "Mr. Gross",
 	types: ["Steel", "Psychic"],
 	baseStats: {hp: 100, atk: 110, def: 110, spa: 109, spd: 110, spe: 70},
 	abilities: {0: "Clear Cleaner"},
@@ -66,7 +66,7 @@ mrgross: {
 pluto: {
 	// Rotom-Frost + Blacephalon
 	num: 5.5,
-	species: "Pluto",
+	name: "Pluto",
 	types: ["Ice", "Ghost"],
 	baseStats: {hp: 59, atk: 107, def: 83, spa: 131, spd: 97, spe: 107},
 	abilities: {0: "Terraform"},
@@ -75,7 +75,7 @@ pluto: {
 zeus: {
 	// Zeraora + Tauros
 	num: 6.5,
-	species: "Zeus",
+	name: "Zeus",
 	types: ["Electric", "Normal"],
 	baseStats: {hp: 101, atk: 126, def: 85, spa: 71, spd: 75, spe: 126},
 	abilities: {0: "Thunderclap"},
@@ -85,7 +85,7 @@ zeus: {
 picante: {
 	// Flapple + Victini
 	num: 7.5,
-	species: "Picante",
+	name: "Picante",
 	types: ["Grass", "Fire"],
 	baseStats: {hp: 95, atk: 115, def: 100, spa: 107, spd: 80, spe: 85},
 	abilities: {0: "Passion Star"},
@@ -95,7 +95,7 @@ picante: {
 mrvolcano: {
 	// Mr. Mime + Volcanion 
 	num: 8.5,
-	species: "Mr. Volcano",
+	name: "Mr. Volcano",
 	types: ["Fire", "Fairy"],
 	baseStats: {hp: 60, atk: 77, def: 102, spa: 120, spd: 110, spe: 100},
 	abilities: {0: "Volcanicity"},
@@ -105,7 +105,7 @@ mrvolcano: {
 vespithorn: {
 	// Vespiquen + Ferrothorn
 	num: 9.5,
-	species: "Vespithorn",
+	name: "Vespithorn",
 	types: ["Bug", "Steel"],
 	baseStats: {hp: 82, atk: 87, def: 136, spa: 67, spd: 119, spe: 30},
 	abilities: {0: "Iron Stinger"},
@@ -115,7 +115,7 @@ vespithorn: {
 ishtar: {
 	// Rotom-Heat + Togekiss
 	num: 10.5,
-	species: "Ishtar",
+	name: "Ishtar",
 	types: ["Electric", "Fairy"],
 	baseStats: {hp: 80, atk: 60, def: 105, spa: 115, spd: 125, spe: 85},
 	abilities: {0: "Spell Master"},
@@ -126,7 +126,7 @@ ishtar: {
 ananke: {
 	// Lycanroc + Terrakion
 	num: 11.5,
-	species: "Ananke",
+	name: "Ananke",
 	types: ["Rock", "Fighting"],
 	baseStats: {hp: 88, atk: 137, def: 82, spa: 63, spd: 82, spe: 120},
 	abilities: {0: "Compulsive"},
@@ -136,7 +136,7 @@ ananke: {
 darkrose: {
 	// Darkrai + Roserade
 	num: 12.5,
-	species: "Dark Rose",
+	name: "Dark Rose",
 	types: ["Dark", "Poison"],
 	baseStats: {hp: 65, atk: 100, def: 90, spa: 131, spd: 100, spe: 110},
 	abilities: {0: "Bad Program"},
@@ -146,7 +146,7 @@ darkrose: {
 kratos: {
 	// Krookodile + Staraptor
 	num: 13.5,
-	species: "Kratos",
+	name: "Kratos",
 	types: ["Ground", "Flying"],
 	baseStats: {hp: 95, atk: 133, def: 90, spa: 62, spd: 80, spe: 111},
 	abilities: {0: "Intimidate"},
@@ -156,7 +156,7 @@ kratos: {
 whiterider: {
 	// Kyurem-White + Ledian
 	num: 14.5,
-	species: "White Rider",
+	name: "White Rider",
 	types: ["Dragon", "Flying"],
 	baseStats: {hp: 90, atk: 80, def: 84, spa: 115, spd: 125, spe: 90},
 	abilities: {0: "Foul Breath"},
@@ -167,7 +167,7 @@ whiterider: {
 curchyspeed: {
 	// Pincurchin + Deoxys-Speed
 	num: 15.5,
-	species: "Curchys-Peed",
+	name: "Curchys-Peed",
 	types: ["Electric", "Psychic"],
 	baseStats: {hp: 49, atk: 118, def: 92, spa: 93, spd: 87, spe: 117},
 	abilities: {0: "Galvaforce"},
@@ -176,7 +176,7 @@ curchyspeed: {
 corvilord: {
 	// Corviknight + Wailord
 	num: 16.5,
-	species: "Corvilord",
+	name: "Corvilord",
 	types: ["Steel", "Water"],
 	baseStats: {hp: 139, atk: 98, def: 95, spa: 76, spd: 90, spe: 68},
 	abilities: {0: "Pressure"},
@@ -186,7 +186,7 @@ corvilord: {
 kord: {
 	// Guzzlord + Dusknoir
 	num: 17.5,
-	species: "Kord",
+	name: "Kord",
 	types: ["Dark", "Ghost"],
 	baseStats: {hp: 134, atk: 100, def: 114, spa: 81, spd: 114, spe: 44},
 	abilities: {0: "Pressure Boost"},
@@ -196,7 +196,7 @@ kord: {
 sirpassd: {
 	// Passimian + Sirfetch'd
 	num: 18.5,
-	species: "Sir Pass'd",
+	name: "Sir Pass'd",
 	types: ["Fighting"],
 	baseStats: {hp: 101, atk: 127, def: 92, spa: 54, spd: 71, spe: 92},
 	abilities: {0: "Chivalry"},
@@ -207,7 +207,7 @@ sirpassd: {
 teepee: { //done
 	// Polteageist + Indeedee-F
 	num: 19.5,
-	species: "Teepee",
+	name: "Teepee",
 	types: ["Ghost", "Normal"],
 	baseStats: {hp: 70, atk: 65, def: 65, spa: 124, spd: 129, spe: 77},
 	abilities: {0: "Armor Surge"},
@@ -217,7 +217,7 @@ teepee: { //done
 composite: { //done
 	// Kommo-o + Sceptile
 	num: 20.5,
-	species: "Composite",
+	name: "Composite",
 	types: ["Fighting", "Grass"],
 	baseStats: {hp: 83, atk: 100, def: 95, spa: 120, spd: 95, spe: 110},
 	abilities: {0: "Unbullet"},
@@ -227,7 +227,7 @@ composite: { //done
 alilat: { //done
 	// Appletun + Virizion
 	num: 21.5,
-	species: "Alilat",
+	name: "Alilat",
 	types: ["Grass"],
 	baseStats: {hp: 105, atk: 95, def: 95, spa: 95, spd: 105, spe: 76},
 	abilities: {0: "Diamond Dust"},
@@ -237,7 +237,7 @@ alilat: { //done
 umbrisse: { //done
 	// Umbreon + Aromatisse
 	num: 22.5,
-	species: "Umbrisse",
+	name: "Umbrisse",
 	types: ["Dark", "Fairy"],
 	baseStats: {hp: 103, atk: 68, def: 111, spa: 84, spd: 119, spe: 47},
 	abilities: {0: "Integrity"},
@@ -248,7 +248,7 @@ umbrisse: { //done
 blackrider: { //done
 	// Kyurem-Black + Pawniard
 	num: 23.5,
-	species: "Black Rider",
+	name: "Black Rider",
 	types: ["Dragon", "Dark"],
 	baseStats: {hp: 85, atk: 130, def: 85, spa: 85, spd: 85, spe: 89},
 	abilities: {0: "Ambient Aid"},
@@ -257,7 +257,7 @@ blackrider: { //done
 frother: { //done
 	// Froslass + Scyther
 	num: 24.5,
-	species: "Frother",
+	name: "Frother",
 	types: ["Ice", "Flying"],
 	baseStats: {hp: 75, atk: 105, def: 80, spa: 67, spd: 80, spe: 122},
 	abilities: {0: "Technical Curse"},
@@ -267,7 +267,7 @@ frother: { //done
 beezone: { //done
 	// Magnezone + Beheeyem
 	num: 25.5,
-	species: "Beezone",
+	name: "Beezone",
 	types: ["Steel", "Psychic"],
 	baseStats: {hp: 80, atk: 77, def: 110, spa: 131, spd: 110, spe: 65},
 	abilities: {0: "Analytic"},
@@ -277,7 +277,7 @@ beezone: { //done
 toxiking: { //done
 	// Toxtricity + Nidoking
 	num: 26.5,
-	species: "Toxiking",
+	name: "Toxiking",
 	types: ["Electric", "Ground"],
 	baseStats: {hp: 80, atk: 100, def: 75, spa: 119, spd: 85, spe: 83},
 	abilities: {0: "Plus Ultra"},
@@ -288,7 +288,7 @@ toxiking: { //done
 norn: { //done
 	// Porygon2 + Dragalge
 	num: 27.5,
-	species: "Norn",
+	name: "Norn",
 	types: ["Normal", "Poison"],
 	baseStats: {hp: 90, atk: 90, def: 90, spa: 110, spd: 110, spe: 54},
 	abilities: {0: "Nocturnal Flash"},
@@ -298,7 +298,7 @@ norn: { //done
 oni: { //done
 	// Incineroar + Crabominable
 	num: 28.5,
-	species: "Oni",
+	name: "Oni",
 	types: ["Fire", "Ice"],
 	baseStats: {hp: 111, atk: 125, def: 85, spa: 85, spd: 85, spe: 51},
 	abilities: {0: "Fatal End"},
@@ -308,7 +308,7 @@ oni: { //done
 ares: { //done
 	// Zapdos + Pelipper
 	num: 29.5,
-	species: "Ares",
+	name: "Ares",
 	types: ["Flying", "Electric"],
 	baseStats: {hp: 95, atk: 70, def: 92, spa: 110, spd: 90, spe: 92},
 	abilities: {0: "Thunderstorm"},
@@ -318,7 +318,7 @@ ares: { //done
 armalion: { //done
 	// Armaldo + Cobalion
 	num: 30.5,
-	species: "Armalion",
+	name: "Armalion",
 	types: ["Steel", "Bug"],
 	baseStats: {hp: 83, atk: 127, def: 114, spa: 80, spd: 76, spe: 96},
 	abilities: {0: "Water Warrior"},
@@ -329,7 +329,7 @@ armalion: { //done
 nug: { //done
 	// Runerigus + Decidueye
 	num: 31.5,
-	species: "Nug",
+	name: "Nug",
 	types: ["Ground", "Ghost"],
 	baseStats: {hp: 80, atk: 118, def: 121, spa: 75, spd: 102, spe: 50},
 	abilities: {0: "Faustian Pact"},
@@ -339,7 +339,7 @@ nug: { //done
 tyragor: { //done
 	// Tyranitar + Accelgor
 	num: 32.5,
-	species: "Tyragor",
+	name: "Tyragor",
 	types: ["Rock", "Bug"],
 	baseStats: {hp: 90, atk: 192, def: 75, spa: 102, spd: 95, spe: 123},
 	abilities: {0: "Sand Filling"},
@@ -349,7 +349,7 @@ tyragor: { //done
 palerider: { //done
 	// Infernape + Chandelure
 	num: 33.5,
-	species: "Pale Rider",
+	name: "Pale Rider",
 	types: ["Fire", "Ghost"],
 	baseStats: {hp: 80, atk: 86, def: 80, spa: 125, spd: 80, spe: 114},
 	abilities: {0: "Abysmal Surge"},
@@ -359,7 +359,7 @@ palerider: { //done
 laurorusorus: { //done
 	// Landorus + Aurorus
 	num: 34.5,
-	species: "Laurorusorus",
+	name: "Laurorusorus",
 	types: ["Ground", "Rock"],
 	baseStats: {hp: 106, atk: 101, def: 81, spa: 127, spd: 86, spe: 99},
 	abilities: {0: "Crystalize"},
@@ -369,7 +369,7 @@ laurorusorus: { //done
 hypnihil: { //done
 	// Hypno + Nihilego
 	num: 35.5,
-	species: "Hypnihil",
+	name: "Hypnihil",
 	types: ["Psychic", "Rock"],
 	baseStats: {hp: 101, atk: 67, def: 61, spa: 113, spd: 127, spe: 97},
 	abilities: {0: "Parasomnia"},
