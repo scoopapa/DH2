@@ -424,4 +424,4 @@ let BattlePokedex = {
 	},
 };
 
-exports.BattlePokedex = BattlePokedex;
+exports.Pokedex = BattlePokedex;

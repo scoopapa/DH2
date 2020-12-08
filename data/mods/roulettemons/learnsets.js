@@ -2961,4 +2961,4 @@ let BattleLearnsets = {
 	}},
 };
 
-exports.BattleLearnsets = BattleLearnsets;
+exports.Learnsets = BattleLearnsets;
