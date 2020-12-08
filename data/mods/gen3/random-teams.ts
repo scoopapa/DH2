@@ -575,5 +575,3 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		return pokemon;
 	}
 }
-
-export default RandomGen3Teams;
