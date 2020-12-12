@@ -775,52 +775,52 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	swadloon: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
+		abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
 	},
 	leavanny: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
+		abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
 	},
 	spewpa: {
 		inherit: true,
 		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Friend Guard", H: "Guard Up"},
+		abilities: {0: "Shed Skin", 1: "Friend Guard", H: "Guard Up"},
 	},
 	hitmonchan: {
 		inherit: true,
 		types: ["Fighting"],
-      abilities: {0: "Guard Up", 1: "Iron Fist", H: "Block Master"},
+		abilities: {0: "Guard Up", 1: "Iron Fist", H: "Block Master"},
 	},
 	burmy: {
 		inherit: true,
 		types: ["Bug"],
       abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
 	},
-	burmysandy: {
-		inherit: true,
-		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
-	},
-	burmytrash: {
-		inherit: true,
-		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
-	},
+	// burmysandy: {
+		// inherit: true,
+		// types: ["Bug"],
+		// abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
+	// },
+	// burmytrash: {
+		// inherit: true,
+		// types: ["Bug"],
+		// abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
+	// },
 	wormadam: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	wormadamsandy: {
 		inherit: true,
 		types: ["Bug", "Ground"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	wormadamtrash: {
 		inherit: true,
 		types: ["Bug", "Steel"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	mothim: {
 		inherit: true,
