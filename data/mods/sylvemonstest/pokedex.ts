@@ -372,27 +372,27 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Chrolophyll", 1: "Sap Sipper", H: "Shadow Surge"},
     },
 	oricorio: {
-      inherit: true,
+        inherit: true,
 		types: ["Fire", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriopompom: {
-      inherit: true,
+        inherit: true,
 		types: ["Electric", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriopau: {
-      inherit: true,
+        inherit: true,
 		types: ["Psychic", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriosensu: {
-      inherit: true,
+        inherit: true,
 		types: ["Ghost", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	audinomega: {
-      inherit: true,
+        inherit: true,
 		types: ["Normal", "Fairy"],
 		abilities: {0: "Magic Healing"},
 	},
