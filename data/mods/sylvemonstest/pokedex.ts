@@ -1788,7 +1788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	kecleon: {
-		inherit: true,
+		inherit: trueran
 		abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
 	},
 	smeargle: {
@@ -2392,7 +2392,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
       inherit: true,
       abilities: {0: "Sweet Veil", H: "Beast Boost"},
    }, 
-   luranitstotem: {
+   lurantistotem: {
       inherit: true,
       abilities: {0: "Leaf Guard", H: "Beast Boost"},
    },
