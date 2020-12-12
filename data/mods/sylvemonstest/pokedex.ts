@@ -1803,7 +1803,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
       abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
 	},
-	hoopaconfined: {
+	hoopa: {
 		inherit: true,
       abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
 	},
