@@ -2955,7 +2955,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 80, atk: 105, def: 65, spa: 60, spd: 75, spe: 130},
 		abilities: {0: "Rock Head", 1: "Pressure", H: "Unnerve"},
-		heightm: 1.8,
+		heightm: 1.8a
 		weightkg: 59,
 		color: "Purple",
 		eggGroups: ["Flying"],
