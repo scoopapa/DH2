@@ -250,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//deerling: null,
     deerlingwinter: {
     	num: 585,
-		species: "Deerling-Winter",
+		name: "Deerling-Winter",
 		baseSpecies: "Deerling",
 		forme: "Winter",
 		formeLetter: 'W',
@@ -265,7 +265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerlingsummer: {
     	num: 585,
-		species: "Deerling-Summer",
+		name: "Deerling-Summer",
 		baseSpecies: "Deerling",
 		forme: "Summer",
 		formeLetter: 'S',
@@ -280,7 +280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerling: {
     	num: 585,
-		species: "Deerling",
+		name: "Deerling",
 		baseForme: "Spring",
 		baseStats: {hp: 60, atk: 60, def: 50, spa: 40, spd: 50, spe: 75},
 		heightm: 0.6,
@@ -294,7 +294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerlingautumn: {
     	num: 585,
-		species: "Deerling-Autumn",
+		name: "Deerling-Autumn",
 		baseSpecies: "Deerling",
 		forme: "Autumn",
 		formeLetter: 'A',
@@ -309,7 +309,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuckwinter: {
 		num: 586,
-		species: "Sawsbuck-Winter",
+		name: "Sawsbuck-Winter",
 		baseSpecies: "Sawsbuck",
 		forme: "Winter",
 		formeLetter: 'W',
@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbucksummer: {
 		num: 586,
-		species: "Sawsbuck-Summer",
+		name: "Sawsbuck-Summer",
 		baseSpecies: "Sawsbuck",
 		forme: "Summer",
 		formeLetter: 'S',
@@ -342,7 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuck: {
 		num: 586,
-		species: "Sawsbuck",
+		name: "Sawsbuck",
 		baseForme: "Spring",
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 60, spd: 70, spe: 95},
 		heightm: 1.9,
@@ -357,7 +357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuckautumn: {
 		num: 586,
-		species: "Sawsbuck-Autumn",
+		name: "Sawsbuck-Autumn",
 		baseSpecies: "Sawsbuck",
 		forme: "Autumn",
 		formeLetter: 'A',
