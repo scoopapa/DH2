@@ -5,15 +5,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	unown: {
 		tier: "CS1",
 	},
-	// unownp: {
-		// tier: "CS2",
-	// },
-	// unowns: {
-		// tier: "CS2",
-	// },
-	// unownm: {
-		// tier: "CS2",
-	// },
+	unownp: {
+		tier: "CS2",
+	},
+	unowns: {
+		tier: "CS2",
+	},
+	unownm: {
+		tier: "CS2",
+	},
 	shayminsky: {
 		tier: "CS2",
 		requiredItems: ["Flying Memory"],
@@ -127,6 +127,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CS1",
 	},
 	tapubulu: {
+		tier: "CS1",
+	},
+	trevenant: {
 		tier: "CS1",
 	},
 	metagross: {
