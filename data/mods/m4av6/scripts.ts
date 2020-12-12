@@ -116,6 +116,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'leavanny').learnset.appleacid = ['7L1'];
 		this.modData('Learnsets', 'leavanny').learnset.lunge = ['7L1'];
 		this.modData('Learnsets', 'leavanny').learnset.quiverdance = ['7L1'];
+		this.modData('Learnsets', 'parasect').learnset.junglehealing = ['7L1'];
+		this.modData('Learnsets', 'parasect').learnset.taunt = ['7L1'];
+		this.modData('Learnsets', 'samurott').learnset.flipturn = ['7L1'];
+		this.modData('Learnsets', 'samurott').learnset.psychocut = ['7L1'];
+		this.modData('Learnsets', 'samurott').learnset.slackoff = ['7L1'];
+		this.modData('Learnsets', 'meowstic').learnset.brickbreak = ['7L1'];
+		this.modData('Learnsets', 'meowstic').learnset.foulplay = ['7L1'];
+		this.modData('Learnsets', 'meowstic').learnset.knockoff = ['7L1'];
+		this.modData('Learnsets', 'meowstic').learnset.partingshot = ['7L1'];
+		this.modData('Learnsets', 'meowstic').learnset.pursuit = ['7L1'];
+		this.modData('Learnsets', 'meowsticf').learnset.dazzlinggleam = ['7L1'];
+		this.modData('Learnsets', 'meowsticf').learnset.drainingkiss = ['7L1'];
+		this.modData('Learnsets', 'meowsticf').learnset.focusblast = ['7L1'];
+		this.modData('Learnsets', 'meowsticf').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'meowsticf').learnset.mysticalfire = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -155,6 +170,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") {
 			return "Registeel-Mega";
+		}
+		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
+			return "Meowstic-F-Mega";
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
