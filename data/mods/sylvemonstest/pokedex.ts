@@ -1788,7 +1788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	kecleon: {
-		inherit: trueran
+		inherit: true,
 		abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
 	},
 	smeargle: {
