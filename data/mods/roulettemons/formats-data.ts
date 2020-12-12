@@ -1,190 +1,190 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	koatric: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	aquazelle: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	salamalix: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	brawnkey: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	stuneleon: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	chillyte: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	eartharoo: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	crazefly: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	electritar: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	aquatopus: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	scorpita: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	baloon: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	kinesel: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	glacida: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	pidgeotine: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	gorilax: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	albatrygon: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	chillvark: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	komodith: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	giranium: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	flamyle: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	voltecta: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	ostria: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	ninjoth: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	herbigator: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	anteros: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	gladiaster: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	hyperoach: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	barracoth: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	toados: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	voltarak: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	mosqung: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	flamepion: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	hyenix: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	rhinolite: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	bellena: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	falcola: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	beanium: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	lemotic: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	biceon: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	skeleray: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	specyte: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	ramron: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	balar: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	panthee: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	blastora: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 	dropacle: {
-		tier: "OU",
+		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
 };
