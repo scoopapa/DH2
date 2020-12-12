@@ -1757,55 +1757,55 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	weavile: {
 		inherit: true,
-      abilities: {0: "Pressure", 1: "Dark Rising", H: "Pickpocket"},
+		abilities: {0: "Pressure", 1: "Dark Rising", H: "Pickpocket"},
 	},
 	shiftry: {
 		inherit: true,
-      abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
 	},
 	nuzleaf: {
 		inherit: true,
-      abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
 	},
 	popplio: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
 	},
 	brionne: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
 	},
 	primarina: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
 	},
 	mimejr: {
 		inherit: true,
-      abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
+		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	mrmime: {
 		inherit: true,
-      abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
+		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	kecleon: {
 		inherit: true,
-      abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
+		abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
 	},
 	smeargle: {
 		inherit: true,
-      abilities: {0: "Own Tempo", 1: "Technician", H: "Moody"},
+		abilities: {0: "Own Tempo", 1: "Technician", H: "Moody"},
 	},
 	sigilyph: {
 		inherit: true,
-      abilities: {0: "Jack of all Trades", 1: "Magic Guard", H: "Tinted Lens"},
+		abilities: {0: "Jack of all Trades", 1: "Magic Guard", H: "Tinted Lens"},
 	},
 	absol: {
 		inherit: true,
-      abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
+		abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
 	},
 	hoopa: {
 		inherit: true,
-      abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
+		abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
 	},
 	sudowoodo: {
 		inherit: true,
