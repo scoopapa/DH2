@@ -932,6 +932,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredItem: "Talonflite",
 	},
 	meowstic: {
+		inherit: true,
 		otherFormes: ["Meowstic-F", "Meowstic-Mega", "Meowstic-F-Mega"],
 		formeOrder: ["Meowstic", "Meowstic-F", "Meowstic-Mega", "Meowstic-F-Mega"],
 	},
