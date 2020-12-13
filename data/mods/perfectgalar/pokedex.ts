@@ -3,6 +3,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 35, def: 70, spa: 95, spd: 80, spe: 85},
 	},
+	butterfreegmax: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 35, def: 70, spa: 95, spd: 80, spe: 85},
+	},
 	vileplume: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Grassy Surge", H: "Effect Spore"},
