@@ -173,7 +173,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Summons Shadow Sky upon switching in.",
 		onStart(source) {
 			this.field.setWeather('shadowsky');
-			this.add('-ability', source, 'Shadow Surge');
 		},
 		id: "shadowsurge",
 		name: "Shadow Surge",
@@ -182,18 +181,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Summons Air Current upon switching in.",
 		onStart(source) {
 			this.field.setWeather('aircurrent');
-			this.add('-ability', source, 'Air Stream');
 		},
 		id: "airstream",
 		name: "Air Stream",
 	},
-	"timewarp": {
-		shortDesc: "On switch-in, this Pokemon summons Trick Room.",
+	timewarp: { //copied from hematite's version in smash mods melee, which was copied from his code from mfa! 
+		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
+		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.useMove("Trick Room", source);
+			this.field.removePseudoWeather('trickroom');
+			this.field.addPseudoWeather('trickroom');
 		},
-		id: "timewarp",
+		onAnyTryMove(target, source, effect) {
+			if (['trickroom'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Time Warp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('timewarp')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('trickroom');
+		},
 		name: "Time Warp",
+		rating: 4.5,
+		num: -1004,
 	},
 	"dimensionwarp": {
 		shortDesc: "On switch-in, this Pokemon summons Inverse Room.",
@@ -491,7 +508,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"angerpoint": {
 		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
-             this.boost({atk: 1});
+         if (source === target) return;     
+			this.boost({atk: 1});
 		},
 		id: "angerpoint",
 		name: "Anger Point",
@@ -501,6 +519,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"infuriation": {
 		shortDesc: "This Pokemon's Special Attack is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spa: 1});
 		},
 		id: "infuriation",
@@ -509,6 +528,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"perseverance": {
 		shortDesc: "This Pokemon's Special Defense is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spd: 1});
 		},
 		id: "perseverance",
@@ -517,6 +537,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"stalwart": {
 		shortDesc: "This Pokemon's Speed is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spe: 1});
 		},
 		id: "stalwart",
@@ -524,6 +545,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 242,
 	},	    
+	stamina: { //added when fixing the synthesis bug, just as a failsafe
+		inherit: true, 
+		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
+			this.boost({def: 1});
+		},
+	},
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe (spe) {

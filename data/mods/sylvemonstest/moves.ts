@@ -1503,6 +1503,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				else if (source && source.hasItem('roomextender')) {
 					return 8;
 				}
+				if (source?.hasAbility('timewarp')) {
+					this.add('-activate', source, 'ability: Time Warp', effect);
+					return 0;
+				}
 				return 5;
 			},
 			onStart: function(target, source) {
