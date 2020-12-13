@@ -3761,7 +3761,7 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 
     if (move.useTargetOffensive) {
       attack = defender.calculateStat(attackStat, atkBoosts);
-    } else if (move.id === "shieldslam") {
+    } else if (move.id === "shieldslam" || move.id === "bodypress") {
       attack = attacker.calculateStat("def", attacker.boosts.def);
     } else {
       attack = attacker.calculateStat(attackStat, atkBoosts);
