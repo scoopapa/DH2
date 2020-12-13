@@ -187,4 +187,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Roulettemons",
 		doublesTier: "DOU",
 	},
+	catelax: {
+		tier: "Roulettemons",
+		doublesTier: "DOU",
+	},
 };
