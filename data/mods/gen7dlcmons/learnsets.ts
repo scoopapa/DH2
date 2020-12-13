@@ -727,6 +727,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			return: ["7M"],
 			round: ["7M"],
 			shadowball: ["7M"],
+			shedstrike: ["7L61"],
 			slam: ["7L19"],
 			sludge: ["7L1", "7L13"],
 			sludgebomb: ["7M"],
