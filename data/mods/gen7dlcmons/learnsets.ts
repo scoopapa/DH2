@@ -8,7 +8,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			airslash: ["7L1"],
 			agility: ["8M", "8L35", "7L53", "7S0", "7S1"],
 			assurance: ["8M"],
-			bravebird: ["8M", "8L65", "8S3", "7L1"],
+			bravebird: ["8M", "8L65", "8S3"],
 			calmmind: ["8M", "7M"],
 			charge: ["8L30", "7L26"],
 			confide: ["7M"],
