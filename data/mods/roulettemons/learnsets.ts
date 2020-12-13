@@ -3021,7 +3021,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8L1"],
 			tropkick: ["8L1"],
 			uproar: ["8L1"],
-			vicegrip: ["8L1"],
+			// vicegrip: ["8L1"],
 			// wakeupslap: ["8L1"],
 			// withdraw: ["8L1"],
 			// yawn: ["8L1"],
