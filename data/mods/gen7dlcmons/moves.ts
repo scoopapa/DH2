@@ -1335,12 +1335,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
+		defensiveCategory: "Physical",
 		name: "Fin Blade",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
-			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.defensiveCategory = 'Physical';
+			if (target.getStat('def', false, true) >= target.getStat('spd', false, true)) move.defensiveCategory = 'Special';
 		},
 		onHit(target, source, move) {
 			this.hint(move.defensiveCategory + " Fin Blade");
