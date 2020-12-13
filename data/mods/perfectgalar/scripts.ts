@@ -57,7 +57,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'weezinggalar').learnset.banefulbunker = ['8L1'];
 		this.modData('Learnsets', 'weezinggalar').learnset.acidarmor = ['8L1'];
 		this.modData('Learnsets', 'weezinggalar').learnset.wonderroom = ['8L1'];
-		this.modData('Learnsets', 'weezinggalar').learnset.sunnyday = null;
+		this.modData('Learnsets', 'weezinggalar').learnset.sunnyday = ['8L1'];
 		
 		// Gloom
 		this.modData('Learnsets', 'gloom').learnset.toxicspikes = ['8M'];
