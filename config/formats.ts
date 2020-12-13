@@ -2096,7 +2096,7 @@ export const Formats: FormatList = [
 		team: 'random', 
 		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Permasnow'],
 		searchShow: false,
-		//challengeShow: false,
+		challengeShow: false,
 	},
 	
 	{
