@@ -173,7 +173,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Summons Shadow Sky upon switching in.",
 		onStart(source) {
 			this.field.setWeather('shadowsky');
-			this.add('-ability', source, 'Shadow Surge');
 		},
 		id: "shadowsurge",
 		name: "Shadow Surge",
@@ -182,7 +181,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Summons Air Current upon switching in.",
 		onStart(source) {
 			this.field.setWeather('aircurrent');
-			this.add('-ability', source, 'Air Stream');
 		},
 		id: "airstream",
 		name: "Air Stream",
