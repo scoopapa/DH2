@@ -274,5 +274,3 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 99916,
 	},
 };
-
-exports.BattleAbilities = BattleAbilities;
