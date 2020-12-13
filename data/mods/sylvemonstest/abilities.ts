@@ -185,13 +185,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "airstream",
 		name: "Air Stream",
 	},
-	"timewarp": {
-		shortDesc: "On switch-in, this Pokemon summons Trick Room.",
+	timewarp: { //copied from hematite's version in smash mods melee, which was copied from his code from mfa! 
+		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
+		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.useMove("Trick Room", source);
+			this.field.removePseudoWeather('trickroom');
+			this.field.addPseudoWeather('trickroom');
 		},
-		id: "timewarp",
+		onAnyTryMove(target, source, effect) {
+			if (['trickroom'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Time Warp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('timewarp')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('trickroom');
+		},
 		name: "Time Warp",
+		rating: 4.5,
+		num: -1004,
 	},
 	"dimensionwarp": {
 		shortDesc: "On switch-in, this Pokemon summons Inverse Room.",
