@@ -1304,7 +1304,7 @@ export const Formats: FormatList = [
 			'Comfey', 'Pinsir', 'Hoothoot', 'Noctowl', 'Kecleon', 'Oranguru', 'Passimian', 'Goomy', 'Sliggoo', 'Goodra', 'Castform', 'Wimpod', 'Golisopod', 'Staryu', 'Starmie',
 			'Sandygast', 'Palossand', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Lileep', 'Cradily', 'Anorith', 'Armaldo', 'Cranidos', 'Rampardos', 'Shieldon', 'Bastiodon',
 			'Archen', 'Archeops', 'Tirtouga', 'Carracosta', 'Tyrunt', 'Tyrantrum', 'Amaura', 'Aurorus', 'Larvitar', 'Pupitar', 'Tyranitar', 'Phantump', 'Trevenant', 'Natu',
-			'Xatu', 'Nosepass', 'Probopass', 'Pyukumuku', 'Chinchou', 'Lanturn', 'Type: Null', 'Silvally', 'Poipole', 'Zygarde', 'Trubbish', 'Garbodor', 'Minccino',
+			'Xatu', 'Nosepass', 'Probopass', 'Pyukumuku', 'Chinchou', 'Lanturn', 'Type: Null', 'Silvally', 'Poipole', 'Zygarde-10', 'Trubbish', 'Garbodor', 'Minccino',
 			'Cinccino', 'Pineco', 'Forretress', 'Skarmory', 'Ditto', 'Cleffa', 'Clefairy', 'Clefable', 'Elgyem', 'Beheeyem', 'Minior', 'Beldum', 'Metang', 'Metagross', 'Porygon',
 			'Porygon2', 'Porygon-Z', 'Pancham', 'Pangoro', 'Komala', 'Torkoal', 'Turtonator', 'Houndour', 'Houndoom', 'Dedenne', 'Togedemaru', 'Electrike', 'Manectric', 'Elekid',
 			'Electabuzz', 'Electivire', 'Geodude', 'Graveler', 'Golem', 'Sandile', 'Krokorok', 'Krookodile', 'Trapinch', 'Vibrava', 'Flygon', 'Gible', 'Gabite', 'Garchomp',
@@ -1318,7 +1318,7 @@ export const Formats: FormatList = [
 			'Anglevolt', 'Thundigeist', 'Forsnaken', 'Clangorous Soul',
 		],
 		onSwitchIn(pokemon) {
-			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken'].includes(pokemon.species.id)) {
+			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau'].includes(pokemon.species.id)) {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			}
 		},
