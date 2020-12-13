@@ -985,7 +985,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Regirock",
 		itemUser: ["Regirock"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === 'Regirock') return false;
+			if (source.baseSpecies.baseSpecies === 'Regice') return false;
+			if (source.baseSpecies.baseSpecies === 'Registeel') return false;
 			return true;
 		},
 		num: -1059,
