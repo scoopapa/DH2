@@ -78,6 +78,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (this.gen <= 5) this.effectData.duration = 0;
 				this.add('-weather', 'AirCurrent', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
+				this.add('-weather', 'none');
 				this.add('-weather', 'AirCurrent');
 			}
 		},
@@ -87,7 +88,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd: function () {
-			this.add('raw|<h3>Air Current faded away</h3>');
+			this.add('-message', 'Air Current faded away.');
 		},
 	},
 	shadowsky: {
@@ -120,7 +121,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd: function () {
-			this.add('raw|<h3>Shadow Sky faded away</h3>');
+			this.add('-weather', 'none');
+			this.add('-message', 'Shadow Sky faded away.');
 		},
 	},
   };
