@@ -1206,7 +1206,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bulletseed: ["8L1"],
 			falseswipe: ["8L1"],
 			focusblast: ["8L1"],
-			fusionvolt: ["8L1"],
+			fusionbolt: ["8L1"],
 			geargrind: ["8L1"],
 			gigaimpact: ["8L1"],
 			gunkshot: ["8L1"],
