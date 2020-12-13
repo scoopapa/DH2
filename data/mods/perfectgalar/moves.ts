@@ -828,6 +828,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	"gmaxmeltdown": {
+		inherit: true,
 		self: {
 			onHit(source) {
 				for (let pokemon of source.side.foe.active) {
