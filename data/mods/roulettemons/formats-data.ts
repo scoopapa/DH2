@@ -143,4 +143,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brawnkey: {
 		tier: "Roulettemons",
 	},
+	dolphena: {
+		tier: "Roulettemons",
+	},
 };
