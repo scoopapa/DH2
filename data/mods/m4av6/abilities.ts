@@ -1096,6 +1096,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1033,
 	},
+	heavenlytechniques: {
+		desc: "If this Pokémon is at full HP, its blade-based and slashing moves have their priority increased by 1. When its HP is in between full and 1/3, this Pokémon's Defense is raised by 1 stage after it uses a blade-based or slashing move. When it has 1/3 or less of its maximum HP, rounded down, this Pokémon's blade-based and slashing moves are critical hits.",
+		shortDesc: "Slashing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
+		onModifyPriority(priority, pokemon, target, move) {
+			const bladeMoves = [
+				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
+			];
+			if (bladeMoves.includes(move.id) && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		onSourceHit(target, source, move) {
+			const bladeMoves = [
+				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
+			];
+			if (!move || !target) return;
+			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
+			if (bladeMoves.includes(move.id)) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onModifyCritRatio(critRatio, source, target, move) {
+			const bladeMoves = [
+				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
+			];
+			if (bladeMoves.includes(move.id) && source.hp <= source.maxhp / 3) return 5;
+		},
+		name: "Heavenly Techniques",
+		rating: 3,
+		num: -1034,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",

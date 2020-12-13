@@ -263,11 +263,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	parasectmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["spore", "leechlife", "furycutter", "knockoff", "swordsdance", "junglehealing", "taunt"],
+		randomDoubleBattleMoves: ["spore", "leechlife", "knockoff", "ragepowder", "junglehealing", "taunt", "protect", "knockoff", "wideguard"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	venomoth: {
 		randomBattleMoves: ["sleeppowder", "quiverdance", "bugbuzz", "sludgebomb", "substitute"],
 		randomDoubleBattleMoves: ["sleeppowder", "ragepowder", "quiverdance", "protect", "bugbuzz", "sludgebomb"],
@@ -3323,11 +3324,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	samurottmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["swordsdance", "razorshell", "megahorn", "aerialace", "psychocut", "sacredsword", "slackoff", "flipturn"],
+		randomDoubleBattleMoves: ["razorshell", "megahorn", "aerialace", "psychocut", "sacredsword", "slackoff", "taunt", "helpinghand", "protect"],
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	watchog: {
 		randomBattleMoves: ["hypnosis", "substitute", "superfang", "swordsdance", "return", "knockoff"],
 		randomDoubleBattleMoves: ["swordsdance", "knockoff", "hypnosis", "return", "superfang", "protect"],
@@ -4363,8 +4365,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},	
 	*/
 	meowstic: {
-		randomBattleMoves: ["toxic", "yawn", "thunderwave", "psychic", "reflect", "lightscreen", "healbell"],
-		randomDoubleBattleMoves: ["fakeout", "thunderwave", "psychic", "reflect", "lightscreen", "protect"],
+		randomBattleMoves: ["toxic", "yawn", "thunderwave", "psychic", "reflect", "lightscreen", "healbell", "knockoff", "partingshot"],
+		randomDoubleBattleMoves: ["fakeout", "thunderwave", "psychic", "reflect", "lightscreen", "knockoff", "partingshot", "protect"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
@@ -4374,14 +4376,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	meowsticmega: {
-		
-	},	
-	meowsticfmega: {
-		
+		randomBattleMoves: ["toxic", "yawn", "thunderwave", "foulplay", "reflect", "lightscreen", "healbell", "knockoff", "partingshot"],
+		randomDoubleBattleMoves: ["fakeout", "thunderwave", "foulplay", "reflect", "lightscreen", "knockoff", "partingshot", "protect"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
 	},
-	*/
+	meowsticfmega: {
+		randomBattleMoves: ["calmmind", "nastyplot", "psychic", "psyshock", "moonblast", "focusblast"],
+		randomDoubleBattleMoves: ["psychic", "moonblast", "dazzlinggleam", "focusblast", "fakeout", "nastyplot", "protect", "helpinghand"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	aegislash: {
 		randomBattleMoves: ["flashcannon", "hiddenpowerice", "kingsshield", "shadowball", "shadowsneak"],
 		randomDoubleBattleMoves: ["flashcannon", "hiddenpowerice", "kingsshield", "shadowball", "shadowsneak"],
