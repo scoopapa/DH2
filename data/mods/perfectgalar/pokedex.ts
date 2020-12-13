@@ -36,7 +36,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 85, spa: 95, spd: 65, spe: 70},
 	},
+	flapplegmax: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 85, spa: 95, spd: 65, spe: 70},
+	},
 	appletun: {
+		inherit: true,
+		baseStats: {hp: 120, atk: 85, def: 85, spa: 100, spd: 85, spe: 30},
+	},
+	appletungmax: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 85, def: 85, spa: 100, spd: 85, spe: 30},
 	},
@@ -63,6 +71,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Corrosion"},
 	},
 	melmetal: {
+		inherit: true,
+		baseStats: {hp: 125, atk: 123, def: 123, spa: 80, spd: 65, spe: 84},
+	},
+	melmetalgmax: {
 		inherit: true,
 		baseStats: {hp: 125, atk: 123, def: 123, spa: 80, spd: 65, spe: 84},
 	},
