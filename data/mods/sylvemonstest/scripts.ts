@@ -3649,7 +3649,7 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 
     if (typeof move === 'number') {
       let basePower = move;
-      move = new Data.Move({
+      move = new Dex.Move({
         basePower,
         type: '???',
         category: 'Physical',
