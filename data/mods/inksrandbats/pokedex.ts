@@ -27,4 +27,19 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
 	},
+	
+	gallade: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Trace", H: "Justified"}
+	},
+	
+	arctozolt: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", 1: "Static", H: "Flurry Rush"},
+	},
+	
+	arctovish: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Ice Body", H: "Flurry Rush"},
+	},
 };
