@@ -1183,4 +1183,120 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	washaway: {
+		num: -1007,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The effects of binding moves, Reflect, Light Screen, Aurora Veil, Safeguard and Mist end for all affected targets. If this move affects at least one target, all hazards are removed from both sides of the field, and any terrain will be cleared.",
+		shortDesc: "Clears trapping and screens from affected targets, then clears all hazards and terrain.",
+		name: "Wash Away",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHitField(target, source, move) {
+			let result = false;
+			for (const pokemon of this.getAllActive()) {
+				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
+					this.add('-miss', source, pokemon);
+					result = true;
+				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
+					result = true;
+				} else {
+					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+						pokemon.removeVolatile('partiallytrapped');
+						result = true;
+					}
+					const washAway = [
+						'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist',
+					];
+					for (const targetCondition of washAway) {
+						if (target.side.removeSideCondition(targetCondition)) {
+							this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+							result = true;
+						}
+					}
+				}
+			}
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeAll) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					result = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					result = true;
+				}
+			}
+			if (this.field.terrain) {
+				this.field.clearTerrain();
+				result = true;
+			}
+			return result;
+		},
+		secondary: null,
+		target: "all",
+		type: "Water",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Soak", target);
+		},
+	},
+	fieryboost: {
+		num: -1008,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Raises the user's Attack and Special Defense by 1 stage.",
+		shortDesc: "Raises the user's Attack and Sp. Def by 1.",
+		name: "Fiery Boost",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			atk: 1,
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cool",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Growth", target);
+		},
+	},
+	stormshardslash: {
+		num: -1009,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain. Has a higher chance for a critical hit.",
+		shortDesc: "Ends the effects of terrain. High critical hit ratio.",
+		name: "Stormshard Slash",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		critRatio: 2,
+		onHit() {
+			this.field.clearTerrain();
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Splintered Stormshards", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
 };
