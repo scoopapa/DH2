@@ -137,4 +137,132 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 6,
 	},
+	filter: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 1) {
+				this.debug('Filter neutralize');
+				return this.chainModify(0.5);
+			} else if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Filter neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Filter",
+		rating: 3,
+		num: 111,
+	},
+	chlorovolt: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isTerrain('electricterrain') && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(4);
+			} else if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			} else if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "ChloroVolt",
+		rating: 3,
+		num: -1005,
+	},
+	flametouch: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'brn',
+				ability: this.dex.getAbility('flametouch'),
+			});
+		},
+		name: "Flame Touch",
+		rating: 2,
+		num: -1006,
+	},
+	parasomnia: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			let statName = 'atk';
+			let bestStat = 0;
+			let s: StatNameExceptHP;
+			for (s in source.storedStats) {
+				if (source.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = source.storedStats[s];
+				}
+			}
+			this.boost({[statName]: 1}, target);
+		},
+		name: "Parasomnia",
+		rating: 3.5,
+		num: -1007,
+	},
+	guardup: {
+		onStart(pokemon) {
+			let totalatk = 0;
+			let totalspa = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totalatk += target.getStat('atk', false, true);
+				totalspa += target.getStat('spa', false, true);
+			}
+			if (totalatk && totalatk >= totalspa) {
+				this.boost({def: 1});
+			} else if (totalspa) {
+				this.boost({spd: 1});
+			}
+		},
+		name: "Guard Up",
+		rating: 4,
+		num: -1008,
+	},
+	knightsblade: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			const bladeMoves = [
+				'aircutter', 'airslash', 'crosspoison', 'cut', 'furycutter', 'guillotine', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'sacredsword', 'secretsword', 'slash', 'solarblade', 'xscissor',
+			];
+			if (bladeMoves.includes(move.id)) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Knight's Blade",
+		rating: 3,
+		num: -1009,
+	},
+	swarm: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Swarm",
+		rating: 2,
+		num: 68,
+	},
 };
