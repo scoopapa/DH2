@@ -138,6 +138,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 6,
 	},
 	filter: {
+		shortDesc: "Reduces damage from supereffective attacks by 1/4 if one stage, 1/2 if two stages.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 1) {
 				this.debug('Filter neutralize');
@@ -152,6 +153,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 111,
 	},
 	chlorovolt: {
+		desc: "If Sunny Day is active and this Pokémon is not holding Utility Umbrella, as well as if Electic Terrain is active, this Pokémon's Speed is doubled for each one that applies.",
+		shortDesc: "If Sunny Day or Electric Terrain is active, this Pokémon's Speed is doubled for each one.",
 		onModifySpe(spe, pokemon) {
 			if (this.field.isTerrain('electricterrain') && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(4);
@@ -166,6 +169,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1005,
 	},
 	flametouch: {
+		shortDesc: "This Pokémon's contact moves have a 30% chance of burning.",
 		onModifyMove(move) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
 			if (!move.secondaries) {
@@ -182,6 +186,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1006,
 	},
 	parasomnia: {
+		desc: "This Pokémon's highest stat is raised by 1 stage if it attacks and knocks out another Pokémon and when it falls asleep.",
+		shortDesc: "This Pokémon's highest stat is boosted on KOing another Pokémon and when falling asleep.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
@@ -214,6 +220,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1007,
 	},
 	guardup: {
+		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
+		shortDesc: "On switch-in, Defense or Sp. Def is raised 1 stage based on the foes' weaker Attack.",
 		onStart(pokemon) {
 			let totalatk = 0;
 			let totalspa = 0;
@@ -233,6 +241,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1008,
 	},
 	knightsblade: {
+		desc: "This Pokémon's blade moves have their power multiplied by 1.5.",
+		shortDesc: "This Pokémon's blade moves have 1.5x power.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			const bladeMoves = [
@@ -247,6 +257,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1009,
 	},
 	swarm: {
+		shortDesc: "This Pokémon's attacking stat is multiplied by 1.5 while using a Bug-type attack.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Bug') {
