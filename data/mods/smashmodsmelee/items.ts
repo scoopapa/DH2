@@ -141,4 +141,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If held by Trubbish-Marshadow with Spectral Residue, it can use Scum-Stealing 7-Scrap Strike.",
 	},
+	silkscarf: {
+		name: "Silk Scarf",
+		spritenum: 444,
+		fling: {
+			basePower: 10,
+		},
+		onModifyMove(move) {
+			move.stab = 1.8;
+		},
+		num: 251,
+		gen: 3,
+	},
 };
