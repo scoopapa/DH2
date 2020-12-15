@@ -1101,6 +1101,288 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cool",
 	},
+	spikecannon: {
+		num: 131,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times. For Escavalier from Sylvemons, this move is Steel-type and its base power is 25.",
+		shortDesc: "Hits 2-5 times in one turn. For Escavalier, Steel-type and 25 BP.",
+		name: "Spike Cannon",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.type = 'Steel';
+				move.basePower = 25;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		maxMove: {basePower: 120},
+		contestType: "Cool",
+	},
+	guillotine: {
+		num: 12,
+		accuracy: 30,
+		basePower: 0,
+		category: "Physical",
+		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokémon with the Sturdy Ability are immune. For Escavalier from Sylvemons, the move's base power is 130, its accuracy is 100, and it lowers the user's Attack by 2 stages.",
+		shortDesc: "OHKOs the target. Fails if user is a lower level. For Escavalier, physical clone of Overheat.",
+		name: "Guillotine",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.accuracy = 100;
+				move.basePower = 130;
+				move.self = [];
+				move.self.push({
+					boosts: {
+						atk: -2,
+					},
+				});
+			} else {
+				move.ohko = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	horndrill: {
+		num: 32,
+		accuracy: 30,
+		basePower: 0,
+		category: "Physical",
+		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokémon with the Sturdy Ability are immune. For Escavalier from Sylvemons, the move's base power is 130, its accuracy is 100, and it lowers the user's Attack by 2 stages.",
+		shortDesc: "OHKOs the target. Fails if user is a lower level. For Escavalier, physical clone of Overheat",
+		name: "Horn Drill",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.accuracy = 100;
+				move.basePower = 130;
+				move.self = [];
+				move.self.push({
+					boosts: {
+						atk: -2,
+					},
+				});
+			} else {
+				move.ohko = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	fellstinger: {
+		num: 565,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		desc: "Raises the user's Attack by 3 stages if this move knocks out the target. For Escavalier from Sylvemons, the move's base power is 65.",
+		shortDesc: "Raises user's Attack by 3 if this KOes the target. For Escavalier, 65 BP.",
+		name: "Fell Stinger",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 3}, pokemon, pokemon, move);
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.basePower = 65;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	furycutter: {
+		num: 210,
+		accuracy: 95,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.id === 'escavalier') {
+				return 120;
+			}
+			if (!pokemon.volatiles['furycutter'] || move.hit === 1) {
+				pokemon.addVolatile('furycutter');
+			}
+			return this.clampIntRange(move.basePower * pokemon.volatiles['furycutter'].multiplier, 1, 160);
+		},
+		category: "Physical",
+		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used. For Escavalier from Sylvemons, the user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect if it is not already. This move targets an opposing Pokémon at random on each turn. If the user is prevented from moving, is asleep at the beginning of a turn, or the attack is not successful against the target on the first turn of the effect or the second turn of a three-turn effect, the effect ends without causing confusion. If this move is called by Sleep Talk and the user is asleep, the move is used for one turn and does not confuse the user.",
+		shortDesc: "Power doubles with each hit, up to 160. For Escavalier, lasts 2-3 turns. Confuses Escavalier afterwards.",
+		name: "Fury Cutter",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.accuracy = 100;
+				move.self = [];
+				move.self.push({
+					volatileStatus: 'lockedmove',
+				});
+			}
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectData.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectData.multiplier < 4) {
+					this.effectData.multiplier <<= 1;
+				}
+				this.effectData.duration = 2;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	twineedle: {
+		num: 41,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		desc: "Hits twice, with each hit having a 20% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit. For Escavalier from Sylvemons, the move's power is 50, and its accuracy is 90.",
+		shortDesc: "Hits 2 times. Each hit has 20% chance to poison. For Escavalier, 50 BP and 90 acc.",
+		name: "Twineedle",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'escavalier') {
+				move.accuracy = 90;
+				move.power = 50;
+			}
+		},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Bug",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
+	bugbite: {
+		num: 450,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately, gaining its effects even if the user's item is being ignored. For Escavalier from Sylvemons, this move's power is 65, and if the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokémon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		shortDesc: "60 BP. User steals and eats the target's Berry. For Escavalier, 65 BP and 1.5x damage if foe holds an item; removes item and eats if Berry.",
+		name: "Bug Bite",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			if (source.species.id === 'escavalier') {
+				const item = target.getItem();
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
+				if (item.id) {
+					return this.chainModify(1.5);
+				}
+			} else {
+				return 60;
+			}
+		},
+		onHit(target, source) {
+			const item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
+				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Bug Bite', '[of] ' + source);
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+					if (item.id === 'leppaberry') target.staleness = 'external';
+				}
+				if (item.onEat) source.ateBerry = true;
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp && source.species.id === 'escavalier') {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Bug Bite', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
+	},
+	pluck: {
+		num: 365,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately, gaining its effects even if the user's item is being ignored. For Escavalier from Sylvemons, this move's power is 65, and if the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokémon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		shortDesc: "60 BP. User steals and eats the target's Berry. For Escavalier, 65 BP and 1.5x damage if foe holds an item; removes item and eats if Berry.",
+		name: "Pluck",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		onBasePower(basePower, source, target, move) {
+			if (source.species.id === 'escavalier') {
+				const item = target.getItem();
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
+				if (item.id) {
+					return this.chainModify(1.5);
+				}
+			} else {
+				return 60;
+			}
+		},
+		onHit(target, source) {
+			const item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
+				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Bug Bite', '[of] ' + source);
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+					if (item.id === 'leppaberry') target.staleness = 'external';
+				}
+				if (item.onEat) source.ateBerry = true;
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp && source.species.id === 'escavalier') {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Pluck', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Cute",
+	},
 	powergem: {
 		num: 408,
 		accuracy: 100,
@@ -1298,5 +1580,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+	},
+	stalwartsword: {
+		num: -1009,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "Has a 30% chance to raise the user's Special Attack by 1 stage. Has a higher chance for a critical hit.",
+		shortDesc: "30% chance to raise the user's Defense by 1. High critical hit ratio.",
+		name: "Stormshard Slash",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		critRatio: 2,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Behemoth Blade", target);
+		},
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	shieldslam: {
+		num: -1010,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Shield Slam",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Behemoth Bash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
 	},
 };
