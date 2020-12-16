@@ -200,6 +200,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	unownm: {
 		num: 201,
 		name: "Unown-M",
+		baseSpecies: "Unown",
+		forme: "M",
 		types: ["Bug", "Dark"],
 		gender: "N",
 		baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
@@ -208,6 +210,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 5,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		otherFormes: ["Unown"],
 	},
 	watervellumental: {
 		num: -1004,
