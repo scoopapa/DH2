@@ -1121,7 +1121,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id === 'escavalier') {
 				move.type = 'Steel';
 				move.basePower = 25;
-			},
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'escavalier') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
 		},
 		secondary: null,
 		target: "normal",
