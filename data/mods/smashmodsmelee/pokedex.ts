@@ -271,7 +271,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Floraflare",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 85, atk: 135, def: 75, spa: 90, spd: 90, spe: 60},
-		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Water"},
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Water Absorb"},
 		heightm: 0.8,
 		weightkg: 8.5,
 		color: "Yellow",
