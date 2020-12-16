@@ -182,6 +182,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 36,
 		eggGroups: ["Mineral"],
 	},
+	unown: {
+		inherit: true,
+		otherFormes: ["Unown-M"],
+		formeOrder: ["Unown", "Unown-M"],
+	},
 	unownm: {
 		num: 201,
 		name: "Unown-M",
