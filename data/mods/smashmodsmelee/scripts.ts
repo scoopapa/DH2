@@ -60,4 +60,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'roseradescarfed').learnset.stickyweb = ['7L1'];
 		this.modData('Learnsets', 'roseradescarfed').learnset.uturn = ['7L1'];
 	},
+	unownStats: {
+		unownm: {
+			num: 201,
+			species: "Unown-M",
+			forme: "M",
+			types: ["Bug", "Dark"],
+			baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
+			abilities: {0: "Magic Guard"},
+			otherFormes: ["unownp", "unowns", "unown"],
+			heightm: 0.5,
+			weightkg: 5,
+			gender: "N",
+		},	
+	},
+	onUnown: function( pokemon, unownStats ) {
+		let pokemonid = toID( pokemon.set.species );
+		let stats = unownStats[ pokemonid ];
+		console.log( pokemonid )
+		console.log( '-------------------------' )
+		console.log( stats )
+		pokemon.species.baseStats = stats.baseStats;
+		pokemon.baseSpecies.baseStats = stats.baseStats;
+		// for ( let statName in pokemon.species.baseStats ){
+			
+		// }
+		console.log( pokemon.species.baseStats )
+	},
 };
