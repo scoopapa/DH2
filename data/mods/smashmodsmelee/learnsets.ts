@@ -964,7 +964,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T", "7L41", "6T", "6L41", "5T", "5L41", "4T", "4L64"],
 		},
 	},
-	unownm: {
+	unown: {
 		learnset: {
 			bugbuzz: ["7L1"],
 			darkpulse: ["7L1"],
