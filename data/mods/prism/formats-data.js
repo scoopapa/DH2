@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleFormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		inherit: true,
 		randomBattleMoves: ["sleeppowder", "gigadrain", "growth", "hiddenpowerfire", "hiddenpowerice", "sludgebomb", "swordsdance", "powerwhip", "leechseed", "synthesis"],

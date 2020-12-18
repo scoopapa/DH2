@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleItems = {
+export const Items: {[k: string]: ModdedItemData} = {
 	"adamantorb": {
 		inherit: true,
 		onBasePower: function (basePower, user, target, move) {
