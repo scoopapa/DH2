@@ -1247,7 +1247,6 @@ export const Formats: FormatList = [
 			}
 		},
 		onChangeSet(set) {
-			const item = toID(set.item);
 			if (set.species === 'Unown') {
 				set.forme = 'Unown-M';
 			}
