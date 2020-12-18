@@ -1227,7 +1227,7 @@ export const Formats: FormatList = [
 		],
 		unbanlist: [
 			'Vanilluxe', 'Raichu-Base', 'Raichu-Mega', 'Trubbish-Marshadow', 'Beheeyem', 'Garbodor-Base', 'Garbodor-Mega', 'Pyukchin', 'Thundahi',
-			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol', 'Unown', 'Unown-M', 'Water Vellumental', 'Escavalier', 'Lemotic', 'Joltry',
+			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol', 'Unown', 'Water Vellumental', 'Escavalier', 'Lemotic', 'Joltry',
 			'Magmacroak', 'Floraflare', 'Torgeist', 'Lycanroc-Dusk', 'Roserade-Scarfed', 'Gladiaster', 'Hypnihil',
 		],
 		onSwitchIn(pokemon) {
