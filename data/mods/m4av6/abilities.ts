@@ -1332,11 +1332,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				onHit(target, source, move) {
+					this.hint("Set the secondary.", true, source.side);
 					const lastAttackedBy = target.getLastAttackedBy();
 					if (!lastAttackedBy) return;
+					this.hint("Got past 'lastAttackedBy'.", true, source.side);
 					const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+					this.hint("Established damage.", true, source.side);
 					if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-						target.trySetStatus('tox', source);
+						this.hint("Qualified to set poison.", true, source.side);
+						if (target.trySetStatus('tox', source)) {
+							this.hint("Set poison.", true, source.side);
+						} else {
+							this.hint("Failed to set poison.", true, source.side);
+						}
+					} else {
+						this.hint("Did not qualify to set poison.", true, source.side);
 					}
 				},
 			});
