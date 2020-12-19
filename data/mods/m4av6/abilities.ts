@@ -1154,22 +1154,48 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const side = pokemon.side;
 			let activated = false;
 			for (const ally of side.pokemon) {
-				if (ally.item) return false;
-				if (!ally.lastitem && !ally.lostItemForDelibird) return false;
-				if (!activated) {
-					this.add('-ability', pokemon, 'Spirit of Giving');
+				this.add('-message', `How is ${ally.name}?`);
+				if (ally.item) {
+					this.add('-message', `${ally.name} has ${ally.item}.`);
+					return false;
 				}
-				activated = true;
+				if (!ally.lastitem) {
+					this.add('-message', `${ally.name} doesn't have a 'last item'.`);
+				}
+				if (!ally.lostItemForDelibird) {
+					this.add('-message', `${ally.name} doesn't appear to have lost an item.`);
+					return false;
+				}
 				if (ally.lastItem) {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Spirit of Giving');
+					}
+					activated = true;
+					this.add('-message', `${ally.name} has used its ${ally.lastitem}.`);
 					const item = ally.lastItem;
-					ally.lastItem = '';
 					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-					ally.setItem(item);
+					if (ally.setItem(item)) {
+						this.add('-message', `Let's give it back.`);
+						ally.lastItem = '';
+					} else {
+						this.add('-message', `We can't give it back.`);
+					}
 				} else if (ally.lostItemForDelibird) {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Spirit of Giving');
+					}
+					activated = true;
+					this.add('-message', `${ally.name} lost its ${ally.lostItemForDelibird}.`);
 					const item = ally.lostItemForDelibird;
-					ally.lostItemForDelibird = '';
 					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-					ally.setItem(item);
+					if (ally.setItem(item)) {
+						this.add('-message', `Let's give it back.`);
+						ally.lostItemForDelibird = '';
+					} else {
+						this.add('-message', `We can't give it back.`);
+					}
+				} else {
+					this.add('-message', `It looks like ${ally.name} has never had an item`);
 				}
 			}
 		},
