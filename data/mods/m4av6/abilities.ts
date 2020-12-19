@@ -1325,8 +1325,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	lasttoxin: {
 		onAnyDamagingHit(target, source, damage, effect) {
-			if (!target || !target.hp || target === source || source !== this.effectData.target) return;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+			if (!target || !target.hp || target === source) return;
+			let moveDamage = damage;
+			if (source === this.effectData.target && (target.hp <= target.maxhp / 2) && (target.hp + moveDamage > target.maxhp / 2)) {
 				target.trySetStatus('tox', source);
 			}
 		},
