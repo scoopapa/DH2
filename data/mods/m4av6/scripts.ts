@@ -43,6 +43,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'gothitelle').learnset.teleport = ['7L1'];
 		this.modData('Learnsets', 'gothitelle').learnset.doomdesire = ['7L1'];
 		this.modData('Learnsets', 'gothitelle').learnset.flashcannon = ['7L1'];
+		this.modData('Learnsets', 'conkeldurr').learnset.shoreup = ['7L1'];
 		this.modData('Learnsets', 'gigalith').learnset.skullbash = ['7L1'];
 		this.modData('Learnsets', 'gigalith').learnset.sunnyday = ['7L1'];
 		this.modData('Learnsets', 'gigalith').learnset.synthesis = ['7L1'];
@@ -82,8 +83,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mimikyu').learnset.uturn = ['7L1'];
 		this.modData('Learnsets', 'nidoqueen').learnset.milkdrink = ['7L1'];
 		this.modData('Learnsets', 'walrein').learnset.darkpulse = ['7L1'];
+		this.modData('Learnsets', 'walrein').learnset.flipturn = ['7L1'];
 		this.modData('Learnsets', 'walrein').learnset.focusblast = ['7L1'];
 		this.modData('Learnsets', 'walrein').learnset.freezedry = ['7L1'];
+		this.modData('Learnsets', 'walrein').learnset.slackoff = ['7L1'];
 		this.modData('Learnsets', 'aurorus').learnset.rapidspin = ['7L1'];
 		this.modData('Learnsets', 'aurorus').learnset.voltswitch = ['7L1'];
 		this.modData('Learnsets', 'trevenant').learnset.floralhealing = ['7L1'];
@@ -103,6 +106,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'meganium').learnset.weatherball = ['7L1'];
 		this.modData('Learnsets', 'typhlosion').learnset.explosion = ['7L1'];
 		this.modData('Learnsets', 'typhlosion').learnset.headcharge = ['7L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.honeclaws = ['7L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.morningsun = ['7L1'];
 		this.modData('Learnsets', 'typhlosion').learnset.rapidspin = ['7L1'];
 		this.modData('Learnsets', 'feraligatr').learnset.darkpulse = ['7L1'];
 		this.modData('Learnsets', 'feraligatr').learnset.firefang = ['7L1'];
@@ -131,6 +136,50 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'meowsticf').learnset.focusblast = ['7L1'];
 		this.modData('Learnsets', 'meowsticf').learnset.moonblast = ['7L1'];
 		this.modData('Learnsets', 'meowsticf').learnset.mysticalfire = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.calmmind = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.doomdesire = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.futuresight = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.followme = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.lusterpurge = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.moonlight = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.photongeyser = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.prismaticlaser = ['7L1'];
+		this.modData('Learnsets', 'starmie').learnset.storedpower = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.celebrate = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.healingwish = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.roost = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.swordsdance = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.uturn = ['7L1'];
+		this.modData('Learnsets', 'delibird').learnset.wish = ['7L1'];
+		this.modData('Learnsets', 'sawsbuck').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'sawsbuck').learnset.petalblizzard = ['7L1'];
+		this.modData('Learnsets', 'sawsbuck').learnset.playrough = ['7L1'];
+		this.modData('Learnsets', 'sawsbucksummer').learnset.flameburst = ['7L1'];
+		this.modData('Learnsets', 'sawsbucksummer').learnset.flamethrower = ['7L1'];
+		this.modData('Learnsets', 'sawsbucksummer').learnset.growth = ['7L1'];
+		this.modData('Learnsets', 'sawsbucksummer').learnset.leafstorm = ['7L1'];
+		this.modData('Learnsets', 'sawsbucksummer').learnset.overheat = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckautumn').learnset.petalblizzard = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckautumn').learnset.poltergeist = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckautumn').learnset.shadowsneak = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckautumn').learnset.strengthsap = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckautumn').learnset.trickortreat = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckwinter').learnset.blizzard = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckwinter').learnset.freezedry = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckwinter').learnset.icebeam = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckwinter').learnset.iceshard = ['7L1'];
+		this.modData('Learnsets', 'sawsbuckwinter').learnset.iciclecrash = ['7L1'];
+		this.modData('Learnsets', 'flygon').learnset.leechlife = ['7L1'];       // SANDBOX ONLY
+		this.modData('Learnsets', 'flygon').learnset.quiverdance = ['7L1'];     // SANDBOX ONLY
+		this.modData('Learnsets', 'lurantis').learnset.moonblast = ['7L1'];     // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.moonlight = ['7L1'];     // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.playrough = ['7L1'];     // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.silverwind = ['7L1'];    // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.firstimpression = ['7L1']; // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.fleurcannon = ['7L1'];   // SANDBOX-ONLY
+		this.modData('Learnsets', 'lurantis').learnset.uturn = ['7L1'];         // SANDBOX-ONLY
+		this.modData('Learnsets', 'drapion').learnset.superfang = ['7L1'];      // SANDBOX-ONLY
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -174,9 +223,61 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
 		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Delibird") {
+			return "Delibird-Mega-Festive-Rider";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
+			return "Sawsbuck-Summer-Mega";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Autumn") {
+			return "Sawsbuck-Autumn-Mega";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
+			return "Sawsbuck-Winter-Mega";
+		}
+		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Lurantis") {
+			return "Lurantis-Mega-BitBitio";
+		}
+		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Flygon") {
+			return "Flygon-Mega-kakaks";
+		}
+		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Lurantis") {
+			return "Lurantis-Mega-kakaks";
+		}
+		if (item.name === "Magmajudis" && pokemon.baseSpecies.name === "Drapion") {
+			return "Drapion-Mega-Magmajudis";
+		}
+		if (item.name === "DrPumpkinz" && pokemon.baseSpecies.name === "DrPumpkinz") {
+			return "Lurantis-Mega-DrPumpkinz";
+		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
 		return item.megaStone;
 	},
+	pokemon: {
+
+		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
+			if (!this.hp) return false;
+			if (typeof item === 'string') item = this.battle.dex.getItem(item);
+
+			const effectid = this.battle.effect ? this.battle.effect.id : '';
+			export const RESTORATIVE_BERRIES = new Set([
+				'leppaberry', 'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry',
+			] as ID[]);
+			if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
+				const inflicted = ['trick', 'switcheroo'].includes(effectid);
+				const external = inflicted && source && source.side.id !== this.side.id;
+				this.pendingStaleness = external ? 'external' : 'internal';
+			} else {
+				this.pendingStaleness = undefined;
+			}
+			this.item = item.id;
+			this.itemData = {id: item.id, target: this};
+			if (item.id) {
+				this.battle.singleEvent('Start', item, this.itemData, this, source, effect);
+			}
+			return true;
+		}
+	}
 };
