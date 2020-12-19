@@ -255,23 +255,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
-	setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
-		if (!this.hp) return false;
-		if (typeof item === 'string') item = this.battle.dex.getItem(item);
+	pokemon: {
+		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
+			if (!this.hp) return false;
+			if (typeof item === 'string') item = this.battle.dex.getItem(item);
 
-		const effectid = this.battle.effect ? this.battle.effect.id : '';
-		if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
-			const inflicted = ['trick', 'switcheroo'].includes(effectid);
-			const external = inflicted && source && source.side.id !== this.side.id;
-			this.pendingStaleness = external ? 'external' : 'internal';
-		} else {
-			this.pendingStaleness = undefined;
+			const effectid = this.battle.effect ? this.battle.effect.id : '';
+			if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
+				const inflicted = ['trick', 'switcheroo'].includes(effectid);
+				const external = inflicted && source && source.side.id !== this.side.id;
+				this.pendingStaleness = external ? 'external' : 'internal';
+			} else {
+				this.pendingStaleness = undefined;
+			}
+			this.item = item.id;
+			this.itemData = {id: item.id, target: this};
+			if (item.id) {
+				this.battle.singleEvent('Start', item, this.itemData, this, source, effect);
+			}
+			return true;
 		}
-		this.item = item.id;
-		this.itemData = {id: item.id, target: this};
-		if (item.id) {
-			this.battle.singleEvent('Start', item, this.itemData, this, source, effect);
-		}
-		return true;
 	}
 };
