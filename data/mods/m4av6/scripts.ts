@@ -256,11 +256,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return item.megaStone;
 	},
 	pokemon: {
+
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
 			if (typeof item === 'string') item = this.battle.dex.getItem(item);
 
 			const effectid = this.battle.effect ? this.battle.effect.id : '';
+			export const RESTORATIVE_BERRIES = new Set([
+				'leppaberry', 'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry',
+			] as ID[]);
 			if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
 				const inflicted = ['trick', 'switcheroo'].includes(effectid);
 				const external = inflicted && source && source.side.id !== this.side.id;
