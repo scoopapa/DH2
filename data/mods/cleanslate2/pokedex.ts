@@ -245,6 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 80, atk: 120, def: 80, spa: 80, spd: 100, spe: 140},
 		abilities: {0: "Magic Guard"},
+		requiredItem: "Flying Memory",
 	},
 	scrafty: {
 		inherit: true,
