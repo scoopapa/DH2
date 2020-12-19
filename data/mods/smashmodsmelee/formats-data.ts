@@ -35,10 +35,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	camomander: {
 		tier: "Melee",
 	},
-	moltres-galar: {
+	moltresgalar: {
 		tier: "Melee",
 	},
-	copperajah-forge: {
+	copperajahforge: {
 		tier: "Melee",
 	},
 	claydol: {
