@@ -1193,7 +1193,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	springfever: {
 		desc: "This Pokémon's Grass-type moves have a 30% chance of confusing or infatuating the target or causing the target to skip its next turn instead of using a move.",
 		shortDesc: "This Pokémon's Grass moves: 30% to confuse, infatuate or make the target skip its move.",
-		onDamagingHit(damage, target, source, move) {
+		onSourceHit(target, source, move) {
 			if (!move || move.type !== 'Grass' || move.target === 'self') return;
 			const r = this.random(100);
 			if (r < 11) {
@@ -1271,7 +1271,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	awinterstale: {
 		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "Damage of Ice moves used on consecutive turns is increased. Effect doubles in Hail; max 1.5x (2x in Hail) after 5 turns.",
-		name: "A Winter's Tale",
 		onStart(pokemon) {
 			pokemon.addVolatile('awinterstale');
 		},
@@ -1304,8 +1303,32 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
+		name: "A Winter's Tale",
 		rating: 4,
 		num: -1041,
+	},
+	filteredlens: {
+		desc: "This Pokémon's attacks that match one of its types and are super effective against the target do 1.5x damage.",
+		desc: "This Pokémon's STAB attacks that are super effective against the target do 1.5x damage.",
+		onModifyDamage(damage, source, target, move) {
+			if (move && move.stab && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Filtered Lens",
+		rating: 2,
+		num: -1043,
+	},
+	lasttoxin: {
+		onSourceHit(target, source, damage, move) {
+			if (!move || !target) return;
+			if (target !== source && target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				target.setStatus('psn', source);
+			}
+		},
+		name: "Last Toxin",
+		rating: 4,
+		num: -1044,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
@@ -1330,5 +1353,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sticky Residues",
 		rating: 3,
 		num: -1025,
+	},
+	elegance: {
+		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition.",
+		shortDesc: "Unless this Pokémon is statused, its moves have their secondary effect chance guaranteed.",
+		onModifyMovePriority: -2,
+		onModifyMove(move, attacker) {
+			if attacker.status return;
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance = 100;
+				}
+			}
+			if (move.self?.chance) move.self.chance = 100;
+		},
+		name: "Elegance",
+		rating: 5,
+		num: -1042,
 	},
 }
