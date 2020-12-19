@@ -1359,7 +1359,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Unless this Pokémon is statused, its moves have their secondary effect chance guaranteed.",
 		onModifyMovePriority: -2,
 		onModifyMove(move, attacker) {
-			if attacker.status return;
+			if (attacker.status) return;
 			if (move.secondaries) {
 				this.debug('doubling secondary chance');
 				for (const secondary of move.secondaries) {
