@@ -1163,8 +1163,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	typhlosionmega: {
-		randomBattleMoves: ["rapidspin", "explosion", "crushclaw", "earthquake", "wildcharge", "eruption"],
-		randomDoubleBattleMoves: ["eruption", "heatwave", "hiddenpowergrass", "extrasensory", "focusblast", "protect"],
+		randomBattleMoves: ["rapidspin", "explosion", "crushclaw", "earthquake", "wildcharge", "eruption", "morningsun"],
+		randomDoubleBattleMoves: ["eruption", "heatwave", "hiddenpowergrass", "extrasensory", "focusblast", "morningsun", "protect"],
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},	
@@ -2434,8 +2434,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	walreinmega: {
-		randomBattleMoves: ["superfang", "protect", "toxic", "surf", "icebeam", "roar", "raindance"],
-		randomDoubleBattleMoves: ["protect", "icywind", "brine", "superfang"],
+		randomBattleMoves: ["superfang", "focusblast", "hydropump", "freezedry", "slackoff", "flipturn"],
+		randomDoubleBattleMoves: ["protect", "superfang", "surf", "freezedry", "slackoff", "flipturn"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
@@ -3490,8 +3490,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	conkeldurrmega: {
-		randomBattleMoves: ["bulkup", "drainpunch", "icepunch", "knockoff", "machpunch"],
-		randomDoubleBattleMoves: ["machpunch", "drainpunch", "facade", "knockoff", "protect"],
+		randomBattleMoves: ["bulkup", "drainpunch", "shoreup", "icepunch", "knockoff", "machpunch"],
+		randomDoubleBattleMoves: ["machpunch", "drainpunch", "shoreup", "knockoff", "protect"],
 		tier: "UUBL",
 		doublesTier: "(DUU)",
 	},
