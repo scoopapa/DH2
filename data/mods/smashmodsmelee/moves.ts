@@ -2098,8 +2098,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.field.clearTerrain();
 					result = true;
 				}
+				return result;
 			}
-			return result;
 		},
 		secondary: null,
 		target: "all",
