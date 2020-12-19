@@ -1133,21 +1133,23 @@ export const Formats: FormatList = [
 			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
-			'Sawsbuck + Moonblast', 'Sawsbuck + Petal Blizzard', 'Sawsbuck + Play Rough', // Sawsbuck-Spring only
-			'Sawsbuck + Flame Burst', 'Sawsbuck + Flamethrower', 'Sawsbuck + Growth', 'Sawsbuck + Leaf Storm', 'Sawsbuck + Overheat', // Sawsbuck-Summer only
-			'Sawsbuck + Poltergeist', 'Sawsbuck + Strength Sap', 'Sawsbuck + Shadow Sneak', 'Sawsbuck + Trick-or-Treat', // Sawsbuck-Autumn only
-			'Sawsbuck + Blizzard', 'Sawsbuck + Freeze-Dry', 'Sawsbuck + Ice Beam', 'Sawsbuck + Ice Shard', 'Sawsbuck + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Moonblast', 'Sawsbuck-Summer + Petal Blizzard', 'Sawsbuck-Summer + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Autumn + Moonblast', 'Sawsbuck-Autumn + Play Rough', // Sawsbuck-Spring only (but Autumn also has Petal Blizzard)
+			'Sawsbuck-Winter + Moonblast', 'Sawsbuck-Winter + Petal Blizzard', 'Sawsbuck-Winter + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Spring + Flame Burst', 'Sawsbuck-Spring + Flamethrower', 'Sawsbuck-Spring + Growth', 'Sawsbuck-Spring + Leaf Storm', 'Sawsbuck-Spring + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Autumn + Flame Burst', 'Sawsbuck-Autumn + Flamethrower', 'Sawsbuck-Autumn + Growth', 'Sawsbuck-Autumn + Leaf Storm', 'Sawsbuck-Autumn + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Winter + Flame Burst', 'Sawsbuck-Winter + Flamethrower', 'Sawsbuck-Winter + Growth', 'Sawsbuck-Winter + Leaf Storm', 'Sawsbuck-Winter + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Spring + Poltergeist', 'Sawsbuck-Spring + Strength Sap', 'Sawsbuck-Spring + Shadow Sneak', 'Sawsbuck-Spring + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Summer + Poltergeist', 'Sawsbuck-Summer + Strength Sap', 'Sawsbuck-Summer + Shadow Sneak', 'Sawsbuck-Summer + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Winter + Poltergeist', 'Sawsbuck-Winter + Strength Sap', 'Sawsbuck-Winter + Shadow Sneak', 'Sawsbuck-Winter + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Spring + Blizzard', 'Sawsbuck-Spring + Freeze-Dry', 'Sawsbuck-Spring + Ice Beam', 'Sawsbuck-Spring + Ice Shard', 'Sawsbuck-Spring + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Blizzard', 'Sawsbuck-Summer + Freeze-Dry', 'Sawsbuck-Summer + Ice Beam', 'Sawsbuck-Summer + Ice Shard', 'Sawsbuck-Summer + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Autumn + Blizzard', 'Sawsbuck-Autumn + Freeze-Dry', 'Sawsbuck-Autumn + Ice Beam', 'Sawsbuck-Autumn + Ice Shard', 'Sawsbuck-Autumn + Icicle Crash', // Sawsbuck-Winter only
 			'BitBitio', 'kakaks', 'DrPumpkinz', 'Magmajudis', // sandbox
 			'Flygon + Leech Life', 'Flygon + Quiver Dance', // sandbox
 			'Lurantis + Moonblast', 'Lurantis + Moonlight', 'Lurantis + Play Rough', 'Lurantis + Silver Wind', // sandbox (BitBitio)
 			'Lurantis + First Impression', 'Lurantis + Fleur Cannon', 'Lurantis + U-turn', // sandbox (kakaks)
 			'Drapion + Super Fang', // sandbox
-		],
-		unbanlist: [
-			'Sawsbuck-Base + Moonblast', 'Sawsbuck-Base + Petal Blizzard', 'Sawsbuck-Base + Play Rough',
-			'Sawsbuck-Summer + Flame Burst', 'Sawsbuck-Summer + Flamethrower', 'Sawsbuck-Summer + Growth', 'Sawsbuck-Summer + Leaf Storm', 'Sawsbuck-Summer + Overheat',
-			'Sawsbuck-Autumn + Petal Blizzard', 'Sawsbuck-Autumn + Poltergeist', 'Sawsbuck-Autumn + Strength Sap', 'Sawsbuck-Autumn + Shadow Sneak', 'Sawsbuck-Autumn + Trick-or-Treat',
-			'Sawsbuck-Winter + Blizzard', 'Sawsbuck-Winter + Freeze-Dry', 'Sawsbuck-Winter + Ice Beam', 'Sawsbuck-Winter + Ice Shard', 'Sawsbuck-Winter + Icicle Crash',
 		],
 		onAfterMega(pokemon) {
 			const species = this.dex.getSpecies(pokemon.species.name);
@@ -1173,21 +1175,23 @@ export const Formats: FormatList = [
 			'Giratina-Origin', 'Arceus', 'Volcarona', 'Reshiram', 'Zekrom', 'Kyurem-Black', 'Kyurem-White', 'Xerneas',
 			'Yveltal', 'Solgaleo', 'Lunala', 'Magearna', 'Marshadow', 'Necrozma-Dusk Mane', 'Necrozma-Dawn Wings',
 			'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus', 'Urshifu', 'Calyrex-Ice', 'Calyrex-Shadow',
-			'Sawsbuck + Moonblast', 'Sawsbuck + Petal Blizzard', 'Sawsbuck + Play Rough', // Sawsbuck-Spring only
-			'Sawsbuck + Flame Burst', 'Sawsbuck + Flamethrower', 'Sawsbuck + Growth', 'Sawsbuck + Leaf Storm', 'Sawsbuck + Overheat', // Sawsbuck-Summer only
-			'Sawsbuck + Poltergeist', 'Sawsbuck + Strength Sap', 'Sawsbuck + Shadow Sneak', 'Sawsbuck + Trick-or-Treat', // Sawsbuck-Autumn only
-			'Sawsbuck + Blizzard', 'Sawsbuck + Freeze-Dry', 'Sawsbuck + Ice Beam', 'Sawsbuck + Ice Shard', 'Sawsbuck + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Moonblast', 'Sawsbuck-Summer + Petal Blizzard', 'Sawsbuck-Summer + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Autumn + Moonblast', 'Sawsbuck-Autumn + Play Rough', // Sawsbuck-Spring only (but Autumn also has Petal Blizzard)
+			'Sawsbuck-Winter + Moonblast', 'Sawsbuck-Winter + Petal Blizzard', 'Sawsbuck-Winter + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Spring + Flame Burst', 'Sawsbuck-Spring + Flamethrower', 'Sawsbuck-Spring + Growth', 'Sawsbuck-Spring + Leaf Storm', 'Sawsbuck-Spring + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Autumn + Flame Burst', 'Sawsbuck-Autumn + Flamethrower', 'Sawsbuck-Autumn + Growth', 'Sawsbuck-Autumn + Leaf Storm', 'Sawsbuck-Autumn + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Winter + Flame Burst', 'Sawsbuck-Winter + Flamethrower', 'Sawsbuck-Winter + Growth', 'Sawsbuck-Winter + Leaf Storm', 'Sawsbuck-Winter + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Spring + Poltergeist', 'Sawsbuck-Spring + Strength Sap', 'Sawsbuck-Spring + Shadow Sneak', 'Sawsbuck-Spring + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Summer + Poltergeist', 'Sawsbuck-Summer + Strength Sap', 'Sawsbuck-Summer + Shadow Sneak', 'Sawsbuck-Summer + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Winter + Poltergeist', 'Sawsbuck-Winter + Strength Sap', 'Sawsbuck-Winter + Shadow Sneak', 'Sawsbuck-Winter + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Spring + Blizzard', 'Sawsbuck-Spring + Freeze-Dry', 'Sawsbuck-Spring + Ice Beam', 'Sawsbuck-Spring + Ice Shard', 'Sawsbuck-Spring + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Blizzard', 'Sawsbuck-Summer + Freeze-Dry', 'Sawsbuck-Summer + Ice Beam', 'Sawsbuck-Summer + Ice Shard', 'Sawsbuck-Summer + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Autumn + Blizzard', 'Sawsbuck-Autumn + Freeze-Dry', 'Sawsbuck-Autumn + Ice Beam', 'Sawsbuck-Autumn + Ice Shard', 'Sawsbuck-Autumn + Icicle Crash', // Sawsbuck-Winter only
 			'BitBitio', 'kakaks', 'DrPumpkinz', 'Magmajudis', // sandbox
 			'Flygon + Leech Life', 'Flygon + Quiver Dance', // sandbox
 			'Lurantis + Moonblast', 'Lurantis + Moonlight', 'Lurantis + Play Rough', 'Lurantis + Silver Wind', // sandbox (BitBitio)
 			'Lurantis + First Impression', 'Lurantis + Fleur Cannon', 'Lurantis + U-turn', // sandbox (kakaks)
 			'Drapion + Super Fang', // sandbox
-		],
-		unbanlist: [
-			'Sawsbuck-Base + Moonblast', 'Sawsbuck-Base + Petal Blizzard', 'Sawsbuck-Base + Play Rough',
-			'Sawsbuck-Summer + Flame Burst', 'Sawsbuck-Summer + Flamethrower', 'Sawsbuck-Summer + Growth', 'Sawsbuck-Summer + Leaf Storm', 'Sawsbuck-Summer + Overheat',
-			'Sawsbuck-Autumn + Petal Blizzard', 'Sawsbuck-Autumn + Poltergeist', 'Sawsbuck-Autumn + Strength Sap', 'Sawsbuck-Autumn + Shadow Sneak', 'Sawsbuck-Autumn + Trick-or-Treat',
-			'Sawsbuck-Winter + Blizzard', 'Sawsbuck-Winter + Freeze-Dry', 'Sawsbuck-Winter + Ice Beam', 'Sawsbuck-Winter + Ice Shard', 'Sawsbuck-Winter + Icicle Crash',
 		],
 		onAfterMega(pokemon) {
 			const species = this.dex.getSpecies(pokemon.species.name);
@@ -1261,18 +1265,20 @@ export const Formats: FormatList = [
 			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
-			'Sawsbuck + Moonblast', 'Sawsbuck + Petal Blizzard', 'Sawsbuck + Play Rough', // Sawsbuck-Spring only
-			'Sawsbuck + Flame Burst', 'Sawsbuck + Flamethrower', 'Sawsbuck + Growth', 'Sawsbuck + Leaf Storm', 'Sawsbuck + Overheat', // Sawsbuck-Summer only
-			'Sawsbuck + Poltergeist', 'Sawsbuck + Strength Sap', 'Sawsbuck + Shadow Sneak', 'Sawsbuck + Trick-or-Treat', // Sawsbuck-Autumn only
-			'Sawsbuck + Blizzard', 'Sawsbuck + Freeze-Dry', 'Sawsbuck + Ice Beam', 'Sawsbuck + Ice Shard', 'Sawsbuck + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Moonblast', 'Sawsbuck-Summer + Petal Blizzard', 'Sawsbuck-Summer + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Autumn + Moonblast', 'Sawsbuck-Autumn + Play Rough', // Sawsbuck-Spring only (but Autumn also has Petal Blizzard)
+			'Sawsbuck-Winter + Moonblast', 'Sawsbuck-Winter + Petal Blizzard', 'Sawsbuck-Winter + Play Rough', // Sawsbuck-Spring only
+			'Sawsbuck-Spring + Flame Burst', 'Sawsbuck-Spring + Flamethrower', 'Sawsbuck-Spring + Growth', 'Sawsbuck-Spring + Leaf Storm', 'Sawsbuck-Spring + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Autumn + Flame Burst', 'Sawsbuck-Autumn + Flamethrower', 'Sawsbuck-Autumn + Growth', 'Sawsbuck-Autumn + Leaf Storm', 'Sawsbuck-Autumn + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Winter + Flame Burst', 'Sawsbuck-Winter + Flamethrower', 'Sawsbuck-Winter + Growth', 'Sawsbuck-Winter + Leaf Storm', 'Sawsbuck-Winter + Overheat', // Sawsbuck-Summer only
+			'Sawsbuck-Spring + Poltergeist', 'Sawsbuck-Spring + Strength Sap', 'Sawsbuck-Spring + Shadow Sneak', 'Sawsbuck-Spring + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Summer + Poltergeist', 'Sawsbuck-Summer + Strength Sap', 'Sawsbuck-Summer + Shadow Sneak', 'Sawsbuck-Summer + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Winter + Poltergeist', 'Sawsbuck-Winter + Strength Sap', 'Sawsbuck-Winter + Shadow Sneak', 'Sawsbuck-Winter + Trick-or-Treat', // Sawsbuck-Autumn only
+			'Sawsbuck-Spring + Blizzard', 'Sawsbuck-Spring + Freeze-Dry', 'Sawsbuck-Spring + Ice Beam', 'Sawsbuck-Spring + Ice Shard', 'Sawsbuck-Spring + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Summer + Blizzard', 'Sawsbuck-Summer + Freeze-Dry', 'Sawsbuck-Summer + Ice Beam', 'Sawsbuck-Summer + Ice Shard', 'Sawsbuck-Summer + Icicle Crash', // Sawsbuck-Winter only
+			'Sawsbuck-Autumn + Blizzard', 'Sawsbuck-Autumn + Freeze-Dry', 'Sawsbuck-Autumn + Ice Beam', 'Sawsbuck-Autumn + Ice Shard', 'Sawsbuck-Autumn + Icicle Crash', // Sawsbuck-Winter only
 			'kakaks + Moonblast', 'kakaks + Moonlight', 'kakaks + Play Rough', 'kakaks + Silver Wind', // sandbox (BitBitio)
 			'BitBitio + First Impression', 'BitBitio + Fleur Cannon', 'BitBitio + U-turn', // sandbox (kakaks)
-		],
-		unbanlist: [
-			'Sawsbuck-Base + Moonblast', 'Sawsbuck-Base + Petal Blizzard', 'Sawsbuck-Base + Play Rough',
-			'Sawsbuck-Summer + Flame Burst', 'Sawsbuck-Summer + Flamethrower', 'Sawsbuck-Summer + Growth', 'Sawsbuck-Summer + Leaf Storm', 'Sawsbuck-Summer + Overheat',
-			'Sawsbuck-Autumn + Petal Blizzard', 'Sawsbuck-Autumn + Poltergeist', 'Sawsbuck-Autumn + Strength Sap', 'Sawsbuck-Autumn + Shadow Sneak', 'Sawsbuck-Autumn + Trick-or-Treat',
-			'Sawsbuck-Winter + Blizzard', 'Sawsbuck-Winter + Freeze-Dry', 'Sawsbuck-Winter + Ice Beam', 'Sawsbuck-Winter + Ice Shard', 'Sawsbuck-Winter + Icicle Crash',
 		],
 		onAfterMega(pokemon) {
 			const species = this.dex.getSpecies(pokemon.species.name);
