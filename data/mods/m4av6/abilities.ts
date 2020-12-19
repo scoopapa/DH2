@@ -1314,7 +1314,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon's attacks that match one of its types and are super effective against the target do 1.5x damage.",
 		desc: "This Pokémon's STAB attacks that are super effective against the target do 1.5x damage.",
 		onModifyDamage(damage, source, target, move) {
-			if (move && move.stab && target.getMoveHitData(move).typeMod > 0) {
+			if (!target.hasType(move.type)) return;
+			if (move && target.getMoveHitData(move).typeMod > 0) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1326,7 +1327,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, damage, move) {
 			if (!move || !target) return;
 			if (target !== source && target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-				target.setStatus('psn', source);
+				target.trySetStatus('tox', source);
 			}
 		},
 		name: "Last Toxin",
