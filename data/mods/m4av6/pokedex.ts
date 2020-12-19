@@ -378,7 +378,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Delibird",
 		forme: "Mega-Festive-Rider",
 		types: ["Ice", "Grass"],
-		baseStats: {hp: 45, atk: 97, def: 51, spa: 108, spd: 51, spe: 88},
+		baseStats: {hp: 45, atk: 97, def: 51, spa: 108, spd: 51, spe: 78},
 		abilities: {0: "As One (Sawsbuck)"},
 		heightm: 0.9,
 		weightkg: 16,
