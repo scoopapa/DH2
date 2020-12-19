@@ -950,7 +950,7 @@ export const Formats: FormatList = [
 		threads: [
 			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
-		mod: 'cleanslatetiershift',
+		mod: 'csts',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: ['Eviolite'],
 		onSwitchIn(pokemon) {
