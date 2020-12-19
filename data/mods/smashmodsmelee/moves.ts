@@ -2043,14 +2043,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHitField(target, source, move) {
+			let hasLanded = false;
 			let result = false;
 			for (const pokemon of this.getAllActive()) {
-				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
-					this.add('-miss', source, pokemon);
-					result = true;
-				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
-					result = true;
+				if (pokemon.hasAbility('waterabsorb')) {
+					if (pokemon.hp === pokemon.maxHP) {
+						this.add('-immune', pokemon, '[from] ability: Water Absorb');
+					} else {
+						this.add('-ability', pokemon, 'Water Absorb');
+						this.heal(this.modify(pokemon.baseMaxhp, 0.75));
+					}
+				} else if (pokemon.hasAbility('stormdrain')) {
+					if (pokemon.boosts.spa >= 6) {
+						this.add('-immune', pokemon, '[from] ability: Storm Drain');
+					} else {
+						this.add('-ability', pokemon, 'Storm Drain');
+						this.boost({spa: 1}, pokemon);
+					}
 				} else {
+					hasLanded = true;
 					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
 						pokemon.removeVolatile('partiallytrapped');
 						result = true;
@@ -2059,8 +2070,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist',
 					];
 					for (const targetCondition of washAway) {
-						if (target.side.removeSideCondition(targetCondition)) {
-							this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+						if (pokemon.side.removeSideCondition(targetCondition)) {
+							this.add('-sideend', pokemon.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
 							result = true;
 						}
 					}
@@ -2069,22 +2080,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const removeAll = [
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
-			for (const targetCondition of removeAll) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+			if (hasLanded === true) {
+				for (const targetCondition of removeAll) {
+					if (target.side.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+						result = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Wash Away', '[of] ' + source);
+						result = true;
+					}
+				}
+				if (this.field.terrain) {
+					this.field.clearTerrain();
 					result = true;
 				}
-			}
-			for (const sideCondition of removeAll) {
-				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Wash Away', '[of] ' + source);
-					result = true;
-				}
-			}
-			if (this.field.terrain) {
-				this.field.clearTerrain();
-				result = true;
 			}
 			return result;
 		},
