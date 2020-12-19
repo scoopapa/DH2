@@ -1324,10 +1324,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1043,
 	},
 	lasttoxin: {
-		onAnyDamagingHit(target, source, damage, effect) {
-			if (!target || !target.hp || target === source) return;
-			let moveDamage = damage;
-			if (source === this.effectData.target && (target.hp <= target.maxhp / 2) && (target.hp + moveDamage > target.maxhp / 2)) {
+		onSourceHit(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
 				target.trySetStatus('tox', source);
 			}
 		},
