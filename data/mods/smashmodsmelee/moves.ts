@@ -1242,12 +1242,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		onAfterMove(pokemon) {
+			pokemon.addVolatile('lockedmove');
 			if (pokemon.volatiles['lockedmove']) {
-				if (pokemon.volatiles['lockedmove'].trueDuration === 1) {
+				if (pokemon.volatiles['lockedmove'].duration === 1) {
 					pokemon.removeVolatile('lockedmove');
 				}
-			} else {
-				pokemon.addVolatile('lockedmove');
 			}
 		},
 		condition: {
