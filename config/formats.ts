@@ -1264,14 +1264,16 @@ export const Formats: FormatList = [
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
-		banlist: [
-			'All Pokemon',
-		],
-		unbanlist: [
-			'Vanilluxe', 'Raichu-Base', 'Raichu-Mega', 'Trubbish-Marshadow', 'Beheeyem', 'Garbodor-Base', 'Garbodor-Mega', 'Pyukchin', 'Thundahi',
-			'Miltank', 'Camomander', 'Moltres-Galar', 'Copperajah-Forge', 'Claydol', 'Unown', 'Water Vellumental', 'Escavalier', 'Lemotic', 'Joltry',
-			'Magmacroak', 'Floraflare', 'Torgeist', 'Lycanroc-Dusk', 'Roserade-Scarfed', 'Gladiaster', 'Hypnihil',
-		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'Melee' ) {
+					return [set.species + ' is not useable in Super Smash Mods Melee.'];
+				}
+			}
+		},
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 		},
