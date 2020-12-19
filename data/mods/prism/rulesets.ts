@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleFormats = {
+export const Formats: {[k: string]: ModdedFormatsData} = {
 	pokemon: {
 		inherit: true,
 		onValidateSet: function (set) {

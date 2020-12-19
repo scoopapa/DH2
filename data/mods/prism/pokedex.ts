@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattlePokedex = {
+export const Pokedex: {[k: string]: ModdednameData} = {
 	gengar: {
 		inherit: true,
 		types: ["Ghost", "Gas"],
@@ -66,7 +64,7 @@ exports.BattlePokedex = {
 		types: ["Fairy", "Water"],
 	},	
 	sylveon: {
-		species: "Sylveon",
+		name: "Sylveon",
 		types: ["Fairy"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 95, atk: 65, def: 65, spa: 110, spd: 130, spe: 60},
@@ -79,7 +77,7 @@ exports.BattlePokedex = {
 		eggGroups: ["Field"],
 	},
 	fambaco : {
-		species: "Fambaco",
+		name: "Fambaco",
 		types: ["Ghost", "Fighting"],
 		genderRatio: {M: 0, F: 0},
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 125, spe: 125},
@@ -90,7 +88,7 @@ exports.BattlePokedex = {
 		eggGroups: ["None"]
 	},
 	libabeel : {
-		species: "Libabeel",
+		name: "Libabeel",
 		types: ["Steel", "Poison"],
 		genderRatio: {M: 0, F: 0},
 		baseStats: {hp: 125, atk: 100, def: 125, spa: 100, spd: 100, spe: 100},
@@ -101,7 +99,7 @@ exports.BattlePokedex = {
 		eggGroups: ["None"]
 	},
 	phancero : {
-		species: "Phancero",
+		name: "Phancero",
 		types: ["Ghost", "Flying"],
 		genderRatio: {M: 0, F: 0},
 		baseStats: {hp: 178, atk: 137, def: 57, spa: 128, spd: 85, spe: 65},
@@ -112,7 +110,7 @@ exports.BattlePokedex = {
 		eggGroups: ["None"]
 	},
 	raiwato : {
-		species: "Raiwato",
+		name: "Raiwato",
 		types: ["Electric", "Rock"],
 		genderRatio: {M: 0, F: 0},
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 125, spd: 100, spe: 125},
@@ -123,7 +121,7 @@ exports.BattlePokedex = {
 		eggGroups: ["None"]
 	},
 	varaneous : {
-		species: "Varaneous",
+		name: "Varaneous",
 		types: ["Fire", "Water"],
 		genderRatio: {M: 0, F: 0},
 		baseStats: {hp: 100, atk: 125, def: 125, spa: 100, spd: 100, spe: 100},

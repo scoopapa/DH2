@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleScripts = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen5',
 	gen: 5,
 	init: function () {

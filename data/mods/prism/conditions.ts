@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleStatuses = {
+export const Conditions: {[k: string]: ConditionData} = {
 	par: {
 		inherit: true,
 		onBeforeMove: function (pokemon) {

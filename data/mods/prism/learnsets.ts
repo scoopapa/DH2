@@ -1,7 +1,4 @@
-'use strict';
-
-
-exports.BattleLearnsets = {
+export const Learnsets = {
 	bulbasaur: {learnset: {
 		amnesia: ["5M"],
 		ancientpower: ["-1M"],

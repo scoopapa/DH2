@@ -1,6 +1,4 @@
-'use strict'
-
-exports.BattleTypeChart = {
+export const TypeChart: {[k: string]: TypeData} = {
 		"Bug": {
 		damageTaken: {
 			"Bug": 0,

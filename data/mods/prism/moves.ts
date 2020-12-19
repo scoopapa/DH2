@@ -1,6 +1,4 @@
-'use strict';
-
-exports.BattleMovedex = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	acupressure: {
 		inherit: true,
 		desc: "Raises a random stat by 2 stages as long as the stat is not already at stage 6. The user can choose to use this move on itself or an ally. Fails if no stat stage can be raised or if the user or ally has a substitute.",
@@ -911,9 +909,9 @@ exports.BattleMovedex = {
 	moonlight: {
 		inherit: true,
 		onHit: function (pokemon) {
-			if (this.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp * 2 / 3);
-			} else if (this.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.maxhp / 4);
 			} else {
 				this.heal(pokemon.maxhp / 2);
@@ -923,9 +921,9 @@ exports.BattleMovedex = {
 	morningsun: {
 		inherit: true,
 		onHit: function (pokemon) {
-			if (this.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp * 2 / 3);
-			} else if (this.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.maxhp / 4);
 			} else {
 				this.heal(pokemon.maxhp / 2);
@@ -1457,9 +1455,9 @@ exports.BattleMovedex = {
 	synthesis: {
 		inherit: true,
 		onHit: function (pokemon) {
-			if (this.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp * 2 / 3);
-			} else if (this.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.maxhp / 4);
 			} else {
 				this.heal(pokemon.maxhp / 2);
