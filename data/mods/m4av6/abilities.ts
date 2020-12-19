@@ -1154,23 +1154,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const side = pokemon.side;
 			let activated = false;
 			for (const ally of side.pokemon) {
-				if (pokemon.item) return false;
-				if (!pokemon.lastItem && !pokemon.lostItemForDelibird) return false;
+				if (pokemon.item || !pokemon.lastItem) return false;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Spirit of Giving');
 				}
 				activated = true;
-				if (pokemon.lastItem) {
-					const item = pokemon.lastItem;
-					pokemon.lastItem = '';
-					this.add('-item', pokemon, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-					pokemon.setItem(item);
-				} else if (pokemon.lostItemForDelibird) {
-					const item = pokemon.lostItemForDelibird;
-					pokemon.lostItemForDelibird = '';
-					this.add('-item', pokemon, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-					pokemon.setItem(item);
-				}
+				const item = pokemon.lastItem;
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
+				pokemon.setItem(item);
 			}
 		},
 		rating: 4,
