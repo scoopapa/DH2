@@ -1181,22 +1181,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					continue;
 				}
 				if (ally.lastItem) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Spirit of Giving');
-					}
-					activated = true;
 					const item = ally.lastItem;
 					if (ally.setItem(item)) {
+						if (!activated) {
+							this.add('-ability', pokemon, 'Spirit of Giving');
+						}
+						activated = true;
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lastItem = '';
 					}
 				} else if (ally.lostItemForDelibird) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Spirit of Giving');
-					}
-					activated = true;
 					const item = ally.lostItemForDelibird;
 					if (ally.setItem(item)) {
+						if (!activated) {
+							this.add('-ability', pokemon, 'Spirit of Giving');
+						}
+						activated = true;
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lostItemForDelibird = '';
 					}
