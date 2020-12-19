@@ -221,13 +221,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Delibird-Mega-Festive-Rider";
 		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
-			return "Sawsbuck-Mega-Summer";
+			return "Sawsbuck-Summer-Mega";
 		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Autumn") {
-			return "Sawsbuck-Mega-Autumn";
+			return "Sawsbuck-Autumn-Mega";
 		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
-			return "Sawsbuck-Mega-Winter";
+			return "Sawsbuck-Winter-Mega";
 		}
 		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Lurantis") {
 			return "Lurantis-Mega-BitBitio";
