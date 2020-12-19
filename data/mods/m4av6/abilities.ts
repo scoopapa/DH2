@@ -1189,8 +1189,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (ally.setItem(item)) {
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lastItem = '';
-					} else {
-						this.add('-message', `${pokemon.name} couldn't give ${ally.name} its ${this.dex.getItem(item)}...`);
 					}
 				} else if (ally.lostItemForDelibird) {
 					if (!activated) {
@@ -1201,8 +1199,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (ally.setItem(item)) {
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lostItemForDelibird = '';
-					} else {
-						this.add('-message', `${pokemon.name} couldn't give ${ally.name} its ${this.dex.getItem(item)}...`);
 					}
 				}
 			}
