@@ -1334,7 +1334,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
-					let target.lostItemForDelibird = item;
+					target.lostItemForDelibird = item;
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
 			}
