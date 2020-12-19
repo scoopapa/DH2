@@ -1324,14 +1324,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1043,
 	},
 	lasttoxin: {
-		onSourceHit(target, source, move) {
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			const lastAttackedBy = target.getLastAttackedBy();
-			if (!lastAttackedBy) return;
-			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-				target.trySetStatus('tox', source);
+		onModifyMove(move) {
+			if (!move || move.target === 'self' || !move.totalDamage) return;
+			if (!move.secondaries) {
+				move.secondaries = [];
 			}
+			move.secondaries.push({
+				chance: 100,
+				onHit(target, source, move) {
+					const lastAttackedBy = target.getLastAttackedBy();
+					if (!lastAttackedBy) return;
+					const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+					if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+						target.trySetStatus('tox', source);
+					}
+				},
+			});
 		},
 		name: "Last Toxin",
 		rating: 4,
