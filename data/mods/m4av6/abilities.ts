@@ -1150,18 +1150,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it last held, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief.",
 		shortDesc: "Restores the party's used or removed items on switch-in.",
 		name: "Spirit of Giving",
-		onHit(pokemon, source) {
-			this.add('-activate', source, 'Ability: Spirit of Giving');
+		onStart(pokemon) {
 			const side = pokemon.side;
-			let success = false;
+			let activated = false;
 			for (const ally of side.pokemon) {
 				if (pokemon.item || !pokemon.lastItem) return false;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Spirit of Giving');
+				}
+				activated = true;
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 				pokemon.setItem(item);
 			}
-			return success;
 		},
 		rating: 4,
 		num: -1036,
@@ -1214,6 +1216,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('cant', pokemon, 'ability: Truant');
 				pokemon.removeVolatile('mustrecharge');
 				pokemon.removeVolatile('truant');
+				pokemon.removeVolatile('springfever');
 				return false;
 			},
 		},
@@ -1239,7 +1242,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if ((pokemon.getStat('spe', false, true) > pokemon.getStat('spa', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(2);
 			}
 		},
