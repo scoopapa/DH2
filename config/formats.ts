@@ -1270,7 +1270,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
 				if ( template.tier !== 'Melee' ) {
-					return [set.species + ' is not useable in Super Smash Mods Melee.'];
+					return [set.species + ' is not usable in Super Smash Mods Melee.'];
 				}
 			}
 		},
