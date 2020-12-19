@@ -1146,6 +1146,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1035,
 	},
+	pickup: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = [];
+			for (const target of this.getAllActive()) {
+				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
+					pickupTargets.push(target);
+				}
+			}
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			randomTarget.lostItemForDelibird = item;
+			this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		name: "Pickup",
+		rating: 0.5,
+		num: 53,
+	},
 	spiritofgiving: {
 		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it last held, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief.",
 		shortDesc: "Restores the party's used or removed items on switch-in.",
@@ -1157,21 +1180,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `How is ${ally.name}?`);
 				if (ally.item) {
 					this.add('-message', `${ally.name} has ${ally.item}.`);
-					return false;
+					continue;
 				}
-				if (!ally.lastitem) {
-					this.add('-message', `${ally.name} doesn't have a 'last item'.`);
+				if (!ally.lastItem) {
+					this.add('-message', `${ally.name} hasn't used up an item.`);
 				}
 				if (!ally.lostItemForDelibird) {
 					this.add('-message', `${ally.name} doesn't appear to have lost an item.`);
-					return false;
 				}
 				if (ally.lastItem) {
 					if (!activated) {
 						this.add('-ability', pokemon, 'Spirit of Giving');
 					}
 					activated = true;
-					this.add('-message', `${ally.name} has used its ${ally.lastitem}.`);
+					this.add('-message', `${ally.name} has used up its ${ally.lastItem}.`);
 					const item = ally.lastItem;
 					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 					if (ally.setItem(item)) {
@@ -1185,7 +1207,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.add('-ability', pokemon, 'Spirit of Giving');
 					}
 					activated = true;
-					this.add('-message', `${ally.name} lost its ${ally.lostItemForDelibird}.`);
+					this.add('-message', `${ally.name} has lost its ${ally.lostItemForDelibird}.`);
 					const item = ally.lostItemForDelibird;
 					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 					if (ally.setItem(item)) {
