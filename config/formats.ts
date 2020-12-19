@@ -945,7 +945,7 @@ export const Formats: FormatList = [
 		}
 	},
 	{
-		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift (BETA)",
+		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift",
 		desc: `Clean slate but we forgot to clean the slate between slates.`,
 		threads: [
 			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
