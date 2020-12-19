@@ -1149,15 +1149,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id === 'escavalier') {
 				move.accuracy = 100;
 				move.basePower = 130;
-				move.self = [];
-				move.self.push({
-					boosts: {
-						atk: -2,
-					},
-				});
 			} else {
 				move.ohko = true;
 			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.species.id === 'escavalier') this.boost({atk: -2}, pokemon, pokemon, move);
 		},
 		secondary: null,
 		target: "normal",
@@ -1181,15 +1178,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id === 'escavalier') {
 				move.accuracy = 100;
 				move.basePower = 130;
-				move.self = [];
-				move.self.push({
-					boosts: {
-						atk: -2,
-					},
-				});
 			} else {
 				move.ohko = true;
 			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.species.id === 'escavalier') this.boost({atk: -2}, pokemon, pokemon, move);
 		},
 		secondary: null,
 		target: "normal",
@@ -1245,15 +1239,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'escavalier') {
 				move.accuracy = 100;
-				move.self = [];
-				move.self.push({
-					volatileStatus: 'lockedmove',
-				});
 			}
 		},
 		onAfterMove(pokemon) {
-			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
-				pokemon.removeVolatile('lockedmove');
+			if (pokemon.volatiles['lockedmove']) {
+				if (pokemon.volatiles['lockedmove'].duration === 1) {
+					pokemon.removeVolatile('lockedmove');
+				}
+			} else {
+				pokemon.addVolatile('lockedmove');
 			}
 		},
 		condition: {
@@ -2167,7 +2161,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		desc: "Has a 30% chance to raise the user's Special Attack by 1 stage. Has a higher chance for a critical hit.",
 		shortDesc: "30% chance to raise the user's Defense by 1. High critical hit ratio.",
-		name: "Stormshard Slash",
+		name: "Stalwart Sword",
 		pp: 10,
 		priority: 0,
 		flags: {},
