@@ -1177,47 +1177,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const side = pokemon.side;
 			let activated = false;
 			for (const ally of side.pokemon) {
-				this.add('-message', `How is ${ally.name}?`);
 				if (ally.item) {
-					this.add('-message', `${ally.name} has ${ally.item}.`);
 					continue;
-				}
-				if (!ally.lastItem) {
-					this.add('-message', `${ally.name} hasn't used up an item.`);
-				}
-				if (!ally.lostItemForDelibird) {
-					this.add('-message', `${ally.name} doesn't appear to have lost an item.`);
 				}
 				if (ally.lastItem) {
 					if (!activated) {
 						this.add('-ability', pokemon, 'Spirit of Giving');
 					}
 					activated = true;
-					this.add('-message', `${ally.name} has used up its ${ally.lastItem}.`);
 					const item = ally.lastItem;
-					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 					if (ally.setItem(item)) {
-						this.add('-message', `Let's give it back.`);
+						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lastItem = '';
 					} else {
-						this.add('-message', `We can't give it back.`);
+						this.add('-message', `${pokemon.name} couldn't give ${ally.name} its ${this.dex.getItem(item)}...`);
 					}
 				} else if (ally.lostItemForDelibird) {
 					if (!activated) {
 						this.add('-ability', pokemon, 'Spirit of Giving');
 					}
 					activated = true;
-					this.add('-message', `${ally.name} has lost its ${ally.lostItemForDelibird}.`);
 					const item = ally.lostItemForDelibird;
-					this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 					if (ally.setItem(item)) {
-						this.add('-message', `Let's give it back.`);
+						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
 						ally.lostItemForDelibird = '';
 					} else {
-						this.add('-message', `We can't give it back.`);
+						this.add('-message', `${pokemon.name} couldn't give ${ally.name} its ${this.dex.getItem(item)}...`);
 					}
-				} else {
-					this.add('-message', `It looks like ${ally.name} has never had an item`);
 				}
 			}
 		},
