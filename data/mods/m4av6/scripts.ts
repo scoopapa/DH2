@@ -255,10 +255,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
-};
-			
-exports.BattleScripts = {
-
 	setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 		if (!this.hp) return false;
 		if (typeof item === 'string') item = this.battle.dex.getItem(item);
@@ -278,5 +274,4 @@ exports.BattleScripts = {
 		}
 		return true;
 	}
-
 };
