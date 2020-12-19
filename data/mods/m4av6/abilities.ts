@@ -1325,28 +1325,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	lasttoxin: {
 		onModifyMove(move) {
-			if (!move || move.target === 'self' || !move.totalDamage) return;
+			this.hint("Trying a move.");
+			if (!move || move.target === 'self') return;
+			this.hint("About to make sure the move has a secondary slot.");
 			if (!move.secondaries) {
 				move.secondaries = [];
+				this.hint("It didn't already, so I added one.");
 			}
+			this.hint("The move has a secondary slot.");
 			move.secondaries.push({
 				chance: 100,
 				onHit(target, source, move) {
-					this.hint("Set the secondary.", true, source.side);
+					this.add('-message', `${source.name}'s move has hit ${target.name}.`);
 					const lastAttackedBy = target.getLastAttackedBy();
 					if (!lastAttackedBy) return;
-					this.hint("Got past 'lastAttackedBy'.", true, source.side);
+					this.hint("The target recognizes that it was attacked by something.");
 					const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-					this.hint("Established damage.", true, source.side);
+					this.add('-message', `${source.name} did ${damage} to ${target.name}... right?`);
 					if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-						this.hint("Qualified to set poison.", true, source.side);
+						this.hint("Qualified to set poison.");
+						this.add('-message', `Let's see if we can poison ${target.name}.`);
 						if (target.trySetStatus('tox', source)) {
-							this.hint("Set poison.", true, source.side);
+							this.hint("We did it!");
 						} else {
-							this.hint("Failed to set poison.", true, source.side);
+							this.hint("We did not.");
 						}
 					} else {
-						this.hint("Did not qualify to set poison.", true, source.side);
+						this.add('-message', `We aren't poisoning ${target.name} right now.`);
 					}
 				},
 			});
