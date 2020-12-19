@@ -1125,6 +1125,188 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1034,
 	},
+	rotation: {
+		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
+		shortDesc: "On switch-in, Defense or Sp. Def is raised 1 stage based on the foes' weaker Attack.",
+		onStart(pokemon) {
+			let totalatk = 0;
+			let totalspa = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totalatk += target.getStat('atk', false, true);
+				totalspa += target.getStat('spa', false, true);
+			}
+			if (totalatk && totalatk >= totalspa) {
+				this.boost({def: 1});
+			} else if (totalspa) {
+				this.boost({spd: 1});
+			}
+		},
+		name: "Rotation",
+		rating: 4,
+		num: -1035,
+	},
+	spiritofgiving: {
+		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it last held, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief.",
+		shortDesc: "Restores the party's used or removed items on switch-in.",
+		name: "Spirit of Giving",
+		onHit(pokemon, source) {
+			this.add('-activate', source, 'Ability: Spirit of Giving');
+			const side = pokemon.side;
+			let success = false;
+			for (const ally of side.pokemon) {
+				if (pokemon.item || !pokemon.lastItem) return false;
+				const item = pokemon.lastItem;
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
+				pokemon.setItem(item);
+			}
+			return success;
+		},
+		rating: 4,
+		num: -1036,
+	},
+	asonesawsbuck: {
+		desc: "The combination of Hustle and A Winter's Tale. This Pokémon's Attack is multiplied by 1.5 and the accuracy of its physical attacks is multiplied by 0.8. The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
+		shortDesc: "The combination of Hustle and A Winter's Tale.",
+		name: "As One (Sawsbuck)",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onStart(pokemon) {
+			pokemon.addVolatile('awinterstale');
+		},
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
+		rating: 4,
+		num: -1037,
+	},
+	springfever: {
+		desc: "This Pokémon's Grass-type moves have a 30% chance of confusing or infatuating the target or causing the target to skip its next turn instead of using a move.",
+		shortDesc: "This Pokémon's Grass moves: 30% to confuse, infatuate or make the target skip its move.",
+		onDamagingHit(damage, target, source, move) {
+			if (!move || move.type !== 'Grass' || move.target === 'self') return;
+			const r = this.random(100);
+			if (r < 11) {
+				target.addVolatile('confusion', source);
+			} else if (r < 21) {
+				target.addVolatile('attract', source);
+			} else if (r < 30) {
+				target.addVolatile('springfever', source);
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('springfever', pokemon);
+			},
+			onBeforeMovePriority: 11,
+			onBeforeMove(pokemon) {
+				this.add('cant', pokemon, 'ability: Truant');
+				pokemon.removeVolatile('mustrecharge');
+				pokemon.removeVolatile('truant');
+				return false;
+			},
+		},
+		name: "Spring Fever",
+		rating: 4,
+		num: -1038,
+	},
+	summerdays: {
+		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
+		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe > Sp. Atk.",
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (target.getStat('spa', false, true) > target.getStat('spe', false, true)) {
+				if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+					this.damage(target.baseMaxhp / 8, target, target);
+				}
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Summer Days",
+		rating: 4,
+		num: -1039,
+	},
+	autumnleaves: {
+		desc: "This Pokémon's Grass-type attacks without a chance to make the target flinch gain a 20% chance to make the target flinch.",
+		shortDesc: "This Pokémon's Grass attacks without a chance to flinch gain a 20% chance to flinch.",
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== 'Status' && move.type === 'Grass') {
+				this.debug('Adding Autumn Leaves flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 20,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		name: "Autumn Leaves",
+		rating: 4,
+		num: -1040,
+	},
+	awinterstale: {
+		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
+		shortDesc: "Damage of Ice moves used on consecutive turns is increased. Effect doubles in Hail; max 1.5x (2x in Hail) after 5 turns.",
+		name: "A Winter's Tale",
+		onStart(pokemon) {
+			pokemon.addVolatile('awinterstale');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectData.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasAbility('awinterstale') && !pokemon.hasAbility('asonesawsbuck')) {
+					pokemon.removeVolatile('awinterstale');
+					return;
+				}
+				if (move.type === 'Ice' && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove']) {
+					this.effectData.numConsecutive = 1;
+				} else {
+					this.effectData.numConsecutive = 0;
+				}
+				this.effectData.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
+				const numConsecutive = this.effectData.numConsecutive > 5 ? 5 : this.effectData.numConsecutive;
+				if (['hail'].includes(source.effectiveWeather())) {
+					return this.chainModify([dmgMod[numConsecutive], 0x1000]);
+				} else {
+					return damage * (1 + (this.effectData.numConsecutive / 10));
+				}
+			},
+		},
+		rating: 4,
+		num: -1041,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
