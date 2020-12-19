@@ -1225,8 +1225,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1038,
 	},
 	summerdays: {
-		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
-		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe > Sp. Atk.",
+		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
+		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe >= Sp. Atk.",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
@@ -1242,7 +1242,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.getStat('spe', false, true) > pokemon.getStat('spa', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if ((pokemon.getStat('spe', false, true) >= pokemon.getStat('spa', false, true)) && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -1325,33 +1325,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	lasttoxin: {
 		onModifyMove(move) {
-			this.hint("Trying a move.");
 			if (!move || move.target === 'self') return;
-			this.hint("About to make sure the move has a secondary slot.");
 			if (!move.secondaries) {
 				move.secondaries = [];
-				this.hint("It didn't already, so I added one.");
 			}
-			this.hint("The move has a secondary slot.");
 			move.secondaries.push({
 				chance: 100,
 				onHit(target, source, move) {
-					this.add('-message', `${source.name}'s move has hit ${target.name}.`);
 					const lastAttackedBy = target.getLastAttackedBy();
 					if (!lastAttackedBy) return;
-					this.hint("The target recognizes that it was attacked by something.");
 					const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-					this.add('-message', `${source.name} did ${damage} to ${target.name}... right?`);
 					if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-						this.hint("Qualified to set poison.");
-						this.add('-message', `Let's see if we can poison ${target.name}.`);
 						if (target.trySetStatus('tox', source)) {
-							this.hint("We did it!");
-						} else {
-							this.hint("We did not.");
+							this.hint("Last Toxin activated!");
 						}
-					} else {
-						this.add('-message', `We aren't poisoning ${target.name} right now.`);
 					}
 				},
 			});
