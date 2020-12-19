@@ -1078,4 +1078,103 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Meowstic, this item allows it to Mega Evolve in battle.",
 	},
+	starminite: {
+		name: "Starminite",
+		spritenum: 578,
+		megaStone: "Starmie-Mega",
+		megaEvolves: "Starmie",
+		itemUser: ["Starmie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1066,
+		gen: 8,
+		desc: "If held by a Starmie, this item allows it to Mega Evolve in battle.",
+	},
+	delibirdite: {
+		name: "Delibirdite",
+		spritenum: 578,
+		megaStone: "Delibird-Mega",
+		megaEvolves: "Delibird",
+		itemUser: ["Delibird"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1067,
+		gen: 8,
+		desc: "If held by a Delibird, this item allows it to Mega Evolve in battle.",
+	},
+	sawsbuckite: {
+		name: "Sawsbuckite",
+		spritenum: 578,
+		megaStone: "Sawsbuck-Mega",
+		megaEvolves: "Sawsbuck",
+		itemUser: ["Sawsbuck"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1068,
+		gen: 8,
+		desc: "If held by a Sawsbuck or a Delibird, this item allows it to Mega Evolve in battle.",
+	},
+	bitbitio: {
+		name: "BitBitio",
+		spritenum: 578,
+		megaStone: "Lurantis-Mega-BitBitio",
+		megaEvolves: "Lurantis",
+		itemUser: ["Lurantis"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1069,
+		gen: 8,
+		desc: "M4A Sandbox test! If held by a Lurantis, this item allows it to Mega Evolve in battle.",
+	},
+	kakaks: {
+		name: "kakaks",
+		spritenum: 578,
+		megaStone: "Flygon-Mega-kakaks",
+		megaEvolves: "Flygon",
+		itemUser: ["Flygon"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Flygon') return false;
+			if (source.baseSpecies.baseSpecies === 'Lurantis') return false;
+			return true;
+		},
+		num: -1070,
+		gen: 8,
+		desc: "M4A Sandbox test! If held by a Flygon or a Lurantis, this item allows it to Mega Evolve in battle.",
+	},
+	magmajudis: {
+		name: "Magmajudis",
+		spritenum: 578,
+		megaStone: "Drapion-Mega-Magmajudis",
+		megaEvolves: "Drapion",
+		itemUser: ["Drapion"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1071,
+		gen: 8,
+		desc: "M4A Sandbox test! If held by a Drapion, this item allows it to Mega Evolve in battle.",
+	},
+	drpumpkinz: {
+		name: "DrPumpkinz",
+		spritenum: 578,
+		megaStone: "Lurantis-Mega-DrPumpkinz",
+		megaEvolves: "Drapion",
+		itemUser: ["Drapion"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1072,
+		gen: 8,
+		desc: "M4A Sandbox test! If held by a Lurantis, this item allows it to Mega Evolve in battle.",
+	},
 }
