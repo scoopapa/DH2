@@ -217,6 +217,33 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
 		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Delibird") {
+			return "Delibird-Mega-Festive-Rider";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
+			return "Sawsbuck-Mega-Summer";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Autumn") {
+			return "Sawsbuck-Mega-Autumn";
+		}
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
+			return "Sawsbuck-Mega-Winter";
+		}
+		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Lurantis") {
+			return "Lurantis-Mega-BitBitio";
+		}
+		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Flygon") {
+			return "Flygon-Mega-kakaks";
+		}
+		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Lurantis") {
+			return "Lurantis-Mega-kakaks";
+		}
+		if (item.name === "Magmajudis" && pokemon.baseSpecies.name === "Drapion") {
+			return "Drapion-Mega-Magmajudis";
+		}
+		if (item.name === "DrPumpkinz" && pokemon.baseSpecies.name === "DrPumpkinz") {
+			return "Lurantis-Mega-DrPumpkinz";
+		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
