@@ -1,14 +1,14 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	arbosaur: {
-		tier:'OU';
+		tier:'OU',
 	},
 	charbarian: {
-		tier:'OU';
+		tier:'OU',
 	},
 	chargaryen: {
-		tier:'OU';
+		tier:'OU',
 	},
 	galapagon: {
-		tier:'OU';
+		tier:'OU',
 	},
 };
