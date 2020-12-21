@@ -1,6 +1,6 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	venusaur: {
-		inherit: true;
+		inherit: true,
 		evos: ["Arbosaur"],
 	},
 	arbosaur: {
@@ -14,7 +14,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "venusaur",
 	},
 	charizard:  {
-		inherit: true;
+		inherit: true,
 		evos: ["Charbarian", "Chargaryen"],
 	},
 	charbarian: {
@@ -38,7 +38,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "charizard",
 	},
 	blastoise: {
-		inherit: true;
+		inherit: true,
 		evos: ["Galapagon"],
 	},
 	galapagon: {
