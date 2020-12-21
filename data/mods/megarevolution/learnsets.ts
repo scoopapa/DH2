@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */
-let BattleLearnsets = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	arbosaur: {
 		learnset: {
 			amnesia: ["8M", "8V"],
@@ -94,10 +91,10 @@ let BattleLearnsets = {
 			weatherball: ["8M"],
 			workup: ["8M", "7M"],
 			worryseed: ["8L44", "7T", "7L39", "6T", "6L39", "5T", "5L39", "4T", "4L39"],
-      dracometeor: ["8L1"],
-      flamethrower: ["8L1"],
-      dragonhammer: ["8L1"],
-      dragondance: ["8L1"],
+			dracometeor: ["8L1"],
+			flamethrower: ["8L1"],
+			dragonhammer: ["8L1"],
+			dragondance: ["8L1"],
 		},
 	},
 	charbarian: {learnset: {
@@ -226,10 +223,10 @@ let BattleLearnsets = {
 			willowisp: ["8M", "8V", "7M", "6M", "5M", "4M"],
 			wingattack: ["8V", "7L1", "7V", "6L36", "5L36", "4L36", "3L36", "3S0"],
 			workup: ["8M", "7M"],
-      firelash: ["8L1"],
-      dracometeor: ["8L1"],
-      knockoff: ["8L1"],
-      explosion: ["8L1"],
+			firelash: ["8L1"],
+			dracometeor: ["8L1"],
+			knockoff: ["8L1"],
+			explosion: ["8L1"],
 	}},	
   chargaryen: {learnset: {
 			acrobatics: ["8M"],
@@ -357,7 +354,7 @@ let BattleLearnsets = {
 			willowisp: ["8M", "8V", "7M", "6M", "5M", "4M"],
 			wingattack: ["8V", "7L1", "7V", "6L36", "5L36", "4L36", "3L36", "3S0"],
 			workup: ["8M", "7M"],
-      oblivionwing: ["8L1"],
+			oblivionwing: ["8L1"],
 	}},
 	galapagon: {
 		learnset: {
@@ -467,13 +464,13 @@ let BattleLearnsets = {
 			withdraw: ["8L1", "8V", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 			workup: ["8M", "7M"],
 			zenheadbutt: ["8M", "7T", "6T", "5T", "4T"],
-      stealthrock: ["8L1"],
-      ancientpower: ["8L1"],
-      rollout: ["8L1"],
-      stoneedge: ["8L1"],
-      mudshot: ["8L1"],
-      meteorbeam: ["8L1"],
-      sandstorm: ["8L1"],
+			stealthrock: ["8L1"],
+			ancientpower: ["8L1"],
+			rollout: ["8L1"],
+			stoneedge: ["8L1"],
+			mudshot: ["8L1"],
+			meteorbeam: ["8L1"],
+			sandstorm: ["8L1"],
 		},
 	},
  };
