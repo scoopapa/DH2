@@ -784,6 +784,22 @@ export const Formats: FormatList = [
 		//ruleset: ['Standard', 'Dynamax Clause'],
 		//banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
+			{
+		name: "[Gen 8] Mega Revolution",
+		desc: [
+			"&bullet; This Pet Mod converts mega Evolutions into fully evolved independent Pokémon.",
+			],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3674638/">Mega Revolution</a>`,
+		],
+
+		mod: 'megarevolution',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		onSwitchIn: function (pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+        },
+	},
 	{
 		name: "[Gen 8] Optimons",
 		threads: [
