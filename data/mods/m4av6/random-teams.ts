@@ -1257,6 +1257,12 @@ export class RandomTeams {
 		//Fix certain Mega abilities
 		} else if ((forme === 'Gourgeist' || forme === 'Gourgeist-Small' || forme === 'Gourgeist-Large' || forme === 'Gourgeist-Super') && mega) {
 			ability = 'Frisk';
+		} else if ((forme === 'Meowstic-F') && mega) {
+			ability = 'Competitive';
+		} else if ((forme === 'Meowstic') && mega) {
+			ability = 'Prankster'; 
+		} else if ((forme === 'Sawsbuck' || forme === 'Sawsbuck-Summer' || forme === 'Sawsbuck-Autumn' || forme === 'Sawsbuck-Winter') && mega ) {
+			ability = 'Sap Sipper'; 
 		} else if ((forme === 'Flareon') && mega) {
 			ability = 'Flash Fire';
 		} else if ((forme === 'Vaporeon') && mega) {
