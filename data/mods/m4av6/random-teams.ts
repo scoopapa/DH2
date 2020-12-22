@@ -1330,6 +1330,8 @@ export class RandomTeams {
 			item = 'Metronome';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
+		} else if (ability === 'Poison Heal') { //just for you bitio
+			item = 'Toxic Orb'; 
 		} else if (species.name === 'Froslass' && !isDoubles) {
 			item = 'Wide Lens';
 		} else if (species.name === 'Latios' && counter.Special === 2 && !isDoubles) {
