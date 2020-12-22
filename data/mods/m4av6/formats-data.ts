@@ -186,7 +186,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	clefablemega: {
-		randomBattleMoves: ["moonblast", "hex", "knock off", "willowisp", "thunderwave", "wish", "teleport", "stealthrock", "softboiled", "curse", "moonlight"],
+		randomBattleMoves: ["moonblast", "hex", "willowisp", "thunderwave", "softboiled", "curse", "moonlight"],
 		randomDoubleBattleMoves: ["thunderwave", "fireblast", "helpinghand", "followme", "protect", "moonblast", "dazzlinggleam", "softboiled"],
 		tier: "RU",
 		doublesTier: "DUU",
