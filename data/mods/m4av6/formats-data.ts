@@ -3535,7 +3535,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	leavannymega: {
-		randomBattleMoves: ["swordsdance", "quiverdance", "synthesis", "lunge", "leafblade", "appleacid", "bugbuzz", "electroweb", "airslash"],
+		randomBattleMoves: ["swordsdance", "quiverdance", "synthesis", "lunge", "appleacid", "bugbuzz", "electroweb", "airslash"],
 		randomDoubleBattleMoves: ["swordsdance", "quiverdance", "lunge", "appleacid", "electroweb", "airslash", "protect", "stickyweb"],
 		tier: "NU",
 		doublesTier: "(DUU)",
