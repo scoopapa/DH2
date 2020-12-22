@@ -2415,12 +2415,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	froslass: {
-		randomBattleMoves: ["icebeam", "spikes", "destinybond", "shadowball", "taunt", "thunderwave"],
-		randomDoubleBattleMoves: ["icebeam", "protect", "destinybond", "shadowball", "taunt", "thunderwave", "willowisp"],
-		tier: "UU",
-		doublesTier: "(DUU)",
-	},
 	froslassmega: {
 		randomBattleMoves: ["tripleaxel", "spikes", "destinybond", "poltergeist", "taunt", "thunderwave", "willowisp"],
 		randomDoubleBattleMoves: ["icebeam", "protect", "destinybond", "shadowball", "taunt", "thunderwave", "willowisp"],
