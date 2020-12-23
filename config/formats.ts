@@ -2328,7 +2328,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] M4A Random Battle",
 		mod: 'm4av6',
 		team: 'random',
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Hint Mod'],
 		onAfterMega(pokemon) {
 			const species = this.dex.getSpecies(pokemon.species.name);
 			const abilities = species.abilities;
@@ -2348,7 +2348,7 @@ export const Formats: FormatList = [
 
 		mod: 'm4av6',
 		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Hint Mod'],
 		onAfterMega(pokemon) {
 			const species = this.dex.getSpecies(pokemon.species.name);
 			const abilities = species.abilities;
