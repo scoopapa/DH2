@@ -1612,7 +1612,7 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (hasMove['gyroball'] || hasMove['trickroom']) {
+		if (hasMove['gyroball'] || hasMove['trickroom'] || hasAbility['counterclockwisespiral']) {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
