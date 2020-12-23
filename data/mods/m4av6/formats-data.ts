@@ -4778,7 +4778,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	toucannonmega: {
-		randomBattleMoves: ["boomburst", "beakblast", "roost", "return", "brickbreak"],
+		randomBattleMoves: ["boomburst", "beakblast", "roost", "flamecharge", "brickbreak", "uturn"],
 		randomDoubleBattleMoves: ["bulletseed", "rockblast", "beakblast", "tailwind", "protect"],
 		tier: "RU",
 		doublesTier: "(DUU)",
