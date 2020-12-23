@@ -3835,7 +3835,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},	
 	*/
 	jellicent: {
-		randomBattleMoves: ["scald", "willowisp", "recover", "toxic", "shadowball", "icebeam", "taunt"],
+		randomBattleMoves: ["scald", "willowisp", "strengthsap", "toxic", "hex", "icebeam", "taunt"],
 		randomDoubleBattleMoves: ["scald", "willowisp", "recover", "trickroom", "shadowball", "icywind", "protect"],
 		tier: "PU",
 		doublesTier: "(DUU)",
