@@ -4404,7 +4404,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	meowsticfmega: {
-		randomBattleMoves: ["calmmind", "nastyplot", "psychic", "psyshock", "moonblast", "focusblast"],
+		randomBattleMoves: ["nastyplot", "psychic", "psyshock", "moonblast", "thunderbolt"],
 		randomDoubleBattleMoves: ["psychic", "moonblast", "dazzlinggleam", "focusblast", "fakeout", "nastyplot", "protect", "helpinghand"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
