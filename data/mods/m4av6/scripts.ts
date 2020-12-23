@@ -170,16 +170,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.icebeam = ['7L1'];
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.iceshard = ['7L1'];
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.iciclecrash = ['7L1'];
-		this.modData('Learnsets', 'flygon').learnset.leechlife = ['7L1'];       // SANDBOX ONLY
-		this.modData('Learnsets', 'flygon').learnset.quiverdance = ['7L1'];     // SANDBOX ONLY
-		this.modData('Learnsets', 'lurantis').learnset.moonblast = ['7L1'];     // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.moonlight = ['7L1'];     // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.playrough = ['7L1'];     // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.silverwind = ['7L1'];    // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.firstimpression = ['7L1']; // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.fleurcannon = ['7L1'];   // SANDBOX-ONLY
-		this.modData('Learnsets', 'lurantis').learnset.uturn = ['7L1'];         // SANDBOX-ONLY
-		this.modData('Learnsets', 'drapion').learnset.superfang = ['7L1'];      // SANDBOX-ONLY
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -234,21 +224,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
 			return "Sawsbuck-Winter-Mega";
-		}
-		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Lurantis") {
-			return "Lurantis-Mega-BitBitio";
-		}
-		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Flygon") {
-			return "Flygon-Mega-kakaks";
-		}
-		if (item.name === "kakaks" && pokemon.baseSpecies.name === "Lurantis") {
-			return "Lurantis-Mega-kakaks";
-		}
-		if (item.name === "Magmajudis" && pokemon.baseSpecies.name === "Drapion") {
-			return "Drapion-Mega-Magmajudis";
-		}
-		if (item.name === "DrPumpkinz" && pokemon.baseSpecies.name === "DrPumpkinz") {
-			return "Lurantis-Mega-DrPumpkinz";
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
