@@ -1373,7 +1373,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	mismagiusmega: {
-		randomBattleMoves: ["nastyplot", "substitute", "shadowball", "sludgebomb", "taunt", "painsplit", "poisonfang", "toxic", "partingshot", "toxicspikes"],
+		randomBattleMoves: ["nastyplot", "substitute", "hex", "sludgebomb", "taunt", "painsplit", "poisonfang", "toxic", "partingshot", "toxicspikes"],
 		randomDoubleBattleMoves: ["nastyplot", "willowisp", "shadowball", "thunderbolt", "dazzlinggleam", "taunt", "protect"],
 		tier: "RU",
 		doublesTier: "(DUU)",
