@@ -1151,7 +1151,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	meganiummega: {
-		randomBattleMoves: ["sunnyday", "solarblade", "petalblizzard", "leechseed", "toxic", "gigadrain", "synthesis", "dragontail", "calmmind", "swordsdance", "aromatherapy"],
+		randomBattleMoves: ["sunnyday", "solarblade", "petalblizzard", "synthesis", "dragontail", "earthquake", "swordsdance"],
 		randomDoubleBattleMoves: ["leechseed", "leafstorm", "energyball", "dragontail", "healpulse", "toxic", "protect"],
 		tier: "NU",
 		doublesTier: "(DUU)",
