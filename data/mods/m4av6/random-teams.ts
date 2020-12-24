@@ -601,6 +601,10 @@ export class RandomTeams {
 			forme = species.name.slice(0, -7);
 			mega = true;
 		}
+		else if (species.name.endsWith('-Mega-Festive-Rider')) {
+			forme = species.name.slice(0, -19); 
+			mega = true; 
+		}
 
 		const randMoves = !isDoubles ? species.randomBattleMoves : (species.randomDoubleBattleMoves || species.randomBattleMoves);
 		const movePool = (randMoves || Object.keys(this.dex.data.Learnsets[species.id]!.learnset!)).slice();
@@ -1326,6 +1330,8 @@ export class RandomTeams {
 			item = 'Metronome';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
+		} else if (ability === 'Poison Heal' || ability === 'Toxic Boost') { //just for you bitio
+			item = 'Toxic Orb'; 
 		} else if (species.name === 'Froslass' && !isDoubles) {
 			item = 'Wide Lens';
 		} else if (species.name === 'Latios' && counter.Special === 2 && !isDoubles) {
@@ -1606,7 +1612,7 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (hasMove['gyroball'] || hasMove['trickroom']) {
+		if (hasMove['gyroball'] || hasMove['trickroom'] || hasAbility['counterclockwisespiral']) {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
