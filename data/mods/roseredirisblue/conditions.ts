@@ -263,5 +263,3 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 };
-
-exports.BattleStatuses = BattleStatuses;
