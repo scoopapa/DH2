@@ -63,7 +63,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chansey: {
 		tier: "OU",
 	},
-	megacharizardy: {
+	charizardmegay: {
 		tier: "OU",
 	},
 	cinderace: {
@@ -96,13 +96,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ferrothorn: {
 		tier: "OU",
 	},
-	megagallade: {
+	gallademega: {
 		tier: "OU",
 	},
 	garchomp: {
 		tier: "OU",
 	},
-	megagarchomp: {
+	garchompmega: {
 		tier: "OU",
 	},
 	gengar: {
@@ -141,7 +141,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	landorustherian: {
 		tier: "OU",
 	},
-	megalopunny: {
+	lopunnymega: {
 		tier: "OU",
 	},
 	magearna: {
@@ -153,7 +153,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	manaphy: {
 		tier: "OU",
 	},
-	megamawile: {
+	mawilemega: {
 		tier: "OU",
 	},
 	melmetal: {
@@ -174,7 +174,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raichu: {
 		tier: "OU",
 	},
-	megascizor: {
+	scizormega: {
 		tier: "OU",
 	},
 	serperior: {
@@ -183,13 +183,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	slowbro: {
 		tier: "OU",
 	},
-	megaslowbro: {
+	slowbromega: {
 		tier: "OU",
 	},
 	stakataka: {
 		tier: "OU",
 	},
-	megaswampert: {
+	swampertmega: {
 		tier: "OU",
 	},
 	tangrowth: {
@@ -216,7 +216,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tyranitar: {
 		tier: "OU",
 	},
-	megatyranitar: {
+	tyranitarmega: {
 		tier: "OU",
 	},
 	victini: {
@@ -240,10 +240,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	azumarill: {
 		tier: "UUBL",
 	},
-	megablaziken: {
+	blazikenmega: {
 		tier: "UUBL",
 	},
-	megacharizardx: {
+	charizardmegax: {
 		tier: "UUBL",
 	},
 	dragonite: {
@@ -264,13 +264,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kyurem: {
 		tier: "UUBL",
 	},
-	megalatias: {
+	latiasmega: {
 		tier: "UUBL",
 	},
 	latios: {
 		tier: "UUBL",
 	},
-	megalatios: {
+	latiosmega: {
 		tier: "UUBL",
 	},
 	lycanrocdusk: {
@@ -279,7 +279,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	marowakalola: {
 		tier: "UUBL",
 	},
-	megamedicham: {
+	medichammega: {
 		tier: "UUBL",
 	},
 	metagross: {
@@ -291,7 +291,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nihilego: {
 		tier: "UUBL",
 	},
-	megapinsir: {
+	pinsirmega: {
 		tier: "UUBL",
 	},
 	scolipede: {
@@ -321,13 +321,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wishiwashi: {
 		tier: "UUBL",
 	},
-	megaabsol: {
+	absolmega: {
 		tier: "UU",
 	},
 	ambipom: {
 		tier: "UU",
 	},
-	megaaltaria: {
+	altariamega: {
 		tier: "UU",
 	},
 	amoonguss: {
@@ -345,13 +345,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	azelf: {
 		tier: "UU",
 	},
-	megabanette: {
+	banettemega: {
 		tier: "UU",
 	},
 	barraskewda: {
 		tier: "UU",
 	},
-	megabeedrill: {
+	beedrillmega: {
 		tier: "UU",
 	},
 	beheeyem: {
@@ -402,7 +402,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delphox: {
 		tier: "UU",
 	},
-	megadiancie: {
+	dianciemega: {
 		tier: "UU",
 	},
 	diggersby: {
@@ -426,7 +426,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	floetteeternal: {
 		tier: "UU",
 	},
-	megagardevoir: {
+	gardevoirmega: {
 		tier: "UU",
 	},
 	gigalith: {
@@ -444,7 +444,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gyarados: {
 		tier: "UU",
 	},
-	megagyarados: {
+	gyaradosmega: {
 		tier: "UU",
 	},
 	hatterene: {
@@ -456,13 +456,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heracross: {
 		tier: "UU",
 	},
-	megaheracross: {
+	heracrossmega: {
 		tier: "UU",
 	},
 	hippowdon: {
 		tier: "UU",
 	},
-	megahoundoom: {
+	houndoommega: {
 		tier: "UU",
 	},
 	huntail: {
@@ -492,7 +492,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mandibuzz: {
 		tier: "UU",
 	},
-	megamanectric: {
+	manectricmega: {
 		tier: "UU",
 	},
 	meloetta: {
@@ -519,7 +519,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pelipper: {
 		tier: "UU",
 	},
-	megapidgeot: {
+	pidgeotmega: {
 		tier: "UU",
 	},
 	porygonz: {
@@ -549,7 +549,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotomwash: {
 		tier: "UU",
 	},
-	megasableye: {
+	sableyemega: {
 		tier: "UU",
 	},
 	salamence: {
@@ -564,7 +564,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	scizor: {
 		tier: "UU",
 	},
-	megasharpedo: {
+	sharpedomega: {
 		tier: "UU",
 	},
 	sirfetchd: {
@@ -585,7 +585,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	starmie: {
 		tier: "UU",
 	},
-	megasteelix: {
+	steelixmega: {
 		tier: "UU",
 	},
 	suicune: {
@@ -612,7 +612,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vaporeon: {
 		tier: "UU",
 	},
-	megavenusaur: {
+	venusaurmega: {
 		tier: "UU",
 	},
 	weavile: {
@@ -624,7 +624,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	alomomola: {
 		tier: "RUBL",
 	},
-	megaampharos: {
+	ampharosmega: {
 		tier: "RUBL",
 	},
 	arctozolt: {
@@ -695,6 +695,399 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zebstrika: {
 		tier: "RUBL",
+	},
+	blaziken: {
+		tier: "RU",
+	},
+	beedrill: {
+		tier: "RU",
+	},
+	venomoth: {
+		tier: "RU",
+	},
+	ledian: {
+		tier: "RU",
+	},
+	ariados: {
+		tier: "RU",
+	},
+	beautifly: {
+		tier: "RU",
+	},
+	dustox: {
+		tier: "RU",
+	},
+	masquerain: {
+		tier: "RU",
+	},
+	volbeat: {
+		tier: "RU",
+	},
+	wormadam: {
+		tier: "RU",
+	},
+	wormadamsandy: {
+		tier: "RU",
+	},
+	wormadamtrash: {
+		tier: "RU",
+	},
+	mothim: {
+		tier: "RU",
+	},
+	arceus: {
+		tier: "Ubers",
+	},
+	yanmega: {
+		tier: "RU",
+	},
+	leavanny: {
+		tier: "RU",
+	},
+	vivillon: {
+		tier: "RU",
+	},
+	togedemarutotem: {
+		tier: "OU",
+	},
+	blaziken: {
+		tier: "RU",
+	},
+	raticatealola: {
+		tier: "RU",
+	},
+	mukalola: {
+		tier: "RU",
+	},
+	murkrow: {
+		tier: "RU",
+	},
+	honchkrow: {
+		tier: "RU",
+	},
+	granbull: {
+		tier: "RU",
+	},
+	houndoom: {
+		tier: "RU",
+	},
+	mightyena: {
+		tier: "RU",
+	},
+	cacturne: {
+		tier: "RU",
+	},
+	darkrai: {
+		tier: "Ubers",
+	},
+	greninjash: {
+		tier: "Ubers",
+	},
+	arbok: {
+		tier: "RU",
+	},
+	servine: {
+		tier: "RU",
+	},
+	golemalola: {
+		tier: "RU",
+	},
+	electrode: {
+		tier: "RU",
+	},
+	ampharos: {
+		tier: "RU",
+	},
+	minun: {
+		tier: "RU",
+	},
+	pachirisu: {
+		tier: "RU",
+	},
+	eelektross: {
+		tier: "RU",
+	},
+	furret: {
+		tier: "RU",
+	},
+	misdreavus: {
+		tier: "RU",
+	},
+	phione: {
+		tier: "RU",
+	},
+	audino: {
+		tier: "RU",
+	},
+	sawsbuck: {
+		tier: "RU",
+	},
+	florges: {
+		tier: "RU",
+	},
+	primeape: {
+		tier: "RU",
+	},
+	hariyama: {
+		tier: "RU",
+	},
+	medicham: {
+		tier: "RU",
+	},
+	monferno: {
+		tier: "RU",
+	},
+	samurott: {
+		tier: "RU",
+	},
+	chesnaught: {
+		tier: "RU",
+	},
+	crabrawler: {
+		tier: "LC",
+	},
+	crabominable: {
+		tier: "RU",
+	},
+	pidgeot: {
+		tier: "RU",
+	},
+	fearow: {
+		tier: "RU",
+	},
+	dodrio: {
+		tier: "RU",
+	},
+	jumpluff: {
+		tier: "RU",
+	},
+	gligar: {
+		tier: "RU",
+	},
+	swellow: {
+		tier: "RU",
+	},
+	tropius: {
+		tier: "RU",
+	},
+	chatot: {
+		tier: "RU",
+	},
+	swanna: {
+		tier: "RU",
+	},
+	shayminsky: {
+		tier: "Ubers",
+	},
+	toucannon: {
+		tier: "RU",
+	},
+	oricorio: {
+		tier: "RU",
+	},
+	oricoriopau: {
+		tier: "RU",
+	},
+	oricoriosensu: {
+		tier: "RU",
+	},
+	minior: {
+		tier: "RU",
+	},
+	banette: {
+		tier: "RU",
+	},
+	hoopa: {
+		tier: "RU",
+	},
+	victreebel: {
+		tier: "RU",
+	},
+	meganium: {
+		tier: "RU",
+	},
+	sunflora: {
+		tier: "RU",
+	},
+	torterra: {
+		tier: "RU",
+	},
+	carnivine: {
+		tier: "RU",
+	},
+	simisage: {
+		tier: "RU",
+	},
+	simisear: {
+		tier: "RU",
+	},
+	simipour: {
+		tier: "RU",
+	},
+	gogoat: {
+		tier: "RU",
+	},
+	komala: {
+		tier: "RU",
+	},
+	raichualola: {
+		tier: "Ubers",
+	},
+	regice: {
+		tier: "Ubers",
+	},
+	metagrossmega: {
+		tier: "Ubers",
+	},
+	alakazammega: {
+		tier: "Ubers",
+	},
+	blastoisemega: {
+		tier: "Ubers",
+	},
+	gengarmega: {
+		tier: "Ubers",
+	},
+	lucariomega: {
+		tier: "Ubers",
+	},
+	salamencemega: {
+		tier: "Ubers",
+	},
+	kangaskhanmega: {
+		tier: "Ubers",
+	},
+	pikachustarter: {
+		tier: "Ubers",
+	},
+	eeveestarter: {
+		tier: "Ubers",
+	},
+	golem: {
+		tier: "RU",
+	},
+	camerupt: {
+		tier: "RU",
+	},
+	glaliemega: {
+		tier: "RU",
+	},
+	dewgong: {
+		tier: "RU",
+	},
+	abomasnowmega: {
+		tier: "RU",
+	},
+	raticate: {
+		tier: "RU",
+	},
+	aipom: {
+		tier: "RU",
+	},
+	girafarig: {
+		tier: "RU",
+	},
+	ursaring: {
+		tier: "RU",
+	},
+	stantler: {
+		tier: "RU",
+	},
+	smeargle: {
+		tier: "RU",
+	},
+	vigoroth: {
+		tier: "RU",
+	},
+	swalot: {
+		tier: "RU",
+	},
+	spinda: {
+		tier: "RU",
+	},
+	zangoose: {
+		tier: "RU",
+	},
+	castform: {
+		tier: "RU",
+	},
+	kecleon: {
+		tier: "RU",
+	},
+	bibarel: {
+		tier: "RU",
+	},
+	purugly: {
+		tier: "RU",
+	},
+	watchog: {
+		tier: "RU",
+	},
+	pyroar: {
+		tier: "RU",
+	},
+	gumshoos: {
+		tier: "RU",
+	},
+	muk: {
+		tier: "RU",
+	},
+	seviper: {
+		tier: "RU",
+	},
+	deoxysattack: {
+		tier: "Ubers",
+	},
+	deoxysspeed: {
+		tier: "Ubers",
+	},
+	hypno: {
+		tier: "RU",
+	},
+	unown: {
+		tier: "RU",
+	},
+	grumpig: {
+		tier: "RU",
+	},
+	chimecho: {
+		tier: "RU",
+	},
+	bruxish: {
+		tier: "RU",
+	},
+	magcargo: {
+		tier: "RU",
+	},
+	probopass: {
+		tier: "RU",
+	},
+	rampardos: {
+		tier: "RU",
+	},
+	bastiodon: {
+		tier: "RU",
+	},
+	emboar: {
+		tier: "RU",
+	},
+	aggronmega: {
+		tier: "RU",
+	},
+	feraligatr: {
+		tier: "RU",
+	},
+	frogadier: {
+		tier: "RU",
+	},
+	luvdisc: {
+		tier: "RU",
+	},
+	prinplup: {
+		tier: "RU",
+	},
+	lumineon: {
+		tier: "RU",
 	},
 };
 
