@@ -1101,6 +1101,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	primarina: {
 		tier: "UUBL",
 	},
+	urshifu: {
+		tier: "Ubers",
+	},
 };
 
 
