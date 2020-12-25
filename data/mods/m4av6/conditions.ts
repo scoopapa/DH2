@@ -54,6 +54,50 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-fieldend', 'move: Acidic Terrain');
 		},
  	},
+	desertgales: {
+		name: 'Desert Gales',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('smoothrock')) {
+				return 8;
+			}
+			return 5;
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-weather', 'Desert Gales', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-message', "Normal-type moves will become Ground-type.");
+				this.add('-message', "Rock-, Ground- and Steel-type moves will also have their power increased.");
+				this.add('-message', "The Abilities Sand Force, Sand Rush and Sand Veil will be active.");
+			} else {
+				this.add('-weather', 'Desert Gales');
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ground';
+				this.add('-message', `${move.name} became ${move.type} in the desert gales!`);
+			}
+		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+				this.debug('Desert Gales boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onResidual() {
+			this.add('-weather', 'Desert Gales', '[upkeep]');
+		},
+		onEnd() {
+			this.add('-weather', 'none');
+		},
+	},
 	settle1: {
 		name: 'settle1',
 		duration: 4,
