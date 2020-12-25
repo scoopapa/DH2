@@ -170,6 +170,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.icebeam = ['7L1'];
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.iceshard = ['7L1'];
 		this.modData('Learnsets', 'sawsbuckwinter').learnset.iciclecrash = ['7L1'];
+		this.modData('Learnsets', 'flygon').learnset.extremespeed = ['7L1'];
+		this.modData('Learnsets', 'flygon').learnset.flashcannon = ['7L1'];
+		this.modData('Learnsets', 'flygon').learnset.ironhead = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.shoreup = ['7L1'];
+		this.modData('Learnsets', 'lurantis').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'lurantis').learnset.moonlight = ['7L1'];
+		this.modData('Learnsets', 'lurantis').learnset.playrough = ['7L1'];
+		this.modData('Learnsets', 'lurantis').learnset.silverwind = ['7L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
