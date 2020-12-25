@@ -6,7 +6,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	goodraflame: {
 		num: 706,
-		species: "Goodra-Flame",
+		name: "Goodra-Flame",
 		baseSpecies: "Goodra",
 		forme: "Flame",
 		formeLetter: "F",
@@ -26,7 +26,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// electivirekungfu: {
 		// num: 466,
-		// species: "Electivire-Kung-Fu",
+		// name: "Electivire-Kung-Fu",
 		// baseSpecies: "Electivire",
 		// forme: "Kung-Fu",
 		// formeLetter: "K",
@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	flygonbuzz: {
 		num: 330,
-		species: "Flygon-Buzz",
+		name: "Flygon-Buzz",
 		baseSpecies: "Flygon",
 		forme: "Buzz",
 		formeLetter: "B",
@@ -67,7 +67,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// banetteblademaster: {
 		// num: 354,
-		// species: "Banette-Blademaster",
+		// name: "Banette-Blademaster",
 		// baseSpecies: "Banette",
 		// forme: "Blademaster",
 		// formeLetter: "B",
@@ -84,7 +84,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// banettemegablademaster: {
 		// num: 354,
-		// species: "Banette-Mega-Blademaster",
+		// name: "Banette-Mega-Blademaster",
 		// baseSpecies: "Banette-Blademaster",
 		// forme: "Mega",
 		// formeLetter: "M",
@@ -102,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// kingdracamo: {
 		// num: 230,
-		// species: "Kingdra-Camo",
+		// name: "Kingdra-Camo",
 		// baseSpecies: "Kingdra",
 		// forme: "Camo",
 		// formeLetter: "C",
@@ -122,7 +122,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	vikavoltmigale: {
 		num: 738,
-		species: "Vikavolt-Migale",
+		name: "Vikavolt-Migale",
 		baseSpecies: "Vikavolt",
 		forme: "Migale",
 		formeLetter: "M",
@@ -142,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// typhlosioncinder: {
 		// num: 157,
-		// species: "Typhlosion-Cinder",
+		// name: "Typhlosion-Cinder",
 		// baseSpecies: "Typhlosion",
 		// forme: "Cinder",
 		// formeLetter: "C",
@@ -163,7 +163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	flareonocean: {
 		num: 136,
-		species: "Flareon-Ocean",
+		name: "Flareon-Ocean",
 		baseSpecies: "Flareon",
 		forme: "Ocean",
 		formeLetter: "O",
@@ -184,7 +184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	laprasangry: {
 		num: 131,
-		species: "Lapras-Angry",
+		name: "Lapras-Angry",
 		baseSpecies: "Lapras",
 		forme: "Angry",
 		formeLetter: "A",
@@ -202,7 +202,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  // },
 	// exploudmeow: {
 		// num: 295,
-		// species: "Exploud-Meow",
+		// name: "Exploud-Meow",
 		// baseSpecies: "Exploud",
 		// forme: "Meow",
 		// formeLetter: "M",
@@ -222,7 +222,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	butterfreearmor: {
 		num: 12,
-		species: "Butterfree-Armor",
+		name: "Butterfree-Armor",
 		baseSpecies: "Butterfree",
 		forme: "Armor",
 		formeLetter: "A",
@@ -242,7 +242,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	espeondusk: {
 		num: 196,
-		species: "Espeon-Dusk",
+		name: "Espeon-Dusk",
 		baseSpecies: "Espeon",
 		forme: "Dusk",
 		formeLetter: "D",
@@ -263,7 +263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	avaluggshield: {
 		num: 713,
-		species: "Avalugg-Shield",
+		name: "Avalugg-Shield",
 		baseSpecies: "Avalugg",
 		forme: "Shield",
 		formeLetter: "S",
@@ -283,7 +283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	dusclopsgastric: {
 		num: 356,
-		species: "Dusclops-Gastric",
+		name: "Dusclops-Gastric",
 		baseSpecies: "Dusclops",
 		forme: "Gastric",
 		formeLetter: "G",
@@ -304,7 +304,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// delphoxlazy: {
 		// num: 655,
-		// species: "Delphox-Lazy",
+		// name: "Delphox-Lazy",
 		// baseSpecies: "Delphox",
 		// forme: "Lazy",
 		// formeLetter: "L",
@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// lurantisnut: {
 		// num: 754,
-		// species: "Lurantis-Nut",
+		// name: "Lurantis-Nut",
 		// baseSpecies: "Lurantis",
 		// forme: "Nut",
 		// formeLetter: "N",
@@ -345,7 +345,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sylveonprotector: {
 		num: 700,
-		species: "Sylveon-Protector",
+		name: "Sylveon-Protector",
 		baseSpecies: "Sylveon",
 		forme: "Protector",
 		formeLetter: "P",
@@ -366,7 +366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// skarmoryprimordial: {
 		// num: 227,
-		// species: "Skarmory-Primordial",
+		// name: "Skarmory-Primordial",
 		// baseSpecies: "Skarmory",
 		// forme: "Primordial",
 		// formeLetter: "P",
@@ -384,7 +384,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// infernapebugout: {
 		// num: 392,
-		// species: "Infernape-Bugout",
+		// name: "Infernape-Bugout",
 		// baseSpecies: "Infernape",
 		// forme: "Bugout",
 		// formeLetter: "B",
@@ -405,7 +405,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// breloomluau: {
 		// num: 286,
-		// species: "Breloom-Luau",
+		// name: "Breloom-Luau",
 		// baseSpecies: "Breloom",
 		// forme: "Luau",
 		// formeLetter: "L",
@@ -425,7 +425,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	leafeoncutlass: {
 		num: 470,
-		species: "Leafeon-Cutlass",
+		name: "Leafeon-Cutlass",
 		baseSpecies: "Leafeon",
 		forme: "Cutlass",
 		formeLetter: "C",
@@ -446,7 +446,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	froslassgunwoman: {
 		num: 478,
-		species: "Froslass-Gunwoman",
+		name: "Froslass-Gunwoman",
 		baseSpecies: "Froslass",
 		forme: "Gunwoman",
 		formeLetter: "G",
@@ -467,7 +467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	mantinespiny: {
 		num: 226,
-		species: "Mantine-Spiny",
+		name: "Mantine-Spiny",
 		baseSpecies: "Mantine",
 		forme: "Spiny",
 		formeLetter: "S",
@@ -487,7 +487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// },
 	// dodriomystical: {
 		// num: 85,
-		// species: "Dodrio-Mystical",
+		// name: "Dodrio-Mystical",
 		// baseSpecies: "Dodrio",
 		// forme: "Mystical",
 		// formeLetter: "M",
@@ -507,7 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	  },
 	rapidashgalarmeow: {
 		num: 78,
-		species: "Rapidash-Galar",
+		name: "Rapidash-Galar",
 		types: ["Fairy", "Steel"],
 		baseStats: {hp: 65, atk: 100, def: 85, spa: 80, spd: 80, spe: 105},
 		abilities: {0: "Tough Claws", 1: " Pastel Veil", H: " Anticipation"},
@@ -518,7 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mrrimespoon: {
 		num: 866,
-		species: "Mr. Rime",
+		name: "Mr. Rime",
 		types: ["Ice", "Psychic"],
 		baseStats: {hp: 80, atk: 85, def: 75, spa: 110, spd: 100, spe: 95},
 		abilities: {0: "Magic Guard", 1: " Screen Cleaner", H: " Ice Body"},
@@ -529,7 +529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	thievulbananas: {
 		num: 828,
-		species: "Thievul",
+		name: "Thievul",
 		types: ["Dark", "Ice"],
 		baseStats: {hp: 70, atk: 99, def: 58, spa: 87, spd: 92, spe: 90},
 		abilities: {0: "Gorilla Tactics", 1: " Unburden", H: " Stakeout"},
@@ -544,7 +544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	stonjournercastle: {
 		num: 874,
-		species: "Stonjourner",
+		name: "Stonjourner",
 		types: ["Rock", "Bug"],
 		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 48, spe: 70},
 		abilities: {0: "Weak Armor"},
@@ -558,7 +558,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	copperajahforge: {
 		num: 879,
-		species: "Copperajah",
+		name: "Copperajah",
 		types: ["Steel", "Fire"],
 		baseStats: {hp: 122, atk: 130, def: 95, spa: 80, spd: 69, spe: 30},
 		abilities: {0: "Sheer Force", 1: " Flash Fire", H: "Heavy Metal"},
@@ -573,7 +573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grapploctray: {
 		num: 853,
-		species: "Grapploct",
+		name: "Grapploct",
 		types: ["Fighting", "Water"],
 		baseStats: {hp: 80, atk: 118, def: 90, spa: 70, spd: 110, spe: 42},
 		abilities: {0: "Limber", 1: " Water Veil", H: " Technician"},
@@ -588,7 +588,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	appletunburned: {
 		num: 842,
-		species: "Appletun",
+		name: "Appletun",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 110, atk: 85, def: 107, spa: 100, spd: 80, spe: 30},
 		abilities: {0: "Ripen", 1: " Gluttony", H: " Shell Armor"},
@@ -603,7 +603,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vespiquenterra: {
 		num: 416,
-		species: "Vespiquen ",
+		name: "Vespiquen ",
 		types: ["Bug", "Ground"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 80, def: 102, spa: 80, spd: 102, spe: 67},
@@ -619,7 +619,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cursolashock: {
 		num: 864,
-		species: "Cursola",
+		name: "Cursola",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 85, atk: 95, def: 50, spa: 145, spd: 130, spe: 30},
 		abilities: {0: "Static", 1: " Perish Body", H: "Perish Body"},
@@ -634,7 +634,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	machamplucha: {
 		num: 68,
-		species: "Machamp",
+		name: "Machamp",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 90, atk: 130, def: 80, spa: 65, spd: 85, spe: 86},
 		abilities: {0: "Guts", 1: " No Guard", H: " Mold Breaker"},
@@ -649,7 +649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	roseradescarfed: {
 		num: 407,
-		species: "Roserade",
+		name: "Roserade",
 		types: ["Poison", "Fairy"],
 		baseStats: {hp: 60, atk: 70, def: 65, spa: 125, spd: 105, spe: 107},
 		abilities: {0: "Natural Cure", 1: " Shield Dust", H: " Technician"},
