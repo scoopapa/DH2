@@ -1152,4 +1152,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Sawsbuck or a Delibird, this item allows it to Mega Evolve in battle.",
 	},
+	flygonite: {
+		name: "Flygonite",
+		spritenum: 578,
+		megaStone: "Flygon-Mega",
+		megaEvolves: "Flygon",
+		itemUser: ["Flygon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1069,
+		gen: 8,
+		desc: "If held by a Flygon, this item allows it to Mega Evolve in battle.",
+	},
+	drapionite: {
+		name: "Drapionite",
+		spritenum: 578,
+		megaStone: "Drapion-Mega",
+		megaEvolves: "Drapion",
+		itemUser: ["Drapion"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1070,
+		gen: 8,
+		desc: "If held by a Drapion, this item allows it to Mega Evolve in battle.",
+	},
+	lurantisite: {
+		name: "Lurantisite",
+		spritenum: 578,
+		megaStone: "Lurantis-Mega",
+		megaEvolves: "Lurantis",
+		itemUser: ["Lurantis"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1071,
+		gen: 8,
+		desc: "If held by a Lurantis, this item allows it to Mega Evolve in battle.",
+	},
 }
