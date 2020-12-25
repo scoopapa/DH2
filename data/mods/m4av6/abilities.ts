@@ -1412,12 +1412,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1.5,
 		num: 8,
 	},
-	metalscrapper: {
+	steelbreaker: {
 		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && target.hasType('Steel')) return 5;
 		},
-		name: "Metal Scrapper",
+		name: "Steelbreaker",
 		rating: 3,
 		num: -1043,
 	},
