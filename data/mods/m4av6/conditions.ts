@@ -67,6 +67,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-ability', source, 'Desert Gales');
 				this.add('-weather', 'Desert Gales', '[silent]');
 				this.add('-message', `Desert gales kicked up!`);
 				this.add('-message', "Normal-type moves will become Ground-type.");
