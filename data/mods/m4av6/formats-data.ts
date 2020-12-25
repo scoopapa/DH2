@@ -4967,7 +4967,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	lurantismega: {
-		randomBattleMoves: ["silverwind", "energyball", "moonlight", "substitute", "superpower"],
+		randomBattleMoves: ["silverwind", "energyball", "moonlight", "substitute"],
 		randomDoubleBattleMoves: ["silverwind", "energyball", "moonlight", "superpower", "knockoff", "protect"],
 		tier: "OU",
 		doublesTier: "(DUU)",
