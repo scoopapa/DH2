@@ -87,7 +87,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd: function () {
-			this.add('-weather', 'none');
+			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Air Current faded away.');
 		},
 	},
@@ -121,7 +121,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd: function () {
-			this.add('-weather', 'none');
+			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Shadow Sky faded away.');
 		},
 	},
