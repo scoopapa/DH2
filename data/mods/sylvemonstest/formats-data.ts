@@ -1104,6 +1104,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	urshifu: {
 		tier: "Ubers",
 	},
+	audinomega: {
+		tier: "RU",
+	},
+	cameruptmega: {
+		tier: "RU",
+	},
 };
 
 
