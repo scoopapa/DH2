@@ -1479,4 +1479,63 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		desc: "Power doubles if a weather condition other than Delta Stream is active, and this move's type changes to match: Ice type during Hail, Water type during Primordial Sea or Rain Dance, Rock type during Sandstorm, Fire type during Desolate Land or Sunny Day, and Ground-type during Desert Gales. If the user is holding Utility Umbrella and uses Weather Ball during Primordial Sea, Rain Dance, Desolate Land, or Sunny Day, the move is still Normal-type and does not have a base power boost.",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+				move.type = 'Ice';
+				break;
+			case 'desertgales':
+				move.type = 'Ground';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+				move.basePower *= 2;
+				break;
+			case 'desertgales':
+				move.basePower *= 2;
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
 }
