@@ -1105,10 +1105,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						return success;
 					}
 				}
-			} else {
-				this.field.clearTerrain();
-				return success;
 			}
+			this.field.clearTerrain();
+			return success;
 		},
 		secondary: null,
 		target: "normal",
