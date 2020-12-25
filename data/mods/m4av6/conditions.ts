@@ -70,7 +70,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-weather', 'Desert Gales', '[from] ability: ' + effect, '[of] ' + source);
 				this.add('-message', "Normal-type moves will become Ground-type.");
 				this.add('-message', "Rock-, Ground- and Steel-type moves will also have their power increased.");
-				this.add('-message', "The Abilities Sand Force, Sand Rush and Sand Veil will be active.");
+				this.add('-message', "Other weather-related moves and Abilities will behave as they do in sandstorm.");
 			} else {
 				this.add('-weather', 'Desert Gales');
 			}
@@ -82,12 +82,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Ground';
-				this.add('-message', `${move.name} became ${move.type} in the desert gales!`);
+				this.add('-message', `${move.name} became ${move.type}-type in the desert gales!`);
 			}
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 				this.debug('Desert Gales boost');
+				this.add('-message', `${move.name} was powered up by the desert gales!`);
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
