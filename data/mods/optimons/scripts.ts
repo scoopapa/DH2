@@ -2,7 +2,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		const addNewMoves = (pokemonid: string, moveids: string[]) => {
 			for (const moveid of moveids) {
-				console.log( moveid );
 				this.modData('Learnsets', pokemonid).learnset[moveid] = [moveid === 'dracometeor' || moveid === 'steelbeam' ? '8T' : '8M'];
 			}
 		};
