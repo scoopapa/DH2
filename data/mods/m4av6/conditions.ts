@@ -96,7 +96,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Desert Gales', '[upkeep]');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-message', `The desert gales petered out!`);
+			this.add('-weather', 'none', '[silent]');
 		},
 	},
 	settle1: {
