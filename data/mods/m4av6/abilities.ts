@@ -1351,8 +1351,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1041,
 	},
 	desertgales: {
-		desc: "On switch-in, this Pokémon summons Desert Gales for 5 turns. During the effect, Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.2; Normal-type moves become Ground-type moves; Weather Ball becomes a Ground-type move, and its base power is 100; and Sand Force, Sand Rush and Sand Veil are activated.",
-		shortDesc: "5 turns. +Ground/Rock/Steel power, Normal moves become Ground-type, sand Abilities activate.",
+		desc: "On switch-in, this Pokémon summons Desert Gales for 5 turns. During the effect, Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.2; Normal-type moves become Ground-type moves; Weather Ball becomes a Ground-type move, and its base power is 100; and other weather-related moves and Abilities behave as they do in Sandstorm.",
+		shortDesc: "5 turns. +Ground/Rock/Steel power, Normal moves become Ground-type.",
 		onStart(source) {
 			this.field.setWeather('desertgales');
 		},
