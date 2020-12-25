@@ -142,5 +142,3 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'roseradescarfed').learnset.uturn = ['8L1'];
 	}
 };
-
-exports.BattleScripts = BattleScripts;

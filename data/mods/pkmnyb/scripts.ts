@@ -513,7 +513,6 @@ this.modData('Learnsets', 'palpitoad').learnset.toxicspikes = ['7L1'];
 this.modData('Learnsets', 'seismitoad').learnset.toxicspikes = ['7L1']; 
 this.modData('Learnsets', 'leavanny').learnset.twineedle = ['7L1']; 
 this.modData('Learnsets', 'basculin').learnset.wildcharge = ['7L1']; 
-this.modData('Learnsets', 'basculinbluestriped').learnset.wildcharge = ['7L1']; 
 this.modData('Learnsets', 'sandile').learnset.icefang = ['7L1']; 
 this.modData('Learnsets', 'krokorok').learnset.icefang = ['7L1']; 
 this.modData('Learnsets', 'krookodile').learnset.icefang = ['7L1']; 
