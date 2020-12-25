@@ -67,12 +67,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
-				this.add('-weather', 'Desert Gales', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-weather', 'Desert Gales', '[silent]');
+				this.add('-message', `Desert gales kicked up!`);
 				this.add('-message', "Normal-type moves will become Ground-type.");
 				this.add('-message', "Rock-, Ground- and Steel-type moves will also have their power increased.");
 				this.add('-message', "Other weather-related moves and Abilities will behave as they do in sandstorm.");
 			} else {
-				this.add('-weather', 'Desert Gales');
+				this.add('-weather', 'Desert Gales', '[silent]');
 			}
 		},
 		onModifyTypePriority: -1,
@@ -94,9 +95,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidual() {
 			this.add('-weather', 'Desert Gales', '[upkeep]');
+			this.add('-message', `The desert gales are raging!`);
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');
+			this.add('-message', `The desert gales subsided!`);
 		},
 	},
 	settle1: {
