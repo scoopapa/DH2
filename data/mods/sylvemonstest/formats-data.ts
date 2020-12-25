@@ -54,6 +54,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislash: {
 		tier: "OU",
 	},
+	aerodactylmega: {
+		tier: "OU",
+	},
 	blacephalon: {
 		tier: "OU",
 	},
@@ -1088,6 +1091,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lumineon: {
 		tier: "RU",
+	},
+	inteleon: {
+		tier: "UUBL",
+	},
+	spectrier: {
+		tier: "UUBL",
+	},
+	primarina: {
+		tier: "UUBL",
 	},
 };
 
