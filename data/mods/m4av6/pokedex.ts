@@ -323,7 +323,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Slowking",
 		forme: "Mega",
 		types: ["Water", "Psychic"],
-		baseStats: {hp: 95, atk: 75, def: 80, spa: 145, spd: 110, spe: 85},
+		baseStats: {hp: 95, atk: 75, def: 80, spa: 110, spd: 110, spe: 120},
 		abilities: {0: "Counter-Clockwise Spiral"},
 		heightm: 2,
 		weightkg: 79.5,
