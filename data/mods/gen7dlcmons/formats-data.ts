@@ -4659,4 +4659,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: "LGPE",
 		tier: "Illegal",
 	},
+	tapukokokinolau: {
+		tier: "OU",
+	},
+	tapulelekinolau: {
+		tier: "OU",
+	},
+	tapubulukinolau: {
+		tier: "OU",
+	},
+	tapufinikinolau: {
+		tier: "OU",
+	},
+	plubia: {
+		tier: "OU",
+	},
+	snoxin: {
+		tier: "OU",
+	},
+	komodond: {
+		tier: "OU",
+	},
+	anglevolt: {
+		tier: "OU",
+	},
+	thundigeist: {
+		tier: "OU",
+	},
+	forsnaken: {
+		tier: "OU",
+	},
 };

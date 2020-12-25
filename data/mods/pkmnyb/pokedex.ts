@@ -1232,7 +1232,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
    shinover: {
         num: 9001,
-        name: "shinover",
+        name: "Shinover",
         types: ["Grass"],
         baseStats: {hp: 40, atk: 65, def: 40, spa: 55, spd: 45, spe: 75},
         abilities: {0: "Overgrow", H: "Super Luck"},
@@ -1241,7 +1241,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     ninthesis: {
         num: 9002,
-        name: "ninthesis",
+        name: "Ninthesis",
         types: ["Grass", "Fighting"],
         baseStats: {hp: 60, atk: 85, def: 55, spa: 75, spd: 60, spe: 100},
         abilities: {0: "Overgrow", H: "Super Luck"},
@@ -1251,7 +1251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     synthinobi: {
         num: 9003,
-        name: "synthinobi",
+        name: "Synthinobi",
         types: ["Grass", "Fighting"],
         baseStats: {hp: 75, atk: 100, def: 80, spa: 95, spd: 75, spe: 130},
         abilities: {0: "Overgrow", H: "Super Luck"},
@@ -1272,7 +1272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     amphyro: {
         num: 9004,
-        name: "amphyro",
+        name: "Amphyro",
         types: ["Fire"],
         baseStats: {hp: 50, atk: 40, def: 55, spa: 75, spd: 65, spe: 35},
         abilities: {0: "Blaze", H: "Merciless"},
@@ -1281,7 +1281,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     toxibian: {
         num: 9005,
-        name: "toxibian",
+        name: "Toxibian",
         types: ["Fire", "Poison"],
         baseStats: {hp: 65, atk: 60, def: 75, spa: 95, spd: 85, spe: 55},
         abilities: {0: "Blaze", H: "Merciless"},
@@ -1291,7 +1291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     chemicander: {
         num: 9006,
-        name: "chemicander",
+        name: "Chemicander",
         types: ["Fire", "Poison"],
         baseStats: {hp: 80, atk: 80, def: 95, spa: 120, spd: 115, spe: 65},
         abilities: {0: "Blaze", H: "Merciless"},
@@ -1312,7 +1312,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     armaqua: {
         num: 9007,
-        name: "armaqua",
+        name: "Armaqua",
         types: ["Water"],
         baseStats: {hp: 60, atk: 55, def: 65, spa: 55, spd: 45, spe: 40},
         abilities: {0: "Torrent", H: "Overcoat"},
@@ -1321,7 +1321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     aquidillo: {
         num: 9008,
-        name: "aquidillo",
+        name: "Aquidillo",
         types: ["Water", "Ground"],
         baseStats: {hp: 85, atk: 75, def: 85, spa: 70, spd: 65, spe: 55},
         abilities: {0: "Torrent", H: "Overcoat"},
@@ -1331,7 +1331,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     primadillo: {
         num: 9009,
-        name: "primadillo",
+        name: "Primadillo",
         types: ["Water", "Ground"],
         baseStats: {hp: 105, atk: 105, def: 115, spa: 90, spd: 75, spe: 65},
         abilities: {0: "Torrent", H: "Overcoat"},
@@ -1352,7 +1352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     berserchick: {
         num: 9010,
-        name: "berserchick",
+        name: "Berserchick",
         types: ["Normal", "Flying"],
         baseStats: {hp: 45, atk: 85, def: 45, spa: 65, spd: 55, spe: 75},
         abilities: {0: "Keen Eye", 1: "Early Bird", H: "Anger Point"},
@@ -1361,7 +1361,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     bersawk: {
         num: 9011,
-        name: "bersawk",
+        name: "Bersawk",
         types: ["Normal", "Flying"],
         baseStats: {hp: 75, atk: 125, def: 55, spa: 70, spd: 75, spe: 105},
         abilities: {0: "Sheer Force", 1: "Early Bird", H: "Anger Point"},
@@ -1370,7 +1370,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     ampeck: {
         num: 9012,
-        name: "ampeck",
+        name: "Ampeck",
         types: ["Electric", "Flying"],
         baseStats: {hp: 60, atk: 45, def: 75, spa: 85, spd: 65, spe: 40},
         abilities: {0: "Big Pecks", 1: "Lightning Rod", H: "Serene Grace"},
@@ -1379,7 +1379,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     electzal: {
         num: 9013,
-        name: "electzal",
+        name: "Electzal",
         types: ["Electric", "Flying"],
         baseStats: {hp: 80, atk: 50, def: 125, spa: 105, spd: 95, spe: 50},
         abilities: {0: "Big Pecks", 1: "Lightning Rod", H: "Serene Grace"},
@@ -1388,7 +1388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sparroast: {
         num: 9014,
-        name: "sparroast",
+        name: "Sparroast",
         types: ["Fire", "Flying"],
         baseStats: {hp: 45, atk: 70, def: 45, spa: 70, spd: 45, spe: 90},
         abilities: {0: "Tangled Feet", 1: "Flash Fire", H: "Justified"},
@@ -1406,7 +1406,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     canite: {
         num: 9016,
-        name: "canite",
+        name: "Canite",
         types: ["Normal"],
         baseStats: {hp: 50, atk: 55, def: 30, spa: 30, spd: 40, spe: 65},
         abilities: {0: "Pickup"},
@@ -1415,7 +1415,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     chompean: {
         num: 9017,
-        name: "chompean",
+        name: "Chompean",
         types: ["Normal"],
         baseStats: {hp: 100, atk: 115, def: 55, spa: 45, spd: 60, spe: 85},
         abilities: {0: "Elemental Teething"},
@@ -1424,7 +1424,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     stringe: {
         num: 9018,
-        name: "stringe",
+        name: "Stringe",
         types: ["Bug"],
         baseStats: {hp: 20, atk: 45, def: 30, spa: 30, spd: 30, spe: 45},
         abilities: {0: "Shield Dust", H: "Flame Body"},
@@ -1433,7 +1433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     coalcoon: {
         num: 9019,
-        name: "coalcoon",
+        name: "Coalcoon",
         types: ["Bug"],
         baseStats: {hp: 40, atk: 45, def: 65, spa: 30, spd: 40, spe: 25},
         abilities: {0: "Shield Dust", H: "Flame Body"},
@@ -1443,7 +1443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     mothicoal: {
         num: 9020,
-        name: "mothicoal",
+        name: "Mothicoal",
         types: ["Bug", "Fire"],
         baseStats: {hp: 60, atk: 45, def: 55, spa: 105, spd: 75, spe: 95},
         abilities: {0: "Shield Dust", H: "Flame Body"},
@@ -1452,7 +1452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     neurowatt: {
         num: 9021,
-        name: "neurowatt",
+        name: "Neurowatt",
         types: ["Electric", "Psychic"],
         baseStats: {hp: 50, atk: 59, def: 55, spa: 91, spd: 55, spe: 115},
         abilities: {0: "Cute Charm", H: "Motor Drive"},
@@ -1460,7 +1460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     noiear: {
         num: 9022,
-        name: "noiear",
+        name: "Noiear",
         types: ["Dark"],
         baseStats: {hp: 80, atk: 65, def: 60, spa: 45, spd: 50, spe: 30},
         abilities: {0: "Oblivious", 1: "Pickup", H: "Honey Gather"},
@@ -1469,7 +1469,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     menursa: {
         num: 9023,
-        name: "menursa",
+        name: "Menursa",
         types: ["Dark"],
         baseStats: {hp: 110, atk: 125, def: 90, spa: 55, spd: 75, spe: 50},
         abilities: {0: "Oblivious", 1: "Pickup", H: "Tough Claws"},
@@ -1478,7 +1478,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     eleseed: {
         num: 9024,
-        name: "eleseed",
+        name: "Eleseed",
         types: ["Grass", "Electric"],
         baseStats: {hp: 55, atk: 30, def: 55, spa: 70, spd: 60, spe: 25},
         abilities: {0: "Chlorophyll", 1: "Volt Absorb", H: "Static"},
@@ -1487,7 +1487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     bloomivolt: {
         num: 9025,
-        name: "bloomivolt",
+        name: "Bloomivolt",
         types: ["Grass", "Electric"],
         baseStats: {hp: 75, atk: 50, def: 70, spa: 115, spd: 105, spe: 55},
         abilities: {0: "Chlorophyll", 1: "Volt Absorb", H: "Static"},
@@ -1496,7 +1496,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     kitsu: {
         num: 9026,
-        name: "kitsu",
+        name: "Kitsu",
         types: ["Fighting"],
         baseStats: {hp: 50, atk: 70, def: 40, spa: 35, spd: 50, spe: 60},
         abilities: {0: "Strong Jaw", 1: "Rattled", H: "Mold Breaker"},
@@ -1505,7 +1505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     clawndo: {
         num: 9027,
-        name: "clawndo",
+        name: "Clawndo",
         types: ["Fighting"],
         baseStats: {hp: 70, atk: 90, def: 60, spa: 45, spd: 65, spe: 75},
         abilities: {0: "Strong Jaw", 1: "Rattled", H: "Mold Breaker"},
@@ -1515,7 +1515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     muaytiger: {
         num: 9028,
-        name: "muaytiger",
+        name: "Muaytiger",
         types: ["Fighting"],
         baseStats: {hp: 80, atk: 120, def: 75, spa: 55, spd: 75, spe: 100},
         abilities: {0: "Strong Jaw", 1: "Rattled", H: "Mold Breaker"},
@@ -1524,7 +1524,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     razorine: {
         num: 9029,
-        name: "razorine",
+        name: "Razorine",
         types: ["Normal", "Steel"],
         baseStats: {hp: 50, atk: 90, def: 100, spa: 45, spd: 65, spe: 105},
         abilities: {0: "Iron Barbs", H: "Scrappy"},
@@ -1532,7 +1532,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     }, 
     hareloom: {
         num: 9030,
-        name: "hareloom",
+        name: "Hareloom",
         types: ["Fairy", "Fighting"],
         baseStats: {hp: 55, atk: 85, def: 60, spa: 65, spd: 65, spe: 125},
         abilities: {0: "Run Away", 1: "Quick Feet", H: "Simple"},
@@ -1540,7 +1540,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     }, 
     rowtree: {
         num: 9031,
-        name: "rowtree",
+        name: "Rowtree",
         types: ["Grass"],
         baseStats: {hp: 65, atk: 65, def: 70, spa: 50, spd: 60, spe: 50},
         abilities: {0: "Sap Sipper", H: "Moxie"},
@@ -1549,7 +1549,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     arbborry: {
         num: 9032,
-        name: "arbborry",
+        name: "Arbborry",
         types: ["Grass", "Dark"],
         baseStats: {hp: 95, atk: 115, def: 90, spa: 70, spd: 85, spe: 65},
         abilities: {0: "Sap Sipper", H: "Moxie"},
@@ -1558,7 +1558,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     musteemee: {
         num: 9033,
-        name: "musteemee",
+        name: "Musteemee",
         types: ["Water"],
         baseStats: {hp: 45, atk: 40, def: 60, spa: 65, spd: 65, spe: 85},
         abilities: {0: "Storm Drain", H: "Technician"},
@@ -1567,7 +1567,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     mustellar: {
         num: 9034,
-        name: "mustellar",
+        name: "Mustellar",
         types: ["Water", "Psychic"],
         baseStats: {hp: 70, atk: 65, def: 70, spa: 110, spd: 85, spe: 120},
         abilities: {0: "Storm Drain", H: "Technician"},
@@ -1576,7 +1576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     gulerin: {
         num: 9035,
-        name: "gulerin",
+        name: "Gulerin",
         types: ["Fire"],
         baseStats: {hp: 50, atk: 70, def: 60, spa: 70, spd: 50, spe: 60},
         abilities: {0: "Flash Fire", H: "Hustle"},
@@ -1585,7 +1585,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     wolverflare: {
         num: 9036,
-        name: "wolverflare",
+        name: "Wolverflare",
         types: ["Fire", "Fighting"],
         baseStats: {hp: 75, atk: 105, def: 80, spa: 105, spd: 70, spe: 85},
         abilities: {0: "Flash Fire", H: "Hustle"},
@@ -1594,7 +1594,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     petalex: {
         num: 9037,
-        name: "petalex",
+        name: "Petalex",
         types: ["Ghost", "Grass"],
         baseStats: {hp: 50, atk: 50, def: 60, spa: 50, spd: 60, spe: 10},
         abilities: {0: "Sheer Force", 1: "Aftermath", H: "Cursed Body"},
