@@ -85,9 +85,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual: function () {
 			this.add('-weather', 'AirCurrent', '[upkeep]');
 			this.eachEvent('Weather');
+			this.add('-message', 'Air Current continues.'); 
 		},
 		onEnd: function () {
-			this.add('-weather', 'none');
+			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Air Current faded away.');
 		},
 	},
@@ -119,9 +120,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual: function () {
 			this.add('-weather', 'ShadowSky', '[upkeep]');
 			this.eachEvent('Weather');
+			this.add('-message', 'Shadow Sky continues.'); 
 		},
 		onEnd: function () {
-			this.add('-weather', 'none');
+			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Shadow Sky faded away.');
 		},
 	},

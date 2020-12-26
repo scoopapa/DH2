@@ -2179,11 +2179,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	flygonmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["return", "boomburst", "extremespeed", "dragonclaw", "ironhead", "firepunch", "uturn", "roost", "defog", "dragondance"],
+		randomDoubleBattleMoves: ["return", "boomburst", "protect", "dragonclaw", "uturn", "ironhead", "tailwind", "dragondance"],
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
 	cacturne: {
 		randomBattleMoves: ["swordsdance", "spikes", "suckerpunch", "seedbomb", "drainpunch", "substitute", "darkpulse", "focusblast", "gigadrain"],
 		randomDoubleBattleMoves: ["swordsdance", "spikyshield", "suckerpunch", "seedbomb", "drainpunch", "substitute"],
@@ -2959,11 +2960,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	/*
-	croagunkmega: {
-		
-	},	
-	*/
+	drapionmega: {
+		randomBattleMoves: ["knockoff", "pursuit", "taunt", "toxicspikes", "toxic", "earthquake", "stompingtantrum", "swordsdance", "shoreup"],
+		randomDoubleBattleMoves: ["snarl", "taunt", "protect", "stompingtantrum", "swordsdance", "poisonjab", "knockoff"],
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
 	toxicroak: {
 		randomBattleMoves: ["swordsdance", "gunkshot", "drainpunch", "suckerpunch", "icepunch", "substitute"],
 		randomDoubleBattleMoves: ["suckerpunch", "drainpunch", "swordsdance", "icepunch", "gunkshot", "fakeout", "protect"],
@@ -4962,6 +4964,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	lurantistotem: {
 		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	lurantismega: {
+		randomBattleMoves: ["silverwind", "energyball", "moonlight", "substitute"],
+		randomDoubleBattleMoves: ["silverwind", "energyball", "moonlight", "superpower", "knockoff", "protect"],
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	morelull: {
