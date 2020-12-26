@@ -600,6 +600,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricity: {
 		tier: "UU",
 	},
+	toxtricitylowkey: {
+		tier: "UU",
+	},
 	typhlosion: {
 		tier: "UU",
 	},
