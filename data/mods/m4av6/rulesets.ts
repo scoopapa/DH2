@@ -16,7 +16,11 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
-				this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
+				if (target.species.forme.startsWith('Mega') || target.species.forme.startsWith('Ultra')) {
+					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
+				} else {
+					this.add('-end', target, 'typechange', '[silent]');
+				}
 			}
 		},
 		onAfterMega(pokemon) {
