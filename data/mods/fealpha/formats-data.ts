@@ -3,31 +3,31 @@
 /**@type {{[k: string]: SpeciesFormatsData}} */
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	uranus: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	saturn: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	doot: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	mrgross: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	pluto: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	zeus: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	picante: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	mrvolcano: {
@@ -35,43 +35,115 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	vespithorn: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	ishtar: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	ananke: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	darkrose: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	kratos: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	whiterider: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	curchyspeed: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	corvilord: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	kord: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	sirpassd: {
-		tier: "OU",
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	
+	teepee: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	composite: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	alilat: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	umbrisse: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	
+	blackrider: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	frother: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	beezone: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	toxiking: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	
+	norn: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	oni: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	ares: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	armalion: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	
+	nug: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	tyragor: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	palerider: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	laurorusorus: {
+		tier: "FEA",
+		doublesTier: "DOU",
+	},
+	hypnihil: {
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 
