@@ -1350,6 +1350,77 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1041,
 	},
+	desertgales: {
+		desc: "On switch-in, this Pokémon summons Desert Gales for 5 turns. During the effect, Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.2; Normal-type moves become Ground-type moves; Weather Ball becomes a Ground-type move, and its base power is 100; and other weather-related moves and Abilities behave as they do in Sandstorm.",
+		shortDesc: "5 turns. +Ground/Rock/Steel power, Normal moves become Ground-type.",
+		onStart(source) {
+			this.field.setWeather('desertgales');
+		},
+		name: "Desert Gales",
+		rating: 4,
+		num: -1042,
+	},
+	sandforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('desertgales')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		desc: "If Sandstorm or Desert Gales is active, this Pokémon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokémon takes no damage from Sandstorm.",
+		shortDesc: "This Pokémon's Ground/Rock/Steel attacks do 1.3x in Sandstorm and Desert Gales; immunity to it.",
+		name: "Sand Force",
+		rating: 2,
+		num: 159,
+	},
+	sandrush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('desertgales')) {
+				return this.chainModify(2);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		desc: "If Sandstorm or Desert Gales is active, this Pokémon's Speed is doubled. This Pokémon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm or Desert Gales is active, this Pokémon's Speed is doubled; immunity to Sandstorm.",
+		name: "Sand Rush",
+		rating: 3,
+		num: 146,
+	},
+	sandveil: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyAccuracyPriority: 8,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('desertgales')) {
+				this.debug('Sand Veil - decreasing accuracy');
+				return accuracy * 0.8;
+			}
+		},
+		desc: "If Sandstorm or Desert Gales is active, this Pokémon's evasiveness is multiplied by 1.25. This Pokémon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm or Desert Gales is active, this Pokémon's evasiveness is 1.25x; immunity to Sandstorm.",
+		name: "Sand Veil",
+		rating: 1.5,
+		num: 8,
+	},
+	steelbreaker: {
+		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.hasType('Steel')) return 5;
+		},
+		name: "Steelbreaker",
+		rating: 3,
+		num: -1043,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
@@ -1373,5 +1444,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sticky Residues",
 		rating: 3,
 		num: -1025,
+	},
+	elegance: {
+		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
+		shortDesc: "This Pokémon's moves have their secondary effect chance guaranteed unless it has a status or a mental affliction.",
+		onModifyMovePriority: -2,
+		onModifyMove(move, attacker) {
+			if (attacker.status) return;
+			if (attacker.volatiles['attract'] || attacker.volatiles['confusion'] || attacker.volatiles['disable'] || attacker.volatiles['encore'] || attacker.volatiles['healblock'] || attacker.volatiles['taunt'] || attacker.volatiles['torment']) return;
+			if (move.secondaries) {
+				this.debug('maximizing secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance = 100;
+				}
+			}
+			if (move.self?.chance) move.self.chance = 100;
+		},
+		name: "Elegance",
+		rating: 5,
+		num: -1044,
 	},
 }
