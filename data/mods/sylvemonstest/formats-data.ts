@@ -1113,6 +1113,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cameruptmega: {
 		tier: "RU",
 	},
+	nidoking: {
+		tier: "RU",
+	},
+	nidoqueen: {
+		tier: "RU",
+	},
+	pheromosa: {
+		tier: "Ubers",
+	},
+	arctovish: {
+		tier: "RUBL",
+	},
+	bisharp: {
+		tier: "RU",
+	},
 };
 
 
