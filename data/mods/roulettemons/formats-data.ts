@@ -51,7 +51,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chillytemega: {
 		randomBattleMoves: ["moonlight", "spikes", "icebeam", "earthpower", "blueflare", "toxic"],
 		randomBattleLevel: 100,
-		randomDoubleBattleMoves: ["icywind", "earthpower", "protect", "moonlight" "blueflare", "icebeam"],
+		randomDoubleBattleMoves: ["icywind", "earthpower", "protect", "moonlight," "blueflare", "icebeam"],
 		randomDoubleBattleLevel: 100,
 		tier: "Roulettemons",
 		doublesTier: "(Roulettemons Doubles)",
