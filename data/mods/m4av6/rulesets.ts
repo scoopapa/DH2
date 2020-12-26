@@ -15,7 +15,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (target.illusion) {
+			if (target.hasAbility('illusion')) {
 				if (target.species.forme.startsWith('Mega') || target.species.forme.startsWith('Ultra')) {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 				} else {
