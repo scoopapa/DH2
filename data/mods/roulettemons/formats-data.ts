@@ -75,7 +75,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	electritar: {
 		randomBattleMoves: ["thunderbolt", "blueflare", "flashcannon", "hiddenpowerground", "surf"],
 		randomBattleLevel: 100,
-		randomDoubleBattleMoves: ["thunderbolt", "blueflare", "flashcannon", "hiddenpowerground", "protect", "clearsmog"],,
+		randomDoubleBattleMoves: ["thunderbolt", "blueflare", "flashcannon", "hiddenpowerground", "protect", "clearsmog"],
 		randomDoubleBattleLevel: 100,
 		tier: "Roulettemons",
 		doublesTier: "(Roulettemons Doubles)",
