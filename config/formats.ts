@@ -1143,7 +1143,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
 			'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
 			'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
 			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
@@ -2262,6 +2262,40 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
 		searchShow: false,
 		challengeShow: false, 
+	},
+
+	{
+		name: "[Gen 8] Roulettemons Random",
+
+		team: 'random',
+		mod: 'roulettemons',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+		onChangeSet(set) {
+			if (set.species === 'Chillyte-Mega') {
+				set.species = 'Chillyte';
+				set.ability = 'Grassy Surge';
+			}
+		},
+	},
+
+	{
+		name: "[Gen 8] Roulettemons Random Doubles",
+
+		team: 'random',
+		gameType: 'doubles',
+		mod: 'roulettemons',
+		ruleset: ['Standard NatDex', 'Sleep Clause Mod'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+		onChangeSet(set) {
+			if (set.species === 'Chillyte-Mega') {
+				set.species = 'Chillyte';
+			}
+		},
 	},
 	
 	{

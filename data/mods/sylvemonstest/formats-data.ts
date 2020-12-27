@@ -742,7 +742,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	arceus: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	yanmega: {
 		tier: "RU",
@@ -754,6 +754,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	togedemarutotem: {
+		tier: "OU",
+	},
+	togedemaru: {
 		tier: "OU",
 	},
 	blaziken: {
@@ -784,10 +787,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	darkrai: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	greninjash: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	arbok: {
 		tier: "RU",
@@ -883,7 +886,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	shayminsky: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	toucannon: {
 		tier: "RU",
@@ -937,37 +940,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	raichualola: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	regice: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	metagrossmega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	alakazammega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	blastoisemega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	gengarmega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	lucariomega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	salamencemega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	kangaskhanmega: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	pikachustarter: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	eeveestarter: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	golem: {
 		tier: "RU",
@@ -1042,10 +1045,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	deoxysattack: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	deoxysspeed: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	hypno: {
 		tier: "RU",
@@ -1105,7 +1108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	urshifu: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	audinomega: {
 		tier: "RU",
@@ -1120,7 +1123,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	pheromosa: {
-		tier: "Ubers",
+		tier: "Uber",
 	},
 	arctovish: {
 		tier: "RUBL",
