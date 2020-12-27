@@ -262,7 +262,7 @@ export class RandomTeams {
 
 		const pool: number[] = [];
 		for (const id in this.dex.data.FormatsData) {
-			if (!this.dex.data.Pokedex[id] || this.dex.data.FormatsData[id].tier !== "Roulettemons" || this.dex.data.FormatsData[id].isNonstandard && this.dex.data.FormatsData[id].isNonstandard !== 'Unobtainable') continue;
+			if (!this.dex.data.Pokedex[id] || this.dex.data.FormatsData[id].isNonstandard && this.dex.data.FormatsData[id].isNonstandard !== 'Unobtainable') continue;
 			const num = this.dex.data.Pokedex[id].num;
 			if (num <= 0 || pool.includes(num)) continue;
 			if (num > last) break;
@@ -1532,8 +1532,8 @@ export class RandomTeams {
 				const typeCombo = types.slice().sort().join();
 
 				if (restrict) {
-					// Limit one Pokemon per tier, two for Monotype
-					if ((tierCount[tier] >= (isMonotype ? 2 : 1)) && !this.randomChance(1, Math.pow(5, tierCount[tier]))) {
+					// Make sure only Roulettemons are used
+					if (species.tier !== "Roulettemons") {
 						continue;
 					}
 
