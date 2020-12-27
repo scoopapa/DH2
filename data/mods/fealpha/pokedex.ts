@@ -4,7 +4,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ive included placeholders that are halfway between the base species weights? till im told what else to edit it to.
 	
 	name: { 
-		// P1 + P2
+		fusion: ['P1', 'P2'],
 		num: x.5,
 		name: "Name",
 		types: [""],
@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		*/
 	// 1 -----------------
 	uranus: {
-		// Quagsire + Hippowdon
+		fusion: ['Quagsire', 'Hippowdon'],
 		num: 1.5,
 		name: "Uranus",
 		types: ["Water", "Ground"],
@@ -29,7 +29,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		//eg. Vespithorn not being able to learn Leech Seed
 	},
 	saturn: {
-		// Eternatus + Hattrem
+		fusion: ['Eternatus', 'Hattrem'],
 		num: 2.5,
 		name: "Saturn",
 		types: ["Dragon", "Psychic"],
@@ -40,7 +40,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 2 -----------------
 	doot: {
-		// Toxapex + Golisopod
+		fusion: ['Toxapex', 'Golisopod'],
 		num: 3.5,
 		name: "Doot",
 		types: ["Water", "Poison"],
@@ -50,7 +50,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Mareanie", //Wimpod added in learnsets
 	},
 	mrgross: {
-		// Mr. Rime + Metagross
+		fusion: ['Mr. Rime', 'Metagross'],
 		num: 4.5,
 		name: "Mr. Gross",
 		types: ["Steel", "Psychic"],
@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Metang', //Galarian Mr. Mime line added manually
 	},
 	pluto: {
-		// Rotom-Frost + Blacephalon
+		fusion: ['Rotom-Frost', 'Blacephalon'],
 		num: 5.5,
 		name: "Pluto",
 		types: ["Ice", "Ghost"],
@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 6.65,
 	},
 	zeus: {
-		// Zeraora + Tauros
+		fusion: ['Zeraora', 'Tauros'],
 		num: 6.5,
 		name: "Zeus",
 		types: ["Electric", "Normal"],
@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 3 -----------------
 	picante: {
-		// Flapple + Victini
+		fusion: ['Flapple', 'Victini'],
 		num: 7.5,
 		name: "Picante",
 		types: ["Grass", "Fire"],
@@ -89,7 +89,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Applin',
 	},
 	mrvolcano: {
-		// Mr. Mime + Volcanion 
+		fusion: ['Mr. Mime', 'Volcanion'],
 		num: 8.5,
 		name: "Mr. Volcano",
 		types: ["Fire", "Fairy"],
@@ -99,7 +99,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Mime Jr.',
 	},
 	vespithorn: {
-		// Vespiquen + Ferrothorn
+		fusion: ['Vespiquen', 'Ferrothorn'],
 		num: 9.5,
 		name: "Vespithorn",
 		types: ["Bug", "Steel"],
@@ -109,7 +109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Ferroseed', //Combee added manually
 	},
 	ishtar: {
-		// Rotom-Heat + Togekiss
+		fusion: ['Rotom-Heat', 'Togekiss'],
 		num: 10.5,
 		name: "Ishtar",
 		types: ["Electric", "Fairy"],
@@ -120,7 +120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 4 -----------------
 	ananke: {
-		// Lycanroc + Terrakion
+		fusion: ['Lycanroc', 'Terrakion'],
 		num: 11.5,
 		name: "Ananke",
 		types: ["Rock", "Fighting"],
@@ -130,7 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Rockruff',
 	},
 	darkrose: {
-		// Darkrai + Roserade
+		fusion: ['Darkrai', 'Roserade'],
 		num: 12.5,
 		name: "Dark Rose",
 		types: ["Dark", "Poison"],
@@ -140,7 +140,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Roselia',
 	},
 	kratos: {
-		// Krookodile + Staraptor
+		fusion: ['Krookodile', 'Staraptor'],
 		num: 13.5,
 		name: "Kratos",
 		types: ["Ground", "Flying"],
@@ -150,7 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Krokorok', //Starly + Staravia added manually
 	},
 	whiterider: {
-		// Kyurem-White + Ledian
+		fusion: ['Kyurem-White', 'Ledian'],
 		num: 14.5,
 		name: "White Rider",
 		types: ["Dragon", "Flying"],
@@ -161,7 +161,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 5 -----------------
 	curchyspeed: {
-		// Pincurchin + Deoxys-Speed
+		fusion: ['Pincurchin', 'Deoxys-Speed'],
 		num: 15.5,
 		name: "Curchys-Peed",
 		types: ["Electric", "Psychic"],
@@ -170,7 +170,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 30.9,
 	},
 	corvilord: {
-		// Corviknight + Wailord
+		fusion: ['Corviknight', 'Wailord'],
 		num: 16.5,
 		name: "Corvilord",
 		types: ["Steel", "Water"],
@@ -180,7 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Corvisquire', //Wailmer added manually
 	},
 	kord: {
-		// Guzzlord + Dusknoir
+		fusion: ['Guzzlord', 'Dusknoir'],
 		num: 17.5,
 		name: "Kord",
 		types: ["Dark", "Ghost"],
@@ -190,7 +190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Dusclops',
 	},
 	sirpassd: {
-		// Passimian + Sirfetch'd
+		fusion: ['Passimian', "Sirfetch'd"],
 		num: 18.5,
 		name: "Sir Pass'd",
 		types: ["Fighting"],
@@ -201,7 +201,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 6 ----------------- (park, under this is where youre editing, dont get lost!!!)
 	teepee: { //done
-		// Polteageist + Indeedee-F
+		fusion: ['Polteageist', 'Indeedee-F'],
 		num: 19.5,
 		name: "Teepee",
 		types: ["Ghost", "Normal"],
@@ -211,7 +211,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Sinistea',
 	},
 	composite: { //done
-		// Kommo-o + Sceptile
+		fusion: ['Kommo-o', 'Sceptile'],
 		num: 20.5,
 		name: "Composite",
 		types: ["Fighting", "Grass"],
@@ -221,7 +221,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Grovyle', //Jangmo-o and Hakamo-o added manually
 	},
 	alilat: { //done
-		// Appletun + Virizion
+		fusion: ['Appletun', 'Virizion'],
 		num: 21.5,
 		name: "Alilat",
 		types: ["Grass"],
@@ -231,7 +231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Applin',
 	},
 	umbrisse: { //done
-		// Umbreon + Aromatisse
+		fusion: ['Umbreon', 'Aromatisse'],
 		num: 22.5,
 		name: "Umbrisse",
 		types: ["Dark", "Fairy"],
@@ -242,7 +242,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 7 -----------------
 	blackrider: { //done
-		// Kyurem-Black + Pawniard
+		fusion: ['Kyurem-Black', 'Pawniard'],
 		num: 23.5,
 		name: "Black Rider",
 		types: ["Dragon", "Dark"],
@@ -251,7 +251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 167.6,
 	},
 	frother: { //done
-		// Froslass + Scyther
+		fusion: ['Froslass', 'Scyther'],
 		num: 24.5,
 		name: "Frother",
 		types: ["Ice", "Flying"],
@@ -261,7 +261,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Snorunt',
 	},
 	beezone: { //done
-		// Magnezone + Beheeyem
+		fusion: ['Magnezone', 'Beheeyem'],
 		num: 25.5,
 		name: "Beezone",
 		types: ["Steel", "Psychic"],
@@ -271,7 +271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Magneton', //Elgyem added manually
 	},
 	toxiking: { //done
-		// Toxtricity + Nidoking
+		fusion: ['Toxtricity', 'Nidoking'],
 		num: 26.5,
 		name: "Toxiking",
 		types: ["Electric", "Ground"],
@@ -282,7 +282,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 8 -----------------
 	norn: { //done
-		// Porygon2 + Dragalge
+		fusion: ['Porygon2', 'Dragalge'],
 		num: 27.5,
 		name: "Norn",
 		types: ["Normal", "Poison"],
@@ -292,7 +292,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Porygon', //Skrelp added manually
 	},
 	oni: { //done
-		// Incineroar + Crabominable
+		fusion: ['Incineroar', 'Crabominable'],
 		num: 28.5,
 		name: "Oni",
 		types: ["Fire", "Ice"],
@@ -302,7 +302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Torracat', //Crabrawler added manually
 	},
 	ares: { //done
-		// Zapdos + Pelipper
+		fusion: ['Zapdos', 'Pelipper'],
 		num: 29.5,
 		name: "Ares",
 		types: ["Flying", "Electric"],
@@ -312,7 +312,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Wingull',
 	},
 	armalion: { //done
-		// Armaldo + Cobalion
+		fusion: ['Armaldo', 'Cobalion'],
 		num: 30.5,
 		name: "Armalion",
 		types: ["Steel", "Bug"],
@@ -323,7 +323,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 9 -----------------
 	nug: { //done
-		// Runerigus + Decidueye
+		fusion: ['Runerigus', 'Decidueye'],
 		num: 31.5,
 		name: "Nug",
 		types: ["Ground", "Ghost"],
@@ -333,7 +333,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Dartrix', //Galarian Yamask implemented in learnsets.ts
 	},
 	tyragor: { //done
-		// Tyranitar + Accelgor
+		fusion: ['Tyranitar', 'Accelgor'],
 		num: 32.5,
 		name: "Tyragor",
 		types: ["Rock", "Bug"],
@@ -343,7 +343,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Pupitar', //Shelmet implemented in learnsets.ts
 	},
 	palerider: { //done
-		// Infernape + Chandelure
+		fusion: ['Infernape', 'Chandelure'],
 		num: 33.5,
 		name: "Pale Rider",
 		types: ["Fire", "Ghost"],
@@ -353,7 +353,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Monferno', //Litwick + Lampent implemented in learnsets.ts
 	},
 	laurorusorus: { //done
-		// Landorus + Aurorus
+		fusion: ['Landorus', 'Aurorus'],
 		num: 34.5,
 		name: "Laurorusorus",
 		types: ["Ground", "Rock"],
@@ -363,7 +363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: 'Amaura',
 	},
 	hypnihil: { //done
-		// Hypno + Nihilego
+		fusion: ['Hypno', 'Nihilego'],
 		num: 35.5,
 		name: "Hypnihil",
 		types: ["Psychic", "Rock"],
