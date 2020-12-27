@@ -2273,6 +2273,11 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
+		onChangeSet(set) {
+			if (set.species === 'Chillyte-Mega') {
+				set.species = 'Chillyte';
+			}
+		},
 	},
 
 	{
@@ -2284,6 +2289,11 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Sleep Clause Mod'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+		onChangeSet(set) {
+			if (set.species === 'Chillyte-Mega') {
+				set.species = 'Chillyte';
+			}
 		},
 	},
 	
