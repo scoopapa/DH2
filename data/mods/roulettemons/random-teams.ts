@@ -1342,16 +1342,18 @@ export class RandomTeams {
 			item = 'Waterium Z';
 		} else if (hasMove['solarbeam'] && ability !== 'Drought' && !hasMove['sunnyday'] && !teamDetails['sun']) {
 			item = !teamDetails.zMove ? 'Grassium Z' : 'Power Herb';
-		} else if (hasMove['fleurcannon'] && ability !== 'Contrary') {
+		} else if (hasMove['fleurcannon'] && ability !== 'Contrary' && !isDoubles) {
 			item = !teamDetails.zMove ? 'Fairium Z' : 'White Herb';
-		} else if (hasMove['overheat'] && ability !== 'Contrary') {
+		} else if (hasMove['overheat'] && ability !== 'Contrary' && !isDoubles) {
 			item = !teamDetails.zMove ? 'Firium Z' : 'White Herb';
-		} else if (hasMove['leafstorm'] && ability !== 'Contrary') {
+		} else if (hasMove['leafstorm'] && ability !== 'Contrary' && !isDoubles) {
 			item = !teamDetails.zMove ? 'Grassium Z' : 'White Herb';
-		} else if (hasMove['psychoboost'] && ability !== 'Contrary') {
+		} else if (hasMove['psychoboost'] && ability !== 'Contrary' && !isDoubles) {
 			item = !teamDetails.zMove ? 'Psychium Z' : 'White Herb';
-		} else if (hasMove['dracometeor'] && ability !== 'Contrary') {
+		} else if (hasMove['dracometeor'] && ability !== 'Contrary' && !isDoubles) {
 			item = !teamDetails.zMove ? 'Dragonium Z' : 'White Herb';
+		} else if (hasMove['skyattack'] && !isDoubles) {
+			item = !teamDetails.zMove ? 'Flyinium Z' : 'Power Herb';
 		} else if ((hasMove['hail'] || (hasMove['blizzard'] && ability !== 'Snow Warning')) && !teamDetails.zMove) {
 			item = 'Icium Z';
 		} else if (hasMove['raindance']) {
