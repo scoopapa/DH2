@@ -2276,6 +2276,7 @@ export const Formats: FormatList = [
 		onChangeSet(set) {
 			if (set.species === 'Chillyte-Mega') {
 				set.species = 'Chillyte';
+				set.ability = 'Grassy Surge';
 			}
 		},
 	},
