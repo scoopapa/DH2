@@ -73,4 +73,40 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', 'Use the command /dt for more information!'); 
 		},
 	},
+	
+	sametypeclause: {
+		effectType: 'ValidatorRule',
+		name: 'Same Type Clause',
+		desc: "Forces all Pok&eacute;mon on a team to share a type with each other",
+		onBegin() {
+			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type');
+		},
+		onValidateTeam(team) {
+			let typeTable: string[] = [];
+			for (const [i, set] of team.entries()) {
+				let species = this.dex.getSpecies(set.species);
+				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
+				if (i === 0) {
+					typeTable = species.types;
+				} else {
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
+				//if (this.gen >= 7) {
+					const item = this.dex.getItem(set.item);
+					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
+						species = this.dex.getSpecies(item.megaStone);
+						if (species === 'mimikyu-mega') { //Mega Mimikyu cannot be used on Mono Fairy, so hopefully this does what I want
+							species = 'mimikyu-busted-mega';
+						}
+						typeTable = typeTable.filter(type => species.types.includes(type));
+					}
+					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
+						species = this.dex.getSpecies("Necrozma-Ultra");
+						typeTable = typeTable.filter(type => species.types.includes(type));
+					}
+				//}
+				if (!typeTable.length) return [`Your team must share a type.`];
+			}
+		},
+	},
 };
