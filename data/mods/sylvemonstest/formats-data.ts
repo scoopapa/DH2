@@ -756,6 +756,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	togedemarutotem: {
 		tier: "OU",
 	},
+	togedemaru: {
+		tier: "OU",
+	},
 	blaziken: {
 		tier: "RU",
 	},
