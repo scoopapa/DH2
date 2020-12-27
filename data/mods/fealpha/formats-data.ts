@@ -31,7 +31,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	mrvolcano: {
-		tier: "OU",
+		tier: "FEA",
 		doublesTier: "DOU",
 	},
 	vespithorn: {
@@ -125,7 +125,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEA",
 		doublesTier: "DOU",
 	},
-	
 	nug: {
 		tier: "FEA",
 		doublesTier: "DOU",
