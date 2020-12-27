@@ -1066,7 +1066,7 @@ export class RandomTeams {
 			}
 		} while (moves.length < 4 && (movePool.length || rejectedPool.length));
 
-		// const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
+		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
 		const abilities: string[] = Object.values(species.abilities);
 		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
 		let ability0 = this.dex.getAbility(abilities[0]);
