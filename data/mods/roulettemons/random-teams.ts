@@ -579,6 +579,7 @@ export class RandomTeams {
 		species = this.dex.getSpecies(species);
 		let forme = species.name;
 		let gmax = false;
+		let mega = false;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -586,6 +587,10 @@ export class RandomTeams {
 		}
 		if (species.cosmeticFormes) {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
+		}
+		if (species.name.endsWith('-Mega')) {
+			forme = species.name.slice(0, -5);
+			mega = true;
 		}
 		if (species.name.endsWith('-Gmax')) {
 			forme = species.name.slice(0, -5);
@@ -1277,6 +1282,8 @@ export class RandomTeams {
 			}
 		} else if (species.evos.length) {
 			item = (ability === 'Technician' && counter.Physical >= 4) ? 'Choice Band' : 'Eviolite';
+		} else if (hasMove['conversion'] && !teamDetails.zMove) {
+			item = 'Normalium Z';
 		} else if (hasMove['bellydrum']) {
 			if (ability === 'Gluttony') {
 				item = this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki']) + ' Berry';
@@ -1302,22 +1309,22 @@ export class RandomTeams {
 		} else if (ability === 'Sheer Force' && !!counter['sheerforce']) {
 			item = 'Life Orb';
 		} else if (ability === 'Unburden') {
-			item = (hasMove['closecombat'] || hasMove['curse']) ? 'White Herb' : 'Sitrus Berry';
+			item = (hasMove['closecombat'] || hasMove['curse'] || hasMove['overheat'] || hasMove['leafstorm'] || hasMove['fleurcannon'] || hasMove['dracometeor'] || hasMove['psychoboost']) ? 'White Herb' : 'Sitrus Berry';
 		} else if (hasMove['acrobatics']) {
 			item = (ability === 'Grassy Surge') ? 'Grassy Seed' : '';
 		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
 			item = 'Heavy-Duty Boots';
-		} else if (((hasMove['darkpulse'] && ability === 'Fur Coat' && counter.setupType) || (hasMove['suckerpunch'] && ability === 'Moxie' && counter['Dark'] < 2)) && !teamDetails.zMove) {
+		} else if (((species.name === 'hyenix' && hasMove['darkpulse'] && !hasMove['fleurcannon']) || (hasMove['suckerpunch'] && ability === 'Moxie' && counter['Dark'] < 2) || hasMove['partingshot']) && !teamDetails.zMove) {
 			item = 'Darkinium Z';
 		} else if (hasMove['outrage'] && counter.setupType && !hasMove['fly'] && !teamDetails.zMove) {
 			item = 'Dragonium Z';
 		} else if (hasMove['electricterrain'] || ability === 'Electric Surge' && hasMove['thunderbolt']) {
 			item = 'Electrium Z';
-		} else if (hasMove['fleurcannon'] && !!counter['speedsetup'] && !teamDetails.zMove) {
+		} else if ((hasMove['fleurcannon'] || hasMove['lightofruin']) && !teamDetails.zMove) {
 			item = 'Fairium Z';
 		} else if (((hasMove['focusblast'] && hasMove['nastyplot'] && hasType['Fighting']) || (hasMove['reversal'] && hasMove['substitute'])) && !teamDetails.zMove) {
 			item = 'Fightinium Z';
-		} else if ((hasMove['magmastorm'] || hasMove['mindblown'] && !!counter['Status']) && !teamDetails.zMove) {
+		} else if (((hasMove['magmastorm'] || hasMove['mindblown'] && !!counter['Status']) || hasMove['vcreate']) && !teamDetails.zMove) {
 			item = 'Firium Z';
 		} else if (!teamDetails.zMove && (hasMove['fly'] || (hasMove['hurricane'] && species.baseStats.spa >= 125 && (!!counter.Status || hasMove['superpower'])) || ((hasMove['bounce'] || hasMove['bravebird']) && counter.setupType))) {
 			item = 'Flyinium Z';
@@ -1325,6 +1332,8 @@ export class RandomTeams {
 			item = 'Grassium Z';
 		} else if (hasMove['dig'] && !teamDetails.zMove) {
 			item = 'Groundium Z';
+		} else if (hasMove['haze'] && !teamDetails.zMove && this.randomChance(1, 2)) {
+			item = 'Icium Z';
 		} else if (hasMove['happyhour'] || hasMove['holdhands'] || hasMove['encore'] && ability === 'Contrary') {
 			item = 'Normalium Z';
 		} else if (hasMove['photongeyser'] && counter.setupType && !teamDetails.zMove) {
@@ -1333,6 +1342,16 @@ export class RandomTeams {
 			item = 'Waterium Z';
 		} else if (hasMove['solarbeam'] && ability !== 'Drought' && !hasMove['sunnyday'] && !teamDetails['sun']) {
 			item = !teamDetails.zMove ? 'Grassium Z' : 'Power Herb';
+		} else if (hasMove['fleurcannon'] && ability !== 'Contrary') {
+			item = !teamDetails.zMove ? 'Fairium Z' : 'White Herb';
+		} else if (hasMove['overheat'] && ability !== 'Contrary') {
+			item = !teamDetails.zMove ? 'Firium Z' : 'White Herb';
+		} else if (hasMove['leafstorm'] && ability !== 'Contrary') {
+			item = !teamDetails.zMove ? 'Grassium Z' : 'White Herb';
+		} else if (hasMove['psychoboost'] && ability !== 'Contrary') {
+			item = !teamDetails.zMove ? 'Psychium Z' : 'White Herb';
+		} else if (hasMove['dracometeor'] && ability !== 'Contrary') {
+			item = !teamDetails.zMove ? 'Dragonium Z' : 'White Herb';
 		} else if ((hasMove['hail'] || (hasMove['blizzard'] && ability !== 'Snow Warning')) && !teamDetails.zMove) {
 			item = 'Icium Z';
 		} else if (hasMove['raindance']) {
