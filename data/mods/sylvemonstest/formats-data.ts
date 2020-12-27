@@ -1131,6 +1131,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bisharp: {
 		tier: "RU",
 	},
+	xurkitree: {
+		tier: "UUBL",
+	},
 };
 
 
