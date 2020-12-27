@@ -2263,6 +2263,29 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false, 
 	},
+
+	{
+		name: "[Gen 8] Roulettemons Random",
+
+		team: 'random',
+		mod: 'roulettemons',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
+
+	{
+		name: "[Gen 8] Roulettemons Random Doubles",
+
+		team: 'random',
+		gameType: 'doubles',
+		mod: 'roulettemons',
+		ruleset: ['Standard NatDex', 'Sleep Clause Mod'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
 	
 	{
 		name: "[Gen 8] Ink's Winter Wonderland",
