@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: SpeciesData}} */
-export const Pokedex: {[speciesid: string]: SpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	/*
 	ink here with comments! in order for this to be functional they need weights (at least i think).
 	ive included placeholders that are halfway between the base species weights? till im told what else to edit it to.
