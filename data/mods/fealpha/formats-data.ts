@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: SpeciesFormatsData}} */
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	uranus: {
 		tier: "FEA",
 		doublesTier: "DOU",

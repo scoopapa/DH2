@@ -1,7 +1,4 @@
-'use strict';
-
-
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"pressurebounce": { //Functional!
 		shortDesc: "This Pokemon blocks certain status moves and bounces them back twice to the user.",
 		id: "pressurebounce",

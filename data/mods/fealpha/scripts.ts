@@ -1,5 +1,4 @@
-export const Scripts: BattleScriptsData = {
-	
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	hitStepStealBoosts(targets, pokemon, move) {
 		const target = targets[0]; // hardcoded
 		if (move.stealsBoosts) {
@@ -48,5 +47,4 @@ export const Scripts: BattleScriptsData = {
 		}
 		return undefined;
 	},
-
 };
