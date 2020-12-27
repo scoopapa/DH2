@@ -95,15 +95,16 @@ export const Formats: {[k: string]: FormatData} = {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.getSpecies(item.megaStone);
-						if (species === 'mimikyu-mega') { //Mega Mimikyu cannot be used on Mono Fairy, so hopefully this does what I want
-							species = 'mimikyu-busted-mega';
-						}
 						typeTable = typeTable.filter(type => species.types.includes(type));
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
 						species = this.dex.getSpecies("Necrozma-Ultra");
 						typeTable = typeTable.filter(type => species.types.includes(type));
 					}
+					if (item.id === "mimikyunite" && species.baseSpecies === "Mimikyu") { //Mega Mimikyu is banned from Fairy Mono and this enforces that
+						species = this.dex.getSpecies("Mimikyu-Busted-Mega");
+						typeTable = typeTable.filter(type => species.types.includes(type));
+					} 
 				//}
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
