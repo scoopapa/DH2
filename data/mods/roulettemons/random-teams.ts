@@ -579,6 +579,7 @@ export class RandomTeams {
 		species = this.dex.getSpecies(species);
 		let forme = species.name;
 		let gmax = false;
+		let mega = false;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -586,6 +587,10 @@ export class RandomTeams {
 		}
 		if (species.cosmeticFormes) {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
+		}
+		if (species.name.endsWith('-Mega')) {
+			forme = species.name.slice(0, -5);
+			mega = true;
 		}
 		if (species.name.endsWith('-Gmax')) {
 			forme = species.name.slice(0, -5);
@@ -1061,7 +1066,7 @@ export class RandomTeams {
 			}
 		} while (moves.length < 4 && (movePool.length || rejectedPool.length));
 
-		// const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
+		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
 		const abilities: string[] = Object.values(species.abilities);
 		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
 		let ability0 = this.dex.getAbility(abilities[0]);
@@ -1251,69 +1256,124 @@ export class RandomTeams {
 			item = this.sample(species.requiredItems);
 
 		// First, the extra high-priority items
-		} else if (species.name === 'Eternatus' && counter.Status < 2) {
-			item = 'Metronome';
-		} else if (species.name === 'Farfetch\u2019d') {
-			item = 'Leek';
-		} else if (species.name === 'Froslass' && !isDoubles) {
-			item = 'Wide Lens';
-		} else if (species.name === 'Latios' && counter.Special === 2 && !isDoubles) {
-			item = 'Soul Dew';
-		} else if (species.name === 'Lopunny') {
-			item = isDoubles ? 'Iron Ball' : 'Toxic Orb';
-		} else if (species.baseSpecies === 'Marowak') {
-			item = 'Thick Club';
-		} else if (species.baseSpecies === 'Pikachu') {
-			forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
-			item = 'Light Ball';
-		} else if (species.name === 'Regieleki' && !isDoubles) {
-			item = 'Normal Gem';
-		} else if (species.name === 'Shedinja') {
-			item = (!teamDetails.defog && !teamDetails.rapidSpin && !isDoubles) ? 'Heavy-Duty Boots' : 'Focus Sash';
-		} else if (species.name === 'Shuckle' && hasMove['stickyweb']) {
-			item = 'Mental Herb';
-		} else if (['Corsola', 'Tangrowth'].includes(species.name) && !!counter.Status && !isDoubles) {
-			item = 'Rocky Helmet';
-		} else if (species.name === 'Unfezant' || hasMove['focusenergy']) {
+		} else if (ability === 'Harvest' || ability === 'Emergency Exit' && !!counter['Status']) {
+			item = 'Sitrus Berry';
+		} else if (ability === 'Imposter') {
+			item = 'Choice Scarf';
+		} else if (hasMove['auroraveil'] || hasMove['lightscreen'] && hasMove['reflect']) {
+			item = 'Light Clay';
+		} else if (hasMove['rest'] && !hasMove['sleeptalk'] && ability !== 'Natural Cure' && ability !== 'Shed Skin' && ability !== 'Shadow Tag') {
+			item = 'Chesto Berry';
+		} else if (hasMove['focusenergy']) {
 			item = 'Scope Lens';
-		} else if (species.name === 'Wobbuffet' || ['Cheek Pouch', 'Harvest', 'Ripen'].includes(ability)) {
+		} else if (['Cheek Pouch', 'Harvest', 'Ripen'].includes(ability)) {
 			item = 'Sitrus Berry';
 		} else if (ability === 'Gluttony') {
 			item = this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki']) + ' Berry';
 		} else if (ability === 'Gorilla Tactics' || ability === 'Imposter' || (ability === 'Magnet Pull' && hasMove['bodypress'] && !isDoubles)) {
 			item = 'Choice Scarf';
 		} else if (hasMove['trick'] || hasMove['switcheroo'] && !isDoubles) {
-			if (species.baseStats.spe >= 60 && species.baseStats.spe <= 108 && !counter['priority']) {
+			if (ability === 'Klutz') {
+				item = 'Assault Vest';
+			} else if (species.baseStats.spe >= 60 && species.baseStats.spe <= 108 && !counter['priority']) {
 				item = 'Choice Scarf';
 			} else {
 				item = (counter.Physical > counter.Special) ? 'Choice Band' : 'Choice Specs';
 			}
-		} else if (species.evos.length && !hasMove['uturn']) {
-			item = 'Eviolite';
+		} else if (species.evos.length) {
+			item = (ability === 'Technician' && counter.Physical >= 4) ? 'Choice Band' : 'Eviolite';
+		} else if (hasMove['conversion'] && !teamDetails.zMove) {
+			item = 'Normalium Z';
 		} else if (hasMove['bellydrum']) {
-			item = (!!counter['priority'] || !hasMove['substitute']) ? 'Sitrus Berry' : 'Salac Berry';
+			if (ability === 'Gluttony') {
+				item = this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki']) + ' Berry';
+			} else if (species.baseStats.spe <= 50 && !teamDetails.zMove && this.randomChance(1, 2)) {
+				item = 'Normalium Z';
+			} else {
+				item = (!!counter['priority'] || !hasMove['substitute']) ? 'Sitrus Berry' : 'Salac Berry';
+			}
+		} else if (hasMove['copycat'] && counter.Physical >= 3) {
+			item = 'Choice Band';
 		} else if (hasMove['geomancy'] || hasMove['meteorbeam']) {
 			item = 'Power Herb';
 		} else if (hasMove['shellsmash']) {
 			item = (ability === 'Sturdy' && !isLead && !isDoubles) ? 'Heavy-Duty Boots' : 'White Herb';
 		} else if (ability === 'Guts' && (counter.Physical > 2 || isDoubles)) {
 			item = hasType['Fire'] ? 'Toxic Orb' : 'Flame Orb';
+		} else if (ability === 'Poison Heal' || ability === 'Toxic Boost') {
+			item = 'Toxic Orb';
+		} else if (ability === 'Flare Boost') {
+			item = 'Flame Orb';
 		} else if (ability === 'Magic Guard' && counter.damagingMoves.length > 1) {
 			item = hasMove['counter'] ? 'Focus Sash' : 'Life Orb';
 		} else if (ability === 'Sheer Force' && !!counter['sheerforce']) {
 			item = 'Life Orb';
 		} else if (ability === 'Unburden') {
-			item = (hasMove['closecombat'] || hasMove['curse']) ? 'White Herb' : 'Sitrus Berry';
+			item = (hasMove['closecombat'] || hasMove['curse'] || hasMove['overheat'] || hasMove['leafstorm'] || hasMove['fleurcannon'] || hasMove['dracometeor'] || hasMove['psychoboost']) ? 'White Herb' : 'Sitrus Berry';
 		} else if (hasMove['acrobatics']) {
 			item = (ability === 'Grassy Surge') ? 'Grassy Seed' : '';
+		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
+			item = 'Heavy-Duty Boots';
+		} else if (((species.name === 'hyenix' && hasMove['darkpulse'] && !hasMove['fleurcannon']) || (hasMove['suckerpunch'] && ability === 'Moxie' && counter['Dark'] < 2) || hasMove['partingshot']) && !teamDetails.zMove) {
+			item = 'Darkinium Z';
+		} else if (hasMove['outrage'] && counter.setupType && !hasMove['fly'] && !teamDetails.zMove) {
+			item = 'Dragonium Z';
+		} else if (hasMove['electricterrain'] || ability === 'Electric Surge' && hasMove['thunderbolt']) {
+			item = 'Electrium Z';
+		} else if ((hasMove['fleurcannon'] || hasMove['lightofruin']) && !teamDetails.zMove) {
+			item = 'Fairium Z';
+		} else if (((hasMove['focusblast'] && hasMove['nastyplot'] && hasType['Fighting']) || (hasMove['reversal'] && hasMove['substitute'])) && !teamDetails.zMove) {
+			item = 'Fightinium Z';
+		} else if (((hasMove['magmastorm'] || hasMove['mindblown'] && !!counter['Status']) || hasMove['vcreate']) && !teamDetails.zMove) {
+			item = 'Firium Z';
+		} else if (!teamDetails.zMove && (hasMove['fly'] || (hasMove['hurricane'] && species.baseStats.spa >= 125 && (!!counter.Status || hasMove['superpower'])) || ((hasMove['bounce'] || hasMove['bravebird']) && counter.setupType))) {
+			item = 'Flyinium Z';
+		} else if (hasMove['sleeppowder'] && hasType['Grass'] && counter.setupType && species.baseStats.spe <= 70 && !teamDetails.zMove) {
+			item = 'Grassium Z';
+		} else if (hasMove['dig'] && !teamDetails.zMove) {
+			item = 'Groundium Z';
+		} else if (hasMove['haze'] && !teamDetails.zMove && this.randomChance(1, 2)) {
+			item = 'Icium Z';
+		} else if (hasMove['happyhour'] || hasMove['holdhands'] || hasMove['encore'] && ability === 'Contrary') {
+			item = 'Normalium Z';
+		} else if (hasMove['photongeyser'] && counter.setupType && !teamDetails.zMove) {
+			item = 'Psychium Z';
+		} else if (hasMove['hydropump'] && ability === 'Battle Bond' && hasMove['uturn'] && !teamDetails.zMove) {
+			item = 'Waterium Z';
+		} else if (hasMove['solarbeam'] && ability !== 'Drought' && !hasMove['sunnyday'] && !teamDetails['sun']) {
+			item = !teamDetails.zMove ? 'Grassium Z' : 'Power Herb';
+		} else if (hasMove['fleurcannon'] && ability !== 'Contrary' && !isDoubles) {
+			item = !teamDetails.zMove ? 'Fairium Z' : 'White Herb';
+		} else if (hasMove['overheat'] && ability !== 'Contrary' && !isDoubles) {
+			item = !teamDetails.zMove ? 'Firium Z' : 'White Herb';
+		} else if (hasMove['leafstorm'] && ability !== 'Contrary' && !isDoubles) {
+			item = !teamDetails.zMove ? 'Grassium Z' : 'White Herb';
+		} else if (hasMove['psychoboost'] && ability !== 'Contrary' && !isDoubles) {
+			item = !teamDetails.zMove ? 'Psychium Z' : 'White Herb';
+		} else if (hasMove['dracometeor'] && ability !== 'Contrary' && !isDoubles) {
+			item = !teamDetails.zMove ? 'Dragonium Z' : 'White Herb';
+		} else if (hasMove['skyattack'] && !isDoubles) {
+			item = !teamDetails.zMove ? 'Flyinium Z' : 'Power Herb';
+		} else if ((hasMove['hail'] || (hasMove['blizzard'] && ability !== 'Snow Warning')) && !teamDetails.zMove) {
+			item = 'Icium Z';
+		} else if (hasMove['raindance']) {
+			if (species.baseSpecies === 'Castform' && !teamDetails.zMove) {
+				item = 'Waterium Z';
+			} else {
+				item = (ability === 'Forecast') ? 'Damp Rock' : 'Life Orb';
+			}
+		} else if (hasMove['sunnyday']) {
+			if ((species.baseSpecies === 'Castform' || species.baseSpecies === 'Cherrim') && !teamDetails.zMove) {
+				item = 'Firium Z';
+			} else {
+				item = (ability === 'Forecast') ? 'Heat Rock' : 'Life Orb';
+			}
 		} else if (hasMove['auroraveil'] || hasMove['lightscreen'] && hasMove['reflect']) {
 			item = 'Light Clay';
 		} else if (hasMove['rest'] && !hasMove['sleeptalk'] && ability !== 'Shed Skin') {
 			item = 'Chesto Berry';
 		} else if (hasMove['hypnosis'] && ability === 'Beast Boost') {
 			item = 'Blunder Policy';
-		} else if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) {
-			item = 'Heavy-Duty Boots';
 
 		// Doubles
 		} else if (isDoubles && (hasMove['dragonenergy'] || hasMove['eruption'] || hasMove['waterspout']) && counter.damagingMoves.length >= 4) {

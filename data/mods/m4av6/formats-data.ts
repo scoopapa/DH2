@@ -5419,10 +5419,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	cinderace: {
+		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "pyroball", "uturn", "zenheadbutt"],
+		randomBattleLevel: 76,
+		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
+		randomDoubleBattleLevel: 80,
+		tier: "Uber",
+		doublesTier: "DUU",
+	},
 	cinderacemega: {
 		randomBattleMoves: ["courtchange", "shadowball", "electroball", "pyroball", "energyball", "focusblast"],
 		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
-		tier: "UU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	inteleonmega: {
