@@ -1378,7 +1378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rhyperior: {
 		inherit: true,
-      abilities: {0: "Bulletproof", 1: "Solid Rock", H: "Stall"},
+      abilities: {0: "Bulletproof", 1: "Solid Rock", H: "Hasty"},
 	},
 	giratina: {
 		inherit: true,
@@ -2739,5 +2739,53 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Rock", "Dragon"],
       abilities: {0: "Strong Jaw", 1: "Cold Blood", H: "Anger Point"},
+	},
+	slowbrogalar: {
+      inherit: true,
+      abilities: {0: "Quick Draw", 1: "Mega Launcher", H: "Regenerator"},
+	},
+	articunogalar: {
+      inherit: true,
+      abilities: {0: "Competitive", H: "Sheer Force"},
+	},
+	zapdosgalar: {
+      inherit: true,
+      abilities: {0: "Defiant", H: "Sole Caliber"},
+	},
+	moltresgalar: {
+      inherit: true,
+      abilities: {0: "Berserk", H: "Adaptability"},
+	},
+	slowkinggalar: {
+      inherit: true,
+      abilities: {0: "Curious Medicine", 1: "Corrosion", H: "Regenerator"},
+	},
+	zarude: {
+      inherit: true,
+      abilities: {0: "Leaf Guard", H: "Disperal"},
+	},
+	kubfu: {
+      inherit: true,
+      abilities: {0: "Scrappy"},
+	},
+	regieleki: {
+      inherit: true,
+      abilities: {0: "Clear Body", 1: "Transistor", H: "Regenerator"},
+	},
+	regidrago: {
+      inherit: true,
+      abilities: {0: "Clear Body", 1: "Dragon's Maw", H: "Regenerator"},
+	},
+	glastrier: {
+      inherit: true,
+      abilities: {0: "Chilling Neigh", H: "Obstinacy"},
+	},
+	spectrier: {
+      inherit: true,
+      abilities: {0: "Grim Neigh", H: "Obstinacy"},
+	},
+	calyrex: {
+      inherit: true,
+      abilities: {0: "Unnerve", H: "Disperal"},
 	},
 };
