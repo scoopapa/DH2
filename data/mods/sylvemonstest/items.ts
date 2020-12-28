@@ -415,6 +415,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
+		},
 		onModifySpe: function(spe) {
 			return this.chainModify(1.33);
 		},
@@ -430,6 +433,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
+		},
 		onModifyAtk: function(atk) {
 			return this.chainModify(1.33);
 		},
@@ -444,6 +450,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
 		},
 		onModifySpA: function(spa) {
 			return this.chainModify(1.33);
