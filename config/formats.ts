@@ -1239,20 +1239,48 @@ export const Formats: FormatList = [
 		},
 		onSwitchIn(pokemon) {
 			// @ts-ignore
-			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
-			if (oMegaSpecies.exists && pokemon.m.originalSpecies !== oMegaSpecies.baseSpecies) {
-				// Place volatiles on the Pokémon to show its mega-evolved condition and details
-				this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
-				const oSpecies = this.dex.getSpecies(pokemon.m.originalSpecies);
-				if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
-					this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+			if (pokemon.illusion) {
+				const oMegaSpecies = this.dex.getSpecies(pokemon.illusion.species.originalMega);
+				if (oMegaSpecies.exists) {
+					// Place volatiles on the Pokémon to show its mega-evolved condition and details
+					this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+					const oSpecies = this.dex.getSpecies(pokemon.illusion.m.originalSpecies);
+					if (oSpecies.types.length !== pokemon.illusion.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+						this.add('-start', pokemon, 'typechange', pokemon.illusion.species.types.join('/'), '[silent]');
+					}
+				}
+			} else {
+				const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+				if (oMegaSpecies.exists) {
+					// Place volatiles on the Pokémon to show its mega-evolved condition and details
+					this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+					const oSpecies = this.dex.getSpecies(pokemon.m.originalSpecies);
+					if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+						this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+					}
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('illusion')) {
+				const oMegaSpecies = this.dex.getSpecies(target.species.originalMega);
+				if (oMegaSpecies.exists) {
+					// Place volatiles on the Pokémon to show its mega-evolved condition and details
+					this.add('-start', target, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+					const oSpecies = this.dex.getSpecies(target.m.originalSpecies);
+					if (oSpecies.types.length !== target.species.types.length || oSpecies.types[1] !== target.species.types[1]) {
+						this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
+					}
+				} else {
+					this.add('-end', target, 'typechange', '[silent]');
+					this.add('-end', target, target.item, '[silent]');
 				}
 			}
 		},
 		onSwitchOut(pokemon) {
 			// @ts-ignore
 			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
-			if (oMegaSpecies.exists && pokemon.m.originalSpecies !== oMegaSpecies.baseSpecies) {
+			if (oMegaSpecies.exists) {
 				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
 			}
 		},
