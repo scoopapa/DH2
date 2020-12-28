@@ -1264,17 +1264,17 @@ export const Formats: FormatList = [
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) {
 				const oMegaSpecies = this.dex.getSpecies(target.species.originalMega);
-				if (oMegaSpecies.exists) {
+				if (oMegaSpecies.exists || target.species.forme.startsWith('Mega')) {
 					// Place volatiles on the Pokémon to show its mega-evolved condition and details
-					this.add('-start', target, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
-					const oSpecies = this.dex.getSpecies(target.m.originalSpecies);
-					if (oSpecies.types.length !== target.species.types.length || oSpecies.types[1] !== target.species.types[1]) {
-						this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
+					this.add('-start', target, target.item, '[silent]');
+					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
+				} else {
+					this.add('-end', target, 'typechange', '[silent]');
+					for (const i in this.data.Items) {
+						if (!this.data.Items[i].megaStone) continue;
+						this.add('-end', target, i, '[silent]');
 					}
 				}
-			} else {
-				this.add('-end', target, 'typechange', '[silent]');
-				this.add('-end', target, target.item, '[silent]');
 			}
 		},
 		onSwitchOut(pokemon) {
