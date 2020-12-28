@@ -36,6 +36,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Do we have a proper sprite for it?
 		if (this.dex.getSpecies(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
 			pokemon.formeChange(species, pokemon.getItem(), true);
+			this.add('-start', pokemon, pokemon.getItem(), '[silent]');
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
