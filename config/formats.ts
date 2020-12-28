@@ -1199,6 +1199,29 @@ export const Formats: FormatList = [
 		mod: 'm4av6', 
 	},
 	{
+		name: "[Gen 8] M4A Monotype",
+		desc: ["&bullet; Whole team must share a type",
+		      ],
+		ruleset: ['Same Type Clause', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: [
+			//Pokemon restrictions
+			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dragapult', 
+			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
+			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
+			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian',
+			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde',
+			
+			//Ability restrictions
+			'Moody', 'Shadow Tag', 'Power Construct', 
+			
+			//Item Restrictions
+			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
+			//Banned MfA Stones 
+			'Dragalgite', 'Draconite', 
+		],
+		mod: 'm4av6',
+	},
+	{
 		name: "[Gen 8] Super Smash Mods Melee",
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
