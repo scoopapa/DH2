@@ -24,9 +24,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 100, def: 110, spa: 80, spd: 70, spe: 45},
 		abilities: {0: "Unamused"},
 		weightkg: 187.5, 
-		prevo: "Hippopotas", //Wooper learnset added manually, this is jsut so I don't have to do both
-		//If I don't do this, certain Pokemon cant learn moves they definitely usually have access to
-		//eg. Vespithorn not being able to learn Leech Seed
 	},
 	saturn: {
 		fusion: ['Eternatus', 'Hattrem'],
@@ -36,7 +33,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 114, atk: 65, def: 80, spa: 115, spd: 104, spe: 90},
 		abilities: {0: "Pressure Bounce"},
 		weightkg: 477.4,
-		prevo: "Hatenna", //This is for move compatibility
 	},
 	// 2 -----------------
 	doot: {
@@ -47,7 +43,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 94, def: 146, spa: 56, spd: 136, spe: 37},
 		abilities: {0: "Au Revoir"},
 		weightkg: 61.25, 
-		prevo: "Mareanie", //Wimpod added in learnsets
 	},
 	mrgross: {
 		fusion: ['Mr. Rime', 'Metagross'],
@@ -57,7 +52,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 110, def: 110, spa: 109, spd: 110, spe: 70},
 		abilities: {0: "Clear Cleaner"},
 		weightkg: 304.1,
-		prevo: 'Metang', //Galarian Mr. Mime line added manually
 	},
 	pluto: {
 		fusion: ['Rotom-Frost', 'Blacephalon'],
@@ -67,6 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 59, atk: 107, def: 83, spa: 131, spd: 97, spe: 107},
 		abilities: {0: "Terraform"},
 		weightkg: 6.65,
+		prevo: 'Rotom',
 	},
 	zeus: {
 		fusion: ['Zeraora', 'Tauros'],
@@ -86,7 +81,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 100, spa: 107, spd: 80, spe: 85},
 		abilities: {0: "Passion Star"},
 		weightkg: 2.5,
-		prevo: 'Applin',
 	},
 	mrvolcano: {
 		fusion: ['Mr. Mime', 'Volcanion'],
@@ -96,7 +90,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 77, def: 102, spa: 120, spd: 110, spe: 100},
 		abilities: {0: "Volcanicity"},
 		weightkg: 124.75,
-		prevo: 'Mime Jr.',
 	},
 	vespithorn: {
 		fusion: ['Vespiquen', 'Ferrothorn'],
@@ -106,7 +99,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 87, def: 136, spa: 67, spd: 119, spe: 30},
 		abilities: {0: "Iron Stinger"},
 		weightkg: 74.25,
-		prevo: 'Ferroseed', //Combee added manually
 	},
 	ishtar: {
 		fusion: ['Rotom-Heat', 'Togekiss'],
@@ -116,7 +108,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 105, spa: 115, spd: 125, spe: 85},
 		abilities: {0: "Spell Master"},
 		weightkg: 19.15,
-		prevo: 'Togetic',
+		prevo: 'Rotom',
 	},
 	// 4 -----------------
 	ananke: {
@@ -127,7 +119,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 88, atk: 137, def: 82, spa: 63, spd: 82, spe: 120},
 		abilities: {0: "Compulsive"},
 		weightkg: 142.5,
-		prevo: 'Rockruff',
 	},
 	darkrose: {
 		fusion: ['Darkrai', 'Roserade'],
@@ -137,7 +128,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 100, def: 90, spa: 131, spd: 100, spe: 110},
 		abilities: {0: "Bad Program"},
 		weightkg: 32.5,
-		prevo: 'Roselia',
 	},
 	kratos: {
 		fusion: ['Krookodile', 'Staraptor'],
@@ -147,7 +137,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 133, def: 90, spa: 62, spd: 80, spe: 111},
 		abilities: {0: "Intimidate"},
 		weightkg: 60.6,
-		prevo: 'Krokorok', //Starly + Staravia added manually
 	},
 	whiterider: {
 		fusion: ['Kyurem-White', 'Ledian'],
@@ -157,7 +146,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 80, def: 84, spa: 115, spd: 125, spe: 90},
 		abilities: {0: "Foul Breath"},
 		weightkg: 180.3,
-		prevo: 'Ledyba',
 	},
 	// 5 -----------------
 	curchyspeed: {
@@ -177,7 +165,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 139, atk: 98, def: 95, spa: 76, spd: 90, spe: 68},
 		abilities: {0: "Pressure"},
 		weightkg: 236.5,
-		prevo: 'Corvisquire', //Wailmer added manually
 	},
 	kord: {
 		fusion: ['Guzzlord', 'Dusknoir'],
@@ -187,7 +174,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 134, atk: 100, def: 114, spa: 81, spd: 114, spe: 44},
 		abilities: {0: "Pressure Boost"},
 		weightkg: 497.3,
-		prevo: 'Dusclops',
 	},
 	sirpassd: {
 		fusion: ['Passimian', "Sirfetch'd"],
@@ -197,7 +183,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 101, atk: 127, def: 92, spa: 54, spd: 71, spe: 92},
 		abilities: {0: "Chivalry"},
 		weightkg: 99.9,
-		prevo: 'Farfetch\u2019d-Galar',
 	},
 	// 6 ----------------- (park, under this is where youre editing, dont get lost!!!)
 	teepee: { //done
@@ -208,7 +193,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 124, spd: 129, spe: 77},
 		abilities: {0: "Armor Surge"},
 		weightkg: 14.2,
-		prevo: 'Sinistea',
 	},
 	composite: { //done
 		fusion: ['Kommo-o', 'Sceptile'],
@@ -218,7 +202,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 100, def: 95, spa: 120, spd: 95, spe: 110},
 		abilities: {0: "Unbullet"},
 		weightkg: 65.2,
-		prevo: 'Grovyle', //Jangmo-o and Hakamo-o added manually
 	},
 	alilat: { //done
 		fusion: ['Appletun', 'Virizion'],
@@ -228,7 +211,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 95, def: 95, spa: 95, spd: 105, spe: 76},
 		abilities: {0: "Diamond Dust"},
 		weightkg: 106.5,
-		prevo: 'Applin',
 	},
 	umbrisse: { //done
 		fusion: ['Umbreon', 'Aromatisse'],
@@ -238,7 +220,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 103, atk: 68, def: 111, spa: 84, spd: 119, spe: 47},
 		abilities: {0: "Integrity"},
 		weightkg: 21.25,
-		prevo: 'Eevee', //Spritzee added manually
 	},
 	// 7 -----------------
 	blackrider: { //done
@@ -268,7 +249,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 77, def: 110, spa: 131, spd: 110, spe: 65},
 		abilities: {0: "Analytic"},
 		weightkg: 107.25,
-		prevo: 'Magneton', //Elgyem added manually
 	},
 	toxiking: { //done
 		fusion: ['Toxtricity', 'Nidoking'],
@@ -278,7 +258,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 100, def: 75, spa: 119, spd: 85, spe: 83},
 		abilities: {0: "Plus Ultra"},
 		weightkg: 51,
-		prevo: 'Nidorino', //Toxel added manually
 	},
 	// 8 -----------------
 	norn: { //done
@@ -289,7 +268,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 110, spd: 110, spe: 54},
 		abilities: {0: "Nocturnal Flash"},
 		weightkg: 57,
-		prevo: 'Porygon', //Skrelp added manually
 	},
 	oni: { //done
 		fusion: ['Incineroar', 'Crabominable'],
@@ -299,7 +277,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 111, atk: 125, def: 85, spa: 85, spd: 85, spe: 51},
 		abilities: {0: "Fatal End"},
 		weightkg: 131.5,
-		prevo: 'Torracat', //Crabrawler added manually
 	},
 	ares: { //done
 		fusion: ['Zapdos', 'Pelipper'],
@@ -309,7 +286,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 70, def: 92, spa: 110, spd: 90, spe: 92},
 		abilities: {0: "Thunderstorm"},
 		weightkg: 40.3,
-		prevo: 'Wingull',
 	},
 	armalion: { //done
 		fusion: ['Armaldo', 'Cobalion'],
@@ -319,7 +295,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 127, def: 114, spa: 80, spd: 76, spe: 96},
 		abilities: {0: "Water Warrior"},
 		weightkg: 159.1,
-		prevo: 'Anorith',
 	},
 	// 9 -----------------
 	nug: { //done
@@ -330,7 +305,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 118, def: 121, spa: 75, spd: 102, spe: 50},
 		abilities: {0: "Faustian Pact"},
 		weightkg: 51.6,
-		prevo: 'Dartrix', //Galarian Yamask implemented in learnsets.ts
 	},
 	tyragor: { //done
 		fusion: ['Tyranitar', 'Accelgor'],
@@ -340,7 +314,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 192, def: 75, spa: 102, spd: 95, spe: 123},
 		abilities: {0: "Sand Filling"},
 		weightkg: 113.65,
-		prevo: 'Pupitar', //Shelmet implemented in learnsets.ts
 	},
 	palerider: { //done
 		fusion: ['Infernape', 'Chandelure'],
@@ -350,7 +323,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 86, def: 80, spa: 125, spd: 80, spe: 114},
 		abilities: {0: "Abysmal Surge"},
 		weightkg: 44.65,
-		prevo: 'Monferno', //Litwick + Lampent implemented in learnsets.ts
 	},
 	laurorusorus: { //done
 		fusion: ['Landorus', 'Aurorus'],
@@ -360,7 +332,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 106, atk: 101, def: 81, spa: 127, spd: 86, spe: 99},
 		abilities: {0: "Crystalize"},
 		weightkg: 146.5,
-		prevo: 'Amaura',
 	},
 	hypnihil: { //done
 		fusion: ['Hypno', 'Nihilego'],
@@ -370,7 +341,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 101, atk: 67, def: 61, spa: 113, spd: 127, spe: 97},
 		abilities: {0: "Parasomnia"},
 		weightkg: 65.55,
-		prevo: 'Drowzee',
 	},
 	// 10 --------------------------
 };
