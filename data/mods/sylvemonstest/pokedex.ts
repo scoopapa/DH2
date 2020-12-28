@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     stakataka: {
         inherit: true,
-        types: ["Ghost", "Steel"],
+        types: ["Ghost", "Rock"],
 		  abilities: {0: "Beast Boost", H: "Bulletproof"},
     },
     staraptor: {
@@ -975,12 +975,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	meloetta: {
 		inherit: true,
 		types: ["Normal", "Psychic"],
-      abilities: {0: "Serene Grace", H: "Technician"},
+      abilities: {0: "Serene Grace", 1: "Loudspeaker", H: "Technician"},
 	},
 	meloettapirouette: {
 		inherit: true,
 		types: ["Normal", "Fighting"],
-      abilities: {0: "Serene Grace", H: "Technician"},
+      abilities: {0: "Serene Grace", 1: "Loudspeaker", H: "Technician"},
 	},
 	tauros: {
 		inherit: true,
@@ -1585,11 +1585,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	loudred: {
 		inherit: true,
-      abilities: {0: "Soundproof", 1: "Infuriation", H: "Scrappy"},
+      abilities: {0: "Loudspeaker", 1: "Infuriation", H: "Scrappy"},
 	},
 	exploud: {
 		inherit: true,
-      abilities: {0: "Soundproof", 1: "Infuriation", H: "Scrappy"},
+      abilities: {0: "Loudspeaker", 1: "Infuriation", H: "Scrappy"},
 	},
 	chikorita: {
 		inherit: true,
@@ -1777,7 +1777,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	primarina: {
 		inherit: true,
-		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Loudspeaker"},
 	},
 	mimejr: {
 		inherit: true,
@@ -2077,11 +2077,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	electrike: {
 		inherit: true,
-      abilities: {0: "Static", 1: "Lighting Rod", H: "Quick Feet"},
+      abilities: {0: "Static", 1: "Lightning Rod", H: "Quick Feet"},
 	},
 	manectric: {
 		inherit: true,
-      abilities: {0: "Static", 1: "Lighting Rod", H: "Quick Feet"},
+      abilities: {0: "Static", 1: "Lightning Rod", H: "Quick Feet"},
 	},
 	blitzle: {
 		inherit: true,
@@ -2142,6 +2142,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pidgeot: {
 		inherit: true,
       abilities: {0: "Keen Eye", 1: "Tangled Feet", H: "Hasty"},
+	},
+	pidgeotmega: {
+		inherit: true,
+      abilities: {0: "Air Stream"},
 	},
 	farfetchd: {
 		inherit: true,
@@ -2670,5 +2674,29 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	zamazentacrowned: {
       inherit: true,
       abilities: {0: "Dauntless Shield", H: "Guard Up"},
+	},
+	illumise: {
+		inherit: true,
+      abilities: {0: "Oblivious", 1: "Prankster", H: "Loudspeaker"},
+	},
+	volbeat: {
+		inherit: true,
+      abilities: {0: "Illuminate", 1: "Swarm", H: "Loudspeaker"},
+	},
+	kricketune: {
+		inherit: true,
+      abilities: {0: "Swarm", 1: "Loudspeaker", H: "Technician"},
+	},
+	chatot: {
+		inherit: true,
+      abilities: {0: "Keen Eye", 1: "Loudspeaker", H: "Tangled Feet"},
+	},
+	noibat: {
+		inherit: true,
+      abilities: {0: "Frisk", 1: "Infiltrator", H: "Loudspeaker"},
+	},
+	noivern: {
+		inherit: true,
+      abilities: {0: "Frisk", 1: "Infiltrator", H: "Loudspeaker"},
 	},
 };
