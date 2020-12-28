@@ -295,7 +295,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	pinsirmega: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	scolipede: {
 		tier: "UUBL",
@@ -361,7 +361,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	blastoise: {
-		tier: "UU",
+		tier: "RUBL",
 	},
 	boltund: {
 		tier: "UU",
@@ -403,7 +403,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	delphox: {
-		tier: "UU",
+		tier: "RUBL",
 	},
 	dianciemega: {
 		tier: "UU",
@@ -538,7 +538,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	rillaboom: {
-		tier: "UU",
+		tier: "RUBL",
 	},
 	roserade: {
 		tier: "UU",
@@ -604,7 +604,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	typhlosion: {
-		tier: "UU",
+		tier: "RUBL",
 	},
 	unfezant: {
 		tier: "UU",
@@ -646,10 +646,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RUBL",
 	},
 	electabuzz: {
-		tier: "RUBL",
+		tier: "RU",
 	},
 	electivire: {
-		tier: "RUBL",
+		tier: "RU",
 	},
 	exeggutor: {
 		tier: "RUBL",
@@ -661,7 +661,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RUBL",
 	},
 	heliolisk: {
-		tier: "RUBL",
+		tier: "RU",
 	},
 	lanturn: {
 		tier: "RUBL",
@@ -1099,13 +1099,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	inteleon: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	spectrier: {
 		tier: "UUBL",
 	},
 	primarina: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	urshifu: {
 		tier: "Uber",
@@ -1131,6 +1131,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bisharp: {
 		tier: "RU",
 	},
+	dracovish: {
+		tier: "Uber",
+  },
 	xurkitree: {
 		tier: "UUBL",
 	},
