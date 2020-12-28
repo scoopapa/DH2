@@ -1137,6 +1137,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	xurkitree: {
 		tier: "UUBL",
 	},
+	regigigas: {
+		tier: "Uber",
+	},
 };
 
 
