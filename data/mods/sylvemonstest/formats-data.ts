@@ -1133,6 +1133,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracovish: {
 		tier: "Uber",
+  },
+	xurkitree: {
+		tier: "UUBL",
 	},
 };
 
