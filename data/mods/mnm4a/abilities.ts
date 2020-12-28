@@ -19,13 +19,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			if (pokemon.illusion) {
 				const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+				this.add('-end', pokemon, 'typechange', '[silent]');
+				this.add('-end', pokemon, pokemon.illusion.species.originalMega.requiredItem || pokemon.illusion.species.originalMega.requiredMove, '[silent]');
 				if (oMegaSpecies.exists || pokemon.species.forme.startsWith('Mega')) {
 					// Place volatiles on the Pokémon to show its mega-evolved condition and details
 					this.add('-start', pokemon, pokemon.item, '[silent]');
 					this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-				} else {
-					this.add('-end', pokemon, 'typechange', '[silent]');
-					this.add('-end', pokemon, pokemon.illusion.species.originalMega.requiredItem || pokemon.illusion.species.originalMega.requiredMove, '[silent]');
 				}
 				this.debug('illusion cleared');
 				pokemon.illusion = null;
