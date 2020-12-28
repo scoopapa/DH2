@@ -1199,6 +1199,60 @@ export const Formats: FormatList = [
 		mod: 'm4av6', 
 	},
 	{
+		name: "[Gen 8] Mix and M4A",
+		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,
+
+		mod: 'mnm4a',
+		ruleset: ['Obtainable', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod', 'Endless Battle Clause'],
+		banlist: [
+			'Eternatus', 'Lunala', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass', 'Electrify',
+			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite',
+		],
+		restricted: ['Gengar', 'Kyurem-Black', 'Kyurem-White', 'Marshadow', 'Melmetal', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Reshiram', 'Solgaleo', 'Zacian', 'Zekrom', 'Zeraora'],
+		searchShow: false,
+		onValidateTeam(team, format) {
+			const restrictedPokemon = format.restricted || [];
+			const itemTable = new Set<ID>();
+			for (const set of team) {
+				const item = this.dex.getItem(set.item);
+				if (!item || !item.megaStone) continue;
+				const species = this.dex.getSpecies(set.species);
+				if (species.isNonstandard) return [`${species.baseSpecies} does not exist in gen 8.`];
+				if (restrictedPokemon.includes(species.name)) {
+					return [`${species.name} is not allowed to hold ${item.name}.`];
+				}
+				if (itemTable.has(item.id)) {
+					return [`You are limited to one of each mega stone.`, `(You have more than one ${item.name})`];
+				}
+				itemTable.add(item.id);
+			}
+		},
+		onBegin() {
+			for (const pokemon of this.getAllPokemon()) {
+				pokemon.m.originalSpecies = pokemon.baseSpecies.name;
+			}
+		},
+		onSwitchIn(pokemon) {
+			// @ts-ignore
+			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+			if (oMegaSpecies.exists && pokemon.m.originalSpecies !== oMegaSpecies.baseSpecies) {
+				// Place volatiles on the Pokémon to show its mega-evolved condition and details
+				this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+				const oSpecies = this.dex.getSpecies(pokemon.m.originalSpecies);
+				if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+					this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			// @ts-ignore
+			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+			if (oMegaSpecies.exists && pokemon.m.originalSpecies !== oMegaSpecies.baseSpecies) {
+				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+			}
+		},
+	},
+	{
 		name: "[Gen 8] Super Smash Mods Melee",
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
