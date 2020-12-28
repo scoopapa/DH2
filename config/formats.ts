@@ -1271,10 +1271,10 @@ export const Formats: FormatList = [
 					if (oSpecies.types.length !== target.species.types.length || oSpecies.types[1] !== target.species.types[1]) {
 						this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
 					}
-				} else {
-					this.add('-end', target, 'typechange', '[silent]');
-					this.add('-end', target, target.item, '[silent]');
 				}
+			} else {
+				this.add('-end', target, 'typechange', '[silent]');
+				this.add('-end', target, target.item, '[silent]');
 			}
 		},
 		onSwitchOut(pokemon) {
