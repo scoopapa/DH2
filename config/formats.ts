@@ -1261,22 +1261,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (target.hasAbility('illusion')) {
-				const oMegaSpecies = this.dex.getSpecies(target.species.originalMega);
-				if (oMegaSpecies.exists || target.species.forme.startsWith('Mega')) {
-					// Place volatiles on the Pokémon to show its mega-evolved condition and details
-					this.add('-start', target, target.item, '[silent]');
-					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
-				} else {
-					this.add('-end', target, 'typechange', '[silent]');
-					for (const i in this.data.Items) {
-						if (!this.data.Items[i].megaStone) continue;
-						this.add('-end', target, i, '[silent]');
-					}
-				}
-			}
-		},
 		onSwitchOut(pokemon) {
 			// @ts-ignore
 			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
