@@ -76,7 +76,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			originalMega: string,
 			requiredItem: string | undefined,
 			type?: string,
-			typeKind?: string,
 			isMega?: boolean,
 		} = {
 			ability: megaSpecies.abilities['0'],
@@ -95,7 +94,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			deltas.type = 'mono';
 		} else if (megaSpecies.types[0] !== baseSpecies.types[0]) {
 			deltas.type = megaSpecies.types[0];
-			deltas.typeKind = 'primary';
 		} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
 			deltas.type = megaSpecies.types[1];
 		}
@@ -106,20 +104,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (!deltas) throw new TypeError("Must specify deltas!");
 		const species = this.dex.deepClone(this.dex.getSpecies(speciesOrForme));
 		species.abilities = {'0': deltas.ability};
-		if (deltas.typeKind === 'primary') {
-			if (species.types[1] === deltas.type) {
-				species.types = [deltas.type];
-			} else if (deltas.type) {
-				species.types = [deltas.type, species.types[1]];
-			}
-		} else {
-			if (species.types[0] === deltas.type) {
-				species.types = [deltas.type];
-			} else if (deltas.type === 'mono') {
-				species.types = [species.types[0]];
-			} else if (deltas.type) {
-				species.types = [species.types[0], deltas.type];
-			}
+		if (species.types[0] === deltas.type) {
+			species.types = [deltas.type];
+		} else if (deltas.type === 'mono') {
+			species.types = [species.types[0]];
+		} else if (deltas.type) {
+			species.types = [species.types[0], deltas.type];
 		}
 		const baseStats = species.baseStats;
 		for (const statName in baseStats) {
