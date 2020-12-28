@@ -61,6 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 71, atk: 85, def: 90, spa: 87, spd: 123, spe: 44},
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Hydration"},
+		prevo: null,
 	},
 	ninetales: {
 		inherit: true,
