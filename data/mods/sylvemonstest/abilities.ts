@@ -270,17 +270,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"swarm": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Bug attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Bug attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
@@ -292,17 +292,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"blaze": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Fire-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Fire attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Fire attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
@@ -314,17 +314,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"torrent": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Water-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Water attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Water attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
@@ -336,17 +336,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"overgrow": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Grass-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Grass attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Grass attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
@@ -854,17 +854,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 203,
 	},
 	"battery": {
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Electric attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Electric attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
+			if (move.type === 'Electric' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Battery boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
+			if (move.type === 'Electric' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Battery boost');
 				return this.chainModify(1.5);
 			}

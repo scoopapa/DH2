@@ -311,7 +311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 32.5,
 		name: "Tyragor",
 		types: ["Rock", "Bug"],
-		baseStats: {hp: 90, atk: 192, def: 75, spa: 102, spd: 95, spe: 123},
+		baseStats: {hp: 90, atk: 102, def: 75, spa: 102, spd: 95, spe: 123},
 		abilities: {0: "Sand Filling"},
 		weightkg: 113.65,
 	},
