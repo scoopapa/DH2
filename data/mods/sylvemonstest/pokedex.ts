@@ -930,7 +930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tyrunt: {
 		inherit: true,
 		types: ["Rock", "Dragon"],
-      abilities: {0: "Strong Jaw", H: "Anger Point"},
+      abilities: {0: "Strong Jaw", 1: "Cold Blood", H: "Anger Point"},
 	},
 	klink: {
 		inherit: true,
@@ -985,7 +985,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tauros: {
 		inherit: true,
 		types: ["Normal"],
-      abilities: {0: "Intimidate", 1: "Obstinacy", H: "Technician"},
+      abilities: {0: "Intimidate", 1: "Obstinacy", H: "Sheer Force"},
 	},
 	braviary: {
 		inherit: true,
@@ -1545,7 +1545,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	druddigon: {
 		inherit: true,
-      abilities: {0: "Rough Skin", 1: "Stamina", H: "Mold Breaker"},
+      abilities: {0: "Rough Skin", 1: "Stamina", H: "Cold Blood"},
 	},
 	anorith: {
 		inherit: true,
@@ -1976,11 +1976,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lickitung: {
 		inherit: true,
-      abilities: {0: "Regenerator", 1: "Oblivious", H: "Cloud Nine"},
+      abilities: {0: "Regenerator", 1: "Cold Blood", H: "Cloud Nine"},
 	},
 	lickilicky: {
 		inherit: true,
-      abilities: {0: "Regenerator", 1: "Oblivious", H: "Cloud Nine"},
+      abilities: {0: "Regenerator", 1: "Cold Blood", H: "Cloud Nine"},
 	},
 	snorlax: {
 		inherit: true,
@@ -2698,5 +2698,46 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	noivern: {
 		inherit: true,
       abilities: {0: "Frisk", 1: "Infiltrator", H: "Loudspeaker"},
+	},
+	ekans: {
+		inherit: true,
+      abilities: {0: "Intimidate", 1: "Shed Skin", H: "Cold Blood"},
+	},
+	seviper: {
+		inherit: true,
+      abilities: {0: "Shed Skin", 1: "Cold Blood", H: "Infiltrator"},
+	},
+	tropius: {
+		inherit: true,
+      abilities: {0: "Chlorophyll", 1: "Cold Blood", H: "Harvest"},
+	},
+	bagon: {
+		inherit: true,
+      abilities: {0: "Rock Head", 1: "Cold Blood", H: "Sheer Force"},
+	},
+	shelgon: {
+		inherit: true,
+      abilities: {0: "Shell Armor", 1: "Cold Blood", H: "Overcoat"},
+	},
+	salamence: {
+		inherit: true,
+      abilities: {0: "Intimidate", 1: "Cold Blood", H: "Moxie"},
+	},
+	froslass: {
+		inherit: true,
+      abilities: {0: "Snow Cloak", 1: "Cold Blood", H: "Ice Body"},
+	},
+	scraggy: {
+		inherit: true,
+      abilities: {0: "Moxie", 1: "Cold Blood", H: "Intimidate"},
+	},
+	scrafty: {
+		inherit: true,
+      abilities: {0: "Moxie", 1: "Cold Blood", H: "Intimidate"},
+	},
+	tyrantrum: {
+		inherit: true,
+		types: ["Rock", "Dragon"],
+      abilities: {0: "Strong Jaw", 1: "Cold Blood", H: "Anger Point"},
 	},
 };
