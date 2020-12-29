@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Fairy"],
 		baseStats: {hp: 69, atk: 103, def: 178, spa: 116, spd: 92, spe: 87},
 		abilities: {0: "Neutralizing Gas", H: "Misty Surge"},
-		prevo: null,
+		prevo: "",
 	},
 	orbeetle: {
 		inherit: true,
@@ -13,7 +13,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 72, atk: 52, def: 150, spa: 69, spd: 164, spe: 123},
 		abilities: {0: "Swarm", 1: "Frisk", H: "Trace"},
-		prevo: null,
+		prevo: "",
 	},
 	stonjourner: {
 		inherit: true,
@@ -87,7 +87,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Barbs", 1: "Strong Jaw", H: "Thick Fat"},
 		height: 1.4,
 		weightkg: 150.6,
-		prevo: null,
+		prevo: "",
 		eggGroups: ["Water1", "Field"],
 	},
 	dhelmise: {
@@ -109,7 +109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Immunity", 1: "Cloud Nine", H: "Competitive"},
 		height: 1.5,
 		weightkg: 38,
-		prevo: null,
+		prevo: "",
 		eggGroups: ["Flying", "Fairy"],
 	},
 	scolipede: {
@@ -120,7 +120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swarm", 1: "Poison Point", H: "Poison Touch"},
 		height: 2.5,
 		weightkg: 200.5,
-		prevo: null,
+		prevo: "",
 		eggGroups: ["Bug"],
 	},
 	cursola: {
@@ -129,7 +129,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost"],
 		baseStats: {hp: 80, atk: 95, def: 80, spa: 95, spd: 220, spe: 30},
 		abilities: {0: "Cloud Nine", 1: "Cursed Body", H: "Natural Cure"},
-		prevo: null,
+		prevo: "",
 	},
 	torkoal: {
 		inherit: true,
@@ -151,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 88, atk: 91, def: 91, spa: 118, spd: 118, spe: 114},
 		abilities: {0: "Super Luck", 1: "Filter", H: "Neuroforce"},
-		prevo: null,
+		prevo: "",
 	},
 	necrozma: {
 		inherit: true,
@@ -180,7 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 80, atk: 70, def: 105, spa: 145, spd: 105, spe: 110},
 		abilities: {0: "Grounding", 1: "Heatproof", H: "Lightning Rod"},
-		prevo: null,
+		prevo: "",
 	},
 	aerodactyl: {
 		inherit: true,
