@@ -1240,9 +1240,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAnyTryMove(target, source, move) {
 			if (move.type === 'Fire') {
-				this.add('-ability', this.effectData.target, 'Spring Fever');
 				this.add('-activate', source, 'move: Powder');
-				this.damage(this.clampIntRange(Math.round(source.maxhp / 4), 1), '[silent]');
+				this.damage(this.clampIntRange(Math.round(source.maxhp / 4), 1));
 				return false;
 			}
 		},
