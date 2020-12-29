@@ -1242,7 +1242,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.type === 'Fire') {
 				this.add('-ability', this.effectData.target, 'Spring Fever');
 				this.add('-activate', source, 'move: Powder');
-				this.damage(this.clampIntRange(Math.round(source.maxhp / 4), 1));
+				this.damage(this.clampIntRange(Math.round(source.maxhp / 4), 1), '[silent]');
 				return false;
 			}
 		},
