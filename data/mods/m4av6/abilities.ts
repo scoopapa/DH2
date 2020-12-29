@@ -1238,7 +1238,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} fills the air with explosive powder!`);
 		},
-		onAnyTryMove(target, source, effect) {
+		onAnyTryMove(target, source, move) {
 			if (move.type === 'Fire') {
 				this.add('-ability', this.effectData.target, 'Spring Fever');
 				this.add('-activate', source, 'move: Powder');
