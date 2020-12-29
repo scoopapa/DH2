@@ -1051,8 +1051,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1032,
 	},
 	settle: {
-		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 20%. Has no effect if the same special move has been used in the last three turns.",
-		shortDesc: "When using a special move, this Pokémon uses its Attack stat, and the power is increased by 20%.",
+		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 100%. Has no effect if the same special move has been used in the last three turns.",
+		shortDesc: "When using a special move, this Pokémon uses its Attack stat, and the power is increased by 100%.",
 		name: "Settle",
 		onModifyMove(move, pokemon) {
 			let num = 0;
@@ -1092,7 +1092,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) {
 				this.hint(`${move.name} was boosted by Settle!`);
-				return this.chainModify([0x1333, 0x1000]);
+				return this.chainModify(2);
 			}
 		},
 		rating: 3,
@@ -1233,32 +1233,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1037,
 	},
 	springfever: {
-		desc: "This Pokémon's Grass-type moves have a 30% chance of confusing or infatuating the target or causing the target to skip its next turn instead of using a move.",
-		shortDesc: "This Pokémon's Grass moves: 30% to confuse, infatuate or make the target skip its move.",
-		onSourceHit(target, source, move) {
-			if (!move || move.type !== 'Grass' || move.target === 'self') return;
-			const r = this.random(100);
-			if (r < 11) {
-				target.addVolatile('confusion', source);
-			} else if (r < 21) {
-				target.addVolatile('attract', source);
-			} else if (r < 30) {
-				target.addVolatile('springfever', source);
-			}
+		desc: "While this Pokémon is active, if any Pokémon uses a Fire-type move, it is prevented from executing and the attacker loses 1/4 of its maximum HP, rounded half up. This effect does not happen if the Fire-type move is prevented by Primordial Sea.​",
+		shortDesc: "While active, any Pokémon using a Fire move loses 1/4 max HP.",
+		onStart(pokemon) {
+			this.add('-message', `${pokemon.name} fills the air with explosive powder!`);
 		},
-		condition: {
-			duration: 2,
-			onStart(pokemon) {
-				this.add('springfever', pokemon);
-			},
-			onBeforeMovePriority: 11,
-			onBeforeMove(pokemon) {
-				this.add('cant', pokemon, 'ability: Truant');
-				pokemon.removeVolatile('mustrecharge');
-				pokemon.removeVolatile('truant');
-				pokemon.removeVolatile('springfever');
+		onAnyTryMove(target, source, effect) {
+			if (move.type === 'Fire') {
+				this.add('-ability', this.effectData.target, 'Spring Fever');
+				this.add('-activate', source, 'move: Powder');
+				this.damage(this.clampIntRange(Math.round(source.maxhp / 4), 1));
 				return false;
-			},
+			}
 		},
 		name: "Spring Fever",
 		rating: 4,
@@ -1291,20 +1277,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1039,
 	},
 	autumnleaves: {
-		desc: "This Pokémon's Grass-type attacks without a chance to make the target flinch gain a 20% chance to make the target flinch.",
-		shortDesc: "This Pokémon's Grass attacks without a chance to flinch gain a 20% chance to flinch.",
-		onModifyMovePriority: -1,
-		onModifyMove(move) {
+		desc: "This Pokémon's Grass-type attacks cause the Ghost type to be added to the target, effectively making it have two or three types. Has no effect if the target is already a Ghost type. If Forest's Curse adds a type to the target, it replaces the type added by this Ability and vice versa.",
+		shortDesc: "This Pokémon's Grass attacks add Ghost to the targets' type(s).",
+		onSourceHit(target, source, move) {
 			if (move.category !== 'Status' && move.type === 'Grass') {
-				this.debug('Adding Autumn Leaves flinch');
-				if (!move.secondaries) move.secondaries = [];
-				for (const secondary of move.secondaries) {
-					if (secondary.volatileStatus === 'flinch') return;
+				if (target.hasType('Ghost')) continue;
+				if (!target.addType('Ghost')) continue;
+				this.add('-start', target, 'typeadd', 'Ghost', '[from] Ability: Autumn Leaves');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
 				}
-				move.secondaries.push({
-					chance: 20,
-					volatileStatus: 'flinch',
-				});
 			}
 		},
 		name: "Autumn Leaves",
