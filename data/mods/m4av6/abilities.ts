@@ -1281,8 +1281,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's Grass attacks add Ghost to the targets' type(s).",
 		onSourceHit(target, source, move) {
 			if (move.category !== 'Status' && move.type === 'Grass') {
-				if (target.hasType('Ghost')) continue;
-				if (!target.addType('Ghost')) continue;
+				if (target.hasType('Ghost')) return;
+				if (!target.addType('Ghost')) return;
 				this.add('-start', target, 'typeadd', 'Ghost', '[from] Ability: Autumn Leaves');
 
 				if (target.side.active.length === 2 && target.position === 1) {
