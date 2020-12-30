@@ -1,5 +1,12 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-
+	init(){
+		for (const id in this.dataCache.FormatsData) {
+			const tieringData = this.dataCache.FormatsData[id];
+			if (!tieringData) {
+				this.dataCache.FormatsData[id] = { tier: "Poor Neglected Puppies and Kittens" };
+			}
+		}
+	},
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
 		if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
