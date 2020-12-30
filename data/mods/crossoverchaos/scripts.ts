@@ -1,6 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){
-		for (const id in this.dataCache.FormatsData) {
+		for (const id in this.dataCache.Pokedex) {
 			const tieringData = this.dataCache.FormatsData[id];
 			if (!tieringData) {
 				this.dataCache.FormatsData[id] = { tier: "Poor Neglected Puppies and Kittens" };
