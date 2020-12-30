@@ -1470,7 +1470,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon, source) {
 			const item = pokemon.getItem();
 			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
-				target.lostItemForDelibird = item;
+				pokemon.lostItemForDelibird = item;
 				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
 			}
 		},
