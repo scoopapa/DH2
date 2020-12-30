@@ -3,7 +3,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		for (const id in this.dataCache.Pokedex) {
 			const tieringData = this.dataCache.FormatsData[id];
 			if (!tieringData) {
-				this.dataCache.FormatsData[id] = { tier: "Poor Neglected Puppies and Kittens" };
+				this.dataCache.FormatsData[id] = { tier: "Crossovers Without Format-Data Entries (Harass Coders to Fix)" };
 			}
 		}
 	},
