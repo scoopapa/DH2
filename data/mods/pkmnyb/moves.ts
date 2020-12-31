@@ -758,9 +758,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     },
 		"splitatoms": {
 		  accuracy: 100,
-		  basePower: 100,
+		  basePower: 250,
 		  category: "Special",
-		  name: "Misty Explosion",
+		  name: "Split Atoms",
 		  pp: 5,
 		  priority: 0,
 		  flags: {protect: 1, mirror: 1},
