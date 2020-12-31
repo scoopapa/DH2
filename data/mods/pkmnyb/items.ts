@@ -152,6 +152,23 @@ export const Items: {[k: string]: ModdedItemData} = {
         gen: 4,
         desc: "Holder's Fighting-type and Ice-type attacks have 1.2x power. Evolves certain species of Pokemon when used",
     },
+    "icestone": {
+        id: "icestone",
+        name: "Ice Stone",
+        spritenum: 693,
+        fling: {
+            basePower: 80,
+        },
+        onBasePowerPriority: 6,
+        onBasePower(basePower, user, target, move) {
+            if (move.type === 'Steel' || move.type === 'Ice') {
+                return this.chainModify([0x1333, 0x1000]);
+            }
+        },
+        num: 849,
+        gen: 1,
+        desc: "Holder's Ice-type and Steel-type attacks have 1.2x power. Evolves certain species of Pokemon when used",
+    },
     "bugmemory": {
         id: "bugmemory",
         name: "Bug Memory",
@@ -706,6 +723,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Meganiumite",
         megaStone: "Meganium-Mega",
         megaEvolves: "Meganium",
+		  itemUser: ["Meganium"],
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -715,8 +733,9 @@ export const Items: {[k: string]: ModdedItemData} = {
     "typhlosionite": {
         id: "typhlosionite",
         name: "Typhlosionite",
-        megaStone: "Meganium-Mega",
-        megaEvolves: "Meganium",
+        megaStone: "Typhlosion-Mega",
+        megaEvolves: "Typhlosion",
+		  itemUser: ["Typhlosion"],
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -728,6 +747,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Feraligite",
         megaStone: "Feraligatr-Mega",
         megaEvolves: "Feraligatr",
+		  itemUser: ["Feraligatr"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -739,6 +759,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Galarslowbronite",
         megaStone: "Slowbro-Galar-Mega",
         megaEvolves: "Slowbro-Galar",
+		  itemUser: ["Slowbro-Galar"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -750,6 +771,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Slowkinite",
         megaStone: "Slowking-Mega",
         megaEvolves: "Slowking",
+		  itemUser: ["Slowking"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -761,6 +783,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Froslassite",
         megaStone: "Froslass-Mega",
         megaEvolves: "Froslass",
+		  itemUser: ["Froslass"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -772,6 +795,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Butterfrite",
         megaStone: "Butterfree-Mega",
         megaEvolves: "Butterfree",
+		  itemUser: ["Butterfree"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -783,6 +807,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Milotite",
         megaStone: "Milotic-Mega",
         megaEvolves: "Milotic",
+		  itemUser: ["Milotic"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -794,6 +819,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Dragonitite",
         megaStone: "Dragonite-Mega",
         megaEvolves: "Dragonite",
+		  itemUser: ["Dragonite"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -805,6 +831,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Dusknoirite",
         megaStone: "Dusknoir-Mega",
         megaEvolves: "Dusknoir",
+		  itemUser: ["Dusknoir"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -816,6 +843,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Flygonite",
         megaStone: "Flygon-Mega",
         megaEvolves: "Flygon",
+		  itemUser: ["Flygon"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -827,6 +855,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Hydreigonite",
         megaStone: "Hydreigon-Mega",
         megaEvolves: "Hydreigon",
+		  itemUser: ["Hydreigon"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -838,6 +867,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Mienshaonite",
         megaStone: "Mienshao-Mega",
         megaEvolves: "Mienshao",
+		  itemUser: ["Mienshao"],			 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -849,6 +879,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Musharnite",
         megaStone: "Musharna-Mega",
         megaEvolves: "Musharna",
+		  itemUser: ["Musharna"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -860,6 +891,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Zoroarkite",
         megaStone: "Zoroark-Mega",
         megaEvolves: "Zoroark",
+		  itemUser: ["Zoroark"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -871,6 +903,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Zebstrikite",
         megaStone: "Zebstrika-Mega",
         megaEvolves: "Zebstrika",
+		  itemUser: ["Zebstrika"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -882,6 +915,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Goodrite",
         megaStone: "Goodra-Mega",
         megaEvolves: "Goodra",
+		  itemUser: ["Goodra"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -893,6 +927,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Talonflite",
         megaStone: "Talonflame-Mega",
         megaEvolves: "Talonflame",
+		  itemUser: ["Talonflame"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -904,6 +939,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Gogoatite",
         megaStone: "Gogoat-Mega",
         megaEvolves: "Gogoat",
+		  itemUser: ["Gogoat"],		 
         onTakeItem: function (item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -915,6 +951,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Barbaraclelite",
         megaStone: "Barbaracle-Mega",
         megaEvolves: "Barbaracle",
+		  itemUser: ["Barbaracle"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -926,6 +963,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Malmeowstite",
         megaStone: "Meowstic-Mega",
         megaEvolves: "Meowstic",
+		  itemUser: ["Meowstic"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -937,6 +975,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Femmeowstite",
         megaStone: "Meowstic-F-Mega",
         megaEvolves: "Meowstic-F",
+		  itemUser: ["Meowstic-F"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -948,6 +987,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Golisopodite",
         megaStone: "Golisopod-Mega",
         megaEvolves: "Golisopod",
+		  itemUser: ["Golisopod"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -959,6 +999,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Kommonite",
         megaStone: "Kommo-o-Mega",
         megaEvolves: "Kommo-o",
+		  itemUser: ["Kommo-o"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -970,6 +1011,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Shiinotite",
         megaStone: "Shiinotic-Mega",
         megaEvolves: "Shiinotic",
+		  itemUser: ["Shiinotic"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -981,6 +1023,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Turtonite",
         megaStone: "Turtonator-Mega",
         megaEvolves: "Turtonator",
+		  itemUser: ["Turtonator"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -992,6 +1035,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Drampite",
         megaStone: "Drampa-Mega",
         megaEvolves: "Drampa",
+		  itemUser: ["Drampa"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1003,6 +1047,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Corviknightite",
         megaStone: "Corviknight-Mega",
         megaEvolves: "Corviknight",
+		  itemUser: ["Corviknight"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1014,6 +1059,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Boltundite",
         megaStone: "Boltund-Mega",
         megaEvolves: "Boltund",
+		  itemUser: ["Boltund"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1025,6 +1071,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Falinksite",
         megaStone: "Falinks-Mega",
         megaEvolves: "Falinks",
+		  itemUser: ["Falinks"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1036,6 +1083,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Malindeedite",
         megaStone: "Indeedee-Mega",
         megaEvolves: "Indeedee",
+		  itemUser: ["Indeedee"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1047,6 +1095,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Femindeedite",
         megaStone: "Indeedee-F-Mega",
         megaEvolves: "Indeedee-F",
+		  itemUser: ["Indeedee-F"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1058,6 +1107,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Dragapultite",
         megaStone: "Dragapult-Mega",
         megaEvolves: "Dragapult",
+		  itemUser: ["Dragapult"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1069,6 +1119,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Synthinobite",
         megaStone: "Synthinobi-Mega",
         megaEvolves: "Synthinobi",
+		  itemUser: ["Synthinobi"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1080,6 +1131,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Chemicite",
         megaStone: "Chemicander-Mega",
         megaEvolves: "Chemicander",
+		  itemUser: ["Chemicander"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
@@ -1091,6 +1143,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         name: "Primadillite",
         megaStone: "Primadillo-Mega",
         megaEvolves: "Primadillo",
+		  itemUser: ["Primadillo"],		 
         onTakeItem: function(item, source) {
             if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
             return true;
