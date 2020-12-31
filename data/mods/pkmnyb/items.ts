@@ -596,62 +596,43 @@ export const Items: {[k: string]: ModdedItemData} = {
         itemUser: ["Pikachu"],
         num: 236,
         gen: 2,
-        desc: "If held by a Pikachu, its Attack and Sp. Atk are doubled.",
+        desc: "If held by a Pikachu, its Attack and Sp. Atk are doubled. If the holder is not a Pikachu, the holder is paralyzed at the end of the turn",
     },
-    "ragecandybar": {
-        id: "ragecandybar",
-        name: "RageCandyBar",
-        onStart: function(pokemon) {
-            this.add('-item', pokemon, 'Rage Candy Bar');
-            if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
-                pokemon.addVolatile('zenmode');
-            }
-        },
-        fling: {
-            basePower: 20,
-        },
-        onBasePowerPriority: 6,
-        onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseSpecies.num === 555) && (move.type === 'Psychic')) {
-                return this.chainModify([0x1333, 0x1000]);
-            }
-        },
-        onTakeItem: function(item, pokemon, source) {
-            if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
-                return false;
-            }
-            return true;
-        },
-        gen: 7,
-        desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and it's Psychic-Type moves have 1.2x more power",
-    },
-    "mintyragecandybar": {
-        id: "mintyragecandybar",
-        name: "RageCandyBar",
-        onStart: function(pokemon) {
-            this.add('-item', pokemon, 'MintyRageCandyBar');
-            if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
-                pokemon.addVolatile('zenmode');
-            }
-        },
-        fling: {
-            basePower: 20,
-        },
-        onBasePowerPriority: 6,
-        onBasePower: function(basePower, user, target, move) {
-            if (move && (user.baseSpecies.num === 555) && (move.type === 'Fire')) {
-                return this.chainModify([0x1333, 0x1000]);
-            }
-        },
-        onTakeItem: function(item, pokemon, source) {
-            if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
-                return false;
-            }
-            return true;
-        },
-        gen: 8,
-        desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and it's Fire-Type moves have 1.2x more power",
-    },
+	"ragecandybar": {
+		id: "ragecandybar",
+		name: "Rage Candy Bar",
+		onStart: function(pokemon) {
+			this.add('-item', pokemon, 'Rage Candy Bar');
+			if (pokemon.species.baseSpecies === 'Darmanitan') {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
+			}
+		},
+		fling: {
+			basePower: 20,
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function(basePower, user, target, move) {
+			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem: function(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
+				return false;
+			}
+			return true;
+		},
+      itemUser: ["Darmanitan"],
+		gen: 7,
+		desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and its Psychic-Type moves have 1.2x more power. If this Pokémon is a Galarian Darmanitan, it becomes Zen Mode Galarian Darmanitan, and its Fire-Type moves have 1.2x more power.",
+	},
     "reliccharm": {
         id: "reliccharm",
         name: "Relic Charm",
@@ -677,6 +658,7 @@ export const Items: {[k: string]: ModdedItemData} = {
             }
             return true;
         },
+        itemUser: ["Meloetta"],
         gen: 7,
         desc: "If this Pokémon is a Meloetta, it changes to Pirouette, and it's Fighting-Type moves have 1.2x more power",
     },
@@ -707,6 +689,7 @@ export const Items: {[k: string]: ModdedItemData} = {
                 return this.chainModify([0x1333, 0x1000]);
             }
         },
+        itemUser: ["Wishiwashi"],
         gen: 7,
         desc: "If holder is a Wishiwashi, it becomes School Form. Its ability becomes Intimidate. Water moves are boosted by 1.2x",
     },
