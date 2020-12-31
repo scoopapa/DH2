@@ -2561,6 +2561,29 @@ this.modData('Learnsets', 'cramorant').learnset.oxidation = ['7L1'];
 this.modData('Learnsets', 'noctowl').learnset.oxidation = ['7L1'];
 this.modData('Learnsets', 'delibird').learnset.oxidation = ['7L1'];
 this.modData('Learnsets', 'ptarabola').learnset.oxidation = ['7L1'];
+this.modData('Learnsets', 'mienfoo').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'mienshao').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'impidimp').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'morgrem').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'grimmsnarl').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'hatterene').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'cinccino').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'minccino').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'mimikyu').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'gardevoir').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'gallade').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'cherrim').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'azumarill').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'shiinotic').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'granbull').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'mawile').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'phione').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'manaphy').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'furret').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'audino').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'sentret').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'illumise').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'alcremie').learnset.dizzypunch = ['7L1'];
 },
 
 
