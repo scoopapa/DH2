@@ -186,4 +186,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 92, atk: 90, def: 115, spa: 80, spd: 115, spe: 108},
 	},
+	zacian: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 130, def: 95, spa: 90, spd: 95, spe: 108},
+	},
 };

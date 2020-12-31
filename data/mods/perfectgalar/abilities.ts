@@ -99,7 +99,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if ( !pokemon.slowStartInit ) {
 				pokemon.slowStartInit = true;
-				console.log('set slow start turns');
 				pokemon.slowStartTurns = 5;
 				for (const ally of pokemon.side.pokemon) {
 					if (["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( ally.name )) {
@@ -108,7 +107,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
-			console.log('turns left: ' + pokemon.slowStartTurns);
 		},
 		onResidual(pokemon) {
 			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
@@ -120,7 +118,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 5,
 			durationCallback(pokemon) {
-				console.log('duration callback');
 				return pokemon.slowStartTurns
 			},
 			onStart(target) {
