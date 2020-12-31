@@ -384,7 +384,8 @@ this.modData('Learnsets', 'cherrim').learnset.shadowsneak = ['7L1'];
 this.modData('Learnsets', 'cherrim').learnset.moonblast = ['7L1'];
 this.modData('Learnsets', 'cherrim').learnset.doubleedge = ['7L1'];
 this.modData('Learnsets', 'cherrim').learnset.playrough = ['7L1'];
-this.modData('Learnsets', 'cherrim').learnset.shadowball = ['7L1']; 
+this.modData('Learnsets', 'cherrim').learnset.shadowball = ['7L1'];
+this.modData('Learnsets', 'cherrim').learnset.poltergeist = ['7L1'];
 this.modData('Learnsets', 'shellos').learnset.stealthrock = ['7L1']; 
 this.modData('Learnsets', 'gastrodon').learnset.stealthrock = ['7L1']; 
 this.modData('Learnsets', 'ambipom').learnset.doublekick = ['7L1']; 
@@ -2584,6 +2585,21 @@ this.modData('Learnsets', 'audino').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'sentret').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'illumise').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'alcremie').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'goodra').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'clefable').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'wigglytuff').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'electivire').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'electabuzz').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'elekid').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'magmortar').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'yamaboucha').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'mesprit').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'victini').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'bewear').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'slurpuff').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'poliwrath').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'raichu').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'raichualola').learnset.dizzypunch = ['7L1'];
 },
 
 
