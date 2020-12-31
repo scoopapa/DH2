@@ -1470,7 +1470,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon, source) {
 			const item = pokemon.getItem();
 			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
-				target.lostItemForDelibird = item;
+				pokemon.lostItemForDelibird = item;
 				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
 			}
 		},
@@ -1478,6 +1478,76 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
+	},
+	corrosivegas: {
+		num: 810,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Corrosive Gas",
+		pp: 40,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source);
+				target.lostItemForDelibird = item;
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Poison",
+	},
+	trick: {
+		num: 271,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Trick",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mystery: 1},
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
+		onHit(target, source, move) {
+			const yourItem = target.takeItem(source);
+			const myItem = source.takeItem();
+			if (target.item || source.item || (!yourItem && !myItem)) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			if (
+				(myItem && !this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem)) ||
+				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem))
+			) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			this.add('-activate', source, 'move: Trick', '[of] ' + target);
+			if (myItem) {
+				target.setItem(myItem);
+				this.add('-item', target, myItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trick');
+				target.lostItemForDelibird = yourItem;
+			}
+			if (yourItem) {
+				source.setItem(yourItem);
+				this.add('-item', source, yourItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trick');
+				source.lostItemForDelibird = myItem;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 2}},
+		contestType: "Clever",
 	},
 	moonlight: {
 		num: 236,
