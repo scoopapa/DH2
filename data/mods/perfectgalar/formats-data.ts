@@ -4,6 +4,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	zacian: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	zamazenta: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	venusaurgmax: {
 		isGigantamax: "G-Max Vine Lash",
 		tier: "OU",

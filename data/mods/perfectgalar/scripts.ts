@@ -155,6 +155,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'regieleki').learnset.smartstrike = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.sonicboom = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.thundercage = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.superpower = ['8L1'];
 		
 		//Regidrago
 		this.modData('Learnsets', 'regidrago').learnset.aurasphere = ['8L1'];
@@ -221,11 +222,26 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'cursola').learnset.psyshock = ['8L1'];
 		this.modData('Learnsets', 'cursola').learnset.thunderwave = ['8L1'];
 		
-		//Vespiquen
-		this.modData('Learnsets', 'vespiquen').learnset.spikes = ['8L1'];
-		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ['8L1'];
+		//Calyrex
+		this.modData('Learnsets', 'calyrex').learnset.blizzard = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.hex = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.thunderwave = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.kingsshield = ['8L1'];
 		
+		//Zamaenta
+		this.modData('Learnsets', 'zamazenta').learnset.behemothbash = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.bodypress = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.haze = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.healingwish = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.moonlight = ['8L1'];
 		
+		//Zacian
+		this.modData('Learnsets', 'zacian').learnset.zacian = ['8L1'];
+		this.modData('Learnsets', 'zacian').learnset.behemothblade = ['8L1'];
+		delete this.modData('Learnsets', 'zacian').learnset.haze;
+		delete this.modData('Learnsets', 'zacian').learnset.healingwish;
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
@@ -253,47 +269,51 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.canGigantamax) result.gigantamax = pokemon.canGigantamax;
 		return result;
 	},
-	
 	getMaxMove(move, pokemon) {
 		if (typeof move === 'string') move = this.dex.getMove(move);
-		if (pokemon.canGigantamax && move.category !== 'Status') {
-			let gMaxTemplate = this.dex.getTemplate(pokemon.canGigantamax);
-			let gMaxMove = this.dex.getMove(gMaxTemplate.isGigantamax);
+		if (move.name === 'Struggle') return move;
+		if (pokemon.gigantamax && pokemon.canGigantamax && move.category !== 'Status') {
+			const gMaxMove = this.dex.getMove(pokemon.canGigantamax);
 			if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 		}
-		let maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
+		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
 	},
-	
+
 	getActiveMaxMove(move, pokemon) {
 		if (typeof move === 'string') move = this.dex.getActiveMove(move);
+		if (move.name === 'Struggle') return this.dex.getActiveMove(move);
 		let maxMove = this.dex.getActiveMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (move.category !== 'Status') {
-			if (pokemon.canGigantamax) {
-				let gMaxTemplate = this.dex.getTemplate(pokemon.canGigantamax);
-				let gMaxMove = this.dex.getActiveMove(gMaxTemplate.isGigantamax ? gMaxTemplate.isGigantamax : '');
+			if (pokemon.gigantamax && pokemon.canGigantamax) {
+				const gMaxMove = this.dex.getActiveMove(pokemon.canGigantamax);
 				if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
 			}
-			if (!move.gmaxPower) throw new Error(`${move.name} doesn't have a gmaxPower`);
-			let gmaxPower = this.newGMaxPower( move ); // new max power
-			maxMove.basePower = gmaxPower; // bypass old max power
-			maxMove.baseMove = move.id; // need to access this for choice lock and torment
+			if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
+			if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe'].includes(maxMove.id)) {
+				maxMove.basePower = move.maxMove.basePower;
+			}
 			maxMove.category = move.category;
 		}
-		maxMove.maxPowered = true;
+		let gmaxPower = this.newGMaxPower( move ); // new max power
+		maxMove.basePower = gmaxPower; // bypass old max power
+		maxMove.baseMove = move.id;
+		// copy the priority for Psychic Terrain, Quick Guard
+		maxMove.priority = move.priority;
+		maxMove.isZOrMaxPowered = true;
 		return maxMove;
 	},
 	//New functions
 	doMaxBoostFormeChange( pokemon, isPermanent ){
 		if ( !pokemon.hasDynamaxed ) return;
-		let template = this.dex.deepClone( pokemon.template );
-		if ( pokemon.lastFormeBoosted !== pokemon.template.forme ){ // don't boost the same forme twice in a row
+		let template = this.dex.deepClone( pokemon.species );
+		if ( pokemon.lastFormeBoosted !== pokemon.species.forme ){ // don't boost the same forme twice in a row
 			for ( let statName in template.baseStats ){
 				let boost = this.getMaxBoost( statName, pokemon );
 				template.baseStats[ statName ] = template.baseStats[ statName ] + boost;
 			}
 		}
-		pokemon.lastFormeBoosted = pokemon.template.forme;
+		pokemon.lastFormeBoosted = pokemon.species.forme;
 		pokemon.formeChange(template, "dynamax", isPermanent);
 	},
 	
@@ -304,13 +324,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let gmaxPower = 90;
 		if (!move.basePower) {
 			return gmaxPower;
-		} else if ( !move.gmaxPower ){
+		} else if ( !move.maxMove?.basePower ){
 			return null;
 		} else if (['Fighting', 'Poison'].includes(move.type)) {
-			return move.gmaxPower;
+			return move.maxMove?.basePower;
 		} else if (['Flying'].includes(move.type)) {
 			for ( const i in oldMaxPowers ){
-				if ( move.gmaxPower === oldMaxPowers[i] ){
+				if ( move.maxMove?.basePower === oldMaxPowers[i] ){
 					gmaxPower = weakMaxPowers[i]
 					break
 				}
@@ -358,7 +378,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			urshifurapidstrike: { hp: 0, atk: 10, def: 5, spa: 0, spd: 5, spe: 30 },
 		};
 		let boostType = statBoosts.dynamax;
-		if ( pokemon.canGigantamax ) boostType = statBoosts[ pokemon.speciesid ];
+		if ( pokemon.gigantamax ) boostType = statBoosts[ pokemon.species.id ];
 		let statBoost = boostType[ statName ];
 		return statBoost;
 	},

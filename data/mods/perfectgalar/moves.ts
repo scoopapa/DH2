@@ -1,45 +1,25 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	"doubleironbash": {
-		num: 742,
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Has a 30% chance to flinch the target.",
-		shortDesc: "Hits twice. 30% chance to flinch.",
-		id: "doubleironbash",
-		isViable: true,
-		name: "Double Iron Bash",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		multihit: 2,
-		target: "normal",
-		type: "Steel",
-		zMovePower: 180,
-		gmaxPower: 140,
-		contestType: "Clever",
-	},
-	"smackdown": {
+	smackdown: {
 		inherit: true,
 		basePower: 70,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
 		volatileStatus: 'smackdown',
 		onBasePower(basePower, source, target, move) {
 			let applies = false;
-			if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
-			if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')) applies = false;
-			if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+			if (target.hasType('Flying') || target.hasAbility('levitate')) applies = true;
+			if (target.hasItem('ironball') || target.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')) applies = false;
+			if (target.removeVolatile('fly') || target.removeVolatile('bounce')) {
 				applies = true;
-				this.queue.cancelMove(pokemon);
-				pokemon.removeVolatile('twoturnmove');
+				this.queue.cancelMove(target);
+				target.removeVolatile('twoturnmove');
 			}
-			if (pokemon.volatiles['magnetrise']) {
+			if (target.volatiles['magnetrise']) {
 				applies = true;
-				delete pokemon.volatiles['magnetrise'];
+				delete target.volatiles['magnetrise'];
 			}
-			if (pokemon.volatiles['telekinesis']) {
+			if (target.volatiles['telekinesis']) {
 				applies = true;
-				delete pokemon.volatiles['telekinesis'];
+				delete target.volatiles['telekinesis'];
 			}
 			if (!applies) return basePower;
 			target.addVolatile( 'smackdown' );
@@ -50,11 +30,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	"fishiousrend": {
+	fishiousrend: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1},
 	},
-	"fly": {
+	fly: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id) || attacker.types.includes('Flying')) {
@@ -68,7 +48,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return null;
 		},
 	},
-	"howl": {
+	howl: {
 		inherit: true,
 		boosts: {
 			atk: -1,
@@ -80,7 +60,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "AllAdjacentFoes",
 	},
-	"octolock": {
+	octolock: {
 		inherit: true,
 		onTryImmunity: null,
 		condition: {
@@ -102,7 +82,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"toxicspikes": {
+	toxicspikes: {
 		num: 390,
 		accuracy: true,
 		basePower: 0,
@@ -168,7 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
 	},
-	"torment": {
+	torment: {
 		num: 259,
 		accuracy: 100,
 		basePower: 0,
@@ -190,7 +170,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'Torment');
 			},
 			onDisableMove(pokemon) {
-				if ( pokemon.lastMove ) console.log( pokemon.lastMove.id );
 				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 			},
 		},
@@ -200,7 +179,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
 	},
-	"encore": {
+	encore: {
 		num: 227,
 		accuracy: 100,
 		basePower: 0,
@@ -222,7 +201,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					'assist', 'copycat', 'encore', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'struggle', 'transform',
 				];
 				const move = target.lastMove;
-				if ( target.lastMove ) console.log( target.lastMove.id );
 				let moveIndex = move ? target.moves.indexOf(move.id) : -1;
 				if (!move || move.isZ || move.isMax || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
@@ -266,7 +244,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
 	},
-	"doubleironbash": {
+	doubleironbash: {
 		num: 742,
 		accuracy: 100,
 		basePower: 60,
@@ -286,249 +264,65 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gmaxPower: 140,
 		contestType: "Clever",
 	},
-	"playrough": {
+	playrough: {
 		inherit: true,
 		accuracy: 100,
 	},
-	"zenheadbutt": {
+	zenheadbutt: {
 		inherit: true,
 		accuracy: 100,
 	},
-	"psychocut": {
+	psychocut: {
 		inherit: true,
 		basePower: 90,
 	},
-//------------------------------------------------------ Dynamax Moves ------------------------------------------------------------------
-	"maxairstream": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.active) {
-					this.boost( {spe: 1,
-								spa: -1,
-								atk: -1},
-								pokemon );
+	behemothbash: {
+		num: 782,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Behemoth Bash",
+		pp: 15,
+		priority: -3,
+		flags: {bullet: 1, protect: 1},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('behemothbash');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Behemoth Bash');
+			},
+			onFoeModifyMove(move, attacker) {
+				if (move.isMax && !move.name === "Max Guard") {
+					move.basePower = move.basePower / 2;
+					move.self = null;
 				}
 			},
 		},
-	},
-	"maxdarkness": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.foe.active) {
-					this.boost({spd: -1}, pokemon);
-				}
-				for (let pokemon of source.side.active) {
-					pokemon.addVolatile('torment');
-				}
-			},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('behemothbash')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('behemothbash');
 		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
 	},
-	"maxflare": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setWeather('sunnyday');
-			},
-		},
-		onAfterHit(target, source) {
-			if (source.hp) {
-				let item = source.takeItem();
-				if (item) {
-					this.add('-enditem', source, item.name, '[from] move: Max Flare', '[of] ' + source);
-				}
-			}
-		},
+	behemothblade: {
+		num: 781,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Behemoth Blade",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
 	},
-	"maxflutterby": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.foe.active) {
-					this.boost({spa: -1}, pokemon);
-				}
-				for (let pokemon of source.side.active) {
-					this.boost( {spd: -1}, pokemon );
-				}
-			},
-		},
-	},
-	"maxgeyser": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setWeather('raindance');
-				for (let pokemon of source.side.active) {
-					this.boost( {def: -1}, pokemon );
-				}
-			},
-		},
-	},
-	"maxhailstorm": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setWeather('hail');
-				this.add('-clearboost', source);
-			},
-		},
-	},
-	"maxknuckle": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.active) {
-					this.boost({atk: 1}, pokemon);
-				}
-			},
-		},
-		recoil: [50, 100],
-	},
-	"maxlightning": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setTerrain('electricterrain');
-			},
-		},
-		recoil: [33, 100],
-	},
-	"maxmindstorm": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setTerrain('psychicterrain');
-				source.usedMindstorm = true;
-			},
-		},
-	},
-	"maxooze": {
-		inherit: true,
-		self: {
-			onHit(target, source, move) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.active) {
-					this.boost({spa: 1}, pokemon);
-				}
-				if ( !source.status ){
-					source.setStatus( 'tox', source, move, true );
-				}
-			},
-		},
-	},
-	"maxovergrowth": {
-		inherit: true,
-		self: {
-			onHit(target, source, move) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setTerrain('grassyterrain');
-				source.addVolatile('tarshot');
-			},
-		},
-	},
-	"maxphantasm": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.foe.active) {
-					this.boost({def: -1}, pokemon);
-				}
-				source.addVolatile('curse');
-			},
-		},
-	},
-	"maxquake": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.active) {
-					this.boost({spd: 1, accuracy: -1}, pokemon);
-				}
-			},
-		},
-	},
-	"maxrockfall": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setWeather('sandstorm');
-				for (let pokemon of source.side.active) {
-					this.boost({atk: -1}, pokemon);
-				}
-			},
-		},
-	},
-	"maxstarfall": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				this.field.setTerrain('mistyterrain');
-				for (let pokemon of source.side.active) {
-					this.boost({spa: -1}, pokemon);
-				}
-			},
-		},
-	},
-	"maxsteelspike": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.active) {
-					this.boost({def: 1, spe: -1}, pokemon);
-				}
-			},
-		},
-	},
-	"maxstrike": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.foe.active) {
-					this.boost({spe: -1}, pokemon);
-				}
-			},
-			volatileStatus: 'maxstrike',
-			condition: {
-				noCopy: true,
-				onStart(pokemon) {
-					this.add('-start', pokemon, 'Max Strike');
-				},
-				onNegateImmunity(pokemon, type) {
-					if (pokemon.hasType('Ghost') && ['Normal', 'Fighting'].includes(type)) return false;
-					if (pokemon.hasType('Normal') && ['Ghost'].includes(type)) return false;
-				},
-			},
-		},
-	},
-	"maxwyrmwind": {
-		inherit: true,
-		self: {
-			onHit(source) {
-				if (!source.volatiles['dynamax']) return;
-				for (let pokemon of source.side.foe.active) {
-					this.boost({atk: -1}, pokemon);
-				}
-				source.addVolatile('confusion');
-			},
-		},
-	},
-	"sonicboom": {
+	sonicboom: {
 		inherit: true,
 		basePower: 40,
 		category: "Special",
@@ -542,11 +336,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
-	"pursuit": {
+	pursuit: {
 		inherit: true,
 		isNonstandard: null,
 	},
-	"skyuppercut": {
+	skyuppercut: {
 		num: 327,
 		accuracy: 95,
 		basePower: 85,
@@ -566,14 +360,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Cool",
 	},
-	"trumpcard": {
+	trumpcard: {
 		num: 376,
 		accuracy: true,
 		basePower: 0,
 		basePowerCallback(source, target, move) {
 			move.allies = source.side.pokemon.filter(ally => ally !== source && ally.fainted);
 			let basePower = 60 + move.allies.length;
-			console.log(basePower);
 			return basePower;
 		},
 		category: "Special",
@@ -592,7 +385,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
-	"crushgrip": {
+	crushgrip: {
 		num: 462,
 		accuracy: 100,
 		basePower: 90,
@@ -610,23 +403,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
-	"thundercage": {
+	thundercage: {
 		inherit: true,
 		accuracy: 100,
 		basePower: 90,
 	},
-	"wickedblow": {
+	wickedblow: {
 		inherit: true,
 		basePower: 75,
 	},
-	"astralbarrage": {
+	astralbarrage: {
 		inherit: true,
 		basePower: 100,
 		onBasePower(basePower, pokemon, target) {
 			if (pokemon.speciesid === 'calyrexshadowrider') return 120;
 		}
 	},
-	"glaciallance": {
+	glaciallance: {
 		inherit: true,
 		basePower: 100,
 		onBasePower(basePower, pokemon, target) {
@@ -657,8 +450,242 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {condition: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
+	freezyfrost: {
+		inherit: true,
+		isNonstandard: null,
+	},
+//------------------------------------------------------ Dynamax Moves ------------------------------------------------------------------
+	maxairstream: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.active) {
+					this.boost( {spe: 1,
+								spa: -1,
+								atk: -1},
+								pokemon );
+				}
+			},
+		},
+	},
+	maxdarkness: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.foe.active) {
+					this.boost({spd: -1}, pokemon);
+				}
+				for (let pokemon of source.side.active) {
+					pokemon.addVolatile('torment');
+				}
+			},
+		},
+	},
+	maxflare: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setWeather('sunnyday');
+			},
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				let item = source.takeItem();
+				if (item) {
+					this.add('-enditem', source, item.name, '[from] move: Max Flare', '[of] ' + source);
+				}
+			}
+		},
+	},
+	maxflutterby: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.foe.active) {
+					this.boost({spa: -1}, pokemon);
+				}
+				for (let pokemon of source.side.active) {
+					this.boost( {spd: -1}, pokemon );
+				}
+			},
+		},
+	},
+	maxgeyser: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setWeather('raindance');
+				for (let pokemon of source.side.active) {
+					this.boost( {def: -1}, pokemon );
+				}
+			},
+		},
+	},
+	maxhailstorm: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setWeather('hail');
+				this.add('-clearboost', source);
+			},
+		},
+	},
+	maxknuckle: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.active) {
+					this.boost({atk: 1}, pokemon);
+				}
+			},
+		},
+		recoil: [50, 100],
+	},
+	maxlightning: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('electricterrain');
+			},
+		},
+		recoil: [33, 100],
+	},
+	maxmindstorm: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('psychicterrain');
+				source.usedMindstorm = true;
+			},
+		},
+	},
+	maxooze: {
+		inherit: true,
+		self: {
+			onHit(target, source, move) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.active) {
+					this.boost({spa: 1}, pokemon);
+				}
+				if ( !source.status ){
+					source.setStatus( 'tox', source, move, true );
+				}
+			},
+		},
+	},
+	maxovergrowth: {
+		inherit: true,
+		self: {
+			onHit(target, source, move) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('grassyterrain');
+				source.addVolatile('tarshot');
+			},
+		},
+	},
+	maxphantasm: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.foe.active) {
+					this.boost({def: -1}, pokemon);
+				}
+				source.addVolatile('curse');
+			},
+		},
+	},
+	maxquake: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.active) {
+					this.boost({spd: 1, accuracy: -1}, pokemon);
+				}
+			},
+		},
+	},
+	maxrockfall: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setWeather('sandstorm');
+				for (let pokemon of source.side.active) {
+					this.boost({atk: -1}, pokemon);
+				}
+			},
+		},
+	},
+	maxstarfall: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('mistyterrain');
+				for (let pokemon of source.side.active) {
+					this.boost({spa: -1}, pokemon);
+				}
+			},
+		},
+	},
+	maxsteelspike: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.active) {
+					this.boost({def: 1, spe: -1}, pokemon);
+				}
+			},
+		},
+	},
+	maxstrike: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.foe.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+			},
+			volatileStatus: 'maxstrike',
+			condition: {
+				noCopy: true,
+				onStart(pokemon) {
+					this.add('-start', pokemon, 'Max Strike');
+				},
+				onNegateImmunity(pokemon, type) {
+					if (pokemon.hasType('Ghost') && ['Normal', 'Fighting'].includes(type)) return false;
+					if (pokemon.hasType('Normal') && ['Ghost'].includes(type)) return false;
+				},
+			},
+		},
+	},
+	maxwyrmwind: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (let pokemon of source.side.foe.active) {
+					this.boost({atk: -1}, pokemon);
+				}
+				source.addVolatile('confusion');
+			},
+		},
+	},
 //------------------------------------------------------ Gigantamax Moves ------------------------------------------------------------------
-	"gmaxbefuddle": {
+	gmaxbefuddle: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -678,7 +705,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxcentiferno": {
+	gmaxcentiferno: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -696,7 +723,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	"gmaxchistrike": {
+	gmaxchistrike: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -707,7 +734,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		recoil: [50, 100],
 	},
-	"gmaxcuddle": {
+	gmaxcuddle: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -728,7 +755,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxdepletion": {
+	gmaxdepletion: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -749,7 +776,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxfinale": {
+	gmaxfinale: {
 		inherit: true,
 		self: {
 			onAfterHit(source) {
@@ -764,7 +791,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxfoamburst": {
+	gmaxfoamburst: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -784,7 +811,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxgoldrush": {
+	gmaxgoldrush: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -805,7 +832,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxgravitas": {
+	gmaxgravitas: {
 		inherit: true,
 		self: {
 			pseudoWeather: 'gravity',
@@ -815,7 +842,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxmalodor": {
+	gmaxmalodor: {
 		inherit: true,
 		isMax: "Garbodor",
 		self: {
@@ -827,7 +854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxmeltdown": {
+	gmaxmeltdown: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -840,7 +867,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxreplenish": {
+	gmaxreplenish: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -867,7 +894,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxresonance": {
+	gmaxresonance: {
 		inherit: true,
 		self: {
 			sideCondition: 'auroraveil',
@@ -877,7 +904,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxsandblast": {
+	gmaxsandblast: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -890,7 +917,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxsmite": {
+	gmaxsmite: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -903,7 +930,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxsnooze": {
+	gmaxsnooze: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -914,7 +941,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxsteelsurge": {
+	gmaxsteelsurge: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -935,7 +962,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxstonesurge": {
+	gmaxstonesurge: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -946,7 +973,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxstunshock": {
+	gmaxstunshock: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -962,7 +989,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		recoil: [33, 100],
 	},
-	"gmaxsweetness": {
+	gmaxsweetness: {
 		inherit: true,
 		self: {
 			onHit(target, source) {
@@ -974,7 +1001,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxtartness": {
+	gmaxtartness: {
 		inherit: true,
 		self: {
 			onHit(target, source, move) {
@@ -988,7 +1015,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		recoil: [33, 100],
 	},
-	"gmaxterror": {
+	gmaxterror: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -999,7 +1026,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxvolcalith": {
+	gmaxvolcalith: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -1024,7 +1051,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	"gmaxvoltcrash": {
+	gmaxvoltcrash: {
 		inherit: true,
 		self: {
 			onHit(source) {
@@ -1037,7 +1064,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		ignoreAbility: true,
 		recoil: [33, 100],
 	},
-	"gmaxwildfire": {
+	gmaxwildfire: {
 		inherit: true,
 		recoil: [33, 100],
 		onAfterHit(target, source) {
@@ -1049,7 +1076,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	"gmaxwindrage": {
+	gmaxwindrage: {
 		inherit: true,
 		self: {
 			onHit(source) {

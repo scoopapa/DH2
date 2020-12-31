@@ -97,12 +97,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	slowstart: {
 		onStart(pokemon) {
-			if ( !pokemon.slowStartTurns ) {
+			if ( !pokemon.slowStartInit ) {
+				pokemon.slowStartInit = true;
+				console.log('set slow start turns');
 				pokemon.slowStartTurns = 5;
-				for (const pokemon of pokemon.side.active) {
-					if (["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( pokemon.species )) pokemon.slowStartTurns--;
+				for (const ally of pokemon.side.pokemon) {
+					if (["Registeel", "Regice", "Regirock", "Regieleki", "Regidrago"].includes( ally.name )) {
+						pokemon.slowStartTurns--;
+					}
 				}
 			}
+			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
+			console.log('turns left: ' + pokemon.slowStartTurns);
 		},
 		onResidual(pokemon) {
 			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
@@ -114,6 +120,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 5,
 			durationCallback(pokemon) {
+				console.log('duration callback');
 				return pokemon.slowStartTurns
 			},
 			onStart(target) {
@@ -184,6 +191,45 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 58,
 	},
+	dauntlessshield: {
+		name: "Dauntless Shield",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon || !pokemon.hasDynamaxed) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		rating: 4,
+		num: 235,
+	},
+	intrepidsword: {
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.hasDynamaxed) return 5;
+		},
+		name: "Intrepid Sword",
+		rating: 1.5,
+		num: 234,
+	},
+	quickdraw: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.flags['bullet']) {
+				return priority + 1;
+			}
+		},
+		name: "Quick Draw",
+		rating: 4,
+		num: 259,
+	},
+	
 //-----------------------------forme changes---------------------------------------------------------------------------------
 	"stancechange": {
 		inherit: true,

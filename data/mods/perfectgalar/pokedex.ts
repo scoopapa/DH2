@@ -154,6 +154,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 120, def: 60, spa: 70, spd: 100, spe: 110},
 	},
+	rapidash: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 120, def: 60, spa: 70, spd: 100, spe: 110},
+	},
 	raichu: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 90, def: 65, spa: 90, spd: 80, spe: 110},
@@ -173,5 +177,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 80, def: 112, spa: 70, spd: 102, spe: 40},
 		abilities: {0: "Pressure", H: "Prankster"},
+	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 60, def: 63, spa: 130, spd: 97, spe: 100},
+	},
+	zamazenta: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 90, def: 115, spa: 80, spd: 115, spe: 108},
 	},
 };
