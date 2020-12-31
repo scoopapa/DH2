@@ -126,10 +126,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         num: 22,
     },
     "watercompaction": {
-        shortDesc: "This Pokemon's Defense is raised 3 stages after it is damaged by a Water- or Ice-type move.",
+        shortDesc: "This Pokemon's Defense is raised 6 stages after it is damaged by a Water- or Ice-type move.",
         onDamagingHit(damage, target, source, move) {
             if (['Water', 'Ice'].includes(move.type)) {
-                this.boost({def: 3});
+                this.boost({def: 6});
             }
         },
         id: "watercompaction",
@@ -216,7 +216,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		  shortDesc: "This Pokemon's Defense is boosted by 1.5x but its Speed is halved.",
 		  onModifyDefPriority: 6,
 		  onModifyDef(def) {
-			  return this.chainModify(2);
+			  return this.chainModify(1.5);
 		  },
 		  onModifySpe(spe, pokemon) {
 			  return this.chainModify(0.5);
@@ -262,6 +262,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		  num: 208,
 	 },
 	 "shadowbeacon": {
+		shortDesc: "Ghost and Dark-type moves used by any Pokemon on the field are boosted 1.3x. Effected by Aura Break.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Shadow Beacon');
 		},
@@ -277,6 +278,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shadow Beacon",
 	},	
 	 "energybeacon": {
+		shortDesc: "Electric and Fighting-type moves used by any Pokemon on the field are boosted 1.3x. Effected by Aura Break.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Energy Beacon');
 		},
@@ -292,6 +294,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Energy Beacon",
 	},
 	"overconfidence": {
+      shortDesc: "This Pokemon's Special Attack is raised 1 stage after getting a KO",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({spa: length}, source);
@@ -301,6 +304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "overconfidence",
 	},
 	"elementalteething": {
+		shortDesc: "This Pokemon's type changes before using a move and its biting moves are boosted 1.2x",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bite']) {
