@@ -2363,7 +2363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         formeLetter: "M",
         types: ["Psychic"],
         baseStats: {hp: 74, atk: 68, def: 76, spa: 133, spd: 81, spe: 134},
-        abilities: {0: "Moxie"},
+        abilities: {0: "Overconfidence"},
         weightkg: 8.5,
         evoLevel: 1,
     },
