@@ -1772,7 +1772,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 17,
-			onEnd(pokemon) {
+			onEnd(pokemon, effect) {
 				if (effect?.effectType === 'Ability') {
 				this.add('-end', pokemon, 'Heal Block', '[silent]');
 				} else {
@@ -1818,7 +1818,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.directDamage(source.maxhp / 2, source, source);
 		},
 		condition: {
-			onStart(pokemon, source) {
+			onStart(pokemon, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-message', `${pokemon.name} was cursed!`);
 					this.add('-start', pokemon, 'Curse', '[silent]');
