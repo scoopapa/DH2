@@ -1179,7 +1179,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'servine').learnset.outrage= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.dualchop= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.dracometeor= ['7L1'];
-    this.modData('Learnsets', 'serperior').learnset.flamethrower= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.outrage= ['7L1'];
     this.modData('Learnsets', 'parasect').learnset.shadowcharge= ['7L1'];
     this.modData('Learnsets', 'parasect').learnset.shadowclaw= ['7L1'];
