@@ -2600,6 +2600,32 @@ this.modData('Learnsets', 'slurpuff').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'poliwrath').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'raichu').learnset.dizzypunch = ['7L1'];
 this.modData('Learnsets', 'raichualola').learnset.dizzypunch = ['7L1'];
+this.modData('Learnsets', 'golurk').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'golett').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'electivire').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'gammaroo').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'alakazam').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'kadabra').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'azelf').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'uxie').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'mesprit').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'palkia').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'mew').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'gardevoir').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'necrozma').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'reuniclus').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'metagross').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'metang').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'clefairy').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'clefable').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'medicham').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'deoxys').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'patrat').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'watchog').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'hoopa').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'neurowatt').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'diancie').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'kecleon').learnset.cometpunch = ['7L1'];
 },
 
 
