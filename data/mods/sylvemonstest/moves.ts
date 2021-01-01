@@ -2973,7 +2973,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  target: "normal",
 		  type: "Grass",
 	},
-	"shedleaves": {
+	shedleaves: {
  		  accuracy: true,
 		  basePower: 0,
 		  category: "Status",
@@ -2988,11 +2988,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			  return null;
 		  },		
 		  onHit(pokemon) {
-			  if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
-			  pokemon.cureStatus();
+				if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+				pokemon.cureStatus();
 		  },
 		  self: {
 			  onHit(pokemon) {
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+				
 				  pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "???" : type));
 				  this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Shed Leaves');
 			  },
@@ -3002,7 +3013,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  type: "Grass",
 		  zMove: {effect: 'heal'},
 		  contestType: "Clever",
-	},	
+	},
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
