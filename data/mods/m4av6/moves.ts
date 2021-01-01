@@ -650,8 +650,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Heal Block');
+			onStart(pokemon, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-start', pokemon, 'Heal Block', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'move: Heal Block');
+				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -668,8 +672,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 17,
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'move: Heal Block');
+			onEnd(pokemon, effect) {
+				if (effect?.effectType === 'Ability') {
+				this.add('-end', pokemon, 'Heal Block', '[silent]');
+				} else {
+					this.add('-end', pokemon, 'move: Heal Block');
+				}
 			},
 			onTryHeal(damage, target, source, effect) {
 				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
@@ -1729,66 +1737,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
-	},
-	healblock: {
-		num: 377,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		isNonstandard: "Past",
-		name: "Heal Block",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		volatileStatus: 'healblock',
-		condition: {
-			duration: 5,
-			durationCallback(target, source, effect) {
-				if (source?.hasAbility('persistent')) {
-					this.add('-activate', source, 'ability: Persistent', effect);
-					return 7;
-				}
-				return 5;
-			},
-			onStart(pokemon) {
-				if (effect?.effectType === 'Ability') {
-					this.add('-start', pokemon, 'Heal Block', '[silent]');
-				} else {
-					this.add('-start', pokemon, 'move: Heal Block');
-				}
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
-			onBeforeMovePriority: 6,
-			onBeforeMove(pokemon, target, move) {
-				if (move.flags['heal'] && !move.isZ && !move.isMax) {
-					this.add('cant', pokemon, 'move: Heal Block', move);
-					return false;
-				}
-			},
-			onResidualOrder: 17,
-			onEnd(pokemon, effect) {
-				if (effect?.effectType === 'Ability') {
-				this.add('-end', pokemon, 'Heal Block', '[silent]');
-				} else {
-					this.add('-end', pokemon, 'move: Heal Block');
-				}
-			},
-			onTryHeal(damage, target, source, effect) {
-				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
-				return false;
-			},
-		},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Psychic",
-		zMove: {boost: {spa: 2}},
-		contestType: "Clever",
 	},
 	curse: {
 		num: 174,
