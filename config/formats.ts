@@ -720,7 +720,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getTemplate(set.species);
+				let template = this.dex.getSpecies(set.species);
 				if ( template.tier === 'V1' || template.tier === 'EX' ) {
 					return ["You are not allowed to use pokemon from " + template.tier + ". ( " + template.species + " )"];
 				}
@@ -744,7 +744,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getTemplate(set.species);
+				let template = this.dex.getSpecies(set.species);
 				if ( template.tier === 'V1' || template.tier === 'V2' ) {
 					return ["You are not allowed to use pokemon from " + template.tier + ". ( " + template.species + " )"];
 				}
@@ -1663,7 +1663,7 @@ export const Formats: FormatList = [
 		ruleset: [ 'Standard','OHKO Clause','Team Preview','Evasion Moves Clause','Endless Battle Clause','Sleep Clause Mod', 'Freeze Clause Mod'],
 		checkLearnset: function (move, template, lsetData, set) {
 			const restrictedMoves = this.format.restrictedMoves || [];
-			let prevo = template.isMega ? this.getTemplate(template.species.substring(0, template.species.length - 5)).prevo : template.prevo;
+			let prevo = template.isMega ? this.getSpecies(template.species.substring(0, template.species.length - 5)).prevo : template.prevo;
 			let stealthHazards = ['stealthnormal', 'stealthwater', 'stealthgrass', 'stealthghost', 'stealthground', 'stealthice', 'stealthelectric', 'stealthdark', 'stealthdragon', 'stealthfire', 'stealthfighting', 'stealthfairy', 'stealthbug', 'stealthpoison', 'stealthpsychic', 'stealthrock', 'stealthsteel', 'stealthflying',];
 			let types = {};
 			if ( stealthHazards.includes(move.id) && !restrictedMoves.includes(move.name) && !move.isZ ) {
@@ -1675,12 +1675,12 @@ export const Formats: FormatList = [
 					for ( let i in prevo.learnset ) {
 						if ( i !== 'hiddenpower' ) types[ Dex.getMove(i).type ] = true;
 					}			
-					prevo = Dex.getTemplate(prevo).prevo;
+					prevo = Dex.getSpecies(prevo).prevo;
 				}
-				let baseTemplate = Dex.getTemplate(template.baseSpecies);
+				let baseTemplate = Dex.getSpecies(template.baseSpecies);
 				if (baseTemplate.otherFormes) {
 					for (const formeid of baseTemplate.otherFormes) {
-						let forme = Dex.getTemplate(formeid);
+						let forme = Dex.getSpecies(formeid);
 						if (!forme.battleOnly) {
 							if (forme.forme !== 'Alola' && forme.forme !== 'Alola-Totem' && forme.baseSpecies !== 'Wormadam') {
 								for ( let i in forme.learnset ) {
