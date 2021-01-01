@@ -362,16 +362,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
 		onAfterMega(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
+				this.boost({spd: 1}, pokemon);
 				this.add('-activate', pokemon, 'move: Charge');
 				pokemon.addVolatile('charge');
-				this.boost({spd: 1}, pokemon);
 			}
 		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
+				this.boost({spd: 1}, pokemon);
 				this.add('-activate', pokemon, 'move: Charge');
 				pokemon.addVolatile('charge');
-				this.boost({spd: 1}, pokemon);
 			}
 		},
 		name: "Tempestuous",
@@ -432,6 +432,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
 			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+				this.add('-ability', target, 'Nightmare Heart');
 				source.addVolatile('curse');
 				const bannedAbilities = [
 					'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
@@ -489,18 +490,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
 		onBoost(boost, target, source, effect) {
-			if (boost.atk && effect.id !== 'twominded') {
-				this.boost({spa: (boost.atk * -1)});
-			}
-			if (boost.def && effect.id !== 'twominded') {
-				this.boost({spd: (boost.def * -1)});
-			}
+			const twoMindedBoost: SparseBoostsTable = {};
 			if (boost.spa && effect.id !== 'twominded') {
-				this.boost({atk: (boost.spa * -1)});
+				twoMindedBoost['atk'] = boost.spa * -1;
 			}
 			if (boost.spd && effect.id !== 'twominded') {
-				this.boost({def: (boost.spd * -1)});
+				twoMindedBoost['def'] = boost.spd * -1;
 			}
+			if (boost.atk && effect.id !== 'twominded') {
+				twoMindedBoost['spa'] = boost.atk * -1;
+			}
+			if (boost.def && effect.id !== 'twominded') {
+				twoMindedBoost['spd'] = boost.def * -1;
+			}
+			this.add('-ability', target, 'Two-Minded');
+			this.boost(twoMindedBoost, target, target, null, true);
 		},
 		name: "Two-Minded",
 		rating: 4,
@@ -627,7 +631,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && target.hp && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
-				const r = this.random(11);
+				const r = this.random(110);
 				if (r < 1) {
 					target.setStatus('par', source);
 				} else if (r < 2) {
