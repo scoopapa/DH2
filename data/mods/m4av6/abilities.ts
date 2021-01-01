@@ -362,12 +362,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
 		onAfterMega(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
+				this.add('-activate', pokemon, 'move: Charge');
 				pokemon.addVolatile('charge');
 				this.boost({spd: 1}, pokemon);
 			}
 		},
 		onStart(pokemon) {
 			if (pokemon.side.faintedThisTurn) {
+				this.add('-activate', pokemon, 'move: Charge');
 				pokemon.addVolatile('charge');
 				this.boost({spd: 1}, pokemon);
 			}
@@ -567,7 +569,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
 		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
 		onStart(source) {
+			let activated = false;
 			for (const pokemon of this.getAllActive()) {
+				if (!activated) {
+					this.add('-ability', source, 'Showdown');
+				}
+				activated = true;
 				if (!pokemon.volatiles['healblock']) {
 					pokemon.addVolatile('healblock');
 				}
@@ -619,18 +626,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Poison-type move on poisoned target: random chance of 11 different effects.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (target !== source && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
+			if (target !== source && target.hp && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
 				const r = this.random(11);
 				if (r < 1) {
-					this.add('-ability', source, 'Alchemist');
 					target.setStatus('par', source);
 				} else if (r < 2) {
-					this.add('-ability', source, 'Alchemist');
 					target.setStatus('brn', source);
 				} else if (r < 3) {
-					if (target.setStatus('tox', source)) {
-						this.add('-ability', source, 'Alchemist');
-						this.add('-message', `${target.name}'s poison became more severe!`);
+					if (target.status === 'psn') {
+						if (target.setStatus('tox', source)) {
+							this.add('-message', `${target.name}'s poison became more severe!`);
+						}
 					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
@@ -737,26 +743,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else if (r < 10) {
 					this.add('-ability', source, 'Alchemist');
 					if (target.hp >= target.maxhp / 4) {
-						this.add('-ability', source, 'Alchemist');
-						if (target.addVolatile('curse')) {
-							this.add('-message', `${source.name}'s HP was not cut!`);
-						} else {
+						if (!target.addVolatile('curse')) {
 							this.add('-message', `${target.name} could not be cursed!`);
 						}
 					} else {
-						this.add('-ability', source, 'Alchemist');
 						this.add('-message', `${target.name} suddenly exploded!`);
-						this.useMove('explosion', target);
+						this.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
 					}
 				} else {
-					this.add('-ability', source, 'Alchemist');
-					this.add('-message', `${target.name} is being transformed...!?`);
-					target.addVolatile('alchemist');
+					if (target.addVolatile('alchemist')) {
+						this.add('-ability', source, 'Alchemist');
+					}
 				}
 			}
 		},
 		effect: {
 			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} is being transformed...!?`);
 				const randForm = this.random(3);
 				if (randForm < 1) {
 					this.add('-message', `It became a Seismitoad!`);
