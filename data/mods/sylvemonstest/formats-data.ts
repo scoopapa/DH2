@@ -1140,6 +1140,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	regigigas: {
 		tier: "Uber",
 	},
+	delcatty: {
+		tier: "RU",
+	},
+	regieleki: {
+		tier: "OU",
+	},
 };
 
 
