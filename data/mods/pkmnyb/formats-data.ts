@@ -362,4 +362,7 @@ geareon: {
 mytheon: {
 		tier: "YB",
 },
+arbborry: {
+		tier: "YB",
+},
 };
