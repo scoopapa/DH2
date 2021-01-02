@@ -188,7 +188,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			delete pokemon.volatiles['mimicry'];
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				let newType;
 				switch (this.field.terrain) {
@@ -758,7 +758,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-message', `${pokemon.name} is being transformed...!?`);
 				const randForm = this.random(3);
@@ -1419,7 +1419,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
 			}
 		},
-		effect: {
+		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (source?.hasItem('lightclay')) {
