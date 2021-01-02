@@ -490,7 +490,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'twominded') return;
 			const twoMindedBoost: SparseBoostsTable = {};
 			let activated = false;
 			if (boost.spa && effect.id !== 'twominded') {
@@ -639,7 +638,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && target.hp && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
-				const r = this.random(110);
+				const r = this.random(11);
 				if (r < 1) {
 					target.setStatus('par', source);
 				} else if (r < 2) {
