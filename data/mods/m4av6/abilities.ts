@@ -646,9 +646,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target.setStatus('brn', source);
 				} else if (r < 3) {
 					if (target.status === 'psn') {
-						if (target.setStatus('tox', source)) {
-							this.add('-message', `${target.name}'s poison became more severe!`);
-						}
+						this.add('-message', `${target.name}'s poison became more severe!`);
+						target.setStatus('tox', source);
 					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
