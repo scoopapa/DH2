@@ -752,8 +752,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
 					}
 				} else {
-					if (target.addVolatile('alchemist')) {
-						this.add('-ability', source, 'Alchemist');
+					this.add('-ability', source, 'Alchemist');
+					if (!target.addVolatile('alchemist')) {
+						this.add('-message', `${target.name} has already transformed!`);
 					}
 				}
 			}
