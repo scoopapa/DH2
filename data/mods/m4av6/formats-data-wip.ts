@@ -24,7 +24,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
     tier: "NU", 
   },
   aerodactylmega: { //NDEX
-    tier: "", 
+    tier: "UUBL", 
   },
   aggron: {
     tier: "PU", 
@@ -201,7 +201,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
     tier: "", 
   },
   azumarill: { 
-    tier: "", 
+    tier: "UUBL", 
   },
   azurill: { 
     tier: "LC", 
@@ -286,7 +286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
     tier: "", 
   },
   blacephalon: { 
-    tier: "", 
+    tier: "UUBL", 
   },
   blastoise: { 
     tier: "", 
@@ -732,7 +732,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
     tier: "", 
   },
   dianciemega: { //ndex
-    tier: "", 
+    tier: "UUBL", 
   },
   diggersby: { 
     tier: "", 
@@ -1054,7 +1054,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	gallademega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	galvantula: { 
    	tier: "", 
@@ -1075,7 +1075,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	gardevoirmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	gastly: { 
    	tier: "LC Uber", 
@@ -1099,7 +1099,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "Uber", 
 	},
 	gengar: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	gengargmax: { 
    	tier: "AG", 
@@ -1285,10 +1285,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	gyarados: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	gyaradosmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	
 	
@@ -1342,7 +1342,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	heracrossmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	herdier: { 
    	tier: "NFE", 
@@ -1399,7 +1399,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	hydreigon: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	hypno: { //ndex
    	tier: "", 
@@ -1569,7 +1569,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "Uber", 
 	},
 	kyurem: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	kyuremblack: { 
    	tier: "Uber", 
@@ -1610,16 +1610,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "LC", 
 	},
 	latias: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	latiasmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	latios: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	latiosmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	leafeon: { 
    	tier: "", 
@@ -1780,7 +1780,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	manaphy: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	mandibuzz: { 
    	tier: "", 
@@ -1831,7 +1831,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	mawilemega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	medicham: { //ndex
    	tier: "", 
@@ -2298,7 +2298,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	pinsirmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	piplup: { //ndex
    	tier: "", 
@@ -2850,7 +2850,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	slowbromega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	slowking: { 
    	tier: "", 
@@ -3092,10 +3092,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "", 
 	},
 	thundurus: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	thundurustherian: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	thwackey: { 
    	tier: "", 
@@ -3287,7 +3287,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
    	tier: "AG", 
 	},
 	venusaurmega: { //ndex
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	vespiquen: { 
    	tier: "", 
@@ -3451,7 +3451,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Custom",
 	},
 	xurkitree: { 
-   	tier: "", 
+   	tier: "UUBL", 
 	},
 	
 	
