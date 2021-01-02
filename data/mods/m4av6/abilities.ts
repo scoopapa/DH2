@@ -671,28 +671,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
+					const alchemistBoost: SparseBoostsTable = {};
 					if (randStat1 < 1) {
-						this.boost({atk: -1}, target, source, null, true);
+						alchemistBoost.atk = -1;
 					} else if (randStat1 < 2) {
-						this.boost({def: -1}, target, source, null, true);
+						alchemistBoost.def = -1;
 					} else if (randStat1 < 3) {
-						this.boost({spa: -1}, target, source, null, true);
+						alchemistBoost.spa = -1;
 					} else if (randStat1 < 4) {
-						this.boost({spd: -1}, target, source, null, true);
+						alchemistBoost.spd = -1;
 					} else {
-						this.boost({spe: -1}, target, source, null, true);
+						alchemistBoost.spe = -1;
 					}
 					if (randStat2 < 1) {
-						this.boost({atk: -1}, target, source, null, true);
+						alchemistBoost.atk = -1;
 					} else if (randStat2 < 2) {
-						this.boost({def: -1}, target, source, null, true);
+						alchemistBoost.def = -1;
 					} else if (randStat2 < 3) {
-						this.boost({spa: -1}, target, source, null, true);
+						alchemistBoost.spa = -1;
 					} else if (randStat2 < 4) {
-						this.boost({spd: -1}, target, source, null, true);
+						alchemistBoost.spd = -1;
 					} else {
-						this.boost({spe: -1}, target, source, null, true);
+						alchemistBoost.spe = -1;
 					}
+					this.boost(alchemistBoost, target, source, null, true);
 				} else if (r < 8) {
 					this.add('-ability', source, 'Alchemist');
 					let randStat1 = this.random(5);
@@ -700,28 +702,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
+					const alchemistBoost: SparseBoostsTable = {};
 					if (randStat1 < 1) {
-						this.boost({atk: 1}, target, source, null, true);
+						alchemistBoost.atk = 1;
 					} else if (randStat1 < 2) {
-						this.boost({def: 1}, target, source, null, true);
+						alchemistBoost.def = 1;
 					} else if (randStat1 < 3) {
-						this.boost({spa: 1}, target, source, null, true);
+						alchemistBoost.spa = 1;
 					} else if (randStat1 < 4) {
-						this.boost({spd: 1}, target, source, null, true);
+						alchemistBoost.spd = 1;
 					} else {
-						this.boost({spe: 1}, target, source, null, true);
+						alchemistBoost.spe = 1;
 					}
 					if (randStat2 < 1) {
-						this.boost({atk: -1}, target, source, null, true);
+						alchemistBoost.atk = -1;
 					} else if (randStat2 < 2) {
-						this.boost({def: -1}, target, source, null, true);
+						alchemistBoost.def = -1;
 					} else if (randStat2 < 3) {
-						this.boost({spa: -1}, target, source, null, true);
+						alchemistBoost.spa = -1;
 					} else if (randStat2 < 4) {
-						this.boost({spd: -1}, target, source, null, true);
+						alchemistBoost.spd = -1;
 					} else {
-						this.boost({spe: -1}, target, source, null, true);
+						alchemistBoost.spe = -1;
 					}
+					this.boost(alchemistBoost, target, source, null, true);
 				} else if (r < 9) {
 					this.add('-ability', source, 'Alchemist');
 					let randStat1 = this.random(5);
@@ -729,28 +733,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (randStat2 === randStat1) {
 						randStat2 = 4;
 					}
+					const alchemistBoost: SparseBoostsTable = {};
 					if (randStat1 < 1) {
-						this.boost({atk: 1}, target, source, null, true);
+						alchemistBoost.atk = 1;
 					} else if (randStat1 < 2) {
-						this.boost({def: 1}, target, source, null, true);
+						alchemistBoost.def = 1;
 					} else if (randStat1 < 3) {
-						this.boost({spa: 1}, target, source, null, true);
+						alchemistBoost.spa = 1;
 					} else if (randStat1 < 4) {
-						this.boost({spd: 1}, target, source, null, true);
+						alchemistBoost.spd = 1;
 					} else {
-						this.boost({spe: 1}, target, source, null, true);
+						alchemistBoost.spe = 1;
 					}
 					if (randStat2 < 1) {
-						this.boost({atk: 1}, target, source, null, true);
+						alchemistBoost.atk = 1;
 					} else if (randStat2 < 2) {
-						this.boost({def: 1}, target, source, null, true);
+						alchemistBoost.def = 1;
 					} else if (randStat2 < 3) {
-						this.boost({spa: 1}, target, source, null, true);
+						alchemistBoost.spa = 1;
 					} else if (randStat2 < 4) {
-						this.boost({spd: 1}, target, source, null, true);
+						alchemistBoost.spd = 1;
 					} else {
-						this.boost({spe: 1}, target, source, null, true);
+						alchemistBoost.spe = 1;
 					}
+					this.boost(alchemistBoost, target, source, null, true);
 				} else if (r < 10) {
 					this.add('-ability', source, 'Alchemist');
 					if (target.hp >= target.maxhp / 4) {
