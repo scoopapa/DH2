@@ -490,17 +490,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
 		onBoost(boost, target, source, effect) {
-			if (boost.atk && effect.id !== 'twominded') {
-				this.boost({spa: (boost.atk * -1)});
+			if (!boost || effect.id === 'twominded') return;
+			let activated = false;
+			const twoMindedBoost: SparseBoostsTable = {};
+			if (boost.spa) {
+				twoMindedBoost.atk = -1 * boost.spa;
+				activated = true;
 			}
-			if (boost.def && effect.id !== 'twominded') {
-				this.boost({spd: (boost.def * -1)});
+			if (boost.spd) {
+				twoMindedBoost.def = -1 * boost.spd;
+				activated = true;
 			}
-			if (boost.spa && effect.id !== 'twominded') {
-				this.boost({atk: (boost.spa * -1)});
+			if (boost.atk) {
+				twoMindedBoost.spa = -1 * boost.atk;
+				activated = true;
 			}
-			if (boost.spd && effect.id !== 'twominded') {
-				this.boost({def: (boost.spd * -1)});
+			if (boost.def) {
+				twoMindedBoost.spd = -1 * boost.def;
+				activated = true;
+			}
+			if (activated === true) {
+				this.add('-ability', target, 'Two-Minded');
+				this.boost(twoMindedBoost, target, target, null, true);
 			}
 		},
 		name: "Two-Minded",
