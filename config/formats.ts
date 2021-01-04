@@ -1779,7 +1779,7 @@ export const Formats: FormatList = [
 		mod: 'thefirstnewgen',
 	},
 	{
-		name: "[Gen 2] Prism",
+		name: "[Gen 5] Prism",
 		desc: "Under Construction",
 		mod: 'prism',
 		ruleset: ['Pokemon', 'Standard Prism', 'Evasion Abilities Clause'],
