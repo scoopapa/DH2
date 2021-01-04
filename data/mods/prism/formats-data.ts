@@ -1,7 +1,7 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	fambaco: {
 		randomBattleMoves: ["swordsdance", "shadowclaw", "machpunch", "highjumpkick"],
-        tier: "OU",
+        tier: "Uber",
 	},
 	phancero : {
 		tier: "OU",

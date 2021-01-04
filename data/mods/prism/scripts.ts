@@ -2,11 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen5',
 	gen: 5,
 	init: function () {
-		for (const id in this.dataCache.Pokedex) {
-            const tieringData = this.dataCache.FormatsData[id];
-            if (!tieringData) {
-                this.dataCache.FormatsData[id] = { tier: "Illegal"};
-			}
+		for (const id in this.dataCache.Formats['gen5prism'].banlist) {
+            this.dataCache.FormatsData[this.toID(id)] = { tier: "Illegal"};
 		}
 		for (let i in this.data.Pokedex) {
 			delete this.data.Pokedex[i].abilities['H'];
