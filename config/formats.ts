@@ -1345,7 +1345,7 @@ export const Formats: FormatList = [
 			'Heracross', 'Aipom', 'Ambipom', 'Litleo', 'Pyroar', 'Misdreavus', 'Mismagius', 'Druddigon', 'Lickitung', 'Lickilicky', 'Riolu', 'Lucario', 'Dratini', 'Dragonair',
 			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Lele', 'Tapu Bulu', 'Tapu Fini', 'Cosmog', 'Cosmoem', 'Nihilego', 'Stakataka', 'Blacephalon',
 			'Buzzwole', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Necrozma-Base', 'Magearna', 'Zeraora', 'Plubia', 'Snoxin', 'Komodond',
-			'Anglevolt', 'Thundigeist', 'Forsnaken', 'Clangorous Soul',
+			'Anglevolt', 'Thundigeist', 'Forsnaken', 'Clangorous Soul', 'Tapu Bulu-Kinolau', 'Tapu Lele-Kinolau', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau',
 		],
 		onSwitchIn(pokemon) {
 			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau'].includes(pokemon.species.id)) {
