@@ -650,8 +650,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Heal Block');
+			onStart(pokemon, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-start', pokemon, 'Heal Block', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'move: Heal Block');
+				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -668,8 +672,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 17,
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'move: Heal Block');
+			onEnd(pokemon, effect) {
+				if (effect?.effectType === 'Ability') {
+				this.add('-end', pokemon, 'Heal Block', '[silent]');
+				} else {
+					this.add('-end', pokemon, 'move: Heal Block');
+				}
 			},
 			onTryHeal(damage, target, source, effect) {
 				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
@@ -1729,5 +1737,53 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
+	},
+	curse: {
+		num: 174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Curse",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		volatileStatus: 'curse',
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!source.hasType('Ghost')) {
+				delete move.volatileStatus;
+				delete move.onHit;
+				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
+			} else if (move.volatileStatus && target.volatiles['curse']) {
+				return false;
+			}
+		},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-message', `${pokemon.name} was cursed!`);
+					this.add('-start', pokemon, 'Curse', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				}
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+		secondary: null,
+		target: "randomNormal",
+		nonGhostTarget: "self",
+		type: "Ghost",
+		zMove: {effect: 'curse'},
+		contestType: "Tough",
 	},
 }
