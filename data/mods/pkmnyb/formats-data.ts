@@ -129,19 +129,19 @@ synthinobimega: {
     randomBattleMoves: [],
     randomDoublesBattleMoves: [],
     requiredItem: "Synthinobite",
-    tier: "OU",
+    tier: "YB",
 },
 chemicandermega: {
     randomBattleMoves: [],
     randomDoublesBattleMoves: [],
     requiredItem: "Chemicite",
-    tier: "OU",
+    tier: "YB",
 },
 primadillomega: {
     randomBattleMoves: [],
     randomDoublesBattleMoves: [],
     requiredItem: "Primadillite",
-    tier: "OU",
+    tier: "YB",
 },
 meganiummega: {
     randomBattleMoves: [],
@@ -360,6 +360,9 @@ geareon: {
 		tier: "YB",
 },
 mytheon: {
+		tier: "YB",
+},
+arbborry: {
 		tier: "YB",
 },
 };
