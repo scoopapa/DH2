@@ -386,7 +386,7 @@ export class TeamValidator {
 
 		const setHas: {[k: string]: true} = {};
 
-		const allowEVs = dex.currentMod !== 'letsgo';
+		const allowEVs = dex.currentMod !== 'letsgo' || dex.currentMod !== 'prism';
 		const capEVs = dex.gen > 2 && (ruleTable.has('obtainablemisc') || dex.gen === 6);
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, allowEVs && !capEVs ? 252 : 0);
 		if (!set.ivs) set.ivs = TeamValidator.fillStats(null, 31);
