@@ -545,7 +545,7 @@ export const Learnsets = {
 		headbutt: ["8V", "4T", "3L18"],
 		heatcrash: ["8M"],
 		heavyslam: ["8M", "8L32", "8L50", "6L50", "5L52"],
-		hiddenpower: ["8M", "8V", "6M", "5M", "4M", "3M"],
+		hiddenpower: ["6M", "5M", "4M", "3M"],
 		highhorsepower: ["8M", "8L40", "8L58"],
 		hydropump: ["8M"],
 		hyperbeam: ["8M", "8M", "8V", "6M", "5M", "4M", "3M", "3L51"],
