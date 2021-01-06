@@ -118,4 +118,39 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		desc: "Holder's STAB attacks have 1.2x power.",
 	},
+	reliccharm: {
+		name: "Relic Charm",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette', this.effect, true);
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1006,
+		gen: 8,
+	},
+	redriotite: {
+		name: "Redriotite",
+		spritenum: 578,
+		megaStone: "Red Riot-Mega",
+		megaEvolves: "Red Riot",
+		itemUser: ["Red Riot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by Red Riot, this item allows him to Mega Evolve in battle.",
+	},
 };
