@@ -878,14 +878,18 @@ export const Formats: FormatList = [
 			}
 		},
 		onModifySpecies(species, target, source, effect) {
-			let stats = this.unownStats[ species.id ];
-			if (stats) {
-				return Object.assign({}, species, 
-					{baseStats: stats.baseStats},
-					{abilities: stats.abilities},
-					{types: stats.types},
-				);
-			} 
+			console.log(species);
+			console.log(this.unownStats);
+			if (this.unownStats) {
+				let stats = this.unownStats[ species.id ];
+				if (stats) {
+					return Object.assign({}, species, 
+						{baseStats: stats.baseStats},
+						{abilities: stats.abilities},
+						{types: stats.types},
+					);
+				}
+			}
 		}
 	},
 	{
@@ -1255,14 +1259,18 @@ export const Formats: FormatList = [
 			}
 		},
 		onModifySpecies(species, target, source, effect) {
-			let stats = this.unownStats[ species.id ];
-			if (stats) {
-				return Object.assign({}, species, 
-					{baseStats: stats.baseStats},
-					{abilities: stats.abilities},
-					{types: stats.types},
-				);
-			} 
+			console.log(species);
+			console.log(this.unownStats);
+			if (this.unownStats) {
+				let stats = this.unownStats[ species.id ];
+				if (stats) {
+					return Object.assign({}, species, 
+						{baseStats: stats.baseStats},
+						{abilities: stats.abilities},
+						{types: stats.types},
+					);
+				}
+			}
 		},
 		mod: 'smashmodsmelee',
 	},
