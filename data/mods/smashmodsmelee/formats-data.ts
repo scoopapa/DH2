@@ -83,4 +83,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hypnihil: {
 		tier: "Melee",
 	},
+	vespiquen: {
+		tier: "Melee",
+	},
+	plubia: {
+		tier: "Melee",
+	},
+	phione: {
+		tier: "Melee",
+	},
+	cradon: {
+		tier: "Melee",
+	},
+	ares: {
+		tier: "Melee",
+	},
+	slowbro: {
+		tier: "Melee",
+	},
+	appletun: {
+		tier: "Melee",
+	},
+	altariaunova: {
+		tier: "Melee",
+	},
+	altariaunovamega: {
+		tier: "Melee",
+	},
+	redriot: {
+		tier: "Melee",
+	},
+	redriotmega: {
+		tier: "Melee",
+	},
+	meloetta: {
+		tier: "Melee",
+	},
+	meloettapirouette: {
+		tier: "Melee",
+	},
 };
