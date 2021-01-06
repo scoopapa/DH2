@@ -276,4 +276,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 68,
 	},
+	damp: {
+		shortDesc: "On switch-in, Fire- and Electric-type attacks have 1/3 power for 5 turns.",
+		onStart(source) {
+			this.field.addPseudoWeather('watersport');
+			this.field.addPseudoWeather('mudsport');
+		},
+		name: "Damp",
+		rating: 3.5,
+		num: 6,
+	},
 };
