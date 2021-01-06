@@ -40,7 +40,7 @@ export class RandomTeams {
 
 	getTeam(options?: PlayerOptions | null): PokemonSet[] {
 		const generatorName = typeof this.format.team === 'string' && this.format.team.startsWith('random') ? this.format.team + 'Team' : '';
-		// @ts-ignore
+		// @ts-ignore 
 		return this[generatorName || 'randomTeam'](options);
 	}
 
@@ -1584,6 +1584,8 @@ export class RandomTeams {
 					}
 
 					// Limit one of any type combination, two in Monotype
+					if (typeCount['Ice'] >= 3 && typeName === 'Ice') continue; 
+					else if (typeCount['Ice'] === 0 && pokemon.length === 5) continue;
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
 				}
 
