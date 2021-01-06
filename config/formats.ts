@@ -512,7 +512,7 @@ export const Formats: FormatList = [
 		ruleset: [ 'Species Clause', 'Moody Clause', 'Baton Pass Clause', 
 					'Evasion Moves Clause', 'OHKO Clause', 'Swagger Clause', 'Endless Battle Clause', 
 					'Team Preview', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod', 'Standard GBU',
-					'Standard Natdex'],
+					'Standard NatDex'],
 		banlist: ['Unreleased', ],
 		mod: "benchabilities",
 		maxForcedLevel: 50,
@@ -646,7 +646,7 @@ export const Formats: FormatList = [
 		      ],
   		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 
-					'Baton Pass Clause', 'Standard Natdex'],
+					'Baton Pass Clause', 'Standard NatDex'],
 		mod: 'breedingvariants',
 		onSwitchIn: function (pokemon) {
             this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
@@ -709,7 +709,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
-					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard Natdex', 'Dynamax Clause'],
+					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arceus', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega',
 			'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
 			'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa',
@@ -733,7 +733,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
-					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard Natdex', 'Dynamax Clause'],
+					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arceus', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega',
 			'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
 			'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa',
@@ -758,7 +758,7 @@ export const Formats: FormatList = [
 		      "&bullet; <a href=https://www.smogon.com/forums/threads/crossover-chaos-expanded-side-project.3647108/>Crossover Chaos</a>"],
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard Natdex'],
+					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex'],
 		banlist: [],
 		mod: 'crossoverchaos',
 		teambuilderFormat: 'Ubers',
@@ -769,7 +769,7 @@ export const Formats: FormatList = [
 		desc: [
 				"&bullet; <a href=https://www.smogon.com/forums/threads/crossover-chaos-v2.3636780/>Crossover Chaos</a>",
 		      "&bullet; <a href=https://www.smogon.com/forums/threads/crossover-chaos-expanded-side-project.3647108/>Crossover Chaos</a>"],
-		ruleset: ['Standard Natdex'],
+		ruleset: ['Standard NatDex'],
 		banlist: [],
 		mod: 'crossoverchaos',
 	}, 
@@ -829,7 +829,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] PokeClasses",
 		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/gen-8-pokeclasses-playtesting-phase-1.3657264//>PokeClasses</a>"],
-		ruleset: ['Standard Natdex', 'PokeSkills Move Legality'],
+		ruleset: ['Standard NatDex', 'PokeSkills Move Legality'],
 		banlist: [],
 		mod: 'pokeclasses',
 		onBegin() {
