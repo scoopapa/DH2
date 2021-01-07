@@ -128,6 +128,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gengar: {
 		tier: "Melee",
 	},
+	gengarmegay: {
+		tier: "Uber",
+	},
 	gengarmegax: {
 		tier: "Melee",
 	},
