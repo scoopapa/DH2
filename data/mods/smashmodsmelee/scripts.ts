@@ -105,4 +105,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'rapidashgalar').learnset.knockoff = ['7L1'];
 		this.modData('Learnsets', 'rapidashgalar').learnset.uturn = ['7L1'];
 	},
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Altarianite" && pokemon.baseSpecies.name === "Altaria-Unova") {
+			return "Altaria-Unova-Mega";
+		}
+		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+			return null;
+		}
+		return item.megaStone;
+	},
 };
