@@ -193,9 +193,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('-message', `${pokemon.name} has an Augmented Lens!`);
 			}
 		},
-		onModifyMove(source, target, move) {
+		onSourceModifyAccuracyPriority: 3,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
 			if (!move.ohko && move.category !== 'Status') {
-				move.accuracy = true;
+				return true;
 			}
 		},
 		onSourceHit(target, source) {
