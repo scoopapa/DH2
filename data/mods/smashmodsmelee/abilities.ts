@@ -307,6 +307,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1010,
 	},
+	thunderstorm: {
+		shortDesc: "Summons Rain Dance on switch-in. If the target of a foe's move, the move loses one additional PP.",
+		onStart(source) {
+			this.field.setWeather('raindance');
+			this.add('-message', `${source.name} is exerting its pressure!`);
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		name: "Thunderstorm",
+		rating: 4.5,
+		num: -1011,
+	},
 	runaway: {
 		desc: "This Pokémon immediately switches out to a chosen ally whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "This Pokémon switches out if the foe has a supereffective or OHKO move.",
