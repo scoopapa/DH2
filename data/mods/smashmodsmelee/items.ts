@@ -153,4 +153,58 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by Red Riot, this item allows him to Mega Evolve in battle.",
 	},
+	gengaritex: {
+		name: "Gengarite X",
+		spritenum: 578,
+		megaStone: "Gengar-Mega-X",
+		megaEvolves: "Gengar",
+		itemUser: ["Gengar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1008,
+		gen: 8,
+		desc: "If held by a Gengar, this item allows it to Mega Evolve in battle.",
+	},
+	// no idea if Megamax did this too but I'm not having "Mega Gengar X" and just "Mega Gengar"
+	gengaritey: {
+		name: "Gengarite Y",
+		spritenum: 588,
+		megaStone: "Gengar-Mega-Y",
+		megaEvolves: "Gengar",
+		itemUser: ["Gengar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 656,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	augmentedlens: {
+		name: "Augmented Lens",
+		spritenum: 537,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive) {
+				this.add('-message', `${pokemon.name} has an Augmented Lens!`);
+			}
+		},
+		onModifyMove(source, target, move) {
+			if (!move.ohko && move.category !== 'Status') {
+				move.accuracy = true;
+			}
+		},
+		onSourceHit(target, source) {
+			let move: Move | ActiveMove | null = source.lastMove;
+			if (!move || move.isZ || move.ohko || move.category === 'Status') return;
+			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+			source.deductPP(move.id, 1);
+		},
+		num: -1009,
+		gen: 8,
+	},
 };
