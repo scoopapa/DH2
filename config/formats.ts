@@ -1232,6 +1232,7 @@ export const Formats: FormatList = [
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+		banlist: ['Gengarite', 'Gengarite Y', 'Slowbronite'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -1261,6 +1262,12 @@ export const Formats: FormatList = [
 		onChangeSet(set) {
 			if (set.species === 'Unown') {
 				set.forme = 'Unown-M';
+				// why does this not do *anything*
+				// please
+				// whoever hard-coded Unown like this
+				// undo it
+				// I'm begging you
+				// you make me so sad do you understand
 			}
 		},
 		mod: 'smashmodsmelee',
