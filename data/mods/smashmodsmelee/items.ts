@@ -123,7 +123,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 390,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
-				pokemon.formeChange('Meloetta-Pirouette', this.effect, true);
+				pokemon.formeChange('Meloetta-Pirouette');
 			}
 		},
 		onBasePower(basePower, user, target, move) {
