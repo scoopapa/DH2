@@ -140,7 +140,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	falinks: {
 		tier: "Melee",
 	},
-	rapidash: {
+	rapidashgalar: {
 		tier: "Melee",
 	},
 };
