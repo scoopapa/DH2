@@ -122,4 +122,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meloettapirouette: {
 		tier: "Melee",
 	},
+	mamoswine: {
+		tier: "Melee",
+	},
+	gengar: {
+		tier: "Melee",
+	},
+	gengarmegax: {
+		tier: "Melee",
+	},
+	drapion: {
+		tier: "Melee",
+	},
+	alcremie: {
+		tier: "Melee",
+	},
+	falinks: {
+		tier: "Melee",
+	},
+	rapidash: {
+		tier: "Melee",
+	},
 };
