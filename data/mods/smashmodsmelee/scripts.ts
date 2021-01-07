@@ -59,5 +59,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'roseradescarfed').learnset.quiverdance = ['7L1'];
 		this.modData('Learnsets', 'roseradescarfed').learnset.stickyweb = ['7L1'];
 		this.modData('Learnsets', 'roseradescarfed').learnset.uturn = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.earthquake = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.suckerpunch = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.cleansinglight = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.hydropump = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.psychic = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.healbell = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.roar = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.willowisp = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.calmmind = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.dragontail = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.earthquake = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.flamethrower = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.sludgebomb = ['7L1'];
 	},
 };
