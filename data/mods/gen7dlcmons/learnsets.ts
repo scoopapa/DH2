@@ -745,8 +745,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wrap: ["7L1", "7L7"],
 		},
 	},
-	chindle:{
-		learnset:{
+	chindle: {
+		learnset: {
 			acrobatics: ["7M"],
 			aerialace: ["7M"],
 			agility: ["7L35"],
@@ -844,8 +844,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	chaldera:{
-		learnset:{
+	chaldera: {
+		learnset: {
 			acrobatics: ["7M"],
 			aerialace: ["7M"],
 			agility: ["7L34"],
@@ -946,8 +946,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenHeadbutt: ["7T"],
 		},
 	},
-	flarenix:{
-		learnset:{
+	flarenix: {
+		learnset: {
 			acrobatics: ["7M"],
 			aerialace: ["7M"],
 			agility: ["7L43"],
@@ -1051,8 +1051,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	firmlio:{
-		learnset:{
+	firmlio: {
+		learnset: {
 			aerialace: ["7M"],
 			attract: ["7M"],
 			beatup: ["7L17"],
@@ -1116,8 +1116,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	irotyke:{
-		learnset:{
+	irotyke: {
+		learnset: {
 			aerialace: ["7M"],
 			attract: ["7M"],
 			beatup: ["7L14"],
@@ -1193,8 +1193,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	coyotalloy:{
-		learnset:{
+	coyotalloy: {
+		learnset: {
 			aerialace: ["7M"],
 			attract: ["7M"],
 			beatup: ["7L14"],
@@ -1276,8 +1276,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	tikilohi:{
-		learnset:{
+	tikilohi: {
+		learnset: {
 			allyswitch: ["7T"],
 			attract: ["7M"], // surprising! the only reason I didn't input this as genderless
 			calmmind: ["7M"],
