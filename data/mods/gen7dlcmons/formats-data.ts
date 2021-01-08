@@ -29,4 +29,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	forsnaken: {
 		tier: "OU",
 	},
+	chindle: {
+		tier: "LC",
+	},
+	chaldera: {
+		tier: "NFE",
+	},
+	flarenix: {
+		tier: "OU",
+	},
+	firmlio: {
+		tier: "LC",
+	},
+	irotyke: {
+		tier: "NFE",
+	},
+	coyotalloy: {
+		tier: "OU",
+	},
+	tikilohi: {
+		tier: "OU",
+	},
 };
