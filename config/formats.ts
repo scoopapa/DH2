@@ -1419,12 +1419,12 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Break This Team",
-		ruleset: ['Standard', 'Dynamax Clause', 'Type Display Mod'],
+		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 		mod: "breakthisteam", 
 		teambuilderFormat: "OU", 	
 		onSwitchIn(pokemon) {
-			if (pokemon.tier === "BTT") {
+			if (pokemon.species.tier === "BTT") {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			}
 		},		
