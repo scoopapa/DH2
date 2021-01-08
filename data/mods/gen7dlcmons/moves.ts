@@ -4,6 +4,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 		gen: 7,
 	},
+	tarshot: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 7,
+	},
 	infection: {
 		num: -1001,
 		accuracy: 90,
