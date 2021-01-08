@@ -1232,6 +1232,7 @@ export const Formats: FormatList = [
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+		banlist: ['Gengarite', 'Gengarite Y', 'Slowbronite'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -1258,18 +1259,15 @@ export const Formats: FormatList = [
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
 		},
-		onModifySpecies(species, target, source, effect) {
-			console.log(species);
-			console.log(this.unownStats);
-			if (this.unownStats) {
-				let stats = this.unownStats[ species.id ];
-				if (stats) {
-					return Object.assign({}, species, 
-						{baseStats: stats.baseStats},
-						{abilities: stats.abilities},
-						{types: stats.types},
-					);
-				}
+		onChangeSet(set) {
+			if (set.species === 'Unown') {
+				set.forme = 'Unown-M';
+				// why does this not do *anything*
+				// please
+				// whoever hard-coded Unown like this
+				// undo it
+				// I'm begging you
+				// you make me so sad do you understand
 			}
 		},
 		mod: 'smashmodsmelee',

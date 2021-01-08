@@ -2186,6 +2186,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 		name: "Shield Slam",
 		pp: 10,
 		priority: 0,
@@ -2198,5 +2199,93 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+	},
+	shieldbash: { // pfff
+		num: -1011,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
+		name: "Shield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Behemoth Bash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	cleansinglight: {
+		num: -1012,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cleansing Light",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, snatch: 1, distance: 1, authentic: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onHit(pokemon, source) {
+			this.add('-activate', source, 'move: Cleansing Light');
+			const side = pokemon.side;
+			let success = false;
+			for (const ally of side.pokemon) {
+				if (ally === source) {
+					if (this.heal(ally.baseMaxhp)) success = true;
+				}
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tail Glow", target);
+		},
+		secondary: null,
+		target: "allyTeam",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	redgauntlet: {
+		num: -1013,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Red Gauntlet",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Rock')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power-Up Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
 	},
 };
