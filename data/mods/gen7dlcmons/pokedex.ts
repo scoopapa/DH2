@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 15.7,
 		color: "Grey",
 		prevo: "Firmlio",
-		evoLevel: 18, // also a random guess
+		evoLevel: 25,
 		evos: ["Coyotalloy"],
 		eggGroups: ["Field", "Human-Like"],
 	},
@@ -226,7 +226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 20,
 		color: "Grey",
 		prevo: "Irotyke",
-		evoLevel: 30, // actually this one I could narrow down pretty well - must be 27, 28, 29 or 30
+		evoLevel: 45,
 		eggGroups: ["Field", "Human-Like"],
 	},
 	tikilohi: {
