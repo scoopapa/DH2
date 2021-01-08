@@ -230,8 +230,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			move.allies = pokemon.side.pokemon.filter(ally => ally.fainted);
-			if (move.allies.length) {
+			if (move.allies.length > 1) {
 				this.add('-message', `${move.allies.length} souls are helping ${pokemon.name}!`);
+			} else if (move.allies.length) {
+				this.add('-message', `A soul is helping ${pokemon.name}!`);
 			} else {
 				this.add('-message', `There are no souls to help ${pokemon.name}!`);
 			}
