@@ -1,32 +1,32 @@
 export const FormatsData: {[k: string]: ModdedFormatsData} = {
 	regolord: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	arboulder: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	nectrance: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	batravolt: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	oakanda: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	amphen: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	inscuba: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	flarisp: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	vaquerpo: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 	ufony: {
-		tier: "BTT", 
+		tier: "OU", 
 	}, 
 };
