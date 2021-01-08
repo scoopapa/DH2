@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	gen: 7,
+	inherit: 'gen7',
 	init: function () {
 		for (const id in this.dataCache.Pokedex) {
 			let unbanlist = this.dataCache.Formats['gen7dlcmons'].unbanlist;

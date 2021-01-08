@@ -1351,12 +1351,13 @@ export const Formats: FormatList = [
 			'Snubbull', 'Granbull', 'Shellos', 'Gastrodon', 'Relicanth', 'Dhelmise', 'Carvanha', 'Sharpedo', 'Skrelp', 'Dragalge', 'Clauncher', 'Clawitzer', 'Wailmer', 'Wailord',
 			'Lapras', 'Tropius', 'Exeggcute', 'Exeggutor', 'Corphish', 'Crawdaunt', 'Mienfoo', 'Mienshao', 'Jangmo-o', 'Hakamo-o', 'Kommo-o', 'Emolga', 'Scyther', 'Scizor',
 			'Heracross', 'Aipom', 'Ambipom', 'Litleo', 'Pyroar', 'Misdreavus', 'Mismagius', 'Druddigon', 'Lickitung', 'Lickilicky', 'Riolu', 'Lucario', 'Dratini', 'Dragonair',
-			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Lele', 'Tapu Bulu', 'Tapu Fini', 'Cosmog', 'Cosmoem', 'Nihilego', 'Stakataka', 'Blacephalon',
-			'Buzzwole', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Necrozma-Base', 'Magearna', 'Zeraora', 'Plubia', 'Snoxin', 'Komodond',
-			'Anglevolt', 'Thundigeist', 'Forsnaken', 'Clangorous Soul', 'Tapu Bulu-Kinolau', 'Tapu Lele-Kinolau', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau',
+			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Koko-Kinolau', 'Tapu Lele', 'Tapu Lele-Kinolau', 'Tapu Bulu', 'Tapu Bulu-Kinolau', 'Tapu Fini', 'Tapu Fini-Kinolau',
+			'Cosmog', 'Cosmoem', 'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Necrozma-Base', 'Magearna', 'Zeraora',
+			'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
+			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
 		],
 		onSwitchIn(pokemon) {
-			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau'].includes(pokemon.species.id)) {
+			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			}
 		},
@@ -1399,11 +1400,12 @@ export const Formats: FormatList = [
 			'Snubbull', 'Granbull', 'Shellos', 'Gastrodon', 'Relicanth', 'Dhelmise', 'Carvanha', 'Sharpedo', 'Skrelp', 'Dragalge', 'Clauncher', 'Clawitzer', 'Wailmer', 'Wailord',
 			'Lapras', 'Tropius', 'Exeggcute', 'Exeggutor', 'Corphish', 'Crawdaunt', 'Mienfoo', 'Mienshao', 'Jangmo-o', 'Hakamo-o', 'Kommo-o', 'Emolga', 'Scyther', 'Scizor',
 			'Heracross', 'Aipom', 'Ambipom', 'Litleo', 'Pyroar', 'Misdreavus', 'Mismagius', 'Druddigon', 'Lickitung', 'Lickilicky', 'Riolu', 'Lucario', 'Dratini', 'Dragonair',
-			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Lele', 'Tapu Bulu', 'Tapu Fini', 'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Pheromosa', 'Xurkitree',
-			'Celesteela', 'Kartana', 'Guzzlord', 'Tapu Bulu-Kinolau', 'Tapu Lele-Kinolau', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken', 'Clangorous Soul',
+			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Koko-Kinolau', 'Tapu Lele', 'Tapu Lele-Kinolau', 'Tapu Bulu', 'Tapu Bulu-Kinolau', 'Tapu Fini', 'Tapu Fini-Kinolau',
+			'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Pheromosa', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
+			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
 		],
 		onSwitchIn(pokemon) {
-			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau'].includes(pokemon.species.id)) {
+			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			}
 		},
