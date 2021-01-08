@@ -1417,6 +1417,13 @@ export const Formats: FormatList = [
 		minSourceGen: 7,
 		mod: 'gen7dlcmons',
 	},
+	{
+		name: "[Gen 8] Break This Team",
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		mod: "breakthisteam", 
+		teambuilderFormat: "OU", 		
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
