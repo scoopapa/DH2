@@ -2253,7 +2253,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Geomancy", target);
+			this.add('-anim', source, "Tail Glow", target);
 		},
 		secondary: null,
 		target: "allyTeam",
