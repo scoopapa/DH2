@@ -1419,10 +1419,15 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Break This Team",
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Type Display Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 		mod: "breakthisteam", 
-		teambuilderFormat: "OU", 		
+		teambuilderFormat: "OU", 	
+		onSwitchIn(pokemon) {
+			if (pokemon.tier === "BTT") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},		
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
