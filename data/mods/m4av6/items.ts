@@ -766,7 +766,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Mimikyu",
 		itemUser: ["Mimikyu"],
 		onTakeItem(item, source) {
-			const pokemon = this.effectData.target;
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
@@ -1121,7 +1120,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Air Balloon');
 			target.item = '';
-			target.lostItemForDelibird = 'airballoon';
+			(target as any).lostItemForDelibird = this.dex.getItem('airballoon');
 			target.itemData = {id: '', target};
 			this.runEvent('AfterUseItem', target, null, null, this.dex.getItem('airballoon'));
 		},
@@ -1194,4 +1193,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lurantis, this item allows it to Mega Evolve in battle.",
 	},
-}
+};
