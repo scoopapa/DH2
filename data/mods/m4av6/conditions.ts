@@ -14,9 +14,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBasePowerPriority: 6,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Poison' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('downtoearth')) {
+						this.add('-message', `${active.name} suppresses the effects of the terrain!`);
 						return;
 					}
 				}
