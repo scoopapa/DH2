@@ -149,7 +149,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// 5 -----------------
 	curchyspeed: {
-		fusion: ['Pincurchin', 'Deoxys-Speed'],
+		fusion: ['Pincurchin', 'Deoxys'],
 		num: 15.5,
 		name: "Curchys-Peed",
 		types: ["Electric", "Psychic"],

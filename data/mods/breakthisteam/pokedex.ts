@@ -5,7 +5,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 50, atk: 70, def: 180, spa: 95, spd: 110, spe: 65},
 		abilities: {0: "Shield Dust", 1: "Sand Veil", H: "Sand Force"},
-		weightkg: 65.5, //sandaconda
+		weightkg: 15.5, 
 	}, 
 	arboulder: {
 		num: 9.02,
@@ -21,7 +21,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 80, atk: 60, def: 80, spa: 100, spd: 110, spe: 60},
 		abilities: {0: "Gooey", 1: "Rough Skin", H: "Harvest"},
-		weightkg: 21.2, //tapu fini
+		weightkg: 13.0,
 	}, 
 	batravolt: {
 		num: 9.04,
@@ -29,7 +29,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 70, atk: 50, def: 65, spa: 121, spd: 99, spe: 110},
 		abilities: {0: "Levitate"},
-		weightkg: 75.0, //crobat
+		weightkg: 36.0,
 	}, 
 	oakanda: {
 		num: 9.05,
@@ -53,7 +53,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Bug"],
 		baseStats: {hp: 110, atk: 80, def: 80, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Water Veil", H: "Magic Bounce"},
-		weightkg: 9.9, //metapod
+		weightkg: 29.9,
 	}, 
 	flarisp: {
 		num: 9.08,
@@ -61,7 +61,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 95, atk: 70, def: 95, spa: 70, spd: 95, spe: 65},
 		abilities: {0: "Flame Body", 1: "Illuminate", H: "Shield Dust"},
-		weightkg: 13.0, //lampent
+		weightkg: 1.0,
 	}, 
 	vaquerpo: {
 		num: 9.09,
@@ -69,7 +69,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 76, atk: 117, def: 99, spa: 84, spd: 63, spe: 41},
 		abilities: {0: "Quick Draw", 1: "Technician", H: "Cursed Body"},
-		weightkg: 77.4, //cacturne
+		weightkg: 50.4,
 	}, 
 	ufony: {
 		num: 9.10,
@@ -77,6 +77,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 70, atk: 50, def: 110, spa: 95, spd: 115, spe: 60},
 		abilities: {0: "Levitate"},
-		weightkg: 34.5, //beheeyem
+		weightkg: 38.5,
 	}, 
 }; 
