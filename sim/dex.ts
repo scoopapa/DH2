@@ -1013,7 +1013,6 @@ export class ModdedDex {
 			throw new Error(`More than one thing matches "${rule}"; please specify one of: ` + matches.join(', '));
 		}
 		if (matches.length < 1) {
-			console.log( table );
 			throw new Error(`Nothing matches "${rule}"`);
 		}
 		return matches[0];
