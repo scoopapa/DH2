@@ -464,7 +464,7 @@ export const Formats: FormatList = [
 				lcuber: 40,
 				lc: 40,
 			};
-			const tier = toID(species.tier) || 'ou';
+			const tier = this.toID(species.tier) || 'ou';
 			if (!(tier in boosts)) return;
 			const pokemon: Species = this.dex.deepClone(species);
 			const boost = boosts[tier];
@@ -528,7 +528,7 @@ export const Formats: FormatList = [
 				let benchAbility = ''
 				let template = pokemon.template
 				if (template.abilities.S){
-					benchAbility = toID(template.abilities.S);
+					benchAbility = this.toID(template.abilities.S);
 				}
 				let battle = pokemon.battle;
 				if ( !battle.benchPokemon ) {
@@ -538,7 +538,7 @@ export const Formats: FormatList = [
 					{ 
 						let battle = side.battle
 						let allyBench = battle.benchPokemon[ side.id ]
-						ability = toID( ability )
+						ability = this.toID( ability )
 						for (let i = 0; i < 6; i++ ) {
 							let pkmnInfo = allyBench[ i ];
 							if ( pkmnInfo && pkmnInfo.ability === ability ) {
@@ -667,7 +667,7 @@ export const Formats: FormatList = [
 					'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Chatter', 'Comatose + Sleep Talk',
 					'Libero', 'Neutralizing Gas', 'Gorilla Tactics', 'Contrary'],
 		onChangeSet(set) {
-			const item = toID(set.item);
+			const item = this.toID(set.item);
 			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
 				if (item === 'rustedsword') {
 					set.species = 'Zacian-Crowned';
@@ -929,7 +929,7 @@ export const Formats: FormatList = [
 				csm: 25,
 				cs1: 20,
 			};
-			const tier = toID(species.tier) || 'ou';
+			const tier = this.toID(species.tier) || 'ou';
 			if (!(tier in boosts)) return;
 			const pokemon: Species = this.dex.deepClone(species);
 			const boost = boosts[tier];
@@ -2047,12 +2047,12 @@ export const Formats: FormatList = [
 			'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard',
 		],
 		onValidateSet(set) {
-			if (set.species === 'Zacian-Crowned' && (toID(set.item) !== 'rustedsword' || toID(set.ability) !== 'intrepidsword')) {
+			if (set.species === 'Zacian-Crowned' && (this.toID(set.item) !== 'rustedsword' || this.this.toID(set.ability) !== 'intrepidsword')) {
 				return [set.species + " is banned."];
 			}
 		},
 		onChangeSet(set) {
-			const item = toID(set.item);
+			const item = this.toID(set.item);
 			if (set.species === 'Zacian' && item === 'rustedsword') {
 				set.species = 'Zacian-Crowned';
 				set.ability = 'Intrepid Sword';
@@ -2253,7 +2253,7 @@ export const Formats: FormatList = [
 			if (!format.getSharedPower) format = this.dex.getFormat('gen8sharedpower');
 			for (const ability of format.getSharedPower!(pokemon)) {
 				const effect = 'ability:' + ability;
-				pokemon.volatiles[effect] = {id: toID(effect), target: pokemon};
+				pokemon.volatiles[effect] = {id: this.toID(effect), target: pokemon};
 			}
 		},
 		onSwitchInPriority: 2,
@@ -2282,7 +2282,7 @@ export const Formats: FormatList = [
 			hasAbility(ability) {
 				if (this.ignoringAbility()) return false;
 				if (Array.isArray(ability)) return ability.some(abil => this.hasAbility(abil));
-				const abilityid = toID(ability);
+				const abilityid = this.toID(ability);
 				return this.ability === abilityid || !!this.volatiles['ability:' + abilityid];
 			},
 		},
@@ -2539,7 +2539,7 @@ export const Formats: FormatList = [
 		},
 		onSwitchInPriority: 100,
 		onSwitchIn(pokemon) {
-			let name: string = toID(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
+			let name: string = this.toID(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
 			if (this.dex.getSpecies(name).exists || name === 'rage') {
 				// Certain pokemon have volatiles named after their id
 				// To prevent overwriting those, and to prevent accidentaly leaking
