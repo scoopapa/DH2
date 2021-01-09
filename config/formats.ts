@@ -1919,6 +1919,119 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 8] Balanced Fusions",
+		desc: "By naming your Pok&eacute;mon after another Pok&eacute;mon it gains their first Ability as an additional ability, their stats are averaged and its secondary type is taken from their primary or secondary type depending on whether it is shiny.",
+ 
+		mod: 'balancedfusions',
+		ruleset: ['[Gen 8] National Dex'],
+		banlist: ['Shedinja', 'Swoobat', 'Assist', 'Huge Power', 'Pure Power'],
+		onValidateTeam(team) {
+			const nameTable: {[k: string]: boolean} = {};
+			for (const {name} of team) {
+				if (name) {
+					if (nameTable[name.split("/")[0]]) {
+						return ["Your Pokémon must have different nicknames.", "(You have more than one " + name.split("/")[0] + ")"];
+					}
+					nameTable[name.split("/")[0]] = true;
+				}
+			}
+		},
+		checkLearnset(move, template, lsetData, set) {
+			set.species = set.realSpecies.name;
+			let realTemplate = set.realSpecies;
+			let realSpecies = this.checkLearnset(move, realTemplate, lsetData, set);
+			set.species = set.fuseTemplate.name;
+			let fuseTemplate = set.fuseTemplate;
+			let fuseSpecies = this.checkLearnset(move, fuseTemplate, lsetData, set);
+			if (fuseSpecies === null && realSpecies !== null) {
+				let moveCount = 0;
+				for (let moveKey in set.moves) {
+					let moveCheck = set.moves[moveKey];
+					if (this.checkLearnset(moveCheck, fuseTemplate, lsetData, set) === null && this.checkLearnset(moveCheck, realTemplate, lsetData, set) !== null) moveCount++;
+					if (moveCount > 1) return ' has more than one fusion move.';
+				}
+			}
+			if (realSpecies !== null && fuseSpecies !== null) return realSpecies;
+			set.species = set.realSpecies.name;
+			return null;
+		},
+		validateSet(set, teamHas) {
+			set.realSpecies = this.dex.getSpecies(set.species);
+			const fuseTemplate = this.dex.getSpecies(set.name.split("/")[0]);
+			if (!fuseTemplate.exists || fuseTemplate.battleOnly || fuseTemplate.isNonstandard) return this.validateSet(set, teamHas);
+			const fuseSet = Object.assign({}, set);
+			fuseSet.fuseTemplate = fuseTemplate;
+			fuseSet.species = fuseTemplate.name;
+			fuseSet.item = '';
+			fuseSet.ability = fuseTemplate.abilities['0'];
+			let problems = this.validateSet(fuseSet);
+			if (problems) {
+				fuseSet.shiny = !fuseSet.shiny;
+				problems = this.validateSet(fuseSet);
+			}
+			if (problems) return problems;
+			set.fuseTemplate = fuseTemplate;
+			set.shiny = !set.shiny;
+			problems = this.validateSet(set);
+			if (!problems) this.validateSet(set, teamHas);
+			set.shiny = !set.shiny;
+			if (problems) problems = this.validateSet(set, teamHas);
+			return problems;
+		},
+		onModifySpecies(template, target, format, effect) {
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			if (target.set.name.split("/")[0] === (template.battleOnly ? template.baseSpecies : template.name)) return;
+			const fuseTemplate = this.dex.getSpecies(target.set.name.split("/")[0]);
+			if (!fuseTemplate.exists) return;
+			const mixedTemplate = this.dex.deepClone(template);
+			mixedTemplate.heightm = Math.round((template.heightm + fuseTemplate.heightm) * 5) / 10;
+			mixedTemplate.weighthg = Math.round((template.weighthg + fuseTemplate.weighthg) / 2);
+			let statid: StatName;
+			const BattleStatNames = {
+				hp: 'HP',
+				atk: 'Atk',
+				def: 'Def',
+				spa: 'SpA',
+				spd: 'SpD',
+				spe: 'Spe',
+			}
+			for (statid in template.baseStats) {
+				if (target.set.name.split("/")[1] === BattleStatNames[statid]) mixedTemplate.baseStats[statid] = template.baseStats[statid] + fuseTemplate.baseStats[statid] >> 1;
+			}
+ 
+			mixedTemplate.types = [template.types[0]];
+			const fuseType = target.set.shiny && fuseTemplate.types[1] || fuseTemplate.types[0];
+			if (fuseType !== template.types[0]) mixedTemplate.types.push(fuseType);
+			const ability = target.set.ability || Object.keys(template.abilities).length > 1 ? target.set.ability : template.abilities[0];
+			if (fuseTemplate.abilities[0] !== ability) mixedTemplate.innate = this.toID(fuseTemplate.abilities[0]);
+			console.log(mixedTemplate);
+			return mixedTemplate;
+		},
+		onBegin() {
+			const allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (const pokemon of allPokemon) {
+				pokemon.m.innate = pokemon.species.innate;
+			}
+		},
+		onBeforeSwitchIn(pokemon) {
+			if (pokemon.m.innate) {
+				const effect = 'ability:' + pokemon.m.innate;
+				pokemon.volatiles[effect] = {id: effect, target: pokemon};
+			}
+		},
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
+			if (pokemon.m.innate) {
+				const effect = 'ability:' + pokemon.m.innate;
+				delete pokemon.volatiles[effect];
+				pokemon.addVolatile(effect);
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.m.innate) pokemon.removeVolatile('ability:' + pokemon.m.innate);
+		},
+	},
+	{
 		name: "[Gen 8] Balanced Hackmons",
 		desc: `Anything that can be hacked in-game and is usable in local battles is allowed.`,
 		threads: [
