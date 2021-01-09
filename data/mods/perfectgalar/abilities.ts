@@ -1,5 +1,5 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	"screencleaner": {
+	screencleaner: {
 		desc: "On switch-in, this Pokémon ends the effects of screens, hazards, and terrain for both the user's and the opposing side.",
 		shortDesc: "Removes screens, hazards, and terrain on switch-in.",
 		onStart(pokemon) {
@@ -27,7 +27,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 251,
 	},
-	"gorillatactics": {
+	gorillatactics: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
 			// PLACEHOLDER
@@ -60,6 +60,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 261,
 	},
 	lightmetal: {
+		shortDesc: "Reduces damage from contact moves 25%.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.flags['contact']) return this.chainModify(0.75);
 		},
@@ -67,7 +68,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 135,
 	},
-	transistor: {
+	transistor: 
+		shortDesc: "Electric moves: 30% stronger, make contact",
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Electric') {
@@ -82,6 +84,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 262,
 	},
 	dragonsmaw: {
+		shortDesc: "Removes screens, hazards, and terrain on switch-in.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Dragon') {
@@ -96,6 +99,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 263,
 	},
 	slowstart: {
+		shortDesc: "Atk, Spe halved for 5 turns. Ally regis reduce turns.",
 		onStart(pokemon) {
 			if ( !pokemon.slowStartInit ) {
 				pokemon.slowStartInit = true;
@@ -139,6 +143,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 112,
 	},
 	grimneigh: {
+		shortDesc: "Lowers foe's SpA on switch-in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -159,6 +164,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 265,
 	},
 	pastelveil: {
+		shortDesc: "Immune to Poison-type moves.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Poison') {
 				return null;

@@ -190,4 +190,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 92, atk: 130, def: 95, spa: 90, spd: 95, spe: 108},
 	},
+	heatmor: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 102, def: 81, spa: 110, spd: 76, spe: 80},
+		abilities: {0: "Gluttony", 1: "Flash Fire", H: "Stakeout"},		
+	},
+	pangoro: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 136, def: 98, spa: 54, spd: 86, spe: 68},
+	},
+	cherrim: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 67, spd: 78, spe: 95},
+	},
+	cherrimsunshine: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 67, spd: 78, spe: 95},
+	},
+	machamp: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 130, def: 80, spa: 55, spd: 85, spe: 65},
+	},
 };
