@@ -68,7 +68,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 135,
 	},
-	transistor: 
+	transistor: {
 		shortDesc: "Electric moves: 30% stronger, make contact",
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
