@@ -4,18 +4,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
-			console.log(this.effectData.source.name);
+			console.log(pokemon.name);
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn1');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn2');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 		},
@@ -25,18 +25,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
-			console.log(this.effectData.source.name);
+			console.log(pokemon.name);
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn1');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn2');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 		},
@@ -46,18 +46,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
-			console.log(this.effectData.source.name);
+			console.log(pokemon.name);
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn1');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
-				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
-					this.effectData.source.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, this.effectData.source);
+				if (pokemon.hasAbility('reverberation')) {
+					pokemon.addVolatile('reverberationTurn2');
+					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 		},
