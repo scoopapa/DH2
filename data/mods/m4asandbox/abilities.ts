@@ -128,9 +128,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 5,
 			onRestart(side) {
 				this.effectData.duration = 5;
+				this.add('-message', `The electromagnetism around ${this.effectData.source.name}'s team was recharged!`);
 			},
 			onStart(side) {
 				this.add('-message', `${this.effectData.source.name}'s team is levitating with electromagnetism!`);
+				this.add('-message', `Pokémon with Magnet Rock can bypass immunities to Electric-type moves!`);
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
