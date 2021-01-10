@@ -35,7 +35,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, source, target) {
+			console.log("Modifying move");
 			if (source.volatiles['reverberationTurn1']) {
+				console.log("Reverberation turn 1");
 				if (move.basePower) {
 					move.basePower = move.basePower.chainModify([0x0200, 0x1000]);
 					console.log(move.basePower);
@@ -43,6 +45,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				delete source.volatiles['reverberationTurn1'];
 			}
 			if (source.volatiles['reverberationTurn2']) {
+				console.log("Reverberation turn 2");
 				if (move.basePower) {
 					move.basePower = move.basePower.chainModify([0x0100, 0x1000]);
 					console.log(move.basePower);
