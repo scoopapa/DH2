@@ -15,6 +15,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	reverberation: {
 		shortDesc: "Sound moves echo over the following two turns.",
 		name: "Reverberation",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.flags['sound']) {
+				if (!target.side.slotConditions[target.position]['reverberation1']) {
+					console.log("Reverberation 1: " + move.id);
+					target.side.addSlotCondition(target, 'reverberation1');
+					target.side.slotConditions[target.position]['reverberation1'].moveid = move.id;
+				} else if (!target.side.slotConditions[target.position]['reverberation2']) {
+					console.log("Reverberation 2: " + move.id);
+					target.side.addSlotCondition(target, 'reverberation2');
+					target.side.slotConditions[target.position]['reverberation2'].moveid = move.id;
+				} else if (!target.side.slotConditions[target.position]['reverberation3']) {
+					console.log("Reverberation 3: " + move.id);
+					target.side.addSlotCondition(target, 'reverberation3');
+					target.side.slotConditions[target.position]['reverberation3'].moveid = move.id;
+				}
+			}
+		},
 		rating: 3,
 		num: -5000,
 	},
