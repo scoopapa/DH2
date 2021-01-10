@@ -20,7 +20,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.flags['sound']) {
 				if (source.volatiles['reverberationTurn1'] || source.volatiles['reverberationTurn2']) return;
 				if (!source.volatiles['reverberation1']) {
-					console.log("Reverberation 1: " + move.id);
+					console.log("Reverberation 1: " + move.name);
 					source.addVolatile('reverberation1')
 					source.volatiles['reverberation1'].moveid = move.id;
 				} else if (!source.volatiles['reverberation2']) {
@@ -32,25 +32,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					source.addVolatile('reverberation3')
 					source.volatiles['reverberation3'].moveid = move.id;
 				}
-			}
-		},
-		onModifyMove(move, source, target) {
-			console.log("Modifying move");
-			if (source.volatiles['reverberationTurn1']) {
-				console.log("Reverberation turn 1");
-				if (move.basePower) {
-					move.basePower = move.basePower.chainModify([0x0200, 0x1000]);
-					console.log(move.basePower);
-				}
-				delete source.volatiles['reverberationTurn1'];
-			}
-			if (source.volatiles['reverberationTurn2']) {
-				console.log("Reverberation turn 2");
-				if (move.basePower) {
-					move.basePower = move.basePower.chainModify([0x0100, 0x1000]);
-					console.log(move.basePower);
-				}
-				delete source.volatiles['reverberationTurn2'];
 			}
 		},
 		rating: 3,
@@ -136,7 +117,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `The electromagnetism around ${this.effectData.source.name}'s team was recharged!`);
 			},
 			onStart(side) {
-				this.add('-message', `${this.effectData.source.name}'s team is levitating with electromagnetism!`);
+				this.add('-message', `${this.effectData.target.name}'s team is levitating with electromagnetism!`);
 				this.add('-message', `Pokémon with Magnet Rock can bypass immunities to Electric-type moves!`);
 			},
 			onImmunity(type) {
