@@ -11,13 +11,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.effectData.source.addVolatile('reverberationTurn1');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 			if (this.effectData.duration === 1) {
 				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
 					this.effectData.source.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 		},
 	},
 	reverberation2: {
@@ -32,13 +32,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.effectData.source.addVolatile('reverberationTurn1');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 			if (this.effectData.duration === 1) {
 				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
 					this.effectData.source.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 		},
 	},
 	reverberation3: {
@@ -53,13 +53,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.effectData.source.addVolatile('reverberationTurn1');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 			if (this.effectData.duration === 1) {
 				if (this.effectData.source.isActive && this.effectData.source.hasAbility('reverberation')) {
 					this.effectData.source.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, this.effectData.source);
 				}
-			},
+			}
 		},
 	},
 	acidicterrain: {
