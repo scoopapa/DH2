@@ -251,8 +251,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'pangoro').learnset.suckerpunch = ['8L1'];
 		
 		//Machamp
-		this.modData('Learnsets', 'pangoro').learnset.gunkshot = ['8L1'];
-		this.modData('Learnsets', 'pangoro').learnset.powerwhip = ['8L1'];
+		this.modData('Learnsets', 'machamp').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'machamp').learnset.powerwhip = ['8L1'];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
