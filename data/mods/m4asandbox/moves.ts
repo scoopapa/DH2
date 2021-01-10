@@ -103,7 +103,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.volatiles['quakingboom']) {
-				delete move.name;
 				move.category = 'Special';
 				if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 				console.log(move.category);
