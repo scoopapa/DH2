@@ -138,6 +138,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Meloetta"],
 		num: -1006,
 		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
 	},
 	redriotite: {
 		name: "Redriotite",
@@ -167,21 +168,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Gengar, this item allows it to Mega Evolve in battle.",
 	},
-	// no idea if Megamax did this too but I'm not having "Mega Gengar X" and just "Mega Gengar"
-	gengaritey: {
-		name: "Gengarite Y",
-		spritenum: 588,
-		megaStone: "Gengar-Mega-Y",
-		megaEvolves: "Gengar",
-		itemUser: ["Gengar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: 656,
-		gen: 6,
-		isNonstandard: "Past",
-	},
 	augmentedlens: {
 		name: "Augmented Lens",
 		spritenum: 537,
@@ -207,5 +193,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1009,
 		gen: 8,
+		desc: "Every move used by the holder will always hit; moves cost 1 PP more per use.",
 	},
 };
