@@ -18,6 +18,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.flags['sound']) {
+				if (source.volatiles['reverberationTurn1'] || source.volatiles['reverberationTurn2']) return;
 				if (!source.volatiles['reverberation1']) {
 					console.log("Reverberation 1: " + move.id);
 					source.addVolatile('reverberation1')
@@ -36,14 +37,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move, source, target) {
 			if (source.volatiles['reverberationTurn1']) {
 				if (move.basePower) {
-					move.basePower = move.basePower.chainModify([0x0200, 0x1000])
+					move.basePower = move.basePower.chainModify([0x0200, 0x1000]);
 					console.log(move.basePower);
 				}
 				delete source.volatiles['reverberationTurn1'];
 			}
 			if (source.volatiles['reverberationTurn2']) {
 				if (move.basePower) {
-					move.basePower = move.basePower.chainModify([0x0100, 0x1000])
+					move.basePower = move.basePower.chainModify([0x0100, 0x1000]);
 					console.log(move.basePower);
 				}
 				delete source.volatiles['reverberationTurn2'];
@@ -113,6 +114,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!move || !target) return;
 			if (move.type === 'Electric') {
 				source.side.addSideCondition('magnetrock');
+				source.sideConditions['magnetrock'].source = source;
 			}
 		},
 		onModifyMovePriority: -5,
