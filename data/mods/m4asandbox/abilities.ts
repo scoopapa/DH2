@@ -130,20 +130,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.duration = 5;
 			},
 			onStart(side) {
-				for (const target of side.active) {
-					target.addVolatile('magnetrise');
-				}
+				this.add('-message', `${this.effectData.source.name}'s team is levitating with electromagnetism!`);
 			},
-			onBeforeSwitchIn(pokemon, side) {
-				if (pokemon.side === side) {
-					pokemon.addVolatile('magnetrise');
-				}
+			onImmunity(type) {
+				if (type === 'Ground') return false;
 			},
 			onResidualOrder: 15,
 			onEnd(side) {
-				for (const target of side.active) {
-					target.removeVolatile('magnetrise');
-				}
+				this.add('-message', `${this.effectData.source.name}'s team is no longer levitating!`);
 			},
 		},
 		rating: 3,
