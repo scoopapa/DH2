@@ -18,17 +18,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.flags['sound']) {
-				if (!target.side.slotConditions[target.position]['reverberation1']) {
+				if (source.volatiles['reverberation1']) {
 					console.log("Reverberation 1: " + move.id);
-					target.side.addSlotCondition(target, 'reverberation1');
+					source.addVolatile('reverberation1')
 					target.side.slotConditions[target.position]['reverberation1'].moveid = move.id;
-				} else if (!target.side.slotConditions[target.position]['reverberation2']) {
+				} (source.volatiles['reverberation2']) {
 					console.log("Reverberation 2: " + move.id);
-					target.side.addSlotCondition(target, 'reverberation2');
+					source.addVolatile('reverberation2')
 					target.side.slotConditions[target.position]['reverberation2'].moveid = move.id;
-				} else if (!target.side.slotConditions[target.position]['reverberation3']) {
+				} (source.volatiles['reverberation3']) {
 					console.log("Reverberation 3: " + move.id);
-					target.side.addSlotCondition(target, 'reverberation3');
+					source.addVolatile('reverberation3')
 					target.side.slotConditions[target.position]['reverberation3'].moveid = move.id;
 				}
 			}
@@ -126,26 +126,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 5,
+			onRestart(side) {
+				this.effectData.duration = 5;
+			},
 			onStart(side) {
 				for (const target of side.active) {
 					target.addVolatile('magnetrise');
 				}
 			},
-			onBeforeSwitchIn(pokemon) {
-				if (pokemon.side === this.effectData.side) {
-					pokemon.addVolatile('magnetrise', '[silent]');
+			onBeforeSwitchIn(pokemon, side) {
+				if (pokemon.side === side) {
+					pokemon.addVolatile('magnetrise');
 				}
-			},
-			onSwitchin(pokemon) {
-				if (pokemon.volatiles['magnetrise']) {
-					this.add('-start', pokemon, 'Magnet Rise');
-				}
-			},
-			onRestart(side) {
-				this.effectData.duration = 5;
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
 			},
 			onResidualOrder: 15,
 			onEnd(side) {
