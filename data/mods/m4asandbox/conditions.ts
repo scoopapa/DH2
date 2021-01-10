@@ -1,6 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	reverberation1: {
-		duration: 3,
+		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
@@ -16,12 +16,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, pokemon);
+					pokemon.deleteVolatile('reverberation1');
 				}
 			}
 		},
 	},
 	reverberation2: {
-		duration: 3,
+		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
@@ -37,12 +38,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, pokemon);
+					pokemon.deleteVolatile('reverberation2');
 				}
 			}
 		},
 	},
 	reverberation3: {
-		duration: 3,
+		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
 			console.log(this.effectData.duration);
@@ -58,6 +60,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
 					this.useMove(this.effectData.moveid, pokemon);
+					pokemon.deleteVolatile('reverberation3');
 				}
 			}
 		},
