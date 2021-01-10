@@ -104,7 +104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	toxtricitylowkeymegamossy: {
 		num: 849,
-		name: "Toxtricity-Low-Key-Mega-Mpssy",
+		name: "Toxtricity-Low-Key-Mega-Mossy",
 		baseSpecies: "Toxtricity",
 		forme: "Mega-Low-Key-Mossy",
 		types: ["Electric", "Poison"],
