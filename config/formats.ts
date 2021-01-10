@@ -1424,6 +1424,7 @@ export const Formats: FormatList = [
 		},
 		minSourceGen: 7,
 		mod: 'gen7dlcmons',
+		teambuilderFormat: 'OU';
 	},
 	{
 		name: "[Gen 8] Break This Team",
