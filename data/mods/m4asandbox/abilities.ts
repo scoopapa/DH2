@@ -5,6 +5,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
+				source.addVolatile('quakingboom');
 				this.useMove('earthquake', source);
 			}
 		},
