@@ -160,7 +160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	ascendingkey: {
 		shortDesc: "Sound moves: raise target's Sp. Def before, sharply raise user's Sp. Atk after.",
 		name: "Ascending Key",
-		onTryHit(target, source, move) {
+		onSourceTryHit(target, source, move) {
 			if (move.flags['sound']) {
 				this.boost({spd: 1}, target);
 			}
@@ -177,7 +177,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	descendingkey: {
 		shortDesc: "Sound moves: lower target's Sp. Def before, sharply lower user's Sp. Atk after.",
 		name: "Descending Key",
-		onTryHit(target, source, move) {
+		onSourceTryHit(target, source, move) {
 			if (move.flags['sound']) {
 				this.boost({spd: -1}, target);
 			}
