@@ -21,15 +21,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (!source.volatiles['reverberation1']) {
 					console.log("Reverberation 1: " + move.id);
 					source.addVolatile('reverberation1')
-					target.side.slotConditions[target.position]['reverberation1'].moveid = move.id;
+					source.volatiles['reverberation1'].moveid = move.id;
 				} else if (!source.volatiles['reverberation2']) {
 					console.log("Reverberation 2: " + move.id);
 					source.addVolatile('reverberation2')
-					target.side.slotConditions[target.position]['reverberation2'].moveid = move.id;
+					source.volatiles['reverberation2'].moveid = move.id;
 				} else if (!source.volatiles['reverberation3']) {
 					console.log("Reverberation 3: " + move.id);
 					source.addVolatile('reverberation3')
-					target.side.slotConditions[target.position]['reverberation3'].moveid = move.id;
+					source.volatiles['reverberation3'].moveid = move.id;
 				}
 			}
 		},
