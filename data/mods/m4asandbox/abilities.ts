@@ -65,7 +65,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
+			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('acidicterrain')) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('acidrock')) {
