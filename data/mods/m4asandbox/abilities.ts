@@ -33,6 +33,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onModifyMove(move, source, target) {
+			if (source.volatiles['reverberationTurn1']) {
+				if (move.basePower) {
+					move.basePower = move.basePower.chainModify([0x0200, 0x1000])
+					console.log(move.basePower);
+				}
+				delete source.volatiles['reverberationTurn1'];
+			}
+			if (source.volatiles['reverberationTurn2']) {
+				if (move.basePower) {
+					move.basePower = move.basePower.chainModify([0x0100, 0x1000])
+					console.log(move.basePower);
+				}
+				delete source.volatiles['reverberationTurn2'];
+			}
+		},
 		rating: 3,
 		num: -5000,
 	},
