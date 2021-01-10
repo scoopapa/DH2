@@ -206,7 +206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	wildclaw: {
 		num: -1008,
 		accuracy: 95,
-		basePower: 130,
+		basePower: 120,
 		category: "Physical",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 33% recoil.",
