@@ -1360,6 +1360,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'gen7dlcmons',
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 7] DLCmons VGC",
@@ -1424,7 +1425,7 @@ export const Formats: FormatList = [
 		},
 		minSourceGen: 7,
 		mod: 'gen7dlcmons',
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'Doubles OU',
 	},
 	{
 		name: "[Gen 8] Break This Team",
