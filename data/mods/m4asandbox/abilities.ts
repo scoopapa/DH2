@@ -117,7 +117,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!move || !target) return;
 			if (move.type === 'Electric') {
 				source.side.addSideCondition('magnetrock');
-				source.sideConditions['magnetrock'].source = source;
+				source.side.sideConditions['magnetrock'].source = source;
 			}
 		},
 		onModifyMovePriority: -5,
