@@ -9,7 +9,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("exploud", ["clangingscales", "darkpulse", "snarl"]);
 		newMoves("toxtricity", ["frustration", "hiddenpower", "icepunch", "magnetrise", "return", "thundercage"]);
 		newMoves("toxtricitylowkey", ["frustration", "hiddenpower", "magnetrise", "return", "slackoff", "thundercage", "toxicspikes"]);
-		newMoves("noivern", ["blazekick", "calmmind", "eeriespell", "metalsound", "psychic", "psychicfangs", "psyshock", "snarl", "zenheadbutt"]);
+		newMoves("noivern", ["blazekick", "calmmind", "eeriespell", "metalsound", "nobleroar", "psychic", "psychicfangs", "psyshock", "snarl", "zenheadbutt"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
