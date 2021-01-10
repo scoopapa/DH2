@@ -94,7 +94,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
-			if (this.getSideCondition('magnetrock')) return false;
+			if (this.side.getSideCondition('magnetrock')) return false;
 			return item !== 'airballoon';
 		}
 	}
