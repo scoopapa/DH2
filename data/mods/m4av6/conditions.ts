@@ -1,5 +1,3 @@
-'use strict';
-
 export const Conditions: {[k: string]: ConditionData} = {
 	acidicterrain: {
 		name: 'Acidic Terrain',
