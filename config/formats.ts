@@ -1232,7 +1232,7 @@ export const Formats: FormatList = [
 		desc: ["&bullet; Super Smash Mods Melee",
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
-		banlist: ['Gengarite', 'Gengarite Y', 'Slowbronite'],
+		banlist: ['Gengarite', 'Slowbronite', 'Baton Pass'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
