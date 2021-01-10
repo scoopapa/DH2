@@ -9,14 +9,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn1');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
-					pokemon.deleteVolatile('reverberation1');
+					pokemon.removeVolatile('reverberation1');
 				}
 			}
 		},
@@ -31,14 +33,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn1');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
-					pokemon.deleteVolatile('reverberation2');
+					pokemon.removeVolatile('reverberation2');
 				}
 			}
 		},
@@ -53,14 +57,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn1');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
 					pokemon.addVolatile('reverberationTurn2');
+					this.add('-ability', pokemon, 'Reverberation');
 					this.useMove(this.effectData.moveid, pokemon);
-					pokemon.deleteVolatile('reverberation3');
+					pokemon.removeVolatile('reverberation3');
 				}
 			}
 		},
