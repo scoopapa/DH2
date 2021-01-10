@@ -14,7 +14,7 @@ export const Formats: {[k: string]: FormatData} = {
 					if (move.ohko) problems.push(move.name + ' is banned by OHKO Clause.');
 					if (set.species === 'Escavalier') continue;
 					if (move.name === 'Guillotine') problems.push(move.name + ' is banned by OHKO Clause.');
-					if (move.ohko === 'Horn Drill') problems.push(move.name + ' is banned by OHKO Clause.');
+					if (move.name === 'Horn Drill') problems.push(move.name + ' is banned by OHKO Clause.');
 				}
 			}
 			return problems;
