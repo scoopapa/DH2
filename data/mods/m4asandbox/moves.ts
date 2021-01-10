@@ -99,4 +99,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.field.clearTerrain();
 		},
 	},
+	earthquake: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.volatiles['quakingboom']) {
+				delete move.name;
+				move.category = 'Special';
+				if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
+				console.log(move.category);
+				move.basePower = 60;
+				console.log(move.basePower);
+				delete source.volatiles['quakingboom'];
+			}
+		},
+	},
 };
