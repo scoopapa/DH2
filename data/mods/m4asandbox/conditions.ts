@@ -1,6 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	acidicterrain: {
-    inherit: true,
+		inherit: true,
 		durationCallback(source, effect) {
 			if (source?.hasItem('terrainextender')) {
 				return 8;
