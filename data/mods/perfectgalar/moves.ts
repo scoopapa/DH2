@@ -209,7 +209,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				this.effectData.move = move.id;
 				this.add('-start', target, 'Encore');
-				if (!this.willMove(target)) {
+				if (!this.queue.willMove(target)) {
 					this.effectData.duration++;
 				}
 			},
@@ -294,9 +294,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-singleturn', pokemon, 'move: Behemoth Bash');
 			},
 			onFoeModifyMove(move, attacker) {
-				if (move.isMax && !move.name === "Max Guard") {
+				if (move.isMax && move.name !== "Max Guard") {
 					move.basePower = move.basePower / 2;
 					move.self = null;
+					console.log(move.basePower);
 				}
 			},
 		},

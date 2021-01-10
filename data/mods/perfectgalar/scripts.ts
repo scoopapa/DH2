@@ -348,7 +348,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		} else {
 			for ( const i in oldMaxPowers ){
-				if ( move.gmaxPower === oldMaxPowers[i] ){
+				if ( move.maxMove?.basePower === oldMaxPowers[i] ){
 					gmaxPower = maxPowers[i]
 					break
 				}
