@@ -8,15 +8,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 8;
+					move.reverb = true;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation1'];
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
-					pokemon.removeVolatile('reverberation1');
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 16;
+					move.reverb = true;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation1'];
 				}
 			}
 		},
@@ -30,15 +39,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 8;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation2'];
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
-					pokemon.removeVolatile('reverberation2');
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 16;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation2'];
 				}
 			}
 		},
@@ -52,41 +68,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn1');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 8;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation3'];
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					pokemon.addVolatile('reverberationTurn2');
-					this.useMove(this.effectData.moveid, pokemon, this.dex.getAbility('reverberation'));
-					pokemon.removeVolatile('reverberation3');
+					let move = this.dex.getMove(this.effectdata.moveid);
+					console.log("Reverberating turn 1 of " + move.name);
+					move.basePower /= 16;
+					console.log("Base power is "+ move.basePower);
+					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					delete pokemon.volatiles['reverberation3'];
 				}
 			}
-		},
-	},
-	reverberationTurn1: {
-		duration: 0,
-		onModifyMove(move, source, target) {
-			console.log("Modifying move");
-			console.log("Reverberation turn 1");
-			if (move.basePower) {
-				move.basePower = move.basePower.chainModify([0x0200, 0x1000]);
-				console.log(move.basePower);
-			}
-			delete source.volatiles['reverberationTurn1'];
-		},
-	},
-	reverberationTurn2: {
-		duration: 0,
-		onModifyMove(move, source, target) {
-			console.log("Modifying move");
-			console.log("Reverberation turn 2");
-			if (move.basePower) {
-				move.basePower = move.basePower.chainModify([0x0100, 0x1000]);
-				console.log(move.basePower);
-			}
-			delete source.volatiles['reverberationTurn2'];
 		},
 	},
 	acidicterrain: {
