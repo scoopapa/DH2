@@ -11,14 +11,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 				}
 			}
@@ -27,14 +28,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 					pokemon.removeVolatile('reverberation1');
 				}
@@ -53,14 +55,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 				}
 			}
@@ -69,14 +72,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 					pokemon.removeVolatile('reverberation2');
 				}
@@ -95,14 +99,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 				}
 			}
@@ -111,14 +116,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
-					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 					if (possibleTargets.length) {
 						let rand = 0;
 						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 						const target = possibleTargets[rand];
+						pokemon.addVolatile('reverberation');
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+						pokemon.removeVolatile('reverberation');
 					}
 					pokemon.removeVolatile('reverberation3');
 				}
