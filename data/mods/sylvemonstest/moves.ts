@@ -2253,7 +2253,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multihit: [2, 5],
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Heart Stamp", target);
+			this.add('-anim', source, "Attract", target);
 		},
 		secondary: null,
 		target: "normal",
