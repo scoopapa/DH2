@@ -42,6 +42,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectdata.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
+					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					this.useMove(move, pokemon, "[from] ability: Reverberation");
 					delete pokemon.volatiles['reverberation2'];
@@ -52,6 +53,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectdata.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
+					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					this.useMove(move, pokemon, "[from] ability: Reverberation");
 					delete pokemon.volatiles['reverberation2'];
@@ -71,6 +73,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectdata.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
+					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					this.useMove(move, pokemon, "[from] ability: Reverberation");
 					delete pokemon.volatiles['reverberation3'];
@@ -81,6 +84,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					let move = this.dex.getMove(this.effectdata.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
+					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
 					this.useMove(move, pokemon, "[from] ability: Reverberation");
 					delete pokemon.volatiles['reverberation3'];
