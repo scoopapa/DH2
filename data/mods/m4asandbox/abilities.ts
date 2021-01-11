@@ -18,7 +18,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.flags['sound']) {
-				if (move.reverb) return;
+				if (source.volatiles['reverberation']) {
+					console.log("Source is echoing, so no need to make a new echo for " + move.name);
+					return;
+				}
 				if (!source.volatiles['reverberation1']) {
 					console.log("Setting " + move.name + "to fill the first reverb slot");
 					source.addVolatile('reverberation1')
