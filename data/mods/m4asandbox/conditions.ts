@@ -8,7 +8,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
+					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
 					move.reverb = true;
@@ -20,12 +20,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation1'];
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
+					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
 					move.reverb = true;
@@ -63,7 +62,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation2'];
 				}
 			}
 			if (this.effectData.duration === 1) {
@@ -94,7 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
+					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
 					move.reverb = true;
@@ -106,12 +104,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation3'];
 				}
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
+					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
 					move.reverb = true;
