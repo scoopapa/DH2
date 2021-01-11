@@ -68,9 +68,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Mossy Sandwich" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
 			return "Toxtricity-Low-Key-Mega-Mossy";
 		}
+/*
 		if (item.name === "Ausma" && pokemon.baseSpecies.name === "Noivern") {
 			return "Noivern-Mega-Ausma";
 		}
+*/
 		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
 			return "Toxtricity-Low-Key-Mega-BitBitio";
 		}
