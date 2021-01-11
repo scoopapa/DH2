@@ -36,7 +36,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation1'];
+					pokemon.removeVolatile('reverberation1');
 				}
 			}
 		},
@@ -78,7 +78,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation2'];
+					pokemon.removeVolatile('reverberation2');
 				}
 			}
 		},
@@ -120,7 +120,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						const target = possibleTargets[rand];
 						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
 					}
-					delete pokemon.volatiles['reverberation3'];
+					pokemon.removeVolatile('reverberation3');
 				}
 			}
 		},
