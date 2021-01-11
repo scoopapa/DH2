@@ -2012,6 +2012,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spd: -1,
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crabhammer", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -2247,6 +2251,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1, sound: 1, authentic: 1},
 		multihit: [2, 5],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Attract", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -2391,6 +2399,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		selfSwitch: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flip Turn", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -2429,6 +2441,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Dance", target);
+			this.add('-anim', source, "Psychic Fangs", target);
+		},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -2595,6 +2612,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, bite: 1},
 		drain: [1, 2],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dark",
@@ -2615,6 +2636,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spite", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -2977,6 +3002,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		  accuracy: true,
 		  basePower: 0,
 		  category: "Status",
+		  shortDesc: "Removes the user's Grass-type, resets negative stat changes, and cures the user of status.",		
 		  name: "Shed Leaves",
 		  pp: 10,
 		  priority: 0,
