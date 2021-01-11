@@ -1,7 +1,44 @@
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
 export const Scripts: BattleScriptsData = {
+	init: function() {
 
+		this.modData('Learnsets', 'glastrier').learnset.falsesurrender = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.fellstinger = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.vinewhip = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.powerwhip = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.trickroom = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.spectralthief = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1'];
+		
+		this.modData('Learnsets', 'spectrier').learnset.falsesurrender = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.fellstinger = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.spectralthief = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.highhorsepower = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.wonderroom = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.astralbarrage = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.vinewhip = ['8L1'];
+		this.modData('Learnsets', 'spectrier').learnset.powerwhip = ['8L1'];
+		
+		this.modData('Learnsets', 'regieleki').learnset.charge = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.magneticflux = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.gearup = ['8L1'];
+		
+		this.modData('Learnsets', 'articunogalar').learnset.roost = ['8L1'];
+		
+		this.modData('Learnsets', 'zapdosgalar').learnset.roost = ['8L1'];
+		delete this.modData('Learnsets', 'zapdosgalar').learnset.closecombat;
+		
+		this.modData('Learnsets', 'moltresgalar').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.powertrip = ['8L1'];
+		
+		this.modData('Learnsets', 'froslass').learnset.focusenergy = ['8L1'];
+		this.modData('Learnsets', 'froslass').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'froslass').learnset.partingshot = ['8L1'];
+	},
+	
+
+	
 	getMaxMove(move, pokemon) {
 		if (typeof move === 'string') move = this.dex.getMove(move);
 		if (move.name === 'Struggle') return move;
@@ -35,5 +72,58 @@ export const Scripts: BattleScriptsData = {
 		maxMove.priority = move.priority;
 		maxMove.isZOrMaxPowered = true;
 		return maxMove;
+	},
+	
+	
+	hitStepStealBoosts(targets, pokemon, move) {
+		const target = targets[0]; // hardcoded
+		if (move.stealsBoosts) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostName;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
+
+				let statName2: BoostName;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.addMove('-anim', pokemon, "Spectral Thief", target);
+			}
+		}
+
+		if (move.swapsBoosts) {
+			const boosts: SparseBoostsTable = {};
+			let swapped = false;
+			const targetBoosts: SparseBoostsTable = {};
+			const sourceBoosts: SparseBoostsTable = {};
+
+			let i: BoostName;
+			for (i in target.boosts) {
+				targetBoosts[i] = target.boosts[i];
+				sourceBoosts[i] = source.boosts[i];
+			}
+
+			if (swapped) {
+				this.attrLastMove('[still]');
+				this.add('-swapboost', source, target, '[from] move: Spectral Trick');
+				
+				target.setBoost(sourceBoosts);
+				source.setBoost(targetBoosts);
+				
+				this.addMove('-anim', pokemon, "Spectral Thief", target);
+			}
+		}
+		return undefined;
 	},
 };

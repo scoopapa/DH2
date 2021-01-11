@@ -304,4 +304,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "When switching in, the holder is unaffected by airborne hazards on its side of the field.",
 		// Hazard Immunity implemented in moves.js
 	},
+	
+	froslassite: {
+		name: "Froslassite",
+		spritenum: 578,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
 };
