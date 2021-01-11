@@ -18,17 +18,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.flags['sound']) {
-				if (source.volatiles['reverberationTurn1'] || source.volatiles['reverberationTurn2']) return;
+				if (move.reverb) return;
 				if (!source.volatiles['reverberation1']) {
-					console.log("Reverberation 1: " + move.name);
+					console.log("Setting " + move.name + "to fill the first reverb slot");
 					source.addVolatile('reverberation1')
 					source.volatiles['reverberation1'].moveid = move.id;
 				} else if (!source.volatiles['reverberation2']) {
-					console.log("Reverberation 2: " + move.id);
+					console.log("Setting " + move.name + "to fill the second reverb slot");
 					source.addVolatile('reverberation2')
 					source.volatiles['reverberation2'].moveid = move.id;
 				} else if (!source.volatiles['reverberation3']) {
-					console.log("Reverberation 3: " + move.id);
+					console.log("Setting " + move.name + "to fill the third reverb slot");
 					source.addVolatile('reverberation3')
 					source.volatiles['reverberation3'].moveid = move.id;
 				}
