@@ -2977,6 +2977,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		  accuracy: true,
 		  basePower: 0,
 		  category: "Status",
+		  shortDesc: "Removes the user's Grass-type, resets negative stat changes, and cures the user of status.",		
 		  name: "Shed Leaves",
 		  pp: 10,
 		  priority: 0,
