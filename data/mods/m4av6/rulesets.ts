@@ -4,12 +4,12 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Mega Data Mod',
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
 		onBegin() {
-			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="654" width="3814">`);
-			this.hint('-message', `Welcome to Megas for All!`);
-			this.hint('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
-			this.hint('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
-			this.hint('-message', `You can find our thread and further information on the rules here:`);
-			this.hint('-message', `https://www.smogon.com/forums/threads/3671140/`);
+			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
+			this.add('-message', `Welcome to Megas for All!`);
+			this.add('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
+			this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
+			this.add('-message', `You can find our thread and further information on the rules here:`);
+			this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {
