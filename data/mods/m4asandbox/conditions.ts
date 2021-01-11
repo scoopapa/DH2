@@ -8,7 +8,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
 					move.reverb = true;
@@ -19,7 +19,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
 					move.reverb = true;
@@ -39,7 +39,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
 					move.reverb = true;
@@ -50,7 +50,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
 					move.reverb = true;
@@ -70,7 +70,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			console.log(this.effectData.moveid);
 			if (this.effectData.duration === 2) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 8;
 					move.reverb = true;
@@ -81,7 +81,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (this.effectData.duration === 1) {
 				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectdata.moveid);
+					let move = this.dex.getMove(this.effectData.moveid);
 					console.log("Reverberating turn 1 of " + move.name);
 					move.basePower /= 16;
 					move.reverb = true;
