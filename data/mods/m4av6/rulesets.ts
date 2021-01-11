@@ -8,7 +8,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', `Welcome to Megas for All!`);
 			this.add('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
 			this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
-			this.add('-message', `You can find our thread and further information on the rules here:`);
+			this.add('-message', `You can find our thread and metagame resources here:`);
 			this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
 		},
 		onSwitchIn(pokemon) {
