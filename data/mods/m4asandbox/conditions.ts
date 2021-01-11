@@ -13,7 +13,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 8;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation1'];
 				}
 			}
@@ -24,7 +30,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 16;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation1'];
 				}
 			}
@@ -44,7 +56,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 8;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation2'];
 				}
 			}
@@ -55,7 +73,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 16;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation2'];
 				}
 			}
@@ -75,7 +99,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 8;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation3'];
 				}
 			}
@@ -86,7 +116,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					move.basePower /= 16;
 					move.reverb = true;
 					console.log("Base power is "+ move.basePower);
-					this.useMove(move, pokemon, "[from] ability: Reverberation");
+					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+					if (possibleTargets.length) {
+						let rand = 0;
+						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+						const target = possibleTargets[rand];
+						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
+					}
 					delete pokemon.volatiles['reverberation3'];
 				}
 			}
