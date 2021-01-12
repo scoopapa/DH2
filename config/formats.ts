@@ -769,7 +769,7 @@ export const Formats: FormatList = [
 			'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
 			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
 			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish',
-			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Crocanaw', 'Feraligatr',
+			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 		],
 		onSwitchIn(pokemon) {
 			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
@@ -820,7 +820,7 @@ export const Formats: FormatList = [
 			'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Pheromosa', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
 			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
 			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish',
-			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Crocanaw', 'Feraligatr',
+			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 		],
 		onSwitchIn(pokemon) {
 			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
