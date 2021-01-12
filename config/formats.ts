@@ -573,7 +573,7 @@ export const Formats: FormatList = [
 		unbanlist: ['porygon2', 'jellicent', 'crabominable', 'oricoriosensu', 'wigglytuff', 'wormadamtrash', 'heatmor', 'beheeyem', 'golbat', 'eelektross', 'togedemaru', 'garchomp', 'whimsicott', 'skuntank', 'lycanrocdusk', 'frosmoth', 'dragonair', 'reshiram', 'aegislash', 'camerupt', 'explosion', 'chesnaught', 'empoleon', 'delibird', 'adaptive', 'elemental', 'contradict', 'countershield', 'embargoact', 'exhaust', 'forager', 'identitytheft', 'inextremis', 'lagbehind', 'prepared', 'survey', 'terror', 'triggerfinger', 'unflagging'],
 	},
 	{
-		name: "[Gen 8 Pet Mod] Clean Slate 2",
+		name: "[Gen 8] Clean Slate 2",
 		desc: `Ubers clean slate. Ubers clean slate.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
@@ -609,7 +609,7 @@ export const Formats: FormatList = [
 		}
 	},
 	{
-		name: "[Gen 8 Pet Mod] Clean Slate Tier Shift",
+		name: "[Gen 8] Clean Slate Tier Shift",
 		desc: `Clean slate but we forgot to clean the slate between slates.`,
 		threads: [
 			// `<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
