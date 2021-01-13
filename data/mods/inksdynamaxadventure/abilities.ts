@@ -75,7 +75,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	dryice: {
+		/*
 		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				target.trySetStatus('brn', source);
+			}
+		},
+		*/
+		onSourceAfterMoveSecondary(target, source, move) {
 			if (target.getMoveHitData(move).crit) {
 				target.trySetStatus('brn', source);
 			}
