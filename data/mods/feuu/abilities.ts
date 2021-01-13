@@ -251,10 +251,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 1;
 		},
 		onSwitchOut(pokemon) {
-			const moveSlot = pokemon.moveSlots.find(move => move.pp <== move.maxpp);
-			if (!moveSlot) return;
-			moveSlot.pp += Math.floor(moveSlot.maxpp / 3); 
-			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
+			for (const moveSlot of pokemon.moveSlots) {
+				moveSlot.pp += (moveSlot.maxpp / 3); 
+				if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
+			}
 		},
 	},
 	porousfat: {
