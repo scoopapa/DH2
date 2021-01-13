@@ -250,9 +250,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//dragon overflow
 		onSourceAfterFaint(length, target, source, effect) {
 			this.add('-activate', source, 'ability: Dragon Overflow'); 
-			this.effectData.target.heal(this.effectData.target.baseMaxhp / 3);
-			if (this.effectData.target.status){
-				this.effectData.target.cureStatus();
+			source.heal(source.baseMaxhp / 3);
+			if (source.status) {
+				source.cureStatus();
 			}
 		},
 		//dragon's maw
