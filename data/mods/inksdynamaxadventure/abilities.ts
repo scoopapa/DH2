@@ -241,7 +241,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isUnbreakable: true,
 	}, 
 	drago: {
-		name: "Drago", 
+		name: "Dragon Overflow", 
 		shortDesc: "Placeholder for Tactics. Minus + Dragon's Maw + Dragon Overflow.", 
 		//minus
 		//im going to leave out minus since im not testing doubles,
@@ -254,7 +254,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (source.status) {
 					source.cureStatus();
 				}
-				this.add('-activate', source, 'ability: Dragon Overflow'); 
 			}
 		},
 		//dragon's maw
