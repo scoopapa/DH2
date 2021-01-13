@@ -6,7 +6,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (pkmnid.learnset && pkmnid.learnset[preHomeDist[i]]) {
 					let gLearn = false
 					for (const j in pkmnid.learnset[preHomeDist[i]]) {
-						const learnType = pkmnid.learnset[preHomeDist[i][j];
+						const learnType = pkmnid.learnset[preHomeDist[i][j]];
 						if (learnType.includes('8') && !learnType.includes('V') gLearn = true;
 					}
 					if (!gLearn) delete this.modData('Learnsets', pkmnid).learnset[preHomeDist[i]];
