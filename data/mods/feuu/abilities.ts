@@ -133,7 +133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				//I dunno how to make Porous differentiate between the two kinds of damage this ability can deal,
 				//So I'm just gonna CHEAT because i am a HACK and a fraud. 
 				if (source.hasAbility('Porous')) {
-					this.heal(source.baseMaxhp / 4, source, 'ability: Porous','[of] ' + source);
+					this.heal(source.baseMaxhp / 4, source, source, ['silent']);
 					//this.add('-ability', source, 'Porous');
 					//this.add('-message', 'The ability Porous absorbed the aftermath!');
 				}
