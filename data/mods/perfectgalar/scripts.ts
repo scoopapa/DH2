@@ -11,7 +11,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						if (learnType.includes('8') && !learnType.includes('V')) gLearn = true;
 					}
 					if (!gLearn) delete this.modData('Learnsets', pkmnid).learnset[preHomeDist[i]];
-					console.log( pkmnid + ' ' + preHomeDist[i] + ' ' + gLearn);
 				}
 			}
 		}
