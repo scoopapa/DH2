@@ -17,7 +17,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (let name of learnsetFusionList) {					
 					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
 					for (const moveid in learnset) {
-						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
+						this.modData('Learnsets', id).learnset[moveid] = ['8L1', '7L1', '6L1', '5L1', '4L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
 					}
 				}
 			}

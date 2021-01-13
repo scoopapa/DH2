@@ -118,4 +118,81 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		desc: "Holder's STAB attacks have 1.2x power.",
 	},
+	reliccharm: {
+		name: "Relic Charm",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
+	},
+	redriotite: {
+		name: "Redriotite",
+		spritenum: 578,
+		megaStone: "Red Riot-Mega",
+		megaEvolves: "Red Riot",
+		itemUser: ["Red Riot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by Red Riot, this item allows him to Mega Evolve in battle.",
+	},
+	gengaritex: {
+		name: "Gengarite X",
+		spritenum: 578,
+		megaStone: "Gengar-Mega-X",
+		megaEvolves: "Gengar",
+		itemUser: ["Gengar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1008,
+		gen: 8,
+		desc: "If held by a Gengar, this item allows it to Mega Evolve in battle.",
+	},
+	augmentedlens: {
+		name: "Augmented Lens",
+		spritenum: 537,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive) {
+				this.add('-message', `${pokemon.name} has an Augmented Lens!`);
+			}
+		},
+		onSourceModifyAccuracyPriority: 3,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (!move.ohko && move.category !== 'Status') {
+				return true;
+			}
+		},
+		onSourceHit(target, source) {
+			let move: Move | ActiveMove | null = source.lastMove;
+			if (!move || move.isZ || move.ohko || move.category === 'Status') return;
+			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+			source.deductPP(move.id, 1);
+		},
+		num: -1009,
+		gen: 8,
+		desc: "Every move used by the holder will always hit; moves cost 1 PP more per use.",
+	},
 };

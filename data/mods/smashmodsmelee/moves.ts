@@ -1,21 +1,6 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	gmaxsteelsurge: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		desc: "Power is equal to the base move's Max Move power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Base move affects power. Foes: Steel hazard.",
-		name: "G-Max Steelsurge",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		isMax: "Copperajah",
-		self: {
-			onHit(source) {
-				source.side.foe.addSideCondition('gmaxsteelsurge');
-			},
-		},
+		inherit: true,
 		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
@@ -40,23 +25,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
-		secondary: null,
-		target: "adjacentFoe",
-		type: "Steel",
-		contestType: "Cool",
 	},
 	spikes: {
-		num: 191,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/4 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Hurts grounded foes on switch-in. Max 3 layers.",
-		name: "Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		sideCondition: 'spikes',
+		inherit: true,
 		condition: {
 			// this is a side condition
 			onStart(side) {
@@ -83,24 +54,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
-		secondary: null,
-		target: "foeSide",
-		type: "Ground",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
 	},
 	stealthrock: {
-		num: 446,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
-		name: "Stealth Rock",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1},
-		sideCondition: 'stealthrock',
+		inherit: true,
 		condition: {
 			// this is a side condition
 			onStart(side) {
@@ -120,24 +76,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
-		secondary: null,
-		target: "foeSide",
-		type: "Rock",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
 	},
 	stickyweb: {
-		num: 564,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, lowering the Speed by 1 stage of each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Lowers Speed of grounded foes by 1 on switch-in.",
-		name: "Sticky Web",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1},
-		sideCondition: 'stickyweb',
+		inherit: true,
 		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
@@ -157,24 +98,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
-		secondary: null,
-		target: "foeSide",
-		type: "Bug",
-		zMove: {boost: {spe: 1}},
-		contestType: "Tough",
 	},
 	toxicspikes: {
-		num: 390,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, poisoning each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Can be used up to two times before failing. Opposing Pokemon become poisoned with one layer and badly poisoned with two layers. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, is hit by Defog, or a grounded Poison-type Pokemon switches in. Safeguard prevents the opposing party from being poisoned on switch-in, but a substitute does not.",
-		shortDesc: "Poisons grounded foes on switch-in. Max 2 layers.",
-		name: "Toxic Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		sideCondition: 'toxicspikes',
+		inherit: true,
 		condition: {
 			// this is a side condition
 			onStart(side) {
@@ -208,24 +134,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		secondary: null,
-		target: "foeSide",
-		type: "Poison",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
 	},
 	trickroom: {
-		num: 433,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "For 5 turns, the Speed of every Pokemon is recalculated for the purposes of determining turn order. During the effect, each Pokemon's Speed is considered to be (10000 - its normal Speed), and if this value is greater than 8191, 8192 is subtracted from it. If this move is used during the effect, the effect ends.",
-		shortDesc: "Goes last. For 5 turns, turn order is reversed.",
-		name: "Trick Room",
-		pp: 5,
-		priority: -7,
-		flags: {mirror: 1},
-		pseudoWeather: 'trickroom',
+		inherit: true,
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
@@ -251,14 +162,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Trick Room');
 			},
 		},
-		secondary: null,
-		target: "all",
-		type: "Psychic",
-		zMove: {boost: {accuracy: 1}},
-		contestType: "Clever",
 	},
 	afteryou: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -272,6 +179,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	attract: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -285,6 +193,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	bide: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Rock-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Rock';
@@ -298,6 +207,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	block: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Rock-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Rock';
@@ -311,6 +221,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	bodyslam: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Ground-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Ground';
@@ -324,6 +235,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	captivate: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -337,6 +249,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	confide: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Dark';
@@ -350,6 +263,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	defensecurl: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Rock-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Rock';
@@ -363,6 +277,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dizzypunch: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -376,6 +291,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doubleteam: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Ghost-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Ghost';
@@ -389,6 +305,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doubleedge: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Steel-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Steel';
@@ -402,6 +319,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	echoedvoice: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Flying-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Flying';
@@ -415,6 +333,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	endure: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fighting-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fighting';
@@ -428,6 +347,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	facade: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fighting-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fighting';
@@ -441,6 +361,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	frustration: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Dark';
@@ -454,6 +375,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	gigaimpact: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Dark';
@@ -467,6 +389,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	growl: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -480,6 +403,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	headbutt: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Rock-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Rock';
@@ -497,6 +421,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	healbell: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Steel-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Steel';
@@ -510,6 +435,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	helpinghand: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -523,6 +449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	hyperbeam: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Dark';
@@ -536,6 +463,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	megakick: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fighting-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fighting';
@@ -549,6 +477,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	megapunch: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fighting-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fighting';
@@ -562,6 +491,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	metronome: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -575,6 +505,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	milkdrink: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -588,6 +519,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	mimic: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -601,6 +533,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	present: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Ice-type.",
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.species.id === 'miltank') {
 				move.type = 'Ice';
@@ -624,6 +557,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	protect: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -637,6 +571,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	psychup: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -650,6 +585,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	retaliate: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'dark';
@@ -663,6 +599,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	return: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -676,6 +613,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	round: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Flying-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Flying';
@@ -689,6 +627,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	secretpower: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, pokemon) {
 			if (pokemon.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -729,6 +668,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	sleeptalk: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -742,6 +682,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snore: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Psychic-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Psychic';
@@ -755,6 +696,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	stomp: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Ground-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Ground';
@@ -768,6 +710,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	strength: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Rock-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Rock';
@@ -781,6 +724,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	substitute: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Poison-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Poison';
@@ -794,6 +738,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	swagger: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Dark-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Dark';
@@ -807,6 +752,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	sweetscent: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Grass-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Grass';
@@ -820,6 +766,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	tackle: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Ground-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Ground';
@@ -833,6 +780,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	workup: {
 		inherit: true,
+		shortDesc: "Abnormal Miltank: Fairy-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'miltank') {
 				move.type = 'Fairy';
@@ -908,7 +856,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "For 5 turns, all Pokémon on the field are resistant to normally super-effective types and weak to normally not-very-effective types (as in Inverse Battles). Immunities are not bypassed.",
-		shortDesc: "For 5 turns, simulates Inverse Battle. Immunities are NOT bypassed.",
+		shortDesc: "For 5 turns, simulates Inverse Battle, except immunities.",
 		name: "Inverse Room",
 		pp: 5,
 		priority: 0,
@@ -1016,7 +964,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 30,
 		category: "Physical",
 		desc: "Has a 30% chance to flinch the target. For Beheeyem from Sylvemons, has a 100% chance to flinch the target but fails unless it is the user's first turn on the field.",
-		shortDesc: "30% chance to flinch the target. For Beheeyem, clone of Fake Out.",
+		shortDesc: "Sylvemons Beheeyem: clone of Fake Out.",
 		name: "Astonish",
 		pp: 15,
 		priority: 0,
@@ -1058,7 +1006,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		desc: "Deals damage to the target equal to (user's level) * (X + 50) / 100, where X is a random number from 0 to 100, rounded down, but not less than 1 HP. For Beheeyem from Sylvemons, instead deals damage to the target equal to the user's level.",
-		shortDesc: "Random damage equal to 0.5x-1.5x user's level. For Beheeyem, clone of Night Shade.",
+		shortDesc: "Sylvemons Beheeyem: clone of Night Shade.",
 		isNonstandard: "Past",
 		name: "Psywave",
 		pp: 15,
@@ -1075,7 +1023,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members. For Beheeyem from Sylvemons, if this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
-		shortDesc: "User switches out. For Beheeyem, clone of Volt Switch.",
+		shortDesc: "Sylvemons Beheeyem: clone of Volt Switch.",
 		name: "Teleport",
 		pp: 20,
 		priority: -6,
@@ -1111,7 +1059,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 20,
 		category: "Physical",
 		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times. For Escavalier from Sylvemons, this move is Steel-type and its base power is 25.",
-		shortDesc: "Hits 2-5 times in one turn. For Escavalier, Steel-type and 25 BP.",
+		shortDesc: "Sylvemons Escavalier: Steel-type and 25 BP.",
 		name: "Spike Cannon",
 		pp: 15,
 		priority: 0,
@@ -1140,7 +1088,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Physical",
 		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokémon with the Sturdy Ability are immune. For Escavalier from Sylvemons, the move's base power is 130, its accuracy is 100, and it lowers the user's Attack by 2 stages.",
-		shortDesc: "OHKOs the target. Fails if user is a lower level. For Escavalier, physical clone of Overheat.",
+		shortDesc: "Sylvemons Escavalier: physical clone of Overheat.",
 		name: "Guillotine",
 		pp: 5,
 		priority: 0,
@@ -1169,7 +1117,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Physical",
 		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokémon with the Sturdy Ability are immune. For Escavalier from Sylvemons, the move's base power is 130, its accuracy is 100, and it lowers the user's Attack by 2 stages.",
-		shortDesc: "OHKOs the target. Fails if user is a lower level. For Escavalier, physical clone of Overheat",
+		shortDesc: "Sylvemons Escavalier: physical clone of Overheat",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
@@ -1198,7 +1146,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		desc: "Raises the user's Attack by 3 stages if this move knocks out the target. For Escavalier from Sylvemons, the move's base power is 65.",
-		shortDesc: "Raises user's Attack by 3 if this KOes the target. For Escavalier, 65 BP.",
+		shortDesc: "Sylvemons Escavalier: 65 BP.",
 		name: "Fell Stinger",
 		pp: 25,
 		priority: 0,
@@ -1231,7 +1179,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used. For Escavalier from Sylvemons, the user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect if it is not already. This move targets an opposing Pokémon at random on each turn. If the user is prevented from moving, is asleep at the beginning of a turn, or the attack is not successful against the target on the first turn of the effect or the second turn of a three-turn effect, the effect ends without causing confusion. If this move is called by Sleep Talk and the user is asleep, the move is used for one turn and does not confuse the user.",
-		shortDesc: "Power doubles with each hit, up to 160. For Escavalier, lasts 2-3 turns. Confuses Escavalier afterwards.",
+		shortDesc: "Sylvemons Escavalier: lasts 2-3 turns, confuses user afterwards.",
 		name: "Fury Cutter",
 		pp: 20,
 		priority: 0,
@@ -1272,7 +1220,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 25,
 		category: "Physical",
 		desc: "Hits twice, with each hit having a 20% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit. For Escavalier from Sylvemons, the move's power is 50, and its accuracy is 90.",
-		shortDesc: "Hits 2 times. Each hit has 20% chance to poison. For Escavalier, 50 BP and 90 acc.",
+		shortDesc: "Sylvemons Escavalier: 50 BP, 90 acc.",
 		name: "Twineedle",
 		pp: 20,
 		priority: 0,
@@ -1299,7 +1247,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately, gaining its effects even if the user's item is being ignored. For Escavalier from Sylvemons, this move's power is 65, and if the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokémon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-		shortDesc: "User steals and eats the target's Berry. For Escavalier, 65 BP and 1.5x damage if foe holds an item; removes item and eats if Berry.",
+		shortDesc: "Sylvemons Escavalier: Knock Off clone; eats removed item if Berry.",
 		name: "Bug Bite",
 		pp: 20,
 		priority: 0,
@@ -1348,7 +1296,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately, gaining its effects even if the user's item is being ignored. For Escavalier from Sylvemons, this move's power is 65, and if the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokémon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-		shortDesc: "User steals and eats the target's Berry. For Escavalier, 65 BP and 1.5x damage if foe holds an item; removes item and eats if Berry.",
+		shortDesc: "Sylvemons Escavalier: Knock Off clone; eats removed item if Berry.",
 		name: "Pluck",
 		pp: 20,
 		priority: 0,
@@ -1428,7 +1376,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		defensiveCategory: "Physical",
 		desc: "Deals damage to the target based on its Defense instead of Special Defense. For Claydol from CFM, this move's base power is 90, and it has a 10% chance to lower the target's Special Defense by 1 stage.",
-		shortDesc: "Damages target based on Defense, not Sp. Def. CFM Claydol only: 90 BP, 10% to lower Def.",
+		shortDesc: "CFM Claydol: 90 BP, 10% to lower Def.",
 		name: "Psyshock",
 		pp: 10,
 		priority: 0,
@@ -1456,7 +1404,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		desc: "Has a 20% chance to flinch the target. For Claydol from CFM, this move's base power is 90, and its accuracy is 100%.",
-		shortDesc: "20% chance to flinch the target. CFM Claydol: 90 BP, 100 acc.",
+		shortDesc: "CFM Claydol: 90 BP, 100 acc.",
 		name: "Zen Headbutt",
 		pp: 15,
 		priority: 0,
@@ -1480,7 +1428,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		shortDesc: "CFM Claydol: 80 BP, 90 acc, 50% chance to lower Speed.",
+		shortDesc: "CFM Claydol: 80 BP, 90 acc, 50% to lower Spe.",
 		name: "Bulldoze",
 		pp: 20,
 		priority: 0,
@@ -1514,7 +1462,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 50,
 		category: "Special",
-		shortDesc: "CFM Claydol: 40 BP, 100 acc, 100% chance to raise Sp. Atk.",
+		shortDesc: "CFM Claydol: 40 BP, 100 acc, 100% to raise Sp. Atk.",
 		name: "Charge Beam",
 		pp: 10,
 		priority: 0,
@@ -1552,7 +1500,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "CFM Claydol: 75 BP, 1.5x on sleeping targets; does not fail if the target is awake.",
+		shortDesc: "CFM Claydol: 75 BP, 1.5x on sleeping, still works on awake.",
 		name: "Dream Eater",
 		pp: 15,
 		priority: 0,
@@ -1586,7 +1534,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "CFM Claydol: 85 BP, 100 acc, normal crit ratio, 10% lower Def, hits Ground-immune targets for at most neutral damage.",
+		shortDesc: "CFM Claydol: 85 BP/100 acc/10% lower Def/bypass immunities for up to neutral damage.",
 		name: "Drill Run",
 		pp: 10,
 		priority: 0,
@@ -1736,7 +1684,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "CFM Claydol: 20% chance to lower Sp. Def.",
+		shortDesc: "CFM Claydol: 20% to lower Sp. Def.",
 		name: "Psychic",
 		pp: 10,
 		priority: 0,
@@ -1765,6 +1713,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	rest: {
 		inherit: true,
+		shortDesc: "CFM Claydol: Normal-type.",
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'claydol') {
 				move.type = 'Normal';
@@ -1781,7 +1730,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 75,
 		category: "Physical",
-		shortDesc: "CFM Claydol: 80 BP, 100 acc, 20% chance to flinch.",
+		shortDesc: "CFM Claydol: 80 BP, 100 acc, 20% to flinch.",
 		name: "Rock Slide",
 		pp: 10,
 		priority: 0,
@@ -1905,7 +1854,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
-		shortDesc: "CFM Claydol: no charge turn; half power in all non-sun weather.",
+		shortDesc: "CFM Claydol: no charge turn; half power in bad weather.",
 		name: "Solar Beam",
 		pp: 10,
 		priority: 0,
@@ -1972,7 +1921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		isNonstandard: "Past",
-		shortDesc: "CFM Claydol: 80 BP special move; cannot be reflected by Magic Coat.",
+		shortDesc: "CFM Claydol: 80 BP special move.",
 		name: "Telekinesis",
 		pp: 15,
 		priority: 0,
@@ -2030,7 +1979,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "The effects of binding moves, Reflect, Light Screen, Aurora Veil, Safeguard and Mist end for all affected targets. If this move affects at least one target, all hazards are removed from both sides of the field, and any terrain will be cleared.",
-		shortDesc: "Clears trapping and screens from affected targets, then clears all hazards and terrain.",
+		shortDesc: "Clears trapping/screens from affected, then all hazards/terrain.",
 		name: "Wash Away",
 		pp: 20,
 		priority: 0,
@@ -2159,7 +2108,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		desc: "Has a 30% chance to raise the user's Special Attack by 1 stage. Has a higher chance for a critical hit.",
-		shortDesc: "30% chance to raise the user's Defense by 1. High critical hit ratio.",
+		shortDesc: "30% to raise the user's Def by 1. High crit ratio.",
 		name: "Stalwart Sword",
 		pp: 10,
 		priority: 0,
@@ -2186,6 +2135,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 		name: "Shield Slam",
 		pp: 10,
 		priority: 0,
@@ -2198,5 +2148,94 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+	},
+	shieldbash: { // pfff
+		num: -1011,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
+		name: "Shield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Behemoth Bash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	cleansinglight: {
+		num: -1012,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "On turn 2: cure party status, fully restore user HP.",
+		name: "Cleansing Light",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, snatch: 1, distance: 1, authentic: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onHit(pokemon, source) {
+			this.add('-activate', source, 'move: Cleansing Light');
+			const side = pokemon.side;
+			let success = false;
+			for (const ally of side.pokemon) {
+				if (ally === source) {
+					if (this.heal(ally.baseMaxhp)) success = true;
+				}
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tail Glow", target);
+		},
+		secondary: null,
+		target: "allyTeam",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	redgauntlet: {
+		num: -1013,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Red Gauntlet",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Rock')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power-Up Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
 	},
 };

@@ -2044,7 +2044,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         num: 9087,
         name: "Dominidon",
         types: ["Dragon"],
-        baseStats: {hp: 110, atk: 145, def: 120, spa: 85, spd: 75, spe: 60},
+        baseStats: {hp: 110, atk: 145, def: 120, spa: 90, spd: 75, spe: 60},
         abilities: {0: "Solid Rock", H: "Tough Claws"},
         weightkg: 300,
         prevo: ["tyrecent"],

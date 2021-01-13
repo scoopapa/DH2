@@ -3,6 +3,14 @@ export const Formats: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'Mega Data Mod',
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
+		onBegin() {
+			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
+			this.add('-message', `Welcome to Megas for All!`);
+			this.add('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
+			this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
+			this.add('-message', `You can find our thread and metagame resources here:`);
+			this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {
 				if (pokemon.illusion.species.forme.startsWith('Mega') || pokemon.illusion.species.forme.startsWith('Ultra')) {
@@ -38,42 +46,34 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 	},
 	megahintmod: {
-		effectType: 'Rule', 
-		name: 'Mega Hint Mod', 
-		desc: 'At the start of a battle, gives each player information about the potential Mega in their party', 
+		effectType: 'Rule',
+		name: 'Mega Hint Mod',
+		desc: 'At the start of a battle, gives each player information about the potential Mega in their party',
 		onBegin() {
-			this.add('-message', 'Your Mega Evolution this match is:'); 
-			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon); 
-				for (let pokemon of allPokemon) {
-					const item = this.dex.getItem(pokemon.item)
-					if (pokemon.canMegaEvo) {
-							
-							let mega = this.dex.getSpecies(pokemon.canMegaEvo); 
-							const baseStats = mega.baseStats; 	
-							let types = new String(mega.types[0]); 
-							if (mega.types[1]) {
-								types = types.concat("/" + mega.types[1])
-							}
-							let msg = new String(" Spe"); 
-							if (mega.name === "Mimikyu-Mega") {
-								msg = msg.concat("; Mega Mimikyu has two forms! If its Disguise is busted, it will Mega Evolve into Mimikyu-Busted-Mega. /dt for info"); 
-							}
-							let txt = new String(mega.name + " (" + types +
-							"); Ability: " + mega.abilities[0] + " (" + this.dex.getAbility(mega.abilities[0]).shortDesc +
-							"); Stats: " + baseStats.hp +
-							" HP / " + baseStats.atk +
-							" Atk / " + baseStats.def +
-							" Def / " + baseStats.spa +
-							" SpA / " + baseStats.spd +
-							" SpD / " + baseStats.spe + msg); 
-							this.hint(txt, true, pokemon.side); 
-						
+			this.add('-message', 'Your Mega Evolution this match is:');
+			for (const pokemon of this.getAllPokemon()) {
+				if (pokemon.canMegaEvo) {
+					const mega = this.dex.getSpecies(pokemon.canMegaEvo);
+					const baseStats = mega.baseStats;
+					let types = mega.types[0];
+					if (mega.types[1]) {
+						types += `/${mega.types[1]}`;
 					}
+					let msg = ``;
+					if (mega.name === "Mimikyu-Mega") {
+						msg += `; Mega Mimikyu has two forms! If its Disguise is busted, it will Mega Evolve into Mimikyu-Busted-Mega. Use /dt for more info.`;
+					}
+					const ability = this.dex.getAbility(mega.abilities[0]);
+					let txt = `${mega.name} (${types}); `;
+					txt += `Ability: ${ability.name} (${ability.shortDesc}); `;
+					txt += `Stats: ${baseStats.hp} HP / ${baseStats.atk} Atk / ${baseStats.def} Def / ${baseStats.spa} SpA / ${baseStats.spd} SpD / ${baseStats.spe} Spe;${msg}`;
+					this.hint(txt, true, pokemon.side);
+				}
 			}
-			this.add('-message', 'Use the command /dt for more information!'); 
+			this.add('-message', 'Use the command /dt for more information!');
 		},
 	},
-	
+
 	sametypeclause: {
 		effectType: 'ValidatorRule',
 		name: 'Same Type Clause',
@@ -91,21 +91,20 @@ export const Formats: {[k: string]: FormatData} = {
 				} else {
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
-				//if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
-					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
-						typeTable = typeTable.filter(type => species.types.includes(type));
-					}
-					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
-						typeTable = typeTable.filter(type => species.types.includes(type));
-					}
-					if (item.id === "mimikyunite" && species.baseSpecies === "Mimikyu") { //Mega Mimikyu is banned from Fairy Mono and this enforces that
-						species = this.dex.getSpecies("Mimikyu-Busted-Mega");
-						typeTable = typeTable.filter(type => species.types.includes(type));
-					} 
-				//}
+				const item = this.dex.getItem(set.item);
+				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
+					species = this.dex.getSpecies(item.megaStone);
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
+				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
+					species = this.dex.getSpecies("Necrozma-Ultra");
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
+				if (item.id === "mimikyunite" && species.baseSpecies === "Mimikyu") {
+					// Mega Mimikyu is banned from Fairy Mono and this enforces that
+					species = this.dex.getSpecies("Mimikyu-Busted-Mega");
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 		},

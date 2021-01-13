@@ -34,4 +34,12 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 			return -typeMod;
 		},
 	},
+	standardprism: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Prism',
+		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
+		ruleset: [
+			'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+		],
+	},
 };

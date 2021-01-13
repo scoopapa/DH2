@@ -242,6 +242,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zacian').learnset.behemothblade = ['8L1'];
 		delete this.modData('Learnsets', 'zacian').learnset.haze;
 		delete this.modData('Learnsets', 'zacian').learnset.healingwish;
+		
+		//Heatmor
+		this.modData('Learnsets', 'heatmor').learnset.spikes = ['8L1'];
+		
+		//Pangoro
+		this.modData('Learnsets', 'pangoro').learnset.machpunch = ['8L1'];
+		this.modData('Learnsets', 'pangoro').learnset.suckerpunch = ['8L1'];
+		
+		//Machamp
+		this.modData('Learnsets', 'machamp').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'machamp').learnset.powerwhip = ['8L1'];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
@@ -337,7 +348,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		} else {
 			for ( const i in oldMaxPowers ){
-				if ( move.gmaxPower === oldMaxPowers[i] ){
+				if ( move.maxMove?.basePower === oldMaxPowers[i] ){
 					gmaxPower = maxPowers[i]
 					break
 				}

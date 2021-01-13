@@ -59,32 +59,67 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'roseradescarfed').learnset.quiverdance = ['7L1'];
 		this.modData('Learnsets', 'roseradescarfed').learnset.stickyweb = ['7L1'];
 		this.modData('Learnsets', 'roseradescarfed').learnset.uturn = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.earthquake = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ['7L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.suckerpunch = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.cleansinglight = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.hydropump = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'phione').learnset.psychic = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.healbell = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.roar = ['7L1'];
+		this.modData('Learnsets', 'slowbro').learnset.willowisp = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.calmmind = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.dragontail = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.earthquake = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.flamethrower = ['7L1'];
+		this.modData('Learnsets', 'appletun').learnset.sludgebomb = ['7L1'];
+		this.modData('Learnsets', 'mamoswine').learnset.agility = ['7L1'];
+		this.modData('Learnsets', 'mamoswine').learnset.focusblast = ['7L1'];
+		delete this.modData('Learnsets', 'mamoswine').learnset.freezedry;
+		delete this.modData('Learnsets', 'mamoswine').learnset.iceshard;
+		delete this.modData('Learnsets', 'mamoswine').learnset.knockoff;
+		this.modData('Learnsets', 'gengar').learnset.agility = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.bulkup = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.closecombat = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.earthquake = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.fakeout = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.quickattack = ['7L1'];
+		this.modData('Learnsets', 'gengar').learnset.quickattack = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.coil = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.firstimpression = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.gunkshot = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.playrough = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.stoneedge = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.suckerpunch = ['7L1'];
+		this.modData('Learnsets', 'drapion').learnset.uturn = ['7L1'];
+		this.modData('Learnsets', 'alcremie').learnset.reflect = ['7L1'];
+		this.modData('Learnsets', 'alcremie').learnset.moonblast = ['7L1'];
+		this.modData('Learnsets', 'alcremie').learnset.willowisp = ['7L1'];
+		this.modData('Learnsets', 'alcremie').learnset.wish = ['7L1'];
+		this.modData('Learnsets', 'falinks').learnset.bonerush = ['7L1'];
+		this.modData('Learnsets', 'falinks').learnset.pinmissile = ['7L1'];
+		this.modData('Learnsets', 'falinks').learnset.powertrip = ['7L1'];
+		this.modData('Learnsets', 'falinks').learnset.rockblast = ['7L1'];
+		this.modData('Learnsets', 'rapidashgalar').learnset.blazekick = ['7L1'];
+		this.modData('Learnsets', 'rapidashgalar').learnset.knockoff = ['7L1'];
+		this.modData('Learnsets', 'rapidashgalar').learnset.uturn = ['7L1'];
 	},
-	unownStats: {
-		unownm: {
-			num: 201,
-			species: "Unown-M",
-			forme: "M",
-			types: ["Bug", "Dark"],
-			baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
-			abilities: {0: "Magic Guard"},
-			otherFormes: ["unownp", "unowns", "unown"],
-			heightm: 0.5,
-			weightkg: 5,
-			gender: "N",
-		},	
-	},
-	onUnown: function( pokemon, unownStats ) {
-		let pokemonid = toID( pokemon.set.species );
-		let stats = unownStats[ pokemonid ];
-		console.log( pokemonid )
-		console.log( '-------------------------' )
-		console.log( stats )
-		pokemon.species.baseStats = stats.baseStats;
-		pokemon.baseSpecies.baseStats = stats.baseStats;
-		// for ( let statName in pokemon.species.baseStats ){
-			
-		// }
-		console.log( pokemon.species.baseStats )
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Altarianite" && pokemon.baseSpecies.name === "Altaria-Unova") {
+			return "Altaria-Unova-Mega";
+		}
+		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+			return null;
+		}
+		return item.megaStone;
 	},
 };

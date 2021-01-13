@@ -118,25 +118,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: -1004,
 	},
-	damp: {
-		desc: "While this Pokemon is active, Explosion, Mind Blown, Self-Destruct, Sparksplosion and the Aftermath Ability are prevented from having an effect.",
-		shortDesc: "Prevents Explosion/Mind Blown/Self-Destruct/Aftermath while this Pokemon is active.",
-		onAnyTryMove(target, source, effect) {
-			if (['explosion', 'mindblown', 'selfdestruct', 'mistyexplosion', 'sparksplosion'].includes(effect.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Damp', effect, '[of] ' + target);
-				return false;
-			}
-		},
-		onAnyDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'aftermath') {
-				return false;
-			}
-		},
-		name: "Damp",
-		rating: 1,
-		num: 6,
-	},
 	filter: {
 		shortDesc: "Reduces damage from supereffective attacks by 1/4 if one stage, 1/2 if two stages.",
 		onSourceModifyDamage(damage, source, target, move) {
@@ -275,5 +256,118 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Swarm",
 		rating: 2,
 		num: 68,
+	},
+	damp: {
+		shortDesc: "On switch-in, Fire- and Electric-type attacks have 1/3 power for 5 turns.",
+		onStart(source) {
+			this.field.addPseudoWeather('watersport');
+			this.field.addPseudoWeather('mudsport');
+		},
+		name: "Damp",
+		rating: 3.5,
+		num: 6,
+	},
+	psychozone: {
+		desc: "This Pokémon's Normal-type moves become Psychic-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokémon's Normal-type moves become Psychic-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Psychic';
+				move.aerilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.aerilateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Psycho Zone",
+		rating: 4,
+		num: -1010,
+	},
+	thunderstorm: {
+		shortDesc: "Summons Rain Dance on switch-in. If the target of a foe's move, the move loses one additional PP.",
+		onStart(source) {
+			this.field.setWeather('raindance');
+			this.add('-message', `${source.name} is exerting its pressure!`);
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		name: "Thunderstorm",
+		rating: 4.5,
+		num: -1011,
+	},
+	runaway: {
+		desc: "This Pokémon immediately switches out to a chosen ally whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
+		shortDesc: "This Pokémon switches out if the foe has a supereffective or OHKO move.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', this.effectData.target, 'Run Away');
+						this.effectData.target.switchFlag = true;
+						return;
+					}
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', this.effectData.target, 'Run Away');
+						this.effectData.target.switchFlag = true;
+						return;
+					}
+				}
+			}
+		},
+		name: "Run Away",
+		rating: 5,
+		num: 50,
+	},
+	anticipation: {
+		shortDesc: "On switch-in, this Pokémon's Speed is raised by 1 stage if any foe has a supereffective or OHKO move.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.boost({spe: 1}, pokemon);
+						return;
+					}
+				}
+			}
+		},
+		name: "Anticipation",
+		rating: 3,
+		num: 107,
 	},
 };

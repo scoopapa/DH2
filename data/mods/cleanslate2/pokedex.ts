@@ -258,6 +258,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 95, atk: 110, def: 135, spa: 100, spd: 80, spe: 80},
 		abilities: {0: "Rock Head", 1: "Intimidate", H: "Gluttony"},
+		prevo: "",
 	},
 	centiskorch: {
 		inherit: true,

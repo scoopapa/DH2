@@ -1931,7 +1931,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"prismspray":{
 		"accuracy":true,
-		"basePower":0,
+		"basePower":100,
 		"category":"Status",
 		"desc":"This move's type is randomly determined",
 		"shortDesc":"Varies in type randomly.",

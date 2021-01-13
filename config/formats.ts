@@ -885,6 +885,7 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 		},
 		mod: 'fealpha',
+
 	},
 	{
 		name: "[Gen 8] Fusion Evolution UU",
@@ -1210,6 +1211,7 @@ export const Formats: FormatList = [
 			if ( pokemon.pokeSkill ) pokemon.addVolatile(pokemon.pokeSkill);
 		},
 	},
+	
 	{
       name: "[Gen 1] Rose Red / Iris Blue",
         desc: `A balance mod for Gen 1 that aims to make every fully-evolved Pokémon a viable pick.`,

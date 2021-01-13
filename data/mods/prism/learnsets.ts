@@ -1,13779 +1,43150 @@
-export const Learnsets = {
-	bulbasaur: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["-1M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-		wrap: ["5M"],
-	}},
-	ivysaur: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-	}},
-	venusaur: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-	}},
-	charmander: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dynamicpunch: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		outrage: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scratch: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		smokescreen: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		willowisp: ["5M"],
-	}},
-	charmeleon: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dynamicpunch: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		leer: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		outrage: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rage: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		smokescreen: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	charizard: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		skyattack: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-		wingattack: ["5M"],
-	}},
-	squirtle: {learnset: {
-		aquajet: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		confusion: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		foresight: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		watergun: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	wartortle: {learnset: {
-		aquajet: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		confusion: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		flashcannon: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		watergun: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	blastoise: {learnset: {
-		aquajet: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	caterpie: {learnset: {
-		stringshot: ["5M"],
-		tackle: ["5M"],
-	}},
-	metapod: {learnset: {
-		harden: ["5M"],
-		irondefense: ["5M"],
-		stringshot: ["5M"],
-		tackle: ["5M"],
-	}},
-	butterfree: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		bugbuzz: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		megadrain: ["5M"],
-		morningsun: ["5M"],
-		noisepulse: ["5M"],
-		poisonpowder: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stormfront: ["5M"],
-		stringshot: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-	}},
-	chingling: {learnset: {
-		astonish: ["5M"],
-		attract: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		wrap: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	chimecho: {learnset: {
-		astonish: ["5M"],
-		attract: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		wrap: ["5M"],
-	}},
-	torkoal: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flail: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		laughinggas: ["5M"],
-		lavapool: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		naturepower: ["5M"],
-		nervegas: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		smog: ["5M"],
-		smokescreen: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	pidgey: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gust: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		lightscreen: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandattack: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	pidgeotto: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gust: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		lightscreen: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	pidgeot: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	taillow: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	swellow: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	spearow: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drillpeck: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leer: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		scaryface: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	fearow: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drillpeck: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		leer: ["5M"],
-		mirrormove: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	buneary: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flail: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		playrough: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		splash: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-	}},
-	lopunny: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flail: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		playrough: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		splash: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-	}},
-	pikachu: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	raichu: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	shinx: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		scaryface: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	luxio: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		scaryface: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	luxray: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		scaryface: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	electrike: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	manectric: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	snorunt: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		powdersnow: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		spikes: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-	}},
-	glalie: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spikes: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-	}},
-	froslass: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainingkiss: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		powdersnow: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		spikes: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-	}},
-	volbeat: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		moonlight: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	illumise: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		moonlight: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	vulpix: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		charm: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flail: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		safeguard: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		willowisp: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	ninetales: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dreameater: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		safeguard: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		willowisp: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	jigglypuff: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	wigglytuff: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	zubat: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechlife: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	golbat: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	aron: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		steeleater: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-	}},
-	lairon: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		steeleater: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-	}},
-	aggron: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steeleater: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-	}},
-	paras: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechlife: ["5M"],
-		lightscreen: ["5M"],
-		megadrain: ["5M"],
-		metalclaw: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonpowder: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		pursuit: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		scratch: ["5M"],
-		screech: ["5M"],
-		seedbomb: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stringshot: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	parasect: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		megadrain: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		screech: ["5M"],
-		seedbomb: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	venonat: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechlife: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	venomoth: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		morningsun: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		signalbeam: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		willowisp: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	bronzor: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	bronzong: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	skorupi: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		pinmissile: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		spikes: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		xscissor: ["5M"],
-	}},
-	drapion: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		xscissor: ["5M"],
-	}},
-	cranidos: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		screech: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	rampardos: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bulkup: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		screech: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	shieldon: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		tackle: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-	}},
-	bastiodon: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-	}},
-	growlithe: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		roar: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	arcanine: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	whismur: {learnset: {
-		astonish: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rollout: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	loudred: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	exploud: {learnset: {
-		attract: ["5M"],
-		basetremor: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	abra: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	kadabra: {learnset: {
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		ghosthammer: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		psychocut: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	alakazam: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	machop: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		focusenergy: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		karatechop: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		pound: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	machoke: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	machamp: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	bellsprout: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		hiddenpower: ["5M"],
-		leechlife: ["5M"],
-		lightscreen: ["5M"],
-		morningsun: ["5M"],
-		naturepower: ["5M"],
-		poisonpowder: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-		wrap: ["5M"],
-	}},
-	weepinbell: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		hiddenpower: ["5M"],
-		lightscreen: ["5M"],
-		morningsun: ["5M"],
-		naturepower: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		wrap: ["5M"],
-	}},
-	victreebel: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		morningsun: ["5M"],
-		naturepower: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		wrap: ["5M"],
-	}},
-	tentacool: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		spikes: ["5M"],
-		steeleater: ["5M"],
-		substitute: ["5M"],
-		supersonic: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		wrap: ["5M"],
-	}},
-	tentacruel: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steeleater: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-	}},
-	geodude: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		magnitude: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		tackle: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	graveler: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		magnitude: ["5M"],
-		metallurgy: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	golem: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		magnitude: ["5M"],
-		metallurgy: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	ponyta: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		irontail: ["5M"],
-		megahorn: ["5M"],
-		morningsun: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	rapidash: {learnset: {
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		irontail: ["5M"],
-		megahorn: ["5M"],
-		morningsun: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	slowpoke: {learnset: {
-		aerialace: ["5M"],
-		amnesia: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	slowbro: {learnset: {
-		aerialace: ["5M"],
-		amnesia: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		waterfall: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magnemite: {learnset: {
-		aerialace: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		mindreader: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magneton: {learnset: {
-		aerialace: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		mindreader: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magnezone: {learnset: {
-		aerialace: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		mindreader: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	drifloon: {learnset: {
-		amnesia: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		ghosthammer: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		hiddenpower: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		mudslap: ["5M"],
-		nervegas: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-		wrap: ["5M"],
-	}},
-	drifblim: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		ghosthammer: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		minimize: ["5M"],
-		mudslap: ["5M"],
-		nervegas: ["5M"],
-		nightshade: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-	}},
-	sableye: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		leer: ["5M"],
-		meanlook: ["5M"],
-		metronome: ["5M"],
-		moonlight: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		poisonjab: ["5M"],
-		powergem: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		scratch: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	spiritomb: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icywind: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		smokescreen: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	shuppet: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		ghosthammer: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icywind: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	banette: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		ghosthammer: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icywind: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	duskull: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		ghosthammer: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		leer: ["5M"],
-		lewisite: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	dusclops: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		ghosthammer: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		lewisite: ["5M"],
-		meanlook: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	gastly: {learnset: {
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		haze: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		lick: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		smog: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	haunter: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	gengar: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		confuseray: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		meanlook: ["5M"],
-		metronome: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	onix: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flail: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		voidsphere: ["5M"],
-		wrap: ["5M"],
-	}},
-	lunatone: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		moonblast: ["5M"],
-		moonlight: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	solrock: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		morningsun: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	vibrava: {learnset: {
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	flygon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	makuhita: {learnset: {
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		firepunch: ["5M"],
-		focusenergy: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	hariyama: {learnset: {
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		firepunch: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		ironhead: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	exeggcute: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypnosis: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		megadrain: ["5M"],
-		moonlight: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		rage: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		seedbomb: ["5M"],
-		selfdestruct: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	exeggutor: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		lightscreen: ["5M"],
-		megadrain: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		poisonpowder: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		rage: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	cacnea: {learnset: {
-		absorb: ["5M"],
-		acid: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cottonspore: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leer: ["5M"],
-		megadrain: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		naturepower: ["5M"],
-		pinmissile: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandstorm: ["5M"],
-		sandattack: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		spite: ["5M"],
-		springbuds: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	cacturne: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cottonspore: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		leechseed: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		naturepower: ["5M"],
-		pinmissile: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandstorm: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	hitmonlee: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		firepunch: ["5M"],
-		focusenergy: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		machpunch: ["5M"],
-		metronome: ["5M"],
-		mindreader: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	hitmonchan: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		machpunch: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	trapinch: {learnset: {
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flail: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		sandattack: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-	}},
-	koffing: {learnset: {
-		acid: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		mustardgas: ["5M"],
-		painsplit: ["5M"],
-		poisongas: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		screech: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		smog: ["5M"],
-		smokescreen: ["5M"],
-		spite: ["5M"],
-		steeleater: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	weezing: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lewisite: ["5M"],
-		mustardgas: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steeleater: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	rhyhorn: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		megahorn: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	rhydon: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	chansey: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		minimize: ["5M"],
-		mudslap: ["5M"],
-		pound: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		softboiled: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	tangela: {learnset: {
-		absorb: ["5M"],
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		leechseed: ["5M"],
-		megadrain: ["5M"],
-		morningsun: ["5M"],
-		naturepower: ["5M"],
-		painsplit: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-		wrap: ["5M"],
-	}},
-	kangaskhan: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		focusenergy: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		pound: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		spite: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	tangrowth: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-	}},
-	mawile: {learnset: {
-		ancientpower: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		playrough: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-	}},
-	goldeen: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		supersonic: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-	}},
-	seaking: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-	}},
-	lotad: {learnset: {
-		absorb: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		leechseed: ["5M"],
-		megadrain: ["5M"],
-		mist: ["5M"],
-		naturepower: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	lombre: {learnset: {
-		absorb: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		leechseed: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	ludicolo: {learnset: {
-		absorb: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		leechseed: ["5M"],
-		metronome: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	scyther: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		morningsun: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		skyattack: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-		xscissor: ["5M"],
-	}},
-	relicanth: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		magnitude: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		sleeptalk: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	electabuzz: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magmar: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		lewisite: ["5M"],
-		machpunch: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-		willowisp: ["5M"],
-	}},
-	electivire: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magmortar: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		lewisite: ["5M"],
-		machpunch: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-		willowisp: ["5M"],
-	}},
-	magikarp: {learnset: {
-		bubble: ["5M"],
-		flail: ["5M"],
-		hydropump: ["5M"],
-		reversal: ["5M"],
-		splash: ["5M"],
-		tackle: ["5M"],
-	}},
-	gyarados: {learnset: {
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		splash: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		waterfall: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	absol: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		futuresight: ["5M"],
-		ghosthammer: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		meanlook: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychocut: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scratch: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		xscissor: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	ditto: {learnset: {
-		transform: ["5M"],
-	}},
-	eevee: {learnset: {
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-	}},
-	vaporeon: {learnset: {
-		acidarmor: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-	}},
-	jolteon: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		pinmissile: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderfang: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	flareon: {learnset: {
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flail: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		scaryface: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		smog: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	porygon: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		conversion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mindreader: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		poisonjab: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	varaneous: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		bulkup: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		extremespeed: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		lightscreen: ["5M"],
-		megahorn: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sacredfire: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		steeleater: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	lileep: {learnset: {
-		absorb: ["5M"],
-		acid: ["5M"],
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		megadrain: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rockthrow: ["5M"],
-		sandstorm: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		toxic: ["5M"],
-		wrap: ["5M"],
-	}},
-	cradily: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-	}},
-	anorith: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		metallurgy: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		rapidspin: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scratch: ["5M"],
-		screech: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-		xscissor: ["5M"],
-	}},
-	armaldo: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	snorlax: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lick: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	articuno: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		mindreader: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		powdersnow: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	zapdos: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drillpeck: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	moltres: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gust: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lavapool: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-		wingattack: ["5M"],
-	}},
-	beldum: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		nightshade: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	metang: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulletpunch: ["5M"],
-		confusion: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		metalclaw: ["5M"],
-		meteormash: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	metagross: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulletpunch: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		meteormash: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	mewtwo: {learnset: {
-		aerialace: ["5M"],
-		amnesia: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		barrier: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		psychocut: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		teleport: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	mew: {learnset: {
-		aerialace: ["5M"],
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		barrier: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		explosion: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		fly: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		megahorn: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		painsplit: ["5M"],
-		poisonjab: ["5M"],
-		pound: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		selfdestruct: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		softboiled: ["5M"],
-		solarbeam: ["5M"],
-		spite: ["5M"],
-		steeleater: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		transform: ["5M"],
-		triattack: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-		wrap: ["5M"],
-		xscissor: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	chikorita: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		outrage: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-	}},
-	bayleef: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		outrage: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		toxic: ["5M"],
-		vinewhip: ["5M"],
-	}},
-	meganium: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		leechseed: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		toxic: ["5M"],
-	}},
-	cyndaquil: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rollout: ["5M"],
-		sleeptalk: ["5M"],
-		smokescreen: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	quilava: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sleeptalk: ["5M"],
-		smokescreen: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	typhlosion: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flamewheel: ["5M"],
-		flareblitz: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	totodile: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		scaryface: ["5M"],
-		scratch: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-	}},
-	croconaw: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-	}},
-	feraligatr: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-	}},
-	sentret: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rollout: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	furret: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-	}},
-	ralts: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		charm: ["5M"],
-		confuseray: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		destinybond: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainingkiss: ["5M"],
-		dreameater: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		meanlook: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	kirlia: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		charm: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainingkiss: ["5M"],
-		dreameater: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	gardevoir: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		moonblast: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	gallade: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		calmmind: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainingkiss: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		futuresight: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychocut: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-		xscissor: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	spinarak: {learnset: {
-		agility: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechlife: ["5M"],
-		meanlook: ["5M"],
-		megahorn: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		pinmissile: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	ariados: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		meanlook: ["5M"],
-		megahorn: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		pinmissile: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludge: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	crobat: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bravebird: ["5M"],
-		confuseray: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		meanlook: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-		xscissor: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	chinchou: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		confuseray: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		mist: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		supersonic: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	lanturn: {learnset: {
-		amnesia: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		confuseray: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	pichu: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	dusknoir: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		ghosthammer: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		lewisite: ["5M"],
-		meanlook: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	igglybuff: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nervegas: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		pound: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		swift: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	togepi: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mirrormove: ["5M"],
-		moonblast: ["5M"],
-		mudslap: ["5M"],
-		peck: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		softboiled: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		swift: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	togetic: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mirrormove: ["5M"],
-		moonblast: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		swift: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	natu: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		drillpeck: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		gigadrain: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		peck: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	xatu: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		drillpeck: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		gigadrain: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lightscreen: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	mareep: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confuseray: ["5M"],
-		cottonspore: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		outrage: ["5M"],
-		powergem: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		sandattack: ["5M"],
-		screech: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	flaaffy: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confuseray: ["5M"],
-		cottonspore: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		outrage: ["5M"],
-		powergem: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandattack: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	ampharos: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		outrage: ["5M"],
-		powergem: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		spark: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	togekiss: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		fairywind: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mirrormove: ["5M"],
-		moonblast: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		peck: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		swift: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	marill: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		foresight: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-	}},
-	azumarill: {learnset: {
-		aquajet: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		encore: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		perishsong: ["5M"],
-		playrough: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seismictoss: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-		watergun: ["5M"],
-	}},
-	numel: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		ironhead: ["5M"],
-		lavapool: ["5M"],
-		magnitude: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		nervegas: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		stomp: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	camerupt: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		ironhead: ["5M"],
-		lavapool: ["5M"],
-		magnitude: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		nervegas: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	wailmer: {learnset: {
-		astonish: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		mist: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		splash: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	wailord: {learnset: {
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lewisite: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	surskit: {learnset: {
-		agility: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubble: ["5M"],
-		bubblebeam: ["5M"],
-		bugbuzz: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stringshot: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-	}},
-	masquerain: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		aquajet: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bugbuzz: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		foresight: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		mindreader: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		scaryface: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stormfront: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	shroomish: {learnset: {
-		absorb: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		leechseed: ["5M"],
-		megadrain: ["5M"],
-		mindreader: ["5M"],
-		mudslap: ["5M"],
-		poisonpowder: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-	}},
-	breloom: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		karatechop: ["5M"],
-		leechseed: ["5M"],
-		machpunch: ["5M"],
-		megadrain: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		sleeppowder: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		springbuds: ["5M"],
-		strength: ["5M"],
-		stunspore: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	yanma: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		leechlife: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		supersonic: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	yanmega: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		whirlwind: ["5M"],
-		wingattack: ["5M"],
-	}},
-	leafeon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		nightshade: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		seedbomb: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		synthesis: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	espeon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		charm: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		morningsun: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	umbreon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		confuseray: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		moonlight: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	glaceon: {learnset: {
-		attract: ["5M"],
-		barrier: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		powdersnow: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-	}},
-	slowking: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bubblebeam: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		disable: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		futuresight: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		poisonjab: ["5M"],
-		powergem: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	misdreavus: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icywind: ["5M"],
-		meanlook: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		powergem: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	mismagius: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		confuseray: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		hypnosis: ["5M"],
-		icywind: ["5M"],
-		meanlook: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		powergem: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	swablu: {learnset: {
-		aerialace: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		metronome: ["5M"],
-		mirrormove: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		peck: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		sing: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	altaria: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		laughinggas: ["5M"],
-		metronome: ["5M"],
-		mirrormove: ["5M"],
-		mist: ["5M"],
-		moonblast: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		perishsong: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	pineco: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flail: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irondefense: ["5M"],
-		lightscreen: ["5M"],
-		metallurgy: ["5M"],
-		painsplit: ["5M"],
-		pinmissile: ["5M"],
-		protect: ["5M"],
-		rapidspin: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		selfdestruct: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		spikes: ["5M"],
-		strength: ["5M"],
-		stringshot: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-	}},
-	forretress: {learnset: {
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		painsplit: ["5M"],
-		pinmissile: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rapidspin: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		spikes: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	rhyperior: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-	}},
-	gligar: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		sandattack: ["5M"],
-		screech: ["5M"],
-		skyattack: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		wingattack: ["5M"],
-	}},
-	steelix: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		wrap: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	gliscor: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		sandattack: ["5M"],
-		screech: ["5M"],
-		skyattack: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		wingattack: ["5M"],
-		xscissor: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	feebas: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		flail: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		splash: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-	}},
-	milotic: {learnset: {
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bubblebeam: ["5M"],
-		bulkup: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		finalchance: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		haze: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypnosis: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		recover: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		twister: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-		wrap: ["5M"],
-	}},
-	scizor: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bodyslam: ["5M"],
-		bugbuzz: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		endure: ["5M"],
-		flashcannon: ["5M"],
-		fly: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		metalclaw: ["5M"],
-		morningsun: ["5M"],
-		nightslash: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		xscissor: ["5M"],
-	}},
-	riolu: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flashcannon: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		icepunch: ["5M"],
-		irontail: ["5M"],
-		karatechop: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		screech: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	lucario: {learnset: {
-		agility: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonpulse: ["5M"],
-		drainpunch: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		extremespeed: ["5M"],
-		firepunch: ["5M"],
-		flashcannon: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icepunch: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		karatechop: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-	}},
-	sneasel: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		scratch: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	teddiursa: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		firepunch: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icepunch: ["5M"],
-		leer: ["5M"],
-		lick: ["5M"],
-		metalclaw: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightslash: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		scaryface: ["5M"],
-		scratch: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	ursaring: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		firepunch: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icepunch: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		nightslash: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		seedbomb: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	slugma: {learnset: {
-		acidarmor: ["5M"],
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthpower: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		harden: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		laughinggas: ["5M"],
-		lavapool: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		painsplit: ["5M"],
-		protect: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		rollout: ["5M"],
-		selfdestruct: ["5M"],
-		sleeptalk: ["5M"],
-		smog: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		vaporize: ["5M"],
-		willowisp: ["5M"],
-	}},
-	magcargo: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		explosion: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		lavapool: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		naturepower: ["5M"],
-		painsplit: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	swinub: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		flail: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		powdersnow: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		toxic: ["5M"],
-	}},
-	piloswine: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		lightscreen: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-	}},
-	gible: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		sandattack: ["5M"],
-		scaryface: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-	}},
-	gabite: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		takedown: ["5M"],
-		toxic: ["5M"],
-	}},
-	garchomp: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		toxic: ["5M"],
-	}},
-	bagon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		rage: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		scaryface: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	shelgon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hypervoice: ["5M"],
-		irondefense: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		scaryface: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	salamence: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nervegas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		shadowclaw: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	houndour: {learnset: {
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		smog: ["5M"],
-		solarbeam: ["5M"],
-		spite: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	houndoom: {learnset: {
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		destinybond: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		lavapool: ["5M"],
-		leer: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nastyplot: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		reversal: ["5M"],
-		rocksmash: ["5M"],
-		shadowball: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		willowisp: ["5M"],
-	}},
-	mamoswine: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		megahorn: ["5M"],
-		mist: ["5M"],
-		mudslap: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-	}},
-	phanpy: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		irondefense: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		mudslap: ["5M"],
-		playrough: ["5M"],
-		protect: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-	}},
-	donphan: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		charm: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		magnitude: ["5M"],
-		megahorn: ["5M"],
-		mudslap: ["5M"],
-		playrough: ["5M"],
-		poisonjab: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		seedbomb: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-		watergun: ["5M"],
-	}},
-	porygon2: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		conversion: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mindreader: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		painsplit: ["5M"],
-		poisonjab: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psybeam: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	porygonz: {learnset: {
-		aerialace: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	weavile: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		metalclaw: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		nightslash: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		scratch: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		xscissor: ["5M"],
-	}},
-	tyrogue: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		machpunch: ["5M"],
-		mindreader: ["5M"],
-		mudslap: ["5M"],
-		pound: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-	}},
-	hitmontop: {learnset: {
-		aerialace: ["5M"],
-		agility: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		bulletpunch: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doublekick: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		focusenergy: ["5M"],
-		foresight: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		hyperbeam: ["5M"],
-		machpunch: ["5M"],
-		mindreader: ["5M"],
-		mudslap: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		thief: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-	}},
-	fambaco: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		astonish: ["5M"],
-		attract: ["5M"],
-		aurasphere: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		calmmind: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dreameater: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		ghosthammer: ["5M"],
-		hail: ["5M"],
-		hiddenpower: ["5M"],
-		highjumpkick: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		ironhead: ["5M"],
-		laughinggas: ["5M"],
-		lewisite: ["5M"],
-		lightscreen: ["5M"],
-		machpunch: ["5M"],
-		metronome: ["5M"],
-		mindreader: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychocut: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		scratch: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-	}},
-	elekid: {learnset: {
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		endure: ["5M"],
-		firepunch: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		icepunch: ["5M"],
-		karatechop: ["5M"],
-		leer: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		powerballad: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		quickattack: ["5M"],
-		raindance: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		screech: ["5M"],
-		seismictoss: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		takedown: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	magby: {learnset: {
-		attract: ["5M"],
-		bellydrum: ["5M"],
-		bodyslam: ["5M"],
-		confuseray: ["5M"],
-		counter: ["5M"],
-		crosschop: ["5M"],
-		curse: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dynamicpunch: ["5M"],
-		ember: ["5M"],
-		endure: ["5M"],
-		feintattack: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		firespin: ["5M"],
-		flamethrower: ["5M"],
-		flareblitz: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		irontail: ["5M"],
-		karatechop: ["5M"],
-		lavapool: ["5M"],
-		leer: ["5M"],
-		lewisite: ["5M"],
-		machpunch: ["5M"],
-		mudslap: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		seismictoss: ["5M"],
-		sleeptalk: ["5M"],
-		smog: ["5M"],
-		smokescreen: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thief: ["5M"],
-		thunderpunch: ["5M"],
-		toxic: ["5M"],
-		willowisp: ["5M"],
-	}},
-	sylveon: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		batonpass: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		charm: ["5M"],
-		cosmicpower: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainingkiss: ["5M"],
-		endure: ["5M"],
-		fairywind: ["5M"],
-		flail: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growth: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		moonblast: ["5M"],
-		noisepulse: ["5M"],
-		playrough: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		safeguard: ["5M"],
-		sandattack: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tackle: ["5M"],
-		tailwhip: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		whirlwind: ["5M"],
-	}},
-	blissey: {learnset: {
-		aerialace: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		counter: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		dizzypunch: ["5M"],
-		doubleslap: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		drainpunch: ["5M"],
-		dreameater: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		frustration: ["5M"],
-		growl: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		healbell: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		icywind: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		minimize: ["5M"],
-		mudslap: ["5M"],
-		pound: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		sing: ["5M"],
-		sleeptalk: ["5M"],
-		softboiled: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		sweetkiss: ["5M"],
-		sweetscent: ["5M"],
-		swift: ["5M"],
-		tailwhip: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	groudon: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rollout: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		slash: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-	}},
-	kyogre: {learnset: {
-		amnesia: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bubblebeam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		defensecurl: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		freezeburn: ["5M"],
-		frustration: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		scaryface: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		waterfall: ["5M"],
-		watergun: ["5M"],
-	}},
-	rayquaza: {learnset: {
-		aerialace: ["5M"],
-		airslash: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		bulkup: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		extremespeed: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		powerballad: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		shadowclaw: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		twister: ["5M"],
-		whirlwind: ["5M"],
-		wrap: ["5M"],
-	}},
-	larvitar: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragondance: ["5M"],
-		dragonpulse: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		leer: ["5M"],
-		metallurgy: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		scratch: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		toxic: ["5M"],
-	}},
-	pupitar: {learnset: {
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		bodyslam: ["5M"],
-		crunch: ["5M"],
-		curse: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragondance: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		focusenergy: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		sandstorm: ["5M"],
-		scaryface: ["5M"],
-		sleeptalk: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunderfang: ["5M"],
-		toxic: ["5M"],
-	}},
-	tyranitar: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bite: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		counter: ["5M"],
-		crunch: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		dig: ["5M"],
-		dizzypunch: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dragondance: ["5M"],
-		dustdevil: ["5M"],
-		dynamicpunch: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		fireblast: ["5M"],
-		firepunch: ["5M"],
-		flamethrower: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		icebeam: ["5M"],
-		icepunch: ["5M"],
-		irondefense: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		outrage: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		raindance: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowclaw: ["5M"],
-		sleeptalk: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderpunch: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-	}},
-	lugia: {learnset: {
-		aerialace: ["5M"],
-		aeroblast: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		calmmind: ["5M"],
-		confusion: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonpulse: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		earthpower: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		futuresight: ["5M"],
-		gigadrain: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hydropump: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icebeam: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		psychicm: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		recover: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		voidsphere: ["5M"],
-		whirlwind: ["5M"],
-		zapcannon: ["5M"],
-		zenheadbutt: ["5M"],
-	}},
-	hooh: {learnset: {
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		bodyslam: ["5M"],
-		calmmind: ["5M"],
-		curse: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dreameater: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		ironhead: ["5M"],
-		lightscreen: ["5M"],
-		mudslap: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rocksmash: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowball: ["5M"],
-		signalbeam: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		whirlwind: ["5M"],
-		willowisp: ["5M"],
-		zapcannon: ["5M"],
-	}},
-	raiwato: {learnset: {
-		acid: ["5M"],
-		aeroblast: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		barrier: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		fireblast: ["5M"],
-		flamethrower: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		headbutt: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		lightscreen: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		noisepulse: ["5M"],
-		poisonjab: ["5M"],
-		powergem: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		raindance: ["5M"],
-		rapidspin: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		rockthrow: ["5M"],
-		safeguard: ["5M"],
-		sandstorm: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		solarbeam: ["5M"],
-		spark: ["5M"],
-		steeleater: ["5M"],
-		stormfront: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		sunnyday: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderbolt: ["5M"],
-		thundershock: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		wildcharge: ["5M"],
-		willowisp: ["5M"],
-	}},
-	phancero: {learnset: {
-		acidarmor: ["5M"],
-		aerialace: ["5M"],
-		agility: ["5M"],
-		airslash: ["5M"],
-		attract: ["5M"],
-		blizzard: ["5M"],
-		cosmicpower: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		finalchance: ["5M"],
-		flashcannon: ["5M"],
-		fly: ["5M"],
-		frustration: ["5M"],
-		gust: ["5M"],
-		hail: ["5M"],
-		highjumpkick: ["5M"],
-		hyperbeam: ["5M"],
-		icywind: ["5M"],
-		leechseed: ["5M"],
-		lick: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		pound: ["5M"],
-		prismspray: ["5M"],
-		protect: ["5M"],
-		psychic: ["5M"],
-		raindance: ["5M"],
-		razorleaf: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		sandstorm: ["5M"],
-		seismictoss: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		skyattack: ["5M"],
-		sleeptalk: ["5M"],
-		solarbeam: ["5M"],
-		steelwing: ["5M"],
-		stormfront: ["5M"],
-		substitute: ["5M"],
-		surf: ["5M"],
-		swagger: ["5M"],
-		swordsdance: ["5M"],
-		teleport: ["5M"],
-		thief: ["5M"],
-		thunder: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		watergun: ["5M"],
-		wingattack: ["5M"],
-		wrap: ["5M"],
-	}},
-	libabeel: {learnset: {
-		acidarmor: ["5M"],
-		aerialace: ["5M"],
-		ancientpower: ["5M"],
-		attract: ["5M"],
-		basetremor: ["5M"],
-		bodyslam: ["5M"],
-		boil: ["5M"],
-		bulkup: ["5M"],
-		counter: ["5M"],
-		crystalbolt: ["5M"],
-		curse: ["5M"],
-		cut: ["5M"],
-		darkpulse: ["5M"],
-		defensecurl: ["5M"],
-		dig: ["5M"],
-		doubleedge: ["5M"],
-		doubleteam: ["5M"],
-		dragonbreath: ["5M"],
-		dragonclaw: ["5M"],
-		dustdevil: ["5M"],
-		earthquake: ["5M"],
-		endure: ["5M"],
-		energyball: ["5M"],
-		finalchance: ["5M"],
-		flash: ["5M"],
-		flashcannon: ["5M"],
-		frustration: ["5M"],
-		furycutter: ["5M"],
-		gigadrain: ["5M"],
-		headbutt: ["5M"],
-		headsmash: ["5M"],
-		hiddenpower: ["5M"],
-		hyperbeam: ["5M"],
-		hypervoice: ["5M"],
-		icywind: ["5M"],
-		ironhead: ["5M"],
-		irontail: ["5M"],
-		megahorn: ["5M"],
-		metalclaw: ["5M"],
-		metronome: ["5M"],
-		mudslap: ["5M"],
-		mustardgas: ["5M"],
-		nightshade: ["5M"],
-		noisepulse: ["5M"],
-		poisongas: ["5M"],
-		poisonjab: ["5M"],
-		poisonsting: ["5M"],
-		protect: ["5M"],
-		pursuit: ["5M"],
-		reflect: ["5M"],
-		rest: ["5M"],
-		return: ["5M"],
-		roar: ["5M"],
-		rockslide: ["5M"],
-		rocksmash: ["5M"],
-		sandstorm: ["5M"],
-		screech: ["5M"],
-		shadowball: ["5M"],
-		shadowclaw: ["5M"],
-		signalbeam: ["5M"],
-		sleeptalk: ["5M"],
-		sludgebomb: ["5M"],
-		smog: ["5M"],
-		steeleater: ["5M"],
-		strength: ["5M"],
-		substitute: ["5M"],
-		swagger: ["5M"],
-		swift: ["5M"],
-		swordsdance: ["5M"],
-		thief: ["5M"],
-		thunderwave: ["5M"],
-		toxic: ["5M"],
-		triattack: ["5M"],
-		voidsphere: ["5M"],
-		wildcharge: ["5M"],
-		zapcannon: ["5M"],
-	}},
-
-};
+export const Learnsets = {	
+	"bulbasaur":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"leechseed":[
+				"5L7"
+			],
+			"vinewhip":[
+				"5L10"
+			],
+			"poisonpowder":[
+				"5L13"
+			],
+			"sweetscent":[
+				"5L17",
+				"5M"
+			],
+			"takedown":[
+				"5L20"
+			],
+			"razorleaf":[
+				"5L23",
+				"5M"
+			],
+			"sludge":[
+				"5L26"
+			],
+			"sleeppowder":[
+				"5L29"
+			],
+			"synthesis":[
+				"5L32"
+			],
+			"springbuds":[
+				"5L35"
+			],
+			"sludgebomb":[
+				"5L38",
+				"5M"
+			],
+			"growth":[
+				"5L41"
+			],
+			"sunnyday":[
+				"5L44",
+				"5M"
+			],
+			"solarbeam":[
+				"5L47",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"mustardgas":[
+				"5T"
+			],
+			"amnesia":[
+				"5E"
+			],
+			"wrap":[
+				"5E"
+			],
+			"charm":[
+				"5E"
+			],
+			"stringshot":[
+				"5E"
+			]
+		}
+	},
+	"ivysaur":{
+		"learnset":{
+			"growl":[
+				"5L1"
+			],
+			"leechseed":[
+				"5L1"
+			],
+			"vinewhip":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L1"
+			],
+			"sweetscent":[
+				"5L17",
+				"5M"
+			],
+			"takedown":[
+				"5L21"
+			],
+			"razorleaf":[
+				"5L25",
+				"5M"
+			],
+			"sludge":[
+				"5L29"
+			],
+			"sleeppowder":[
+				"5L33"
+			],
+			"springbuds":[
+				"5L37"
+			],
+			"synthesis":[
+				"5L41"
+			],
+			"sludgebomb":[
+				"5L45",
+				"5M"
+			],
+			"growth":[
+				"5L49"
+			],
+			"sunnyday":[
+				"5L53",
+				"5M"
+			],
+			"solarbeam":[
+				"5L57",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"mustardgas":[
+				"5T"
+			]
+		}
+	},
+	"venusaur":{
+		"learnset":{
+			"naturepower":[
+				"5L1"
+			],
+			"outrage":[
+				"5L1"
+			],
+			"sweetscent":[
+				"5L1",
+				"5M"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"razorleaf":[
+				"5L1",
+				"5M"
+			],
+			"sludge":[
+				"5L1"
+			],
+			"sleeppowder":[
+				"5L34"
+			],
+			"springbuds":[
+				"5L39"
+			],
+			"synthesis":[
+				"5L44"
+			],
+			"sludgebomb":[
+				"5L49",
+				"5M"
+			],
+			"growth":[
+				"5L54"
+			],
+			"sunnyday":[
+				"5L59",
+				"5M"
+			],
+			"solarbeam":[
+				"5L64",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"mustardgas":[
+				"5T"
+			]
+		}
+	},
+	"charmander":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"smokescreen":[
+				"5L13"
+			],
+			"rage":[
+				"5L17"
+			],
+			"firespin":[
+				"5L20"
+			],
+			"bite":[
+				"5L23"
+			],
+			"slash":[
+				"5L26"
+			],
+			"bellydrum":[
+				"5L29"
+			],
+			"boil":[
+				"5L32"
+			],
+			"lavapool":[
+				"5L35"
+			],
+			"crunch":[
+				"5L38"
+			],
+			"lewisite":[
+				"5L41"
+			],
+			"flareblitz":[
+				"5L44"
+			],
+			"outrage":[
+				"5L47"
+			],
+			"dragondance":[
+				"5L50"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			],
+			"twister":[
+				"5E"
+			]
+		}
+	},
+	"charmeleon":{
+		"learnset":{
+			"leer":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"growl":[
+				"5L1"
+			],
+			"ember":[
+				"5L1"
+			],
+			"metalclaw":[
+				"5L1"
+			],
+			"smokescreen":[
+				"5L1"
+			],
+			"rage":[
+				"5L18"
+			],
+			"firespin":[
+				"5L22"
+			],
+			"bite":[
+				"5L26"
+			],
+			"slash":[
+				"5L30"
+			],
+			"bellydrum":[
+				"5L34"
+			],
+			"boil":[
+				"5L38"
+			],
+			"lavapool":[
+				"5L42"
+			],
+			"crunch":[
+				"5L46"
+			],
+			"lewisite":[
+				"5L50"
+			],
+			"flareblitz":[
+				"5L54"
+			],
+			"outrage":[
+				"5L58"
+			],
+			"dragondance":[
+				"5L62"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"charizard":{
+		"learnset":{
+			"mustardgas":[
+				"5L1"
+			],
+			"dragonpulse":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"firespin":[
+				"5L1"
+			],
+			"slash":[
+				"5L1"
+			],
+			"bellydrum":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L36"
+			],
+			"boil":[
+				"5L41",
+				"5M"
+			],
+			"crunch":[
+				"5L46"
+			],
+			"lewisite":[
+				"5L51"
+			],
+			"airslash":[
+				"5L56"
+			],
+			"flareblitz":[
+				"5L61"
+			],
+			"outrage":[
+				"5L66"
+			],
+			"dragondance":[
+				"5L71"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"squirtle":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"defensecurl":[
+				"5L10",
+				"5M"
+			],
+			"confusion":[
+				"5L13"
+			],
+			"bubble":[
+				"5L17"
+			],
+			"bite":[
+				"5L20"
+			],
+			"protect":[
+				"5L23",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L26"
+			],
+			"takedown":[
+				"5L29"
+			],
+			"irondefense":[
+				"5L32"
+			],
+			"raindance":[
+				"5L35",
+				"5M"
+			],
+			"aquajet":[
+				"5L38"
+			],
+			"haze":[
+				"5L41"
+			],
+			"dragonpulse":[
+				"5L44"
+			],
+			"aurasphere":[
+				"5L47"
+			],
+			"hydropump":[
+				"5L50"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"powergem":[
+				"5T"
+			],
+			"foresight":[
+				"5E"
+			]
+		}
+	},
+	"wartortle":{
+		"learnset":{
+			"flail":[
+				"5L1"
+			],
+			"rapidspin":[
+				"5L1"
+			],
+			"mist":[
+				"5L1"
+			],
+			"watergun":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L1"
+			],
+			"defensecurl":[
+				"5L1",
+				"5M"
+			],
+			"confusion":[
+				"5L1"
+			],
+			"bubble":[
+				"5L18"
+			],
+			"bite":[
+				"5L22"
+			],
+			"protect":[
+				"5L26",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L30"
+			],
+			"takedown":[
+				"5L34"
+			],
+			"irondefense":[
+				"5L38"
+			],
+			"raindance":[
+				"5L42",
+				"5M"
+			],
+			"aquajet":[
+				"5L46"
+			],
+			"haze":[
+				"5L50"
+			],
+			"dragonpulse":[
+				"5L54"
+			],
+			"aurasphere":[
+				"5L58"
+			],
+			"hydropump":[
+				"5L62"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"powergem":[
+				"5T"
+			]
+		}
+	},
+	"blastoise":{
+		"learnset":{
+			"bite":[
+				"5L1"
+			],
+			"protect":[
+				"5L1",
+				"5M"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"bubblebeam":[
+				"5L1"
+			],
+			"irondefense":[
+				"5L39"
+			],
+			"raindance":[
+				"5L44",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L49"
+			],
+			"aquajet":[
+				"5L54"
+			],
+			"aurasphere":[
+				"5L59"
+			],
+			"haze":[
+				"5L64"
+			],
+			"outrage":[
+				"5L69"
+			],
+			"hydropump":[
+				"5L74"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"powergem":[
+				"5T"
+			]
+		}
+	},
+	"caterpie":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"stringshot":[
+				"5L1"
+			],
+			"xscissor":[
+				"5T"
+			]
+		}
+	},
+	"metapod":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"stringshot":[
+				"5L1"
+			],
+			"harden":[
+				"5L7"
+			],
+			"irondefense":[
+				"5L15"
+			],
+			"xscissor":[
+				"5T"
+			]
+		}
+	},
+	"butterfree":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"stringshot":[
+				"5L1"
+			],
+			"harden":[
+				"5L1"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"twister":[
+				"5L13"
+			],
+			"gust":[
+				"5L16"
+			],
+			"poisonpowder":[
+				"5L19"
+			],
+			"megadrain":[
+				"5L22"
+			],
+			"psybeam":[
+				"5L26"
+			],
+			"airslash":[
+				"5L29"
+			],
+			"signalbeam":[
+				"5L32",
+				"5M"
+			],
+			"stunspore":[
+				"5L35"
+			],
+			"springbuds":[
+				"5L38"
+			],
+			"stormfront":[
+				"5L41",
+				"5M"
+			],
+			"bugbuzz":[
+				"5L44"
+			],
+			"sleeppowder":[
+				"5L47"
+			],
+			"morningsun":[
+				"5L50"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"xscissor":[
+				"5T"
+			]
+		}
+	},
+	"chingling":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"growl":[
+				"5L3"
+			],
+			"astonish":[
+				"5L6"
+			],
+			"confusion":[
+				"5L9"
+			],
+			"sing":[
+				"5L12"
+			],
+			"disable":[
+				"5L15",
+				"5E"
+			],
+			"finalchance":[
+				"5L18",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L21"
+			],
+			"noisepulse":[
+				"5L24",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"meteormash":[
+				"5T"
+			]
+		}
+	},
+	"chimecho":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"growl":[
+				"5L5"
+			],
+			"astonish":[
+				"5L9"
+			],
+			"confusion":[
+				"5L13"
+			],
+			"sing":[
+				"5L18"
+			],
+			"powerballad":[
+				"5L23"
+			],
+			"futuresight":[
+				"5L28"
+			],
+			"psybeam":[
+				"5L32"
+			],
+			"healbell":[
+				"5L36"
+			],
+			"noisepulse":[
+				"5L40",
+				"5M"
+			],
+			"recover":[
+				"5L43"
+			],
+			"psychic":[
+				"5L46",
+				"5M"
+			],
+			"hypnosis":[
+				"5L49"
+			],
+			"hypervoice":[
+				"5L52",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"meteormash":[
+				"5T"
+			]
+		}
+	},
+	"torkoal":{
+		"learnset":{
+			"earthpower":[
+				"5L1"
+			],
+			"naturepower":[
+				"5L1"
+			],
+			"rage":[
+				"5L1"
+			],
+			"flail":[
+				"5L1"
+			],
+			"protect":[
+				"5L1",
+				"5M"
+			],
+			"rapidspin":[
+				"5L1"
+			],
+			"smog":[
+				"5L4"
+			],
+			"defensecurl":[
+				"5L9",
+				"5M"
+			],
+			"ember":[
+				"5L14"
+			],
+			"smokescreen":[
+				"5L19"
+			],
+			"lavapool":[
+				"5L23"
+			],
+			"laughinggas":[
+				"5L27"
+			],
+			"firespin":[
+				"5L31"
+			],
+			"selfdestruct":[
+				"5L35"
+			],
+			"irondefense":[
+				"5L39"
+			],
+			"mustardgas":[
+				"5L43",
+				"5M"
+			],
+			"flamethrower":[
+				"5L46",
+				"5M"
+			],
+			"amnesia":[
+				"5L49"
+			],
+			"curse":[
+				"5L52",
+				"5M"
+			],
+			"nervegas":[
+				"5L55"
+			],
+			"fireblast":[
+				"5L58",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			],
+			"metallurgy":[
+				"5E"
+			]
+		}
+	},
+	"pidgey":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L4"
+			],
+			"gust":[
+				"5L7"
+			],
+			"pursuit":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"twister":[
+				"5L16"
+			],
+			"wingattack":[
+				"5L19"
+			],
+			"agility":[
+				"5L22"
+			],
+			"takedown":[
+				"5L25"
+			],
+			"feintattack":[
+				"5L28"
+			],
+			"airslash":[
+				"5L31"
+			],
+			"whirlwind":[
+				"5L34",
+				"5M"
+			],
+			"doubleedge":[
+				"5L37",
+				"5M"
+			],
+			"steelwing":[
+				"5L40",
+				"5M"
+			],
+			"bravebird":[
+				"5L43"
+			],
+			"mirrormove":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			],
+			"peck":[
+				"5E"
+			],
+			"foresight":[
+				"5E"
+			]
+		}
+	},
+	"pidgeotto":{
+		"learnset":{
+			"gust":[
+				"5L1"
+			],
+			"pursuit":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"twister":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L20"
+			],
+			"agility":[
+				"5L24"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"feintattack":[
+				"5L32"
+			],
+			"airslash":[
+				"5L35"
+			],
+			"whirlwind":[
+				"5L39",
+				"5M"
+			],
+			"doubleedge":[
+				"5L43",
+				"5M"
+			],
+			"steelwing":[
+				"5L47",
+				"5M"
+			],
+			"bravebird":[
+				"5L51"
+			],
+			"mirrormove":[
+				"5L55"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			]
+		}
+	},
+	"pidgeot":{
+		"learnset":{
+			"agility":[
+				"5L1"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"airslash":[
+				"5L1"
+			],
+			"whirlwind":[
+				"5L41",
+				"5M"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"steelwing":[
+				"5L51",
+				"5M"
+			],
+			"bravebird":[
+				"5L56"
+			],
+			"mirrormove":[
+				"5L61"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			]
+		}
+	},
+	"taillow":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"peck":[
+				"5L7"
+			],
+			"twister":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"focusenergy":[
+				"5L16"
+			],
+			"wingattack":[
+				"5L19"
+			],
+			"agility":[
+				"5L23"
+			],
+			"takedown":[
+				"5L26"
+			],
+			"batonpass":[
+				"5L29"
+			],
+			"skyattack":[
+				"5L32",
+				"5M"
+			],
+			"doubleteam":[
+				"5L35",
+				"5M"
+			],
+			"hypervoice":[
+				"5L38"
+			],
+			"doubleedge":[
+				"5L41",
+				"5M"
+			],
+			"bravebird":[
+				"5L44"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			],
+			"mirrormove":[
+				"5E"
+			]
+		}
+	},
+	"swellow":{
+		"learnset":{
+			"airslash":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L1"
+			],
+			"twister":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"focusenergy":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L1"
+			],
+			"agility":[
+				"5L24"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"batonpass":[
+				"5L32"
+			],
+			"skyattack":[
+				"5L36",
+				"5M"
+			],
+			"doubleteam":[
+				"5L41",
+				"5M"
+			],
+			"hypervoice":[
+				"5L46",
+				"5M"
+			],
+			"doubleedge":[
+				"5L51",
+				"5M"
+			],
+			"bravebird":[
+				"5L56"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			]
+		}
+	},
+	"spearow":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"peck":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"rage":[
+				"5L13"
+			],
+			"feintattack":[
+				"5L16"
+			],
+			"aerialace":[
+				"5L19",
+				"5M"
+			],
+			"leer":[
+				"5L22"
+			],
+			"quickattack":[
+				"5L25"
+			],
+			"agility":[
+				"5L28"
+			],
+			"skyattack":[
+				"5L31",
+				"5M"
+			],
+			"mirrormove":[
+				"5L34"
+			],
+			"doubleedge":[
+				"5L37",
+				"5M"
+			],
+			"steelwing":[
+				"5L40",
+				"5M"
+			],
+			"drillpeck":[
+				"5L43"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			],
+			"scaryface":[
+				"5E"
+			]
+		}
+	},
+	"fearow":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"batonpass":[
+				"5L1"
+			],
+			"astonish":[
+				"5L1"
+			],
+			"rage":[
+				"5L1"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"aerialace":[
+				"5L1",
+				"5M"
+			],
+			"leer":[
+				"5L23"
+			],
+			"quickattack":[
+				"5L27"
+			],
+			"agility":[
+				"5L31"
+			],
+			"skyattack":[
+				"5L35",
+				"5M"
+			],
+			"mirrormove":[
+				"5L39"
+			],
+			"doubleedge":[
+				"5L44",
+				"5M"
+			],
+			"steelwing":[
+				"5L49",
+				"5M"
+			],
+			"drillpeck":[
+				"5L54"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"stormfront":[
+				"5T"
+			]
+		}
+	},
+	"buneary":{
+		"learnset":{
+			"splash":[
+				"5L1"
+			],
+			"pound":[
+				"5L1"
+			],
+			"defensecurl":[
+				"5L4",
+				"5M"
+			],
+			"foresight":[
+				"5L7"
+			],
+			"encore":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"powerballad":[
+				"5L16"
+			],
+			"agility":[
+				"5L19"
+			],
+			"charm":[
+				"5L22"
+			],
+			"frustration":[
+				"5L25",
+				"5M"
+			],
+			"drainpunch":[
+				"5L28"
+			],
+			"sweetkiss":[
+				"5L31"
+			],
+			"dizzypunch":[
+				"5L33",
+				"5M"
+			],
+			"flail":[
+				"5L36"
+			],
+			"endure":[
+				"5L36",
+				"5M"
+			],
+			"hijumpkick":[
+				"5L39"
+			],
+			"playrough":[
+				"5L42"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"painsplit":[
+				"5T"
+			],
+			"batonpass":[
+				"5E"
+			],
+			"healbell":[
+				"5E"
+			]
+		}
+	},
+	"lopunny":{
+		"learnset":{
+			"splash":[
+				"5L1"
+			],
+			"pound":[
+				"5L1"
+			],
+			"defensecurl":[
+				"5L4",
+				"5M"
+			],
+			"foresight":[
+				"5L7"
+			],
+			"encore":[
+				"5L11"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"powerballad":[
+				"5L20"
+			],
+			"agility":[
+				"5L25"
+			],
+			"charm":[
+				"5L30"
+			],
+			"frustration":[
+				"5L35",
+				"5M"
+			],
+			"drainpunch":[
+				"5L40"
+			],
+			"sweetkiss":[
+				"5L44"
+			],
+			"dizzypunch":[
+				"5L48",
+				"5M"
+			],
+			"flail":[
+				"5L52"
+			],
+			"endure":[
+				"5L56",
+				"5M"
+			],
+			"hijumpkick":[
+				"5L60"
+			],
+			"playrough":[
+				"5L64"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"painsplit":[
+				"5T"
+			]
+		}
+	},
+	"pikachu":{
+		"learnset":{
+			"doubleslap":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"tailwhip":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"doubleteam":[
+				"5L16",
+				"5M"
+			],
+			"spark":[
+				"5L19"
+			],
+			"agility":[
+				"5L22"
+			],
+			"reversal":[
+				"5L25"
+			],
+			"encore":[
+				"5L28"
+			],
+			"thunderpunch":[
+				"5L31",
+				"5M"
+			],
+			"thunderwave":[
+				"5L34",
+				"5M"
+			],
+			"bodyslam":[
+				"5L37",
+				"5M"
+			],
+			"sing":[
+				"5L40"
+			],
+			"crystalbolt":[
+				"5L43",
+				"5M"
+			],
+			"extremespeed":[
+				"5L46"
+			],
+			"nastyplot":[
+				"5L49"
+			],
+			"attract":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"barrier":[
+				"5T"
+			]
+		}
+	},
+	"raichu":{
+		"learnset":{
+			"doubleslap":[
+				"5L1"
+			],
+			"growl":[
+				"5L5"
+			],
+			"thundershock":[
+				"5L10"
+			],
+			"tailwhip":[
+				"5L15"
+			],
+			"quickattack":[
+				"5L20"
+			],
+			"doubleteam":[
+				"5L24",
+				"5M"
+			],
+			"spark":[
+				"5L28"
+			],
+			"agility":[
+				"5L32"
+			],
+			"reversal":[
+				"5L36"
+			],
+			"encore":[
+				"5L40"
+			],
+			"thunderpunch":[
+				"5L44",
+				"5M"
+			],
+			"thunderwave":[
+				"5L48",
+				"5M"
+			],
+			"bodyslam":[
+				"5L52",
+				"5M"
+			],
+			"sing":[
+				"5L56"
+			],
+			"crystalbolt":[
+				"5L60",
+				"5M"
+			],
+			"extremespeed":[
+				"5L64"
+			],
+			"nastyplot":[
+				"5L68"
+			],
+			"attract":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"barrier":[
+				"5T"
+			]
+		}
+	},
+	"shinx":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"doublekick":[
+				"5L10"
+			],
+			"powerballad":[
+				"5L13"
+			],
+			"scaryface":[
+				"5L16"
+			],
+			"spark":[
+				"5L19"
+			],
+			"bite":[
+				"5L22"
+			],
+			"roar":[
+				"5L25"
+			],
+			"nightslash":[
+				"5L28"
+			],
+			"thunderfang":[
+				"5L31"
+			],
+			"swagger":[
+				"5L34",
+				"5M"
+			],
+			"basstremor":[
+				"5L37"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"wildcharge":[
+				"5L43"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"extremespeed":[
+				"5T"
+			],
+			"quickattack":[
+				"5E"
+			],
+			"playrough":[
+				"5E"
+			]
+		}
+	},
+	"luxio":{
+		"learnset":{
+			"leer":[
+				"5L1"
+			],
+			"thundershock":[
+				"5L1"
+			],
+			"doublekick":[
+				"5L1"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L17"
+			],
+			"spark":[
+				"5L21"
+			],
+			"bite":[
+				"5L25"
+			],
+			"roar":[
+				"5L29"
+			],
+			"nightslash":[
+				"5L33"
+			],
+			"thunderfang":[
+				"5L37"
+			],
+			"swagger":[
+				"5L41",
+				"5M"
+			],
+			"basstremor":[
+				"5L45"
+			],
+			"crunch":[
+				"5L49"
+			],
+			"wildcharge":[
+				"5L53"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"extremespeed":[
+				"5T"
+			]
+		}
+	},
+	"luxray":{
+		"learnset":{
+			"scaryface":[
+				"5L1"
+			],
+			"spark":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"roar":[
+				"5L1"
+			],
+			"nightslash":[
+				"5L34"
+			],
+			"thunderfang":[
+				"5L39"
+			],
+			"swagger":[
+				"5L44",
+				"5M"
+			],
+			"basstremor":[
+				"5L49"
+			],
+			"crunch":[
+				"5L54"
+			],
+			"wildcharge":[
+				"5L59"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"extremespeed":[
+				"5T"
+			]
+		}
+	},
+	"electrike":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"curse":[
+				"5L10",
+				"5M"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"bite":[
+				"5L16"
+			],
+			"spark":[
+				"5L19"
+			],
+			"powerballad":[
+				"5L22"
+			],
+			"thunderwave":[
+				"5L25",
+				"5M"
+			],
+			"roar":[
+				"5L28"
+			],
+			"thunderfang":[
+				"5L31"
+			],
+			"basstremor":[
+				"5L34"
+			],
+			"crunch":[
+				"5L37"
+			],
+			"swagger":[
+				"5L40",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"wildcharge":[
+				"5T"
+			],
+			"doublekick":[
+				"5E"
+			]
+		}
+	},
+	"manectric":{
+		"learnset":{
+			"wildcharge":[
+				"5L1",
+				"5T"
+			],
+			"bite":[
+				"5L1"
+			],
+			"spark":[
+				"5L1"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"thunderwave":[
+				"5L1",
+				"5M"
+			],
+			"roar":[
+				"5L29"
+			],
+			"thunderfang":[
+				"5L33"
+			],
+			"basstremor":[
+				"5L37"
+			],
+			"crunch":[
+				"5L41"
+			],
+			"swagger":[
+				"5L45",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L49",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"snorunt":{
+		"learnset":{
+			"powdersnow":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"bite":[
+				"5L7"
+			],
+			"spite":[
+				"5L10"
+			],
+			"icywind":[
+				"5L13",
+				"5M"
+			],
+			"protect":[
+				"5L16",
+				"5M"
+			],
+			"hail":[
+				"5L19",
+				"5M"
+			],
+			"sing":[
+				"5L22"
+			],
+			"freezeburn":[
+				"5L25",
+				"5M"
+			],
+			"headbutt":[
+				"5L28",
+				"5M"
+			],
+			"doubleteam":[
+				"5L31",
+				"5M"
+			],
+			"crunch":[
+				"5L34"
+			],
+			"icebeam":[
+				"5L37",
+				"5M"
+			],
+			"spikes":[
+				"5L40"
+			],
+			"shadowball":[
+				"5L43",
+				"5M"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"blizzard":[
+				"5L49",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"perishsong":[
+				"5T"
+			],
+			"disable":[
+				"5E"
+			]
+		}
+	},
+	"glalie":{
+		"learnset":{
+			"selfdestruct":[
+				"5L1"
+			],
+			"doubleteam":[
+				"5L1",
+				"5M"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"icebeam":[
+				"5L1",
+				"5M"
+			],
+			"spikes":[
+				"5L1"
+			],
+			"metallurgy":[
+				"5L44"
+			],
+			"ironhead":[
+				"5L48",
+				"5M"
+			],
+			"blizzard":[
+				"5L52",
+				"5M"
+			],
+			"explosion":[
+				"5L56",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"perishsong":[
+				"5T"
+			]
+		}
+	},
+	"froslass":{
+		"learnset":{
+			"powdersnow":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"astonish":[
+				"5L7"
+			],
+			"spite":[
+				"5L10"
+			],
+			"icywind":[
+				"5L15",
+				"5M"
+			],
+			"drainingkiss":[
+				"5L20"
+			],
+			"confuseray":[
+				"5L25"
+			],
+			"destinybond":[
+				"5L30"
+			],
+			"freezeburn":[
+				"5L34",
+				"5M"
+			],
+			"sing":[
+				"5L38"
+			],
+			"hail":[
+				"5L42",
+				"5M"
+			],
+			"shadowball":[
+				"5L46",
+				"5M"
+			],
+			"icebeam":[
+				"5L50",
+				"5M"
+			],
+			"painsplit":[
+				"5L54"
+			],
+			"spikes":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"perishsong":[
+				"5T"
+			]
+		}
+	},
+	"volbeat":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"encore":[
+				"5L4"
+			],
+			"attract":[
+				"5L7",
+				"5M"
+			],
+			"protect":[
+				"5L10",
+				"5M"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"stringshot":[
+				"5L20"
+			],
+			"signalbeam":[
+				"5L25",
+				"5M"
+			],
+			"confuseray":[
+				"5L29"
+			],
+			"moonlight":[
+				"5L33"
+			],
+			"zenheadbutt":[
+				"5L37"
+			],
+			"bugbuzz":[
+				"5L41"
+			],
+			"nastyplot":[
+				"5L45"
+			],
+			"batonpass":[
+				"5L49"
+			],
+			"playrough":[
+				"5L53"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"moonblast":[
+				"5T"
+			]
+		}
+	},
+	"illumise":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"encore":[
+				"5L4"
+			],
+			"attract":[
+				"5L7",
+				"5M"
+			],
+			"protect":[
+				"5L10",
+				"5M"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"stringshot":[
+				"5L20"
+			],
+			"zenheadbutt":[
+				"5L25"
+			],
+			"confuseray":[
+				"5L29"
+			],
+			"moonlight":[
+				"5L33"
+			],
+			"playrough":[
+				"5L37"
+			],
+			"bugbuzz":[
+				"5L41"
+			],
+			"growth":[
+				"5L45"
+			],
+			"batonpass":[
+				"5L49"
+			],
+			"voidsphere":[
+				"5L53",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"moonblast":[
+				"5T"
+			],
+			"healbell":[
+				"5E"
+			]
+		}
+	},
+	"vulpix":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"roar":[
+				"5L10"
+			],
+			"spite":[
+				"5L13"
+			],
+			"feintattack":[
+				"5L16"
+			],
+			"firespin":[
+				"5L19"
+			],
+			"confuseray":[
+				"5L22"
+			],
+			"zenheadbutt":[
+				"5L25"
+			],
+			"willowisp":[
+				"5L28",
+				"5M"
+			],
+			"flareblitz":[
+				"5L31"
+			],
+			"painsplit":[
+				"5L34"
+			],
+			"nastyplot":[
+				"5L37"
+			],
+			"darkpulse":[
+				"5L40",
+				"5M"
+			],
+			"flamethrower":[
+				"5L43",
+				"5M"
+			],
+			"hypnosis":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			],
+			"charm":[
+				"5E"
+			],
+			"flail":[
+				"5E"
+			],
+			"lavapool":[
+				"5E"
+			],
+			"disable":[
+				"5E"
+			],
+			"lewisite":[
+				"5E"
+			]
+		}
+	},
+	"ninetales":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"roar":[
+				"5L10"
+			],
+			"spite":[
+				"5L15"
+			],
+			"feintattack":[
+				"5L20"
+			],
+			"firespin":[
+				"5L25"
+			],
+			"confuseray":[
+				"5L30"
+			],
+			"zenheadbutt":[
+				"5L34"
+			],
+			"willowisp":[
+				"5L38",
+				"5M"
+			],
+			"flareblitz":[
+				"5L42"
+			],
+			"painsplit":[
+				"5L46"
+			],
+			"nastyplot":[
+				"5L50"
+			],
+			"darkpulse":[
+				"5L54",
+				"5M"
+			],
+			"flamethrower":[
+				"5L58",
+				"5M"
+			],
+			"hypnosis":[
+				"5L62"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"jigglypuff":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"healbell":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"defensecurl":[
+				"5L10",
+				"5M"
+			],
+			"rollout":[
+				"5L13",
+				"5M"
+			],
+			"powerballad":[
+				"5L16"
+			],
+			"doubleslap":[
+				"5L19"
+			],
+			"laughinggas":[
+				"5L22"
+			],
+			"sweetkiss":[
+				"5L25"
+			],
+			"noisepulse":[
+				"5L28",
+				"5M"
+			],
+			"dizzypunch":[
+				"5L31",
+				"5M"
+			],
+			"wildcharge":[
+				"5L34"
+			],
+			"perishsong":[
+				"5L37"
+			],
+			"hypervoice":[
+				"5L40",
+				"5M"
+			],
+			"playrough":[
+				"5L43"
+			],
+			"mustardgas":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			]
+		}
+	},
+	"wigglytuff":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"healbell":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"defensecurl":[
+				"5L10",
+				"5M"
+			],
+			"rollout":[
+				"5L13",
+				"5M"
+			],
+			"powerballad":[
+				"5L16"
+			],
+			"doubleslap":[
+				"5L19"
+			],
+			"laughinggas":[
+				"5L22"
+			],
+			"sweetkiss":[
+				"5L25"
+			],
+			"noisepulse":[
+				"5L28",
+				"5M"
+			],
+			"dizzypunch":[
+				"5L31",
+				"5M"
+			],
+			"wildcharge":[
+				"5L34"
+			],
+			"perishsong":[
+				"5L37"
+			],
+			"hypervoice":[
+				"5L40",
+				"5M"
+			],
+			"playrough":[
+				"5L43"
+			],
+			"mustardgas":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			]
+		}
+	},
+	"zubat":{
+		"learnset":{
+			"leechlife":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L4"
+			],
+			"gust":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"screech":[
+				"5L13"
+			],
+			"bite":[
+				"5L16"
+			],
+			"wingattack":[
+				"5L19"
+			],
+			"meanlook":[
+				"5L23"
+			],
+			"sludgebomb":[
+				"5L24",
+				"5M"
+			],
+			"nastyplot":[
+				"5L29"
+			],
+			"airslash":[
+				"5L32"
+			],
+			"confuseray":[
+				"5L33"
+			],
+			"poisonjab":[
+				"5L38",
+				"5M"
+			],
+			"crunch":[
+				"5L41"
+			],
+			"bravebird":[
+				"5L44"
+			],
+			"haze":[
+				"5L47"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"outrage":[
+				"5T"
+			]
+		}
+	},
+	"golbat":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"hypnosis":[
+				"5L1"
+			],
+			"astonish":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L1"
+			],
+			"meanlook":[
+				"5L25"
+			],
+			"sludgebomb":[
+				"5L29",
+				"5M"
+			],
+			"nastyplot":[
+				"5L33"
+			],
+			"airslash":[
+				"5L37"
+			],
+			"confuseray":[
+				"5L41"
+			],
+			"poisonjab":[
+				"5L45",
+				"5M"
+			],
+			"crunch":[
+				"5L49"
+			],
+			"bravebird":[
+				"5L53"
+			],
+			"haze":[
+				"5L57"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"outrage":[
+				"5T"
+			]
+		}
+	},
+	"aron":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"harden":[
+				"5L1"
+			],
+			"mudslap":[
+				"5L4",
+				"5M"
+			],
+			"ancientpower":[
+				"5L7",
+				"5M"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"stomp":[
+				"5L13"
+			],
+			"screech":[
+				"5L16"
+			],
+			"dustdevil":[
+				"5L19",
+				"5M"
+			],
+			"flashcannon":[
+				"5L22",
+				"5M"
+			],
+			"steeleater":[
+				"5L25",
+				"5M"
+			],
+			"powerballad":[
+				"5L29"
+			],
+			"rockslide":[
+				"5L33",
+				"5M"
+			],
+			"irontail":[
+				"5L36",
+				"5M"
+			],
+			"irondefense":[
+				"5L39"
+			],
+			"basstremor":[
+				"5L42"
+			],
+			"headsmash":[
+				"5L45"
+			],
+			"ironhead":[
+				"5L48",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"thunderfang":[
+				"5T"
+			],
+			"spite":[
+				"5E"
+			],
+			"reversal":[
+				"5E"
+			]
+		}
+	},
+	"lairon":{
+		"learnset":{
+			"metallurgy":[
+				"5L1"
+			],
+			"reversal":[
+				"5L1"
+			],
+			"spite":[
+				"5L1"
+			],
+			"dustdevil":[
+				"5L1",
+				"5M"
+			],
+			"flashcannon":[
+				"5L1",
+				"5M"
+			],
+			"steeleater":[
+				"5L1",
+				"5M"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L34",
+				"5M"
+			],
+			"irontail":[
+				"5L38",
+				"5M"
+			],
+			"irondefense":[
+				"5L43"
+			],
+			"basstremor":[
+				"5L47"
+			],
+			"headsmash":[
+				"5L51"
+			],
+			"ironhead":[
+				"5L55",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"thunderfang":[
+				"5T"
+			]
+		}
+	},
+	"aggron":{
+		"learnset":{
+			"dragonpulse":[
+				"5L1"
+			],
+			"steeleater":[
+				"5L1",
+				"5M"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"irontail":[
+				"5L1",
+				"5M"
+			],
+			"irondefense":[
+				"5L44"
+			],
+			"basstremor":[
+				"5L49"
+			],
+			"headsmash":[
+				"5L54"
+			],
+			"ironhead":[
+				"5L59",
+				"5M"
+			],
+			"outrage":[
+				"5L64"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"thunderfang":[
+				"5T"
+			]
+		}
+	},
+	"paras":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L4"
+			],
+			"leechlife":[
+				"5L7"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"stunspore":[
+				"5L13"
+			],
+			"megadrain":[
+				"5L16"
+			],
+			"slash":[
+				"5L19"
+			],
+			"psybeam":[
+				"5L22"
+			],
+			"furycutter":[
+				"5L25",
+				"5M"
+			],
+			"springbuds":[
+				"5L28"
+			],
+			"sleeppowder":[
+				"5L31"
+			],
+			"naturepower":[
+				"5L34"
+			],
+			"gigadrain":[
+				"5L37",
+				"5M"
+			],
+			"growth":[
+				"5L40"
+			],
+			"xscissor":[
+				"5L43"
+			],
+			"screech":[
+				"5L46",
+				"5E"
+			],
+			"seedbomb":[
+				"5L49",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"confuseray":[
+				"5T"
+			],
+			"stringshot":[
+				"5E"
+			],
+			"pursuit":[
+				"5E"
+			]
+		}
+	},
+	"parasect":{
+		"learnset":{
+			"flail":[
+				"5L1"
+			],
+			"leechseed":[
+				"5L1"
+			],
+			"agility":[
+				"5L1"
+			],
+			"stunspore":[
+				"5L1"
+			],
+			"megadrain":[
+				"5L1"
+			],
+			"slash":[
+				"5L1"
+			],
+			"psybeam":[
+				"5L1"
+			],
+			"furycutter":[
+				"5L26",
+				"5M"
+			],
+			"springbuds":[
+				"5L32"
+			],
+			"sleeppowder":[
+				"5L36"
+			],
+			"naturepower":[
+				"5L40"
+			],
+			"gigadrain":[
+				"5L44",
+				"5M"
+			],
+			"growth":[
+				"5L48"
+			],
+			"xscissor":[
+				"5L52"
+			],
+			"screech":[
+				"5L56"
+			],
+			"seedbomb":[
+				"5L60",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"confuseray":[
+				"5T"
+			]
+		}
+	},
+	"venonat":{
+		"learnset":{
+			"foresight":[
+				"5L1"
+			],
+			"tackle":[
+				"5L1"
+			],
+			"disable":[
+				"5L4"
+			],
+			"leechlife":[
+				"5L7"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"supersonic":[
+				"5L13"
+			],
+			"poisonpowder":[
+				"5L16"
+			],
+			"sludge":[
+				"5L19"
+			],
+			"signalbeam":[
+				"5L22",
+				"5M"
+			],
+			"psybeam":[
+				"5L25"
+			],
+			"sleeppowder":[
+				"5L28"
+			],
+			"springbuds":[
+				"5L32"
+			],
+			"sludgebomb":[
+				"5L35",
+				"5M"
+			],
+			"bugbuzz":[
+				"5L38"
+			],
+			"stunspore":[
+				"5L41"
+			],
+			"psychic":[
+				"5L44",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"nightshade":[
+				"5M",
+				"5T"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"screech":[
+				"5E"
+			]
+		}
+	},
+	"venomoth":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"batonpass":[
+				"5L1"
+			],
+			"psybeam":[
+				"5L1"
+			],
+			"sleeppowder":[
+				"5L1"
+			],
+			"sludge":[
+				"5L1"
+			],
+			"signalbeam":[
+				"5L1",
+				"5M"
+			],
+			"springbuds":[
+				"5L33"
+			],
+			"morningsun":[
+				"5L37"
+			],
+			"zenheadbutt":[
+				"5L41"
+			],
+			"bugbuzz":[
+				"5L45"
+			],
+			"sludgebomb":[
+				"5L49",
+				"5M"
+			],
+			"stunspore":[
+				"5L53"
+			],
+			"psychic":[
+				"5L57",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"nightshade":[
+				"5M",
+				"5T"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			]
+		}
+	},
+	"bronzor":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"disable":[
+				"5L4"
+			],
+			"confusion":[
+				"5L7"
+			],
+			"hypnosis":[
+				"5L10"
+			],
+			"futuresight":[
+				"5L13"
+			],
+			"feintattack":[
+				"5L17"
+			],
+			"psybeam":[
+				"5L20"
+			],
+			"confuseray":[
+				"5L23"
+			],
+			"flashcannon":[
+				"5L26",
+				"5M"
+			],
+			"powerballad":[
+				"5L29"
+			],
+			"zenheadbutt":[
+				"5L32"
+			],
+			"metallurgy":[
+				"5L35"
+			],
+			"ironhead":[
+				"5L38",
+				"5M"
+			],
+			"irondefense":[
+				"5L41"
+			],
+			"psychic":[
+				"5L44",
+				"5M"
+			],
+			"basstremor":[
+				"5L47"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M",
+				"5T"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"bronzong":{
+		"learnset":{
+			"confuseray":[
+				"5L1"
+			],
+			"flashcannon":[
+				"5L1",
+				"5M"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"zenheadbutt":[
+				"5L1"
+			],
+			"metallurgy":[
+				"5L36"
+			],
+			"ironhead":[
+				"5L41",
+				"5M"
+			],
+			"irondefense":[
+				"5L46"
+			],
+			"psychic":[
+				"5L51",
+				"5M"
+			],
+			"basstremor":[
+				"5L56"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M",
+				"5T"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"skorupi":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"spikes":[
+				"5L7"
+			],
+			"poisonsting":[
+				"5L10"
+			],
+			"metalclaw":[
+				"5L13"
+			],
+			"bite":[
+				"5L16"
+			],
+			"pinmissile":[
+				"5L19"
+			],
+			"scaryface":[
+				"5L22"
+			],
+			"thunderfang":[
+				"5L25"
+			],
+			"sludgebomb":[
+				"5L28",
+				"5M"
+			],
+			"furycutter":[
+				"5L31",
+				"5M"
+			],
+			"agility":[
+				"5L34"
+			],
+			"slash":[
+				"5L37"
+			],
+			"poisonjab":[
+				"5L41",
+				"5M"
+			],
+			"xscissor":[
+				"5L44"
+			],
+			"crunch":[
+				"5L47"
+			],
+			"confuseray":[
+				"5L50"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M",
+				"5T"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"screech":[
+				"5E"
+			],
+			"feintattack":[
+				"5E"
+			],
+			"nightslash":[
+				"5E"
+			]
+		}
+	},
+	"drapion":{
+		"learnset":{
+			"sludgebomb":[
+				"5L1",
+				"5M"
+			],
+			"furycutter":[
+				"5L1",
+				"5M"
+			],
+			"agility":[
+				"5L1"
+			],
+			"slash":[
+				"5L1"
+			],
+			"poisonjab":[
+				"5L42",
+				"5M"
+			],
+			"xscissor":[
+				"5L47"
+			],
+			"crunch":[
+				"5L52"
+			],
+			"confuseray":[
+				"5L57"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M",
+				"5T"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			]
+		}
+	},
+	"cranidos":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"ancientpower":[
+				"5L7",
+				"5M"
+			],
+			"focusenergy":[
+				"5L10"
+			],
+			"spite":[
+				"5L13"
+			],
+			"bite":[
+				"5L16"
+			],
+			"dustdevil":[
+				"5L19"
+			],
+			"scaryface":[
+				"5L22"
+			],
+			"earthpower":[
+				"5L25"
+			],
+			"headbutt":[
+				"5L28",
+				"5M"
+			],
+			"rockslide":[
+				"5L31",
+				"5M"
+			],
+			"painsplit":[
+				"5L34"
+			],
+			"screech":[
+				"5L37"
+			],
+			"zenheadbutt":[
+				"5L40"
+			],
+			"headsmash":[
+				"5L43"
+			],
+			"outrage":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			],
+			"crunch":[
+				"5E"
+			],
+			"stomp":[
+				"5E"
+			],
+			"metallurgy":[
+				"5E"
+			]
+		}
+	},
+	"rampardos":{
+		"learnset":{
+			"dragonpulse":[
+				"5L1"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"dustdevil":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"headbutt":[
+				"5L1",
+				"5M"
+			],
+			"rockslide":[
+				"5L32",
+				"5M"
+			],
+			"painsplit":[
+				"5L37"
+			],
+			"screech":[
+				"5L42"
+			],
+			"zenheadbutt":[
+				"5L47"
+			],
+			"headsmash":[
+				"5L52"
+			],
+			"outrage":[
+				"5L57"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			]
+		}
+	},
+	"shieldon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"protect":[
+				"5L4",
+				"5M"
+			],
+			"harden":[
+				"5L7"
+			],
+			"powerballad":[
+				"5L10"
+			],
+			"scaryface":[
+				"5L13"
+			],
+			"ancientpower":[
+				"5L16",
+				"5M"
+			],
+			"metallurgy":[
+				"5L19"
+			],
+			"screech":[
+				"5L22"
+			],
+			"irontail":[
+				"5L25",
+				"5M"
+			],
+			"rockslide":[
+				"5L28",
+				"5M"
+			],
+			"earthpower":[
+				"5L31"
+			],
+			"irondefense":[
+				"5L34"
+			],
+			"ironhead":[
+				"5L37",
+				"5M"
+			],
+			"dustdevil":[
+				"5L40",
+				"5M"
+			],
+			"basstremor":[
+				"5L43"
+			],
+			"outrage":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"rollout":[
+				"5T"
+			],
+			"focusenergy":[
+				"5E"
+			]
+		}
+	},
+	"bastiodon":{
+		"learnset":{
+			"metallurgy":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"irontail":[
+				"5L1",
+				"5M"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"earthpower":[
+				"5L33"
+			],
+			"irondefense":[
+				"5L38"
+			],
+			"ironhead":[
+				"5L43",
+				"5M"
+			],
+			"dustdevil":[
+				"5L48",
+				"5M"
+			],
+			"basstremor":[
+				"5L53"
+			],
+			"outrage":[
+				"5L58"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"rollout":[
+				"5T"
+			]
+		}
+	},
+	"growlithe":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"roar":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"leer":[
+				"5L10"
+			],
+			"doublekick":[
+				"5L13"
+			],
+			"bite":[
+				"5L16"
+			],
+			"flamewheel":[
+				"5L19"
+			],
+			"agility":[
+				"5L22"
+			],
+			"thunderfang":[
+				"5L25"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"firespin":[
+				"5L31"
+			],
+			"charm":[
+				"5L34"
+			],
+			"crunch":[
+				"5L37"
+			],
+			"morningsun":[
+				"5L40"
+			],
+			"flareblitz":[
+				"5L43"
+			],
+			"dragonpulse":[
+				"5L46"
+			],
+			"wildcharge":[
+				"5L49"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			],
+			"outrage":[
+				"5E"
+			],
+			"reversal":[
+				"5E"
+			],
+			"playrough":[
+				"5E"
+			]
+		}
+	},
+	"arcanine":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"roar":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"leer":[
+				"5L10"
+			],
+			"doublekick":[
+				"5L15"
+			],
+			"bite":[
+				"5L20"
+			],
+			"flamewheel":[
+				"5L25"
+			],
+			"agility":[
+				"5L30"
+			],
+			"thunderfang":[
+				"5L34"
+			],
+			"takedown":[
+				"5L38"
+			],
+			"firespin":[
+				"5L42"
+			],
+			"charm":[
+				"5L46"
+			],
+			"crunch":[
+				"5L50"
+			],
+			"morningsun":[
+				"5L54"
+			],
+			"flareblitz":[
+				"5L58"
+			],
+			"dragonpulse":[
+				"5L62"
+			],
+			"wildcharge":[
+				"5L66"
+			],
+			"extremespeed":[
+				"5L70"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			]
+		}
+	},
+	"whismur":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L4"
+			],
+			"astonish":[
+				"5L7"
+			],
+			"roar":[
+				"5L10"
+			],
+			"laughinggas":[
+				"5L13"
+			],
+			"powerballad":[
+				"5L16"
+			],
+			"bite":[
+				"5L19"
+			],
+			"stomp":[
+				"5L22"
+			],
+			"thunderfang":[
+				"5L25"
+			],
+			"noisepulse":[
+				"5L28",
+				"5M"
+			],
+			"rest":[
+				"5L31",
+				"5M"
+			],
+			"sleeptalk":[
+				"5L34",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L37"
+			],
+			"hypervoice":[
+				"5L40",
+				"5M"
+			],
+			"screech":[
+				"5L43"
+			],
+			"outrage":[
+				"5L46"
+			],
+			"crunch":[
+				"5L49"
+			],
+			"basstremor":[
+				"5L52"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"spite":[
+				"5T"
+			],
+			"takedown":[
+				"5E"
+			],
+			"smokescreen":[
+				"5E"
+			]
+		}
+	},
+	"loudred":{
+		"learnset":{
+			"roar":[
+				"5L1"
+			],
+			"laughinggas":[
+				"5L1"
+			],
+			"powerballad":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"stomp":[
+				"5L23"
+			],
+			"thunderfang":[
+				"5L27"
+			],
+			"noisepulse":[
+				"5L31",
+				"5M"
+			],
+			"rest":[
+				"5L35",
+				"5M"
+			],
+			"sleeptalk":[
+				"5L39",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L43"
+			],
+			"hypervoice":[
+				"5L47",
+				"5M"
+			],
+			"screech":[
+				"5L51"
+			],
+			"outrage":[
+				"5L55"
+			],
+			"crunch":[
+				"5L59"
+			],
+			"basstremor":[
+				"5L63"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"spite":[
+				"5T"
+			]
+		}
+	},
+	"exploud":{
+		"learnset":{
+			"thunderfang":[
+				"5L1"
+			],
+			"noisepulse":[
+				"5L1",
+				"5M"
+			],
+			"rest":[
+				"5L1",
+				"5M"
+			],
+			"sleeptalk":[
+				"5L1",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L44"
+			],
+			"hypervoice":[
+				"5L49",
+				"5M"
+			],
+			"screech":[
+				"5L54"
+			],
+			"outrage":[
+				"5L59"
+			],
+			"crunch":[
+				"5L64"
+			],
+			"basstremor":[
+				"5L69"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"spite":[
+				"5T"
+			]
+		}
+	},
+	"abra":{
+		"learnset":{
+			"teleport":[
+				"5L1"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"amnesia":[
+				"5T"
+			],
+			"drainpunch":[
+				"5E"
+			],
+			"zenheadbutt":[
+				"5E"
+			],
+			"ghosthammer":[
+				"5E"
+			]
+		}
+	},
+	"kadabra":{
+		"learnset":{
+			"teleport":[
+				"5L1"
+			],
+			"psychocut":[
+				"5L16"
+			],
+			"futuresight":[
+				"5L18"
+			],
+			"disable":[
+				"5L20"
+			],
+			"barrier":[
+				"5L22"
+			],
+			"confusion":[
+				"5L24"
+			],
+			"ghosthammer":[
+				"5L26"
+			],
+			"recover":[
+				"5L29"
+			],
+			"encore":[
+				"5L32"
+			],
+			"psybeam":[
+				"5L35"
+			],
+			"voidsphere":[
+				"5L38",
+				"5M"
+			],
+			"reflect":[
+				"5L41",
+				"5M"
+			],
+			"calmmind":[
+				"5L44",
+				"5M"
+			],
+			"psychic":[
+				"5L47",
+				"5M"
+			],
+			"signalbeam":[
+				"5L50",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"amnesia":[
+				"5T"
+			]
+		}
+	},
+	"alakazam":{
+		"learnset":{
+			"teleport":[
+				"5L1"
+			],
+			"psychocut":[
+				"5L16"
+			],
+			"futuresight":[
+				"5L18"
+			],
+			"disable":[
+				"5L20"
+			],
+			"barrier":[
+				"5L22"
+			],
+			"confusion":[
+				"5L24"
+			],
+			"ghosthammer":[
+				"5L26"
+			],
+			"recover":[
+				"5L29"
+			],
+			"encore":[
+				"5L32"
+			],
+			"psybeam":[
+				"5L35"
+			],
+			"voidsphere":[
+				"5L38",
+				"5M"
+			],
+			"reflect":[
+				"5L41",
+				"5M"
+			],
+			"calmmind":[
+				"5L44",
+				"5M"
+			],
+			"psychic":[
+				"5L47",
+				"5M"
+			],
+			"signalbeam":[
+				"5L50",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"amnesia":[
+				"5T"
+			]
+		}
+	},
+	"machop":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"karatechop":[
+				"5L7"
+			],
+			"focusenergy":[
+				"5L10"
+			],
+			"foresight":[
+				"5L13"
+			],
+			"seismictoss":[
+				"5L16",
+				"5M"
+			],
+			"doublekick":[
+				"5L19"
+			],
+			"bulletpunch":[
+				"5L22"
+			],
+			"bulkup":[
+				"5L25",
+				"5M"
+			],
+			"encore":[
+				"5L29"
+			],
+			"crosschop":[
+				"5L32"
+			],
+			"scaryface":[
+				"5L35"
+			],
+			"rockslide":[
+				"5L38",
+				"5M"
+			],
+			"counter":[
+				"5L41",
+				"5M"
+			],
+			"dynamicpunch":[
+				"5L44",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			],
+			"machpunch":[
+				"5E"
+			]
+		}
+	},
+	"machoke":{
+		"learnset":{
+			"seismictoss":[
+				"5L1",
+				"5M"
+			],
+			"doublekick":[
+				"5L1"
+			],
+			"bulletpunch":[
+				"5L1"
+			],
+			"bulkup":[
+				"5L1",
+				"5M"
+			],
+			"encore":[
+				"5L30"
+			],
+			"crosschop":[
+				"5L34"
+			],
+			"scaryface":[
+				"5L38"
+			],
+			"rockslide":[
+				"5L42",
+				"5M"
+			],
+			"counter":[
+				"5L46",
+				"5M"
+			],
+			"dynamicpunch":[
+				"5L50",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			]
+		}
+	},
+	"machamp":{
+		"learnset":{
+			"seismictoss":[
+				"5L1",
+				"5M"
+			],
+			"doublekick":[
+				"5L1"
+			],
+			"bulletpunch":[
+				"5L1"
+			],
+			"bulkup":[
+				"5L1",
+				"5M"
+			],
+			"encore":[
+				"5L31"
+			],
+			"crosschop":[
+				"5L36"
+			],
+			"scaryface":[
+				"5L41"
+			],
+			"rockslide":[
+				"5L46",
+				"5M"
+			],
+			"counter":[
+				"5L51",
+				"5M"
+			],
+			"dynamicpunch":[
+				"5L56",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			]
+		}
+	},
+	"bellsprout":{
+		"learnset":{
+			"leechlife":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L4"
+			],
+			"vinewhip":[
+				"5L7"
+			],
+			"wrap":[
+				"5L10"
+			],
+			"acid":[
+				"5L13"
+			],
+			"stunspore":[
+				"5L16"
+			],
+			"razorleaf":[
+				"5L19",
+				"5M"
+			],
+			"sweetkiss":[
+				"5L22"
+			],
+			"sludge":[
+				"5L25"
+			],
+			"growth":[
+				"5L28"
+			],
+			"gigadrain":[
+				"5L31",
+				"5M"
+			],
+			"naturepower":[
+				"5L34"
+			],
+			"poisonjab":[
+				"5L37",
+				"5M"
+			],
+			"sleeppowder":[
+				"5L40"
+			],
+			"seedbomb":[
+				"5L43",
+				"5M"
+			],
+			"morningsun":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			],
+			"synthesis":[
+				"5E"
+			],
+			"encore":[
+				"5E"
+			],
+			"springbuds":[
+				"5E"
+			]
+		}
+	},
+	"weepinbell":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"acid":[
+				"5L1"
+			],
+			"stunspore":[
+				"5L1"
+			],
+			"razorleaf":[
+				"5L1",
+				"5M"
+			],
+			"sweetkiss":[
+				"5L23"
+			],
+			"sludge":[
+				"5L27"
+			],
+			"growth":[
+				"5L31"
+			],
+			"gigadrain":[
+				"5L35",
+				"5M"
+			],
+			"naturepower":[
+				"5L39"
+			],
+			"poisonjab":[
+				"5L43",
+				"5M"
+			],
+			"sleeppowder":[
+				"5L47"
+			],
+			"seedbomb":[
+				"5L51",
+				"5M"
+			],
+			"morningsun":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			]
+		}
+	},
+	"victreebel":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"acid":[
+				"5L1"
+			],
+			"stunspore":[
+				"5L1"
+			],
+			"razorleaf":[
+				"5L1",
+				"5M"
+			],
+			"sweetkiss":[
+				"5L24"
+			],
+			"sludge":[
+				"5L29"
+			],
+			"growth":[
+				"5L34"
+			],
+			"gigadrain":[
+				"5L39",
+				"5M"
+			],
+			"naturepower":[
+				"5L44"
+			],
+			"poisonjab":[
+				"5L49",
+				"5M"
+			],
+			"sleeppowder":[
+				"5L54"
+			],
+			"seedbomb":[
+				"5L59",
+				"5M"
+			],
+			"morningsun":[
+				"5L64"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			]
+		}
+	},
+	"tentacool":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L4"
+			],
+			"poisonsting":[
+				"5L7"
+			],
+			"rapidspin":[
+				"5L10"
+			],
+			"bubble":[
+				"5L13"
+			],
+			"haze":[
+				"5L16"
+			],
+			"acid":[
+				"5L19"
+			],
+			"barrier":[
+				"5L22"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"confuseray":[
+				"5L28"
+			],
+			"steeleater":[
+				"5L31",
+				"5M"
+			],
+			"screech":[
+				"5L34"
+			],
+			"hydropump":[
+				"5L37"
+			],
+			"doubleedge":[
+				"5L40",
+				"5M"
+			],
+			"poisonjab":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"vaporize":[
+				"5T"
+			],
+			"spikes":[
+				"5E"
+			]
+		}
+	},
+	"tentacruel":{
+		"learnset":{
+			"acid":[
+				"5L1"
+			],
+			"barrier":[
+				"5L1"
+			],
+			"bubblebeam":[
+				"5L1"
+			],
+			"confuseray":[
+				"5L1"
+			],
+			"steeleater":[
+				"5L32",
+				"5M"
+			],
+			"screech":[
+				"5L37"
+			],
+			"hydropump":[
+				"5L42"
+			],
+			"doubleedge":[
+				"5L47",
+				"5M"
+			],
+			"poisonjab":[
+				"5L52",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"vaporize":[
+				"5T"
+			]
+		}
+	},
+	"geodude":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"harden":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"rockthrow":[
+				"5L10"
+			],
+			"metallurgy":[
+				"5L13"
+			],
+			"selfdestruct":[
+				"5L16"
+			],
+			"earthpower":[
+				"5L19"
+			],
+			"rollout":[
+				"5L22",
+				"5M"
+			],
+			"naturepower":[
+				"5L26"
+			],
+			"defensecurl":[
+				"5L29",
+				"5M"
+			],
+			"magnitude":[
+				"5L32"
+			],
+			"rockslide":[
+				"5L35",
+				"5M"
+			],
+			"irondefense":[
+				"5L38"
+			],
+			"explosion":[
+				"5L41",
+				"5M"
+			],
+			"earthquake":[
+				"5L44",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"meteormash":[
+				"5T"
+			],
+			"rapidspin":[
+				"5E"
+			],
+			"flail":[
+				"5E"
+			]
+		}
+	},
+	"graveler":{
+		"learnset":{
+			"metallurgy":[
+				"5L1"
+			],
+			"selfdestruct":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"rollout":[
+				"5L1",
+				"5M"
+			],
+			"naturepower":[
+				"5L27"
+			],
+			"defensecurl":[
+				"5L31",
+				"5M"
+			],
+			"magnitude":[
+				"5L35"
+			],
+			"rockslide":[
+				"5L39",
+				"5M"
+			],
+			"irondefense":[
+				"5L43"
+			],
+			"explosion":[
+				"5L47",
+				"5M"
+			],
+			"earthquake":[
+				"5L51",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"meteormash":[
+				"5T"
+			]
+		}
+	},
+	"golem":{
+		"learnset":{
+			"metallurgy":[
+				"5L1"
+			],
+			"selfdestruct":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"rollout":[
+				"5L1",
+				"5M"
+			],
+			"naturepower":[
+				"5L28"
+			],
+			"defensecurl":[
+				"5L33",
+				"5M"
+			],
+			"magnitude":[
+				"5L38"
+			],
+			"rockslide":[
+				"5L43",
+				"5M"
+			],
+			"irondefense":[
+				"5L48"
+			],
+			"explosion":[
+				"5L53",
+				"5M"
+			],
+			"earthquake":[
+				"5L58",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"meteormash":[
+				"5T"
+			]
+		}
+	},
+	"ponyta":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"tailwhip":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"doublekick":[
+				"5L16"
+			],
+			"firespin":[
+				"5L19"
+			],
+			"stomp":[
+				"5L22"
+			],
+			"agility":[
+				"5L25"
+			],
+			"flamewheel":[
+				"5L28"
+			],
+			"hypnosis":[
+				"5L31"
+			],
+			"morningsun":[
+				"5L34"
+			],
+			"charm":[
+				"5L37"
+			],
+			"flareblitz":[
+				"5L41"
+			],
+			"wildcharge":[
+				"5L44"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"nastyplot":[
+				"5T"
+			],
+			"playrough":[
+				"5E"
+			],
+			"batonpass":[
+				"5E"
+			]
+		}
+	},
+	"rapidash":{
+		"learnset":{
+			"batonpass":[
+				"5L1"
+			],
+			"flamewheel":[
+				"5L1"
+			],
+			"hypnosis":[
+				"5L1"
+			],
+			"morningsun":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"flareblitz":[
+				"5L41"
+			],
+			"wildcharge":[
+				"5L44"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"nastyplot":[
+				"5T"
+			]
+		}
+	},
+	"slowpoke":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"disable":[
+				"5L13"
+			],
+			"futuresight":[
+				"5L16"
+			],
+			"bubblebeam":[
+				"5L19"
+			],
+			"zenheadbutt":[
+				"5L22"
+			],
+			"headbutt":[
+				"5L25",
+				"5M"
+			],
+			"bellydrum":[
+				"5L28"
+			],
+			"waterfall":[
+				"5L31"
+			],
+			"psychic":[
+				"5L34",
+				"5M"
+			],
+			"amnesia":[
+				"5L38"
+			],
+			"raindance":[
+				"5L41",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			],
+			"stomp":[
+				"5E"
+			],
+			"bite":[
+				"5E"
+			]
+		}
+	},
+	"slowbro":{
+		"learnset":{
+			"drainpunch":[
+				"5L1"
+			],
+			"headbutt":[
+				"5L1",
+				"5M"
+			],
+			"bellydrum":[
+				"5L1"
+			],
+			"psychic":[
+				"5L1",
+				"5M"
+			],
+			"waterfall":[
+				"5L1"
+			],
+			"amnesia":[
+				"5L39"
+			],
+			"irondefense":[
+				"5L44"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"magnemite":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"rollout":[
+				"5L10",
+				"5M"
+			],
+			"screech":[
+				"5L13"
+			],
+			"thunderwave":[
+				"5L16",
+				"5M"
+			],
+			"spark":[
+				"5L19"
+			],
+			"ironhead":[
+				"5L22",
+				"5M"
+			],
+			"swift":[
+				"5L25",
+				"5M"
+			],
+			"mindreader":[
+				"5L28"
+			],
+			"zapcannon":[
+				"5L31",
+				"5M"
+			],
+			"flashcannon":[
+				"5L34",
+				"5M"
+			],
+			"irondefense":[
+				"5L37"
+			],
+			"lightscreen":[
+				"5L41",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L44",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"basstremor":[
+				"5T"
+			]
+		}
+	},
+	"magneton":{
+		"learnset":{
+			"barrier":[
+				"5L1"
+			],
+			"spark":[
+				"5L1"
+			],
+			"ironhead":[
+				"5L1",
+				"5M"
+			],
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"mindreader":[
+				"5L1"
+			],
+			"zapcannon":[
+				"5L32",
+				"5M"
+			],
+			"flashcannon":[
+				"5L36",
+				"5M"
+			],
+			"irondefense":[
+				"5L40"
+			],
+			"triattack":[
+				"5L44",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L48",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"basstremor":[
+				"5T"
+			]
+		}
+	},
+	"magnezone":{
+		"learnset":{
+			"barrier":[
+				"5L1"
+			],
+			"spark":[
+				"5L1"
+			],
+			"ironhead":[
+				"5L1",
+				"5M"
+			],
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"mindreader":[
+				"5L1"
+			],
+			"zapcannon":[
+				"5L33",
+				"5M"
+			],
+			"flashcannon":[
+				"5L38",
+				"5M"
+			],
+			"irondefense":[
+				"5L43"
+			],
+			"triattack":[
+				"5L48",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L53",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"basstremor":[
+				"5T"
+			]
+		}
+	},
+	"drifloon":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"focusenergy":[
+				"5L4"
+			],
+			"astonish":[
+				"5L7"
+			],
+			"gust":[
+				"5L10"
+			],
+			"painsplit":[
+				"5L13"
+			],
+			"laughinggas":[
+				"5L16"
+			],
+			"destinybond":[
+				"5L19"
+			],
+			"ghosthammer":[
+				"5L22"
+			],
+			"amnesia":[
+				"5L25"
+			],
+			"nervegas":[
+				"5L29"
+			],
+			"batonpass":[
+				"5L32"
+			],
+			"shadowball":[
+				"5L35",
+				"5M"
+			],
+			"calmmind":[
+				"5L38",
+				"5M"
+			],
+			"lewisite":[
+				"5L41",
+				"5T"
+			],
+			"explosion":[
+				"5L44",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"disable":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			]
+		}
+	},
+	"drifblim":{
+		"learnset":{
+			"nightshade":[
+				"5L1",
+				"5M"
+			],
+			"minimize":[
+				"5L1"
+			],
+			"haze":[
+				"5L1"
+			],
+			"hypnosis":[
+				"5L1"
+			],
+			"laughinggas":[
+				"5L1"
+			],
+			"destinybond":[
+				"5L1"
+			],
+			"ghosthammer":[
+				"5L1"
+			],
+			"amnesia":[
+				"5L1"
+			],
+			"nervegas":[
+				"5L30"
+			],
+			"batonpass":[
+				"5L35"
+			],
+			"shadowball":[
+				"5L40",
+				"5M"
+			],
+			"calmmind":[
+				"5L45",
+				"5M"
+			],
+			"lewisite":[
+				"5L49",
+				"5T"
+			],
+			"explosion":[
+				"5L53",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			]
+		}
+	},
+	"sableye":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"foresight":[
+				"5L3"
+			],
+			"spite":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"leer":[
+				"5L14"
+			],
+			"swift":[
+				"5L18",
+				"5M"
+			],
+			"feintattack":[
+				"5L22"
+			],
+			"painsplit":[
+				"5L26"
+			],
+			"confuseray":[
+				"5L30"
+			],
+			"shadowball":[
+				"5L34",
+				"5M"
+			],
+			"nastyplot":[
+				"5L38"
+			],
+			"darkpulse":[
+				"5L42",
+				"5M"
+			],
+			"nightshade":[
+				"5L45",
+				"5M"
+			],
+			"powergem":[
+				"5L48"
+			],
+			"zenheadbutt":[
+				"5L51"
+			],
+			"shadowclaw":[
+				"5L54",
+				"5M"
+			],
+			"nightslash":[
+				"5L57"
+			],
+			"recover":[
+				"5L60"
+			],
+			"willowisp":[
+				"5L63",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"dragonpulse":[
+				"5T"
+			],
+			"moonlight":[
+				"5E"
+			],
+			"meanlook":[
+				"5E"
+			]
+		}
+	},
+	"spiritomb":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"spite":[
+				"5L4"
+			],
+			"curse":[
+				"5L7",
+				"5M"
+			],
+			"smokescreen":[
+				"5L10"
+			],
+			"feintattack":[
+				"5L15"
+			],
+			"hypnosis":[
+				"5L20"
+			],
+			"dreameater":[
+				"5L25",
+				"5M"
+			],
+			"nightshade":[
+				"5L30",
+				"5M"
+			],
+			"darkpulse":[
+				"5L34",
+				"5M"
+			],
+			"destinybond":[
+				"5L38"
+			],
+			"confuseray":[
+				"5L42"
+			],
+			"nastyplot":[
+				"5L45"
+			],
+			"shadowball":[
+				"5L48",
+				"5M"
+			],
+			"painsplit":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"dragonpulse":[
+				"5T"
+			],
+			"disable":[
+				"5E"
+			],
+			"lewisite":[
+				"5E"
+			]
+		}
+	},
+	"shuppet":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"spite":[
+				"5L4"
+			],
+			"astonish":[
+				"5L7"
+			],
+			"foresight":[
+				"5L10"
+			],
+			"nightshade":[
+				"5L13",
+				"5M"
+			],
+			"confuseray":[
+				"5L16"
+			],
+			"darkpulse":[
+				"5L19",
+				"5M"
+			],
+			"curse":[
+				"5L22",
+				"5M"
+			],
+			"shadowball":[
+				"5L25",
+				"5M"
+			],
+			"feintattack":[
+				"5L28"
+			],
+			"painsplit":[
+				"5L31"
+			],
+			"screech":[
+				"5L34"
+			],
+			"shadowclaw":[
+				"5L38"
+			],
+			"destinybond":[
+				"5L41"
+			],
+			"disable":[
+				"5L44"
+			],
+			"ghosthammer":[
+				"5L47"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"magnitude":[
+				"5T"
+			],
+			"hypnosis":[
+				"5E"
+			]
+		}
+	},
+	"banette":{
+		"learnset":{
+			"shadowball":[
+				"5L1",
+				"5M"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"painsplit":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"shadowclaw":[
+				"5L39",
+				"5M"
+			],
+			"destinybond":[
+				"5L44"
+			],
+			"disable":[
+				"5L49"
+			],
+			"ghosthammer":[
+				"5L54"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"magnitude":[
+				"5T"
+			]
+		}
+	},
+	"duskull":{
+		"learnset":{
+			"pursuit":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"disable":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"futuresight":[
+				"5L13"
+			],
+			"feintattack":[
+				"5L16"
+			],
+			"foresight":[
+				"5L19"
+			],
+			"voidsphere":[
+				"5L22",
+				"5M"
+			],
+			"curse":[
+				"5L25",
+				"5M"
+			],
+			"meanlook":[
+				"5L28"
+			],
+			"nightshade":[
+				"5L31",
+				"5M"
+			],
+			"shadowball":[
+				"5L34",
+				"5M"
+			],
+			"confuseray":[
+				"5L38"
+			],
+			"destinybond":[
+				"5L41"
+			],
+			"painsplit":[
+				"5L44"
+			],
+			"ghosthammer":[
+				"5L48"
+			],
+			"lewisite":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"perishsong":[
+				"5T"
+			],
+			"haze":[
+				"5E"
+			],
+			"nervegas":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			]
+		}
+	},
+	"dusclops":{
+		"learnset":{
+			"curse":[
+				"5L1",
+				"5M"
+			],
+			"meanlook":[
+				"5L1"
+			],
+			"nightshade":[
+				"5L1",
+				"5M"
+			],
+			"shadowball":[
+				"5L1",
+				"5M"
+			],
+			"confuseray":[
+				"5L39"
+			],
+			"destinybond":[
+				"5L44"
+			],
+			"painsplit":[
+				"5L49"
+			],
+			"ghosthammer":[
+				"5L54"
+			],
+			"lewisite":[
+				"5L59"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"perishsong":[
+				"5T"
+			]
+		}
+	},
+	"gastly":{
+		"learnset":{
+			"disable":[
+				"5L1"
+			],
+			"lick":[
+				"5L1"
+			],
+			"haze":[
+				"5L4"
+			],
+			"smog":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"meanlook":[
+				"5L13"
+			],
+			"curse":[
+				"5L16",
+				"5M"
+			],
+			"laughinggas":[
+				"5L19"
+			],
+			"hypnosis":[
+				"5L22"
+			],
+			"nightshade":[
+				"5L26",
+				"5M"
+			],
+			"destinybond":[
+				"5L29"
+			],
+			"confuseray":[
+				"5L32"
+			],
+			"mustardgas":[
+				"5L35",
+				"5M"
+			],
+			"shadowball":[
+				"5L38",
+				"5M"
+			],
+			"painsplit":[
+				"5L41"
+			],
+			"perishsong":[
+				"5L44"
+			],
+			"lewisite":[
+				"5L47"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonblast":[
+				"5T"
+			],
+			"spite":[
+				"5E"
+			],
+			"nervegas":[
+				"5E"
+			]
+		}
+	},
+	"haunter":{
+		"learnset":{
+			"drainpunch":[
+				"5L1"
+			],
+			"meanlook":[
+				"5L1"
+			],
+			"curse":[
+				"5L1",
+				"5M"
+			],
+			"laughinggas":[
+				"5L1"
+			],
+			"hypnosis":[
+				"5L1"
+			],
+			"shadowclaw":[
+				"5L27",
+				"5M"
+			],
+			"destinybond":[
+				"5L31"
+			],
+			"confuseray":[
+				"5L35"
+			],
+			"mustardgas":[
+				"5L39",
+				"5M"
+			],
+			"shadowball":[
+				"5L43",
+				"5M"
+			],
+			"painsplit":[
+				"5L47"
+			],
+			"perishsong":[
+				"5L51"
+			],
+			"lewisite":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonblast":[
+				"5T"
+			]
+		}
+	},
+	"gengar":{
+		"learnset":{
+			"meanlook":[
+				"5L1"
+			],
+			"curse":[
+				"5L1",
+				"5M"
+			],
+			"laughinggas":[
+				"5L1"
+			],
+			"hypnosis":[
+				"5L1"
+			],
+			"shadowclaw":[
+				"5L28",
+				"5M"
+			],
+			"destinybond":[
+				"5L33"
+			],
+			"confuseray":[
+				"5L38"
+			],
+			"mustardgas":[
+				"5L43",
+				"5M"
+			],
+			"shadowball":[
+				"5L48",
+				"5M"
+			],
+			"painsplit":[
+				"5L53"
+			],
+			"perishsong":[
+				"5L58"
+			],
+			"lewisite":[
+				"5L63"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonblast":[
+				"5T"
+			]
+		}
+	},
+	"onix":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"sandstorm":[
+				"5L4",
+				"5M"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"wrap":[
+				"5L10"
+			],
+			"rockthrow":[
+				"5L14"
+			],
+			"dragonbreath":[
+				"5L18",
+				"5M"
+			],
+			"earthpower":[
+				"5L22"
+			],
+			"thunderfang":[
+				"5L25"
+			],
+			"dustdevil":[
+				"5L28",
+				"5M"
+			],
+			"metallurgy":[
+				"5L31"
+			],
+			"magnitude":[
+				"5L34"
+			],
+			"crunch":[
+				"5L37"
+			],
+			"rockslide":[
+				"5L40",
+				"5M"
+			],
+			"irondefense":[
+				"5L43"
+			],
+			"earthquake":[
+				"5L46",
+				"5M"
+			],
+			"screech":[
+				"5L49"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			],
+			"twister":[
+				"5E"
+			],
+			"flail":[
+				"5E"
+			],
+			"dragonpulse":[
+				"5E"
+			],
+			"naturepower":[
+				"5E"
+			]
+		}
+	},
+	"lunatone":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"harden":[
+				"5L1"
+			],
+			"batonpass":[
+				"5L4"
+			],
+			"rockthrow":[
+				"5L7"
+			],
+			"cosmicpower":[
+				"5L10",
+				"5M"
+			],
+			"confusion":[
+				"5L15"
+			],
+			"hypnosis":[
+				"5L20"
+			],
+			"rockslide":[
+				"5L25",
+				"5M"
+			],
+			"futuresight":[
+				"5L29"
+			],
+			"zenheadbutt":[
+				"5L33"
+			],
+			"painsplit":[
+				"5L37"
+			],
+			"ancientpower":[
+				"5L41",
+				"5M"
+			],
+			"earthpower":[
+				"5L45"
+			],
+			"psychic":[
+				"5L48",
+				"5M"
+			],
+			"moonblast":[
+				"5L51"
+			],
+			"dustdevil":[
+				"5L54",
+				"5M"
+			],
+			"moonlight":[
+				"5L57"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M",
+				"5T"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"solrock":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"harden":[
+				"5L1"
+			],
+			"batonpass":[
+				"5L4"
+			],
+			"ancientpower":[
+				"5L7",
+				"5M"
+			],
+			"cosmicpower":[
+				"5L10",
+				"5M"
+			],
+			"confusion":[
+				"5L15"
+			],
+			"firespin":[
+				"5L20"
+			],
+			"rockthrow":[
+				"5L25"
+			],
+			"metallurgy":[
+				"5L29"
+			],
+			"psychic":[
+				"5L33",
+				"5M"
+			],
+			"painsplit":[
+				"5L37"
+			],
+			"dustdevil":[
+				"5L41",
+				"5M"
+			],
+			"earthpower":[
+				"5L45"
+			],
+			"zenheadbutt":[
+				"5L48"
+			],
+			"irondefense":[
+				"5L51"
+			],
+			"rockslide":[
+				"5L54",
+				"5M"
+			],
+			"morningsun":[
+				"5L57"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M",
+				"5T"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"vibrava":{
+		"learnset":{
+			"bite":[
+				"5L1"
+			],
+			"sandstorm":[
+				"5L1",
+				"5M"
+			],
+			"dig":[
+				"5L1",
+				"5M"
+			],
+			"screech":[
+				"5L1"
+			],
+			"dragonbreath":[
+				"5L35",
+				"5M"
+			],
+			"hyperbeam":[
+				"5L38",
+				"5M"
+			],
+			"earthpower":[
+				"5L42"
+			],
+			"hypervoice":[
+				"5L46"
+			],
+			"dragonpulse":[
+				"5L50"
+			],
+			"bugbuzz":[
+				"5L54"
+			],
+			"earthquake":[
+				"5L59",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"flygon":{
+		"learnset":{
+			"screech":[
+				"5L1"
+			],
+			"dragonbreath":[
+				"5L1",
+				"5M"
+			],
+			"hyperbeam":[
+				"5L1",
+				"5M"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"hypervoice":[
+				"5L47"
+			],
+			"outrage":[
+				"5L52"
+			],
+			"bugbuzz":[
+				"5L57"
+			],
+			"earthquake":[
+				"5L62",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"makuhita":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"focusenergy":[
+				"5L4",
+				"5T"
+			],
+			"reversal":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"doubleslap":[
+				"5L13"
+			],
+			"seismictoss":[
+				"5L16",
+				"5M"
+			],
+			"dynamicpunch":[
+				"5L19",
+				"5M"
+			],
+			"feintattack":[
+				"5L22"
+			],
+			"bellydrum":[
+				"5L25"
+			],
+			"foresight":[
+				"5L28"
+			],
+			"crosschop":[
+				"5L31"
+			],
+			"bodyslam":[
+				"5L34",
+				"5M"
+			],
+			"whirlwind":[
+				"5L37",
+				"5M"
+			],
+			"bulletpunch":[
+				"5L40"
+			],
+			"attract":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"basstremor":[
+				"5E"
+			]
+		}
+	},
+	"hariyama":{
+		"learnset":{
+			"doubleslap":[
+				"5L1"
+			],
+			"seismictoss":[
+				"5L1",
+				"5M"
+			],
+			"dynamicpunch":[
+				"5L1",
+				"5M"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"bellydrum":[
+				"5L26"
+			],
+			"foresight":[
+				"5L31"
+			],
+			"crosschop":[
+				"5L36"
+			],
+			"bodyslam":[
+				"5L41",
+				"5M"
+			],
+			"whirlwind":[
+				"5L46",
+				"5M"
+			],
+			"bulletpunch":[
+				"5L51"
+			],
+			"attract":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"exeggcute":{
+		"learnset":{
+			"rage":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L4"
+			],
+			"reflect":[
+				"5L7",
+				"5M"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"megadrain":[
+				"5L13"
+			],
+			"stunspore":[
+				"5L16"
+			],
+			"leechseed":[
+				"5L19"
+			],
+			"zenheadbutt":[
+				"5L22"
+			],
+			"solarbeam":[
+				"5L25",
+				"5M"
+			],
+			"hypnosis":[
+				"5L28"
+			],
+			"naturepower":[
+				"5L31"
+			],
+			"psychic":[
+				"5L34",
+				"5M"
+			],
+			"springbuds":[
+				"5L37"
+			],
+			"sleeppowder":[
+				"5L40"
+			],
+			"synthesis":[
+				"5L43"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"confuseray":[
+				"5T"
+			],
+			"selfdestruct":[
+				"5E"
+			],
+			"moonlight":[
+				"5E"
+			]
+		}
+	},
+	"exeggutor":{
+		"learnset":{
+			"rage":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L4"
+			],
+			"reflect":[
+				"5L7",
+				"5M"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"megadrain":[
+				"5L15"
+			],
+			"stunspore":[
+				"5L20"
+			],
+			"stomp":[
+				"5L25"
+			],
+			"zenheadbutt":[
+				"5L30"
+			],
+			"solarbeam":[
+				"5L34",
+				"5M"
+			],
+			"hypnosis":[
+				"5L38"
+			],
+			"naturepower":[
+				"5L42"
+			],
+			"psychic":[
+				"5L46",
+				"5M"
+			],
+			"springbuds":[
+				"5L50"
+			],
+			"sleeppowder":[
+				"5L54"
+			],
+			"synthesis":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"confuseray":[
+				"5T"
+			]
+		}
+	},
+	"cacnea":{
+		"learnset":{
+			"poisonsting":[
+				"5L1"
+			],
+			"absorb":[
+				"5L4"
+			],
+			"sandattack":[
+				"5L7"
+			],
+			"acid":[
+				"5L10"
+			],
+			"sandstorm":[
+				"5L13",
+				"5M"
+			],
+			"megadrain":[
+				"5L16"
+			],
+			"feintattack":[
+				"5L19"
+			],
+			"pinmissile":[
+				"5L22"
+			],
+			"springbuds":[
+				"5L25"
+			],
+			"leer":[
+				"5L28"
+			],
+			"cottonspore":[
+				"5L31"
+			],
+			"naturepower":[
+				"5L34"
+			],
+			"gigadrain":[
+				"5L37",
+				"5M"
+			],
+			"darkpulse":[
+				"5L40",
+				"5M"
+			],
+			"nastyplot":[
+				"5L43"
+			],
+			"destinybond":[
+				"5L46"
+			],
+			"energyball":[
+				"5L49",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M",
+				"5T"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"spite":[
+				"5E"
+			],
+			"synthesis":[
+				"5E"
+			]
+		}
+	},
+	"cacturne":{
+		"learnset":{
+			"leechseed":[
+				"5L1"
+			],
+			"growth":[
+				"5L1"
+			],
+			"encore":[
+				"5L1"
+			],
+			"pinmissile":[
+				"5L1"
+			],
+			"springbuds":[
+				"5L1"
+			],
+			"leer":[
+				"5L1"
+			],
+			"cottonspore":[
+				"5L1"
+			],
+			"naturepower":[
+				"5L35"
+			],
+			"gigadrain":[
+				"5L39",
+				"5M"
+			],
+			"darkpulse":[
+				"5L43",
+				"5M"
+			],
+			"nastyplot":[
+				"5L47"
+			],
+			"destinybond":[
+				"5L51"
+			],
+			"energyball":[
+				"5L55",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M",
+				"5T"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			]
+		}
+	},
+	"hitmonlee":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L5"
+			],
+			"foresight":[
+				"5L40"
+			],
+			"rapidspin":[
+				"5L15"
+			],
+			"pursuit":[
+				"5L20"
+			],
+			"doublekick":[
+				"5L24"
+			],
+			"focusenergy":[
+				"5L28"
+			],
+			"bulletpunch":[
+				"5L32"
+			],
+			"endure":[
+				"5L36",
+				"5M"
+			],
+			"reversal":[
+				"5L36"
+			],
+			"bulkup":[
+				"5L44",
+				"5M"
+			],
+			"hijumpkick":[
+				"5L48"
+			],
+			"mindreader":[
+				"5L52"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"takedown":[
+				"5T"
+			]
+		}
+	},
+	"hitmonchan":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L5"
+			],
+			"foresight":[
+				"5L10"
+			],
+			"rapidspin":[
+				"5L15"
+			],
+			"bulletpunch":[
+				"5L20"
+			],
+			"dynamicpunch":[
+				"5L24",
+				"5M"
+			],
+			"pursuit":[
+				"5L28"
+			],
+			"agility":[
+				"5L32"
+			],
+			"thunderpunch":[
+				"5L36",
+				"5M"
+			],
+			"drainpunch":[
+				"5L40"
+			],
+			"firepunch":[
+				"5L44",
+				"5M"
+			],
+			"icepunch":[
+				"5L48",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"takedown":[
+				"5T"
+			]
+		}
+	},
+	"trapinch":{
+		"learnset":{
+			"gust":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"quickattack":[
+				"5L10"
+			],
+			"focusenergy":[
+				"5L13",
+				"5T"
+			],
+			"feintattack":[
+				"5L16"
+			],
+			"earthpower":[
+				"5L19"
+			],
+			"endure":[
+				"5L22",
+				"5M"
+			],
+			"flail":[
+				"5L22"
+			],
+			"bite":[
+				"5L25"
+			],
+			"dig":[
+				"5L28",
+				"5M"
+			],
+			"sandstorm":[
+				"5L31",
+				"5M"
+			],
+			"screech":[
+				"5L34"
+			],
+			"crunch":[
+				"5L37"
+			],
+			"earthquake":[
+				"5L40",
+				"5M"
+			],
+			"rockslide":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"supersonic":[
+				"5E"
+			]
+		}
+	},
+	"koffing":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"poisongas":[
+				"5L4"
+			],
+			"smog":[
+				"5L7"
+			],
+			"acid":[
+				"5L10"
+			],
+			"smokescreen":[
+				"5L13"
+			],
+			"selfdestruct":[
+				"5L16"
+			],
+			"laughinggas":[
+				"5L19"
+			],
+			"sludge":[
+				"5L22"
+			],
+			"psybeam":[
+				"5L25"
+			],
+			"painsplit":[
+				"5L28"
+			],
+			"lewisite":[
+				"5L31"
+			],
+			"steeleater":[
+				"5L34"
+			],
+			"explosion":[
+				"5L37",
+				"5M"
+			],
+			"haze":[
+				"5L40"
+			],
+			"mustardgas":[
+				"5L43",
+				"5M"
+			],
+			"sludgebomb":[
+				"5L46",
+				"5M"
+			],
+			"destinybond":[
+				"5L49"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"crunch":[
+				"5T"
+			],
+			"screech":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			],
+			"nervegas":[
+				"5E"
+			]
+		}
+	},
+	"weezing":{
+		"learnset":{
+			"psybeam":[
+				"5L1"
+			],
+			"painsplit":[
+				"5L1"
+			],
+			"lewisite":[
+				"5L1"
+			],
+			"steeleater":[
+				"5L1",
+				"5M"
+			],
+			"explosion":[
+				"5L38",
+				"5M"
+			],
+			"haze":[
+				"5L42"
+			],
+			"mustardgas":[
+				"5L46",
+				"5M"
+			],
+			"sludgebomb":[
+				"5L50",
+				"5M"
+			],
+			"destinybond":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"crunch":[
+				"5T"
+			]
+		}
+	},
+	"rhyhorn":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"metallurgy":[
+				"5L10"
+			],
+			"ancientpower":[
+				"5L13",
+				"5M"
+			],
+			"stomp":[
+				"5L16"
+			],
+			"earthpower":[
+				"5L19"
+			],
+			"scaryface":[
+				"5L22"
+			],
+			"dustdevil":[
+				"5L25",
+				"5M"
+			],
+			"thunderfang":[
+				"5L28"
+			],
+			"magnitude":[
+				"5L31"
+			],
+			"crunch":[
+				"5L34"
+			],
+			"rockslide":[
+				"5L37",
+				"5M"
+			],
+			"reversal":[
+				"5L40"
+			],
+			"earthquake":[
+				"5L43",
+				"5M"
+			],
+			"outrage":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			],
+			"spite":[
+				"5E"
+			],
+			"pursuit":[
+				"5E"
+			]
+		}
+	},
+	"rhydon":{
+		"learnset":{
+			"dragonpulse":[
+				"5L1"
+			],
+			"magnitude":[
+				"5L1"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"reversal":[
+				"5L1"
+			],
+			"earthquake":[
+				"5L44",
+				"5M"
+			],
+			"outrage":[
+				"5L48"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			]
+		}
+	},
+	"chansey":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"tailwhip":[
+				"5L7"
+			],
+			"doubleslap":[
+				"5L10"
+			],
+			"bodyslam":[
+				"5L13",
+				"5M"
+			],
+			"healbell":[
+				"5L16"
+			],
+			"drainpunch":[
+				"5L19"
+			],
+			"wildcharge":[
+				"5L22"
+			],
+			"doubleedge":[
+				"5L25",
+				"5M"
+			],
+			"sing":[
+				"5L28"
+			],
+			"zenheadbutt":[
+				"5L31"
+			],
+			"sweetkiss":[
+				"5L34"
+			],
+			"voidsphere":[
+				"5L37",
+				"5M"
+			],
+			"softboiled":[
+				"5L40"
+			],
+			"hypervoice":[
+				"5L43",
+				"5M"
+			],
+			"minimize":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"haze":[
+				"5T"
+			],
+			"laughinggas":[
+				"5E"
+			]
+		}
+	},
+	"tangela":{
+		"learnset":{
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"sludge":[
+				"5T"
+			],
+			"flail":[
+				"5E"
+			]
+		}
+	},
+	"kangaskhan":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"foresight":[
+				"5L4"
+			],
+			"leer":[
+				"5L7"
+			],
+			"sing":[
+				"5L10"
+			],
+			"rage":[
+				"5L15"
+			],
+			"focusenergy":[
+				"5L20"
+			],
+			"bite":[
+				"5L25"
+			],
+			"disable":[
+				"5L30"
+			],
+			"stomp":[
+				"5L33"
+			],
+			"drainpunch":[
+				"5L36"
+			],
+			"dizzypunch":[
+				"5L39",
+				"5M"
+			],
+			"crunch":[
+				"5L42"
+			],
+			"bodyslam":[
+				"5L45",
+				"5M"
+			],
+			"outrage":[
+				"5L48"
+			],
+			"reversal":[
+				"5L51"
+			],
+			"endure":[
+				"5L54",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			],
+			"tailwhip":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			]
+		}
+	},
+	"tangrowth":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L4"
+			],
+			"vinewhip":[
+				"5L7"
+			],
+			"growth":[
+				"5L10"
+			],
+			"absorb":[
+				"5L14"
+			],
+			"painsplit":[
+				"5L18"
+			],
+			"megadrain":[
+				"5L22"
+			],
+			"confusion":[
+				"5L25"
+			],
+			"ancientpower":[
+				"5L33",
+				"5M"
+			],
+			"stunspore":[
+				"5L31"
+			],
+			"springbuds":[
+				"5L34"
+			],
+			"morningsun":[
+				"5L37"
+			],
+			"leechseed":[
+				"5L40"
+			],
+			"sleeppowder":[
+				"5L43"
+			],
+			"gigadrain":[
+				"5L46",
+				"5M"
+			],
+			"synthesis":[
+				"5L49"
+			],
+			"naturepower":[
+				"5L52"
+			],
+			"amnesia":[
+				"5L56"
+			],
+			"seedbomb":[
+				"5L61",
+				"5M"
+			],
+			"bodyslam":[
+				"5L65",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"sludge":[
+				"5T"
+			]
+		}
+	},
+	"mawile":{
+		"learnset":{
+			"astonish":[
+				"5L1"
+			],
+			"harden":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"sing":[
+				"5L10"
+			],
+			"painsplit":[
+				"5L14"
+			],
+			"doubleslap":[
+				"5L18"
+			],
+			"flashcannon":[
+				"5L22",
+				"5M"
+			],
+			"bite":[
+				"5L25"
+			],
+			"irondefense":[
+				"5L28"
+			],
+			"dizzypunch":[
+				"5L31",
+				"5M"
+			],
+			"thunderfang":[
+				"5L34"
+			],
+			"batonpass":[
+				"5L37"
+			],
+			"swordsdance":[
+				"5L40",
+				"5M"
+			],
+			"playrough":[
+				"5L43"
+			],
+			"ironhead":[
+				"5L46",
+				"5M"
+			],
+			"crunch":[
+				"5L49"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			],
+			"drainingkiss":[
+				"5E"
+			],
+			"metallurgy":[
+				"5E"
+			]
+		}
+	},
+	"goldeen":{
+		"learnset":{
+			"peck":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"supersonic":[
+				"5L10"
+			],
+			"haze":[
+				"5L13"
+			],
+			"raindance":[
+				"5L16",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L19"
+			],
+			"psybeam":[
+				"5L22"
+			],
+			"stormfront":[
+				"5L25",
+				"5M"
+			],
+			"hydropump":[
+				"5L28"
+			],
+			"endure":[
+				"5L31",
+				"5M"
+			],
+			"flail":[
+				"5L34"
+			],
+			"agility":[
+				"5L37"
+			],
+			"waterfall":[
+				"5L40"
+			],
+			"megahorn":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"seaking":{
+		"learnset":{
+			"psybeam":[
+				"5L1"
+			],
+			"stormfront":[
+				"5L1",
+				"5M"
+			],
+			"hydropump":[
+				"5L1"
+			],
+			"endure":[
+				"5L1",
+				"5M"
+			],
+			"flail":[
+				"5L35"
+			],
+			"agility":[
+				"5L39"
+			],
+			"waterfall":[
+				"5L43"
+			],
+			"megahorn":[
+				"5L47",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"lotad":{
+		"learnset":{
+			"astonish":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"absorb":[
+				"5L7"
+			],
+			"bubble":[
+				"5L10"
+			],
+			"mist":[
+				"5L13"
+			],
+			"leechseed":[
+				"5L16"
+			],
+			"razorleaf":[
+				"5L19",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L22"
+			],
+			"synthesis":[
+				"5L25"
+			],
+			"zenheadbutt":[
+				"5L28"
+			],
+			"seedbomb":[
+				"5L31",
+				"5M"
+			],
+			"hydropump":[
+				"5L34"
+			],
+			"drainpunch":[
+				"5L37"
+			],
+			"naturepower":[
+				"5L40"
+			],
+			"gigadrain":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			],
+			"megadrain":[
+				"5E"
+			],
+			"watergun":[
+				"5E"
+			],
+			"flail":[
+				"5E"
+			]
+		}
+	},
+	"lombre":{
+		"learnset":{
+			"growl":[
+				"5L1"
+			],
+			"absorb":[
+				"5L1"
+			],
+			"bubble":[
+				"5L1"
+			],
+			"mist":[
+				"5L1"
+			],
+			"leechseed":[
+				"5L17"
+			],
+			"razorleaf":[
+				"5L21",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"synthesis":[
+				"5L29"
+			],
+			"zenheadbutt":[
+				"5L33"
+			],
+			"seedbomb":[
+				"5L37",
+				"5M"
+			],
+			"hydropump":[
+				"5L41"
+			],
+			"drainpunch":[
+				"5L45"
+			],
+			"naturepower":[
+				"5L49"
+			],
+			"gigadrain":[
+				"5L53",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"ludicolo":{
+		"learnset":{
+			"growl":[
+				"5L1"
+			],
+			"absorb":[
+				"5L1"
+			],
+			"bubble":[
+				"5L1"
+			],
+			"mist":[
+				"5L1"
+			],
+			"leechseed":[
+				"5L18"
+			],
+			"razorleaf":[
+				"5L23",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L28"
+			],
+			"synthesis":[
+				"5L33"
+			],
+			"zenheadbutt":[
+				"5L38"
+			],
+			"seedbomb":[
+				"5L43",
+				"5M"
+			],
+			"hydropump":[
+				"5L48"
+			],
+			"drainpunch":[
+				"5L53"
+			],
+			"naturepower":[
+				"5L58"
+			],
+			"gigadrain":[
+				"5L63",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"scyther":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"focusenergy":[
+				"5L4"
+			],
+			"pursuit":[
+				"5L7"
+			],
+			"leer":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"airslash":[
+				"5L20"
+			],
+			"bugbuzz":[
+				"5L25"
+			],
+			"slash":[
+				"5L28"
+			],
+			"agility":[
+				"5L31"
+			],
+			"wingattack":[
+				"5L34"
+			],
+			"furycutter":[
+				"5L37",
+				"5M"
+			],
+			"batonpass":[
+				"5L40"
+			],
+			"swordsdance":[
+				"5L43",
+				"5M"
+			],
+			"aerialace":[
+				"5L46",
+				"5M"
+			],
+			"xscissor":[
+				"5L49"
+			],
+			"morningsun":[
+				"5L52"
+			],
+			"nightslash":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"crunch":[
+				"5T"
+			],
+			"metallurgy":[
+				"5E"
+			],
+			"reversal":[
+				"5E"
+			]
+		}
+	},
+	"relicanth":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"harden":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"mudslap":[
+				"5L10",
+				"5M"
+			],
+			"rest":[
+				"5L15",
+				"5M"
+			],
+			"ancientpower":[
+				"5L20",
+				"5M"
+			],
+			"amnesia":[
+				"5L25"
+			],
+			"earthpower":[
+				"5L29",
+				"5T"
+			],
+			"hydropump":[
+				"5L33"
+			],
+			"rockslide":[
+				"5L37",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L41"
+			],
+			"magnitude":[
+				"5L45"
+			],
+			"waterfall":[
+				"5L48"
+			],
+			"headsmash":[
+				"5L51"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"irondefense":[
+				"5E"
+			]
+		}
+	},
+	"electabuzz":{
+		"learnset":{
+			"powerballad":[
+				"5L1"
+			],
+			"thunderpunch":[
+				"5L1",
+				"5M"
+			],
+			"screech":[
+				"5L1"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"barrier":[
+				"5L32"
+			],
+			"thunder":[
+				"5L36",
+				"5M"
+			],
+			"lightscreen":[
+				"5L40",
+				"5M"
+			],
+			"crosschop":[
+				"5L44"
+			],
+			"thunderwave":[
+				"5L48",
+				"5M"
+			],
+			"wildcharge":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"bulletpunch":[
+				"5T"
+			]
+		}
+	},
+	"magmar":{
+		"learnset":{
+			"vaporize":[
+				"5L1"
+			],
+			"barrier":[
+				"5L1"
+			],
+			"firespin":[
+				"5L1"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L1"
+			],
+			"bellydrum":[
+				"5L1"
+			],
+			"fireblast":[
+				"5L32",
+				"5M"
+			],
+			"confuseray":[
+				"5L36"
+			],
+			"crosschop":[
+				"5L40"
+			],
+			"lavapool":[
+				"5L44"
+			],
+			"flareblitz":[
+				"5L48"
+			],
+			"lewisite":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"electivire":{
+		"learnset":{
+			"powerballad":[
+				"5L1"
+			],
+			"thunderpunch":[
+				"5L1",
+				"5M"
+			],
+			"screech":[
+				"5L1"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"barrier":[
+				"5L33"
+			],
+			"thunder":[
+				"5L38",
+				"5M"
+			],
+			"lightscreen":[
+				"5L43",
+				"5M"
+			],
+			"crosschop":[
+				"5L48"
+			],
+			"thunderwave":[
+				"5L53",
+				"5M"
+			],
+			"wildcharge":[
+				"5L58"
+			],
+			"basstremor":[
+				"5L65"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"bulletpunch":[
+				"5T"
+			]
+		}
+	},
+	"magmortar":{
+		"learnset":{
+			"vaporize":[
+				"5L1"
+			],
+			"barrier":[
+				"5L1"
+			],
+			"firespin":[
+				"5L1"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L1"
+			],
+			"bellydrum":[
+				"5L1"
+			],
+			"fireblast":[
+				"5L33",
+				"5M"
+			],
+			"confuseray":[
+				"5L38"
+			],
+			"crosschop":[
+				"5L43"
+			],
+			"lavapool":[
+				"5L48"
+			],
+			"flareblitz":[
+				"5L53"
+			],
+			"lewisite":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"magikarp":{
+		"learnset":{
+			"splash":[
+				"5L1"
+			],
+			"tackle":[
+				"5L15"
+			],
+			"flail":[
+				"5L30"
+			],
+			"hydropump":[
+				"5L45"
+			],
+			"vaporize":[
+				"5T"
+			],
+			"bubble":[
+				"5E"
+			],
+			"reversal":[
+				"5E"
+			]
+		}
+	},
+	"gyarados":{
+		"learnset":{
+			"splash":[
+				"5L1"
+			],
+			"tackle":[
+				"5L1"
+			],
+			"bite":[
+				"5L20"
+			],
+			"leer":[
+				"5L25"
+			],
+			"twister":[
+				"5L30"
+			],
+			"hydropump":[
+				"5L34"
+			],
+			"hyperbeam":[
+				"5L38",
+				"5M"
+			],
+			"raindance":[
+				"5L42",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L46"
+			],
+			"waterfall":[
+				"5L50"
+			],
+			"crunch":[
+				"5L54"
+			],
+			"outrage":[
+				"5L58"
+			],
+			"dragondance":[
+				"5L62"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"vaporize":[
+				"5T"
+			]
+		}
+	},
+	"absol":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"leer":[
+				"5L5"
+			],
+			"spite":[
+				"5L9"
+			],
+			"futuresight":[
+				"5L13"
+			],
+			"quickattack":[
+				"5L17"
+			],
+			"pursuit":[
+				"5L20"
+			],
+			"doubleteam":[
+				"5L23",
+				"5M"
+			],
+			"feintattack":[
+				"5L26"
+			],
+			"psychocut":[
+				"5L29"
+			],
+			"slash":[
+				"5L32"
+			],
+			"bite":[
+				"5L35"
+			],
+			"meanlook":[
+				"5L38"
+			],
+			"batonpass":[
+				"5L41"
+			],
+			"xscissor":[
+				"5L44"
+			],
+			"nightslash":[
+				"5L48"
+			],
+			"perishsong":[
+				"5L53"
+			],
+			"swordsdance":[
+				"5L58",
+				"5M"
+			],
+			"playrough":[
+				"5L63"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"wildcharge":[
+				"5T"
+			],
+			"zenheadbutt":[
+				"5E"
+			],
+			"ghosthammer":[
+				"5E"
+			]
+		}
+	},
+	"ditto":{
+		"learnset":{
+			"transform":[
+				"5L1"
+			],
+			"disable":[
+				"5T"
+			]
+		}
+	},
+	"eevee":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"sing":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"growth":[
+				"5L16"
+			],
+			"batonpass":[
+				"5L19"
+			],
+			"bite":[
+				"5L22"
+			],
+			"swift":[
+				"5L25",
+				"5M"
+			],
+			"endure":[
+				"5L28",
+				"5M"
+			],
+			"flail":[
+				"5L28"
+			],
+			"vaporize":[
+				"5L31"
+			],
+			"takedown":[
+				"5L34"
+			],
+			"healbell":[
+				"5L37"
+			],
+			"charm":[
+				"5L40"
+			],
+			"irontail":[
+				"5L43",
+				"5M"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"metallurgy":[
+				"5L49"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"earthpower":[
+				"5T"
+			],
+			"focusenergy":[
+				"5E"
+			],
+			"growl":[
+				"5E"
+			]
+		}
+	},
+	"vaporeon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"mist":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"watergun":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"bubblebeam":[
+				"5L34"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"acidarmor":[
+				"5L42"
+			],
+			"waterfall":[
+				"5L45"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"icebeam":[
+				"5L54",
+				"5M"
+			],
+			"hydropump":[
+				"5L57"
+			],
+			"haze":[
+				"5L60"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"jolteon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"thunderwave":[
+				"5L7",
+				"5M"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"thundershock":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"doublekick":[
+				"5L30"
+			],
+			"thunderfang":[
+				"5L34"
+			],
+			"agility":[
+				"5L38"
+			],
+			"pinmissile":[
+				"5L42"
+			],
+			"wildcharge":[
+				"5L45"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"signalbeam":[
+				"5L54",
+				"5M"
+			],
+			"thunder":[
+				"5L57",
+				"5M"
+			],
+			"raindance":[
+				"5L60",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"basstremor":[
+				"5T"
+			]
+		}
+	},
+	"flareon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"smog":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"ember":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"firespin":[
+				"5L34"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"scaryface":[
+				"5L42"
+			],
+			"flamethrower":[
+				"5L45",
+				"5M"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"mustardgas":[
+				"5L54",
+				"5M"
+			],
+			"flareblitz":[
+				"5L57"
+			],
+			"lavapool":[
+				"5L60"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"earthpower":[
+				"5T"
+			]
+		}
+	},
+	"porygon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"conversion":[
+				"5L4"
+			],
+			"agility":[
+				"5L7"
+			],
+			"painsplit":[
+				"5L10"
+			],
+			"swift":[
+				"5L14",
+				"5M"
+			],
+			"conversion2":[
+				"5L18"
+			],
+			"psybeam":[
+				"5L22"
+			],
+			"powerballad":[
+				"5L26"
+			],
+			"takedown":[
+				"5L29"
+			],
+			"zapcannon":[
+				"5L32",
+				"5M"
+			],
+			"mindreader":[
+				"5L35"
+			],
+			"zenheadbutt":[
+				"5L38"
+			],
+			"voidsphere":[
+				"5L41",
+				"5M"
+			],
+			"recover":[
+				"5L44"
+			],
+			"blizzard":[
+				"5L47",
+				"5M"
+			],
+			"triattack":[
+				"5L50",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			]
+		}
+	},
+	"varaneous":{
+		"learnset":{
+			"rage":[
+				"5L1"
+			],
+			"safeguard":[
+				"5L4",
+				"5M"
+			],
+			"ember":[
+				"5L7"
+			],
+			"watergun":[
+				"5L10"
+			],
+			"focusenergy":[
+				"5L15"
+			],
+			"finalchance":[
+				"5L20",
+				"5M"
+			],
+			"flamewheel":[
+				"5L25"
+			],
+			"bubblebeam":[
+				"5L30"
+			],
+			"lavapool":[
+				"5L35"
+			],
+			"dragonclaw":[
+				"5L40",
+				"5M"
+			],
+			"boil":[
+				"5L50",
+				"5M"
+			],
+			"hydropump":[
+				"5L60"
+			],
+			"dragondance":[
+				"5L70"
+			],
+			"extremespeed":[
+				"5L80"
+			],
+			"sacredfire":[
+				"5L90"
+			],
+			"waterfall":[
+				"5L95"
+			],
+			"outrage":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steeleater":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"painsplit":[
+				"5T"
+			]
+		}
+	},
+	"lileep":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"stringshot":[
+				"5L4"
+			],
+			"absorb":[
+				"5L7"
+			],
+			"acid":[
+				"5L10"
+			],
+			"rockthrow":[
+				"5L13"
+			],
+			"astonish":[
+				"5L16"
+			],
+			"megadrain":[
+				"5L19"
+			],
+			"confuseray":[
+				"5L22"
+			],
+			"ancientpower":[
+				"5L25",
+				"5M"
+			],
+			"painsplit":[
+				"5L28"
+			],
+			"gigadrain":[
+				"5L31",
+				"5M"
+			],
+			"earthpower":[
+				"5L34"
+			],
+			"rockslide":[
+				"5L37",
+				"5M"
+			],
+			"recover":[
+				"5L41"
+			],
+			"energyball":[
+				"5L44",
+				"5M"
+			],
+			"amnesia":[
+				"5L47"
+			],
+			"dustdevil":[
+				"5L50"
+			],
+			"barrier":[
+				"5L53"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"rapidspin":[
+				"5T"
+			],
+			"synthesis":[
+				"5E"
+			]
+		}
+	},
+	"cradily":{
+		"learnset":{
+			"basstremor":[
+				"5L1"
+			],
+			"painsplit":[
+				"5L1"
+			],
+			"gigadrain":[
+				"5L1",
+				"5M"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"recover":[
+				"5L42"
+			],
+			"energyball":[
+				"5L46",
+				"5M"
+			],
+			"amnesia":[
+				"5L50"
+			],
+			"dustdevil":[
+				"5L54"
+			],
+			"barrier":[
+				"5L58"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"rapidspin":[
+				"5T"
+			]
+		}
+	},
+	"anorith":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"harden":[
+				"5L4"
+			],
+			"ancientpower":[
+				"5L7",
+				"5M"
+			],
+			"watergun":[
+				"5L10"
+			],
+			"metalclaw":[
+				"5L13"
+			],
+			"stringshot":[
+				"5L16"
+			],
+			"dustdevil":[
+				"5L19",
+				"5M"
+			],
+			"furycutter":[
+				"5L22",
+				"5M"
+			],
+			"earthpower":[
+				"5L25"
+			],
+			"slash":[
+				"5L28"
+			],
+			"metallurgy":[
+				"5L31"
+			],
+			"xscissor":[
+				"5L34"
+			],
+			"rockslide":[
+				"5L37",
+				"5M"
+			],
+			"screech":[
+				"5L41"
+			],
+			"aquajet":[
+				"5L44"
+			],
+			"irondefense":[
+				"5L47"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			],
+			"rapidspin":[
+				"5E"
+			]
+		}
+	},
+	"armaldo":{
+		"learnset":{
+			"metallurgy":[
+				"5L1"
+			],
+			"xscissor":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"screech":[
+				"5L42"
+			],
+			"aquajet":[
+				"5L47"
+			],
+			"irondefense":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			]
+		}
+	},
+	"snorlax":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"defensecurl":[
+				"5L4",
+				"5M"
+			],
+			"lick":[
+				"5L7"
+			],
+			"sweetkiss":[
+				"5L10"
+			],
+			"hyperbeam":[
+				"5L15",
+				"5M"
+			],
+			"rest":[
+				"5L20",
+				"5M"
+			],
+			"pursuit":[
+				"5L25"
+			],
+			"selfdestruct":[
+				"5L30"
+			],
+			"headbutt":[
+				"5L34",
+				"5M"
+			],
+			"amnesia":[
+				"5L38"
+			],
+			"zenheadbutt":[
+				"5L42"
+			],
+			"crunch":[
+				"5L46"
+			],
+			"bodyslam":[
+				"5L50",
+				"5M"
+			],
+			"wildcharge":[
+				"5L54"
+			],
+			"bellydrum":[
+				"5L58"
+			],
+			"outrage":[
+				"5L62"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"minimize":[
+				"5T"
+			],
+			"screech":[
+				"5E"
+			],
+			"charm":[
+				"5E"
+			]
+		}
+	},
+	"articuno":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"hail":[
+				"5L4",
+				"5M"
+			],
+			"powdersnow":[
+				"5L7"
+			],
+			"gust":[
+				"5L10"
+			],
+			"mist":[
+				"5L15"
+			],
+			"reflect":[
+				"5L20",
+				"5M"
+			],
+			"icywind":[
+				"5L25",
+				"5M"
+			],
+			"aerialace":[
+				"5L30",
+				"5M"
+			],
+			"haze":[
+				"5L35"
+			],
+			"ancientpower":[
+				"5L40",
+				"5M"
+			],
+			"icebeam":[
+				"5L50",
+				"5M"
+			],
+			"skyattack":[
+				"5L60",
+				"5M"
+			],
+			"agility":[
+				"5L70"
+			],
+			"healbell":[
+				"5L80"
+			],
+			"blizzard":[
+				"5L90",
+				"5M"
+			],
+			"stormfront":[
+				"5L95",
+				"5M"
+			],
+			"mindreader":[
+				"5L100"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"powergem":[
+				"5T"
+			]
+		}
+	},
+	"zapdos":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"whirlwind":[
+				"5L4",
+				"5M"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"peck":[
+				"5L10"
+			],
+			"mudslap":[
+				"5L15",
+				"5M"
+			],
+			"lightscreen":[
+				"5L20",
+				"5M"
+			],
+			"zapcannon":[
+				"5L25",
+				"5M"
+			],
+			"aerialace":[
+				"5L30",
+				"5M"
+			],
+			"thunderwave":[
+				"5L35",
+				"5M"
+			],
+			"ancientpower":[
+				"5L40",
+				"5M"
+			],
+			"wildcharge":[
+				"5L50"
+			],
+			"skyattack":[
+				"5L60",
+				"5M"
+			],
+			"batonpass":[
+				"5L70"
+			],
+			"agility":[
+				"5L80"
+			],
+			"thunder":[
+				"5L90",
+				"5M"
+			],
+			"drillpeck":[
+				"5L95"
+			],
+			"raindance":[
+				"5L100",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"confuseray":[
+				"5T"
+			]
+		}
+	},
+	"moltres":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"safeguard":[
+				"5L4",
+				"5M"
+			],
+			"ember":[
+				"5L7"
+			],
+			"gust":[
+				"5L10"
+			],
+			"lavapool":[
+				"5L15"
+			],
+			"reflect":[
+				"5L20",
+				"5M"
+			],
+			"firespin":[
+				"5L25"
+			],
+			"wingattack":[
+				"5L30"
+			],
+			"morningsun":[
+				"5L35"
+			],
+			"ancientpower":[
+				"5L40",
+				"5M"
+			],
+			"boil":[
+				"5L50",
+				"5M"
+			],
+			"skyattack":[
+				"5L60",
+				"5M"
+			],
+			"agility":[
+				"5L70"
+			],
+			"sunnyday":[
+				"5L80",
+				"5M"
+			],
+			"fireblast":[
+				"5L90",
+				"5M"
+			],
+			"airslash":[
+				"5L95"
+			],
+			"solarbeam":[
+				"5L100",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"beldum":{
+		"learnset":{
+			"takedown":[
+				"5L1"
+			],
+			"irondefense":[
+				"5L15"
+			],
+			"zenheadbutt":[
+				"5L25"
+			],
+			"ironhead":[
+				"5L30",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"metang":{
+		"learnset":{
+			"takedown":[
+				"5L1"
+			],
+			"metalclaw":[
+				"5L14"
+			],
+			"confusion":[
+				"5L18"
+			],
+			"selfdestruct":[
+				"5L22"
+			],
+			"irondefense":[
+				"5L26"
+			],
+			"bulletpunch":[
+				"5L30"
+			],
+			"psychic":[
+				"5L34",
+				"5M"
+			],
+			"bodyslam":[
+				"5L38",
+				"5M"
+			],
+			"pursuit":[
+				"5L42"
+			],
+			"flashcannon":[
+				"5L46",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L50"
+			],
+			"metallurgy":[
+				"5L54"
+			],
+			"agility":[
+				"5L58"
+			],
+			"meteormash":[
+				"5L62"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"metagross":{
+		"learnset":{
+			"scaryface":[
+				"5L1"
+			],
+			"bulletpunch":[
+				"5L1"
+			],
+			"psychic":[
+				"5L1",
+				"5M"
+			],
+			"bodyslam":[
+				"5L1",
+				"5M"
+			],
+			"pursuit":[
+				"5L1"
+			],
+			"flashcannon":[
+				"5L47",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L52"
+			],
+			"metallurgy":[
+				"5L57"
+			],
+			"agility":[
+				"5L62"
+			],
+			"meteormash":[
+				"5L67"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"mewtwo":{
+		"learnset":{
+			"rage":[
+				"5L1"
+			],
+			"teleport":[
+				"5L4"
+			],
+			"confusion":[
+				"5L7"
+			],
+			"mist":[
+				"5L10"
+			],
+			"drainpunch":[
+				"5L15"
+			],
+			"swift":[
+				"5L20",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L25"
+			],
+			"futuresight":[
+				"5L30"
+			],
+			"disable":[
+				"5L35"
+			],
+			"recover":[
+				"5L40"
+			],
+			"psychocut":[
+				"5L50"
+			],
+			"amnesia":[
+				"5L60"
+			],
+			"safeguard":[
+				"5L70",
+				"5M"
+			],
+			"aurasphere":[
+				"5L80"
+			],
+			"psychic":[
+				"5L90",
+				"5M"
+			],
+			"barrier":[
+				"5L95"
+			],
+			"selfdestruct":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"mew":{
+		"learnset":{
+			"irondefense":[
+				"5L1"
+			],
+			"wrap":[
+				"5L1"
+			],
+			"metronome":[
+				"5L1",
+				"5M"
+			],
+			"twister":[
+				"5L1"
+			],
+			"pound":[
+				"5L1"
+			],
+			"transform":[
+				"5L4"
+			],
+			"teleport":[
+				"5L7"
+			],
+			"ancientpower":[
+				"5L10",
+				"5M"
+			],
+			"rage":[
+				"5L14"
+			],
+			"feintattack":[
+				"5L18"
+			],
+			"selfdestruct":[
+				"5L22"
+			],
+			"painsplit":[
+				"5L26"
+			],
+			"hypnosis":[
+				"5L30"
+			],
+			"wildcharge":[
+				"5L34"
+			],
+			"healbell":[
+				"5L38"
+			],
+			"naturepower":[
+				"5L42"
+			],
+			"drainpunch":[
+				"5L46"
+			],
+			"zenheadbutt":[
+				"5L50"
+			],
+			"spite":[
+				"5L54"
+			],
+			"dragonpulse":[
+				"5L58"
+			],
+			"xscissor":[
+				"5L62"
+			],
+			"outrage":[
+				"5L66"
+			],
+			"earthpower":[
+				"5L70"
+			],
+			"softboiled":[
+				"5L74"
+			],
+			"amnesia":[
+				"5L78"
+			],
+			"barrier":[
+				"5L82"
+			],
+			"lewisite":[
+				"5L86"
+			],
+			"batonpass":[
+				"5L90"
+			],
+			"nastyplot":[
+				"5L94"
+			],
+			"aurasphere":[
+				"5L98"
+			],
+			"psychic":[
+				"5L100",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steeleater":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"chikorita":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"vinewhip":[
+				"5L7"
+			],
+			"poisonpowder":[
+				"5L10"
+			],
+			"reflect":[
+				"5L13",
+				"5M"
+			],
+			"safeguard":[
+				"5L17",
+				"5M"
+			],
+			"razorleaf":[
+				"5L20",
+				"5M"
+			],
+			"lightscreen":[
+				"5L23",
+				"5M"
+			],
+			"endure":[
+				"5L26",
+				"5M"
+			],
+			"flail":[
+				"5L26"
+			],
+			"springbuds":[
+				"5L29"
+			],
+			"bodyslam":[
+				"5L32",
+				"5M"
+			],
+			"naturepower":[
+				"5L35"
+			],
+			"synthesis":[
+				"5L38"
+			],
+			"energyball":[
+				"5L41",
+				"5M"
+			],
+			"outrage":[
+				"5L44"
+			],
+			"leechseed":[
+				"5L47"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			],
+			"sleeppowder":[
+				"5E"
+			]
+		}
+	},
+	"bayleef":{
+		"learnset":{
+			"growl":[
+				"5L1"
+			],
+			"vinewhip":[
+				"5L1"
+			],
+			"poisonpowder":[
+				"5L1"
+			],
+			"reflect":[
+				"5L1",
+				"5M"
+			],
+			"safeguard":[
+				"5L18",
+				"5M"
+			],
+			"razorleaf":[
+				"5L22",
+				"5M"
+			],
+			"lightscreen":[
+				"5L26",
+				"5M"
+			],
+			"endure":[
+				"5L30",
+				"5M"
+			],
+			"flail":[
+				"5L30"
+			],
+			"springbuds":[
+				"5L34"
+			],
+			"bodyslam":[
+				"5L38",
+				"5M"
+			],
+			"naturepower":[
+				"5L42"
+			],
+			"synthesis":[
+				"5L46"
+			],
+			"energyball":[
+				"5L50",
+				"5M"
+			],
+			"outrage":[
+				"5L54"
+			],
+			"leechseed":[
+				"5L48"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"meganium":{
+		"learnset":{
+			"razorleaf":[
+				"5L1",
+				"5M"
+			],
+			"lightscreen":[
+				"5L1",
+				"5M"
+			],
+			"endure":[
+				"5L1",
+				"5M"
+			],
+			"flail":[
+				"5L1"
+			],
+			"springbuds":[
+				"5L35"
+			],
+			"bodyslam":[
+				"5L40",
+				"5M"
+			],
+			"naturepower":[
+				"5L45"
+			],
+			"synthesis":[
+				"5L50"
+			],
+			"energyball":[
+				"5L55",
+				"5M"
+			],
+			"outrage":[
+				"5L60"
+			],
+			"leechseed":[
+				"5L65"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"cyndaquil":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"smokescreen":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"foresight":[
+				"5L16"
+			],
+			"flamewheel":[
+				"5L19"
+			],
+			"doublekick":[
+				"5L22"
+			],
+			"swift":[
+				"5L25",
+				"5M"
+			],
+			"defensecurl":[
+				"5L28",
+				"5M"
+			],
+			"flamethrower":[
+				"5L31",
+				"5M"
+			],
+			"endure":[
+				"5L34",
+				"5M"
+			],
+			"reversal":[
+				"5L34"
+			],
+			"naturepower":[
+				"5L37"
+			],
+			"flareblitz":[
+				"5L40"
+			],
+			"lavapool":[
+				"5L43"
+			],
+			"wildcharge":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"feintattack":[
+				"5T"
+			],
+			"agility":[
+				"5E"
+			]
+		}
+	},
+	"quilava":{
+		"learnset":{
+			"leer":[
+				"5L1"
+			],
+			"ember":[
+				"5L1"
+			],
+			"smokescreen":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"foresight":[
+				"5L17"
+			],
+			"flamewheel":[
+				"5L21"
+			],
+			"doublekick":[
+				"5L25"
+			],
+			"swift":[
+				"5L29",
+				"5M"
+			],
+			"defensecurl":[
+				"5L33",
+				"5M"
+			],
+			"flamethrower":[
+				"5L37",
+				"5M"
+			],
+			"endure":[
+				"5L41",
+				"5M"
+			],
+			"reversal":[
+				"5L41"
+			],
+			"naturepower":[
+				"5L45"
+			],
+			"flareblitz":[
+				"5L49"
+			],
+			"lavapool":[
+				"5L53"
+			],
+			"wildcharge":[
+				"5L57"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"feintattack":[
+				"5T"
+			]
+		}
+	},
+	"typhlosion":{
+		"learnset":{
+			"flamewheel":[
+				"5L1"
+			],
+			"doublekick":[
+				"5L1"
+			],
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"defensecurl":[
+				"5L1",
+				"5M"
+			],
+			"flamethrower":[
+				"5L38",
+				"5M"
+			],
+			"endure":[
+				"5L43",
+				"5M"
+			],
+			"reversal":[
+				"5L43"
+			],
+			"naturepower":[
+				"5L48"
+			],
+			"flareblitz":[
+				"5L53"
+			],
+			"lavapool":[
+				"5L58"
+			],
+			"wildcharge":[
+				"5L63"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"feintattack":[
+				"5T"
+			]
+		}
+	},
+	"totodile":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"rage":[
+				"5L10"
+			],
+			"metalclaw":[
+				"5L13"
+			],
+			"scaryface":[
+				"5L16"
+			],
+			"aquajet":[
+				"5L19"
+			],
+			"bite":[
+				"5L22"
+			],
+			"agility":[
+				"5L25"
+			],
+			"slash":[
+				"5L28"
+			],
+			"hydropump":[
+				"5L31"
+			],
+			"dragonpulse":[
+				"5L34"
+			],
+			"dragondance":[
+				"5L37"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"waterfall":[
+				"5L43"
+			],
+			"outrage":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			],
+			"flail":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			]
+		}
+	},
+	"croconaw":{
+		"learnset":{
+			"screech":[
+				"5L1"
+			],
+			"watergun":[
+				"5L1"
+			],
+			"rage":[
+				"5L1"
+			],
+			"metalclaw":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L1"
+			],
+			"aquajet":[
+				"5L20"
+			],
+			"bite":[
+				"5L24"
+			],
+			"agility":[
+				"5L28"
+			],
+			"slash":[
+				"5L32"
+			],
+			"hydropump":[
+				"5L36"
+			],
+			"dragonpulse":[
+				"5L40"
+			],
+			"dragondance":[
+				"5L44"
+			],
+			"crunch":[
+				"5L48"
+			],
+			"waterfall":[
+				"5L52"
+			],
+			"outrage":[
+				"5L56"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"feraligatr":{
+		"learnset":{
+			"scaryface":[
+				"5L1"
+			],
+			"aquajet":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"agility":[
+				"5L1"
+			],
+			"slash":[
+				"5L33"
+			],
+			"hydropump":[
+				"5L38"
+			],
+			"dragonpulse":[
+				"5L43"
+			],
+			"dragondance":[
+				"5L48"
+			],
+			"crunch":[
+				"5L53"
+			],
+			"waterfall":[
+				"5L58"
+			],
+			"outrage":[
+				"5L63"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"sentret":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"defensecurl":[
+				"5L4",
+				"5M"
+			],
+			"foresight":[
+				"5L7"
+			],
+			"quickattack":[
+				"5L10"
+			],
+			"batonpass":[
+				"5L13"
+			],
+			"amnesia":[
+				"5L16"
+			],
+			"pursuit":[
+				"5L19"
+			],
+			"slash":[
+				"5L22"
+			],
+			"charm":[
+				"5L25"
+			],
+			"hypervoice":[
+				"5L28",
+				"5M"
+			],
+			"rest":[
+				"5L31",
+				"5M"
+			],
+			"bodyslam":[
+				"5L34",
+				"5M"
+			],
+			"endure":[
+				"5L37",
+				"5M"
+			],
+			"reversal":[
+				"5L37"
+			],
+			"basstremor":[
+				"5L40"
+			],
+			"attract":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"recover":[
+				"5T"
+			],
+			"focusenergy":[
+				"5E"
+			]
+		}
+	},
+	"furret":{
+		"learnset":{
+			"defensecurl":[
+				"5L1",
+				"5M"
+			],
+			"foresight":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"batonpass":[
+				"5L1"
+			],
+			"amnesia":[
+				"5L17"
+			],
+			"pursuit":[
+				"5L21"
+			],
+			"slash":[
+				"5L25"
+			],
+			"charm":[
+				"5L29"
+			],
+			"hypervoice":[
+				"5L33",
+				"5M"
+			],
+			"rest":[
+				"5L36",
+				"5M"
+			],
+			"bodyslam":[
+				"5L39",
+				"5M"
+			],
+			"endure":[
+				"5L42",
+				"5M"
+			],
+			"reversal":[
+				"5L45"
+			],
+			"basstremor":[
+				"5L48"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"recover":[
+				"5T"
+			]
+		}
+	},
+	"ralts":{
+		"learnset":{
+			"mudslap":[
+				"5L1",
+				"5M"
+			],
+			"growl":[
+				"5L4"
+			],
+			"confusion":[
+				"5L7"
+			],
+			"teleport":[
+				"5L10"
+			],
+			"drainingkiss":[
+				"5L13"
+			],
+			"sing":[
+				"5L16"
+			],
+			"dreameater":[
+				"5L19",
+				"5M"
+			],
+			"futuresight":[
+				"5L22"
+			],
+			"signalbeam":[
+				"5L25",
+				"5M"
+			],
+			"hypnosis":[
+				"5L28"
+			],
+			"zenheadbutt":[
+				"5L31"
+			],
+			"encore":[
+				"5L34"
+			],
+			"destinybond":[
+				"5L37"
+			],
+			"calmmind":[
+				"5L40",
+				"5M"
+			],
+			"psychic":[
+				"5L43",
+				"5M"
+			],
+			"painsplit":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sweetkiss":[
+				"5T"
+			],
+			"disable":[
+				"5E"
+			],
+			"confuseray":[
+				"5E"
+			],
+			"charm":[
+				"5E"
+			],
+			"meanlook":[
+				"5E"
+			]
+		}
+	},
+	"kirlia":{
+		"learnset":{
+			"confuseray":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"teleport":[
+				"5L1"
+			],
+			"drainingkiss":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"dreameater":[
+				"5L1",
+				"5M"
+			],
+			"futuresight":[
+				"5L23"
+			],
+			"signalbeam":[
+				"5L27",
+				"5M"
+			],
+			"hypnosis":[
+				"5L31"
+			],
+			"zenheadbutt":[
+				"5L35"
+			],
+			"encore":[
+				"5L39"
+			],
+			"destinybond":[
+				"5L43"
+			],
+			"calmmind":[
+				"5L47",
+				"5M"
+			],
+			"psychic":[
+				"5L51",
+				"5M"
+			],
+			"painsplit":[
+				"5L55"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sweetkiss":[
+				"5T"
+			]
+		}
+	},
+	"gardevoir":{
+		"learnset":{
+			"sing":[
+				"5L1"
+			],
+			"dreameater":[
+				"5L1",
+				"5M"
+			],
+			"futuresight":[
+				"5L1"
+			],
+			"signalbeam":[
+				"5L1",
+				"5M"
+			],
+			"hypnosis":[
+				"5L32"
+			],
+			"zenheadbutt":[
+				"5L37"
+			],
+			"encore":[
+				"5L42"
+			],
+			"moonblast":[
+				"5L47"
+			],
+			"calmmind":[
+				"5L52",
+				"5M"
+			],
+			"psychic":[
+				"5L57",
+				"5M"
+			],
+			"healbell":[
+				"5L62"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sweetkiss":[
+				"5T"
+			]
+		}
+	},
+	"gallade":{
+		"learnset":{
+			"teleport":[
+				"5L1"
+			],
+			"drainingkiss":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"dreameater":[
+				"5L1",
+				"5M"
+			],
+			"futuresight":[
+				"5L24"
+			],
+			"xscissor":[
+				"5L29"
+			],
+			"hypnosis":[
+				"5L34"
+			],
+			"zenheadbutt":[
+				"5L39"
+			],
+			"leer":[
+				"5L44"
+			],
+			"drainpunch":[
+				"5L49"
+			],
+			"swordsdance":[
+				"5L54",
+				"5M"
+			],
+			"psychocut":[
+				"5L59"
+			],
+			"nightslash":[
+				"5L64"
+			],
+			"crosschop":[
+				"5L69"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sweetkiss":[
+				"5T"
+			]
+		}
+	},
+	"spinarak":{
+		"learnset":{
+			"astonish":[
+				"5L1"
+			],
+			"stringshot":[
+				"5L4"
+			],
+			"leechlife":[
+				"5L7"
+			],
+			"poisonsting":[
+				"5L10"
+			],
+			"disable":[
+				"5L13"
+			],
+			"psybeam":[
+				"5L16"
+			],
+			"signalbeam":[
+				"5L19",
+				"5M"
+			],
+			"sludge":[
+				"5L23"
+			],
+			"nightshade":[
+				"5L26",
+				"5M"
+			],
+			"pursuit":[
+				"5L29"
+			],
+			"pinmissile":[
+				"5L32"
+			],
+			"sludgebomb":[
+				"5L35",
+				"5M"
+			],
+			"nightslash":[
+				"5L38"
+			],
+			"agility":[
+				"5L41"
+			],
+			"xscissor":[
+				"5L44"
+			],
+			"poisonjab":[
+				"5L47",
+				"5M"
+			],
+			"batonpass":[
+				"5L50"
+			],
+			"meanlook":[
+				"5L53"
+			],
+			"megahorn":[
+				"5L56",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"poisongas":[
+				"5T"
+			],
+			"scaryface":[
+				"5E"
+			]
+		}
+	},
+	"ariados":{
+		"learnset":{
+			"poisonsting":[
+				"5L1"
+			],
+			"disable":[
+				"5L1"
+			],
+			"psybeam":[
+				"5L1"
+			],
+			"signalbeam":[
+				"5L1",
+				"5M"
+			],
+			"sludge":[
+				"5L24"
+			],
+			"nightshade":[
+				"5L28",
+				"5M"
+			],
+			"pursuit":[
+				"5L32"
+			],
+			"pinmissile":[
+				"5L35"
+			],
+			"sludgebomb":[
+				"5L38",
+				"5M"
+			],
+			"nightslash":[
+				"5L41"
+			],
+			"agility":[
+				"5L44"
+			],
+			"xscissor":[
+				"5L47"
+			],
+			"poisonjab":[
+				"5L50",
+				"5M"
+			],
+			"batonpass":[
+				"5L53"
+			],
+			"meanlook":[
+				"5L56"
+			],
+			"megahorn":[
+				"5L58",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"poisongas":[
+				"5T"
+			]
+		}
+	},
+	"crobat":{
+		"learnset":{
+			"xscissor":[
+				"5L1"
+			],
+			"zenheadbutt":[
+				"5L1"
+			],
+			"astonish":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"bite":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L1"
+			],
+			"meanlook":[
+				"5L27"
+			],
+			"sludgebomb":[
+				"5L32",
+				"5M"
+			],
+			"nastyplot":[
+				"5L37"
+			],
+			"airslash":[
+				"5L42"
+			],
+			"confuseray":[
+				"5L47"
+			],
+			"poisonjab":[
+				"5L52",
+				"5M"
+			],
+			"crunch":[
+				"5L57"
+			],
+			"bravebird":[
+				"5L62"
+			],
+			"haze":[
+				"5L67"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"outrage":[
+				"5T"
+			]
+		}
+	},
+	"chinchou":{
+		"learnset":{
+			"watergun":[
+				"5L1"
+			],
+			"supersonic":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"flail":[
+				"5L10"
+			],
+			"bubble":[
+				"5L13"
+			],
+			"healbell":[
+				"5L16"
+			],
+			"spark":[
+				"5L19"
+			],
+			"screech":[
+				"5L22"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"psybeam":[
+				"5L28"
+			],
+			"wildcharge":[
+				"5L31"
+			],
+			"confuseray":[
+				"5L34"
+			],
+			"hydropump":[
+				"5L37"
+			],
+			"signalbeam":[
+				"5L40",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L43",
+				"5M"
+			],
+			"amnesia":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			],
+			"mist":[
+				"5E"
+			],
+			"agility":[
+				"5E"
+			]
+		}
+	},
+	"lanturn":{
+		"learnset":{
+			"healbell":[
+				"5L1"
+			],
+			"spark":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"bubblebeam":[
+				"5L1"
+			],
+			"psybeam":[
+				"5L29"
+			],
+			"wildcharge":[
+				"5L34"
+			],
+			"confuseray":[
+				"5L39"
+			],
+			"hydropump":[
+				"5L43"
+			],
+			"signalbeam":[
+				"5L47",
+				"5M"
+			],
+			"thunderbolt":[
+				"5L51",
+				"5M"
+			],
+			"amnesia":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"pichu":{
+		"learnset":{
+			"doubleslap":[
+				"5L1"
+			],
+			"charm":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"tailwhip":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L13"
+			],
+			"doubleteam":[
+				"5L15",
+				"5M"
+			],
+			"spark":[
+				"5L18"
+			],
+			"agility":[
+				"5L20"
+			],
+			"flail":[
+				"5L23"
+			],
+			"endure":[
+				"5L25",
+				"5M"
+			],
+			"thunderpunch":[
+				"5L28",
+				"5M"
+			],
+			"reversal":[
+				"5L30"
+			],
+			"sing":[
+				"5L33"
+			],
+			"extremespeed":[
+				"5L35"
+			],
+			"wildcharge":[
+				"5L37"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"barrier":[
+				"5T"
+			],
+			"scaryface":[
+				"5E"
+			],
+			"drainingkiss":[
+				"5E"
+			],
+			"playrough":[
+				"5E"
+			]
+		}
+	},
+	"dusknoir":{
+		"learnset":{
+			"curse":[
+				"5L1",
+				"5M"
+			],
+			"meanlook":[
+				"5L1"
+			],
+			"nightshade":[
+				"5L1",
+				"5M"
+			],
+			"shadowball":[
+				"5L1",
+				"5M"
+			],
+			"confuseray":[
+				"5L42"
+			],
+			"destinybond":[
+				"5L45"
+			],
+			"painsplit":[
+				"5L53"
+			],
+			"ghosthammer":[
+				"5L57"
+			],
+			"lewisite":[
+				"5L62"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"scaryface":[
+				"5T"
+			]
+		}
+	},
+	"igglybuff":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"charm":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L6"
+			],
+			"defensecurl":[
+				"5L9",
+				"5M"
+			],
+			"rollout":[
+				"5L11",
+				"5M"
+			],
+			"powerballad":[
+				"5L14"
+			],
+			"doubleslap":[
+				"5L16"
+			],
+			"feintattack":[
+				"5L18"
+			],
+			"sweetkiss":[
+				"5L21"
+			],
+			"noisepulse":[
+				"5L23"
+			],
+			"dizzypunch":[
+				"5L26"
+			],
+			"wildcharge":[
+				"5L28"
+			],
+			"perishsong":[
+				"5L31"
+			],
+			"hypervoice":[
+				"5L33",
+				"5M"
+			],
+			"playrough":[
+				"5L36"
+			],
+			"mustardgas":[
+				"5L38"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			],
+			"painsplit":[
+				"5E"
+			],
+			"nervegas":[
+				"5E"
+			],
+			"drainingkiss":[
+				"5E"
+			],
+			"disable":[
+				"5E"
+			]
+		}
+	},
+	"togepi":{
+		"learnset":{
+			"metronome":[
+				"5L1",
+				"5M"
+			],
+			"growl":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"peck":[
+				"5L10"
+			],
+			"mirrormove":[
+				"5L13",
+				"5E"
+			],
+			"sweetkiss":[
+				"5L16"
+			],
+			"dizzypunch":[
+				"5L19"
+			],
+			"headbutt":[
+				"5L22",
+				"5M"
+			],
+			"softboiled":[
+				"5L25"
+			],
+			"charm":[
+				"5L28"
+			],
+			"encore":[
+				"5L31"
+			],
+			"bodyslam":[
+				"5L34",
+				"5M"
+			],
+			"moonblast":[
+				"5L37"
+			],
+			"healbell":[
+				"5L40"
+			],
+			"drainpunch":[
+				"5L43"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			],
+			"foresight":[
+				"5E"
+			],
+			"futuresight":[
+				"5E"
+			],
+			"twister":[
+				"5E"
+			],
+			"playrough":[
+				"5E"
+			]
+		}
+	},
+	"togetic":{
+		"learnset":{
+			"metronome":[
+				"5L1",
+				"5M"
+			],
+			"growl":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"peck":[
+				"5L10"
+			],
+			"mirrormove":[
+				"5L14"
+			],
+			"sweetkiss":[
+				"5L18"
+			],
+			"dizzypunch":[
+				"5L22",
+				"5M"
+			],
+			"aerialace":[
+				"5L26",
+				"5M"
+			],
+			"morningsun":[
+				"5L30"
+			],
+			"charm":[
+				"5L33"
+			],
+			"encore":[
+				"5L36"
+			],
+			"skyattack":[
+				"5L39",
+				"5M"
+			],
+			"moonblast":[
+				"5L42"
+			],
+			"healbell":[
+				"5L45"
+			],
+			"zenheadbutt":[
+				"5L48"
+			],
+			"airslash":[
+				"5L51"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			]
+		}
+	},
+	"natu":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"teleport":[
+				"5L4"
+			],
+			"peck":[
+				"5L7"
+			],
+			"leer":[
+				"5L10"
+			],
+			"confusion":[
+				"5L13"
+			],
+			"aerialace":[
+				"5L16",
+				"5M"
+			],
+			"feintattack":[
+				"5L19"
+			],
+			"futuresight":[
+				"5L22"
+			],
+			"psybeam":[
+				"5L26"
+			],
+			"drillpeck":[
+				"5L29"
+			],
+			"confuseray":[
+				"5L32"
+			],
+			"painsplit":[
+				"5L35"
+			],
+			"zenheadbutt":[
+				"5L38"
+			],
+			"stormfront":[
+				"5L41",
+				"5M"
+			],
+			"haze":[
+				"5L44"
+			],
+			"recover":[
+				"5L47"
+			],
+			"psychic":[
+				"5L50",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M",
+				"5E"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"aeroblast":[
+				"5T"
+			],
+			"batonpass":[
+				"5E"
+			],
+			"quickattack":[
+				"5E"
+			]
+		}
+	},
+	"xatu":{
+		"learnset":{
+			"confusion":[
+				"5L1"
+			],
+			"aerialace":[
+				"5L1",
+				"5M"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"futuresight":[
+				"5L1"
+			],
+			"psybeam":[
+				"5L27"
+			],
+			"drillpeck":[
+				"5L32"
+			],
+			"confuseray":[
+				"5L37"
+			],
+			"painsplit":[
+				"5L42"
+			],
+			"zenheadbutt":[
+				"5L46"
+			],
+			"stormfront":[
+				"5L50",
+				"5M"
+			],
+			"haze":[
+				"5L54"
+			],
+			"recover":[
+				"5L58"
+			],
+			"psychic":[
+				"5L62",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"aeroblast":[
+				"5T"
+			]
+		}
+	},
+	"mareep":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"cottonspore":[
+				"5L13"
+			],
+			"lightscreen":[
+				"5L16",
+				"5M"
+			],
+			"spark":[
+				"5L19"
+			],
+			"screech":[
+				"5L22"
+			],
+			"thunderwave":[
+				"5L25",
+				"5M"
+			],
+			"confuseray":[
+				"5L28"
+			],
+			"wildcharge":[
+				"5L31"
+			],
+			"outrage":[
+				"5L34"
+			],
+			"powergem":[
+				"5L37"
+			],
+			"healbell":[
+				"5L40"
+			],
+			"crystalbolt":[
+				"5L43",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"pursuit":[
+				"5T"
+			],
+			"agility":[
+				"5E"
+			]
+		}
+	},
+	"flaaffy":{
+		"learnset":{
+			"growl":[
+				"5L1"
+			],
+			"thundershock":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L1"
+			],
+			"cottonspore":[
+				"5L1"
+			],
+			"lightscreen":[
+				"5L17",
+				"5M"
+			],
+			"spark":[
+				"5L21"
+			],
+			"screech":[
+				"5L25"
+			],
+			"thunderwave":[
+				"5L29",
+				"5M"
+			],
+			"confuseray":[
+				"5L33"
+			],
+			"wildcharge":[
+				"5L37"
+			],
+			"outrage":[
+				"5L41"
+			],
+			"powergem":[
+				"5L45"
+			],
+			"healbell":[
+				"5L49"
+			],
+			"crystalbolt":[
+				"5L53",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L57"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"pursuit":[
+				"5T"
+			]
+		}
+	},
+	"ampharos":{
+		"learnset":{
+			"lightscreen":[
+				"5L1",
+				"5M"
+			],
+			"spark":[
+				"5L1"
+			],
+			"screech":[
+				"5L1"
+			],
+			"thunderwave":[
+				"5L1",
+				"5M"
+			],
+			"confuseray":[
+				"5L34"
+			],
+			"wildcharge":[
+				"5L39"
+			],
+			"outrage":[
+				"5L44"
+			],
+			"powergem":[
+				"5L49"
+			],
+			"healbell":[
+				"5L54"
+			],
+			"crystalbolt":[
+				"5L59",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L64"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"pursuit":[
+				"5T"
+			]
+		}
+	},
+	"togekiss":{
+		"learnset":{
+			"batonpass":[
+				"5L1"
+			],
+			"metronome":[
+				"5L1",
+				"5M"
+			],
+			"growl":[
+				"5L4"
+			],
+			"fairywind":[
+				"5L7"
+			],
+			"peck":[
+				"5L10"
+			],
+			"mirrormove":[
+				"5L15"
+			],
+			"sweetkiss":[
+				"5L20"
+			],
+			"dizzypunch":[
+				"5L25",
+				"5M"
+			],
+			"aerialace":[
+				"5L30",
+				"5M"
+			],
+			"morningsun":[
+				"5L34"
+			],
+			"charm":[
+				"5L38"
+			],
+			"extremespeed":[
+				"5L42"
+			],
+			"skyattack":[
+				"5L46",
+				"5M"
+			],
+			"moonblast":[
+				"5L50"
+			],
+			"nastyplot":[
+				"5L54"
+			],
+			"aurasphere":[
+				"5L58"
+			],
+			"airslash":[
+				"5L62"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"moonlight":[
+				"5T"
+			]
+		}
+	},
+	"marill":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"doubleslap":[
+				"5L10"
+			],
+			"sing":[
+				"5L13"
+			],
+			"futuresight":[
+				"5L16"
+			],
+			"bubblebeam":[
+				"5L19"
+			],
+			"rollout":[
+				"5L22",
+				"5M"
+			],
+			"defensecurl":[
+				"5L25",
+				"5M"
+			],
+			"dizzypunch":[
+				"5L28",
+				"5M"
+			],
+			"hydropump":[
+				"5L31"
+			],
+			"perishsong":[
+				"5L34"
+			],
+			"charm":[
+				"5L37"
+			],
+			"playrough":[
+				"5L40"
+			],
+			"aquajet":[
+				"5L43"
+			],
+			"encore":[
+				"5L46"
+			],
+			"bellydrum":[
+				"5L49"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			],
+			"amnesia":[
+				"5E"
+			],
+			"foresight":[
+				"5E"
+			],
+			"drainingkiss":[
+				"5E"
+			],
+			"supersonic":[
+				"5E"
+			]
+		}
+	},
+	"azumarill":{
+		"learnset":{
+			"vaporize":[
+				"5L1"
+			],
+			"watergun":[
+				"5L1"
+			],
+			"doubleslap":[
+				"5L1"
+			],
+			"sing":[
+				"5L1"
+			],
+			"futuresight":[
+				"5L1"
+			],
+			"bubblebeam":[
+				"5L20"
+			],
+			"rollout":[
+				"5L25",
+				"5M"
+			],
+			"defensecurl":[
+				"5L30",
+				"5M"
+			],
+			"dizzypunch":[
+				"5L34",
+				"5M"
+			],
+			"hydropump":[
+				"5L38"
+			],
+			"perishsong":[
+				"5L42"
+			],
+			"charm":[
+				"5L46"
+			],
+			"playrough":[
+				"5L50"
+			],
+			"aquajet":[
+				"5L54"
+			],
+			"encore":[
+				"5L58"
+			],
+			"bellydrum":[
+				"5L62"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"focusenergy":[
+				"5T"
+			]
+		}
+	},
+	"numel":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"mudslap":[
+				"5L10",
+				"5M"
+			],
+			"growth":[
+				"5L13"
+			],
+			"scaryface":[
+				"5L16"
+			],
+			"stomp":[
+				"5L19"
+			],
+			"magnitude":[
+				"5L22"
+			],
+			"lavapool":[
+				"5L25"
+			],
+			"charm":[
+				"5L28"
+			],
+			"boil":[
+				"5L31",
+				"5M"
+			],
+			"earthquake":[
+				"5L34",
+				"5M"
+			],
+			"naturepower":[
+				"5L37"
+			],
+			"amnesia":[
+				"5L40"
+			],
+			"flamethrower":[
+				"5L43",
+				"5M"
+			],
+			"earthpower":[
+				"5L46"
+			],
+			"nervegas":[
+				"5L49"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			],
+			"focusenergy":[
+				"5E"
+			],
+			"selfdestruct":[
+				"5E"
+			]
+		}
+	},
+	"camerupt":{
+		"learnset":{
+			"magnitude":[
+				"5L1"
+			],
+			"lavapool":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"boil":[
+				"5L1",
+				"5M"
+			],
+			"earthquake":[
+				"5L36",
+				"5M"
+			],
+			"naturepower":[
+				"5L41"
+			],
+			"amnesia":[
+				"5L46"
+			],
+			"flamethrower":[
+				"5L51",
+				"5M"
+			],
+			"earthpower":[
+				"5L56"
+			],
+			"nervegas":[
+				"5L61"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			]
+		}
+	},
+	"wailmer":{
+		"learnset":{
+			"astonish":[
+				"5L1"
+			],
+			"splash":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"growl":[
+				"5L10"
+			],
+			"mist":[
+				"5L13"
+			],
+			"rollout":[
+				"5L16",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L19"
+			],
+			"laughinggas":[
+				"5L22"
+			],
+			"selfdestruct":[
+				"5L25"
+			],
+			"bodyslam":[
+				"5L28",
+				"5M"
+			],
+			"waterfall":[
+				"5L31"
+			],
+			"lewisite":[
+				"5L34"
+			],
+			"rest":[
+				"5L37",
+				"5M"
+			],
+			"sleeptalk":[
+				"5L41",
+				"5M"
+			],
+			"hydropump":[
+				"5L44"
+			],
+			"zenheadbutt":[
+				"5L47"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			],
+			"takedown":[
+				"5E"
+			]
+		}
+	},
+	"wailord":{
+		"learnset":{
+			"bodyslam":[
+				"5L1",
+				"5M"
+			],
+			"waterfall":[
+				"5L1"
+			],
+			"lewisite":[
+				"5L1"
+			],
+			"rest":[
+				"5L1",
+				"5M"
+			],
+			"sleeptalk":[
+				"5L42",
+				"5M"
+			],
+			"hydropump":[
+				"5L47"
+			],
+			"zenheadbutt":[
+				"5L52"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"surskit":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"sweetscent":[
+				"5L4",
+				"5M"
+			],
+			"bubble":[
+				"5L7"
+			],
+			"stunspore":[
+				"5L10"
+			],
+			"mist":[
+				"5L13"
+			],
+			"raindance":[
+				"5L16",
+				"5M"
+			],
+			"aquajet":[
+				"5L19"
+			],
+			"psybeam":[
+				"5L23"
+			],
+			"signalbeam":[
+				"5L26",
+				"5M"
+			],
+			"stringshot":[
+				"5L29"
+			],
+			"bubblebeam":[
+				"5L32"
+			],
+			"haze":[
+				"5L35"
+			],
+			"bugbuzz":[
+				"5L38"
+			],
+			"agility":[
+				"5L41"
+			],
+			"hydropump":[
+				"5L44"
+			],
+			"batonpass":[
+				"5L47"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			],
+			"mindreader":[
+				"5E"
+			],
+			"foresight":[
+				"5E"
+			]
+		}
+	},
+	"masquerain":{
+		"learnset":{
+			"foresight":[
+				"5L1"
+			],
+			"mindreader":[
+				"5L1"
+			],
+			"twister":[
+				"5L1"
+			],
+			"stunspore":[
+				"5L1"
+			],
+			"mist":[
+				"5L1"
+			],
+			"raindance":[
+				"5L1",
+				"5M"
+			],
+			"aquajet":[
+				"5L1"
+			],
+			"bubble":[
+				"5L1"
+			],
+			"quickattack":[
+				"5L1"
+			],
+			"bubblebeam":[
+				"5L1"
+			],
+			"gust":[
+				"5L22"
+			],
+			"psybeam":[
+				"5L23"
+			],
+			"signalbeam":[
+				"5L26",
+				"5M"
+			],
+			"scaryface":[
+				"5L29"
+			],
+			"airslash":[
+				"5L32"
+			],
+			"haze":[
+				"5L35"
+			],
+			"bugbuzz":[
+				"5L38"
+			],
+			"agility":[
+				"5L41"
+			],
+			"stormfront":[
+				"5L44",
+				"5M"
+			],
+			"batonpass":[
+				"5L47"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			]
+		}
+	},
+	"shroomish":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"absorb":[
+				"5L4"
+			],
+			"poisonpowder":[
+				"5L7"
+			],
+			"growth":[
+				"5L10"
+			],
+			"leechseed":[
+				"5L13"
+			],
+			"megadrain":[
+				"5L16"
+			],
+			"stunspore":[
+				"5L19"
+			],
+			"charm":[
+				"5L22"
+			],
+			"headbutt":[
+				"5L25",
+				"5M"
+			],
+			"springbuds":[
+				"5L28"
+			],
+			"sleeppowder":[
+				"5L31"
+			],
+			"drainpunch":[
+				"5L34"
+			],
+			"synthesis":[
+				"5L37"
+			],
+			"seedbomb":[
+				"5L40",
+				"5M"
+			],
+			"toxic":[
+				"5L43",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"crosschop":[
+				"5T"
+			],
+			"mindreader":[
+				"5E"
+			]
+		}
+	},
+	"breloom":{
+		"learnset":{
+			"leechseed":[
+				"5L1"
+			],
+			"stunspore":[
+				"5L1"
+			],
+			"megadrain":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"karatechop":[
+				"5L23"
+			],
+			"headbutt":[
+				"5L27",
+				"5M"
+			],
+			"springbuds":[
+				"5L32"
+			],
+			"sleeppowder":[
+				"5L37"
+			],
+			"machpunch":[
+				"5L42"
+			],
+			"synthesis":[
+				"5L46"
+			],
+			"seedbomb":[
+				"5L50",
+				"5M"
+			],
+			"toxic":[
+				"5L54",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"crosschop":[
+				"5T"
+			]
+		}
+	},
+	"yanma":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"foresight":[
+				"5L4"
+			],
+			"leechlife":[
+				"5L7"
+			],
+			"gust":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"supersonic":[
+				"5L19"
+			],
+			"reversal":[
+				"5L23"
+			],
+			"wingattack":[
+				"5L27"
+			],
+			"signalbeam":[
+				"5L30",
+				"5M"
+			],
+			"ancientpower":[
+				"5L33",
+				"5M"
+			],
+			"screech":[
+				"5L33"
+			],
+			"nightslash":[
+				"5L36"
+			],
+			"airslash":[
+				"5L39"
+			],
+			"bugbuzz":[
+				"5L42"
+			],
+			"hypnosis":[
+				"5L45"
+			],
+			"pursuit":[
+				"5L48"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"feintattack":[
+				"5T"
+			]
+		}
+	},
+	"yanmega":{
+		"learnset":{
+			"slash":[
+				"5L1"
+			],
+			"reversal":[
+				"5L1"
+			],
+			"wingattack":[
+				"5L1"
+			],
+			"signalbeam":[
+				"5L1",
+				"5M"
+			],
+			"screech":[
+				"5L1"
+			],
+			"nightslash":[
+				"5L38"
+			],
+			"airslash":[
+				"5L43"
+			],
+			"bugbuzz":[
+				"5L48"
+			],
+			"hypnosis":[
+				"5L53"
+			],
+			"pursuit":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"feintattack":[
+				"5T"
+			]
+		}
+	},
+	"leafeon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"synthesis":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"solarbeam":[
+				"5L15",
+				"5M"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"razorleaf":[
+				"5L34",
+				"5M"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"naturepower":[
+				"5L42"
+			],
+			"energyball":[
+				"5L45",
+				"5M"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"xscissor":[
+				"5L54"
+			],
+			"seedbomb":[
+				"5L57",
+				"5M"
+			],
+			"swordsdance":[
+				"5L60",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"springbuds":[
+				"5T"
+			]
+		}
+	},
+	"espeon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"lightscreen":[
+				"5L7",
+				"5M"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"confusion":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"psybeam":[
+				"5L34"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"futuresight":[
+				"5L42"
+			],
+			"zenheadbutt":[
+				"5L45"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"signalbeam":[
+				"5L54",
+				"5M"
+			],
+			"psychic":[
+				"5L57",
+				"5M"
+			],
+			"morningsun":[
+				"5L60"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"umbreon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"spite":[
+				"5L7"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"feintattack":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"swift":[
+				"5L30",
+				"5M"
+			],
+			"bite":[
+				"5L34"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"pursuit":[
+				"5L42"
+			],
+			"crunch":[
+				"5L45"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"confuseray":[
+				"5L54"
+			],
+			"darkpulse":[
+				"5L57",
+				"5M"
+			],
+			"moonlight":[
+				"5L60"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"glaceon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"hail":[
+				"5L7",
+				"5M"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"powdersnow":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"icywind":[
+				"5L34",
+				"5M"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"barrier":[
+				"5L42"
+			],
+			"freezeburn":[
+				"5L45",
+				"5M"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"shadowball":[
+				"5L54",
+				"5M"
+			],
+			"blizzard":[
+				"5L57",
+				"5M"
+			],
+			"vaporize":[
+				"5L60"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"irondefense":[
+				"5T"
+			]
+		}
+	},
+	"slowking":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"disable":[
+				"5L15"
+			],
+			"futuresight":[
+				"5L20"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"zenheadbutt":[
+				"5L30"
+			],
+			"headbutt":[
+				"5L34",
+				"5M"
+			],
+			"bellydrum":[
+				"5L38"
+			],
+			"waterfall":[
+				"5L42"
+			],
+			"psychic":[
+				"5L46",
+				"5M"
+			],
+			"nastyplot":[
+				"5L50"
+			],
+			"powergem":[
+				"5L54"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"misdreavus":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"spite":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"healbell":[
+				"5L15"
+			],
+			"confuseray":[
+				"5L20"
+			],
+			"psybeam":[
+				"5L24"
+			],
+			"darkpulse":[
+				"5L28",
+				"5M"
+			],
+			"powergem":[
+				"5L31"
+			],
+			"painsplit":[
+				"5L34"
+			],
+			"nastyplot":[
+				"5L37"
+			],
+			"shadowball":[
+				"5L40",
+				"5M"
+			],
+			"meanlook":[
+				"5L43"
+			],
+			"hypnosis":[
+				"5L46"
+			],
+			"perishsong":[
+				"5L49"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			],
+			"screech":[
+				"5E"
+			],
+			"destinybond":[
+				"5E"
+			]
+		}
+	},
+	"mismagius":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"spite":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"healbell":[
+				"5L15"
+			],
+			"confuseray":[
+				"5L20"
+			],
+			"psybeam":[
+				"5L25"
+			],
+			"darkpulse":[
+				"5L30",
+				"5M"
+			],
+			"powergem":[
+				"5L34"
+			],
+			"painsplit":[
+				"5L38"
+			],
+			"nastyplot":[
+				"5L42"
+			],
+			"shadowball":[
+				"5L46",
+				"5M"
+			],
+			"meanlook":[
+				"5L50"
+			],
+			"hypnosis":[
+				"5L54"
+			],
+			"perishsong":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			]
+		}
+	},
+	"swablu":{
+		"learnset":{
+			"twister":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"peck":[
+				"5L7"
+			],
+			"astonish":[
+				"5L10"
+			],
+			"sing":[
+				"5L13"
+			],
+			"swift":[
+				"5L16",
+				"5M"
+			],
+			"aerialace":[
+				"5L19",
+				"5M"
+			],
+			"healbell":[
+				"5L22"
+			],
+			"mist":[
+				"5L25"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"skyattack":[
+				"5L31",
+				"5M"
+			],
+			"perishsong":[
+				"5L34"
+			],
+			"mirrormove":[
+				"5L37"
+			],
+			"bodyslam":[
+				"5L40",
+				"5M"
+			],
+			"stormfront":[
+				"5L43",
+				"5M"
+			],
+			"haze":[
+				"5L46"
+			],
+			"mustardgas":[
+				"5L49"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			],
+			"pursuit":[
+				"5E"
+			]
+		}
+	},
+	"altaria":{
+		"learnset":{
+			"outrage":[
+				"5L1"
+			],
+			"laughinggas":[
+				"5L1"
+			],
+			"mist":[
+				"5L1"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"skyattack":[
+				"5L1",
+				"5M"
+			],
+			"perishsong":[
+				"5L1"
+			],
+			"dragonbreath":[
+				"5L35",
+				"5M"
+			],
+			"mirrormove":[
+				"5L37"
+			],
+			"bodyslam":[
+				"5L40",
+				"5M"
+			],
+			"stormfront":[
+				"5L43",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L46"
+			],
+			"moonblast":[
+				"5L49"
+			],
+			"mustardgas":[
+				"5L52",
+				"5M"
+			],
+			"fly":[
+				"5L55",
+				"5M"
+			],
+			"dragonclaw":[
+				"5L58",
+				"5M"
+			],
+			"dragondance":[
+				"5L61"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			]
+		}
+	},
+	"pineco":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"protect":[
+				"5L4",
+				"5M"
+			],
+			"rollout":[
+				"5L7",
+				"5M"
+			],
+			"selfdestruct":[
+				"5L10"
+			],
+			"stringshot":[
+				"5L13"
+			],
+			"defensecurl":[
+				"5L16",
+				"5M"
+			],
+			"pinmissile":[
+				"5L19"
+			],
+			"rapidspin":[
+				"5L22"
+			],
+			"takedown":[
+				"5L25"
+			],
+			"spikes":[
+				"5L28"
+			],
+			"irondefense":[
+				"5L32"
+			],
+			"bugbuzz":[
+				"5L35"
+			],
+			"painsplit":[
+				"5L38"
+			],
+			"explosion":[
+				"5L43",
+				"5M"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"smokescreen":[
+				"5T"
+			],
+			"flail":[
+				"5E"
+			],
+			"metallurgy":[
+				"5E"
+			]
+		}
+	},
+	"forretress":{
+		"learnset":{
+			"rapidspin":[
+				"5L1"
+			],
+			"spikes":[
+				"5L1"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"pinmissile":[
+				"5L1"
+			],
+			"flashcannon":[
+				"5L31",
+				"5M"
+			],
+			"zapcannon":[
+				"5L35",
+				"5M"
+			],
+			"explosion":[
+				"5L39",
+				"5M"
+			],
+			"bugbuzz":[
+				"5L43"
+			],
+			"ironhead":[
+				"5L47",
+				"5M"
+			],
+			"irondefense":[
+				"5L51"
+			],
+			"painsplit":[
+				"5L55"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"smokescreen":[
+				"5T"
+			]
+		}
+	},
+	"rhyperior":{
+		"learnset":{
+			"headsmash":[
+				"5L1"
+			],
+			"dragonpulse":[
+				"5L1"
+			],
+			"magnitude":[
+				"5L1"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"rockslide":[
+				"5L1",
+				"5M"
+			],
+			"reversal":[
+				"5L1"
+			],
+			"earthquake":[
+				"5L45",
+				"5M"
+			],
+			"outrage":[
+				"5L50"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"dragondance":[
+				"5T"
+			]
+		}
+	},
+	"gligar":{
+		"learnset":{
+			"poisonsting":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"harden":[
+				"5L15"
+			],
+			"quickattack":[
+				"5L20"
+			],
+			"wingattack":[
+				"5L24"
+			],
+			"screech":[
+				"5L27"
+			],
+			"slash":[
+				"5L30"
+			],
+			"earthpower":[
+				"5L33"
+			],
+			"stormfront":[
+				"5L36",
+				"5M"
+			],
+			"poisonjab":[
+				"5L39",
+				"5M"
+			],
+			"nightslash":[
+				"5L42"
+			],
+			"earthquake":[
+				"5L45",
+				"5M"
+			],
+			"skyattack":[
+				"5L48"
+			],
+			"swordsdance":[
+				"5L51",
+				"5M"
+			],
+			"batonpass":[
+				"5L54"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"xscissor":[
+				"5T"
+			],
+			"feintattack":[
+				"5E"
+			],
+			"thunderfang":[
+				"5E"
+			]
+		}
+	},
+	"steelix":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"sandstorm":[
+				"5L4",
+				"5M"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"wrap":[
+				"5L10"
+			],
+			"rockthrow":[
+				"5L15"
+			],
+			"dragonbreath":[
+				"5L20",
+				"5M"
+			],
+			"earthpower":[
+				"5L25"
+			],
+			"thunderfang":[
+				"5L30"
+			],
+			"flashcannon":[
+				"5L34",
+				"5M"
+			],
+			"metallurgy":[
+				"5L38"
+			],
+			"magnitude":[
+				"5L42"
+			],
+			"crunch":[
+				"5L46"
+			],
+			"irontail":[
+				"5L50",
+				"5M"
+			],
+			"irondefense":[
+				"5L54"
+			],
+			"earthquake":[
+				"5L58",
+				"5M"
+			],
+			"screech":[
+				"5L62"
+			],
+			"ironhead":[
+				"5L66",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			]
+		}
+	},
+	"gliscor":{
+		"learnset":{
+			"poisonsting":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"harden":[
+				"5L15"
+			],
+			"quickattack":[
+				"5L20"
+			],
+			"wingattack":[
+				"5L25"
+			],
+			"screech":[
+				"5L30"
+			],
+			"slash":[
+				"5L34"
+			],
+			"earthpower":[
+				"5L38"
+			],
+			"stormfront":[
+				"5L41",
+				"5M"
+			],
+			"poisonjab":[
+				"5L44",
+				"5M"
+			],
+			"xscissor":[
+				"5L47",
+				"5T"
+			],
+			"earthquake":[
+				"5L50",
+				"5M"
+			],
+			"skyattack":[
+				"5L53",
+				"5M"
+			],
+			"swordsdance":[
+				"5L56",
+				"5M"
+			],
+			"batonpass":[
+				"5L59"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"feebas":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"splash":[
+				"5L1"
+			],
+			"watergun":[
+				"5L15"
+			],
+			"flail":[
+				"5L30"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			],
+			"dragonpulse":[
+				"5E"
+			],
+			"confuseray":[
+				"5E"
+			],
+			"hypnosis":[
+				"5E"
+			]
+		}
+	},
+	"milotic":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"mist":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"wrap":[
+				"5L10"
+			],
+			"twister":[
+				"5L15"
+			],
+			"attract":[
+				"5L20",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"haze":[
+				"5L30"
+			],
+			"hypnosis":[
+				"5L34"
+			],
+			"confuseray":[
+				"5L38"
+			],
+			"waterfall":[
+				"5L42"
+			],
+			"safeguard":[
+				"5L45",
+				"5M"
+			],
+			"recover":[
+				"5L48"
+			],
+			"dragonpulse":[
+				"5L51"
+			],
+			"hydropump":[
+				"5L54"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"scizor":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"focusenergy":[
+				"5L4"
+			],
+			"pursuit":[
+				"5L7"
+			],
+			"leer":[
+				"5L10"
+			],
+			"quickattack":[
+				"5L15"
+			],
+			"metalclaw":[
+				"5L20"
+			],
+			"bugbuzz":[
+				"5L25"
+			],
+			"slash":[
+				"5L28"
+			],
+			"irondefense":[
+				"5L31"
+			],
+			"steelwing":[
+				"5L34",
+				"5M"
+			],
+			"furycutter":[
+				"5L37",
+				"5M"
+			],
+			"batonpass":[
+				"5L40"
+			],
+			"swordsdance":[
+				"5L43",
+				"5M"
+			],
+			"bulletpunch":[
+				"5L46"
+			],
+			"xscissor":[
+				"5L49"
+			],
+			"morningsun":[
+				"5L52"
+			],
+			"nightslash":[
+				"5L55"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			]
+		}
+	},
+	"riolu":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"foresight":[
+				"5L4"
+			],
+			"reversal":[
+				"5L7"
+			],
+			"agility":[
+				"5L10"
+			],
+			"metalclaw":[
+				"5L13"
+			],
+			"counter":[
+				"5L16",
+				"5M"
+			],
+			"karatechop":[
+				"5L19"
+			],
+			"screech":[
+				"5L22"
+			],
+			"bulletpunch":[
+				"5L25"
+			],
+			"bite":[
+				"5L28"
+			],
+			"drainpunch":[
+				"5L31"
+			],
+			"zenheadbutt":[
+				"5L34"
+			],
+			"flashcannon":[
+				"5L37"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"hijumpkick":[
+				"5L43"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"irondefense":[
+				"5T"
+			],
+			"crosschop":[
+				"5E"
+			],
+			"ghosthammer":[
+				"5E"
+			]
+		}
+	},
+	"lucario":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"foresight":[
+				"5L4"
+			],
+			"reversal":[
+				"5L7"
+			],
+			"agility":[
+				"5L10"
+			],
+			"metalclaw":[
+				"5L15"
+			],
+			"counter":[
+				"5L20",
+				"5M"
+			],
+			"karatechop":[
+				"5L25"
+			],
+			"irondefense":[
+				"5L30",
+				"5T"
+			],
+			"bulletpunch":[
+				"5L34"
+			],
+			"bite":[
+				"5L38"
+			],
+			"drainpunch":[
+				"5L42"
+			],
+			"extremespeed":[
+				"5L46"
+			],
+			"flashcannon":[
+				"5L49",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L52"
+			],
+			"aurasphere":[
+				"5L55"
+			],
+			"nastyplot":[
+				"5L58"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			]
+		}
+	},
+	"sneasel":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"pursuit":[
+				"5L7"
+			],
+			"icywind":[
+				"5L10",
+				"5M"
+			],
+			"metalclaw":[
+				"5L15"
+			],
+			"feintattack":[
+				"5L20"
+			],
+			"quickattack":[
+				"5L24"
+			],
+			"icebeam":[
+				"5L28",
+				"5M"
+			],
+			"screech":[
+				"5L31"
+			],
+			"bite":[
+				"5L34"
+			],
+			"xscissor":[
+				"5L37"
+			],
+			"icepunch":[
+				"5L40",
+				"5M"
+			],
+			"swordsdance":[
+				"5L43",
+				"5M"
+			],
+			"nightslash":[
+				"5L46"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"crunch":[
+				"5T",
+				"5E"
+			],
+			"agility":[
+				"5E"
+			],
+			"foresight":[
+				"5E"
+			],
+			"nastyplot":[
+				"5E"
+			]
+		}
+	},
+	"teddiursa":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"lick":[
+				"5L7"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"swift":[
+				"5L13",
+				"5M"
+			],
+			"scaryface":[
+				"5L16"
+			],
+			"feintattack":[
+				"5L19"
+			],
+			"rest":[
+				"5L22",
+				"5M"
+			],
+			"takedown":[
+				"5L25"
+			],
+			"charm":[
+				"5L28"
+			],
+			"playrough":[
+				"5L31"
+			],
+			"bellydrum":[
+				"5L34"
+			],
+			"slash":[
+				"5L37"
+			],
+			"nightslash":[
+				"5L40"
+			],
+			"crosschop":[
+				"5L43"
+			],
+			"swordsdance":[
+				"5L46",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"crunch":[
+				"5T",
+				"5E"
+			],
+			"focusenergy":[
+				"5E"
+			]
+		}
+	},
+	"ursaring":{
+		"learnset":{
+			"feintattack":[
+				"5L1"
+			],
+			"rest":[
+				"5L1",
+				"5M"
+			],
+			"takedown":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"playrough":[
+				"5L33"
+			],
+			"bellydrum":[
+				"5L38"
+			],
+			"slash":[
+				"5L43"
+			],
+			"nightslash":[
+				"5L48"
+			],
+			"crosschop":[
+				"5L53"
+			],
+			"swordsdance":[
+				"5L58",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"crunch":[
+				"5T"
+			]
+		}
+	},
+	"slugma":{
+		"learnset":{
+			"smog":[
+				"5L1"
+			],
+			"harden":[
+				"5L4"
+			],
+			"rockthrow":[
+				"5L7"
+			],
+			"ember":[
+				"5L10"
+			],
+			"vaporize":[
+				"5L13"
+			],
+			"selfdestruct":[
+				"5L16"
+			],
+			"rockslide":[
+				"5L19",
+				"5M"
+			],
+			"firespin":[
+				"5L22"
+			],
+			"laughinggas":[
+				"5L25"
+			],
+			"painsplit":[
+				"5L28"
+			],
+			"ancientpower":[
+				"5L31",
+				"5M"
+			],
+			"flamethrower":[
+				"5L34",
+				"5M"
+			],
+			"lavapool":[
+				"5L37"
+			],
+			"recover":[
+				"5L40"
+			],
+			"dustdevil":[
+				"5L43",
+				"5M"
+			],
+			"fireblast":[
+				"5L46",
+				"5M"
+			],
+			"earthpower":[
+				"5L49"
+			],
+			"amnesia":[
+				"5L52"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"acidarmor":[
+				"5T",
+				"5E"
+			],
+			"irondefense":[
+				"5E"
+			]
+		}
+	},
+	"magcargo":{
+		"learnset":{
+			"lewisite":[
+				"5L1"
+			],
+			"naturepower":[
+				"5L1"
+			],
+			"painsplit":[
+				"5L1"
+			],
+			"ancientpower":[
+				"5L1",
+				"5M"
+			],
+			"flamethrower":[
+				"5L1",
+				"5M"
+			],
+			"lavapool":[
+				"5L1"
+			],
+			"recover":[
+				"5L41"
+			],
+			"dustdevil":[
+				"5L45",
+				"5M"
+			],
+			"fireblast":[
+				"5L49",
+				"5M"
+			],
+			"earthpower":[
+				"5L53"
+			],
+			"amnesia":[
+				"5L57"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"acidarmor":[
+				"5T"
+			]
+		}
+	},
+	"swinub":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"powdersnow":[
+				"5L10"
+			],
+			"endure":[
+				"5L13",
+				"5M"
+			],
+			"flail":[
+				"5L16"
+			],
+			"earthpower":[
+				"5L19"
+			],
+			"icywind":[
+				"5L22",
+				"5M"
+			],
+			"bite":[
+				"5L25"
+			],
+			"charm":[
+				"5L28"
+			],
+			"dig":[
+				"5L31",
+				"5M"
+			],
+			"icebeam":[
+				"5L34",
+				"5M"
+			],
+			"amnesia":[
+				"5L37"
+			],
+			"mist":[
+				"5L40"
+			],
+			"earthquake":[
+				"5L43",
+				"5M"
+			],
+			"blizzard":[
+				"5L46",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			],
+			"takedown":[
+				"5E"
+			]
+		}
+	},
+	"piloswine":{
+		"learnset":{
+			"ancientpower":[
+				"5L1",
+				"5M"
+			],
+			"icywind":[
+				"5L1",
+				"5M"
+			],
+			"bite":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"dig":[
+				"5L1",
+				"5M"
+			],
+			"icebeam":[
+				"5L35",
+				"5M"
+			],
+			"amnesia":[
+				"5L39"
+			],
+			"mist":[
+				"5L43"
+			],
+			"earthquake":[
+				"5L47",
+				"5M"
+			],
+			"blizzard":[
+				"5L51",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			]
+		}
+	},
+	"gible":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"sandattack":[
+				"5L4"
+			],
+			"twister":[
+				"5L7"
+			],
+			"mudslap":[
+				"5L10",
+				"5M"
+			],
+			"sandstorm":[
+				"5L13",
+				"5M"
+			],
+			"metalclaw":[
+				"5L16"
+			],
+			"dragonbreath":[
+				"5L19",
+				"5M"
+			],
+			"dig":[
+				"5L22",
+				"5M"
+			],
+			"scaryface":[
+				"5L25"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"dragonpulse":[
+				"5L31"
+			],
+			"earthpower":[
+				"5L34"
+			],
+			"swordsdance":[
+				"5L37"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"dragonclaw":[
+				"5L43",
+				"5M"
+			],
+			"earthquake":[
+				"5L46",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			],
+			"bite":[
+				"5E"
+			]
+		}
+	},
+	"gabite":{
+		"learnset":{
+			"sandstorm":[
+				"5L1",
+				"5M"
+			],
+			"metalclaw":[
+				"5L1"
+			],
+			"dragonbreath":[
+				"5L1",
+				"5M"
+			],
+			"dig":[
+				"5L1",
+				"5M"
+			],
+			"scaryface":[
+				"5L26"
+			],
+			"takedown":[
+				"5L30"
+			],
+			"dragonpulse":[
+				"5L34"
+			],
+			"earthpower":[
+				"5L38"
+			],
+			"swordsdance":[
+				"5L42"
+			],
+			"crunch":[
+				"5L46"
+			],
+			"dragonclaw":[
+				"5L50",
+				"5M"
+			],
+			"earthquake":[
+				"5L54",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"garchomp":{
+		"learnset":{
+			"outrage":[
+				"5L1"
+			],
+			"dragonpulse":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"swordsdance":[
+				"5L1",
+				"5M"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"dragonclaw":[
+				"5L51",
+				"5M"
+			],
+			"earthquake":[
+				"5L56",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"bagon":{
+		"learnset":{
+			"rage":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"twister":[
+				"5L7"
+			],
+			"focusenergy":[
+				"5L10"
+			],
+			"ember":[
+				"5L13"
+			],
+			"powerballad":[
+				"5L16"
+			],
+			"dragonbreath":[
+				"5L19",
+				"5M"
+			],
+			"bite":[
+				"5L22"
+			],
+			"thunderfang":[
+				"5L25"
+			],
+			"scaryface":[
+				"5L28"
+			],
+			"dragonpulse":[
+				"5L31"
+			],
+			"zenheadbutt":[
+				"5L34"
+			],
+			"crunch":[
+				"5L37"
+			],
+			"hydropump":[
+				"5L40"
+			],
+			"outrage":[
+				"5L43"
+			],
+			"doubleedge":[
+				"5L46",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"shelgon":{
+		"learnset":{
+			"bite":[
+				"5L1"
+			],
+			"dragonbreath":[
+				"5L1",
+				"5M"
+			],
+			"thunderfang":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L1"
+			],
+			"irondefense":[
+				"5L32"
+			],
+			"dragonpulse":[
+				"5L36"
+			],
+			"zenheadbutt":[
+				"5L40"
+			],
+			"crunch":[
+				"5L44"
+			],
+			"hydropump":[
+				"5L48"
+			],
+			"outrage":[
+				"5L52"
+			],
+			"doubleedge":[
+				"5L56",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"salamence":{
+		"learnset":{
+			"nervegas":[
+				"5L1"
+			],
+			"zenheadbutt":[
+				"5L1"
+			],
+			"dragonpulse":[
+				"5L1"
+			],
+			"crunch":[
+				"5L1"
+			],
+			"hydropump":[
+				"5L1"
+			],
+			"fly":[
+				"5L53",
+				"5M"
+			],
+			"outrage":[
+				"5L58"
+			],
+			"doubleedge":[
+				"5L63",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"houndour":{
+		"learnset":{
+			"smog":[
+				"5L1"
+			],
+			"spite":[
+				"5L4"
+			],
+			"pursuit":[
+				"5L7"
+			],
+			"ember":[
+				"5L10"
+			],
+			"leer":[
+				"5L13"
+			],
+			"reversal":[
+				"5L16"
+			],
+			"feintattack":[
+				"5L19"
+			],
+			"firespin":[
+				"5L22"
+			],
+			"charm":[
+				"5L25"
+			],
+			"thunderfang":[
+				"5L28"
+			],
+			"bite":[
+				"5L31"
+			],
+			"boil":[
+				"5L34",
+				"5M"
+			],
+			"nastyplot":[
+				"5L37"
+			],
+			"destinybond":[
+				"5L40"
+			],
+			"crunch":[
+				"5L43"
+			],
+			"flamethrower":[
+				"5L46",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			],
+			"smokescreen":[
+				"5E"
+			]
+		}
+	},
+	"houndoom":{
+		"learnset":{
+			"lavapool":[
+				"5L1"
+			],
+			"mustardgas":[
+				"5L1",
+				"5M"
+			],
+			"leer":[
+				"5L1"
+			],
+			"reversal":[
+				"5L1"
+			],
+			"feintattack":[
+				"5L1"
+			],
+			"firespin":[
+				"5L1"
+			],
+			"charm":[
+				"5L27"
+			],
+			"thunderfang":[
+				"5L32"
+			],
+			"bite":[
+				"5L37"
+			],
+			"boil":[
+				"5L41",
+				"5M"
+			],
+			"nastyplot":[
+				"5L45"
+			],
+			"destinybond":[
+				"5L49"
+			],
+			"crunch":[
+				"5L53"
+			],
+			"flamethrower":[
+				"5L57",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"nightslash":[
+				"5T"
+			]
+		}
+	},
+	"mamoswine":{
+		"learnset":{
+			"icywind":[
+				"5L1",
+				"5M"
+			],
+			"bite":[
+				"5L1"
+			],
+			"charm":[
+				"5L1"
+			],
+			"dig":[
+				"5L1",
+				"5M"
+			],
+			"icebeam":[
+				"5L36",
+				"5M"
+			],
+			"amnesia":[
+				"5L41"
+			],
+			"mist":[
+				"5L46"
+			],
+			"earthquake":[
+				"5L51",
+				"5M"
+			],
+			"blizzard":[
+				"5L56",
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"headsmash":[
+				"5T"
+			]
+		}
+	},
+	"phanpy":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"focusenergy":[
+				"5L10"
+			],
+			"watergun":[
+				"5L13"
+			],
+			"scaryface":[
+				"5L16"
+			],
+			"earthpower":[
+				"5L19"
+			],
+			"rollout":[
+				"5L22",
+				"5M"
+			],
+			"thunderfang":[
+				"5L26"
+			],
+			"bodyslam":[
+				"5L29",
+				"5M"
+			],
+			"magnitude":[
+				"5L32"
+			],
+			"charm":[
+				"5L35"
+			],
+			"playrough":[
+				"5L38"
+			],
+			"headsmash":[
+				"5L41"
+			],
+			"earthquake":[
+				"5L44",
+				"5M"
+			],
+			"rapidspin":[
+				"5L47"
+			],
+			"basstremor":[
+				"5L50"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			],
+			"irondefense":[
+				"5E"
+			]
+		}
+	},
+	"donphan":{
+		"learnset":{
+			"powerballad":[
+				"5L1"
+			],
+			"watergun":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"rollout":[
+				"5L1",
+				"5M"
+			],
+			"thunderfang":[
+				"5L27"
+			],
+			"bodyslam":[
+				"5L32",
+				"5M"
+			],
+			"magnitude":[
+				"5L37"
+			],
+			"charm":[
+				"5L42"
+			],
+			"playrough":[
+				"5L47"
+			],
+			"headsmash":[
+				"5L51"
+			],
+			"earthquake":[
+				"5L55",
+				"5M"
+			],
+			"rapidspin":[
+				"5L59"
+			],
+			"basstremor":[
+				"5L63"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seedbomb":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			]
+		}
+	},
+	"porygon2":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"conversion":[
+				"5L4"
+			],
+			"agility":[
+				"5L7"
+			],
+			"painsplit":[
+				"5L10"
+			],
+			"swift":[
+				"5L15",
+				"5M"
+			],
+			"conversion2":[
+				"5L20"
+			],
+			"psybeam":[
+				"5L25"
+			],
+			"powerballad":[
+				"5L29"
+			],
+			"takedown":[
+				"5L33"
+			],
+			"zapcannon":[
+				"5L37",
+				"5M"
+			],
+			"mindreader":[
+				"5L40"
+			],
+			"zenheadbutt":[
+				"5L43"
+			],
+			"voidsphere":[
+				"5L46",
+				"5M"
+			],
+			"recover":[
+				"5L49"
+			],
+			"blizzard":[
+				"5L52",
+				"5M"
+			],
+			"triattack":[
+				"5L55",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			]
+		}
+	},
+	"porygonz":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"conversion":[
+				"5L4"
+			],
+			"agility":[
+				"5L7"
+			],
+			"painsplit":[
+				"5L10"
+			],
+			"swift":[
+				"5L15",
+				"5M"
+			],
+			"conversion2":[
+				"5L20"
+			],
+			"psybeam":[
+				"5L25"
+			],
+			"powerballad":[
+				"5L29"
+			],
+			"takedown":[
+				"5L33"
+			],
+			"zapcannon":[
+				"5L37",
+				"5M"
+			],
+			"mindreader":[
+				"5L40"
+			],
+			"noisepulse":[
+				"5L43",
+				"5M"
+			],
+			"voidsphere":[
+				"5L46",
+				"5M"
+			],
+			"recover":[
+				"5L49"
+			],
+			"blizzard":[
+				"5L52",
+				"5M"
+			],
+			"hypervoice":[
+				"5L55",
+				"5M"
+			],
+			"nastyplot":[
+				"5L58"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"metallurgy":[
+				"5T"
+			]
+		}
+	},
+	"weavile":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"pursuit":[
+				"5L4"
+			],
+			"leer":[
+				"5L7"
+			],
+			"icywind":[
+				"5L10",
+				"5M"
+			],
+			"metalclaw":[
+				"5L15"
+			],
+			"feintattack":[
+				"5L20"
+			],
+			"quickattack":[
+				"5L25"
+			],
+			"icebeam":[
+				"5L30",
+				"5M"
+			],
+			"screech":[
+				"5L34"
+			],
+			"bite":[
+				"5L38"
+			],
+			"xscissor":[
+				"5L42"
+			],
+			"icepunch":[
+				"5L46",
+				"5M"
+			],
+			"swordsdance":[
+				"5L50",
+				"5M"
+			],
+			"nightslash":[
+				"5L54"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"crunch":[
+				"5T"
+			]
+		}
+	},
+	"tyrogue":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L5",
+				"5E"
+			],
+			"foresight":[
+				"5L10"
+			],
+			"rapidspin":[
+				"5L15",
+				"5E"
+			],
+			"hijumpkick":[
+				"5L30"
+			],
+			"mindreader":[
+				"5L35",
+				"5E"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			],
+			"pound":[
+				"5E"
+			]
+		}
+	},
+	"hitmontop":{
+		"learnset":{
+			"agility":[
+				"5L1"
+			],
+			"twister":[
+				"5L1"
+			],
+			"tackle":[
+				"5L1"
+			],
+			"machpunch":[
+				"5L5"
+			],
+			"foresight":[
+				"5L10"
+			],
+			"rapidspin":[
+				"5L15"
+			],
+			"quickattack":[
+				"5L20"
+			],
+			"doublekick":[
+				"5L24"
+			],
+			"pursuit":[
+				"5L28"
+			],
+			"focusenergy":[
+				"5L32"
+			],
+			"counter":[
+				"5L36",
+				"5M"
+			],
+			"hijumpkick":[
+				"5L40"
+			],
+			"bulletpunch":[
+				"5L44"
+			],
+			"mindreader":[
+				"5L48"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"drainpunch":[
+				"5T"
+			]
+		}
+	},
+	"fambaco":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"focusenergy":[
+				"5L4"
+			],
+			"astonish":[
+				"5L7"
+			],
+			"machpunch":[
+				"5L10"
+			],
+			"futuresight":[
+				"5L15"
+			],
+			"laughinggas":[
+				"5L20"
+			],
+			"shadowclaw":[
+				"5L25"
+			],
+			"dynamicpunch":[
+				"5L30",
+				"5M"
+			],
+			"bulkup":[
+				"5L35",
+				"5M"
+			],
+			"mindreader":[
+				"5L40"
+			],
+			"shadowball":[
+				"5L50",
+				"5M"
+			],
+			"aurasphere":[
+				"5L60"
+			],
+			"lewisite":[
+				"5L70"
+			],
+			"finalchance":[
+				"5L80",
+				"5M"
+			],
+			"ghosthammer":[
+				"5L90"
+			],
+			"hijumpkick":[
+				"5L95"
+			],
+			"psychocut":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"basstremor":[
+				"5T"
+			]
+		}
+	},
+	"elekid":{
+		"learnset":{
+			"quickattack":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"karatechop":[
+				"5L7"
+			],
+			"thundershock":[
+				"5L10"
+			],
+			"seismictoss":[
+				"5L13",
+				"5M"
+			],
+			"swift":[
+				"5L16",
+				"5M"
+			],
+			"powerballad":[
+				"5L19"
+			],
+			"thunderpunch":[
+				"5L22",
+				"5M"
+			],
+			"screech":[
+				"5L25"
+			],
+			"takedown":[
+				"5L28"
+			],
+			"barrier":[
+				"5L31"
+			],
+			"thunder":[
+				"5L34",
+				"5M"
+			],
+			"lightscreen":[
+				"5L37",
+				"5M"
+			],
+			"crosschop":[
+				"5L40"
+			],
+			"thunderwave":[
+				"5L43",
+				"5M"
+			],
+			"wildcharge":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"bulletpunch":[
+				"5T"
+			],
+			"pursuit":[
+				"5E"
+			]
+		}
+	},
+	"magby":{
+		"learnset":{
+			"smog":[
+				"5L1"
+			],
+			"smokescreen":[
+				"5L4"
+			],
+			"ember":[
+				"5L7"
+			],
+			"karatechop":[
+				"5L10"
+			],
+			"leer":[
+				"5L13"
+			],
+			"focusenergy":[
+				"5L16"
+			],
+			"firespin":[
+				"5L19"
+			],
+			"feintattack":[
+				"5L22"
+			],
+			"machpunch":[
+				"5L25"
+			],
+			"bellydrum":[
+				"5L28"
+			],
+			"fireblast":[
+				"5L31",
+				"5M"
+			],
+			"confuseray":[
+				"5L34"
+			],
+			"crosschop":[
+				"5L37"
+			],
+			"lavapool":[
+				"5L40"
+			],
+			"flareblitz":[
+				"5L43"
+			],
+			"lewisite":[
+				"5L46"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"sacredfire":[
+				"5T"
+			],
+			"screech":[
+				"5E"
+			]
+		}
+	},
+	"sylveon":{
+		"learnset":{
+			"tackle":[
+				"5L1"
+			],
+			"tailwhip":[
+				"5L4"
+			],
+			"attract":[
+				"5L7",
+				"5M"
+			],
+			"sandattack":[
+				"5L10"
+			],
+			"fairywind":[
+				"5L15"
+			],
+			"growth":[
+				"5L20"
+			],
+			"batonpass":[
+				"5L25"
+			],
+			"bite":[
+				"5L30"
+			],
+			"drainingkiss":[
+				"5L34"
+			],
+			"endure":[
+				"5L38",
+				"5M"
+			],
+			"flail":[
+				"5L38"
+			],
+			"reflect":[
+				"5L42",
+				"5M"
+			],
+			"playrough":[
+				"5L45"
+			],
+			"healbell":[
+				"5L48"
+			],
+			"charm":[
+				"5L51"
+			],
+			"hypervoice":[
+				"5L54",
+				"5M"
+			],
+			"moonblast":[
+				"5L57"
+			],
+			"calmmind":[
+				"5L60",
+				"5M"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"sweetkiss":[
+				"5T"
+			]
+		}
+	},
+	"blissey":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"growl":[
+				"5L4"
+			],
+			"tailwhip":[
+				"5L7"
+			],
+			"doubleslap":[
+				"5L10"
+			],
+			"bodyslam":[
+				"5L14",
+				"5M"
+			],
+			"healbell":[
+				"5L18"
+			],
+			"drainpunch":[
+				"5L22"
+			],
+			"wildcharge":[
+				"5L26"
+			],
+			"doubleedge":[
+				"5L30",
+				"5M"
+			],
+			"sing":[
+				"5L34"
+			],
+			"zenheadbutt":[
+				"5L37"
+			],
+			"sweetkiss":[
+				"5L40"
+			],
+			"voidsphere":[
+				"5L43",
+				"5M"
+			],
+			"softboiled":[
+				"5L46"
+			],
+			"hypervoice":[
+				"5L49",
+				"5M"
+			],
+			"minimize":[
+				"5L52"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"calmmind":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"sweetscent":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"haze":[
+				"5T"
+			]
+		}
+	},
+	"groudon":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"scaryface":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"swagger":[
+				"5L10",
+				"5M"
+			],
+			"ancientpower":[
+				"5L15",
+				"5M"
+			],
+			"rest":[
+				"5L20",
+				"5M"
+			],
+			"dig":[
+				"5L25",
+				"5M"
+			],
+			"solarbeam":[
+				"5L30",
+				"5M"
+			],
+			"slash":[
+				"5L35"
+			],
+			"flamethrower":[
+				"5L40",
+				"5M"
+			],
+			"earthpower":[
+				"5L50"
+			],
+			"dustdevil":[
+				"5L60",
+				"5M"
+			],
+			"ironhead":[
+				"5L70",
+				"5M"
+			],
+			"bulkup":[
+				"5L80",
+				"5M"
+			],
+			"earthquake":[
+				"5L90",
+				"5M"
+			],
+			"rockslide":[
+				"5L95",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"flareblitz":[
+				"5T"
+			]
+		}
+	},
+	"kyogre":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"scaryface":[
+				"5L4"
+			],
+			"watergun":[
+				"5L7"
+			],
+			"amnesia":[
+				"5L10"
+			],
+			"ancientpower":[
+				"5L15",
+				"5M"
+			],
+			"rest":[
+				"5L20",
+				"5M"
+			],
+			"bubblebeam":[
+				"5L25"
+			],
+			"thunder":[
+				"5L30",
+				"5M"
+			],
+			"bodyslam":[
+				"5L35",
+				"5M"
+			],
+			"icebeam":[
+				"5L40",
+				"5M"
+			],
+			"waterfall":[
+				"5L50"
+			],
+			"stormfront":[
+				"5L60",
+				"5M"
+			],
+			"ironhead":[
+				"5L70",
+				"5M"
+			],
+			"calmmind":[
+				"5L80",
+				"5M"
+			],
+			"hydropump":[
+				"5L90"
+			],
+			"blizzard":[
+				"5L95",
+				"5M"
+			],
+			"doubleedge":[
+				"5L100",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"freezeburn":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aquajet":[
+				"5T"
+			]
+		}
+	},
+	"rayquaza":{
+		"learnset":{
+			"wrap":[
+				"5L1"
+			],
+			"scaryface":[
+				"5L4"
+			],
+			"twister":[
+				"5L7"
+			],
+			"powerballad":[
+				"5L10"
+			],
+			"ancientpower":[
+				"5L15",
+				"5M"
+			],
+			"rest":[
+				"5L20",
+				"5M"
+			],
+			"dragonbreath":[
+				"5L25",
+				"5M"
+			],
+			"aerialace":[
+				"5L30",
+				"5M"
+			],
+			"extremespeed":[
+				"5L35"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"dragonpulse":[
+				"5L50"
+			],
+			"fly":[
+				"5L60",
+				"5M"
+			],
+			"earthpower":[
+				"5L70"
+			],
+			"dragondance":[
+				"5L80"
+			],
+			"outrage":[
+				"5L90"
+			],
+			"airslash":[
+				"5L95"
+			],
+			"hypervoice":[
+				"5L100",
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"whirlwind":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aeroblast":[
+				"5T"
+			]
+		}
+	},
+	"larvitar":{
+		"learnset":{
+			"scratch":[
+				"5L1"
+			],
+			"leer":[
+				"5L4"
+			],
+			"mudslap":[
+				"5L7",
+				"5M"
+			],
+			"sandstorm":[
+				"5L10",
+				"5M"
+			],
+			"rockthrow":[
+				"5L13"
+			],
+			"focusenergy":[
+				"5L16"
+			],
+			"dig":[
+				"5L19",
+				"5M"
+			],
+			"bite":[
+				"5L22"
+			],
+			"ancientpower":[
+				"5L25",
+				"5M"
+			],
+			"metallurgy":[
+				"5L28"
+			],
+			"earthpower":[
+				"5L31"
+			],
+			"scaryface":[
+				"5L34"
+			],
+			"dustdevil":[
+				"5L37",
+				"5M"
+			],
+			"crunch":[
+				"5L40"
+			],
+			"earthquake":[
+				"5L43",
+				"5M"
+			],
+			"dragondance":[
+				"5L46"
+			],
+			"rockslide":[
+				"5L49",
+				"5M"
+			],
+			"outrage":[
+				"5L52"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"dragonpulse":[
+				"5T",
+				"5E"
+			],
+			"screech":[
+				"5E"
+			],
+			"spite":[
+				"5E"
+			],
+			"nervegas":[
+				"5E"
+			]
+		}
+	},
+	"pupitar":{
+		"learnset":{
+			"thunderfang":[
+				"5L1"
+			],
+			"sandstorm":[
+				"5L1",
+				"5M"
+			],
+			"rockthrow":[
+				"5L1"
+			],
+			"focusenergy":[
+				"5L1"
+			],
+			"dig":[
+				"5L1",
+				"5M"
+			],
+			"bite":[
+				"5L23"
+			],
+			"ancientpower":[
+				"5L27",
+				"5M"
+			],
+			"irondefense":[
+				"5L32"
+			],
+			"earthpower":[
+				"5L36"
+			],
+			"scaryface":[
+				"5L41"
+			],
+			"dustdevil":[
+				"5L45",
+				"5M"
+			],
+			"crunch":[
+				"5L49"
+			],
+			"earthquake":[
+				"5L53",
+				"5M"
+			],
+			"dragondance":[
+				"5L57"
+			],
+			"rockslide":[
+				"5L61",
+				"5M"
+			],
+			"outrage":[
+				"5L65"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"dragonpulse":[
+				"5T"
+			]
+		}
+	},
+	"tyranitar":{
+		"learnset":{
+			"bite":[
+				"5L1"
+			],
+			"ancientpower":[
+				"5L1",
+				"5M"
+			],
+			"irondefense":[
+				"5L1"
+			],
+			"earthpower":[
+				"5L1"
+			],
+			"pursuit":[
+				"5L40"
+			],
+			"dustdevil":[
+				"5L45",
+				"5M"
+			],
+			"crunch":[
+				"5L50"
+			],
+			"earthquake":[
+				"5L55",
+				"5M"
+			],
+			"dragondance":[
+				"5L60"
+			],
+			"rockslide":[
+				"5L65",
+				"5M"
+			],
+			"outrage":[
+				"5L70"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"dizzypunch":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dynamicpunch":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"firepunch":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icepunch":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderpunch":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"dragonpulse":[
+				"5T"
+			]
+		}
+	},
+	"lugia":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"safeguard":[
+				"5L4",
+				"5M"
+			],
+			"gust":[
+				"5L7"
+			],
+			"confusion":[
+				"5L10"
+			],
+			"whirlwind":[
+				"5L15",
+				"5M"
+			],
+			"futuresight":[
+				"5L20"
+			],
+			"aerialace":[
+				"5L25",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L30"
+			],
+			"raindance":[
+				"5L35",
+				"5M"
+			],
+			"hydropump":[
+				"5L40"
+			],
+			"aeroblast":[
+				"5L50"
+			],
+			"earthpower":[
+				"5L60"
+			],
+			"recover":[
+				"5L70"
+			],
+			"calmmind":[
+				"5L80",
+				"5M"
+			],
+			"stormfront":[
+				"5L90",
+				"5M"
+			],
+			"psychic":[
+				"5L95",
+				"5M"
+			],
+			"dragonpulse":[
+				"5L100"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icebeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"aurasphere":[
+				"5T"
+			]
+		}
+	},
+	"hooh":{
+		"learnset":{
+			"swift":[
+				"5L1",
+				"5M"
+			],
+			"safeguard":[
+				"5L4",
+				"5M"
+			],
+			"ember":[
+				"5L7"
+			],
+			"gust":[
+				"5L10"
+			],
+			"whirlwind":[
+				"5L15",
+				"5M"
+			],
+			"futuresight":[
+				"5L20"
+			],
+			"flamethrower":[
+				"5L25",
+				"5M"
+			],
+			"aerialace":[
+				"5L30",
+				"5M"
+			],
+			"zenheadbutt":[
+				"5L35"
+			],
+			"sunnyday":[
+				"5L40",
+				"5M"
+			],
+			"sacredfire":[
+				"5L50"
+			],
+			"bravebird":[
+				"5L60"
+			],
+			"recover":[
+				"5L70"
+			],
+			"calmmind":[
+				"5L80",
+				"5M"
+			],
+			"fireblast":[
+				"5L90",
+				"5M"
+			],
+			"stormfront":[
+				"5L95",
+				"5M"
+			],
+			"earthpower":[
+				"5L100"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dreameater":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"lightscreen":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"skyattack":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"lavapool":[
+				"5T"
+			]
+		}
+	},
+	"raiwato":{
+		"learnset":{
+			"acid":[
+				"5L1"
+			],
+			"lightscreen":[
+				"5L4",
+				"5M"
+			],
+			"thundershock":[
+				"5L7"
+			],
+			"rockthrow":[
+				"5L10"
+			],
+			"barrier":[
+				"5L15"
+			],
+			"thunderwave":[
+				"5L20",
+				"5M"
+			],
+			"spark":[
+				"5L25"
+			],
+			"ancientpower":[
+				"5L30",
+				"5M"
+			],
+			"earthquake":[
+				"5L35",
+				"5M"
+			],
+			"reflect":[
+				"5L40",
+				"5M"
+			],
+			"wildcharge":[
+				"5L50"
+			],
+			"powergem":[
+				"5L60"
+			],
+			"prismspray":[
+				"5L70",
+				"5M"
+			],
+			"aeroblast":[
+				"5L80"
+			],
+			"crystalbolt":[
+				"5L90",
+				"5M"
+			],
+			"rockslide":[
+				"5L95",
+				"5M"
+			],
+			"rapidspin":[
+				"5L100"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"explosion":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"fireblast":[
+				"5M"
+			],
+			"flamethrower":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"ironhead":[
+				"5M"
+			],
+			"irontail":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"poisonjab":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"rollout":[
+				"5M"
+			],
+			"safeguard":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"sludgebomb":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steeleater":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"sunnyday":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderbolt":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"willowisp":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"growth":[
+				"5T"
+			]
+		}
+	},
+	"phancero":{
+		"learnset":{
+			"pound":[
+				"5L1"
+			],
+			"teleport":[
+				"5L4"
+			],
+			"gust":[
+				"5L7"
+			],
+			"lick":[
+				"5L10"
+			],
+			"watergun":[
+				"5L60"
+			],
+			"agility":[
+				"5L20"
+			],
+			"wingattack":[
+				"5L25"
+			],
+			"acidarmor":[
+				"5L30"
+			],
+			"leechseed":[
+				"5L35"
+			],
+			"shadowball":[
+				"5L40",
+				"5M"
+			],
+			"skyattack":[
+				"5L50",
+				"5M"
+			],
+			"wrap":[
+				"5L70"
+			],
+			"shadowclaw":[
+				"5L80",
+				"5M"
+			],
+			"airslash":[
+				"5L90"
+			],
+			"triattack":[
+				"5L95",
+				"5M"
+			],
+			"hijumpkick":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"blizzard":[
+				"5M"
+			],
+			"cosmicpower":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flashcannon":[
+				"5M"
+			],
+			"fly":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"hail":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"psychic":[
+				"5M"
+			],
+			"raindance":[
+				"5M"
+			],
+			"razorleaf":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"seismictoss":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"solarbeam":[
+				"5M"
+			],
+			"steelwing":[
+				"5M"
+			],
+			"stormfront":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"surf":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunder":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"bulletpunch":[
+				"5T"
+			]
+		}
+	},
+	"libabeel":{
+		"learnset":{
+			"smog":[
+				"5L1"
+			],
+			"roar":[
+				"5L4"
+			],
+			"poisonsting":[
+				"5L7"
+			],
+			"metalclaw":[
+				"5L10"
+			],
+			"pursuit":[
+				"5L15"
+			],
+			"screech":[
+				"5L20"
+			],
+			"steeleater":[
+				"5L25",
+				"5M"
+			],
+			"irontail":[
+				"5L30",
+				"5M"
+			],
+			"poisongas":[
+				"5L35"
+			],
+			"wildcharge":[
+				"5L40"
+			],
+			"poisonjab":[
+				"5L50",
+				"5M"
+			],
+			"flashcannon":[
+				"5L60",
+				"5M"
+			],
+			"basstremor":[
+				"5L70"
+			],
+			"acidarmor":[
+				"5L80"
+			],
+			"sludgebomb":[
+				"5L90",
+				"5M"
+			],
+			"ironhead":[
+				"5L95",
+				"5M"
+			],
+			"headsmash":[
+				"5L100"
+			],
+			"aerialace":[
+				"5M"
+			],
+			"ancientpower":[
+				"5M"
+			],
+			"attract":[
+				"5M"
+			],
+			"bodyslam":[
+				"5M"
+			],
+			"boil":[
+				"5M"
+			],
+			"bulkup":[
+				"5M"
+			],
+			"counter":[
+				"5M"
+			],
+			"crystalbolt":[
+				"5M"
+			],
+			"curse":[
+				"5M"
+			],
+			"cut":[
+				"5M"
+			],
+			"darkpulse":[
+				"5M"
+			],
+			"defensecurl":[
+				"5M"
+			],
+			"dig":[
+				"5M"
+			],
+			"doubleedge":[
+				"5M"
+			],
+			"doubleteam":[
+				"5M"
+			],
+			"dragonbreath":[
+				"5M"
+			],
+			"dragonclaw":[
+				"5M"
+			],
+			"dustdevil":[
+				"5M"
+			],
+			"earthquake":[
+				"5M"
+			],
+			"endure":[
+				"5M"
+			],
+			"energyball":[
+				"5M"
+			],
+			"finalchance":[
+				"5M"
+			],
+			"flash":[
+				"5M"
+			],
+			"frustration":[
+				"5M"
+			],
+			"furycutter":[
+				"5M"
+			],
+			"gigadrain":[
+				"5M"
+			],
+			"headbutt":[
+				"5M"
+			],
+			"hiddenpower":[
+				"5M"
+			],
+			"hyperbeam":[
+				"5M"
+			],
+			"hypervoice":[
+				"5M"
+			],
+			"icywind":[
+				"5M"
+			],
+			"megahorn":[
+				"5M"
+			],
+			"metronome":[
+				"5M"
+			],
+			"mudslap":[
+				"5M"
+			],
+			"mustardgas":[
+				"5M"
+			],
+			"nightshade":[
+				"5M"
+			],
+			"noisepulse":[
+				"5M"
+			],
+			"prismspray":[
+				"5M"
+			],
+			"protect":[
+				"5M"
+			],
+			"reflect":[
+				"5M"
+			],
+			"rest":[
+				"5M"
+			],
+			"return":[
+				"5M"
+			],
+			"rockslide":[
+				"5M"
+			],
+			"rocksmash":[
+				"5M"
+			],
+			"sandstorm":[
+				"5M"
+			],
+			"shadowball":[
+				"5M"
+			],
+			"shadowclaw":[
+				"5M"
+			],
+			"signalbeam":[
+				"5M"
+			],
+			"sleeptalk":[
+				"5M"
+			],
+			"strength":[
+				"5M"
+			],
+			"substitute":[
+				"5M"
+			],
+			"swagger":[
+				"5M"
+			],
+			"swift":[
+				"5M"
+			],
+			"swordsdance":[
+				"5M"
+			],
+			"thief":[
+				"5M"
+			],
+			"thunderwave":[
+				"5M"
+			],
+			"toxic":[
+				"5M"
+			],
+			"triattack":[
+				"5M"
+			],
+			"voidsphere":[
+				"5M"
+			],
+			"zapcannon":[
+				"5M"
+			],
+			"lewisite":[
+				"5T"
+			]
+		}
+	}
+}
