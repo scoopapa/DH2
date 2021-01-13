@@ -1,5 +1,7 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
+		console.log( this.data );
+		
 		//These are in roughly chronological order by slate
 		// Butterfree
 		this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['8L1'];
@@ -189,8 +191,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		//Moltres-Galar
 		this.modData('Learnsets', 'moltresgalar').learnset.roost = ['8L1'];
-		this.modData('Learnsets', 'moltresgalar').learnset.wildcharge = ['8L1'];
-		this.modData('Learnsets', 'moltresgalar').learnset.highjumpkick = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.powertrip = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.bulkup = ['8L1'];
 		
 		//Crobat
 		this.modData('Learnsets', 'crobat').learnset.toxicspikes = ['8L1'];
