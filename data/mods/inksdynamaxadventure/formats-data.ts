@@ -17,4 +17,13 @@ export const FormatsData: {[k: string]: ModdedFormatsData} = {
 	lumineonalola: {
 		tier: "NEW", 
 	},
+	froslassmega: {
+		tier: "NEW",
+	},
+	glastrierheart: {
+		tier: "NEW",
+	},
+	spectriersoul: {
+		tier: "NEW",
+	},
 }; 
