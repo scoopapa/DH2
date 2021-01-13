@@ -243,7 +243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	glaciallance: {
 		num: 824,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		name: "Glacial Lance",
 		pp: 5,
@@ -262,7 +262,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	astralbarrage: {
 		num: 825,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 80,
 		category: "Special",
 		name: "Astral Barrage",
 		pp: 5,
