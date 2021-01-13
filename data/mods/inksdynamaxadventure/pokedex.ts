@@ -193,7 +193,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0,
 		color: "Brown",
 		eggGroups: ["Field"],
-		isGigantamax: "G-Max Glitzy Glow",
+		isGigantamax: "G-Max Cuddle",
+		gMaxMoves: ["G-Max Cuddle", "G-Max Baddy Bad", "G-Max Glitzy Glow"],
 	},
 	
 	snorlax: {

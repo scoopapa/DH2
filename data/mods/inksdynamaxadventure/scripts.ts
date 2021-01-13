@@ -47,8 +47,16 @@ export const Scripts: BattleScriptsData = {
 		if (move.name === 'Struggle') return move;
 		if (pokemon.canGigantamax && move.category !== 'Status') {
 			const gMaxSpecies = this.dex.getSpecies(pokemon.canGigantamax);
-			const gMaxMove = this.dex.getMove(gMaxSpecies.isGigantamax);
-			if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
+			if (gMaxSpecies.gMaxMoves) {
+				for (const thisMove in gMaxSpecies.gMaxMoves) {
+					const gMaxMove = this.dex.getMove(gMaxSpecies.gMaxMoves[thisMove]);
+					if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
+				}
+			}
+			else {
+				const gMaxMove = this.dex.getMove(gMaxSpecies.isGigantamax);
+				if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
+			}
 		}
 		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
