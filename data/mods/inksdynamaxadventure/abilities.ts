@@ -229,7 +229,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//transistor
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Transistor');
-			this.add('-message', "  [POKEMON] is radiating electricity!"); 
+			this.add('-message', pokemon + " is radiating electricity!"); 
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
