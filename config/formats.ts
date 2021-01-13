@@ -1211,7 +1211,6 @@ export const Formats: FormatList = [
 			if ( pokemon.pokeSkill ) pokemon.addVolatile(pokemon.pokeSkill);
 		},
 	},
-	
 	{
       name: "[Gen 1] Rose Red / Iris Blue",
         desc: `A balance mod for Gen 1 that aims to make every fully-evolved Pokémon a viable pick.`,
@@ -1365,6 +1364,23 @@ export const Formats: FormatList = [
      mod: 'viabilities',
      ruleset: ['Standard', 'Dynamax Clause']
 
+	},
+	{
+		name: "[Gen 8] Ink's Testing Custom Game",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		mod: "inksdynamaxadventure",
+		searchShow: false,
+		challengeShow: false,
+		onSwitchIn(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+		onMegaEvo(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{

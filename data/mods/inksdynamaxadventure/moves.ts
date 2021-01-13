@@ -243,7 +243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	glaciallance: {
 		num: 824,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		name: "Glacial Lance",
 		pp: 5,
@@ -262,7 +262,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	astralbarrage: {
 		num: 825,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 80,
 		category: "Special",
 		name: "Astral Barrage",
 		pp: 5,
@@ -308,6 +308,111 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	
+	snowfill: {
+		num: 0.1,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snowfill",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather('hail')) {
+				factor = 0.667;
+			}
+			return !!this.heal(this.modify(pokemon.maxhp, factor));
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+		shortDesc: "User restores 1/2 its max HP; 2/3 in Hail.",
+	},
 	
+	spectralthief: {
+		inherit: true, 
+		basePower: 60, 
+	}, 
+	
+	spectraltrick: {
+		num: 712,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Spectral Trick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		swapsBoosts: true,
+		// Boost swapping implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+		shortDesc: "User trades stat changes with the target, then attacks.", 
+	},
+	
+	
+	gearup: {
+		num: 674,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Gear Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, authentic: 1},
+		onHitSide(side, source, move) {
+			const targets = [];
+			for (const pokemon of side.active) {
+				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length) return false;
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({atk: 1, spa: 1}, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Steel",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	magneticflux: {
+		num: 602,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Magnetic Flux",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, distance: 1, authentic: 1},
+		onHitSide(side, source, move) {
+			const targets = [];
+			for (const pokemon of side.active) {
+				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length) return false;
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({def: 1, spd: 1}, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Electric",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
 	
 }
