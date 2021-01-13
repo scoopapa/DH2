@@ -134,7 +134,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				//So I'm just gonna CHEAT because i am a HACK and a fraud. 
 				if (source.hasAbility('Porous')) {
 					this.add('-ability', source, 'Porous');
-					this.heal(source.baseMaxhp / 4, source, target, source.ability);
+					this.heal(source.baseMaxhp / 4, source, target, move);
 				}
 				else this.damage(source.baseMaxhp / 4, source, target);
 			}
