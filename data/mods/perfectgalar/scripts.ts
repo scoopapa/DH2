@@ -2,8 +2,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
 		for (const pkmnid in this.data.Learnsets) {
 			let preHomeDist = ['toxic', 'knockoff'];
+			const learnset = this.data.Learnsets[pkmnid].learnset;
 			for (const i in preHomeDist) {
-				if (pkmnid.learnset && pkmnid.learnset[preHomeDist[i]]) {
+				if (learnset && learnset[preHomeDist[i]]) {
 					let gLearn = false
 					for (const j in pkmnid.learnset[preHomeDist[i]]) {
 						const learnType = pkmnid.learnset[preHomeDist[i][j]];
