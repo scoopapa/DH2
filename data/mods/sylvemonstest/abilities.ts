@@ -1058,18 +1058,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"shadowtag": {
 		shortDesc: "Traps Ghost-types and takes 0.5x damage from Ghost-type moves.",
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Ghost')) {
-				pokemon.maybeTrapped = true;
-			}
-		},
+        onFoeTrapPokemon(pokemon) {
+            if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+                if (pokemon.hasType('Ghost')) {
+                    pokemon.tryTrap(true);
+                    pokemon.trapped = true;
+                    pokemon.trappedBy = this.effectData.target; 
+                }
+            }
+        },
+        onFoeMaybeTrapPokemon(pokemon, source) {
+            if (!source) source = this.effectData.target;
+            if (!source || !this.isAdjacent(pokemon, source)) return;
+            if (!pokemon.hasAbility('shadowtag')) {
+                if (pokemon.hasType('Ghost')) {
+                    pokemon.maybeTrapped = true;
+                }
+            }
+        },
+        onEnd(pokemon) {
+            for (const target of this.getAllActive()) {
+                if (target.trapped && target.trappedBy === this.effectData.target) {
+                    target.trapped = false; 
+                }
+            }
+        },
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ghost') {
