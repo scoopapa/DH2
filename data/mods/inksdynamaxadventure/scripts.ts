@@ -24,6 +24,9 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'regieleki').learnset.magneticflux = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.gearup = ['8L1'];
 		
+		this.modData('Learnsets', 'regidrago').learnset.magneticflux = ['8L1'];
+		this.modData('Learnsets', 'regidrago').learnset.gearup = ['8L1'];
+		
 		this.modData('Learnsets', 'articunogalar').learnset.roost = ['8L1'];
 		
 		this.modData('Learnsets', 'zapdosgalar').learnset.roost = ['8L1'];
@@ -111,15 +114,16 @@ export const Scripts: BattleScriptsData = {
 			let i: BoostName;
 			for (i in target.boosts) {
 				targetBoosts[i] = target.boosts[i];
-				sourceBoosts[i] = source.boosts[i];
+				sourceBoosts[i] = pokemon.boosts[i];
+				swapped = true;
 			}
 
 			if (swapped) {
 				this.attrLastMove('[still]');
-				this.add('-swapboost', source, target, '[from] move: Spectral Trick');
+				this.add('-swapboost', pokemon, target, '[from] move: Spectral Trick');
 				
 				target.setBoost(sourceBoosts);
-				source.setBoost(targetBoosts);
+				pokemon.setBoost(targetBoosts);
 				
 				this.addMove('-anim', pokemon, "Spectral Thief", target);
 			}
