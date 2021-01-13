@@ -249,10 +249,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//i dont want it to cause problems if i modify spa more than once in the same ab
 		//dragon overflow
 		onSourceAfterFaint(length, target, source, effect) {
-			this.add('-activate', source, 'ability: Dragon Overflow'); 
-			source.heal(source.baseMaxhp / 3);
-			if (source.status) {
-				source.cureStatus();
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Dragon Overflow'); 
+				source.heal(source.baseMaxhp / 3);
+				if (source.status) {
+					source.cureStatus();
+				}
 			}
 		},
 		//dragon's maw
@@ -295,5 +297,43 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEatItem(item, pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
 		},
+	},
+	battlebond: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninja' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+			if (source.species.id === 'glastrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Glastrier-Heart', this.effect, true);
+			}
+			if (source.species.id === 'spectrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Spectrier-Soul', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
+				move.multihit = 3;
+			}
+		},
+		onBasePowerPriority: -1,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'glaciallance' && attacker.species.name === 'Glastrier-Heart') {
+				return this.chainModify(1.5);
+			}
+			if (move.id === 'astralbarrage' && attacker.species.name === 'Spectrier-Soul') {
+				return this.chainModify(1.5);
+			}
+		},
+		isPermanent: true,
+		name: "Battle Bond",
+		rating: 4,
+		num: 210,
 	},
 }; 
