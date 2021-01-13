@@ -295,32 +295,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.baseMaxhp / 3);
 		},
 	},
-	
-	shadowtag: {
-		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
-				if (pokemon.hasType('Ghost')) {
-					pokemon.trapped = true; 
-					pokemon.trappedBy = this.effectData.target; 
-					//pokemon.tryTrap(true);
-				}
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.hasAbility('shadowtag')) {
-				if (pokemon.hasType('Ghost')) {
-					pokemon.maybeTrapped = true;
-				}
-			}
-		},
-		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target.trapped && target.trappedBy === this.effectData.target) {
-					target.trapped = false; 
-				}
-			},
-		},
-	},
 }; 
