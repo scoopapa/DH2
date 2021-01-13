@@ -17,7 +17,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect && (effect.id === 'aftermath')) {
 				this.heal(this.effectData.target.baseMaxhp / 4)
 				this.add('-immune', this.effectDatatarget, '[from] ability: Porous');
-				return;
 			}
 		},
 	},
@@ -133,10 +132,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.flags['contact'] && !target.hp) {
 				//I dunno how to make Porous differentiate between the two kinds of damage this ability can deal,
 				//So I'm just gonna CHEAT because i am a HACK and a fraud. 
-				if (source.ability === "Porous") {
+				if (source.abilities.includes('Porous')) {
 					this.heal(source.baseMaxhp / 4);
 					this.add('-immune', source, '[from] ability: Porous');
-					return;
 				}
 				else this.damage(source.baseMaxhp / 4, source, target);
 			}
