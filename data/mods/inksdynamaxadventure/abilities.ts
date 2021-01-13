@@ -248,22 +248,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//and drago doesn't need it here for boosting
 		//i dont want it to cause problems if i modify spa more than once in the same ab
 		//dragon overflow
-		/*
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.heal(source.baseMaxhp / 3);
+				this.heal(source.baseMaxhp / 3, source);
 				if (source.status) {
-					this.cureStatus();
-				}
-				this.add('-activate', source, 'ability: Dragon Overflow'); 
-			}
-		},
-		*/
-		onSourceHit(target, source, move) {
-			if (target.hp <= 0) {
-				this.heal(source.baseMaxhp / 3);
-				if (source.status) {
-					this.cureStatus();
+					source.cureStatus();
 				}
 				this.add('-activate', source, 'ability: Dragon Overflow'); 
 			}
