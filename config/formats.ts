@@ -1429,6 +1429,11 @@ export const Formats: FormatList = [
 			}
 		},		
 	},
+	{
+		name: "[Gen 8] Ink's Testing",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		mod: "inksdynamaxadventure",
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
