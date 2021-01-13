@@ -541,9 +541,6 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Break This Team",
 		ruleset: ['Standard', 'Dynamax Clause'],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/break-this-team-the-pet-mod-slate-4-ou.3674601/">Thread in Pet Mods</a>`
-		],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 		mod: "breakthisteam", 
 		teambuilderFormat: "OU", 	
@@ -853,9 +850,6 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Fusion Evolution Alpha",
 		desc: ["&bullet; Fusion Evolution Alpha",
 		      ],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-alpha.3658502/">Thread in Pet Mods</a>`
-		],
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
 			'All Pokemon', /*'Aloraichium Z', 'Buginium Z', 'Darkinium Z', 'Decidium Z', 'Dragonium Z', 'Eevium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z',
@@ -891,27 +885,6 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 		},
 		mod: 'fealpha',
-	},
-	{
-		name: "[Gen 8] Fusion Evolution UU",
-		mod: "feuu",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Thread in Pet Mods</a>`
-		],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
-		banlist: [
-			'All Pokemon',
-		],
-		unbanlist: [
-			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
-			'Flaant', 'Umbat', 'Chomplim', 'Chomplim-Mega', 'Xotalion', 'Miemie', 'Dusking', 'Jelliswine',
-		],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-		},
-		onAfterMega(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-		},
 	},
 	{
 		name: "[Gen 8] Megas for All",
