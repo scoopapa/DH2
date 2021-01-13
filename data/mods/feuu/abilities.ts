@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyDamage(damage, target, source, effect) {
 			if (effect && (effect.id === 'aftermath')) {
 				this.heal(this.effectData.target.baseMaxhp / 4)
-				this.add('-immune', this.effectDatatarget, '[from] ability: Porous');
+				this.add('-immune', this.effectData.target, '[from] ability: Porous');
 			}
 		},
 	},
@@ -252,7 +252,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
 	},
-	kingofpowerpoints: {//This one I'm uncertain about... Have a sneaking suspicion it'll only do 1 move
+	kingofpowerpoints: {
 		id: "kingofpowerpoints",
 		name: "King of Power Points",
 		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Restores 1/3 max PP of its moves on switch-out.",
