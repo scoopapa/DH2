@@ -1,6 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
-		console.log( this.data );
+		console.log( this.data.Learnsets );
 		
 		//These are in roughly chronological order by slate
 		// Butterfree
