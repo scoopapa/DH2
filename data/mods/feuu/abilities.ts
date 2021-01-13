@@ -11,6 +11,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return null;
 			}
+			
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'aftermath' || effect.id === 'roughresult')) {
+				this.heal(this.effectData.target.baseMaxhp / 4)
+				this.add('-immune', this.effectDatatarget, '[from] ability: Porous');
+				return null;
+			}
 		},
 	},
 	despicable: {
