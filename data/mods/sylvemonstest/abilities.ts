@@ -619,7 +619,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"bask": {
 		shortDesc: "Under Harsh Sunlight, this Pokemon takes 33% less damage from all but NvE moves (Includes Stealth Rocks)",
 		onSourceModifyDamage (damage, source, target, move) {
-			if (move.typeMod < 0 && this.field.isWeather(['sun', 'desolateland'])) {
+			if (move.typeMod < 0 && this.field.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(0.67);
 			}
 		},
@@ -1057,7 +1057,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 	},
 	"shadowtag": {
-		shortDesc: "Traps Ghost-types and takes half-damage from Ghost-type moves.",
+		shortDesc: "Traps Ghost-types and takes 0.5x damage from Ghost-type moves.",
 		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
