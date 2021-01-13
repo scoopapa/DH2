@@ -248,7 +248,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			flags: {protect: 1, mirror: 1},
 			mindBlownRecoil: true,
 			onAfterMove(pokemon, target, move) {
-				if (['Shulk', 'Chibiterasu'].includes(pokemon.template.species)){
+				if (['Shulk', 'Chibiterasu'].includes(pokemon.species.species)){
 					 move.mindBlownRecoil = false;
 				} else if (move.mindBlownRecoil && !move.multihit) {
 					this.damage(Math.round(pokemon.maxhp / 4), pokemon, pokemon, this.getEffect('Monado Purge'), true);
@@ -291,7 +291,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (nullified) this.add('-clearpositiveboost', target);
 			},
 			onAfterMove(pokemon, target, move) {
-				if (['Shulk', 'Chibiterasu'].includes(pokemon.template.species)){
+				if (['Shulk', 'Chibiterasu'].includes(pokemon.species.species)){
 					 move.mindBlownRecoil = false;
 				} else if (move.mindBlownRecoil && !move.multihit) {
 					this.damage(Math.round(pokemon.maxhp / 4), pokemon, pokemon, this.getEffect('Monado Eater'), true);
@@ -1984,9 +1984,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multihit: [2, 5],
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 //			I have NO idea what I'm doing here so if this works I just got lucky
-			if (pokemon.template.baseSpecies !== 'Inkling') return;
+			if (pokemon.species.baseSpecies !== 'Inkling') return;
 			if (!target || target.fainted || target.hp <= 0){
-				if (pokemon.template.species === 'Inkling') {
+				if (pokemon.species.species === 'Inkling') {
 					pokemon.formeChange('Inkling-Kid', this.effect, false, '[msg]');
 				} else {
 					this.boost({spe: 1}, pokemon, pokemon, move);
@@ -2373,7 +2373,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		drain: [1, 2],
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 //			I have NO idea what I'm doing here so if this works I just got lucky
-			if ((!target || target.fainted || target.hp <= 0) && pokemon.template.species === 'Flowey') {
+			if ((!target || target.fainted || target.hp <= 0) && pokemon.species.species === 'Flowey') {
 				pokemon.formeChange('Flowey-Omega', this.effect, false, '[msg]');
 			}
 		},
@@ -2772,7 +2772,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Cute",
 	},
-		"mine": {
+	"mine": {
 		num: 40097,
 		accuracy: true,
 		basePower: 0,
@@ -2795,7 +2795,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('trashcompactor')) return;
 				const fireHazard = this.dex.getActiveMove('Stealth Rock');
 				fireHazard.type = 'Fire';
-				let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(fireHazard), -6, 6);
+				let typeMod = this.clampIntRange(pokemon.runEffectiveness(fireHazard), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
@@ -3744,11 +3744,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		breaksProtect: true,
 		mindBlownRecoil: true,
 		onTry(pokemon) {
-			if (pokemon.template.species === 'Might Guy-Eighth Gate') {
+			if (pokemon.species.species === 'Might Guy-Eighth Gate') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Might Guy-Eight Gate can use this move.");
-			if (pokemon.template.species === 'Might Guy') {
+			if (pokemon.species.species === 'Might Guy') {
 				this.add('-fail', pokemon, 'move: Night Guy', '[forme]');
 				return null;
 			}
@@ -3784,7 +3784,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name, defender);
-			if (pokemon.template.species === 'Maple-Mega') {
+			if (pokemon.species.species === 'Maple-Mega') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -3838,11 +3838,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		onTry(pokemon) {
-			if (pokemon.template.species === 'Maple') {
+			if (pokemon.species.species === 'Maple') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Maple can use this move.");
-			if (pokemon.template.species === 'Maple-Mega') {
+			if (pokemon.species.species === 'Maple-Mega') {
 				this.add('-fail', pokemon, 'move: Devour', '[forme]');
 				return null;
 			}
@@ -3910,11 +3910,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		onTry(pokemon) {
-			if (pokemon.template.species === 'Maple') {
+			if (pokemon.species.species === 'Maple') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Maple can use this move.");
-			if (pokemon.template.species === 'Maple-Mega') {
+			if (pokemon.species.species === 'Maple-Mega') {
 				this.add('-fail', pokemon, 'move: Paralyzing Shout', '[forme]');
 				return null;
 			}
@@ -4150,7 +4150,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				// so we're going to test the damage of a Steel-type Stealth Rock instead.
 				const steelHazard = this.dex.getActiveMove('Stealth Rock');
 				steelHazard.type = 'Steel';
-				let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				let typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
@@ -4219,7 +4219,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('trashcompactor')) return;
-				let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				let typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
@@ -4998,11 +4998,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 //         flags: {mirror: 1, authentic: 1},
 //         breaksProtect: true,
 //         onTry: function (pokemon) {
-//             if (pokemon.template.species === 'Sonic') {
+//             if (pokemon.species.species === 'Sonic') {
 //                 return;
 //             }
 //             this.add('-hint', "Only a Pokemon whose form is Sonic can use this move.");
-//             if (pokemon.template.species === 'Hoopa') {
+//             if (pokemon.species.species === 'Hoopa') {
 //                 this.add('-fail', pokemon, 'move: Chaos Energy', '[forme]');
 //                 return null;
 //             }
@@ -5114,11 +5114,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 //         priority: 0,
 //         flags: {mirror: 1, authentic: 1},
 //         onTry: function (pokemon) {
-//             if (pokemon.template.species === 'Zelda-Shiek') {
+//             if (pokemon.species.species === 'Zelda-Shiek') {
 //                 return;
 //             }
 //             this.add('-hint', "Only a Pokemon whose form is Zelda-Shiek can use this move.");
-//             if (pokemon.template.species === 'Zelda') {
+//             if (pokemon.species.species === 'Zelda') {
 //                 this.add('-fail', pokemon, 'move: Vanish', '[forme]');
 //                 return null;
 //             }
