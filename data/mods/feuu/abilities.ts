@@ -255,7 +255,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	kingofpowerpoints: {
 		id: "kingofpowerpoints",
 		name: "King of Power Points",
-		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Restores 1/3 max PP of its moves on switch-out.",
+		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Restores 1/3 max PP of its moves on switch-out, rounded down.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of Power Points');
 		},
