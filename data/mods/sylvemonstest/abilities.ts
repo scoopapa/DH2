@@ -146,7 +146,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's pulse moves have 1.5x power. Heal Pulse heals 3/4 target's max HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['pulse' || 'bullet'] || move.name === 'Steam Eruption' || move.name === 'Flash Cannon' || move.name === 'Techno Blast' || move.name === 'Fire Blast' || move.name === 'Moonblast' || move.name === 'Aeroblast' || move.name === 'Bullet Fire' || move.name === 'Twineedle' || move.name === 'Plume Cannon' || move.name === 'Draco Meteor' || move.name === 'Bullet Punch' || move.name === 'Spike Cannon' || move.name === 'Fleur Cannon' || move.name === 'Meteor Shower' || move.name === 'Hydro Cannon' || move.name === 'Blast Burn' || move.name === 'Dynamax Cannon' || move.name === 'Snipe Shot' || move.name === 'Shell Side Arm') {
+			if (move.flags['pulse'] || move.flags['bullet'] || move.name === 'Steam Eruption' || move.name === 'Flash Cannon' || move.name === 'Techno Blast' || move.name === 'Fire Blast' || move.name === 'Moonblast' || move.name === 'Aeroblast' || move.name === 'Bullet Fire' || move.name === 'Twineedle' || move.name === 'Plume Cannon' || move.name === 'Draco Meteor' || move.name === 'Bullet Punch' || move.name === 'Spike Cannon' || move.name === 'Fleur Cannon' || move.name === 'Meteor Shower' || move.name === 'Hydro Cannon' || move.name === 'Blast Burn' || move.name === 'Dynamax Cannon' || move.name === 'Snipe Shot' || move.name === 'Shell Side Arm') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -619,7 +619,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"bask": {
 		shortDesc: "Under Harsh Sunlight, this Pokemon takes 33% less damage from all but NvE moves (Includes Stealth Rocks)",
 		onSourceModifyDamage (damage, source, target, move) {
-			if (move.typeMod < 0 && this.field.isWeather(['desolateland'])) {
+			if (move.typeMod < 0 && this.field.isWeather(['sun', 'desolateland'])) {
 				return this.chainModify(0.67);
 			}
 		},
@@ -1017,7 +1017,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 	"mindtrick": {
 		desc: "When this Pokémon's stat stages would be modified, other Pokémon's stat stages are modified instead. When other Pokémon's stat stages would be modified, this Pokémon's stat stages are modified instead.",
-		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker.",
+		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker and vice versa.",
 		onAnyBoost(boost, target, source, effect) {
 			// Don't bounce self stat changes, or boosts that have already bounced
 			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'mindtrick') return;
@@ -1055,5 +1055,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "mindtrick",
 		name: "Mind Trick",
 		rating: 2,
+	},
+	"shadowtag": {
+		shortDesc: "Traps Ghost-types and takes half-damage from Ghost-type moves.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Ghost')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadow Tag weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadow Tag weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Shadow Tag",
+		rating: 5,
+		num: 23,
 	},
 };
