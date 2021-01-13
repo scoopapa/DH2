@@ -254,7 +254,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (source.status) {
 					source.cureStatus();
 				}
-				this.add('-activate', source, 'ability: Dragon Overflow'); 
 			}
 		},
 		//dragon's maw
