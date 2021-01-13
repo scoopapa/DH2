@@ -887,6 +887,27 @@ export const Formats: FormatList = [
 		mod: 'fealpha',
 	},
 	{
+		name: "[Gen 8] Fusion Evolution UU",
+		mod: "feuu",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Thread in Pet Mods</a>`
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+		banlist: [
+			'All Pokemon',
+		],
+		unbanlist: [
+			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
+			'Flaant', 'Umbat', 'Chomplim', 'Chomplim-Mega', 'Xotalion', 'Miemie', 'Dusking', 'Jelliswine',
+		],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+	},
+	{
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
