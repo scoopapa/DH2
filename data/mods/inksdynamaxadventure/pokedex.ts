@@ -932,5 +932,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.3,
 		weightkg: 26.6,
 		color: "White",
+		requiredItem: "Froslassite", 
 	},
 }
