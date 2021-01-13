@@ -252,7 +252,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSwitchOut(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				moveSlot.pp += (moveSlot.maxpp / 3); 
+				moveSlot.pp += Math.floor(moveSlot.maxpp / 3); 
 				if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
 			}
 		},
