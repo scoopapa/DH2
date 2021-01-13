@@ -2788,4 +2788,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
       inherit: true,
       abilities: {0: "Unnerve", H: "Disperal"},
 	},
+	patrat: {
+      inherit: true,
+      abilities: {0: "Shadow Tag", 1: "Keen Eye", H: "Analytic"},
+	},
+	watchog: {
+      inherit: true,
+      abilities: {0: "Shadow Tag", 1: "Keen Eye", H: "Analytic"},
+	},
+	decidueye: {
+      inherit: true,
+      abilities: {0: "Overgrow", H: "Shadow Tag"},
+	},
 };
