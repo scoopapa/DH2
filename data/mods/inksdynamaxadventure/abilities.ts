@@ -77,8 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	dryice: {
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).crit) {
-				this.add('-activate', source, 'ability: Dry Ice');
-				source.trySetStatus('brn', target);
+				target.trySetStatus('brn', source);
 			}
 		},
 		name: "Dry Ice",
