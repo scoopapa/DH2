@@ -320,7 +320,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.trapped && target.trappedBy === this.effectData.target) {
 					target.trapped = false; 
 				}
-			},
+			}
 		},
 	},
 }; 
