@@ -13,9 +13,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.formeChange('cramorant');
 			}
 			this.add('-start', pokemon, 'Dynamax');
-			if (pokemon.gigantamax && pokemon.canGigantamax) this.add('-formechange', pokemon, pokemon.species.name + '-Gmax');
-			if (pokemon.species.maxAb) {
-				const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+			const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+			if (pokemon.gigantamax && pokemon.canGigantamax) this.add('-formechange', pokemon, gMaxSpecies);
+			if (pokemon.species.maxAb || gMaxSpecies.gMaxAb) {
 				if (pokemon.gigantamax && pokemon.canGigantamax && gMaxSpecies.gMaxAb) {
 					pokemon.setAbility(gMaxSpecies.gMaxAb[0]); 
 					this.add('-ability', pokemon, gMaxSpecies.gMaxAb[0]); 
