@@ -177,7 +177,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	eevee: {
 		inherit: true, 
 		maxAb: {0: "Wonder Guard"},
-		gMaxAb: {0: "Wonder Guard"},
 	},
 	
 	eeveegmax: {
@@ -195,12 +194,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		isGigantamax: "G-Max Cuddle",
 		gMaxMoves: ["G-Max Cuddle", "G-Max Baddy Bad", "G-Max Glitzy Glow"],
+		gMaxAb: {0: "Wonder Guard"},
 	},
 	
 	snorlax: {
 		inherit: true, 
 		maxAb: {0: "Intimidate"},
-		gMaxAb: {0: "Grassy Surge"},
 	},
 	
 	snorlaxgmax: {
@@ -217,6 +216,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Monster"],
 		isGigantamax: "G-Max Replenish",
+		gMaxAb: {0: "Grassy Surge"},
 	},
 	
 	garbodor: {
@@ -282,7 +282,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Adaptability"},
 		maxAb: {0: "Moxie"}, 
-		gMaxAb: {0: "Libero"},
 	},
 	
 	cinderacegmax: {
@@ -299,12 +298,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field", "Human-Like"],
 		isGigantamax: "G-Max Fireball",
+		gMaxAb: {0: "Libero"},
 	},
 	
 	inteleon: {
 		abilities: {0: "Torrent", H: "Quick Draw"},
 		maxAb: {0: "Water Absorb"},
-		gMaxAb: {0: "Download"},
 		inherit: true, 
 	},
 	
@@ -322,6 +321,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		isGigantamax: "G-Max Hydrosnipe",
+		gMaxAb: {0: "Download"},
 	},
 	
 	corviknight: {
@@ -517,7 +517,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	hatterene: {
 		inherit: true, 
 		maxAb: {0: "Analytic"},
-		gMaxAb: {0: "Tangling Hair"},
 	},
 	hatterenegmax: {
 		num: 858,
@@ -534,6 +533,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Fairy"],
 		isGigantamax: "G-Max Smite",
+		gMaxAb: {0: "Tangling Hair"},
 	},
 	
 	grimmsnarl: {

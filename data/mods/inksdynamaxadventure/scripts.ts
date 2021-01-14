@@ -45,8 +45,8 @@ export const Scripts: BattleScriptsData = {
 	getMaxMove(move, pokemon) {
 		if (typeof move === 'string') move = this.dex.getMove(move);
 		if (move.name === 'Struggle') return move;
-		if (pokemon.canGigantamax && move.category !== 'Status') {
-			const gMaxSpecies = this.dex.getSpecies(pokemon.canGigantamax);
+		if (pokemon.gigantamax && pokemon.canGigantamax && move.category !== 'Status') {
+			const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
 			if (gMaxSpecies.gMaxMoves) {
 				for (const thisMove in gMaxSpecies.gMaxMoves) {
 					const gMaxMove = this.dex.getMove(gMaxSpecies.gMaxMoves[thisMove]);
@@ -57,6 +57,7 @@ export const Scripts: BattleScriptsData = {
 				const gMaxMove = this.dex.getMove(gMaxSpecies.isGigantamax);
 				if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 			}
+			
 		}
 		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
@@ -68,10 +69,18 @@ export const Scripts: BattleScriptsData = {
 		let maxMove = this.dex.getActiveMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (move.category !== 'Status') {
 			
-			if (pokemon.canGigantamax) {
-				const gMaxSpecies = this.dex.getSpecies(pokemon.canGigantamax);
-				const gMaxMove = this.dex.getActiveMove(gMaxSpecies.isGigantamax ? gMaxSpecies.isGigantamax : '');
-				if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
+			if (pokemon.gigantamax && pokemon.canGigantamax) {
+				const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+				if (gMaxSpecies.gMaxMoves) {
+					for (const thisMove in gMaxSpecies.gMaxMoves) {
+						const gMaxMove = this.dex.getActiveMove(gMaxSpecies.gMaxMoves[thisMove]);
+						if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
+					}
+				}
+				else {
+					const gMaxMove = this.dex.getActiveMove(gMaxSpecies.isGigantamax ? gMaxSpecies.isGigantamax : '');
+					if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
+				}
 			}
 			if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
 			maxMove.basePower = move.maxMove.basePower;
