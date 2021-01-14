@@ -5300,7 +5300,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["closecombat", "icebeam", "poisonjab", "protect", "throatchop", "uturn"],
 		randomDoubleBattleLevel: 78,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	xurkitree: {
@@ -6018,7 +6018,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["closecombat", "ironhead", "protect", "suckerpunch", "wickedblow"],
 		randomDoubleBattleLevel: 76,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 	},
 	urshifurapidstrike: {

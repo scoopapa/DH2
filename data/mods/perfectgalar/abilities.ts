@@ -84,7 +84,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 262,
 	},
 	dragonsmaw: {
-		shortDesc: "Removes screens, hazards, and terrain on switch-in.",
+		shortDesc: "Dragon Moves: 30% stronger, are all biting moves.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Dragon') {
