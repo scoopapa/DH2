@@ -836,7 +836,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7M", "6M", "5M"],
 			wildcharge: ["7M", "6M", "5M"],
 			zapcannon: ["7L1", "7V", "6L1"],
-			dazzlingleam: ["8L1"],
+			dazzlinggleam: ["8L1"],
 			mistyexplosion: ["8L1"],
 			mistyterrain: ["8L1"],
 			playrough: ["8L1"],
@@ -1680,7 +1680,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			coil: ["8L1"],
 			dragonrush: ["8L1"],
 		}},
-	galapagon: {
+	gnashark: {
 		learnset: {
 			agility: ["8M", "8L40", "7L45", "6L45", "5L45", "4L45", "3L53"],
 			ancientpower: ["4T"],
