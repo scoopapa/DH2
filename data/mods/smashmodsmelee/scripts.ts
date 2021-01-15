@@ -1,19 +1,19 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
-		for (let i in this.modData.Pokedex) {
-			let learnset = (this.modData.Learnsets[i]) ? this.modData.Learnsets[i].learnset : false;
-			let pokemon = this.modData.Pokedex[i];
+		for (let i in this.data.Pokedex) {
+			let learnset = (this.data.Learnsets[i]) ? this.data.Learnsets[i].learnset : false;
+			let pokemon = this.data.Pokedex[i];
 			if (
 				![
 					'ares', 'skorupi', 'drapion', 'gastly', 'haunter', 'gengar', 'hypnihil', 'rockruff', 'lycanrocdusk', 'swinub', 'piloswine',
 					'mamoswine', 'phione', 'budew', 'roselia', 'roserade', 'combee', 'vespiquen'
-				].includes(pokemon.id)
+				].includes(this.dex.getSpecies(i))
 			) {
 				return;
 			}
 			if (learnset) {
 				console.log(pokemon.name);
-				for (let move in this.modData.Movedex) {
+				for (let move in this.data.Movedex) {
 					if (move.isNonstandard) {
 						const moveid = move.id;
 						console.log(moveid);
