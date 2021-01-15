@@ -7,7 +7,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				![
 					'ares', 'skorupi', 'drapion', 'gastly', 'haunter', 'gengar', 'hypnihil', 'rockruff', 'lycanrocdusk', 'swinub', 'piloswine',
 					'mamoswine', 'phione', 'budew', 'roselia', 'roserade', 'combee', 'vespiquen'
-				].includes(this.dex.getSpecies(pokemon))
+				].includes(pokemon)
 			) {
 				return;
 			}
