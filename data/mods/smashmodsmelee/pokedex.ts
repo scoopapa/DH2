@@ -221,7 +221,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: -1005,
 		name: "Lemotic",
 		types: ["Grass", "Ground"],
-		baseStats: {hp: 108, atk: 95, def: 82, spa: 110, spd: 100, spe: 85},
+		baseStats: {hp: 139, atk: 146, def: 57, spa: 115, spd: 71, spe: 72},
 		abilities: {0: "Minus", 1: "Mega Launcher", H: "Perish Body"},
 		heightm: 1,
 		weightkg: 6.4,
@@ -488,6 +488,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Black",
 		eggGroups: ["Flying", "Dragon"],
 		requiredItem: "Altarianite",
+		battleOnly: "Altaria-Unova",
 	},
 	redriot: {
 		num: -1015,
