@@ -885,6 +885,28 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 		},
 		mod: 'fealpha',
+
+	},
+	{
+		name: "[Gen 8] Fusion Evolution UU",
+		mod: "feuu",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Thread in Pet Mods</a>`
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+		banlist: [
+			'All Pokemon',
+		],
+		unbanlist: [
+			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
+			'Flaant', 'Umbat', 'Chomplim', 'Chomplim-Mega', 'Xotalion', 'Miemie', 'Dusking', 'Jelliswine',
+		],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		},
 	},
 	{
 		name: "[Gen 8] Megas for All",
@@ -1343,6 +1365,23 @@ export const Formats: FormatList = [
      mod: 'viabilities',
      ruleset: ['Standard', 'Dynamax Clause']
 
+	},
+	{
+		name: "[Gen 8] Ink's Testing Custom Game",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		mod: "inksdynamaxadventure",
+		searchShow: false,
+		challengeShow: false,
+		onSwitchIn(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+		onMegaEvo(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{

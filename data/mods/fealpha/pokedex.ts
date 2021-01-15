@@ -3,7 +3,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ink here with comments! in order for this to be functional they need weights (at least i think).
 	ive included placeholders that are halfway between the base species weights? till im told what else to edit it to.
 	
-	name: { 
+	name: {
 		fusion: ['P1', 'P2'],
 		num: x.5,
 		name: "Name",
@@ -11,7 +11,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 		abilities: {0: ""},
 		weightkg: ,
-		//prevo: ,
 	},
 
 		*/
