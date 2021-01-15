@@ -1768,5 +1768,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			focusblast: ["8L1"],
 			thunderfang: ["8L1"],
 			nastyplot: ["8L1"],
-	},
+	}},
  };
