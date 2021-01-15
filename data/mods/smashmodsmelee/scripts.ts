@@ -12,9 +12,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return;
 			}
 			if (learnset) {
-				for (let j in this.modData.Movedex) {
-					if (j.isNonstandard) {
-						delete this.modData('Learnsets', i).learnset.j;
+				console.log(pokemon.name);
+				for (let move in this.modData.Movedex) {
+					if (move.isNonstandard) {
+						const moveid = move.id;
+						console.log(moveid);
+						delete this.modData('Learnsets', i).learnset.moveid;
 					}
 				}
 			}
