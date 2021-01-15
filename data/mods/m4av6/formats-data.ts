@@ -5405,14 +5405,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
-	meltan: {
-		isNonstandard: "LGPE",
-		tier: "Illegal",
-	},
-	melmetal: {
-		isNonstandard: "LGPE",
-		tier: "Illegal",
-	},
 	rillaboommega: {
 		randomBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
 		randomDoubleBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],

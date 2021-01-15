@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 1 -----------------
 	uranus: {
 		fusion: ['Quagsire', 'Hippowdon'],
-		num: 1.5,
+		num: 1,
 		name: "Uranus",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 110, atk: 100, def: 110, spa: 80, spd: 70, spe: 45},
@@ -26,7 +26,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	saturn: {
 		fusion: ['Eternatus', 'Hattrem'],
-		num: 2.5,
+		num: 2,
 		name: "Saturn",
 		types: ["Dragon", "Psychic"],
 		baseStats: {hp: 114, atk: 65, def: 80, spa: 115, spd: 104, spe: 90},
@@ -36,7 +36,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 2 -----------------
 	doot: {
 		fusion: ['Toxapex', 'Golisopod'],
-		num: 3.5,
+		num: 3,
 		name: "Doot",
 		types: ["Water", "Poison"],
 		baseStats: {hp: 82, atk: 94, def: 146, spa: 56, spd: 136, spe: 37},
@@ -45,7 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mrgross: {
 		fusion: ['Mr. Rime', 'Metagross'],
-		num: 4.5,
+		num: 4,
 		name: "Mr. Gross",
 		types: ["Steel", "Psychic"],
 		baseStats: {hp: 100, atk: 110, def: 110, spa: 109, spd: 110, spe: 70},
@@ -54,7 +54,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pluto: {
 		fusion: ['Rotom-Frost', 'Blacephalon'],
-		num: 5.5,
+		num: 5,
 		name: "Pluto",
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 59, atk: 107, def: 83, spa: 131, spd: 97, spe: 107},
@@ -64,7 +64,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zeus: {
 		fusion: ['Zeraora', 'Tauros'],
-		num: 6.5,
+		num: 6,
 		name: "Zeus",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 101, atk: 126, def: 85, spa: 71, spd: 75, spe: 126},
@@ -74,7 +74,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 3 -----------------
 	picante: {
 		fusion: ['Flapple', 'Victini'],
-		num: 7.5,
+		num: 7,
 		name: "Picante",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 95, atk: 115, def: 100, spa: 107, spd: 80, spe: 85},
@@ -83,7 +83,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mrvolcano: {
 		fusion: ['Mr. Mime', 'Volcanion'],
-		num: 8.5,
+		num: 8,
 		name: "Mr. Volcano",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 60, atk: 77, def: 102, spa: 120, spd: 110, spe: 100},
@@ -92,7 +92,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vespithorn: {
 		fusion: ['Vespiquen', 'Ferrothorn'],
-		num: 9.5,
+		num: 9,
 		name: "Vespithorn",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 82, atk: 87, def: 136, spa: 67, spd: 119, spe: 30},
@@ -101,7 +101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ishtar: {
 		fusion: ['Rotom-Heat', 'Togekiss'],
-		num: 10.5,
+		num: 10,
 		name: "Ishtar",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 80, atk: 60, def: 105, spa: 115, spd: 125, spe: 85},
@@ -112,7 +112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 4 -----------------
 	ananke: {
 		fusion: ['Lycanroc', 'Terrakion'],
-		num: 11.5,
+		num: 11,
 		name: "Ananke",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 88, atk: 137, def: 82, spa: 63, spd: 82, spe: 120},
@@ -121,7 +121,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	darkrose: {
 		fusion: ['Darkrai', 'Roserade'],
-		num: 12.5,
+		num: 12,
 		name: "Dark Rose",
 		types: ["Dark", "Poison"],
 		baseStats: {hp: 65, atk: 100, def: 90, spa: 131, spd: 100, spe: 110},
@@ -130,7 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kratos: {
 		fusion: ['Krookodile', 'Staraptor'],
-		num: 13.5,
+		num: 13,
 		name: "Kratos",
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 95, atk: 133, def: 90, spa: 62, spd: 80, spe: 111},
@@ -139,7 +139,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	whiterider: {
 		fusion: ['Kyurem-White', 'Ledian'],
-		num: 14.5,
+		num: 14,
 		name: "White Rider",
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 90, atk: 80, def: 84, spa: 115, spd: 125, spe: 90},
@@ -149,7 +149,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 5 -----------------
 	curchyspeed: {
 		fusion: ['Pincurchin', 'Deoxys'],
-		num: 15.5,
+		num: 15,
 		name: "Curchys-Peed",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 49, atk: 118, def: 92, spa: 93, spd: 87, spe: 117},
@@ -158,7 +158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corvilord: {
 		fusion: ['Corviknight', 'Wailord'],
-		num: 16.5,
+		num: 16,
 		name: "Corvilord",
 		types: ["Steel", "Water"],
 		baseStats: {hp: 139, atk: 98, def: 95, spa: 76, spd: 90, spe: 68},
@@ -167,7 +167,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kord: {
 		fusion: ['Guzzlord', 'Dusknoir'],
-		num: 17.5,
+		num: 17,
 		name: "Kord",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 134, atk: 100, def: 114, spa: 81, spd: 114, spe: 44},
@@ -176,7 +176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sirpassd: {
 		fusion: ['Passimian', "Sirfetch'd"],
-		num: 18.5,
+		num: 18,
 		name: "Sir Pass'd",
 		types: ["Fighting"],
 		baseStats: {hp: 101, atk: 127, def: 92, spa: 54, spd: 71, spe: 92},
@@ -186,7 +186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 6 ----------------- (park, under this is where youre editing, dont get lost!!!)
 	teepee: { //done
 		fusion: ['Polteageist', 'Indeedee-F'],
-		num: 19.5,
+		num: 19,
 		name: "Teepee",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 124, spd: 129, spe: 77},
@@ -195,7 +195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	composite: { //done
 		fusion: ['Kommo-o', 'Sceptile'],
-		num: 20.5,
+		num: 20,
 		name: "Composite",
 		types: ["Fighting", "Grass"],
 		baseStats: {hp: 83, atk: 100, def: 95, spa: 120, spd: 95, spe: 110},
@@ -204,7 +204,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	alilat: { //done
 		fusion: ['Appletun', 'Virizion'],
-		num: 21.5,
+		num: 21,
 		name: "Alilat",
 		types: ["Grass"],
 		baseStats: {hp: 105, atk: 95, def: 95, spa: 95, spd: 105, spe: 76},
@@ -213,7 +213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	umbrisse: { //done
 		fusion: ['Umbreon', 'Aromatisse'],
-		num: 22.5,
+		num: 22,
 		name: "Umbrisse",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 103, atk: 68, def: 111, spa: 84, spd: 119, spe: 47},
@@ -223,7 +223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 7 -----------------
 	blackrider: { //done
 		fusion: ['Kyurem-Black', 'Pawniard'],
-		num: 23.5,
+		num: 23,
 		name: "Black Rider",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 85, atk: 130, def: 85, spa: 85, spd: 85, spe: 89},
@@ -232,7 +232,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	frother: { //done
 		fusion: ['Froslass', 'Scyther'],
-		num: 24.5,
+		num: 24,
 		name: "Frother",
 		types: ["Ice", "Flying"],
 		baseStats: {hp: 75, atk: 105, def: 80, spa: 67, spd: 80, spe: 122},
@@ -242,7 +242,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	beezone: { //done
 		fusion: ['Magnezone', 'Beheeyem'],
-		num: 25.5,
+		num: 25,
 		name: "Beezone",
 		types: ["Steel", "Psychic"],
 		baseStats: {hp: 80, atk: 77, def: 110, spa: 131, spd: 110, spe: 65},
@@ -251,7 +251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	toxiking: { //done
 		fusion: ['Toxtricity', 'Nidoking'],
-		num: 26.5,
+		num: 26,
 		name: "Toxiking",
 		types: ["Electric", "Ground"],
 		baseStats: {hp: 80, atk: 100, def: 75, spa: 119, spd: 85, spe: 83},
@@ -261,7 +261,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 8 -----------------
 	norn: { //done
 		fusion: ['Porygon2', 'Dragalge'],
-		num: 27.5,
+		num: 27,
 		name: "Norn",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 110, spd: 110, spe: 54},
@@ -270,7 +270,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	oni: { //done
 		fusion: ['Incineroar', 'Crabominable'],
-		num: 28.5,
+		num: 28,
 		name: "Oni",
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 111, atk: 125, def: 85, spa: 85, spd: 85, spe: 51},
@@ -279,7 +279,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ares: { //done
 		fusion: ['Zapdos', 'Pelipper'],
-		num: 29.5,
+		num: 29,
 		name: "Ares",
 		types: ["Flying", "Electric"],
 		baseStats: {hp: 95, atk: 70, def: 92, spa: 110, spd: 90, spe: 92},
@@ -288,7 +288,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	armalion: { //done
 		fusion: ['Armaldo', 'Cobalion'],
-		num: 30.5,
+		num: 30,
 		name: "Armalion",
 		types: ["Steel", "Bug"],
 		baseStats: {hp: 83, atk: 127, def: 114, spa: 80, spd: 76, spe: 96},
@@ -298,7 +298,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// 9 -----------------
 	nug: { //done
 		fusion: ['Runerigus', 'Decidueye'],
-		num: 31.5,
+		num: 31,
 		name: "Nug",
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 80, atk: 118, def: 121, spa: 75, spd: 102, spe: 50},
@@ -307,7 +307,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tyragor: { //done
 		fusion: ['Tyranitar', 'Accelgor'],
-		num: 32.5,
+		num: 32,
 		name: "Tyragor",
 		types: ["Rock", "Bug"],
 		baseStats: {hp: 90, atk: 102, def: 75, spa: 102, spd: 95, spe: 123},
@@ -316,7 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	palerider: { //done
 		fusion: ['Infernape', 'Chandelure'],
-		num: 33.5,
+		num: 33,
 		name: "Pale Rider",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 80, atk: 86, def: 80, spa: 125, spd: 80, spe: 114},
@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	laurorusorus: { //done
 		fusion: ['Landorus', 'Aurorus'],
-		num: 34.5,
+		num: 34,
 		name: "Laurorusorus",
 		types: ["Ground", "Rock"],
 		baseStats: {hp: 106, atk: 101, def: 81, spa: 127, spd: 86, spe: 99},
@@ -334,7 +334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hypnihil: { //done
 		fusion: ['Hypno', 'Nihilego'],
-		num: 35.5,
+		num: 35,
 		name: "Hypnihil",
 		types: ["Psychic", "Rock"],
 		baseStats: {hp: 101, atk: 67, def: 61, spa: 113, spd: 127, spe: 97},

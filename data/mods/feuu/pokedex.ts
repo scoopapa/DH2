@@ -14,7 +14,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//Set 1
 	volquag: {
 		fusion: ['Volcanion', 'Quagsire'],
-		num: 1.5,
+		num: 1,
 		name: "Volquag",
 		types: ["Fire", "Water"],
 		baseStats: {hp: 90, atk: 97, def: 111, spa: 97, spd: 83, spe: 65},
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	toxalure: {
 		fusion: ['Toxapex', 'Chandelure'],
-		num: 2.5,
+		num: 2,
 		name: "Toxalure",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 55, atk: 79, def: 121, spa: 109, spd: 116, spe: 67},
@@ -32,7 +32,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kingtsar: {
 		fusion: ['Kingler', 'Tsareena'],
-		num: 3.5,
+		num: 3,
 		name: "Kingtsar",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 79, atk: 130, def: 115, spa: 50, spd: 74, spe: 83},
@@ -41,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tanette: {
 		fusion: ['Tangela', 'Floette'],
-		num: 4.5,
+		num: 4,
 		name: "Tanette",
 		types: ["Fairy", "Grass"],
 		baseStats: {hp: 60, atk: 50, def: 100, spa: 95, spd: 80, spe: 57},
@@ -51,7 +51,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	slowton: {
 		fusion: ['Slowking-Galar', 'Magneton'],
-		num: 5.5,
+		num: 5,
 		name: "Slowton",
 		types: ["Poison", "Electric"],
 		baseStats: {hp: 92, atk: 62, def: 97, spa: 115, spd: 100, spe: 50},
@@ -62,7 +62,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//Set 2
 	flaant: {
 		fusion: ['Flapple', 'Durant'],
-		num: 6.5,
+		num: 6,
 		name: "Flaant",
 		types: ["Grass", "Bug"],
 		baseStats: {hp: 76, atk: 114, def: 109, spa: 76, spd: 79, spe: 109},
@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	umbat: {
 		fusion: ['Umbreon', 'Crobat'],
-		num: 7.5,
+		num: 7,
 		name: "Umbat",
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 115, atk: 82, def: 110, spa: 70, spd: 110, spe: 112},
@@ -80,7 +80,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	chomplim: {
 		fusion: ['Garchomp', 'Drifblim'],
-		num: 8.5,
+		num: 8,
 		name: "Chomplim",
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 129, atk: 105, def: 79, spa: 105, spd: 79, spe: 91},
@@ -91,7 +91,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	chomplimmega: {
 		fusion: ['Garchomp', 'Drifblim'],
-		num: 8.5,
+		num: 8,
 		name: "Chomplim-Mega",
 		baseSpecies: "Chomplim",
 		forme: "Mega",
@@ -103,7 +103,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	xotalion: {
 		fusion: ['Xatu', 'Cobalion'],
-		num: 9.5,
+		num: 9,
 		name: "Xotalion",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 78, atk: 102, def: 99, spa: 102, spd: 71, spe: 111},
@@ -112,7 +112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	miemie: {
 		fusion: ['Mienshao', 'Starmie'],
-		num: 10.5,
+		num: 10,
 		name: "Miemie",
 		types: ["Fighting", "Psychic"],
 		baseStats: {hp: 70, atk: 109, def: 72, spa: 109, spd: 72, spe: 121},
@@ -121,7 +121,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dusking: {
 		fusion: ['Dusknoir', 'Slowking-Galar'],
-		num: 11.5,
+		num: 11,
 		name: "Dusking",
 		types: ["Ghost", "Psychic"],
 		baseStats: {hp: 80, atk: 85, def: 125, spa: 90, spd: 125, spe: 40},
@@ -130,7 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jelliswine: {
 		fusion: ['Jellicent', 'Mamoswine'],
-		num: 12.5,
+		num: 12,
 		name: "Jelliswine",
 		types: ["Ghost", "Ground"],
 		baseStats: {hp: 105, atk: 95, def: 85, spa: 97, spd: 87, spe: 75},

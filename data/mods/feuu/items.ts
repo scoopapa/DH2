@@ -10,5 +10,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 0.5,
+		desc: "If held by a Chomplim, this item allows it to Mega Evolve in battle.",
 	},
 };

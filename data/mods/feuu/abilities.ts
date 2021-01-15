@@ -146,7 +146,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon blocks Dark-type moves and bounces them back to the user.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (target === source || move.hasBounced || !move.type === 'Dark') {
+			if (target === source || move.hasBounced || move.type !== 'Dark') {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
@@ -156,7 +156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target.side === source.side || move.hasBounced || !move.type === 'Dark') {
+			if (target.side === source.side || move.hasBounced || move.type !== 'Dark') {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
