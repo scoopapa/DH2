@@ -1007,7 +1007,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trick: ["7T", "7L58", "6T", "6L58", "5T", "5L75", "4T", "4L66"],
 			trickroom: ["7M", "6M", "5M", "4M"],
 			willowisp: ["7M", "7L16", "6M", "6L13", "5M", "5L23", "4M", "4L23", "3L32"],
-			strenghtsap: ["8L1"],
+			strengthsap: ["8L1"],
 			haze: ["8L1"],
 			encore: ["8L1"],
 			ironhead: ["8L1"],
