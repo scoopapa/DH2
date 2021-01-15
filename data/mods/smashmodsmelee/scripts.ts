@@ -5,9 +5,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			let pokemon = this.data.Pokedex[i];
 			if (
 				![
-					'ares', 'skorupi', 'drapion', 'gastly', 'haunter', 'gengar', 'hypnihil', 'rockruff', 'lycanrocdusk', 'swinub', 'piloswine',
-					'mamoswine', 'phione', 'budew', 'roselia', 'roserade', 'combee', 'vespiquen'
-				].includes(pokemon)
+					'Ares', 'Skorupi', 'Drapion', 'Gastly', 'Haunter', 'Gengar', 'Hypnihil', 'Rockruff', 'Lycanroc-Dusk', 'Swinub', 'Piloswine',
+					'Mamoswine', 'Phione', 'Budew', 'Roselia', 'Roserade-Scarfed', 'Combee', 'Vespiquen'
+				].includes(pokemon.name)
 			) {
 				return;
 			}
