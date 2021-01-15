@@ -1680,7 +1680,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			coil: ["8L1"],
 			dragonrush: ["8L1"],
 		}},
-	galapagon: {
+	gnashark: {
 		learnset: {
 			agility: ["8M", "8L40", "7L45", "6L45", "5L45", "4L45", "3L53"],
 			ancientpower: ["4T"],
