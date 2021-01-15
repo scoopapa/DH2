@@ -1,5 +1,24 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
+		for (let i in this.modData.Pokedex) {
+			let learnset = (this.modData.Learnsets[i]) ? this.modData.Learnsets[i].learnset : false;
+			let pokemon = this.modData.Pokedex[i];
+			if (
+				![
+					'ares', 'skorupi', 'drapion', 'gastly', 'haunter', 'gengar', 'hypnihil', 'rockruff', 'lycanrocdusk', 'swinub', 'piloswine',
+					'mamoswine', 'phione', 'budew', 'roselia', 'roserade', 'combee', 'vespiquen'
+				].includes(pokemon.id)
+			) {
+				return;
+			}
+			if (learnset) {
+				for (let j in this.modData.Moves) {
+					if (j.isNonstandard) {
+						delete this.modData('Learnsets', i).learnset.j;
+					}
+				}
+			}
+		}
 		this.modData('Learnsets', 'raichu').learnset.highjumpkick = ['7L1'];
 		this.modData('Learnsets', 'trubbishmarshadow').learnset.spectralresidue = ['7L1'];
 		this.modData('Learnsets', 'beheeyem').learnset.inverseroom = ['7L1'];
