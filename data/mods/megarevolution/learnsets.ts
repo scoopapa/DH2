@@ -472,7 +472,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			meteorbeam: ["8L1"],
 			sandstorm: ["8L1"],
 		}},
-	galapagon: {
+	coleoptyran: {
 		learnset: {
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			bide: ["7V"],
