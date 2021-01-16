@@ -1,4 +1,12 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	shellsidearm: {
+		inherit: true,
+		accuracy: 85,
+	},
+	shellsidearm: {
+		inherit: true,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+	},
 	smackdown: {
 		inherit: true,
 		basePower: 70,
