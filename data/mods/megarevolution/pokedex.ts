@@ -221,11 +221,11 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	gyarados: {
 		inherit: true,
-		evos: ["Lordiatan"],
+		evos: ["Lordiathan"],
 	},
 	lordiathan: {
 		num: 270017,
-		name: "Lordiatan",
+		name: "Lordiathan",
 		types: ["Water","Flying"],
 		baseStats: {hp: 100, atk: 135, def: 100, spa: 65, spd: 90, spe: 70},
 		abilities: {0: "Mold Breaker", H: "Dragon's Maw"},
