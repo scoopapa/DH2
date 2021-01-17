@@ -1,5 +1,5 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	shellsidearm: {
+	focusblast: {
 		inherit: true,
 		accuracy: 85,
 	},
