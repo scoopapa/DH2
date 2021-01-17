@@ -282,10 +282,19 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Orange",
 		eggGroups: ["Amorphous"],
 	},
+	budew: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
+	roselia: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
 	roserade: {
 		inherit: true,
 		otherFormes: ["Roserade-Scarfed"],
 		formeOrder: ["Roserade", "Roserade-Scarfed"],
+		restrictedLearnset: true,
 	},
 	roseradescarfed: {
 		num: 407,
@@ -302,6 +311,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Fairy", "Grass"],
+		restrictedLearnset: true,
 	},
 	gladiaster: {
 		num: -1010,
@@ -326,6 +336,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Drowzee",
 		evoLevel: 26,
 		eggGroups: ["Undiscovered"],
+		restrictedLearnset: true,
 	},
 	plubia: {
 		num: -1012,
@@ -350,6 +361,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 3.1,
 		color: "Blue",
 		eggGroups: ["Water 1", "Fairy"],
+		restrictedLearnset: true,
 	},
 	cradon: {
 		num: -1013,
@@ -374,6 +386,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 40.3,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		restrictedLearnset: true,
 	},
 	slowbro: {
 		num: 80,
@@ -517,6 +530,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Human-Like"],
 		requiredItem: "Redriotite",
 	},
+	swinub: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
+	piloswine: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
 	mamoswine: {
 		num: 473,
 		name: "Mamoswine",
@@ -530,6 +551,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Field"],
+		restrictedLearnset: true,
+	},
+	gastly: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
+	haunter: {
+		inherit: true,
+		restrictedLearnset: true,
 	},
 	gengar: {
 		num: 94,
@@ -546,6 +576,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Gengar-Mega-X", "Gengar-Mega"],
 		formeOrder: ["Gengar", "Gengar-Mega-X", "Gengar-Mega"],
 		canGigantamax: "G-Max Terror",
+		restrictedLearnset: true,
 	},
 	gengarmegax: {
 		num: 94,
@@ -560,6 +591,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gengarite X",
+		restrictedLearnset: true,
 	},
 	gengargmax: {
 		num: 94,
@@ -574,6 +606,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Gengar",
+		restrictedLearnset: true,
+	},
+	skorupi: {
+		inherit: true,
+		restrictedLearnset: true,
 	},
 	drapion: {
 		num: 452,
@@ -587,6 +624,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Skorupi",
 		evoLevel: 40,
 		eggGroups: ["Bug", "Water 3"],
+		restrictedLearnset: true,
 	},
 	alcremie: {
 		num: 869,
@@ -648,5 +686,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Ponyta-Galar",
 		evoLevel: 40,
 		eggGroups: ["Field"],
+	},
+	rockruff: {
+		inherit: true,
+		restrictedLearnset: true,
+	},
+	lycanrocdusk: {
+		inherit: true,
+		restrictedLearnset: true,
 	},
 };
