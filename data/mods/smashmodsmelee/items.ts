@@ -71,28 +71,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "The holder is protected from the secondary effects of moves.",
 	},
-	weatherwarriorscrystal: {
-		name: "Weather Warrior's Crystal",
-		spritenum: 307,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && !this.field.isWeather('')) {
-				pokemon.useItem();
+	"weatherwarriorscrystal": {
+		shortDesc: "When a weather is active, increases the holder's Atk and Sp Atk stats by 1 stage each.",
+		onUpdate: function(pokemon) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm']) && pokemon.useItem()) {
+				this.boost({
+					atk: 1,
+					spa: 1
+				});
 			}
 		},
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === '') return;
-			this.effectData.target.useItem();
+		fling: {
+			basePower: 60,
 		},
-		boosts: {
-			atk: 1,
-			spa: 1,
-		},
-		num: -1005,
-		gen: 8,
-		desc: "If there is a weather effect, raises holder's Attack and Sp. Atk by 1 stage. Single use.",
+		gen: 7,
+		id: "weatherwarriorscrystal",
+		name: "Weather Warriors Crystal",
 	},
 	marshadiumz: {
 		name: "Marshadium Z",
