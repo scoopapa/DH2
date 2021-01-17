@@ -1,23 +1,17 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
-		for (let i in this.data.Pokedex) {
-			let learnset = (this.data.Learnsets[i]) ? this.data.Learnsets[i].learnset : false;
-			let pokemon = this.data.Pokedex[i];
-			if (
-				![
-					'Ares', 'Skorupi', 'Drapion', 'Gastly', 'Haunter', 'Gengar', 'Hypnihil', 'Rockruff', 'Lycanroc-Dusk', 'Swinub', 'Piloswine',
-					'Mamoswine', 'Phione', 'Budew', 'Roselia', 'Roserade-Scarfed', 'Combee', 'Vespiquen'
-				].includes(pokemon.name)
-			) {
-				return;
-			}
-			if (learnset) {
-				console.log(pokemon.name);
-				for (let move in this.data.Movedex) {
-					if (move.isNonstandard) {
-						const moveid = move.id;
-						console.log(moveid);
-						delete this.modData('Learnsets', i).learnset.moveid;
+		for (const id in this.dataCache.Pokedex) {
+			const poke = this.dataCache.Pokedex[id];
+			if (poke.restrictedLearnset) {
+				console.log(this.toID(poke.name));
+				const thisPoke = this.toID(poke.name);
+				const learnset = this.dataCache.Learnsets[this.toID(poke.name)].learnset;
+				for (const move in learnset) {
+					console.log(thisPoke + " has " + move);
+					const moveid = this.dataCache.Moves[move];
+					if (moveid.isNonstandard) {
+						console.log(moveid.isNonstandard);
+						delete this.modData('Learnsets', thisPoke).learnset.moveid;
 					}
 				}
 			}
