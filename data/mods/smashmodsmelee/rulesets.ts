@@ -19,7 +19,7 @@ export const Formats: {[k: string]: FormatData} = {
 					for (const moveId of set.moves) {
 						const move = this.dex.getMove(moveId);
 						if (move.isNonstandard) problems.push(
-							move.name + ' is not available in Sword and Shield, which is necessary for ' + set.species.name + ' because its home mod requires it.'
+							move.name + ' is not available in Sword and Shield, which is necessary for ' + species.name + ' because its home mod requires it.'
 						);
 					}
 				}
