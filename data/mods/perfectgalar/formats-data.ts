@@ -8,6 +8,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	urshifu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},	
 	zamazenta: {
 		tier: "OU",
 		doublesTier: "DOU",
