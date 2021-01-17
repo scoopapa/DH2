@@ -2127,7 +2127,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		target: "normal",
-		type: "Rock",
+		type: "Steel",
 		contestType: "Cool",
 	},
 	shieldslam: {
