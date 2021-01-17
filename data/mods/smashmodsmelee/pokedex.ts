@@ -591,7 +591,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gengarite X",
-		restrictedLearnset: true,
 	},
 	gengargmax: {
 		num: 94,
@@ -606,7 +605,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Gengar",
-		restrictedLearnset: true,
 	},
 	skorupi: {
 		inherit: true,
