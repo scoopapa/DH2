@@ -900,16 +900,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	diamonddust: {
 		shortDesc: "During hail, this Pokémon is immune to all Rock-type attacks and Stealth Rock.",
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock' && this.field.isWeather('hail')) {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && this.field.isWeather('hail')) {
-				this.add('-immune', target, '[from] ability: Diamond Dust');
-				return null;
-			}
+		desc: "On switch-in, this Pokémon summons Diamond Dust for 5 turns. During the effect, Pokémon are immune to all Rock-type attacks and Stealth Rock; Weather Ball becomes an Ice-type move, and its base power is 100; and other weather-related moves and Abilities behave as they do in Hail.",
+		shortDesc: "5 turns: all Pokémon are immune to Rock; counts as hail.",
+		onStart(source) {
+			this.field.setWeather('diamonddust');
 		},
 		name: "Diamond Dust",
 		rating: 3,
@@ -1430,6 +1424,47 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Steelbreaker",
 		rating: 3,
 		num: -1043,
+	},
+	seismicscream: {
+		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
+		shortDesc: "Follows up sound moves with an Earthquake of 60 BP.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || !target.hp) return;
+			if (target !== source && target.hp && move.flags['sound']) {
+				source.addVolatile('seismicscream');
+				if (move.category === 'Special') {
+					source.addVolatile('specialsound');
+				}
+				this.useMove('earthquake', source);
+			}
+		},
+		name: "Seismic Scream",
+		rating: 3,
+		num: -1044,
+	},
+	acidrock: {
+		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
+		onStart(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target || !this.dex.getImmunity('psn', target)) continue;
+				if (this.dex.getImmunity('psn', target)) {
+					if (target !== pokemon) {
+						this.add('-ability', pokemon, 'Acid Rock');
+						this.add('-immune', target);
+					}
+					continue;
+				}
+				if (target.ability === 'Soundproof') {
+					this.add('-ability', pokemon, 'Acid Rock');
+					this.add('-immune', target);
+				} else {
+					target.setStatus('psn', pokemon);
+				}
+			}
+		},
+		name: "Acid Rock",
+		rating: 4,
+		num: -1045,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
