@@ -1574,8 +1574,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of this.getAllActive()) {
 				if (!target || !this.isAdjacent(target, pokemon) || target.status) continue;
 				if (target.hasAbility('soundproof')) {
-					this.add('-ability', pokemon, 'Acid Rock', '[from] ability: Soundproof');
-					this.add('-immune', target);
+					this.add('-ability', pokemon, 'Acid Rock');
+					this.add('-immune', target, "[from] ability: Soundproof", "[of] " + target);
 				} else if (!target.runStatusImmunity('psn')) {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target);
