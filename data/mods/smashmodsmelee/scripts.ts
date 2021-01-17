@@ -11,7 +11,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					const moveid = this.dataCache.Moves[move];
 					if (moveid.isNonstandard) {
 						console.log(moveid.isNonstandard);
-						delete this.modData('Learnsets', thisPoke).learnset.moveid;
+						delete this.modData('Learnsets', [thisPoke]).learnset.[moveid];
 					}
 				}
 			}
