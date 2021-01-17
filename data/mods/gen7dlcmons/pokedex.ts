@@ -96,7 +96,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Snoxin",
 		types: ["Ice", "Poison"],
 		gender: "N",
-		baseStats: {hp: 107, atk: 67, def: 97, spa: 73, spd: 97, spe: 129},
+		baseStats: {hp: 107, atk: 53, def: 113, spa: 53, spd: 113, spe: 131},
 		abilities: {0: "Beast Boost"},
 		heightm: 0.1,
 		weightkg: 0.7,
