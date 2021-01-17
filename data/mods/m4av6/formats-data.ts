@@ -1941,11 +1941,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
-	/*
 	exploudmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["boomburst", "clangingscales", "fireblast", "focusblast", "screech"],
+		randomDoubleBattleMoves: ["boomburst", "fireblast", "icebeam", "focusblast", "protect", "hypervoice"],
+		tier: "NUBL",
+		doublesTier: "(DUU)",
+	},
 	hariyama: {
 		randomBattleMoves: ["bulletpunch", "closecombat", "icepunch", "stoneedge", "bulkup", "knockoff"],
 		randomDoubleBattleMoves: ["bulletpunch", "closecombat", "facade", "fakeout", "knockoff", "helpinghand", "wideguard", "protect"],
@@ -4523,8 +4524,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	aurorusmega: {
-		randomBattleMoves: ["ancientpower", "blizzard", "thunderwave", "earthpower", "freezedry", "voltswitch", "stealthrock", "rapidspin", "thunderbolt"],
-		randomDoubleBattleMoves: ["hypervoice", "ancientpower", "thunderwave", "earthpower", "freezedry", "icywind", "protect"],
+		randomBattleMoves: ["blizzard", "thunderwave", "earthpower", "freezedry", "voltswitch", "rapidspin", "thunderbolt"],
+		randomDoubleBattleMoves: ["hypervoice", "thunderwave", "earthpower", "freezedry", "icywind", "protect"],
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
@@ -4670,6 +4671,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	noivern: {
 		randomBattleMoves: ["dracometeor", "hurricane", "flamethrower", "boomburst", "switcheroo", "uturn", "roost", "taunt"],
 		randomDoubleBattleMoves: ["hurricane", "dracometeor", "flamethrower", "uturn", "switcheroo", "tailwind", "taunt", "protect"],
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
+	noivernmega: {
+		randomBattleMoves: ["dracometeor", "psychic", "flamethrower", "boomburst", "encore", "uturn", "roost", "taunt"],
+		randomDoubleBattleMoves: ["psychic", "dracometeor", "flamethrower", "uturn", "encore", "tailwind", "taunt", "protect"],
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
@@ -5459,6 +5466,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	boltundmega: {
 		randomBattleMoves: ["bulkup", "crunch", "firefang", "playrough", "psychicfangs", "thunderfang", "voltswitch"],
 		randomDoubleBattleMoves: ["crunch", "firefang", "nuzzle", "playrough", "protect", "psychicfangs", "snarl", "thunderfang"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
+	toxtricitymega: {
+		randomBattleMoves: ["firepunch", "shiftgear", "thunderbolt", "venoshock", "voltswitch"],
+		randomDoubleBattleMoves: ["firepunch", "shiftgear", "overdrive", "venoshock", "voltswitch"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
+	toxtricitylowkeymega: {
+		randomBattleMoves: ["thunderbolt", "sludgebomb", "venomdrench", "slackoff", "voltswitch"],
+		randomDoubleBattleMoves: ["discharge", "sludgewave", "venomdrench", "slackoff", "voltswitch"],
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
