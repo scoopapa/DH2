@@ -1572,15 +1572,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target || !target.runStatusImmunity('psn')) continue;
-				if (!target.runStatusImmunity('psn')) {
-					if (target !== pokemon) {
-						this.add('-ability', pokemon, 'Acid Rock');
-						this.add('-immune', target);
-					}
-					continue;
-				}
-				if (target.hasAbility('soundproof')) {
+				if (!target || !this.isAdjacent(target, pokemon) || target.status) continue;
+				if (!target.runStatusImmunity('psn') || target.hasAbility('soundproof')) {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target);
 				} else {
