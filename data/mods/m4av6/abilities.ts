@@ -1580,7 +1580,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 					continue;
 				}
-				if (target.ability === 'Soundproof') {
+				if (target.hasAbility('soundproof')) {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target);
 				} else {
