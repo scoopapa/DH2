@@ -1,5 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
+/*
 		for (const id in this.dataCache.Pokedex) {
 			const poke = this.dataCache.Pokedex[id];
 			if (poke.restrictedLearnset) {
@@ -16,6 +17,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
+*/
 		this.modData('Learnsets', 'raichu').learnset.highjumpkick = ['7L1'];
 		this.modData('Learnsets', 'trubbishmarshadow').learnset.spectralresidue = ['7L1'];
 		this.modData('Learnsets', 'beheeyem').learnset.inverseroom = ['7L1'];
