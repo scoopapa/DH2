@@ -945,6 +945,21 @@ export const Formats: FormatList = [
 		name: "[Gen 8] M4A Doubles",
 		desc: ["&bullet; Megas for All v7 but it's a doubles format",
 		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: [
+			'Mewtwo', 'Lugia', 'Ho-Oh', 'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Dialga', 'Palkia', 'Giratina',
+			'Giratina-Origin', 'Arceus', 'Volcarona', 'Reshiram', 'Zekrom', 'Kyurem-Black', 'Kyurem-White', 'Xerneas',
+			'Yveltal', 'Solgaleo', 'Lunala', 'Magearna', 'Marshadow', 'Necrozma-Dusk Mane', 'Necrozma-Dawn Wings',
+			'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus', 'Urshifu', 'Calyrex-Ice', 'Calyrex-Shadow',
+		],
+		mod: 'm4av6',
+		gameType: 'doubles',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] M4A VGC",
+		desc: ["&bullet; Megas for All v7 but it's a VGC format",
+		      ],
 		gameType: 'doubles',
 		forcedLevel: 50,
 		teamLength: {
