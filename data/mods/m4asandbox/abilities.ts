@@ -1,10 +1,11 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
-		onBeforeSwitchIn(pokemon) {
+		onStart(pokemon) {
 			pokemon.addVolatile('masquerade');
 		},
 		condition: {
 			onStart(pokemon) {
+				console.log("Masquerade started on ${pokemon.name}");
 				pokemon.masquerade = null;
 				let i;
 				for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -14,19 +15,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (!pokemon.side.pokemon[i]) return;
 				if (pokemon === pokemon.side.pokemon[i]) return;
 				pokemon.masquerade = pokemon.side.pokemon[i];
+				console.log("${pokemon.name} is going to masquerade as ${pokemon.masquerade.name}");
 				const additionalBannedAbilities = [
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 				];
-				if (pokemon.masquerade.getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.masquerade.ability)) return;
+				if (pokemon.masquerade.getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.masquerade.ability)) {
+					console.log("${pokemon.name} can't masquerade because ${pokemon.masquerade.name}'s Ability is ${pokemon.masquerade.ability}");
+					return;
+				}
+				console.log("${pokemon.name} inherited ${pokemon.masquerade.ability}");
 				pokemon.setAbility(pokemon.masquerade.ability);
+				console.log("${pokemon.name}'s Ability is ${pokemon.ability}");
 			},
 			onDamagingHit(damage, target, source, move) {
 				target.setAbility('masquerade');
 				target.removeVolatile('masquerade');
+				console.log("${pokemon.name}'s Ability is ${pokemon.ability}");
 			},
 			onFaint(pokemon) {
 				pokemon.setAbility('masquerade');
 				pokemon.removeVolatile('masquerade');
+				console.log("${pokemon.name}'s Ability is ${pokemon.ability}");
 			},
 		},
 		name: "Masquerade",
