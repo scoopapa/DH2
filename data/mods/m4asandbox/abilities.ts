@@ -1,5 +1,6 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
+		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
 		onStart(pokemon) {
 			pokemon.addVolatile('masquerade');
 		},
@@ -21,12 +22,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				];
 				if (pokemon.masquerade.getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.masquerade.ability)) {
 					console.log(`${pokemon.name} can't masquerade because ${pokemon.masquerade.name}'s Ability is ${pokemon.masquerade.ability}`);
+					pokemon.setAbility('masquerade');
+					pokemon.removeVolatile('masquerade');
 					return;
 				}
 				console.log(`${pokemon.name} inherited ${pokemon.masquerade.ability}`);
 				pokemon.setAbility(pokemon.masquerade.ability);
 				this.add('-ability', pokemon, 'Masquerade');
-				this.add('-message', `${pokemon.name} inherited ${pokemon.masquerade.ability} from ${pokemon.masquerade.name}!`);
+				this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${pokemon.masquerade.name}!`);
 				this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name);
 				console.log(`${pokemon.name}'s Ability is ${pokemon.ability}`);
 			},
@@ -50,6 +53,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -5000,
 	},
 	ko: {
+		shortDesc: "Traps Pokémon with 25% HP or less.",
 		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
