@@ -1,4 +1,13 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+	luchadorsring: {
+		shortDesc: "5 turns. Grounded: Magic Coat, +crit rate, 3/2 accuracy.",
+		onStart(source) {
+			this.field.setTerrain('luchadorterrain');
+		},
+		name: "Luchador's Ring",
+		rating: 4,
+		num: -5000,
+	},
 	masquerade: {
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
 		onStart(pokemon) {
