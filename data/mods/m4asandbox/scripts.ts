@@ -6,11 +6,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Learnsets', this.toID(mon)).learnset[this.toID(move)] = ["8M"];
 			}
 		};
-		newMoves("exploud", ["clangingscales", "darkpulse", "snarl"]);
-		newMoves("toxtricity", ["frustration", "hiddenpower", "icepunch", "magnetrise", "return", "thundercage"]);
-		newMoves("toxtricitylowkey", ["frustration", "hiddenpower", "magnetrise", "return", "slackoff", "thundercage", "toxicspikes"]);
-		newMoves("noivern", ["blazekick", "calmmind", "eeriespell", "metalsound", "nobleroar", "psychic", "psychicfangs", "psyshock", "snarl", "zenheadbutt"]);
+		newMoves("hawlucha", ["pursuit", "stormthrow", "partingshot"]);
 	},
+/*
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -82,20 +80,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		return item.megaStone;
 	},
-	pokemon: {
-		isGrounded(negateImmunity = false) {
-			if ('gravity' in this.battle.field.pseudoWeather) return true;
-			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
-			if ('smackdown' in this.volatiles) return true;
-			const item = (this.ignoringItem() ? '' : this.item);
-			if (item === 'ironball') return true;
-			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
-			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return null;
-			if ('magnetrise' in this.volatiles) return false;
-			if ('telekinesis' in this.volatiles) return false;
-			if (this.side.getSideCondition('magnetrock')) return false;
-			return item !== 'airballoon';
-		}
-	}
+*/
 };
