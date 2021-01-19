@@ -659,7 +659,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Conniecord Draft League", 
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Anti-Invulnerability Mod', 'Z-Move Clause', 'Movexit Clause', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Anti-Invulnerability Mod', 'Z-Move Clause', 'Movexit Clause', 'Data Mod', 'Mega Data Mod'],
 		mod: 'conniecorddraft',
 		searchShow: false,
 		banlist: [
@@ -951,7 +951,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
-		ruleset: ['Standard GBU', 'VGC Timer', 'Mega Data Mod'],
+		ruleset: ['Standard GBU', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		minSourceGen: 7,
 		mod: 'm4av6',
 		teambuilderFormat: 'Doubles OU',
