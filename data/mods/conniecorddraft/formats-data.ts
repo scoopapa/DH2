@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	boohawk: {
+	boohawk: { 
 		tier: "CCD1",
 		doublesTier: "CCD1",
 	},
