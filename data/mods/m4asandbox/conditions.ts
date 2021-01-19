@@ -28,6 +28,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
+			this.add('-message', `${target.name} reflected the ${move.name} by using the bouncy ring to its advantage!`);
 			this.useMove(newMove, target, source);
 			return null;
 		},
@@ -47,7 +48,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (effect?.effectType === 'Ability') {
 				this.add('-fieldstart', 'move: Luchador Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				this.add('-message', "Moves used by grounded Pokémon will have their accuracy and critical hit ratio increased.");
-				this.add('-message', "Grounded Pokémon will also be protected by Magic Coat.");
+				this.add('-message', "Grounded Pokémon will also bounce back certain non-damaging moves.");
 			} else {
 				this.add('-fieldstart', 'move: Luchador Terrain');
 			}
