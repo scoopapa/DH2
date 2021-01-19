@@ -146,7 +146,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxoperetta: {
 		num: 1000,
 		accuracy: true,
-		basePower: 10,
+		basePower: 160,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		name: "",
@@ -226,7 +226,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxmoonsault: {
 		num: 1000,
 		accuracy: true,
-		basePower: 10,
+		basePower: 160,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		name: "",
@@ -258,7 +258,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxarrowraid: {
 		num: 1000,
 		accuracy: true,
-		basePower: 10,
+		basePower: 160,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		name: "",
@@ -431,7 +431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
-	gmaxgraveburier: {
+	gmaxgravedig: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
