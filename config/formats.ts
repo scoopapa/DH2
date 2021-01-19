@@ -941,6 +941,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4av6',
 	},
+/*
 	{
 		name: "[Gen 8] M4A Doubles",
 		desc: ["&bullet; Megas for All v7 but it's a doubles format",
@@ -956,6 +957,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		searchShow: false,
 	},
+*/
 	{
 		name: "[Gen 8] M4A VGC",
 		desc: ["&bullet; Megas for All v7 but it's a VGC format",
