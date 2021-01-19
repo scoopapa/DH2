@@ -1,8 +1,22 @@
 export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	hawlucha: {
 		inherit: true,
-		otherFormes: ["Hawlucha-Mega-BlueRay", "Hawlucha-Mega-Magmajudis"],
-		formeOrder: ["Hawlucha", "Hawlucha-Mega-BlueRay", "Hawlucha-Mega-Magmajudis"],
+		otherFormes: ["Hawlucha-Mega-Ausma", "Hawlucha-Mega-BlueRay", "Hawlucha-Mega-Magmajudis"],
+		formeOrder: ["Hawlucha", "Hawlucha-Mega-Ausma", "Hawlucha-Mega-BlueRay", "Hawlucha-Mega-Magmajudis"],
+	},
+	hawluchamegaausma: {
+		num: 701,
+		name: "Hawlucha-Mega-Ausma",
+		baseSpecies: "Hawlucha",
+		forme: "Mega-Ausma",
+		types: ["Fighting", "Ground"],
+		baseStats: {hp: 78, atk: 102, def: 105, spa: 74, spd: 103, spe: 128},
+		abilities: {0: "Luchador's Ring"},
+		heightm: 0.8,
+		weightkg: 21.5,
+		color: "Green",
+		eggGroups: ["Flying", "Human-Like"],
+		requiredItem: "Ausma",
 	},
 	hawluchamegablueray: {
 		num: 701,
