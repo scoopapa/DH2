@@ -281,7 +281,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	sharpstriker: {
 		desc: "This Pokémon's ballistic moves have their power multiplied by 1.5. Ballistic moves include Bullet Seed, Octazooka, Barrage, Rock Wrecker, Zap Cannon, Acid Spray, Aura Sphere, Focus Blast, and all moves with Ball or Bomb in their name.",
-		shortDesc: "This Pokémon's ballistic moves have 1.5x power (Shadow Ball, Sludge Bomb, Focus Blast, etc).",
+		shortDesc: "This Pokémon's ballistic moves have 1.5x power.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bullet']) {
@@ -294,7 +294,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	coldsweat: {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
-		shortDesc: "Summons hail on switch-in. Changes weather to rain if the foe has a supereffective or OHKO move.",
+		shortDesc: "Summons hail on switch-in. If foe has a supereffective or OHKO move, summons rain.",
 		onStart(source) {
 			this.field.setWeather('hail');
 			for (const target of source.side.foe.active) {
@@ -486,7 +486,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	twominded: {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
-		shortDesc: "Applies the opposite of every stat change to the opposite stat (Attack to Special Attack, Defense to Special Defense).",
+		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'twominded') return;
 			let activated = false;
@@ -518,7 +518,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	adrenaline: {
 		desc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and knocks out another Pokémon.",
-		shortDesc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and KOs another Pokémon.",
+		shortDesc: "After landing a KO, this Pokémon's next move is guaranteed to be a critical hit.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.addVolatile('laserfocus');
@@ -803,7 +803,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	blackmail: {
 		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
-		shortDesc: "Physical Dark moves: permanently replace target's Ability, preventing it from KOing this Pokémon. Permanently becomes Keen Eye after activating once.",
+		shortDesc: "Single-use. Physical Dark moves: permanently change target's Ability to Orderly Target.",
 		onSourceHit(target, source, move) {
 			if (!move || !target || target.side === source.side || !target.hp) return;
 			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
@@ -1054,7 +1054,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1028,
 	},
 	lusterswap: {
-		shortDesc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
+		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
+		shortDesc: "On entry: type changes to match its first move that's super effective against an adjacent opponent.",
 		onStart(pokemon) {
 			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
@@ -1096,7 +1097,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	flowergift: {
 		desc: "If this Pokémon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Mega Meganium and Sunny Day is active, the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Cherrim or a Mega Meganium and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokémon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokémon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form or Meganium is Mega Evolved, they will not receive the Attack and Special Defense boosts.",
-		shortDesc: "If user is Cherrim or Mega Meganium and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x.",
+		shortDesc: "If user is Cherrim or Mega Meganium and Sunny Day is active: 1.5x ally team Atk and Sp. Def.",
 		onStart(pokemon) {
 			delete this.effectData.forme;
 		},
@@ -1151,7 +1152,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	volcanicsinge: {
 		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
-		shortDesc: "After this Pokémon's stats are reduced, contact with its team burns the attacker. Duration depends on the stat reduction.",
+		shortDesc: "After stat reduction, contact moves burn attacker. Duration = amount of stat reduction.",
 		name: "Volcanic Singe",
 		onBoost(boost, target, source, effect) {
 			let i: BoostName;
@@ -1199,7 +1200,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	settle: {
 		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 100%. Has no effect if the same special move has been used in the last three turns.",
-		shortDesc: "When using a special move, this Pokémon uses its Attack stat, and the power is increased by 100%.",
+		shortDesc: "On using special move for the first time in at least 3 turns: move uses Atk, 2x power.",
 		name: "Settle",
 		onModifyMove(move, pokemon) {
 			let num = 0;
@@ -1448,7 +1449,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	awinterstale: {
 		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
-		shortDesc: "Damage of Ice moves used on consecutive turns is increased. Effect doubles in Hail; max 1.5x (2x in Hail) after 5 turns.",
+		shortDesc: "Damage of Ice moves used on consecutive turns is increased, max 1.5x (2x in Hail).",
 		onStart(pokemon) {
 			pokemon.addVolatile('awinterstale');
 		},
@@ -1595,7 +1596,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
-		shortDesc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns.",
+		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
 		onStart(source) {
 			if (this.field.addPseudoWeather('stickyresidues')) {
 				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
@@ -1619,7 +1620,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	elegance: {
 		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
-		shortDesc: "This Pokémon's moves have their secondary effect chance guaranteed unless it has a status or a mental affliction.",
+		shortDesc: "Secondary effects of moves are guaranteed unless it has a status or a mental affliction.",
 		onModifyMovePriority: -2,
 		onModifyMove(move, attacker) {
 			if (attacker.status) return;

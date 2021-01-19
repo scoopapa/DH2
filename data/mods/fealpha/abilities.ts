@@ -31,7 +31,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	
-	"aurevoir": { //Functional!
+	"aurevoir": { //this one looks like EXACTLY the character limit
 		shortDesc: "Switches out when it reaches 1/2 or less of its max HP and restores 1/3 of its max HP.",
 		onEmergencyExit(target) {
 			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
@@ -184,8 +184,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Passion Star",
 	},
 	
-	"volcanicity": { //Functional!
-		shortDesc: "Takes 3/4 damage from supereffective attacks. Restores 1/4 max HP when hit by Water; Water immunity.",
+	"volcanicity": { //Too long
+		shortDesc: "3/4 damage from supereffective; Restores 1/4 max HP when hit by Water; Water immunity.",
+		desc: "Takes 3/4 damage from supereffective attacks. Restores 1/4 max HP when hit by Water; Water immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -239,8 +240,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Spell Master",
 	},
 	
-	"compulsive": {//Functional!
-		shortDesc: "This Pokemon's Attack is raised by 1 stage after it flinches or is damaged by a Dark-type move.",
+	"compulsive": {//too long
+		shortDesc: "When flinched or damaged by Dark move: +1 Attack.",
+		desc: "This Pokemon's Attack is raised by 1 stage after it flinches or is damaged by a Dark-type move.",
 		onFlinch(pokemon) {
 			this.boost({atk: 1});
 		},
@@ -253,8 +255,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Compulsive",
 	},
 	
-	"badprogram": { // Functional! 
-		shortDesc: "Moves of 60 power or less; 1.5x power. If foe uses a move with 60 power or less, foe loses 1/8 maximum HP.",
+	"badprogram": { //too long
+		shortDesc: "Moves of <=60 power; 1.5x power. If foe uses <=60 power move, foe loses 1/8 max HP.",
+		desc: "Moves of 60 power or less; 1.5x power. If foe uses a move with 60 power or less, foe loses 1/8 maximum HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (basePower <= 60) {
@@ -313,8 +316,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Galvaforce",
 	},
 	
-	"pressureboost": { //Functional! 
-		shortDesc: "Moves targeting this Pokemon lose 1 extra PP. Raises highest non-HP stat when it gets a KO.",
+	"pressureboost": { //JUST BARELY too long
+		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Raises highest non-HP stat when it gets a KO.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Pressure Boost');
 		},
@@ -370,7 +373,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	// ---------------- below here is where you're editing, park; dont get lost!!!!!!! 
 	"unamused": { //Functional!
-		shortDesc: "Ignores stat changes, summons Sandstorm when taking or dealing damage.",
+		shortDesc: "Ignores stat changes. Summons Sandstorm when taking or dealing damage.",
 		id: "unamused",
 		name: "Unamused",
 		onAnyModifyBoost(boosts, pokemon) {

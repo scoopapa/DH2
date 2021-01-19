@@ -55,10 +55,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	growthveil: {
+	growthveil: { //Too long
 		id: "growthveil",
 		name: "Growth Veil",
-		shortDesc: "Restores 1/3 max HP on switch-out; ally Grass-types can't have stats lowered or status inflicted.",
+		shortDesc: "Restores 1/3 max HP on switch-out; ally Grass-types safe from enemy stat drops & status.",
+		desc: "Restores 1/3 max HP on switch-out; ally Grass-types can't have stats lowered or status inflicted.",
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
@@ -120,10 +121,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	//Set 2
-	roughresult: {
+	roughresult: { //Too long
 		id: "roughresult",
 		name: "Rough Result",
-		shortDesc: "Pokemon making contact lose 1/8 max HP; if KOed by a contact move, attacker loses 1/4 max HP.",
+		shortDesc: "Foes making contact lose 1/8 max HP; if KOed by contact, attacker loses 1/4 max HP.",
+		dsc: "Pokemon making contact lose 1/8 max HP; if KOed by a contact move, attacker loses 1/4 max HP.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
@@ -252,10 +254,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
 	},
-	kingofpowerpoints: {
+	kingofpowerpoints: {//Too long
 		id: "kingofpowerpoints",
 		name: "King of Power Points",
-		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Restores 1/3 max PP of its moves on switch-out, rounded down.",
+		shortDesc: "Moves targeting it: -1 extra PP. Restores 1/3 max PP of its moves on switch-out.",
+		desc: "Moves targeting this Pokemon lose 1 additional PP. Restores 1/3 max PP of its moves on switch-out, rounded down.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of Power Points');
 		},
