@@ -15,8 +15,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				move.accuracy *= 1.5;
 			}
 		},
-		onModifyCritRatio(critRatio) {
-			if(!attacker.isGrounded()) return;
+		onModifyCritRatio(critRatio, source) {
+			if(!source.isGrounded()) return;
 			return critRatio + 1;
 		},
 		onTryHitPriority: 1,
@@ -39,7 +39,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.add('-message', `${target.name} reflected the ${move.name} by using the bouncy ring to its advantage!`);
+			this.useMove(newMove, target, source);
 			return null;
 		},
 		onStart(battle, source, effect) {
