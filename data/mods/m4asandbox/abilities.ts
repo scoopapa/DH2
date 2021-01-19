@@ -18,14 +18,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 				];
 				if (pokemon.masquerade.getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.masquerade.ability)) return;
-				pokemon.setAbility(pokemon.masquerade.ability, pokemon);
+				pokemon.setAbility(pokemon.masquerade.ability);
 			},
 			onDamagingHit(damage, target, source, move) {
-				target.setAbility('masquerade', target);
+				target.setAbility('masquerade');
 				target.removeVolatile('masquerade');
 			},
 			onFaint(pokemon) {
-				pokemon.setAbility('masquerade', pokemon);
+				pokemon.setAbility('masquerade');
 				pokemon.removeVolatile('masquerade');
 			},
 		},
