@@ -1,8 +1,11 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	hawluchamegamagmajudis: {
+	hawluchamegaausma: {
 		tier: "Sandbox",
 	},
 	hawluchamegablueray: {
+		tier: "Sandbox",
+	},
+	hawluchamegamagmajudis: {
 		tier: "Sandbox",
 	},
 };
