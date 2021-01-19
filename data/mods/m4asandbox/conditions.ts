@@ -9,6 +9,39 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
+		onModifyMove(move, attacker) {
+			if(!attacker.isGrounded()) return;
+			if (typeof move.accuracy === 'number') {
+				move.accuracy *= 1.5;
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			if(!attacker.isGrounded()) return;
+			return critRatio + 1;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if(!target.isGrounded()) return;
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if(!target.isGrounded()) return;
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				this.add('-fieldstart', 'move: Luchador Terrain', '[from] ability: ' + effect, '[of] ' + source);
