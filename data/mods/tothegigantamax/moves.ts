@@ -135,7 +135,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				source.side.foe.addSideCondition('toxicspikes');
 				source.side.foe.addSideCondition('toxicspikes');
-				//source.side.foe.sideConditions['toxicspikes'].layers = 2;
 			},
 		},
 		ignoreImmunity: true,
