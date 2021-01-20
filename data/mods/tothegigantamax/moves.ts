@@ -5,14 +5,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Beheading",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Scyther",
+		self: {
+			onHit(source) {
+				this.add('-fieldstart', 'move: Grassy Terrain');
+			},
+		},
+		condition: {
+			duration: 5,
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Bug') {
+					this.debug('G-Max Beheading boost');
+					return this.chainModify(2);
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Bug",
 		contestType: "Cool",
 	},
 	gmaxhornsharpening: {
@@ -21,14 +36,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Horn Sharpening",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Heracross",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({spe: 1, accuracy: 1}, pokemon);
+				}
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Bug",
 		contestType: "Cool",
 	},
 	gmaxrockcrash: {
@@ -40,11 +62,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "",
 		pp: 10,
 		priority: 0,
-		flags: {},
-		isMax: "",
+		flags: {contact: 1},
+		isMax: "Lycanroc-Dusk",
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Rock",
 		contestType: "Cool",
 	},
 	gmaxanion: {
@@ -53,14 +75,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Anion",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Magnezone",
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Steel",
 		contestType: "Cool",
 	},
 	gmaxsubzerofossil: {
@@ -69,14 +94,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Subzero Fossil",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Arctozolt",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+				for (const pokemon of source.side.active) {
+					this.boost({atk: 1}, pokemon);
+				}
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	gmaxvenomousstrike: {
@@ -85,16 +120,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Venomous Strike",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Scolipede",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('toxicspikes');
+				source.side.foe..sideConditions['toxicspikes'].layers = 2;
+			},
+		},
+		ignoreImmunity: true,
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Poison",
 		contestType: "Cool",
 	},
+	/*
 	gmaxcoralcurse: {
 		num: 1000,
 		accuracy: true,
@@ -783,5 +826,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
-	
+	*/
 };

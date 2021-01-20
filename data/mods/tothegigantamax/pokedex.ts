@@ -11,7 +11,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Flying"],
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 55, spd: 80, spe: 105},
 		abilities: {0: "Swarm", 1: "Technician", H: "Steadfast"},
-		heightm: 1.5,
+		heightm: 15,
 		weightkg: 0,
 		color: "Green",
 		eggGroups: ["Bug"],
@@ -29,7 +29,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 40, spd: 95, spe: 85},
 		abilities: {0: "Swarm", 1: "Guts", H: "Moxie"},
-		heightm: 1.5,
+		heightm: 15,
 		weightkg: 0,
 		color: "Blue",
 		eggGroups: ["Bug"],
@@ -40,29 +40,75 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		canGigantamax: "G-Max Rock Crash",
 	},
 	lycanrocduskgmax: {
-		
+		num: 745,
+		name: "Lycanroc-Dusk-Gmax",
+		baseSpecies: "Lycanroc",
+		forme: "Dusk-Gmax",
+		types: ["Rock"],
+		baseStats: {hp: 75, atk: 117, def: 65, spa: 55, spd: 65, spe: 110},
+		abilities: {0: "Tough Claws"},
+		heightm: 8,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Field"],
+		battleOnly: "Lycanroc-Dusk",
+		changesFrom: "Lycanroc-Dusk",
 	},
 	magnezone: {
 		inherit: true,
 		canGigantamax: "G-Max Anion",
 	},
 	magnezonegmax: {
-		
+		num: 462,
+		name: "Magnezone-Gmax",
+		baseSpecies: "Magnezone",
+		forme: "Gmax",
+		types: ["Electric", "Steel"],
+		gender: "N",
+		baseStats: {hp: 70, atk: 70, def: 115, spa: 130, spd: 90, spe: 60},
+		abilities: {0: "Magnet Pull", 1: "Sturdy", H: "Analytic"},
+		heightm: 12,
+		weightkg: 0,
+		color: "Gray",
+		eggGroups: ["Mineral"],
+		changesFrom: "Magnezone",
 	},
 	arctozolt: {
 		inherit: true,
 		canGigantamax: "G-Max Subzero Fossil",
 	},
 	arctozoltgmax: {
-		
+		num: 881,
+		name: "Arctozolt-Gmax",
+		baseSpecies: "Arctozolt",
+		forme: "Gmax",
+		types: ["Electric", "Ice"],
+		gender: "N",
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 90, spd: 80, spe: 55},
+		abilities: {0: "Volt Absorb", 1: "Static", H: "Slush Rush"},
+		heightm: 23,
+		weightkg: 0,
+		color: "Blue",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Arctozolt",
 	},
 	scolipede: {
 		inherit: true,
 		canGigantamax: "G-Max Venomous Strike",
 	},
 	scolipedegmax: {
-		
+		num: 545,
+		name: "Scolipede",
+		types: ["Bug", "Poison"],
+		baseStats: {hp: 60, atk: 100, def: 89, spa: 55, spd: 69, spe: 112},
+		abilities: {0: "Poison Point", 1: "Swarm", H: "Speed Boost"},
+		heightm: 25,
+		weightkg: 0,
+		color: "Red",
+		eggGroups: ["Bug"],
+		changesFrom: "Scolipede",
 	},
+	/*
 	cursola: {
 		inherit: true,
 		canGigantamax: "G-Max Coral Curse",
@@ -142,6 +188,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 	},
 	*/
+	/*
 	decidueye: {
 		inherit: true,
 		canGigantamax: "G-Max Arrow Raid",
@@ -326,6 +373,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 	},
 	*/
+	/*
 	regirock: {
 		inherit: true,
 		canGigantamax: "G-Max Mountain Crash",
@@ -380,6 +428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 	},
 	*/
+	/*
 	latias: {
 		inherit: true,
 		canGigantamax: "G-Max Misty Mayhem",
@@ -394,4 +443,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rayquazagmax: {
 		
 	},
+	*/
 };
