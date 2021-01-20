@@ -1,146 +1,62 @@
 export const Conditions: {[k: string]: ConditionData} = {
-	reverberation1: {
-		duration: 4,
-		onResidualOrder: 1,
-		onResidual(pokemon) {
-			console.log(this.effectData.duration);
-			console.log(pokemon.name);
-			console.log(this.effectData.moveid);
-			if (this.effectData.duration === 2) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 8;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-				}
-			}
-			if (this.effectData.duration === 1) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 16;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-					pokemon.removeVolatile('reverberation1');
-				}
-			}
-		},
-	},
-	reverberation2: {
-		duration: 4,
-		onResidualOrder: 1,
-		onResidual(pokemon) {
-			console.log(this.effectData.duration);
-			console.log(pokemon.name);
-			console.log(this.effectData.moveid);
-			if (this.effectData.duration === 2) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 8;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-				}
-			}
-			if (this.effectData.duration === 1) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.getMove(this.effectData.moveid);
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 16;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-					pokemon.removeVolatile('reverberation2');
-				}
-			}
-		},
-	},
-	reverberation3: {
-		duration: 4,
-		onResidualOrder: 1,
-		onResidual(pokemon) {
-			console.log(this.effectData.duration);
-			console.log(pokemon.name);
-			console.log(this.effectData.moveid);
-			if (this.effectData.duration === 2) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 8;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-				}
-			}
-			if (this.effectData.duration === 1) {
-				if (pokemon.hasAbility('reverberation')) {
-					let move = this.dex.deepClone(this.dex.getMove(this.effectData.moveid));
-					console.log("Reverberating turn 1 of " + move.name);
-					move.basePower /= 16;
-					console.log("Base power is "+ move.basePower);
-					const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-					if (possibleTargets.length) {
-						let rand = 0;
-						if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-						const target = possibleTargets[rand];
-						pokemon.addVolatile('reverberation');
-						this.useMove(move, pokemon, target, "[from] ability: Reverberation");
-						pokemon.removeVolatile('reverberation');
-					}
-					pokemon.removeVolatile('reverberation3');
-				}
-			}
-		},
-	},
-	acidicterrain: {
-		inherit: true,
+	luchadorterrain: {
+		name: 'Luchador Terrain',
+		effectType: 'Terrain',
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('terrainextender')) {
-				 return 8;
-			}
-			if (source?.hasAbility('acidrock')) {
-				 return 0;
+				return 8;
 			}
 			return 5;
 		},
-	},
+		onModifyMove(move, attacker) {
+			if(!attacker.isGrounded()) return;
+			if (typeof move.accuracy === 'number') {
+				move.accuracy *= 1.5;
+			}
+		},
+		onModifyCritRatio(critRatio, source) {
+			if(!source.isGrounded()) return;
+			return critRatio + 1;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if(!target.isGrounded()) return;
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.add('-message', `${target.name} reflected the ${move.name} by using the bouncy ring to its advantage!`);
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if(!target.isGrounded()) return;
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.add('-message', `${target.name} reflected the ${move.name} by using the bouncy ring to its advantage!`);
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				this.add('-fieldstart', 'move: Luchador Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-message', "Moves used by grounded Pokémon will have their accuracy and critical hit ratio increased.");
+				this.add('-message', "Grounded Pokémon will also bounce back certain non-damaging moves.");
+			} else {
+				this.add('-fieldstart', 'move: Luchador Terrain');
+			}
+		},
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd() {
+			this.add('-fieldend', 'move: Luchador Terrain');
+		},
+ 	},
 };

@@ -1,171 +1,82 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	quakingboom: {
-		shortDesc: "Follows up sound moves with an Earthquake of 60 BP.",
-		name: "Quaking Boom",
-		onSourceHit(target, source, move) {
-			if (!move || !target || !target.hp) return;
-			if (target !== source && target.hp && move.flags['sound']) {
-				source.addVolatile('quakingboom');
-				this.useMove('earthquake', source);
-			}
-		},
-		rating: 3,
-		num: -5000,
-	},
-	reverberation: {
-		shortDesc: "Sound moves echo over the following two turns.",
-		name: "Reverberation",
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (target !== source && move.flags['sound']) {
-				if (source.volatiles['reverberation']) {
-					console.log("Source is echoing, so no need to make a new echo for " + move.name);
-					return;
-				}
-				if (!source.volatiles['reverberation1']) {
-					console.log("Setting " + move.name + "to fill the first reverb slot");
-					source.addVolatile('reverberation1')
-					source.volatiles['reverberation1'].moveid = move.id;
-				} else if (!source.volatiles['reverberation2']) {
-					console.log("Setting " + move.name + "to fill the second reverb slot");
-					source.addVolatile('reverberation2')
-					source.volatiles['reverberation2'].moveid = move.id;
-				} else if (!source.volatiles['reverberation3']) {
-					console.log("Setting " + move.name + "to fill the third reverb slot");
-					source.addVolatile('reverberation3')
-					source.volatiles['reverberation3'].moveid = move.id;
-				}
-			}
-		},
-		rating: 3,
-		num: -5000,
-	},
-	acidrock: {
-		desc: "On switch-in, the field becomes Acidic Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
-		shortDesc: "On switch-in, Acidic Terrain begins until this Ability is not active in battle.",
+	luchadorsring: {
+		shortDesc: "5 turns. Grounded: Magic Coat, +crit rate, 3/2 accuracy.",
 		onStart(source) {
-			this.field.clearTerrain();
-			this.field.setTerrain('acidicterrain');
+			this.field.setTerrain('luchadorterrain');
 		},
-		onAnyTerrainStart(target, source, terrain) {
-			if (!source.hasAbility('arenarock') && !source.hasAbility('acidrock')) {
-				this.field.setTerrain('acidicterrain');
-			}
-		},
-		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('acidicterrain')) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('acidrock')) {
-					this.field.terrainData.source = target;
-					return;
-				}
-			}
-			this.field.clearTerrain();
-		},
-		name: "Acid Rock",
-		rating: 3,
+		name: "Luchador's Ring",
+		rating: 4,
 		num: -5000,
 	},
-	arenarock: {
-		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
-		shortDesc: "On switch-in, Grassy Terrain begins until this Ability is not active in battle.",
-		onStart(source) {
-			this.field.clearTerrain();
-			this.field.setTerrain('grassyterrain');
-		},
-		onAnyTerrainStart(target, source, terrain) {
-			if (!source.hasAbility('arenarock') && !source.hasAbility('acidrock')) {
-				this.field.setTerrain('grassyterrain');
-			}
-		},
-		onEnd(pokemon) {
-			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('arenarock')) {
-					this.field.terrainData.source = target;
-					return;
-				}
-			}
-			this.field.clearTerrain();
-		},
-		name: "Arena Rock",
-		rating: 4.5,
-		num: -1004,
-	},
-	magnetrock: {
-		shortDesc: "Electric moves create a new field effect for the team.",
-		name: "Magnet Rock",
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (move.type === 'Electric') {
-				source.side.addSideCondition('magnetrock');
-				source.side.sideConditions['magnetrock'].source = source;
-			}
-		},
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (this.effectData.target.side.getSideCondition('magnetrock')) {
-				if (!move.ignoreImmunity) move.ignoreImmunity = {};
-				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Electric'] = true;
-				}
-			}
+	masquerade: {
+		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
+		onStart(pokemon) {
+			pokemon.addVolatile('masquerade');
 		},
 		condition: {
-			duration: 5,
-			onRestart(side) {
-				this.effectData.duration = 5;
-				this.add('-message', `The electromagnetism around ${this.effectData.source.name}'s team was recharged!`);
+			onStart(pokemon) {
+				console.log(`Masquerade started on ${pokemon.name}`);
+				pokemon.masquerade = null;
+				let i;
+				for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+					if (!pokemon.side.pokemon[i]) continue;
+					if (!pokemon.side.pokemon[i].fainted) break;
+				}
+				if (!pokemon.side.pokemon[i]) return;
+				if (pokemon === pokemon.side.pokemon[i]) return;
+				pokemon.masquerade = pokemon.side.pokemon[i];
+				console.log(`${pokemon.name} is going to masquerade as ${pokemon.masquerade.name}`);
+				const additionalBannedAbilities = [
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+				];
+				if (pokemon.masquerade.getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.masquerade.ability)) {
+					console.log(`${pokemon.name} can't masquerade because ${pokemon.masquerade.name}'s Ability is ${pokemon.masquerade.ability}`);
+					pokemon.setAbility('masquerade');
+					pokemon.removeVolatile('masquerade');
+					return;
+				}
+				console.log(`${pokemon.name} inherited ${pokemon.masquerade.ability}`);
+				pokemon.setAbility(pokemon.masquerade.ability);
+				this.add('-ability', pokemon, 'Masquerade');
+				this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${pokemon.masquerade.name}!`);
+				this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name);
+				console.log(`${pokemon.name}'s Ability is ${pokemon.ability}`);
 			},
-			onStart(side) {
-				this.add('-message', `${this.effectData.target.name}'s team is levitating with electromagnetism!`);
-				this.add('-message', `Pokémon with Magnet Rock can bypass immunities to Electric-type moves!`);
+			onDamagingHit(damage, target, source, move) {
+				target.setAbility('masquerade');
+				target.removeVolatile('masquerade');
+				this.add('-ability', target, 'Masquerade');
+				this.add('-message', `${target.name}'s Masquerade wore off!`);
+				console.log(`${target.name}'s Ability is ${target.ability}`);
 			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onResidualOrder: 15,
-			onEnd(side) {
-				this.add('-message', `${this.effectData.source.name}'s team is no longer levitating!`);
+			onFaint(pokemon) {
+				pokemon.setAbility('masquerade');
+				pokemon.removeVolatile('masquerade');
+				this.add('-ability', pokemon, 'Masquerade');
+				this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
+				console.log(`${pokemon.name}'s Ability is ${pokemon.ability}`);
 			},
 		},
+		name: "Masquerade",
 		rating: 3,
 		num: -5000,
 	},
-	ascendingkey: {
-		shortDesc: "Sound moves: raise target's Sp. Def before, sharply raise user's Sp. Atk after.",
-		name: "Ascending Key",
-		onSourceTryHit(target, source, move) {
-			if (move.flags['sound']) {
-				this.boost({spd: 1}, target);
+	ko: {
+		shortDesc: "Traps Pokémon with 25% HP or less.",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
 			}
 		},
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (move.flags['sound']) {
-				this.boost({spa: 2}, source);
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.maybeTrapped = true;
 			}
 		},
-		rating: 3,
-		num: -5000,
-	},
-	descendingkey: {
-		shortDesc: "Sound moves: lower target's Sp. Def before, sharply lower user's Sp. Atk after.",
-		name: "Descending Key",
-		onSourceTryHit(target, source, move) {
-			if (move.flags['sound']) {
-				this.boost({spd: -1}, target);
-			}
-		},
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (move.flags['sound']) {
-				this.boost({spa: -2}, source);
-			}
-		},
-		rating: 3,
+		name: "KO",
+		rating: 4,
 		num: -5000,
 	},
 };
