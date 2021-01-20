@@ -12,7 +12,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isMax: "Scyther",
 		self: {
 			onHit(source) {
-				this.add('-fieldstart', 'move: G-Max Beheading');
+				this.field.setTerrain('gmaxbeheading');
 			},
 		},
 		condition: {
