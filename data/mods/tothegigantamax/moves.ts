@@ -27,6 +27,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(battle, source, effect) {
 				this.add('-fieldstart', 'move: G-Max Beheading');
 			},
+			onEnd() {
+				this.add('-fieldend', 'move: G-Max Beheading');
+			},
 		},
 		secondary: null,
 		target: "adjacentFoe",
