@@ -34,7 +34,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Bug",
-		contestType: "Cool",
+		contestType: "Tough",
 	},
 	gmaxhornsharpening: {
 		num: 1000,
@@ -57,7 +57,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "adjacentFoe",
 		type: "Bug",
-		contestType: "Cool",
+		contestType: "Tough",
 	},
 	gmaxrockcrash: {
 		num: 1000,
@@ -92,7 +92,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Steel",
-		contestType: "Cool",
+		contestType: "Clever",
 	},
 	gmaxsubzerofossil: {
 		num: 1000,
@@ -141,24 +141,68 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Poison",
-		contestType: "Cool",
+		contestType: "Clever",
 	},
-	/*
 	gmaxcoralcurse: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Coral Curse",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Cursola",
+		volatileStatus: 'gmaxcoralcurse',
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					if (source.volatiles['gmaxcoralcurse']) return;
+					pokemon.addVolatile('gmaxcoralcurse');
+				}
+			},
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				return 5;
+			},
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: G-Max Coral Curse');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: G-Max Coral Curse', move);
+					return false;
+				}
+			},
+			onResidualOrder: 17,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: G-Max Coral Curse');
+			},
+			onTryHeal(damage, target, source, effect) {
+				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
+				return false;
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Ghost",
+		contestType: "Beautiful",
 	},
 	gmaxconstructionhazards: {
 		num: 1000,
@@ -166,47 +210,107 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Construction Hazards",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Excadrill",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('spikes');
+				source.side.foe.addSideCondition('stealthrock');
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Ground",
+		contestType: "Tough",
 	},
+	/*
 	gmaxdarkerpursuit: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Darker Pursuit",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Tyranitar",
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('pursuit', pokemon);
+				const data = side.getSideConditionData('pursuit');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('pursuit');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Pursuit');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('pursuit', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Dark",
 		contestType: "Cool",
 	},
+	*/
 	gmaxoperetta: {
 		num: 1000,
 		accuracy: true,
 		basePower: 160,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Operetta",
 		pp: 10,
 		priority: 0,
-		flags: {},
-		isMax: "",
+		flags: {sound: 1},
+		isMax: "Primarina",
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Fairy",
+		contestType: "Beautiful",
 	},
 	gmaxdoomsday: {
 		num: 1000,
@@ -214,16 +318,41 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Doomsday",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Jirachi",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (!pokemon.side.addSlotCondition(pokemon, 'futuremove')) return false;
+					Object.assign(pokemon.side.slotConditions[pokemon.position]['futuremove'], {
+						move: 'doomdesire',
+						source: source,
+						moveData: {
+							id: 'doomdesire',
+							name: "Doom Desire",
+							accuracy: 100,
+							basePower: 140,
+							category: "Special",
+							priority: 0,
+							flags: {},
+							effectType: 'Move',
+							isFutureMove: true,
+							type: 'Steel',
+						},
+					});
+					this.add('-start', source, 'Doom Desire');
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Steel",
 		contestType: "Cool",
 	},
+	/*
 	gmaxkaleidoscope: {
 		num: 1000,
 		accuracy: true,
