@@ -12,7 +12,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isMax: "Scyther",
 		self: {
 			onHit(source) {
-				this.add('-fieldstart', 'move: Grassy Terrain');
+				this.add('-fieldstart', 'move: G-Max Beheading');
 			},
 		},
 		condition: {
@@ -59,7 +59,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Rock Crash",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1},
@@ -128,7 +128,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('toxicspikes');
-				source.side.foe..sideConditions['toxicspikes'].layers = 2;
+				source.side.foe.addSideCondition('toxicspikes');
+				//source.side.foe.sideConditions['toxicspikes'].layers = 2;
 			},
 		},
 		ignoreImmunity: true,
