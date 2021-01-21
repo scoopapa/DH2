@@ -1369,7 +1369,26 @@ export const Formats: FormatList = [
 		onMegaEvo(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
 		},
-	},			
+	},		
+	{
+		name: "[Gen 8] To The Gigantamax AG",
+		teambuilderFormat: 'AG',
+		mod: 'tothegigantamax',
+		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+	},
+	{
+		name: "[Gen 8] To The Gigantamax VGC",
+		
+		mod: 'tothegigantamax',
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['Standard GBU', 'VGC Timer'],
+		minSourceGen: 8,
+	},	
 	{
 		name: "[Gen 8] Twisted Pokemon",
 		desc: `You can Twist the Pokemon switching in, changing its type between two predetermined typings.`,

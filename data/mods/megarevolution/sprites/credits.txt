@@ -1,0 +1,5 @@
+All of these sprites are the Smogon Sprite Project's sprites for the Gen 6 Mega Evolutions. 
+
+A few of them were tweaked by inkbug, because they were obviously unfinished and it was driving him mad. The edited sprites are: 
+* Garchomp-Mega (Scawsert) - backsprite 
+* Medicham-Mega (Mediscend) - backsprite
