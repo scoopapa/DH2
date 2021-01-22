@@ -988,15 +988,7 @@ export class ModdedDex {
 					// all
 					'allpokemon', 'allitems', 'allmoves', 'allabilities', 'allnatures',
 				];
-				if (validTags.includes(ruleid)) { 
-					matches.push('pokemontag:' + ruleid);
-					continue;
-				}
-				table = this.data.FormatsData;
-				for (const speciesid in table) {
-					console.log(speciesid);
-					if (ruleid === toID(table[speciesid].tier) || ruleid === toID(table[speciesid].doublesTier)) matches.push('pokemontag:' + ruleid);
-				}
+				if (validTags.includes(ruleid)) matches.push('pokemontag:' + ruleid);
 				continue;
 			default:
 				throw new Error(`Unrecognized match type.`);
@@ -1019,6 +1011,10 @@ export class ModdedDex {
 		}
 		if (matches.length > 1) {
 			throw new Error(`More than one thing matches "${rule}"; please specify one of: ` + matches.join(', '));
+		}
+		const table = this.data.FormatsData;
+		for (const speciesid in table) {
+			if (ruleid === toID(table[speciesid].tier) || ruleid === toID(table[speciesid].doublesTier)) matches.push('pokemontag:' + ruleid);
 		}
 		if (matches.length < 1) {
 			throw new Error(`Nothing matches "${rule}"`);
