@@ -111,4 +111,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	stonjourner: {
 		tier: "CS2",
 	},
+	coalossal: {
+		tier: "CS2",
+	},
+	starmie: {
+		tier: "CS2",
+	},
+	armaldo: {
+		tier: "CS2",
+	},
+	regieleki: {
+		tier: "CS2",
+	},
 };

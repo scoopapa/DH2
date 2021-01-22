@@ -310,5 +310,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 103, atk: 79, def: 103, spa: 139, spd: 103, spe: 103},
 		abilities: {0: "Mold Breaker", 1: "Beast Boost"},
 	},
-	
+	regieleki: {
+		inherit: true,
+		name: "Regieleki",
+		types: ["Electric"],
+		baseStats: {hp: 80, atk: 120, def: 50, spa: 50, spd: 100, spe: 200},
+		abilities: {0: "Storm Drain", 1: "Sturdy", H:"Regenerator"},
+	},
+	starmie: {
+		inherit: true,
+		name: "Starmie",
+		types: ["Water", "Psychic"],
+		baseStats: {hp: 65, atk: 75, def: 125, spa: 111, spd: 125, spe: 109},
+		abilities: {0: "Analytic", 1: "Regenerator", H:"Abyssal Light"},
+	},
+	coalossal: {
+		inherit: true,
+		name: "Coalossal",
+		types: ["Rock", "Fire"],
+		baseStats: {hp: 125, atk: 135, def: 140, spa: 110, spd: 110, spe: 30},
+		abilities: {0: "Steam Engine", 1: "Rock Head", H:"Water Absorb"},
+	},
+	armaldo: {
+		inherit: true,
+		name: "Coalossal",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 95, atk: 130, def: 110, spa: 60, spd: 100, spe: 95},
+		abilities: {0: "Water Veil", 1: "Scrappy", H:"Sand Rush"},
+	},
 };
