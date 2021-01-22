@@ -1012,10 +1012,6 @@ export class ModdedDex {
 		if (matches.length > 1) {
 			throw new Error(`More than one thing matches "${rule}"; please specify one of: ` + matches.join(', '));
 		}
-		const table = this.data.FormatsData;
-		for (const speciesid in table) {
-			if (ruleid === toID(table[speciesid].tier) || ruleid === toID(table[speciesid].doublesTier)) matches.push('pokemontag:' + ruleid);
-		}
 		if (matches.length < 1) {
 			throw new Error(`Nothing matches "${rule}"`);
 		}

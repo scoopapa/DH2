@@ -682,7 +682,8 @@ export const Formats: FormatList = [
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
 					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
-		banlist: ['Uber', 'EX'],
+		banlist: ['Uber'],
+		teambuilderBans: ['EX'],
 		mod: 'crossoverchaos',
 		teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
@@ -703,7 +704,8 @@ export const Formats: FormatList = [
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
 					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
-		banlist: ['Uber', 'V2'],
+		banlist: ['Uber'],
+		teambuilderBans: ['V2'],
 		mod: 'crossoverchaos',
 		teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
