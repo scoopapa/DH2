@@ -996,6 +996,7 @@ export class ModdedDex {
 				for (const speciesid in table) {
 					if (ruleid === toID(table[speciesid].tier) || ruleid === toID(table[speciesid].doublesTier)) matches.push('pokemontag:' + ruleid);
 				}
+				continue;
 			default:
 				throw new Error(`Unrecognized match type.`);
 			}
