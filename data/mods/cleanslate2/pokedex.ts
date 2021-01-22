@@ -334,7 +334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	armaldo: {
 		inherit: true,
-		name: "Coalossal",
+		name: "Armaldo",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 95, atk: 130, def: 110, spa: 60, spd: 100, spe: 95},
 		abilities: {0: "Water Veil", 1: "Scrappy", H:"Sand Rush"},
