@@ -156,7 +156,9 @@ export const Formats: {[k: string]: FormatData} = {
 			if (set.moves) {
 				for (const id of set.moves) {
 					const move = this.dex.getMove(id);
-					if (move.isNonstandard && move.isNonstandard === 'Past') problems.push(move.name + ' does not exist in Gen 8.');
+					if (
+						move.isNonstandard && move.isNonstandard === 'Past' && (move.name !== 'Hyper Fang' || set.species !== 'Scout')
+					) problems.push(move.name + ' does not exist in Gen 8.');
 				}
 			}
 			return problems;
