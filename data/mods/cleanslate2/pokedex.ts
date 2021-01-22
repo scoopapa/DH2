@@ -326,6 +326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	coalossal: {
 		inherit: true,
+		prevo: null,
 		name: "Coalossal",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 125, atk: 135, def: 140, spa: 110, spd: 110, spe: 30},
