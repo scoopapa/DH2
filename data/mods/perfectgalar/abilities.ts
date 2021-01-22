@@ -224,7 +224,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	quickdraw: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move.flags['bullet']) {
+			if (move.flags['bullet'] && pokemon.activeMoveActions <= 1) {
 				return priority + 1;
 			}
 		},
