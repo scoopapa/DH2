@@ -988,8 +988,14 @@ export class ModdedDex {
 					// all
 					'allpokemon', 'allitems', 'allmoves', 'allabilities', 'allnatures',
 				];
-				if (validTags.includes(ruleid)) matches.push('pokemontag:' + ruleid);
-				continue;
+				if (validTags.includes(ruleid)) { 
+					matches.push('pokemontag:' + ruleid);
+					continue;
+				}
+				table = this.data.FormatsData;
+				for (const speciesid in table) {
+					if (ruleid === toID(table[speciesid].tier) || ruleid === toID(table[speciesid].doublesTier)) matches.push('pokemontag:' + ruleid);
+				}
 			default:
 				throw new Error(`Unrecognized match type.`);
 			}
