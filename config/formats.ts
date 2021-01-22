@@ -558,9 +558,6 @@ export const Formats: FormatList = [
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 
 					'Baton Pass Clause', 'Standard NatDex', 'Data Mod'],
 		mod: 'breedingvariants',
-		onSwitchIn: function (pokemon) {
-            this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
-        },
   	},
 	{
 		name: "[Gen 8] CCAPM 2020",
@@ -748,7 +745,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-			'All Pokemon', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
+			'All Pokemon', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Data Mod'
 		],
 		unbanlist: [
 			'Rowlet', 'Dartrix', 'Decidueye', 'Litten', 'Torracat', 'Incineroar', 'Popplio', 'Brionne', 'Primarina', 'Pikipek', 'Trumbeak', 'Toucannon', 'Yungoos', 'Gumshoos',
@@ -785,11 +782,6 @@ export const Formats: FormatList = [
 			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish', 'Krabby', 'Kingler',
 			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 		],
-		onSwitchIn(pokemon) {
-			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
 		mod: 'gen7dlcmons',
 		teambuilderFormat: 'OU',
 	},
@@ -836,11 +828,6 @@ export const Formats: FormatList = [
 			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish', 'Krabby', 'Kingler',
 			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 		],
-		onSwitchIn(pokemon) {
-			if (['plubia', 'snoxin', 'komodond', 'anglevolt', 'thundigeist', 'forsnaken', 'tapukokokinolau', 'tapulelekinolau', 'tapubulukinolau', 'tapufinikinolau', 'chindle', 'chaldera', 'flarenix', 'firmlio', 'irotyke', 'coyotalloy', 'tikilohi'].includes(pokemon.species.id)) {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
 		gameType: 'doubles',
 		forcedLevel: 50,
 		teamLength: {
@@ -1123,9 +1110,6 @@ export const Formats: FormatList = [
 		mod: 'megarevolution',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
-		onSwitchIn: function (pokemon) {
-            this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
-        },
 	},
 	{
 		name: "[Gen 8] More Balanced Hackmons",
