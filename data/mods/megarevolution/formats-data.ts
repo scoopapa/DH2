@@ -53,4 +53,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	gnashark: {
 		tier:'OU',
 	},
+	dimster: {
+		tier:'OU',
+	},
+	kangatwo: {
+		tier:'OU',
+	},
+	kylario: {
+		tier:'OU',
+	},
 };
