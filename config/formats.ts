@@ -682,10 +682,7 @@ export const Formats: FormatList = [
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
 					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
-		banlist: ['Uber', 'Arceus', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega',
-			'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
-			'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa',
-			'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom'],
+		banlist: ['Uber' 'EX'],
 		mod: 'crossoverchaos',
 		teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
@@ -706,10 +703,7 @@ export const Formats: FormatList = [
 		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
 					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 
 					'Swagger Clause', 'Baton Pass Clause', 'Obtainable', 'Standard NatDex', 'Dynamax Clause'],
-		banlist: ['Uber', 'Arceus', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega',
-			'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
-			'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa',
-			'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom'],
+		banlist: ['Uber', 'V2'],
 		mod: 'crossoverchaos',
 		teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
