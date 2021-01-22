@@ -269,6 +269,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Machamp
 		this.modData('Learnsets', 'machamp').learnset.gunkshot = ['8L1'];
 		this.modData('Learnsets', 'machamp').learnset.powerwhip = ['8L1'];
+		
+		//Clefable
+		this.modData('Learnsets', 'cleffa').learnset.wish = ["7E", "6E", "5E", "4E", "3E"];
+		
+		//Vespiquen
+		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ["8L1"];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {
