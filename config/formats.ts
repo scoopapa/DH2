@@ -586,7 +586,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if ( template.tier !== 'CS2' ) {
+				if (template.tier !== 'CS2' && template.tier !== 'NotCS') {
 					return [set.species + ' is not useable in Clean Slate 2.'];
 				}
 			}
