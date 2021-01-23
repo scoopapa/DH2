@@ -494,7 +494,7 @@ export const Learnsets = {
 		mudsport: ["7E", "6E", "5E"],
 		refresh: ["7E", "6E", "5E"],
 	}},
-	snorlaxgmax: {learnset: {
+	snorlax: {learnset: {
 		afteryou: ["8T", "8E", "6T", "6E", "5T", "5E"],
 		amnesia: ["8M", "8L36", "8L9", "8V", "6L9", "5D", "5L9", "4L9", "3L5"],
 		aromatherapy: ["8L1"],
