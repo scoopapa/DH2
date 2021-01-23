@@ -339,4 +339,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 130, def: 110, spa: 60, spd: 100, spe: 95},
 		abilities: {0: "Water Veil", 1: "Scrappy", H:"Sand Rush"},
 	},
+	snorlax: {
+		inherit: true,
+		otherFormes: null,
+	},
 };
