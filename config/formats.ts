@@ -592,8 +592,6 @@ export const Formats: FormatList = [
 			}
 		},
 		onModifySpecies(species, target, source, effect) {
-			console.log(species);
-			console.log(this.unownStats);
 			if (this.unownStats) {
 				let stats = this.unownStats[ species.id ];
 				if (stats) {
