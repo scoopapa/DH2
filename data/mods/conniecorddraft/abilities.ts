@@ -150,6 +150,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	viciousjaw: {
 		name: "Vicious Jaw",
 		num: -1008,
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify([0x1400, 0x1000]);
+			}
+		},
 		onSourceHit(target, source, move) {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && move.flags['bite']) {
@@ -172,7 +178,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'ability: Vicious Jaw', '[silent]');
 			},
 		},
-		shortDesc: "On landing a biting move, inflicts Bleed (1/16 max HP for 4 turns).",
+		shortDesc: "Biting moves: 1.25x damage, inflict Bleed (1/16 max HP for 4 turns).",
 	},
 	playtime: {
 		name: "Playtime",
