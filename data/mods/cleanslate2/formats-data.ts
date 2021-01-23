@@ -40,7 +40,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CS2",
 	},
 	snorlax: {
-		tier: "CS2",
+		tier: "NotCS",
 	},
 	walrein: {
 		tier: "CS2",
