@@ -123,7 +123,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: -1003,
 		name: "Neuroboxin",
 		types: ["Poison", "Fighting"],
-		baseStats: {hp: 74, atk: 85, def: 96, spa: 72, spd: 81, spe: 109},
+		baseStats: {hp: 114, atk: 72, def: 96, spa: 85, spd: 81, spe: 109},
 		abilities: {0: "Infiltrator", 1: "Sticky Hold", H: "Trace"},
 		heightm: 1.6,
 		weightkg: 39,

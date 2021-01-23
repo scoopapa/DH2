@@ -202,6 +202,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swagger: ["8L1"],
 			flatter: ["8L1"],
 			trick: ["8L1"],
+			flipturn: ["8L1"],
+			lightscreen: ["8L1"],
+			recover: ["8L1"],
+			reflect: ["8L1"],
+			defog: ["8L1"],
 		},
 	},
 	boohawk: {
