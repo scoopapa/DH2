@@ -1676,13 +1676,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onStart(pokemon) {
 				const action = this.queue.willMove(pokemon);
 				if (action) {
-					this.queue.prioritizeAction(action);
 					this.add('-ability', pokemon, 'Coup de Grass');
 					this.add('-message', `${pokemon.name} prepared to move immediately!`);
 				}
 			},
-			onEnd(pokemon) {
-				console.log("Coup de Grass ended");
+			onModifyPriority(priority) {
+				return priority + 1;
 			},
 		},
 		name: "Coup de Grass",
