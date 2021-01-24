@@ -1681,7 +1681,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 			onModifyPriority(priority) {
-				return priority + 1;
+				return priority + 0.1;
 			},
 		},
 		name: "Coup de Grass",
