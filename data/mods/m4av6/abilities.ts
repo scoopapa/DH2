@@ -1663,27 +1663,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	coupdegrass: {
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
 		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
-		onModifyMove(source, target, move) {
-			if (!target) {
-				console.log("Returning for lack of target");
-				return;
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!action.move.spreadHit && target.hp <= target.maxhp / 2) {
+				pokemon.addVolatile('coupdegrass');
 			}
-			console.log("Target exists");
-			if (!move.spreadHit && target.hp <= target.maxhp / 2) {
-				console.log("Criteria met; trying to boost priority");
-				move.priority += 0.1;
-				console.log(move.priority);
-			}
-			console.log("Criteria not met");
 		},
-		// this part might be completely unnecessary but I think it makes the Ability more intuitive
-		onBeforeMovePriority: 0.5,
-		onBeforeMove(attacker, defender, move) {
-			if (!defender) return;
-			if (!move.spreadHit && defender.hp <= defender.maxhp / 2) {
-				this.add('-ability', attacker, 'Coup de Grass');
-				this.add('-message', `${attacker.name} moves more quickly with Coup de Grass!`);
-			}
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-ability', pokemon, 'Coup de Grass');
+				this.add('-message', `${pokemon.name} prepared to move immediately!`);
+			},
+			onFractionalPriorityPriority: -1,
+			onFractionalPriority(priority, pokemon, target, move) {
+				console.log("Coup de Grass activating priority");
+				return 0.1;
+			},
+			onEnd(pokemon) {
+				console.log("Coup de Grass ended");
+			},
 		},
 		name: "Coup de Grass",
 		rating: 3,
