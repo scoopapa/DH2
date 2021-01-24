@@ -1665,6 +1665,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
 		onUpdate(pokemon) {
 			const action = this.queue.willMove(pokemon);
+			console.log(`Coup de Grass action is this: ${action}`);
+			console.log(action.target);
 			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 			if (!action.move.spreadHit && target.hp <= target.maxhp / 2) {
 				pokemon.addVolatile('coupdegrass');
