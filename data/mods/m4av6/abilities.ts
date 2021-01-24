@@ -1594,16 +1594,32 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1045,
 	},
-	bodyofwater: {
-		desc: "When this Pokémon uses a Water-type attack, damage is calculated using the user's Defense stat as its Attack or its Special Defense as its Special Attack, including stat stage changes. Other effects that modify the Attack and Special Attack stats are used as normal.",
-		shortDesc: "Water-type attacks use Def as Atk and Sp. Def as Sp. Atk in damage calculation.",
-		name: "Body of Water",
-		onModifyMove(move, attacker) {
-			if (move.type === 'Water') {
-				move.useSourceDefensiveAsOffensive = true;
+	coupdegrass: {
+		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!action.move.spreadHit && target.hp <= target.maxhp / 2) {
+				pokemon.addVolatile('coupdegrass');
 			}
 		},
-		rating: 3.5,
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Coup de Grass');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		name: "Coup de Grass",
+		rating: 3,
 		num: -1046,
 	},
 	masquerade: {
@@ -1660,32 +1676,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1047,
 	},
-	coupdegrass: {
-		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
-		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
-		onUpdate(pokemon) {
-			const action = this.queue.willMove(pokemon);
-			if (!action) return;
-			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
-			if (!action.move.spreadHit && target.hp <= target.maxhp / 2) {
-				pokemon.addVolatile('coupdegrass');
+	bodyofwater: {
+		desc: "When this Pokémon uses a Water-type attack, damage is calculated using the user's Defense stat as its Attack or its Special Defense as its Special Attack, including stat stage changes. Other effects that modify the Attack and Special Attack stats are used as normal.",
+		shortDesc: "Water-type attacks use Def as Atk and Sp. Def as Sp. Atk in damage calculation.",
+		name: "Body of Water",
+		onModifyMove(move, attacker) {
+			if (move.type === 'Water') {
+				move.useSourceDefensiveAsOffensive = true;
 			}
 		},
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				const action = this.queue.willMove(pokemon);
-				if (action) {
-					this.add('-ability', pokemon, 'Coup de Grass');
-					this.add('-message', `${pokemon.name} prepared to move immediately!`);
-				}
-			},
-			onModifyPriority(priority) {
-				return priority + 0.1;
-			},
-		},
-		name: "Coup de Grass",
-		rating: 3,
+		rating: 3.5,
 		num: -1048,
 	},
 	stickyresidues: {
