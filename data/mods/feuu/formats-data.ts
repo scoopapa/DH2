@@ -55,4 +55,40 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+	//Slate 3
+	pigapult: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	silvino: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	silvinomega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	lycanserkerdusk: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	tapulop: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	tapulopmega: {
+		tier: "FEUUber",
+		doublesTier: "DUber",
+	},
+	
+	dragontler: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	eternabat: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+	
 }; 

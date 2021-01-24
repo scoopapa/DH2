@@ -292,4 +292,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	
+	//set 3
+	nullsystem: {
+		id: "nullsystem",
+		name: "Null System",
+		shortDesc: "This Pokemon can be any type (selected in teambuilder)."
+	},
 };
