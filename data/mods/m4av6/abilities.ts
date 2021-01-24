@@ -1663,11 +1663,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	coupdegrass: {
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
 		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
-		onModifyPriority(priority, source, target, move) {
-			if (!target) return;
-			if (!move.spreadHit && target.hp <= target.maxhp / 2) {
-				return priority + 0.1;
+		onModifyMove(source, target, move) {
+			if (!target) {
+				console.log("Returning for lack of target");
+				return;
 			}
+			console.log("Target exists");
+			if (!move.spreadHit && target.hp <= target.maxhp / 2) {
+				console.log("Criteria met; trying to boost priority");
+				move.priority += 0.1;
+				console.log(move.priority);
+			}
+			console.log("Criteria not met");
 		},
 		// this part might be completely unnecessary but I think it makes the Ability more intuitive
 		onBeforeMovePriority: 0.5,
