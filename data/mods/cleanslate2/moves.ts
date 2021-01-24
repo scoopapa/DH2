@@ -57,5 +57,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	"healorder": {
 		inherit: true,
 		isNonstandard: null,
+	},
+	"revelationdance": {
+		inherit: true,
+		isNonstandard: null,
 	}
 };
