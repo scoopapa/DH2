@@ -25,4 +25,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
+			return "Silvino-Bug-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Dark") {
+			return "Silvino-Dark-Mega";
+		}
+		
+		return item.megaStone;
+	},
 }; 
