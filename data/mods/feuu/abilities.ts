@@ -345,5 +345,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "concussion",
 		name: "Concussion",
 		shortDesc: "Halves the effect of the foe's item.",
+		//g-luke, i dont know what dark god told you this ability was a good idea
+		//but someday karma will catch up to you and god wont be as merciful as i am
+		onFoeTryHeal(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
+				this.add('-activate', target, 'ability: Concussion');
+			}
+			if ((effect as Item).isBerry) return this.chainModify(0.5);
+		},
+		onFoeBoost(boost, target, source, effect) {
+			if (effect && (effect as Item).isBerry) {
+				let b: BoostName;
+				for (b in boost) {
+					//this will break i can feel it in my bones
+					boost[b] = math.ceil(boost[b] * 0.5);
+				}
+			}
+		},
+		onSourceModifyDamagePriority: -1,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.abilityData.berryWeaken) {
+				return this.chainModify(0.75);
+			}
+		},
+		onFoeTryEatItemPriority: -1,
+		onFoeTryEatItem(item, pokemon) {
+			this.add('-activate', pokemon, 'ability: Concussion');
+		},
+		onFoeEatItem(item, pokemon) {
+			const weakenBerries = [
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+			];
+			// Record if the pokemon ate a berry to resist the attack
+			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
+		},
 	},
 };
