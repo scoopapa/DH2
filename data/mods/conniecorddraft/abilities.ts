@@ -33,7 +33,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!target || !this.isAdjacent(target, pokemon)) continue;
-				if (target.getAbility().isPermanent || target.ability === 'contrary') continue;
+				const additionalBannedAbilities = [
+					'noability', 'contrary', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) continue;
 				const oldAbility = target.setAbility('contrary');
 				if (oldAbility) {
 					this.add('-ability', target, 'Contrary', '[from] Ability: Dialogue', '[of] ' + pokemon);

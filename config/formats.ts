@@ -940,7 +940,6 @@ export const Formats: FormatList = [
 			battle: 4,
 		},
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
-		minSourceGen: 7,
 		mod: 'm4av6',
 		teambuilderFormat: 'Doubles OU',
 		onValidateSet(set) {
@@ -963,6 +962,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+/*
 	{
 		name: "[Gen 8] M4A Submission Sandbox",
 		desc: ["&bullet; Megas for All v7",
@@ -978,6 +978,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4asandbox',
 	},
+*/
 	{
 		name: "[Gen 8] Mix and M4A",
 		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,

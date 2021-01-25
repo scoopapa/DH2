@@ -2192,11 +2192,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	cacturnemega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["swordsdance", "strengthsap", "spikyshield", "knockoff", "spikes", "toxic", "leechseed"],
+		randomDoubleBattleMoves: ["swordsdance", "strengthsap", "spikyshield", "assurance", "seedbomb"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	altaria: {
 		randomBattleMoves: ["dracometeor", "fireblast", "earthquake", "roost", "toxic", "defog"],
 		randomDoubleBattleMoves: ["dracometeor", "protect", "dragonclaw", "fireblast", "tailwind"],
@@ -4535,11 +4536,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	hawluchamega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["substitute", "swordsdance", "highjumpkick", "bravebird", "roost", "stoneedge", "partingshot"],
+		randomDoubleBattleMoves: ["swordsdance", "highjumpkick", "acrobatics", "encore", "partingshot", "protect"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	dedenne: {
 		randomBattleMoves: ["substitute", "recycle", "thunderbolt", "nuzzle", "grassknot", "hiddenpowerice", "toxic"],
 		randomDoubleBattleMoves: ["eerieimpulse", "helpinghand", "nuzzle", "recycle", "superfang", "thunderbolt"],
@@ -4957,6 +4959,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	araquanidtotem: {
+		tier: "RU",
+		doublesTier: "DUU",
+	},
+	araquanidmega: {
+		randomBattleMoves: ["scald", "hypnosis", "toxic", "mirrorcoat", "painsplit", "stickyweb"],
+		randomDoubleBattleMoves: ["scald", "hypnosis", "painsplit", "stickyweb", "protect", "wideguard"],
 		tier: "RU",
 		doublesTier: "DUU",
 	},
