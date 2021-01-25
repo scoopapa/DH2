@@ -38,8 +38,9 @@ export const Formats: {[k: string]: FormatData} = {
 			if (pokemon.illusion) {
 				species = this.dex.getSpecies(pokemon.illusion.species.name);
 				console.log(pokemon.illusion.name + " is being reported");
+				if (!pokemon.illusion.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
-				if (pokemon.illusion.switchedIn || !pokemon.illusion.isModded) return;
+				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
 				console.log(pokemon.name + " is being reported");
