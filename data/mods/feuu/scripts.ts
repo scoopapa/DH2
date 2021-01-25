@@ -25,6 +25,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	
+	teambuilderConfig: {
+        // for micrometas to only show custom tiers
+        excludeStandardTiers: true,
+        // only to specify the order of custom tiers
+        customTiers: ['FEUU', 'Silvino', 'FEUUber'],
+	},
+	
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
