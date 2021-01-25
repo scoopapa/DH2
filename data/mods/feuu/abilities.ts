@@ -344,7 +344,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	concussion: {
 		id: "concussion",
 		name: "Concussion",
-		shortDesc: "Halves the effect of the foe's item.",
+		shortDesc: "Halves the effect of the foe's item. (Not coded)",
 		//g-luke, i dont know what dark god told you this ability was a good idea
 		//but someday karma will catch up to you and god wont be as merciful as i am
 		/*
