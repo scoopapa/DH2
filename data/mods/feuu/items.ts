@@ -25,4 +25,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 0.5,
 		desc: "If held by a Silvino, this item allows it to Mega Evolve in battle.",
 	},
+	tapulopunnite: {
+		name: "Tapu Lopunnite",
+		spritenum: 576,
+		megaStone: "Tapu Lop-Mega",
+		megaEvolves: "Tapu Lop",
+		itemUser: ["Tapu Lop"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0.5,
+		desc: "If held by a Tapu Lop, this item allows it to Mega Evolve in battle.",
+	},
 };

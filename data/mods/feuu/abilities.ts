@@ -325,6 +325,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "magicsurge",
 		name: "Magic Surge",
 		shortDesc: "Summons Magic Room for 5 turns when switching in.",
+		onStart(source) {
+			this.field.addPseudoWeather('magicroom');
+		},
 	},
 	multiantlers: {
 		id: "multiantlers",
