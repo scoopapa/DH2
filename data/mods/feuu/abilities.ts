@@ -352,10 +352,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
 				this.add('-activate', target, 'ability: Concussion');
 			}
-			if ((effect as Item).isBerry) return this.chainModify(0.5);
+			if (effect.effectType === 'Item') return this.chainModify(0.5);
 		},
 		onFoeBoost(boost, target, source, effect) {
-			if (effect && (effect as Item).isBerry) {
+			if (effect && (effect.effectType === 'Item')) {
 				let b: BoostName;
 				for (b in boost) {
 					//this will break i can feel it in my bones
@@ -363,11 +363,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onSourceModifyDamagePriority: -1,
-		onSourceModifyDamage(damage, source, target, move) {
+		//this part DEFINITELY isnt right UGH
+		onModifyDamagePriority: -1,
+		onModifyDamage(damage, source, target, move) {
 			if (target.abilityData.berryWeaken) {
 				return this.chainModify(0.75);
 			}
+			
 		},
 		onFoeTryEatItemPriority: -1,
 		onFoeTryEatItem(item, pokemon) {
