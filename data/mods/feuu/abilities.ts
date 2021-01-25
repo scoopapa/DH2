@@ -299,4 +299,47 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Null System",
 		shortDesc: "This Pokemon can be any type (selected in teambuilder)."
 	},
+	inthicktrator: {
+		id: "inthicktrator",
+		name: "Inthicktrator",
+		shortDesc: "Ignores Screens/Substitutes. Fire/Ice moves: 1/2 power against this Pokemon.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inthicktrator weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inthicktrator weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+	},
+	magicsurge: {
+		id: "magicsurge",
+		name: "Magic Surge",
+		shortDesc: "Summons Magic Room for 5 turns when switching in.",
+	},
+	multiantlers: {
+		id: "multiantlers",
+		name: "Multi Antlers",
+		shortDesc: "User takes half damage when switching in.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns) {
+				this.debug('Multi Antlers weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	concussion: {
+		id: "concussion",
+		name: "Concussion",
+		shortDesc: "Halves the effect of the foe's item.",
+	},
 };
