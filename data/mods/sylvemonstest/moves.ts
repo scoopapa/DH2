@@ -3094,6 +3094,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		desc: "Dives underwater turn 1, strikes turn 2. Executes in 1 turn in Rain and Heavy Rain.",
+		shortDesc: "Dives underwater turn 1, strikes turn 2. Executes in 1 turn in Rain.",
 		name: "Dive",
 		pp: 10,
 		priority: 0,
