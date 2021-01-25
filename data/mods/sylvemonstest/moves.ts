@@ -3259,6 +3259,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cool",
 	},
+	hottag: {
+      accuracy: true,
+      basePower: 0,
+      category: "Status",
+      desc: "Switches out the user. The Pokemon that is switched in has their Attack and Special Attack raised by 1",
+      shortDesc: "Switches user out. Replacement: +1 Atk and SpA",
+      name: "Hot Tag",
+      pp: 20,
+      priority: 0,
+      flags: {snatch: 1},
+      slotCondition: 'hottag',
+      condition: { 
+          onSwap(target) {
+              if (!target.fainted) {
+                  this.boost({atk: 1, spa: 1,}, target);
+                  target.side.removeSlotCondition(target, 'hottag');
+              }
+          },
+      },
+      selfSwitch: true,
+      secondary: null,
+      target: "self",
+      type: "Fighting",
+      zMove: {effect: 'healreplacement'},
+      contestType: "Tough",
+  },
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
