@@ -25,4 +25,74 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	
+	teambuilderConfig: {
+        // for micrometas to only show custom tiers
+        excludeStandardTiers: true,
+        // only to specify the order of custom tiers
+        customTiers: ['FEUU', 'Silvino', 'FEUUber'],
+	},
+	
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
+			return "Silvino-Bug-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Dark") {
+			return "Silvino-Dark-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Dragon") {
+			return "Silvino-Dragon-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Electric") {
+			return "Silvino-Electric-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fairy") {
+			return "Silvino-Fairy-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fighting") {
+			return "Silvino-Fighting-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fire") {
+			return "Silvino-Fire-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Flying") {
+			return "Silvino-Flying-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ghost") {
+			return "Silvino-Ghost-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Grass") {
+			return "Silvino-Grass-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ground") {
+			return "Silvino-Ground-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ice") {
+			return "Silvino-Ice-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Poison") {
+			return "Silvino-Poison-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Psychic") {
+			return "Silvino-Psychic-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Rock") {
+			return "Silvino-Rock-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Steel") {
+			return "Silvino-Steel-Mega";
+		}
+		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Water") {
+			return "Silvino-Water-Mega";
+		}
+		
+		return item.megaStone;
+	},
 }; 

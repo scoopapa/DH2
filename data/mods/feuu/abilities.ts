@@ -292,4 +292,97 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	
+	//set 3
+	nullsystem: {
+		id: "nullsystem",
+		name: "Null System",
+		shortDesc: "This Pokemon can be any type (selected in teambuilder)."
+	},
+	inthicktrator: {
+		id: "inthicktrator",
+		name: "Inthicktrator",
+		shortDesc: "Ignores Screens/Substitutes. Fire/Ice moves: 1/2 power against this Pokemon.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inthicktrator weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inthicktrator weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+	},
+	magicsurge: {
+		id: "magicsurge",
+		name: "Magic Surge",
+		shortDesc: "Summons Magic Room for 5 turns when switching in.",
+		onStart(source) {
+			this.add('-activate', source, 'ability: Magic Surge');
+			this.field.addPseudoWeather('magicroom');
+		},
+	},
+	multiantlers: {
+		id: "multiantlers",
+		name: "Multi Antlers",
+		shortDesc: "User takes half damage when switching in.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns) {
+				this.debug('Multi Antlers weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	concussion: {
+		id: "concussion",
+		name: "Concussion",
+		shortDesc: "Halves the effect of the foe's item. (Not coded)",
+		//g-luke, i dont know what dark god told you this ability was a good idea
+		//but someday karma will catch up to you and god wont be as merciful as i am
+		/*
+		onFoeTryHeal(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
+				this.add('-activate', target, 'ability: Concussion');
+			}
+			if (effect.effectType === 'Item') return this.chainModify(0.5);
+		},
+		onFoeBoost(boost, target, source, effect) {
+			if (effect && (effect.effectType === 'Item')) {
+				let b: BoostName;
+				for (b in boost) {
+					//this will break i can feel it in my bones
+					boost[b] = math.ceil(boost[b] * 0.5);
+				}
+			}
+		},
+		//this part DEFINITELY isnt right UGH
+		onModifyDamagePriority: -1,
+		onModifyDamage(damage, source, target, move) {
+			if (target.abilityData.berryWeaken) {
+				return this.chainModify(0.75);
+			}
+			
+		},
+		onFoeTryEatItemPriority: -1,
+		onFoeTryEatItem(item, pokemon) {
+			this.add('-activate', pokemon, 'ability: Concussion');
+		},
+		onFoeEatItem(item, pokemon) {
+			const weakenBerries = [
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+			];
+			// Record if the pokemon ate a berry to resist the attack
+			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
+		},
+		*/
+	},
 };
