@@ -347,6 +347,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Halves the effect of the foe's item.",
 		//g-luke, i dont know what dark god told you this ability was a good idea
 		//but someday karma will catch up to you and god wont be as merciful as i am
+		/*
 		onFoeTryHeal(damage, target, source, effect) {
 			if (!effect) return;
 			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
@@ -382,5 +383,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// Record if the pokemon ate a berry to resist the attack
 			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
 		},
+		*/
 	},
 };
