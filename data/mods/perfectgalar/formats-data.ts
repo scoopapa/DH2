@@ -261,159 +261,211 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 	butterfree: {
+		inherit:true,
 		isModded: true,
 	},
 	vileplume: {
+		inherit:true,
 		isModded: true,
 	},
 	bellossom: {
+		inherit:true,
 		isModded: true,
 	},
 	galvantula: {
+		inherit:true,
 		isModded: true,
 	},
 	manectric: {
+		inherit:true,
 		isModded: true,
 	},
 	kingler: {
+		inherit:true,
 		isModded: true,
 	},
 	pangoro: {
+		inherit:true,
 		isModded: true,
 	},
 	vespiquen: {
+		inherit:true,
 		isModded: true,
 	},
 	cherrim: {
+		inherit:true,
 		isModded: true,
 	},
 	machamp: {
+		inherit:true,
 		isModded: true,
 	},
 	seaking: {
+		inherit:true,
 		isModded: true,
 	},
 	garbodor: {
+		inherit:true,
 		isModded: true,
 	},
 	persian: {
+		inherit:true,
 		isModded: true,
 	},
 	persianalola: {
+		inherit:true,
 		isModded: true,
 	},
 	perrserker: {
+		inherit:true,
 		isModded: true,
 	},
 	pikachu: {
+		inherit:true,
 		isModded: true,
 	},
 	raichu: {
+		inherit:true,
 		isModded: true,
 	},
 	flapple: {
+		inherit:true,
 		isModded: true,
 	},
 	appletun: {
+		inherit:true,
 		isModded: true,
 	},
 	meowsticm: {
+		inherit:true,
 		isModded: true,
 	},
 	meowsticf: {
+		inherit:true,
 		isModded: true,
 	},
 	cursola: {
+		inherit:true,
 		isModded: true,
 	},
 	weezinggalar: {
+		inherit:true,
 		isModded: true,
 	},
 	clefable: {
+		inherit:true,
 		isModded: true,
 	},
 	drapion: {
+		inherit:true,
 		isModded: true,
 	},
 	qwilfish: {
+		inherit:true,
 		isModded: true,
 	},
 	heatmor: {
+		inherit:true,
 		isModded: true,
 	},
 	rapidashgalar: {
+		inherit:true,
 		isModded: true,
 	},
 	pincurchin: {
+		inherit:true,
 		isModded: true,
 	},
 	rotom: {
+		inherit:true,
 		isModded: true,
 	},
 	charizard: {
+		inherit:true,
 		isModded: true,
 	},
 	silvally: {
+		inherit:true,
 		isModded: true,
 	},
 	slowbrogalar: {
+		inherit:true,
 		isModded: true,
 	},
 	luxray: {
+		inherit:true,
 		isModded: true,
 	},
 	bouffalant: {
+		inherit:true,
 		isModded: true,
 	},
 	exploud: {
+		inherit:true,
 		isModded: true,
 	},
 	urshifurapidstrike: {
+		inherit:true,
 		isModded: true,
 	},
 	zarude: {
+		inherit:true,
 		isModded: true,
 	},
 	slowkinggalar: {
+		inherit:true,
 		isModded: true,
 	},
 	crobat: {
+		inherit:true,
 		isModded: true,
 	},
 	regirock: {
+		inherit:true,
 		isModded: true,
 	},
 	regice: {
+		inherit:true,
 		isModded: true,
 	},
 	registeel: {
+		inherit:true,
 		isModded: true,
 	},
 	regieleki: {
+		inherit:true,
 		isModded: true,
 	},
 	regidrago: {
+		inherit:true,
 		isModded: true,
 	},
 	regigigas: {
+		inherit:true,
 		isModded: true,
 	},
 	articunogalar: {
+		inherit:true,
 		isModded: true,
 	},
 	zapdosgalar: {
+		inherit:true,
 		isModded: true,
 	},
 	moltresgalar: {
+		inherit:true,
 		isModded: true,
 	},
 	glastrier: {
+		inherit:true,
 		isModded: true,
 	},
 	spectrier: {
+		inherit:true,
 		isModded: true,
 	},
 	calyrex: {
+		inherit:true,
 		isModded: true,
 	},
 };
