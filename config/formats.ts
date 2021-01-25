@@ -890,11 +890,12 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			//'All Pokemon',
+			//'All Pokemon', 'Tapu Lopunnite', 'Tapu Lop-Mega',
 		],
 		unbanlist: [
 			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
 			'Flaant', 'Umbat', 'Chomplim', 'Chomplim-Mega', 'Xotalion', 'Miemie', 'Dusking', 'Jelliswine',
+			'Pigapult', 'Silvino', 'Lycanserker-Dusk', 'Tapu Lop', 'Dragontler', 'Eternabat',
 		],
 	},
 	{
