@@ -1146,6 +1146,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	regieleki: {
 		tier: "OU",
 	},
+	kricketune: {
+		tier: "RU",
+	},
+	araquanidtotem: {
+		tier: "RU",
+	},
+	gumshoostotem: {
+		tier: "RU",
+	},
+	kommoototem: {
+		tier: "OU",
+	},
+	lurantistotem: {
+		tier: "RU",
+	},
+	marowakalolatotem: {
+		tier: "UUBL",
+	},
+	mimikyutotem: {
+		tier: "RUBL",
+	},
+	raticatealolatotem: {
+		tier: "RU",
+	},
+	ribombeetotem: {
+		tier: "UU",
+	},
+	salazzletotem: {
+		tier: "RU",
+	},
+	vikavolttotem: {
+		tier: "RU",
+	},
 };
 
 
