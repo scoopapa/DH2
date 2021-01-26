@@ -1626,35 +1626,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			pokemon.addVolatile('masquerade');
+			let masquerade;
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (!pokemon.side.pokemon[i]) continue;
+				const additionalBannedAbilities = [
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+				];
+				if (
+					pokemon.side.pokemon[i].fainted ||
+					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+				) {
+					continue;
+				} else {
+					break;
+				}
+			}
+			if (!pokemon.side.pokemon[i]) return;
+			if (pokemon === pokemon.side.pokemon[i]) return;
+			masquerade = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Masquerade');
+			pokemon.setAbility(masquerade.ability);
+			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
+			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
 		condition: {
-			onStart(pokemon) {
-				let masquerade;
-				let i;
-				for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-					if (!pokemon.side.pokemon[i]) continue;
-					const additionalBannedAbilities = [
-						'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
-					];
-					if (
-						pokemon.side.pokemon[i].fainted ||
-						pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
-					) {
-						continue;
-					} else {
-						break;
-					}
-				}
-				if (!pokemon.side.pokemon[i]) return;
-				if (pokemon === pokemon.side.pokemon[i]) return;
-				masquerade = pokemon.side.pokemon[i];
-				this.add('-ability', pokemon, 'Masquerade');
-				pokemon.setAbility(masquerade.ability);
-				this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
-				this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
-			},
 			onDamagingHit(damage, target, source, move) {
 				target.removeVolatile('masquerade');
 			},
