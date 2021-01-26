@@ -3291,6 +3291,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       pp: 20,
       priority: 0,
       flags: {snatch: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", target);
+		},
       slotCondition: 'hottag',
       condition: { 
           onSwap(target) {
