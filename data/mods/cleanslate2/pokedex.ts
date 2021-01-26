@@ -206,7 +206,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 70},
 		abilities: {0: "Punk Rock", 1: "Sheer Force", H: "Magic Guard"},
 		weightkg: 5,
-		cosmeticFormes: [],
+		cosmeticFormes: ["unownm", "unowns", "unownp"],
 		otherFormes: ["unownm", "unowns", "unownp"],
 	},
 	unownp: {
