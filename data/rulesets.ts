@@ -1235,7 +1235,10 @@ export const Formats: {[k: string]: FormatData} = {
 						this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 					}
 				} else {
-					this.add('-end', target, 'typechange', '[silent]');
+					const types = target.baseSpecies.types;
+					if (target.getTypes().join() === types.join()) {
+						this.add('-end', target, 'typechange', '[silent]');
+					}
 				}
 			}
 		},
@@ -1260,7 +1263,10 @@ export const Formats: {[k: string]: FormatData} = {
 				if (target.species.forme.startsWith('Mega') || target.species.forme.startsWith('Ultra')) {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 				} else {
-					this.add('-end', target, 'typechange', '[silent]');
+					const types = target.baseSpecies.types;
+					if (target.getTypes().join() === types.join()) {
+						this.add('-end', target, 'typechange', '[silent]');
+					}
 				}
 			}
 		},
