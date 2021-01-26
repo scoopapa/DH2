@@ -189,7 +189,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
 		abilities: {0: "Magic Guard"},
 		weightkg: 5,
-		otherFormes: ['unownm'];
+		otherFormes: ['unownm'],
 		cosmeticFormes: null,
 	},
 	unownm: {
@@ -199,7 +199,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
 		abilities: {0: "Magic Guard"},
 		weightkg: 5,
-		otherFormes: ['unown'];
+		otherFormes: ['unown'],
 		cosmeticFormes: null,
 	},
 	watervellumental: {
