@@ -95,6 +95,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			flamethrower: ["8L1"],
 			dragonhammer: ["8L1"],
 			dragondance: ["8L1"],
+			bulkup: ["8L1"],
+			calmmind: ["8L1"],
+			recover: ["8L1"],
 		},
 	},
 	charbarian: {learnset: {
@@ -843,6 +846,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			drainingkiss: ["8L1"],
 			disarmingvoice: ["8L1"],
 			powergem: ["8L1"],
+			calmmind: ["8L1"],
+			moonblast: ["8L1"],
 		}},
 	houndread: {
 		learnset: {
@@ -1007,15 +1012,15 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trick: ["7T", "7L58", "6T", "6L58", "5T", "5L75", "4T", "4L66"],
 			trickroom: ["7M", "6M", "5M", "4M"],
 			willowisp: ["7M", "7L16", "6M", "6L13", "5M", "5L23", "4M", "4L23", "3L32"],
-			strengthsap: ["8L1"],
 			haze: ["8L1"],
 			encore: ["8L1"],
 			ironhead: ["8L1"],
 			darkestlariat: ["8L1"],
-			partingshot: ["8L1"],
 			amnesia: ["8L1"],
 			yawn: ["8L1"],
 			poltergeist: ["8L1"],
+			moonlight: ["8L1"],
+			uturn: ["8L1"],
 		}},
 	mediscend: {
 		learnset: {
@@ -1258,7 +1263,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8M", "8L39", "7T", "7L35", "6T", "6L35", "5T", "5L37", "4T", "4L37"],
 			aircutter: ["8L1"],
 			airslash: ["8L1"],
-			boomburst: ["8L1"],
 			defog: ["8L1"],
 			disarmingvoice: ["8L1"],
 			dragontail: ["8L1"],
@@ -1276,7 +1280,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sing: ["8L1"],
 			swift: ["8L1"],
 			tailwind: ["8L1"],
-			uturn: ["8L1"],
 			yawn: ["8L1"],
 		}},
 	metamalgam: {
