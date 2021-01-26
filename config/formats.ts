@@ -1273,12 +1273,13 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Gengarite', 'Slowbronite', 'Baton Pass'],
+		teambuilderBans: ['NotMelee'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if ( template.tier !== 'Melee' ) {
+				if ( template.tier !== 'Melee' && template.tier !== 'NotMelee' ) {
 					return [set.species + ' is not usable in Super Smash Mods Melee.'];
 				}
 			}

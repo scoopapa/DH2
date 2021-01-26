@@ -45,11 +45,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Melee",
 	},
 	unown: {
+		tier: "NotMelee",
+	},
+	unownm: {
 		tier: "Melee",
 	},
-	// unownm: {
-		// tier: "Melee",
-	// },
 	watervellumental: {
 		tier: "Melee",
 	},
