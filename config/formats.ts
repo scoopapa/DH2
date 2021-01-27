@@ -604,11 +604,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onChangeSet(set) {
-			if (set.species === 'Snorlax') {
-				set.species = 'Snorlax-Gmax';
-			}
-		},
 	},
 	{
 		name: "[Gen 8] Clean Slate Tier Shift",
