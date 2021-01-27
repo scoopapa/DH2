@@ -576,7 +576,7 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
 		mod: 'cleanslate2',
-		teambuilderBans: 'NotCS',
+		teambuilderBans: 'NotCS' 'Unown',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
@@ -1284,7 +1284,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Gengarite', 'Slowbronite', 'Baton Pass'],
-		teambuilderBans: ['NotMelee'],
+		teambuilderBans: ['NotMelee', 'Unown'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
