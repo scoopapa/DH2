@@ -510,7 +510,7 @@ exports.chatlogreader = 'fs';
 exports.noipchecks = true;
 
 exports.serverid = 'dragonheaven';
-exports.servertoken = 'PNDvOFw8T3fq';
+exports.servertoken = 'jpxOl7d4IyBh';
 
 exports.grouplist = [
 	{
