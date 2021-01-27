@@ -69,16 +69,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 62,
 		eggGroups: ["Water1"],
 	},
-	snorlaxgmax: {
-		num: 143,
-		name: "Snorlax-Gmax",
-		types: ["Grass", "Ground"],
-		baseStats: {hp: 150, atk: 115, def: 100, spa: 105, spd: 100, spe: 40},
-		abilities: {0: "Harvest", 1: "Ripen", H: "Thick Fat"},
-		genderRatio: {M: 0.875, F: 0.125},
-		heightm: 2.1,
-		weightkg: 460,
-	},
 	snorlax: {
 		num: 143,
 		name: "Snorlax",

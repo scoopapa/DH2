@@ -576,7 +576,8 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
 		mod: 'cleanslate2',
-		teambuilderBans: ['NotCS', 'Unown', 'Vivillon-Fancy', 'Vivillon-Pokeball'],
+		banlist: ['Vivillon-Fancy', 'Vivillon-Pokeball',],
+		teambuilderBans: ['Unown',],
 		ruleset: ['Standard', 'Dynamax Clause'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
@@ -586,7 +587,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (template.tier !== 'CS2' && template.tier !== 'NotCS') {
+				if (template.tier !== 'CS2') {
 					return [set.species + ' is not useable in Clean Slate 2.'];
 				}
 			}
@@ -1284,13 +1285,13 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Gengarite', 'Slowbronite', 'Baton Pass'],
-		teambuilderBans: ['NotMelee', 'Unown'],
+		teambuilderBans: ['Unown'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if ( template.tier !== 'Melee' && template.tier !== 'NotMelee' ) {
+				if ( template.tier !== 'Melee') {
 					return [set.species + ' is not usable in Super Smash Mods Melee.'];
 				}
 			}
