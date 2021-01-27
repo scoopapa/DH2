@@ -576,7 +576,7 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-2.3657640/">Clean Slate 2</a>`,
 		],
 		mod: 'cleanslate2',
-		teambuilderBans: 'NotCS' 'Unown',
+		teambuilderBans: 'NotCS', 'Unown',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
