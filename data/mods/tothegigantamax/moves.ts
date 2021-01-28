@@ -10,6 +10,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Scyther",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "String Shot", target);
+			this.add('-anim', source, "X-Scissor", target);
+		},
 		self: {
 			onHit(source) {
 				this.field.setTerrain('gmaxbeheading');
@@ -47,6 +52,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Heracross",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Polish", target);
+			this.add('-anim', source, "Megahorn", target);
+		},
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -70,6 +80,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1},
 		isMax: "Lycanroc-Dusk",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Splintered Stormshards", target);
+		},
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Rock",
@@ -86,6 +100,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Magnezone",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Steel Beam", target);
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
@@ -105,6 +124,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Arctozolt",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glacial Lance", target);
+		},
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -131,6 +154,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Scolipede",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Jab", target);
+			this.add('-anim', source, "Corrosive Gas", target);
+		},
 		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('toxicspikes');
@@ -154,6 +182,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Cursola",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poltergeist", target);
+			this.add('-anim', source, "Heal Block", target);
+		},
 		volatileStatus: 'gmaxcoralcurse',
 		self: {
 			onHit(source) {
@@ -215,6 +248,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Excadrill",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spikes", target);
+			this.add('-anim', source, "Stealth Rock", target);
+			this.add('-anim', source, "Drill Run", target);
+		},
 		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('spikes');
@@ -307,6 +346,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {sound: 1},
 		isMax: "Primarina",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Oceanic Operetta", target);
+		},
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Fairy",
@@ -323,6 +366,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Jirachi",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wish", target);
+			this.add('-anim', source, "Flash Cannon", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
