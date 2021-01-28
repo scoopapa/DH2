@@ -103,7 +103,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Charge", target);
-			this.add('-anim', source, "Steel Beam", target);
+			this.add('-anim', source, "Hyper Beam", target);
 		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
