@@ -1290,6 +1290,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1,
 			sound: 1,
+			authentic: 1,
 		},
 		secondary: null,
 		target: "normal",
