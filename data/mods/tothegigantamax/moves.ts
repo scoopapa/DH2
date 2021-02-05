@@ -1,4 +1,54 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	
+	curse: {
+		num: 174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Curse",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		volatileStatus: 'curse',
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!source.hasType('Ghost')) {
+				delete move.volatileStatus;
+				delete move.onHit;
+				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
+			} else if (move.volatileStatus && target.volatiles['curse']) {
+				return false;
+			}
+		},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && effect.effectType === 'Move' && effect.id === 'Curse') {
+					this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				} else this.add('-message', 'A curse was placed on ' + pokemon + '!');
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+		secondary: null,
+		target: "randomNormal",
+		nonGhostTarget: "self",
+		type: "Ghost",
+		zMove: {effect: 'curse'},
+		contestType: "Tough",
+	},
+	
+	
+	
+	
 	gmaxbeheading: {
 		num: 1000,
 		accuracy: true,
@@ -369,22 +419,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxgreentea: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Green Tea",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Polteageist",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Grass",
 		contestType: "Cool",
 	},
+	/*
 	gmaxlandtremble: {
 		num: 1000,
 		accuracy: true,
@@ -641,22 +700,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxcruelchill: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+		name: "G-Max Cruel Chill",
+		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Articuno-Galar",
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ice', type);
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Psychic",
 		contestType: "Cool",
 	},
+	/*
 	gmaxsparkingstrikes: {
 		num: 1000,
 		accuracy: true,
@@ -753,20 +817,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxcrystalhail: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+		name: "G-Max Crystal Hail",
+		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Aurorus",
+		self: {
+			onHit(source) {
+				this.field.setWeather('hail');
+				source.side.foe.addSideCondition('gmaxcrystalhail');
+			}
+		},
+		condition: {
+			onStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Crystal Hail');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Crystal Hail because Crystal Hail doesn't,
+				// so we're going to test the damage of an Ice-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Ice';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	gmaxslimeslide: {
@@ -775,16 +862,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Slime Slide",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Quagsire",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('psn', source);
+				}
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Water",
 		contestType: "Cool",
 	},
+	/*
 	gmaxazureflare: {
 		num: 1000,
 		accuracy: true,
@@ -817,21 +915,64 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxshootingstar: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Shooting Star",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Starmie",
+		volatileStatus: 'gmaxshootingstar',
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({spd: 2}, pokemon);
+				}
+				for (const pokemon of source.side.foe.active) {
+					if (source.volatiles['gmaxshootingstar']) return;
+					pokemon.addVolatile('gmaxshootingstar');
+				}
+			},
+		},
+		condition: {
+			duration: 3,
+			onStart(target) {
+				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+						target.baseSpecies.name === 'Gengar-Mega') {
+					this.add('-immune', target);
+					return null;
+				}
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'G-Max Shooting Star');
+			},
+			onAccuracyPriority: -1,
+			onAccuracy(accuracy, target, source, move) {
+				if (move && !move.ohko) return true;
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.baseSpecies.name === 'Gengar-Mega') {
+					delete pokemon.volatiles['gmaxshootingstar'];
+					this.add('-end', pokemon, 'G-Max Shooting Star', '[silent]');
+				}
+			},
+			onResidualOrder: 16,
+			onEnd(target) {
+				this.add('-end', target, 'G-Max Shooting Star');
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Psychic",
+		contestType: "Beautiful",
 	},
 	gmaxswamp: {
 		num: 1000,
@@ -839,15 +980,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Swamp",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Gastrodon", 
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steam Eruption", target);
+		},
+		sideCondition: 'gmaxswamp',
+		condition: {
+			duration: 4,
+			durationCallback: function(target, source, effect) {
+				if (source && source.hasAbility('persistent')) {
+					return 6;
+				}
+				return 4;
+			},
+			onStart: function(side) {
+				this.add('-sidestart', side, 'move: G-Max Swamp');
+			},
+			onModifySpe: function(spe, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 4,
+			onEnd: function(side) {
+				this.add('-sideend', side, 'move: G-Max Swamp');
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Water",
+		contestType: "Tough",
 	},
 	gmaxmountaincrash: {
 		num: 1000,
@@ -855,14 +1020,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Mountain Crash",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Regirock",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({def: -1}, pokemon);
+				}
+				this.field.setWeather('sandstorm');
+			}
+		  },
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Rock",
 		contestType: "Cool",
 	},
 	gmaxiceage: {
@@ -871,14 +1045,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Ice Age",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Regice",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spd: -1}, pokemon);
+				}
+				this.field.setWeather('hail');
+			}
+		  },
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	gmaxmolteniron: {
@@ -887,14 +1070,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Molten Iron",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Registeel",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Steel",
 		contestType: "Cool",
 	},
 	gmaxhaywire: {
@@ -903,16 +1092,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Haywire",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Xurkitree",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('G-Max Haywire'));
+				}
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spe: -2}, pokemon);
+				}
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Grass",
 		contestType: "Cool",
 	},
+	/*
 	gmaxsupernova: {
 		num: 1000,
 		accuracy: true,
@@ -929,22 +1129,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxmistymayhem: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+		name: "G-Max Misty Mayhem",
+		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Latias",
+		self: {
+			sideCondition: 'mist',
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('mistyterrain');
+				}
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spa: -1}, pokemon);
+				}
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Fairy",
 		contestType: "Cool",
 	},
+	/*
 	gmaxdescendingdragon: {
 		num: 1000,
 		accuracy: true,
@@ -961,5 +1173,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	
+	gmaxevoglace: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
 	*/
+	gmaxsoulraze: {
+		num: 1000,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Soulraze",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Chandelure",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (!target.volatiles['curse']) {
+						pokemon.addVolatile('curse');
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Ghost",
+		contestType: "Cool",
+	},
 };
