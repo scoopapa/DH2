@@ -871,12 +871,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
 					pokemon.trySetStatus('psn', source);
-				}
-			onHit(source) {
-				for (const pokemon of source.side.foe.active) {
 					this.boost({spe: -1}, pokemon);
 				}
-			},
 		},
 		target: "adjacentFoe",
 		type: "Water",
@@ -1058,8 +1054,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				this.field.setWeather('hail');
 			}
-		  },
-		},
+		 },
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Cool",
@@ -1080,7 +1075,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of source.side.foe.active) {
 					pokemon.trySetStatus('brn', source);
 				}
-			},
+			}
 		},
 		target: "adjacentFoe",
 		type: "Steel",
@@ -1101,12 +1096,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
 					pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('G-Max Haywire'));
-				}
-			onHit(source) {
-				for (const pokemon of source.side.foe.active) {
 					this.boost({spe: -2}, pokemon);
 				}
-			},
+			}
 		},
 		target: "adjacentFoe",
 		type: "Grass",
@@ -1146,10 +1138,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
 				this.field.setTerrain('mistyterrain');
-				}
 				for (const pokemon of source.side.foe.active) {
 					this.boost({spa: -1}, pokemon);
 				}
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -1209,7 +1201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						pokemon.addVolatile('curse');
 					}
 				}
-			},
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
