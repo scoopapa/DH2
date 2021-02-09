@@ -422,11 +422,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 	},
 	astralbarrage: {
+		shortDesc: "hits 3 times, 4 if used by Calyrex Shadow Rider",
 		inherit: true,
-		basePower: 100,
-		onBasePower(basePower, pokemon, target) {
-			if (pokemon.speciesid === 'calyrexshadowrider') return 120;
-		}
+		basePower: 30,
+		multihit: 3,
+		onModifyMove(move, pokemon) {
+			if (pokemon.speciesid === 'calyrexshadowrider')
+			move.multihit = 4;
+		},
 	},
 	glaciallance: {
 		inherit: true,
