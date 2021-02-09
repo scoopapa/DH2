@@ -1259,7 +1259,7 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/3673824/">Restrictions</a>`,
 		],
 		mod: 'restrictions',
-		ruleset: ['Standard', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'unobtainable', 'lgpe'],
 		teambuilderBans: ['unreleased'],
 		onSwitchIn(pokemon) {
