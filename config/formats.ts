@@ -1253,6 +1253,19 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Restrictions",
+		desc: `A metagame made up of brand new Pok&eacute;mon that are made according to various random and non-random restrictions.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3673824/">Restrictions</a>`,
+		],
+		mod: 'restrictions',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'unobtainable', 'lgpe',],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
+	{
       name: "[Gen 1] Rose Red / Iris Blue",
         desc: `A balance mod for Gen 1 that aims to make every fully-evolved Pokémon a viable pick.`,
         threads: [

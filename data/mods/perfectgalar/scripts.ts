@@ -232,6 +232,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'spectrier').learnset.astralbarrage = ['8L1'];
 		this.modData('Learnsets', 'spectrier').learnset.extrasensory = ['8L1'];
 		this.modData('Learnsets', 'spectrier').learnset.gigadrain = ['8L1'];
+		delete this.modData('Learnsets', 'Spectrier').learnset.nastyplot;
 		
 		//Cursola
 		this.modData('Learnsets', 'cursola').learnset.focusblast = ['8L1'];
