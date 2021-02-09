@@ -775,7 +775,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			flashcannon: ["8L1"],
 			surf: ["8L1"],
 			gigadrain: ["8L1"],
-			grassyslide: ["8L1"],
+			grassyglide: ["8L1"],
 			wildcharge: ["8L1"],
 			powerwhip: ["8L1"],
 			seedbomb: ["8L1"],
