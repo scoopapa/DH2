@@ -213,7 +213,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	spectrier: {
 		inherit: true,
-		name: Spectrier,
 		baseStats: {hp: 110, atk: 85, def: 60, spa: 145, spd: 80, spe: 100},
 	},
 };
