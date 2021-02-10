@@ -1116,10 +1116,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.boost({spd: 2}, pokemon);
 				}
 				for (const pokemon of source.side.foe.active) {
-					if (source.volatiles['gmaxshootingstar']) return;
+					if (pokemon.volatiles['gmaxshootingstar']) return;
 					pokemon.addVolatile('gmaxshootingstar');
 				}
-			},
+			}
 		},
 		condition: {
 			duration: 3,
@@ -1179,16 +1179,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				return 4;
 			},
-			onStart: function(side) {
-				this.add('-sidestart', side, 'move: G-Max Swamp');
+			onStart(targetSide): {
+				this.add('-sidestart', targetSide, 'move: G-Max Swamp');
 			},
 			onModifySpe: function(spe, pokemon) {
 				return this.chainModify(0.5);
 			},
 			onResidualOrder: 21,
 			onResidualSubOrder: 4,
-			onEnd: function(side) {
-				this.add('-sideend', side, 'move: G-Max Swamp');
+			onEnd(targetSide): {
+				this.add('-sideend', targetSide, 'move: G-Max Swamp');
 			},
 		},
 		target: "adjacentFoe",
@@ -1214,7 +1214,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				this.field.setWeather('sandstorm');
 			}
-		  },
 		},
 		target: "adjacentFoe",
 		type: "Rock",
