@@ -111,9 +111,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			isGrounded = this.isGrounded(!negateResult);
 			if (isGrounded === null) {
 				if (message) {
-					//There aren't any actual Levitators in FEUU yet, so I'm just gonna cheat so the message is correct.
-					//I'll have to update this if any are added :')
-					this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
+					if this.hasAbility('magneticwaves') {
+						this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
+					} else {
+						this.battle.add('-immune', this, '[from] ability: Levitate');
+					}
 				}
 				return false;
 			}
