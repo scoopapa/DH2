@@ -823,8 +823,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gastrodoneastgmax: {
 		num: 423,
 		name: "Gastrodon-East-Gmax",
-		baseSpecies: "Gastrodon-East",
-		forme: "Gmax",
+		baseSpecies: "Gastrodon",
+		forme: "East-Gmax",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 111, atk: 83, def: 68, spa: 92, spd: 82, spe: 39},
 		abilities: {0: "Sticky Hold", 1: "Storm Drain", H: "Sand Force"},

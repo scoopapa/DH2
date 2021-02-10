@@ -187,7 +187,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const sourceSide = source.side;
 			const targetSide = source.side.foe;
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcrystalhail', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 
+				'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 
+				'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'gmaxswamp', 'gmaxcrystalhail', 
 			];
 			let success = false;
 			for (const id of sideConditions) {
@@ -1391,7 +1393,56 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cool",
 	},
-	
+	/*
+	gmaxrobbery: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxpetalrain: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxslimesplash: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	*/
 	gmaxpollenrain: {
 		num: 1000,
 		accuracy: true,
@@ -1417,4 +1468,38 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Clever",
 	},
+	/*
+	gmaxshrewdspirit: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxcourageousspirit: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	*/
 };
