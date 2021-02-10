@@ -1008,6 +1008,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Aurorus",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Steelsurge", target);
+		},
 		self: {
 			onHit(source) {
 				this.field.setWeather('hail');
