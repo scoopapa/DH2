@@ -225,6 +225,64 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Concussion"},
 		weightkg: 476.1,
 	},
+	//new set
+	grimmlurk: {
+		fusion: ['Grimmsnarl', 'Golurk'],
+		num: 19,
+		name: "Grimmlurk",
+		types: ["Fairy", "Ghost"],
+		baseStats: {hp: 95, atk: 125, def: 90, spa: 75, spd: 90, spe: 60},
+		abilities: {0: "Open-Handed"},
+		weightkg: 195.5,
+	},
+	manicunogalar: {
+		fusion: ['Articuno-Galar', 'Darmanitan-Galar'],
+		num: 20,
+		name: "Manicuno-Galar",
+		types: ["Ice", "Psychic"],
+		baseStats: {hp: 100, atk: 112, def: 74, spa: 97, spd: 88, spe: 97},
+		abilities: {0: "Fowl Behavior"},
+		weightkg: 85.5,
+	},
+	yaciancrowned: {
+		fusion: ['Yamask-Galar', 'Zacian'],
+		num: 21,
+		name: "Yacian-Crowned",
+		types: ["Ground", "Steel"],
+		baseStats: {hp: 66, atk: 125, def: 100, spa: 66, spd: 105, spe: 89},
+		abilities: {0: "Pillage"},
+		weightkg: 178.3,
+	},
+	cryogolem: {
+		fusion: ['Cryogonal', 'Golem-Alola'],
+		num: 22,
+		name: "Cryogolem",
+		types: ["Ice", "Electric"],
+		baseStats: {hp: 80, atk: 105, def: 90, spa: 75, spd: 100, spe: 95},
+		abilities: {0: "Magnetic Waves"},
+		weightkg: 232,
+	},
+	stoudrago: {
+		fusion: ['Stoutland', 'Regidrago'],
+		num: 23,
+		name: "Stoudrago",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 150, atk: 120, def: 70, spa: 85, spd: 70, spe: 85},
+		abilities: {0: "Doggy's Maw"},
+		weightkg: 130.5,
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
