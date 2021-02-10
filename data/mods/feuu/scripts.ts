@@ -111,7 +111,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			isGrounded = this.isGrounded(!negateResult);
 			if (isGrounded === null) {
 				if (message) {
-					if this.hasAbility('magneticwaves') {
+					if (this.hasAbility('magneticwaves')) {
 						this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
 					} else {
 						this.battle.add('-immune', this, '[from] ability: Levitate');
