@@ -1058,6 +1058,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					pokemon.trySetStatus('psn', source);
 					this.boost({spe: -1}, pokemon);
 				}
+			}
 		},
 		target: "adjacentFoe",
 		type: "Water",
