@@ -97,6 +97,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	pokemon: {
+		runImmunity(type: string, message?: string | boolean) {
+		if (!type || type === '???') return true;
+		if (!(type in this.battle.dex.data.TypeChart)) {
+			if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+			throw new Error("Use runStatusImmunity for " + type);
+		}
+		if (this.fainted) return false;
+
+		const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+		let isGrounded;
+		if (type === 'Ground') {
+			isGrounded = this.isGrounded(!negateResult);
+			if (isGrounded === null) {
+				if (message) {
+					//There aren't any actual Levitators in FEUU yet, so I'm just gonna cheat so the message is correct.
+					//I'll have to update this if any are added :')
+					this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
+				}
+				return false;
+			}
+		}
+		if (!negateResult) return true;
+		if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+			if (message) {
+				this.battle.add('-immune', this);
+			}
+			return false;
+		}
+		return true;
+	}
+		
+		
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
