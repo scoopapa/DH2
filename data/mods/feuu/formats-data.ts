@@ -88,6 +88,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//new slate
 	grimmlurk: {
 		tier: "FEUU",
 		doublesTier: "DUU",
