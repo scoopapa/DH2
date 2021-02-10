@@ -24,7 +24,7 @@ export const Scripts: BattleScriptsData = {
 				if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
 			}
 			if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
-			if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'gmaxoperetta', 'gmaxmoonsault', 'gmaxarrowraid', 'gmaxsoulraze'].includes(maxMove.id)) {
+			if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'gmaxoperetta', 'gmaxmoonsault', 'gmaxarrowraid', 'gmaxsoulraze', 'gmaxpollenrain'].includes(maxMove.id)) {
 				maxMove.basePower = move.maxMove.basePower;
 			}
 			maxMove.category = move.category;

@@ -1208,4 +1208,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cool",
 	},
+	
+	gmaxpollenrain: {
+		num: 1000,
+		accuracy: true,
+		basePower: 30,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Pollen Rain",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		multihit: 5,
+		isMax: "Ribombee",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pollen Puff", target);
+			this.add('-anim', source, "Powder", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Bug",
+		contestType: "Clever",
+	},
 };
