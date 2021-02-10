@@ -464,9 +464,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					possibleTargets.splice(rand, 1);
 					continue;
 				}
-				const sourceAbility = source.setAbility('wanderingspirit', target);
+				const sourceAbility = pokemon.setAbility('wanderingspirit', target);
 				if (!sourceAbility) return;
-				this.add('-activate', target, 'ability: Pillage', this.dex.getAbility(sourceAbility).name, 'Pillage', '[of] ' + source);
+				this.add('-activate', target, 'ability: Pillage', this.dex.getAbility(sourceAbility).name, 'Pillage', '[of] ' + pokemon);
 				target.setAbility(sourceAbility);
 				return;
 			}
