@@ -253,8 +253,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	polteageistantiquegmax: {
 		num: 855,
 		name: "Polteageist-Antique-Gmax",
-		baseSpecies: "Polteageist-Antique",
-		forme: "Gmax",
+		baseSpecies: "Polteageist",
+		forme: "Antique-Gmax",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 134, spd: 114, spe: 70},
 		abilities: {0: "Weak Armor", H: "Cursed Body"},
