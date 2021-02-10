@@ -1109,7 +1109,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isMax: "Starmie",
-		volatileStatus: 'gmaxshootingstar',
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -1117,39 +1116,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.boost({spd: 2}, pokemon);
 				}
 				for (const pokemon of source.side.foe.active) {
-					if (pokemon.volatiles['gmaxshootingstar']) return;
-					pokemon.addVolatile('gmaxshootingstar');
+					if (pokemon.volatiles['telekinesis']) return;
+					pokemon.addVolatile('telekinesis');
 				}
 			}
-		},
-		condition: {
-			duration: 3,
-			onStart(target) {
-				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
-						target.baseSpecies.name === 'Gengar-Mega') {
-					this.add('-immune', target);
-					return null;
-				}
-				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
-				this.add('-start', target, 'G-Max Shooting Star');
-			},
-			onAccuracyPriority: -1,
-			onAccuracy(accuracy, target, source, move) {
-				if (move && !move.ohko) return true;
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onUpdate(pokemon) {
-				if (pokemon.baseSpecies.name === 'Gengar-Mega') {
-					delete pokemon.volatiles['gmaxshootingstar'];
-					this.add('-end', pokemon, 'G-Max Shooting Star', '[silent]');
-				}
-			},
-			onResidualOrder: 16,
-			onEnd(target) {
-				this.add('-end', target, 'G-Max Shooting Star');
-			},
 		},
 		secondary: null,
 		target: "adjacentFoe",
