@@ -207,6 +207,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Jirachi",
 	},
+	/*
 	flygon: {
 		inherit: true,
 		canGigantamax: "G-Max Kaleidoscope",
@@ -226,7 +227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug", "Dragon"],
 		changesFrom: "Flygon",
 	},
- 
+ */
 	polteageist: {
 		inherit: true,
 		canGigantamax: "G-Max Green Tea",
@@ -264,7 +265,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral", "Amorphous"],
 		changesFrom: "Polteageist-Antique",
 	},
- 
+ /*
 	rapidashgalar: {
 		inherit: true,
 		canGigantamax: "G-Max Land Tremble",
@@ -568,7 +569,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		changesFrom: "Aggron",
 	},
- 
+ */
 	articunogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Cruel Chill",
@@ -587,7 +588,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Articuno-Galar",
 	},
- 
+ /*
 	zapdosgalar: {
 		inherit: true,
 		canGigantamax: "G-Max Sparking Strikes",
@@ -701,7 +702,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Kyogre",
 	},
- 
+ */
 	aurorus: {
 		inherit: true,
 		canGigantamax: "G-Max Crystal Hail",
@@ -739,7 +740,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		changesFrom: "Quagsire",
 	},
- 
+ /*
 	reshiram: {
 		inherit: true,
 		canGigantamax: "G-Max Azure Flare",
@@ -777,7 +778,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Obstagoon",
 	},
- 
+ */
 	starmie: {
 		inherit: true,
 		canGigantamax: "G-Max Shooting Star",
@@ -999,7 +1000,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Latias",
 	},
- 
+ /*
 	rayquaza: {
 		inherit: true,
 		canGigantamax: "G-Max Descending Dragon",
@@ -1038,6 +1039,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Glaceon",
 	},
+	*/
 	chandelure: {
 		inherit: true,
 		canGigantamax: "G-Max Soulraze",
@@ -1056,7 +1058,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Chandelure",
 	},
-	
+	/*
 	weavile: {
 		inherit: true,
 		canGigantamax: "G-Max Robbery",
@@ -1113,7 +1115,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		changesFrom: "Goodra",
 	},
- 
+ */
 	ribombee: {
 		inherit: true,
 		canGigantamax: "G-Max Pollen Rain",
@@ -1132,7 +1134,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug", "Fairy"],
 		changesFrom: "Ribombee",
 	},
- 
+ /*
 	uxie: {
 		inherit: true,
 		canGigantamax: "G-Max Shrewd Spirit",
@@ -1170,4 +1172,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Azelf",
 	},
+	*/
 };
