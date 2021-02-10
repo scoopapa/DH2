@@ -1179,7 +1179,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				return 4;
 			},
-			onStart(targetSide): {
+			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'move: G-Max Swamp');
 			},
 			onModifySpe: function(spe, pokemon) {
@@ -1187,7 +1187,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 21,
 			onResidualSubOrder: 4,
-			onEnd(targetSide): {
+			onEnd(targetSide) {
 				this.add('-sideend', targetSide, 'move: G-Max Swamp');
 			},
 		},
