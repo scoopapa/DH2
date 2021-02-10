@@ -234,8 +234,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	libero: {
 		onAfterMove(source) {
-			console.log('hi');
-			console.log(move);
 			if (!move) move = this.activeMove;
 			if (move.hasBounced) return;
 			const type = move.type;
