@@ -234,6 +234,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	libero: {
 		onAfterMove(source, move) {
+			console.log('hi');
+			console.log(move);
+			if (!move) move = this.activeMove;
 			if (move.hasBounced) return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
@@ -267,6 +270,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
+			const targetWeight = pokemon.getWeight();
+			if (targetWeight < 1500 ) return;
 			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
@@ -274,6 +279,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
+			const targetWeight = pokemon.getWeight();
+			if (targetWeight < 1500 ) return;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;

@@ -148,8 +148,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
-			const targetWeight = pokemon.getWeight();
-			if (targetWeight < 1500 ) return;
 			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
@@ -157,8 +155,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
-			const targetWeight = pokemon.getWeight();
-			if (targetWeight < 1500 ) return;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
