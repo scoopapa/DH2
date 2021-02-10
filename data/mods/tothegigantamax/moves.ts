@@ -1300,7 +1300,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "Fairy",
+		type: "Dragon",
 		contestType: "Cool",
 	},
 	/*
