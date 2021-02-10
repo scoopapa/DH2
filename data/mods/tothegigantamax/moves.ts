@@ -1250,7 +1250,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
-					pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('G-Max Haywire'));
+					pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Wrap'));
 					this.boost({spe: -2}, pokemon);
 				}
 			}
