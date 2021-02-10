@@ -1197,7 +1197,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
-					if (!target.volatiles['curse']) {
+					if (!pokemon.volatiles['curse']) {
 						pokemon.addVolatile('curse');
 					}
 				}
