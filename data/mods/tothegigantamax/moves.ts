@@ -664,12 +664,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Burned.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Green Tea",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Polteageist",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scald", target);
+			this.add('-anim', source, "Hex", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
@@ -945,12 +951,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Combines Ice in its type effectiveness.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Cruel Chill",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Articuno-Galar",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Expanding Force", target);
+			this.add('-anim', source, "Sheer Cold", target);
+		},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Ice', type);
 		},
@@ -1062,6 +1074,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Ice hazard.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Crystal Hail",
 		pp: 5,
@@ -1104,12 +1117,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: -1 Spe & Poisoned.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Slime Slide",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Quagsire",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Armor", target);
+			this.add('-anim', source, "Waterfall", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
@@ -1161,12 +1180,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Allies : +2 SpD. Foes: Telekinesis.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Shooting Star",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Starmie",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", target);
+			this.add('-anim', source, "Psychic", target);
+		},
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -1189,6 +1214,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Swamp.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Swamp",
 		pp: 10,
@@ -1229,12 +1255,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: -1 Def. Field: Sandstorm.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Mountain Crash",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Regirock",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Slide", target);
+			this.add('-anim', source, "Max Rockfall", target);
+		},
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -1253,12 +1285,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: -1 SpD. Field: Hail.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Ice Age",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Regice",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Avalanche", target);
+			this.add('-anim', source, "Sheer Cold", target);
+		},
 		self: {
 			onHit(source) {
 				if (!source.volatiles['dynamax']) return;
@@ -1277,12 +1315,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Burned.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Molten Iron",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Registeel",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+			this.add('-anim', source, "Flare Blitz", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
@@ -1299,12 +1343,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: -2 Spe & Wrapped.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Haywire",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Xurkitree",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magnet Rise", target);
+			this.add('-anim', source, "Leaf Storm", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
@@ -1340,12 +1390,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Allies: Mist, Field: Misty Terrain, Foes: -1 SpA.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Misty Mayhem",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Latias",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Dance", target);
+			this.add('-anim', source, "Mist Ball", target);
+		},
 		self: {
 			sideCondition: 'mist',
 			onHit(source) {
@@ -1401,12 +1457,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 100,
 		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Cursed.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Soulraze",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: "Chandelure",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spite", target);
+			this.add('-anim', source, "Hex", target);
+		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
@@ -1476,6 +1538,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 30,
 		category: "Physical",
+      shortDesc: "Always 30 Power and always hits 5 times. Super effective on Fairy.",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Pollen Rain",
 		pp: 10,
