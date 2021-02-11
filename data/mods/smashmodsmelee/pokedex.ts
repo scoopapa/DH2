@@ -713,6 +713,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	meloettapirouette: {
 		inherit: true,
-		battleOnly: null,
+		requiredMove: null,
+		requiredItem: "Relic Charm",
 	},
 };
