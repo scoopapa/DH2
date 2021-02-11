@@ -711,4 +711,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 85, atk: 80, def: 117, spa: 75, spd: 117, spe: 25},
 		abilities: {0: "Pressure", 1: "Damp", H: "Unnerve"},
 	}
+	meloettapirouette: {
+		inherit: true,
+		battleOnly: null,
+	},
 };
