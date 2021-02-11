@@ -418,9 +418,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
-		onModifySpaPriority: 5,
-		onModifySpa(atk, attacker) {
-			if (attacker.volatiles['dynamax']) return;
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
 			return this.chainModify(1.5);
@@ -438,7 +438,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 	},
-	pillage: {//this seems questionable
+	pillage: {
 		id: "pillage",
 		name: "Pillage",
 		shortDesc: "On switch-in, swaps ability with the opponent.",
