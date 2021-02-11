@@ -188,42 +188,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If holder is a Wishiwashi, it becomes School Form. It's ability becomes Intimidate. Water moves are boosted by 1.2x",
 	},
-	"ragecandybar": {
-		id: "ragecandybar",
-		name: "Rage Candy Bar",
-		onStart: function(pokemon) {
-			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.species.baseSpecies === 'Darmanitan') {
-				if (!pokemon.species.name.includes('Galar')) {
-					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-				} else {
-					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-				}
-			}
-		},
-		fling: {
-			basePower: 20,
-		},
-		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
-				return false;
-			}
-			return true;
-		},
-		gen: 7,
-		desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and it's Psychic-Type moves have 1.2x more power",
-	},
+	
 	ragecandybar: {
-		name: "Relic Charm",
+		name: "Rage Candy Bar",
 		spritenum: 390,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
