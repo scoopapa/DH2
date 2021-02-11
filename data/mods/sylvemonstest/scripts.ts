@@ -1,7 +1,4 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	teambuilderConfig: {
-		defaultExclusions: true,
-	},
   init: function() {
 	  
 	  this.modData('Pokedex', 'sawsbuckwinter').types = ['Grass', 'Ice'];
