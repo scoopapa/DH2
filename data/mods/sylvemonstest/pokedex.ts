@@ -10,7 +10,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     absolmega: {
         inherit: true,
         types: ["Dark", "Fairy"],
-		battleOnly: "Absol",
     },
 	chansey: {
 		inherit: true,
