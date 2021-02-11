@@ -419,8 +419,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.choiceLock = move.id;
 		},
 		onModifySpaPriority: 5,
-		onModifySpa(atk, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
+		onModifySpa(atk, attacker) {
+			if (attacker.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
 			return this.chainModify(1.5);
