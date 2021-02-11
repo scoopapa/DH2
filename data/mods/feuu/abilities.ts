@@ -418,7 +418,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
-		onModifySpaPriority: 1,
+		onModifySpaPriority: 5,
 		onModifySpa(atk, pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
