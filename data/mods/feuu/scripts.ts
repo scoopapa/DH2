@@ -23,6 +23,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
+		
+		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 	},
 	
 	teambuilderConfig: {

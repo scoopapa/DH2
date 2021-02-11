@@ -246,7 +246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 85.5,
 	},
 	yaciancrowned: {
-		fusion: ['Yamask-Galar', 'Zacian-Crowned'],
+		fusion: ['Yamask-Galar', 'Zacian'],
 		num: 21,
 		name: "Yacian-Crowned",
 		types: ["Ground", "Steel"],
