@@ -1,4 +1,235 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	//Moves that just need to be edited for other gmax moves to function: 
+	curse: {
+		num: 174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Curse",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		volatileStatus: 'curse',
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!source.hasType('Ghost')) {
+				delete move.volatileStatus;
+				delete move.onHit;
+				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
+			} else if (move.volatileStatus && target.volatiles['curse']) {
+				return false;
+			}
+		},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && effect.effectType === 'Move' && effect.id === 'Curse') {
+					this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				} else this.add('-message', 'A curse was placed on ' + pokemon.name + '!');
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+		secondary: null,
+		target: "randomNormal",
+		nonGhostTarget: "self",
+		type: "Ghost",
+		zMove: {effect: 'curse'},
+		contestType: "Tough",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	gmaxwindrage: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Wind Rage",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Corviknight",
+		self: {
+			onHit(source) {
+				let success = false;
+				const removeTarget = [
+					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail',
+				];
+				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail'];
+				for (const targetCondition of removeTarget) {
+					if (source.side.foe.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', source.side.foe, this.dex.getEffect(targetCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				this.field.clearTerrain();
+				return success;
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	defog: {
+		num: 432,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Defog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'gmaxcrystalhail',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	courtchange: {
+		num: 756,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Court Change",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHitField(target, source) {
+			const sourceSide = source.side;
+			const targetSide = source.side.foe;
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 
+				'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 
+				'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'gmaxswamp', 'gmaxcrystalhail', 
+			];
+			let success = false;
+			for (const id of sideConditions) {
+				const effectName = this.dex.getEffect(id).name;
+				if (sourceSide.sideConditions[id] && targetSide.sideConditions[id]) {
+					[sourceSide.sideConditions[id], targetSide.sideConditions[id]] = [
+						targetSide.sideConditions[id], sourceSide.sideConditions[id],
+					];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else if (sourceSide.sideConditions[id] && !targetSide.sideConditions[id]) {
+					targetSide.sideConditions[id] = sourceSide.sideConditions[id];
+					delete sourceSide.sideConditions[id];
+					this.add('-sideend', sourceSide, effectName, '[silent]');
+				} else if (targetSide.sideConditions[id] && !sourceSide.sideConditions[id]) {
+					sourceSide.sideConditions[id] = targetSide.sideConditions[id];
+					delete targetSide.sideConditions[id];
+					this.add('-sideend', targetSide, effectName, '[silent]');
+				} else {
+					continue;
+				}
+				let sourceLayers = sourceSide.sideConditions[id] ? (sourceSide.sideConditions[id].layers || 1) : 0;
+				let targetLayers = targetSide.sideConditions[id] ? (targetSide.sideConditions[id].layers || 1) : 0;
+				for (; sourceLayers > 0; sourceLayers--) {
+					this.add('-sidestart', sourceSide, effectName, '[silent]');
+				}
+				for (; targetLayers > 0; targetLayers--) {
+					this.add('-sidestart', targetSide, effectName, '[silent]');
+				}
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
+	},
+	
+	//New Gmax moves: 
 	gmaxbeheading: {
 		num: 1000,
 		accuracy: true,
@@ -427,22 +658,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxgreentea: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Green Tea",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Polteageist",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Grass",
 		contestType: "Cool",
 	},
+	/*
 	gmaxlandtremble: {
 		num: 1000,
 		accuracy: true,
@@ -699,22 +939,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxcruelchill: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+		name: "G-Max Cruel Chill",
+		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Articuno-Galar",
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ice', type);
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Psychic",
 		contestType: "Cool",
 	},
+	/*
 	gmaxsparkingstrikes: {
 		num: 1000,
 		accuracy: true,
@@ -811,20 +1056,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxcrystalhail: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+		name: "G-Max Crystal Hail",
+		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Aurorus",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Steelsurge", target);
+		},
+		self: {
+			onHit(source) {
+				this.field.setWeather('hail');
+				source.side.foe.addSideCondition('gmaxcrystalhail');
+			}
+		},
+		condition: {
+			onStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Crystal Hail');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Crystal Hail because Crystal Hail doesn't,
+				// so we're going to test the damage of an Ice-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Ice';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	gmaxslimeslide: {
@@ -833,16 +1105,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Slime Slide",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Quagsire",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('psn', source);
+					this.boost({spe: -1}, pokemon);
+				}
+			}
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Water",
 		contestType: "Cool",
 	},
+	/*
 	gmaxazureflare: {
 		num: 1000,
 		accuracy: true,
@@ -875,21 +1155,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxshootingstar: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Shooting Star",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Starmie",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({spd: 2}, pokemon);
+				}
+				for (const pokemon of source.side.foe.active) {
+					if (pokemon.volatiles['telekinesis']) return;
+					pokemon.addVolatile('telekinesis');
+				}
+			}
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Psychic",
+		contestType: "Beautiful",
 	},
 	gmaxswamp: {
 		num: 1000,
@@ -897,15 +1190,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Swamp",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Gastrodon", 
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steam Eruption", target);
+		},
+		sideCondition: 'gmaxswamp',
+		condition: {
+			duration: 4,
+			durationCallback: function(target, source, effect) {
+				if (source && source.hasAbility('persistent')) {
+					return 6;
+				}
+				return 4;
+			},
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'move: G-Max Swamp');
+			},
+			onModifySpe: function(spe, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 4,
+			onEnd(targetSide) {
+				this.add('-sideend', targetSide, 'move: G-Max Swamp');
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
+		type: "Water",
+		contestType: "Tough",
 	},
 	gmaxmountaincrash: {
 		num: 1000,
@@ -913,14 +1230,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Mountain Crash",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Regirock",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({def: -1}, pokemon);
+				}
+				this.field.setWeather('sandstorm');
+			}
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Rock",
 		contestType: "Cool",
 	},
 	gmaxiceage: {
@@ -929,14 +1254,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Ice Age",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Regice",
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spd: -1}, pokemon);
+				}
+				this.field.setWeather('hail');
+			}
+		 },
 		target: "adjacentFoe",
-		type: "",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	gmaxmolteniron: {
@@ -945,14 +1278,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Molten Iron",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Registeel",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			}
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Steel",
 		contestType: "Cool",
 	},
 	gmaxhaywire: {
@@ -961,16 +1300,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Haywire",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Xurkitree",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Wrap'));
+					this.boost({spe: -2}, pokemon);
+				}
+			}
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Grass",
 		contestType: "Cool",
 	},
+	/*
 	gmaxsupernova: {
 		num: 1000,
 		accuracy: true,
@@ -987,7 +1334,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+	*/
 	gmaxmistymayhem: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Misty Mayhem",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isMax: "Latias",
+		self: {
+			sideCondition: 'mist',
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setTerrain('mistyterrain');
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spa: -1}, pokemon);
+				}
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	/*
+	gmaxdescendingdragon: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
@@ -1003,7 +1378,142 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
-	gmaxdescendingdragon: {
+	
+	gmaxevoglace: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	*/
+	gmaxsoulraze: {
+		num: 1000,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Soulraze",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Chandelure",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (!pokemon.volatiles['curse']) {
+						pokemon.addVolatile('curse');
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	/*
+	gmaxrobbery: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxpetalrain: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxslimesplash: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	*/
+	gmaxpollenrain: {
+		num: 1000,
+		accuracy: true,
+		basePower: 30,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Pollen Rain",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		multihit: 5,
+		isMax: "Ribombee",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pollen Puff", target);
+			this.add('-anim', source, "Powder", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	/*
+	gmaxshrewdspirit: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "",
+		secondary: null,
+		target: "adjacentFoe",
+		type: "",
+		contestType: "Cool",
+	},
+	gmaxcourageousspirit: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,

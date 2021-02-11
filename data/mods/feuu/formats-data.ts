@@ -88,6 +88,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//new slate
+	grimmlurk: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	manicunogalar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	yaciancrowned: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	cryogolem: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	stoudrago: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
