@@ -577,8 +577,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	articunogalargmax: {
 		num: 144,
 		name: "Articuno-Galar-Gmax",
-		baseSpecies: "Articuno-Galar",
-		forme: "Gmax",
+		baseSpecies: "Articuno",
+		forme: "Galar-Gmax",
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 85, spa: 125, spd: 100, spe: 95},
 		abilities: {0: "Competitive"},
@@ -587,6 +587,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Articuno-Galar",
+		battleOnly: "Articuno-Galar",
 	},
  /*
 	zapdosgalar: {
