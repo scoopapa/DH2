@@ -385,6 +385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Sawsbuckite",
+		battleOnly: "Delibird",
 	},
 	exploud: {
 		inherit: true,
