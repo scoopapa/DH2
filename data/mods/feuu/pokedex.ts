@@ -177,6 +177,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino",
 	},
 	lycanserkerdusk: {
 		fusion: ['Lycanroc-Dusk', 'Perrserker'],
@@ -305,6 +306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Bug",
 	},
 	silvinodark: {
 		fusion: ['Audino', 'Silvally'],
@@ -327,6 +329,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Dark",
 	},
 	silvinodragon: {
 		fusion: ['Audino', 'Silvally'],
@@ -349,6 +352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Dragon",
 	},
 	silvinoelectric: {
 		fusion: ['Audino', 'Silvally'],
@@ -371,6 +375,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Electric",
 	},
 	silvinofairy: {
 		fusion: ['Audino', 'Silvally'],
@@ -393,6 +398,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Fairy",
 	},
 	silvinofighting: {
 		fusion: ['Audino', 'Silvally'],
@@ -415,6 +421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Fighting",
 	},
 	silvinofire: {
 		fusion: ['Audino', 'Silvally'],
@@ -437,6 +444,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Fire",
 	},
 	silvinoflying: {
 		fusion: ['Audino', 'Silvally'],
@@ -459,6 +467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Flying",
 	},
 	silvinoghost: {
 		fusion: ['Audino', 'Silvally'],
@@ -481,6 +490,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Ghost",
 	},
 	silvinograss: {
 		fusion: ['Audino', 'Silvally'],
@@ -503,6 +513,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Grass",
 	},
 	silvinoground: {
 		fusion: ['Audino', 'Silvally'],
@@ -525,6 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Ground",
 	},
 	silvinoice: {
 		fusion: ['Audino', 'Silvally'],
@@ -547,6 +559,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Ice",
 	},
 	silvinopoison: {
 		fusion: ['Audino', 'Silvally'],
@@ -569,6 +582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Poison",
 	},
 	silvinopsychic: {
 		fusion: ['Audino', 'Silvally'],
@@ -591,6 +605,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Psychic",
 	},
 	silvinorock: {
 		fusion: ['Audino', 'Silvally'],
@@ -613,6 +628,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Rock",
 	},
 	silvinosteel: {
 		fusion: ['Audino', 'Silvally'],
@@ -635,6 +651,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Steel",
 	},
 	silvinowater: {
 		fusion: ['Audino', 'Silvally'],
@@ -657,6 +674,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 135, spa: 110, spd: 135, spe: 75},
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
+		battleOnly: "Silvino-Water",
 	},
 	
 

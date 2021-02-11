@@ -385,6 +385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Sawsbuckite",
+		battleOnly: "Delibird",
 	},
 	exploud: {
 		inherit: true,
@@ -966,6 +967,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
+		battleOnly: "Sawsbuck-Summer",
 	},
 	sawsbuckautumnmega: {
 		num: 586,
@@ -980,6 +982,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
+		battleOnly: "Sawsbuck-Autumn",
 	},
 	sawsbuckwintermega: {
 		num: 586,
@@ -994,6 +997,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
+		battleOnly: "Sawsbuck-Winter",
 	},
 	klinklang: {
 		inherit: true,
@@ -1144,6 +1148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 		requiredItem: "Meowsticite",
+		battleOnly: "Meowstic-F",
 	},
 	dragalge: {
 		inherit: true,
@@ -1293,6 +1298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
+		battleOnly: "Gourgeist-Small",
 	},
 	gourgeistlargemega: {
 		num: 711,
@@ -1307,6 +1313,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
+		battleOnly: "Gourgeist-Large",
 	},
 	gourgeistsupermega: {
 		num: 711,
@@ -1321,6 +1328,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
+		battleOnly: "Gourgeist-Super",
 	},
 	noivern: {
 		inherit: true,
@@ -1731,6 +1739,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Toxtricitite",
+		battleOnly: "Toxtricity-Low-Key",
 	},
 	dragapult: {
 		inherit: true,

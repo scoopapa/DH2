@@ -264,6 +264,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Mineral", "Amorphous"],
 		changesFrom: "Polteageist-Antique",
+		battleOnly: "Polteageist-Antique",
 	},
  /*
 	rapidashgalar: {
@@ -273,8 +274,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rapidashgalargmax: {
 		num: 78,
 		name: "Rapidash-Galar-Gmax",
-		baseSpecies: "Rapidash-Galar",
-		forme: "Gmax",
+		baseSpecies: "Rapidash",
+		forme: "Galar-Gmax",
 		types: ["Psychic", "Ground"],
 		baseStats: {hp: 65, atk: 100, def: 70, spa: 80, spd: 80, spe: 105},
 		abilities: {0: "Run Away", 1: "Pastel Veil", H: "Anticipation"},
@@ -283,6 +284,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 		changesFrom: "Rapidash-Galar",
+		battleOnly: "Rapidash-Galar",
 	},
  
 	incineroar: {
@@ -311,8 +313,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	darmanitangalargmax: {
 		num: 555,
 		name: "Darmanitan-Galar-Gmax",
-		baseSpecies: "Darmanitan-Galar",
-		forme: "Gmax",
+		baseSpecies: "Darmanitan",
+		forme: "Galar-Gmax",
 		types: ["Ice"],
 		baseStats: {hp: 105, atk: 145, def: 55, spa: 30, spd: 55, spe: 95},
 		abilities: {0: "Gorilla Tactics", H: "Zen Mode"},
@@ -321,6 +323,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 		changesFrom: "Darmanitan-Galar",
+		battleOnly: "Darmanitan-Galar",
 	},
  
 	decidueye: {
@@ -349,8 +352,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	kyuremblackgmax: {
 		num: 646,
 		name: "Kyurem-Black-Gmax",
-		baseSpecies: "Kyurem-Black",
-		forme: "Gmax",
+		baseSpecies: "Kyurem",
+		forme: "Black-Gmax",
 		types: ["Dragon", "Ice"],
 		baseStats: {hp: 125, atk: 130, def: 90, spa: 130, spd: 90, spe: 95},
 		abilities: {0: "Pressure"},
@@ -359,6 +362,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Kyurem-Black",
+		battleOnly: "Kyurem-Black",
 	},
  
 	scizor: {
@@ -501,8 +505,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	slowbrogalargmax: {
 		num: 80,
 		name: "Slowbro-Galar-Gmax",
-		baseSpecies: "Slowbro-Galar",
-		forme: "Gmax",
+		baseSpecies: "Slowbro",
+		forme: "Galar-Gmax",
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 95, atk: 100, def: 95, spa: 100, spd: 70, spe: 30},
 		abilities: {0: "Quick Draw", 1: "Own Tempo", H: "Regenerator"},
@@ -511,6 +515,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Monster", "Water 1"],
 		changesFrom: "Slowbro-Galar",
+		battleOnly: "Slowbro-Galar",
 	},
  
 	jigglypuff: {
@@ -597,8 +602,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	zapdosgalargmax: {
 		num: 145,
 		name: "Zapdos-Galar-Gmax",
-		baseSpecies: "Zapdos-Galar",
-		forme: "Gmax",
+		baseSpecies: "Zapdos",
+		forme: "Galar-Gmax",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 90, atk: 125, def: 90, spa: 85, spd: 90, spe: 100},
 		abilities: {0: "Defiant"},
@@ -607,6 +612,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Zapdos-Galar",
+		battleOnly: "Zapdos-Galar",
 	},
  
 	moltresgalar: {
@@ -616,8 +622,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	moltresgalargmax: {
 		num: 146,
 		name: "Moltres-Galar-Gmax",
-		baseSpecies: "Moltres-Galar",
-		forme: "Gmax",
+		baseSpecies: "Moltres",
+		forme: "Galar-Gmax",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 90, spa: 100, spd: 125, spe: 90},
 		abilities: {0: "Berserk"},
@@ -626,6 +632,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Moltres-Galar",
+		battleOnly: "Moltres-Galar",
 	},
  
 	braviary: {
@@ -835,6 +842,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Water 1", "Amorphous"],
 		changesFrom: "Gastrodon-East",
+		battleOnly: "Gastrodon-East",
 	},
  
 	regirock: {
@@ -943,8 +951,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	necrozmadawnwingsgmax: {
 		num: 800,
 		name: "Necrozma-Dawn-Wings-Gmax",
-		baseSpecies: "Necrozma-Dawn-Wings",
-		forme: "Gmax",
+		baseSpecies: "Necrozma",
+		forme: "Dawn-Wings-Gmax",
 		types: ["Psychic", "Ghost"],
 		baseStats: {hp: 97, atk: 113, def: 109, spa: 157, spd: 127, spe: 77},
 		abilities: {0: "Prism Armor"},
@@ -953,12 +961,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Necrozma-Dawn-Wings",
+		battleOnly: "Necrozma-Dawn-Wings",
 	},
 	necrozmaduskmanegmax: {
 		num: 800,
 		name: "Necrozma-Dusk-Mane-Gmax",
-		baseSpecies: "Necrozma-Dusk-Mane",
-		forme: "Gmax",
+		baseSpecies: "Necrozma",
+		forme: "Dusk-Mane-Gmax",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 97, atk: 157, def: 127, spa: 113, spd: 109, spe: 77},
 		abilities: {0: "Prism Armor"},
@@ -967,12 +976,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Necrozma-Dusk-Mane",
+		battleOnly: "Necrozma-Dusk-Mane",
 	},
 	necrozmaultragmax: {
 		num: 800,
 		name: "Necrozma-Ultra-Gmax",
-		baseSpecies: "Necrozma-Ultra",
-		forme: "Gmax",
+		baseSpecies: "Necrozma",
+		forme: "Ultra-Gmax",
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 97, atk: 167, def: 97, spa: 167, spd: 97, spe: 129},
 		abilities: {0: "Neuroforce"},
@@ -981,6 +991,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Necrozma-Ultra",
+		battleOnly: "Necrozma-Ultra",
 	},
  */
 	latias: {
