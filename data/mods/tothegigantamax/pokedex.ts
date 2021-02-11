@@ -577,7 +577,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	articunogalargmax: {
 		num: 144,
 		name: "Articuno-Galar-Gmax",
-		baseSpecies: "Articuno",
+		baseSpecies: "Articuno-Galar",
 		forme: "Galar-Gmax",
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 85, spa: 125, spd: 100, spe: 95},
