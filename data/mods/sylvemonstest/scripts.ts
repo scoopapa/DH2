@@ -3858,13 +3858,14 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
     // Calculate damage modifiers separately (order differs between generations)
     return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
   },
-	
-	pokemon: {
+
+	//pokemon: {
 	/**
 	 * Changes this Pokemon's forme to match the given templateId (or template).
 	 * This function handles all changes to stats, ability, type, template, etc.
 	 * as well as sending all relevant messages sent to the client.
 	 */
+	 /*
 	formeChange(
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
@@ -3920,4 +3921,5 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 		return true;
 	}
 	},
+	*/
 };

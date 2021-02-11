@@ -222,33 +222,56 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and it's Psychic-Type moves have 1.2x more power",
 	},
-	"reliccharm": {
-		id: "reliccharm",
+	ragecandybar: {
 		name: "Relic Charm",
-		onStart: function(pokemon) {
-			this.add('-item', pokemon, 'Relic Charm');
-			if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
-				this.add('-formechange', pokemon, 'Meloetta-Pirouette', '[msg]');
-				pokemon.formeChange("Meloetta-Pirouette");
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
 			}
 		},
-		fling: {
-			basePower: 40,
-		},
-		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseSpecies.num === 648) && (move.type === 'Fighting')) {
+		onBasePower(basePower, user, target, move) {
+			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 648) || pokemon.baseSpecies.num === 648) {
-				return false;
-			}
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Darmanitan') return false;
 			return true;
 		},
-		gen: 7,
-		desc: "If this Pokémon is a Meloetta, it changes to Pirouette, and it's Fighting-Type moves have 1.2x more power",
+		itemUser: ["Darmanitan"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Darmanitan: Zen Mode on entry, 1.2x power Psychic- or Fire-type (Unova/Galar) attacks.",
+	},
+	reliccharm: {
+		name: "Relic Charm",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
 	},
 	"shadowrock": {
 		id: "shadowrock",
