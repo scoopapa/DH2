@@ -213,9 +213,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'crobat').learnset.sludgewave = ['8L1'];
 		this.modData('Learnsets', 'crobat').learnset.clearsmog = ['8L1'];
 		
-		//Slowking-Galar
-		this.modData('Learnsets', 'slowkinggalar').learnset.recover = ['8L1'];
-		
 		//Urshifu
 		delete this.modData('Learnsets', 'urshifu').learnset.suckerpunch;
 		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.aquajet;

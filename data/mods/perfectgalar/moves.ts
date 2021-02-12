@@ -438,30 +438,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.speciesid === 'calyrexicerider') return 130;
 		}
 	},
-	junglehealing: {
-		num: 818,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Jungle Healing",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, heal: 1},
-		onHit(pokemon) {
-			let success = false;
-			if (this.field.isTerrain('grassyterrain')) {
-				success = !!this.heal(this.modify(pokemon.maxhp, 0.75));
-			} else {
-				success = !!this.heal(Math.ceil(pokemon.maxhp * 0.5));
-			}
-			return success;
-		},
-		secondary: null,
-		target: "self",
-		type: "Grass",
-		zMove: {condition: 'clearnegativeboost'},
-		contestType: "Clever",
-	},
 	freezyfrost: {
 		inherit: true,
 		isNonstandard: null,
