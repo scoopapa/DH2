@@ -806,17 +806,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 100,
 	},
 	"colossaltitan": {
-		shortDesc: "This Pokemon's attacking stat is multiplied by 1.2 while using a Steel, Ice, or Rock-type attack.",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.2 while using a Steel, Ice, Rock, Dragon, or Electric-type attack.",
 		onModifyAtkPriority: 5,
 		onModifyAtk (atk, attacker, defender, move) {
-			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice') {
+			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice' || move.type === 'Dragon' || move.type === 'Electric') {
 				this.debug('Colossal Titan boost');
 				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA (atk, attacker, defender, move) {
-			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice') {
+			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice' || move.type === 'Dragon' || move.type === 'Electric') {
 				this.debug('Colossal Titan boost');
 				return this.chainModify(1.2);
 			}
