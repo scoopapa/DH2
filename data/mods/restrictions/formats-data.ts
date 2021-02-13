@@ -119,4 +119,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	scalaron: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	dragraceful: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	tantrary: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+
 };
