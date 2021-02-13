@@ -1,6 +1,6 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	vulcaraptor: { 
-		num: 1001
+	vulcaraptor: {
+		num: 1001,
 		name: "Vulcaraptor",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 68, atk: 122, def: 115, spa: 76, spd: 63, spe: 111},
