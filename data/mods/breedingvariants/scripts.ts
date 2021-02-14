@@ -1,7 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 	init: function () {
-		console.log(this.parentMod);
 		for (var id in this.data.Pokedex) {
 			if (this.data.Pokedex[id].breedingVariant) {
 				const name = this.data.Pokedex[id].baseSpecies;

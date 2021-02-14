@@ -722,7 +722,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Brown",
 	},
 	slowkingexplosive: {
-		num: 30,
+		num: 199,
 		name: "Slowking-Explosive",
 		baseSpecies: "Slowking",
 		breedingVariant: "Turtonator",
@@ -735,7 +735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Pink",
 	},
 	rapidashmule: {
-		num: 31,
+		num: 78,
 		name: "Rapidash-Mule",
 		baseSpecies: "Rapidash",
 		breedingVariant: "Mudsdale",
@@ -746,7 +746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 95,
 	},
 	dusknoircake: {
-		num: 32,
+		num: 477,
 		name: "Dusknoir-Cake",
 		baseSpecies: "Dusknoir",
 		breedingVariant: "Alcremie",
@@ -757,7 +757,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 106.6,
 	},
 	drampaschrodinger: {
-		num: 34,
+		num: 780,
 		name: "Drampa-Schrödinger",
 		baseSpecies: "Drampa",
 		breedingVariant: "Dragapult",
@@ -768,7 +768,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 185,
 	},
 	espeonaura: {
-		num: 35,
+		num: 196,
 		name: "Espeon-Aura",
 		baseSpecies: "Espeon",
 		breedingVariant: "Lucario",
@@ -779,7 +779,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 26.5,
 	},
 	sirfetchdarcher: {
-		num: 36,
+		num: 865,
 		name: "Sirfetchd-Archer",
 		baseSpecies: "Sirfetchd",
 		breedingVariant: "Decidueye",
@@ -790,7 +790,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 117,
 	},
 	weezingdoctor: {
-		num: 37,
+		num: 110,
 		name: "Weezing-Doctor",
 		baseSpecies: "Weezing",
 		breedingVariant: "Reuniclus",
