@@ -466,7 +466,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					possibleTargets.splice(rand, 1);
 					continue;
 				}
-				pokemon.setAbility('pillage', target);
+				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
