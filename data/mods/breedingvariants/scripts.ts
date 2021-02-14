@@ -1,8 +1,9 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 	init: function () {
+		console.log(this.parentMod);
 		for (var id in this.data.Pokedex) {
-			if (id in this.data.Pokedex && !(id in Dex.data.Pokedex) && this.data.Pokedex[id].breedingVariant) {
+			if (id in this.data.Pokedex && !(id in window.Dex.data.Pokedex) && this.data.Pokedex[id].breedingVariant) {
 				const name = this.data.Pokedex[id].baseSpecies;
 				const variant = this.data.Pokedex[id].breedingVariant;
 				const learnset = this.data.Learnsets[this.toID(name)].learnset;
