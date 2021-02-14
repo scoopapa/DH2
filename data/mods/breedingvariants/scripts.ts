@@ -1,5 +1,8 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	
 	init: function () {
+		console.log(this.dex);
+		
 		this.modData('Learnsets', 'goodraflame').learnset.dragonclaw = ['8L1'];
 		this.modData('Learnsets', 'goodraflame').learnset.dragondance = ['8L1'];
 		this.modData('Learnsets', 'goodraflame').learnset.flareblitz = ['8L1'];
