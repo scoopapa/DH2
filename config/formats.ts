@@ -554,9 +554,7 @@ export const Formats: FormatList = [
   		name: "[Gen 8] Breeding Variants",
   		desc: ["Breeding Variants, the mod where pokemon degeneracy pays off.",
 		      ],
-  		ruleset: [ 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 
-					'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Swagger Clause', 
-					'Baton Pass Clause', 'Standard NatDex', 'Data Mod'],
+  		ruleset: [ 'Standard', 'Data Mod'],
 		mod: 'breedingvariants',
   	},
 	{
@@ -1260,12 +1258,9 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/3673824/">Restrictions</a>`,
 		],
 		mod: 'restrictions',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'lgpe'],
 		teambuilderBans: ['unreleased'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
 	},
 	{
       name: "[Gen 1] Rose Red / Iris Blue",

@@ -22,6 +22,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	parakinesis: {
@@ -46,6 +47,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	serpaint: {
@@ -81,6 +83,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	torgeist: {
@@ -111,6 +114,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	regolite: {
@@ -142,6 +146,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	polbearab: {
@@ -194,6 +199,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["8L1"],
 			rest: ["8L1"],
 			sleeptalk: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	donzyxote: {
@@ -235,6 +241,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rest: ["8L1"],
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
+			endure: ["8L1"],
 			snore: ["8L1"],
 		},
 	},
@@ -279,6 +286,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	folliclawe: {
@@ -306,6 +314,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	afloof: {
@@ -333,6 +342,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	nimbusteed: {
@@ -377,6 +387,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	aerock: {
@@ -411,6 +422,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	borassa: {
@@ -474,6 +486,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			facade: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	sharm: {
@@ -514,6 +527,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	nunopod: {
@@ -567,6 +581,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	abysseil: {
@@ -592,6 +607,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	faerenheit: {
@@ -636,6 +652,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	spiriteal: {
@@ -671,6 +688,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	zoltanka: {
@@ -776,6 +794,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	coracrab: {
@@ -826,6 +845,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	quadringo: {
@@ -862,6 +882,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	teslaple: {
@@ -903,6 +924,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	kapagon: {
@@ -989,6 +1011,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	dirtoad: {
@@ -1030,6 +1053,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	crystelf: {
@@ -1139,6 +1163,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	scalaron: {
@@ -1198,6 +1223,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 	dragraceful: {
@@ -1295,6 +1321,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
+			endure: ["8L1"],
 		},
 	},
 
