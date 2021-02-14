@@ -11,7 +11,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = ['8L1', '7L1', '6L1', '5L1', '4L1'];
 				}
-				const weight = (this.data.Pokedex[id].weightkg + Dex.data.Pokedex[this.toID(variant)].weightkg) / 2;
+				const weight = (this.data.Pokedex[id].weightkg + this.data.Pokedex[this.toID(variant)].weightkg) / 2;
 				this.modData('Pokedex', id).weightkg = weight;
 			}
 		}
