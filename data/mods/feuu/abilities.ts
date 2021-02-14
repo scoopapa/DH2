@@ -390,10 +390,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Open-Handed",
 		shortDesc: "If user has no item, user's moves have +1 priority.",
 		onModifyPriority(priority, pokemon, target, move) {
-			if (!pokemon.item) {
-				this.debug("Priority increased for no item");
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
 				return priority + 1;
 			}
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
 		},
 	},
 	fowlbehavior: {
@@ -469,6 +479,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
+				
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
