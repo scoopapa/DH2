@@ -7,7 +7,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Technician", H: "Quick Feet"},
 		weightkg: 8,
 	},
-	parakinesis: { 
+	parakinesis: {
 		num: 1002,
 		name: "Parakinesis",
 		types: ["Psychic", "Flying"],
@@ -15,7 +15,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Prankster", 1: "Big Pecks", H: "Iron Fist"},
 		weightkg: 8,
 	},
-	serpaint: { 
+	serpaint: {
 		num: 1003,
 		name: "Serpaint",
 		types: ["Dragon", "Ghost"],
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltrator", H: "Shadow Shield"},
 		weightkg: 4,
 	},
-	torgeist: { 
+	torgeist: {
 		num: 1004,
 		name: "Torgeist",
 		types: ["Ghost", "Flying"],
@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clear Body", 1: "Cursed Body", H: "Merciless"},
 		weightkg: 6,
 	},
-	regolite: { 
+	regolite: {
 		num: 1005,
 		name: "Regolite",
 		types: ["Ground", "Psychic"],
@@ -39,7 +39,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shield Dust", 1: "Sand Spit", H: "Unburden"},
 		weightkg: 56,
 	},
-	polbearab: { 
+	polbearab: {
 		num: 1006,
 		name: "Polbearab",
 		types: ["Ice", "Fighting"],
@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Heal"},
 		weightkg: 135,
 	},
-	centhorn: { 
+	centhorn: {
 		num: 1007,
 		name: "Centhorn",
 		types: ["Grass", "Fighting"],
@@ -55,7 +55,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Triage", H: "Grassy Surge"},
 		weightkg: 41,
 	},
-	donzyxote: { 
+	donzyxote: {
 		num: 1008,
 		name: "Donzyxote",
 		types: ["Dragon", "Psychic"],
@@ -63,7 +63,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Marvel Scale", H: "Own Tempo"},
 		weightkg: 8,
 	},
-	scimicobra: { 
+	scimicobra: {
 		num: 1009,
 		name: "Scimicobra",
 		types: ["Poison", "Fighting"],
@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shed Skin", 1: "Sniper", H: "Infiltrator"},
 		weightkg: 27.4,
 	},
-	folliclawe: { 
+	folliclawe: {
 		num: 1010,
 		name: "Folliclawe",
 		types: ["Dark", "Steel"],
@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle", H: "Hyper Cutter"},
 		weightkg: 60,
 	},
-	afloof: { 
+	afloof: {
 		num: 1011,
 		name: "Afloof",
 		types: ["Normal", "Dark"],
@@ -87,7 +87,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hyper Cutter", 1: "Fluffy", H: "Adaptability"},
 		weightkg: 42,
 	},
-	nimbusteed: { 
+	nimbusteed: {
 		num: 1012,
 		name: "Nimbusteed",
 		types: ["Flying", "Electric"],
@@ -95,7 +95,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aerilate", 1: "Lightning Rod", H: "Cloud Nine"},
 		weightkg: 0.1,
 	},
-	aerock: { 
+	aerock: {
 		num: 1013,
 		name: "Aerock",
 		types: ["Rock", "Flying"],
@@ -103,7 +103,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Heal", H: "Volt Absorb"},
 		weightkg: 35,
 	},
-	borassa: { 
+	borassa: {
 		num: 1014,
 		name: "Borassa",
 		types: ["Dark", "Grass"],
@@ -111,7 +111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thick Fat", 1: "Chlorophyll", H: "Anger Point"},
 		weightkg: 143,
 	},
-	sharm: { 
+	sharm: {
 		num: 1015,
 		name: "Sharm",
 		types: ["Water", "Electric"],
@@ -119,7 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unaware", H: "No Guard"},
 		weightkg: 90,
 	},
-	nunopod: { 
+	nunopod: {
 		num: 1016,
 		name: "Nunopod",
 		types: ["Normal", "Bug"],
@@ -127,7 +127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Slow Start", 1: "Emergency Exit", H: "Stall"},
 		weightkg: 38,
 	},
-	crypterid: { 
+	crypterid: {
 		num: 1017,
 		name: "Crypterid",
 		types: ["Ground", "Poison"],
@@ -135,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Point", 1: "Swift Swim", H: "Unnerve"},
 		weightkg: 64,
 	},
-	abysseil: { 
+	abysseil: {
 		num: 1018,
 		name: "Abysseil",
 		types: ["Water", "Psychic"],
@@ -143,7 +143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Veil", 1: "Sap Sipper", H: "Rain Dish"},
 		weightkg: 1,
 	},
-	faerenheit: { 
+	faerenheit: {
 		num: 1019,
 		name: "Faerenheit",
 		types: ["Fire", "Fairy"],
@@ -151,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Beast Boost"},
 		weightkg: 3.4,
 	},
-	spiriteal: { 
+	spiriteal: {
 		num: 1020,
 		name: "Spiriteal",
 		types: ["Ghost"],
@@ -159,7 +159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Illusion"},
 		weightkg: 40.5,
 	},
-	zoltanka: { 
+	zoltanka: {
 		num: 1021,
 		name: "Zoltanka",
 		types: ["Steel", "Ghost"],
@@ -167,7 +167,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Filter", 1: "Minus", H: "Screen Cleaner"},
 		weightkg: 126,
 	},
-	flydra: { 
+	flydra: {
 		num: 1022,
 		name: "Flydra",
 		types: ["Bug", "Dragon"],
@@ -175,7 +175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Compound Eyes", 1: "Levitate", H: "Swarm"},
 		weightkg: 0.1,
 	},
-	coracrab: { 
+	coracrab: {
 		num: 1023,
 		name: "Coracrab",
 		types: ["Water", "Rock"],
@@ -183,7 +183,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Reckless"},
 		weightkg: 47.3,
 	},
-	quadringo: { 
+	quadringo: {
 		num: 1024,
 		name: "Quadringo",
 		types: ["Fairy", "Dragon"],
@@ -191,7 +191,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Keen Eye", 1: "Big Pecks", H: "Mold Breaker"},
 		weightkg: 101,
 	},
-	teslaple: { 
+	teslaple: {
 		num: 1025,
 		name: "Teslaple",
 		types: ["Electric", "Grass"],
@@ -199,7 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grass Pelt", 1: "Flower Veil", H: "Competitive"},
 		weightkg: 8,
 	},
-	kapagon: { 
+	kapagon: {
 		num: 1026,
 		name: "Kapagon",
 		types: ["Water", "Dragon"],
@@ -207,7 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Regenerator", 1: "Rain Dish", H: "Drizzle"},
 		weightkg: 44.5,
 	},
-	cyknight: { 
+	cyknight: {
 		num: 1027,
 		name: "Cyknight",
 		types: ["Steel"],
@@ -215,7 +215,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intrepid Sword"},
 		weightkg: 100,
 	},
-	dirtoad: { 
+	dirtoad: {
 		num: 1028,
 		name: "Dirtoad",
 		types: ["Water", "Ground"],
@@ -223,7 +223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dry Skin", 1: "Hydration", H: "Damp"},
 		weightkg: 10.1,
 	},
-	crystelf: { 
+	crystelf: {
 		num: 1029,
 		name: "Crystelf",
 		types: ["Rock", "Fairy"],
@@ -231,7 +231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Trace", 1: "Sand Force", H: "Sand Rush"},
 		weightkg: 2.5,
 	},
-	rancourgar: { 
+	rancourgar: {
 		num: 1030,
 		name: "Rancourgar",
 		types: ["Normal", "Fire"],
