@@ -273,18 +273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 130.5,
 	},
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//silvino formes
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
 		num: 14,
