@@ -385,9 +385,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		*/
 	},
-	openhanded: {
-		id: "openhanded",
-		name: "Open-Handed",
+	notfunny: {
+		id: "notfunny",
+		name: "Not Funny",
 		shortDesc: "If user has no item, user's moves have +1 priority.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.category === 'Status') {
