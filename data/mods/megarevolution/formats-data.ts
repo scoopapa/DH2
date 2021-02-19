@@ -83,4 +83,32 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
+	horrfrost: {
+		tier:'OU',
+		isModded: true,
+	},
+	blizzarex: {
+		tier:'OU',
+		isModded: true,
+	},
+	nurseheary: {
+		tier:'OU',
+		isModded: true,
+	},
+	pulgasaron: {
+		tier:'OU',
+		isModded: true,
+	},
+	orichalix: {
+		tier:'OU',
+		isModded: true,
+	},
+	humpeii: {
+		tier:'OU',
+		isModded: true,
+	},
+	sabsidian: {
+		tier:'OU',
+		isModded: true,
+	},
 };
