@@ -723,6 +723,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of source.side.active) {
 					this.boost({spe: 2}, pokemon);
 				}
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
