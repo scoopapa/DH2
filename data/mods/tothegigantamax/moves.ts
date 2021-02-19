@@ -746,8 +746,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Malicious Moonsault", target);
 		},
-		sideCondition: 'gmaxmoonsault',
-		condition: {
+		self: {
+			sideCondition: 'luckychant',
+			condition: {
 			duration: 5,
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Lucky Chant'); // "The crowd's applause shielded [side.name]'s team from critical hits!"
@@ -757,7 +758,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualSubOrder: 5,
 			onEnd(side) {
 				this.add('-sideend', side, 'move: Lucky Chant'); // "[side.name]'s applause died down!"
-			},
+			},		
 		},
 		secondary: null,
 		target: "adjacentFoe",
