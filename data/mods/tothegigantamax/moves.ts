@@ -642,14 +642,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	gmaxkaleidescope: {
+	gmaxkaleidoscope: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
       shortDesc: "Base move affects power. 2x damage on NVE.",
 		isNonstandard: "Gigantamax",
-		name: "G-Max Kaleidescope",
+		name: "G-Max Kaleidoscope",
 		pp: 10,
 		priority: 0,
 		isMax: "Flygon",
@@ -1245,14 +1245,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	gmaxazureflame: {
+	gmaxazureflare: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
       shortDesc: "Base move affects power. Foes: Gastro Acid.",
 		isNonstandard: "Gigantamax",
-		name: "G-Max Azure Flame",
+		name: "G-Max Azure Flare",
 		pp: 10,
 		priority: 0,
 		flags: {},
