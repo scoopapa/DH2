@@ -759,6 +759,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEnd(side) {
 				this.add('-sideend', side, 'move: Lucky Chant'); // "[side.name]'s applause died down!"
 			},		
+		 },
 		},
 		secondary: null,
 		target: "adjacentFoe",
