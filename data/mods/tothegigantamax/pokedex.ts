@@ -207,7 +207,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Jirachi",
 	},
-	/*
+	
 	flygon: {
 		inherit: true,
 		canGigantamax: "G-Max Kaleidoscope",
@@ -227,7 +227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug", "Dragon"],
 		changesFrom: "Flygon",
 	},
- */
+ 
 	polteageist: {
 		inherit: true,
 		canGigantamax: "G-Max Green Tea",
@@ -266,7 +266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Polteageist-Antique",
 		battleOnly: "Polteageist-Antique",
 	},
- /*
+ 
 	rapidashgalar: {
 		inherit: true,
 		canGigantamax: "G-Max Land Tremble",
@@ -286,7 +286,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Rapidash-Galar",
 		battleOnly: "Rapidash-Galar",
 	},
- 
+  
 	incineroar: {
 		inherit: true,
 		canGigantamax: "G-Max Moonsault",
@@ -305,7 +305,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Incineroar",
 	},
- 
+  
 	darmanitangalar: {
 		inherit: true,
 		canGigantamax: "G-Max Sharpened Iceberg",
@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Darmanitan-Galar",
 		battleOnly: "Darmanitan-Galar",
 	},
- 
+  
 	decidueye: {
 		inherit: true,
 		canGigantamax: "G-Max Arrow Raid",
@@ -344,7 +344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Decidueye",
 	},
- 
+ /*
 	kyuremblack: {
 		inherit: true,
 		canGigantamax: "G-Max Future Shock",
@@ -364,7 +364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Kyurem-Black",
 		battleOnly: "Kyurem-Black",
 	},
- 
+ */
 	scizor: {
 		inherit: true,
 		canGigantamax: "G-Max Bug Shield",
@@ -383,7 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		changesFrom: "Scizor",
 	},
- 
+ /*
 	sableye: {
 		inherit: true,
 		canGigantamax: "G-Max Meddling",
@@ -497,7 +497,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Klefki",
 	},
- 
+ */
 	slowbrogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Shell Shock",
@@ -517,7 +517,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Slowbro-Galar",
 		battleOnly: "Slowbro-Galar",
 	},
- 
+ /*
 	jigglypuff: {
 		inherit: true,
 		canGigantamax: "G-Max Puff Up",
@@ -748,7 +748,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		changesFrom: "Quagsire",
 	},
- /*
+ 
 	reshiram: {
 		inherit: true,
 		canGigantamax: "G-Max Azure Flare",
@@ -767,7 +767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Reshiram",
 	},
- 
+ /*
 	obstagoon: {
 		inherit: true,
 		canGigantamax: "G-Max Breakdown",
@@ -1031,7 +1031,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Rayquaza",
 	},
-	
+*/	
 	glaceon: {
 		inherit: true,
 		canGigantamax: "G-Max Evo-Glace",
@@ -1051,7 +1051,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Glaceon",
 	},
-	*/
+	
 	chandelure: {
 		inherit: true,
 		canGigantamax: "G-Max Soulraze",
@@ -1241,7 +1241,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Umbreon",
 	},
- 
+ */
 	skuntank: {
 		inherit: true,
 		canGigantamax: "G-Max Stink Bomb",
@@ -1279,7 +1279,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Giratina",
 	},
- 
+ /*
 	dusknoir: {
 		inherit: true,
 		canGigantamax: "G-Max Reap",
