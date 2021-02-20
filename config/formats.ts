@@ -419,6 +419,36 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] Double Trouble",
+		desc: `Doubles-based metagame where Pok&eacute;mon are adjusted to become DOU-viable.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3657658/">Double Trouble</a>`,
+		],
+
+		mod: 'doubletrouble',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['[Gen 8] Doubles OU'],
+		// Dumb hack because Mawile has 5 abilities for some reason
+		validateSet(set, teamHas) {
+			const species = this.dex.getSpecies(set.species);
+			const ability = this.dex.getAbility(set.ability);
+			if (species.name === "Mawile" && set.moves.includes("Follow Me") && ability.name !== "Steelworker") {
+				return [`Mawile can only use Follow Me with Steelworker.`];
+			}
+			if (!(species.name === 'Mawile' && ability.name === 'Huge Power')) {
+				return this.validateSet(set, teamHas);
+			} else {
+				const abil = set.ability;
+				set.ability = 'Steelworker';
+				const fakeValidation = this.validateSet(set, teamHas);
+				if (fakeValidation?.length) return fakeValidation;
+				set.ability = abil;
+				return null;
+			}
+	},
+	},
+	{
 		name: "[Gen 8] Bench Abilities",
 		desc: [
 			"&bullet; <a href=https://www.smogon.com/forums/threads/.3648706/>Bench Abilities</a>",
@@ -1412,6 +1442,23 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Ink's Testing Custom Game",
 		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
 		mod: "inksdynamaxadventure",
+		searchShow: false,
+		challengeShow: false,
+		onSwitchIn(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+		onMegaEvo(pokemon) {
+			if (pokemon.species.tier === "NEW") {
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+	},
+	{
+		name: "[Gen 8] ViZars Testing",
+		ruleset: ['Standard NatDex'],
+		mod: 'vizarnobasics',
 		searchShow: false,
 		challengeShow: false,
 		onSwitchIn(pokemon) {
