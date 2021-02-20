@@ -131,5 +131,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	modolith: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	snailord: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	arbrella: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 
 };

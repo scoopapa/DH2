@@ -264,4 +264,29 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Soul-Heart"},
 		weightkg: 8,
 	},
+	modolith: {
+		num: 1034,
+		name: "Modolith",
+		types: ["Steel", "Normal"],
+		baseStats: {hp: 57, atk: 102, def: 152, spa: 61, spd: 91, spe: 87},
+		abilities: {0: "Levitate", 1: "Light Metal", H: "Full Metal Body"},
+		weightkg: 8,
+	},
+	snailord: {
+		num: 1035,
+		name: "Snailord",
+		types: ["Bug", "Rock"],
+		baseStats: {hp: 170, atk: 90, def: 45, spa: 90, spd: 45, spe: 60},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Pressure"},
+		weightkg: 398,
+	},
+	arbrella: {
+		num: 1036,
+		name: "Arbrella",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 70, atk: 90, def: 90, spa: 115, spd: 110, spe: 55},
+		abilities: {0: "Overgrow", H: "Shadow Shield"},
+		weightkg: 56,
+	},
+
 };
