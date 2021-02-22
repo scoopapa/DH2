@@ -62,7 +62,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
 			return "Sawsbuck-Winter-Mega";
 		}
-		if (item.name === "Ninetalesite" && pokemon.baseSpecies.name === "Ninetales") {
+		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales") {
 			return null;
 		}
 		if (item.name === "Nerfed Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
