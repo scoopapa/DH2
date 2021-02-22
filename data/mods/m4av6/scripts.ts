@@ -155,7 +155,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 
-		pokemon.illusion = null;
+		if (pokemon.illusion) {
+			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+		}
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
