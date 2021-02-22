@@ -245,6 +245,52 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			pokemon.moveUsed(move, targetLoc);
 		}
+
+		// Dancer Petal Dance hack
+		// TODO: implement properly
+		const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+
+		if (zMove) {
+			if (!pokemon.item === 'zoroarkite') { // only part that's changed
+				if (pokemon.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+				}
+				this.add('-zpower', pokemon);
+				pokemon.side.zMoveUsed = true;
+			}
+		}
+		const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
+		this.lastSuccessfulMoveThisTurn = moveDidSomething ? this.activeMove && this.activeMove.id : null;
+		if (this.activeMove) move = this.activeMove;
+		this.singleEvent('AfterMove', move, null, pokemon, target, move);
+		this.runEvent('AfterMove', pokemon, target, move);
+
+		// Dancer's activation order is completely different from any other event, so it's handled separately
+		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
+			const dancers = [];
+			for (const currentPoke of this.getAllActive()) {
+				if (pokemon === currentPoke) continue;
+				if (currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()) {
+					dancers.push(currentPoke);
+				}
+			}
+			// Dancer activates in order of lowest speed stat to highest
+			// Note that the speed stat used is after any volatile replacements like Speed Swap,
+			// but before any multipliers like Agility or Choice Scarf
+			// Ties go to whichever Pokemon has had the ability for the least amount of time
+			dancers.sort(
+				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			);
+			for (const dancer of dancers) {
+				if (this.faintMessages()) break;
+				if (dancer.fainted) continue;
+				this.add('-activate', dancer, 'ability: Dancer');
+				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility('dancer'), undefined, true);
+			}
+		}
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+	},
 	pokemon: {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
