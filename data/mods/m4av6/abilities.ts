@@ -1812,6 +1812,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
 		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
 		onAfterMega(pokemon) {
+			if (pokemon.item !== 'zoroarkite') return;
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1830,6 +1831,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
 		onSwitchIn(pokemon) {
+			if (pokemon.item !== 'zoroarkite') return;
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1864,9 +1866,57 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1050,
 	},
-	sleightofhand: {
+	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
 		shortDesc: "Psychic-type moves delayed until two turns later, but only one at a time.",
+		onTryHit(target, source, move) {
+			if (
+				move && move.type === 'Psychic' && source.hasAbility('clairvoyance') && source.side.addSlotCondition(source, 'clairvoyance')
+			) {
+				Object.assign(target.side.slotConditions[target.position]['clairvoyance'], {
+					duration: 3,
+					move: move,
+					source: source,
+					target: target,
+				});
+				this.add('-ability', source, 'Clairvoyance');
+				this.add('-start', source, `${source.name} cast ${move.name} into the future!`);
+				return null;
+			}
+		},
+		condition: {
+			duration: 3,
+			onResidualOrder: 3,
+			onEnd(target) {
+				const data = this.effectData;
+				const move = this.dex.getMove(data.move);
+				this.add('-ability', this.effectData.source, 'Clairvoyance');
+				if (target.fainted || !target) {
+					this.hint(`${move.name} did not hit because there was no target.`);
+					return;
+				}
+	
+				this.add(`${this.effectData.source.name}'s ${move.name} took effect!`);
+				target.removeVolatile('Protect');
+				target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+	
+				if (hitMove.category === 'Status') {
+					data.source = this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition];
+				}
+				this.trySpreadMoveHit([target], data.source, hitMove);
+			},
+		},
 		name: "Clairvoyance",
 		rating: 3,
 		num: -1051,
