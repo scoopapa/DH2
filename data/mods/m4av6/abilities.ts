@@ -1923,10 +1923,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Status') {
 					this.useMove(move, target, data.target);
 				} else {
-					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-					this.add('-message', `${data.source.name} used ${move.name}!`);
-					this.addMove('-anim', data.source, move.name, data.target);
-					this.trySpreadMoveHit(data.target, data.source, hitMove);
+					this.useMove(move, data.source, data.target);
 				}
 			},
 		},
