@@ -157,7 +157,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		if (pokemon.illusion) {
 			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
-		}
+		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
@@ -173,6 +173,78 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.runEvent('AfterMega', pokemon);
 		return true;
 	},
+	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
+		pokemon.activeMoveActions++;
+		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+		let baseMove = this.dex.getActiveMove(moveOrMoveName);
+		const pranksterBoosted = baseMove.pranksterBoosted;
+		if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+			const changedMove = this.runEvent('OverrideAction', pokemon, target, baseMove);
+			if (changedMove && changedMove !== true) {
+				baseMove = this.dex.getActiveMove(changedMove);
+				if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+				target = this.getRandomTarget(pokemon, baseMove);
+			}
+		}
+		let move = baseMove;
+		if (zMove) {
+			if (!pokemon.item === 'zoroarkite') { // only part that's changed
+				move = this.getActiveZMove(baseMove, pokemon);
+			}
+		} else if (maxMove) {
+			move = this.getActiveMaxMove(baseMove, pokemon);
+		}
+
+		move.isExternal = externalMove;
+
+		this.setActiveMove(move, pokemon, target);
+
+		/* if (pokemon.moveThisTurn) {
+			// THIS IS PURELY A SANITY CHECK
+			// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
+			// USE this.queue.cancelMove INSTEAD
+			this.debug('' + pokemon.id + ' INCONSISTENT STATE, ALREADY MOVED: ' + pokemon.moveThisTurn);
+			this.clearActiveMove(true);
+			return;
+		} */
+		const willTryMove = this.runEvent('BeforeMove', pokemon, target, move);
+		if (!willTryMove) {
+			this.runEvent('MoveAborted', pokemon, target, move);
+			this.clearActiveMove(true);
+			// The event 'BeforeMove' could have returned false or null
+			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+			pokemon.moveThisTurnResult = willTryMove;
+			return;
+		}
+		if (move.beforeMoveCallback) {
+			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
+				this.clearActiveMove(true);
+				pokemon.moveThisTurnResult = false;
+				return;
+			}
+		}
+		pokemon.lastDamage = 0;
+		let lockedMove;
+		if (!externalMove) {
+			lockedMove = this.runEvent('LockMove', pokemon);
+			if (lockedMove === true) lockedMove = false;
+			if (!lockedMove) {
+				if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+					this.add('cant', pokemon, 'nopp', move);
+					const gameConsole = [
+						null, 'Game Boy', 'Game Boy Color', 'Game Boy Advance', 'DS', 'DS', '3DS', '3DS',
+					][this.gen] || 'Switch';
+					this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
+					this.clearActiveMove(true);
+					pokemon.moveThisTurnResult = false;
+					return;
+				}
+			} else {
+				sourceEffect = this.dex.getEffect('lockedmove');
+			}
+			pokemon.moveUsed(move, targetLoc);
+		}
 	pokemon: {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
