@@ -1715,7 +1715,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnySetWeather(target, source, weather) {
 			if (source.hasAbility('everlastingwinter')) return;
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
-			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) return false;
+			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) {
+				this.add('-message', `The everlasting winter didn't let up at all!`);
+				return false;
+			}
 		},
 		onEnd(pokemon) {
 			if (this.field.weatherData.source !== pokemon) return;
@@ -1876,11 +1879,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (
 				move && move.type === 'Psychic' && source.hasAbility('clairvoyance') && source.side.addSlotCondition(source, 'clairvoyance')
 			) {
-				Object.assign(target.side.slotConditions[target.position]['clairvoyance'], {
+				Object.assign(source.side.slotConditions[source.position]['clairvoyance'], {
 					duration: 3,
 					move: move,
 					source: source,
 					target: target,
+					moveData: this.dex.getMove(move),
 				});
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
@@ -1912,11 +1916,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 					data.moveData.stab = 2;
 				}
+				data.moveData.isFutureMove = true;
 	
 				if (move.category === 'Status') {
-					this.useMove(
-						move, target, data.target
-					);
+					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					this.trySpreadMoveHit([target], data.source, hitMove);
