@@ -1896,7 +1896,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 3,
 			onResidualOrder: 3,
 			onEnd(target) {
-				this.effectData.target = this.effectData.side.active[this.effectData.position]
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
 				this.add('-ability', this.effectData.source, 'Clairvoyance');
