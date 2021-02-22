@@ -1826,7 +1826,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const forgery = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
+			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
@@ -1845,7 +1845,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const forgery = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
+			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
