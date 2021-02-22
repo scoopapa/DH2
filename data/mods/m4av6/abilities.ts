@@ -1861,7 +1861,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-ability', pokemon, 'Forgery');
-				this.add('-message', `${pokemon.name}'s Forgery was destroyed!`);
+				this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
 				pokemon.item = 'zoroarkite';
 			},
 		},
@@ -1883,7 +1883,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target: target,
 				});
 				this.add('-ability', source, 'Clairvoyance');
-				this.add('-start', source, `${source.name} cast ${move.name} into the future!`);
+				this.add('-message', `${source.name} cast ${move.name} into the future!`);
 				return null;
 			}
 		},
@@ -1915,7 +1915,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	
 				if (move.category === 'Status') {
 					this.useMove(
-						move, this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition], data.target
+						move, target, data.target
 					);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
