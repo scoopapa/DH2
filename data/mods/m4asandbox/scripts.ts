@@ -73,5 +73,4 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		return item.megaStone;
 	},
-*/
 };
