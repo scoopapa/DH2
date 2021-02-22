@@ -8,7 +8,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 		newMoves("hawlucha", ["dynamicpunch", "earthquake", "partingshot", "pursuit", "stormthrow", "tripleaxel"]);
 	},
-/*
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -63,17 +62,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
 			return "Sawsbuck-Winter-Mega";
 		}
-		if (item.name === "Mossy Sandwich" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
-			return "Toxtricity-Low-Key-Mega-Mossy";
+		if (item.name === "Ninetalesite" && pokemon.baseSpecies.name === "Ninetales") {
+			return null;
 		}
-		if (item.name === "Ausma" && pokemon.baseSpecies.name === "Noivern") {
-			return "Noivern-Mega-Ausma";
-		}
-		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
-			return "Toxtricity-Low-Key-Mega-BitBitio";
-		}
-		if (item.name === "BitBitio" && pokemon.baseSpecies.name === "Noivern") {
-			return "Noivern-Mega-BitBitio";
+		if (item.name === "Nerfed Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
+			return "Toxtricity-Low-Key-Mega-Nerfed";
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
