@@ -1711,14 +1711,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
 		onStart(source) {
 			this.field.setWeather('hail');
+			this.field.weatherData.duration = 0;
 		},
 		onAnySetWeather(target, source, weather) {
 			if (source.hasAbility('everlastingwinter')) return;
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
-			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) {
-				this.add('-message', `The everlasting winter didn't let up at all!`);
-				return false;
-			}
+			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
 			if (this.field.weatherData.source !== pokemon) return;
@@ -1875,7 +1873,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
 		shortDesc: "Psychic-type moves delayed until two turns later, but only one at a time.",
-		onTryHit(target, source, move) {
+		onBeforeMove(source, target, move) {
 			if (
 				move && move.type === 'Psychic' && source.hasAbility('clairvoyance') && source.side.addSlotCondition(source, 'clairvoyance')
 			) {
