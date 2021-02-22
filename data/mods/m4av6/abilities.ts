@@ -1879,15 +1879,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			) {
 				Object.assign(source.side.slotConditions[source.position]['clairvoyance'], {
 					duration: 3,
-					move: move,
 					source: source,
 					target: null,
+					move: move,
 					position: target.position,
+					side: target.side,
 					moveData: this.dex.getMove(move),
 				});
-				source.deductPP(move.id, 1);
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
+				source.deductPP(move.id, 1);
 				return null;
 			}
 		},
@@ -1895,15 +1896,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 3,
 			onResidualOrder: 3,
 			onEnd(target) {
+				this.effectData.target = this.effectData.side.active[this.effectData.position]
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
 				this.add('-ability', this.effectData.source, 'Clairvoyance');
-				for (const target of this.getAllActive()) {
-					if (target.position === data.position) {
-						data.target = target;
-						continue;
-					}
-				}
 				if (!data.target) {
 					this.hint(`${move.name} did not hit because there was no target.`);
 					return;
@@ -1930,7 +1926,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					this.add('-message', `${data.source.name} used ${move.name}!`);
 					this.addMove('-anim', data.source, move.name, data.target);
-					this.trySpreadMoveHit([target], data.source, hitMove);
+					this.trySpreadMoveHit(data.target, data.source, hitMove);
 				}
 			},
 		},
