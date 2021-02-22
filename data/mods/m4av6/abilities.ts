@@ -1861,8 +1861,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('forgery');
 			},
 			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Forgery');
-				this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+				if (pokemon.item) {
+					this.add('-ability', pokemon, 'Forgery');
+					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+				}
 				pokemon.item = 'zoroarkite';
 			},
 		},
@@ -1906,8 +1908,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 	
 				this.add(`${this.effectData.source.name}'s ${move.name} took effect!`);
-				target.removeVolatile('Protect');
-				target.removeVolatile('Endure');
+				data.target.removeVolatile('Protect');
+				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 					data.moveData.infiltrates = true;
