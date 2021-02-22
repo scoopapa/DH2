@@ -1912,9 +1912,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 	
 				if (hitMove.category === 'Status') {
-					data.source = this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition];
+					this.useMove(
+						'stockpile', this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition], data.target
+					);
+				} else {
+					this.trySpreadMoveHit([target], data.source, hitMove);
 				}
-				this.trySpreadMoveHit([target], data.source, hitMove);
 			},
 		},
 		name: "Clairvoyance",
