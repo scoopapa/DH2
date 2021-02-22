@@ -1849,6 +1849,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.item = forgery.item;
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('forgery');
+		},
 		condition: {
 			onDamagingHit(damage, target, source, move) {
 				target.removeVolatile('forgery');
@@ -1909,13 +1912,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 					data.moveData.stab = 2;
 				}
-				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 	
-				if (hitMove.category === 'Status') {
+				if (move.category === 'Status') {
 					this.useMove(
-						'stockpile', this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition], data.target
+						move, this.effectData.source.side.active[target.slotConditions['clairvoyance'].sourcePosition], data.target
 					);
 				} else {
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					this.trySpreadMoveHit([target], data.source, hitMove);
 				}
 			},
