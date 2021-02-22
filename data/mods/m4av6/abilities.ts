@@ -1881,9 +1881,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					duration: 3,
 					move: move,
 					source: source,
-					target: target,
+					target: null,
+					position: target.position,
 					moveData: this.dex.getMove(move),
 				});
+				source.deductPP(move.id, 1);
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
 				return null;
@@ -1896,7 +1898,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
 				this.add('-ability', this.effectData.source, 'Clairvoyance');
-				if (target.fainted || !target) {
+				for (const target of this.getAllActive()) {
+					if (target.position === data.position) {
+						data.target = target;
+						continue;
+					}
+				}
+				if (!data.target) {
 					this.hint(`${move.name} did not hit because there was no target.`);
 					return;
 				}
@@ -1920,6 +1928,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+					this.add('-message', `${data.source.name} used ${move.name}!`);
+					this.addMove('-anim', data.source, move.name, data.target);
 					this.trySpreadMoveHit([target], data.source, hitMove);
 				}
 			},
