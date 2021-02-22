@@ -1,4 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+/*
 	mossysandwich: {
 		name: "Mossy Sandwich",
 		spritenum: 578,
@@ -68,5 +69,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5000,
 		gen: 8,
 		desc: "BlueRay's stone for the submission sandbox.",
+	},
+*/
+	nerfedtoxtricitite: {
+		name: "Nerfed Toxtricitite",
+		spritenum: 578,
+		megaStone: "Toxtricity-Mega-Nerfed",
+		megaEvolves: "Toxtricity",
+		itemUser: ["Toxtricity"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5000,
+		gen: 8,
+		desc: "A stone to test the nerfed Acid Rock.",
 	},
 };
