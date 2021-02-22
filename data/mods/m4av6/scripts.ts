@@ -188,7 +188,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		let move = baseMove;
 		if (zMove) {
-			if (!pokemon.item === 'zoroarkite') { // only part that's changed
+			if (pokemon.item === 'zoroarkite') { // only part that's changed
+				zMove = false;
+			} else {
 				move = this.getActiveZMove(baseMove, pokemon);
 			}
 		} else if (maxMove) {
@@ -251,13 +253,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		const noLock = externalMove && !pokemon.volatiles['lockedmove'];
 
 		if (zMove) {
-			if (!pokemon.item === 'zoroarkite') { // only part that's changed
-				if (pokemon.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
-				}
-				this.add('-zpower', pokemon);
-				pokemon.side.zMoveUsed = true;
+			if (pokemon.illusion) {
+				this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 			}
+			this.add('-zpower', pokemon);
+			pokemon.side.zMoveUsed = true;
 		}
 		const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
 		this.lastSuccessfulMoveThisTurn = moveDidSomething ? this.activeMove && this.activeMove.id : null;
