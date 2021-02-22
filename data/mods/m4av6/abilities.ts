@@ -1817,7 +1817,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
-				if (pokemon.side.pokemon[i].fainted)) {
+				if (pokemon.side.pokemon[i].fainted) {
 					continue;
 				} else {
 					break;
@@ -1836,7 +1836,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
-				if (pokemon.side.pokemon[i].fainted)) {
+				if (pokemon.side.pokemon[i].fainted) {
 					continue;
 				} else {
 					break;
