@@ -9,7 +9,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("goodra", ["gigadrain", "drainpunch"]);
 		newMoves("dragapult", ["icebeam"]);
 		newMoves("orbeetle", ["focusblast", "teleport"]);
-		newMoves("thievul", ["focusblast", "aurasphere", "hiddenpower"]);
+		newMoves("thievul", ["focusblast", "aurasphere", "hiddenpower", "moonlight", "spiritbreak"]);
 		newMoves("gumshoos", ["coil", "bodyslam"]);
 		newMoves("vikavolt", ["leafblade", "darkpulse", "uturn", "thundercage"]);
 		newMoves("lycanrocmidnight", ["headsmash"]);
@@ -76,6 +76,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("cacturne", ["assurance", "knockoff", "strengthsap"]);
 		newMoves("hawlucha", ["partingshot", "stormthrow"]);
 		newMoves("araquanid", ["hypnosis", "lifedew", "painsplit", "purify"]);
+		newMoves("delphox", ["recover", "speedswap", "teleport"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -133,6 +134,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
 			return "Toxtricity-Low-Key-Mega";
+		}
+		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales") {
+			return null;
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
