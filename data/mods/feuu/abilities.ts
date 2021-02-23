@@ -510,5 +510,52 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	
+	//slate 5
+	sturdymold: {//this one's gonna be a fucking adventure
+		id: "sturdymold",
+		name: "Sturdy Mold",
+		shortDesc: "One-hit KOs leave it with 1 HP. Ignores attacker's ability when taking damage.",
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sturdy Mold');
+				return null;
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Sturdy Mold');
+				return target.hp - 1;
+			}
+		},
+		
+	},
+	therapeutic: {
+		id: "therapeutic",
+		name: "Therapeutic",
+		shortDesc: "Heals 1/8 max HP each turn when statused. Ignores non-Sleep effects of status.",
+		//Burn attack reduction bypass hard-coded in scripts.ts (in battle: {})
+		//There's probably a more elegant way to ignore the effects of status 
+		//that isn't hard-coding a check for the ability into every status condition,
+		//But that works so that is what I did.
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.status) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
+	solarpanel: {
+		id: "solarpanel",
+		name: "Solar Panel",
+		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Fire')) {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Solar Panel');
+				}
+				return null;
+			}
+		},
+	},
 };

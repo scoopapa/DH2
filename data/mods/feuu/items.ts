@@ -38,4 +38,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 0.5,
 		desc: "If held by a Tapu Lop, this item allows it to Mega Evolve in battle.",
 	},
+	redorb: {
+		name: "Red Orb",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			} else if (pokemon.isActive && pokemon.baseSpecies.name === 'Grousle') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			if (pokemon.baseSpecies.name === 'Groudon') {
+				pokemon.formeChange('Groudon-Primal', this.effect, true);
+			} else if (pokemon.baseSpecies.name === 'Grousle') {
+				pokemon.formeChange('Grousle-Primal', this.effect, true);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Groudon' || source.baseSpecies.baseSpecies === 'Grousle') return false;
+			return true;
+		},
+		itemUser: ["Groudon", "Grousle"],
+		num: 534,
+		gen: 6,
+		isNonstandard: "Past",
+	},
 };
