@@ -85,4 +85,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "A stone to test the nerfed Acid Rock.",
 	},
+	inkbug: {
+		name: "inkbug",
+		spritenum: 578,
+		megaStone: "Wishiwashi-Mega",
+		megaEvolves: "Wishiwashi",
+		itemUser: ["Wishiwashi"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5000,
+		gen: 8,
+		desc: "inkbug's stone for the submission sandbox.",
+	},
 };
