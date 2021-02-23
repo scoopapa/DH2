@@ -12,18 +12,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Sandbox",
 	},
 	wishiwashimega1: {
-		tier: "(PU)",
+		tier: "Sandbox",
 	},
 	wishiwashimega2: {
-		tier: "(PU)",
+		tier: "Sandbox",
 	},
 	wishiwashimega3: {
-		tier: "(PU)",
+		tier: "Sandbox",
 	},
 	wishiwashimega4: {
-		tier: "(PU)",
+		tier: "Sandbox",
 	},
 	wishiwashimegaschool: {
-		tier: "(PU)",
+		tier: "Sandbox",
 	},
 };
