@@ -72,7 +72,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.3,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 	wishiwashimega1: {
 		num: 746,
@@ -86,7 +86,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 16.0,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 	wishiwashimega2: {
 		num: 746,
@@ -100,7 +100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 31.7,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 	wishiwashimega3: {
 		num: 746,
@@ -114,7 +114,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 47.4,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 	wishiwashimega4: {
 		num: 746,
@@ -128,7 +128,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 63.1,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 	wishiwashimegaschool: {
 		num: 746,
@@ -142,6 +142,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 78.6,
 		color: "Blue",
 		eggGroups: ["Water 2"],
-		requiredItem: "Wishiwashite",
+		requiredItem: "inkbug",
 	},
 };
