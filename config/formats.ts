@@ -910,6 +910,7 @@ export const Formats: FormatList = [
 			'Silvino-Poison-Mega', 'Silvino-Psychic-Mega', 'Silvino-Rock-Mega', 
 			'Silvino-Steel-Mega', 'Silvino-Water-Mega', 'Silvino-Mega',
 		],
+		debug: true,
 	},
 	{
 		name: "[Gen 8] Megas for All",

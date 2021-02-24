@@ -529,13 +529,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		
-		onFoeModifyMove(move, pokemon) {
-			if (pokemon !== this.effectData.target) {
-				if (move.target === 'foeside' || move.target === 'all') {
-					move.ignoreSourceAbility = true;
-				}
-			}
-		},
 	},
 	therapeutic: {
 		id: "therapeutic",
