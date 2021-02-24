@@ -119,5 +119,55 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
+	skuntankgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	reshiramgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	flygongmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	darmanitangalargmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	rapidashgalargmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	scizorgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	glaceongmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	decidueyegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	incineroargmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	giratinagmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
 	
 };

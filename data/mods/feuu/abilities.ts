@@ -25,6 +25,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Despicable",
 		shortDesc: "This Pokemon's attacks are critical hits if the target is burned or poisoned.",
 		onModifyCritRatio(critRatio, source, target) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+
+			if (ignore) return;
+			///////////END PLACEHOLDER
 			if (target && ['psn', 'tox', 'brn'].includes(target.status)) return 5;
 		},
 	},
@@ -108,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon) {
 			let boosted = true;
 			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
+				if (target === pokemon || target.hasAbility('sturdymold')) continue; //PLACEHOLDER
 				if (this.queue.willMove(target)) {
 					boosted = false;
 					break;
@@ -317,7 +327,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					console.log("Target has Sturdy Mold");
+					return;
+				} else console.log("Target does not have Sturdy Mold");
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			move.infiltrates = true;
 		},
 	},
@@ -385,12 +406,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		*/
 	},
-	openhanded: {
-		id: "openhanded",
-		name: "Open-Handed",
-		shortDesc: "If user has no item, user's moves have +1 priority.",
+	notfunny: {
+		id: "notfunny",
+		name: "Not Funny",
+		shortDesc: "No Guard + Prankster.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.category === 'Status') {
+				if (target && target !== pokemon && target.hasAbility('sturdymold')) return;
 				move.pranksterBoosted = true;
 				return priority + 1;
 			}
@@ -429,8 +451,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.choiceLock = move.id;
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
+		onModifySpA(atk, pokemon, move) {
 			if (pokemon.volatiles['dynamax']) return;
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				}
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
 			return this.chainModify(1.5);
@@ -495,6 +527,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded (via scripts.ts in this case)
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
@@ -513,7 +555,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Doggy's Maw",
 		shortDesc: "This Pokemon's Normal, Fighting and Dragon moves ignore type-based immunities.",
 		onModifyMovePriority: -5,
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Fighting'] = true;
@@ -522,5 +574,92 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	
+	//slate 5
+	sturdymold: {//this one's gonna be a fucking adventure
+		id: "sturdymold",
+		name: "Sturdy Mold",
+		shortDesc: "One-hit KOs leave it with 1 HP. Ignores attacker's ability when taking damage.",
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sturdy Mold');
+				return null;
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Sturdy Mold');
+				return target.hp - 1;
+			}
+		},
+		//I'm gonna figure out how to code this legit at some point, I swear, 
+		//but for now, since we have so few abilities, 
+		//I'm just gonna hard-code it into everything.
+	},
+	therapeutic: {
+		id: "therapeutic",
+		name: "Therapeutic",
+		shortDesc: "Heals 1/8 max HP each turn when statused. Ignores non-Sleep effects of status.",
+		//Burn attack reduction bypass hard-coded in scripts.ts (in battle: {})
+		//There's probably a more elegant way to ignore the effects of status 
+		//that isn't hard-coding a check for the ability into every status condition,
+		//But that works so that is what I did.
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.status) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
+	solarpanel: {
+		id: "solarpanel",
+		name: "Solar Panel",
+		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Fire')) {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Solar Panel');
+				}
+				return null;
+			}
+		},
+	},
+	//For purposes of cancelling this ability out for Sturdy Mold:
+	toughclaws: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact'] && !defender.hasAbility('sturdymold')) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Tough Claws",
+		rating: 3.5,
+		num: 181,
+	},
+	hustle: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon, move) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number' && !target.hasAbility('sturdymold')) {
+				return accuracy * 0.8;
+			}
+		},
+		name: "Hustle",
+		rating: 3.5,
+		num: 55,
+	},
 };

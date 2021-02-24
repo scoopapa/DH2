@@ -207,7 +207,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Jirachi",
 	},
-	/*
+	
 	flygon: {
 		inherit: true,
 		canGigantamax: "G-Max Kaleidoscope",
@@ -227,7 +227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug", "Dragon"],
 		changesFrom: "Flygon",
 	},
- */
+ 
 	polteageist: {
 		inherit: true,
 		canGigantamax: "G-Max Green Tea",
@@ -266,7 +266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Polteageist-Antique",
 		battleOnly: "Polteageist-Antique",
 	},
- /*
+ 
 	rapidashgalar: {
 		inherit: true,
 		canGigantamax: "G-Max Land Tremble",
@@ -286,7 +286,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Rapidash-Galar",
 		battleOnly: "Rapidash-Galar",
 	},
- 
+  
 	incineroar: {
 		inherit: true,
 		canGigantamax: "G-Max Moonsault",
@@ -305,7 +305,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Incineroar",
 	},
- 
+  
 	darmanitangalar: {
 		inherit: true,
 		canGigantamax: "G-Max Sharpened Iceberg",
@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Darmanitan-Galar",
 		battleOnly: "Darmanitan-Galar",
 	},
- 
+  
 	decidueye: {
 		inherit: true,
 		canGigantamax: "G-Max Arrow Raid",
@@ -344,7 +344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Decidueye",
 	},
- 
+ /*
 	kyuremblack: {
 		inherit: true,
 		canGigantamax: "G-Max Future Shock",
@@ -364,7 +364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Kyurem-Black",
 		battleOnly: "Kyurem-Black",
 	},
- 
+ */
 	scizor: {
 		inherit: true,
 		canGigantamax: "G-Max Bug Shield",
@@ -383,7 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		changesFrom: "Scizor",
 	},
- 
+ /*
 	sableye: {
 		inherit: true,
 		canGigantamax: "G-Max Meddling",
@@ -497,7 +497,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Klefki",
 	},
- 
+ */
 	slowbrogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Shell Shock",
@@ -517,7 +517,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Slowbro-Galar",
 		battleOnly: "Slowbro-Galar",
 	},
- 
+ /*
 	jigglypuff: {
 		inherit: true,
 		canGigantamax: "G-Max Puff Up",
@@ -748,7 +748,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		changesFrom: "Quagsire",
 	},
- /*
+ 
 	reshiram: {
 		inherit: true,
 		canGigantamax: "G-Max Azure Flare",
@@ -767,7 +767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Reshiram",
 	},
- 
+ /*
 	obstagoon: {
 		inherit: true,
 		canGigantamax: "G-Max Breakdown",
@@ -1031,10 +1031,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Rayquaza",
 	},
-	
+*/	
 	glaceon: {
 		inherit: true,
-		canGigantamax: "G-Max Evo Glace",
+		canGigantamax: "G-Max Evo-Glace",
 	},
 	glaceongmax: {
 		num: 471,
@@ -1051,7 +1051,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Glaceon",
 	},
-	*/
+	
 	chandelure: {
 		inherit: true,
 		canGigantamax: "G-Max Soulraze",
@@ -1184,5 +1184,138 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Azelf",
 	},
+	
+	mesprit: {
+		inherit: true,
+		canGigantamax: "G-Max Benevolent Spirit",
+	},
+	mespritgmax: {
+		num: 481,
+		name: "Mesprit-Gmax",
+		baseSpecies: "Mesprit",
+		forme: "Gmax",
+		types: ["Psychic", "Ice"],
+		baseStats: {hp: 80, atk: 105, def: 105, spa: 105, spd: 105, spe: 80},
+		abilities: {0: "Levitate"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Pink",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Mesprit",
+	},
+ 
+	absol: {
+		inherit: true,
+		canGigantamax: "G-Max Devestational Force",
+	},
+	absolgmax: {
+		num: 359,
+		name: "Absol-Gmax",
+		baseSpecies: "Absol",
+		forme: "Gmax",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 75},
+		abilities: {0: "Pressure", 1: "Super Luck", H: "Justified"},
+		heightm: 20,
+		weightkg: 0,
+		color: "White",
+		eggGroups: ["Field"],
+		changesFrom: "Absol",
+	},
+ 
+	umbreon: {
+		inherit: true,
+		canGigantamax: "G-Max Venomous Moonlight",
+	},
+	umbreongmax: {
+		num: 197,
+		name: "Umbreon-Gmax",
+		baseSpecies: "Umbreon",
+		forme: "Gmax",
+		types: ["Dark"],
+		baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 55},
+		abilities: {0: "Synchronize", H: "Inner Focus"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Black",
+		eggGroups: ["Field"],
+		changesFrom: "Umbreon",
+	},
+ */
+	skuntank: {
+		inherit: true,
+		canGigantamax: "G-Max Stink Bomb",
+	},
+	skuntankgmax: {
+		num: 435,
+		name: "Skuntank-Gmax",
+		baseSpecies: "Skuntank",
+		forme: "Gmax",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 103, atk: 93, def: 67, spa: 71, spd: 61, spe: 84},
+		abilities: {0: "Stench", 1: "Aftermath", H: "Keen Eye"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Purple",
+		eggGroups: ["Field"],
+		changesFrom: "Skuntank",
+	},
+ 
+	giratina: {
+		inherit: true,
+		canGigantamax: "G-Max Gravitational Spike",
+	},
+	giratinagmax: {
+		num: 487,
+		name: "Giratina-Gmax",
+		baseSpecies: "Giratina",
+		forme: "Gmax",
+		types: ["Ghost", "Psychic"],
+		baseStats: {hp: 150, atk: 100, def: 120, spa: 100, spd: 120, spe: 90},
+		abilities: {0: "Pressure", H: "Telepathy"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Black",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Giratina",
+	},
+ /*
+	dusknoir: {
+		inherit: true,
+		canGigantamax: "G-Max Reap",
+	},
+	dusknoirgmax: {
+		num: 477,
+		name: "Dusknoir-Gmax",
+		baseSpecies: "Dusknoir",
+		forme: "Gmax",
+		types: ["Ghost", "Normal"],
+		baseStats: {hp: 45, atk: 100, def: 135, spa: 65, spd: 135, spe: 45},
+		abilities: {0: "Pressure", H: "Frisk"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Black",
+		eggGroups: ["Amorphous"],
+		changesFrom: "Dusknoir",
+	},
+ 
+	leafeon: {
+		inherit: true,
+		canGigantamax: "G-Max Evo-Leaf",
+	},
+	leafeongmax: {
+		num: 470,
+		name: "Leafeon-Gmax",
+		baseSpecies: "Leafeon",
+		forme: "Gmax",
+		types: ["Grass"],
+		baseStats: {hp: 65, atk: 110, def: 130, spa: 60, spd: 65, spe: 95},
+		abilities: {0: "Leaf Guard", H: "Chlorophyll"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Green",
+		eggGroups: ["Field"],
+		changesFrom: "Leafeon",
+	},	
 	*/
 };

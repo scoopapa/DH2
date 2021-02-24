@@ -1956,3 +1956,4 @@ export const Formats: FormatList = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 	},
 ];
+    
