@@ -636,4 +636,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 181,
 	},
+	hustle: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon, move) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number' && !target.hasAbility('sturdymold')) {
+				return accuracy * 0.8;
+			}
+		},
+		name: "Hustle",
+		rating: 3.5,
+		num: 55,
+	},
 };
