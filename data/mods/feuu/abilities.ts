@@ -485,12 +485,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyType(move, pokemon) {
 			///////////PLACEHOLDER
 			let ignore = false;
-			for (const poke of source.side.foe.active) {
-				if (poke.hasAbility('sturdymold')) {
+			for (const poke of pokemon.side.foe.active) {
+				if (poke.getAbility() === 'sturdymold') {
 					ignore = true;
 				}
 			}
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) continue;
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
