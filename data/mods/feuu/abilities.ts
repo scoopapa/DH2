@@ -483,6 +483,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded (via scripts.ts in this case)
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
+			///////////PLACEHOLDER
+			let ignore = false;
+			for (const poke of source.side.foe.active) {
+				if (poke.hasAbility('sturdymold')) {
+					ignore = true;
+				}
+			}
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) continue;
+			///////////END PLACEHOLDER
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
@@ -528,7 +537,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return target.hp - 1;
 			}
 		},
-		
+		//I'm gonna figure out how to code this legit at some point, I swear, 
+		//but for now, since we have so few abilities, 
+		//I'm just gonna hard-code it into everything.
 	},
 	therapeutic: {
 		id: "therapeutic",
