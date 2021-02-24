@@ -316,18 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Grousle",
 	},
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//silvino formes
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
 		num: 14,

@@ -508,7 +508,10 @@ exports.chatlogreader = 'fs';
  *     - game: make games.
  */
 exports.noipchecks = true;
- 
+
+exports.serverid = 'dragonheaven';
+exports.servertoken = '2IVOToXlnPb4';
+
 exports.grouplist = [
 	{
 		symbol: '~',

@@ -138,10 +138,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Competitive", 1: "Infiltrator", H: "Corrosion"},
 		baseStats: {hp: 85, atk: 70, def: 80, spa: 90, spd: 80, spe: 130},
 	},
-	slowkinggalar: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 55, def: 90, spa: 110, spd: 110, spe: 30},
-	},
 	urshifurapidstrike: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 115, def: 80, spa: 63, spd: 80, spe: 112},
@@ -210,5 +206,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	machamp: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 130, def: 80, spa: 55, spd: 85, spe: 65},
+	},
+	spectrier: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 85, def: 60, spa: 145, spd: 80, spe: 100},
 	},
 };

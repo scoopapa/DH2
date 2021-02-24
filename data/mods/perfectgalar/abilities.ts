@@ -232,6 +232,63 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 259,
 	},
+	libero: {
+		onAfterMove(source) {
+			 
+			let move = this.activeMove;
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		name: "Libero",
+		rating: 4.5,
+		num: 236,
+	},
+	shadowtag: {
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.hasAbility('shadowtag')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = true;
+		},
+		name: "Shadow Tag",
+		rating: 5,
+		num: 23,
+	},
+	arenatrap: {
+		onFoeTrapPokemon(pokemon) {
+			const targetWeight = pokemon.getWeight();
+			if (targetWeight < 1500 ) return;
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (pokemon.isGrounded()) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			const targetWeight = pokemon.getWeight();
+			if (targetWeight < 1500 ) return;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Arena Trap",
+		rating: 5,
+		num: 71,
+	},
 	
 //-----------------------------forme changes---------------------------------------------------------------------------------
 	"stancechange": {

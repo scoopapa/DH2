@@ -189,7 +189,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
 		abilities: {0: "Magic Guard"},
 		weightkg: 5,
-		// cosmeticFormes: [],
+		otherFormes: ['unownm'],
+		cosmeticFormes: null,
+	},
+	unownm: {
+		num: 201,
+		name: "Unown-M",
+		baseForme: "M",
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 70, atk: 115, def: 140, spa: 70, spd: 115, spe: 70},
+		abilities: {0: "Magic Guard"},
+		cosmeticFormes: null,
+		heightm: 0.5,
+		weightkg: 5,
+		gender: "N",
 	},
 	watervellumental: {
 		num: -1004,
@@ -697,5 +710,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 80, def: 117, spa: 75, spd: 117, spe: 25},
 		abilities: {0: "Pressure", 1: "Damp", H: "Unnerve"},
-	}
+	},
+	meloettapirouette: {
+		inherit: true,
+		requiredMove: null,
+		requiredItem: "Relic Charm",
+	},
 };

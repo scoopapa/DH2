@@ -121,6 +121,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	meloettapirouette: {
 		tier: "Melee",
+		requiredItems: ["Relic Charm"],
 	},
 	mamoswine: {
 		tier: "Melee",

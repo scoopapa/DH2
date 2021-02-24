@@ -1021,6 +1021,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately. Items lost to this move cannot be regained with Recycle or the Ability Harvest.",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "bugbite",
+		isViable: true,
 		name: "Bug Bite",
 		pp: 20,
 		priority: 0,
@@ -1068,6 +1069,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately. Items lost to this move cannot be regained with Recycle or the Ability Harvest.",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "pluck",
+		isViable: true,
 		name: "Pluck",
 		pp: 20,
 		priority: 0,
@@ -1114,6 +1116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "If this move is successful and the user has not fainted, it steals the target's held Berry if it is holding one and eats it immediately. Items lost to this move cannot be regained with Recycle or the Ability Harvest.",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		id: "incinerate",
+		isViable: true,
 		name: "Incinerate",
 		pp: 20,
 		priority: 0,
@@ -1172,6 +1175,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Hits twice, with each hit having a 20% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
 		shortDesc: "Hits 2 times. Each hit has 20% chance to poison.",
 		id: "twineedle",
+		isViable: true,
 		name: "Twineedle",
 		pp: 10,
 		priority: 0,
@@ -1255,6 +1259,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Deals fixed damage equal to the user's level",
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "dragonrage",
+		isViable: true,
 		name: "Dragon Rage",
 		pp: 20,
 		priority: 0,
@@ -1277,12 +1282,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Deals fixed damage equal to the user's level",
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "sonicboom",
+		isViable: true,
 		name: "Sonic Boom",
 		pp: 20,
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
+			sound: 1,
+			authentic: 1,
 		},
 		secondary: null,
 		target: "normal",
@@ -1299,6 +1307,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Deals fixed damage equal to the user's level",
 		shortDesc: "Deals fixed damage equal to the user's level",
 		id: "psywave",
+		isViable: true,
 		name: "Psywave",
 		pp: 20,
 		priority: 0,
@@ -1739,6 +1748,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "No additional effect.",
 		shortDesc: "Usually goes first. 10% Freeze chance.",
 		id: "powdersnow",
+		isViable: true,
 		name: "Powder Snow",
 		pp: 30,
 		priority: 1,
@@ -1765,6 +1775,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
 		shortDesc: "If a Room is active, 1.5x power; destroys the Room.",
 		id: "pragmastrike",
+		isViable: true,
 		name: "Pragma-Strike",
 		pp: 10,
 		priority: 0,
@@ -2052,6 +2063,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 20% chance to paralyze the target.",
 		shortDesc: "20% chance to paralyze.",
 		id: "thunderfang",
+		isViable: true,
 		name: "Thunder Fang",
 		pp: 10,
 		priority: 0,
@@ -2095,6 +2107,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 20% chance to badly poison the target.",
 		shortDesc: "20% chance to badly poison the target.",
 		id: "poisonfang",
+		isViable: true,
 		name: "Poison Fang",
 		pp: 10,
 		priority: 0,
@@ -2203,6 +2216,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 30% chance to paralyze the target.",
 		shortDesc: "Charges turn 1. Hits turn 2. 30% paralyze.",
 		id: "freezeshock",
+		isViable: true,
 		name: "Freeze Shock",
 		pp: 5,
 		priority: 0,
@@ -2224,6 +2238,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 30% chance to burn the target.",
 		shortDesc: "Charges turn 1. Hits turn 2. 30% burn.",
 		id: "iceburn",
+		isViable: true,
 		name: "Ice Burn",
 		pp: 5,
 		priority: 0,
@@ -2334,6 +2349,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		id: "crushgrip",
+		isViable: true,
 		name: "Crush Grip",
 		pp: 5,
 		priority: 0,
@@ -2463,6 +2479,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user recovers 3/4 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
 		shortDesc: "User recovers 50% of the damage dealt.",
 		id: "drainingkiss",
+		isViable: true,
 		name: "Draining Kiss",
 		pp: 10,
 		priority: 0,
@@ -2482,6 +2499,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Raises the user's Attack by 3 stages if this move knocks out the target.",
 		shortDesc: "Raises user's Attack by 3 if this KOes the target.",
 		id: "fellstinger",
+		isViable: true,
 		name: "Fell Stinger",
 		pp: 25,
 		priority: 0,
@@ -2502,6 +2520,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		id: "leafage",
+		isViable: true,
 		name: "Leafage",
 		pp: 40,
 		priority: 1,
@@ -2519,6 +2538,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		shortDesc: "No additional effect.",
 		id: "fairywind",
+		isViable: true,
 		name: "Fairy Wind",
 		pp: 30,
 		priority: 1,
@@ -2677,6 +2697,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         category: "Physical",
         shortDesc: "+1 Priority.",
         id: "leafage",
+		  isViable: true,
         name: "Leafage",
         pp: 40,
         priority: 1,
@@ -2693,6 +2714,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         category: "Special",
         shortDesc: "+1 Priority.",
         id: "fairywind",
+		  isViable: true,
         name: "Fairy Wind",
         pp: 30,
         priority: 1,
@@ -3040,6 +3062,256 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  zMove: {effect: 'heal'},
 		  contestType: "Clever",
 	},
+	dig: {
+		num: 91,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		desc: "Digs underground turn 1, strikes turn 2. Executes in 1 turn in Sand.",
+		shortDesc: "Digs underground turn 1, strikes turn 2. Executes in 1 turn in Sand.",
+		name: "Dig",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sandstorm'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onImmunity(type, pokemon) {
+				if (type === 'sandstorm' || type === 'hail') return false;
+			},
+			onInvulnerability(target, source, move) {
+				if (['earthquake', 'magnitude'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'earthquake' || move.id === 'magnitude') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	dive: {
+		num: 291,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		desc: "Dives underwater turn 1, strikes turn 2. Executes in 1 turn in Rain and Heavy Rain.",
+		shortDesc: "Dives underwater turn 1, strikes turn 2. Executes in 1 turn in Rain.",
+		name: "Dive",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				attacker.formeChange(forme, move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onImmunity(type, pokemon) {
+				if (type === 'sandstorm' || type === 'hail') return false;
+			},
+			onInvulnerability(target, source, move) {
+				if (['surf', 'whirlpool'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'surf' || move.id === 'whirlpool') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	fly: {
+		num: 19,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		desc: "Flies up turn 1, strikes turn 2. Executes in 1 turn in Air Current.",
+		shortDesc: "Flies up turn 1, strikes turn 2. Executes in 1 turn in Air Current.",
+		name: "Fly",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['aircurrent'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'gust' || move.id === 'twister') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	shadowforce: {
+		num: 467,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		desc: "Disappears turn 1, strikes turn 2. Executes in 1 turn in Shadow Sky. Bypasses Protection (not Max Guard).",
+		shortDesc: "Disappears turn 1, strikes turn 2. Executes in 1 turn in Shadow Sky. Bypasses Protection.",
+		name: "Shadow Force",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, charge: 1, mirror: 1},
+		breaksProtect: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['shadowsky'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability: false,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	phantomforce: {
+		num: 566,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "Disappears turn 1, strikes turn 2. Executes in 1 turn in Shadow Sky. Bypasses Protection (not Max Guard).",
+		shortDesc: "Disappears turn 1, strikes turn 2. Executes in 1 turn in Shadow Sky. Bypasses Protection.",
+		name: "Phantom Force",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, mirror: 1},
+		breaksProtect: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['shadowsky'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability: false,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	hottag: {
+      accuracy: true,
+      basePower: 0,
+      category: "Status",
+      desc: "Switches out the user. The Pokemon that is switched in has their Attack and Special Attack raised by 1",
+      shortDesc: "Switches user out. Replacement: +1 Atk and SpA",
+		isViable: true,
+      name: "Hot Tag",
+      pp: 20,
+      priority: 0,
+      flags: {snatch: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", target);
+		},
+      slotCondition: 'hottag',
+      condition: { 
+          onSwap(target) {
+              if (!target.fainted) {
+                  this.boost({atk: 1, spa: 1,}, target);
+                  target.side.removeSlotCondition(target, 'hottag');
+              }
+          },
+      },
+      selfSwitch: true,
+      secondary: null,
+      target: "self",
+      type: "Fighting",
+      zMove: {effect: 'healreplacement'},
+      contestType: "Tough",
+  },
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
