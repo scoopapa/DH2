@@ -1633,7 +1633,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
 				const additionalBannedAbilities = [
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
+					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
@@ -1658,7 +1659,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
 				const additionalBannedAbilities = [
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
+					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
@@ -1817,12 +1819,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				if (pokemon.side.pokemon[i].fainted) {
-					continue;
-				} else {
-					break;
-				}
+				if (!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted) continue;
+				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
@@ -1939,7 +1937,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's contact moves become special and non-contact.",
 		onModifyMove(move) {
 			if (move.flags['contact']) {
-				move.category = 'Special';
+				if (move.category !== 'Special') move.category = 'Special';
 				delete move.flags['contact'];
 			}
 		},
