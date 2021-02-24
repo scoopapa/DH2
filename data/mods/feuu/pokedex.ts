@@ -233,7 +233,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Grimmlurk",
 		types: ["Fairy", "Ghost"],
 		baseStats: {hp: 95, atk: 125, def: 90, spa: 75, spd: 90, spe: 60},
-		abilities: {0: "Open-Handed"},
+		abilities: {0: "Not Funny"},
 		weightkg: 195.5,
 	},
 	manicunogalar: {
