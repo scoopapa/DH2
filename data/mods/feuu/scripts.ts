@@ -237,5 +237,224 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		}
+		
+		
+		
+		
+		//ok here we fucking go
+		//hard-coding sturdy mold
+		//this will not end well
+		suppressingAttackEvents(target?: Pokemon) {
+			return this.activePokemon && this.activePokemon.isActive && this.activePokemon !== target &&
+				this.activeMove && this.activeMove.ignoreAbility;
+		}
+		
+		suppressingFoeAttackEvents(target?: Pokemon) {
+			return this.activePokemon && this.activePokemon.isActive && this.activePokemon !== target &&
+				this.activeMove && this.activeMove.ignoreSourceAbility;
+		}
+		
+		runEvent(
+			eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
+			sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
+		) {
+			// if (Battle.eventCounter) {
+			// 	if (!Battle.eventCounter[eventid]) Battle.eventCounter[eventid] = 0;
+			// 	Battle.eventCounter[eventid]++;
+			// }
+			if (this.eventDepth >= 8) {
+				// oh fuck
+				this.add('message', 'STACK LIMIT EXCEEDED');
+				this.add('message', 'PLEASE REPORT IN BUG THREAD');
+				this.add('message', 'Event: ' + eventid);
+				this.add('message', 'Parent event: ' + this.event.id);
+				throw new Error("Stack overflow");
+			}
+			if (!target) target = this;
+			let effectSource = null;
+			if (source instanceof Pokemon) effectSource = source;
+			const handlers = this.findEventHandlers(target, eventid, effectSource);
+			if (eventid === 'Invulnerability' || eventid === 'TryHit' || eventid === 'DamagingHit') {
+				handlers.sort(Battle.compareLeftToRightOrder);
+			} else if (fastExit) {
+				handlers.sort(Battle.compareRedirectOrder);
+			} else {
+				this.speedSort(handlers);
+			}
+			let hasRelayVar = 1;
+			const args = [target, source, sourceEffect];
+			// console.log('Event: ' + eventid + ' (depth ' + this.eventDepth + ') t:' + target.id + ' s:' + (!source || source.id) + ' e:' + effect.id);
+			if (relayVar === undefined || relayVar === null) {
+				relayVar = true;
+				hasRelayVar = 0;
+			} else {
+				args.unshift(relayVar);
+			}
+
+			const parentEvent = this.event;
+			this.event = {id: eventid, target, source, effect: sourceEffect, modifier: 1};
+			this.eventDepth++;
+
+			if (onEffect) {
+				if (!sourceEffect) throw new Error("onEffect passed without an effect");
+				// @ts-ignore - dynamic lookup
+				const callback = sourceEffect[`on${eventid}`];
+				if (callback !== undefined) {
+					if (Array.isArray(target)) throw new Error("");
+					handlers.unshift(this.resolvePriority({
+						effect: sourceEffect, callback, state: {}, end: null, effectHolder: target,
+					}, `on${eventid}`));
+				}
+			}
+
+			let targetRelayVars = [];
+			if (Array.isArray(target)) {
+				if (Array.isArray(relayVar)) {
+					targetRelayVars = relayVar;
+				} else {
+					for (let i = 0; i < target.length; i++) targetRelayVars[i] = true;
+				}
+			}
+			for (const handler of handlers) {
+				if (handler.index !== undefined) {
+					// TODO: find a better way to do this
+					if (!targetRelayVars[handler.index] && !(targetRelayVars[handler.index] === 0 &&
+						eventid === 'DamagingHit')) continue;
+					if (handler.target) {
+						args[hasRelayVar] = handler.target;
+						this.event.target = handler.target;
+					}
+					if (hasRelayVar) args[0] = targetRelayVars[handler.index];
+				}
+				const effect = handler.effect;
+				const effectHolder = handler.effectHolder;
+				// this.debug('match ' + eventid + ': ' + status.id + ' ' + status.effectType);
+				if (effect.effectType === 'Status' && (effectHolder as Pokemon).status !== effect.id) {
+					// it's changed; call it off
+					continue;
+				}
+				if (effect.effectType === 'Ability' && !effect.isUnbreakable &&
+						this.suppressingAttackEvents(effectHolder as Pokemon)) {
+					// ignore attacking events
+					const AttackingEvents = {
+						BeforeMove: 1,
+						BasePower: 1,
+						Immunity: 1,
+						RedirectTarget: 1,
+						Heal: 1,
+						SetStatus: 1,
+						CriticalHit: 1,
+						ModifyAtk: 1, ModifyDef: 1, ModifySpA: 1, ModifySpD: 1, ModifySpe: 1, ModifyAccuracy: 1,
+						ModifyBoost: 1,
+						ModifyDamage: 1,
+						ModifySecondaries: 1,
+						ModifyWeight: 1,
+						TryAddVolatile: 1,
+						TryHit: 1,
+						TryHitSide: 1,
+						TryMove: 1,
+						Boost: 1,
+						DragOut: 1,
+						Effectiveness: 1,
+					};
+					if (eventid in AttackingEvents) {
+						this.debug(eventid + ' handler suppressed by Mold Breaker');
+						continue;
+					} else if (eventid === 'Damage' && sourceEffect && sourceEffect.effectType === 'Move') {
+						this.debug(eventid + ' handler suppressed by Mold Breaker');
+						continue;
+					}
+				} else if (effect.effectType === 'Ability' && !effect.isUnbreakable &&
+						this.suppressingFoeAttackEvents(effectHolder as Pokemon)) {
+					// ignore attacking events
+					const AttackingEvents = {
+						BeforeMove: 1,
+						BasePower: 1,
+						Immunity: 1,
+						RedirectTarget: 1,
+						Heal: 1,
+						SetStatus: 1,
+						CriticalHit: 1,
+						ModifyAtk: 1, ModifyDef: 1, ModifySpA: 1, ModifySpD: 1, ModifySpe: 1, ModifyAccuracy: 1,
+						ModifyBoost: 1,
+						ModifyDamage: 1,
+						ModifySecondaries: 1,
+						ModifyWeight: 1,
+						TryAddVolatile: 1,
+						TryHit: 1,
+						TryHitSide: 1,
+						TryMove: 1,
+						Boost: 1,
+						DragOut: 1,
+						Effectiveness: 1,
+					};
+					if (eventid in AttackingEvents) {
+						this.debug(eventid + ' handler suppressed by Mold Breaker');
+						continue;
+					} else if (eventid === 'Damage' && sourceEffect && sourceEffect.effectType === 'Move') {
+						this.debug(eventid + ' handler suppressed by Mold Breaker');
+						continue;
+					}
+				}
+				if (eventid !== 'Start' && eventid !== 'SwitchIn' && eventid !== 'TakeItem' &&
+					effect.effectType === 'Item' && (effectHolder instanceof Pokemon) && effectHolder.ignoringItem()) {
+					if (eventid !== 'Update') {
+						this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+					}
+					continue;
+				} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
+						(effectHolder instanceof Pokemon) && effectHolder.ignoringAbility()) {
+					if (eventid !== 'Update') {
+						this.debug(eventid + ' handler suppressed by Gastro Acid');
+					}
+					continue;
+				}
+				if ((effect.effectType === 'Weather' || eventid === 'Weather') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingWeather()) {
+					this.debug(eventid + ' handler suppressed by Air Lock');
+					continue;
+				}
+				let returnVal;
+				if (typeof handler.callback === 'function') {
+					const parentEffect = this.effect;
+					const parentEffectData = this.effectData;
+					this.effect = handler.effect;
+					this.effectData = handler.state || {};
+					this.effectData.target = effectHolder;
+
+					returnVal = handler.callback.apply(this, args);
+
+					this.effect = parentEffect;
+					this.effectData = parentEffectData;
+				} else {
+					returnVal = handler.callback;
+				}
+
+				if (returnVal !== undefined) {
+					relayVar = returnVal;
+					if (!relayVar || fastExit) {
+						if (handler.index !== undefined) {
+							targetRelayVars[handler.index] = relayVar;
+							if (targetRelayVars.every(val => !val)) break;
+						} else {
+							break;
+						}
+					}
+					if (hasRelayVar) {
+						args[0] = relayVar;
+					}
+				}
+			}
+
+			this.eventDepth--;
+			if (typeof relayVar === 'number' && relayVar === Math.abs(Math.floor(relayVar))) {
+				// this.debug(eventid + ' modifier: 0x' +
+				// 	('0000' + (this.event.modifier * 4096).toString(16)).slice(-4).toUpperCase());
+				relayVar = this.modify(relayVar, this.event.modifier);
+			}
+			this.event = parentEvent;
+
+			return Array.isArray(target) ? targetRelayVars : relayVar;
+		}
 	},
 }; 
