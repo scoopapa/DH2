@@ -88,7 +88,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
-	//new slate
+	//slate 4
 	grimmlurk: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -109,6 +109,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//slate 5
+	dongoro: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	slurpum: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	grousle: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	grousleprimal: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	
 	
 	
 	//Silvino Nightmare Hours

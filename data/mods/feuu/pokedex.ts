@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1,
 		name: "Volquag",
 		types: ["Fire", "Water"],
-		baseStats: {hp: 90, atk: 97, def: 111, spa: 97, spd: 83, spe: 65},
+		baseStats: {hp: 90, atk: 97, def: 114, spa: 100, spd: 83, spe: 65},
 		abilities: {0: "Porous"},
 		weightkg: 135,
 	},
@@ -226,7 +226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Concussion"},
 		weightkg: 476.1,
 	},
-	//new set
+	//slate 4
 	grimmlurk: {
 		fusion: ['Grimmsnarl', 'Golurk'],
 		num: 19,
@@ -271,6 +271,49 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 150, atk: 120, def: 70, spa: 85, spd: 70, spe: 85},
 		abilities: {0: "Doggy's Maw"},
 		weightkg: 130.5,
+	},
+	//slate 5
+	dongoro: {
+		fusion: ['Donphan', 'Pangoro'],
+		num: 24,
+		name: "Dongoro",
+		types: ["Ground", "Dark"],
+		baseStats: {hp: 102, atk: 132, def: 109, spa: 74, spd: 75, spe: 64},
+		abilities: {0: "Sturdy Mold"},
+		weightkg: 128,
+	},
+	slurpum: {
+		fusion: ['Slurpuff', 'Breloom'],
+		num: 25,
+		name: "Slurpum",
+		types: ["Fairy", "Fighting"],
+		baseStats: {hp: 81, atk: 115, def: 93, spa: 82, spd: 77, spe: 81},
+		abilities: {0: "Therapeutic"},
+		weightkg: 22.1,
+	},
+	grousle: {
+		fusion: ['Groudon', 'Plusle'],
+		num: 26,
+		name: "Grousle",
+		types: ["Ground", "Electric"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 110, spd: 94, spe: 92},
+		abilities: {0: "Solar Panel"},
+		weightkg: 477.1,
+		otherFormes: ["Grousle-Primal"],
+		formeOrder: ["Grousle", "Grousle-Primal"],
+	},
+	grousleprimal: {
+		fusion: ['Groudon', 'Plusle'],
+		num: 26,
+		name: "Grousle-Primal",
+		baseSpecies: "Grousle",
+		forme: "Primal",
+		types: ["Ground", "Fire"],
+		baseStats: {hp: 90, atk: 130, def: 110, spa: 160, spd: 94, spe: 92},
+		abilities: {0: "Desolate Land"},
+		weightkg: 501.95,
+		requiredItem: "Red Orb",
+		battleOnly: "Grousle",
 	},
 	
 	//silvino formes
