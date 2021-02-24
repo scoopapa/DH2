@@ -327,7 +327,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onModifyMove(pokemon, move) {
+		onModifyMove(move, pokemon) {
 			///////////PLACEHOLDER FOR STURDY MOLD
 			let ignore = false;
 			for (const target of pokemon.side.foe.active) {
@@ -411,7 +411,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Not Funny",
 		shortDesc: "No Guard + Prankster.",
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.category === 'Status' && !target.hasAbility('sturdymold')) { //PLACEHOLDER
+			if (move?.category === 'Status') {
+				if (target && target !== pokemon && target.hasAbility('sturdymold')) return;
 				move.pranksterBoosted = true;
 				return priority + 1;
 			}
@@ -457,9 +458,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.hasAbility('sturdymold')) {
 					ignore = true;
-					console.log("Target has Sturdy Mold");
 					return;
-				} else console.log("Target does not have Sturdy Mold");
+				}
 			} 
 			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
