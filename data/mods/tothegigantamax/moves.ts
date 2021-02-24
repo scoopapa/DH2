@@ -642,14 +642,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	gmaxkaleidescope: {
+	gmaxkaleidoscope: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
       shortDesc: "Base move affects power. 2x damage on NVE.",
 		isNonstandard: "Gigantamax",
-		name: "G-Max Kaleidescope",
+		name: "G-Max Kaleidoscope",
 		pp: 10,
 		priority: 0,
 		isMax: "Flygon",
@@ -746,8 +746,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Malicious Moonsault", target);
 		},
-		sideCondition: 'gmaxmoonsault',
-		condition: {
+		self: {
+			sideCondition: 'luckychant',
+			condition: {
 			duration: 5,
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Lucky Chant'); // "The crowd's applause shielded [side.name]'s team from critical hits!"
@@ -757,7 +758,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualSubOrder: 5,
 			onEnd(side) {
 				this.add('-sideend', side, 'move: Lucky Chant'); // "[side.name]'s applause died down!"
-			},
+			},		
+		 },
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -1245,14 +1247,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	gmaxazureflame: {
+	gmaxazureflare: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
       shortDesc: "Base move affects power. Foes: Gastro Acid.",
 		isNonstandard: "Gigantamax",
-		name: "G-Max Azure Flame",
+		name: "G-Max Azure Flare",
 		pp: 10,
 		priority: 0,
 		flags: {},
