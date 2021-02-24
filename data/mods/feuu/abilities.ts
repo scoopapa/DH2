@@ -25,6 +25,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Despicable",
 		shortDesc: "This Pokemon's attacks are critical hits if the target is burned or poisoned.",
 		onModifyCritRatio(critRatio, source, target) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+
+			if (ignore) return;
+			///////////END PLACEHOLDER
 			if (target && ['psn', 'tox', 'brn'].includes(target.status)) return 5;
 		},
 	},
@@ -108,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon) {
 			let boosted = true;
 			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
+				if (target === pokemon || target.hasAbility('sturdymold')) continue; //PLACEHOLDER
 				if (this.queue.willMove(target)) {
 					boosted = false;
 					break;
@@ -317,7 +327,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onModifyMove(move) {
+		onModifyMove(pokemon, move) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					console.log("Target has Sturdy Mold");
+					return;
+				} else console.log("Target does not have Sturdy Mold");
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			move.infiltrates = true;
 		},
 	},
@@ -385,15 +406,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		*/
 	},
-	openhanded: {
-		id: "openhanded",
-		name: "Open-Handed",
-		shortDesc: "If user has no item, user's moves have +1 priority.",
+	notfunny: {
+		id: "notfunny",
+		name: "Not Funny",
+		shortDesc: "No Guard + Prankster.",
 		onModifyPriority(priority, pokemon, target, move) {
-			if (!pokemon.item) {
-				this.debug("Priority increased for no item");
+			if (move?.category === 'Status' && !target.hasAbility('sturdymold')) { //PLACEHOLDER
+				move.pranksterBoosted = true;
 				return priority + 1;
 			}
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
 		},
 	},
 	fowlbehavior: {
@@ -419,8 +450,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.choiceLock = move.id;
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
+		onModifySpA(atk, pokemon, move) {
 			if (pokemon.volatiles['dynamax']) return;
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					console.log("Target has Sturdy Mold");
+					return;
+				} else console.log("Target does not have Sturdy Mold");
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
 			return this.chainModify(1.5);
@@ -460,14 +502,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const ability = target.getAbility();
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
 					continue;
 				}
-				pokemon.setAbility('pillage', target);
+				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
+				
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
@@ -483,13 +527,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded (via scripts.ts in this case)
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			///////////PLACEHOLDER
+			///////////PLACEHOLDER FOR STURDY MOLD
 			let ignore = false;
-			for (const poke of pokemon.side.foe.active) {
-				if (poke.getAbility() === 'sturdymold') {
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
 					ignore = true;
-				}
-			}
+					return;
+				} 
+			} 
 			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			const noModifyType = [
@@ -510,7 +555,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Doggy's Maw",
 		shortDesc: "This Pokemon's Normal, Fighting and Dragon moves ignore type-based immunities.",
 		onModifyMovePriority: -5,
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Fighting'] = true;
@@ -568,5 +623,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+	},
+	//For purposes of cancelling this ability out for Sturdy Mold:
+	toughclaws: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact'] && !defender.hasAbility('sturdymold')) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Tough Claws",
+		rating: 3.5,
+		num: 181,
 	},
 };
