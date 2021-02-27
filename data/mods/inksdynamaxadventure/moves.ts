@@ -902,7 +902,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-					this.boost({atk: 1, def: 1}, pokemon);
+					this.boost({atk: 1, def: 1}, source);
 				}
 			}
 		},
