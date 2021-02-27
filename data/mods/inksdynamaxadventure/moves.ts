@@ -778,6 +778,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.field.isTerrain('mistyterrain') && pokemon.isGrounded()) {
 				move.boosts = {spa: 2, spe: 1};
 			}
+			else {
+				this.add('-fail', pokemon);
+				//This is in the wrong place but idk what to do about it lol
+			}
 		},
 		secondary: null,
 		target: "self",
@@ -895,9 +899,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, source, target) {
-			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-				this.boost({atk: 1, def: 1}, source, source, move);
+		self: {
+			onHit(source) {
+				if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+					this.boost({atk: 1, def: 1}, pokemon);
+				}
 			}
 		},
 		secondary: null,
