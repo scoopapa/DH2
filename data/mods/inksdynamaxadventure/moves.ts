@@ -776,7 +776,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1, dance: 1},
 		onModifyMove(move, pokemon) {
 			if (this.field.isTerrain('mistyterrain') && pokemon.isGrounded()) {
-				move.boosts = {spa: 2, spe: 1},
+				move.boosts = {spa: 2, spe: 1};
 			}
 		},
 		secondary: null,
