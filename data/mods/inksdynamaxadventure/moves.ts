@@ -490,6 +490,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	
+	/*
 	sunblessing: {
 		num: 0.6,
 		accuracy: 0,
@@ -539,6 +540,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
+	*/
 	rainblessing: {
 		num: 0.7,
 		accuracy: 0,
@@ -772,13 +774,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
-		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
-				move.boosts = {spa: 2, spe: 1};
-			} else {
-				this.add('-fail', pokemon);
-			}
-		},
+		onTryMove() {
+			if (!(this.field.isTerrain('psychicterrain') && pokemon.isGrounded())) return false;
+		}
+		boosts: {spa: 2, spe: 1},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
@@ -811,7 +810,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
-		sideCondition: 'auroraveil',
+		onHit(self) {
+			if (this.field.isWeather('hail')) {
+				this.effectData.target.side.addSideCondition('auroraveil');
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -891,9 +894,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onAfterMove(pokemon, target, move) {
-			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
-				this.boost({atk: 1, def: 1}, pokemon, pokemon, move);
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.boost({atk: 1, def: 1}, source, source, move);
 			}
 		},
 		secondary: null,
