@@ -802,6 +802,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Beautiful",
 	},
+	/*
 	auroradance: {
 		num: 0.09,
 		accuracy: 100,
@@ -828,6 +829,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	*/
 	vinetether: {
 		num: 0.001,
 		accuracy: 85,
