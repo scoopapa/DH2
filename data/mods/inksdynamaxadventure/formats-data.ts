@@ -35,5 +35,7 @@ export const FormatsData: {[k: string]: ModdedFormatsData} = {
 	decidueyemega: {
 		tier: "NEW",
 	},
-	
+	teravole: {
+		tier: "NEW",
+	},
 }; 

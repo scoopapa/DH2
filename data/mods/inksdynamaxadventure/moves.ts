@@ -473,4 +473,429 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
+	
+	mosspunch: {
+		num: 0.5,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Moss Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		volatileStatus: 'leechseed',
+		secondary: null,
+		target: "normal",
+		type: "Grass", 
+		contestType: "Cool",
+	},
+	
+	sunblessing: {
+		num: 0.6,
+		accuracy: 0,
+		basePower:0 ,
+		category: "Status",
+		name: "Sun Blessing",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'sunblessing',
+		onTryHitSide() {
+			if (!this.field.isWeather('sunnyday')) return false;
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && ["Fire", "Grass"].includes.this.getType(move)) {
+						this.debug('Sun Blessing weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Sun Blessing');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Sun Blessing');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fire",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+	},
+	rainblessing: {
+		num: 0.7,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Rain Blessing",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'rainblessing',
+		onTryHitSide() {
+			if (!this.field.isWeather('raindance')) return false;
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special') {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Special')) {
+						this.debug('Rain Blessing weaken');
+						if (target.side.active.length > 1) return this.chainModify(0.5);
+						return this.chainModify(0.25);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Rain Blessing');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Rain Blessing');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Water",
+		zMove: {boost: {spd: 1}},
+		contestType: "Beautiful",
+	},
+	crystalveil: {
+		num: 0.8,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Crystal Veil",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'crystalveil',
+		onTryHitSide() {
+			if (!this.field.isWeather('sandstorm')) return false;
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if (target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Physical')) {
+						this.debug('Crystal Veil weaken');
+						if (target.side.active.length > 1) return this.chainModify(0.5);
+						return this.chainModify(0.25);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Crystal Veil');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Crystal Veil');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	
+	dustydance: {
+		num: 0.9,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Dusty Dance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		weather: 'sandstorm',
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	waterywaltz: {
+		num: 0.01,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Watery Waltz",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		weather: 'raindance',
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	sunnysalutation: {
+		num: 0.02,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Sunny Salutation",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		weather: 'sunnyday',
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	snowysamba: {
+		num: 0.03,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Snowy Samba",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		weather: 'hail',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cute",
+	},
+	
+	lightningdance: {
+		num: 0.04,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Lightning Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('electricterrain') && pokemon.isGrounded()) move.boosts = {atk: 2, spa: 2};
+		},
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {effect: 'electricterrain'},
+		contestType: "Cool",
+	},
+	verdantdance: {
+		num: 0.05,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Verdant Dance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, dance: 1, heal: 1},
+		heal: [1, 3],
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('grassyterrain') && pokemon.isGrounded()) move.boosts = {atk: 1, def: 1};
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {effect: 'grassyterrain'},
+		contestType: "Beautiful",
+	},
+	fairydance: {
+		num: 0.06,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fairy Dance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('mistyterrain') && pokemon.isGrounded()) {
+				move.heal = [1, 3];
+				move.flags.heal = 1;
+			}
+		},
+		boosts: {def: 1, spd: 1},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {effect: 'mistyterrain'},
+		contestType: "Cute",
+	},
+	mysticaldance: {
+		num: 0.07,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mystical Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
+				move.boosts = {spa: 2, spe: 1};
+			} else {
+				this.add('-fail', pokemon);
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'psychicterrain'},
+		contestType: "Clever",
+	},
+	
+	windstormwaltz: {
+		num: 0.08,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Windstorm Waltz",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		sideCondition: 'tailwind',
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
+	auroradance: {
+		num: 0.09,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Aurora Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		sideCondition: 'auroraveil',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {effect: 'hail'},
+		contestType: "Beautiful",
+	},
+	vinetether: {
+		num: 0.001,
+		accuracy: 85,
+		basePower: 35,
+		category: "Physical",
+		name: "Vine Tether",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'vinetether',
+		condition: {
+			duration: 5,
+			durationCallback(target, source) {
+				if (source?.hasItem('gripclaw')) return 8;
+				return this.random(5, 7);
+			},
+			onStart(pokemon, source) {
+				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+				this.effectData.boundDivisor = source.hasItem('bindingband') ? 8 : 10;
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['vinetether'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectData.source?.isActive) pokemon.tryTrap();
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[vinetether]');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	
+	chainlightning: {
+		num: 0.002,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Chain Lightning",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('electricterrain') && source.isGrounded()) {
+				move.target = 'allAdjacentFoes';
+				move.boosts = {def: -1, spd: -1};
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	magestrike: {
+		num: 0.003,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Mage Strike",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onAfterMove(pokemon, target, move) {
+			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
+				this.boost({atk: 1, def: 1}, pokemon, pokemon, move);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+	},
 }

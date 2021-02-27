@@ -173,4 +173,71 @@ export const Scripts: BattleScriptsData = {
 		}
 		return undefined;
 	},
+	
+	
+	runZPower(move, pokemon) {
+		const zPower = this.dex.getEffect('zpower');
+		if (move.category !== 'Status') {
+			this.attrLastMove('[zeffect]');
+		} else if (move.zMove?.boost) {
+			this.boost(move.zMove.boost, pokemon, pokemon, zPower);
+		} else if (move.zMove?.effect) {
+			switch (move.zMove.effect) {
+			case 'heal':
+				this.heal(pokemon.maxhp, pokemon, pokemon, zPower);
+				break;
+			case 'healreplacement':
+				move.self = {slotCondition: 'healreplacement'};
+				break;
+			case 'clearnegativeboost':
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[zeffect]');
+				break;
+			case 'redirect':
+				pokemon.addVolatile('followme', pokemon, zPower);
+				break;
+			case 'crit2':
+				pokemon.addVolatile('focusenergy', pokemon, zPower);
+				break;
+			case 'sunnyday':
+				this.field.setWeather('sunnyday');
+				break;
+			case 'raindance':
+				this.field.setWeather('raindance');
+				break;
+			case 'hail':
+				this.field.setWeather('hail');
+				break;
+			case 'sandstorm':
+				this.field.setWeather('sandstorm');
+				break;
+			case 'electricterrain':
+				this.field.setTerrain('electricterrain');
+				break;
+			case 'mistyterrain':
+				this.field.setTerrain('mistyterrain');
+				break;
+			case 'grassyterrain':
+				this.field.setTerrain('grassyterrain');
+				break;
+			case 'psychicterrain':
+				this.field.setTerrain('psychicterrain');
+				break;
+			case 'curse':
+				if (pokemon.hasType('Ghost')) {
+					this.heal(pokemon.maxhp, pokemon, pokemon, zPower);
+				} else {
+					this.boost({atk: 1}, pokemon, pokemon, zPower);
+				}
+			}
+			
+		}
+	},
 };
