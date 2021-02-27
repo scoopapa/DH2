@@ -303,6 +303,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.baseMaxhp / 3);
 		},
 	},
+
 	battlebond: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') {
@@ -341,4 +342,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 210,
 	},
+	
+	concealment: {
+		name: "Concealment",
+		shortDesc: "Obscures the name of the moves this Pokemon uses.",
+		//not coded currently
+		//should i include tactics...? 
+	},
+	
 }; 

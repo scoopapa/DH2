@@ -319,4 +319,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
 	},
+	deciduite: {
+		name: "Deciduite",
+		spritenum: 578,
+		megaStone: "Decidueye-Mega",
+		megaEvolves: "Decidueye",
+		itemUser: ["Decidueye"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
+	},
 };

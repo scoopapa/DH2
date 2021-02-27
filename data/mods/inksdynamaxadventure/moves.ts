@@ -338,7 +338,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	}, 
 	
 	spectraltrick: {
-		num: 712,
+		num: 0.2,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
@@ -415,4 +415,62 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	
+	snowsap: {
+		num: 0.3,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Snow Sap",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
+		onHit(target, source) {
+			if (target.boosts.spa === -6) return false;
+			const spa = target.getStat('spa', false, true);
+			const success = this.boost({spa: -1}, target, source, null, false, true);
+			return !!(this.heal(spa, source, target) || success);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {boost: {spd: 1}},
+		contestType: "Cute",
+	},
+	
+	magicfrost: {
+		num: 0.4,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Magic Frost",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'magicfrost',
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Magic Frost');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['magicfrost'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Ice');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
 }

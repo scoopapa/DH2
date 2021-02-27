@@ -40,6 +40,27 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'froslass').learnset.focusenergy = ['8L1'];
 		this.modData('Learnsets', 'froslass').learnset.flipturn = ['8L1'];
 		this.modData('Learnsets', 'froslass').learnset.partingshot = ['8L1'];
+		this.modData('Learnsets', 'froslass').learnset.magicfrost = ['8L1'];
+		
+		this.modData('Learnsets', 'decidueye').learnset.spectralthief = ['8L1'];
+		
+		this.modData('Learnsets', 'grapploct').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.stormthrow = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.recover = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.toxic = ['8L1'];
+		delete this.modData('Learnsets', 'grapploct').learnset.bulkup;
+		
+		this.modData('Learnsets', 'falinks').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'falinks').learnset.stoneedge = ['8L1'];
+		delete this.modData('Learnsets', 'falinks').learnset.closecombat;
+		delete this.modData('Learnsets', 'falinks').learnset.swordsdance;
+		
+		this.modData('Learnsets', 'breloom').learnset.noretreat = ['8L1'];
+		
+		this.modData('Learnsets', 'frosmoth').learnset.strengthsap = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.magicfrost = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.snowsap = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.roost = ['8L1'];
 	},
 	
 

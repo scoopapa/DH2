@@ -1633,6 +1633,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] SylveMons Random Battle",
+		mod: 'sylvemonstest',
+		team: 'random',
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
+	/*
+	{
 		name: "[Gen 8] Ink's Winter Wonderland",
 		desc: `Play around both your opponent and the treacherous weather conditions in this randomized micrometa!`,
 		mod: 'inksrandbats',
@@ -1641,7 +1651,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 	},
-
+	*/
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
 
