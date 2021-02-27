@@ -1260,6 +1260,8 @@ export class RandomTeams {
 			ability = 'Sole Caliber';
 		} else if ((forme === 'Gallade' || forme === 'Gardevoir') && mega) {
 			ability = 'Guard Up';
+		} else if (forme === 'Salamence' && mega) {
+			ability = 'Intimidate';
 		} else {
 			ability = ability0.name;
 		}
@@ -1323,7 +1325,9 @@ export class RandomTeams {
 		} else if (species.baseSpecies === 'Marowak') {
 			item = 'Thick Club';
 		} else if (species.baseSpecies === 'Pikachu') {
-			forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
+			if (species.name !== 'Pikachi-Starter') {
+				forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
+			}
 			item = 'Light Ball';
 		} else if (['Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'].includes(species.baseSpecies)) {
 			item = 'Light Ball';

@@ -1484,7 +1484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
   },
 	xurkitree: {
-		randomBattleMoves: ["sleeppower", "ionabsorb", "energyball", "tailglow", "dazzlinggleam"],
+		randomBattleMoves: ["sleeppowder", "ionabsorb", "energyball", "tailglow", "dazzlinggleam"],
 		tier: "UUBL",
 	},
 	regigigas: {
