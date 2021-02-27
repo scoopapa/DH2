@@ -2608,8 +2608,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
 	},
+	/* If I comment this out, can we still roll normal Zyg with Power Construct?
 	zygardecomplete: {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
 	},
+	*/
 };
