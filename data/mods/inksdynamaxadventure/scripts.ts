@@ -62,6 +62,8 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'frosmoth').learnset.magicfrost = ['8L1'];
 		this.modData('Learnsets', 'frosmoth').learnset.snowsap = ['8L1'];
 		this.modData('Learnsets', 'frosmoth').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.hiddenpower = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.toxic = ['8L1'];
 	},
 	
 
