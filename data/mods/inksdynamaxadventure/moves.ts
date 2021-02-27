@@ -613,7 +613,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') {
 						return;
 					}
-					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Physical')) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Physical') {
 						this.debug('Crystal Veil weaken');
 						if (target.side.active.length > 1) return this.chainModify(0.5);
 						return this.chainModify(0.25);
