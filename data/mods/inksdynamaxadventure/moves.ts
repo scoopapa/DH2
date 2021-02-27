@@ -565,7 +565,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special') {
 						return;
 					}
-					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Special')) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && this.getCategory(move) === 'Special') {
 						this.debug('Rain Blessing weaken');
 						if (target.side.active.length > 1) return this.chainModify(0.5);
 						return this.chainModify(0.25);
