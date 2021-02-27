@@ -111,8 +111,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Holder's first successful Fire-type attack will have 1.3x power. Single use.",
 	},
 	
-	floatyflower: {
-		name: "Floaty Flower",
+	skyblueflower: {
+		name: "Sky Blue Flower",
 		spritenum: 307,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
