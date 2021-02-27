@@ -816,6 +816,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectData.target.side.addSideCondition('auroraveil');
 			}
 		},
+		self: {
+			onHit(source) {
+				if (this.field.isWeather('hail')) {
+					source.side.addSideCondition('auroraveil');
+				}
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
