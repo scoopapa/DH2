@@ -206,6 +206,9 @@ export const Scripts: BattleScriptsData = {
 			case 'crit2':
 				pokemon.addVolatile('focusenergy', pokemon, zPower);
 				break;
+			//THESE DO NOT WORK
+			//THE GAME WANTS A SOURCE TO CALL THIS WITH
+			//HOW DO I FIND ONE? FUCK
 			case 'sunnyday':
 				this.field.setWeather('sunnyday');
 				break;
