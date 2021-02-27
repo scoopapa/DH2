@@ -25,6 +25,7 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'regieleki').learnset.gearup = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.taunt = ['8L1'];
 		
+		this.modData('Learnsets', 'regidrago').learnset.charge = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.magneticflux = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.gearup = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.taunt = ['8L1'];
