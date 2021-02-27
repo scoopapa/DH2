@@ -239,7 +239,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tangrowth: {
-		randomBattleMoves: ["gigadrain", "leaftornado", "hiddenpowerfire", "synthesis", "sleepowder", "earthquake", "knockoff"],
+		randomBattleMoves: ["gigadrain", "leaftornado", "hiddenpowerfire", "synthesis", "sleeppowder", "earthquake", "knockoff"],
 		tier: "OU",
 	},
 	tapubulu: {
@@ -287,7 +287,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	zapdos: {
-		randomBattleMoves: ["voltswtich", "ionabsorb", "roost", "toxic", "hurricane", "defog"],
+		randomBattleMoves: ["voltswitch", "ionabsorb", "roost", "toxic", "hurricane", "defog"],
 		tier: "OU",
 	},
 	zeraora: {
@@ -459,7 +459,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RUBL",
 	},
 	boltund: {
-		randomBattleMoves: ["thunderfang", "icefang", "firefang", "psychicfangs", "crunch", "voltswtich"],
+		randomBattleMoves: ["thunderfang", "icefang", "firefang", "psychicfangs", "crunch", "voltswitch"],
 		tier: "UU",
 	},
 	breloom: {
@@ -703,7 +703,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	rotomheat: {
-		randomBattleMoves: ["nastyplot", "ionabsorb", "overheat", "toxic", "voltswtich", "painsplit"],
+		randomBattleMoves: ["nastyplot", "ionabsorb", "overheat", "toxic", "voltswitch", "painsplit"],
 		tier: "UU",
 	},
 	rotomwash: {
@@ -1201,7 +1201,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	carnivine: {
-		randomBattleMoves: ["gigadrain", "acidmelt", "synthesis", "growth", "sleepowder", "hiddenpowerice"],
+		randomBattleMoves: ["gigadrain", "acidmelt", "synthesis", "growth", "sleeppowder", "hiddenpowerice"],
 		tier: "RU",
 	},
 	simisage: {
@@ -1540,7 +1540,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	vikavolttotem: {
-		randomBattleMoves: ["bugbuzz", "thunderbolt", "roost", "voltswtich", "flashcannon", "hiddenpowerice"],
+		randomBattleMoves: ["bugbuzz", "thunderbolt", "roost", "voltswitch", "flashcannon", "hiddenpowerice"],
 		tier: "RU",
 	},
 	absol: {

@@ -1256,6 +1256,10 @@ export class RandomTeams {
 				if (hasAbility['Triage']) ability = 'Triage';
 			}
 		//Fixing certain Mega abilities goes HERE if you need to find it again
+		} else if (forme === 'Lopunny' && mega) {
+			ability = 'Sole Caliber';
+		} else if ((forme === 'Gallade' || forme === 'Gardevoir') && mega) {
+			ability = 'Guard Up';
 		} else {
 			ability = ability0.name;
 		}
@@ -1304,7 +1308,7 @@ export class RandomTeams {
 		//Signature items
 		} else if (species.baseSpecies === 'Wishiwashi') {
 			item = 'Graduation Scale';
-		} else if (species.name ==='Meloetta-Pirouette') {
+		} else if (species.baseSpecies ==='Meloetta') {
 			item = 'Relic Charm';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
