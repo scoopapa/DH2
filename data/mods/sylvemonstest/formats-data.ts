@@ -117,7 +117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	garchomp: {
-		randomBattleMoves: ["swordsdance", "dualchop", "earthquake", "firefang", "stealthrock", "stonedge"],
+		randomBattleMoves: ["swordsdance", "dualchop", "earthquake", "firefang", "stealthrock", "stoneedge"],
 		tier: "OU",
 	},
 	garchompmega: {
@@ -229,7 +229,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	stakataka: {
-		randomBattleMoves: ["trickroom", "stonedge", "shadowsneak", "earthquake", "gyroball", "bodypress"],
+		randomBattleMoves: ["trickroom", "stoneedge", "shadowsneak", "earthquake", "gyroball", "bodypress"],
 		tier: "OU",
 	},
 	swampertmega: {
@@ -241,7 +241,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tapubulu: {
-		randomBattleMoves: ["woodhammer", "hornleech", "fairycharge", "closecombat", "swordsdance", "stonedge"],
+		randomBattleMoves: ["woodhammer", "hornleech", "fairycharge", "closecombat", "swordsdance", "stoneedge"],
 		tier: "OU",
 	},
 	tapufini: {
@@ -1857,7 +1857,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	carracosta: {
-		randomBattleMoves: ["shellsmash", "aquaticassault", "aquajet", "stonedge", "earthquake", "knockoff"],
+		randomBattleMoves: ["shellsmash", "aquaticassault", "aquajet", "stoneedge", "earthquake", "knockoff"],
 		tier: "RU",
 	},
 	clefairy: {
