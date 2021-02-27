@@ -783,7 +783,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Psychic",
 		//zMove: {effect: 'psychicterrain'},
-		zMove: {boost: {spe: 1}}
+		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
 	
