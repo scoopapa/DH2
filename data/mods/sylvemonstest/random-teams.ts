@@ -1265,6 +1265,8 @@ export class RandomTeams {
 			item = this.sample(species.requiredItems);
 
 		// First, the extra high-priority items
+			
+		
 		// This version of the code doesn't include Z-Crystals, so I'm copying that part over
 		// Species-specific Z-Crystals: 
 		} else if (species.name === 'Decidueye' && hasMove['spiritshackle'] && counter.setupType && !teamDetails.zMove) {
@@ -1299,6 +1301,11 @@ export class RandomTeams {
 		// Normal code:
 		} else if (species.name === 'Eternatus' && counter.Status < 2) {
 			item = 'Metronome';
+		//Signature items
+		} else if (species.baseSpecies === 'Wishiwashi') {
+			item = 'Graduation Scale';
+		} else if (species.name ==='Meloetta-Pirouette') {
+			item = 'Relic Charm';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
 		} else if (ability === 'Poison Heal' || ability === 'Toxic Boost') { //just for you bitio
@@ -1313,6 +1320,8 @@ export class RandomTeams {
 			item = 'Thick Club';
 		} else if (species.baseSpecies === 'Pikachu') {
 			forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
+			item = 'Light Ball';
+		} else if (['Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'].includes(species.baseSpecies)) {
 			item = 'Light Ball';
 		} else if (species.name === 'Regieleki' && !isDoubles) {
 			item = 'Normal Gem';

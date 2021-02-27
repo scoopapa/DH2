@@ -1,5 +1,6 @@
   
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	/* Commenting these out because they are not functional in the current version
 	sawsbuckautumn: {
 		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute"],
 		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "return", "substitute", "synthesis", "protect"],
@@ -48,6 +49,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		doublesTier: "DUU",
 	},
+	*/
 	articuno: {
 		randomBattleMoves: ["auroraveil", "blizzard", "roost", "uturn", "freezedry", "hiddenpowerfire"],
 		tier: "OU",
@@ -2608,7 +2610,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
 	},
-	/* If I comment this out, can we still roll normal Zyg with Power Construct?
+	/* Leaving this commented out still allows the random team builder to roll a normal Zygarde with Power Construct
 	zygardecomplete: {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
