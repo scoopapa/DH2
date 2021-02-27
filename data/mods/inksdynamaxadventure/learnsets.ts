@@ -406,7 +406,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wish: ["8L1"], 
 			healingwish: ["8L1"], 
 			healpulse: ["8L1"], 
-			
+			nuzzle: ["8L1"], 
 		},
 	},
 
