@@ -774,15 +774,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
-		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('mistyterrain') && pokemon.isGrounded()) {
-				move.boosts = {spa: 2, spe: 1};
-			}
-			else {
-				this.add('-fail', pokemon);
-				//This is in the wrong place but idk what to do about it lol
+		onHit(source) {
+			if (!(this.field.isTerrain('mistyterrain') && source.isGrounded())) {
+				return false;
 			}
 		},
+		boosts: {spa: 2, spe: 1},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
