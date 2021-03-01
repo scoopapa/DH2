@@ -802,7 +802,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Beautiful",
 	},
-	/*
 	auroradance: {
 		num: 0.09,
 		accuracy: 100,
@@ -812,11 +811,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
-		onHit(self) {
-			if (this.field.isWeather('hail')) {
-				this.effectData.target.side.addSideCondition('auroraveil');
-			}
-		},
 		self: {
 			onHit(source) {
 				if (this.field.isWeather('hail')) {
@@ -829,7 +823,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	*/
+	
 	vinetether: {
 		num: 0.001,
 		accuracy: 85,
