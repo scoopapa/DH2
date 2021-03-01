@@ -1624,8 +1624,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
-		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
-		onAfterMega(pokemon) {
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp || pokemon.volatiles['masquerade']) return;
 			pokemon.addVolatile('masquerade');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1642,33 +1642,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				break;
 			}
-			if (!pokemon.side.pokemon[i]) return;
-			if (pokemon === pokemon.side.pokemon[i]) return;
-			const masquerade = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
-			pokemon.setAbility(masquerade.ability);
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
-			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
-		},
-		onSwitchIn(pokemon) {
-			pokemon.addVolatile('masquerade');
-			let i;
-			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				const additionalBannedAbilities = [
-					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
-					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
-				];
-				if (
-					pokemon.side.pokemon[i].fainted ||
-					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
-				) {
-					continue;
-				}
-				break;
+			if (!pokemon.side.pokemon[i] || pokemon === pokemon.side.pokemon[i]) {
+				this.effectData.gaveUp = true;
+				return;
 			}
-			if (!pokemon.side.pokemon[i]) return;
-			if (pokemon === pokemon.side.pokemon[i]) return;
 			const masquerade = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
@@ -1677,17 +1654,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onDamagingHit(damage, target, source, move) {
-				target.removeVolatile('masquerade');
+				this.effectData.busted = true;
 			},
 			onFaint(pokemon) {
-				pokemon.removeVolatile('masquerade');
+				this.effectData.busted = true;
 			},
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Masquerade');
-				this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
-				pokemon.setAbility('masquerade');
+			onUpdate(pokemon) {
+				if (pokemon.hasAbility('masquerade')) return;
+				if (this.effectData.busted) {
+					this.add('-ability', pokemon, 'Masquerade');
+					this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
+					pokemon.setAbility('masquerade');
+				}
 			},
 		},
+		isPermanent: true,
 		name: "Masquerade",
 		rating: 3,
 		num: -1047,
