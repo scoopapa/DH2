@@ -490,7 +490,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	
-	/*
 	sunblessing: {
 		num: 0.6,
 		accuracy: 0,
@@ -518,7 +517,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
 					}
-					if (!target.getMoveHitData(move).crit && !move.infiltrates && ["Fire", "Grass"].includes.this.getType(move)) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates && ["Fire", "Water", "Grass"].includes(move.type)) {
 						this.debug('Sun Blessing weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
 						return this.chainModify(0.5);
@@ -540,7 +539,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	*/
 	rainblessing: {
 		num: 0.7,
 		accuracy: 0,
