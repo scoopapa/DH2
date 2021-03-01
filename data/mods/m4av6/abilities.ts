@@ -824,7 +824,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
 		onDamagePriority: -100,
 		onAnyDamage(damage, target, source, effect) {
-			if (source === this.effectData.target && target.ability === 'blackmail' &&
+			if (source === this.effectData.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Orderly Target');
 				return target.hp - 1;
@@ -1649,7 +1649,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const masquerade = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
-			this.add('-message', `(${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!)`);
+			this.hint(`${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
 			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
 		condition: {
