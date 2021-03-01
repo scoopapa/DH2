@@ -802,31 +802,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1022,
 	},
 	blackmail: {
-		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
+		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail can only affect one target per battle.",
 		shortDesc: "Single-use. Physical Dark moves: permanently change target's Ability to Orderly Target.",
 		onSourceHit(target, source, move) {
-			if (!move || !target || target.side === source.side || !target.hp) return;
+			if (!move || !target || target.side === source.side || !target.hp || this.effectData.busted) return;
 			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
 				target.setAbility('orderlytarget');
 				target.baseAbility = 'orderlytarget' as ID;
 				target.ability = 'orderlytarget' as ID;
 				this.add('-ability', target, 'Orderly Target', '[from] Ability: Blackmail');
-				source.setAbility('keeneye');
-				source.baseAbility = 'keeneye' as ID;
-				source.ability = 'keeneye' as ID;
-				this.add('-ability', source, 'Keen Eye', '[from] Ability: Blackmail');
+				this.effectData.busted = true;
 			}
 		},
+		isPermanent: true,
 		name: "Blackmail",
 		rating: 3,
 		num: -1023,
 	},
 	orderlytarget: {
-		desc: "If the target of this Pokémon's move is Mega Honchkrow, it survives every hit with at least 1 HP.",
-		shortDesc: "If this Pokémon's target is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		desc: "If the target of this Pokémon's move has Blackmail, it survives every hit with at least 1 HP.",
+		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
 		onDamagePriority: -100,
 		onAnyDamage(damage, target, source, effect) {
-			if (source === this.effectData.target && target.species.id === 'honchkrowmega' &&
+			if (source === this.effectData.target && target.ability === 'blackmail' &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Orderly Target');
 				return target.hp - 1;
@@ -1626,7 +1624,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
-		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
+		// ALMOST the same thing happens manually onAfterMega and onBeforeSwitchIn, but it should not happen every time the Ability starts
+		// (the minor discrepancy between the two is mostly for aesthetic reasons in terms of when messages show up)
 		onAfterMega(pokemon) {
 			pokemon.addVolatile('masquerade');
 			let i;
@@ -1641,19 +1640,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
-				} else {
-					break;
 				}
+				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const masquerade = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
 			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
-		onSwitchIn(pokemon) {
+		onBeforeSwitchIn(pokemon) {
 			pokemon.addVolatile('masquerade');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1667,19 +1664,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
-				} else {
-					break;
 				}
+				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const masquerade = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
-			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
+			pokemon.volatiles['masquerade'].nickname = masquerade.name;
 		},
 		condition: {
+			onStart(pokemon) {
+				if (!this.effectData.nickname) return; // this is checking if the volatile stored a name, which is true only if it happened onBeforeSwitchIn
+				this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${this.effectData.nickname}!`);
+				this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
+			},
 			onDamagingHit(damage, target, source, move) {
 				target.removeVolatile('masquerade');
 			},
@@ -1813,9 +1812,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	forgery: {
 		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack.",
 		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
-		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
-		onAfterMega(pokemon) {
-			if (pokemon.item !== 'zoroarkite') return;
+		onStart(pokemon) {
+			if (pokemon.species !== 'Zoroark-Mega') return;
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1829,43 +1827,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.item = forgery.item;
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
-		onSwitchIn(pokemon) {
-			if (pokemon.item !== 'zoroarkite') return;
-			pokemon.addVolatile('forgery');
-			let i;
-			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				if (pokemon.side.pokemon[i].fainted) {
-					continue;
-				} else {
-					break;
-				}
-			}
-			if (!pokemon.side.pokemon[i]) return;
-			if (pokemon === pokemon.side.pokemon[i]) return;
-			const forgery = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Forgery');
-			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
-		},
 		onEnd(pokemon) {
-			pokemon.removeVolatile('forgery');
-		},
-		condition: {
-			onDamagingHit(damage, target, source, move) {
-				target.removeVolatile('forgery');
-			},
-			onFaint(pokemon) {
-				pokemon.removeVolatile('forgery');
-			},
-			onEnd(pokemon) {
+			if (pokemon.species !== 'Zoroark-Mega') return;
+			if (pokemon.item !== 'zoroarkite') {
+				this.add('-ability', pokemon, 'Forgery');
 				if (pokemon.item) {
-					this.add('-ability', pokemon, 'Forgery');
 					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
 				}
 				pokemon.item = 'zoroarkite' as ID;
+			}
+		},
+		condition: {
+			onDamagingHit(damage, target, source, move) {
+				this.effectData.busted = true;
+			},
+			onFaint(pokemon) {
+				this.effectData.busted = true;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.species !== 'Zoroark-Mega') {
+					delete pokemon.volatiles['forgery'];
+					return;
+				}
+				if (this.effectData.busted === true && pokemon.item !== 'zoroarkite') {
+					this.add('-ability', pokemon, 'Forgery');
+					if (pokemon.item) {
+						this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+					}
+					pokemon.item = 'zoroarkite' as ID;
+				}
 			},
 		},
+		isPermanent: true,
 		name: "Forgery",
 		rating: 3,
 		num: -1050,
