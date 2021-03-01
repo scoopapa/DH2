@@ -1668,7 +1668,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		isPermanent: true,
 		name: "Masquerade",
 		rating: 3,
 		num: -1047,
@@ -1803,7 +1802,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const forgery = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
+			this.add('-message', `${pokemon.name} copied the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
 		},
 		onEnd(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
@@ -1811,6 +1810,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-ability', pokemon, 'Forgery');
 				if (pokemon.item) {
 					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+				} else {
+					this.add('-message', `${pokemon.name} is now holding Zoroarkite!`);
 				}
 				pokemon.item = 'zoroarkite' as ID;
 			}
