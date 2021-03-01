@@ -210,28 +210,28 @@ export const Scripts: BattleScriptsData = {
 			//THE GAME WANTS A SOURCE TO CALL THIS WITH
 			//HOW DO I FIND ONE? FUCK
 			case 'sunnyday':
-				pokemon.field.setWeather('sunnyday');
+				this.field.setWeather('sunnyday', pokemon);
 				break;
 			case 'raindance':
-				pokemon.field.setWeather('raindance');
+				this.field.setWeather('raindance', pokemon);
 				break;
 			case 'hail':
-				pokemon.field.setWeather('hail');
+				this.field.setWeather('hail', pokemon);
 				break;
 			case 'sandstorm':
-				pokemon.field.setWeather('sandstorm');
+				this.field.setWeather('sandstorm', pokemon);
 				break;
 			case 'electricterrain':
-				pokemon.field.setTerrain('electricterrain');
+				this.field.setTerrain('electricterrain', pokemon);
 				break;
 			case 'mistyterrain':
-				pokemon.field.setTerrain('mistyterrain');
+				this.field.setTerrain('mistyterrain', pokemon);
 				break;
 			case 'grassyterrain':
-				pokemon.field.setTerrain('grassyterrain');
+				this.field.setTerrain('grassyterrain', pokemon);
 				break;
 			case 'psychicterrain':
-				pokemon.field.setTerrain('psychicterrain');
+				this.field.setTerrain('psychicterrain', pokemon);
 				break;
 			case 'curse':
 				if (pokemon.hasType('Ghost')) {

@@ -707,7 +707,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
 		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('electricterrain') && pokemon.isGrounded()) move.boosts = {atk: 2, spa: 2};
+			if ((this.field.isTerrain('electricterrain') || move.isZ) && pokemon.isGrounded()) move.boosts = {atk: 2, spa: 2};
 		},
 		boosts: {
 			atk: 1,
@@ -731,7 +731,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1, dance: 1, heal: 1},
 		heal: [1, 3],
 		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('grassyterrain') && pokemon.isGrounded()) move.boosts = {atk: 1, def: 1};
+			if ((this.field.isTerrain('grassyterrain') || move.isZ) && pokemon.isGrounded()) move.boosts = {atk: 1, def: 1};
 		},
 		secondary: null,
 		target: "self",
@@ -750,7 +750,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
 		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('mistyterrain') && pokemon.isGrounded()) {
+			if ((this.field.isTerrain('mistyterrain') || move.isZ) && pokemon.isGrounded()) {
 				move.heal = [1, 3];
 				move.flags.heal = 1;
 			}
@@ -772,10 +772,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
-		onTryHit(pokemon) {
+		onTryHit(pokemon, move) {
 			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
 				this.boost({spa: 2, spe: 1}, pokemon);
-			} else return false;
+			} else if (move.isZ && pokemon.isGrounded()) {
+				move.boosts = {spa: 2, spe: 1};
+			}
+			else return false;
 		},
 		secondary: null,
 		target: "self",
