@@ -774,9 +774,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
-		onHitField(source) {
-			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-				this.boost({spa: 2, spe: 1}, source);
+		onTryHit(pokemon) {
+			if (this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
+				this.boost({spa: 2, spe: 1}, pokemon);
 			} else return false;
 		},
 		secondary: null,
