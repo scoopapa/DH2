@@ -1624,8 +1624,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
-		// ALMOST the same thing happens manually onAfterMega and onBeforeSwitchIn, but it should not happen every time the Ability starts
-		// (the minor discrepancy between the two is mostly for aesthetic reasons in terms of when messages show up)
+		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
 		onAfterMega(pokemon) {
 			pokemon.addVolatile('masquerade');
 			let i;
@@ -1646,11 +1645,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const masquerade = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
 			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
-		onBeforeSwitchIn(pokemon) {
+		onSwitchIn(pokemon) {
 			pokemon.addVolatile('masquerade');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1670,15 +1670,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.side.pokemon[i]) return;
 			if (pokemon === pokemon.side.pokemon[i]) return;
 			const masquerade = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
-			pokemon.volatiles['masquerade'].nickname = masquerade.name;
+			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
+			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
 		condition: {
-			onStart(pokemon) {
-				if (!this.effectData.nickname) return; // this is checking if the volatile stored a name, which is true only if it happened onBeforeSwitchIn
-				this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${this.effectData.nickname}!`);
-				this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
-			},
 			onDamagingHit(damage, target, source, move) {
 				target.removeVolatile('masquerade');
 			},
@@ -1813,7 +1810,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack.",
 		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
 		onStart(pokemon) {
-			if (pokemon.species !== 'Zoroark-Mega') return;
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
@@ -1828,7 +1825,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name} inherited ${this.dex.getItem(forgery.item).name} from ${forgery.name}!`);
 		},
 		onEnd(pokemon) {
-			if (pokemon.species !== 'Zoroark-Mega') return;
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			if (pokemon.item !== 'zoroarkite') {
 				this.add('-ability', pokemon, 'Forgery');
 				if (pokemon.item) {
@@ -1838,6 +1835,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {
+			onStart(pokemon) {
+				if (pokemon.species.name !== 'Zoroark-Mega') return null;
+			},
 			onDamagingHit(damage, target, source, move) {
 				this.effectData.busted = true;
 			},
@@ -1845,10 +1845,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.busted = true;
 			},
 			onUpdate(pokemon) {
-				if (pokemon.species !== 'Zoroark-Mega') {
-					delete pokemon.volatiles['forgery'];
-					return;
-				}
 				if (this.effectData.busted === true && pokemon.item !== 'zoroarkite') {
 					this.add('-ability', pokemon, 'Forgery');
 					if (pokemon.item) {
