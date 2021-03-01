@@ -716,8 +716,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Electric",
-		//zMove: {effect: 'electricterrain'},
-		zMove: {boost: {spe: 1}},
+		zMove: {effect: 'electricterrain'},
+		//zMove: {boost: {spe: 1}},
 		contestType: "Cool",
 	},
 	verdantdance: {
@@ -736,8 +736,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Grass",
-		//zMove: {effect: 'grassyterrain'},
-		zMove: {boost: {spe: 1}},
+		zMove: {effect: 'grassyterrain'},
+		//zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
 	fairydance: {
@@ -759,8 +759,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
-		//zMove: {effect: 'mistyterrain'},
-		zMove: {boost: {spe: 1}},
+		zMove: {effect: 'mistyterrain'},
+		//zMove: {boost: {spe: 1}},
 		contestType: "Cute",
 	},
 	mysticaldance: {
@@ -780,8 +780,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-		//zMove: {effect: 'psychicterrain'},
-		zMove: {boost: {spe: 1}},
+		zMove: {effect: 'psychicterrain'},
+		//zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
 	
