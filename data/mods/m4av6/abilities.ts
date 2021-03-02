@@ -1961,7 +1961,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({atk: 1});
 			}
 		},
-		effect: {
+		condition: {
 			duration: 1,
 		},
 		name: "Mole-a-Whac",
@@ -2029,7 +2029,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			} else if (attacker.species.name.startsWith('Falinks-Mega')) {
 				const targetForme = (move.id === 'kingsshield' ? 'Falinks-Mega-Legion' : 'Falinks-Mega-Combat');
-				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+				if (attacker.species.name !== targetForme) {
+					attacker.formeChange(targetForme);
+					if (targetForme === 'Falinks-Mega-Legion') {
+						this.add('-message', `${attacker.name} changed to Legion formation!`);
+					} else {
+						this.add('-message', `${attacker.name} changed to Combat formation!`);
+						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Mega Falinks
+							const species = this.dex.getSpecies(attacker.species.name);
+							const abilities = species.abilities;
+							const baseStats = species.baseStats;
+							const type = species.types[0];
+							const type2 = species.types[1];
+							this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
+							this.effectData.busted = true;
+						}
+					}
+				}
 			}
 		},
 		isPermanent: true,
