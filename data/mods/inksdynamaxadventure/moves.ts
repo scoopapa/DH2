@@ -449,9 +449,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User trades stat changes with the target, then attacks.", 
 	},
 	
-	
-	
-	
 	snowsap: {
 		num: 0.3,
 		accuracy: 100,
