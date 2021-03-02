@@ -333,4 +333,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
 	},
+	dugtrionite: {
+		name: "Dugtrionite",
+		spritenum: 578,
+		megaStone: "Dugtrio-Mega",
+		megaEvolves: "Dugtrio",
+		itemUser: ["Dugtrio"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Dugtrio, this item allows it to Mega Evolve in battle.",
+	},
 };

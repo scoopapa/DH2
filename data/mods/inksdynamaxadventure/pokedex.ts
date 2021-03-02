@@ -944,4 +944,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
 	},
+	dugtrio: {
+		inherit: true,
+		otherFormes: ["Dugtrio-Alola", "Dugtrio-Mega"],
+		formeOrder: ["Dugtrio", "Dugtrio-Alola", "Dugtrio-Mega"],
+	},
+	dugtriomega: {
+		num: 51,
+		name: "Dugtrio",
+		types: ["Ground", "Bug"],
+		baseStats: {hp: 35, atk: 150, def: 90, spa: 50, spd: 70, spe: 130},
+		abilities: {0: "Sap Sipper"},
+		heightm: 0.7,
+		weightkg: 33.3,
+		color: "Brown",
+		requiredItem: "Dugtrionite",
+	},
 }

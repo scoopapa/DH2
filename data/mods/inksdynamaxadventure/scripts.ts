@@ -64,6 +64,11 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'frosmoth').learnset.roost = ['8L1'];
 		this.modData('Learnsets', 'frosmoth').learnset.hiddenpower = ['8L1'];
 		this.modData('Learnsets', 'frosmoth').learnset.toxic = ['8L1'];
+		
+		this.modData('Learnsets', 'raboot').learnset.courtchange = ['8L0']; 
+		
+		this.modData('Learnsets', 'dugtrio').learnset.firstimpression = ['8L1'];
+		this.modData('Learnsets', 'dugtrio').learnset.uturn = ['8L1'];
 	},
 	
 
