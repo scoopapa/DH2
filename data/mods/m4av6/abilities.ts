@@ -1978,8 +1978,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onResidualOrder: 27,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.transformed || !pokemon.hp) return;
 			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.transformed || !pokemon.hp || !pokemon.activeTurns ||
 				pokemon.species.id === 'wishiwashi' || pokemon.species.id === 'wishiwashischool' ||
 				pokemon.species.id === 'wishiwashimegaschool'
 			) return;
