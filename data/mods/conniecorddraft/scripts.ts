@@ -5,7 +5,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'vaporeon').learnset.outrage = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.twister = ['8M'];
 	},
-	
+
 	faintMessages(lastFirst = false) {
 		if (this.ended) return;
 		const length = this.faintQueue.length;
@@ -21,23 +21,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!pokemon.fainted &&
 					this.runEvent('BeforeFaint', pokemon, faintData.source, faintData.effect)) {
 				this.add('faint', pokemon);
-				if (pokemon.ability === 'chickenout' && !pokemon.transformed && !pokemon.headless && this.canSwitch(pokemon.side)) {
-					pokemon.headless = true;
-					this.runEvent('Faint', pokemon, faintData.source, faintData.effect);
-					pokemon.status = '';
-					pokemon.clearVolatile(false);
-					pokemon.illusion = null;
-					pokemon.isActive = false;
-					pokemon.isStarted = false;
-					pokemon.switchFlag = true;
-					pokemon.side.faintedThisTurn = pokemon;
-					return;
+				if (!pokemon.headless) {
+					pokemon.side.pokemonLeft--;
 				}
-				pokemon.side.pokemonLeft--;
 				this.runEvent('Faint', pokemon, faintData.source, faintData.effect);
 				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityData, pokemon);
 				pokemon.clearVolatile(false);
-				pokemon.fainted = true;
+				if (!pokemon.headless) {
+					pokemon.fainted = true;
+				}
 				pokemon.illusion = null;
 				pokemon.isActive = false;
 				pokemon.isStarted = false;
@@ -96,4 +88,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return false;
 	},
+	checkFainted() {
+		for (const side of this.sides) {
+			for (const pokemon of side.active) {
+				if (pokemon.fainted) {
+					pokemon.status = 'fnt' as ID;
+					pokemon.switchFlag = true;
+				} else if (pokemon.headless) {
+					pokemon.switchFlag = true;
+				}
+			}
+		}
+	}
 };
