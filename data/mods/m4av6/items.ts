@@ -1319,7 +1319,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Delphox, this item allows it to Mega Evolve in battle.",
 	},
-	dugtrio: {
+	dugtrionite: {
 		name: "Dugtrionite",
 		spritenum: 578,
 		megaStone: "Dugtrio-Mega",
