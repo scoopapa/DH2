@@ -22,7 +22,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.runEvent('BeforeFaint', pokemon, faintData.source, faintData.effect)) {
 				this.add('faint', pokemon);
 				if (
-					pokemon.species.baseSpecies === 'Poultergeist' && !pokemon.transformed && !pokemon.headless && this.canSwitch(pokemon.side)
+					!(pokemon.species.baseSpecies === 'Poultergeist' && !pokemon.transformed && !pokemon.headless && this.canSwitch(pokemon.side))
 				) {
 					pokemon.side.pokemonLeft--;
 				}
