@@ -1983,7 +1983,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.species.id === 'wishiwashi' || pokemon.species.id === 'wishiwashischool' ||
 				pokemon.species.id === 'wishiwashimegaschool'
 			) return;
-			this.add('-activate', pokemon, 'ability: Assembly');
+			this.add('-activate', pokemon, 'ability: SOS');
 			this.add('-message', `${pokemon.name} called for help!`);
 			if (pokemon.species.id === 'wishiwashimega') {
 				pokemon.formeChange('Wishiwashi-Mega-1', this.effect, true);
