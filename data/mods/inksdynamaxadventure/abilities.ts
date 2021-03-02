@@ -350,4 +350,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//should i include tactics...? 
 	},
 	
+	nemesis: {
+		shortDesc: "On switch-in, this Pokemon uses Psych Up.",
+		onStart(pokemon) {
+			this.useMove('psychup', pokemon);
+		},
+		name: "Nemesis",
+		rating: 4,
+	},
+	
 }; 

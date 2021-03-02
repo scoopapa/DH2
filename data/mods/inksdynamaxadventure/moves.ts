@@ -1,4 +1,143 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	//------------------------------------------
+	//MOVES EDITED FOR COMPATIBILITY
+	//Hazard/screen removal, etc
+	//------------------------------------------
+	//For item compatibility:
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('hardhat')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	//For new hazard/screen compatibility:
+	gmaxwindrage: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Wind Rage",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Corviknight",
+		self: {
+			onHit(source) {
+				let success = false;
+				const removeTarget = [
+					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+					'sunblessing', 'rainblessing', 'crystalveil',
+				];
+				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const targetCondition of removeTarget) {
+					if (source.side.foe.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', source.side.foe, this.dex.getEffect(targetCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				this.field.clearTerrain();
+				return success;
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	//For new ability compatibility:
+	gearup: {
+		num: 674,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Gear Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, authentic: 1},
+		onHitSide(side, source, move) {
+			const targets = [];
+			for (const pokemon of side.active) {
+				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length) return false;
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({atk: 1, spa: 1}, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Steel",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	magneticflux: {
+		num: 602,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Magnetic Flux",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, distance: 1, authentic: 1},
+		onHitSide(side, source, move) {
+			const targets = [];
+			for (const pokemon of side.active) {
+				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length) return false;
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({def: 1, spd: 1}, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Electric",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
+	
+	//------------------------------------------
+	//EDITED MOVES
+	//------------------------------------------
 	gmaxfinale: {
 		num: 1000,
 		accuracy: true,
@@ -64,65 +203,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Cool",
 	},
-	
-	
-	stealthrock: {
-		inherit: true,
-		effect: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('hardhat')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-	},
-	
-	gmaxbaddybad: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		desc: "This move summons Reflect for 5 turns upon use.",
-		shortDesc: "Summons Reflect.",
-		name: "G-Max Baddy Bad",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		isMax: "Eevee",
-		self: {
-			sideCondition: 'reflect',
-		},
-		secondary: null,
-		target: "adjacentFoe",
-		type: "Dark",
-		contestType: "Cool",
-	},
-	
-	gmaxglitzyglow: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		desc: "This move summons Light Screen for 5 turns upon use.",
-		shortDesc: "Summons Light Screen.",
-		name: "G-Max Glitzy Glow",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		isMax: "Eevee",
-		self: {
-			sideCondition: 'lightscreen',
-		},
-		secondary: null,
-		target: "adjacentFoe",
-		type: "Psychic",
-		contestType: "Cool",
-	},
-	
 	gmaxhydrosnipe: {
 		num: 1000,
 		accuracy: true,
@@ -277,34 +357,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ghost",
 	},
+	spectralthief: {
+		inherit: true, 
+		basePower: 60, 
+	}, 
 	
-	stealthrock: {
-		num: 446,
+	//------------------------------------------
+	//NEW MOVES
+	//------------------------------------------
+	gmaxbaddybad: {
+		num: 1000,
 		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
-		name: "Stealth Rock",
-		pp: 20,
+		basePower: 10,
+		category: "Physical",
+		desc: "This move summons Reflect for 5 turns upon use.",
+		shortDesc: "Summons Reflect.",
+		name: "G-Max Baddy Bad",
+		pp: 5,
 		priority: 0,
-		flags: {reflectable: 1},
-		sideCondition: 'stealthrock',
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('hardhat')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
+		flags: {},
+		isMax: "Eevee",
+		self: {
+			sideCondition: 'reflect',
 		},
 		secondary: null,
-		target: "foeSide",
-		type: "Rock",
-		zMove: {boost: {def: 1}},
+		target: "adjacentFoe",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	
+	gmaxglitzyglow: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		desc: "This move summons Light Screen for 5 turns upon use.",
+		shortDesc: "Summons Light Screen.",
+		name: "G-Max Glitzy Glow",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isMax: "Eevee",
+		self: {
+			sideCondition: 'lightscreen',
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Psychic",
 		contestType: "Cool",
 	},
 	
@@ -332,11 +431,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User restores 1/2 its max HP; 2/3 in Hail.",
 	},
 	
-	spectralthief: {
-		inherit: true, 
-		basePower: 60, 
-	}, 
-	
 	spectraltrick: {
 		num: 0.2,
 		accuracy: 100,
@@ -356,64 +450,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	
 	
-	gearup: {
-		num: 674,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Gear Up",
-		pp: 20,
-		priority: 0,
-		flags: {snatch: 1, authentic: 1},
-		onHitSide(side, source, move) {
-			const targets = [];
-			for (const pokemon of side.active) {
-				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
-					targets.push(pokemon);
-				}
-			}
-			if (!targets.length) return false;
-			let didSomething = false;
-			for (const target of targets) {
-				didSomething = this.boost({atk: 1, spa: 1}, target, source, move, false, true) || didSomething;
-			}
-			return didSomething;
-		},
-		secondary: null,
-		target: "allySide",
-		type: "Steel",
-		zMove: {boost: {spa: 1}},
-		contestType: "Clever",
-	},
-	magneticflux: {
-		num: 602,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Magnetic Flux",
-		pp: 20,
-		priority: 0,
-		flags: {snatch: 1, distance: 1, authentic: 1},
-		onHitSide(side, source, move) {
-			const targets = [];
-			for (const pokemon of side.active) {
-				if (pokemon.hasAbility(['plus', 'minus', 'eleki', 'drago'])) {
-					targets.push(pokemon);
-				}
-			}
-			if (!targets.length) return false;
-			let didSomething = false;
-			for (const target of targets) {
-				didSomething = this.boost({def: 1, spd: 1}, target, source, move, false, true) || didSomething;
-			}
-			return didSomething;
-		},
-		secondary: null,
-		target: "allySide",
-		type: "Electric",
-		zMove: {boost: {spd: 1}},
-		contestType: "Clever",
-	},
+	
 	
 	snowsap: {
 		num: 0.3,
