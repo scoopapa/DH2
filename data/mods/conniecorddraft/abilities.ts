@@ -8,15 +8,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.baseAbility = 'wonderguard';
 				pokemon.ability = 'wonderguard';
 				pokemon.headless = false;
-				pokemon.switchedIn = false;
-				delete pokemon.switchedIn;
+				pokemon.switchedIn = undefined;
 			}
 		},
 		onFaint(pokemon) {
-			if (pokemon.headless === true) {
+			if (pokemon.species.baseSpecies === 'Poultergeist' && !pokemon.transformed && !pokemon.headless && this.canSwitch(pokemon.side)) {
 				if (pokemon.formeChange('Poultergeist-Headless', this.effect, true)) {
 					this.add('-ability', pokemon, 'Chicken Out');
 					this.add('-message', `${pokemon.name} ran off somewhere...`);
+					pokemon.headless = true;
 					pokemon.maxhp = 1;
 					pokemon.hp = 1;
 				}
