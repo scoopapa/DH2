@@ -77,6 +77,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("hawlucha", ["partingshot", "stormthrow"]);
 		newMoves("araquanid", ["hypnosis", "lifedew", "painsplit", "purify"]);
 		newMoves("delphox", ["recover", "speedswap", "teleport"]);
+		newMoves("wishiwashi", ["lifedew", "wish"]);
+		newMoves("falinks", ["aurasphere", "flameburst", "flashcannon", "kingsshield", "thunder"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
