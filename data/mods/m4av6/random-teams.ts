@@ -605,6 +605,10 @@ export class RandomTeams {
 			forme = species.name.slice(0, -19); 
 			mega = true; 
 		}
+		else if (species.name.endsWith('-Mega-Legion')) {
+			forme = species.name.slice(0, -12); 
+			mega = true; 
+		}
 
 		const randMoves = !isDoubles ? species.randomBattleMoves : (species.randomDoubleBattleMoves || species.randomBattleMoves);
 		const movePool = (randMoves || Object.keys(this.dex.data.Learnsets[species.id]!.learnset!)).slice();

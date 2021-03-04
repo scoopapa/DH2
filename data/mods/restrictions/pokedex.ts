@@ -288,5 +288,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overgrow", H: "Shadow Shield"},
 		weightkg: 56,
 	},
-
+	draugelid: {
+		num: 1037,
+		name: "Draugelid",
+		types: ["Ghost", "Ice"],
+		baseStats: {hp: 75, atk: 90, def: 50, spa: 55, spd: 75, spe: 65},
+		abilities: {0: "Adaptability", 1: "Slush Rush", H: "Technician"},
+		weightkg: 8,
+	},
+	cinnastar: {
+		num: 1038,
+		name: "Cinnastar",
+		types: ["Rock", "Poison"],
+		baseStats: {hp: 110, atk: 95, def: 80, spa: 95, spd: 80, spe: 80},
+		abilities: {0: "Regenerator", 1: "Mold Breaker", H: "Liquid Ooze"},
+		weightkg: 52,
+	},
+	refluse: {
+		num: 1039,
+		name: "Refluse",
+		types: ["Bug", "Poison"],
+		baseStats: {hp: 51, atk: 139, def: 66, spa: 78, spd: 66, spe: 110},
+		abilities: {0: "Compound Eyes", 1: "Insomnia", H: "Corrosion"},
+		weightkg: 8,
+	},
 };

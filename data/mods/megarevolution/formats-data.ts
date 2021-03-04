@@ -111,4 +111,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
+	gracefuld: {
+		tier:'OU',
+		isModded: true,
+	},
+	baritaria: {
+		tier:'OU',
+		isModded: true,
+	},
+	mawtale: {
+		tier:'OU',
+		isModded: true,
+	},
 };

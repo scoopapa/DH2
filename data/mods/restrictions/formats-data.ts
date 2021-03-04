@@ -143,5 +143,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-
+	draugelid: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	cinnastar: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	refluse: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

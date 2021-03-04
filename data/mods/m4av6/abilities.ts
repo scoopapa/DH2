@@ -802,31 +802,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1022,
 	},
 	blackmail: {
-		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail is permanently replaced with Keen Eye after activating, so it can only affect one target per battle.",
+		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail can only affect one target per battle.",
 		shortDesc: "Single-use. Physical Dark moves: permanently change target's Ability to Orderly Target.",
 		onSourceHit(target, source, move) {
-			if (!move || !target || target.side === source.side || !target.hp) return;
+			if (!move || !target || target.side === source.side || !target.hp || this.effectData.busted) return;
 			if (target !== source && move.type === 'Dark' && move.category === 'Physical') {
 				target.setAbility('orderlytarget');
 				target.baseAbility = 'orderlytarget' as ID;
 				target.ability = 'orderlytarget' as ID;
 				this.add('-ability', target, 'Orderly Target', '[from] Ability: Blackmail');
-				source.setAbility('keeneye');
-				source.baseAbility = 'keeneye' as ID;
-				source.ability = 'keeneye' as ID;
-				this.add('-ability', source, 'Keen Eye', '[from] Ability: Blackmail');
+				this.effectData.busted = true;
 			}
 		},
+		isPermanent: true,
 		name: "Blackmail",
 		rating: 3,
 		num: -1023,
 	},
 	orderlytarget: {
-		desc: "If the target of this Pokémon's move is Mega Honchkrow, it survives every hit with at least 1 HP.",
-		shortDesc: "If this Pokémon's target is Mega Honchkrow, it survives every hit with at least 1 HP.",
+		desc: "If the target of this Pokémon's move has Blackmail, it survives every hit with at least 1 HP.",
+		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
 		onDamagePriority: -100,
 		onAnyDamage(damage, target, source, effect) {
-			if (source === this.effectData.target && target.species.id === 'honchkrowmega' &&
+			if (source === this.effectData.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Orderly Target');
 				return target.hp - 1;
@@ -1626,68 +1624,48 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
-		// the same thing happens manually onAfterMega and onSwitchIn, but it should not happen every time the Ability starts
-		onAfterMega(pokemon) {
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp || pokemon.volatiles['masquerade']) return;
 			pokemon.addVolatile('masquerade');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
 				const additionalBannedAbilities = [
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
+					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
 					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
-				} else {
-					break;
 				}
+				break;
 			}
-			if (!pokemon.side.pokemon[i]) return;
-			if (pokemon === pokemon.side.pokemon[i]) return;
+			if (!pokemon.side.pokemon[i] || pokemon === pokemon.side.pokemon[i]) {
+				this.effectData.gaveUp = true;
+				return;
+			}
 			const masquerade = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
-			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
-		},
-		onSwitchIn(pokemon) {
-			pokemon.addVolatile('masquerade');
-			let i;
-			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				const additionalBannedAbilities = [
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
-				];
-				if (
-					pokemon.side.pokemon[i].fainted ||
-					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
-				) {
-					continue;
-				} else {
-					break;
-				}
-			}
-			if (!pokemon.side.pokemon[i]) return;
-			if (pokemon === pokemon.side.pokemon[i]) return;
-			const masquerade = pokemon.side.pokemon[i];
-			this.add('-ability', pokemon, 'Masquerade');
-			pokemon.setAbility(masquerade.ability);
-			this.add('-message', `${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
+			this.hint(`${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
 			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
 		},
 		condition: {
 			onDamagingHit(damage, target, source, move) {
-				target.removeVolatile('masquerade');
+				this.effectData.busted = true;
 			},
 			onFaint(pokemon) {
-				pokemon.removeVolatile('masquerade');
+				this.effectData.busted = true;
 			},
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Masquerade');
-				this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
-				pokemon.setAbility('masquerade');
+			onUpdate(pokemon) {
+				if (pokemon.hasAbility('masquerade')) return;
+				if (this.effectData.busted) {
+					this.add('-ability', pokemon, 'Masquerade');
+					this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
+					pokemon.setAbility('masquerade');
+				}
 			},
 		},
 		name: "Masquerade",
@@ -1705,6 +1683,380 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		rating: 3.5,
 		num: -1048,
+	},
+	unaware: {
+		name: "Unaware",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['spd'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		rating: 4,
+		num: 109,
+	},
+	everlastingwinter: {
+		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
+		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
+		onStart(source) {
+			this.field.setWeather('hail');
+			this.field.weatherData.duration = 0;
+		},
+		onAnySetWeather(target, source, weather) {
+			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('everlastingwinter')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Everlasting Winter",
+		rating: 4.5,
+		num: -1049,
+	},
+	deltastream: {
+		desc: "On switch-in, the weather becomes strong winds that remove the weaknesses of the Flying type from Flying-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Desolate Land, Everlasting Winter or Primordial Sea.",
+		onStart(source) {
+			this.field.setWeather('deltastream');
+		},
+		onAnySetWeather(target, source, weather) {
+			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('deltastream')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Delta Stream",
+		rating: 4,
+		num: 191,
+	},
+	desolateland: {
+		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing, in addition to all the effects of Sunny Day. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream, Everlasting Winter or Primordial Sea.",
+		onStart(source) {
+			this.field.setWeather('desolateland');
+		},
+		onAnySetWeather(target, source, weather) {
+			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('desolateland')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Desolate Land",
+		rating: 4.5,
+		num: 190,
+	},
+	primordialsea: {
+		desc: "On switch-in, the weather becomes heavy rain that prevents damaging Fire-type moves from executing, in addition to all the effects of Rain Dance. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream, Desolate Land or Everlasting Winter.",
+		onStart(source) {
+			this.field.setWeather('primordialsea');
+		},
+		onAnySetWeather(target, source, weather) {
+			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'primordialsea' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('primordialsea')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Primordial Sea",
+		rating: 4.5,
+		num: 189,
+	},
+	forgery: {
+		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack.",
+		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
+		onStart(pokemon) {
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
+			pokemon.addVolatile('forgery');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted) continue;
+				break;
+			}
+			if (!pokemon.side.pokemon[i]) return;
+			if (pokemon === pokemon.side.pokemon[i]) return;
+			const forgery = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Forgery');
+			pokemon.item = forgery.item;
+			this.add('-message', `${pokemon.name} copied the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+		},
+		onEnd(pokemon) {
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
+			if (pokemon.item !== 'zoroarkite') {
+				this.add('-ability', pokemon, 'Forgery');
+				if (pokemon.item) {
+					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+				} else {
+					this.add('-message', `${pokemon.name} is now holding Zoroarkite!`);
+				}
+				pokemon.item = 'zoroarkite' as ID;
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.species.name !== 'Zoroark-Mega') return null;
+			},
+			onDamagingHit(damage, target, source, move) {
+				this.effectData.busted = true;
+			},
+			onFaint(pokemon) {
+				this.effectData.busted = true;
+			},
+			onUpdate(pokemon) {
+				if (this.effectData.busted === true && pokemon.item !== 'zoroarkite') {
+					this.add('-ability', pokemon, 'Forgery');
+					if (pokemon.item) {
+						this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
+					}
+					pokemon.item = 'zoroarkite' as ID;
+				}
+			},
+		},
+		isPermanent: true,
+		name: "Forgery",
+		rating: 3,
+		num: -1050,
+	},
+	clairvoyance: {
+		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
+		shortDesc: "Psychic-type moves delayed until two turns later, but only one at a time.",
+		onBeforeMove(source, target, move) {
+			if (
+				move && move.type === 'Psychic' && source.hasAbility('clairvoyance') &&
+				source.side.addSlotCondition(source, 'clairvoyance')
+			) {
+				Object.assign(source.side.slotConditions[source.position]['clairvoyance'], {
+					duration: 3,
+					source: source,
+					target: null,
+					move: move,
+					position: target.position,
+					side: target.side,
+					moveData: this.dex.getMove(move),
+				});
+				this.add('-ability', source, 'Clairvoyance');
+				this.add('-message', `${source.name} cast ${move.name} into the future!`);
+				source.deductPP(move.id, 1);
+				return null;
+			}
+		},
+		condition: {
+			duration: 3,
+			onResidualOrder: 3,
+			onEnd(target) {
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
+				const data = this.effectData;
+				const move = this.dex.getMove(data.move);
+				this.add('-ability', this.effectData.source, 'Clairvoyance');
+				if (!data.target) {
+					this.hint(`${move.name} did not hit because there was no target.`);
+					return;
+				}
+
+				this.add(`${this.effectData.source.name}'s ${move.name} took effect!`);
+				data.target.removeVolatile('Protect');
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				data.moveData.isFutureMove = true;
+
+				if (move.category === 'Status') {
+					this.useMove(move, target, data.target);
+				} else {
+					this.useMove(move, data.source, data.target);
+				}
+			},
+		},
+		name: "Clairvoyance",
+		rating: 3,
+		num: -1051,
+	},
+	sleightofhand: {
+		desc: "This Pokémon's contact moves become special attacks and do not make contact with the target.",
+		shortDesc: "This Pokémon's contact moves become special and non-contact.",
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				if (move.category !== 'Special') move.category = 'Special';
+				delete move.flags['contact'];
+			}
+		},
+		name: "Sleight of Hand",
+		rating: 3,
+		num: -1052,
+	},
+	moleawhac: {
+		desc: "This Pokémon's Attack is raised by 1 stage at the end of each full turn if it uses an attacking move. Its Attack boosts are cleared and its Attack is not increased on the same turn when it is hit by a contact move.",
+		shortDesc: "Atk rises 1 stage on each attacking turn; Atk reset on contact.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.add('-ability', target, 'Mole-a-Whac');
+				this.hint(`${target.name}'s Attack boosts were reset!`);
+				target.setBoost({atk: 0});
+				this.add('-clearboost', target, 'atk', '[silent]');
+				target.addVolatile('moleawhac');
+			}
+		},
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status') {
+				source.addVolatile('moleawhac');
+			}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns && !pokemon.volatiles['moleawhac']) {
+				this.boost({atk: 1});
+			}
+		},
+		condition: {
+			duration: 1,
+		},
+		name: "Mole-a-Whac",
+		rating: 4.5,
+		num: -1053,
+	},
+	sos: {
+		desc: "If this Pokémon is a Wishiwashi that has Mega Evolved, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Wishiwashi (School Form) over five turns.",
+		shortDesc: "More Wishiwashi spawn at the end of each turn.",
+		onStart(pokemon) {
+			if (pokemon.species.id === 'wishiwashimega' && pokemon.hp > pokemon.maxhp / 4) {
+				this.add('-message', `Startled by the Mega Evolution, ${pokemon.name}'s school dispersed...`);
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.transformed || !pokemon.hp || !pokemon.activeTurns ||
+				pokemon.species.id === 'wishiwashi' || pokemon.species.id === 'wishiwashischool' ||
+				pokemon.species.id === 'wishiwashimegaschool'
+			) return;
+			this.add('-activate', pokemon, 'ability: SOS');
+			this.add('-message', `${pokemon.name} called for help!`);
+			if (pokemon.species.id === 'wishiwashimega') {
+				pokemon.formeChange('Wishiwashi-Mega-1', this.effect, true);
+			} else if (pokemon.species.id === 'wishiwashimega1') {
+				pokemon.formeChange('Wishiwashi-Mega-2', this.effect, true);
+			} else if (pokemon.species.id === 'wishiwashimega2') {
+				pokemon.formeChange('Wishiwashi-Mega-3', this.effect, true);
+			} else if (pokemon.species.id === 'wishiwashimega3') {
+				pokemon.formeChange('Wishiwashi-Mega-4', this.effect, true);
+			} else if (pokemon.species.id === 'wishiwashimega4') {
+				pokemon.formeChange('Wishiwashi-Mega-School', this.effect, true);
+			}
+			this.add('-message', `More of ${pokemon.name}'s friends came together!`);
+			const species = this.dex.getSpecies(pokemon.species.name);
+			const abilities = species.abilities;
+			const baseStats = species.baseStats;
+			const type = species.types[0];
+			this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+			pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+			) * pokemon.level / 100 + 10);
+			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+			pokemon.maxhp = newMaxHP;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		},
+		isPermanent: true,
+		name: "SOS",
+		rating: 5,
+		num: -1054,
+	},
+	stancechange: {
+		desc: "If this Pokémon is an Aegislash or a Falinks-Mega, it changes to Blade Forme or Mega Combat before attempting to use an attacking move, and changes to Shield Forme or Mega Legion before attempting to use King's Shield.",
+		shortDesc: "Changes Aegislash/Falinks-Mega to Blade Forme/Combat before attack, Shield Forme/Legion before King's Shield.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (
+				(attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.startsWith('Falinks-Mega')) || attacker.transformed
+			) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			if (attacker.species.baseSpecies === 'Aegislash') {
+				const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
+				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			} else if (attacker.species.name.startsWith('Falinks-Mega')) {
+				const targetForme = (move.id === 'kingsshield' ? 'Falinks-Mega-Legion' : 'Falinks-Mega-Combat');
+				if (attacker.species.name !== targetForme) {
+					attacker.formeChange(targetForme);
+					if (targetForme === 'Falinks-Mega-Legion') {
+						this.add('-message', `${attacker.name} changed to Legion formation!`);
+					} else {
+						this.add('-message', `${attacker.name} changed to Combat formation!`);
+						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Mega Falinks
+							const species = this.dex.getSpecies(attacker.species.name);
+							const abilities = species.abilities;
+							const baseStats = species.baseStats;
+							const type = species.types[0];
+							if (species.types[1]) {
+								const type2 = species.types[1];
+								this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+							} else {
+								this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+							}
+							this.effectData.busted = true;
+						}
+					}
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Stance Change",
+		rating: 4,
+		num: 176,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
