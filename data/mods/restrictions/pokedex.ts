@@ -222,6 +222,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 60, spa: 60, spd: 110, spe: 95},
 		abilities: {0: "Dry Skin", 1: "Hydration", H: "Damp"},
 		weightkg: 10.1,
+		cosmeticFormes: ["dirtoaddirty"],
 	},
 	crystelf: {
 		num: 1029,
