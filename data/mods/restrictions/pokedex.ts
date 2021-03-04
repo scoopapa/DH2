@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 68, atk: 122, def: 115, spa: 76, spd: 63, spe: 111},
 		abilities: {0: "Technician", H: "Quick Feet"},
-		weightkg: 8,
+		weightkg: 25.6,
 	},
 	parakinesis: {
 		num: 1002,
@@ -13,7 +13,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 124, atk: 130, def: 66, spa: 79, spd: 72, spe: 109},
 		abilities: {0: "Prankster", 1: "Big Pecks", H: "Iron Fist"},
-		weightkg: 8,
+		weightkg: 1.3,
 	},
 	serpaint: {
 		num: 1003,
@@ -150,6 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 73, atk: 79, def: 137, spa: 107, spd: 101, spe: 73},
 		abilities: {0: "Beast Boost"},
 		weightkg: 3.4,
+		gender: "N",
 	},
 	spiriteal: {
 		num: 1020,
@@ -197,7 +198,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Grass"],
 		baseStats: {hp: 80, atk: 40, def: 120, spa: 120, spd: 40, spe: 120},
 		abilities: {0: "Grass Pelt", 1: "Flower Veil", H: "Competitive"},
-		weightkg: 8,
+		weightkg: 0.1,
 	},
 	kapagon: {
 		num: 1026,
@@ -222,7 +223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 60, spa: 60, spd: 110, spe: 95},
 		abilities: {0: "Dry Skin", 1: "Hydration", H: "Damp"},
 		weightkg: 10.1,
-		cosmeticFormes: ["dirtoaddirty"],
+		cosmeticFormes: ["Dirtoad-Dirty"],
 	},
 	crystelf: {
 		num: 1029,

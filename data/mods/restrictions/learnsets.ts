@@ -644,7 +644,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trickroom: ["8L1"],
 			willowisp: ["8L1"],
 			wish: ["8L1"],
-			attract: ["8L1"],
 			facade: ["8L1"],
 			protect: ["8L1"],
 			substitute: ["8L1"],
