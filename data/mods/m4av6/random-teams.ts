@@ -605,6 +605,10 @@ export class RandomTeams {
 			forme = species.name.slice(0, -19); 
 			mega = true; 
 		}
+		else if (species.name.endsWith('-Mega-Legion')) {
+			forme = species.name.slice(0, -12); 
+			mega = true; 
+		}
 
 		const randMoves = !isDoubles ? species.randomBattleMoves : (species.randomDoubleBattleMoves || species.randomBattleMoves);
 		const movePool = (randMoves || Object.keys(this.dex.data.Learnsets[species.id]!.learnset!)).slice();
@@ -1726,7 +1730,7 @@ export class RandomTeams {
 				const tier = species.tier;
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
-				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X'));
+				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Festive-Rider'));
 				
 
 				if (restrict) {

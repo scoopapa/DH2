@@ -1,4 +1,20 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	cinderace: {
+		tier:'Uber',
+		isModded: true,
+	},
+	magearna: {
+		tier:'Uber',
+		isModded: true,
+	},
+	magearnaoriginal: {
+		tier:'Uber',
+		isModded: true,
+	},
+	spectrier: {
+		tier:'Uber',
+		isModded: true,
+	},
 	arbosaur: {
 		tier:'OU',
 		isModded: true,
@@ -120,6 +136,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isModded: true,
 	},
 	mawtale: {
+		tier:'OU',
+		isModded: true,
+	},
+	abhornet: {
+		tier:'OU',
+		isModded: true,
+	},
+	pideastroph: {
+		tier:'OU',
+		isModded: true,
+	},
+	hocusfocus: {
+		tier:'OU',
+		isModded: true,
+	},
+	lophodactylus: {
 		tier:'OU',
 		isModded: true,
 	},
