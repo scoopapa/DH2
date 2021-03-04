@@ -1,5 +1,73 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	
+	//------------------------------------------
+	//ABILITIES EDITED FOR COMPATIBILITY
+	//Hazard/screen removal, etc
+	//------------------------------------------
+	screencleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil', 'sunblessing', 'rainblessing', 'crystalveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+		},
+		name: "Screen Cleaner",
+		rating: 2,
+		num: 251,
+	},
+	battlebond: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninja' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+			if (source.species.id === 'glastrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Glastrier-Heart', this.effect, true);
+			}
+			if (source.species.id === 'spectrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Spectrier-Soul', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
+				move.multihit = 3;
+			}
+		},
+		onBasePowerPriority: -1,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'glaciallance' && attacker.species.name === 'Glastrier-Heart') {
+				return this.chainModify(1.5);
+			}
+			if (move.id === 'astralbarrage' && attacker.species.name === 'Spectrier-Soul') {
+				return this.chainModify(1.5);
+			}
+		},
+		isPermanent: true,
+		name: "Battle Bond",
+		rating: 4,
+		num: 210,
+	},
+	//------------------------------------------
+	//EDITED ABILITIES
+	//------------------------------------------
 	quickdraw: {
 		shortDesc: "Enables the Pokémon to move first on the first turn each time the user enters battle.",
 		onFractionalPriorityPriority: -1,
@@ -14,7 +82,52 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 259,
 	},
-	
+	transistor: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Transistor');
+			this.add('-message', "  [POKEMON] is radiating electricity!"); 
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Electric') return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+		},
+		isUnbreakable: true,
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
+		shortDesc: "While this Pokemon is active, an Electric move used by any Pokemon has 1.33x power.",
+	},
+	dragonsmaw: {
+		onModifyMove(move, pokemon) {
+			if (move.type === 'Dragon') {
+				move.recoil = [33, 100]; 
+			}
+		}, 
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Dragon's Maw",
+		rating: 3.5,
+		num: 263,
+		shortDesc: "Dragon power 1.5x; Dragon moves gain 1/3 recoil.", 
+	},
+	//------------------------------------------
+	//NEW ABILITIES
+	//------------------------------------------
 	scaryboost: {
 		name: 'Scary Boost', 
 		rating: 3.5, 
@@ -93,24 +206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Target is burned if the user lands a crit.", 
 	},
 	
-	transistor: {
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Transistor');
-			this.add('-message', "  [POKEMON] is radiating electricity!"); 
-		},
-		onAnyBasePowerPriority: 20,
-		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Electric') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
-			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
-		},
-		isUnbreakable: true,
-		name: "Transistor",
-		rating: 3.5,
-		num: 262,
-		shortDesc: "While this Pokemon is active, an Electric move used by any Pokemon has 1.33x power.",
-	},
+	
 	reinitialize: { //shouts out to hematite! :3
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
@@ -127,31 +223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1003, 
 		shortDesc: "When using non-Electric move, resets all stat changes on the field.", 
 	}, 
-	dragonsmaw: {
-		onModifyMove(move, pokemon) {
-			if (move.type === 'Dragon') {
-				move.recoil = [33, 100]; 
-			}
-		}, 
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
-		},
-		name: "Dragon's Maw",
-		rating: 3.5,
-		num: 263,
-		shortDesc: "Dragon power 1.5x; Dragon moves gain 1/3 recoil.", 
-	},
+	
 	dragonoverflow: {
 		onSourceAfterFaint(length, target, source, effect) {
 			this.add('-activate', source, 'ability: Dragon Overflow'); 
@@ -303,42 +375,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.baseMaxhp / 3);
 		},
 	},
-	battlebond: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
-				return;
-			}
-			if (source.species.id === 'greninja' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.formeChange('Greninja-Ash', this.effect, true);
-			}
-			if (source.species.id === 'glastrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.formeChange('Glastrier-Heart', this.effect, true);
-			}
-			if (source.species.id === 'spectrier' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.formeChange('Spectrier-Soul', this.effect, true);
-			}
-		},
-		onModifyMovePriority: -1,
-		onModifyMove(move, attacker) {
-			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
-				move.multihit = 3;
-			}
-		},
-		onBasePowerPriority: -1,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.id === 'glaciallance' && attacker.species.name === 'Glastrier-Heart') {
-				return this.chainModify(1.5);
-			}
-			if (move.id === 'astralbarrage' && attacker.species.name === 'Spectrier-Soul') {
-				return this.chainModify(1.5);
-			}
-		},
-		isPermanent: true,
-		name: "Battle Bond",
-		rating: 4,
-		num: 210,
+
+	
+	
+	concealment: {
+		name: "Concealment",
+		shortDesc: "Obscures the name of the moves this Pokemon uses.",
+		//not coded currently
+		//should i include tactics...? 
 	},
+	
+	nemesis: {
+		shortDesc: "On switch-in, this Pokemon uses Psych Up.",
+		onStart(pokemon) {
+			this.useMove('psychup', pokemon);
+		},
+		name: "Nemesis",
+		rating: 4,
+	},
+	
 }; 

@@ -25,6 +25,7 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'regieleki').learnset.gearup = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.taunt = ['8L1'];
 		
+		this.modData('Learnsets', 'regidrago').learnset.charge = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.magneticflux = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.gearup = ['8L1'];
 		this.modData('Learnsets', 'regidrago').learnset.taunt = ['8L1'];
@@ -40,6 +41,34 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'froslass').learnset.focusenergy = ['8L1'];
 		this.modData('Learnsets', 'froslass').learnset.flipturn = ['8L1'];
 		this.modData('Learnsets', 'froslass').learnset.partingshot = ['8L1'];
+		this.modData('Learnsets', 'froslass').learnset.magicfrost = ['8L1'];
+		
+		this.modData('Learnsets', 'decidueye').learnset.spectralthief = ['8L1'];
+		
+		this.modData('Learnsets', 'grapploct').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.stormthrow = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.recover = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.toxic = ['8L1'];
+		delete this.modData('Learnsets', 'grapploct').learnset.bulkup;
+		
+		this.modData('Learnsets', 'falinks').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'falinks').learnset.stoneedge = ['8L1'];
+		delete this.modData('Learnsets', 'falinks').learnset.closecombat;
+		delete this.modData('Learnsets', 'falinks').learnset.swordsdance;
+		
+		this.modData('Learnsets', 'breloom').learnset.noretreat = ['8L1'];
+		
+		this.modData('Learnsets', 'frosmoth').learnset.strengthsap = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.magicfrost = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.snowsap = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.hiddenpower = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.toxic = ['8L1'];
+		
+		this.modData('Learnsets', 'raboot').learnset.courtchange = ['8L0']; 
+		
+		this.modData('Learnsets', 'dugtrio').learnset.firstimpression = ['8L1'];
+		this.modData('Learnsets', 'dugtrio').learnset.uturn = ['8L1'];
 	},
 	
 
@@ -148,5 +177,72 @@ export const Scripts: BattleScriptsData = {
 			}
 		}
 		return undefined;
+	},
+	
+	
+	runZPower(move, pokemon) {
+		const zPower = this.dex.getEffect('zpower');
+		if (move.category !== 'Status') {
+			this.attrLastMove('[zeffect]');
+		} else if (move.zMove?.boost) {
+			this.boost(move.zMove.boost, pokemon, pokemon, zPower);
+		} else if (move.zMove?.effect) {
+			switch (move.zMove.effect) {
+			case 'heal':
+				this.heal(pokemon.maxhp, pokemon, pokemon, zPower);
+				break;
+			case 'healreplacement':
+				move.self = {slotCondition: 'healreplacement'};
+				break;
+			case 'clearnegativeboost':
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[zeffect]');
+				break;
+			case 'redirect':
+				pokemon.addVolatile('followme', pokemon, zPower);
+				break;
+			case 'crit2':
+				pokemon.addVolatile('focusenergy', pokemon, zPower);
+				break;
+			case 'sunnyday':
+				this.field.setWeather('sunnyday', pokemon);
+				break;
+			case 'raindance':
+				this.field.setWeather('raindance', pokemon);
+				break;
+			case 'hail':
+				this.field.setWeather('hail', pokemon);
+				break;
+			case 'sandstorm':
+				this.field.setWeather('sandstorm', pokemon);
+				break;
+			case 'electricterrain':
+				this.field.setTerrain('electricterrain', pokemon);
+				break;
+			case 'mistyterrain':
+				this.field.setTerrain('mistyterrain', pokemon);
+				break;
+			case 'grassyterrain':
+				this.field.setTerrain('grassyterrain', pokemon);
+				break;
+			case 'psychicterrain':
+				this.field.setTerrain('psychicterrain', pokemon);
+				break;
+			case 'curse':
+				if (pokemon.hasType('Ghost')) {
+					this.heal(pokemon.maxhp, pokemon, pokemon, zPower);
+				} else {
+					this.boost({atk: 1}, pokemon, pokemon, zPower);
+				}
+			}
+			
+		}
 	},
 };

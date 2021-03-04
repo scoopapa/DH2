@@ -111,8 +111,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Holder's first successful Fire-type attack will have 1.3x power. Single use.",
 	},
 	
-	floatyflower: {
-		name: "Floaty Flower",
+	skyblueflower: {
+		name: "Sky Blue Flower",
 		spritenum: 307,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -318,5 +318,33 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: -1026,
 		gen: 8,
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
+	deciduite: {
+		name: "Deciduite",
+		spritenum: 578,
+		megaStone: "Decidueye-Mega",
+		megaEvolves: "Decidueye",
+		itemUser: ["Decidueye"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
+	},
+	dugtrionite: {
+		name: "Dugtrionite",
+		spritenum: 578,
+		megaStone: "Dugtrio-Mega",
+		megaEvolves: "Dugtrio",
+		itemUser: ["Dugtrio"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Dugtrio, this item allows it to Mega Evolve in battle.",
 	},
 };

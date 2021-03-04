@@ -601,14 +601,7 @@ export class RandomTeams {
 			forme = species.name.slice(0, -7);
 			mega = true;
 		}
-		else if (species.name.endsWith('-Mega-Festive-Rider')) {
-			forme = species.name.slice(0, -19); 
-			mega = true; 
-		}
-		else if (species.name.endsWith('-Mega-Legion')) {
-			forme = species.name.slice(0, -12); 
-			mega = true; 
-		}
+		
 
 		const randMoves = !isDoubles ? species.randomBattleMoves : (species.randomDoubleBattleMoves || species.randomBattleMoves);
 		const movePool = (randMoves || Object.keys(this.dex.data.Learnsets[species.id]!.learnset!)).slice();
@@ -1262,32 +1255,12 @@ export class RandomTeams {
 				if (hasAbility['Telepathy'] && (ability === 'Pressure' || hasAbility['Analytic'])) ability = 'Telepathy';
 				if (hasAbility['Triage']) ability = 'Triage';
 			}
-		//Fix certain Mega abilities
-		} else if ((forme === 'Gourgeist' || forme === 'Gourgeist-Small' || forme === 'Gourgeist-Large' || forme === 'Gourgeist-Super') && mega) {
-			ability = 'Frisk';
-		} else if ((forme === 'Meowstic-F') && mega) {
-			ability = 'Competitive';
-		} else if ((forme === 'Meowstic') && mega) {
-			ability = 'Prankster'; 
-		} else if ((forme === 'Sawsbuck' || forme === 'Sawsbuck-Summer' || forme === 'Sawsbuck-Autumn' || forme === 'Sawsbuck-Winter') && mega ) {
-			ability = 'Sap Sipper'; 
-		} else if ((forme === 'Flareon') && mega) {
-			ability = 'Flash Fire';
-		} else if ((forme === 'Vaporeon') && mega) {
-			ability = 'Water Absorb';
-		} else if ((forme === 'Jolteon') && mega) {
-			ability = 'Volt Absorb';
-		} else if ((forme === 'Gigalith') && mega) {
-			if (teamDetails['sun']) ability = 'Sturdy';
-		} else if ((forme === 'Slowking') && mega) {
-			ability = 'Regenerator';
-		} else if ((forme === 'Aurorus') && mega) {
-			ability = 'Snow Warning';
-		} else if ((forme === 'Reuniclus') && mega) {
-			ability = 'Regenerator';
-		} else if ((forme === 'Raichu') && mega) {
-			ability = 'Lightning Rod';
-		} else if ((forme === 'Luxray' || forme === 'Staraptor') && mega) {
+		//Fixing certain Mega abilities goes HERE if you need to find it again
+		} else if (forme === 'Lopunny' && mega) {
+			ability = 'Sole Caliber';
+		} else if ((forme === 'Gallade' || forme === 'Gardevoir') && mega) {
+			ability = 'Guard Up';
+		} else if (forme === 'Salamence' && mega) {
 			ability = 'Intimidate';
 		} else {
 			ability = ability0.name;
@@ -1298,6 +1271,8 @@ export class RandomTeams {
 			item = this.sample(species.requiredItems);
 
 		// First, the extra high-priority items
+			
+		
 		// This version of the code doesn't include Z-Crystals, so I'm copying that part over
 		// Species-specific Z-Crystals: 
 		} else if (species.name === 'Decidueye' && hasMove['spiritshackle'] && counter.setupType && !teamDetails.zMove) {
@@ -1332,6 +1307,11 @@ export class RandomTeams {
 		// Normal code:
 		} else if (species.name === 'Eternatus' && counter.Status < 2) {
 			item = 'Metronome';
+		//Signature items
+		} else if (species.baseSpecies === 'Wishiwashi') {
+			item = 'Graduation Scale';
+		} else if (species.baseSpecies ==='Meloetta') {
+			item = 'Relic Charm';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
 		} else if (ability === 'Poison Heal' || ability === 'Toxic Boost') { //just for you bitio
@@ -1345,7 +1325,11 @@ export class RandomTeams {
 		} else if (species.baseSpecies === 'Marowak') {
 			item = 'Thick Club';
 		} else if (species.baseSpecies === 'Pikachu') {
-			forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
+			if (species.name !== 'Pikachi-Starter') {
+				forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
+			}
+			item = 'Light Ball';
+		} else if (['Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'].includes(species.baseSpecies)) {
 			item = 'Light Ball';
 		} else if (species.name === 'Regieleki' && !isDoubles) {
 			item = 'Normal Gem';
@@ -1725,12 +1709,12 @@ export class RandomTeams {
 				}
 
 				// Illusion shouldn't be on the last slot
-				if ((species.name === 'Zoroark' || species.name === 'Inteleon-Mega')&& pokemon.length > 4) continue;
+				if ((species.name === 'Zoroark')&& pokemon.length > 4) continue;
 
 				const tier = species.tier;
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
-				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Festive-Rider'));
+				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X'));
 				
 
 				if (restrict) {
@@ -1759,9 +1743,7 @@ export class RandomTeams {
 					if (isMega) {
 						if (megaCount >= 1) continue;
 						else megaCount++;
-					} else {
-						if (megaCount === 0 && pokemon.length === 5) continue;
-					}
+					} 
 				}
 
 				// The Pokemon of the Day
@@ -1807,10 +1789,10 @@ export class RandomTeams {
 
 				
 				// Track what the team has
-				if (set.ability === 'Drizzle' || set.moves.includes('raindance') || species === 'Vanilluxe-Mega') teamDetails['rain'] = 1;
+				if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails['rain'] = 1;
 				if (set.ability === 'Drought' || set.moves.includes('sunnyday')) teamDetails['sun'] = 1;
 				if (set.ability === 'Sand Stream'|| set.ability === 'Sand Spit') teamDetails['sand'] = 1;
-				if (set.ability === 'Snow Warning' || species === 'Vanilluxe-Mega') teamDetails['hail'] = 1;
+				if (set.ability === 'Snow Warning') teamDetails['hail'] = 1;
 				if (set.moves.includes('spikes')) teamDetails['spikes'] = (teamDetails['spikes'] || 0) + 1;
 				if (set.moves.includes('stealthrock')) teamDetails['stealthRock'] = 1;
 				if (set.moves.includes('stickyweb')) teamDetails['stickyWeb'] = 1;
