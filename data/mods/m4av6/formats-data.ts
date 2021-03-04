@@ -293,10 +293,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	dugtriomega: {
-		
-	},	
+		randomBattleMoves: ["dig", "earthquake", "stoneedge", "stealthrock", "suckerpunch", "reversal", "substitute", "memento"],
+		randomDoubleBattleMoves: ["dig", "earthquake", "rockslide", "protect", "suckerpunch", "stoneedge"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
+	/*
 	dugtrioalolamega: {
 		
 	},
@@ -4934,6 +4937,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["scald", "hydropump", "icebeam", "hiddenpowergrass", "earthquake"],
 		randomDoubleBattleMoves: ["hydropump", "icebeam", "endeavor", "protect", "hiddenpowergrass", "earthquake", "helpinghand"],
 	},
+	wishiwashimega: {
+		randomBattleMoves: ["wish", "scald", "hydropump", "flipturn", "protect", "earthquake"],
+		randomDoubleBattleMoves: ["wish", "scald", "hydropump", "flipturn", "protect", "earthquake", "lifedew", "helpinghand"],
+	},
 	mareanie: {
 		tier: "LC",
 	},
@@ -5481,6 +5488,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	toxtricitylowkeymega: {
 		randomBattleMoves: ["thunderbolt", "sludgebomb", "venomdrench", "slackoff", "voltswitch"],
 		randomDoubleBattleMoves: ["discharge", "sludgewave", "venomdrench", "slackoff", "voltswitch"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
+	falinksmegacombat: {
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
+	falinksmegalegion: {
+		randomBattleMoves: ["kingsshield", "closecombat", "noretreat", "poisonjab", "rockslide", "throatchop"],
+		randomDoubleBattleMoves: ["kingsshield", "closecombat", "noretreat", "poisonjab", "rockslide", "throatchop"],
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
