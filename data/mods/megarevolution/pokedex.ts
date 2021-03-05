@@ -431,7 +431,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	abhornet: {
 		num: 270032,
 		name: "Abhornet",
-		types: ["Bug","Dark"],
+		types: ["Bug","Poison"],
 		baseStats: {hp: 65, atk: 120, def: 50, spa: 15, spd: 80, spe: 135},
 		abilities: {0: "Adaptability", H: "Sniper"},
 		heightm: 1.4,
