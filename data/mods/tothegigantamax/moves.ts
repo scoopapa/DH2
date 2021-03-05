@@ -1021,23 +1021,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-/*
 	gmaxpuffup: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+      num: 1000,
+      accuracy: true,
+      basePower: 10,
+      category: "Physical",
+		shortDesc: "Base move affects power. Allies: Stockpile 1.",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Puff Up",
+      pp: 10,
 		priority: 0,
-		flags: {},
-		isMax: "",
-		secondary: null,
-		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
-	},
+      flags: {},
+      isMax: "Jigglypuff",
+      self: {
+          onHit(source) {
+              for (const pokemon of source.side.active) {
+                  if (pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 3) continue;
+                  pokemon.addVolatile('stockpile'); 
+              }
+          },
+      },
+      secondary: null,
+      target: "adjacentFoe",
+      type: "Normal",
+      contestType: "Cool",
+  },
+/*
 	gmaxgravedig: {
 		num: 1000,
 		accuracy: true,
