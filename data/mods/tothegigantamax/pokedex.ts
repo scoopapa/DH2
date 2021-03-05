@@ -517,7 +517,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Slowbro-Galar",
 		battleOnly: "Slowbro-Galar",
 	},
- /*
 	jigglypuff: {
 		inherit: true,
 		canGigantamax: "G-Max Puff Up",
@@ -536,7 +535,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		changesFrom: "Jigglypuff",
 	},
- 
+  /*
 	palossand: {
 		inherit: true,
 		canGigantamax: "G-Max Gravedig",
