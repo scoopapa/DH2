@@ -169,5 +169,29 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
-	
+	obstagoongmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	klefkigmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	sandslashalolagmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	goodragmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	taurosgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
 };
