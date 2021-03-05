@@ -163,7 +163,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	keldeo: {
-		randomBattleMoves: ["hydropump", "secretpower", "icywind", "airslash", "hiddenpowerelectric", "flipturn", "taunt"],
+		randomBattleMoves: ["hydropump", "secretsword", "icywind", "airslash", "hiddenpowerelectric", "flipturn", "taunt"],
 		tier: "OU",
 	},
 	kommoo: {
