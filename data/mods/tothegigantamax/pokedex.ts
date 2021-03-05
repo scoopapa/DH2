@@ -478,7 +478,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Porygon-Z",
 	},
- 
+ */
 	klefki: {
 		inherit: true,
 		canGigantamax: "G-Max Key Lock",
@@ -497,7 +497,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Klefki",
 	},
- */
+ 
 	slowbrogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Shell Shock",
@@ -767,7 +767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Reshiram",
 	},
- /*
+ 
 	obstagoon: {
 		inherit: true,
 		canGigantamax: "G-Max Breakdown",
@@ -786,7 +786,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Obstagoon",
 	},
- */
+
 	starmie: {
 		inherit: true,
 		canGigantamax: "G-Max Shooting Star",
@@ -1109,6 +1109,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Bellossom",
 	},
  
+ */
 	goodra: {
 		inherit: true,
 		canGigantamax: "G-Max Slime Splash",
@@ -1127,7 +1128,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		changesFrom: "Goodra",
 	},
- */
+ 
 	ribombee: {
 		inherit: true,
 		canGigantamax: "G-Max Pollen Rain",
@@ -1317,5 +1318,120 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Leafeon",
 	},	
-	*/
+	
+	beheeyem: {
+		inherit: true,
+		canGigantamax: "G-Max Blue Star",
+	},
+	beheeyemgmax: {
+		num: 606,
+		name: "Beheeyem-Gmax",
+		baseSpecies: "Beheeyem",
+		forme: "Gmax",
+		types: ["Psychic"],
+		baseStats: {hp: 75, atk: 75, def: 75, spa: 125, spd: 95, spe: 40},
+		abilities: {0: "Telepathy", 1: "Synchronize", H: "Analytic"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Human-Like"],
+		changesFrom: "Beheeyem",
+	},
+ 
+	zoroark: {
+		inherit: true,
+		canGigantamax: "G-Max Delusion",
+	},
+	zoroarkgmax: {
+		num: 571,
+		name: "Zoroark-Gmax",
+		baseSpecies: "Zoroark",
+		forme: "Gmax",
+		types: ["Dark"],
+		baseStats: {hp: 60, atk: 105, def: 60, spa: 120, spd: 60, spe: 105},
+		abilities: {0: "Illusion"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Black",
+		eggGroups: ["Field"],
+		changesFrom: "Zoroark",
+	},
+ 
+	sceptile: {
+		inherit: true,
+		canGigantamax: "G-Max Vegetal Sword",
+	},
+	sceptilegmax: {
+		num: 254,
+		name: "Sceptile-Gmax",
+		baseSpecies: "Sceptile",
+		forme: "Gmax",
+		types: ["Grass"],
+		baseStats: {hp: 70, atk: 85, def: 65, spa: 105, spd: 85, spe: 120},
+		abilities: {0: "Overgrow", H: "Unburden"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Green",
+		eggGroups: ["Monster", "Dragon"],
+		changesFrom: "Sceptile",
+	},
+ 
+	sandslash: {
+		inherit: true,
+		canGigantamax: "G-Max Quaking Ferocity",
+	},
+	sandslashgmax: {
+		num: 28,
+		name: "Sandslash-Gmax",
+		baseSpecies: "Sandslash",
+		forme: "Gmax",
+		types: ["Ground", "Steel"],
+		baseStats: {hp: 75, atk: 100, def: 110, spa: 45, spd: 55, spe: 65},
+		abilities: {0: "Sand Veil", H: "Sand Rush"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Yellow",
+		eggGroups: ["Field"],
+		changesFrom: "Sandslash",
+	},
+ */
+	sandslashalola: {
+		inherit: true,
+		canGigantamax: "G-Max Crystaline Crash",
+	},
+	sandslashalolagmax: {
+		num: 28,
+		name: "Sandslash-Alola-Gmax",
+		baseSpecies: "Sandslash-Alola",
+		forme: "Alola-Gmax",
+		types: ["Ice", "Steel"],
+		baseStats: {hp: 75, atk: 100, def: 120, spa: 25, spd: 65, spe: 65},
+		abilities: {0: "Snow Cloak", H: "Slush Rush"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Blue",
+		eggGroups: ["Field"],
+		changesFrom: "Sandslash-Alola",
+		battleOnly: "Sandslash-Alola",
+	},
+ 
+	tauros: {
+		inherit: true,
+		canGigantamax: "G-Max Stampede",
+	},
+	taurosgmax: {
+		num: 128,
+		name: "Tauros-Gmax",
+		baseSpecies: "Tauros",
+		forme: "Gmax",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 75, atk: 100, def: 95, spa: 40, spd: 70, spe: 110},
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Sheer Force"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Field"],
+		changesFrom: "Tauros",
+	},
+
 };
