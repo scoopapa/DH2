@@ -2610,6 +2610,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
 	},
+	rhydon: {
+		randomBattleMoves: ["stoneedge", "earthquake", "icefang", "stealthrock", "mudslap", "swordsdance", "megahorn"],
+		tier: "NFE",
+	},	
 	/* Leaving this commented out still allows the random team builder to roll a normal Zygarde with Power Construct
 	zygardecomplete: {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
