@@ -2283,14 +2283,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kubfu: {
 		randomBattleMoves: ["closecombat", "icepunch", "uturn", "ironhead"],
-		tier: "NFE",
+		tier: "LC Uber",
 	},
 	togetic: {
 		tier: "NFE",
 	},
 	typenull: {
 		randomBattleMoves: ["swordsdance", "return", "sleeptalk", "rest"],
-		tier: "NFE",
+		tier: "LC Uber",
 	},
 	zweillous: {
 		randomBattleMoves: ["dragonfang", "crunch", "firefang", "zenheadbutt", "astonish"],
