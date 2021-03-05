@@ -1,4 +1,77 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	//-------------------------------------------
+	//ITEMS EDITED FOR COMPATIBILITY
+	//-------------------------------------------
+	heavydutyboots: {
+		inherit: true,
+		desc: "When switching in, the holder is unaffected by grounded hazards on its side of the field.",
+		// Hazard Immunity implemented in moves.js
+	},
+	
+	//-------------------------------------------
+	//NEW ITEMS
+	//-------------------------------------------
+	hardhat: {
+		name: "Hard Hat",
+		spritenum: 417,
+		fling: {
+			basePower: 80,
+		},
+		num: 1120,
+		gen: 8,
+		desc: "When switching in, the holder is unaffected by airborne hazards on its side of the field.",
+		// Hazard Immunity implemented in moves.js
+	},
+	
+	//-------------------------------------------
+	//SIGNATURE/MEGA STONE
+	//-------------------------------------------
+	froslassite: {
+		name: "Froslassite",
+		spritenum: 578,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
+	deciduite: {
+		name: "Deciduite",
+		spritenum: 578,
+		megaStone: "Decidueye-Mega",
+		megaEvolves: "Decidueye",
+		itemUser: ["Decidueye"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
+	},
+	dugtrionite: {
+		name: "Dugtrionite",
+		spritenum: 578,
+		megaStone: "Dugtrio-Mega",
+		megaEvolves: "Dugtrio",
+		itemUser: ["Dugtrio"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by a Dugtrio, this item allows it to Mega Evolve in battle.",
+	},
+	
+	//-------------------------------------------
+	//TYPE BOOSTING FLOWERS (WHY)
+	//-------------------------------------------
 	whiteflower: {
 		name: "White Flower",
 		spritenum: 307,
@@ -285,66 +358,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 564,
 		gen: 8,
 		desc: "Holder's first successful Psychic-type attack will have 1.3x power. Single use.",
-	},
+	},	
 	
-	heavydutyboots: {
-		inherit: true,
-		desc: "When switching in, the holder is unaffected by grounded hazards on its side of the field.",
-		// Hazard Immunity implemented in moves.js
-	},
-	
-	hardhat: {
-		name: "Hard Hat",
-		spritenum: 417,
-		fling: {
-			basePower: 80,
-		},
-		num: 1120,
-		gen: 8,
-		desc: "When switching in, the holder is unaffected by airborne hazards on its side of the field.",
-		// Hazard Immunity implemented in moves.js
-	},
-	
-	froslassite: {
-		name: "Froslassite",
-		spritenum: 578,
-		megaStone: "Froslass-Mega",
-		megaEvolves: "Froslass",
-		itemUser: ["Froslass"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1026,
-		gen: 8,
-		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
-	},
-	deciduite: {
-		name: "Deciduite",
-		spritenum: 578,
-		megaStone: "Decidueye-Mega",
-		megaEvolves: "Decidueye",
-		itemUser: ["Decidueye"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1026,
-		gen: 8,
-		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
-	},
-	dugtrionite: {
-		name: "Dugtrionite",
-		spritenum: 578,
-		megaStone: "Dugtrio-Mega",
-		megaEvolves: "Dugtrio",
-		itemUser: ["Dugtrio"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1026,
-		gen: 8,
-		desc: "If held by a Dugtrio, this item allows it to Mega Evolve in battle.",
-	},
 };

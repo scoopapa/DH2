@@ -1434,21 +1434,11 @@ export const Formats: FormatList = [
 
 	},
 	{
-		name: "[Gen 8] Ink's Testing Custom Game",
-		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		name: "[Gen 8] Ink's Custom Game",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'Data Mod', 'Mega Data Mod'],
 		mod: "inksdynamaxadventure",
 		searchShow: false,
 		challengeShow: false,
-		onSwitchIn(pokemon) {
-			if (pokemon.species.tier === "NEW") {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
-		onMegaEvo(pokemon) {
-			if (pokemon.species.tier === "NEW") {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
