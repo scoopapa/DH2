@@ -1718,7 +1718,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["8L1"],
 		},
 	},
-	kōdōkai: {
+	kodokai: {
 		learnset: {
 			afteryou: ["8L1"],
 			allyswitch: ["8L1"],
