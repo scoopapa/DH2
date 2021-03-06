@@ -1374,7 +1374,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		changesFrom: "Sceptile",
 	},
- 
+ /*
 	sandslash: {
 		inherit: true,
 		canGigantamax: "G-Max Quaking Ferocity",
@@ -1393,7 +1393,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Sandslash",
 	},
- /*
+ */
 	sandslashalola: {
 		inherit: true,
 		canGigantamax: "G-Max Crystaline Crash",
@@ -1413,7 +1413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Sandslash-Alola",
 		battleOnly: "Sandslash-Alola",
 	},
- */
+ 
 	tauros: {
 		inherit: true,
 		canGigantamax: "G-Max Stampede",
