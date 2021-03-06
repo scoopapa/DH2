@@ -159,7 +159,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-	kōdōkai: {
+	kodokai: {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
