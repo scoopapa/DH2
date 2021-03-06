@@ -2013,6 +2013,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	gmaxbluestar: {
+      num: 1000,
+      accuracy: true,
+      basePower: 110,
+      category: "Physical",
+      shortDesc: "Base move affects power. Super effective on Dark & Ghost. Allies: 0.5x damage taken from Dark & Ghost for 5 turns",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Blue Star",
+      pp: 10,
+      priority: 0,
+      flags: {},
+      isMax: "Beheeyem",
+      onPrepareHit: function(target, source, move) {
+          this.attrLastMove('[still]');
+          this.add('-anim', source, "Cosmic Power", target);
+          this.add('-anim', source, "Draco Meteor", target);
+      },
+      onEffectiveness(typeMod, target, type) {
+          if (type === 'Dark' || type === 'Ghost') return 1;
+      },
+      self: {
+          onHit(source) {
+              source.side.addSideCondition('gmaxbluestar');
+          }
+      },
+      condition: {
+          duration: 5,
+          onStart(side) {
+              this.add('-sidestart', side, 'move: G-Max Blue Star');
+          },
+          onAnyModifyDamage(damage, source, target, move) {
+              if (target !== source && target.side === this.effectData.target && (move.type === 'Ghost' || move.type === 'Dark')) {
+                  this.debug('GMax Blue Star weaken');
+                  return this.chainModify(0.5);
+              }
+          },
+          onResidualOrder: 21,
+          onResidualSubOrder: 1,
+          onEnd(side) {
+              this.add('-sideend', side, 'move: G-Max Blue Star');
+          },
+      },
+      ignoreImmunity: true,
+      secondary: null,
+      target: "adjacentFoe",
+      type: "Psychic",
+      contestType: "Clever",
+  },
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
