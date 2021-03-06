@@ -155,4 +155,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	kelven: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	kōdōkai: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	cindarner: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+
 };

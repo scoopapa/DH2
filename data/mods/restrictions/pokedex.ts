@@ -272,7 +272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Normal"],
 		baseStats: {hp: 57, atk: 102, def: 152, spa: 61, spd: 91, spe: 87},
 		abilities: {0: "Levitate", 1: "Light Metal", H: "Full Metal Body"},
-		weightkg: 8,
+		weightkg: 295,
 	},
 	snailord: {
 		num: 1035,
@@ -296,7 +296,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 75, atk: 90, def: 50, spa: 55, spd: 75, spe: 65},
 		abilities: {0: "Adaptability", 1: "Slush Rush", H: "Technician"},
-		weightkg: 8,
+		weightkg: 68.1,
 	},
 	cinnastar: {
 		num: 1038,
@@ -312,6 +312,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Poison"],
 		baseStats: {hp: 51, atk: 139, def: 66, spa: 78, spd: 66, spe: 110},
 		abilities: {0: "Compound Eyes", 1: "Insomnia", H: "Corrosion"},
-		weightkg: 8,
+		weightkg: 14.7,
 	},
+	kelven: {
+		num: 1040,
+		name: "Kelven",
+		types: ["Ice", "Fairy"],
+		baseStats: {hp: 53, atk: 83, def: 107, spa: 131, spd: 83, spe: 113},
+		abilities: {0: "Beast Boost"},
+		weightkg: 14.2,
+		gender: "N",
+	},
+	kodokai: {
+		num: 1041,
+		name: "Kōdōkai",
+		types: ["Ghost", "Fire"],
+		baseStats: {hp: 100, atk: 60, def: 110, spa: 130, spd: 110, spe: 40},
+		abilities: {0: "White Smoke", H: "Aroma Veil"},
+		weightkg: 1.1,
+	},
+	cindarner: {
+		num: 1042,
+		name: "Cindarner",
+		types: ["Bug", "Fire"],
+		baseStats: {hp: 110, atk: 85, def: 65, spa: 126, spd: 80, spe: 50},
+		abilities: {0: "Speed Boost", H: "Drought"},
+		weightkg: 21.2,
+	},
+
 };
