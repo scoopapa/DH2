@@ -228,6 +228,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Normal",
 	},
+	psychup: {
+		num: 244,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Psych Up",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1, mystery: 1},
+		onHit(target, source) {
+			let i: BoostName;
+			for (i in target.boosts) {
+				source.boosts[i] = target.boosts[i];
+			}
+			const volatilesToCopy = ['focusenergy', 'gmaxchistrike', 'gmaxshrewdspirit', 'gmaxcourageousspirit', 'gmaxbenevolentspirit', 'gmaxvegetalsword', 'laserfocus'];
+			for (const volatile of volatilesToCopy) {
+				if (target.volatiles[volatile]) {
+					source.addVolatile(volatile);
+					if (volatile === 'gmaxchistrike') source.volatiles[volatile].layers = target.volatiles[volatile].layers;
+				} else {
+					source.removeVolatile(volatile);
+				}
+			}
+			this.add('-copyboost', source, target, '[from] move: Psych Up');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+	},
 	
 	//New Gmax moves: 
 	gmaxbeheading: {
