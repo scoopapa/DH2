@@ -2013,4 +2013,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	gmaxvegetalsword: {
+      num: 1000,
+      accuracy: true,
+      basePower: 10,
+      category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 crit ratio & Atk",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Vegetal Sword",
+      pp: 10,
+      priority: 0,
+      flags: {},
+      isMax: "Sceptile",
+      onPrepareHit: function(target, source, move) {
+          this.attrLastMove('[still]');
+          this.add('-anim', source, "Swords Dance", target);
+          this.add('-anim', source, "Petal Blizzard", target);
+      },
+      self: {
+          onHit(source) {
+              if (!source.volatiles['dynamax']) return;
+              for (const pokemon of source.side.active) {
+                  pokemon.addVolatile('gmaxvegetalsword');
+                  this.boost({atk: 1}, pokemon);
+              }
+          },
+      },
+      condition: {
+          noCopy: true,
+          onStart(target, source, effect) {
+              this.effectData.layers = 1;
+              if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+                  this.add('-start', target, 'move: G-Max Vegetal Sword');
+              }
+          },
+          onRestart(target, source, effect) {
+              if (this.effectData.layers >= 3) return false;
+              this.effectData.layers++;
+              if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+                  this.add('-start', target, 'move: G-Max Vegetal Sword');
+              }
+          },
+          onModifyCritRatio(critRatio) {
+              return critRatio + this.effectData.layers;
+          },
+      },
+      target: "adjacentFoe",
+      type: "Grass",
+      contestType: "Cool",
+  },
 };
