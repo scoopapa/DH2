@@ -143,7 +143,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
-	pideastroph: {
+	pidgeastroph: {
 		tier:'OU',
 		isModded: true,
 	},

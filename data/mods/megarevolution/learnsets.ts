@@ -3260,7 +3260,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["8V", "7M", "6M", "5M", "4M"],
 			firstimpression: ["8L1"],
 		}},
-	pideastroph: {
+	pidgeastroph: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			agility: ["8V", "7L32", "7V", "6L32", "5L32", "4L32", "3L48"],
