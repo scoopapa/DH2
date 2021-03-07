@@ -224,6 +224,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dry Skin", 1: "Hydration", H: "Damp"},
 		weightkg: 10.1,
 		cosmeticFormes: ["Dirtoad-Dirty"],
+		formeOrder: ["Dirtoad", "Dirtoad-Dirty"],
+	},
+	dirtoaddirty: {
+		num: 1028,
+		name: "Dirtoad",
+		types: ["Water", "Ground"],
+		baseStats: {hp: 95, atk: 110, def: 60, spa: 60, spd: 110, spe: 95},
+		abilities: {0: "Dry Skin", 1: "Hydration", H: "Damp"},
+		weightkg: 10.1,
+		cosmeticFormes: ["Dirtoad"],
+		formeOrder: ["Dirtoad", "Dirtoad-Dirty"],
 	},
 	crystelf: {
 		num: 1029,
