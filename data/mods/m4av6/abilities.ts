@@ -1209,25 +1209,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (num === 1 && !pokemon.volatiles['settle1']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle1');
-						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
 						move.settleBoosted = true;
 					} else if (num === 2 && !pokemon.volatiles['settle2']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle2');
-						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
 						move.settleBoosted = true;
 					} else if (num === 3 && !pokemon.volatiles['settle3']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle3');
-						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
 						move.settleBoosted = true;
 					} else if (num === 4 && !pokemon.volatiles['settle4']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle4');
-						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
 						move.settleBoosted = true;
 					}
@@ -1558,14 +1554,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	seismicscream: {
 		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
 		shortDesc: "Follows up sound moves with an Earthquake of 60 BP.",
-		onSourceAfterMove(target, source, move) {
+		onAfterMove(target, source, move) {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
-				source.addVolatile('seismicscream');
+				this.effectData.target.addVolatile('seismicscream');
 				if (move.category === 'Special') {
 					source.addVolatile('specialsound');
 				}
-				this.useMove('earthquake', source);
+				this.useMove('earthquake', this.effectData.target);
 			}
 		},
 		name: "Seismic Scream",
@@ -1797,7 +1793,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || pokemon.side.pokemon[i].item.zMove
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove
 				) continue;
 				break;
 			}
@@ -2100,6 +2096,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					 }
 				}
 			},
+			onAfterMoveSecondary(pokemon) {
+				if (this.effectData.lit) {
+					this.hint("The sticky gel ignited!");
+					if (this.effectData.damage) {
+						this.damage(this.effectData.damage / 2, this.effectData.target);
+					}
+					pokemon.trySetStatus('brn', this.effectData.source);
+					pokemon.removeVolatile('redlicorice');
+					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
+				}
+			},
 			onAnyDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
 					if (this.effectData.damage) {
@@ -2133,7 +2140,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMove(target, source, move) {
 			if (!move || !source) return;
 			if (move.type === 'Dark' && move.category === 'Status') {
-				source.side.foe.addSideCondition('spikes');
+				this.effectData.target.side.foe.addSideCondition('spikes');
 			}
 		},
 		name: "Stygian Shades",
@@ -2143,7 +2150,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	longwhip: {
 		desc: "This Pokémon's multi-hit attacks do damage at the end of each turn, for the maximum number of times the attack could hit, instead of being used immediately. More than one move can stack in this way.",
 		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
-		onTryMove(source, target, move) {
+		onBeforeMove(source, target, move) {
 			if (move.multihit) {
 				let whipMove = null;
 				if (target.side.addSlotCondition(target, 'longwhip1')) {
@@ -2179,7 +2186,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					},
 				});
 				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
-				source.deductPP(move.id, 1);
 				return null;
 			}
 		},
