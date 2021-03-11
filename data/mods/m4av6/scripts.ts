@@ -35,7 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("staraptor", ["roleplay", "superfang"]);
 		newMoves("bibarel", ["fly"]);
 		newMoves("kricketune", ["closecombat", "drainpunch", "dualwingbeat", "firstimpression", "powertrip", "tripleaxel", "uturn"]);
-		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "partingshot", "fling"]);
+		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "partingshot"]);
 		newMoves("murkrow", ["partingshot"]);
 		newMoves("honchkrow", ["partingshot", "dualwingbeat"]);
 		newMoves("spiritomb", ["partingshot"]);
@@ -60,7 +60,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("samurott", ["flipturn", "psychocut", "slackoff"]);
 		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast", "mysticalfire"]);
-		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "photongeyser", "storedpower"]);
+		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
 		newMoves("delibird", ["celebrate", "healingwish", "roost", "swordsdance", "uturn", "wish"]);
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
