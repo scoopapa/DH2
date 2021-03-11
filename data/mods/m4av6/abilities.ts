@@ -2147,9 +2147,43 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	longwhip: {
 		desc: "This Pokémon's multi-hit attacks do damage at the end of each turn, for the maximum number of times the attack could hit, instead of being used immediately. More than one move can stack in this way.",
 		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
-		// code here
-		condition: {
-			duration: 1,
+		onTryMove(source, target, move) {
+			if (move.multihit) {
+				let whipMove = null;
+				if (target.side.addSlotCondition(target, 'longwhip1')) {
+					whipMove = 'longwhip1';
+				} else if (target.side.addSlotCondition(target, 'longwhip2')) {
+					whipMove = 'longwhip2';
+				} else if (target.side.addSlotCondition(target, 'longwhip3')) {
+					whipMove = 'longwhip3';
+				} else if (target.side.addSlotCondition(target, 'longwhip4')) {
+					whipMove = 'longwhip4';
+				} else if (target.side.addSlotCondition(target, 'longwhip5')) {
+					whipMove = 'longwhip5';
+				}
+				if (whipMove === null) return false;
+				Object.assign(target.side.slotConditions[target.position][whipMove], {
+					duration: move.multihit,
+					move: move,
+					source: source,
+					moveData: {
+						id: move.id,
+						name: move.name,
+						accuracy: move.accuracy,
+						basePower: move.basepower,
+						category: move.category,
+						priority: move.priority,
+						flags: move.flags,
+						effectType: 'Move',
+						isFutureMove: true,
+						type: move.type,
+						multihit: null,
+					},
+				});
+				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
+				source.deductPP(move.id, 1);
+				return null;
+			}
 		},
 		name: "Long Whip",
 		rating: 3,
