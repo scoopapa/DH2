@@ -254,11 +254,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'longwhip1',
 		onResidualOrder: 3,
 		onResidual(target) {
-			const data = this.effectData;
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
+			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+			this.add('-ability', this.effectData.source, 'Long Whip');
+			if (!data.target) {
+				this.hint(`${move.name} did not hit because there was no target.`);
 				return;
 			}
 
@@ -275,6 +277,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
+			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
@@ -285,11 +288,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'longwhip2',
 		onResidualOrder: 3,
 		onResidual(target) {
-			const data = this.effectData;
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
+			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+			this.add('-ability', this.effectData.source, 'Long Whip');
+			if (!data.target) {
+				this.hint(`${move.name} did not hit because there was no target.`);
 				return;
 			}
 
@@ -306,6 +311,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
+			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
@@ -316,11 +322,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'longwhip3',
 		onResidualOrder: 3,
 		onResidual(target) {
-			const data = this.effectData;
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
+			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+			this.add('-ability', this.effectData.source, 'Long Whip');
+			if (!data.target) {
+				this.hint(`${move.name} did not hit because there was no target.`);
 				return;
 			}
 
@@ -337,6 +345,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
+			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
@@ -347,11 +356,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'longwhip4',
 		onResidualOrder: 3,
 		onResidual(target) {
-			const data = this.effectData;
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
+			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+			this.add('-ability', this.effectData.source, 'Long Whip');
+			if (!data.target) {
+				this.hint(`${move.name} did not hit because there was no target.`);
 				return;
 			}
 
@@ -368,6 +379,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
+			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
@@ -378,11 +390,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'longwhip5',
 		onResidualOrder: 3,
 		onResidual(target) {
-			const data = this.effectData;
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
+			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+			this.add('-ability', this.effectData.source, 'Long Whip');
+			if (!data.target) {
+				this.hint(`${move.name} did not hit because there was no target.`);
 				return;
 			}
 
@@ -399,6 +413,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
+			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
