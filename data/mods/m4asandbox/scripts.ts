@@ -6,7 +6,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Learnsets', this.toID(mon)).learnset[this.toID(move)] = ["8M"];
 			}
 		};
-		newMoves("wishiwashi", ["lifedew", "recover", "wish"]);
+		newMoves("toxtricity", ["purify"]);
+		newMoves("toxtricitylowkey", ["purify"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
