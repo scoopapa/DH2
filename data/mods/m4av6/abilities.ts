@@ -1137,7 +1137,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPrepareHit(source, target, move) {
 			if (move.multihit) return;
 			if (move.flags['bite'] && !move.isZ && !move.isMax) {
-				move.multihit = [2, 5];
+				move.multihit = [3];
 			}
 		},
 		onBasePowerPriority: 7,
@@ -1255,7 +1255,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onSourceHit(target, source, move) {
 			const bladeMoves = [
-				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
+				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'solarblade', 'xscissor',
 			];
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
@@ -1265,7 +1265,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onModifyCritRatio(critRatio, source, target, move) {
 			const bladeMoves = [
-				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
+				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'solarblade', 'xscissor',
 			];
 			if (bladeMoves.includes(move.id) && source.hp <= source.maxhp / 3) return 5;
 		},
@@ -1681,29 +1681,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move.useSourceDefensiveAsOffensive = true;
 			}
 		},
+		onModifyBoost(boosts, pokemon, move) {
+			if (move.type !== 'Water') return;
+			boosts['def'] = boosts['atk'];
+			boosts['spd'] = boosts['spa'];
+		},
 		rating: 3.5,
 		num: -1048,
-	},
-	unaware: {
-		name: "Unaware",
-		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
-			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
-			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
-				boosts['atk'] = 0;
-				boosts['def'] = 0;
-				boosts['spa'] = 0;
-				boosts['spd'] = 0;
-				boosts['accuracy'] = 0;
-			}
-		},
-		rating: 4,
-		num: 109,
 	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
