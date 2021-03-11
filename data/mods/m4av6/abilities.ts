@@ -2058,6 +2058,47 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 176,
 	},
+	poolfloaties: {
+		desc: "This Pokémon and its adjacent allies are immune to Water-type moves. For 3 turns after the user or its adjacent allies use a Water-type move or are hit by a Water-type move, they are also immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as they remain active. If they use Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this immunity if the user is under any of their effects.",
+		shortDesc: "text here.",
+		// code here
+		condition: {
+			duration: 1,
+		},
+		name: "Pool Floaties",
+		rating: 4.5,
+		num: -1055,
+	},
+	redlicorice: {
+		desc: "This Pokémon's Fairy-type attacks cause the target to become sticky and flammable. When a Fire-type attack is used against a target that is sticky and flammable, its power is multiplied by 1.5, and the target is burned but is no longer sticky and flammable. When a Fire-type attack is used by an attacker that is sticky and flammable, the user takes recoil damage equal to 50% the HP lost by the target (rounded half up, but not less than 1 HP), and the user is burned but is no longer sticky and flammable.",
+		shortDesc: "text here.",
+		// code here
+		condition: {
+			duration: 1,
+		},
+		name: "Red Licorice",
+		rating: 4.5,
+		num: -1056,
+	},
+	stygianshades: {
+		desc: "This Pokémon's Dark-type status moves set one layer of Spikes on the opposing side of the field.",
+		shortDesc: "text here.",
+		// code here
+		name: "Stygian Shades",
+		rating: 4.5,
+		num: -1057,
+	},
+	longwhip: {
+		desc: "This Pokémon's multi-hit attacks do damage at the end of each turn, for the maximum number of times the attack could hit, instead of being used immediately. More than one move can stack in this way.",
+		shortDesc: "text here.",
+		// code here
+		condition: {
+			duration: 1,
+		},
+		name: "Long Whip",
+		rating: 4.5,
+		num: -1058,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
