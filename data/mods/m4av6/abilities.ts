@@ -1673,7 +1673,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1047,
 	},
 	bodyofwater: {
-		desc: "When this Pokémon uses a Water-type attack, damage is calculated using the user's Defense stat as its Attack or its Special Defense as its Special Attack, including stat stage changes. Other effects that modify the Attack and Special Attack stats are used as normal.",
+		desc: "When this Pokémon uses a Water-type attack, damage is calculated using the user's Defense stat as its Attack or its Special Defense as its Special Attack. Other effects that modify the Attack and Special Attack stats are used as normal, including stat stage changes.",
 		shortDesc: "Water-type attacks use Def as Atk and Sp. Def as Sp. Atk in damage calculation.",
 		name: "Body of Water",
 		onModifyMove(move, attacker) {
@@ -1681,10 +1681,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move.useSourceDefensiveAsOffensive = true;
 			}
 		},
-		onModifyBoost(boosts, pokemon, move) {
-			if (move.type !== 'Water') return;
-			boosts['def'] = boosts['atk'];
-			boosts['spd'] = boosts['spa'];
+		onModifyBoost(boosts, pokemon) {
+			if (this.activeMove && this.activeMove.type === 'Water') {
+				boosts['def'] = boosts['atk'];
+				boosts['spd'] = boosts['spa'];
+			}
 		},
 		rating: 3.5,
 		num: -1048,
@@ -1799,10 +1800,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				let item;
 				if (
-					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || pokemon.side.pokemon[i].item.zMove
-				) continue;
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted
+				) {
+					item = pokemon.side.pokemon[i].item;
+				}
+				if (!item || item.zMove) continue;
 				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
