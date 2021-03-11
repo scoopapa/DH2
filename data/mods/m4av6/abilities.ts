@@ -1137,7 +1137,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPrepareHit(source, target, move) {
 			if (move.multihit) return;
 			if (move.flags['bite'] && !move.isZ && !move.isMax) {
-				move.multihit = [3];
+				move.multihit = 3;
 			}
 		},
 		onBasePowerPriority: 7,
@@ -1558,7 +1558,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	seismicscream: {
 		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
 		shortDesc: "Follows up sound moves with an Earthquake of 60 BP.",
-		onAfterMove(target, source, move) {
+		onSourceAfterMove(target, source, move) {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
 				source.addVolatile('seismicscream');
@@ -1679,12 +1679,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move, attacker) {
 			if (move.type === 'Water') {
 				move.useSourceDefensiveAsOffensive = true;
-			}
-		},
-		onModifyBoost(boosts, pokemon) {
-			if (this.activeMove && this.activeMove.type === 'Water') {
-				boosts['def'] = boosts['atk'];
-				boosts['spd'] = boosts['spa'];
+				move.bodyofwaterBoosted = true;
 			}
 		},
 		rating: 3.5,
@@ -1800,13 +1795,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				let item;
 				if (
-					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted
-				) {
-					item = pokemon.side.pokemon[i].item;
-				}
-				if (!item || item.zMove) continue;
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
+					!pokemon.side.pokemon[i].item || pokemon.side.pokemon[i].item.zMove
+				) continue;
 				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
@@ -2054,8 +2046,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Pokémon and allies: gain Ground immunity from Water moves; Water immunity.",
 		onAnyTryHit(target, source, move) {
 			if (target !== source && target.side === this.effectData.target.side && move.type === 'Water') {
-				this.add('-immune', target, '[from] ability: Pool Floaties', '[of] ' + this.effectData.target);
 				target.addVolatile('poolfloaties');
+				this.add('-immune', target, '[from] ability: Pool Floaties', '[of] ' + this.effectData.target);
 				return null;
 			}
 			if (target !== source && source.side === this.effectData.target.side && move.type === 'Water') {
@@ -2080,7 +2072,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onResidualOrder: 15,
 			onEnd(target) {
-				this.add('-end', target, 'Pool Floaties');
+				this.add('-end', target, 'Pool Floaties', '[silent]');
+				this.add('-message', `${target.name} floated back down!`);
 			},
 		},
 		name: "Pool Floaties",
@@ -2099,19 +2092,34 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.add('-start', pokemon, 'Sticky Gel', '[from] ability: Red Licorice', '[of] ' + source);
 			},
+			onAnyModifyMove(target, source, move) {
+				if (move.type === 'Fire' && move.category !== 'Status') {
+					 if (target === this.effectData.target) {
+						move.basePower *= 1.5;
+						this.effectData.lit = true;
+					 }
+				}
+			},
 			onAnyDamage(damage, target, source, effect) {
-				if (effect && effect.effectType === 'Move' && effect.type === 'Fire') {
-					if (source === this.effectData.target) {
-						this.hint("The sticky gel ignited!");
-						source.removeVolatile('redlicorice');
-						source.trySetStatus('brn', this.effectData.source);
-						this.damage(damage / 2, source);
-					} else if (target === this.effectData.target) {
-						this.hint("The sticky gel ignited!");
-						target.removeVolatile('redlicorice');
-						target.trySetStatus('brn', this.effectData.source);
-						damage *= 1.5;
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
+					if (this.effectData.damage) {
+						this.effectData.damage += damage;
+						this.effectData.lit = true;
+					} else {
+						this.effectData.damage = damage;
+						this.effectData.lit = true;
 					}
+				}
+			},
+			onAnyAfterMove(pokemon) {
+				if (this.effectData.lit) {
+					this.hint("The sticky gel ignited!");
+					if (this.effectData.damage) {
+						this.damage(this.effectData.damage / 2, this.effectData.target);
+					}
+					pokemon.trySetStatus('brn', this.effectData.source);
+					pokemon.removeVolatile('redlicorice');
+					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 				}
 			},
 		},
@@ -2152,8 +2160,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (whipMove === null) return false;
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
 					duration: move.multihit,
-					move: move,
 					source: source,
+					target: null,
+					move: move,
+					position: target.position,
+					side: target.side,
 					moveData: {
 						id: move.id,
 						name: move.name,
@@ -2165,7 +2176,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						effectType: 'Move',
 						isFutureMove: true,
 						type: move.type,
-						multihit: null,
 					},
 				});
 				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
