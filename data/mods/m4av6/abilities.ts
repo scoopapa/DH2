@@ -1211,34 +1211,34 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						pokemon.addVolatile('settle1');
 						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
+						move.settleBoosted = true;
 					} else if (num === 2 && !pokemon.volatiles['settle2']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle2');
 						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
+						move.settleBoosted = true;
 					} else if (num === 3 && !pokemon.volatiles['settle3']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle3');
 						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
+						move.settleBoosted = true;
 					} else if (num === 4 && !pokemon.volatiles['settle4']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle4');
 						move.category = 'Physical';
 						move.defensiveCategory = 'Special';
-						move.hasSheerForce = true;
+						move.settleBoosted = true;
 					}
 				}
 			}
 		},
-		onBasePowerPriority: 21,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.hasSheerForce) {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.settleBoosted) {
 				this.hint(`${move.name} was boosted by Settle!`);
-				return this.chainModify(2);
+				return attacker.getStat('atk') * 2;
 			}
 		},
 		rating: 3,
@@ -1558,7 +1558,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	seismicscream: {
 		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
 		shortDesc: "Follows up sound moves with an Earthquake of 60 BP.",
-		onSourceHit(target, source, move) {
+		onAfterMove(target, source, move) {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
 				source.addVolatile('seismicscream');
@@ -1815,7 +1815,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.addVolatile('forgery');
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted) continue;
+				if (
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
+					!pokemon.side.pokemon[i].item || pokemon.side.pokemon[i].item.zmove
+				) continue;
 				break;
 			}
 			if (!pokemon.side.pokemon[i]) return;
@@ -2060,43 +2063,96 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	poolfloaties: {
 		desc: "This Pokémon and its adjacent allies are immune to Water-type moves. For 3 turns after the user or its adjacent allies use a Water-type move or are hit by a Water-type move, they are also immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as they remain active. If they use Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this immunity if the user is under any of their effects.",
-		shortDesc: "text here.",
-		// code here
+		shortDesc: "Pokémon and allies: gain Ground immunity from Water moves; Water immunity.",
+		onAnyTryHit(target, source, move) {
+			if (target !== source && target.side === this.effectData.target.side && move.type === 'Water') {
+				this.add('-immune', target, '[from] ability: Pool Floaties', '[of] ' + this.effectData.target);
+				target.addVolatile('poolfloaties');
+				return null;
+			}
+			if (target !== source && source.side === this.effectData.target.side && move.type === 'Water') {
+				source.addVolatile('poolfloaties');
+			}
+		},
 		condition: {
-			duration: 1,
+			duration: 3,
+			onStart(target) {
+				if (
+					target.volatiles['smackdown'] || target.volatiles['ingrain'] || this.field.getPseudoWeather('Gravity')
+				) return false;
+				this.add('-start', target, 'Pool Floaties', '[silent]');
+				if (target === this.effectData.source) {
+					this.add('-message', `${target.name} was lifted up by its pool floaties!`);
+				} else {
+					this.add('-message', `${target.name} was lifted up by ${this.effectData.source.name}'s pool floaties!`);
+				}
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'Pool Floaties');
+			},
 		},
 		name: "Pool Floaties",
-		rating: 4.5,
+		rating: 3,
 		num: -1055,
 	},
 	redlicorice: {
 		desc: "This Pokémon's Fairy-type attacks cause the target to become sticky and flammable. When a Fire-type attack is used against a target that is sticky and flammable, its power is multiplied by 1.5, and the target is burned but is no longer sticky and flammable. When a Fire-type attack is used by an attacker that is sticky and flammable, the user takes recoil damage equal to 50% the HP lost by the target (rounded half up, but not less than 1 HP), and the user is burned but is no longer sticky and flammable.",
-		shortDesc: "text here.",
-		// code here
+		shortDesc: "Fairy attacks make target sticky; Fire attacks: burn, 50% more damage to sticky Pokémon.",
+		onSourceHit(target, source, move) {
+			if (move.category !== 'Status' && move.type === 'Fairy') {
+				target.addVolatile('redlicorice');
+			}
+		},
 		condition: {
-			duration: 1,
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Sticky Gel', '[from] ability: Red Licorice', '[of] ' + source);
+			},
+			onAnyDamage(damage, target, source, effect) {
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire') {
+					if (source === this.effectData.target) {
+						this.hint("The sticky gel ignited!");
+						source.removeVolatile('redlicorice');
+						source.trySetStatus('brn', this.effectData.source);
+						this.damage(damage / 2, source);
+					} else if (target === this.effectData.target) {
+						this.hint("The sticky gel ignited!");
+						target.removeVolatile('redlicorice');
+						target.trySetStatus('brn', this.effectData.source);
+						damage *= 1.5;
+					}
+				}
+			},
 		},
 		name: "Red Licorice",
-		rating: 4.5,
+		rating: 3,
 		num: -1056,
 	},
 	stygianshades: {
 		desc: "This Pokémon's Dark-type status moves set one layer of Spikes on the opposing side of the field.",
-		shortDesc: "text here.",
-		// code here
+		shortDesc: "Dark-type status moves set spikes on the opposing side.",
+		onAfterMove(target, source, move) {
+			if (!move || !source) return;
+			if (move.type === 'Dark' && move.category === 'Status') {
+				source.side.foe.addSideCondition('spikes');
+			}
+		},
 		name: "Stygian Shades",
-		rating: 4.5,
+		rating: 3,
 		num: -1057,
 	},
 	longwhip: {
 		desc: "This Pokémon's multi-hit attacks do damage at the end of each turn, for the maximum number of times the attack could hit, instead of being used immediately. More than one move can stack in this way.",
-		shortDesc: "text here.",
+		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
 		// code here
 		condition: {
 			duration: 1,
 		},
 		name: "Long Whip",
-		rating: 4.5,
+		rating: 3,
 		num: -1058,
 	},
 	stickyresidues: {
