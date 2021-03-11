@@ -249,4 +249,159 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 	},
+	longwhip1: {
+		// this is a slot condition
+		name: 'longwhip1',
+		onResidualOrder: 3,
+		onResidual(target) {
+			const data = this.effectData;
+			// unlike a future move, Long Whip activates each turn
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
+	longwhip2: {
+		// this is a slot condition
+		name: 'longwhip2',
+		onResidualOrder: 3,
+		onResidual(target) {
+			const data = this.effectData;
+			// unlike a future move, Long Whip activates each turn
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
+	longwhip3: {
+		// this is a slot condition
+		name: 'longwhip3',
+		onResidualOrder: 3,
+		onResidual(target) {
+			const data = this.effectData;
+			// unlike a future move, Long Whip activates each turn
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
+	longwhip4: {
+		// this is a slot condition
+		name: 'longwhip4',
+		onResidualOrder: 3,
+		onResidual(target) {
+			const data = this.effectData;
+			// unlike a future move, Long Whip activates each turn
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
+	longwhip5: {
+		// this is a slot condition
+		name: 'longwhip5',
+		onResidualOrder: 3,
+		onResidual(target) {
+			const data = this.effectData;
+			// unlike a future move, Long Whip activates each turn
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
 };
