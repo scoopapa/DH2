@@ -1234,7 +1234,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.settleBoosted) {
 				this.hint(`${move.name} was boosted by Settle!`);
-				return attacker.getStat('atk') * 2;
+				return this.chainModify(2);
 			}
 		},
 		rating: 3,
