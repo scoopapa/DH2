@@ -1432,5 +1432,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Tauros",
 	},
-
+	sirfetchd: {
+		inherit: true,
+		canGigantamax: "G-Max Bravery",
+	},
+	sirfetchdgmax: {
+		num: 865,
+		name: "Sirfetch\u2019d-Gmax",
+		baseSpecies: "Sirfetch\u2019d",
+		forme: "Gmax",
+		types: ["Fighting", "Flying"],
+		baseStats: {hp: 62, atk: 135, def: 95, spa: 68, spd: 82, spe: 65},
+		abilities: {0: "Steadfast", H: "Scrappy"},
+		heightm: 30,
+		weightkg: 0,
+		color: "White",
+		eggGroups: ["Field", "Flying"],
+		changesFrom: "Sirfetch\u2019d",
+	},
 };
