@@ -338,7 +338,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// Calculate damage modifiers separately (order differs between generations)
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
-	}
+	},
 
 	pokemon: {
 		lostItemForDelibird: null,
