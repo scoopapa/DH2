@@ -2092,6 +2092,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       type: "Psychic",
       contestType: "Clever",
   },
+	gmaxbravery: {
+		num: 1000,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+      shortDesc: "Always 140 BP. Allies: +1 Atk.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Bravery",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Sirfetch\u2019d",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy", target);
+			this.add('-anim', source, "Meteor Assault", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({atk: 1}, pokemon);
+				}
+			},
+		},
+		target: "adjacentFoe",
+		type: "Fighting",
+		contestType: "Tough",
+	},
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
