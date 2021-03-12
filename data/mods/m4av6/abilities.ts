@@ -1132,8 +1132,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 122,
 	},
 	savage: {
-		desc: "This Pokémon's biting moves become multi-hit moves that hit two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
-		shortDesc: "This Pokémon's biting moves hit two to five times. Each hit's damage is cut to one third.",
+		desc: "This Pokémon's biting moves become multi-hit moves that hit three times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
+		shortDesc: "This Pokémon's biting moves hit three. Each hit's damage is cut to one third.",
 		onPrepareHit(source, target, move) {
 			if (move.multihit) return;
 			if (move.flags['bite'] && !move.isZ && !move.isMax) {
@@ -2096,17 +2096,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					 }
 				}
 			},
-			onAfterMoveSecondary(pokemon) {
-				if (this.effectData.lit) {
-					this.hint("The sticky gel ignited!");
-					if (this.effectData.damage) {
-						this.damage(this.effectData.damage / 2, this.effectData.target);
-					}
-					pokemon.trySetStatus('brn', this.effectData.source);
-					pokemon.removeVolatile('redlicorice');
-					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
-				}
-			},
 			onAnyDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
 					if (this.effectData.damage) {
@@ -2118,7 +2107,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 				}
 			},
-			onAnyAfterMove(pokemon) {
+			onUpdate(pokemon) {
 				if (this.effectData.lit) {
 					this.hint("The sticky gel ignited!");
 					if (this.effectData.damage) {
@@ -2165,8 +2154,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					whipMove = 'longwhip5';
 				}
 				if (whipMove === null) return false;
+				let numberHits;
+				if (Array.isArray(move.multihit) && move.multihit.length) {
+					numberHits = move.multihit[1];
+				} else {
+					numberHits = move.multihit;
+				}
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
-					duration: move.multihit,
+					duration: numberHits,
 					source: source,
 					target: null,
 					move: move,
