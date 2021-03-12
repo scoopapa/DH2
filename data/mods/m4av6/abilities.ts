@@ -1209,26 +1209,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (num === 1 && !pokemon.volatiles['settle1']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle1');
-						move.settleBoosted = true;
+						(move as any).settleBoosted = true;
 					} else if (num === 2 && !pokemon.volatiles['settle2']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle2');
-						move.settleBoosted = true;
+						(move as any).settleBoosted = true;
 					} else if (num === 3 && !pokemon.volatiles['settle3']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle3');
-						move.settleBoosted = true;
+						(move as any).settleBoosted = true;
 					} else if (num === 4 && !pokemon.volatiles['settle4']) {
 						if (move.category !== 'Special') return;
 						pokemon.addVolatile('settle4');
-						move.settleBoosted = true;
+						(move as any).settleBoosted = true;
 					}
 				}
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.settleBoosted) {
+			if ((move as any).settleBoosted) {
 				this.hint(`${move.name} was boosted by Settle!`);
 				return this.chainModify(2);
 			}
@@ -1671,7 +1671,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move, attacker) {
 			if (move.type === 'Water') {
 				move.useSourceDefensiveAsOffensive = true;
-				move.bodyofwaterBoosted = true;
+				(move as any).bodyofwaterBoosted = true;
 			}
 		},
 		rating: 3.5,
@@ -2084,13 +2084,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.add('-start', pokemon, 'Sticky Gel', '[from] ability: Red Licorice', '[of] ' + source);
 			},
-			onAnyModifyMove(target, source, move) {
-				if (move.type === 'Fire' && move.category !== 'Status') {
-					 if (target === this.effectData.target) {
-						move.basePower *= 1.5;
-					 }
-				}
-			},
 			onAnyDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
 					if (this.effectData.damage) {
@@ -2102,6 +2095,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectData.target) {
 					this.effectData.lit = true;
+					return damage * 1.5;
 				}
 			},
 			onUpdate(pokemon) {
