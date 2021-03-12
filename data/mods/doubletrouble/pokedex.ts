@@ -1,3 +1,4 @@
+ 
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	arcanine: {
 		inherit: true,
@@ -30,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cramorant: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 100, def: 60, spa: 95, spd: 60, spe: 110},
-		abilities: {0: "Gulp Missile", 1: "Scrappy"},
+		abilities: {0: "Gulp Missile", 1: "Scrappy", H: "Sheer Force"},
 	},
 	cramorantgulping: {
 		inherit: true,
@@ -85,7 +86,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	celebi: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Solar Power"},
+		abilities: {0: "Natural Cure", H: "Solar Power"},
 	},
 	meltan: {
 		inherit: true,
@@ -133,12 +134,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	orbeetle: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 45, def: 120, spa: 100, spd: 130, spe: 90},
-		abilities: {0: "Swarm", 1: "Frisk", H: "Wide Guard", S: "Friend Guard"},
+		abilities: {0: "Swarm", 1: "Frisk", H: "Telepathy", S: "Friend Guard"},
 	},
 	orbeetlegmax: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 45, def: 120, spa: 100, spd: 130, spe: 90},
-		abilities: {0: "Swarm", 1: "Frisk", H: "Wide Guard", S: "Friend Guard"},
+		abilities: {0: "Swarm", 1: "Frisk", H: "Telepathy", S: "Friend Guard"},
 	},
 	goodra: {
 		inherit: true,
@@ -171,7 +172,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	marowakalola: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 85, def: 115, spa: 50, spd: 90, spe: 40},
-		abilities: {0: "Cursed Body", 1: "Lightning Rod", H: "Rock Head"},
+		abilities: {0: "Cursed Body", 1: "Lightning Rod", H: "Rock Head", S: "Analytic"},
 	},
 	araquanid: {
 		inherit: true,
@@ -191,7 +192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vikavolt: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Electric Surge"},
+		abilities: {0: "Levitate", H: "Electric Surge"},
 	},
 	exeggutor: {
 		inherit: true,
@@ -210,5 +211,83 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	silvally: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallybug: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallydark: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallydragon: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyelectric: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyfairy: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyfighting: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyfire: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyflying: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyghost: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallygrass: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyground: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyice: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallypoison: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallypsychic: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallyrock: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallysteel: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+	silvallywater: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 95, spa: 105, spd: 95, spe: 110},
+	},
+    metagross: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 135, def: 130, spa: 95, spd: 90, spe: 70},
+		abilities: {0: "Clear Body", 1: "Filter", H: "Light Metal"},
+	},
+	aerodactyl: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 50, spd: 80, spe: 130},
+		abilities: {0: "Rock Head", 1: "Pressure", H: "Sheer Force"},
 	},
 };
