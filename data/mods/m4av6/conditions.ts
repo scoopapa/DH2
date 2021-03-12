@@ -278,7 +278,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -307,7 +307,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -341,7 +341,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -370,7 +370,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -404,7 +404,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -433,7 +433,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -467,7 +467,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -496,7 +496,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -530,7 +530,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
@@ -559,7 +559,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			data.moveData.isFutureMove = true;
-			data.moveData.multihit = null;
+			data.move.multihit = null;
 
 			this.useMove(move, data.source, data.target);
 		},
