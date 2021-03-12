@@ -1133,7 +1133,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	savage: {
 		desc: "This Pokémon's biting moves become multi-hit moves that hit three times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
-		shortDesc: "This Pokémon's biting moves hit three. Each hit's damage is cut to one third.",
+		shortDesc: "This Pokémon's biting moves hit three times. Each hit's damage is cut to one third.",
 		onPrepareHit(source, target, move) {
 			if (move.multihit) return;
 			if (move.flags['bite'] && !move.isZ && !move.isMax) {
