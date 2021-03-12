@@ -2092,7 +2092,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.type === 'Fire' && move.category !== 'Status') {
 					 if (target === this.effectData.target) {
 						move.basePower *= 1.5;
-						this.effectData.lit = true;
 					 }
 				}
 			},
@@ -2105,6 +2104,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.effectData.damage = damage;
 						this.effectData.lit = true;
 					}
+				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectData.target) {
+					this.effectData.lit = true;
 				}
 			},
 			onUpdate(pokemon) {
