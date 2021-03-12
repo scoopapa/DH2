@@ -264,9 +264,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			this.add('-end', data.target, 'move: ' + move.name);
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -280,7 +280,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip2: {
@@ -298,9 +298,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			this.add('-end', data.target, 'move: ' + move.name);
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -314,7 +314,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip3: {
@@ -332,9 +332,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			this.add('-end', data.target, 'move: ' + move.name);
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -348,7 +348,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip4: {
@@ -366,9 +366,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			this.add('-end', data.target, 'move: ' + move.name);
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -382,7 +382,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip5: {
@@ -400,9 +400,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			this.add('-end', data.target, 'move: ' + move.name);
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -416,7 +416,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.moveData.isFutureMove = true;
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 };
