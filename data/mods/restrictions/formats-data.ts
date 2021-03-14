@@ -167,5 +167,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-
+		thucotuco: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	sorree: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	gembezzle: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

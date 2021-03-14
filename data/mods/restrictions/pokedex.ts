@@ -350,5 +350,29 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Speed Boost", H: "Drought"},
 		weightkg: 21.2,
 	},
-
+	thucotuco: {
+		num: 1043,
+		name: "Thuco-Tuco",
+		baseSpecies: "Thuco",
+		forme: "Tuco",
+		types: ["Ground"],
+		baseStats: {hp: 120, atk: 95, def: 85, spa: 65, spd: 85, spe: 30},
+		abilities: {0: "Intimidate", 1: "Sturdy", H: "Sand Spit"},
+		weightkg: 45.8,
+	},
+	sorree: {
+		num: 1044,
+		name: "Sorree",
+		types: ["Dark"],
+		baseStats: {hp: 100, atk: 128, def: 90, spa: 77, spd: 77, spe: 128},
+		abilities: {0: "Unnerve"},
+	},
+	gembezzle: {
+		num: 1045,
+		name: "Gembezzle",
+		types: ["Rock", "Dark"],
+		baseStats: {hp: 68, atk: 86, def: 111, spa: 90, spd: 111, spe: 104},
+		abilities: {0: "Sturdy", 1: "Pickpocket", H: "Flare Boost"},
+		weightkg: 18.5,
+	},
 };
