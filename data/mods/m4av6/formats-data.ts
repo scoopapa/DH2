@@ -2816,11 +2816,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	floatzelmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["bulkup", "liquidation", "icepunch", "flipturn", "taunt", "aquajet", "brickbreak"],
+		randomDoubleBattleMoves: ["coaching", "liquidation", "aquajet", "flipturn", "protect", "icepunch", "taunt"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	cherrim: {
 		randomBattleMoves: ["energyball", "dazzlinggleam", "hiddenpowerfire", "synthesis", "healingwish"],
 		tier: "(PU)",
@@ -3390,11 +3391,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	simisearmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["substitute", "nastyplot", "fireblast", "dazzlinggleam", "focusblast"],
+		randomDoubleBattleMoves: ["nastyplot", "dazzlinggleam", "heatwave", "focusblast", "taunt", "protect"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	simipour: {
 		randomBattleMoves: ["substitute", "nastyplot", "hydropump", "icebeam", "focusblast"],
 		randomDoubleBattleMoves: ["nastyplot", "hydropump", "icebeam", "taunt", "helpinghand", "protect"],
@@ -3598,11 +3600,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
-	/*
 	krookodilemega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["earthquake", "pursuit", "knockoff", "stealthrock", "partingshot", "taunt", "shoreup"],
+		randomDoubleBattleMoves: ["earthquake", "protect", "knockoff", "partingshot", "taunt", "shoreup"],
+		tier: "UU",
+		doublesTier: "DUU",
+	},
 	darmanitan: {
 		randomBattleMoves: ["uturn", "flareblitz", "rockslide", "earthquake", "superpower"],
 		randomDoubleBattleMoves: ["uturn", "flareblitz", "rockslide", "earthquake", "superpower", "protect"],
@@ -3728,11 +3731,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PUBL",
 		doublesTier: "(DUU)",
 	},
-	/*
 	cinccinomega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["tailslap", "bulletseed", "rockblast", "tripleaxel", "knockoff", "uturn"],
+		randomDoubleBattleMoves: ["tailslap", "uturn", "knockoff", "bulletseed", "rockblast", "tripleaxel", "protect"],
+		tier: "PUBL",
+		doublesTier: "(DUU)",
+	},
 	gothitelle: {
 		randomBattleMoves: ["confide", "charm", "taunt", "rest"],
 		randomDoubleBattleMoves: ["psychic", "thunderbolt", "shadowball", "trickroom", "taunt", "healpulse", "protect", "charm"],
