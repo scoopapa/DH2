@@ -366,6 +366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark"],
 		baseStats: {hp: 100, atk: 128, def: 90, spa: 77, spd: 77, spe: 128},
 		abilities: {0: "Unnerve"},
+		weightkg: 8,
 	},
 	gembezzle: {
 		num: 1045,
