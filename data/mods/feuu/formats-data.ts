@@ -126,6 +126,35 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUUber",
 		doublesTier: "DUUber",
 	},
+	//slate 6
+	corveot: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	corveotmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	igglyzentacrowned: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	arctresgalar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	garborude: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	noicity: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	ferros: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
 	
 	

@@ -18,13 +18,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (let name of learnsetFusionList) {					
 					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
 					for (const moveid in learnset) {
+						if (this.dex.getMove(moveid).isNonstandard === 'Past') continue; //exclude dexited moves (I hope!) 
 						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
 					}
 				}
 			}
 		}
 		
+		//Now, case-by-case learnset revisions: 
+		//Behemoth Bash and Behemoth Blade are added automatically to the Crowned dogs somewhere,
+		//so we will simulate that here, instead of actually editing that. 
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
+		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
+		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead = ['7L1'];
+		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead = ['7L1'];
 	},
 	
 	teambuilderConfig: {
@@ -43,55 +50,55 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
 			return "Silvino-Bug-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Dark") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Dark") {
 			return "Silvino-Dark-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Dragon") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Dragon") {
 			return "Silvino-Dragon-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Electric") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Electric") {
 			return "Silvino-Electric-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fairy") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fairy") {
 			return "Silvino-Fairy-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fighting") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fighting") {
 			return "Silvino-Fighting-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Fire") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fire") {
 			return "Silvino-Fire-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Flying") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Flying") {
 			return "Silvino-Flying-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ghost") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ghost") {
 			return "Silvino-Ghost-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Grass") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Grass") {
 			return "Silvino-Grass-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ground") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ground") {
 			return "Silvino-Ground-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Ice") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ice") {
 			return "Silvino-Ice-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Poison") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Poison") {
 			return "Silvino-Poison-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Psychic") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Psychic") {
 			return "Silvino-Psychic-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Rock") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Rock") {
 			return "Silvino-Rock-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Steel") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Steel") {
 			return "Silvino-Steel-Mega";
 		}
-		if (item.name === "Silvinite" && pokemon.baseSpecies.name === "Silvino-Water") {
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Water") {
 			return "Silvino-Water-Mega";
 		}
 		

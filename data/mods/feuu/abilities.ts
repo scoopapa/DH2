@@ -337,7 +337,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} else console.log("Target does not have Sturdy Mold");
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			move.infiltrates = true;
 		},
@@ -461,7 +461,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				}
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
@@ -535,7 +535,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
@@ -564,7 +564,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
@@ -648,7 +648,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
 			///////////END PLACEHOLDER
 			return this.modify(atk, 1.5);
 		},
@@ -662,4 +662,167 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 55,
 	},
+	scrappy: {
+		onModifyMovePriority: -5,
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'all') && ignore) return;
+			///////////END PLACEHOLDER
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+		name: "Scrappy",
+		rating: 3,
+		num: 113,
+	},
+	sandforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (defender && defender.hasAbility('sturdymold)) return;
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Force",
+		rating: 2,
+		num: 159,
+	},
+	//next
+	noguard: {//Edited for Sturdy Mold
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target) && !target.hasAbility('sturdymold')) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target) && !target.hasAbility('sturdymold')) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "No Guard",
+		rating: 4,
+		num: 99,
+	},
+	bigpressure: {
+		name: "Big Pressure",
+		shortDesc: "Moves targeting this Pokemon lose 1 additional PP; Foes cannot lower its Defense.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Big Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.def && boost.def < 0) {
+				delete boost.def;
+				if (!(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", "Defense", "[from] ability: Big Pecks", "[of] " + target);
+				}
+			}
+		},
+	},
+	friendshield: {
+		name: "Friend Shield",
+		shortDesc: "Gets +1 Defense on switch-in. Allies recieve 3/4 damage from foes' attacks.",
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
+				this.debug('Friend Shield weaken');
+				return this.chainModify(0.75);
+			}
+		},
+	},
+	debilitate: {
+		name: "Debilitate",
+		shortDesc: "On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	leafyarmor: {//unsure
+		name: "Leafy Armor",
+		shortDesc: "If a mental status is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
+		onUpdate(pokemon) {
+			if (pokemon.status) {
+				this.add('-activate', pokemon, 'ability: Leafy Armor');
+				pokemon.cureStatus();
+				this.boost({def: -1, spe: 2}, pokemon, pokemon); 
+			}
+		},
+	},
+	surroundsound: {//unsure
+		name: "Surround Sound",
+		shortDesc: "This Pokemon recieves 1/2 damage from multitarget moves. Its own have 1.3x power.",
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['allAdjacentFoes', 'all'].includes(move.target)) {
+				if (defender.hasAbility('sturdymold')) return;
+				this.debug('Surround Sound boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['allAdjacentFoes', 'all'].includes(move.target)) {
+				this.debug('Surround Sound weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	spikyhold: {
+		name: "Spiky Hold",
+		shortDesc: "Cannot lose held item due to others' attacks; others making contact lose 1/8 max HP.",
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Spiky Hold');
+				return false;
+			}
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	
 };

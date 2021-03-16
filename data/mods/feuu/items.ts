@@ -1,7 +1,7 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	chomplimite: {
-		name: "Chomplimite",
-		spritenum: 576,
+	garchompite: {
+		name: "Garchompite",
+		spritenum: 589,
 		megaStone: "Chomplim-Mega",
 		megaEvolves: "Chomplim",
 		itemUser: ["Chomplim"],
@@ -9,12 +9,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 0.5,
+		num: 683,
 		desc: "If held by a Chomplim, this item allows it to Mega Evolve in battle.",
 	},
-	silvinite: {
-		name: "Silvinite",
-		spritenum: 576,
+	audinite: {
+		name: "Audinite",
+		spritenum: 617,
 		megaStone: "Silvino-Mega",
 		megaEvolves: "Silvino",
 		itemUser: ["Silvino"],
@@ -22,12 +22,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 0.5,
+		num: 757,
 		desc: "If held by a Silvino, this item allows it to Mega Evolve in battle.",
 	},
-	tapulopunnite: {
-		name: "Tapu Lopunnite",
-		spritenum: 576,
+	lopunnite: {
+		name: "Lopunnite",
+		spritenum: 626,
 		megaStone: "Tapu Lop-Mega",
 		megaEvolves: "Tapu Lop",
 		itemUser: ["Tapu Lop"],
@@ -35,7 +35,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 0.5,
+		num: 768,
 		desc: "If held by a Tapu Lop, this item allows it to Mega Evolve in battle.",
 	},
 	redorb: {
@@ -63,5 +63,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 534,
 		gen: 6,
 		isNonstandard: "Past",
+	},
+	pidgeotite: {
+		name: "Pidgeotite",
+		spritenum: 622,
+		megaStone: "Corveot-Mega",
+		megaEvolves: "Corveot",
+		itemUser: ["Corveot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 762,
+		desc: "If held by a Corveot, this item allows it to Mega Evolve in battle.",
 	},
 };

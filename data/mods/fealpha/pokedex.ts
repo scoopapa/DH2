@@ -124,7 +124,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 12,
 		name: "Dark Rose",
 		types: ["Dark", "Poison"],
-		baseStats: {hp: 65, atk: 100, def: 90, spa: 131, spd: 100, spe: 110},
+		baseStats: {hp: 69, atk: 100, def: 90, spa: 130, spd: 100, spe: 107},
 		abilities: {0: "Bad Program"},
 		weightkg: 32.5,
 	},

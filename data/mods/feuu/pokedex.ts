@@ -99,7 +99,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 129, atk: 145, def: 99, spa: 145, spd: 89, spe: 81},
 		abilities: {0: "Sand Force"},
 		weightkg: 55,
-		requiredItem: "Chomplimite",
+		requiredItem: "Garchompite",
+		battleOnly: "Chomplim",
 	},
 	xotalion: {
 		fusion: ['Xatu', 'Cobalion'],
@@ -178,6 +179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino",
+		requiredItem: "Audinite",
 	},
 	lycanserkerdusk: {
 		fusion: ['Lycanroc-Dusk', 'Perrserker'],
@@ -207,6 +209,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 140, def: 105, spa: 98, spd: 105, spe: 135},
 		abilities: {0: "Scrappy"},
 		weightkg: 23.5,
+		requiredItem: "Lopunnite",
+		battleOnly: "Tapu Lop",
 	},
 	dragontler: {
 		fusion: ['Stantler', 'Dragonite'],
@@ -316,6 +320,82 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Grousle",
 	},
 	
+	//slate 6
+	corveot: {
+		fusion: ['Pidgeot', 'Corviknight'],
+		num: 27,
+		name: "Corveot",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 95, atk: 85, def: 110, spa: 70, spd: 80, spe: 85},
+		abilities: {0: "Big Pressure"},
+		weightkg: 57.25,
+	},
+	corveotmega: {
+		fusion: ['Pidgeot', 'Corviknight'],
+		num: 27,
+		name: "Corveot-Mega",
+		baseSpecies: "Corveot",
+		forme: "Mega",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 95, atk: 85, def: 115, spa: 135, spd: 90, spe: 105},
+		abilities: {0: "No Guard"},
+		weightkg: 60.25,
+		requiredItem: "Pidgeotite",
+		battleOnly: "Corveot",
+	},
+	igglyzentacrowned: {
+		fusion: ['Igglybuff', 'Zamazenta'],
+		num: 28,
+		name: "Igglyzenta-Crowned",
+		types: ["Fairy", "Steel"],
+		baseStats: {hp: 93, atk: 80, def: 100, spa: 60, spd: 100, spe: 71},
+		abilities: {0: "Friend Shield"},
+		weightkg: 393,
+	},
+	arctresgalar: {
+		fusion: ['Moltres-Galar', 'Arcanine'],
+		num: 29,
+		name: "Arctres-Galar",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 90, atk: 112, def: 95, spa: 102, spd: 105, spe: 102},
+		abilities: {0: "Debilitate"},
+		weightkg: 110.5,
+	},
+	garborude: {
+		fusion: ['Garbodor', 'Zarude'],
+		num: 30,
+		name: "Garborude",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 101, atk: 123, def: 100, spa: 70, spd: 90, spe: 91},
+		abilities: {0: "Leafy Armor"},
+		weightkg: 88.65,
+	},
+	noicity: {
+		fusion: ['Noivern', 'Toxtricity'],
+		num: 31,
+		name: "Noicity",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 86, atk: 75, def: 86, spa: 109, spd: 75, spe: 118},
+		abilities: {0: "Surround Sound"},
+		weightkg: 62.5,
+	},
+	ferros: {
+		fusion: ['Shellos', 'Ferroseed'],
+		num: 32,
+		name: "Ferros",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 80, atk: 50, def: 70, spa: 40, spd: 92, spe: 22},
+		abilities: {0: "Spiky Hold"},
+		weightkg: 12.55,
+		evos: ["Gastrodon", "Ferrothorn"],
+	},
+	
+	
+	
+	
+	
+	
+	
 	//silvino formes
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
@@ -339,6 +419,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Bug",
+		requiredItem: "Audinite",
 	},
 	silvinodark: {
 		fusion: ['Audino', 'Silvally'],
@@ -362,6 +443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Dark",
+		requiredItem: "Audinite",
 	},
 	silvinodragon: {
 		fusion: ['Audino', 'Silvally'],
@@ -385,6 +467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Dragon",
+		requiredItem: "Audinite",
 	},
 	silvinoelectric: {
 		fusion: ['Audino', 'Silvally'],
@@ -408,6 +491,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Electric",
+		requiredItem: "Audinite",
 	},
 	silvinofairy: {
 		fusion: ['Audino', 'Silvally'],
@@ -431,6 +515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Fairy",
+		requiredItem: "Audinite",
 	},
 	silvinofighting: {
 		fusion: ['Audino', 'Silvally'],
@@ -454,6 +539,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Fighting",
+		requiredItem: "Audinite",
 	},
 	silvinofire: {
 		fusion: ['Audino', 'Silvally'],
@@ -477,6 +563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Fire",
+		requiredItem: "Audinite",
 	},
 	silvinoflying: {
 		fusion: ['Audino', 'Silvally'],
@@ -500,6 +587,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Flying",
+		requiredItem: "Audinite",
 	},
 	silvinoghost: {
 		fusion: ['Audino', 'Silvally'],
@@ -523,6 +611,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Ghost",
+		requiredItem: "Audinite",
 	},
 	silvinograss: {
 		fusion: ['Audino', 'Silvally'],
@@ -546,6 +635,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Grass",
+		requiredItem: "Audinite",
 	},
 	silvinoground: {
 		fusion: ['Audino', 'Silvally'],
@@ -569,6 +659,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Ground",
+		requiredItem: "Audinite",
 	},
 	silvinoice: {
 		fusion: ['Audino', 'Silvally'],
@@ -592,6 +683,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Ice",
+		requiredItem: "Audinite",
 	},
 	silvinopoison: {
 		fusion: ['Audino', 'Silvally'],
@@ -615,6 +707,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Poison",
+		requiredItem: "Audinite",
 	},
 	silvinopsychic: {
 		fusion: ['Audino', 'Silvally'],
@@ -638,6 +731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Psychic",
+		requiredItem: "Audinite",
 	},
 	silvinorock: {
 		fusion: ['Audino', 'Silvally'],
@@ -661,6 +755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Rock",
+		requiredItem: "Audinite",
 	},
 	silvinosteel: {
 		fusion: ['Audino', 'Silvally'],
@@ -684,6 +779,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Steel",
+		requiredItem: "Audinite",
 	},
 	silvinowater: {
 		fusion: ['Audino', 'Silvally'],
@@ -707,6 +803,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer"},
 		weightkg: 66.3,
 		battleOnly: "Silvino-Water",
+		requiredItem: "Audinite",
 	},
 	
 
