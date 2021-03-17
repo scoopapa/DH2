@@ -533,3 +533,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
+};
