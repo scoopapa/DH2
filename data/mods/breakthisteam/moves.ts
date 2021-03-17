@@ -69,12 +69,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.item) return false;
 			const pickupTargets = [];
 			for (const target of this.getAllActive()) {
-				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
+				if (target.lastItem && this.isAdjacent(pokemon, target)) {
 					pickupTargets.push(target);
 				}
 			}
 			if (!pickupTargets.length) return false;
-			const randomTarget = this.sample(pickupTargets);
+			const randomTarget = pickupTargets[pickupTargets.length - 1];
 			const item = randomTarget.lastItem;
 			randomTarget.lastItem = '';
 			this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Retrieval');
