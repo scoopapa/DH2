@@ -1,9 +1,33 @@
 export const Scripts: ModdedBattleScriptsData = {
 	battle: {
-		lostItemQueue: string[];
+		lostItemQueue: Array(),
 	},
 	
 	pokemon: {
+		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
+			if (!this.hp) return false;
+			if (typeof item === 'string') item = this.battle.dex.getItem(item);
+
+			const effectid = this.battle.effect ? this.battle.effect.id : '';
+			const RESTORATIVE_BERRIES = new Set([
+				'leppaberry', 'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry',
+			] as ID[]);
+			if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
+				const inflicted = ['trick', 'switcheroo'].includes(effectid);
+				const external = inflicted && source && source.side.id !== this.side.id;
+				this.pendingStaleness = external ? 'external' : 'internal';
+			} else {
+				this.pendingStaleness = undefined;
+			}
+			this.item = item.id;
+			this.itemData = {id: item.id, target: this};
+			if (item.id) {
+				this.battle.singleEvent('Start', item, this.itemData, this, source, effect);
+			}
+			return true;
+		},
+		
+		
 		eatItem(force?: boolean, source?: Pokemon, sourceEffect?: Effect) {
 			if (!this.hp || !this.isActive) return false;
 			if (!this.item) return false;
@@ -42,7 +66,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return true;
 			}
 			return false;
-		}
+		},
 
 		useItem(source?: Pokemon, sourceEffect?: Effect) {
 			if ((!this.hp && !this.getItem().isGem) || !this.isActive) return false;
@@ -81,4 +105,4 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		}
 	},
-},
+};
