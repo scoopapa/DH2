@@ -6,7 +6,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
-		id: "metalhydropump"
+		id: "metalhydropump",
 		isViable: true,
 		name: "Metal Hydro Pump",
 		pp: 5,
@@ -24,7 +24,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "Has a 30% chance to freeze the target.",
 		shortDesc: "30% chance to freeze.",
-		id: "glaze"
+		id: "glaze",
 		isViable: true,
 		name: "Glaze",
 		pp: 5,
