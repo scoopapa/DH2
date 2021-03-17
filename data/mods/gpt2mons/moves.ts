@@ -1,5 +1,5 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
-  	"metalhydropump": {
+export const Moves: {[k: string]: ModdedMoveData} = {	
+	"metalhydropump": {
 		num: 7801,
 		accuracy: 80,
 		basePower: 110,
@@ -24,7 +24,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "Has a 30% chance to freeze the target.",
 		shortDesc: "30% chance to freeze.",
-		id: "glaze",
+		id: "glaze"
 		isViable: true,
 		name: "Glaze",
 		pp: 5,
@@ -37,7 +37,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-	}
+	},
 	"leveldive": {
 		num: 7803,
 		accuracy: 100,
@@ -79,7 +79,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 170},
 		contestType: "Tough",
-	}
+	},
 	"superpowergem": {
 		num: 7805,
 		accuracy: 100,
@@ -238,7 +238,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-	}
+	},
 	"honedge": {
 		num: 7812,
 		accuracy: true,
@@ -322,7 +322,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-	}
+	},
 	"gyarados": {
 		num: 7816,
 		accuracy: true,
@@ -339,14 +339,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(pokemon) {
 			if (pokemon.getAbility().isPermanent || pokemon.ability === 'moxie' || pokemon.ability === 'truant') {
 				return false;
-			}
+			},
 		},
 		onHit(pokemon) {
 			const oldAbility = pokemon.setAbility('moxie');
 			if (oldAbility) {
 				this.add('-ability', pokemon, 'Moxie', '[from] move: Gyarados');
 				return;
-			}
+			},
 			return false;
 		},
 		boosts: {
@@ -382,7 +382,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Clever",
 	},
-	"suctionseed": {
+	suctionseed: {
 		num: 7818,
 		accuracy: 80,
 		basePower: 0,
@@ -414,13 +414,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['suctionseed'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[suctionseed]', '[silent]');
 				return;
-			}
+			},
 			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
 			if (damage) {
 					this.heal(damage, target, pokemon);
-			}
+			},
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[suctionseed]');
@@ -487,7 +487,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
-	}
+	},
 	"drainpulse": {
 		num: 7821,
 		accuracy: 100,
@@ -507,7 +507,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	"recycledammo": {
+	recycledammo: {
 		num: 7822,
 		accuracy: true,
 		basePower: 0,
