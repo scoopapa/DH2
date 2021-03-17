@@ -238,7 +238,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-	}
+	},
 	"honedge": {
 		num: 7812,
 		accuracy: true,
