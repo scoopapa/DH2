@@ -30,8 +30,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//so we will simulate that here, instead of actually editing that. 
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
-		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead = ['7L1'];
-		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead = ['7L1'];
+		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
+		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
 	
 	teambuilderConfig: {

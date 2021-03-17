@@ -112,6 +112,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	//Maybe delete these:
 	bugbite: {
 		inherit: true,
 		onHit(target, source) {
