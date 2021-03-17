@@ -793,7 +793,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon recieves 1/2 damage from multitarget moves. Its own have 1.3x power.",
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {
-			if (['allAdjacentFoes', 'all'].includes(move.target)) {
+			if (move.target === "allAdjacentFoes" || move.target === "all") {
 				if (defender.hasAbility('sturdymold')) return;
 				this.debug('Surround Sound boost');
 				return this.chainModify([0x14CD, 0x1000]);
