@@ -10,8 +10,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multihit: 2,
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Shadow Claw", target);
-			this.add('-anim', source, "Shadow Claw", target);
+			this.add('-anim', source, "Dual Chop", target);
 		},
 		secondary: null,
 		target: "normal",
