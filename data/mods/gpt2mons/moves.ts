@@ -382,7 +382,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Clever",
 	},
-	suctionseed: {
+	"suctionseed": {
 		num: 7818,
 		accuracy: 80,
 		basePower: 0,
@@ -454,7 +454,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 				if (pokemon.level > 1) {
 				pokemon.level = Math.max(1, pokemon.level + 1);
-		}
+		};
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -533,4 +533,3 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
-};
