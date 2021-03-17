@@ -97,6 +97,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	fling: {
+		inherit: true,
+		condition: {
+			onUpdate(pokemon) {
+				const item = pokemon.getItem();
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.battle.lostItemQueue.push(item);
+				this.add('-enditem', pokemon, item.name, '[from] move: Fling');
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+				pokemon.removeVolatile('fling');
+			},
+		},
+	},
 	bugbite: {
 		inherit: true,
 		onHit(target, source) {
