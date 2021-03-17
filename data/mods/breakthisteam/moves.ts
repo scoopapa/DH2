@@ -84,7 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "The user picks up the last item removed earlier in the battle.",
 	},
 	
-	//BLUUUUGGGGGGGH.
+	//For Retrieval:
 	knockoff: {
 		inherit: true,
 		onAfterHit(target, source) {
@@ -110,136 +110,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.runEvent('AfterUseItem', pokemon, null, null, item);
 				pokemon.removeVolatile('fling');
 			},
-		},
-	},
-	//Maybe delete these:
-	bugbite: {
-		inherit: true,
-		onHit(target, source) {
-			const item = target.getItem();
-			if (source.hp && item.isBerry && target.takeItem(source)) {
-				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Bug Bite', '[of] ' + source);
-				if (this.singleEvent('Eat', item, null, source, null, null)) {
-					this.runEvent('EatItem', source, null, null, item);
-					if (item.id === 'leppaberry') target.staleness = 'external';
-				}
-				if (item.onEat) source.ateBerry = true;
-				this.battle.lostItemQueue.push(item);
-			}
-		},
-	},
-	pluck: {
-		inherit: true,
-		onHit(target, source) {
-			const item = target.getItem();
-			if (source.hp && item.isBerry && target.takeItem(source)) {
-				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Pluck', '[of] ' + source);
-				if (this.singleEvent('Eat', item, null, source, null, null)) {
-					this.runEvent('EatItem', source, null, null, item);
-					if (item.id === 'leppaberry') target.staleness = 'external';
-				}
-				if (item.onEat) source.ateBerry = true;
-				this.battle.lostItemQueue.push(item);
-			}
-		},
-	},
-	covet: {
-		inherit: true,
-		onAfterHit(target, source, move) {
-			if (source.item || source.volatiles['gem']) {
-				return;
-			}
-			const yourItem = target.takeItem(source);
-			if (!yourItem) {
-				return;
-			}
-			if (
-				!this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem) ||
-				!source.setItem(yourItem)
-			) {
-				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
-				return;
-			}
-			this.battle.lostItemQueue.push(yourItem);
-			this.add('-item', source, yourItem, '[from] move: Covet', '[of] ' + target);
-		},
-	},
-	thief: {
-		inherit: true,
-		onAfterHit(target, source, move) {
-			if (source.item || source.volatiles['gem']) {
-				return;
-			}
-			const yourItem = target.takeItem(source);
-			if (!yourItem) {
-				return;
-			}
-			if (!this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem) ||
-				!source.setItem(yourItem)) {
-				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
-				return;
-			}
-			this.battle.lostItemQueue.push(yourItem);
-			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Thief', '[of] ' + source);
-			this.add('-item', source, yourItem, '[from] move: Thief', '[of] ' + target);
-		},
-	},
-	incinerate: {
-		inherit: true,
-		onHit(pokemon, source) {
-			const item = pokemon.getItem();
-			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
-				this.battle.lostItemQueue.push(item);
-				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
-			}
-		},
-	},
-	corrosivegas: {
-		inherit: true,
-		onHit(target, source) {
-			const item = target.takeItem(source);
-			if (item) {
-				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source);
-				this.battle.lostItemQueue.push(item);
-			}
-		},
-	},
-	trick: {
-		inherit: true,
-		onTryImmunity(target) {
-			return !target.hasAbility('stickyhold');
-		},
-		onHit(target, source, move) {
-			const yourItem = target.takeItem(source);
-			const myItem = source.takeItem();
-			if (target.item || source.item || (!yourItem && !myItem)) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			if (
-				(myItem && !this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem)) ||
-				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem))
-			) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			this.add('-activate', source, 'move: Trick', '[of] ' + target);
-			if (myItem) {
-				target.setItem(myItem);
-				this.add('-item', target, myItem, '[from] move: Trick');
-			} else {
-				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trick');
-				this.battle.lostItemQueue.push(yourItem);
-			}
-			if (yourItem) {
-				source.setItem(yourItem);
-				this.add('-item', source, yourItem, '[from] move: Trick');
-			} else {
-				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trick');
-				this.battle.lostItemQueue.push(yourItem);
-			}
 		},
 	},
 };
