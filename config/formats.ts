@@ -940,6 +940,13 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] GPT2mons",
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		mod: "gpt2mons", 
+		teambuilderFormat: "OU", 	
+	},
+	{
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
