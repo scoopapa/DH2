@@ -238,7 +238,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-	},
+	}
 	"honedge": {
 		num: 7812,
 		accuracy: true,
@@ -339,14 +339,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(pokemon) {
 			if (pokemon.getAbility().isPermanent || pokemon.ability === 'moxie' || pokemon.ability === 'truant') {
 				return false;
-			},
+			}
 		},
 		onHit(pokemon) {
 			const oldAbility = pokemon.setAbility('moxie');
 			if (oldAbility) {
 				this.add('-ability', pokemon, 'Moxie', '[from] move: Gyarados');
 				return;
-			},
+			}
 			return false;
 		},
 		boosts: {
@@ -414,13 +414,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['suctionseed'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[suctionseed]', '[silent]');
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
-			},
+			}
 			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
 			if (damage) {
 					this.heal(damage, target, pokemon);
-			},
+			}
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[suctionseed]');
