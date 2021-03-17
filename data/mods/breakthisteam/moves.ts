@@ -26,7 +26,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Rip Away",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psychic", target);
@@ -43,6 +43,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+					this.battle.lostItemQueue.push(item);
 				}
 			}
 		},
@@ -66,16 +67,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(pokemon) {
 			if (pokemon.item) return false;
-			const pickupTargets = [];
-			for (const target of this.getAllActive()) {
-				if (target.lastItem && this.isAdjacent(pokemon, target)) {
-					pickupTargets.push(target);
-				}
-			}
-			if (!pickupTargets.length) return false;
-			const randomTarget = pickupTargets[pickupTargets.length - 1];
-			const item = randomTarget.lastItem;
-			randomTarget.lastItem = '';
+			
+			if (!this.battle.lostItemQueue.length) return false;
+			
+			console.log("Before Retrieval: " + this.battle.lostItemQueue);
+			let item = this.battle.lostItemQueue.pop();
+			console.log("After Retrieval: " + this.battle.lostItemQueue);
+			
 			this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Retrieval');
 			pokemon.setItem(item);
 		},
@@ -84,5 +82,148 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 		shortDesc: "The user picks up the last item removed earlier in the battle.",
+	},
+	
+	//BLUUUUGGGGGGGH.
+	knockoff: {
+		inherit: true,
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.battle.lostItemQueue.push(item);
+					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+				}
+			}
+		},
+	},
+	bugbite: {
+		inherit: true,
+		onHit(target, source) {
+			const item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
+				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Bug Bite', '[of] ' + source);
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+					if (item.id === 'leppaberry') target.staleness = 'external';
+				}
+				if (item.onEat) source.ateBerry = true;
+				this.battle.lostItemQueue.push(item);
+			}
+		},
+	},
+	pluck: {
+		inherit: true,
+		onHit(target, source) {
+			const item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
+				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Pluck', '[of] ' + source);
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+					if (item.id === 'leppaberry') target.staleness = 'external';
+				}
+				if (item.onEat) source.ateBerry = true;
+				this.battle.lostItemQueue.push(item);
+			}
+		},
+	},
+	covet: {
+		inherit: true,
+		onAfterHit(target, source, move) {
+			if (source.item || source.volatiles['gem']) {
+				return;
+			}
+			const yourItem = target.takeItem(source);
+			if (!yourItem) {
+				return;
+			}
+			if (
+				!this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem) ||
+				!source.setItem(yourItem)
+			) {
+				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+				return;
+			}
+			this.battle.lostItemQueue.push(yourItem);
+			this.add('-item', source, yourItem, '[from] move: Covet', '[of] ' + target);
+		},
+	},
+	thief: {
+		inherit: true,
+		onAfterHit(target, source, move) {
+			if (source.item || source.volatiles['gem']) {
+				return;
+			}
+			const yourItem = target.takeItem(source);
+			if (!yourItem) {
+				return;
+			}
+			if (!this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem) ||
+				!source.setItem(yourItem)) {
+				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+				return;
+			}
+			this.battle.lostItemQueue.push(yourItem);
+			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Thief', '[of] ' + source);
+			this.add('-item', source, yourItem, '[from] move: Thief', '[of] ' + target);
+		},
+	},
+	incinerate: {
+		inherit: true,
+		onHit(pokemon, source) {
+			const item = pokemon.getItem();
+			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
+				this.battle.lostItemQueue.push(item);
+				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
+			}
+		},
+	},
+	corrosivegas: {
+		inherit: true,
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source);
+				this.battle.lostItemQueue.push(item);
+			}
+		},
+	},
+	trick: {
+		inherit: true,
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
+		onHit(target, source, move) {
+			const yourItem = target.takeItem(source);
+			const myItem = source.takeItem();
+			if (target.item || source.item || (!yourItem && !myItem)) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			if (
+				(myItem && !this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem)) ||
+				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem))
+			) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			this.add('-activate', source, 'move: Trick', '[of] ' + target);
+			if (myItem) {
+				target.setItem(myItem);
+				this.add('-item', target, myItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trick');
+				this.battle.lostItemQueue.push(yourItem);
+			}
+			if (yourItem) {
+				source.setItem(yourItem);
+				this.add('-item', source, yourItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trick');
+				this.battle.lostItemQueue.push(yourItem);
+			}
+		},
 	},
 };
