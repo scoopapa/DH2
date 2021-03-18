@@ -1336,7 +1336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Beheeyem",
 	},
- 
+ /*
 	zoroark: {
 		inherit: true,
 		canGigantamax: "G-Max Delusion",
@@ -1355,7 +1355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Zoroark",
 	},
- 
+ */
 	sceptile: {
 		inherit: true,
 		canGigantamax: "G-Max Vegetal Sword",
