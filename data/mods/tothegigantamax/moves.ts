@@ -2151,6 +2151,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+/*
 	gmaxdelusion: {
 		num: 1000,
 		accuracy: true,
@@ -2181,6 +2182,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+*/
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
