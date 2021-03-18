@@ -2121,6 +2121,66 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+	gmaxpetrify: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Paralyzed & Rock-type.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Petrify",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Sudowoodo",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glare", target);
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('par', source);
+				}
+				if (target.getTypes().join() === 'Rock' || !target.setType('Rock')) return false;
+				this.add('-start', side, 'typechange', 'Rock');
+			}
+		},
+		target: "adjacentFoe",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	gmaxdelusion: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 Acc. Field: Clear Skies.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Delusion",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Zoroark",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Daze", target);
+			this.add('-anim', source, "Sunny Day", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({accuracy: 1}, pokemon);
+				}
+				this.field.setWeather('clearskies');
+			}
+		},
+		target: "adjacentFoe",
+		type: "Dark",
+		contestType: "Cool",
+	},
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
