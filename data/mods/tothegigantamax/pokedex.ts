@@ -344,7 +344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Decidueye",
 	},
- 
+ /*
 	kyuremblack: {
 		inherit: true,
 		canGigantamax: "G-Max Future Shock",
@@ -364,7 +364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Kyurem-Black",
 		battleOnly: "Kyurem-Black",
 	},
- 
+ */
 	scizor: {
 		inherit: true,
 		canGigantamax: "G-Max Bug Shield",
