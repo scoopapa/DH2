@@ -344,7 +344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Decidueye",
 	},
- /*
+ 
 	kyuremblack: {
 		inherit: true,
 		canGigantamax: "G-Max Future Shock",
@@ -364,7 +364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Kyurem-Black",
 		battleOnly: "Kyurem-Black",
 	},
- */
+ 
 	scizor: {
 		inherit: true,
 		canGigantamax: "G-Max Bug Shield",
@@ -1336,7 +1336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Beheeyem",
 	},
- /*
+ 
 	zoroark: {
 		inherit: true,
 		canGigantamax: "G-Max Delusion",
@@ -1355,7 +1355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Zoroark",
 	},
- */
+ 
 	sceptile: {
 		inherit: true,
 		canGigantamax: "G-Max Vegetal Sword",
@@ -1450,4 +1450,100 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Flying"],
 		changesFrom: "Sirfetch\u2019d",
 	},
+/*
+	palkia: {
+		inherit: true,
+		canGigantamax: "G-Max Spacerip",
+	},
+	palkiagmax: {
+		num: 484,
+		name: "Palkia-Gmax",
+		baseSpecies: "Palkia",
+		forme: "Gmax",
+		types: ["Water", "Dragon"],
+		baseStats: {hp: 90, atk: 120, def: 100, spa: 150, spd: 120, spe: 100},
+		abilities: {0: "Pressure", H: "Telepathy"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Purple",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Palkia",
+	},
+ 
+	dialga: {
+		inherit: true,
+		canGigantamax: "G-Max Rewind",
+	},
+	dialgagmax: {
+		num: 483,
+		name: "Dialga-Gmax",
+		baseSpecies: "Dialga",
+		forme: "Gmax",
+		types: ["Steel", "Dragon"],
+		baseStats: {hp: 100, atk: 120, def: 120, spa: 150, spd: 100, spe: 90},
+		abilities: {0: "Pressure", H: "Telepathy"},
+		heightm: 20,
+		weightkg: 0,
+		color: "White",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Dialga",
+	},
+ 
+	regigigas: {
+		inherit: true,
+		canGigantamax: "G-Max Regi-lution",
+	},
+	regigigasgmax: {
+		num: 486,
+		name: "Regigigas-Gmax",
+		baseSpecies: "Regigigas",
+		forme: "Gmax",
+		types: ["Normal"],
+		baseStats: {hp: 110, atk: 160, def: 110, spa: 80, spd: 110, spe: 100},
+		abilities: {0: "Slow Start"},
+		heightm: 20,
+		weightkg: 0,
+		color: "White",
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Regigigas",
+	},
+ */
+	sudowoodo: {
+		inherit: true,
+		canGigantamax: "G-Max Petrify",
+	},
+	sudowoodogmax: {
+		num: 185,
+		name: "Sudowoodo-Gmax",
+		baseSpecies: "Sudowoodo",
+		forme: "Gmax",
+		types: ["Rock", "Ghost"],
+		baseStats: {hp: 70, atk: 100, def: 115, spa: 30, spd: 65, spe: 30},
+		abilities: {0: "Sturdy", 1: "Rock Head", H: "Rattled"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+		changesFrom: "Sudowoodo",
+	},
+ /*
+	cryogonal: {
+		inherit: true,
+		canGigantamax: "G-Max Sudden Light",
+	},
+	cryogonalgmax: {
+		num: 615,
+		name: "Cryogonal-Gmax",
+		baseSpecies: "Cryogonal",
+		forme: "Gmax",
+		types: ["Ice"],
+		baseStats: {hp: 80, atk: 50, def: 50, spa: 95, spd: 135, spe: 105},
+		abilities: {0: "Levitate"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+		changesFrom: "Cryogonal",
+	},
+*/
 };
