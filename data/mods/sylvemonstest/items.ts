@@ -447,7 +447,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onModifySpA: function(spa) {
 			return this.chainModify(1.33);
 		},
-		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
+		desc: "Holder's Special Attack is 1.33x, but it can't use the same move twice in a row",
 	},
 	assaultshield: {
 		name: "Assault Shield",
