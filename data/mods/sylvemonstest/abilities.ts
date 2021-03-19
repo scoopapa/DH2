@@ -170,7 +170,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 171,
 	},
 	"shadowsurge": {
-		shortDesc: "Summons Shadow Sky upon switching in, which boosts the power of Dakr and Ghost-type moves by 1.5x.",
+		shortDesc: "Summons Shadow Sky upon switching in, which boosts the power of Dark and Ghost-type moves by 1.5x.",
 		onStart(source) {
 			this.field.setWeather('shadowsky');
 		},
@@ -178,7 +178,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shadow Surge",
 	},
 	"airstream": {
-		shortDesc: "Summons Air Current upon switching in, which makes Flying-types takes 0.75x damage from Rock, Ice, and Electric-type moves.",
+		shortDesc: "Summons Air Current upon switching in, which makes Flying-types take 0.75x damage from Rock, Ice, and Electric-type moves.",
 		onStart(source) {
 			this.field.setWeather('aircurrent');
 		},
