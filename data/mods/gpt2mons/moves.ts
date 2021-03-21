@@ -890,6 +890,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target) {
 			if (!target.getTypes().join() === 'Flying') {
 			this.add('-start', target, 'typechange', 'Flying');
+			}
 		},
 		condition: {
 			duration: 2,
