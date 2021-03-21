@@ -1164,9 +1164,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
-				if (target.level => 1) {
+				if (target.level >= 1) {
 				target.level = Math.max(1, target.level + 1);
-		},
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -1211,7 +1211,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType('Steel')) return;
 			target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: None of my Clank');
-			},
 		},
 		secondary: null,
 		target: "normal",
