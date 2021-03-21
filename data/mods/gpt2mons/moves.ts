@@ -443,8 +443,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises the user's level by 1.",
-		shortDesc: "Raises the user's level by 1.",
+		desc: "Raises the user's level by 3.",
+		shortDesc: "Raises the user's level by 3.",
 		id: "levelup",
 		isViable: true,
 		name: "Level Up",
@@ -452,11 +452,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		onHit(pokemon) {
-				if (pokemon.level > 1) {
-				pokemon.level = Math.max(1, pokemon.level + 1);
-		}
+				if (pokemon.level => 1) {
+				pokemon.level = Math.max(1, pokemon.level + 3);
+		},
 		secondary: null,
-		target: "self";
+		target: "self",
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
@@ -475,7 +475,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		onHit(target) {
-			if (target.hp === 1 || target.maxhp === 1) { // Shedinja clause
+			if (target.hp === 1 || target.maxhp === 1) {
 				return false;
 			}
 			this.directDamage(target.hp - 1);
@@ -507,7 +507,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	recycledammo: {
+	"recycledammo": {
 		num: 7822,
 		accuracy: true,
 		basePower: 0,
@@ -533,4 +533,826 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
+	"dragonsong": {
+		num: 7823,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "10% chance to put foe to sleep. Bypasses substitutes. Has no effect on Pokemon with the Soundproof ability.",
+		shortDesc: "10% chance to put foe to sleep. Bypasses substitutes.",
+		id: "dragonsong",
+		isViable: true,
+		name: "Dragon Song",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		target: "normal",
+		type: "Dragon",
+	},
+	"horsey": {
+		num: 7824,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "Transforms the foe into a random horse.",
+		shortDesc: "Transforms the foe into a random horse.",
+		id: "horsey",
+		isViable: true,
+		name: "Horsey",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		condition: {
+			onHit(target) {
+				this.add('-message', `${pokemon.name} is being transformed...!?`);
+				const randForm = this.random(5);
+				if (randForm < 1) {
+					this.add('-message', `It became a Spectrier!`);
+					pokemon.formeChange('Spectrier');
+					pokemon.setAbility('grimneigh');
+				} else if (randForm < 2) {
+					this.add('-message', `It became a Rapidash!`);
+					pokemon.formeChange('Rapidash');
+					pokemon.setAbility('flashfire');
+				} else if (randForm < 3) {
+					this.add('-message', `It became a Glastrier!`);
+					pokemon.formeChange('Glastrier');
+					pokemon.setAbility('chillingneigh');
+				} else if (randForm < 4) {
+					this.add('-message', `It became a Zebstrika!`);
+					pokemon.formeChange('Zebstrika');
+					pokemon.setAbility('sapsipper');
+				} else {
+					this.add('-message', `It became a Mudsdale!`);
+					pokemon.formeChange('Mudsdale');
+					pokemon.setAbility('stamina');
+				}
+			},
+			onEnd(target) {
+				if (['Spectrier', 'Rapidash', 'Mudsdale', 'Glastrier', 'Zebstrika'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {def: 1}},
+		contestType: "Cute",
+	},
+	"jets": {
+		num: 7825,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		desc: "100% chance to raise the user's Sp. Attack by 1.",
+		shortDesc: "100% chance to raise the user's Sp. Attack by 1.",
+		id: "drainpulse",
+		isViable: true,
+		name: "Jets",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
+	"rocklace": {
+		num: 7826,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		desc: "Sets up Stealth Rock on the foe's side.",
+		shortDesc: "Sets up Stealth Rock on the foe's side.",
+		id: "rocklace",
+		isViable: true,
+		name: "Rock Lace",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('stealthrock');
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	"beastboost": {
+		num: 7827,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Boosts the user's highest stat by 2 stages. Priority for determining highest stats in the case of ties is identical to Beast Boost.",
+		shortDesc: "Boosts the user's highest stat by 2.",
+		id: "beastboost",
+		isViable: true,
+		name: "Beast Boost",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onTry(target, source, effect) {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 2}, source);
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	"sandblow": {
+		num: 7828,
+		accuracy: 90,
+		basePower: 60,
+		category: "Special",
+		desc: "Forces the target to switch to a random ally. -6 priority.",
+		shortDesc: "Forces the target to switch to a random ally.",
+		id: "sandblow",
+		isViable: true,
+		name: "Sand Blow",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1},
+		forceSwitch: true,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	"berserkerz": {
+		num: 7829,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		desc: "The user attacks for three turns before becoming confused. Basically a Fighting-type Outrage. It also 10% of confusing the foe whenever it hits.",
+		shortDesc: "The user attacks for three turns before becoming confused. 10% of confusing the foe.",
+		id: "berserkerz",
+		isViable: true,
+		name: "BerserkerZ",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		target: "randomNormal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	"sheerforce": {
+		num: 7830,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "The target's ability becomes Sheer Force until they switch out, and their Atk and Sp. Attack are lowered by 1 stage each. Unlike Simple Beam, this move works if the target has Truant.",
+		shortDesc: "Target's ability becomes Sheer Force, and their Atk and Sp. Attack are lowered by 1.",
+		id: "berserkerz",
+		isViable: true,
+		name: "Sheer Force",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onTryHit(target) {
+			if (target.getAbility().isPermanent || target.ability === 'sheerforce') {
+				return false;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('sheerforce');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Sheer Force', '[from] move: Sheer Force');
+				this.boost({atk: -1, spa: -1}, pokemon, pokemon);
+				return;
+			}
+			return false;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
+	},
+	"ability": {
+		num: 7831,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The user's ability becomes a random ability. It cannot become Wonder Guard or any custom abilities, and it can become the same ability that the Pokemon already has. The ability will go back to normal once the user switches out.",
+		shortDesc: "The user gets a random ability until it is switched out.",
+		id: "ability",
+		isViable: true,
+		name: "Ability",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		noMetroability: [
+			"No Ability", "Wonder Guard", "Spirit Swim", "Swords Dance", "Jawbreaker", "Cherish Coat", "Soul Soothing", "Victory Dance", "Toxicroak", "Tough Beacons", "Soft MOMENT", "Flower Head", "Flower Kiss", "Flatter", "Mystical Fire"
+		],
+		onHit(target, source, effect) {
+			const abilities: AbilityData[] = [];
+			for (const id in Abilities) {
+				const move = Abilities[id];
+				if (effect.noMetroability!.includes(ability.name)) continue;
+				if (this.dex.getAbility(id).gen > this.gen) continue;
+				abilities.push(ability);
+			}
+			let randomAbility = '';
+			if (abilities.length) {
+				abilities.sort((a, b) => a.num! - b.num!);
+				randomAbility = this.sample(abilities).name;
+			}
+			if (!randomAbility) {
+				return false;
+			}
+			const oldAbility = pokemon.setAbility(randomAbility));
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'randomAbility', '[from] move: Ability');
+				return;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	"wideslash": {
+		num: 7832,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		desc: "High crit rate. Hits all foes in a Double Battle.",
+		shortDesc: "High crit rate. Hits all foes.",
+		id: "wideslash",
+		isViable: true,
+		name: "Wide Slash",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		zMove: {basePower: 185},
+		contestType: "Beautiful",
+	},
+	"batterycharge": {
+		num: 7833,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Like Charge, but boosts Sp. Attack.",
+		shortDesc: "Like Charge, but boosts Sp. Attack.",
+		id: "batterycharge",
+		isViable: true,
+		name: "Battery Charge",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'charge',
+		onHit(pokemon) {
+			this.add('-activate', pokemon, 'move: Charge');
+		},
+		condition: {
+			duration: 2,
+			onRestart(pokemon) {
+				this.effectData.duration = 2;
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+		},
+		boosts: {
+			spa: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
+	"flying": {
+		num: 7834,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		desc: "The user is invulnerable for one turn, then hits the foe. Adds Flying to the target's typing.",
+		shortDesc: "The user is invulnerable for one turn, then hits the foe. Adds Flying to the target's typing.",
+		id: "flying",
+		isViable: true,
+		name: "Flying",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onHit(target) {
+			if (!target.getTypes().join() === 'Flying') {
+			this.add('-start', target, 'typechange', 'Flying');
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceBasePower(basePower, target, source, move) {
+				if (move.id === 'gust' || move.id === 'twister') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Cute",
+	},
+	"invent": {
+		num: 7835,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Boosts the user's Defense and Special Attack by 1 stage each.",
+		shortDesc: "Boosts the user's Defense and Special Attack by 1.",
+		id: "invent",
+		isViable: true,
+		name: "Invent",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			spa: 1,
+			def: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	"xbulma": {
+		num: 7836,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		desc: "Forces the target to switch to a random ally. The user faints.",
+		shortDesc: "Forces the target to switch to a random ally. The user faints.",
+		id: "xbulma",
+		isViable: true,
+		name: "X Bulma",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		forceSwitch: true,
+		selfdestruct: "always",
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
+	"charcoal": {
+		num: 7837,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		desc: "20% chance to burn.",
+		shortDesc: "20% chance to burn.",
+		id: "charcoal",
+		isViable: true,
+		name: "Charcoal",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	"zygardestrike": {
+		num: 7838,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		desc: "Ignores immunities to Dragon.",
+		shortDesc: "Ignores immunities to Dragon.",
+		id: "charcoal",
+		isViable: true,
+		name: "Zygarde Strike",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Dragon': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	"sigilyph": {
+		num: 7839,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The user's ability becomes Magic Guard. It will return to normal if the user switches out. The user's Defense and Special Defense are boosted by 1 stage each, even if the user's ability cannot be changed, or is already Magic Guard.",
+		shortDesc: "The user's ability becomes Magic Guard, and their Defense and Sp. Defense are boosted by 1.",
+		id: "magicguard",
+		isViable: true,
+		name: "Magic Guard",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, protect: 1, mirror: 1, mystery: 1},
+		onTryHit(pokemon) {
+			if (pokemon.getAbility().isPermanent || pokemon.ability === 'magicguard' || pokemon.ability === 'truant') {
+				return false;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('magicguard');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Magic Guard', '[from] move: Sigilyph');
+				return;
+			}
+			return false;
+		},
+		boosts: {
+			def: 1,
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
+	},
+	"leafclub": {
+		num: 7840,
+		accuracy: 100,
+		basePower: 40,
+		desc: "Hits twice.",
+		shortDesc: "Hits twice.",
+		id: "leafclub",
+		isViable: true,
+		category: "Physical",
+		name: "Leaf Club",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+	},
+	"metalarmor": {
+		num: 7841,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Boosts Defense by 2 stages and Sp. Defense by 1 stage. The Pokemon becomes 1000 kg heavier.",
+		shortDesc: "Boosts Defense by 2 and Sp. Defense by 1. The Pokemon becomes heavier.",
+		id: "metalarmor",
+		isViable: true,
+		name: "Metal Armor",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			def: 2,
+			spd: 1
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg + 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	"anarchy": {
+		num: 7842,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "Randomly lowers one of the target's stats by 12 stages.",
+		shortDesc: "Randomly lowers one of the target's stats by 12 stages.",
+		id: "metalarmor",
+		isViable: true,
+		name: "Anarchy",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		onHit(target) {
+			const stats: BoostName[] = [];
+			let stat: BoostName;
+			for (stat in target.boosts) {
+				if (target.boosts[stat] > -6) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				const randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				boost[randomStat] = -12;
+				this.boost(boost);
+			} else {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {effect: 'crit2'},
+		contestType: "Tough",
+	},
+	blaze: {
+		num: 7843,
+		accuracy: 100,
+		basePower: 65,
+		category: "Status",
+		desc: "1.5x damage if the foe holds an item. Removes the item. Special Fire-type Knock Off clone.",
+		shortDesc: "1.5x damage if the foe holds an item. Removes the item.",
+		id: "metalarmor",
+		isViable: true,
+		category: "Special",
+		name: "Blaze",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Blaze', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	"levelupgust": {
+		num: 7844,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		desc: "The Pokemon it hits gains one level.",
+		shortDesc: "The Pokemon it hits gains one level.",
+		id: "levelupgust",
+		isViable: true,
+		name: "Level Up Gust",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target) {
+				if (target.level => 1) {
+				target.level = Math.max(1, target.level + 1);
+		},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cute",
+	},
+	"partiline": {
+		num: 7845,
+		accuracy: 80,
+		basePower: 110,
+		category: "Special",
+		desc: "10% chance to paralyze the target.",
+		shortDesc: "10% chance to paralyze the target.",
+		id: "partiline",
+		isViable: true,
+		name: "Partiline",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	"noneofmyclank": {
+		num: 7846,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		desc: "If the target is Steel-type, removes Steel-type from the target after the hit.",
+		shortDesc: "Removes Steel-type from the target.",
+		id: "noneofmyclank",
+		isViable: true,
+		name: "None of my Clank",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, move) {
+			if (target.hasType('Steel')) return;
+			target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: None of my Clank');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	"prismwaterspray": {
+		num: 7847,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		desc: "Physical if user's Atk > Sp. Atk. Ignores abilities.",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Ignores abilities.",
+		id: "prismwaterspray",
+		isViable: true,
+		name: "Prism Water Spray",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		ignoreAbility: true,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
+	"seismicluster": {
+		num: 7848,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		desc: "100% to lower foe's Special Defense.",
+		shortDesc: "100% to lower foe's Special Defense.",
+		id: "seismicluster",
+		isViable: true,
+		name: "Seismic Luster",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Beautiful",
+	},
+	"extremechaos": {
+		num: 7849,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Maxes all stats, uses a random move, then faints.",
+		shortDesc: "Maxes all stats, uses a random move, then faints.",
+		id: "extremechaos",
+		isViable: true,
+		name: "Extreme Chaos",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		noMetronome: [
+			"After You", "Apple Acid", "Assist", "Astral Barrage", "Aura Wheel", "Baneful Bunker", "Beak Blast", "Behemoth Bash", "Behemoth Blade", "Belch", "Bestow", "Body Press", "Branch Poke", "Breaking Swipe", "Celebrate", "Chatter", "Clangorous Soul", "Copycat", "Counter", "Covet", "Crafty Shield", "Decorate", "Destiny Bond", "Detect", "Diamond Storm", "Double Iron Bash", "Dragon Ascent", "Dragon Energy", "Drum Beating", "Dynamax Cannon", "Endure", "Eternabeam", "False Surrender", "Feint", "Fiery Wrath", "Fleur Cannon", "Focus Punch", "Follow Me", "Freeze Shock", "Freezing Glare", "Glacial Lance", "Grav Apple", "Helping Hand", "Hold Hands", "Hyperspace Fury", "Hyperspace Hole", "Ice Burn", "Instruct", "Jungle Healing", "King's Shield", "Life Dew", "Light of Ruin", "Mat Block", "Me First", "Meteor Assault", "Metronome", "Mimic", "Mind Blown", "Mirror Coat", "Mirror Move", "Moongeist Beam", "Nature Power", "Nature's Madness", "Obstruct", "Origin Pulse", "Overdrive", "Photon Geyser", "Plasma Fists", "Precipice Blades", "Protect", "Pyro Ball", "Quash", "Quick Guard", "Rage Powder", "Relic Song", "Secret Sword", "Shell Trap", "Sketch", "Sleep Talk", "Snap Trap", "Snarl", "Snatch", "Snore", "Spectral Thief", "Spiky Shield", "Spirit Break", "Spotlight", "Steam Eruption", "Steel Beam", "Strange Steam", "Struggle", "Sunsteel Strike", "Surging Strikes", "Switcheroo", "Techno Blast", "Thief", "Thousand Arrows", "Thousand Waves", "Thunder Cage", "Thunderous Kick", "Transform", "Trick", "V-create", "Wicked Blow", "Wide Guard",
+		],
+		onTryHit(target)
+			this.boost({atk: 12, def: 12, spa: 12, spd :12, spe: 12}, target, target, target, target, target);
+		onHit(target, source, effect) {
+			const moves: MoveData[] = [];
+			for (const id in Moves) {
+				const move = Moves[id];
+				if (move.realMove) continue;
+				if (move.isZ || move.isMax || move.isNonstandard) continue;
+				if (effect.noMetronome!.includes(move.name)) continue;
+				if (this.dex.getMove(id).gen > this.gen) continue;
+				moves.push(move);
+			}
+			let randomMove = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num! - b.num!);
+				randomMove = this.sample(moves).name;
+			}
+			if (!randomMove) {
+				return false;
+			}
+			this.useMove(randomMove, target);
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	"prismcell": {
+		num: 7850,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Creates a field effect halves damage from foe's attacks to the user's side of the field for 3 turns. It lasts for 6 turns if the user is holding Light Clay.",
+		shortDesc: "Halves damage from foe's attacks for 3 turns. 6 if holding Light Clay.",
+		id: "prismcell",
+		isViable: true,
+		name: "Prism Cell",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'prismcell',
+		condition: {
+			duration: 3,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 6;
+				}
+				return 3;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Prism Cell weaken');
+						if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Prism Cell');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Prism Cell');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+		},
 };
