@@ -793,7 +793,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomAbility) {
 				return false;
 			}
-			const oldAbility = pokemon.setAbility(randomAbility));
+			const oldAbility = pokemon.setAbility(randomAbility);
 			if (oldAbility) {
 				this.add('-ability', pokemon, 'randomAbility', '[from] move: Ability');
 				return;
