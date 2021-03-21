@@ -365,7 +365,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	concussion: {
 		id: "concussion",
 		name: "Concussion",
-		shortDesc: "Halves the effects of the attackers' stat changes when targeting this Pokemon.",
+		shortDesc: "Halves the effects of stat changes when taking or dealing damage.",
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectData.target;
 			if (unawareUser === pokemon) return;
