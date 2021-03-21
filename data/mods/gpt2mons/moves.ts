@@ -797,7 +797,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (oldAbility) {
 				this.add('-ability', pokemon, 'randomAbility', '[from] move: Ability');
 				return;
-			},
+			}
 		},
 		secondary: null,
 		target: "self",
