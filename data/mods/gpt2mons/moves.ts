@@ -1330,8 +1330,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onAnyModifyDamage(damage, source, target, move) {
 				if (target !== source && target.side === this.effectData.target) {
-					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
-							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') || (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
 					}
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
