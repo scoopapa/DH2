@@ -377,6 +377,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 50,
 			boosts: {
 				spe: -1,
+				}
 			},
 		target: "normal",
 		type: "Ground",
@@ -430,6 +431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onTryImmunity(target) {
 			return !target.hasType('Grass');
+				 },
 		},
 		secondary: null,
 		target: "normal",
@@ -595,7 +597,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (['Spectrier', 'Rapidash', 'Mudsdale', 'Glastrier', 'Zebstrika'].includes(pokemon.species.forme)) {
 					pokemon.formeChange(pokemon.species.battleOnly as string);
 				}
-			},
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
