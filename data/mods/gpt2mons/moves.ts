@@ -1355,5 +1355,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		},
+	},
 };
