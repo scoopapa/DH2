@@ -674,6 +674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				this.boost({[statName]: 2}, source);
+		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
