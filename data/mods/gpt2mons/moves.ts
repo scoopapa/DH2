@@ -452,8 +452,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 		onHit(pokemon) {
 				if (pokemon.level >= 1) {
-				pokemon.level = Math.max(1, pokemon.level + 3);
-				},
+				pokemon.level = Math.max(1, pokemon.level + 3)};
 		},
 		secondary: null,
 		target: "self",
