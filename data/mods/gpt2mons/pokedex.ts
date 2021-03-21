@@ -1,5 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-  sinproblematic: {
+sinproblematic: {
 		num: 5201,
 		name: "Sin Problematic",
 		types: ["Dark", "Electric"],
@@ -7,7 +7,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rivalry", H: "Intimidate"},
 		weightkg: 152,
 	},
-  beldum2: {
+beldum2: {
 		num: 5202,
 		name: "Beldum 2",
 		types: ["Steel", "Psychic"],
@@ -15,7 +15,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clear Body", H: "Light Metal"},
 		weightkg: 175,
 	},
-  rivalenn: {
+rivalenn: {
 		num: 5203,
 		name: "Rivalenn",
 		types: ["Rock", "Water"],
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit Swim", 1: "Sheer Force", H: "Swords Dance"},
 		weightkg: 81,
 	},
-  noctowl2: {
+noctowl2: {
 		num: 5204,
 		name: "Noctowl 2",
 		types: ["Bug"],
@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shed Skin", H: "Marvel Scale"},
 		weightkg: 510,
 	},
-  soreome: {
+soreome: {
 		num: 5205,
 		name: "Soreome",
 		types: ["Normal", "Flying"],
@@ -39,7 +39,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insomnia", 1: "Keen Eye", H: "Tinted Lens"},
 		weightkg: 18,
 	},
-  tapufini2: {
+tapufini2: {
 		num: 5206,
 		name: "Tapu Fini 2",
 		types: ["Water"],
@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Misty Surge", H: "Telepathy"},
 		weightkg: 80,
 	},
-  milotic2: {
+milotic2: {
 		num: 5207,
 		name: "Milotic 2",
 		types: ["Flying", "Flying"],
@@ -63,7 +63,7 @@ coagwidiwashi: {
 		abilities: {0: "Intimidate"},
 		weightkg: 33,
 	},
-  charizard2: {
+charizard2: {
 		num: 5209,
 		name: "Charizard 2",
 		types: ["Fire", "Fighting"],
@@ -71,7 +71,7 @@ coagwidiwashi: {
 		abilities: {0: "Intimidate", 1: "Flash Fire", H: "Justified"},
 		weightkg: 47,
 	},
-  pelipper2: {
+pelipper2: {
 		num: 5210,
 		name: "Pelipper 2",
 		types: ["Dragon", "Flying"],
@@ -79,7 +79,7 @@ coagwidiwashi: {
 		abilities: {0: "Clear Body", 1: "Infiltrator", H: "Telepathy"},
 		weightkg: 25,
 	},
-  urshifu2: {
+urshifu2: {
 		num: 5211,
 		name: "Urshifu 2",
 		types: ["Steel", "Ground"],
@@ -87,7 +87,7 @@ coagwidiwashi: {
 		abilities: {0: "Sheer Force", H: "Heavy Metal"},
 		weightkg: 180,
 	},
-  divilvete: {
+divilvete: {
 		num: 5212,
 		name: "Divilvete",
 		types: ["Dragon", "Flying"],
@@ -95,7 +95,7 @@ coagwidiwashi: {
 		abilities: {0: "Regenerator"},
 		weightkg: 60,
 	},
-  porygon22: {
+porygon22: {
 		num: 5213,
 		name: "Porygon2 2",
 		types: ["Normal", "Flying"],
@@ -103,7 +103,7 @@ coagwidiwashi: {
 		abilities: {0: "Adaptability", 1: "Regenerator", H: "Jawbreaker"},
 		weightkg: 52,
 	},
-  rillaboom2: {
+rillaboom2: {
 		num: 5214,
 		name: "Rillaboom 2",
 		types: ["Grass", "Dark"],
@@ -111,7 +111,7 @@ coagwidiwashi: {
 		abilities: {0: "Chlorophyll", H: "Harvest"},
 		weightkg: 204,
 	},
-  zapdos2: {
+zapdos2: {
 		num: 5215,
 		name: "Zapdos 2",
 		types: ["Dragon", "Psychic"],
@@ -119,7 +119,7 @@ coagwidiwashi: {
 		abilities: {0: "Levitate"},
 		weightkg: 820,
 	},
-  cherrim2: {
+cherrim2: {
 		num: 5216,
 		name: "Cherrim 2",
 		types: ["Dark"],
@@ -127,7 +127,7 @@ coagwidiwashi: {
 		abilities: {0: "Cherish Coat", H: "Rattled"},
 		weightkg: 44,
 	},
-  mercal: {
+mercal: {
 		num: 5217,
 		name: "Mercal",
 		types: ["Poison"],
@@ -135,7 +135,7 @@ coagwidiwashi: {
 		abilities: {0: "Soul Soothing"},
 		weightkg: 6,
 	},
-  meloyobu: {
+meloyobu: {
 		num: 5218,
 		name: "Meloyobu",
 		types: ["Steel"],
@@ -143,7 +143,7 @@ coagwidiwashi: {
 		abilities: {0: "Victory Dance"},
 		weightkg: 82,
 	},
-  kyurelna: {
+kyurelna: {
 		num: 5219,
 		name: "Kyurelna",
 		types: ["Rock"],
@@ -151,7 +151,7 @@ coagwidiwashi: {
 		abilities: {0: "Beast Boost"},
 		weightkg: 355,
 	},
-  celebi2: {
+celebi2: {
 		num: 5220,
 		name: "Celebi 2",
 		types: ["Fairy"],
@@ -159,7 +159,7 @@ coagwidiwashi: {
 		abilities: {0: "Natural Cure"},
 		weightkg: 203,
 	},
-  karazhan: {
+karazhan: {
 		num: 5221,
 		name: "Karazhan",
 		types: ["Dragon", "Ice"],
@@ -167,7 +167,7 @@ coagwidiwashi: {
 		abilities: {0: "Turboblaze"},
 		weightkg: 130,
 	},
-  thundurus2: {
+thundurus2: {
 		num: 5222,
 		name: "Thundurus 2",
 		types: ["Fighting"],
@@ -175,7 +175,7 @@ coagwidiwashi: {
 		abilities: {0: "Torrent", H: "Rain Dish"},
 		weightkg: 520,
 	},
-  galvantula2: {
+galvantula2: {
 		num: 5223,
 		name: "Galvantula 2",
 		types: ["Normal"],
@@ -183,7 +183,7 @@ coagwidiwashi: {
 		abilities: {0: "Toxicroak", H: "Tough Beacons"},
 		weightkg: 102,
 	},
-  scizor2: {
+scizor2: {
 		num: 5224,
 		name: "Scizor 2",
 		types: ["Ground", "Dark"],
@@ -191,15 +191,27 @@ coagwidiwashi: {
 		abilities: {0: "Sand Veil", H: "Soft MOMENT"},
 		weightkg: 85,
 	},
-  cherrim3: {
+cherrim3: {
 		num: 5225,
 		name: "Cherrim 3",
 		types: ["Fairy", "Normal"],
 		baseStats: {hp: 60, atk: 90, def: 70, spa: 80, spd: 70, spe: 120},
 		abilities: {0: "Flower Veil", 1: "Flower Head", H: "Flower Kiss"},
 		weightkg: 110,
+		otherFormes: ["Cherrim 3 (No Flower)"],
+		formeOrder: ["Cherrim 3", "Cherrim 3 (No Flower)"],
 	},
-  jolteon2: {
+cherrim3noflower: {
+		num: 15225,
+		name: "Cherrim 3 (No Flower)",
+		types: ["Fairy", "Normal"],
+		baseStats: {hp: 60, atk: 90, def: 70, spa: 80, spd: 70, spe: 120},
+		abilities: {0: "Flower Head", 1: "Flower Head", H: "Flower Head"},
+		weightkg: 110,
+		requiredAbility: "Flower Head",
+		battleOnly: "Cherrim 3",
+	},
+jolteon2: {
 		num: 5226,
 		name: "Jolteon 2",
 		types: ["Fire"],
@@ -207,7 +219,7 @@ coagwidiwashi: {
 		abilities: {0: "Flatter", H: "Mystical Fire"},
 		weightkg: 90,
 	},
-  drakloak2: {
+drakloak2: {
 		num: 5227,
 		name: "Drakloak 2",
 		types: ["Rock"],
@@ -215,7 +227,7 @@ coagwidiwashi: {
 		abilities: {0: "Tough Claws"},
 		weightkg: 94,
 	},
-  defiant: {
+defiant: {
 		num: 5228,
 		name: "Defiant",
 		types: ["Electric"],
@@ -223,7 +235,7 @@ coagwidiwashi: {
 		abilities: {0: "Magnet Pull"},
 		weightkg: 10,
 	},
-  golisopod2: {
+golisopod2: {
 		num: 5229,
 		name: "Golisopod 2",
 		types: ["Grass", "Ground"],
@@ -231,7 +243,7 @@ coagwidiwashi: {
 		abilities: {0: "Blaze", H: "Speed Boost"},
 		weightkg: 33,
 	},
-  cottonors: {
+cottonors: {
 		num: 5230,
 		name: "Cottonors",
 		types: ["Bug", "Steel"],
