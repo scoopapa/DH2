@@ -365,46 +365,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	concussion: {
 		id: "concussion",
 		name: "Concussion",
-		shortDesc: "Halves the effect of the foe's item. (Not coded)",
-		//g-luke, i dont know what dark god told you this ability was a good idea
-		//but someday karma will catch up to you and god wont be as merciful as i am
-		/*
-		onFoeTryHeal(damage, target, source, effect) {
-			if (!effect) return;
-			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
-				this.add('-activate', target, 'ability: Concussion');
+		shortDesc: "Halves the effects of the attackers' stat changes when targeting this Pokemon.",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = Math.ceil(boosts['def'] / 2);
+				boosts['spd'] = Math.ceil(boosts['spd'] / 2);
+				boosts['evasion'] = Math.ceil(boosts['evasion'] / 2);
 			}
-			if (effect.effectType === 'Item') return this.chainModify(0.5);
-		},
-		onFoeBoost(boost, target, source, effect) {
-			if (effect && (effect.effectType === 'Item')) {
-				let b: BoostName;
-				for (b in boost) {
-					//this will break i can feel it in my bones
-					boost[b] = math.ceil(boost[b] * 0.5);
-				}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = Math.ciel(boosts['atk'] / 2);
+				boosts['def'] = Math.ciel(boosts['def'] / 2);
+				boosts['spa'] = Math.ciel(boosts['spa'] / 2);
+				boosts['accuracy'] = Math.ciel(boosts['accuracy'] / 2);
 			}
 		},
-		//this part DEFINITELY isnt right UGH
-		onModifyDamagePriority: -1,
-		onModifyDamage(damage, source, target, move) {
-			if (target.abilityData.berryWeaken) {
-				return this.chainModify(0.75);
-			}
-			
-		},
-		onFoeTryEatItemPriority: -1,
-		onFoeTryEatItem(item, pokemon) {
-			this.add('-activate', pokemon, 'ability: Concussion');
-		},
-		onFoeEatItem(item, pokemon) {
-			const weakenBerries = [
-				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
-			];
-			// Record if the pokemon ate a berry to resist the attack
-			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
-		},
-		*/
+		rating: 4,
+		num: 109,
 	},
 	notfunny: {
 		id: "notfunny",
@@ -616,7 +594,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Solar Panel",
 		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
 		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Fire')) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Solar Panel');
 				}
