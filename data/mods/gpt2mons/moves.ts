@@ -405,8 +405,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onStart(pokemon, source) {
 			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
 			this.effectData.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
-	},
-
+		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
 			const source = this.effectData.source;
