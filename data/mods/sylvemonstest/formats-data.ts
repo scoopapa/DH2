@@ -2336,7 +2336,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darmanitan: {
 		randomBattleMoves: ["thunderpunch", "flareblitz", "uturn", "earthquake", "superpower", "rockslide"],
-		tier: "RU",
+		tier: "UU",
 	},
 	darmanitangalar: {
 		randomBattleMoves: ["icepunch", "flareblitz", "uturn", "earthquake", "superpower", "ironhead"],
