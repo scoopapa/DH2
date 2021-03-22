@@ -263,7 +263,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -276,9 +276,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -297,7 +301,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -310,9 +314,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -336,7 +344,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -349,9 +357,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -370,7 +382,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -383,9 +395,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -409,7 +425,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -422,9 +438,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -443,7 +463,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -456,9 +476,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -482,7 +506,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -495,9 +519,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -516,7 +544,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -529,9 +557,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -555,7 +587,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -568,9 +600,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
@@ -589,7 +625,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -602,9 +638,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower *= (3 - data.duration);
-				console.log(data.move.basePower);
+			if (data.move.name === 'Triple Axel') {
+				data.moveData.basePower = 20 * (3 - data.duration);
+				console.log(data.moveData.basePower);
+			}
+			if (data.move.name === 'Triple Kick') {
+				data.moveData.basePower = 10 * (3 - data.duration);
+				console.log(data.moveData.basePower);
 			}
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
