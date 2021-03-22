@@ -255,11 +255,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -284,15 +283,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -317,7 +315,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 	longwhip2: {
@@ -326,11 +324,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -355,15 +352,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -388,7 +384,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 	longwhip3: {
@@ -397,11 +393,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -426,15 +421,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -459,7 +453,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 	longwhip4: {
@@ -468,11 +462,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -497,15 +490,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -530,7 +522,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 	longwhip5: {
@@ -539,11 +531,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -568,15 +559,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
-			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (!data.target) {
-				this.hint(`${move.name} did not hit because there was no target.`);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
@@ -601,7 +591,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.trySpreadMoveHit([data.target], data.source, hitMove)
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 };
