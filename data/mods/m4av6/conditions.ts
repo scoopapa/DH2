@@ -285,7 +285,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit(data.target, data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -358,7 +358,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit(data.target, data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -431,7 +431,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit(data.target, data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -504,7 +504,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit(data.target, data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -577,7 +577,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit(data.target, data.source, hitMove);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
