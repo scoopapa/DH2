@@ -2120,6 +2120,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
 		onBeforeMove(source, target, move) {
 			if (move.multihit) {
+				if (move.accuracy && move.accuracy !== true) {
+					if (!this.randomChance(move.accuracy, 100)) {
+						return false;
+					}
+				}
+				this.add('-ability', source, 'Long Whip');
 				let whipMove = null;
 				if (target.side.addSlotCondition(target, 'longwhip1')) {
 					whipMove = 'longwhip1';
@@ -2134,14 +2140,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					return false;
 				}
-				this.add('-ability', source, 'Long Whip');
-				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
-				if (whipMove === null) return false;
-				if (move.accuracy) {
-					if (!this.randomChance(move.accuracy, 100)) {
-						return false;
-					}
-				}
+				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? 'target.illusion.name' : 'target.name')}'s team with ${move.name}!`);
 				let numberHits;
 				if (Array.isArray(move.multihit) && move.multihit.length) {
 					numberHits = move.multihit[1];
