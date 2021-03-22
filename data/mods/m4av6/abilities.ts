@@ -1861,7 +1861,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					return;
 				}
 
-				this.add(`${this.effectData.source.name}'s ${move.name} took effect!`);
+				this.add('-message', `${this.effectData.source.name}'s ${move.name} took effect!`);
 				data.target.removeVolatile('Protect');
 				data.target.removeVolatile('Endure');
 
@@ -1880,6 +1880,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+					this.add('-anim', data.source, hitMove, target);
 					this.trySpreadMoveHit([data.target], data.source, hitMove)
 				}
 			},
@@ -2180,87 +2181,125 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Hazard immunity. On contact, attackers suffer the effects of hazards on the field.",
 		name: "Gravitational Pull",
 		onStart(pokemon) {
-			let announced = undefined;
-			const hazards = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			for (const sideCondition of hazards) {
-				if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
-					this.add('-ability', pokemon, 'Gravitational Pull');
-					this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					active.removeVolatile('gravitationalpull');
 				}
 			}
+			pokemon.addVolatile('gravitationalpull');
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['gravitationalpull']) return;
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					return;
+				}
+			}
+			pokemon.addVolatile('gravitationalpull');
 		},
 		onEnd(pokemon) {
-			this.add('-message', `The hazards on the field returned to their original positions!`);
-		},
-		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
-				let success = undefined;
-				if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
-					if (!success) {
-						success = true;
-						this.add('-ability', source, 'Gravitational Pull');
-					}
-					let layers = 0;
-					if (target.side.sideConditions['spikes']) {
-						layers += target.side.sideConditions['spikes'].layers;
-					}
-					if (target.side.foe.sideConditions['spikes']) {
-						layers += target.side.foe.sideConditions['spikes'].layers;
-					}
-					const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
-					this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
-					this.hint(`${source.name} was hurt by the spikes!`);
-				}
-				if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
-					if (!success) {
-						success = true;
-						this.add('-ability', source, 'Gravitational Pull');
-					}
-					let layers = 0;
-					if (target.side.sideConditions['toxicspikes']) {
-						layers += target.side.sideConditions['toxicspikes'].layers;
-					}
-					if (target.side.foe.sideConditions['toxicspikes']) {
-						layers += target.side.foe.sideConditions['toxicspikes'].layers;
-					}
-					if (layers >= 2) {
-						source.trySetStatus('tox', target);
-					} else {
-						source.trySetStatus('psn', target);
+			if (pokemon.volatiles['gravitationalpull']) {
+				pokemon.removeVolatile('gravitationalpull');
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('gravitationalpull')) {
+						pokemon.addVolatile('gravitationalpull');
+						return;
 					}
 				}
-				if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
-					if (!success) {
-						success = true;
-						this.add('-ability', source, 'Gravitational Pull');
+				let announced = undefined;
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-message', `The hazards on the field returned to their original positions!`);
+						return;
 					}
-					const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-					this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
-					this.hint(`Pointed stones dug into ${source.name}!`);
-				}
-				if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
-					if (!success) {
-						success = true;
-						this.add('-ability', source, 'Gravitational Pull');
-					}
-					this.add('-activate', source, 'move: Sticky Web');
-					this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
-				}
-				if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
-					if (!success) {
-						success = true;
-						this.add('-ability', source, 'Gravitational Pull');
-					}
-					const steelHazard = this.dex.getActiveMove('Stealth Rock');
-					steelHazard.type = 'Steel';
-					const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
-					this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
-					this.hint(`${source.name} was hurt by the sharp spikes!`);
 				}
 			}
+		},
+		condition: {
+			onStart(pokemon) {
+				let announced = undefined;
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-ability', pokemon, 'Gravitational Pull');
+						this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
+						return;
+					}
+				}
+			},
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				if (move.flags['contact']) {
+					let success = undefined;
+					if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['spikes']) {
+							layers += target.side.sideConditions['spikes'].layers;
+						}
+						if (target.side.foe.sideConditions['spikes']) {
+							layers += target.side.foe.sideConditions['spikes'].layers;
+						}
+						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target, '[silent]');
+						this.add('-message', `${source.name} was hurt by the spikes!`);
+					}
+					if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['toxicspikes']) {
+							layers += target.side.sideConditions['toxicspikes'].layers;
+						}
+						if (target.side.foe.sideConditions['toxicspikes']) {
+							layers += target.side.foe.sideConditions['toxicspikes'].layers;
+						}
+						if (layers >= 2) {
+							source.trySetStatus('tox', target);
+						} else {
+							source.trySetStatus('psn', target);
+						}
+					}
+					if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, '[silent]');
+						this.add('-message', `Pointed stones dug into ${source.name}!`);
+					}
+					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						this.add('-activate', source, 'move: Sticky Web');
+						this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
+					}
+					if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						const steelHazard = this.dex.getActiveMove('Stealth Rock');
+						steelHazard.type = 'Steel';
+						const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, '[silent]');
+						this.add('-message', `${source.name} was hurt by the sharp spikes!`);
+					}
+				}
+			},
 		},
 		rating: 3,
 		num: -1059,
