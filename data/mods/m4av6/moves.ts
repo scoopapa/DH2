@@ -282,7 +282,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
-					}
 				}
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
@@ -323,7 +322,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
-					}
 				}
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
@@ -351,7 +349,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
-					}
 				}
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
@@ -379,7 +376,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
-					}
 				}
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
