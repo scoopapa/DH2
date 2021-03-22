@@ -267,6 +267,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The sharp spikes are surrounding ${active.name}!`);
+					}
+				}
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
@@ -301,6 +307,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
 				this.effectData.layers = 1;
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The spikes are surrounding ${active.name}!`);
+					}
+				}
 			},
 			onRestart(side) {
 				if (this.effectData.layers >= 3) return false;
@@ -334,6 +346,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The pointed stones are surrounding ${active.name}!`);
+					}
+				}
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
@@ -360,6 +378,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The sticky web is surrounding ${active.name}!`);
+					}
+				}
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -389,6 +413,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectData.layers = 1;
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The toxic spikes are surrounding ${active.name}!`);
+					}
+				}
 			},
 			onRestart(side) {
 				if (this.effectData.layers >= 2) return false;
