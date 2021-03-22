@@ -2121,7 +2121,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBeforeMove(source, target, move) {
 			if (move.multihit) {
 				this.add('-ability', source, 'Long Whip');
-				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? target.illusion.name} : target.name)}'s team with ${move.name}!`);
+				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? target.illusion.name : target.name)}'s team with ${move.name}!`);
 				if (move.accuracy && move.accuracy !== true) {
 					if (!this.randomChance(move.accuracy, 100)) {
 						this.add('-message', `But it failed!`);
