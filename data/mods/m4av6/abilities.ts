@@ -2151,6 +2151,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					duration: 3,
 					move: move,
 					source: source,
+					position: target.position,
+					side: target.side,
 					moveData: {
 						id: move.id,
 						name: move.name,
