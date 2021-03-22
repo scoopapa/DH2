@@ -2197,9 +2197,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			if (pokemon.volatiles['gravitationalpull']) {
 				pokemon.removeVolatile('gravitationalpull');
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon.hasAbility('gravitationalpull')) {
-						pokemon.addVolatile('gravitationalpull');
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull') && active !== pokemon) {
+						active.addVolatile('gravitationalpull');
 						return;
 					}
 				}
@@ -2246,8 +2246,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							layers += target.side.foe.sideConditions['spikes'].layers;
 						}
 						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
-						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target, '[silent]');
-						this.add('-message', `${source.name} was hurt by the spikes!`);
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+						// this.add('-message', `${source.name} was hurt by the spikes!`);
 					}
 					if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
 						if (!success) {
@@ -2273,8 +2273,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							this.add('-ability', source, 'Gravitational Pull');
 						}
 						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, '[silent]');
-						this.add('-message', `Pointed stones dug into ${source.name}!`);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+						// this.add('-message', `Pointed stones dug into ${source.name}!`);
 					}
 					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
 						if (!success) {
@@ -2292,8 +2292,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						const steelHazard = this.dex.getActiveMove('Stealth Rock');
 						steelHazard.type = 'Steel';
 						const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
-						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, '[silent]');
-						this.add('-message', `${source.name} was hurt by the sharp spikes!`);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+						// this.add('-message', `${source.name} was hurt by the sharp spikes!`);
 					}
 				}
 			},
