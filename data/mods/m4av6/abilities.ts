@@ -1557,7 +1557,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Special') {
 					source.addVolatile('specialsound');
 				}
-				this.useMove('earthquake', this.effectData.target);
+				/*
+				this.add('-anim', source, "Earthquake", target);
+				*/
+				this.useMove('earthquake', this.effectData.target); // going to rework this a bit
 			}
 		},
 		name: "Seismic Scream",
@@ -1780,8 +1783,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 189,
 	},
 	forgery: {
-		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack.",
-		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
+		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party.",
+		shortDesc: "Inherits the item of the last party member.",
 		onStart(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			pokemon.addVolatile('forgery');
@@ -1798,39 +1801,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const forgery = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name} copied the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
+			if (!pokemon.item) {
+				this.add('-ability', pokemon, 'Forgery');
+				this.add('-message', `${pokemon.name}'s Zoroarkite returned to normal!`);
+				pokemon.item = 'zoroarkite' as ID;
+			}
 		},
 		onEnd(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			if (pokemon.item !== 'zoroarkite') {
 				this.add('-ability', pokemon, 'Forgery');
-				if (pokemon.item) {
-					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
-				} else {
-					this.add('-message', `${pokemon.name} is now holding Zoroarkite!`);
-				}
+				this.add('-message', `${pokemon.name}'s Zoroarkite returned to normal!`);
 				pokemon.item = 'zoroarkite' as ID;
 			}
-		},
-		condition: {
-			onStart(pokemon) {
-				if (pokemon.species.name !== 'Zoroark-Mega') return null;
-			},
-			onDamagingHit(damage, target, source, move) {
-				this.effectData.busted = true;
-			},
-			onFaint(pokemon) {
-				this.effectData.busted = true;
-			},
-			onUpdate(pokemon) {
-				if (this.effectData.busted === true && pokemon.item !== 'zoroarkite') {
-					this.add('-ability', pokemon, 'Forgery');
-					if (pokemon.item) {
-						this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
-					}
-					pokemon.item = 'zoroarkite' as ID;
-				}
-			},
 		},
 		isPermanent: true,
 		name: "Forgery",
@@ -1891,7 +1878,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Status') {
 					this.useMove(move, target, data.target);
 				} else {
-					this.useMove(move, data.source, data.target);
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+					this.trySpreadMoveHit([data.target], data.source, hitMove)
 				}
 			},
 		},
@@ -2100,13 +2088,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onUpdate(pokemon) {
 				if (this.effectData.lit) {
+					pokemon.removeVolatile('redlicorice');
+					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 					this.hint("The sticky gel ignited!");
 					if (this.effectData.damage) {
 						this.damage(this.effectData.damage / 2, this.effectData.target);
 					}
 					pokemon.trySetStatus('brn', this.effectData.source);
-					pokemon.removeVolatile('redlicorice');
-					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 				}
 			},
 		},
@@ -2120,6 +2108,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMove(target, source, move) {
 			if (!move || !source) return;
 			if (move.type === 'Dark' && move.category === 'Status') {
+				this.add('-ability', this.effectData.target, 'Stygian Shades');
 				this.effectData.target.side.foe.addSideCondition('spikes');
 			}
 		},
@@ -2171,6 +2160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						type: move.type,
 					},
 				});
+				this.add('-ability', source, 'Long Whip');
 				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
 				return null;
 			}
@@ -2178,6 +2168,109 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Long Whip",
 		rating: 3,
 		num: -1058,
+	},
+	gravitationalpull: {
+		desc: "This Pokémon is immune to all entry hazards and incorporates them into its body. Pokémon making contact with this Pokémon are affected by all of the hazards on both sides of the field, in the same way as if they had switched in.",
+		shortDesc: "Hazard immunity. On contact, attackers suffer the effects of hazards on the field.",
+		name: "Gravitational Pull",
+		onStart(pokemon) {
+			let announced = undefined;
+			const hazards = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const sideCondition of hazards) {
+				if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+					this.add('-ability', pokemon, 'Gravitational Pull');
+					this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-message', `The hazards on the field returned to their original positions!`);
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				let success = undefined;
+				if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+					if (!success) {
+						success = true;
+						this.add('-ability', source, 'Gravitational Pull');
+					}
+					let layers = 0;
+					if (target.side.sideConditions['spikes']) {
+						layers += target.side.sideConditions['spikes'].layers;
+					}
+					if (target.side.foe.sideConditions['spikes']) {
+						layers += target.side.foe.sideConditions['spikes'].layers;
+					}
+					const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+					this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+					this.hint(`${source.name} was hurt by the spikes!`);
+				}
+				if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
+					if (!success) {
+						success = true;
+						this.add('-ability', source, 'Gravitational Pull');
+					}
+					let layers = 0;
+					if (target.side.sideConditions['toxicspikes']) {
+						layers += target.side.sideConditions['toxicspikes'].layers;
+					}
+					if (target.side.foe.sideConditions['toxicspikes']) {
+						layers += target.side.foe.sideConditions['toxicspikes'].layers;
+					}
+					if (layers >= 2) {
+						source.trySetStatus('tox', target);
+					} else {
+						source.trySetStatus('psn', target);
+					}
+				}
+				if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
+					if (!success) {
+						success = true;
+						this.add('-ability', source, 'Gravitational Pull');
+					}
+					const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+					this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+					this.hint(`Pointed stones dug into ${source.name}!`);
+				}
+				if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
+					if (!success) {
+						success = true;
+						this.add('-ability', source, 'Gravitational Pull');
+					}
+					this.add('-activate', source, 'move: Sticky Web');
+					this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
+				}
+				if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
+					if (!success) {
+						success = true;
+						this.add('-ability', source, 'Gravitational Pull');
+					}
+					const steelHazard = this.dex.getActiveMove('Stealth Rock');
+					steelHazard.type = 'Steel';
+					const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
+					this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+					this.hint(`${source.name} was hurt by the sharp spikes!`);
+				}
+			}
+		},
+		rating: 3,
+		num: -1059,
+	},
+	chakralock: {
+		desc: "After this Pokémon uses an attack that is super effective on the target, the target is burned.",
+		shortDesc: "After an attack that is super effective on the target, the target is burned.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+				target.trySetStatus('brn', source);
+			}
+		},
+		name: "Chakra Lock",
+		rating: 3,
+		num: -1060,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
