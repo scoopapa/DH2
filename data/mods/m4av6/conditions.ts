@@ -255,16 +255,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -283,21 +284,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -316,8 +318,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip2: {
@@ -326,16 +328,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -354,21 +357,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -387,8 +391,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip3: {
@@ -397,16 +401,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -425,21 +430,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -458,8 +464,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip4: {
@@ -468,16 +474,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -496,21 +503,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -529,8 +537,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 	longwhip5: {
@@ -539,16 +547,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 3,
 		onResidual(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -567,21 +576,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
+			this.effectData.target = this.effectData.side.active[this.effectData.position];
 			const data = this.effectData;
 			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
+			if (data.target.fainted || data.target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
+			data.target.removeVolatile('Protect');
+			data.target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -600,8 +610,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-			this.add('-anim', data.source, hitMove, target);
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.add('-anim', data.source, hitMove, data.target);
+			this.trySpreadMoveHit([data.target], data.source, hitMove);
 		},
 	},
 };
