@@ -2120,9 +2120,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
 		onBeforeMove(source, target, move) {
 			if (move.multihit) {
+				this.add('-ability', source, 'Long Whip');
+				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? target.illusion.name} : target.name)}'s team with ${move.name}!`);
 				if (move.accuracy && move.accuracy !== true) {
 					if (!this.randomChance(move.accuracy, 100)) {
-						return false;
+						this.add('-message', `But it failed!`);
+						return null;
 					}
 				}
 				this.add('-ability', source, 'Long Whip');
@@ -2140,7 +2143,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					return false;
 				}
-				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? 'target.illusion.name' : 'target.name')}'s team with ${move.name}!`);
 				let numberHits;
 				if (Array.isArray(move.multihit) && move.multihit.length) {
 					numberHits = move.multihit[1];
@@ -2149,23 +2151,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
 					duration: numberHits,
-					move: move,
 					source: source,
+					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: {
-						id: move.id,
-						name: move.name,
-						accuracy: true,
-						basePower: move.basepower,
-						category: move.category,
-						priority: move.priority,
-						flags: move.flags,
-						ignoreImmunity: false,
-						effectType: 'Move',
-						isFutureMove: true,
-						type: move.type,
-					},
+					moveData: this.dex.getMove(move),
 				});
 				return null;
 			}
