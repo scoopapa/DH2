@@ -263,8 +263,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -296,8 +296,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -334,8 +334,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -367,8 +367,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -405,8 +405,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -438,8 +438,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -476,8 +476,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -509,8 +509,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -547,8 +547,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
@@ -580,8 +580,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 
 			this.add(`${data.target.name} took the ${move.name} attack!`);
-			data.target.removeVolatile('Protect');
-			data.target.removeVolatile('Endure');
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
 
 			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 				data.moveData.infiltrates = true;
