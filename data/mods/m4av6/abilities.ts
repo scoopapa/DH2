@@ -648,23 +648,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target.setStatus('brn', source);
 				} else if (r < 3) {
 					if (target.status === 'psn') {
-						this.add('-message', `${target.name}'s poison became more severe!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)}'s poison became more severe!`);
 						target.setStatus('tox', source);
 					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('confusion')) {
-						this.add('-message', `${target.name} could not be confused!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be confused!`);
 					}
 				} else if (r < 5) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('encore')) {
-						this.add('-message', `${target.name} could not be affected by Encore!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be affected by Encore!`);
 					}
 				} else if (r < 6) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('torment')) {
-						this.add('-message', `${target.name} could not be affected by Torment!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be affected by Torment!`);
 					}
 				} else if (r < 7) {
 					this.add('-ability', source, 'Alchemist');
@@ -763,23 +763,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-ability', source, 'Alchemist');
 					if (target.hp >= target.maxhp / 4) {
 						if (!target.addVolatile('curse')) {
-							this.add('-message', `${target.name} could not be cursed!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be cursed!`);
 						}
 					} else {
-						this.add('-message', `${target.name} suddenly exploded!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} suddenly exploded!`);
 						this.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
 					}
 				} else {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('alchemist')) {
-						this.add('-message', `${target.name} has already transformed!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} has already transformed!`);
 					}
 				}
 			}
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-message', `${pokemon.name} is being transformed...!?`);
+				this.add('-message', `${(pokemon.illusion ? pokemon.illusion.name : pokemon.name)} is being transformed...!?`);
 				const randForm = this.random(3);
 				if (randForm < 1) {
 					this.add('-message', `It became a Seismitoad!`);
@@ -1079,7 +1079,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 				}
 				this.add('-ability', pokemon, 'Luster Swap');
-				this.add('-message', `${pokemon.name} can't hit ${target.name} super effectively!`);
+				this.add('-message', `${pokemon.name} can't hit ${(target.illusion ? target.illusion.name : target.name)} super effectively!`);
 				return;
 			}
 		},
@@ -2044,7 +2044,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target === this.effectData.source) {
 					this.add('-message', `${target.name} was lifted up by its pool floaties!`);
 				} else {
-					this.add('-message', `${target.name} was lifted up by ${this.effectData.source.name}'s pool floaties!`);
+					this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} was lifted up by ${this.effectData.source.name}'s pool floaties!`);
 				}
 			},
 			onImmunity(type) {
@@ -2053,7 +2053,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onResidualOrder: 15,
 			onEnd(target) {
 				this.add('-end', target, 'Pool Floaties', '[silent]');
-				this.add('-message', `${target.name} floated back down!`);
+				this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} floated back down!`);
 			},
 		},
 		name: "Pool Floaties",
@@ -2128,7 +2128,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						return null;
 					}
 				}
-				this.add('-ability', source, 'Long Whip');
 				let whipMove = null;
 				if (target.side.addSlotCondition(target, 'longwhip1')) {
 					whipMove = 'longwhip1';
