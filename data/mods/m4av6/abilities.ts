@@ -2131,6 +2131,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					whipMove = 'longwhip4';
 				} else if (target.side.addSlotCondition(target, 'longwhip5')) {
 					whipMove = 'longwhip5';
+				} else {
+					return false;
 				}
 				this.add('-ability', source, 'Long Whip');
 				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
@@ -2146,9 +2148,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					numberHits = move.multihit;
 				}
-				if (!target.side.addSlotCondition(target, whipMove)) return false;
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
-					duration: 3,
+					duration: numberHits,
 					move: move,
 					source: source,
 					position: target.position,
