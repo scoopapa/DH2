@@ -277,7 +277,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
 					return;
 				}
-				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
+				if (
+					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('gravitationalpull')
+				) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+					}
+				}
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
 				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
@@ -312,7 +318,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('spikes');
 					return;
 				}
-				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
+				if (
+					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('gravitationalpull')
+				) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+					}
+				}
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -334,7 +346,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stealthrock');
 					return;
 				}
-				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
+				if (
+					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('gravitationalpull')
+				) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+					}
+				}
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
@@ -356,7 +374,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('stickyweb');
 					return;
 				}
-				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
+				if (
+					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('gravitationalpull')
+				) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+					}
+				}
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -389,12 +413,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
-					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) {
+					pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('gravitationalpull')) {
 					return;
-				} else if (this.effectData.layers >= 2) {
-					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
-					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+					for (const active of this.getAllActive()) {
+						if (active.hasAbility('gravitationalpull')) return;
+					}
+					if (this.effectData.layers >= 2) {
+						pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+					} else {
+						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+					}
 				}
 			},
 		},
