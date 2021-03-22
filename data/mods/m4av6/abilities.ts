@@ -2146,13 +2146,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					numberHits = move.multihit;
 				}
+				if (!target.side.addSlotCondition(target, whipMove)) return false;
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
-					duration: numberHits,
-					source: source,
-					target: null,
+					duration: 3,
 					move: move,
-					position: target.position,
-					side: target.side,
+					source: source,
 					moveData: {
 						id: move.id,
 						name: move.name,
@@ -2161,6 +2159,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						category: move.category,
 						priority: move.priority,
 						flags: move.flags,
+						ignoreImmunity: false,
 						effectType: 'Move',
 						isFutureMove: true,
 						type: move.type,
