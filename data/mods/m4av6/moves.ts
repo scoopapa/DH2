@@ -1307,4 +1307,53 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	tripleaxel: {
+		num: 813,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (move.longWhipBoost) {
+				return 20 * move.longWhipBoost;
+			} else {
+				return 20 * move.hit;
+			}
+		},
+		category: "Physical",
+		name: "Triple Axel",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 140},
+	},
+	triplekick: {
+		num: 167,
+		accuracy: 90,
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			if (move.longWhipBoost) {
+				return 10 * move.longWhipBoost;
+			} else {
+				return 10 * move.hit;
+			}
+		},
+		category: "Physical",
+		name: "Triple Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 80},
+		contestType: "Cool",
+	},
 };
