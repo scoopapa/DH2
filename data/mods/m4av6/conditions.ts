@@ -263,7 +263,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -277,7 +277,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -285,7 +285,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit([data.target], data.source, hitMove);
+			this.trySpreadMoveHit(data.target, data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -297,7 +297,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -311,7 +311,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -336,7 +336,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -350,7 +350,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -358,7 +358,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit([data.target], data.source, hitMove);
+			this.trySpreadMoveHit(data.target, data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -370,7 +370,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -384,7 +384,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -409,7 +409,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -423,7 +423,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -431,7 +431,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit([data.target], data.source, hitMove);
+			this.trySpreadMoveHit(data.target, data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -443,7 +443,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -457,7 +457,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -482,7 +482,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -496,7 +496,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -504,7 +504,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit([data.target], data.source, hitMove);
+			this.trySpreadMoveHit(data.target, data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -516,7 +516,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -530,7 +530,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -555,7 +555,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -569,7 +569,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
@@ -577,7 +577,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 			this.add('-anim', data.source, hitMove, data.target);
-			this.trySpreadMoveHit([data.target], data.source, hitMove);
+			this.trySpreadMoveHit(data.target, data.source, hitMove);
 		},
 		onEnd(target) {
 			// unlike a future move, Long Whip activates each turn
@@ -589,7 +589,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 
-			this.add(`${data.target.name} took the ${move.name} attack!`);
+			this.add('-message', `${data.target.name} took the ${move.name} attack!`);
 			data.target.removeVolatile('Protect');
 			data.target.removeVolatile('Endure');
 
@@ -603,7 +603,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.move.basePower = 20 * (3 - data.duration);
+				data.move.basePower *= (3 - data.duration);
 				console.log(data.move.basePower);
 			}
 			data.moveData.isFutureMove = true;
