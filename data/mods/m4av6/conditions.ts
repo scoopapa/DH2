@@ -277,7 +277,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -311,7 +311,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -350,7 +350,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -384,7 +384,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -423,7 +423,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -457,7 +457,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -496,7 +496,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -530,7 +530,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -569,7 +569,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
@@ -603,7 +603,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				data.moveData.stab = 2;
 			}
 			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
-				data.moveData.hit = 3 - data.duration;
+				data.moveData.longWhipBoost = 3 - data.duration;
 			}
 			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
