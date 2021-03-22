@@ -82,6 +82,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("floatzel", ["coaching", "flipturn"]);
 		newMoves("simisear", ["calmmind", "dazzlinggleam", "drainingkiss", "mysticalfire", "playrough", "slackoff"]);
 		newMoves("krookodile", ["partingshot", "shoreup", "topsyturvy"]);
+		newMoves("torterra", ["bodypress", "gravapple", "meteorbeam"]);
+		newMoves("empoleon", ["flipturn", "haze", "originpulse", "roost"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
