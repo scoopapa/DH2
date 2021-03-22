@@ -1875,7 +1875,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-					this.add('-anim', data.source, hitMove, target);
+					this.add('-anim', data.source, hitMove, data.target);
 					this.trySpreadMoveHit([data.target], data.source, hitMove)
 				}
 			},
