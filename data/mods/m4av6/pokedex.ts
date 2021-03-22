@@ -610,7 +610,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	empoleonmega: {
 		num: 395,
-		name: "Empoleon",
+		name: "Empoleon-Mega",
+		baseSpecies: "Empoleon",
+		forme: "Mega",
 		types: ["Water", "Steel"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 84, atk: 86, def: 103, spa: 131, spd: 141, spe: 85},
