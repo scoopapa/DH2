@@ -283,6 +283,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
@@ -315,6 +316,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
@@ -352,6 +354,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
@@ -384,6 +387,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
@@ -421,6 +425,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
@@ -453,6 +458,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
@@ -490,6 +496,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
@@ -522,6 +529,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
@@ -559,6 +567,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 		onEnd(target) {
@@ -591,6 +600,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			data.move.multihit = null;
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			this.add('-anim', data.source, hitMove, target);
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
