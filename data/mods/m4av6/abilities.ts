@@ -2133,7 +2133,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else if (target.side.addSlotCondition(target, 'longwhip5')) {
 					whipMove = 'longwhip5';
 				}
+				this.add('-ability', source, 'Long Whip');
+				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
 				if (whipMove === null) return false;
+				if (move.accuracy) {
+					if (!this.randomChance(move.accuracy, 100)) {
+						return false;
+					}
+				}
 				let numberHits;
 				if (Array.isArray(move.multihit) && move.multihit.length) {
 					numberHits = move.multihit[1];
@@ -2150,7 +2157,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					moveData: {
 						id: move.id,
 						name: move.name,
-						accuracy: move.accuracy,
+						accuracy: true,
 						basePower: move.basepower,
 						category: move.category,
 						priority: move.priority,
@@ -2160,8 +2167,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						type: move.type,
 					},
 				});
-				this.add('-ability', source, 'Long Whip');
-				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
 				return null;
 			}
 		},
