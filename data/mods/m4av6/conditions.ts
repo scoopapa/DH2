@@ -276,14 +276,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -314,14 +310,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -357,14 +349,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -395,14 +383,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -438,14 +422,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -476,14 +456,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -519,14 +495,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -557,14 +529,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -600,14 +568,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
@@ -638,14 +602,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			if (data.move.name === 'Triple Axel') {
-				data.moveData.basePower = 20 * (3 - data.duration);
-				console.log(data.moveData.basePower);
+			if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+				data.moveData.hit = 3 - data.duration;
 			}
-			if (data.move.name === 'Triple Kick') {
-				data.moveData.basePower = 10 * (3 - data.duration);
-				console.log(data.moveData.basePower);
-			}
+			data.moveData.accuracy = true;
 			data.moveData.isFutureMove = true;
 			data.move.multihit = null;
 
