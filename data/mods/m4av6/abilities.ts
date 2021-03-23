@@ -265,6 +265,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			if (!source.hasAbility('arenarock')) {
+				source = this.effectData.target;
 				this.field.setTerrain('grassyterrain');
 			}
 		},
@@ -1875,7 +1876,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-					this.add('-anim', data.source, hitMove, data.target);
+					if (data.source.hp) {
+						this.add('-anim', data.source, hitMove, data.target);
+					}
 					this.trySpreadMoveHit([data.target], data.source, hitMove);
 				}
 			},
@@ -2263,7 +2266,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							this.add('-ability', source, 'Gravitational Pull');
 						}
 						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-						this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
 						// this.add('-message', `Pointed stones dug into ${source.name}!`);
 					}
 					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
@@ -2282,7 +2285,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						const steelHazard = this.dex.getActiveMove('Stealth Rock');
 						steelHazard.type = 'Steel';
 						const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
-						this.damage(source.maxhp * Math.pow(2, typeMod) / 8);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
 						// this.add('-message', `${source.name} was hurt by the sharp spikes!`);
 					}
 				}
