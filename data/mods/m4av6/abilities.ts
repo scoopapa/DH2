@@ -2217,10 +2217,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				for (const sideCondition of hazards) {
 					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
 						this.add('-ability', pokemon, 'Gravitational Pull');
+						this.add('-start', pokemon, 'ability: Gravitational Pull');
 						this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
 						return;
 					}
 				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'ability: Gravitational Pull', '[silent]');
 			},
 			onDamagingHitOrder: 1,
 			onDamagingHit(damage, target, source, move) {
