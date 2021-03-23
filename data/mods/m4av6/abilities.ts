@@ -2210,13 +2210,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
+				this.add('-start', pokemon, 'ability: Gravitational Pull');
 				const hazards = [
 					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 				];
 				for (const sideCondition of hazards) {
 					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
-						this.add('-ability', pokemon, 'Gravitational Pull');
-						this.add('-start', pokemon, 'ability: Gravitational Pull');
 						this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
 						return;
 					}
