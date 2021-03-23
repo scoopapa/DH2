@@ -265,8 +265,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			if (!source.hasAbility('arenarock')) {
-				source = this.effectData.target;
-				this.field.setTerrain('grassyterrain');
+				this.field.setTerrain('grassyterrain', this.effectData.target);
 			}
 		},
 		onEnd(pokemon) {
