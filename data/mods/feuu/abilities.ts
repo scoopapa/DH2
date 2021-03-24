@@ -337,7 +337,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} else console.log("Target does not have Sturdy Mold");
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			move.infiltrates = true;
 		},
@@ -365,46 +365,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	concussion: {
 		id: "concussion",
 		name: "Concussion",
-		shortDesc: "Halves the effect of the foe's item. (Not coded)",
-		//g-luke, i dont know what dark god told you this ability was a good idea
-		//but someday karma will catch up to you and god wont be as merciful as i am
-		/*
-		onFoeTryHeal(damage, target, source, effect) {
-			if (!effect) return;
-			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
-				this.add('-activate', target, 'ability: Concussion');
+		shortDesc: "Halves the effects of stat changes when taking or dealing damage.",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = Math.ceil(boosts['def'] / 2);
+				boosts['spd'] = Math.ceil(boosts['spd'] / 2);
+				boosts['evasion'] = Math.ceil(boosts['evasion'] / 2);
 			}
-			if (effect.effectType === 'Item') return this.chainModify(0.5);
-		},
-		onFoeBoost(boost, target, source, effect) {
-			if (effect && (effect.effectType === 'Item')) {
-				let b: BoostName;
-				for (b in boost) {
-					//this will break i can feel it in my bones
-					boost[b] = math.ceil(boost[b] * 0.5);
-				}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = Math.ciel(boosts['atk'] / 2);
+				boosts['def'] = Math.ciel(boosts['def'] / 2);
+				boosts['spa'] = Math.ciel(boosts['spa'] / 2);
+				boosts['accuracy'] = Math.ciel(boosts['accuracy'] / 2);
 			}
 		},
-		//this part DEFINITELY isnt right UGH
-		onModifyDamagePriority: -1,
-		onModifyDamage(damage, source, target, move) {
-			if (target.abilityData.berryWeaken) {
-				return this.chainModify(0.75);
-			}
-			
-		},
-		onFoeTryEatItemPriority: -1,
-		onFoeTryEatItem(item, pokemon) {
-			this.add('-activate', pokemon, 'ability: Concussion');
-		},
-		onFoeEatItem(item, pokemon) {
-			const weakenBerries = [
-				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
-			];
-			// Record if the pokemon ate a berry to resist the attack
-			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
-		},
-		*/
+		rating: 4,
+		num: 109,
 	},
 	notfunny: {
 		id: "notfunny",
@@ -461,7 +439,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				}
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
@@ -535,7 +513,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
@@ -564,7 +542,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
@@ -616,7 +594,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Solar Panel",
 		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
 		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Fire')) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Solar Panel');
 				}
@@ -648,7 +626,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;
 				} 
 			} 
-			if ((move.target === 'foeside' || move.target === 'all') && ignore) return;
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			return this.modify(atk, 1.5);
 		},
@@ -662,4 +640,167 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 55,
 	},
+	scrappy: {
+		onModifyMovePriority: -5,
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+		name: "Scrappy",
+		rating: 3,
+		num: 113,
+	},
+	sandforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (defender && defender.hasAbility('sturdymold')) return;
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Force",
+		rating: 2,
+		num: 159,
+	},
+	//next
+	noguard: {//Edited for Sturdy Mold
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target) && !target.hasAbility('sturdymold')) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target) && !target.hasAbility('sturdymold')) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "No Guard",
+		rating: 4,
+		num: 99,
+	},
+	bigpressure: {
+		name: "Big Pressure",
+		shortDesc: "Moves targeting this Pokemon lose 1 additional PP; Foes cannot lower its Defense.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Big Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.def && boost.def < 0) {
+				delete boost.def;
+				if (!(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", "Defense", "[from] ability: Big Pecks", "[of] " + target);
+				}
+			}
+		},
+	},
+	friendshield: {
+		name: "Friend Shield",
+		shortDesc: "Gets +1 Defense on switch-in. Allies recieve 3/4 damage from foes' attacks.",
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
+				this.debug('Friend Shield weaken');
+				return this.chainModify(0.75);
+			}
+		},
+	},
+	debilitate: {
+		name: "Debilitate",
+		shortDesc: "On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	leafyarmor: {//unsure
+		name: "Leafy Armor",
+		shortDesc: "If a mental status is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
+		onUpdate(pokemon) {
+			if (pokemon.status) {
+				this.add('-activate', pokemon, 'ability: Leafy Armor');
+				pokemon.cureStatus();
+				this.boost({def: -1, spe: 2}, pokemon, pokemon); 
+			}
+		},
+	},
+	surroundsound: {//unsure
+		name: "Surround Sound",
+		shortDesc: "This Pokemon recieves 1/2 damage from multitarget moves. Its own have 1.3x power.",
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['allAdjacent', 'allAdjacentFoes', 'all'].includes(move.target)) {
+				if (defender.hasAbility('sturdymold')) return;
+				this.debug('Surround Sound boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['allAdjacent', 'allAdjacentFoes', 'all'].includes(move.target)) {
+				this.debug('Surround Sound weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	spikyhold: {
+		name: "Spiky Hold",
+		shortDesc: "Cannot lose held item due to others' attacks; others making contact lose 1/8 max HP.",
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Spiky Hold');
+				return false;
+			}
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	
 };

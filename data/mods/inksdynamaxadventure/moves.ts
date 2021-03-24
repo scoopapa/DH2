@@ -1,7 +1,7 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	//------------------------------------------
 	//MOVES EDITED FOR COMPATIBILITY
-	//Hazard/screen removal, etc
+	//Hazard/screen removal, etc 
 	//------------------------------------------
 	//For item compatibility:
 	stealthrock: {

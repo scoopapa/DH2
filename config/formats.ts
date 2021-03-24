@@ -885,6 +885,7 @@ export const Formats: FormatList = [
 			'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z',
 			'Mewnium Z', 'Mimikium Z', 'Normalium Z', 'Pikanium Z', 'Pikashunium Z', 'Poisonium Z', 'Primarium Z', 'Psychium Z', 'Rockium Z', 'Snorlium Z', 'Solganium Z',
 			'Steelium Z', 'Tapunium Z', 'Ultranecrozium Z', 'Waterium Z',*/
+			'Belly Drum', 
 		],
 		unbanlist: [
 			//Slate 1
@@ -918,7 +919,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Tapu Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal',
+			'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal',
 		],
 		unbanlist: [
 			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -926,6 +927,7 @@ export const Formats: FormatList = [
 			'Pigapult', 'Lycanserker-Dusk', 'Tapu Lop', 'Dragontler', 'Eternabat',
 			'Grimmlurk', 'Manicuno-Galar', 'Yacian-Crowned', 'Cryogolem', 'Stoudrago',
 			'Grousle', 'Dongoro', 'Slurpum', 
+			'Corveot', 'Corveot-Mega', 'Igglyzenta-Crowned', 'Arctres-Galar', 'Garborude', 'Noicity', 'Ferros',
 			
 			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
 			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -1434,21 +1436,11 @@ export const Formats: FormatList = [
 
 	},
 	{
-		name: "[Gen 8] Ink's Testing Custom Game",
-		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		name: "[Gen 8] Ink's Custom Game",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'Data Mod', 'Mega Data Mod'],
 		mod: "inksdynamaxadventure",
 		searchShow: false,
 		challengeShow: false,
-		onSwitchIn(pokemon) {
-			if (pokemon.species.tier === "NEW") {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
-		onMegaEvo(pokemon) {
-			if (pokemon.species.tier === "NEW") {
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			}
-		},
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{

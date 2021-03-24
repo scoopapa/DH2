@@ -38,4 +38,13 @@ export const FormatsData: {[k: string]: ModdedFormatsData} = {
 	teravole: {
 		tier: "NEW",
 	},
+	dugtriomega: {
+		tier: "NEW",
+	},
+	emblob: {
+		tier: "NEW",
+	},
+	bunslinger: {
+		tier: "NEW",
+	},
 }; 
