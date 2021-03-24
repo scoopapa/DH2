@@ -2320,7 +2320,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	diancie: {
 		randomBattleMoves: ["diamondstorm", "bodypress", "toxic", "stealthrock", "moonlight"],
-		tier: "UU",
+		tier: "RU",
 	},
 	crobat: {
 		randomBattleMoves: ["pluck", "poisonfang", "defog", "uturn", "roost", "taunt"],
@@ -2336,7 +2336,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darmanitan: {
 		randomBattleMoves: ["thunderpunch", "flareblitz", "uturn", "earthquake", "superpower", "rockslide"],
-		tier: "RU",
+		tier: "UU",
 	},
 	darmanitangalar: {
 		randomBattleMoves: ["icepunch", "flareblitz", "uturn", "earthquake", "superpower", "ironhead"],

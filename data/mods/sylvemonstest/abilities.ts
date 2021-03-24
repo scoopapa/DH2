@@ -55,7 +55,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 59,
 	},
 	"obstinacy": {
-		shortDesc: "User gains a boost in it's moves the lower it's HP gets. Formula:  (1.0 - [Current percentage of HP in decimal form]) + 1.0",
+		shortDesc: "User gains a boost in it's moves the lower it's HP gets. Formula: (1.0 - [Current percentage of HP in decimal form]) + 1.0",
 		onModifyAtkPriority: 5,
 		onModifyAtk (atk, attacker, defender, move) {
 			let obstiancyboost = (1 - attacker.hp / attacker.maxhp) + 1;
@@ -118,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Knight's Blade",
 	},
 	"disperal": {
-		shortDesc: "Boosts Bullet Seed, Seed Bomb, and Seed Flare by 1.2x power, and Leech Seed deals 20% more damage and heals 30% more HP each turn.",
+		shortDesc: "Boosts Bullet Seed, Seed Bomb, Seed Flare, Apple Acid, and Grav Apple by 1.2x. Leech Seed deals 20% more damage and heals 30% more HP each turn.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.name === 'Bullet Seed' || move.name === 'Seed Bomb' || move.name === 'Seed Flare' || move.name === 'Grav Apple' || move.name === 'Apple Acid') {
@@ -170,7 +170,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 171,
 	},
 	"shadowsurge": {
-		shortDesc: "Summons Shadow Sky upon switching in.",
+		shortDesc: "Summons Shadow Sky upon switching in, which boosts the power of Dark and Ghost-type moves by 1.5x.",
 		onStart(source) {
 			this.field.setWeather('shadowsky');
 		},
@@ -178,7 +178,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shadow Surge",
 	},
 	"airstream": {
-		shortDesc: "Summons Air Current upon switching in.",
+		shortDesc: "Summons Air Current upon switching in, which makes Flying-types take 0.75x damage from Rock, Ice, and Electric-type moves.",
 		onStart(source) {
 			this.field.setWeather('aircurrent');
 		},
@@ -404,7 +404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"liquidvoice": {
 		desc: "This Pokemon's sound-based moves become Water-type moves. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's sound-based moves become Water type and power up by 1.2x times.",
+		shortDesc: "This Pokemon's sound moves become Water type and are boosted by 1.2x.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.flags['sound']) {
@@ -701,7 +701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 200,
 	},
 "jackofalltrades": {
-		desc: "This Pokemon's moves not of it's typing gain 1.5x power. This pokemon does not gain STAB.",
+		desc: "This Pokemon's moves not of it's typing gain 1.5x power. This Pokemon does not gain STAB.",
 		onModifyMove (move) {
 			move.stab = 1;
 		},
@@ -788,7 +788,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Space Warp",
 	},
 	"stall": {
-		shortDesc: "This Pokemon moves last among Pokemon using the same or greater priority moves. This pokemon's moves have 1.5x power.",
+		shortDesc: "This Pokemon moves last among Pokemon using the same or greater priority moves. This Pokemon's moves have 1.5x power.",
 		onModifyPriority (priority) {
 			return Math.round(priority) - 0.1;
 		},
@@ -835,7 +835,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bell Chime",
 	},
 	"hasty": {
-		shortDesc: "This Pokemon's attacks do not have to charge/recharge.",
+		shortDesc: "This Pokemon's attacks do not have to charge or recharge.",
 		onModifyMove(move) {
 			delete move.flags['charge', 'recharge'];
 		},
@@ -942,8 +942,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
     "loudspeaker": {
-        desc: "Boosts the power of sound-based moves.",
-        shortDesc: "Boosts sound move power.",
+        desc: "Boosts the power of sound-based moves by 1.3x.",
+        shortDesc: "Boosts sound move power by 1.3x.",
         onBasePowerPriority: 8,
         onBasePower(basePower, attacker, defender, move) {
             if (move.flags['sound']) {
