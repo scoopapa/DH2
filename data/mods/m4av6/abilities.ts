@@ -1,3 +1,7 @@
+const bladeMoves = [
+	'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword',
+	'secretsword', 'slash', 'xscissor', 'solarblade',
+];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
@@ -261,7 +265,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			if (!source.hasAbility('arenarock')) {
-				this.field.setTerrain('grassyterrain');
+				this.field.setTerrain('grassyterrain', this.effectData.target);
 			}
 		},
 		onEnd(pokemon) {
@@ -644,23 +648,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target.setStatus('brn', source);
 				} else if (r < 3) {
 					if (target.status === 'psn') {
-						this.add('-message', `${target.name}'s poison became more severe!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)}'s poison became more severe!`);
 						target.setStatus('tox', source);
 					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('confusion')) {
-						this.add('-message', `${target.name} could not be confused!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be confused!`);
 					}
 				} else if (r < 5) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('encore')) {
-						this.add('-message', `${target.name} could not be affected by Encore!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be affected by Encore!`);
 					}
 				} else if (r < 6) {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('torment')) {
-						this.add('-message', `${target.name} could not be affected by Torment!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be affected by Torment!`);
 					}
 				} else if (r < 7) {
 					this.add('-ability', source, 'Alchemist');
@@ -759,23 +763,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-ability', source, 'Alchemist');
 					if (target.hp >= target.maxhp / 4) {
 						if (!target.addVolatile('curse')) {
-							this.add('-message', `${target.name} could not be cursed!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} could not be cursed!`);
 						}
 					} else {
-						this.add('-message', `${target.name} suddenly exploded!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} suddenly exploded!`);
 						this.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
 					}
 				} else {
 					this.add('-ability', source, 'Alchemist');
 					if (!target.addVolatile('alchemist')) {
-						this.add('-message', `${target.name} has already transformed!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} has already transformed!`);
 					}
 				}
 			}
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-message', `${pokemon.name} is being transformed...!?`);
+				this.add('-message', `${(pokemon.illusion ? pokemon.illusion.name : pokemon.name)} is being transformed...!?`);
 				const randForm = this.random(3);
 				if (randForm < 1) {
 					this.add('-message', `It became a Seismitoad!`);
@@ -1075,7 +1079,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 				}
 				this.add('-ability', pokemon, 'Luster Swap');
-				this.add('-message', `${pokemon.name} can't hit ${target.name} super effectively!`);
+				this.add('-message', `${pokemon.name} can't hit ${(target.illusion ? target.illusion.name : target.name)} super effectively!`);
 				return;
 			}
 		},
@@ -1198,7 +1202,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	settle: {
 		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 100%. Has no effect if the same special move has been used in the last three turns.",
-		shortDesc: "On using special move for the first time in at least 3 turns: move uses Atk, 2x power.",
+		shortDesc: "On using special move for the first time in at least 3 turns: move uses Atk stat, 2x power.",
 		name: "Settle",
 		onModifyMove(move, pokemon) {
 			let num = 0;
@@ -1240,15 +1244,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "If this Pokémon is at full HP, its blade-based and slashing moves have their priority increased by 1. When its HP is in between full and 1/3, this Pokémon's Defense is raised by 1 stage after it uses a blade-based or slashing move. When it has 1/3 or less of its maximum HP, rounded down, this Pokémon's blade-based and slashing moves are critical hits.",
 		shortDesc: "Slashing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
 		onModifyPriority(priority, pokemon, target, move) {
-			const bladeMoves = [
-				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'smartstrike', 'solarblade',
-			];
 			if (bladeMoves.includes(move.id) && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
 		onSourceHit(target, source, move) {
-			const bladeMoves = [
-				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'solarblade', 'xscissor',
-			];
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (bladeMoves.includes(move.id)) {
@@ -1256,9 +1254,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyCritRatio(critRatio, source, target, move) {
-			const bladeMoves = [
-				'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword', 'secretsword', 'slash', 'solarblade', 'xscissor',
-			];
 			if (bladeMoves.includes(move.id) && source.hp <= source.maxhp / 3) return 5;
 		},
 		name: "Heavenly Techniques",
@@ -1557,7 +1552,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Special') {
 					source.addVolatile('specialsound');
 				}
-				this.useMove('earthquake', this.effectData.target);
+				/*
+				this.add('-anim', source, "Earthquake", target);
+				*/
+				this.useMove('earthquake', this.effectData.target); // going to rework this a bit
 			}
 		},
 		name: "Seismic Scream",
@@ -1780,8 +1778,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 189,
 	},
 	forgery: {
-		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack.",
-		shortDesc: "Inherits the item of the last party member. Wears off when attacked.",
+		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party.",
+		shortDesc: "Inherits the item of the last party member.",
 		onStart(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			pokemon.addVolatile('forgery');
@@ -1789,7 +1787,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
 				) continue;
 				break;
 			}
@@ -1798,39 +1797,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const forgery = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name} copied the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.name !== 'Zoroark-Mega') return;
+			if (!pokemon.item) {
+				this.add('-ability', pokemon, 'Forgery');
+				this.add('-message', `${pokemon.name}'s Zoroarkite returned to normal!`);
+				pokemon.item = 'zoroarkite' as ID;
+			}
 		},
 		onEnd(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
 			if (pokemon.item !== 'zoroarkite') {
 				this.add('-ability', pokemon, 'Forgery');
-				if (pokemon.item) {
-					this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
-				} else {
-					this.add('-message', `${pokemon.name} is now holding Zoroarkite!`);
-				}
+				this.add('-message', `${pokemon.name}'s Zoroarkite returned to normal!`);
 				pokemon.item = 'zoroarkite' as ID;
 			}
-		},
-		condition: {
-			onStart(pokemon) {
-				if (pokemon.species.name !== 'Zoroark-Mega') return null;
-			},
-			onDamagingHit(damage, target, source, move) {
-				this.effectData.busted = true;
-			},
-			onFaint(pokemon) {
-				this.effectData.busted = true;
-			},
-			onUpdate(pokemon) {
-				if (this.effectData.busted === true && pokemon.item !== 'zoroarkite') {
-					this.add('-ability', pokemon, 'Forgery');
-					if (pokemon.item) {
-						this.add('-message', `${pokemon.name}'s ${this.dex.getItem(pokemon.item).name} was destroyed!`);
-					}
-					pokemon.item = 'zoroarkite' as ID;
-				}
-			},
 		},
 		isPermanent: true,
 		name: "Forgery",
@@ -1873,7 +1856,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					return;
 				}
 
-				this.add(`${this.effectData.source.name}'s ${move.name} took effect!`);
+				this.add('-message', `${this.effectData.source.name}'s ${move.name} took effect!`);
 				data.target.removeVolatile('Protect');
 				data.target.removeVolatile('Endure');
 
@@ -1891,7 +1874,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Status') {
 					this.useMove(move, target, data.target);
 				} else {
-					this.useMove(move, data.source, data.target);
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+					if (data.source.hp) {
+						this.add('-anim', data.source, hitMove, data.target);
+					}
+					this.trySpreadMoveHit([data.target], data.source, hitMove);
 				}
 			},
 		},
@@ -1973,6 +1960,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Wishiwashi-Mega-School', this.effect, true);
 			}
 			this.add('-message', `More of ${pokemon.name}'s friends came together!`);
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			const species = this.dex.getSpecies(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
@@ -2009,8 +1997,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					attacker.formeChange(targetForme);
 					if (targetForme === 'Falinks-Mega-Legion') {
 						this.add('-message', `${attacker.name} changed to Legion formation!`);
+						this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 					} else {
 						this.add('-message', `${attacker.name} changed to Combat formation!`);
+						this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Mega Falinks
 							const species = this.dex.getSpecies(attacker.species.name);
 							const abilities = species.abilities;
@@ -2056,7 +2046,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target === this.effectData.source) {
 					this.add('-message', `${target.name} was lifted up by its pool floaties!`);
 				} else {
-					this.add('-message', `${target.name} was lifted up by ${this.effectData.source.name}'s pool floaties!`);
+					this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} was lifted up by ${this.effectData.source.name}'s pool floaties!`);
 				}
 			},
 			onImmunity(type) {
@@ -2065,7 +2055,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onResidualOrder: 15,
 			onEnd(target) {
 				this.add('-end', target, 'Pool Floaties', '[silent]');
-				this.add('-message', `${target.name} floated back down!`);
+				this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} floated back down!`);
 			},
 		},
 		name: "Pool Floaties",
@@ -2088,11 +2078,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
 					if (this.effectData.damage) {
 						this.effectData.damage += damage;
-						this.effectData.lit = true;
 					} else {
 						this.effectData.damage = damage;
-						this.effectData.lit = true;
 					}
+					this.effectData.lit = true;
 				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectData.target) {
 					this.effectData.lit = true;
 					return damage * 1.5;
@@ -2100,13 +2089,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onUpdate(pokemon) {
 				if (this.effectData.lit) {
+					pokemon.removeVolatile('redlicorice');
+					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 					this.hint("The sticky gel ignited!");
 					if (this.effectData.damage) {
 						this.damage(this.effectData.damage / 2, this.effectData.target);
 					}
 					pokemon.trySetStatus('brn', this.effectData.source);
-					pokemon.removeVolatile('redlicorice');
-					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 				}
 			},
 		},
@@ -2120,6 +2109,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMove(target, source, move) {
 			if (!move || !source) return;
 			if (move.type === 'Dark' && move.category === 'Status') {
+				this.add('-ability', this.effectData.target, 'Stygian Shades');
 				this.effectData.target.side.foe.addSideCondition('spikes');
 			}
 		},
@@ -2132,6 +2122,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Multi-hit attacks: damage over time, for as many turns as they could hit.",
 		onBeforeMove(source, target, move) {
 			if (move.multihit) {
+				this.add('-ability', source, 'Long Whip');
+				this.add('-message', `${source.name} prepared to whip ${(target.illusion ? target.illusion.name : target.name)}'s team with ${move.name}!`);
+				source.deductPP(move.id, 1);
+				if (move.accuracy && typeof move.accuracy === 'number') {
+					if (this.randomChance((100 - move.accuracy), 100)) {
+						this.add('-message', `But it failed!`);
+						return null;
+					}
+				}
 				let whipMove = null;
 				if (target.side.addSlotCondition(target, 'longwhip1')) {
 					whipMove = 'longwhip1';
@@ -2143,8 +2142,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					whipMove = 'longwhip4';
 				} else if (target.side.addSlotCondition(target, 'longwhip5')) {
 					whipMove = 'longwhip5';
+				} else {
+					this.add('-message', `But it failed!`);
+					return null;
 				}
-				if (whipMove === null) return false;
 				let numberHits;
 				if (Array.isArray(move.multihit) && move.multihit.length) {
 					numberHits = move.multihit[1];
@@ -2154,30 +2155,159 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				Object.assign(target.side.slotConditions[target.position][whipMove], {
 					duration: numberHits,
 					source: source,
-					target: null,
 					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: {
-						id: move.id,
-						name: move.name,
-						accuracy: move.accuracy,
-						basePower: move.basepower,
-						category: move.category,
-						priority: move.priority,
-						flags: move.flags,
-						effectType: 'Move',
-						isFutureMove: true,
-						type: move.type,
-					},
+					moveData: this.dex.getMove(move),
 				});
-				this.add('-message', `${source.name} prepared to whip ${target.name}'s team with ${move.name}!`);
 				return null;
 			}
 		},
 		name: "Long Whip",
 		rating: 3,
 		num: -1058,
+	},
+	gravitationalpull: {
+		desc: "This Pokémon is immune to all entry hazards and incorporates them into its body. Pokémon making contact with this Pokémon are affected by all of the hazards on both sides of the field, in the same way as if they had switched in.",
+		shortDesc: "Hazard immunity. On contact, attackers suffer the effects of hazards on the field.",
+		name: "Gravitational Pull",
+		onStart(pokemon) {
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					active.removeVolatile('gravitationalpull');
+				}
+			}
+			pokemon.addVolatile('gravitationalpull');
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['gravitationalpull']) return;
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					return;
+				}
+			}
+			pokemon.addVolatile('gravitationalpull');
+		},
+		onEnd(pokemon) {
+			if (pokemon.volatiles['gravitationalpull']) {
+				pokemon.removeVolatile('gravitationalpull');
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull') && active !== pokemon) {
+						active.addVolatile('gravitationalpull');
+						return;
+					}
+				}
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-message', `The hazards on the field returned to their original positions!`);
+						return;
+					}
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'ability: Gravitational Pull');
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
+						return;
+					}
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'ability: Gravitational Pull', '[silent]');
+			},
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				if (move.flags['contact']) {
+					let success = undefined;
+					if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['spikes']) {
+							layers += target.side.sideConditions['spikes'].layers;
+						}
+						if (target.side.foe.sideConditions['spikes']) {
+							layers += target.side.foe.sideConditions['spikes'].layers;
+						}
+						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+						// this.add('-message', `${source.name} was hurt by the spikes!`);
+					}
+					if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['toxicspikes']) {
+							layers += target.side.sideConditions['toxicspikes'].layers;
+						}
+						if (target.side.foe.sideConditions['toxicspikes']) {
+							layers += target.side.foe.sideConditions['toxicspikes'].layers;
+						}
+						if (layers >= 2) {
+							source.trySetStatus('tox', target);
+						} else {
+							source.trySetStatus('psn', target);
+						}
+					}
+					if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
+						// this.add('-message', `Pointed stones dug into ${source.name}!`);
+					}
+					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						this.add('-activate', source, 'move: Sticky Web');
+						this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
+					}
+					if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', source, 'Gravitational Pull');
+						}
+						const steelHazard = this.dex.getActiveMove('Stealth Rock');
+						steelHazard.type = 'Steel';
+						const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
+						// this.add('-message', `${source.name} was hurt by the sharp spikes!`);
+					}
+				}
+			},
+		},
+		rating: 3,
+		num: -1059,
+	},
+	chakralock: {
+		desc: "After this Pokémon uses an attack that is super effective on the target, the target is burned.",
+		shortDesc: "After an attack that is super effective on the target, the target is burned.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+				target.trySetStatus('brn', source);
+			}
+		},
+		name: "Chakra Lock",
+		rating: 3,
+		num: -1060,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
