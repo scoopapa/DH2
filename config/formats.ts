@@ -941,8 +941,11 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] GPT2mons",
+	   desc: 'A solomod by Smogon user readytolose featuring pokemon generated using a GPT2 neural network. It is currently unfinished'
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		searchShow: false,
+		challengeShow: false,
 		mod: "gpt2mons", 
 		teambuilderFormat: "OU", 	
 	},
