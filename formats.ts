@@ -1700,7 +1700,8 @@ export const Formats: FormatList = [
 				set.ability = 'Null System';	},	
 	  		if (set.species === 'Silvino-Water-Mega') {
 				set.species = 'Silvino-Water';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
+		},
 	},
 	{
 		name: "[Gen 8] M4A Random Battle",
