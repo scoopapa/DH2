@@ -1,7 +1,7 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	chomplim: {
-		randomBattleMoves: ["stealthrock", "earthquake", "strengthsap", "poltergeist", "swordsdance", "willowisp"],
+		randomBattleMoves: ["stealthrock", "earthquake", "strengthsap", "stoneedge", "swordsdance", "willowisp"],
 		randomBattleLevel: 100,
 		randomDoubleBattleMoves: ["protect", "shadowball", "earthpower", "willowisp", "stealthrock"],
 		randomDoubleBattleLevel: 100,
