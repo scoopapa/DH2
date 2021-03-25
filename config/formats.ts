@@ -1629,68 +1629,6 @@ export const Formats: FormatList = [
 		mod: 'feuu',
 		team: 'random',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-		onChangeSet(set) {
-			if (set.species === 'Chomplim-Mega') {
-				set.species = 'Chomplim';
-				set.ability = 'Rough Result';	}
-			if (set.species === 'Silvino-Mega') {
-				set.species = 'Silvino';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Bug-Mega') {
-				set.species = 'Silvino-Bug';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Dark-Mega') {
-				set.species = 'Silvino-Dark';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Dragon-Mega') {
-				set.species = 'Silvino-Dragon';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Electric-Mega') {
-				set.species = 'Silvino-Electric';
-				set.ability = 'Null System';	}	
-			if (set.species === 'Silvino-Fairy-Mega') {
-				set.species = 'Silvino-Fairy';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Fighting-Mega') {
-				set.species = 'Silvino-Fighting';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Fire-Mega') {
-				set.species = 'Silvino-Fire';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Ghost-Mega') {
-				set.species = 'Silvino-Ghost';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Flying-Mega') {
-				set.species = 'Silvino-Flying';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Grass-Mega') {
-				set.species = 'Silvino-Grass';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Ground-Mega') {
-				set.species = 'Silvino-Ground';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Ice-Mega') {
-				set.species = 'Silvino-Ice';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Poison-Mega') {
-				set.species = 'Silvino-Poison';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Psychic-Mega') {
-				set.species = 'Silvino-Psychic';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Rock-Mega') {
-				set.species = 'Silvino-Rock';
-				set.ability = 'Null System';	}
-			if (set.species === 'Silvino-Steel-Mega') {
-				set.species = 'Silvino-Steel';
-				set.ability = 'Null System';	}
-	  		if (set.species === 'Silvino-Water-Mega') {
-				set.species = 'Silvino-Water';
-				set.ability = 'Null System';	}	
-		},
 	},
 	{
 		name: "[Gen 8] M4A Random Battle",
