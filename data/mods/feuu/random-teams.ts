@@ -1596,8 +1596,8 @@ export class RandomTeams {
 				const typeCombo = types.slice().sort().join();
 
 				if (restrict) {
-					// Make sure only Roulettemons are used
-					if (species.tier !== "Roulettemons") {
+					// Make sure only Fusion Evolution UU Pokemon are used
+					if (species.tier !== "Fusion Evolution UU") {
 						continue;
 					}
 
