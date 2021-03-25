@@ -2142,9 +2142,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
 					pokemon.trySetStatus('par', source);
+					if (pokemon.getTypes().join() === 'Rock' || !pokemon.setType('Rock')) return false;
+					this.add('-start', pokemon, 'typechange', 'Rock');
 				}
-				if (target.getTypes().join() === 'Rock' || !target.setType('Rock')) return false;
-				this.add('-start', side, 'typechange', 'Rock');
 			}
 		},
 		target: "adjacentFoe",
