@@ -1,7 +1,7 @@
 /* eslint max-len: ["error", 240] */
 
-import {Dex, toID} from '../sim/dex';
-import {PRNG, PRNGSeed} from '../sim/prng';
+import {Dex, toID} from '../../../sim/dex';
+ import {PRNG, PRNGSeed} from '../../../sim/prng';
 
 export interface TeamData {
 	typeCount: {[k: string]: number};
@@ -579,6 +579,7 @@ export class RandomTeams {
 		species = this.dex.getSpecies(species);
 		let forme = species.name;
 		let gmax = false;
+		let mega = false;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -587,6 +588,10 @@ export class RandomTeams {
 		if (species.cosmeticFormes) {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
 		}
+		if (species.name.endsWith('-Mega')) {
+ 			forme = species.name.slice(0, -5);
+ 			mega = true;
+ 		}
 		if (species.name.endsWith('-Gmax')) {
 			forme = species.name.slice(0, -5);
 			gmax = true;
@@ -1061,7 +1066,7 @@ export class RandomTeams {
 			}
 		} while (moves.length < 4 && (movePool.length || rejectedPool.length));
 
-		// const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
+		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
 		const abilities: string[] = Object.values(species.abilities);
 		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
 		let ability0 = this.dex.getAbility(abilities[0]);
@@ -1177,6 +1182,8 @@ export class RandomTeams {
 					rejectAbility = (hasMove['fakeout'] && !isDoubles);
 				} else if (ability === 'Sturdy') {
 					rejectAbility = (hasMove['bulkup'] || !!counter['recoil'] || hasAbility['Solid Rock']);
+	         } else if (ability === 'Sturdy Mold') {
+ 					rejectAbility = (hasMove['bulkup'] || !!counter['recoil']);
 				} else if (ability === 'Swarm') {
 					rejectAbility = (!counter['Bug'] || !!counter['recovery']);
 				} else if (ability === 'Sweet Veil') {
@@ -1510,7 +1517,7 @@ export class RandomTeams {
 
 				// Adjust rate for species with multiple sets
 				switch (species.baseSpecies) {
-				case 'Arceus': case 'Silvally':
+				case 'Arceus': case 'Silvally': case 'Silvino':
 					if (this.randomChance(8, 9)) continue;
 					break;
 				case 'Aegislash': case 'Basculin': case 'Gourgeist': case 'Meloetta':
