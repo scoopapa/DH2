@@ -25,7 +25,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(Fusion Evolution UU Doubles)",
 	},
 	dongoro: {
-		randomBattleMoves: ["earthquake", "knockoff", "rapidspin", "stealthrock", "swordsdance", "partingshot, "gunkshot"],
+		randomBattleMoves: ["earthquake", "knockoff", "rapidspin", "stealthrock", "swordsdance", "partingshot", "gunkshot"],
 		randomBattleLevel: 100,
 		randomDoubleBattleMoves: ["protect", "knockoff", "earthquake", "partingshot", "gunkshot", "rapidspin"],
 		randomDoubleBattleLevel: 100,
