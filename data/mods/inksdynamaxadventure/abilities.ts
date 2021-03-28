@@ -65,6 +65,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 210,
 	},
+	minus: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.side.active.length === 1) {
+				return;
+			}
+			for (const allyActive of pokemon.side.active) {
+				if (
+					allyActive && allyActive.position !== pokemon.position &&
+					!allyActive.fainted && allyActive.hasAbility(['minus', 'plus', 'eleki', 'drago'])
+				) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Minus",
+		rating: 0,
+		num: 58,
+	},
+	plus: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.side.active.length === 1) {
+				return;
+			}
+			for (const allyActive of pokemon.side.active) {
+				if (
+					allyActive && allyActive.position !== pokemon.position &&
+					!allyActive.fainted && allyActive.hasAbility(['minus', 'plus', 'eleki', 'drago'])
+				) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Plus",
+		rating: 0,
+		num: 57,
+	},
 	//------------------------------------------
 	//EDITED ABILITIES
 	//------------------------------------------
@@ -236,45 +274,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1004, 
 		shortDesc: "Restores status condition and 1/3 HP after getting a KO.", 
 	}, 
+	concealment: {
+		name: "Concealment",
+		shortDesc: "Obscures the name of the moves this Pokemon uses.",
+		//not coded currently
+		//should i include tactics...? 
+	},
 	
-	minus: {
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.side.active.length === 1) {
-				return;
-			}
-			for (const allyActive of pokemon.side.active) {
-				if (
-					allyActive && allyActive.position !== pokemon.position &&
-					!allyActive.fainted && allyActive.hasAbility(['minus', 'plus', 'eleki', 'drago'])
-				) {
-					return this.chainModify(1.5);
-				}
-			}
+	nemesis: {
+		shortDesc: "On switch-in, this Pokemon uses Psych Up.",
+		onStart(pokemon) {
+			this.useMove('psychup', pokemon);
 		},
-		name: "Minus",
-		rating: 0,
-		num: 58,
+		name: "Nemesis",
+		rating: 4,
 	},
-	plus: {
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.side.active.length === 1) {
-				return;
-			}
-			for (const allyActive of pokemon.side.active) {
-				if (
-					allyActive && allyActive.position !== pokemon.position &&
-					!allyActive.fainted && allyActive.hasAbility(['minus', 'plus', 'eleki', 'drago'])
-				) {
-					return this.chainModify(1.5);
-				}
-			}
-		},
-		name: "Plus",
-		rating: 0,
-		num: 57,
-	},
+	
+	//------------------------------------------
+	//TACTICS STAND-INS
+	//------------------------------------------
 	eleki: {
 		name: "Eleki", 
 		shortDesc: "Placeholder for Tactics. Plus + Transistor + Reinitialize", 
@@ -376,22 +394,39 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 
-	
-	
-	concealment: {
-		name: "Concealment",
-		shortDesc: "Obscures the name of the moves this Pokemon uses.",
-		//not coded currently
-		//should i include tactics...? 
-	},
-	
-	nemesis: {
-		shortDesc: "On switch-in, this Pokemon uses Psych Up.",
-		onStart(pokemon) {
-			this.useMove('psychup', pokemon);
+	haretrigger: {
+		name: "Hare Trigger",
+		shortDesc: "Placeholder for Tactics. Technician + Skill Link + Quick Draw",
+		//Technician
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
 		},
-		name: "Nemesis",
-		rating: 4,
+		//Quick Draw
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (pokemon.activeMoveActions > 0) return;
+			if (move.category !== "Status") {
+				this.add('-activate', pokemon, 'ability: Quick Draw');
+				return 0.1;
+			}
+		},
+		//Skill Link
+		onModifyMove(move) {
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				move.multihit = move.multihit[1];
+			}
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+			}
+		},
 	},
+	
+	
 	
 }; 

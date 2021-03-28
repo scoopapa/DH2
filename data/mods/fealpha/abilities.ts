@@ -40,9 +40,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					active.switchFlag = false;
 				}
 			}
+			this.effectData.exiting = true;
 			target.switchFlag = true;
-			target.heal(target.baseMaxhp / 3);
 			this.add('-activate', target, 'ability: Au Revoir');
+		},
+		onSwitchOut(pokemon) {
+			if (this.effectData.exiting === true) {
+				this.effectData.exiting = undefined;
+			} else {
+				pokemon.heal(pokemon.baseMaxhp / 3);
+			}
 		},
 		id: "aurevoir",
 		name: "Au Revoir",
@@ -546,7 +553,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Plus Ultra",
 		onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (attacker.gender !== defender.gender) {
+				if (defender && ['psn', 'tox'].includes(defender.status)) {
 					this.debug('Plus Ultra boost');
 					return this.chainModify(1.5);
 				}

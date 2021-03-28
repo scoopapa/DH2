@@ -69,6 +69,8 @@ export const Scripts: BattleScriptsData = {
 		
 		this.modData('Learnsets', 'dugtrio').learnset.firstimpression = ['8L1'];
 		this.modData('Learnsets', 'dugtrio').learnset.uturn = ['8L1'];
+		
+		this.modData('Learnsets', 'regigigas').learnset.noretreat = ['8L1'];
 	},
 	
 

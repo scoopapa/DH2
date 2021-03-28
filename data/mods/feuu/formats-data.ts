@@ -515,5 +515,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Fusion Evolution UU",
 		doublesTier: "(Fusion Evolution UU Doubles)",
 	},
-	
 }; 
