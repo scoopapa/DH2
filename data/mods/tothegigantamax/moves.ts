@@ -689,12 +689,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mean Look", target);
 			this.add('-anim', source, "Bug Buzz", target);
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Tinted Lens boost');
-				return this.chainModify(2);
-			}
-		},
+      onEffectiveness(typeMod, target, type) {
+         if (typeMod < 0) {
+             this.debug('Ignoring resist');
+             return 0;
+         }
+      },
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Bug",
@@ -1628,33 +1628,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 */	
-	gmaxevoglace: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
+gmaxevoglace: {
+        num: 1000,
+        accuracy: true,
+        basePower: 10,
+        category: "Physical",
       shortDesc: "Base move affects power. 2x damage on NVE and hits adjacent opponents.",
-		isNonstandard: "Gigantamax",
-		name: "G-Max Evo-Glace",
-		pp: 10,
-		priority: 0,
-		isMax: "Glaceon",
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Extreme Evoboost", target);
-			this.add('-anim', source, "Blizzard", target);
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Tinted Lens boost');
-				return this.chainModify(2);
-			}
-		},
-		secondary: null,
-		target: "allAdjacentFoe",
-		type: "Ice",
-		contestType: "Beautiful",
-	},
+        isNonstandard: "Gigantamax",
+        name: "G-Max Evo-Glace",
+        pp: 10,
+        priority: 0,
+        isMax: "Glaceon",
+        onPrepareHit: function(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Extreme Evoboost", target);
+            this.add('-anim', source, "Blizzard", target);
+        },
+        onEffectiveness(typeMod, target, type) {
+            if (typeMod < 0) {
+                this.debug('Ignoring resist');
+                return 0;
+            }
+        },
+        secondary: null,
+        target: "allAdjacentFoes",
+        type: "Ice",
+        contestType: "Beautiful",
+    },
 	
 	gmaxsoulraze: {
 		num: 1000,
@@ -2142,9 +2142,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
 					pokemon.trySetStatus('par', source);
+					if (pokemon.getTypes().join() === 'Rock' || !pokemon.setType('Rock')) return false;
+					this.add('-start', pokemon, 'typechange', 'Rock');
 				}
-				if (target.getTypes().join() === 'Rock' || !target.setType('Rock')) return false;
-				this.add('-start', side, 'typechange', 'Rock');
 			}
 		},
 		target: "adjacentFoe",
