@@ -1249,6 +1249,8 @@ export class RandomTeams {
 				if (hasAbility['Telepathy'] && (ability === 'Pressure' || hasAbility['Analytic'])) ability = 'Telepathy';
 				if (hasAbility['Triage']) ability = 'Triage';
 			}
+		} else if ((forme.startsWith('Silvino')) && mega) { 
+			ability = 'Null System'; 
 		} else {
 			ability = ability0.name;
 		}
