@@ -738,7 +738,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	debilitate: {
 		name: "Debilitate",
-		shortDesc: "On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage.",
+		shortDesc: "On switch-in, this Pokemon lowers the Special Attack of adjacent opponents by 1 stage.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
