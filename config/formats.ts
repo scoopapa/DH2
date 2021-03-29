@@ -942,6 +942,16 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] GPT2mons",
+	   desc: 'A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		searchShow: false,
+		challengeShow: false,
+		mod: "gpt2mons", 
+		teambuilderFormat: "OU", 	
+	},
+	{
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
@@ -1604,6 +1614,13 @@ export const Formats: FormatList = [
 	{
 		section: "Randomized Metas",
 		column: 3,
+	},
+	{
+		name: "[Gen 8] Fusion Evolution UU Random Battle",
+			
+		mod: 'feuu',
+		team: 'random',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 	},
 	{
 		name: "[Gen 8] M4A Random Battle",
