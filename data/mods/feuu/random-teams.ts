@@ -1545,8 +1545,7 @@ export class RandomTeams {
 				const tier = species.tier;
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
-				
-				const isMega = (species.name.endsWith('-Mega');
+				const isMega = species.name.endsWith('-Mega');
 				
 				if (restrict) {					
 					// Make sure only Fusion Evolution UU Pokemon are used
