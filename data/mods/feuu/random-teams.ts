@@ -1497,7 +1497,9 @@ export class RandomTeams {
 		const typeCount: {[k: string]: number} = {};
 		const typeComboCount: {[k: string]: number} = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
-
+		
+		let megaCount = 0; 
+		
 		// We make at most two passes through the potential Pokemon pool when creating a team - if the first pass doesn't
 		// result in a team of six Pokemon we perform a second iteration relaxing as many restrictions as possible.
 		for (const restrict of [true, false]) {
@@ -1543,10 +1545,13 @@ export class RandomTeams {
 				const tier = species.tier;
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
-
-				if (restrict) {
+				
+				const isMega = (species.name.endsWith('-Mega');
+				
+				if (restrict) {					
 					// Make sure only Fusion Evolution UU Pokemon are used
-					if (species.tier !== "Fusion Evolution UU") {
+					// I'm certain there's a better way to do this but I'm too fucking tired right now
+					if (species.tier !== "FEUU") {
 						continue;
 					}
 
@@ -1564,6 +1569,12 @@ export class RandomTeams {
 
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
+					
+					// Limit to one Mega Evolution per team
+					if (isMega) {
+						if (megaCount >= 1) continue;
+						else megaCount++;
+					}
 				}
 
 				// The Pokemon of the Day
