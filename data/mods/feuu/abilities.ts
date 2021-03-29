@@ -375,10 +375,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['evasion'] = Math.ceil(boosts['evasion'] / 2);
 			}
 			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
-				boosts['atk'] = Math.ciel(boosts['atk'] / 2);
-				boosts['def'] = Math.ciel(boosts['def'] / 2);
-				boosts['spa'] = Math.ciel(boosts['spa'] / 2);
-				boosts['accuracy'] = Math.ciel(boosts['accuracy'] / 2);
+				boosts['atk'] = Math.ceil(boosts['atk'] / 2);
+				boosts['def'] = Math.ceil(boosts['def'] / 2);
+				boosts['spa'] = Math.ceil(boosts['spa'] / 2);
+				boosts['accuracy'] = Math.ceil(boosts['accuracy'] / 2);
 			}
 		},
 		rating: 4,
