@@ -738,7 +738,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	debilitate: {
 		name: "Debilitate",
-		shortDesc: "On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage.",
+		shortDesc: "On switch-in, this Pokemon lowers the Special Attack of adjacent opponents by 1 stage.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -799,6 +799,145 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
 				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	
+	//slate 7
+	sinkorswim: {
+		name: "Sink or Swim",
+		shortDesc: "On switch-in, lowers adjacent opponents' Speed by 1 stage.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Sink or Swim', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	downpour: {
+		name: "Downpour",
+		shortDesc: "If targeted by a foe's move: move loses 1 extra PP, this Pokemon restores 1/16 max HP.",
+		pressure: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Downpour');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			this.heal(target.baseMaxhp / 16);
+			return 1;
+		},
+		name: "Pressure",
+		rating: 2.5,
+		num: 46,
+	},
+	overclock: {
+		name: "Overclock",
+		shortDesc: "If stats are lowered by foe or if hit by Electric move: Atk +2.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Overclock');
+				this.boost({atk: 2}, target, target, null, true);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Electric') {
+				this.boost({atk: 2});
+			}
+		},
+	},
+	magicmissile: {
+		/*
+		Need to test:
+		- any Berry
+		- Toxic Orb, Flame Orb or Light Ball (just one they're the same code)
+		- White Herb
+		- Mental Herb
+		- um, I guess making sure Razor Claw or Razor Fang (just one they're the same code) doesn't immediately crash,
+		but it would be basically impossible for them to cause a flinch in a singles context
+		(how does this behave with Instruct? maybe you could test with that if you're doing the doubles format Aquatic mentioned)
+		*/
+		name: "Magic Missile",
+		shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Magic Missile', '[of] ' + target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.isSemiInvulnerable()) return;
+			if (target.ignoringItem()) return false;
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
+			this.damage(source.baseMaxhp / 4, source, target);
+			if (item.isBerry) {
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+					if (item.id === 'leppaberry') source.staleness = 'external';
+				}
+				if (item.onEat) source.ateBerry = true;
+			} else if (item.id === 'mentalherb') {
+				const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+				for (const firstCondition of conditions) {
+					if (source.volatiles[firstCondition]) {
+						for (const secondCondition of conditions) {
+							source.removeVolatile(secondCondition);
+							if (firstCondition === 'attract' && secondCondition === 'attract') {
+								this.add('-end', source, 'move: Attract', '[from] item: Mental Herb');
+							}
+						}
+						return;
+					}
+				}
+			} else if (item.id === 'whiteherb') {
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in source.boosts) {
+					if (source.boosts[i] < 0) {
+						activate = true;
+						boosts[i] = 0;
+					}
+				}
+				if (activate) {
+					source.setBoost(boosts);
+					this.add('-clearnegativeboost', source, '[silent]');
+				}
+			} else {
+				if (item.fling.status) {
+					source.trySetStatus(item.fling.status, target);
+				} else if (item.fling.volatileStatus) {
+					source.addVolatile(item.fling.volatileStatus, target);
+				}
 			}
 		},
 	},

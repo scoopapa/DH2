@@ -155,6 +155,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//slate 7
+	landmaldotherian: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	tentoxysdefense: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	strikadosgalar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	hooporant: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
 	
 	

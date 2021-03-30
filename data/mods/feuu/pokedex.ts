@@ -389,6 +389,44 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 12.55,
 		evos: ["Gastrodon", "Ferrothorn"],
 	},
+	//slate 7
+	landmaldotherian: {
+		fusion: ['Landorus', 'Armaldo'],
+		num: 33,
+		name: "Landmaldo-Therian",
+		types: ["Ground", "Bug"],
+		baseStats: {hp: 102, atk: 145, def: 95, spa: 90, spd: 80, spe: 75},
+		abilities: {0: "Sink or Swim"},
+		weightkg: 68.1,
+	},
+	tentoxysdefense: {
+		fusion: ['Deoxys', 'Tentacruel'],
+		num: 34,
+		name: "Tentoxys-Defense",
+		types: ["Psychic", "Poison"],
+		baseStats: {hp: 65, atk: 75, def: 122, spa: 90, spd: 140, spe: 105},
+		abilities: {0: "Downpour"},
+		weightkg: 57.9,
+	},
+	strikadosgalar: {
+		fusion: ['Zebstrika', 'Zapdos-Galar'],
+		num: 35,
+		name: "Strikados-Galar",
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 93, atk: 123, def: 84, spa: 82, spd: 86, spe: 108},
+		abilities: {0: "Overclock"},
+		weightkg: 68.6,
+	},
+	hooporant: {
+		fusion: ['Hoopa', 'Cramorant'],
+		num: 36,
+		name: "Hooporant",
+		types: ["Water", "Psychic"],
+		baseStats: {hp: 75, atk: 100, def: 70, spa: 120, spd: 115, spe: 95},
+		abilities: {0: "Magic Missile"},
+		weightkg: 13.5,
+	},
+	
 	
 	
 	
