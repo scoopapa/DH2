@@ -86,7 +86,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("torterra", ["bodypress", "gravapple", "meteorbeam"]);
 		newMoves("empoleon", ["flipturn", "haze", "originpulse", "roost"]);
 		newMoves("porygonz", ["revelationdance", "partingshot"]);
-		for (const id in this.dataCache.Pokedex)
+		for (const id in this.dataCache.Pokedex) {
+			if (!this.dataCache.Learnsets[id]) return;
 			this.modData('Learnsets', id).learnset.partingshot = ['8L1'];
 		}
 	},
