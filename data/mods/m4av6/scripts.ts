@@ -88,7 +88,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("porygonz", ["revelationdance", "partingshot"]);
 		for (const id in this.dataCache.Pokedex) {
 			const poke = this.dataCache.Pokedex[id];
-			this.modData('Learnsets', poke).learnset.partingshot = ['8L1'];
+			this.modData('Learnsets', this.toID(poke)).learnset.partingshot = ['8L1'];
 		}
 	},
 	canMegaEvo(pokemon) {
