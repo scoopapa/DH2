@@ -826,7 +826,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	downpour: {
 		name: "Downpour",
 		shortDesc: "If targeted by a foe's move: move loses 1 extra PP, this Pokemon restores 1/16 max HP.",
-		pressure: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Downpour');
 		},
