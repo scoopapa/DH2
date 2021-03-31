@@ -1573,12 +1573,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	delibirdmegafestiverider: {
-		randomBattleMoves: ["swordsdance", "iceshard", "icepunch", "drillpeck", "brickbreak", "freezedry", "roost"],
-		randomDoubleBattleMoves: ["fakeout", "iceshard", "icepunch", "drillpeck", "brickbreak", "protect"],
-		tier: "(PU)",
-		doublesTier: "(DUU)",
-	},
 	mantine: {
 		randomBattleMoves: ["scald", "airslash", "roost", "toxic", "defog"],
 		randomDoubleBattleMoves: ["scald", "tailwind", "wideguard", "helpinghand", "protect", "defog", "toxic"],
