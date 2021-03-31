@@ -897,48 +897,48 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
 			this.damage(source.baseMaxhp / 4, source, target);
-			if (item.isBerry) {
-				if (this.singleEvent('Eat', item, null, source, null, null)) {
-					this.runEvent('EatItem', source, null, null, item);
-					if (item.id === 'leppaberry') source.staleness = 'external';
-				}
-				if (item.onEat) source.ateBerry = true;
-			} else if (item.id === 'mentalherb') {
-				const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
-				for (const firstCondition of conditions) {
-					if (source.volatiles[firstCondition]) {
-						for (const secondCondition of conditions) {
-							source.removeVolatile(secondCondition);
-							if (firstCondition === 'attract' && secondCondition === 'attract') {
-								this.add('-end', source, 'move: Attract', '[from] item: Mental Herb');
+			if (item) {
+				target.addVolatile('fling');
+				if (item.isBerry) {
+					if (this.singleEvent('Eat', item, null, source, null, null)) {
+						this.runEvent('EatItem', source, null, null, item);
+						if (item.id === 'leppaberry') source.staleness = 'external';
+					}
+					if (item.onEat) source.ateBerry = true;
+				} else if (item.id === 'mentalherb') {
+					const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+					for (const firstCondition of conditions) {
+						if (source.volatiles[firstCondition]) {
+							for (const secondCondition of conditions) {
+								source.removeVolatile(secondCondition);
+								if (firstCondition === 'attract' && secondCondition === 'attract') {
+									this.add('-end', source, 'move: Attract', '[from] item: Mental Herb');
+								}
 							}
+							return;
 						}
-						return;
+					}
+				} else if (item.id === 'whiteherb') {
+					let activate = false;
+					const boosts: SparseBoostsTable = {};
+					let i: BoostName;
+					for (i in source.boosts) {
+						if (source.boosts[i] < 0) {
+							activate = true;
+							boosts[i] = 0;
+						}
+					}
+					if (activate) {
+						source.setBoost(boosts);
+						this.add('-clearnegativeboost', source, '[silent]');
+					}
+				} else {
+					if (item.fling && item.fling.status) {
+						source.trySetStatus(item.fling.status, target);
+					} else if (item.fling && item.fling.volatileStatus) {
+						source.addVolatile(item.fling.volatileStatus, target);
 					}
 				}
-			} else if (item.id === 'whiteherb') {
-				let activate = false;
-				const boosts: SparseBoostsTable = {};
-				let i: BoostName;
-				for (i in source.boosts) {
-					if (source.boosts[i] < 0) {
-						activate = true;
-						boosts[i] = 0;
-					}
-				}
-				if (activate) {
-					source.setBoost(boosts);
-					this.add('-clearnegativeboost', source, '[silent]');
-				}
-			} else {
-				if (item.fling && item.fling.status) {
-					source.trySetStatus(item.fling.status, target);
-				} else if (item.fling && item.fling.volatileStatus) {
-					source.addVolatile(item.fling.volatileStatus, target);
-				}
-			}
-			if (target.getItem) {
-				target.addVolatile('fling', '[silent]');
 			}
 		},
 	},
