@@ -61,7 +61,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast", "mysticalfire"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
-		newMoves("delibird", ["celebrate", "healingwish", "roost", "swordsdance", "uturn", "wish"]);
+		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
