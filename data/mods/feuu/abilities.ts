@@ -932,7 +932,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-clearnegativeboost', source, '[silent]');
 				}
 			} else {
-				if (item.fling.status) {
+				if (item.fling && item.fling.status) {
 					source.trySetStatus(item.fling.status, target);
 				} else if (item.fling.volatileStatus) {
 					source.addVolatile(item.fling.volatileStatus, target);
