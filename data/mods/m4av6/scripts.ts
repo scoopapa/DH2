@@ -135,9 +135,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
 		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Delibird") {
-			return "Delibird-Mega-Festive-Rider";
-		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
 			return "Sawsbuck-Summer-Mega";
 		}
