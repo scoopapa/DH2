@@ -934,7 +934,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else {
 				if (item.fling && item.fling.status) {
 					source.trySetStatus(item.fling.status, target);
-				} else if (item.fling.volatileStatus) {
+				} else if (item.fling && item.fling.volatileStatus) {
 					source.addVolatile(item.fling.volatileStatus, target);
 				}
 			}
