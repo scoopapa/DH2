@@ -1749,7 +1749,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bisharp: {
 		inherit: true,
-      abilities: {0: "Defiant", 1: "Inner Focus", H: "Dark Rising"},
+      abilities: {0: "Defiant", 1: "Knight's Blade", H: "Dark Rising"},
 	},
 	pangoro: {
 		inherit: true,

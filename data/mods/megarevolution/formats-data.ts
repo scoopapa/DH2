@@ -143,7 +143,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
-	pideastroph: {
+	pidgeastroph: {
 		tier:'OU',
 		isModded: true,
 	},
@@ -152,6 +152,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isModded: true,
 	},
 	lophodactylus: {
+		tier:'OU',
+		isModded: true,
+	},
+	veloshock: {
+		tier:'OU',
+		isModded: true,
+	},
+	abyssoil: {
+		tier:'OU',
+		isModded: true,
+	},
+	harelock: {
+		tier:'OU',
+		isModded: true,
+	},
+	valiadin: {
 		tier:'OU',
 		isModded: true,
 	},

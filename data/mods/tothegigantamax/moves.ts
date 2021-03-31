@@ -228,6 +228,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Normal",
 	},
+	psychup: {
+		num: 244,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Psych Up",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1, mystery: 1},
+		onHit(target, source) {
+			let i: BoostName;
+			for (i in target.boosts) {
+				source.boosts[i] = target.boosts[i];
+			}
+			const volatilesToCopy = ['focusenergy', 'gmaxchistrike', 'gmaxshrewdspirit', 'gmaxcourageousspirit', 'gmaxbenevolentspirit', 'gmaxvegetalsword', 'laserfocus'];
+			for (const volatile of volatilesToCopy) {
+				if (target.volatiles[volatile]) {
+					source.addVolatile(volatile);
+					if (volatile === 'gmaxchistrike') source.volatiles[volatile].layers = target.volatiles[volatile].layers;
+				} else {
+					source.removeVolatile(volatile);
+				}
+			}
+			this.add('-copyboost', source, target, '[from] move: Psych Up');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+	},
 	
 	//New Gmax moves: 
 	gmaxbeheading: {
@@ -658,12 +689,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mean Look", target);
 			this.add('-anim', source, "Bug Buzz", target);
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Tinted Lens boost');
-				return this.chainModify(2);
-			}
-		},
+      onEffectiveness(typeMod, target, type) {
+         if (typeMod < 0) {
+             this.debug('Ignoring resist');
+             return 0;
+         }
+      },
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Bug",
@@ -954,23 +985,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+*/
 	gmaxkeylock: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Field: Trapped. Allies: +1 Def & SpD",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Key Lock",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
+		isMax: "Klefki",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steel Beam", target);
+			this.add('-anim', source, "Fairy Lock", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({def: 1, spd: 1}, pokemon);
+				}
+				for (const pokemon of source.side.foe.active) {
+					pokemon.addVolatile('trapped', source, null, 'trapper');
+				}
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('trapped', source, null, 'trapper');
+				}
+			},
+		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "",
+		type: "Steel",
 		contestType: "Cool",
 	},
-*/
 	gmaxshellshock: {
 		num: 1000,
 		accuracy: true,
@@ -1001,23 +1052,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-/*
 	gmaxpuffup: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
-		isNonstandard: "Gigantamax",
-		name: "",
-		pp: 10,
+      num: 1000,
+      accuracy: true,
+      basePower: 10,
+      category: "Physical",
+		shortDesc: "Base move affects power. Allies: Stockpile 1.",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Puff Up",
+      pp: 10,
 		priority: 0,
-		flags: {},
-		isMax: "",
-		secondary: null,
-		target: "adjacentFoe",
-		type: "",
-		contestType: "Cool",
-	},
+      flags: {},
+      isMax: "Jigglypuff",
+      self: {
+          onHit(source) {
+              for (const pokemon of source.side.active) {
+                  if (pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 3) continue;
+                  pokemon.addVolatile('stockpile'); 
+              }
+          },
+      },
+      secondary: null,
+      target: "adjacentFoe",
+      type: "Normal",
+      contestType: "Cool",
+  },
+/*
 	gmaxgravedig: {
 		num: 1000,
 		accuracy: true,
@@ -1277,24 +1337,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-/*
 	gmaxbreakdown: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Field: Burned.",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Breakdown",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Obstagoon",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fiery Wrath", target);
+			this.add('-anim', source, "Bulk Up", target);
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+				for (const pokemon of source.side.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			}
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Dark",
 		contestType: "Cool",
 	},
-	*/
 	gmaxshootingstar: {
 		num: 1000,
 		accuracy: true,
@@ -1555,33 +1628,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 */	
-	gmaxevoglace: {
-		num: 1000,
-		accuracy: true,
-		basePower: 10,
-		category: "Physical",
+gmaxevoglace: {
+        num: 1000,
+        accuracy: true,
+        basePower: 10,
+        category: "Physical",
       shortDesc: "Base move affects power. 2x damage on NVE and hits adjacent opponents.",
-		isNonstandard: "Gigantamax",
-		name: "G-Max Evo-Glace",
-		pp: 10,
-		priority: 0,
-		isMax: "Glaceon",
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Extreme Evoboost", target);
-			this.add('-anim', source, "Blizzard", target);
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Tinted Lens boost');
-				return this.chainModify(2);
-			}
-		},
-		secondary: null,
-		target: "allAdjacentFoe",
-		type: "Ice",
-		contestType: "Beautiful",
-	},
+        isNonstandard: "Gigantamax",
+        name: "G-Max Evo-Glace",
+        pp: 10,
+        priority: 0,
+        isMax: "Glaceon",
+        onPrepareHit: function(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Extreme Evoboost", target);
+            this.add('-anim', source, "Blizzard", target);
+        },
+        onEffectiveness(typeMod, target, type) {
+            if (typeMod < 0) {
+                this.debug('Ignoring resist');
+                return 0;
+            }
+        },
+        secondary: null,
+        target: "allAdjacentFoes",
+        type: "Ice",
+        contestType: "Beautiful",
+    },
 	
 	gmaxsoulraze: {
 		num: 1000,
@@ -1647,23 +1720,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
+*/
 	gmaxslimesplash: {
 		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
+      shortDesc: "Base move affects power. Field: Weakens Fairy-type moves by 66%",
 		isNonstandard: "Gigantamax",
-		name: "",
+		name: "G-Max Slime Splash",
 		pp: 10,
 		priority: 0,
 		flags: {},
-		isMax: "",
-		secondary: null,
+		isMax: "Goodra",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Splash", target);
+			this.add('-anim', source, "Muddy Water", target);
+		},
+		self: {
+			pseudoWeather: 'gmaxslimesplash',
+		},
+		condition: {
+			duration: 5,
+			onStart(side, source) {
+				this.add('-fieldstart', 'move: G-Max Slime Splash', '[of] ' + source);
+			},
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Fairy') {
+					this.debug('slime sport weaken');
+					return this.chainModify([0x548, 0x1000]);
+				}
+			},
+			onResidualOrder: 21,
+			onEnd() {
+				this.add('-fieldend', 'move: G-Max Slime Splash');
+			},
+		},
 		target: "adjacentFoe",
-		type: "",
+		type: "Dragon",
 		contestType: "Cool",
 	},
-	*/
 	gmaxpollenrain: {
 		num: 1000,
 		accuracy: true,
@@ -1884,4 +1982,254 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	gmaxcrystalinecrash: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Allies: -1 Spe, +2 Atk.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Crystaline Crash",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Sandslash-Alola",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+			this.add('-anim', source, "Ice Punch", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({spe: -1, atk: 2}, pokemon);
+				}
+			},
+		},
+		target: "adjacentFoe",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	gmaxstampede: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 Spe, Foes: Embargo.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Stampede",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Tauros",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Agility", target);
+			this.add('-anim', source, "Stomp", target);
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (pokemon.volatiles['embargo']) return;
+					pokemon.addVolatile('embargo');
+				}
+				for (const pokemon of source.side.active) {
+					this.boost({spe: 1}, pokemon);
+				}
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	gmaxbluestar: {
+      num: 1000,
+      accuracy: true,
+      basePower: 110,
+      category: "Physical",
+      shortDesc: "Base move affects power. Super effective on Dark & Ghost. Allies: 0.5x damage taken from Dark & Ghost for 5 turns",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Blue Star",
+      pp: 10,
+      priority: 0,
+      flags: {},
+      isMax: "Beheeyem",
+      onPrepareHit: function(target, source, move) {
+          this.attrLastMove('[still]');
+          this.add('-anim', source, "Cosmic Power", target);
+          this.add('-anim', source, "Draco Meteor", target);
+      },
+      onEffectiveness(typeMod, target, type) {
+          if (type === 'Dark' || type === 'Ghost') return 1;
+      },
+      self: {
+          onHit(source) {
+              source.side.addSideCondition('gmaxbluestar');
+          }
+      },
+      condition: {
+          duration: 5,
+          onStart(side) {
+              this.add('-sidestart', side, 'move: G-Max Blue Star');
+          },
+          onAnyModifyDamage(damage, source, target, move) {
+              if (target !== source && target.side === this.effectData.target && (move.type === 'Ghost' || move.type === 'Dark')) {
+                  this.debug('GMax Blue Star weaken');
+                  return this.chainModify(0.5);
+              }
+          },
+          onResidualOrder: 21,
+          onResidualSubOrder: 1,
+          onEnd(side) {
+              this.add('-sideend', side, 'move: G-Max Blue Star');
+          },
+      },
+      ignoreImmunity: true,
+      secondary: null,
+      target: "adjacentFoe",
+      type: "Psychic",
+      contestType: "Clever",
+  },
+	gmaxbravery: {
+		num: 1000,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+      shortDesc: "Always 140 BP. Allies: +1 Atk.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Bravery",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Sirfetch\u2019d",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy", target);
+			this.add('-anim', source, "Meteor Assault", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({atk: 1}, pokemon);
+				}
+			},
+		},
+		target: "adjacentFoe",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	gmaxpetrify: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Paralyzed & Rock-type.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Petrify",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Sudowoodo",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glare", target);
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('par', source);
+					if (pokemon.getTypes().join() === 'Rock' || !pokemon.setType('Rock')) return false;
+					this.add('-start', pokemon, 'typechange', 'Rock');
+				}
+			}
+		},
+		target: "adjacentFoe",
+		type: "Rock",
+		contestType: "Cool",
+	},
+/*
+	gmaxdelusion: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 Acc. Field: Clear Skies.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Delusion",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Zoroark",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Daze", target);
+			this.add('-anim', source, "Sunny Day", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.active) {
+					this.boost({accuracy: 1}, pokemon);
+				}
+				this.field.setWeather('clearskies');
+			}
+		},
+		target: "adjacentFoe",
+		type: "Dark",
+		contestType: "Cool",
+	},
+*/
+	gmaxvegetalsword: {
+      num: 1000,
+      accuracy: true,
+      basePower: 10,
+      category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 crit ratio & Atk",
+      isNonstandard: "Gigantamax",
+      name: "G-Max Vegetal Sword",
+      pp: 10,
+      priority: 0,
+      flags: {},
+      isMax: "Sceptile",
+      onPrepareHit: function(target, source, move) {
+          this.attrLastMove('[still]');
+          this.add('-anim', source, "Swords Dance", target);
+          this.add('-anim', source, "Petal Blizzard", target);
+      },
+      self: {
+          onHit(source) {
+              if (!source.volatiles['dynamax']) return;
+              for (const pokemon of source.side.active) {
+                  pokemon.addVolatile('gmaxvegetalsword');
+                  this.boost({atk: 1}, pokemon);
+              }
+          },
+      },
+      condition: {
+          noCopy: true,
+          onStart(target, source, effect) {
+              this.effectData.layers = 1;
+              if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+                  this.add('-start', target, 'move: G-Max Vegetal Sword');
+              }
+          },
+          onRestart(target, source, effect) {
+              if (this.effectData.layers >= 3) return false;
+              this.effectData.layers++;
+              if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+                  this.add('-start', target, 'move: G-Max Vegetal Sword');
+              }
+          },
+          onModifyCritRatio(critRatio) {
+              return critRatio + this.effectData.layers;
+          },
+      },
+      target: "adjacentFoe",
+      type: "Grass",
+      contestType: "Cool",
+  },
 };

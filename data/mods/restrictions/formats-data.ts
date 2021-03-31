@@ -155,4 +155,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	kelven: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	kodokai: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	cindarner: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+		thucotuco: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	sorree: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	gembezzle: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

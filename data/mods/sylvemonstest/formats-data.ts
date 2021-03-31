@@ -163,7 +163,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	keldeo: {
-		randomBattleMoves: ["hydropump", "secretpower", "icywind", "airslash", "hiddenpowerelectric", "flipturn", "taunt"],
+		randomBattleMoves: ["hydropump", "secretsword", "icywind", "airslash", "hiddenpowerelectric", "flipturn", "taunt"],
 		tier: "OU",
 	},
 	kommoo: {
@@ -2283,14 +2283,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kubfu: {
 		randomBattleMoves: ["closecombat", "icepunch", "uturn", "ironhead"],
-		tier: "NFE",
+		tier: "LC Uber",
 	},
 	togetic: {
 		tier: "NFE",
 	},
 	typenull: {
 		randomBattleMoves: ["swordsdance", "return", "sleeptalk", "rest"],
-		tier: "NFE",
+		tier: "LC Uber",
 	},
 	zweillous: {
 		randomBattleMoves: ["dragonfang", "crunch", "firefang", "zenheadbutt", "astonish"],
@@ -2320,7 +2320,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	diancie: {
 		randomBattleMoves: ["diamondstorm", "bodypress", "toxic", "stealthrock", "moonlight"],
-		tier: "UU",
+		tier: "RU",
 	},
 	crobat: {
 		randomBattleMoves: ["pluck", "poisonfang", "defog", "uturn", "roost", "taunt"],
@@ -2336,7 +2336,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darmanitan: {
 		randomBattleMoves: ["thunderpunch", "flareblitz", "uturn", "earthquake", "superpower", "rockslide"],
-		tier: "RU",
+		tier: "UU",
 	},
 	darmanitangalar: {
 		randomBattleMoves: ["icepunch", "flareblitz", "uturn", "earthquake", "superpower", "ironhead"],
@@ -2610,6 +2610,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],
 		tier: "Uber",
 	},
+	rhydon: {
+		randomBattleMoves: ["stoneedge", "earthquake", "icefang", "stealthrock", "mudslap", "swordsdance", "megahorn"],
+		tier: "NFE",
+	},	
 	/* Leaving this commented out still allows the random team builder to roll a normal Zygarde with Power Construct
 	zygardecomplete: {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],

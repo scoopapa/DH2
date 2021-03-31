@@ -975,6 +975,7 @@ export const Formats: FormatList = [
         ],
     },
 	{
+
 		name: "[Gen 8] GPT2mons",
 	   desc: 'A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],

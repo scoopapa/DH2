@@ -2646,33 +2646,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	torterramega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["stealthrock", "earthquake", "woodhammer", "stoneedge", "synthesis", "rockpolish"],
+		randomDoubleBattleMoves: ["protect", "earthquake", "woodhammer", "stoneedge", "rockslide", "wideguard", "rockpolish"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	infernape: {
 		randomBattleMoves: ["stealthrock", "uturn", "closecombat", "flareblitz", "stoneedge", "machpunch", "nastyplot", "fireblast", "focusblast", "vacuumwave", "grassknot"],
 		randomDoubleBattleMoves: ["fakeout", "heatwave", "closecombat", "uturn", "grassknot", "stoneedge", "feint", "taunt", "flareblitz", "protect"],
 		tier: "UU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	infernapemega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["stealthrock", "uturn", "closecombat", "flareblitz", "stoneedge", "machpunch", "nastyplot", "fireblast", "focusblast", "vacuumwave", "grassknot"],
+		randomDoubleBattleMoves: ["fakeout", "heatwave", "closecombat", "uturn", "grassknot", "stoneedge", "feint", "taunt", "flareblitz", "protect"],
+		tier: "UU",
+		doublesTier: "(DUU)",
+	},
 	empoleon: {
 		randomBattleMoves: ["hydropump", "flashcannon", "grassknot", "defog", "icebeam", "scald", "toxic", "roar", "stealthrock"],
 		randomDoubleBattleMoves: ["icywind", "scald", "protect", "grassknot", "flashcannon", "defog"],
 		tier: "UU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	empoleonmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["originpulse", "scald", "flashcannon", "grassknot", "defog", "roost", "flipturn", "toxic", "roar", "stealthrock"],
+		randomDoubleBattleMoves: ["icywind", "originpulse", "protect", "grassknot", "flashcannon", "defog"],
+		tier: "UU",
+		doublesTier: "(DUU)",
+	},
 	staraptor: {
 		randomBattleMoves: ["bravebird", "closecombat", "uturn", "quickattack", "doubleedge"],
 		randomDoubleBattleMoves: ["bravebird", "closecombat", "uturn", "quickattack", "doubleedge", "tailwind", "protect"],
@@ -2816,11 +2819,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	floatzelmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["bulkup", "liquidation", "icepunch", "flipturn", "taunt", "aquajet", "brickbreak"],
+		randomDoubleBattleMoves: ["coaching", "liquidation", "aquajet", "flipturn", "protect", "icepunch", "taunt"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	cherrim: {
 		randomBattleMoves: ["energyball", "dazzlinggleam", "hiddenpowerfire", "synthesis", "healingwish"],
 		tier: "(PU)",
@@ -3390,11 +3394,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	simisearmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["substitute", "nastyplot", "fireblast", "dazzlinggleam", "focusblast"],
+		randomDoubleBattleMoves: ["nastyplot", "dazzlinggleam", "heatwave", "focusblast", "taunt", "protect"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	simipour: {
 		randomBattleMoves: ["substitute", "nastyplot", "hydropump", "icebeam", "focusblast"],
 		randomDoubleBattleMoves: ["nastyplot", "hydropump", "icebeam", "taunt", "helpinghand", "protect"],
@@ -3598,11 +3603,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
-	/*
 	krookodilemega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["earthquake", "pursuit", "knockoff", "stealthrock", "partingshot", "taunt", "shoreup"],
+		randomDoubleBattleMoves: ["earthquake", "protect", "knockoff", "partingshot", "taunt", "shoreup"],
+		tier: "UU",
+		doublesTier: "DUU",
+	},
 	darmanitan: {
 		randomBattleMoves: ["uturn", "flareblitz", "rockslide", "earthquake", "superpower"],
 		randomDoubleBattleMoves: ["uturn", "flareblitz", "rockslide", "earthquake", "superpower", "protect"],
@@ -3728,11 +3734,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PUBL",
 		doublesTier: "(DUU)",
 	},
-	/*
 	cinccinomega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["tailslap", "bulletseed", "rockblast", "tripleaxel", "knockoff", "uturn"],
+		randomDoubleBattleMoves: ["tailslap", "uturn", "knockoff", "bulletseed", "rockblast", "tripleaxel", "protect"],
+		tier: "PUBL",
+		doublesTier: "(DUU)",
+	},
 	gothitelle: {
 		randomBattleMoves: ["confide", "charm", "taunt", "rest"],
 		randomDoubleBattleMoves: ["psychic", "thunderbolt", "shadowball", "trickroom", "taunt", "healpulse", "protect", "charm"],

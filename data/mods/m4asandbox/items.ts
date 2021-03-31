@@ -85,6 +85,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "A stone to test the nerfed Acid Rock.",
 	},
+/*
 	inkbug: {
 		name: "inkbug",
 		spritenum: 578,
@@ -99,4 +100,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "inkbug's stone for the submission sandbox.",
 	},
+*/
 };
