@@ -601,10 +601,6 @@ export class RandomTeams {
 			forme = species.name.slice(0, -7);
 			mega = true;
 		}
-		else if (species.name.endsWith('-Mega-Festive-Rider')) {
-			forme = species.name.slice(0, -19); 
-			mega = true; 
-		}
 		else if (species.name.endsWith('-Mega-Legion')) {
 			forme = species.name.slice(0, -12); 
 			mega = true; 
@@ -1730,7 +1726,7 @@ export class RandomTeams {
 				const tier = species.tier;
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
-				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Festive-Rider'));
+				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X'));
 				
 
 				if (restrict) {
