@@ -1356,12 +1356,4 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 80},
 		contestType: "Cool",
 	},
-	closecombat: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	dualwingbeat: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 };
