@@ -395,8 +395,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	delibird: {
 		inherit: true,
-		otherFormes: ["Delibird-Mega", "Delibird-Mega-Festive-Rider"],
-		formeOrder: ["Delibird", "Delibird-Mega", "Delibird-Mega-Festive-Rider"],
+		otherFormes: ["Delibird-Mega"],
+		formeOrder: ["Delibird", "Delibird-Mega"],
 	},
 	delibirdmega: {
 		num: 225,
@@ -411,21 +411,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Delibirdite",
-	},
-	delibirdmegafestiverider: {
-		num: 225,
-		name: "Delibird-Mega-Festive-Rider",
-		baseSpecies: "Delibird",
-		forme: "Mega-Festive-Rider",
-		types: ["Ice", "Grass"],
-		baseStats: {hp: 45, atk: 97, def: 51, spa: 108, spd: 51, spe: 78},
-		abilities: {0: "As One (Sawsbuck)"},
-		heightm: 0.9,
-		weightkg: 16,
-		color: "Red",
-		eggGroups: ["Water 1", "Field"],
-		requiredItem: "Sawsbuckite",
-		battleOnly: "Delibird",
 	},
 	exploud: {
 		inherit: true,
