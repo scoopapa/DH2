@@ -834,7 +834,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(target.baseMaxhp / 16);
 			return 1;
 		},
-		name: "Pressure",
 		rating: 2.5,
 		num: 46,
 	},
