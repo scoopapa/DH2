@@ -937,7 +937,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					source.addVolatile(item.fling.volatileStatus, target);
 				}
 			}
-			source.addVolatile('fling');
+			target.addVolatile('fling');
 		},
 	},
 	
