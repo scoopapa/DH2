@@ -89,6 +89,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (const id in this.dataCache.Pokedex) {
 			if (!this.dataCache.Learnsets[id]?.learnset) continue;
 			this.modData('Learnsets', id).learnset.partingshot = ['8L1'];
+			delete this.modData('Learnsets', id).learnset.closecombat;
+			delete this.modData('Learnsets', id).learnset.dualwingbeat;
 		}
 	},
 	canMegaEvo(pokemon) {
