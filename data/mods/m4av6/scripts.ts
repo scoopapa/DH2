@@ -61,7 +61,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast", "mysticalfire"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
-		newMoves("delibird", ["celebrate", "healingwish", "roost", "swordsdance", "uturn", "wish"]);
+		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
@@ -85,6 +85,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("krookodile", ["partingshot", "topsyturvy"]);
 		newMoves("torterra", ["bodypress", "gravapple", "meteorbeam"]);
 		newMoves("empoleon", ["flipturn", "haze", "originpulse", "roost"]);
+		newMoves("porygonz", ["revelationdance", "partingshot"]);
+		for (const id in this.dataCache.Pokedex) {
+			if (!this.dataCache.Learnsets[id]?.learnset) continue;
+			this.modData('Learnsets', id).learnset.partingshot = ['8L1'];
+			delete this.modData('Learnsets', id).learnset.closecombat;
+			delete this.modData('Learnsets', id).learnset.dualwingbeat;
+		}
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -127,9 +134,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Delibird") {
-			return "Delibird-Mega-Festive-Rider";
 		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
 			return "Sawsbuck-Summer-Mega";

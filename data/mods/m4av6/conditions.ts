@@ -30,6 +30,7 @@ const longwhip: ConditionData = {
 		data.moveData.accuracy = true;
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
+		delete data.moveData.flags['contact'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {

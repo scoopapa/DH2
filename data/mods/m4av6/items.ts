@@ -1459,4 +1459,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by an Empoleon, this item allows it to Mega Evolve in battle.",
 	},
+	porygonitez: {
+		name: "Porygonite-Z",
+		spritenum: 578,
+		megaStone: "Porygon-Z-Mega",
+		megaEvolves: "Porygon-Z",
+		itemUser: ["Porygon-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5000,
+		gen: 8,
+		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+	},
 };

@@ -1015,11 +1015,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 		doublesTier: "DUU",
 	},
-	/*
 	porygonzmega: {
-		
-	},	
-	*/
+		tier: "AFD",
+		doublesTier: "DUU",
+	},
 	omastar: {
 		randomBattleMoves: ["shellsmash", "scald", "icebeam", "earthpower", "spikes", "stealthrock", "hydropump"],
 		randomDoubleBattleMoves: ["shellsmash", "muddywater", "icebeam", "earthpower", "hiddenpowerelectric", "protect", "hydropump"],
@@ -1571,12 +1570,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	delibirdmega: {
 		randomBattleMoves: ["spikes", "rapidspin", "icywind", "roost", "uturn", "wish", "healingwish"],
 		randomDoubleBattleMoves: ["fakeout", "iceshard", "icepunch", "aerialace", "brickbreak", "roost", "healingwish", "protect"],
-		tier: "(PU)",
-		doublesTier: "(DUU)",
-	},
-	delibirdmegafestiverider: {
-		randomBattleMoves: ["swordsdance", "iceshard", "icepunch", "drillpeck", "brickbreak", "freezedry", "roost"],
-		randomDoubleBattleMoves: ["fakeout", "iceshard", "icepunch", "drillpeck", "brickbreak", "protect"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
