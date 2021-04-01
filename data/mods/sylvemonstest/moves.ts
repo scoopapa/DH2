@@ -1801,7 +1801,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"wildcharge": {
 		num: 528,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
