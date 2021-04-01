@@ -3300,7 +3300,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       condition: { 
           onSwap(target) {
               if (!target.fainted) {
-                  this.boost({atk: 1, spa: 1,}, target);
+                  target.addVolatile('gmaxchistrike');
                   target.side.removeSlotCondition(target, 'hottag');
               }
           },
