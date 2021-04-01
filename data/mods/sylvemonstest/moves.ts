@@ -3312,6 +3312,50 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       zMove: {effect: 'healreplacement'},
       contestType: "Tough",
   },
+	fishiousrend: {
+		num: 755,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Fishious Rend",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	boltbeak: {
+		num: 754,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Bolt Beak",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
