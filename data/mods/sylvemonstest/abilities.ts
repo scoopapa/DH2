@@ -3,22 +3,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
 		shortDesc: "If this Pokémon is holding a Weather Rock, its secondary typing becomes Water/Fire/Rock/Ice/Flying/Ghost (depending on the rock) and summon the corresponding weather upon entering the field. Under Strong Winds, this mon gains the added Flying type.",
 		onStart(pokemon) {
-			if (pokemon.item === 'heatrock') {
+			if (pokemon.item === 'firememory') {
 				pokemon.addType('Fire');
 				this.field.setWeather('sunnyday');
-			} else if (pokemon.item === 'damprock') {
+			} else if (pokemon.item === 'watermemory') {
 				pokemon.addType('Water');
 				this.field.setWeather('raindance');
-			} else if (pokemon.item === 'smoothrock') {
+			} else if (pokemon.item === 'rockmemory') {
 				pokemon.addType('Rock');
 				this.field.setWeather('sandstorm');
-			} else if (pokemon.item === 'icyrock') {
+			} else if (pokemon.item === 'icememory') {
 				pokemon.addType('Ice');
 				this.field.setWeather('hail');
-			} else if (pokemon.item === 'shadowrock') {
+			} else if (pokemon.item === 'ghostmemory') {
 				pokemon.addType('Ghost');
 				this.field.setWeather('shadowsky');
-			} else if (pokemon.item === 'breezerock') {
+			} else if (pokemon.item === 'flyingmemory') {
 				pokemon.addType('Flying');
 				this.field.setWeather('aircurrent');
 			} else if (this.field.isWeather('deltastream')) {
@@ -541,7 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe (spe) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain')) {
 				return this.chainModify(2);
 			}
 		},

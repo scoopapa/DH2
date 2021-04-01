@@ -892,7 +892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"ionabsorb": {
 		accuracy: 100,
-		basePower: 80,
+		basePower: 40,
 		category: "Special",
 		desc: "Applies the Charge effect to the user after doing damage (If used while boosted by Charge, effect is not applied)",
 		shortDesc: "Applies the Charge effect to the user after doing damage.",
@@ -1801,15 +1801,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"wildcharge": {
 		num: 528,
-		accuracy: 80,
-		basePower: 150,
+		accuracy: 100,
+		basePower: 100,
 		category: "Physical",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 1/2 recoil.",
 		id: "wildcharge",
 		isViable: true,
 		name: "Wild Charge",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 2],
@@ -3312,6 +3312,50 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       zMove: {effect: 'healreplacement'},
       contestType: "Tough",
   },
+	fishiousrend: {
+		num: 755,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Fishious Rend",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	boltbeak: {
+		num: 754,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Bolt Beak",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,
