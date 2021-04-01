@@ -2320,7 +2320,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
    this.modData('Learnsets', 'spectrier').learnset.pragmastrike = ['7L1'];
 	this.modData('Learnsets', 'calyrex').learnset.psychocut = ['7L1'];
    this.modData('Learnsets', 'calyrex').learnset.psywave = ['7L1'];
-   this.modData('Learnsets', 'calyrex').learnset.inverseroom = ['7L1'];  
+   this.modData('Learnsets', 'calyrex').learnset.inverseroom = ['7L1'];
+	this.modData('Learnsets', 'swampert').learnset.rinseoff = ['7L1'];
+	this.modData('Learnsets', 'meloetta').learnset.heartbeat = ['7L1']; 
+
 	  
 // trickroom 
 this.modData('Learnsets', 'palkia').learnset.trickroom = ['7L1'];
@@ -2840,7 +2843,6 @@ this.modData('Learnsets', 'ludicolo').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'wishiwashi').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'toxapex').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'gyarados').learnset.aquaticassault= ['7L1']; 
-this.modData('Learnsets', 'swampert').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'kyogre').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'greninja').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'sharpedo').learnset.aquaticassault= ['7L1']; 
