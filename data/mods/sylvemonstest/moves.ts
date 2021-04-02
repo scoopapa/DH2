@@ -3300,7 +3300,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       condition: { 
           onSwap(target) {
               if (!target.fainted) {
-                  this.boost({atk: 1, spa: 1,}, target);
+                  target.addVolatile('gmaxchistrike');
                   target.side.removeSlotCondition(target, 'hottag');
               }
           },
@@ -3317,13 +3317,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
+      desc: "Destroys screens, unless the target is immune.",
+      shortDesc: "Destroys screens, unless the target is immune.",
 		name: "Fishious Rend",
 		pp: 10,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Psychic')) {
+			if (pokemon.runImmunity('Water')) {
 				pokemon.side.removeSideCondition('reflect');
 				pokemon.side.removeSideCondition('lightscreen');
 				pokemon.side.removeSideCondition('auroraveil');
@@ -3339,13 +3341,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
+      desc: "Destroys screens, unless the target is immune.",
+      shortDesc: "Destroys screens, unless the target is immune.",
 		name: "Bolt Beak",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Psychic')) {
+			if (pokemon.runImmunity('Electric')) {
 				pokemon.side.removeSideCondition('reflect');
 				pokemon.side.removeSideCondition('lightscreen');
 				pokemon.side.removeSideCondition('auroraveil');

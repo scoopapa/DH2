@@ -1265,4 +1265,64 @@ export const Items: {[k: string]: ModdedItemData} = {
         gen: 7,
         desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
     },
+    "forecastofsun": {
+        name: "Forecast of Sun",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sun when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsun",
+        gen: 8,
+    },
+    "forecastofrain": {
+        name: "Forecast of Rain",
+        desc: "If the holder has the ability Forecast, this Pokémon summons rain when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofrain",
+        gen: 8,
+    },
+    "forecastofsand": {
+        name: "Forecast of Sand",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sand when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsand",
+        gen: 8,
+    },
+    "forecastofhail": {
+        name: "Forecast of Hail",
+        desc: "If the holder has the ability Forecast, this Pokémon summons hail when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofhail",
+        gen: 8,
+    },
+    "forecastofshadows": {
+        name: "Forecast of Shadows",
+        desc: "If the holder has the ability Forecast, this Pokémon summons shadow sky when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofshadows",
+        gen: 8,
+    },
+    "forecastofwind": {
+        name: "Forecast of Wind",
+        desc: "If the holder has the ability Forecast, this Pokémon summons air current when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofwind",
+        gen: 8,
+    },
 };
