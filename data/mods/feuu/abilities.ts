@@ -896,8 +896,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.ignoringItem()) return false;
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
-			this.damage(source.baseMaxhp / 4, source, target);
 			if (item) {
+				this.damage(source.baseMaxhp / 4, source, target);
 				target.addVolatile('fling');
 				if (item.isBerry) {
 					if (this.singleEvent('Eat', item, null, source, null, null)) {
