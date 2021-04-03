@@ -1545,7 +1545,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Cryogonal",
 	},
-*/	
+	
 	gourgeist: {
 		inherit: true,
 		canGigantamax: "G-Max Jack-O-Bomb",
@@ -1621,7 +1621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Gourgeist-Super",
 	},
-/*
+
 	flareon: {
 		inherit: true,
 		canGigantamax: "G-Max Evo-Flare",
@@ -1640,7 +1640,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Flareon",
 	},
-*/
+/*
 	wigglytuff: {
 		inherit: true,
 		canGigantamax: "G-Max Power Hug",
@@ -1659,7 +1659,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		changesFrom: "Wigglytuff",
 	},
-	
+*/	
 	drampa: {
 		inherit: true,
 		canGigantamax: "G-Max War Story",
