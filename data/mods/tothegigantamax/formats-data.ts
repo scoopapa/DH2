@@ -239,6 +239,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
+/*
 	gourgeistgmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
@@ -259,4 +260,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
+*/
 };
