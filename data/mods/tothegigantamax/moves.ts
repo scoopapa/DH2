@@ -2490,6 +2490,7 @@ gmaxevoglace: {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+/*
 	gmaxjackobomb: {
 		num: 1000,
 		accuracy: true,
@@ -2519,6 +2520,7 @@ gmaxevoglace: {
 		type: "Grass",
 		contestType: "Cool",
 	},
+*/
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
