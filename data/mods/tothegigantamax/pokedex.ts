@@ -383,7 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		changesFrom: "Scizor",
 	},
- /*
+ 
 	sableye: {
 		inherit: true,
 		canGigantamax: "G-Max Meddling",
@@ -402,7 +402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Sableye",
 	},
- 
+ /*
 	poliwrath: {
 		inherit: true,
 		canGigantamax: "G-Max Belly Swirl",
@@ -554,7 +554,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Palossand",
 	},
- 
+ */
 	aggron: {
 		inherit: true,
 		canGigantamax: "G-Max Beastly Iron",
@@ -573,7 +573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		changesFrom: "Aggron",
 	},
- */
+ 
 	articunogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Cruel Chill",
@@ -652,7 +652,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Braviary",
 	},
- 
+*/ 
 	wobbuffet: {
 		inherit: true,
 		canGigantamax: "G-Max Recoil",
@@ -671,7 +671,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Wobbuffet",
 	},
- 
+ /*
 	groudon: {
 		inherit: true,
 		canGigantamax: "G-Max Desolating Drought",
@@ -1279,7 +1279,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Giratina",
 	},
- /*
+ 
 	dusknoir: {
 		inherit: true,
 		canGigantamax: "G-Max Reap",
@@ -1298,7 +1298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Dusknoir",
 	},
- 
+ /*
 	leafeon: {
 		inherit: true,
 		canGigantamax: "G-Max Evo-Leaf",
@@ -1336,7 +1336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Beheeyem",
 	},
- /*
+ 
 	zoroark: {
 		inherit: true,
 		canGigantamax: "G-Max Delusion",
@@ -1355,7 +1355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Zoroark",
 	},
- */
+ 
 	sceptile: {
 		inherit: true,
 		canGigantamax: "G-Max Vegetal Sword",
