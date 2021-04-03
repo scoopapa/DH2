@@ -1052,18 +1052,12 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] M4A Submission Sandbox",
+		name: "[Gen 8] M4A Sandbox",
 		desc: ["&bullet; Megas for All v7",
 		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete', 'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-		],
+		searchShow: false,
+		// now intended as a custom game-esque format with more freedom for testing
+		ruleset: ['Team Preview', 'Cancel Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4asandbox',
 	},
 	{
@@ -1137,6 +1131,7 @@ export const Formats: FormatList = [
 			}
 		},
   },
+/*
   {
 		name: "[Gen 8] M4A Monotype",
 		desc: ["&bullet; Whole team must share a type",
@@ -1160,6 +1155,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4av6',
 	},
+*/
 	{
 		name: "[Gen 8] Megamax",
 		desc: [
