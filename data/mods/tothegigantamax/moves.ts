@@ -1882,8 +1882,7 @@ gmaxevoglace: {
 		type: "Ghost",
 		contestType: "Cool",
 	},
-
-
+/*
 	gmaxrobbery: {
 		num: 1000,
 		accuracy: true,
@@ -1931,7 +1930,7 @@ gmaxevoglace: {
 		type: "Dark",
 		contestType: "Cool",
 	},
-/*
+
 	gmaxpetalrain: {
 		num: 1000,
 		accuracy: true,
