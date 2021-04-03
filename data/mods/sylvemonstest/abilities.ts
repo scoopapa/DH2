@@ -221,7 +221,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Dimension Warp",
 	},
 	housekeeping: {
-		shortDesc: "Removes hazards upon switch-in.",
+		shortDesc: "Removes hazards & rooms upon switch-in.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
 			this.field.removePseudoWeather('trickroom');
