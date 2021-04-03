@@ -219,17 +219,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
-	dusknoirgmax: {
-		isNonstandard: "Gigantamax",
-		tier: "AG",
-		doublesTier: "(DUber)",
-	},
 	sableyegmax: {
-		isNonstandard: "Gigantamax",
-		tier: "AG",
-		doublesTier: "(DUber)",
-	},
-	zoroarkgmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
 		doublesTier: "(DUber)",
@@ -250,6 +240,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUber)",
 	},
 	weavilegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	drampagmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	turtonatorgmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
 		doublesTier: "(DUber)",
