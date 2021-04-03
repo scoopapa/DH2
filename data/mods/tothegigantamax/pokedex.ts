@@ -1279,7 +1279,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Giratina",
 	},
- 
+ /*
 	dusknoir: {
 		inherit: true,
 		canGigantamax: "G-Max Reap",
@@ -1298,7 +1298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Dusknoir",
 	},
- /*
+ 
 	leafeon: {
 		inherit: true,
 		canGigantamax: "G-Max Evo-Leaf",
@@ -1336,7 +1336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Beheeyem",
 	},
- 
+ /*
 	zoroark: {
 		inherit: true,
 		canGigantamax: "G-Max Delusion",
@@ -1355,7 +1355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Zoroark",
 	},
- 
+ */
 	sceptile: {
 		inherit: true,
 		canGigantamax: "G-Max Vegetal Sword",
