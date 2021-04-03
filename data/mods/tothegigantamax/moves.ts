@@ -2379,7 +2379,7 @@ gmaxevoglace: {
 		type: "Rock",
 		contestType: "Cool",
 	},
-
+/*
 	gmaxdelusion: {
 		num: 1000,
 		accuracy: true,
@@ -2410,6 +2410,7 @@ gmaxevoglace: {
 		type: "Dark",
 		contestType: "Cool",
 	},
+*/
 	gmaxminefield: {
 		num: 1000,
 		accuracy: true,
