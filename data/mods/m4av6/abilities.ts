@@ -1551,9 +1551,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
 				this.effectData.target.addVolatile('seismicscream');
-				if (move.category === 'Special') {
-					source.addVolatile('specialsound');
-				}
 				/*
 				this.add('-anim', source, "Earthquake", target);
 				*/
@@ -1565,6 +1562,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1044,
 	},
 	acidrock: {
+		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Pokémon with Soundproof are immune. Poison inflicted through this Ability does half as much damage as normal poison.",
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
@@ -1576,7 +1574,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target);
 				} else {
-					target.setStatus('psn', pokemon);
+					if (target.setStatus('psn', pokemon)) {
+						this.hint(`Poison inflicted through Acid Rock is only half as damaging as normal poison.`);
+					}
 				}
 			}
 		},
