@@ -1069,7 +1069,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Chandelure",
 	},
-	
+/*	
 	weavile: {
 		inherit: true,
 		canGigantamax: "G-Max Robbery",
@@ -1088,7 +1088,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Weavile",
 	},
- /*
+ 
 	bellossom: {
 		inherit: true,
 		canGigantamax: "G-Max Petal Rain",
