@@ -224,16 +224,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
-	aggrongmax: {
-		isNonstandard: "Gigantamax",
-		tier: "AG",
-		doublesTier: "(DUber)",
-	},
-	wobbuffetgmax: {
-		isNonstandard: "Gigantamax",
-		tier: "AG",
-		doublesTier: "(DUber)",
-	},
 	lurantisgmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
@@ -245,6 +235,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUber)",
 	},
 	turtonatorgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistsmallgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistlargegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistsupergmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
 		doublesTier: "(DUber)",
