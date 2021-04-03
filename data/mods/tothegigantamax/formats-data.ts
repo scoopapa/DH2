@@ -239,11 +239,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
-	weavilegmax: {
-		isNonstandard: "Gigantamax",
-		tier: "AG",
-		doublesTier: "(DUber)",
-	},
 	drampagmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
