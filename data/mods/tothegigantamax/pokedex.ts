@@ -383,7 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		changesFrom: "Scizor",
 	},
- /*
+ 
 	sableye: {
 		inherit: true,
 		canGigantamax: "G-Max Meddling",
@@ -402,7 +402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Sableye",
 	},
- 
+ /*
 	poliwrath: {
 		inherit: true,
 		canGigantamax: "G-Max Belly Swirl",
@@ -440,12 +440,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Talonflame",
 	},
- 
+ */
 	lurantis: {
 		inherit: true,
 		canGigantamax: "G-Max Petal Shake",
 	},
-	luranitsgmax: {
+	lurantisgmax: {
 		num: 754,
 		name: "Lurantis-Gmax",
 		baseSpecies: "Lurantis",
@@ -459,7 +459,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Grass"],
 		changesFrom: "Lurantis",
 	},
- 
+ /*
 	porygonz: {
 		inherit: true,
 		canGigantamax: "G-Max Conversion Seizure",
@@ -1069,7 +1069,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Chandelure",
 	},
-	/*
+/*	
 	weavile: {
 		inherit: true,
 		canGigantamax: "G-Max Robbery",
@@ -1621,7 +1621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Gourgeist-Super",
 	},
-	
+
 	flareon: {
 		inherit: true,
 		canGigantamax: "G-Max Evo-Flare",
@@ -1640,7 +1640,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		changesFrom: "Flareon",
 	},
-	
+/*
 	wigglytuff: {
 		inherit: true,
 		canGigantamax: "G-Max Power Hug",
@@ -1659,7 +1659,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		changesFrom: "Wigglytuff",
 	},
-	
+*/	
 	drampa: {
 		inherit: true,
 		canGigantamax: "G-Max War Story",
@@ -1697,5 +1697,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		changesFrom: "Turtonator",
 	},
-*/
+
 };
