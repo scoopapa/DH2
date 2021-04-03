@@ -445,7 +445,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		canGigantamax: "G-Max Petal Shake",
 	},
-	luranitsgmax: {
+	lurantisgmax: {
 		num: 754,
 		name: "Lurantis-Gmax",
 		baseSpecies: "Lurantis",
@@ -554,7 +554,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Palossand",
 	},
- */
+ 
 	aggron: {
 		inherit: true,
 		canGigantamax: "G-Max Beastly Iron",
@@ -573,7 +573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		changesFrom: "Aggron",
 	},
- 
+ */
 	articunogalar: {
 		inherit: true,
 		canGigantamax: "G-Max Cruel Chill",
@@ -652,7 +652,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Braviary",
 	},
-*/ 
+ 
 	wobbuffet: {
 		inherit: true,
 		canGigantamax: "G-Max Recoil",
@@ -671,7 +671,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Wobbuffet",
 	},
- /*
+ 
 	groudon: {
 		inherit: true,
 		canGigantamax: "G-Max Desolating Drought",
