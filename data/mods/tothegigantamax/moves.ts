@@ -1221,7 +1221,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
-*/
+
 	gmaxbeastlyiron: {
 		num: 1000,
 		accuracy: true,
@@ -1269,7 +1269,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	
+*/	
 	gmaxcruelchill: {
 		num: 1000,
 		accuracy: true,
@@ -1344,7 +1344,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "",
 		contestType: "Cool",
 	},
-*/
+
 	gmaxrecoil: {
 		num: 1000,
 		accuracy: true,
@@ -1395,7 +1395,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
-/*
+
 	gmaxdesolatingdrought: {
 		num: 1000,
 		accuracy: true,
