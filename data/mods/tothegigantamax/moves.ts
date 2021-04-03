@@ -972,7 +972,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				const result = this.random(10);
 				if (result === 0) {
-					source.addvolatile('leechseed', source);
+					this.useMove('leechseed', source);
 				} else if (result === 1) {
 					source.side.foe.addSideCondition('stealthrock');
 				} else if (result === 2) {
