@@ -149,6 +149,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Dugtrionite" && pokemon.baseSpecies.name === "Dugtrio-Alola") {
 			return null;
 		}
+		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
+			return null;
+		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
