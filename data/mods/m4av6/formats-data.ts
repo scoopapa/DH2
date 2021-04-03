@@ -453,10 +453,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	rapidashmega: {
-		
-	},	
+		randomBattleMoves: ["flareblitz", "airslash", "uturn", "morningsun", "highhorsepower", "willowisp"],
+		randomDoubleBattleMoves: ["flareblitz", "wildcharge", "protect", "hypnosis", "highhorsepower", "willowisp"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",	
+	},
+	/*
 	rapidashgalarmega: {
 		
 	},
@@ -1015,10 +1018,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 		doublesTier: "DUU",
 	},
+	/*
 	porygonzmega: {
 		tier: "AFD",
 		doublesTier: "DUU",
 	},
+	*/
 	omastar: {
 		randomBattleMoves: ["shellsmash", "scald", "icebeam", "earthpower", "spikes", "stealthrock", "hydropump"],
 		randomDoubleBattleMoves: ["shellsmash", "muddywater", "icebeam", "earthpower", "hiddenpowerelectric", "protect", "hydropump"],
@@ -3432,11 +3437,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	zebstrikamega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["voltswitch", "jawlock", "overheat", "wildcharge", "pursuit"],
+		randomDoubleBattleMoves: ["voltswitch", "hiddenpowergrass", "overheat", "wildcharge", "protect"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	gigalith: {
 		randomBattleMoves: ["stealthrock", "rockblast", "earthquake", "explosion", "stoneedge", "superpower"],
 		randomDoubleBattleMoves: ["stealthrock", "rockslide", "stompingtantrum", "stoneedge", "superpower", "wideguard", "protect"],
@@ -3597,8 +3603,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	krookodilemega: {
-		randomBattleMoves: ["earthquake", "pursuit", "knockoff", "stealthrock", "partingshot", "taunt", "shoreup"],
-		randomDoubleBattleMoves: ["earthquake", "protect", "knockoff", "partingshot", "taunt", "shoreup"],
+		randomBattleMoves: ["earthquake", "pursuit", "knockoff", "stealthrock", "memento", "taunt"],
+		randomDoubleBattleMoves: ["earthquake", "protect", "knockoff", "stoneedge", "taunt"],
 		tier: "UU",
 		doublesTier: "DUU",
 	},
@@ -4955,6 +4961,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	mudsdale: {
 		randomBattleMoves: ["earthquake", "bodypress", "rockslide", "heavyslam", "stealthrock"],
+		randomDoubleBattleMoves: ["highhorsepower", "heavyslam", "closecombat", "rockslide", "protect"],
+		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	mudsdalemega: {
+		randomBattleMoves: ["earthquake", "bodypress", "rockslide", "bulkup", "painsplit", "stealthrock"],
 		randomDoubleBattleMoves: ["highhorsepower", "heavyslam", "closecombat", "rockslide", "protect"],
 		tier: "PU",
 		doublesTier: "(DUU)",
