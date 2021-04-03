@@ -2490,6 +2490,35 @@ gmaxevoglace: {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	gmaxjackobomb: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Foes: Burned & Ghost/Grass-type.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Jack-O-Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Gourgeist",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Will-O-Wisp", target);
+			this.add('-anim', source, "Seed Bomb", target);
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+					this.add('-start', pokemon, 'typechange', 'Ghost', 'Grass');
+				}
+			}
+		},
+		target: "adjacentFoe",
+		type: "Grass",
+		contestType: "Cool",
+	},
 	gmaxvegetalsword: {
       num: 1000,
       accuracy: true,
