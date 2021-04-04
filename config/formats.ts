@@ -1057,7 +1057,7 @@ export const Formats: FormatList = [
 		      ],
 		searchShow: false,
 		// now intended as a custom game-esque format with more freedom for testing
-		ruleset: ['Team Preview', 'Cancel Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4asandbox',
 	},
 	{
