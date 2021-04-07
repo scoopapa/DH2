@@ -234,4 +234,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterspout: ["8L1"],
 			workup: ["8L1"],
 			whirlpool: ["8L1"],
+		},
+	},
 };
