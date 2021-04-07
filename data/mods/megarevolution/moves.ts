@@ -19615,8 +19615,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 					continue;
 				}
 				if (ally.cureStatus()) success = true;
-			}
-			return success;
+			}},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
 		},
 		target: "allyTeam",
 		type: "Water",
