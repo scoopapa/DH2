@@ -19587,6 +19587,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ground') return 1;
+		ignoreImmunity: true,
 		},
 		secondary: {
 			chance: 10,
@@ -19606,10 +19607,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, authentic: 1, mystery: 1},
 		onHit(pokemon) {
-			this.add('-activate', source, 'move: Heal Bell');
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			for (const ally of side.pokemon) {
-				if (ally.cureStatus()) success = true;
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
