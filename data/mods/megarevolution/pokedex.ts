@@ -489,7 +489,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		name: "Veloshock",
 		types: ["Electric","Fire"],
 		baseStats: {hp: 70, atk: 65, def: 90, spa: 110, spd: 60, spe: 130},
-		abilities: {0: "Static", 1: "Lighting Rod", H: "Intimidate"},
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Intimidate"},
 		heightm: 1.8,
 		weightkg: 44.0,
 		prevo: "manectric",
