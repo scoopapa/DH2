@@ -14,7 +14,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Fluxtape",
 		types: ["Fire"],
 		baseStats: {hp: 60, atk: 89, def: 50, spa: 115, spd: 60, spe: 126},
-		abilities: {0: "Flame Body", 1:"Competetive", H: "Flash Fire"},
+		abilities: {0: "Flame Body", 1:"Competitive", H: "Flash Fire"},
 		heightm: 1.7,
 		weightkg: 0.2,
 	},

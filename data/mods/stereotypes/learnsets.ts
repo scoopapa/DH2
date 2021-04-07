@@ -103,6 +103,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dragonbreath: ["8L1"],
 			dragondance: ["8L1"],
 			dragonpulse: ["8L1"],
+			earthpower: ["8L1"],
 			earthquake: ["8L1"],
 			echoedvoice: ["8L1"],
 			ember: ["8L1"],
