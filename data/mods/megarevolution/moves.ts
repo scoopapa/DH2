@@ -19634,7 +19634,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source: source,
 				moveData: {
 					id: 'diamondbeam',
-					name: "Doom Desire",
+					name: "Diamond Beam",
 					accuracy: 100,
 					basePower: 140,
 					category: "Diamond Beam",
