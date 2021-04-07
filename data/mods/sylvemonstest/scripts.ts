@@ -2850,7 +2850,6 @@ this.modData('Learnsets', 'golisopod').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'crawdaunt').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'palkia').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'kabutops').learnset.aquaticassault= ['7L1']; 
-this.modData('Learnsets', 'swampert').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'volcanion').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'carracosta').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'krabby').learnset.aquaticassault= ['7L1']; 
