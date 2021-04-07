@@ -19606,6 +19606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
+		heal: [1, 4],
 		onHit(pokemon, source, move) {
 			this.add('-activate', source, 'move: Concealing Mist');
 			let success = false;
@@ -19615,9 +19616,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					continue;
 				}
 				if (ally.cureStatus()) success = true;
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return pokemon.cureStatus() || success;
-			}},
+		},
 		target: "allyTeam",
 		type: "Water",
 		zMove: {effect: 'heal'},
