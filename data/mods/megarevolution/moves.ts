@@ -19585,9 +19585,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Electric': true},
 		onEffectiveness(typeMod, target, type) {
-			if (!target.runImmunity('Electric')) {
-				if (target.hasType('Ground')) return 0;
 			}
 			if (type === 'Ground') return 1;
 		},
@@ -19609,11 +19608,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, authentic: 1, mystery: 1},
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			
 			return pokemon.cureStatus() || success;
 		},
+		onHit(pokemon, source, move) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			this.add('-activate', source, 'move: Concealing Mist');
+			let success = false;
+			for (const ally of pokemon.side.pokemon) {
+				if (ally !== source && ((ally.hasAbility('sapsipper')) ||
+						(ally.volatiles['substitute'] && !move.infiltrates))) {
+					continue;
+				}
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
 		secondary: null,
-		target: "Team",
+		target: "allyTeam",
 		type: "Water",
 		},
 };
