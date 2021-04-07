@@ -19581,6 +19581,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
+		desc: "10% chance to paralyze. Super effective on Ground."
 		name: "Grounding Shock",
 		pp: 10,
 		priority: 0,
@@ -19602,6 +19603,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "Cure the user's party of all status conditions. User heals 1/4 max HP."
 		name: "Concealing Mist",
 		pp: 5,
 		priority: 0,
@@ -19626,6 +19628,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 140,
 		category: "Special",
+		desc: "Hits two turns after being used."
 		name: "Diamond Beam",
 		pp: 5,
 		priority: 0,
