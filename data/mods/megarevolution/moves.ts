@@ -19634,10 +19634,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source: source,
 				moveData: {
 					id: 'diamondbeam',
-					name: "Diamond Beam",
+					name: "Doom Desire",
 					accuracy: 100,
 					basePower: 140,
-					category: "Special",
+					category: "Diamond Beam",
 					priority: 0,
 					flags: {},
 					effectType: 'Move',
@@ -19645,7 +19645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: 'Rock',
 				},
 			});
-			this.add('-start', source, 'Doom Desire');
+			this.add('-start', source, 'Diamond Beam');
 			return null;
 		},
 		secondary: null,
