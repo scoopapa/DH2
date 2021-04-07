@@ -19616,7 +19616,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					continue;
 				}
 				if (ally.cureStatus()) success = true;
-		},
+			}},
 		target: "allyTeam",
 		type: "Water",
 		zMove: {effect: 'heal'},
