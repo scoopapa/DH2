@@ -3048,7 +3048,6 @@ this.modData('Learnsets', 'simisear').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'plusle').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'minun').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'victini').learnset.hottag = ['7L1'];
-this.modData('Learnsets', 'pichu').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'heracross').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'lopunny').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'nidoqueen').learnset.hottag = ['7L1'];
