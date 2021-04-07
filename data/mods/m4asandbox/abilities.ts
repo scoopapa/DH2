@@ -1,22 +1,24 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	acidrocknerfed: {
-		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
-		onStart(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (!target || !this.isAdjacent(target, pokemon) || target.status) continue;
-				if (target.hasAbility('soundproof')) {
-					this.add('-ability', pokemon, 'Acid Rock');
-					this.add('-immune', target, "[from] ability: Soundproof", "[of] " + target);
-				} else if (!target.runStatusImmunity('psn')) {
-					this.add('-ability', pokemon, 'Acid Rock');
-					this.add('-immune', target);
-				} else {
-					target.setStatus('psn', pokemon);
-				}
+	conversionz: {
+		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
+		onSwitchIn(pokemon) {
+			const type = this.dex.getSpecies(pokemon.species).types[0];
+			if (pokemon.hasType(type) || !pokemon.setType(type)) return;
+			this.add('-start', pokemon, 'typechange', type);
+		},
+		onSourceHit(target, source, move) {
+			if (move.id === 'conversion' || move.id === 'conversion2') {
+				this.add('-ability', source, 'Conversion-Z');
+				const pokemon = this.dex.getSpecies(source.species);
+				pokemon.types[0] = source.types[0];
 			}
 		},
-		name: "Acid Rock (Nerfed)",
-		rating: 4,
-		num: -1045,
+		onModifyMove(move) {
+			delete move.stab;
+		},
+		isPermanent: true,
+		name: "Conversion-Z",
+		rating: 5,
+		num: -5000,
 	},
 };
