@@ -19613,7 +19613,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
-		target: "allyTeam",
+		target: "Team",
 		type: "Water",
 		},
 	},
