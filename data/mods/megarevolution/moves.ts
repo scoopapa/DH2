@@ -19616,41 +19616,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "Team",
 		type: "Water",
 		},
-	},
-	diamondbeam: {
-		num: 829,
-		accuracy: 100,
-		basePower: 140,
-		category: "Special",
-		name: "Diamond Beam",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		isFutureMove: true,
-		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				move: 'diamondbeam',
-				source: source,
-				moveData: {
-					id: 'diamondbeam',
-					name: "Diamond Beam",
-					accuracy: 100,
-					basePower: 140,
-					category: "Diamond Beam",
-					priority: 0,
-					flags: {},
-					effectType: 'Move',
-					isFutureMove: true,
-					type: 'Rock',
-				},
-			});
-			this.add('-start', source, 'Diamond Beam');
-			return null;
-		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Beautiful",
-	},
 };
