@@ -19603,20 +19603,60 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Concealing Mist",
-		pp: 10,
+		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, sound: 1, distance: 1, authentic: 1},
-		onHit(pokemon, source) {
+		flags: {snatch: 1, distance: 1},
+		onHit(pokemon, source, move) {
 			this.add('-activate', source, 'move: Concealing Mist');
-			const side = pokemon.side;
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			for (const ally of side.pokemon) {
-				if (ally !== source && ally.hasAbility('soundproof')) continue;
+			let success = false;
+			for (const ally of pokemon.side.pokemon) {
+				if (ally !== source && ((ally.hasAbility('waterabsorb','stormdrain','dryskin')) ||
+						(ally.volatiles['substitute'] && !move.infiltrates))) {
+					continue;
+				}
 				if (ally.cureStatus()) success = true;
 			}
 			return success;
 		},
 		target: "allyTeam",
 		type: "Water",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+	},
+	diamondbeam: {
+		num: 829,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Diamond Beam",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'diamondbeam',
+				source: source,
+				moveData: {
+					id: 'diamondbeam',
+					name: "Diamond Beam",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Rock',
+				},
+			});
+			this.add('-start', source, 'Doom Desire');
+			return null;
 		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
 };
