@@ -1390,6 +1390,20 @@ export const Formats: FormatList = [
 		},
 		mod: 'smashmodsmelee',
 	},
+	{
+		name: "[Gen 8] Stereotypes",
+		mod: "stereotypes",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Thread in Pet Mods</a>`
+		],
+		ruleset: ['Standard', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: [
+			'All Pokemon'
+		],
+		unbanlist: [
+			'Prairret', 'Fluxtape', 'Cetaidon',
+		],
+	},
 	{  
 		name: "[Gen 8] SylveMons",
 		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",
