@@ -19585,9 +19585,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: true,
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ground') return 1;
-		ignoreImmunity: true,
 		},
 		secondary: {
 			chance: 10,
