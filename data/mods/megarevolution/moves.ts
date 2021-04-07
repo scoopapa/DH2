@@ -19619,7 +19619,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}},
 		target: "allyTeam",
 		type: "Water",
-		zMove: {effect: 'heal'},
 		contestType: "Clever",
 	},
 	diamondbeam: {
@@ -19650,7 +19649,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: 'Rock',
 				},
 			});
-			this.add('-start', source, 'Doom Desire');
+			this.add('-start', source, 'Diamond Beam');
 			return null;
 		},
 		secondary: null,
