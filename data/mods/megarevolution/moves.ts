@@ -19610,7 +19610,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-activate', source, 'move: Concealing Mist');
 			const side = pokemon.side;
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			let success = false;
 			for (const ally of side.pokemon) {
 				if (ally !== source && ally.hasAbility('soundproof')) continue;
 				if (ally.cureStatus()) success = true;
