@@ -19605,25 +19605,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Concealing Mist",
 		pp: 10,
 		priority: 0,
-		flags: {heal: 1, authentic: 1, mystery: 1},
-		onHit(pokemon) {
-			
-			return pokemon.cureStatus() || success;
-		},
-		onHit(pokemon, source, move) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+		flags: {snatch: 1, sound: 1, distance: 1, authentic: 1},
+		onHit(pokemon, source) {
 			this.add('-activate', source, 'move: Concealing Mist');
+			const side = pokemon.side;
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			let success = false;
-			for (const ally of pokemon.side.pokemon) {
-				if (ally !== source && ((ally.hasAbility('sapsipper')) ||
-						(ally.volatiles['substitute'] && !move.infiltrates))) {
-					continue;
-				}
+			for (const ally of side.pokemon) {
+				if (ally !== source && ally.hasAbility('soundproof')) continue;
 				if (ally.cureStatus()) success = true;
 			}
 			return success;
 		},
-		secondary: null,
 		target: "allyTeam",
 		type: "Water",
 		},
