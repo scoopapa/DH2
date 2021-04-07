@@ -1396,7 +1396,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Thread in Pet Mods</a>`
 		],
-		ruleset: ['Standard', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
 			'All Pokemon'
 		],
