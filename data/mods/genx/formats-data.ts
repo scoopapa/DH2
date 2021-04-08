@@ -167,4 +167,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	miniatorch: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	blastorch: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
