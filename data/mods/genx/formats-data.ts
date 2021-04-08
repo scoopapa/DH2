@@ -107,4 +107,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	sapeetle: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	carapex: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
