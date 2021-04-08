@@ -83,4 +83,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 80,
 		prevo: "Pedrowana",
 	},
+	brazube: {
+		num: 1001,
+		name: "Brazubê",
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 55, atk: 50, def: 60, spa: 20, spd: 45, spe: 20},
+		abilities: {0: "Poison Point", 1: "Rough Skin", H: "Poison Touch"},
+		weightkg: 1,
+		evos: ["Brazupine"],
+	},
+	brazupine: {
+		num: 1002,
+		name: "Brazupine",
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 80, atk: 80, def: 100, spa: 40, spd: 70, spe: 80},
+		abilities: {0: "Poison Point", 1: "Rough Skin", H: "Poison Touch"},
+		weightkg: 20,
+		prevo: "Brazubê",
+	},
 };
