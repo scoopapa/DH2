@@ -33,5 +33,6 @@ this.modData('Learnsets', 'meowstic').learnset.bushclaws = ['7L1'];
 this.modData('Learnsets', 'meowsticf').learnset.bushclaws = ['7L1'];
 this.modData('Learnsets', 'purrloin').learnset.bushclaws = ['7L1'];
 this.modData('Learnsets', 'liepard').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'oricorio').learnset.revelationspin = ['7L1'];
 	},
 };
