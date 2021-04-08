@@ -479,4 +479,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 25,
 		prevo: "Cruchick",
 	},
+	gifsterious: {
+		num: 1047,
+		name: "Gifsterious",
+		types: ["Normal"],
+		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
+		abilities: {0: "Thoughtful"},
+		weightkg: 25,
+	},
+	peccarious: {
+		num: 1048,
+		name: "Peccarious",
+		types: ["Ground", "Grass"],
+		baseStats: {hp: 80, atk: 135, def: 94, spa: 50, spd: 86, spe: 40},
+		abilities: {0: "Reckless", 1: "Vigilante", H: "Grass Pelt"},
+		weightkg: 25,
+	},
+
 };
