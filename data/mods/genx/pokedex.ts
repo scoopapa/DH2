@@ -461,4 +461,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 75,
 		prevo: "Wakitty",
 	},
+	cruchick: {
+		num: 1045,
+		name: "Cruchick",
+		types: ["Ice", "Poison"],
+		baseStats: {hp: 80, atk: 33, def: 65, spa: 43, spd: 70, spe: 34},
+		abilities: {0: "Corrosion", 1: "Refrigerate", H: "Merciless"},
+		weightkg: 25,
+		evos: ["Pengroleum"],
+	},
+	pengroleum: {
+		num: 1046,
+		name: "Pengroleum",
+		types: ["Ice", "Poison"],
+		baseStats: {hp: 115, atk: 63, def: 100, spa: 78, spd: 105, spe: 64},
+		abilities: {0: "Corrosion", 1: "Refrigerate", H: "Merciless"},
+		weightkg: 25,
+		prevo: "Cruchick",
+	},
 };
