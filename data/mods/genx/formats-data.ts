@@ -55,4 +55,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	citruff: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	citrark: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
