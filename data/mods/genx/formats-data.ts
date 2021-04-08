@@ -127,4 +127,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	rikomoco: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	jujitzu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
