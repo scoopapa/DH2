@@ -371,4 +371,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 29.5,
 		prevo: "Sensat",
 	},
+	topaca: {
+		num: 1035,
+		name: "Topaca",
+		types: ["Ground", "Rock"],
+		baseStats: {hp: 55, atk: 76, def: 51, spa: 43, spd: 45, spe: 70},
+		abilities: {0: "Sand Veil", 1: "Solid Rock", H: "Clear Body"},
+		weightkg: 29.5,
+		evos: ["Pacavarice"],
+	},
+	pacavarice: {
+		num: 1036,
+		name: "Pacavarice",
+		types: ["Ground", "Rock"],
+		baseStats: {hp: 75, atk: 116, def: 71, spa: 63, spd: 65, spe: 110},
+		abilities: {0: "Sand Force", 1: "Solid Rock", H: "Clear Body"},
+		weightkg: 29.5,
+		prevo: "Topaca",
+	},
 };
