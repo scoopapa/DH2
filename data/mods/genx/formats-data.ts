@@ -147,4 +147,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	topaca: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	pacavarice: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
