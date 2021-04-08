@@ -284,7 +284,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		weightkg: 57.5,
 		prevo: "lucario",
 	},
-		glalie: {
+	glalie: {
 		inherit: true,
 		evos: ["Horrfrost"],
 	},
@@ -298,7 +298,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		weightkg: 350.2,
 		prevo: "glalie",
 	},
-		abomasnow: {
+	abomasnow: {
 		inherit: true,
 		evos: ["Blizzarex"],
 	},
@@ -312,7 +312,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		weightkg: 185.0,
 		prevo: "abomasnow",
 	},
-		audino: {
+	audino: {
 		inherit: true,
 		evos: ["Nurseheary"],
 	},
@@ -489,7 +489,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		name: "Veloshock",
 		types: ["Electric","Fire"],
 		baseStats: {hp: 70, atk: 65, def: 90, spa: 110, spd: 60, spe: 130},
-		abilities: {0: "Static", 1: "Lighting Rod", H: "Intimidate"},
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Intimidate"},
 		heightm: 1.8,
 		weightkg: 44.0,
 		prevo: "manectric",
@@ -535,5 +535,32 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		heightm: 1.6,
 		weightkg: 56.4,
 		prevo: "gallade",
+	},
+	celarias: {
+		num: 270040,
+		name: "Celarias",
+		types: ["Dragon","Water"],
+		baseStats: {hp: 80, atk: 80, def: 130, spa: 90, spd: 110, spe: 110},
+		abilities: {0: "Levitate"},
+		heightm: 1.8,
+		weightkg: 52.0,
+	},
+	celarios: {
+		num: 270041,
+		name: "Celarios",
+		types: ["Dragon","Electric"],
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 110, spd: 90, spe: 130},
+		abilities: {0: "Levitate"},
+		heightm: 2.3,
+		weightkg: 70.0,
+	},
+	diachess: {
+		num: 270042,
+		name: "Diachess",
+		types: ["Rock","Fairy"],
+		baseStats: {hp: 90, atk: 100, def: 100, spa: 125, spd: 90, spe: 95},
+		abilities: {0: "Magic Bounce"},
+		heightm: 1.1,
+		weightkg: 27.8,
 	},
 };
