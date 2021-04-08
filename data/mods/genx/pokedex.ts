@@ -184,5 +184,32 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 70,
 		prevo: "Escudant",
 	},
-
+	souarente: {
+		num: 1021,
+		name: "Souarente",
+		types: ["Grass"],
+		baseStats: {hp: 35, atk: 40, def: 80, spa: 55, spd: 70, spe: 30},
+		abilities: {0: "Volt Absorb", H: "Solar Power"},
+		weightkg: 3,
+		evos: ["Pequetal"],
+	},
+	pequetal: {
+		num: 1022,
+		name: "Pequetal",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 55, atk: 50, def: 85, spa: 90, spd: 90, spe: 40},
+		abilities: {0: "Volt Absorb", H: "Solar Power"},
+		weightkg: 7,
+		prevo: "Souarente",
+		evos: ["Florapago"],
+	},
+	florapago: {
+		num: 1023,
+		name: "Florapago",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 85, atk: 60, def: 100, spa: 110, spd: 105, spe: 50},
+		abilities: {0: "Volt Absorb", H: "Solar Power"},
+		weightkg: 30,
+		prevo: "Pequetal",
+	},
 };
