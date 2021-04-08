@@ -212,4 +212,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30,
 		prevo: "Pequetal",
 	},
+	alumane: {
+		num: 1024,
+		name: "Alumane",
+		types: ["Steel"],
+		baseStats: {hp: 35, atk: 55, def: 65, spa: 30, spd: 35, spe: 75},
+		abilities: {0: "Technician", 1: "Volt Absorb", H: "Light Metal"},
+		weightkg: 10,
+		evos: ["Silicyon"],
+	},
+	silicyon: {
+		num: 1025,
+		name: "Silicyon",
+		types: ["Steel"],
+		baseStats: {hp: 55, atk: 100, def: 115, spa: 50, spd: 60, spe: 130},
+		abilities: {0: "Technician", 1: "Volt Absorb", H: "Light Metal"},
+		weightkg: 30,
+		prevo: "Alumane",
+	},
 };
