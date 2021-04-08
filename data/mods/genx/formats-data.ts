@@ -187,4 +187,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	cruchick: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	pengroleum: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
