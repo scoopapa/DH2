@@ -195,4 +195,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	gifsterious: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	peccarious: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
