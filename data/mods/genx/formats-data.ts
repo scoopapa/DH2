@@ -155,4 +155,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	gelobite: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	lagelto: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	gelomandra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
