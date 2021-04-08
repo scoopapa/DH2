@@ -85,7 +85,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	brazube: {
 		num: 1010,
-		name: "Brazubê",
+		name: "Brazube",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 55, atk: 50, def: 60, spa: 20, spd: 45, spe: 20},
 		abilities: {0: "Poison Point", 1: "Rough Skin", H: "Poison Touch"},
@@ -99,6 +99,34 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 80, def: 100, spa: 40, spd: 70, spe: 80},
 		abilities: {0: "Poison Point", 1: "Rough Skin", H: "Poison Touch"},
 		weightkg: 20,
-		prevo: "Brazubê",
+		prevo: "Brazube",
+	},
+	plumgall: {
+		num: 1012,
+		name: "Plumgall",
+		types: ["Flying"],
+		baseStats: {hp: 41, atk: 52, def: 44, spa: 32, spd: 37, spe: 39},
+		abilities: {0: "Early Bird", 1: "Rattled", H: "Fluffy"},
+		weightkg: 25,
+		evos: ["Secrehen"]
+	},
+	secrehen: {
+		num: 1013,
+		name: "Secrehen",
+		types: ["Flying"],
+		baseStats: {hp: 51, atk: 77, def: 64, spa: 42, spd: 52, spe: 59},
+		abilities: {0: "Early Bird", 1: "Rattled", H: "Fluffy"},
+		weightkg: 25,
+		prevo: "Plumgall",
+		evos: ["Mourhen"]
+	},
+	mourhen: {
+		num: 1014,
+		name: "Mourhen",
+		types: ["Flying", "Ghost"],
+		baseStats: {hp: 71, atk: 122, def: 94, spa: 52, spd: 72, spe: 89},
+		abilities: {0: "Infiltrator", 1: "Unnerve", H: "Fluffy"},
+		weightkg: 25,
+		prevo: "Secrehen",
 	},
 };
