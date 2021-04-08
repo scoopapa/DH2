@@ -18,5 +18,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 */
+// bushclaws
+this.modData('Learnsets', 'absol').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'meowth').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'persian').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'sneasel').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'weavile').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'skitty').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'delcatty').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'glameow').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'purugly').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'espurr').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'meowstic').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'meowsticf').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'purrloin').learnset.bushclaws = ['7L1'];
+this.modData('Learnsets', 'liepard').learnset.bushclaws = ['7L1'];
 	},
 };
