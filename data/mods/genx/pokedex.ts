@@ -84,7 +84,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Pedrowana",
 	},
 	brazube: {
-		num: 1001,
+		num: 1010,
 		name: "Brazubê",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 55, atk: 50, def: 60, spa: 20, spd: 45, spe: 20},
@@ -93,7 +93,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Brazupine"],
 	},
 	brazupine: {
-		num: 1002,
+		num: 1011,
 		name: "Brazupine",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 80, atk: 80, def: 100, spa: 40, spd: 70, spe: 80},
