@@ -115,4 +115,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	parasbrazdo: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	parasectbrazdo: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	parascend: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
