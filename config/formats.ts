@@ -974,6 +974,8 @@ export const Formats: FormatList = [
             'Silvino-Steel-Mega', 'Silvino-Water-Mega', 'Silvino-Mega',
         ],
     },
+	 {
+					 
 		name: "[Gen 8] Generation X",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/generation-x.3670676/</a>`,
