@@ -267,4 +267,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 	},
+	sapeetle: {
+		num: 1027,
+		name: "Sapeetle",
+		types: ["Bug"],
+		baseStats: {hp: 50, atk: 60, def: 100, spa: 35, spd: 55, spe: 40},
+		abilities: {0: "Shell Armor", 1: "Sap Sipper", H: "Oblivious"},
+		weightkg: 10,
+		evos: ["Silicyon"],
+	},
+	carapex: {
+		num: 1028,
+		name: "Carapex",
+		types: ["Bug", "Flying"],
+		baseStats: {hp: 70, atk: 90, def: 140, spa: 55, spd: 80, spe: 70},
+		abilities: {0: "Shell Armor", 1: "Sap Sipper", H: "Wind Blaster"},
+		weightkg: 30,
+		prevo: "Sapeetle",
+	},
 };
