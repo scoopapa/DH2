@@ -35,4 +35,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	brazube: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	brazupine: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
