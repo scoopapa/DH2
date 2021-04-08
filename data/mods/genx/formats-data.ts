@@ -135,4 +135,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	humbat: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	sensat: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	echologos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
