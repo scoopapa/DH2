@@ -175,4 +175,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	wakitty: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	cougaquil: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	jagaska: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
