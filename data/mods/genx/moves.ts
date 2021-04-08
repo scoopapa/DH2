@@ -82,4 +82,29 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Tough",
 	},
+	revelationspin: {
+		num: 686,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+    shortDesc: "Type matches the user's primary type.",
+		isViable: true,
+		name: "Revelation Spin",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Revelation Dance", target);
+		},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
 };
