@@ -56,7 +56,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Status",
 		desc: "Cure the user's party of all status conditions. User heals 1/4 max HP.",
 		name: "Concealing Mist",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
 		heal: [1, 4],
