@@ -108,7 +108,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 41, atk: 52, def: 44, spa: 32, spd: 37, spe: 39},
 		abilities: {0: "Early Bird", 1: "Rattled", H: "Fluffy"},
 		weightkg: 25,
-		evos: ["Secrehen"]
+		evos: ["Secrehen"],
 	},
 	secrehen: {
 		num: 1013,
@@ -118,7 +118,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Early Bird", 1: "Rattled", H: "Fluffy"},
 		weightkg: 25,
 		prevo: "Plumgall",
-		evos: ["Mourhen"]
+		evos: ["Mourhen"],
 	},
 	mourhen: {
 		num: 1014,
@@ -128,5 +128,23 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Infiltrator", 1: "Unnerve", H: "Fluffy"},
 		weightkg: 25,
 		prevo: "Secrehen",
+	},
+	citruff: {
+		num: 1015,
+		name: "Citruff",
+		types: ["Dark", "Grass"],
+		baseStats: {hp: 30, atk: 40, def: 30, spa: 70, spd: 40, spe: 40},
+		abilities: {0: "Cute Charm", 1: "Harvest", H: "Natural Cure"},
+		weightkg: 25,
+		evos: ["Citrark"],
+	},
+	citrark: {
+		num: 1016,
+		name: "Citrark",
+		types: ["Dark", "Grass"],
+		baseStats: {hp: 75, atk: 70, def: 60, spa: 125, spd: 70, spe: 80},
+		abilities: {0: "Cute Charm", 1: "Harvest", H: "Natural Cure"},
+		weightkg: 25,
+		prevo: "Citruff",
 	},
 };
