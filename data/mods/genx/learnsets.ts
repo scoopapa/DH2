@@ -939,7 +939,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			knockoff: ["8L1"],
 			snatch: ["8L1"],
 			snore: ["8L1"],
-			citrusyspray: ["8L1"],
+			citrusysting: ["8L1"],
 			acidspray: ["8L1"],
 			irontail: ["8L1"],
 			weatherball: ["8L1"],
