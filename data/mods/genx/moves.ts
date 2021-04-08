@@ -108,7 +108,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	fieldofvision: {
-		num: 792,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
