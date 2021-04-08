@@ -99,4 +99,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	oncuja: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
