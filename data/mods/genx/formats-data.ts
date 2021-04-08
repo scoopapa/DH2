@@ -43,4 +43,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	plumgall: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	secrehen: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	mourhen: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
