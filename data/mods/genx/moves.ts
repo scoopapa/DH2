@@ -117,6 +117,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 4,
 		flags: {},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Laser Focus", target);
+		},
 		stallingMove: true,
 		volatileStatus: 'fieldofvision',
 		onTryHit(pokemon) {
@@ -163,4 +167,157 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Psychic",
 	},
+	jawcrush: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "Traps both the user and the target",
+		isViable: true,
+		name: "Jaw Crush",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		onHit(target, source, move) {
+			source.addVolatile('trapped', target, move, 'trapper');
+			target.addVolatile('trapped', source, move, 'trapper');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+/*
+	clinch: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Clinch",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(pokemon, target, move) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+						this.boost({def: -1}, pokemon);
+				}
+						this.boost({spe: -1}, pokemon);			
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+
+	sonicpulse: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sonic Pulse",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'sonicpulse',
+		condition: {
+			duration: 100,
+			onStart(pokemon, source, effect) {
+				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', pokemon, 'move: Sonic Pulse', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'move: Sonic Pulse');
+				}
+			},
+			onRestart(pokemon) {
+				this.effectData.duration = 100;
+				this.add('-start', pokemon, 'move: Sonic Pulse');
+			},
+			onModifyCritRatio(critRatio) {
+				return 5;
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Sonic Pulse', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cool",
+	},
+*/
+	centuryblade: {
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+    shortDesc: "Charges turn 1. Hits turn 2. +1 Def when charging. Attacks immediately under sun.",
+		isViable: true,
+		name: "Century Blade",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, contact: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	drainfang: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "Heals the user by 50% of the damage dealt.",
+		isViable: true,
+		name: "Drain Fang",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Strength Sap", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	terracharge: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+    shortDesc: "Deals 33% of the damage dealt in recoil. 10% chance to lower the target's Speed.",
+		isViable: true,
+		name: "Terra Charge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		recoil: [33, 100],
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+// Flare Up, Toxic Snowball
 };
