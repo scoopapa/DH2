@@ -91,4 +91,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	alumane: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	silicyon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
