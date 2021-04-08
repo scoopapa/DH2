@@ -230,4 +230,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30,
 		prevo: "Alumane",
 	},
+	oncuja: {
+		num: 1026,
+		name: "Oncuja",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 65, atk: 103, def: 63, spa: 61, spd: 81, spe: 121},
+		abilities: {0: "Infiltrator", 1: "Insomnia", H: "Grass Pelt"},
+		weightkg: 30,
+	},
 };
