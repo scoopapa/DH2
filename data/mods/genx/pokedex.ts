@@ -1,0 +1,30 @@
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	folovo: {
+		num: 1001,
+		name: "Folovo",
+		types: ["Grass"],
+		baseStats: {hp: 40, atk: 67, def: 40, spa: 48, spd: 40, spe: 75},
+		abilities: {0: "Overgrow", H: "Swift Swim"},
+		weightkg: 5,
+		evos: ["Sworchid"],
+	},
+	sworchid: {
+		num: 1002,
+		name: "Sworchid",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 60, atk: 97, def: 49, spa: 70, spd: 49, spe: 95},
+		abilities: {0: "Overgrow", H: "Swift Swim"},
+		weightkg: 14,
+		prevo: "Folovo",
+		evos: ["Esplada"],
+	},
+	esplada: {
+		num: 1003,
+		name: "Esplada",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 80, atk: 112, def: 69, spa: 80, spd: 69, spe: 120},
+		abilities: {0: "Overgrow", H: "Swift Swim"},
+		weightkg: 26,
+		prevo: "Sworchid",
+	},
+};
