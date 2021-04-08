@@ -58,4 +58,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Clever",
 	},
+	bushclaws: {
+		num: 358,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the target is asleep.",
+		isViable: true,
+		name: "Bush Claws",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Claw", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
 };
