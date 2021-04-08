@@ -63,4 +63,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	civiliant: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	escudant: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	formigavor: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	formigavel: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
