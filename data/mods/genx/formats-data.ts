@@ -79,4 +79,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	souarente: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	pequetal: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	florapago: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
