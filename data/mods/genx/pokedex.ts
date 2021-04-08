@@ -416,4 +416,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 50,
 		prevo: "Lagelto",
 	},
+	miniatorch: {
+		num: 1040,
+		name: "Miniatorch",
+		types: ["Fire", "Steel"],
+		baseStats: {hp: 50, atk: 50, def: 70, spa: 70, spd: 50, spe: 30},
+		abilities: {0: "Sturdy", 1: "Flash Fire", H: "Light Metal"},
+		weightkg: 25,
+		evos: ["Blastorch"],
+	},
+	blastorch: {
+		num: 1041,
+		name: "Blastorch",
+		types: ["Fire", "Steel"],
+		baseStats: {hp: 80, atk: 70, def: 110, spa: 110, spd: 70, spe: 40},
+		abilities: {0: "Sturdy", 1: "Flash Fire", H: "Light Metal"},
+		weightkg: 25,
+		prevo: "Miniatorch",
+	},
 };
