@@ -103,4 +103,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	oricoriobrazdo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
