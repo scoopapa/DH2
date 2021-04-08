@@ -327,4 +327,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Parasect-Brazdo"],
 		formeOrder: ["Parasect", "Parasect-Brazdo"],
 	},
+	rikomoco: {
+		num: 1030,
+		name: "Rikomoco",
+		types: ["Electric", "Rock"],
+		baseStats: {hp: 57, atk: 41, def: 87, spa: 93, spd: 56, spe: 97},
+		abilities: {0: "Pickup", 1: "Stone House", H: "Motor Drive"},
+		weightkg: 29.5,
+	},
+	jujitzu: {
+		num: 1031,
+		name: "Jujitzu",
+		types: ["Fighting"],
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 50, spd: 70, spe: 95},
+		abilities: {0: "Long Reach", H: "Patience"},
+		weightkg: 29.5,
+	},
 };
