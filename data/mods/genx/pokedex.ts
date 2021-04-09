@@ -627,4 +627,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Sawsbuck-Brazdo"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Brazdo"],
 	},
+	toazin: {
+		num: 1049,
+		name: "Toazin",
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 40, atk: 71, def: 47, spa: 30, spd: 45, spe: 52},
+		abilities: {0: "Stench", 1: "Tough Claws", H: "Swift Swim"},
+		weightkg: 25,
+		evos: ["Opisthoclaw"],
+	},
+	opisthoclaw: {
+		num: 1050,
+		name: "Opisthoclaw",
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 70, atk: 111, def: 77, spa: 60, spd: 75, spe: 82},
+		abilities: {0: "Stench", 1: "Tough Claws", H: "Swift Swim"},
+		weightkg: 25,
+		prevo: "Toazin",
+	},
 };
