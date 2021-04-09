@@ -1404,6 +1404,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spark: ["8L1"],
 			steelbeam: ["8L1"],
 			substitute: ["8L1"],
+			suckerpunch: ["8L1"],
 			superfang: ["8L1"],
 			superpower: ["8L1"],
 			swagger: ["8L1"],
