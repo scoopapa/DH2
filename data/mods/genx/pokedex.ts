@@ -866,7 +866,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 50, def: 90, spa: 135, spd: 95, spe: 70},
 		abilities: {0: "Hot-Headed"},
 		weightkg: 50,
-		requiredItem: "Missing Bone",
+		requiredItem: "Missing Bone I",
 		changesFrom: "Irrigator",
 	},
 	galapagunk: {
@@ -888,7 +888,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 50, spd: 90, spe: 135},
 		abilities: {0: "Venom Vision"},
 		weightkg: 50,
-		requiredItem: "Missing Bone",
+		requiredItem: "Missing Bone G",
 		changesFrom: "Galapagunk",
 	},
 };
