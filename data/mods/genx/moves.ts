@@ -319,5 +319,48 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Cool",
 	},
+	pressurecook: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+    shortDesc: "Super effective on Water.",
+		isViable: true,
+		name: "Pressure Cook",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psyshock", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
+	poisondart: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+    shortDesc: "Usually goes first. 10% chance to poison",
+		isViable: true,
+		name: "Poison Dart",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Sting", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
+	},
 // Flare Up, Toxic Snowball
 };
