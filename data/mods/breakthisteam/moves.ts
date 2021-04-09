@@ -21,7 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	ripaway: {
 		accuracy: 100,
-		basePower: 65,
+		basePower: 50,
 		category: "Special",
 		name: "Rip Away",
 		pp: 10,
@@ -42,7 +42,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+					this.add('-enditem', target, item.name, '[from] move: Rip Away', '[of] ' + source);
 					this.battle.lostItemQueue.push(item);
 				}
 			}
