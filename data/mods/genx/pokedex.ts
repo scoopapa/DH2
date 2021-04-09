@@ -891,4 +891,27 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredItem: "Missing Bone G",
 		changesFrom: "Galapagunk",
 	},
+	hyakada: {
+		num: 1151,
+		name: "Hyakada",
+		types: ["Rock", "Ice"],
+		baseStats: {hp: 85, atk: 115, def: 95, spa: 115, spd: 75, spe: 115},
+		abilities: {0: "Solar Flare"},
+		weightkg: 100,
+		otherFormes: ["Hyakada-Flare"],
+		formeOrder: ["Hyakada", "Hyakada-Flare"],
+	},
+	hyakadaflare: {
+		num: 1151,
+		name: "Hyakada-Flare",
+		baseSpecies: "Hyakada",
+		forme: "Flare",
+		types: ["Rock", "Ice"],
+		baseStats: {hp: 85, atk: 135, def: 55, spa: 135, spd: 105, spe: 135},
+		abilities: {0: "Solar Flare"},
+		weightkg: 100,
+		requiredAbility: "Solar Flare",
+		battleOnly: "Hyakada",
+	},
+
 };
