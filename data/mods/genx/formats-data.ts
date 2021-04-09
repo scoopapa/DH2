@@ -327,5 +327,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	irrigator: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	galapagunk: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	irrigatorcompleted: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	galapagunkcompleted: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 
 };
