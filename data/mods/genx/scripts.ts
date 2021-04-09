@@ -96,5 +96,34 @@ this.modData('Learnsets', 'piloswine').learnset.terracharge = ['7L1'];
 this.modData('Learnsets', 'mamoswine').learnset.terracharge = ['7L1'];
 this.modData('Learnsets', 'mudbray').learnset.terracharge = ['7L1'];
 this.modData('Learnsets', 'mudsdale').learnset.terracharge = ['7L1'];
+		
+// poisondart
+this.modData('Learnsets', 'mienfoo').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'mienshao').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'croagunk').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'toxicroak').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'ekans').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'arbok').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'seviper').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'trapinch').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'vibrava').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'flygon').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'skorupi').learnset.poisondart = ['7L1'];
+this.modData('Learnsets', 'drapion').learnset.poisondart = ['7L1'];
+		
+// pressurecook
+this.modData('Learnsets', 'spoink').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'darumaka').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'darmanitan').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'oranguru').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'woobat').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'swoobat').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'grumpig').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'pikipek').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'trumbeak').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'toucannon').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'espurr').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'meowstic').learnset.pressurecook = ['7L1'];
+this.modData('Learnsets', 'meowsticf').learnset.pressurecook = ['7L1'];
 	},
 };
