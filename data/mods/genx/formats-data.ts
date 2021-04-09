@@ -267,4 +267,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	burlimp: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	goblysack: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	storgre: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+
 };
