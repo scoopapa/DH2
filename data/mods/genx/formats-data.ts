@@ -231,4 +231,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	deerlingbrazdo: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	sawsbuckbrazdo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
