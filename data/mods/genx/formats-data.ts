@@ -319,4 +319,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	insanitary: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	katrashtrofy: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+
 };
