@@ -211,4 +211,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	hippopotasbrazdo: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	hippowdonbrazdo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+
 };
