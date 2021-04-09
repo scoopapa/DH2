@@ -203,4 +203,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	carvanhabrazdo: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	vampayrha: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
