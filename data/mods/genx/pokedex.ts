@@ -829,4 +829,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 45,
 		prevo: "Pleckish",
 	},
+	insanitary: {
+		num: 1070,
+		name: "Insanitary",
+		types: ["Poison", "Steel"],
+		baseStats: {hp: 80, atk: 30, def: 70, spa: 66, spd: 44, spe: 30},
+		abilities: {0: "Stench", 1: "Regenerator", H: "Corrosion"},
+		weightkg: 15,
+		evos: ["Katrashtrofy"],
+	},
+	katrashtrofy: {
+		num: 1071,
+		name: "Katrashtrofy",
+		types: ["Poison", "Steel"],
+		baseStats: {hp: 120, atk: 50, def: 100, spa: 91, spd: 89, spe: 35},
+		abilities: {0: "Stench", 1: "Regenerator", H: "Corrosion"},
+		weightkg: 15,
+		prevo: "Insanitary",
+	},
 };
