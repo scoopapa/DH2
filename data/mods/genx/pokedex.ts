@@ -413,6 +413,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Gelomandra",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 80, atk: 65, def: 60, spa: 120, spd: 75, spe: 110},
+		abilities: {0: "Storm Drain", 1: "Ice Body", H: "Hydration"},
 		weightkg: 50,
 		prevo: "Lagelto",
 	},
