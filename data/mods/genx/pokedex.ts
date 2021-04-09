@@ -645,4 +645,42 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 25,
 		prevo: "Toazin",
 	},
+	stickler: {
+		num: 1053,
+		name: "Stickler",
+		types: ["Grass", "Bug"],
+		baseStats: {hp: 35, atk: 50, def: 70, spa: 30, spd: 30, spe: 60},
+		abilities: {0: "Tinted Lens", 1: "Grassy Cloak", H: "Swarm"},
+		weightkg: 25,
+		evos: ["Woodensect"],
+	},
+	woodensect: {
+		num: 1054,
+		name: "Woodensect",
+		types: ["Grass", "Bug"],
+		baseStats: {hp: 75, atk: 90, def: 110, spa: 65, spd: 65, spe: 100},
+		abilities: {0: "Tinted Lens", 1: "Grassy Cloak", H: "Chlorophyll"},
+		weightkg: 25,
+		prevo: "Stickler",
+	},
+	amoonguss: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Grassy Cloak", H: "Regenerator"},
+	},
+	foongus: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Grassy Cloak", H: "Regenerator"},
+	},
+	dwebble: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Stone House"},
+	},
+	crustle: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Stone House"},
+	},
+	pupitar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", H: "Stone House"},
+	},
 };
