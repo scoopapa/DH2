@@ -793,4 +793,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 40,
 		prevo: "Saciada",
 	},
+	warruppy: {
+		num: 1066,
+		name: "Warruppy",
+		types: ["Fighting"],
+		baseStats: {hp: 45, atk: 75, def: 30, spa: 30, spd: 30, spe: 70},
+		abilities: {0: "Guts", H: "Justified"},
+		weightkg: 25,
+		evos: ["Mastaunch"],
+	},
+	mastaunch: {
+		num: 1067,
+		name: "Mastaunch",
+		types: ["Fighting"],
+		baseStats: {hp: 65, atk: 115, def: 80, spa: 60, spd: 80, spe: 100},
+		abilities: {0: "Guts", H: "Justified"},
+		weightkg: 25,
+		prevo: "Warruppy",
+	},
 };
