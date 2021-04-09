@@ -172,6 +172,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	venomvision: {
+		id: "venomvision",
+		shortDesc: "The opponent's Evasiness is lowered by 1 after making contact with this Pokemon.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
 				this.add('-ability', target, 'Venom Vision');
