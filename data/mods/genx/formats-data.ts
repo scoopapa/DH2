@@ -303,4 +303,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	warruppy: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	mastaunch: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+
 };
