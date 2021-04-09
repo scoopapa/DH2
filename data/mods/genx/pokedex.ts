@@ -811,4 +811,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 25,
 		prevo: "Warruppy",
 	},
+	pleckish: {
+		num: 1068,
+		name: "Pleckish",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 62, atk: 38, def: 51, spa: 45, spd: 51, spe: 68},
+		abilities: {0: "Suction Cups", 1: "Swift Swim", H: "Screen Cleaner"},
+		weightkg: 15,
+		evos: ["Alapleco"],
+	},
+	alapleco: {
+		num: 1069,
+		name: "Alapleco",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 101, atk: 58, def: 72, spa: 81, spd: 72, spe: 96},
+		abilities: {0: "Suction Cups", 1: "Swift Swim", H: "Screen Cleaner"},
+		weightkg: 45,
+		prevo: "Pleckish",
+	},
 };
