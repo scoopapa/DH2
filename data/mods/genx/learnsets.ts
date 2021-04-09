@@ -2567,6 +2567,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swagger: ["8L1"],
 			hiddenpower: ["8L1"],
 			naturalgift: ["8L1"],
+			return: ["8L1"],
+			frustration: ["8L1"],
 		},
 	},
 	pengroleum: {
@@ -2597,6 +2599,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			naturalgift: ["8L1"],
 			hyperbeam: ["8L1"],
 			gigaimpact: ["8L1"],
+			return: ["8L1"],
+			frustration: ["8L1"],
 		},
 	},
 	gifsterious: {
