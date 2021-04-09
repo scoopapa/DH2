@@ -239,4 +239,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	toazin: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	opisthoclaw: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
