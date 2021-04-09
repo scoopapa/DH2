@@ -219,5 +219,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-
+	finneonbrazdo: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	lumineonbrazdo: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	bettalesense: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
