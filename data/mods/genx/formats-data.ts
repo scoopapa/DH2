@@ -311,5 +311,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-
+	pleckish: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	alapleco: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
