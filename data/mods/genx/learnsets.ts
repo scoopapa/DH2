@@ -2095,8 +2095,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	gelobite: {
 		learnset: {
-			mud: ["8L1"],
-			lap: ["8L1"],
+			mudslap: ["8L1"],
 			tailwhip: ["8L1"],
 			scratch: ["8L1"],
 			powdersnow: ["8L1"],
@@ -2159,8 +2158,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	lagelto: {
 		learnset: {
-			mud: ["8L1"],
-			lap: ["8L1"],
+			mudslap: ["8L1"],
 			tailwhip: ["8L1"],
 			scratch: ["8L1"],
 			powdersnow: ["8L1"],
@@ -2226,8 +2224,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	gelomandra: {
 		learnset: {
-			mud: ["8L1"],
-			lap: ["8L1"],
+			mudslap: ["8L1"],
 			tailwhip: ["8L1"],
 			scratch: ["8L1"],
 			powdersnow: ["8L1"],
@@ -2723,8 +2720,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			tackle: ["8L1"],
 			growl: ["8L1"],
-			mud: ["8L1"],
-			lap: ["8L1"],
+			mudslap: ["8L1"],
 			defensecurl: ["8L1"],
 			razorleaf: ["8L1"],
 			magnitude: ["8L1"],
