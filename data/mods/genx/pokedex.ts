@@ -496,5 +496,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Reckless", 1: "Vigilante", H: "Grass Pelt"},
 		weightkg: 25,
 	},
-
+	carvanhabrazdo: {
+		num: 318,
+		name: "Carvanha-Brazdo",
+		baseSpecies: "Carvanha",
+		forme: "Brazdo",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 45, atk: 85, def: 20, spa: 55, spd: 20, spe: 80},
+		abilities: {0: "Strong Jaw", 1: "Swift Swim", H: "Flame Body"},
+		weightkg: 15,
+		evos: ["Vampayrha"],
+	},
+	vampayrha: {
+		num: 1049,
+		name: "Vampayrha",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 70, atk: 115, def: 40, spa: 85, spd: 40, spe: 110},
+		abilities: {0: "Strong Jaw", 1: "Swift Swim", H: "Flame Body"},
+		weightkg: 50,
+		prevo: "Vampayrha",
+	},
+	carvanha: {
+		inherit: true,
+		otherFormes: ["Carvanha-Brazdo"],
+		formeOrder: ["Carvanha", "Carvanha-Brazdo"],
+	},
 };
