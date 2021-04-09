@@ -247,4 +247,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	stickler: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	woodensect: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
