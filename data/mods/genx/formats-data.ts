@@ -255,4 +255,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	levipilosa: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	basilwisp: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	plasmilisk: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
