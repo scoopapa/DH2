@@ -279,5 +279,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-
+	cucaling: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	cucaxa: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	cucarator: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sacianca: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	saciada: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	saciceiro: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
