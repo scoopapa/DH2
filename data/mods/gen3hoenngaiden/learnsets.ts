@@ -1,3 +1,4 @@
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	missingno: {
 		learnset: {
 			blizzard: ["3L1"],
@@ -29787,3 +29788,4 @@
 		learnset: {
 		},
 	},
+};
