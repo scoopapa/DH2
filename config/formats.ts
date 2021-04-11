@@ -986,6 +986,16 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU", 	
 	},
 	{
+		name: "[Gen 3] Hoenn Gaiden",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Thread in Pet Mods</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		ruleset: ['Standard', '3 Baton Pass Clause'],
+		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil'],
+	},
+	{
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
