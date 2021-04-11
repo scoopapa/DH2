@@ -4422,10 +4422,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 		prevo: "Type: Null",
 		evoType: "levelFriendship",
-		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Normal", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water"],
+		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water"],
 		formeOrder: [
 			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock", "Silvally-Bug", "Silvally-Ghost", "Silvally-Steel",
-			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Normal",
+			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark",
 		],
 	},
 	silvallybug: {
@@ -4482,20 +4482,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.3,
 		weightkg: 100.5,
 		requiredItem: "Electric Memory",
-		changesFrom: "Silvally",
-	},
-	silvallyNormal: {
-		num: 773,
-		name: "Silvally-Normal",
-		baseSpecies: "Silvally",
-		forme: "Normal",
-		types: ["Normal"],
-		gender: "N",
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
-		heightm: 2.3,
-		weightkg: 100.5,
-		requiredItem: "Normal Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyfighting: {

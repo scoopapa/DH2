@@ -1395,4 +1395,85 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["calmmind", "icebeam", "psychic", "recover", "shadowball", "spikes", "superpower", "taunt", "toxic"],
 		tier: "Uber",
 	},
+	snover: {
+		tier: "LC",
+	},
+	abomasnow: {
+		tier: "OU",
+	},
+	gliscor: {
+		tier: "OU",
+	},
+	frillish: {
+		tier: "LC",
+	},
+	jellicent: {
+		tier: "OU",
+	},
+	tynamo: {
+		tier: "LC",
+	},
+	eelektrik: {
+		tier: "NFE",
+	},
+	eelektross: {
+		tier: "OU",
+	},
+	cryogonal: {
+		tier: "OU",
+	},
+	typenull: {
+		tier: "NFE",
+	},
+	silvally: {
+		tier: "OU",
+	},
+	silvallybug: {
+		tier: "OU",
+	},
+	silvallydark: {
+		tier: "OU",
+	},
+	silvallydragon: {
+		tier: "OU",
+	},
+	silvallyelectric: {
+		tier: "OU",
+	},
+	silvallyfighting: {
+		tier: "OU",
+	},
+	silvallyfire: {
+		tier: "OU",
+	},
+	silvallyflying: {
+		tier: "OU",
+	},
+	silvallyghost: {
+		tier: "OU",
+	},
+	silvallygrass: {
+		tier: "OU",
+	},
+	silvallyground: {
+		tier: "OU",
+	},
+	silvallyice: {
+		tier: "OU",
+	},
+	silvallypoison: {
+		tier: "OU",
+	},
+	silvallypsychic: {
+		tier: "OU",
+	},
+	silvallyrock: {
+		tier: "OU",
+	},
+	silvallysteel: {
+		tier: "OU",
+	},
+	silvallywater: {
+		tier: "OU",
+	},
 };
