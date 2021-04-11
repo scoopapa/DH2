@@ -992,7 +992,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', '3 Baton Pass Clause'],
+		ruleset: ['Standard Gen3', '3 Baton Pass Clause'],
 		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil'],
 		unbanlist: ['Snow Warning', 'RKS System', 'Multi-Attack'],
 
@@ -1005,7 +1005,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden2',
 		ruleset: ['Standard', '3 Baton Pass Clause'],
-		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil'],
+		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil', 'Sinnoh Dex'],
 		unbanlist: ['Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Snow Warning', 'RKS System'],
 	},
 	{
