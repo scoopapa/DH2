@@ -942,5 +942,135 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	
+	//slate 8
+	fatproof: {
+		name: "Fat Proof",
+		shortdesc: "Ice, Fire attacks against this Pokemon use a halved attack stat; Fire moves 1/2 BP.",
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Proof weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Proof weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+	},
+	leviflame: {
+		name: "Leviflame",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned. Immune to Ground.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+	},
+	prophylaxis: {
+		name: "Prophylaxis",
+		shortDesc: "Restores 1/3 max HP if a foe with a super-effective or OHKO attack switches in.",
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
+						move.ohko
+					) {
+						source.heal(source.baseMaxhp/3, source);
+						return;
+					}
+				}
+			}
+		},
+	},
+	feelnopain: {
+		name: "Feel No Pain",
+		shortDesc: "Heals 1/8 max HP each turn when poisoned; no HP loss; immune to Poison-type attacks.",
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Feel No Pain');
+				return null;
+			}
+		},
+	},
+	erosion: {
+		name: "Erosion",
+		shortDesc: "Draws Electric moves to itself to raise SpA by 1; Electric immunity; summons Sandstorm on entry.",
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Erosion');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Erosion');
+				}
+				return this.effectData.target;
+			}
+		},
+	},
+	statusabsorbtion: {
+		name: "Status Absorbtion",
+		shortDesc: "This Pokemon is immune to being Poisoned or Burned.",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Status Absorbtion');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox' && status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Status Absorbtion');
+			}
+			return false;
+		},
+	},
+	levitability: {
+		name: "Levitability",
+		shortDesc: "STAB moves are boosted an additional 1.5x; immune to Ground.",
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+	},
 };
