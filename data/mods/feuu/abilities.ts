@@ -999,7 +999,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						source.heal(source.baseMaxhp / 3, source);
+						this.heal(source.baseMaxhp / 3, source);
 						return;
 					}
 				}
