@@ -551,6 +551,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Dragon'] = true;
 			}
 		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			}
+		},
 	},
 	//slate 5
 	sturdymold: {//this one's gonna be a fucking adventure
@@ -570,8 +582,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return target.hp - 1;
 			}
 		},
-		//I'm gonna figure out how to code this legit at some point, I swear, 
-		//but for now, since we have so few abilities, 
+		//I'm gonna figure out how to code this legit at some point, I swear,
+		//but for now, since we have so few abilities,
 		//I'm just gonna hard-code it into everything.
 	},
 	therapeutic: {
@@ -662,7 +674,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Scrappy');
+				this.add('-immune', target, "[from] ability: Scrappy");
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, "[from] ability: Scrappy");
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, "[from] ability: Scrappy");
 			}
 		},
 		name: "Scrappy",
@@ -1071,6 +1089,60 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "STAB moves are boosted an additional 1.5x; immune to Ground.",
 		onModifyMove(move) {
 			move.stab = 2;
+		},
+	},
+	//Implement immunity for Intimidate clones: 
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Oblivious');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && ['intimidate', 'debilitate', 'sinkorswim'].includes(effect.id)) {
+				this.boost({spe: 1});
+			}
 		},
 	},
 };
