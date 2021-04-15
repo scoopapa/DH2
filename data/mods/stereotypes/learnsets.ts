@@ -417,7 +417,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8L1"],
 		},
 	},
-	hearleo: {
+	heraleo: {
 		learnset: {
 			aerialace: ["8L1"],
 			attract: ["8L1"],
