@@ -53,6 +53,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 65, atk: 100, def: 125, spa: 75, spd: 85, spe: 75},
 		abilities: {0: "Dauntless Shield", 1: "Intimidate", H: "Tough Claws"},
 		heightm: 1.0,
-		weightkg: 100.0,
+		weightkg: 205.0,
 	},
 };
