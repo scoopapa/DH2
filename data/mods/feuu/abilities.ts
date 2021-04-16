@@ -775,9 +775,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	leafyarmor: {//unsure
 		name: "Leafy Armor",
-		shortDesc: "If a mental status is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
+		shortDesc: "If a status condition is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
 		onUpdate(pokemon) {
-			if (pokemon.status) {
+			if (pokemon.status && !pokemon.m.orbItemStatus) {
 				this.add('-activate', pokemon, 'ability: Leafy Armor');
 				pokemon.cureStatus();
 				this.boost({def: -1, spe: 2}, pokemon, pokemon); 
