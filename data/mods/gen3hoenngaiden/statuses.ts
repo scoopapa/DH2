@@ -61,7 +61,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 				// @ts-ignore
 				if (!type || type === true) {
 					type = 'Normal';
-				}
+				},
 			},
 		},
 	},
