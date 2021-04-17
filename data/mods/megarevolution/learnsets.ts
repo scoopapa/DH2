@@ -4633,6 +4633,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["8L20", "7T", "6T", "4M", "3M"],
 			whirlpool: ["8M", "4M"],
 			workup: ["8M", "7M"],
-			shoreuup: ["8L1"],
+			shoreup: ["8L1"],
 		}},
  };
