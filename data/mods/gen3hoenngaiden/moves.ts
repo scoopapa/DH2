@@ -319,6 +319,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return null;
 		},
 	},
+	doubleedge: {
+		inherit: true,
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded down, but not less than 1 HP. If this move breaks the target's substitute, the user does not take any recoil damage.",
+		basePower: 100,
+	},
+
 	doublekick: {
 		inherit: true,
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
