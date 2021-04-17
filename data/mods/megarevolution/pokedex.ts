@@ -569,7 +569,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	jungyle: {
 		num: 270043,
-		name: ["Jungyle"],
+		name: "Jungyle",
 		types: ["Grass","Dragon"],
 		baseStats: {hp: 70, atk: 110, def: 75, spa: 140, spd: 75, spe: 110},
 		abilities: {0: "Overgrow", H: "Lightning Rod"},
@@ -583,7 +583,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	conflagraken: {
 		num: 270044,
-		name: ["Conflagraken"],
+		name: "Conflagraken",
 		types: ["Fire","Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 135, spd: 80, spe: 80},
 		abilities: {0: "Blaze", H: "Speed Boost"},
@@ -597,7 +597,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	burrowcean: {
 		num: 270045,
-		name: ["Burrowcean"],
+		name: "Burrowcean",
 		types: ["Water","Ground"],
 		baseStats: {hp: 110, atk: 130, def: 95, spa: 85, spd: 95, spe: 70},
 		abilities: {0: "Torrent", H: "Swift Swim"},
