@@ -14063,7 +14063,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			crunch: ["3M"],
 			curse: ["3E"],
 			detect: ["3V"],
-			doubleedge: ["3V"],
+			double-edge: ["3V"],
 			doubleteam: ["3M"],
 			dragonbreath: ["3E"],
 			dragonclaw: ["3M"],
