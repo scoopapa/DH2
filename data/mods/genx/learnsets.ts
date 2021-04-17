@@ -427,6 +427,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			snore: ["8L1"],
 			waterpulse: ["8L1"],
 			waterpledge: ["8L1"],
+			rest: ["8L1"],
 		},
 	},
 	pedrowana: {
@@ -486,6 +487,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			stoneedge: ["8L1"],
 			rockslide: ["8L1"],
 			meteorbeam: ["8L1"],
+			rest: ["8L1"],
 		},
 	},
 	arapaitan: {
@@ -551,6 +553,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			earthpower: ["8L1"],
 			hydrocannon: ["8L1"],
+			rest: ["8L1"],
 		},
 	},
 	brazube: {
