@@ -992,7 +992,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', '3 Baton Pass Clause'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil'],
 
 	},
