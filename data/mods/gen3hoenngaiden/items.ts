@@ -376,4 +376,185 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Bug",
 		itemUser: ["Silvally-Bug"],
 	},
+	darkmemory: {
+		name: "Dark Memory",
+		onMemory: 'Dark',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Dark",
+		itemUser: ["Silvally-Dark"],
+	},
+	dragonmemory: {
+		name: "Dragon Memory",
+		onMemory: 'Dragon',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Dragon",
+		itemUser: ["Silvally-Dragon"],
+	},
+	electricmemory: {
+		name: "Electric Memory",
+		onMemory: 'Electric',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Electric",
+		itemUser: ["Silvally-Electric"],
+	},
+	fightingmemory: {
+		name: "Fighting Memory",
+		onMemory: 'Fighting',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Fighting",
+		itemUser: ["Silvally-Fighting"],
+	},
+	firememory: {
+		name: "Fire Memory",
+		onMemory: 'Fire',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Fire",
+		itemUser: ["Silvally-Fire"],
+	},
+	flyingmemory: {
+		name: "Flying Memory",
+		onMemory: 'Flying',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Flying",
+		itemUser: ["Silvally-Flying"],
+	},
+	ghostmemory: {
+		name: "Ghost Memory",
+		onMemory: 'Ghost',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Ghost",
+		itemUser: ["Silvally-Ghost"],
+	},
+	grassmemory: {
+		name: "Grass Memory",
+		onMemory: 'Grass',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Grass",
+		itemUser: ["Silvally-Grass"],
+	},
+	groundmemory: {
+		name: "Ground Memory",
+		onMemory: 'Ground',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Ground",
+		itemUser: ["Silvally-Ground"],
+	},
+	icememory: {
+		name: "Ice Memory",
+		onMemory: 'Ice',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Ice",
+		itemUser: ["Silvally-Ice"],
+	},
+	poisonmemory: {
+		name: "Poison Memory",
+		spritenum: 670,
+		onMemory: 'Poison',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Poison",
+		itemUser: ["Silvally-Poison"],
+	},
+	psychicmemory: {
+		name: "Psychic Memory",
+		onMemory: 'Psychic',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Psychic",
+		itemUser: ["Silvally-Psychic"],
+	},
+	rockmemory: {
+		name: "Rock Memory",
+		onMemory: 'Rock',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Rock",
+		itemUser: ["Silvally-Rock"],
+	},
+	steelmemory: {
+		name: "Steel Memory",
+		onMemory: 'Steel',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Steel",
+		itemUser: ["Silvally-Steel"],
+	},
+	watermemory: {
+		name: "Water Memory",
+		onMemory: 'Water',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Water",
+		itemUser: ["Silvally-Water"],
+	},
 };
