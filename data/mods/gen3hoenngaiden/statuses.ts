@@ -49,15 +49,4 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		inherit: true,
 		onModifySpD() {},
 	},
-	rkssystem: {
-		name: 'RKS System',
-		id: 'rkssystem',
-		onSwitchInPriority: 101,
-		onSwitchIn(pokemon) {
-			let type = 'Normal';
-			if (pokemon.ability === 'rkssystem') {
-				type = pokemon.getItem().onMemory,
-			}
-		}
-	},
 };
