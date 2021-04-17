@@ -49,4 +49,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		inherit: true,
 		onModifySpD() {},
 	},
+	rkssystem: {
+		inherit: true,
+	},
 };
