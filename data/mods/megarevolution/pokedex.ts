@@ -569,7 +569,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	jungyle: {
 		num: 270043,
-		name: "Jungyle",
+		name: ["Jungyle"],
 		types: ["Grass","Dragon"],
 		baseStats: {hp: 70, atk: 110, def: 75, spa: 140, spd: 75, spe: 110},
 		abilities: {0: "Overgrow", H: "Lightning Rod"},
