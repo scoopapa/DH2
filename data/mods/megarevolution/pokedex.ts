@@ -595,7 +595,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	burrowcean: {
 		num: 270045,
-		name: "Burrowcean"],
+		name: ["Burrowcean"],
 		types: ["Water","Ground"],
 		baseStats: {hp: 110, atk: 130, def: 95, spa: 85, spd: 95, spe: 70},
 		abilities: {0: "Torrent", H: "Swift Swim"},
