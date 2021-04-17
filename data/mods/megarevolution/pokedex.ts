@@ -563,4 +563,43 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		heightm: 1.1,
 		weightkg: 27.8,
 	},
+	sceptile: {
+		inherit: true,
+		evos: ["Jungyle"],
+	},
+	jungyle: {
+		num: 270043,
+		name: "Jungyle",
+		types: ["Grass","Dragon"],
+		baseStats: {hp: 70, atk: 110, def: 75, spa: 140, spd: 75, spe: 110},
+		abilities: {0: "Overgrow", H: "Lightning Rod"},
+		heightm: 1.9,
+		weightkg: 55.2,
+	},
+	blaziken: {
+		inherit: true,
+		evos: ["Conflagraken"],
+	},
+	conflagraken: {
+		num: 270044,
+		name: "Conflagraken"],
+		types: ["Fire","Fighting"],
+		baseStats: {hp: 80, atk: 125, def: 75, spa: 135, spd: 80, spe: 80},
+		abilities: {0: "Blaze", H: "Speed Boost"},
+		heightm: 1.9,
+		weightkg: 52.0,
+	},
+	swampert: {
+		inherit: true,
+		evos: ["Burrowcean"],
+	},
+	burrowcean: {
+		num: 270045,
+		name: "Burrowcean"],
+		types: ["Water","Ground"],
+		baseStats: {hp: 110, atk: 130, def: 95, spa: 85, spd: 95, spe: 70},
+		abilities: {0: "Torrent", H: "Swift Swim"},
+		heightm: 1.9,
+		weightkg: 102.0,
+	},
 };

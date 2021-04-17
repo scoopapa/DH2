@@ -183,4 +183,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
+	jungyle: {
+		tier:'OU',
+		isModded: true,
+	},
+	conflagraken: {
+		tier:'OU',
+		isModded: true,
+	},
+	burrowcean: {
+		tier:'OU',
+		isModded: true,
+	},
 };
