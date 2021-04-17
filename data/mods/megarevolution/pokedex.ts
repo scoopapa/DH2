@@ -582,7 +582,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 	},
 	conflagraken: {
 		num: 270044,
-		name: "Conflagraken"],
+		name: ["Conflagraken"],
 		types: ["Fire","Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 135, spd: 80, spe: 80},
 		abilities: {0: "Blaze", H: "Speed Boost"},
