@@ -575,6 +575,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		abilities: {0: "Overgrow", H: "Lightning Rod"},
 		heightm: 1.9,
 		weightkg: 55.2,
+		prevo: "sceptile",
 	},
 	blaziken: {
 		inherit: true,
@@ -588,6 +589,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		abilities: {0: "Blaze", H: "Speed Boost"},
 		heightm: 1.9,
 		weightkg: 52.0,
+		prevo: "blaziken",
 	},
 	swampert: {
 		inherit: true,
@@ -601,5 +603,6 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		abilities: {0: "Torrent", H: "Swift Swim"},
 		heightm: 1.9,
 		weightkg: 102.0,
+		prevo: "swampert",
 	},
 };
