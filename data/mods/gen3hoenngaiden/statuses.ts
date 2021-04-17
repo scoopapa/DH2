@@ -56,12 +56,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		onSwitchIn(pokemon) {
 			let type = 'Normal';
 			if (pokemon.ability === 'rkssystem') {
-				// @ts-ignore
 				type = pokemon.getItem().onMemory;
-				// @ts-ignore
-				if (!type || type === true) {
-					type = 'Normal';
-				},
 			},
 		},
 	},
