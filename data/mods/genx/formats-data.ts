@@ -347,4 +347,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	galliwatt: {
+		tier: "LC",
+		doublesTier: "(DUU)",
+	},
+	coirele: {
+		tier: "NFE",
+		doublesTier: "(DUU)",
+	},
+	ampalango: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
