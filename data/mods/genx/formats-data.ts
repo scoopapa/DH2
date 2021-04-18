@@ -387,4 +387,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	amzodulan: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	amzodulanancient: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	flowiai: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	flowiaiancient: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
 };
