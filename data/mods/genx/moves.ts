@@ -367,5 +367,66 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Beautiful",
 	},
+	darkfang: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+    shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
+		isViable: true,
+		name: "Dark Fang",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bite", target);
+		},
+		multihit: 2,
+		smartTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		maxMove: {basePower: 130},
+	},
+	eyeofchaos: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+    shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		isViable: true,
+		name: "Eye of Chaos",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glare", target);
+		},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	dreadwing: {
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+    shortDesc: "Uses target's SpA stat in damage calculation.",
+		isViable: true,
+		name: "Dread Wing",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Oblivion Wing", target);
+		},
+		useTargetOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	
 // Flare Up, Toxic Snowball
 };
