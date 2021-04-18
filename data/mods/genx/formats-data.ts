@@ -359,4 +359,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	pythos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	salaos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	morndos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
