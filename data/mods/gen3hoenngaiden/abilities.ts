@@ -231,7 +231,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.name === 'Silvally') {
 				if (pokemon.item === 'bugmemory') {
-					if (pokemon.species.id !== 'silvallybug') pokemon-formeChange ('Silvally-Bug');
+					if (pokemon.species.id !== 'silvallybug') pokemon.formeChange ('Silvally-Bug');
 				},
 			},
 		},
