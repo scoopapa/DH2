@@ -207,6 +207,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tree-Topper",
 		rating: 0.1,
 	},
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Earth Shaker",
+		rating: 0.1,
+	},
 	terraformer: {
 		shortDesc: "Removes terrains upon switch-in.",
 		onSwitchInPriority: 6,
@@ -266,5 +272,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "gunkconsumer",
 		name: "Gunk Consumer",
 	},
-	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper, Hot-Headed
+	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper, Hot-Headed, Earth Shaker
 };
