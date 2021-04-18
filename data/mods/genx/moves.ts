@@ -427,6 +427,58 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Clever",
 	},
+	forestrage: {
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+    shortDesc: "Ignores resistances.",
+		isViable: true,
+		name: "Forest Rage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Work Up", target);
+			this.add('-anim', source, "Leaf Storm", target);
+		},
+        onEffectiveness(typeMod, target, type) {
+            if (typeMod < 0) {
+                this.debug('Ignoring resist');
+                return 0;
+            }
+        },
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	riverwrath: {
+		accuracy: 95,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "Ignores resistances.",
+		isViable: true,
+		name: "River Wrath",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Work Up", target);
+			this.add('-anim', source, "Hydro Pump", target);
+		},
+        onEffectiveness(typeMod, target, type) {
+            if (typeMod < 0) {
+                this.debug('Ignoring resist');
+                return 0;
+            }
+        },
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
 	
 // Flare Up, Toxic Snowball
 };
