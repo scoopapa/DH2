@@ -371,4 +371,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	regiterra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	regimental: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	regitoxic: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
