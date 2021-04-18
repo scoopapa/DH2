@@ -998,5 +998,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredAbility: "Solar Flare",
 		battleOnly: "Hyakada",
 	},
-
+	chibardo: {
+		num: 1152,
+		name: "Chibardo",
+		types: ["Electric", "Ground"],
+		baseStats: {hp: 85, atk: 120, def: 100, spa: 110, spd: 135, spe: 55},
+		abilities: {0: "Earth Shaker"},
+		weightkg: 958,
+		eggGroups: ["Undiscovered"],
+	},
 };
