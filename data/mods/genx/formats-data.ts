@@ -383,4 +383,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	chibardo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
