@@ -195,5 +195,76 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Thoughtful",
 		rating: 0.1,
 	},
+	stonehouse: {
+		id: "stonehouse",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Stone House",
+		rating: 0.1,
+	},
+	treetopper: {
+		id: "treetopper",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Tree-Topper",
+		rating: 0.1,
+	},
+	terraformer: {
+		shortDesc: "Removes terrains upon switch-in.",
+		onSwitchInPriority: 6,
+		onSwitchIn(pokemon, target, source) {
+			this.field.clearTerrain();
+		},
+		id: "terraformer",
+		name: "Terraformer",
+	},
+	mindprobe: {
+		shortDesc: "Reveals the opponent's item and one of their moves upon switch-in.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Mind Probe', '[of] ' + pokemon, '[identify]');
+				}
+			}
+			let warnMoves: (Move | Pokemon)[][] = [];
+			let warnBp = 1;
+			for (const target of pokemon.side.foe.active) {
+				if (target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					let bp = move.basePower;
+					if (move.ohko) bp = 150;
+					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
+					if (bp === 1) bp = 80;
+					if (!bp && move.category !== 'Status') bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			this.add('-activate', pokemon, 'ability: Mind Probe', warnMoveName, '[of] ' + warnTarget);
+		},
+		id: "mindprobe",
+		name: "Mind Probe",
+	},
+	gunkconsumer: {
+		shortDesc: "Removes hazards upon switch-in. Heal 1/16 of max HP is this happens.",
+		onSwitchInPriority: 6,
+		onSwitchIn(pokemon, target, source) {
+         const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+         for (const condition of sideConditions) {
+            if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+               this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
+					this.heal(pokemon.maxhp / 16);
+            }
+          }
+		},
+		id: "gunkconsumer",
+		name: "Gunk Consumer",
+	},
 	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper, Hot-Headed
 };
