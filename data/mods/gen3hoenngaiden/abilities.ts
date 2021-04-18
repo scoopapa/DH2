@@ -228,8 +228,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	rkssystem: {
-		// RKS System's type-changing itself is implemented in statuses.js
-		inherit: true,
-		isPermanent: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Silvally') {
+				if (pokemon.item === 'bugmemory') {
+					if (pokemon.species.id !== 'silvallybug') pokemon-formeChange ('Silvally-Bug');
+				},
+			},
+		},
 	},
 };
