@@ -230,6 +230,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rkssystem: {
 		if (pokemon.item === 'bugmemory') {
 			pokemon.formeChange ('Silvally-Bug');
-		},
+		}
 	},
 };
