@@ -353,10 +353,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	thucotuco: {
 		num: 1043,
 		name: "Thuco-Tuco",
-		baseSpecies: "Thuco",
-		forme: "Tuco",
 		types: ["Ground"],
-		baseStats: {hp: 120, atk: 95, def: 85, spa: 65, spd: 85, spe: 30},
+		baseStats: {hp: 120, atk: 95, def: 85, spa: 65, spd: 65, spe: 30},
 		abilities: {0: "Intimidate", 1: "Sturdy", H: "Sand Spit"},
 		weightkg: 45.8,
 	},
