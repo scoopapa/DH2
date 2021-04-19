@@ -980,19 +980,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.pokemon.item = 'bugmemory') {
 				move.type = 'Bug';
 				move.category = 'Physical';
-				break;
 			} else if (this.pokemon.item = 'darkmemory') {
 				move.type = 'Dark';
 				move.category = 'Special';
-				break;
 			} else if (this.pokemon.item = 'dragonmemory') {
 				move.type = 'Dragon';
 				move.category = 'Special';
-				break;
 			} else if (this.pokemon.item = 'electricmemory') {
 				move.type = 'Electric';
 				move.category = 'Special';
-				break;
 			}
 		},
 		secondary: null,
