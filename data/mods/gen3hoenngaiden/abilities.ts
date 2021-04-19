@@ -230,6 +230,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rkssystem: {
 		// RKS System's type-changing itself is implemented in statuses.js
 		inherit: true,
-		isPermanent: true,
 	},
 };
