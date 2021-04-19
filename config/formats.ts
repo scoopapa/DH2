@@ -988,6 +988,22 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU", 	
 	},
 	{
+		name: "[Gen 3] Hoenn Gaiden",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Thread in Pet Mods</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Smeargle + Baton Pass', 'Mr. Mime', 'Sand Veil'],
+		unbanlist: [
+			'Snow Warning', 'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
+			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 'Silvally-Poison',
+			'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Multi-Attack', 'RKS System',
+		],
+
+	},
+	{
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
@@ -1399,7 +1415,7 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			'Prairret', 'Fluxtape', 'Cetaidon',
+			'Prairret', 'Fluxtape', 'Cetaidon', 'Drakotomy', 'Gencook', 'Heraleo',
 		],
 	},
 	{  
