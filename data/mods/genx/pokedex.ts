@@ -1046,7 +1046,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1152,
 		name: "Chibardo",
 		types: ["Electric", "Ground"],
-		baseStats: {hp: 85, atk: 120, def: 100, spa: 110, spd: 135, spe: 55},
+		baseStats: {hp: 85, atk: 120, def: 100, spa: 110, spd: 135, spe: 50},
 		abilities: {0: "Earth Shaker"},
 		weightkg: 958,
 		eggGroups: ["Undiscovered"],
