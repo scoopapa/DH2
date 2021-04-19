@@ -285,6 +285,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//slate 8
+	brontun: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	mesflame: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	thornbrogalar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	glidol: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	pincurchitar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	pincurchitarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	snortine: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	flygalge: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
 	
 	

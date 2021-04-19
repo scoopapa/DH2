@@ -62,7 +62,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Groudon", "Grousle"],
 		num: 534,
 		gen: 6,
-		isNonstandard: "Past",
 	},
 	pidgeotite: {
 		name: "Pidgeotite",
@@ -76,5 +75,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 762,
 		desc: "If held by a Corveot, this item allows it to Mega Evolve in battle.",
+	},
+	tyranitarite: {
+		name: "Tyranitarite",
+		spritenum: 607,
+		megaStone: "Pincurchitar-Mega",
+		megaEvolves: "Pincurchitar",
+		itemUser: ["Pincurchitar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 669,
+		desc: "If held by a Pincurchitar, this item allows it to Mega Evolve in battle.",
 	},
 };
