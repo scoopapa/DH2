@@ -969,31 +969,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 	},
 	multiattack: {
-		accuracy: 100,
+		inherit: true,
+		isNonstandard: null,
+		gen: 3,
 		basePower: 90,
-		category: "Physical",
-		name: "Multi-Attack",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(move) {
-			if (pokemon.item === 'bugmemory') {
-				move.type = 'Bug';
-				move.category = 'Physical';
-			} else if (pokemon.item = 'darkmemory') {
-				move.type = 'Dark';
-				move.category = 'Special';
-			} else if (pokemon.item === 'dragonmemory') {
-				move.type = 'Dragon';
-				move.category = 'Special';
-			} else if (pokemon.item === 'electricmemory') {
-				move.type = 'Electric';
-				move.category = 'Special';
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Tough",
 	},
 };
