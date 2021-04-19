@@ -977,16 +977,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move) {
-			if (this.pokemon.item = 'bugmemory') {
+			if (thispokemonitem = 'bugmemory') {
 				move.type = 'Bug';
 				move.category = 'Physical';
-			} else if (this.pokemon.item = 'darkmemory') {
+			} else if (thispokemonitem = 'darkmemory') {
 				move.type = 'Dark';
 				move.category = 'Special';
-			} else if (this.pokemon.item = 'dragonmemory') {
+			} else if (thispokemonitem = 'dragonmemory') {
 				move.type = 'Dragon';
 				move.category = 'Special';
-			} else if (this.pokemon.item = 'electricmemory') {
+			} else if (thispokemonitem = 'electricmemory') {
 				move.type = 'Electric';
 				move.category = 'Special';
 			}
