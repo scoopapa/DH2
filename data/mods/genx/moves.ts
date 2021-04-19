@@ -263,7 +263,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.boost({atk: 1}, attacker, attacker, move);
+			this.boost({def: 1}, attacker, attacker, move);
 			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
