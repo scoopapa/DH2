@@ -181,7 +181,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	
-	battle: {
+	
 		//Included for Therapeutic:
 		//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
 		//So we have to bypass it manually here.
@@ -265,5 +265,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-	},
+	
 }; 

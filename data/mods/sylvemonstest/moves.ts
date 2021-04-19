@@ -892,7 +892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"ionabsorb": {
 		accuracy: 100,
-		basePower: 80,
+		basePower: 40,
 		category: "Special",
 		desc: "Applies the Charge effect to the user after doing damage (If used while boosted by Charge, effect is not applied)",
 		shortDesc: "Applies the Charge effect to the user after doing damage.",
@@ -1801,18 +1801,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	"wildcharge": {
 		num: 528,
-		accuracy: 80,
-		basePower: 150,
+		accuracy: 100,
+		basePower: 100,
 		category: "Physical",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 1/2 recoil.",
 		id: "wildcharge",
 		isViable: true,
 		name: "Wild Charge",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		recoil: [1, 2],
+		recoil: [1, 3],
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -3285,8 +3285,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       accuracy: true,
       basePower: 0,
       category: "Status",
-      desc: "Switches out the user. The Pokemon that is switched in has their Attack and Special Attack raised by 1",
-      shortDesc: "Switches user out. Replacement: +1 Atk and SpA",
+      desc: "Switches out the user. The Pokemon that is switched in has their critical hit ratio increased by 1 stage (G-Max Chi Strike effect)",
+      shortDesc: "Switches user out. Replacement: +1 Crit Ratio",
 		isViable: true,
       name: "Hot Tag",
       pp: 20,
@@ -3300,7 +3300,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       condition: { 
           onSwap(target) {
               if (!target.fainted) {
-                  this.boost({atk: 1, spa: 1,}, target);
+                  target.addVolatile('gmaxchistrike');
                   target.side.removeSlotCondition(target, 'hottag');
               }
           },
@@ -3312,6 +3312,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       zMove: {effect: 'healreplacement'},
       contestType: "Tough",
   },
+	fishiousrend: {
+		num: 755,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+      desc: "Destroys screens, unless the target is immune.",
+      shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Fishious Rend",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Water')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	boltbeak: {
+		num: 754,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+      desc: "Destroys screens, unless the target is immune.",
+      shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Bolt Beak",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Electric')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
 	"flamewheel": {
 		num: 228,
 		accuracy: 100,

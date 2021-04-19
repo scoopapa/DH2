@@ -171,4 +171,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
+	celarios: {
+		tier:'OU',
+		isModded: true,
+	},
+	celarias: {
+		tier:'OU',
+		isModded: true,
+	},
+	diachess: {
+		tier:'OU',
+		isModded: true,
+	},
 };

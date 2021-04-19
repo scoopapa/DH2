@@ -1226,11 +1226,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	raichualola: {
 		randomBattleMoves: ["ionabsorb", "psyshock", "focusblast", "voltswitch", "surf", "hiddenpowerice"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	regice: {
 		randomBattleMoves: ["auroraveil", "blizzard", "recrystalize", "thunderbolt", "freezedry", "hiddenpowerfire"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	metagrossmega: {
 		randomBattleMoves: ["bulletpunch", "meteormash", "psychocut", "earthquake", "icepunch", "thunderpunch"],
@@ -1257,8 +1257,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	kangaskhanmega: {
-		randomBattleMoves: ["fakeout", "poweruppunch", "return", "icepunch", "firepunch", "earthquake"],
-		tier: "Uber",
+		randomBattleMoves: ["fakeout", "rockslide", "return", "icepunch", "firepunch", "earthquake"],
+		tier: "OU",
 	},
 	pikachustarter: {
 		randomBattleMoves: ["pikapapow", "splishysplash", "floatyfall", "doublekick"],
@@ -1481,7 +1481,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracovish: {
 		randomBattleMoves: ["fishiousrend", "riverstream", "dragonfang", "earthquake", "crunch", "psychicfangs"],
-		tier: "Uber",
+		tier: "OU",
   },
 	xurkitree: {
 		randomBattleMoves: ["sleeppowder", "ionabsorb", "energyball", "tailglow", "dazzlinggleam"],

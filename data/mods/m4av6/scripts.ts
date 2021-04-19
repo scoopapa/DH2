@@ -61,7 +61,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast", "mysticalfire"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
-		newMoves("delibird", ["celebrate", "healingwish", "roost", "swordsdance", "uturn", "wish"]);
+		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
@@ -82,9 +82,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("falinks", ["aurasphere", "flameburst", "flashcannon", "kingsshield", "thunder"]);
 		newMoves("floatzel", ["coaching", "flipturn"]);
 		newMoves("simisear", ["calmmind", "dazzlinggleam", "drainingkiss", "mysticalfire", "playrough", "slackoff"]);
-		newMoves("krookodile", ["partingshot", "topsyturvy"]);
+		newMoves("krookodile", ["memento", "topsyturvy"]);
 		newMoves("torterra", ["bodypress", "gravapple", "meteorbeam"]);
 		newMoves("empoleon", ["flipturn", "haze", "originpulse", "roost"]);
+		newMoves("rapidash", ["airslash", "uturn"]);
+		newMoves("zebstrika", ["assurance", "jawlock", "snarl", "suckerpunch", "taunt"]);
+		newMoves("mudsdale", ["bulkup", "painsplit", "wideguard"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -128,9 +131,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
 		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Delibird") {
-			return "Delibird-Mega-Festive-Rider";
-		}
 		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
 			return "Sawsbuck-Summer-Mega";
 		}
@@ -147,6 +147,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "Dugtrionite" && pokemon.baseSpecies.name === "Dugtrio-Alola") {
+			return null;
+		}
+		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
 			return null;
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {

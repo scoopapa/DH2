@@ -86,77 +86,33 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	"adamantorb": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Dialga') return false;
-			return true;
-		},
 	},
 	"deepseascale": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
-			return true;
-		},
 	},
 	"deepseatooth": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
-			return true;
-		},
 	},
 	"griseousorb": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Giratina') return false;
-			return true;
-		},
 	},
 	"luckypunch": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Chansey') return false;
-			return true;
-		},
 	},
 	"lustrousorb": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Palkia') return false;
-			return true;
-		},
 	},
 	"metalpowder": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
-			return true;
-		},
 	},
 	"quickpowder": {
 		inherit: true,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
-			return true;
-		},
 	},
 	"stick": {
 		inherit: true,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
-				return false;
-			}
-			return true;
-		},
 	},
 	"thickclub": {
 		inherit: true,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 105) || pokemon.baseSpecies.num === 105) {
-				return false;
-			}
-			return true;
-		},
 	},
 	"graduationscale": {
 		id: "graduationscale",
@@ -409,9 +365,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
 		onModifySpe: function(spe) {
-			return this.chainModify(1.33);
+			return this.chainModify(1.2);
 		},
-		desc: "Holder's Speed is 1.33x, but it can't use the same move twice in a row",
+		desc: "Holder's Speed is 1.2x, but it can't use the same move twice in a row",
 	},
 	"anguishbandanna": {
 		id: "anguishbandanna",
@@ -427,9 +383,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
 		onModifyAtk: function(atk) {
-			return this.chainModify(1.33);
+			return this.chainModify(1.2);
 		},
-		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
+		desc: "Holder's Attack is 1.2x, but it can't use the same move twice in a row",
 	},
 	"distressglass": {
 		id: "distressglass",
@@ -445,9 +401,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
 		onModifySpA: function(spa) {
-			return this.chainModify(1.33);
+			return this.chainModify(1.2);
 		},
-		desc: "Holder's Special Attack is 1.33x, but it can't use the same move twice in a row",
+		desc: "Holder's Special Attack is 1.2x, but it can't use the same move twice in a row",
 	},
 	assaultshield: {
 		name: "Assault Shield",
@@ -577,13 +533,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
-		},
-		onTakeItem: function(item, pokemon) {
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
-			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
-				return false;
-			}
-			return true;
 		},
 		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'],
 		num: 236,
@@ -1315,5 +1264,65 @@ export const Items: {[k: string]: ModdedItemData} = {
         num: 778,
         gen: 7,
         desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
+    },
+    "forecastofsun": {
+        name: "Forecast of Sun",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sun when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsun",
+        gen: 8,
+    },
+    "forecastofrain": {
+        name: "Forecast of Rain",
+        desc: "If the holder has the ability Forecast, this Pokémon summons rain when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofrain",
+        gen: 8,
+    },
+    "forecastofsand": {
+        name: "Forecast of Sand",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sand when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsand",
+        gen: 8,
+    },
+    "forecastofhail": {
+        name: "Forecast of Hail",
+        desc: "If the holder has the ability Forecast, this Pokémon summons hail when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofhail",
+        gen: 8,
+    },
+    "forecastofshadows": {
+        name: "Forecast of Shadows",
+        desc: "If the holder has the ability Forecast, this Pokémon summons shadow sky when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofshadows",
+        gen: 8,
+    },
+    "forecastofwind": {
+        name: "Forecast of Wind",
+        desc: "If the holder has the ability Forecast, this Pokémon summons air current when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofwind",
+        gen: 8,
     },
 };

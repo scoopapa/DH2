@@ -1341,6 +1341,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1036,
 	},
+/*
 	asonesawsbuck: {
 		desc: "The combination of Hustle and A Winter's Tale. This Pokémon's Attack is multiplied by 1.5 and the accuracy of its physical attacks is multiplied by 0.8. The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "The combination of Hustle and A Winter's Tale.",
@@ -1365,6 +1366,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1037,
 	},
+*/
 	springfever: {
 		desc: "While this Pokémon is active, if any Pokémon uses a Fire-type move, it is prevented from executing and the attacker loses 1/4 of its maximum HP, rounded half up. This effect does not happen if the Fire-type move is prevented by Primordial Sea.​",
 		shortDesc: "While active, any Pokémon using a Fire move loses 1/4 max HP.",
@@ -1549,9 +1551,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!move || !target || !target.hp) return;
 			if (target !== source && target.hp && move.flags['sound']) {
 				this.effectData.target.addVolatile('seismicscream');
-				if (move.category === 'Special') {
-					source.addVolatile('specialsound');
-				}
 				/*
 				this.add('-anim', source, "Earthquake", target);
 				*/
@@ -1563,6 +1562,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1044,
 	},
 	acidrock: {
+		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Pokémon with Soundproof are immune. Poison inflicted through this Ability does half as much damage as normal poison.",
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
@@ -1574,7 +1574,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target);
 				} else {
-					target.setStatus('psn', pokemon);
+					if (target.setStatus('psn', pokemon)) {
+						this.hint(`Poison inflicted through Acid Rock is only half as damaging as normal poison.`);
+					}
 				}
 			}
 		},
@@ -2308,6 +2310,54 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Chakra Lock",
 		rating: 3,
 		num: -1060,
+	},
+	vajra: {
+		desc: "This Pokémon's Dark-type moves become Electric-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokémon's Dark-type moves become Electric-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Dark' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Electric';
+				(move as any).vajraBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if ((move as any).vajraBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Vajra",
+		rating: 4,
+		num: -1061,
+	},
+	innerfortitude: {
+		desc: "When this Pokémon has 1/2 or less of its maximum HP, rounded down, its Defense and Special Defense are doubled. Immune to Intimidate.",
+		shortDesc: "At 1/2 or less of max HP, Defense and Special Defense are doubled. Immune to Intimidate.",
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				this.debug('Inner Fortitude boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				this.debug('Inner Fortitude boost');
+				return this.chainModify(2);
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Fortitude');
+			}
+		},
+		name: "Inner Fortitude",
+		rating: 3,
+		num: -1062,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",

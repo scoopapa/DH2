@@ -30,6 +30,7 @@ const longwhip: ConditionData = {
 		data.moveData.accuracy = true;
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
+		delete data.moveData.flags['contact'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {
@@ -75,6 +76,28 @@ const longwhip: ConditionData = {
 	},
 };
 export const Conditions: {[k: string]: ConditionData} = {
+	psn: {
+		name: 'psn',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				if (sourceEffect.name === 'Acid Rock') {
+					this.effectData.type = 'acidrock';
+				}
+				this.add('-status', target, 'psn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'psn');
+			}
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			if (this.effectData.type === 'acidrock') {
+				this.damage(pokemon.baseMaxhp / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
 	acidicterrain: {
 		name: 'Acidic Terrain',
 		effectType: 'Terrain',
@@ -156,7 +179,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !move.isZ && move.category !== 'Status') {
 				move.type = 'Ground';
 				this.add('-message', `${move.name} became ${move.type}-type in the desert gales!`);
 			}
