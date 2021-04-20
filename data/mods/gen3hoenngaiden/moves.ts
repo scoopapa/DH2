@@ -1087,7 +1087,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	    onModifyType(move, pokemon) {
 			if (pokemon.speciesid === 'silvallybug')
 			move.type = 'Bug';
-			else if pokemon.speciesid === 'silvallyflying')
+			else if (pokemon.speciesid === 'silvallyflying')
 			move.type = 'Flying';
 		},
 		onModifyMove(move, pokemon) {
