@@ -1090,7 +1090,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!type) {
 					type = 'Normal';
 			}
-		}
+		},
 		onModifyMove(move, pokemon) {
 			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.getTypes()[0]))
 			move.category = "Special";
