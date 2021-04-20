@@ -783,7 +783,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 20,
 			boosts: {
 				def: -1,
-			},
+			}
+		},
 	},
 	signalbeam: {
 		inherit: true,
