@@ -720,6 +720,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	shadowball: {
 		inherit: true,
+		category: "Physical",
 	},
 	sketch: {
 		inherit: true,
