@@ -1079,9 +1079,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		onModifyMove(move, pokemon) {
-			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
-			const physicalTypes = ['Normal', 'Bug', 'Ghost', 'Fighting', 'Steel', 'Flying', 'Rock', 'Poison', 'Ground'];
-			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
+			if (pokemon.type('Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon') move.category = 'Special';
+			else if (pokemon.type('Normal', 'Bug', 'Ghost', 'Fighting', 'Steel', 'Flying', 'Rock', 'Poison', 'Ground') move.category = 'Physical';
 		}
+	}
+	}
 	},
 };
