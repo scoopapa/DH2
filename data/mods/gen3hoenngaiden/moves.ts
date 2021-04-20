@@ -1094,6 +1094,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
             move.category = "Special";
 		},
 	},*/
+	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
 		basePower: 90,
