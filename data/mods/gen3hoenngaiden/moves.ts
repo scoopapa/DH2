@@ -1084,12 +1084,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			if (pokemon.ability === 'rkssystem') {
-			move.type = pokemon.getItem().onMemory;
-			if (!type) {
-					type = 'Normal';
-			}
+	    onModifyType(move, pokemon) {
+			let type = pokemon.getTypes()[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
 		},
 		onModifyMove(move, pokemon) {
 			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.getTypes()[0]))
