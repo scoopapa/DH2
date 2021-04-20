@@ -1075,6 +1075,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	multiattack: {
 		basePower: 90,
 		category: "Physical",
+		pp: 10,
 		onModifyType(move, pokemon) {
 			if (pokemon.ignoringItem()) return;
 			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
