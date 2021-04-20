@@ -117,7 +117,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Prevents the target from switching for two to five turns. Causes damage to the target equal to 1/16 of its maximum HP, rounded down, at the end of each turn during effect. The target can still switch out if it uses Baton Pass. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 	},
 	blazekick: {
-		inherit:
+		inherit: true,
 		category: "Special",
 	},
 	blizzard: {
