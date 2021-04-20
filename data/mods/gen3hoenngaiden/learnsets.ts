@@ -30268,66 +30268,82 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	silvallybug: {
 		learnset: {
+			multiattackbug: ["3L1"],
 		},
 	},
 	silvallydark: {
 		learnset: {
+			multiattackdark: ["3L1"],
 		},
 	},
 	silvallydragon: {
 		learnset: {
+			multiattackdragon: ["3L1"],
 		},
 	},
 	silvallyelectric: {
 		learnset: {
+			multiattackelectric: ["3L1"],
 		},
 	},
 	silvallyfighting: {
 		learnset: {
+			multiattackfighting: ["3L1"],
 		},
 	},
 	silvallyfire: {
 		learnset: {
+			multiattackfire: ["3L1"],
 		},
 	},
 	silvallyflying: {
 		learnset: {
+			multiattackflying: ["3L1"],
 		},
 	},
 	silvallyghost: {
 		learnset: {
+			multiattackghost: ["3L1"],
 		},
 	},
 	silvallygrass: {
 		learnset: {
+			multiattackgrass: ["3L1"],
 		},
 	},
 	silvallyground: {
 		learnset: {
+			multiattackground: ["3L1"],
 		},
 	},
 	silvallyice: {
 		learnset: {
+			multiattackice: ["3L1"],
 		},
 	},
 	silvallypoison: {
 		learnset: {
+			multiattackpoison: ["3L1"],
 		},
 	},
 	silvallypsychic: {
 		learnset: {
+			multiattackpsychic: ["3L1"],
 		},
 	},
 	silvallyrock: {
 		learnset: {
+			multiattackrock: ["3L1"],
 		},
 	},
 	silvallysteel: {
 		learnset: {
+			multiattacksteel: ["3L1"],
 		},
 	},
 	silvallywater: {
 		learnset: {
+			multiattackwater: ["3L1"],
 		},
 	},
 };
