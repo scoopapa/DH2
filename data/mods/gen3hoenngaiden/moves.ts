@@ -1073,11 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 	},
 	multiattack: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 3,
-		basePower: 90,
-		category: "Physical",
+		basePower: 90,,
 		onModifyType(move, pokemon) {
 			let type = pokemon.types[0];
 			move.type = type;
