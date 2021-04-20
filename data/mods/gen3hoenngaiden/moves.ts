@@ -1081,6 +1081,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 			const physicalTypes = ['Normal', 'Bug', 'Ghost', 'Fighting', 'Steel', 'Flying', 'Rock', 'Poison', 'Ground'];
 			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
-		},
+		}
 	},
 };
