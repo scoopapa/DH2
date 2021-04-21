@@ -228,8 +228,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	rkssystem: {
+	shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
-		inherit: true,
-		isPermanent: true,
+		id: "rkssystem",
+		name: "RKS System",
+		rating: 4,
+		num: 225,
 	},
 };

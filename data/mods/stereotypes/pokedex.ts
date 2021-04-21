@@ -6,7 +6,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Grass"],
 		baseStats: {hp: 85, atk: 105, def: 100, spa: 65, spd: 75, spe: 100},
 		abilities: {0: "Overgrow", H: "Poison Heal"},
-		heightm: 0.7,
+		heightm: 1.9,
 		weightkg: 35.5,
 	},
 	fluxtape: {
@@ -24,7 +24,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 110, atk: 125, def: 85, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Torrent", H: "Water Veil"},
-		heightm: 1.6,
+		heightm: 3.3,
 		weightkg: 371.1,
 	},
 	//Slate 2: Dragon, Fairy, Steel
@@ -34,7 +34,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 95, atk: 100, def: 105, spa: 90, spd: 80, spe: 40},
 		abilities: {0: "Regenerator", H: "Hustle"},
-		heightm: 1.2,
+		heightm: 4.1,
 		weightkg: 462.3,
 	},
 	gencook: {
@@ -43,7 +43,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Fairy"],
 		baseStats: {hp: 80, atk: 70, def: 110, spa: 90, spd: 120, spe: 60},
 		abilities: {0: "Ripen", 1: "Gluttony", H: "Oblivious"},
-		heightm: 1.0,
+		heightm: 1.2,
 		weightkg: 115.3,
 	},
 	heraleo: {

@@ -49,7 +49,22 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		inherit: true,
 		onModifySpD() {},
 	},
-	rkssystem: {
-		inherit: true,
+	silvally: {
+		name: 'Silvally',
+		id: 'silvally',
+		num: 773,
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
+			/** @type {string | undefined} */
+			let type = 'Normal';
+			if (pokemon.ability === 'rkssystem') {
+				type = pokemon.getItem().onMemory;
+				if (!type) {
+					type = 'Normal';
+				}
+			}
+			return [type];
+		},
 	},
 };

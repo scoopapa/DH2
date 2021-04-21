@@ -21,6 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	ancientpower: {
 		inherit: true,
+		category: "Physical",
 		flags: {contact: 1, protect: 1, mirror: 1},
 	},
 	armthrust: {
@@ -33,6 +34,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astonish: {
 		inherit: true,
+		category: "Physical",
 		basePowerCallback(pokemon, target) {
 			if (target.volatiles['minimize']) return 60;
 			return 30;
@@ -45,6 +47,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	beatup: {
 		inherit: true,
+		category: "Special",
 		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a major status condition in the user's party, or fails if no Pokemon meet the criteria. For each hit, the damage formula uses the participating Pokemon's base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense; each hit is considered to come from the user.",
 	},
 	bide: {
@@ -113,6 +116,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Prevents the target from switching for two to five turns. Causes damage to the target equal to 1/16 of its maximum HP, rounded down, at the end of each turn during effect. The target can still switch out if it uses Baton Pass. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 	},
+	blazekick: {
+		inherit: true,
+		category: "Special",
+	},
 	blizzard: {
 		inherit: true,
 		desc: "Has a 10% chance to freeze the target.",
@@ -137,6 +144,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	bulletseed: {
 		inherit: true,
+		category: "Special",
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
 	camouflage: {
@@ -210,8 +218,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail or Enigma Berry. Items lost to this move cannot be regained with Recycle.",
 		flags: {protect: 1, mirror: 1},
 	},
+	crabhammer: {
+		inherit: true,
+		category: "Special",
+	},
 	crunch: {
 		inherit: true,
+		category: "Special",
 		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
 		secondary: {
@@ -282,6 +295,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dive: {
 		inherit: true,
+		category: "Special",
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Surf and Whirlpool, which have doubled power when used against it, and is also unaffected by weather.",
 		basePower: 60,
 	},
@@ -332,6 +346,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doubleslap: {
 		inherit: true,
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
+	},
+	dragonclaw: {
+		inherit: true,
+		category: "Special",
 	},
 	dreameater: {
 		inherit: true,
@@ -417,6 +435,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1},
 	},
+	firepunch: {
+		inherit: true,
+		category: "Special",
+	},
 	firespin: {
 		inherit: true,
 		desc: "Prevents the target from switching for two to five turns. Causes damage to the target equal to 1/16 of its maximum HP, rounded down, at the end of each turn during effect. The target can still switch out if it uses Baton Pass. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
@@ -460,6 +482,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Paralyzes the target. This move does not ignore type immunity.",
 		ignoreImmunity: false,
 	},
+	gust: {
+		inherit: true,
+		category: "Physical",
+	},
 	hail: {
 		inherit: true,
 		desc: "For 5 turns, the weather becomes Hail. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type. Fails if the current weather is Hail.",
@@ -474,6 +500,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
 			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
+			const physicalTypes = ['Normal', 'Bug', 'Ghost', 'Fighting', 'Steel', 'Flying', 'Rock', 'Poison', 'Ground'];
 			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
 		},
 	},
@@ -490,12 +517,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	hyperbeam: {
+		inherit: true,
+		category: "Physical",
+	},
 	hypnosis: {
 		inherit: true,
 		accuracy: 60,
 	},
+	iceball: {
+		inherit: true,
+		category: "Special",
+	},
+	icepunch: {
+		inherit: true,
+		category: "Special",
+	},
 	iciclespear: {
 		inherit: true,
+		category: "Special",
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
 	ingrain: {
@@ -518,11 +558,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	knockoff: {
 		inherit: true,
+		basePower: 20,
+		category: "Special",
 		desc: "The target's held item is lost for the rest of the battle, unless it has the Sticky Hold Ability. During the effect, the target cannot gain a new item by any means.",
 	},
 	leafblade: {
 		inherit: true,
 		basePower: 70,
+		category: "Special",
 	},
 	leechlife: {
 		inherit: true,
@@ -608,6 +651,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 	},
+	mudshot: {
+		inherit: true,
+		category: "Physical",
+	},
+	mudslap: {
+		inherit: true,
+		category: "Physical",
+	},
 	naturepower: {
 		inherit: true,
 		accuracy: true,
@@ -619,6 +670,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	needlearm: {
 		inherit: true,
+		category: "Physical",
 		desc: "Has a 30% chance to flinch the target. Damage doubles if the target has used Minimize while active.",
 		basePowerCallback(pokemon, target) {
 			if (target.volatiles['minimize']) return 120;
@@ -633,6 +685,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "The user spends two or three turns locked into this move and becomes confused at the end of the last turn of the effect if it is not already. This move targets an opposing Pokemon at random on each turn. If the user is prevented from moving, falls asleep, becomes frozen, or the attack is not successful against the target, the effect ends without causing confusion. If this move is called by Sleep Talk, the move is used for one turn and does not confuse the user.",
 		basePower: 90,
+		category: "Special",
 	},
 	overheat: {
 		inherit: true,
@@ -653,6 +706,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	pursuit: {
 		inherit: true,
+		category: "Special",
 		desc: "If the target is an opposing Pokemon and it switches out this turn, this move hits that Pokemon before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon becomes active immediately.",
 		shortDesc: "Power doubles if the targeted foe is switching out.",
 	},
@@ -667,6 +721,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	rapidspin: {
 		inherit: true,
 		desc: "If this move is successful, the effects of Leech Seed and binding moves end for the user, and Spikes are removed from the user's side of the field.",
+	},
+	razorleaf: {
+		inherit: true,
+		category: "Special",
 	},
 	razorwind: {
 		inherit: true,
@@ -718,6 +776,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "The user faints after using this move. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 	},
+	shadowball: {
+		inherit: true,
+		category: "Physical",
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			}
+		},
+	},
+	signalbeam: {
+		inherit: true,
+		category: "Physical",
+	},
+	silverwind: {
+		inherit: true,
+		category: "Physical",
+	},
 	sketch: {
 		inherit: true,
 		desc: "This move is permanently replaced by the last move used by the target. The copied move has the maximum PP for that move. Fails if the target has not made a move, if the user has Transformed, or if the move is Sketch, Struggle, or any move the user knows.",
@@ -765,14 +841,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.useMove(randomMove.move, pokemon);
 		},
 	},
+	sludge: {
+		inherit: true,
+		category: "Physical",
+	},
+	sludgebomb: {
+		inherit: true,
+		category: "Physical",
+	},
 	smellingsalts: {
 		inherit: true,
 		desc: "Damage doubles if the target is paralyzed. If this move is successful, the target is cured of paralysis.",
 		shortDesc: "Damage doubles if target is paralyzed; cures it.",
 	},
+	smog: {
+		inherit: true,
+		category: "Physical",
+	},
 	solarbeam: {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. Damage is halved if the weather is Hail, Rain Dance, or Sandstorm. If the weather is Sunny Day, the move completes in one turn.",
+	},
+	spark: {
+		inherit: true,
+		category: "Special",
 	},
 	spiderweb: {
 		inherit: true,
@@ -895,9 +987,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "The user spends two or three turns locked into this move and becomes confused at the end of the last turn of the effect if it is not already. This move targets an opposing Pokemon at random on each turn. If the user is prevented from moving, falls asleep, becomes frozen, or the attack is not successful against the target, the effect ends without causing confusion. If this move is called by Sleep Talk, the move is used for one turn and does not confuse the user.",
 	},
+	thunderpunch: {
+		inherit: true,
+		category: "Special",
+	},
 	tickle: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+	},
+	triattack: {
+		inherit: true,
+		category: "Physical",
 	},
 	trick: {
 		inherit: true,
@@ -913,21 +1013,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	uproar: {
 		inherit: true,
+		category: "Physical",
 		desc: "The user spends three to five turns locked into this move. This move targets an opposing Pokemon at random on each turn. During effect, no active Pokemon can fall asleep by any means, and Pokemon that are already asleep wake up as their turn starts or at the end of each turn, including the last one. If the user is prevented from moving or the attack is not successful against the target during one of the turns, the effect ends.",
 		shortDesc: "Lasts 3-5 turns. Active Pokemon cannot sleep.",
 	},
 	vinewhip: {
 		inherit: true,
+		category: "Special",
 		pp: 10,
 	},
 	volttackle: {
 		inherit: true,
+		category: "Special",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/3 the HP lost by the target, rounded down, but not less than 1 HP.",
 		shortDesc: "Has 1/3 recoil.",
 		secondary: null,
 	},
 	waterfall: {
 		inherit: true,
+		category: "Special",
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
 		secondary: null,
@@ -968,10 +1072,265 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
-	multiattack: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 3,
+	/*multiattack: {
+		accuracy: 100,
 		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattack",
+		isViable: true,
+		name: "Multi-Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		onModifyMove(move, pokemon) {
+			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.types[0]))
+            move.category = "Special";
+		},
+	},*/
+	//Temporary Multi-Attack Fix
+	multiattack: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattack",
+		isViable: true,
+		name: "Multi-Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Normal",
+	},
+	multiattackbug: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackbug",
+		isViable: true,
+		name: "Multi-Attack-Bug",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Bug",
+	},
+	multiattackdark: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackdark",
+		isViable: true,
+		name: "Multi-Attack-Dark",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Dark",
+	},
+	multiattackdragon: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackdragon",
+		isViable: true,
+		name: "Multi-Attack-Dragon",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Dragon",
+	},
+	multiattackelectric: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackelectric",
+		isViable: true,
+		name: "Multi-Attack-Electric",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Electric",
+	},
+	multiattackfighting: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackfighting",
+		isViable: true,
+		name: "Multi-Attack-Fighting",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Fighting",
+	},
+	multiattackfire: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackfire",
+		isViable: true,
+		name: "Multi-Attack-Fire",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Fire",
+	},
+	multiattackflying: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackflying",
+		isViable: true,
+		name: "Multi-Attack-Flying",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Flying",
+	},
+	multiattackghost: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackghost",
+		isViable: true,
+		name: "Multi-Attack-Ghost",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Ghost",
+	},
+	multiattackgrass: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackgrass",
+		isViable: true,
+		name: "Multi-Attack-Grass",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Grass",
+	},
+	multiattackground: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackground",
+		isViable: true,
+		name: "Multi-Attack-Ground",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Ground",
+	},
+	multiattackice: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackice",
+		isViable: true,
+		name: "Multi-Attack-Ice",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Ice",
+	},
+	multiattackpoison: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackpoison",
+		isViable: true,
+		name: "Multi-Attack-Poison",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Poison",
+	},
+	multiattackpsychic: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackpsychic",
+		isViable: true,
+		name: "Multi-Attack-Psychic",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Psychic",
+	},
+	multiattackrock: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackrock",
+		isViable: true,
+		name: "Multi-Attack-Rock",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Rock",
+	},
+	multiattacksteel: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattacksteel",
+		isViable: true,
+		name: "Multi-Attack-Steel",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Steel",
+	},
+	multiattackwater: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "This move's type depends on the user's held Memory.",
+		shortDesc: "Type varies based on the held Memory.",
+		id: "multiattackwater",
+		isViable: true,
+		name: "Multi-Attack-Water",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		type: "Water",
 	},
 };
