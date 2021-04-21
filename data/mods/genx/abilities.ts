@@ -61,7 +61,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	deepsea: {
-		id: "deepforest",
+		id: "deepsea",
 		shortDesc: "While this Pokemon is active, a Water move used by any Pokemon has 1.33x power.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Deep Sea');
@@ -258,7 +258,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mind Probe",
 	},
 	gunkconsumer: {
-		shortDesc: "Removes hazards upon switch-in. Heal 1/16 of max HP is this happens.",
+		shortDesc: "Removes hazards upon switch-in and heals 1/16 of max HP if this happens.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
          const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
