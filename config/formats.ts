@@ -785,7 +785,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal', 'Baton Pass',
+			'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal',
 		],
 		unbanlist: [
 			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -795,7 +795,6 @@ export const Formats: FormatList = [
 			'Grousle', 'Dongoro', 'Slurpum', 
 			'Corveot', 'Corveot-Mega', 'Igglyzenta-Crowned', 'Arctres-Galar', 'Garborude', 'Noicity', 'Ferros',
 			'Landmaldo-Therian', 'Tentoxys-Defense', 'Strikados-Galar', 'Hooporant',
-			'Brontun', 'Mesflame', 'Thornbro-Galar', 'Glidol', 'Pincurchitar', 'Pincurchitar-Mega', 'Snortine', 'Flygalge',
 			
 			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
 			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -810,42 +809,8 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-<<<<<<< Updated upstream
-        name: "[Gen 8] Fusion Evolution DUU",
-        mod: "feuu",
-        threads: [
-            `&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Thread in Pet Mods</a>`
-        ],
-        gameType: "doubles",
-        ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-        banlist: [
-            'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal', 'Baton Pass',
-        ],
-        unbanlist: [
-            'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
-            'Flaant', 'Umbat', 'Chomplim', 'Chomplim-Mega', 'Xotalion', 'Miemie', 'Dusking', 'Jelliswine',
-            'Pigapult', 'Lycanserker-Dusk', 'Tapu Lop', 'Dragontler', 'Eternabat',
-            'Grimmlurk', 'Manicuno-Galar', 'Yacian-Crowned', 'Cryogolem', 'Stoudrago',
-            'Grousle', 'Dongoro', 'Slurpum', 
-            'Corveot', 'Corveot-Mega', 'Igglyzenta-Crowned', 'Arctres-Galar', 'Garborude', 'Noicity', 'Ferros',
-            'Landmaldo-Therian', 'Tentoxys-Defense', 'Strikados-Galar', 'Hooporant',
-			'Brontun', 'Mesflame', 'Thornbro-Galar', 'Glidol', 'Pincurchitar', 'Pincurchitar-Mega', 'Snortine', 'Flygalge',
-            
-            'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
-            'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
-            'Silvino-Poison', 'Silvino-Psychic', 'Silvino-Rock', 'Silvino-Steel', 'Silvino-Water', 'Silvino',
-            
-            'Silvino-Bug-Mega', 'Silvino-Dark-Mega', 'Silvino-Dragon-Mega', 
-            'Silvino-Electric-Mega', 'Silvino-Fairy-Mega', 'Silvino-Fighting-Mega',
-            'Silvino-Fire-Mega', 'Silvino-Flying-Mega', 'Silvino-Ghost-Mega', 
-            'Silvino-Grass-Mega', 'Silvino-Ground-Mega', 'Silvino-Ice-Mega', 
-            'Silvino-Poison-Mega', 'Silvino-Psychic-Mega', 'Silvino-Rock-Mega', 
-            'Silvino-Steel-Mega', 'Silvino-Water-Mega', 'Silvino-Mega',
-        ],
-    },
-	 {
-					 
 		name: "[Gen 8] Generation X",
+		desc: ["A mod that aims to add everything you would expect from a whole new generation of Pokemon games. Welcome to the Brazil-inspired Brazdo region!",],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/generation-x.3670676/</a>`,
 		],
@@ -862,18 +827,8 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-
-		name: "[Gen 8] GPT2mons",
-	   desc: 'A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
-		searchShow: false,
-		challengeShow: false,
-		mod: "gpt2mons", 
-		teambuilderFormat: "OU", 	
-	},
-	{
 		name: "[Gen 3] Hoenn Gaiden",
+		desc: ["Hoenn Gaiden is a Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Thread in Pet Mods</a>`,
 		],
@@ -889,8 +844,6 @@ export const Formats: FormatList = [
 
 	},
 	{
-=======
->>>>>>> Stashed changes
 		name: "[Gen 8] Megas for All",
 		desc: ["&bullet; Megas for All v7",
 		      ],
@@ -1515,12 +1468,6 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Same Type Clause', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		banlist: [
-<<<<<<< Updated upstream
-			'All Pokemon'
-		],
-		unbanlist: [
-			'Prairret', 'Fluxtape', 'Cetaidon', 'Drakotomy', 'Gencook', 'Heraleo',
-=======
 			//Pokemon restrictions
 			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dragapult', 
 			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
@@ -1535,7 +1482,6 @@ export const Formats: FormatList = [
 			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
 			//Banned MfA Stones 
 			'Dragalgite', 'Draconite', 
->>>>>>> Stashed changes
 		],
 		mod: 'm4av6',
 	},
