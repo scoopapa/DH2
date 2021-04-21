@@ -2929,6 +2929,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         target: "normal",
         type: "Water",
     },
+	"eternabeam": {
+		num: 795,
+		accuracy: 90,
+		basePower: 160,
+		category: "Special",
+      desc: "User must recharge next turn unless this move KO'd its target last turn.",
+      shortDesc: "User must recharge next turn unless this move KO'd its target last turn.",
+		name: "Eternabeam",
+		pp: 10,
+		priority: 0,
+		flags: {recharge: 1, protect: 1, mirror: 1},
+		self: null,
+		onHit(target, source) {
+			if (target.hp) {
+				source.addVolatile('mustrecharge');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
     "gravapple": {
         num: 788,
         accuracy: 100,
