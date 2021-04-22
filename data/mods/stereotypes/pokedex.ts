@@ -61,7 +61,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Harzodia",
 		types: ["Psychic"],
 		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
-		abilities: {0: "Magician", 1: "Victory Star", H: "Telephathy"},
+		abilities: {0: "Magician", 1: "Victory Star", H: "Telepathy"},
 		heightm: 1.1,
 		weightkg: 26.1,
 	},
