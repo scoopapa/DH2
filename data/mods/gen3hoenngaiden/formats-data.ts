@@ -1396,84 +1396,138 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	snover: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "LC",
 	},
 	abomasnow: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	gliscor: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	frillish: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "LC",
 	},
 	jellicent: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	tynamo: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "LC",
 	},
 	eelektrik: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "NFE",
 	},
 	eelektross: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	cryogonal: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	typenull: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "NFE",
 	},
 	silvally: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallybug: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallydark: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallydragon: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyelectric: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyfighting: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyfire: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyflying: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyghost: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallygrass: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyground: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyice: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallypoison: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallypsychic: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallyrock: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallysteel: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 	silvallywater: {
+		isNonstandard: null,
+		gen: 3,
 		tier: "OU",
 	},
 };
