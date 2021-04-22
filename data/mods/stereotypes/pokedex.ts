@@ -55,4 +55,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.0,
 		weightkg: 205.0,
 	},
+	//Slate 3: Psychic, Dark, Fighting
+	harzodia: {
+		num: 7,
+		name: "Harzodia",
+		types: ["Psychic"],
+		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
+		abilities: {0: "Magician", 1: "Victory Star", H: "Telephathy"},
+		heightm: 1.1,
+		weightkg: 26.1,
+	},
+	correept: {
+		num: 8,
+		name: "Correept",
+		types: ["Dark"],
+		baseStats: {hp: 74, atk: 93, def: 129, spa: 75, spd: 107, spe: 32},
+		abilities: {0: "Dark Aura", 1: "Rattled", H: "Tangled Feet"},
+		weightkg: 74.5,
+	},
+	dojodo: {
+		num: 9,
+		name: "Dojodo",
+		types: ["Fighting"],
+		baseStats: {hp: 90, atk: 115, def: 80, spa: 60, spd: 100, spe: 80},
+		abilities: {0: "Justified", 1: "Iron Fist", H: "Stamina"},
+		heightm: 1.3,
+		weightkg: 34.8,
+	},
 };

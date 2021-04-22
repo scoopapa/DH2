@@ -75,6 +75,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			coil: ["8L1"],
 			dragondance: ["8L1"],
 			nastyplot: ["8L1"],
+			dragontail: ["8L1"],
+			focusblast: ["8L1"],
 			attract: ["8L1"],
 			facade: ["8L1"],
 			protect: ["8L1"],
@@ -291,6 +293,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	folliclawe: {
 		learnset: {
+			brickbreak: ["8L1"],
 			crosschop: ["8L1"],
 			falsesurrender: ["8L1"],
 			protect: ["8L1"],
@@ -1446,6 +1449,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			slash: ["8L1"],
 			scratch: ["8L1"],
 			synthesis: ["8L1"],
+			junglehealing: ["8L1"],
+			whirlwind: ["8L1"],
 			attract: ["8L1"],
 			facade: ["8L1"],
 			protect: ["8L1"],
