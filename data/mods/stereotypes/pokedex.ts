@@ -56,14 +56,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 205.0,
 	},
 	//Slate 3: Dark, Fighting, Psychic
-	fenaftmos: {
-		num: 9,
-		name: "Fenaftmos",
+	correept: {
+		num: 7,
+		name: "Correept",
 		types: ["Dark"],
-		baseStats: {hp: 90, atk: 110, def: 70, spa: 80, spd: 70, spe: 110},
-		abilities: {0: "Tough Claws", 1: "Unnerve", H: "Mega Launcher"},
-		heightm: 1.0,
-		weightkg: 78,
+		baseStats: {hp: 74, atk: 93, def: 129, spa: 75, spd: 107, spe: 32},
+		abilities: {0: "Dark Aura", 1: "Rattled", H: "Tangled Feet"},
+		weightkg: 74.5,
 	},
 	dojodo: {
 		num: 8,
@@ -71,16 +70,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Fighting"],
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 60, spd: 100, spe: 80},
 		abilities: {0: "Justified", 1: "Iron Fist", H: "Stamina"},
-		heightm: 1.0,
+		heightm: 1.3,
 		weightkg: 34.8,
 	},
 	harzodia: {
-		num: 7,
+		num: 9,
 		name: "Harzodia",
 		types: ["Psychic"],
 		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
 		abilities: {0: "Magician", 1: "Victory Star", H: "Telepathy"},
-		heightm: 1.0,
+		heightm: 1.1,
 		weightkg: 26.1,
 	},
 	//Slate 4: Flying, Ground, Rock

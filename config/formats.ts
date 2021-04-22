@@ -1417,7 +1417,7 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			'Prairret', 'Fluxtape', 'Cetaidon', 'Drakotomy', 'Gencook', 'Heraleo', 'Fenaftmos', 'Dojodo', 'Harzodia',
+			'Prairret', 'Fluxtape', 'Cetaidon', 'Drakotomy', 'Gencook', 'Heraleo', 'Correept', 'Dojodo', 'Harzodia',
 		],
 	},
 	{  

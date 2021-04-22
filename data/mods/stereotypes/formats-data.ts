@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 3: Dark, Fighting, Psychic
-	fenaftmos: {
+	correept: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
