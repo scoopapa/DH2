@@ -25,4 +25,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	//Slate 3: Dark, Fighting, Psychic
+	fenaftmos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dojodo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	harzodia: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 4: Flying, Ground, Rock
 };
