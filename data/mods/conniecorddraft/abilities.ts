@@ -381,7 +381,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	figurehead: {
 		desc: "This Pokémon moves first in its priority bracket when it is the target of a super effective attack.",
 		shortDesc: "Moves first in its priority bracket when targeted with a super effective attack.",
-		beforeTurnCallback(pokemon) { // if this doesn't work, replace with onUpdate - trying to avoid checking 500 times since it shouldn't need to change mid-turn
+		onUpdate(pokemon) { // if this doesn't work, replace with onUpdate - trying to avoid checking 500 times since it shouldn't need to change mid-turn
 			for (const attacker of pokemon.side.foe.active) {
 				if (!attacker || attacker.fainted) continue;
 				const action = this.queue.willMove(attacker);
