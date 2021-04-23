@@ -1036,6 +1036,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			brutalswing: ["8L1"],
 			coil: ["8L1"],
 			confide: ["8L1"],
+			cottonguard: ["8L1"],
 			covet: ["8L1"],
 			defog: ["8L1"],
 			doubleedge: ["8L1"],
