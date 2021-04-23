@@ -353,7 +353,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Thorn Growth",
 		num: -1018,
 		desc: "On entry, summons a room that turns contact moves into 1/4 recoil moves for 5 turns.",
-		pseudoWeather: "Thorn Growth",
+		pseudoWeather: 'thorngrowth',
 		onStart(source) {
 			this.field.setPseudoWeather('thorngrowth');
 		},
