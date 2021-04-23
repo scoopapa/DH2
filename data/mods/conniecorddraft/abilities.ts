@@ -344,11 +344,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	figurehead: {
-		name: "Figurehead",
-		num: -1017,
-		desc: "When this Pokemon is targeted by a super-effective move, it moves first.",
-	},
 	thorngrowth: {
 		name: "Thorn Growth",
 		num: -1018,
