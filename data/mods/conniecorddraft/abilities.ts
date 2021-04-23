@@ -354,6 +354,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1018,
 		desc: "On entry, summons a room that turns contact moves into 1/4 recoil moves for 5 turns.",
 		pseudoWeather: "Thorn Growth",
+		onStart(source) {
+			this.field.setPseudoWeather('thorngrowth');
+		},
 		condition: {
 			duration: 5,
 			onStart(side, source) {
@@ -391,7 +394,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const move = this.dex.getMove(action.move);
 				if (move.category === 'Status') continue;
 				const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
-				if (!target || (target !== pokemon && ['any', 'normal'].includes(move.target))) return; // unfortunately not sure how to make this play nice with doubles ._. that feels like the biggest obstacle
+				if (!target) return; // unfortunately not sure how to make this play nice with doubles ._. that feels like the biggest obstacle
 				const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 				if (
 					this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||

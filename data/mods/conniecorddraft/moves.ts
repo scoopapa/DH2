@@ -298,7 +298,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1},
-		sideCondition: 'stealthrock',
+		sideCondition: 'jaggedroot',
 		condition: {
 			// this is a side condition
 			onStart(side) {
