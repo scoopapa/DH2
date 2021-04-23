@@ -1058,6 +1058,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["8L1"],
 			safeguard: ["8L1"],
 			confide: ["8L1"],
+			facade: ["8L1"],
+			wildcharge: ["8L1"],
+			aquatail: ["8L1"],
+			cottonguard: ["8L1"],
 		},
 	},
 };
