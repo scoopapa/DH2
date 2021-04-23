@@ -331,4 +331,92 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		desc: "If another Pokémon is poisoned, heals 1/2 the damage taken from that poison.",
 	},
+	
+	//Misc
+	returnfire: {
+		name: "Return Fire",
+		num: -1016,
+		desc: "When this Pokemon is targeted by a non-contact move, attacker loses 1/8 max HP.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	figurehead: {
+		name: "Figurehead",
+		num: -1017,
+		desc: "When this Pokemon is targeted by a super-effective move, it moves first.",
+	},
+	thorngrowth: {
+		name: "Thorn Growth",
+		num: -1018,
+		desc: "On entry, summons a room that turns contact moves into 1/4 recoil moves for 5 turns.",
+		pseudoWeather: "Thorn Growth",
+		condition: {
+			duration: 5,
+			onStart(side, source) {
+				this.add('-fieldstart', 'ability: Thorn Growth', '[of] ' + source);
+			},
+			onModifyMove(move) {
+				if (move.flags['contact'] && !move.recoil) {
+					move.recoil = [25, 100];
+				}
+			},
+			onEnd() {
+				this.add('-fieldend', 'ability: Thorn Growth');
+			},
+		},
+	},
+	arborous: {
+		name: "Arborous",
+		num: -1019,
+		desc: "This Pokemon is immune to Bug and Flying when over 1/2 max HP.",
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Bug' || move.type === 'Flying') && (target.hp > target.maxhp/2)) {
+				this.add('-immune', target, '[from] ability: Arborous');
+				return null;
+			}
+		},
+	},
+	figurehead: {
+		desc: "This Pokémon moves first in its priority bracket when it is the target of a super effective attack.",
+		shortDesc: "Moves first in its priority bracket when targeted with a super effective attack.",
+		beforeTurnCallback(pokemon) { // if this doesn't work, replace with onUpdate - trying to avoid checking 500 times since it shouldn't need to change mid-turn
+			for (const attacker of pokemon.side.foe.active) {
+				if (!attacker || attacker.fainted) continue;
+				const action = this.queue.willMove(attacker);
+				if (!action) return;
+				const move = this.dex.getMove(action.move);
+				if (move.category === 'Status') continue;
+				const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+				if (!target || (target !== pokemon && ['any', 'normal'].includes(move.target))) return; // unfortunately not sure how to make this play nice with doubles ._. that feels like the biggest obstacle
+				const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+				if (
+					this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+					move.ohko
+				) {
+					pokemon.addVolatile('figurehead');
+					return;
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Figurehead');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		name: "Figurehead",
+		rating: 3,
+		num: -1020,
+	},
 };

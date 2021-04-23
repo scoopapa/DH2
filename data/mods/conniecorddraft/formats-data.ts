@@ -1,4 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	//Draft Season 1 custom mons
 	boohawk: {
 		tier: "CCD1",
 		doublesTier: "CCD1",
@@ -59,4 +60,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CCD1",
 		doublesTier: "CCD1",
 	},
+	//Other custom mons
+	marabastion: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	lurantissinnoh: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	wormuddle: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	shamaiai: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	millibark: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	graciflame: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	flufnir: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	
 };
