@@ -16,6 +16,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Overgrow", H: "Swift Swim"},
 		weightkg: 14,
 		prevo: "Folovo",
+		evoLevel: 16,
 		evos: ["Esplada"],
 	},
 	esplada: {
@@ -26,6 +27,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Overgrow", H: "Swift Swim"},
 		weightkg: 26,
 		prevo: "Sworchid",
+		evoLevel: 34,
 	},
 	peepin: {
 		num: 1004,
@@ -44,6 +46,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Blaze", H: "Punk Rock"},
 		weightkg: 10,
 		prevo: "Peepin",
+		evoLevel: 16,
 		evos: ["Macawphony"],
 	},
 	macawphony: {
@@ -54,6 +57,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Blaze", H: "Punk Rock"},
 		weightkg: 30,
 		prevo: "Scareech",
+		evoLevel: 34,
 	},
 	pescafin: {
 		num: 1007,
@@ -72,6 +76,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Torrent", H: "Rock Head"},
 		weightkg: 20,
 		prevo: "Pescafin",
+		evoLevel: 16,
 		evos: ["Arapaitan"],
 	},
 	arapaitan: {
@@ -82,6 +87,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Torrent", H: "Rock Head"},
 		weightkg: 80,
 		prevo: "Pedrowana",
+		evoLevel: 34,
 	},
 	brazube: {
 		num: 1010,
@@ -100,6 +106,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Poison Point", 1: "Rough Skin", H: "Poison Touch"},
 		weightkg: 20,
 		prevo: "Brazube",
+		evoLevel: 20,
 	},
 	plumgall: {
 		num: 1012,
@@ -118,6 +125,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Early Bird", 1: "Rattled", H: "Fluffy"},
 		weightkg: 25,
 		prevo: "Plumgall",
+		evoLevel: 17,
 		evos: ["Mourhen"],
 	},
 	mourhen: {
@@ -128,6 +136,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Infiltrator", 1: "Unnerve", H: "Fluffy"},
 		weightkg: 25,
 		prevo: "Secrehen",
+		evoLevel: 32,
 	},
 	citruff: {
 		num: 1015,
@@ -146,6 +155,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Cute Charm", 1: "Harvest", H: "Natural Cure"},
 		weightkg: 25,
 		prevo: "Citruff",
+		evoLevel: 23,
 	},
 	civiliant: {
 		num: 1017,
@@ -164,25 +174,30 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Swarm", H: "Bulletproof"},
 		weightkg: 9,
 		prevo: "Civiliant",
+		evoLevel: 12,
 		evos: ["Formigavor", "Formigavel"],
 	},
 	formigavor: {
 		num: 1019,
 		name: "Formigavor",
 		types: ["Bug", "Fighting"],
+		gender: "F",
 		baseStats: {hp: 75, atk: 60, def: 80, spa: 110, spd: 95, spe: 90},
 		abilities: {0: "Swarm", H: "Compound Eyes"},
 		weightkg: 55,
 		prevo: "Escudant",
+		evoLevel: 30,
 	},
 	formigavel: {
 		num: 1020,
 		name: "Formigavel",
 		types: ["Bug", "Fighting"],
+		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 95, spa: 60, spd: 80, spe: 90},
 		abilities: {0: "Swarm", H: "Skill Link"},
 		weightkg: 70,
 		prevo: "Escudant",
+		evoLevel: 30,
 	},
 	souarente: {
 		num: 1021,
@@ -201,6 +216,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Volt Absorb", H: "Solar Power"},
 		weightkg: 7,
 		prevo: "Souarente",
+		evoLevel: 16,
 		evos: ["Florapago"],
 	},
 	florapago: {
@@ -211,6 +227,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Volt Absorb", H: "Solar Power"},
 		weightkg: 30,
 		prevo: "Pequetal",
+		evoType: "useItem",
+		evoItem: "Thunder Stone",
 	},
 	alumane: {
 		num: 1024,
@@ -229,6 +247,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Technician", 1: "Volt Absorb", H: "Light Metal"},
 		weightkg: 30,
 		prevo: "Alumane",
+		evoLevel: 25,
 	},
 	oncuja: {
 		num: 1026,
@@ -274,7 +293,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 50, atk: 60, def: 100, spa: 35, spd: 55, spe: 40},
 		abilities: {0: "Shell Armor", 1: "Sap Sipper", H: "Oblivious"},
 		weightkg: 10,
-		evos: ["Silicyon"],
+		evos: ["Carapex"],
 	},
 	carapex: {
 		num: 1028,
@@ -284,6 +303,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Shell Armor", 1: "Sap Sipper", H: "Wind Blaster"},
 		weightkg: 30,
 		prevo: "Sapeetle",
+		evoLevel: 23,
 	},
 	parasbrazdo: {
 		num: 46,
@@ -306,6 +326,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Compound Eyes", 1: "Piercing Vision", H: "Analytic"},
 		weightkg: 29.5,
 		prevo: "Paras-Brazdo",
+		evoLevel: 24,
 		evos: ["Parascend"],
 	},
 	parascend: {
@@ -316,6 +337,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Compound Eyes", 1: "Piercing Vision", H: "Analytic"},
 		weightkg: 29.5,
 		prevo: "Parasect-Brazdo",
+		evoLevel: 36,
 	},
 	paras: {
 		inherit: true,
@@ -360,6 +382,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Frisk", 1: "Oblivious", H: "Tinted Lens"},
 		weightkg: 29.5,
 		prevo: "Humbat",
+		evoLevel: 22,
 		evos: ["Echologos"],
 	},
 	echologos: {
@@ -370,6 +393,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Frisk", 1: "Oblivious", H: "Tinted Lens"},
 		weightkg: 29.5,
 		prevo: "Sensat",
+		evoLevel: 32,
 	},
 	topaca: {
 		num: 1035,
@@ -388,6 +412,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sand Force", 1: "Solid Rock", H: "Clear Body"},
 		weightkg: 29.5,
 		prevo: "Topaca",
+		evoLevel: 29,
 	},
 	gelobite: {
 		num: 1037,
@@ -406,6 +431,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Storm Drain", 1: "Ice Body", H: "Hydration"},
 		weightkg: 22,
 		prevo: "Gelobite",
+		evoLevel: 20,
 		evos: ["Gelomandra"],
 	},
 	gelomandra: {
@@ -416,6 +442,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Storm Drain", 1: "Ice Body", H: "Hydration"},
 		weightkg: 50,
 		prevo: "Lagelto",
+		evoLevel: 40,
 	},
 	miniatorch: {
 		num: 1040,
@@ -434,6 +461,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sturdy", 1: "Flash Fire", H: "Light Metal"},
 		weightkg: 25,
 		prevo: "Miniatorch",
+		evoLevel: 30,
 	},
 	wakitty: {
 		num: 1042,
@@ -452,6 +480,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Moxie"},
 		weightkg: 60,
 		prevo: "Wakitty",
+		evoType: "levelFriendship",
+		evoCondition: "during the day",
 	},
 	jagaska: {
 		num: 1044,
@@ -461,6 +491,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Prowess"},
 		weightkg: 75,
 		prevo: "Wakitty",
+		evoType: "levelFriendship",
+		evoCondition: "at night",
 	},
 	cruchick: {
 		num: 1045,
@@ -479,6 +511,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Corrosion", 1: "Refrigerate", H: "Merciless"},
 		weightkg: 25,
 		prevo: "Cruchick",
+		evoLevel: 34,
 	},
 	gifsterious: {
 		num: 1047,
@@ -514,7 +547,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 40, spa: 85, spd: 40, spe: 110},
 		abilities: {0: "Strong Jaw", 1: "Swift Swim", H: "Flame Body"},
 		weightkg: 50,
-		prevo: "Vampayrha",
+		prevo: "Carvanha-Brazdo",
+		evoLevel: 30,
 	},
 	carvanha: {
 		inherit: true,
@@ -542,6 +576,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Strong Jaw", H: "Hydration"},
 		weightkg: 300,
 		prevo: "Hippopotas-Brazdo",
+		evoLevel: 34,
 	},
 	hippopotas: {
 		inherit: true,
@@ -574,6 +609,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Dazzling", 1: "Swift Swim", H: "Water Veil"},
 		weightkg: 24,
 		prevo: "Finneon-Brazdo",
+		evoLevel: 31,
 		evos: ["Bettalesense"],
 	},
 	bettalesense: {
@@ -584,6 +620,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Dazzling", 1: "Swift Swim", H: "Water Veil"},
 		weightkg: 48,
 		prevo: "Lumineon-Brazdo",
+		evoLevel: 41,
 	},
 	finneon: {
 		inherit: true,
@@ -616,6 +653,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Swift Swim", 1: "Sap Sipper", H: "Serene Grace"},
 		weightkg: 82,
 		prevo: "Deerling-Brazdo",
+		evoLevel: 34,
 	},
 	deerling: {
 		inherit: true,
@@ -644,6 +682,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Stench", 1: "Tough Claws", H: "Swift Swim"},
 		weightkg: 25,
 		prevo: "Toazin",
+		evoLevel: 27,
 	},
 	stickler: {
 		num: 1052,
@@ -662,6 +701,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Tinted Lens", 1: "Grassy Cloak", H: "Chlorophyll"},
 		weightkg: 25,
 		prevo: "Stickler",
+		evoLevel: 25,
 	},
 	amoonguss: {
 		inherit: true,
@@ -708,6 +748,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Soul Strider", H: "Quick Feet"},
 		weightkg: 10,
 		prevo: "Basilwisp",
+		evoLevel: 33,
 	},
 	burlimp: {
 		num: 1057,
@@ -726,6 +767,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Pickup", 1: "Pickpocket", H: "Frisk"},
 		weightkg: 25,
 		prevo: "Burlimp",
+		evoLevel: 24,
 		evos: ["Storgre"],
 	},
 	storgre: {
@@ -736,6 +778,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Unburden", 1: "Pickpocket", H: "Frisk"},
 		weightkg: 25,
 		prevo: "Goblysack",
+		evoType: "useItem",
+		evoItem: "Moon Stone",
 	},
 	cucaling: {
 		num: 1060,
@@ -754,6 +798,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Cursed Body", 1: "Unnerve", H: "Magic Guard"},
 		weightkg: 20,
 		prevo: "Cucaling",
+		evoLevel: 25,
 		evos: ["Cucarator"],
 	},
 	cucarator: {
@@ -763,7 +808,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 75, spa: 120, spd: 100, spe: 85},
 		abilities: {0: "Cursed Body", 1: "Unnerve", H: "Magic Guard"},
 		weightkg: 48,
-		prevo: "Cucarator",
+		prevo: "Cucaxa",
+		evoType: "useItem",
+		evoItem: "Dusk Stone",
 	},
 	sacianca: {
 		num: 1063,
@@ -782,6 +829,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Prankster", 1: "Pickpocket", H: "Unburden"},
 		weightkg: 18,
 		prevo: "Sacianca",
+		evoLevel: 25,
 		evos: ["Saciceiro"],
 	},
 	saciceiro: {
@@ -792,6 +840,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Prankster", 1: "Pickpocket", H: "Unburden"},
 		weightkg: 40,
 		prevo: "Saciada",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 	},
 	warruppy: {
 		num: 1066,
@@ -810,6 +860,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Guts", H: "Justified"},
 		weightkg: 25,
 		prevo: "Warruppy",
+		evoLevel: 26,
 	},
 	pleckish: {
 		num: 1068,
@@ -828,6 +879,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Suction Cups", 1: "Swift Swim", H: "Screen Cleaner"},
 		weightkg: 45,
 		prevo: "Pleckish",
+		evoLevel: 28,
 	},
 	insanitary: {
 		num: 1070,
@@ -846,6 +898,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Stench", 1: "Regenerator", H: "Corrosion"},
 		weightkg: 15,
 		prevo: "Insanitary",
+		evoLevel: 27,
 	},
 	irrigator: {
 		num: 1072,
@@ -909,6 +962,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Long Reach", 1: "Static", H: "Galvanize"},
 		weightkg: 60,
 		prevo: "Galliwatt",
+		evoLevel: 24,
 		evos: ["Ampalango"],
 		eggGroups: ["Dragon", "Field"],
 	},
@@ -920,6 +974,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Long Reach", 1: "Static", H: "Galvanize"},
 		weightkg: 300,
 		prevo: "Coirele",
+		evoLevel: 48,
 		eggGroups: ["Dragon", "Field"],
 	},
 	regiterra: {
