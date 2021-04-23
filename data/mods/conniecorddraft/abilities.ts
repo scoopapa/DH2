@@ -355,7 +355,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On entry, summons a room that turns contact moves into 1/4 recoil moves for 5 turns.",
 		pseudoWeather: 'thorngrowth',
 		onStart(source) {
-			this.field.setPseudoWeather('thorngrowth');
+			this.field.addPseudoWeather('thorngrowth');
 		},
 		condition: {
 			duration: 5,
