@@ -8,7 +8,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-start', pokemon, 'typechange', type);
 		},
 		onSourceHit(target, source, move) {
-			if (target.species.id !== 'porygonzmega') return;
+			if (source.species.id !== 'porygonzmega') return;
 			if (move.id === 'conversion' || move.id === 'conversion2') {
 				this.add('-ability', source, 'Conversion-Z');
 				const pokemon = this.dex.getSpecies(source.species);
