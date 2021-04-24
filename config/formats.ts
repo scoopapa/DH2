@@ -1393,6 +1393,22 @@ export const Formats: FormatList = [
 		mod: 'm4asandbox',
 	},
 	{
+		name: "[Gen 8] M4A VGC Sandbox",
+		desc: ["&bullet; Megas for All v7",
+		      ],
+		// now intended as a custom game-esque format with more freedom for testing
+		mod: 'm4asandbox',
+		searchShow: false,
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
+		teambuilderFormat: 'Doubles OU',
+	},
+	{
 		name: "[Gen 8] Mix and M4A",
 		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,
 
