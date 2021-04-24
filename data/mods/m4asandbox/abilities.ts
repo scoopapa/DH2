@@ -2,11 +2,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	conversionz: {
 		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
 		onSwitchIn(pokemon) {
+			if (pokemon.species.id !== 'porygonzmega') return;
 			const type = this.dex.getSpecies(pokemon.species).types[0];
 			if (pokemon.hasType(type) || !pokemon.setType(type)) return;
 			this.add('-start', pokemon, 'typechange', type);
 		},
 		onSourceHit(target, source, move) {
+			if (target.species.id !== 'porygonzmega') return;
 			if (move.id === 'conversion' || move.id === 'conversion2') {
 				this.add('-ability', source, 'Conversion-Z');
 				const pokemon = this.dex.getSpecies(source.species);
