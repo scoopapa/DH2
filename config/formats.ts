@@ -1482,8 +1482,8 @@ export const Formats: FormatList = [
 			
 			//Item Restrictions
 			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones 
-			'Dragalgite', 'Draconite', 
+			//Banned MfA Stones
+			'Dragalgite', 'Dragonitite',
 		],
 		mod: 'm4av6',
 	},
