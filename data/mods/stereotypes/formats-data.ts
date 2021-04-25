@@ -25,7 +25,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 3: Psychic, Dark, Fighting
+	//Slate 3: Dark, Fighting, Psychic
 	harzodia: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -38,4 +38,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	//Slate 4: Flying, Ground, Rock
 };
