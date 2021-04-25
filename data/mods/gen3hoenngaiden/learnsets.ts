@@ -7575,6 +7575,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			withdraw: ["3L1"],
 			yawn: ["3L9"],
 			zapcannon: ["3L1"],
+			slackoff: ["3L1"],
 		},
 	},
 	slowbrogalar: {
@@ -7727,6 +7728,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlpool: ["3M"],
 			yawn: ["3L9"],
 			zapcannon: ["3L1"],
+			slackoff: ["3L1"],
 		},
 	},
 	slowkinggalar: {
@@ -17358,6 +17360,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["3L1"],
 			tailwhip: ["3L1"],
 			toxic: ["3M"],
+			batonpass: ["3L1"],
+			rapidspin: ["3L1"],
 		},
 	},
 	aipom: {
@@ -26919,6 +26923,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			watergun: ["3L1"],
 			waterpulse: ["3T"],
 			whirlpool: ["3M"],
+			hydropump: ["3L1"],
+			agility: ["3L1"],
 		},
 	},
 	baltoy: {
@@ -27268,6 +27274,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3M"],
 			watergun: ["3L1"],
 			waterpulse: ["3T"],
+			raindance: ["3L1"],
+			signalbeam: ["3L1"],
 		},
 	},
 	feebas: {
@@ -27906,6 +27914,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3M"],
 			twister: ["3T"],
 			whirlwind: ["3L21"],
+			dragondance: ["3L1"],
+			outrage: ["3L1"],
+			rockslide: ["3L1"],
+			dragonclaw: ["3L1"],
+			flamethrower: ["3L1"],
+			calmmind: ["3L1"],
 		},
 	},
 	chingling: {

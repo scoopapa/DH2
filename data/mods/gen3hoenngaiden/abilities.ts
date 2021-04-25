@@ -235,4 +235,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 225,
 	},
+	sandveil: {
+		desc: "If Sandstorm is active, this Pokemon's defence is multiplied by 1.1. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's defence is 1.1x; immunity to Sandstorm.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifySpe(def, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.1);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		id: "sandveil",
+		name: "Sand Veil",
+		rating: 3,
+		num: 146,
+	},
 };
