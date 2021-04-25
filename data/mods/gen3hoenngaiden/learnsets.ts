@@ -27914,7 +27914,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3M"],
 			twister: ["3T"],
 			whirlwind: ["3L21"],
-			dragondance: ["3L1"],
 			outrage: ["3L1"],
 			rockslide: ["3L1"],
 			dragonclaw: ["3L1"],
