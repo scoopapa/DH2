@@ -959,7 +959,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 85,
 		name: "Dodrio",
 		types: ["Normal", "Flying"],
-		baseStats: {hp: 60, atk: 110, def: 70, spa: 60, spd: 60, spe: 110},
+		baseStats: {hp: 60, atk: 110, def: 70, spa: 60, spd: 60, spe: 100},
 		abilities: {0: "Run Away", 1: "Early Bird"},
 		heightm: 1.8,
 		weightkg: 85.2,
