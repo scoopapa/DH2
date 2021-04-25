@@ -1459,18 +1459,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by an Empoleon, this item allows it to Mega Evolve in battle.",
 	},
-	porygonitez: {
-		name: "Porygonite-Z",
+	rapidashinite: {
+		name: "Rapidashinite",
 		spritenum: 578,
-		megaStone: "Porygon-Z-Mega",
-		megaEvolves: "Porygon-Z",
-		itemUser: ["Porygon-Z"],
+		megaStone: "Rapidash-Mega",
+		megaEvolves: "Rapidash",
+		itemUser: ["Rapidash"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -5000,
+		num: -1091,
 		gen: 8,
-		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Rapidash, this item allows it to Mega Evolve in battle.",
+	},
+	zebstrikanite: {
+		name: "Zebstrikanite",
+		spritenum: 578,
+		megaStone: "Zebstrika-Mega",
+		megaEvolves: "Zebstrika",
+		itemUser: ["Zebstrika"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1092,
+		gen: 8,
+		desc: "If held by a Zebstrika, this item allows it to Mega Evolve in battle.",
+	},
+	mudsdalite: {
+		name: "Mudsdalite",
+		spritenum: 578,
+		megaStone: "Mudsdale-Mega",
+		megaEvolves: "Mudsdale",
+		itemUser: ["Mudsdale"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1093,
+		gen: 8,
+		desc: "If held by a Mudsdale, this item allows it to Mega Evolve in battle.",
 	},
 };

@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 3: Dark, Fighting, Psychic
-	correept: {
+	harzodia: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -34,7 +34,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	harzodia: {
+	correept: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

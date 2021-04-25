@@ -551,6 +551,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Dragon'] = true;
 			}
 		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, "[from] ability: Doggy's Maw");
+			}
+		},
 	},
 	//slate 5
 	sturdymold: {//this one's gonna be a fucking adventure
@@ -570,8 +582,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return target.hp - 1;
 			}
 		},
-		//I'm gonna figure out how to code this legit at some point, I swear, 
-		//but for now, since we have so few abilities, 
+		//I'm gonna figure out how to code this legit at some point, I swear,
+		//but for now, since we have so few abilities,
 		//I'm just gonna hard-code it into everything.
 	},
 	therapeutic: {
@@ -662,7 +674,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Scrappy');
+				this.add('-immune', target, "[from] ability: Scrappy");
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, "[from] ability: Scrappy");
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, "[from] ability: Scrappy");
 			}
 		},
 		name: "Scrappy",
@@ -757,9 +775,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	leafyarmor: {//unsure
 		name: "Leafy Armor",
-		shortDesc: "If a mental status is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
+		shortDesc: "If a status condition is inflicted on this Pokemon: Cure status, -1 Defense, +2 Speed.",
 		onUpdate(pokemon) {
-			if (pokemon.status) {
+			if (pokemon.status && !pokemon.m.orbItemStatus) {
 				this.add('-activate', pokemon, 'ability: Leafy Armor');
 				pokemon.cureStatus();
 				this.boost({def: -1, spe: 2}, pokemon, pokemon); 
@@ -896,8 +914,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.ignoringItem()) return false;
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
-			this.damage(source.baseMaxhp / 4, source, target);
 			if (item) {
+				this.damage(source.baseMaxhp / 4, source, target);
 				target.addVolatile('fling');
 				if (item.isBerry) {
 					if (this.singleEvent('Eat', item, null, source, null, null)) {
@@ -942,5 +960,189 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	
+	//slate 8
+	fatproof: {
+		name: "Fat Proof",
+		shortdesc: "Ice, Fire attacks against this Pokemon use a halved attack stat; Fire moves 1/2 BP.",
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Proof weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Proof weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+	},
+	leviflame: {
+		name: "Leviflame",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned. Immune to Ground.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+	},
+	prophylaxis: {
+		name: "Prophylaxis",
+		shortDesc: "Restores 1/3 max HP if a foe with a super-effective or OHKO attack switches in.",
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
+						move.ohko
+					) {
+						this.heal(source.baseMaxhp / 3, source);
+						return;
+					}
+				}
+			}
+		},
+	},
+	feelnopain: {
+		name: "Feel No Pain",
+		shortDesc: "Heals 1/8 max HP each turn when poisoned; no HP loss; immune to Poison-type attacks.",
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Feel No Pain');
+				return null;
+			}
+		},
+	},
+	erosion: {
+		name: "Erosion",
+		shortDesc: "Draws Electric moves to itself to raise SpA by 1; Electric immunity; summons Sandstorm on entry.",
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Erosion');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Erosion');
+				}
+				return this.effectData.target;
+			}
+		},
+	},
+	statusabsorbtion: {
+		name: "Status Absorbtion",
+		shortDesc: "This Pokemon is immune to being Poisoned or Burned.",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Status Absorbtion');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox' && status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Status Absorbtion');
+			}
+			return false;
+		},
+	},
+	levitability: {
+		name: "Levitability",
+		shortDesc: "STAB moves are boosted an additional 1.5x; immune to Ground.",
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+	},
+	//Implement immunity for Intimidate clones: 
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Oblivious');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			} else if (effect.id === 'debilitate') {
+				delete boost.spa; 
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			} else if (effect.id === 'sinkorswim') {
+				delete boost.spe; 
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && ['intimidate', 'debilitate', 'sinkorswim'].includes(effect.id)) {
+				this.boost({spe: 1});
+			}
+		},
+	},
 };

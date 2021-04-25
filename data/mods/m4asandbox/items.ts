@@ -71,19 +71,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "BlueRay's stone for the submission sandbox.",
 	},
 */
-	nerfedtoxtricitite: {
-		name: "Nerfed Toxtricitite",
+	porygonitez: {
+		name: "Porygonite-Z",
 		spritenum: 578,
-		megaStone: "Toxtricity-Mega-Nerfed",
-		megaEvolves: "Toxtricity",
-		itemUser: ["Toxtricity"],
+		megaStone: "Porygon-Z-Mega",
+		megaEvolves: "Porygon-Z",
+		itemUser: ["Porygon-Z"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: -5000,
 		gen: 8,
-		desc: "A stone to test the nerfed Acid Rock.",
+		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
 	},
 /*
 	inkbug: {

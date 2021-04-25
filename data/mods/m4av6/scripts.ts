@@ -82,16 +82,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("falinks", ["aurasphere", "flameburst", "flashcannon", "kingsshield", "thunder"]);
 		newMoves("floatzel", ["coaching", "flipturn"]);
 		newMoves("simisear", ["calmmind", "dazzlinggleam", "drainingkiss", "mysticalfire", "playrough", "slackoff"]);
-		newMoves("krookodile", ["partingshot", "topsyturvy"]);
+		newMoves("krookodile", ["memento", "topsyturvy"]);
 		newMoves("torterra", ["bodypress", "gravapple", "meteorbeam"]);
 		newMoves("empoleon", ["flipturn", "haze", "originpulse", "roost"]);
-		newMoves("porygonz", ["revelationdance", "partingshot"]);
-		for (const id in this.dataCache.Pokedex) {
-			if (!this.dataCache.Learnsets[id]?.learnset) continue;
-			this.modData('Learnsets', id).learnset.partingshot = ['8L1'];
-			delete this.modData('Learnsets', id).learnset.closecombat;
-			delete this.modData('Learnsets', id).learnset.dualwingbeat;
-		}
+		newMoves("rapidash", ["airslash", "uturn"]);
+		newMoves("zebstrika", ["assurance", "jawlock", "snarl", "suckerpunch", "taunt"]);
+		newMoves("mudsdale", ["bulkup", "painsplit", "wideguard"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -151,6 +147,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "Dugtrionite" && pokemon.baseSpecies.name === "Dugtrio-Alola") {
+			return null;
+		}
+		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
 			return null;
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {

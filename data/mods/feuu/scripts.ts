@@ -106,11 +106,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	pokemon: {
-		//Included for Magnetic Waves:
+		//Included for abilities that make the user non-grounded:
 		//Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
 		//So we manually add a check for Magnetic Waves here as well,
 		//Including a diffrent activation message 
 		//so that the game doesn't report it as having Levitate when it procs.
+		//AFFECTED ABILITIES: Magnetic Waves, Leviflame, Levitability
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
@@ -127,6 +128,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (message) {
 						if (this.hasAbility('magneticwaves')) {
 							this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
+						} else if (this.hasAbility('leviflame')) {
+							this.battle.add('-immune', this, '[from] ability: Leviflame');
+						} else if (this.hasAbility('levitability')) {
+							this.battle.add('-immune', this, '[from] ability: Levitability');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -153,7 +158,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if ((this.hasAbility('levitate') || this.hasAbility('magneticwaves'))&& !this.battle.suppressingAttackEvents()) return null;
+			if (
+				(this.hasAbility('levitate') ||
+				this.hasAbility('magneticwaves') ||
+				this.hasAbility('leviflame') ||
+				this.hasAbility('levitability')) &&
+				!this.battle.suppressingAttackEvents()
+			) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
@@ -264,6 +275,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
+		},
+		
+		cureStatus(silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			delete this.m.orbItemStatus;
+			return true;
 		},
 	
 }; 

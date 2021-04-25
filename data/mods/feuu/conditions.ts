@@ -6,6 +6,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.id === 'flameorb') {
 				this.add('-status', target, 'brn', '[from] item: Flame Orb');
+				target.m.orbItemStatus = true;
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'brn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -106,6 +107,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			this.effectData.stage = 0;
 			if (sourceEffect && sourceEffect.id === 'toxicorb') {
 				this.add('-status', target, 'tox', '[from] item: Toxic Orb');
+				target.m.orbItemStatus = true;
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'tox', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {

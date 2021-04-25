@@ -2802,6 +2802,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cinderace: {
       inherit: true,
+		types: ["Fire", "Fighting"],
       abilities: {0: "Blaze", H: "Sole Caliber"},
 	},
 	raichualola: {

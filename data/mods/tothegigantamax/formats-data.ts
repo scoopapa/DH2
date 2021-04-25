@@ -219,4 +219,46 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
+	sableyegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	lurantisgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	drampagmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	turtonatorgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+/*
+	gourgeistgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistsmallgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistlargegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+	gourgeistsupergmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+		doublesTier: "(DUber)",
+	},
+*/
 };

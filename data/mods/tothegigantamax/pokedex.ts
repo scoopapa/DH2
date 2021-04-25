@@ -383,7 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		changesFrom: "Scizor",
 	},
- /*
+ 
 	sableye: {
 		inherit: true,
 		canGigantamax: "G-Max Meddling",
@@ -402,7 +402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Sableye",
 	},
- 
+ /*
 	poliwrath: {
 		inherit: true,
 		canGigantamax: "G-Max Belly Swirl",
@@ -440,12 +440,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		changesFrom: "Talonflame",
 	},
- 
+ */
 	lurantis: {
 		inherit: true,
 		canGigantamax: "G-Max Petal Shake",
 	},
-	luranitsgmax: {
+	lurantisgmax: {
 		num: 754,
 		name: "Lurantis-Gmax",
 		baseSpecies: "Lurantis",
@@ -459,7 +459,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Grass"],
 		changesFrom: "Lurantis",
 	},
- 
+ /*
 	porygonz: {
 		inherit: true,
 		canGigantamax: "G-Max Conversion Seizure",
@@ -1069,7 +1069,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Chandelure",
 	},
-	/*
+/*	
 	weavile: {
 		inherit: true,
 		canGigantamax: "G-Max Robbery",
@@ -1545,5 +1545,157 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		changesFrom: "Cryogonal",
 	},
-*/
+	
+	gourgeist: {
+		inherit: true,
+		canGigantamax: "G-Max Jack-O-Bomb",
+	},
+	gourgeistgmax: {
+		num: 711,
+		name: "Gourgeist-Gmax",
+		baseSpecies: "Gourgeist",
+		forme: "Gmax",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 65, atk: 90, def: 122, spa: 58, spd: 75, spe: 84},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Insomnia"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Amorphous"],
+		changesFrom: "Gourgeist",
+	},
+	
+	gourgeistsmall: {
+		inherit: true,
+		canGigantamax: "G-Max Jack-O-Bomb",
+	},
+	gourgeistsmallgmax: {
+		num: 711,
+		name: "Gourgeist-Small-Gmax",
+		baseSpecies: "Gourgeist-Small",
+		forme: "Small-Gmax",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 55, atk: 85, def: 122, spa: 58, spd: 75, spe: 99},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Insomnia"},
+		heightm: 15,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Amorphous"],
+		changesFrom: "Gourgeist-Small",
+	},
+
+	gourgeistlarge: {
+		inherit: true,
+		canGigantamax: "G-Max Jack-O-Bomb",
+	},
+	gourgeistlargegmax: {
+		num: 711,
+		name: "Gourgeist-Large-Gmax",
+		baseSpecies: "Gourgeist-Large",
+		forme: "Large-Gmax",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 75, atk: 95, def: 122, spa: 58, spd: 75, spe: 69},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Insomnia"},
+		heightm: 25,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Amorphous"],
+		changesFrom: "Gourgeist-Large",
+	},
+	
+	gourgeistsuper: {
+		inherit: true,
+		canGigantamax: "G-Max Jack-O-Bomb",
+	},
+	gourgeistsupergmax: {
+		num: 711,
+		name: "Gourgeist-Super-Gmax",
+		baseSpecies: "Gourgeist-Super",
+		forme: "Super-Gmax",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 75, atk: 95, def: 122, spa: 58, spd: 75, spe: 69},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Insomnia"},
+		heightm: 25,
+		weightkg: 0,
+		color: "Brown",
+		eggGroups: ["Amorphous"],
+		changesFrom: "Gourgeist-Super",
+	},
+
+	flareon: {
+		inherit: true,
+		canGigantamax: "G-Max Evo-Flare",
+	},
+	flareongmax: {
+		num: 136,
+		name: "Flareon-Gmax",
+		baseSpecies: "Flareon",
+		forme: "Gmax",
+		types: ["Fire"],
+		baseStats: {hp: 65, atk: 130, def: 60, spa: 95, spd: 110, spe: 65},
+		abilities: {0: "Flash Fire", H: "Guts"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Red",
+		eggGroups: ["Field"],
+		changesFrom: "Flareon",
+	},
+/*
+	wigglytuff: {
+		inherit: true,
+		canGigantamax: "G-Max Power Hug",
+	},
+	wigglytuffgmax: {
+		num: 40,
+		name: "Wigglytuff-Gmax",
+		baseSpecies: "Wigglytuff",
+		forme: "Gmax",
+		types: ["Normal", "Fairy"],
+		baseStats: {hp: 140, atk: 70, def: 45, spa: 85, spd: 50, spe: 45},
+		abilities: {0: "Cute Charm", 1: "Competitive", H: "Frisk"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Pink",
+		eggGroups: ["Fairy"],
+		changesFrom: "Wigglytuff",
+	},
+*/	
+	drampa: {
+		inherit: true,
+		canGigantamax: "G-Max War Story",
+	},
+	drampagmax: {
+		num: 780,
+		name: "Drampa-Gmax",
+		baseSpecies: "Drampa",
+		forme: "Gmax",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 78, atk: 60, def: 85, spa: 135, spd: 91, spe: 36},
+		abilities: {0: "Berserk", 1: "Sap Sipper", H: "Cloud Nine"},
+		heightm: 20,
+		weightkg: 0,
+		color: "White",
+		eggGroups: ["Monster", "Dragon"],
+		changesFrom: "Drampa",
+	},
+	
+	turtonator: {
+		inherit: true,
+		canGigantamax: "G-Max Minefield",
+	},
+	turtonatorgmax: {
+		num: 776,
+		name: "Turtonator-Gmax",
+		baseSpecies: "Turtonator",
+		forme: "Gmax",
+		types: ["Fire", "Dragon"],
+		baseStats: {hp: 78, atk: 60, def: 85, spa: 135, spd: 91, spe: 36},
+		abilities: {0: "Shell Armor"},
+		heightm: 20,
+		weightkg: 0,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+		changesFrom: "Turtonator",
+	},
+
 };

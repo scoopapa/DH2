@@ -1,24 +1,24 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"forecast": {
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
+		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm",
 		shortDesc: "If this Pokémon is holding a Weather Rock, its secondary typing becomes Water/Fire/Rock/Ice/Flying/Ghost (depending on the rock) and summon the corresponding weather upon entering the field. Under Strong Winds, this mon gains the added Flying type.",
 		onStart(pokemon) {
-			if (pokemon.item === 'firememory') {
+			if (pokemon.item === 'forecastofsun') {
 				pokemon.addType('Fire');
 				this.field.setWeather('sunnyday');
-			} else if (pokemon.item === 'watermemory') {
+			} else if (pokemon.item === 'forecastofrain') {
 				pokemon.addType('Water');
 				this.field.setWeather('raindance');
-			} else if (pokemon.item === 'rockmemory') {
+			} else if (pokemon.item === 'forecastofsand') {
 				pokemon.addType('Rock');
 				this.field.setWeather('sandstorm');
-			} else if (pokemon.item === 'icememory') {
+			} else if (pokemon.item === 'forecastofhail') {
 				pokemon.addType('Ice');
 				this.field.setWeather('hail');
-			} else if (pokemon.item === 'ghostmemory') {
+			} else if (pokemon.item === 'forecastofshadows') {
 				pokemon.addType('Ghost');
 				this.field.setWeather('shadowsky');
-			} else if (pokemon.item === 'flyingmemory') {
+			} else if (pokemon.item === 'forecastofwind') {
 				pokemon.addType('Flying');
 				this.field.setWeather('aircurrent');
 			} else if (this.field.isWeather('deltastream')) {
@@ -221,7 +221,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Dimension Warp",
 	},
 	housekeeping: {
-		shortDesc: "Removes hazards upon switch-in.",
+		shortDesc: "Removes hazards & rooms upon switch-in.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
 			this.field.removePseudoWeather('trickroom');
