@@ -4293,6 +4293,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			naturalgift: ["8L1"],
 			return: ["8L1"],
 			frustration: ["8L1"],
+			facade: ["8L1"],
 		},
 	},
 	mastaunch: {
@@ -4324,6 +4325,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			return: ["8L1"],
 			frustration: ["8L1"],
+			facade: ["8L1"],
 		},
 	},
 	pleckish: {
@@ -4482,6 +4484,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			naturalgift: ["8L1"],
 			return: ["8L1"],
 			frustration: ["8L1"],
+			facade: ["8L1"],
 		},
 	},
 	katrashtrofy: {
@@ -4515,6 +4518,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			return: ["8L1"],
 			frustration: ["8L1"],
+			facade: ["8L1"],
 		},
 	},
 	irrigator: {
@@ -4532,7 +4536,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			crunch: ["8L1"],
 			headsmash: ["8L1"],
 			inferno: ["8L1"],
-			gigadrain: ["8L1"],
+			gigaimpact: ["8L1"],
 			lashout: ["8L1"],
 			amnesia: ["8L1"],
 			thrash: ["8L1"],
