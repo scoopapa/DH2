@@ -2261,7 +2261,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Girafarig",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 80, atk: 90, def: 80, spa: 90, spd: 80, spe: 90},
-		abilities: {0: "Inner Focus", 1: "Early Bird"},
+		abilities: {0: "Inner Focus", 1: "Synchronize"},
 		heightm: 1.5,
 		weightkg: 41.5,
 	},
