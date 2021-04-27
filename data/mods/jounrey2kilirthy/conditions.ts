@@ -662,7 +662,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	fog: {
-		name: 'Fog'
+		name: 'Fog',
 		effectType: 'Weather',
 		duration: 5,
 		num: 0,
