@@ -4337,12 +4337,39 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 161,
 	},
+	onlympticachievement: {
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({atk: 2});
+			}
+		},
+		name: "Olymptic Achievement",
+		rating: 2,
+		num: 268,
+	},
 	fogalert: {
 		onStart(source) {
 			this.field.setWeather('fog');
 		},
 		name: "Fog Alert",
 		rating: 4,
-		num: 268,
+		num: 269,
+	},
+	foggyrush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('fog')) {
+				return this.chainModify(2);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'fog') return false;
+		},
+		name: "Foggy Rush",
+		rating: 3,
+		num: 270,
 	},
 };

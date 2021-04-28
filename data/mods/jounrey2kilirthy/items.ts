@@ -7133,4 +7133,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 807,
 		gen: 8,
 	},
+	toxicrock: {
+		name: "Toxic Rock",
+		spritenum: 88,
+		fling: {
+			basePower: 60,
+		},
+		num: 808,
+		gen: 8,
+	},
 };
