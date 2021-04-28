@@ -57,17 +57,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 205.0,
 	},
 	//Slate 3: Psychic, Dark, Fighting
-	harzodia: {
-		num: 7,
-		name: "Harzodia",
-		types: ["Psychic"],
-		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
-		abilities: {0: "Magician", 1: "Victory Star", H: "Telepathy"},
-		heightm: 1.1,
-		weightkg: 26.1,
-	},
 	correept: {
-		num: 8,
+		num: 7,
 		name: "Correept",
 		types: ["Dark"],
 		baseStats: {hp: 74, atk: 93, def: 129, spa: 75, spd: 107, spe: 32},
@@ -75,7 +66,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 74.5,
 	},
 	dojodo: {
-		num: 9,
+		num: 8,
 		name: "Dojodo",
 		types: ["Fighting"],
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 60, spd: 100, spe: 80},
@@ -83,4 +74,40 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.3,
 		weightkg: 34.8,
 	},
+	harzodia: {
+		num: 9,
+		name: "Harzodia",
+		types: ["Psychic"],
+		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
+		abilities: {0: "Magician", 1: "Victory Star", H: "Telepathy"},
+		heightm: 1.1,
+		weightkg: 26.1,
+	},
+	//Slate 4: Flying, Ground, Rock
+	nimbustorm: {
+		num: 10,
+		name: "Nimbustorm",
+		types: ["Flying"],
+		baseStats: {hp: 170, atk: 40, def: 65, spa: 100, spd: 45, spe: 85},
+		abilities: {0: "Magic Guard", H: "Drizzle"},
+		weightkg: 326,
+	},
+	burrodger: {
+		num: 11,
+		name: "Burrodger",
+		types: ["Ground"],
+		baseStats: {hp: 60, atk: 90, def: 145, spa: 60, spd: 120, spe: 55},
+		abilities: {0: "Immunity", 1: "Sand Veil", H: "Sand Force"},
+		weightkg: 32.4,
+	},
+	wesgranit: {
+		num: 12,
+		name: "Wesgranit",
+		types: ["Rock"],
+		baseStats: {hp: 70, atk: 130, def: 85, spa: 75, spd: 60, spe: 110},
+		abilities: {0: "Victory Star", H: "Levitate"},
+		heightm: 1.6,
+		weightkg: 160,
+	},
+	//Slate 5: Electric, Ghost, Ice
 };
