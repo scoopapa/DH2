@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 3: Dark, Fighting, Psychic
-	harzodia: {
+	correept: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -34,9 +34,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	correept: {
+	harzodia: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	//Slate 4: Flying, Ground, Rock
+	nimbustorm: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	burrodger: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+		wesgranit: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 5: Electric, Ghost, Ice
 };
