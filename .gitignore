@@ -1,2 +1,8 @@
 /config/chatrooms.json
-
+.config-dist
+.data-dist
+.git
+.github
+.lib-dist
+.server-dist
+.sim-dist
