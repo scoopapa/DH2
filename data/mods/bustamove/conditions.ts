@@ -4,7 +4,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onHit(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'jawlock', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			else {
+			else if {
 				this.add('-status', target, 'jawlock');
 			}
 			}
