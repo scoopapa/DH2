@@ -136,7 +136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onBasePower(source) {
 			const sideConditions = ['stealthrock'];
 			for (const condition of sideConditions) {
-				if(source.side.sideConditions === 'stealthrock') {
+				if(source.sideConditions === 'stealthrock') {
 					return this.chainModify(1.5);
 				}
 			}
