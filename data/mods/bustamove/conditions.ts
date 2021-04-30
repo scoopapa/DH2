@@ -6,13 +6,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'jawlock');
 			}
 		},
-		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
 		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
+		onEnd(target) {
+			if (pokemon.newlySwitched) {
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
+			}
 		},
 	},
 };
