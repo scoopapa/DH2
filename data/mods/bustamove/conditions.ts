@@ -3,10 +3,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'jawlock',
 		onHit(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'jawlock', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			else if {
 				this.add('-status', target, 'jawlock');
-			}
 			}
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
