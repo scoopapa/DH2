@@ -143,8 +143,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		basePowerCallbackPriority: 10,
 		basePowerCallback(pokemon, target, move) {
-			if (sideConditions === 'stealthrock') {
+			if (this.sideConditions === 'stealthrock') {
 				this.debug('Stealth Rock Boost');
 				return move.basePower * 1.5;
 			}
