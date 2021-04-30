@@ -66,8 +66,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
 		},
 		condition: {
 			duration: 2,
@@ -109,7 +107,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	/*jawlock: {
+	jawlock: {
 		num: 746,
 		accuracy: 100,
 		basePower: 80,
@@ -118,15 +116,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		onHit(target, source, move) {
-			source.addVolatile('trapped', target, move, 'trapper');
-			target.addVolatile('trapped', source, move, 'trapper');
+		onResidual(pokemon) {
+			this.damage(target.baseMaxhp / 8);
 		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",
 	},
-	rocksmash: {
+	/*rocksmash: {
 		num: 249,
 		accuracy: 100,
 		basePower: 70,
