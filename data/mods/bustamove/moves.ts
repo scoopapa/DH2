@@ -56,7 +56,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Dive",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
+		selfSwitch: 'copyvolatile';
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -64,10 +65,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				selfSwitch: 'copyvolatile';
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
@@ -127,7 +124,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Rock",
 	},
 	rocksmash: {
 		num: 249,
