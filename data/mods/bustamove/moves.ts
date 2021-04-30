@@ -148,6 +148,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rock Smash', '[of] ' + pokemon);
 				}
 			}
+		},
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
