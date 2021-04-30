@@ -12,7 +12,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd(target) {
 			if (pokemon.newlySwitched) {
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
+				delete pokemon.volatiles['jawlock'];
 			}
 		},
 	},
