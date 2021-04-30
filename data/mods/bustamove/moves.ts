@@ -118,18 +118,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onHit(target) {
-				const source = this.effectData.source;
-					if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
-					delete pokemon.volatiles['partiallytrapped'];
-					this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
-					this.damage(source.target.baseMaxhp / 8);
-					return;
-				}
-			}
-		},
+		volatileStatus: 'jawlock',
+		secondary: null,
 		target: "normal",
 		type: "Rock",
 	},
@@ -143,12 +133,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		basePowerCallbackPriority: 10,
-		basePowerCallback(pokemon, target, move) {
-			if (this.sideConditions = ['stealthrock']) {
-				return move.basePower * 1.5;
+		onBeforeHit(target, pokemon) {
+			basePowerCallback(pokemon, target, move) {
+				if (this.sideConditions = ['stealthrock']) {
+					return move.basePower * 1.5;
+				}
+				return move.basePower;
 			}
-			return move.basePower;
 		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
