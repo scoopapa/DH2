@@ -48,6 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
+	//not finished
 	dive: {
 		num: 291,
 		accuracy: 100,
@@ -107,6 +108,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
+	//not finished
 	jawlock: {
 		num: 746,
 		accuracy: 100,
@@ -131,6 +133,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	//not finished
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
