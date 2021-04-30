@@ -116,17 +116,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		onResidualOrder: 11,
-		onResidual(pokemon) {
-			const source = this.effectData.source;
-			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+		secondary: {
+			chance: 100,
+			onResidual(pokemon) {
+				const source = this.effectData.source;
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 				delete pokemon.volatiles['partiallytrapped'];
 				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
+				}
+				this.damage(source.baseMaxhp / 8, source, target);
 			}
-			this.damage(source.baseMaxhp / 8, source, target);
 		},
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 	},
@@ -140,8 +141,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
-			if (!this.sideConditions('stealthrock')) {
-				this.debug('hazard removal');
+			if (sideConditions === 'stealthrock') {
 				move.basePower *= 1.5;
 			}
 		},
