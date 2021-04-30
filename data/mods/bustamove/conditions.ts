@@ -15,4 +15,5 @@ export const Conditions: {[k: string]: ConditionData} = {
 	onEnd(pokemon) {
 		this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 	},
+	},
 };
