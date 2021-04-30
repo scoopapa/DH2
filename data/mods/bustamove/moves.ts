@@ -144,7 +144,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
-			if (sideConditions === 'stealthrock') {
+			if (this.sideConditions === 'stealthrock') {
 				move.basePower *= 1.5;
 			}
 		},
@@ -156,6 +156,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
+		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
