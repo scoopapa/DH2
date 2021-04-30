@@ -134,12 +134,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBeforeHit(target, pokemon) {
-			basePowerCallback(pokemon, target, move) {
-				if (this.sideConditions = ['stealthrock']) {
-					return move.basePower * 1.5;
-				}
-				return move.basePower;
+			if (this.sideConditions = ['stealthrock']) {
+				return move.basePower * 1.5;
 			}
+			return move.basePower;
 		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
