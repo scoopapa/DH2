@@ -11,5 +11,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
 		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
+		},
 	},
 };
