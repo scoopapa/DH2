@@ -1,19 +1,17 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	jawlock: {
 		name: 'jawlock',
-		onResidual(pokemon) {
-			const source = this.effectData.source;
-			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
-		if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
-			delete pokemon.volatiles['jawlock'];
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]', '[silent]');
-			return;
-		}
-		this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
+		onHit(target, source, sourceEffect) {
+			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'jawlock', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'jawlock');
+			}
 		},
-	onEnd(pokemon) {
-		this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
-	},
+		// Damage reduction is handled directly in the sim/battle.js damage function
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+		},
 	},
 };
