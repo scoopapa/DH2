@@ -134,10 +134,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(source) {
-			if(source.side.sideConditions === 'stealthrock') {
-                return this.chainModify(1.5);
-            }
-        },
+			const sideConditions = ['stealthrock'];
+			for (const condition of sideConditions) {
+				if(source.side.sideConditions === 'stealthrock') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
 			for (const condition of sideConditions) {
