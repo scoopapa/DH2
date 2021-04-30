@@ -48,7 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
-	dive: {
+	/*dive: {
 		num: 291,
 		accuracy: 100,
 		basePower: 80,
@@ -93,7 +93,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},
+	},*/
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -114,7 +114,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	jawlock: {
+	/*jawlock: {
 		num: 746,
 		accuracy: 100,
 		basePower: 80,
@@ -130,7 +130,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-	},
+	},*/
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
@@ -141,8 +141,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onAfterHit(target, pokemon) {
-			const sideConditions = ['stealthrock'];
+			if sideConditions = ['stealthrock']; {
 			return move.basePower * 1.5;
+			}
+			const sideConditions = ['stealthrock'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rock Smash', '[of] ' + pokemon);
