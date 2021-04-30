@@ -118,7 +118,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
-			onResidual(pokemon) {
+			onHit(target) {
 				const source = this.effectData.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 				delete pokemon.volatiles['partiallytrapped'];
