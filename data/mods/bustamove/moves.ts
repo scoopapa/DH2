@@ -67,11 +67,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
+				selfSwitch: 'copyvolatile';
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
-			selfSwitch: 'copyvolatile';
 		},
 		condition: {
 			duration: 2,
@@ -104,10 +103,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onHit(target) {
-			for (const pokemon of source.side.foe.active) {
-			pokemon.addVolatile('torment');
-			}
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('torment');
+			},
 		},
 		target: "normal",
 		type: "Psychic",
@@ -128,7 +128,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-	},*/
+	},
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
@@ -155,7 +155,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-	},
+	},*/
 	strength: {
 		num: 70,
 		accuracy: 100,
