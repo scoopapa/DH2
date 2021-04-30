@@ -179,4 +179,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	winterloper: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	agapest: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	volvolpa: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

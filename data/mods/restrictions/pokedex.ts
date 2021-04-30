@@ -374,4 +374,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sturdy", 1: "Pickpocket", H: "Flare Boost"},
 		weightkg: 18.5,
 	},
+	winterloper: {
+		num: 1046,
+		name: "Winterloper",
+		types: ["Ice", "Poison"],
+		baseStats: {hp: 59, atk: 76, def: 59, spa: 127, spd: 127, spe: 76},
+		abilities: {0: "Levitate"},
+		weightkg: 8,
+	},
+	agapest: {
+		num: 1047,
+		name: "Agapest",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 70, atk: 70, def: 70, spa: 111, spd: 90, spe: 123},
+		abilities: {0: "Swarm", 1: "Technician", H: "Light Metal"},
+		weightkg: 8,
+	},
+	volvolpa: {
+		num: 1048,
+		name: "Volvolpa",
+		types: ["Ice", "Electric"],
+		baseStats: {hp: 76, atk: 97, def: 64, spa: 70, spd: 102, spe: 121},
+		abilities: {0: "Strong Jaw", 1: "Slush Rush", H: "Infiltrator"},
+		weightkg: 24,
+	},
 };
