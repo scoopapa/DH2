@@ -145,8 +145,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
 			if (this.sideConditions === 'stealthrock') {
+				this.debug('Stealth Rock Boost');
 				return move.basePower * 1.5;
 			}
+			this.debug('No Stealth Rock');
+			return move.basePower;
 		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
