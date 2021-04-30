@@ -48,10 +48,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
-	/*dive: {
+	dive: {
 		num: 291,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
 		name: "Dive",
 		pp: 10,
@@ -71,6 +71,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
+			selfSwitch: 'copyvolatile';
 		},
 		condition: {
 			duration: 2,
@@ -93,7 +94,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},*/
+	},
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -103,13 +104,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		secondary: {
-			chance: 100,
-			onHit(target) {
-				for (const pokemon of source.side.foe.active) {
-				pokemon.addVolatile('torment');
-				}
-			},
+		onHit(target) {
+			for (const pokemon of source.side.foe.active) {
+			pokemon.addVolatile('torment');
+			}
 		},
 		target: "normal",
 		type: "Psychic",
