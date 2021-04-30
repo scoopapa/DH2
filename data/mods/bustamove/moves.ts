@@ -53,10 +53,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
+		selfSwitch: 'copyvolatile',
 		name: "Dive",
 		pp: 10,
 		priority: 0,
-		selfSwitch: 'copyvolatile';
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
