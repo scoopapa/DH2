@@ -134,7 +134,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(attacker) {
-			if (this.side.sideConditions['stealthrock']) {
+			if (attacker.side.sideConditions['stealthrock']) {
                 return this.chainModify(1.5);
             }
         },
