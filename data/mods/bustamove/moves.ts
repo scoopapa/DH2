@@ -125,7 +125,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 				}
-				this.damage(source.baseMaxhp / 8, source, target);
+				this.damage(source.target.baseMaxhp / 8);
 			}
 		},
 		target: "normal",
