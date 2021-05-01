@@ -124,7 +124,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	//on pause
-	/*rocksmash: {
+	rocksmash: {
 		num: 249,
 		accuracy: 100,
 		basePower: 70,
@@ -133,11 +133,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		basePowerCallback(pokemon, move) { 
-		if (pokemon.side.sideConditions[‘stealthrock’]) {
-			return move.basePower * 1.5;
+		onBasePower(power, user) {
+		if (user.side.removeSideCondition('stealthrock')) {
+			this.add('-sideend', user.side, "Stealth Rock", '[from] move: Rapid Spin', '[of] ' + user);
+			return power * 1.5;
 			}
-			return move.basePower;
 		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
@@ -151,7 +151,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-	},*/
+	},
 	strength: {
 		num: 70,
 		accuracy: 100,
