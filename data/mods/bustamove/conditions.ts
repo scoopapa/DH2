@@ -1,8 +1,8 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	jawlock: {
 		name: 'jawlock',
-		onStart(pokemon, source) {
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+		onStart(target) {
+			this.add('-activate', target, 'jawlock');
 		},
 		onHit(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -14,8 +14,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const source = this.effectData.source;
 			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
-				delete pokemon.volatiles['partiallytrapped'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+				delete pokemon.volatiles['jawlock'];
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]', '[silent]');
 				return;
 			}
 			this.damage(pokemon.baseMaxhp / 8);
