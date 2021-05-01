@@ -55,26 +55,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Dive",
-		selfSwitch: 'copyvolatile',
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
-		afterSwitch(attacker) {
-			onTryMove(attacker, defender, move) {
-				if (attacker.removeVolatile(move.id)) {
-					return;
-				}
-				if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
-					const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-					attacker.formeChange(forme, move);
-				}
-				this.add('-prepare', attacker, move.name);
-				if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-					return;
-				}
-				attacker.addVolatile('twoturnmove', defender);
-				return null;
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
 			}
+			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				attacker.formeChange(forme, move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender && self.switch('copyvolatile'));
+			return null;
 		},
 		condition: {
 			duration: 2,
