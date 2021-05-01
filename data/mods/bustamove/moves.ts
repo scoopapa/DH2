@@ -71,7 +71,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
-			attacker.selfSwitch('copyvolatile');
+			attacker.switch('copyvolatile');
 			return null;
 		},
 		condition: {
