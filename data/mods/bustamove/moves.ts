@@ -84,8 +84,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				attacker.addVolatile('twoturnmove', defender);
 				return null;
-			}
-		},
+			},
 		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
