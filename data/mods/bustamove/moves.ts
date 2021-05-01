@@ -137,6 +137,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.side.sideConditions[‘stealthrock’]) {
 			return move.basePower * 2;
 			}
+			return move.basePower;
 		},
 		onAfterHit(target, pokemon) {
 			const sideConditions = ['stealthrock'];
@@ -144,8 +145,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rock Smash', '[of] ' + pokemon);
 				}
-			return move.basePower;
-			
 			}
 		},
 		secondary: null,
