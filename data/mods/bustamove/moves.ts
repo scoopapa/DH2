@@ -52,13 +52,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 	dive: {
 		num: 291,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Physical",
-		selfSwitch: 'copyvolatile',
 		name: "Dive",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -67,6 +66,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move && force.selfSwitch: 'copyvolatile')) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 		condition: {
 			duration: 2,
@@ -108,7 +113,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	//not finished
 	jawlock: {
 		num: 746,
 		accuracy: 100,
@@ -123,7 +127,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	//on pause
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
