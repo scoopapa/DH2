@@ -67,10 +67,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				attacker.formeChange(forme, move);
 			}
 			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move && force.selfSwitch: 'copyvolatile')) {
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
+			force.selfSwitch: 'copyvolatile';
 			return null;
 		},
 		condition: {
