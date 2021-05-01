@@ -71,7 +71,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker);
-			return null;
 			onTryMove(replacement, defender, move) {
 				if (attacker.removeVolatile(move.id)) {
 					return;
