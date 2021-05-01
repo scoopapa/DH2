@@ -72,6 +72,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker);
 			return null;
+			onTryMove(replacement, defender, move) {
+				if (attacker.removeVolatile(move.id)) {
+					return;
+				}
+				if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
+					const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+					attacker.formeChange(forme, move);
+				}
+				this.add('-prepare', attacker, move.name);
+				if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+					return;
+				}
+				attacker.addVolatile('twoturnmove', defender);
+				return null;
+			}
 		},
 		condition: {
 			duration: 2,
