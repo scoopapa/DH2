@@ -70,8 +70,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
-			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker);
-				if (attacker.removeVolatile(move.id)) {
+			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker) {
+				afterSwitchIn(pokemon) {
+				if (replacement.removeVolatile(move.id)) {
 					return;
 				}
 				if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
@@ -84,7 +85,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				attacker.addVolatile('twoturnmove', defender);
 				return null;
-			},
+				}
+			}
+		},
 		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
