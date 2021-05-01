@@ -70,7 +70,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
-			attacker.addVolatile('twoturnmove', defender && self.switch('copyvolatile'));
+			attacker.addVolatile('twoturnmove', defender && attacker.switch('copyvolatile'));
 			return null;
 		},
 		condition: {
