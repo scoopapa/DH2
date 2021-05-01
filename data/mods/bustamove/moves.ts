@@ -56,11 +56,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Dive",
 		pp: 10,
-		selfSwitch: 'copyvolatile',
+		selfSwitch: true,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
-		onSwitchInPriority: -1,
-		onSwitchIn(pokemon) {
+		onTryHitPriority: -1,
+		onTryHit(pokemon) {
 			if(pokemon.newlySwitched) pokemon.addVolatile('dive');
 		},
 		secondary: null,
