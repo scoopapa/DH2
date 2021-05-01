@@ -123,8 +123,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	//not finished
-	rocksmash: {
+	//on pause
+	/*rocksmash: {
 		num: 249,
 		accuracy: 100,
 		basePower: 70,
@@ -151,7 +151,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-	},
+	},*/
 	strength: {
 		num: 70,
 		accuracy: 100,
