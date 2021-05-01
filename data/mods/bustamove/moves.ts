@@ -66,8 +66,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
-			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker);
+			attacker.addVolatile('twoturnmove', defender && 'copyvolatile', attacker); {
 			return null;
+			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
