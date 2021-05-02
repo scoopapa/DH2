@@ -1370,6 +1370,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onAnyModifyBoost(boosts, pokemon) {
+			boosts['atk'] = 0;
+			boosts['def'] = 0;
+			boosts['spa'] = 0;
+			boosts['spd'] = 0;
+			boosts['spe'] = 0;
+			boosts['evasion'] = 0;
+			boosts['accuracy'] = 0;
+		},
 		name: "Lemegeton",
 		shortDesc: "While this Pokemon is active, Abilities and stat boosts have no effect.",
 	},
