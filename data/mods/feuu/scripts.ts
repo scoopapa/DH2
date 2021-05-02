@@ -102,6 +102,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Silvino-Water-Mega";
 		}
 		
+		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
+			return "Absable-Mega-Y"; 
+		}
+		
 		return item.megaStone;
 	},
 	

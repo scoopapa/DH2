@@ -61,7 +61,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Groudon", "Grousle"],
 		num: 534,
-		gen: 6,
 	},
 	pidgeotite: {
 		name: "Pidgeotite",
@@ -88,5 +87,57 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 669,
 		desc: "If held by a Pincurchitar, this item allows it to Mega Evolve in battle.",
+	},
+	absolite: {
+		name: "Absolite",
+		spritenum: 576,
+		megaStone: "Absable-Mega-X",
+		megaEvolves: "Absable",
+		itemUser: ["Absable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 677,
+		desc: "If held by an Absable, this item allows it to Mega Evolve in battle.",
+	},
+	sablenite: {
+		name: "Sablenite",
+		spritenum: 614,
+		megaStone: "Sableior-Mega",
+		megaEvolves: "Sableior",
+		itemUser: ["Sableior"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 754,
+		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
+	},
+	heracronite: {
+		name: "Heracronite",
+		spritenum: 590,
+		megaStone: "Ninjacross-Mega",
+		megaEvolves: "Ninjacross",
+		itemUser: ["Ninjacross"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 680,
+		desc: "If held by a Ninjacross, this item allows it to Mega Evolve in battle.",
+	},
+	houndoominite: {
+		name: "Houndoominite",
+		spritenum: 591,
+		megaStone: "Dracodoom-Mega",
+		megaEvolves: "Dracodoom",
+		itemUser: ["Dracodoom"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 666,
+		desc: "If held by a Dracodoom, this item allows it to Mega Evolve in battle.",
 	},
 };
