@@ -1326,6 +1326,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "3/4 damage from super-effective and multihit moves.",
 	},
 	modeshift: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Sableior' || attacker.transformed) return;
