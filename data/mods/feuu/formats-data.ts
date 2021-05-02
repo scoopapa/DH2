@@ -318,7 +318,81 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 	},
+	//slate 9
+	absable: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	absablemegax: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	absablemegay: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	scolisharp: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	ninjacross: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	ninjacrossmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	gossephalon: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dracodoom: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dracodoommega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	toucosta: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	weezlordgalar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sableior: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sableiormeteor: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sableiormega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sableiormeteormega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
+	//slate 10
+	eeluk: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	maroligatralola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	frozerade: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
 	
 	//Silvino Nightmare Hours
