@@ -132,6 +132,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Leviflame');
 						} else if (this.hasAbility('levitability')) {
 							this.battle.add('-immune', this, '[from] ability: Levitability');
+						} else if (this.hasAbility('stickyfloat')) {
+							this.battle.add('-immune', this, '[from] ability: Sticky Float');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -176,7 +178,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			let neutralizinggas = false;
 			for (const pokemon of this.battle.getAllActive()) {
 				// can't use hasAbility because it would lead to infinite recursion
-				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
+				if ((pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID)) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.abilityData.ending) {
 					neutralizinggas = true;
 					break;
@@ -185,7 +187,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			return !!(
 				(this.battle.gen >= 5 && !this.isActive) ||
-				((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID))) &&
+				((this.volatiles['gastroacid'] || (neutralizinggas && ((this.ability !== ('neutralizinggas' as ID)) && (this.ability !== ('lemegeton' as ID)))) &&
 				!this.getAbility().isPermanent
 				)
 			);

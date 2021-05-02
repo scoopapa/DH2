@@ -3,9 +3,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	porous: {//Feel like this might be wrong
 		id: "porous",
 		name: "Porous",
-		shortDesc: "Absorbs self-KO moves and Water-type moves, and restores 1/4 max HP.",
+		shortDesc: "Ignores foe's stat stages; restores 1/4 max HP if hit by Water; Water immunity.",
 		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Water' || ['explosion', 'mindblown', 'mistyexplosion', 'selfdestruct'].includes(move.id))) {
+			if (target !== source && (move.type === 'Water')) {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Porous');
 				}
@@ -13,10 +13,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			
 		},
-		onAnyDamage(damage, target, source, effect) {
-			if (effect && (effect.id === 'aftermath')) {
-				this.heal(this.effectData.target.baseMaxhp / 4)
-				this.add('-immune', this.effectData.target, '[from] ability: Porous');
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
 			}
 		},
 	},
@@ -142,13 +151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 			if (move.flags['contact'] && !target.hp) {
-				//I dunno how to make Porous differentiate between the two kinds of damage this ability can deal,
-				//So I'm just gonna CHEAT because i am a HACK and a fraud. 
-				if (source.hasAbility('Porous')) {
-					this.add('-ability', source, 'Porous');
-					this.heal(source.baseMaxhp / 4, source, target, move);
-				}
-				else this.damage(source.baseMaxhp / 4, source, target);
+				this.damage(source.baseMaxhp / 4, source, target);
 			}
 		},
 	},
@@ -1144,5 +1147,230 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({spe: 1});
 			}
 		},
+	},
+	//new slate
+	chivalry: {
+		shortDesc: "For each stat lowered by a foe: +2 Atk, +1 Spe.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			for (let i in boost) {
+				// @ts-ignore
+				if (boost[i] < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Chivalry');
+				this.boost({atk: 2, spe: 1}, target, target, null, true);
+			}
+		},
+		name: "Chivalry",
+	},
+	hauntedtech: {
+		shortDesc: "Moves 60 power or less: 1.5x power. If hit by an attack, 30% chance to disable that move.",
+		name: "Haunted Tech",
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isFutureMove) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
+	},
+	stickyfloat: {
+		//Groundedness implemented in scripts.ts
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Float');
+				return false;
+			}
+		},
+		name: "Sticky Float",
+		shortDesc: "Effects of Sticky Hold + Levitate",
+	},
+	terrorizer: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!move.hasSheerForce) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "Terrorizer",
+		shortDesc: "Sheer Force + Moves that did not originally have a secondary effect: 30% to Disable",
+	},
+	darkhumour: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target === source || move.category !== 'Status') {
+				return;
+			}
+			this.add('-ability', target, 'Dark Humour');
+			this.boost({atk: 1}, target, target, null, true);
+		},
+		name: "Dark Humour",
+		shortDesc: "Status moves +1 priority. If targeted by a status move, +1 Atk.",
+	},
+	speedy: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spe: length}, source);
+			}
+		},
+		name: "Speedy",
+		shortDesc: "Speed raises by 1 stage if it attacks and KO's another Pokemon.",
+	},
+	ultrahealth: {
+		onSourceAfterFaint(length, target, source, effect) {
+			this.add('-activate', source, 'ability: Ultra Health'); 
+			source.heal(source.baseMaxhp / 3);
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Ultra Health",
+		shortDesc: "On switching out or landing a KO, heal for 1/3 max HP.",
+	},
+	dustdevil: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('dustdevil')) {
+					this.add('-immune', target, '[from] ability: Dust Devil');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('dustdevil');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Dust Devil');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('dustdevil')) {
+					this.debug('Dust Devil boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('dustdevil')) {
+					this.debug('Dust Devil boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Dust Devil', '[silent]');
+			},
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(2);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Dust Devil",
+		shortDesc: "Effects of Sand Rush and Flash Fire.",
+	},
+	solidskill: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if ((target.getMoveHitData(move).typeMod > 0) || move.multihit) {
+				this.debug('Solid Skill neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Solid Skill",
+		shortDesc: "3/4 damage from super-effective and multihit moves.",
+	},
+	modeshift: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Sableior' || attacker.transformed) return;
+			const targetForme = (move.category === 'Status' ? 'Sableior-Meteor' : 'Sableior');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			if (attacker.canMegaEvo) {
+				attacker.canMegaEvo = (targetForme === 'Sableior-Meteor' ? 'sableiormeteormega' : 'sableiormega');
+			}
+		},
+		isPermanent: true,
+		name: "Mode Shift",
+		shortDesc: "Status moves +1 priority. Changes to Meteor Form before using a status move.",
+	},
+	lemegeton: {
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onEnd(source) {
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If your tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source) {
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+		},
+		name: "Lemegeton",
+		shortDesc: "While this Pokemon is active, Abilities and stat boosts have no effect.",
 	},
 };

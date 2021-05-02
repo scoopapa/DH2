@@ -340,8 +340,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	ninjacrossmega: {
-		tier: "FEUU",
-		doublesTier: "DUU",
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	gossephalon: {
 		tier: "FEUU",
