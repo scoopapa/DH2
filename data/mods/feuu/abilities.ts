@@ -913,8 +913,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.isSemiInvulnerable()) return;
 			if (target.ignoringItem()) return false;
 			const item = target.getItem();
+			console.log(item);
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
-			if (item) {
+			if (item.id && !item.megaStone) {
 				this.damage(source.baseMaxhp / 4, source, target);
 				target.addVolatile('fling');
 				if (item.isBerry) {

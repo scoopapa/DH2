@@ -2177,5 +2177,4 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["8L1"],
 		},
 	},
-
 };
