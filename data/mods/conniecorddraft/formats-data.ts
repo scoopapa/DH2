@@ -89,5 +89,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "New",
 		doublesTier: "New",
 	},
+	sligneus: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	toxitoad: {
+		tier: "New",
+		doublesTier: "New",
+	},
+	locustab: {
+		tier: "New",
+		doublesTier: "New",
+	},
 	
 };
