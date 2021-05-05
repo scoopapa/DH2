@@ -394,6 +394,41 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+	//slate 11
+	hattaka: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	glasnow: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	glasnowmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	kokovoir: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	kokovoirmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	kyottler: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	kyottlerprimal: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	clawliwrath: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this

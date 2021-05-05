@@ -485,6 +485,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage',
 					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'magicmissile', 'ecopy', 'lemegeton', 'modeshift',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -1090,7 +1091,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	levitability: {
 		name: "Levitability",
 		shortDesc: "STAB moves are boosted an additional 1.5x; immune to Ground.",
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
 			move.stab = 2;
 		},
 	},
@@ -1208,6 +1219,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	terrorizer: {
 		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
 			if (move.secondaries) {
 				delete move.secondaries;
 				// Technically not a secondary effect, but it is negated
@@ -1387,5 +1408,201 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Lemegeton",
 		shortDesc: "While this Pokemon is active, Abilities and stat boosts have no effect.",
+	},
+	//a
+	magicbeast: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "Magic Beast",
+		shortDesc: "Magic Bounce + Beast Boost.",
+	},
+	soundneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.target !== 'self' && move.flags['sound']) {
+				this.add('-immune', target, '[from] ability: Sound Neigh');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', this.effectData.target, '[from] ability: Sound Neigh');
+			}
+		},
+		name: "Sound Neigh",
+		shortDesc: "Chilling Neigh + Soundproof.",
+	},
+	ecopy: {
+		onStart(pokemon) {
+			this.field.setTerrain('electricterrain');
+			
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'magicmissile', 'pillage', 'ecopy', 'lemegeton', 'modeshift', 
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, ability, '[from] ability: E-Copy', '[of] ' + target);
+				pokemon.setAbility(ability);
+				return;
+			}
+		},
+		name: "E-Copy",
+		shortDesc: "Sets Electric Terrain, and then copies the foe's Ability.",
+	},
+	wetbugs: {
+		onStart(source) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyottler') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
+			this.field.setWeather('raindance');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
+				if (defender.hasAbility('sturdymold')) return;
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
+				if (defender.hasAbility('sturdymold')) return;
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Wet Bugs",
+		shortDesc: "Drizzle + Swarm.",
+	},
+	hydrauliccannon: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Hydraulic Cannon');
+				}
+				return null;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
+			if (move.flags['pulse']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Hydraulic Cannon",
+		shortDesc: "Mega Launcher + Water Absorb.",
+	},
+	//more fix
+	solarpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon, move) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				}
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Solar Power",
+		rating: 2,
+		num: 94,
+	},
+	skilllink: {
+		onModifyMove(move, pokemon) {
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				} 
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				move.multihit = move.multihit[1];
+			}
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+			}
+		},
+		name: "Skill Link",
+		rating: 3,
+		num: 92,
 	},
 };

@@ -62,6 +62,29 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Groudon", "Grousle"],
 		num: 534,
 	},
+	blueorb: {
+		name: "Blue Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			} else if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyottler') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			if (pokemon.baseSpecies.name === 'Kyogre') {
+				pokemon.formeChange('Kyogre-Primal', this.effect, true);
+			} else if (pokemon.baseSpecies.name === 'Kyottler') {
+				pokemon.formeChange('Kyottler-Primal', this.effect, true);
+			}		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre' || source.baseSpecies.baseSpecies === 'Kyottler') return false;
+			return true;
+		},
+		itemUser: ["Kyogre", "Kyottler"],
+		num: 535,
+	},
 	pidgeotite: {
 		name: "Pidgeotite",
 		spritenum: 622,
@@ -139,5 +162,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 666,
 		desc: "If held by a Dracodoom, this item allows it to Mega Evolve in battle.",
+	},
+	abomasite: {
+		name: "Abomasite",
+		spritenum: 575,
+		megaStone: "Glasnow-Mega",
+		megaEvolves: "Glasnow",
+		itemUser: ["Glasnow"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 674,
+		desc: "If held by a Glasnow, this item allows it to Mega Evolve in battle.",
+	},
+	gardevoirite: {
+		name: "Gardevoirite",
+		spritenum: 587,
+		megaStone: "Kokovoir-Mega",
+		megaEvolves: "Kokovoir",
+		itemUser: ["Kokovoir"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 657,
+		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
 	},
 };
