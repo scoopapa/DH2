@@ -9,3 +9,4 @@
 .translations-dist
 node_modules
 logs
+build.exe
