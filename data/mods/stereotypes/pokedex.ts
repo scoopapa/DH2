@@ -110,4 +110,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 160,
 	},
 	//Slate 5: Electric, Ghost, Ice
+	dynaunsoon: {
+		num: 13,
+		name: "Dynaunsoon",
+		types: ["Electric"],
+		baseStats: {hp: 90, atk: 67, def: 80, spa: 100, spd: 70, spe: 130},
+		abilities: {0: "Motor Drive", H: "Intimidate"},
+		weightkg: 88,
+	},
+	dullaham: {
+		num: 14,
+		name: "Dullaham",
+		types: ["Ghost"],
+		baseStats: {hp: 100, atk: 85, def: 60, spa: 95, spd: 110, spe: 60},
+		abilities: {0: "Thick Fat", 1: "Oblivious", H: "Frisk"},
+		heightm: 1.1,
+		weightkg: 97.3,
+	},
+	skappa: {
+		num: 15,
+		name: "Skappa",
+		types: ["Ice"],
+		baseStats: {hp: 60, atk: 75, def: 75, spa: 115, spd: 70, spe: 130},
+		abilities: {0: "Water Absorb", 1: "Swift Swim", H: "Slush Rush"},
+		heightm: 0.7,
+		weightkg: 24.3,
+	},
+	//Slate 6: Bug, Normal, Poison
 };
