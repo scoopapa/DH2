@@ -52,7 +52,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 5: Electric, Ghost, Ice
-	dyaunsoon: {
+	dynaunsoon: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
