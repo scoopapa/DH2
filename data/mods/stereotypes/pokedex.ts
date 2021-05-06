@@ -110,7 +110,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 160,
 	},
 	//Slate 5: Electric, Ghost, Ice
-	dynaunsoon: {
+	dyaunsoon: {
 		num: 13,
 		name: "Dynaunsoon",
 		types: ["Electric"],
