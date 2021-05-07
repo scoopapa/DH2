@@ -336,10 +336,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	returnfire: {
 		name: "Return Fire",
 		num: -1016,
-		desc: "When this Pokemon is targeted by a non-contact move, attacker loses 1/8 max HP.",
+		desc: "When this Pokemon is targeted by a ballistic move, attacker loses 1/8 max HP.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.flags['contact']) {
+			if (move.flags['bullet']) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
