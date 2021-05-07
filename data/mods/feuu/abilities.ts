@@ -1370,7 +1370,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
 		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
 		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'Neutralizing Gas');
+			this.add('-ability', pokemon, 'Lemegeton');
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
