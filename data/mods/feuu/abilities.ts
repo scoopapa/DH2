@@ -1238,10 +1238,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.hasSheerForce = true;
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
+		onSourceHit(target, source, move) {
 			if (!move.hasSheerForce) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('disable', this.effectData.target);
+					target.addVolatile('disable', this.effectData.target);
 				}
 			}
 		},
