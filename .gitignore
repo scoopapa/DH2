@@ -6,3 +6,7 @@
 .lib-dist
 .server-dist
 .sim-dist
+.translations-dist
+node_modules
+logs
+build.exe
