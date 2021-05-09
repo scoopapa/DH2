@@ -4388,7 +4388,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
 				return this.chainModify(1.5),
-				recoil: [1, 5],
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				return this.addRecoil [1, 5],
 			}
 		},
 		name: "Massive Charge",
@@ -4434,9 +4438,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
 			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
-			boosts: {
-				atk: 1,
-			}
+			this.boost({atk: 1});
 			}
 		},
 		name: "Blind Rage",
@@ -4467,9 +4469,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	hunter: {
 		nPrepareHit(source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod < 0) {
-			boosts: {
-				atk: 1,	
-			}
+			this.boost({spe: 2});
 			}
 		},
 		name: "Hunter",
