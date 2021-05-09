@@ -932,6 +932,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
+	weezingkilirthy: {
+		tier: "OU",
+	},
 	rhyhorn: {
 		tier: "LC",
 	},
@@ -3674,9 +3677,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	trubbish: {
 		tier: "LC",
 	},
+	trubbishkilirthy: {
+		tier: "LC",
+	},
 	garbodor: {
 		tier: "PU",
 		doublesTier: "(DUU)",
+	},
+	garbodorkilirthy: {
+		tier: "NFE",
 	},
 	garbodorgmax: {
 		randomBattleMoves: ["drainpunch", "explosion", "gunkshot", "painsplit", "spikes", "toxicspikes"],
@@ -4034,7 +4043,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	deino: {
 		tier: "LC",
 	},
+	deinokilirthy: {
+		tier: "LC",
+	},
 	zweilous: {
+		tier: "NFE",
+	},
+	zweilouskilirthy: {
 		tier: "NFE",
 	},
 	hydreigon: {
@@ -4044,6 +4059,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleLevel: 84,
 		tier: "UU",
 		doublesTier: "(DUU)",
+	},
+	hydreigonkilirthy: {
+		tier: "OU",
 	},
 	larvesta: {
 		tier: "LC",
@@ -4507,7 +4525,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	goomy: {
 		tier: "LC",
 	},
+	goomykilirthy: {
+		tier: "LC",
+	},
 	sliggoo: {
+		tier: "NFE",
+	},
+	sliggookilirthy: {
 		tier: "NFE",
 	},
 	goodra: {
@@ -4517,6 +4541,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleLevel: 86,
 		tier: "RU",
 		doublesTier: "(DUU)",
+	},
+	goodrakilirthy: {
+		tier: "OU",,
 	},
 	klefki: {
 		randomBattleMoves: ["foulplay", "magnetrise", "playrough", "spikes", "thunderwave", "toxic"],
@@ -6235,6 +6262,33 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	prostadonipos: {
+		tier: "OU",
+	},
+	ruinastle:  {
+		tier: "OU",
+	},
+	militusk: {
+		tier: "Uber",
+	},
+	dovrini: {
+		tier: "Uber",
+	},
+	psychigisteel: {
+		tier: "Uber",
+	},
+	herculami: {
+		tier: "OU",
+	},
+	phanteus: {
+		tier: "Uber",
+	},
+	ghoseidon: {
+		tier: "Uber",
+	},
+	hadaith: {
+		tier: "Uber",
+	},
+	navagiody: {
 		tier: "OU",
 	},
 };

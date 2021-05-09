@@ -4372,4 +4372,109 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 270,
 	},
+	bringerofbalance: {
+		onStart (pokemon) {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
+		name: "Bringer of Balance",
+		rating: 3,
+		num: 271,
+	},
+	massivecharge: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify(1.5);
+			}
+			if (effect.id === 'contact') {
+				recoil: [1, 5],
+			},
+		},
+		name: "Massive Charge",
+		rating: 3,
+		num: 272,
+	},
+	castlesproud: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Ground') {
+				return this.chainModify(1.2);
+			}
+			else if (move.type === 'Rock') {
+				return this.chainModify(1.2);
+			}
+			else if (move.type === 'Steel') {
+				return this.chainModify(1.2);
+			}
+		},
+		name: "Castle's Proud",
+		rating: 3,
+		num: 273,
+	},
+	iceshell: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Water') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0);
+			}
+		},
+		name: "Ice Shell",
+		rating: 3.5,
+		num: 274,
+	},
+	blindrage: {
+		onDamagingHit(damage, target, source, move) {
+			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+			boosts: {
+				atk: 1,
+			}
+		},
+		name: "Blind Rage",
+		rating: 3.5,
+		num: 275,
+	},
+	acidsummoning: {
+		onStart(source) {
+			this.field.setWeather('acidrain');
+		},
+		name: "Acid Summoning",
+		rating: 4,
+		num: 276,
+	},
+	acidrecovery: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'acidrain') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'acidrain') return false;
+		},
+		name: "Acid Recovery",
+		rating: 1,
+		num: 277,
+	},
+	hunter: {
+		nPrepareHit(source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod < 0) {
+			boosts: {
+				atk: 1,	
+			}
+			}
+		},
+		name: "Hunter",
+		rating: 1,
+		num: 278,
+	},
 };

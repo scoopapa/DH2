@@ -704,7 +704,52 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', 'Fog faded away.');
 		},
 	},
-
+	acidrain: {
+		name: 'Acid Rain',
+		effectType: 'Weather',
+		duration: 5,
+		num: 0,
+		durationCallback: function (source, effect) {
+			if (source && source.hasItem('toxicrock')) {
+				return 8;
+			}
+			return 5;
+		},
+		onResidualOrder: 1,
+		onResidual() {
+			this.add('-weather', 'Acid Rain', '[upkeep]');
+			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic'),
+			this.damage(target.baseMaxhp / 16); {
+			} else if (type === 'Ghost', 'Ground', 'Rock'),
+			this.damage(target.baseMaxhp / 32); {
+			} else if (type === 'Fairy', 'Grass', 'Water'),
+			this.damage(target.baseMaxhp / 8); {
+			} else if (type === 'Poison', 'Steel'),
+			this.damage(target.baseMaxhp / 0); {
+			},
+		},
+		onStart: function (battle, source, effect) {
+			if (effect && effect.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Acid Rain');
+			}
+		},
+		onResidualOrder: 1,
+		onResidual: function () {
+			this.add('-weather', 'Acid Rain', '[upkeep]');
+			this.eachEvent('Weather');
+			this.add('-message', 'Acid Rain continues.'); 
+		},
+		onEnd: function () {
+			this.add('-weather', 'none', '[silent]');
+			this.add('-message', 'Acid Rain vanished.');
+		},
+	},
 	dynamax: {
 		name: 'Dynamax',
 		noCopy: true,
