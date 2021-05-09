@@ -723,11 +723,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onWeather(target) {
 			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic');
 			this.damage(target.baseMaxhp / 16); {
-			} else if (type === 'Ghost', 'Ground', 'Rock');
+			} else (type === 'Ghost', 'Ground', 'Rock');
 			this.damage(target.baseMaxhp / 32); {
-			} else if (type === 'Fairy', 'Grass', 'Water');
+			} else (type === 'Fairy', 'Grass', 'Water');
 			this.damage(target.baseMaxhp / 8); {
-			} else if (type === 'Poison', 'Steel');
+			} else (type === 'Poison', 'Steel');
 			this.damage(target.baseMaxhp / 0); {
 			},
 		},

@@ -2813,7 +2813,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 6.5,
 		color: "Brown",
-		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"],
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Hiveon", "Ireon"],
 		eggGroups: ["Field"],
 		otherFormes: ["Eevee-Starter"],
 		formeOrder: ["Eevee", "Eevee-Starter"],
@@ -16269,6 +16269,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 65, atk: 130, def: 60, spa: 110, spd: 65, spe: 95},
 		abilities: {0: "Swarm", H: "Levitate"},
 		weightkg: 25,
+		prevo: "Eevee",
 	},
 	ireon: {
 		num: 914,
@@ -16278,6 +16279,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 130, spa: 65, spd: 65, spe: 60},
 		abilities: {0: "Filter", H: "Heavy Metal"},
 		weightkg: 50,
+		prevo: "Eevee",
 	},
 	metalit: {
 		num: 915,
