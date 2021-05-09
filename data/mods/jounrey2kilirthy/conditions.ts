@@ -721,10 +721,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			(target.baseMaxhp / 16);
+			this.damage(target.baseMaxhp / 16);
 			if (type === 'Fairy', 'Grass', 'Water') this.damage(target.baseMaxhp / 32);
 			else if (type === 'Ghost', 'Ground', 'Rock') this.damage(target.baseMaxhp / 8);
-			else (type === 'Poison', 'Steel') return this.damage; 
+			else (type === 'Poison', 'Steel') this.damage(target.baseMaxhp / 0);
 			},
 		},
 		/*onWeather(target) {
