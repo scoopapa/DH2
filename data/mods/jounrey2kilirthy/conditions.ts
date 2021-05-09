@@ -722,15 +722,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
-			if (type === “Water” || type === “Grass” || type === “Fairy”) {  
+			if (type === “Water” || type === “Grass” || type === “Fairy”) {
 			this.damage(target.baseMaxhp / 8);
 			}
-			else if (type === “Rock” || type === “Ground” || type === “Ghost”) {  
+			else if (type === “Rock” || type === “Ground” || type === “Ghost”) {
 			this.damage(target.baseMaxhp / 32);
 			}
-			else (type === “Poison” || type === “Steel””) {  
+			/*else (type === “Poison” || type === “Steel””) {
 			this.damage(target.baseMaxhp / 0);
-			}
+			}*/
+		},
+		onImmunity(type, pokemon) {
+			if (type === “Poison” || type === “Steel””) return;
 		},
 		/*onWeather(target) {
 			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic');
