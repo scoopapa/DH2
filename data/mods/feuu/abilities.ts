@@ -1280,8 +1280,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ultrahealth: {
 		onSourceAfterFaint(length, target, source, effect) {
-			this.add('-activate', source, 'ability: Ultra Health'); 
-			source.heal(source.baseMaxhp / 3);
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Ultra Health'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
 		},
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
