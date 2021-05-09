@@ -4391,7 +4391,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (effect.id === 'contact') {
 				recoil: [1, 5],
-			},
+			}
 		},
 		name: "Massive Charge",
 		rating: 3,
@@ -4438,6 +4438,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
 			boosts: {
 				atk: 1,
+			}
 			}
 		},
 		name: "Blind Rage",
