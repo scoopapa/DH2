@@ -168,7 +168,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				(this.hasAbility('levitate') ||
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
-				this.hasAbility('levitability')) &&
+				this.hasAbility('levitability') || 
+				this.hasAbility('stickyfloat')) &&
 				!this.battle.suppressingAttackEvents()
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
