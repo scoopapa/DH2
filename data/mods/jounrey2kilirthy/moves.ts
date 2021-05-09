@@ -19565,7 +19565,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Bell of Peace",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
 		onHit(pokemon) {
@@ -19584,7 +19584,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 85,
 		category: "Physical",
 		name: "Crushing Hoofs",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1},
 		onEffectiveness(typeMod, target, type, move) {
@@ -19600,7 +19600,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 95,
 		category: "Special",
 		name: "Strategic Choice",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
 		onHit(target) {
@@ -19635,7 +19635,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Fiery Pass",
-		pp: 20,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		selfSwitch: true,
