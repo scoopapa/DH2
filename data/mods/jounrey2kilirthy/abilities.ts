@@ -4387,9 +4387,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
-				return this.chainModify(1.5);
-			}
-			if (effect.id === 'contact') {
+				return this.chainModify(1.5),
 				recoil: [1, 5],
 			}
 		},
