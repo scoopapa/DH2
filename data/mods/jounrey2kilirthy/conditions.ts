@@ -721,6 +721,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
+			(target.baseMaxhp / 16);
+			if (type === 'Fairy', 'Grass', 'Water') this.damage(target.baseMaxhp / 32);
+			else if (type === 'Ghost', 'Ground', 'Rock') this.damage(target.baseMaxhp / 8);
+			else (type === 'Poison', 'Steel') return this.damage; 
+			},
+		},
+		/*onWeather(target) {
 			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic');
 			this.damage(target.baseMaxhp / 16); {
 			} else (type === 'Ghost', 'Ground', 'Rock');
@@ -730,7 +737,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else (type === 'Poison', 'Steel');
 			this.damage(target.baseMaxhp / 0); {
 			},
-		},
+		},*/
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
