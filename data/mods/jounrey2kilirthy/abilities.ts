@@ -4392,7 +4392,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyMove(move) {
 			if (move.flags['contact']) {
-				return this.addRecoil [1, 5],
+				return this.addRecoil [1, 5];
 			}
 		},
 		name: "Massive Charge",
@@ -4420,14 +4420,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire') {
-				this.debug('Thick Fat weaken');
+				this.debug('Ice Shell weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Water') {
-				this.debug('Thick Fat weaken');
+				this.debug('Ice Shell immune');
 				return this.chainModify(0);
 			}
 		},
