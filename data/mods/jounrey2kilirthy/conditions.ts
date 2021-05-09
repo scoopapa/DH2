@@ -721,13 +721,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic'),
+			if (type === 'Bug', 'Dark', 'Dragon', 'Electric', 'Fighting', 'Fire', 'Flying', 'Ice', 'Normal', 'Psychic');
 			this.damage(target.baseMaxhp / 16); {
-			} else if (type === 'Ghost', 'Ground', 'Rock'),
+			} else if (type === 'Ghost', 'Ground', 'Rock');
 			this.damage(target.baseMaxhp / 32); {
-			} else if (type === 'Fairy', 'Grass', 'Water'),
+			} else if (type === 'Fairy', 'Grass', 'Water');
 			this.damage(target.baseMaxhp / 8); {
-			} else if (type === 'Poison', 'Steel'),
+			} else if (type === 'Poison', 'Steel');
 			this.damage(target.baseMaxhp / 0); {
 			},
 		},
