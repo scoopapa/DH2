@@ -57,13 +57,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
-		onHit(target, source) {
+		onHit(target, source, move) {
 			const item = target.takeItem(source);
 			if (item) {
-				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source);
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source && target.addVolatile('corrosed'));
 			}
-		onHit(target, source, move) {
-				if (source.isActive) target.addVolatile('corrosed');
 		},
 		secondary: null,
 		target: "allAdjacent",
