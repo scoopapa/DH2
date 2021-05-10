@@ -336,10 +336,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	returnfire: {
 		name: "Return Fire",
 		num: -1016,
-		desc: "When this Pokemon is targeted by a non-contact move, attacker loses 1/8 max HP.",
+		desc: "When this Pokemon is targeted by a ballistic move, attacker loses 1/8 max HP.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.flags['contact']) {
+			if (move.flags['bullet']) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
@@ -416,5 +416,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Figurehead",
 		rating: 3,
 		num: -1020,
+	},
+	saturation: {
+		name: "Saturation",
+		num: -1021,
+		shortDesc: "Takes 1/2 damage from poisoned foes.",
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (source && (source.status === 'psn' || source.status === 'tox')) {
+				mod /= 2;
+			}
+			return this.chainModify(mod);
+		},
 	},
 };

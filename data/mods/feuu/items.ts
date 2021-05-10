@@ -61,7 +61,29 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Groudon", "Grousle"],
 		num: 534,
-		gen: 6,
+	},
+	blueorb: {
+		name: "Blue Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			} else if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyottler') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			if (pokemon.baseSpecies.name === 'Kyogre') {
+				pokemon.formeChange('Kyogre-Primal', this.effect, true);
+			} else if (pokemon.baseSpecies.name === 'Kyottler') {
+				pokemon.formeChange('Kyottler-Primal', this.effect, true);
+			}		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre' || source.baseSpecies.baseSpecies === 'Kyottler') return false;
+			return true;
+		},
+		itemUser: ["Kyogre", "Kyottler"],
+		num: 535,
 	},
 	pidgeotite: {
 		name: "Pidgeotite",
@@ -88,5 +110,83 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 669,
 		desc: "If held by a Pincurchitar, this item allows it to Mega Evolve in battle.",
+	},
+	absolite: {
+		name: "Absolite",
+		spritenum: 576,
+		megaStone: "Absable-Mega-X",
+		megaEvolves: "Absable",
+		itemUser: ["Absable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 677,
+		desc: "If held by an Absable, this item allows it to Mega Evolve in battle.",
+	},
+	sablenite: {
+		name: "Sablenite",
+		spritenum: 614,
+		megaStone: "Sableior-Mega",
+		megaEvolves: "Sableior",
+		itemUser: ["Sableior"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 754,
+		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
+	},
+	heracronite: {
+		name: "Heracronite",
+		spritenum: 590,
+		megaStone: "Ninjacross-Mega",
+		megaEvolves: "Ninjacross",
+		itemUser: ["Ninjacross"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 680,
+		desc: "If held by a Ninjacross, this item allows it to Mega Evolve in battle.",
+	},
+	houndoominite: {
+		name: "Houndoominite",
+		spritenum: 591,
+		megaStone: "Dracodoom-Mega",
+		megaEvolves: "Dracodoom",
+		itemUser: ["Dracodoom"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 666,
+		desc: "If held by a Dracodoom, this item allows it to Mega Evolve in battle.",
+	},
+	abomasite: {
+		name: "Abomasite",
+		spritenum: 575,
+		megaStone: "Glasnow-Mega",
+		megaEvolves: "Glasnow",
+		itemUser: ["Glasnow"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 674,
+		desc: "If held by a Glasnow, this item allows it to Mega Evolve in battle.",
+	},
+	gardevoirite: {
+		name: "Gardevoirite",
+		spritenum: 587,
+		megaStone: "Kokovoir-Mega",
+		megaEvolves: "Kokovoir",
+		itemUser: ["Kokovoir"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 657,
+		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
 	},
 };

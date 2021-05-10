@@ -7,4 +7,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	beakblast: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

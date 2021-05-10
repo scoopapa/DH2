@@ -6,7 +6,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon blocks non-contact Flying-type moves and Whirlwind and bounces them back to the user.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (target === source || move.hasBounced || move.type !== 'Flying') {
+			if (target === source || move.hasBounced || move.flags['contact'] || (move.type !== 'Flying' && move.id !== 'whirlwind')) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target.side === source.side || move.hasBounced || move.type !== 'Flying') {
+			if (target.side === source.side || move.hasBounced || move.flags['contact'] || (move.type !== 'Flying' && move.id !== 'whirlwind')) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
@@ -82,7 +82,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "patience",
 		shortDesc: "This Pokemon takes 50% damage from moves if it hasn't moved yet.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Patience weaken');
 				return this.chainModify(0.5);
 			}
@@ -183,36 +183,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Venom Vision",
 		rating: 2,
 	},
-	hotheaded: {
-		id: "hotheaded",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Hot-Headed",
-		rating: 0.1,
-	},
-	thoughtful: {
-		id: "thoughtful",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Thoughtful",
-		rating: 0.1,
-	},
-	stonehouse: {
-		id: "stonehouse",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Stone House",
-		rating: 0.1,
-	},
-	treetopper: {
-		id: "treetopper",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Tree-Topper",
-		rating: 0.1,
-	},
-	earthshaker: {
-		id: "earthshaker",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Earth Shaker",
-		rating: 0.1,
-	},
 	terraformer: {
 		shortDesc: "Removes terrains upon switch-in.",
 		onSwitchInPriority: 6,
@@ -272,5 +242,77 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "gunkconsumer",
 		name: "Gunk Consumer",
 	},
-	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper, Hot-Headed, Earth Shaker
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Earth Shaker",
+		rating: 0.1,
+	},
+	/*
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "This Pokemon's Ground moves deal 1.5x damage if it was damage earlier in the turn.",
+		//Currently this buffs the Ground moves if it attacks the attacker rather than if it attacks anything.
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				const damagedByTarget = attacker.attackedBy.some(
+					p => p.source === defender && p.damage > 0 && p.thisTurn
+				);
+				if (damagedByTarget) {
+					this.debug('Earth Shaker boost for getting hit by ' + defender);
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				const damagedByTarget = attacker.attackedBy.some(
+					p => p.source === defender && p.damage > 0 && p.thisTurn
+				);
+				if (damagedByTarget) {
+					this.debug('Earth Shaker boost for getting hit by ' + defender);
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Earth Shaker",
+		rating: 3.5,
+	}, */
+	
+	hotheaded: {
+		id: "hotheaded",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Hot-Headed",
+		rating: 0.1,
+	},
+	/*
+	hotheaded: {
+		onDamagingHit(damage, target, source, effect) {
+			target.addVolatile('focusenergy');
+		},
+		name: "Hot-Headed",
+		rating: 3.5,
+	},
+	*/
+	thoughtful: {
+		id: "thoughtful",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Thoughtful",
+		rating: 0.1,
+	},
+	stonehouse: {
+		id: "stonehouse",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Stone House",
+		rating: 0.1,
+	},
+	treetopper: {
+		id: "treetopper",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Tree-Topper",
+		rating: 0.1,
+	},
+	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper (Tree-Topper's levitation effect is coded but it's still incomplete.)
 };

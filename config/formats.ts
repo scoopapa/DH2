@@ -785,7 +785,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal', 'Baton Pass',
+			'All Pokemon', 'Tapu Lop-Mega', 'Grousle-Primal', 'Baton Pass', 'Ninjacross-Mega', 'Kokovoir-Mega',
 		],
 		unbanlist: [
 			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -796,6 +796,10 @@ export const Formats: FormatList = [
 			'Corveot', 'Corveot-Mega', 'Igglyzenta-Crowned', 'Arctres-Galar', 'Garborude', 'Noicity', 'Ferros',
 			'Landmaldo-Therian', 'Tentoxys-Defense', 'Strikados-Galar', 'Hooporant',
 			'Brontun', 'Mesflame', 'Thornbro-Galar', 'Glidol', 'Pincurchitar', 'Pincurchitar-Mega', 'Snortine', 'Flygalge',
+			'Absable', 'Absable-Mega-X', 'Absable-Mega-Y', 'Scolisharp', 'Ninjacross', 'Gossephalon', 'Dracodoom', 
+			'Dracodoom-Mega', 'Toucosta', 'Weezlord-Galar', 'Sableior', 'Sableior-Mega', 'Sableior-Meteor', 'Sableior-Meteor-Mega', 
+			'Eeluk', 'Maroligatr-Alola', 'Frozerade',
+			'Hattaka', 'Glasnow', 'Glasnow-Mega', 'Kokovoir', 'Kyottler', 'Kyottler-Primal', 'Clawliwrath',
 			
 			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
 			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -1072,7 +1076,7 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Dynaunsoon', 'Dullaham', 'Skappa',
+			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Dyaunsoon', 'Dullaham', 'Skappa',
 		],
 	},
 	{  
@@ -1309,7 +1313,7 @@ export const Formats: FormatList = [
         gameType: "doubles",
         ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
         banlist: [
-            'All Pokemon', 'Lopunnite', 'Tapu Lop-Mega', 'Red Orb', 'Grousle-Primal',
+            'All Pokemon', 'Tapu Lop-Mega', 'Grousle-Primal', 'Ninjacross-Mega', 'Kokovoir-Mega', 
         ],
         unbanlist: [
             'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -1319,7 +1323,11 @@ export const Formats: FormatList = [
             'Grousle', 'Dongoro', 'Slurpum', 
             'Corveot', 'Corveot-Mega', 'Igglyzenta-Crowned', 'Arctres-Galar', 'Garborude', 'Noicity', 'Ferros',
             'Landmaldo-Therian', 'Tentoxys-Defense', 'Strikados-Galar', 'Hooporant',
-			   'Brontun', 'Mesflame', 'Thornbro-Galar', 'Glidol', 'Pincurchitar', 'Pincurchitar-Mega', 'Snortine', 'Flygalge',
+			'Brontun', 'Mesflame', 'Thornbro-Galar', 'Glidol', 'Pincurchitar', 'Pincurchitar-Mega', 'Snortine', 'Flygalge',
+			'Absable', 'Absable-Mega-X', 'Absable-Mega-Y', 'Scolisharp', 'Ninjacross', 'Gossephalon', 'Dracodoom', 
+			'Dracodoom-Mega', 'Toucosta', 'Weezlord-Galar', 'Sableior', 'Sableior-Mega', 'Sableior-Meteor', 'Sableior-Meteor-Mega', 
+			'Eeluk', 'Maroligatr-Alola', 'Frozerade',
+			'Hattaka', 'Glasnow', 'Glasnow-Mega', 'Kokovoir', 'Kyottler', 'Kyottler-Primal', 'Clawliwrath',
             
             'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
             'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
