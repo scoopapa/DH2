@@ -69,9 +69,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', pokemon, 'corrosed');
 			}
 		},
-		ignoreImmunity: {'Poison': true},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return 0;
-		}
+		onModifyMovePriority: -5,
+		onModifyMove(move, source, target) {
+			if (move.type === 'Poison' && target.hasType('Steel')) {
+				for (const target of this.getAllActive()) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Poison'] = true;
+				}
+				}
+			}
+		},
 	},
 };
