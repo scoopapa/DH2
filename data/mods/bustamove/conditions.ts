@@ -69,13 +69,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', pokemon, 'corrosed');
 			}
 		},
-		onEffectiveness(typeMod, pokemon, type, move) {
-			if (move.type !== 'Poison') return;
-			if (!pokemon) return; // avoid crashing when called from a chat plugin
-			// ignore effectiveness if the pokemon is Steel type and immune to Poison
-			if (!pokemon.runImmunity('Poison')) {
-				if (pokemon.hasType('Steel')) return 0;
-			}
+		ignoreImmunity: {'Poison': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 0;
 		}
 	},
 };
