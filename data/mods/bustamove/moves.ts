@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			onHit(target, source, move) {
 				if (target?.statsRaisedThisTurn) {
-					this.boost({spa: 1}, pokemon);
+					this.boost({spa: -1}, target);
 				}
 			},
 		},
