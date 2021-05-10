@@ -126,4 +126,30 @@ this.modData('Learnsets', 'espurr').learnset.pressurecook = ['7L1'];
 this.modData('Learnsets', 'meowstic').learnset.pressurecook = ['7L1'];
 this.modData('Learnsets', 'meowsticf').learnset.pressurecook = ['7L1'];
 	},
+	// BattlePokemon scripts. Commented out for safety but an implementation for Tree-Topper is there.
+	/*
+	pokemon: {
+		//
+		isGrounded(negateImmunity) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			for (const side of this.battle.sides) {
+				for (const pokemon of side.active) {
+					if (pokemon && !pokemon.ignoringAbility() && pokemon.hasAbility('treetopper')) {
+						return true;
+					}
+				}
+			}
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		}
+	},
+	*/
 };
