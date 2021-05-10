@@ -27,6 +27,48 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	burningjealousy: {
+		num: 807,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Burning Jealousy",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target?.statsRaisedThisTurn) {
+					this.boost({spa: 1}, pokemon);
+				}
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	corrosivegas: {
+		num: 810,
+		accuracy: 95,
+		basePower: 0,
+		category: "Status",
+		name: "Corrosive Gas",
+		pp: 40,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', '[of] ' + source);
+			}
+		onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('corrosed');
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Poison",
+	},
 	decorate: {
 		num: 777,
 		accuracy: 100,
@@ -49,7 +91,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	//not finished
-	dive: {
+	/*dive: {
 		num: 291,
 		accuracy: 100,
 		basePower: 90,
@@ -94,7 +136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},
+	},*/
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -146,6 +188,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+	},
+	skittersmack: {
+		num: 806,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Skitter Smack",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
 	},
 	strength: {
 		num: 70,

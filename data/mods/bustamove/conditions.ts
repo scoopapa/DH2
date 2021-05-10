@@ -24,7 +24,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 		},
 	},
-	dive: {
+	//not finished
+	/*dive: {
 		name: 'dive',
 				onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
@@ -58,5 +59,23 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			},
 		},
+	},*/
+	corrosed: {
+		name: 'corrosed',
+		onStart(pokemon, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', pokemon, 'corrosed', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', pokemon, 'corrosed');
+			}
+		},
+		onEffectiveness(typeMod, pokemon, type, move) {
+			if (move.type !== 'Poison') return;
+			if (!pokemon) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the pokemon is Steel type and immune to Poison
+			if (!pokemon.runImmunity('Poison')) {
+				if (pokemon.hasType('Steel')) return 0;
+			}
+		}
 	},
 };
