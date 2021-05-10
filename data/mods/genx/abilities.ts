@@ -183,36 +183,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Venom Vision",
 		rating: 2,
 	},
-	hotheaded: {
-		id: "hotheaded",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Hot-Headed",
-		rating: 0.1,
-	},
-	thoughtful: {
-		id: "thoughtful",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Thoughtful",
-		rating: 0.1,
-	},
-	stonehouse: {
-		id: "stonehouse",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Stone House",
-		rating: 0.1,
-	},
-	treetopper: {
-		id: "treetopper",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Tree-Topper",
-		rating: 0.1,
-	},
-	earthshaker: {
-		id: "earthshaker",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Earth Shaker",
-		rating: 0.1,
-	},
 	terraformer: {
 		shortDesc: "Removes terrains upon switch-in.",
 		onSwitchInPriority: 6,
@@ -272,6 +242,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "gunkconsumer",
 		name: "Gunk Consumer",
 	},
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Earth Shaker",
+		rating: 0.1,
+	},
 	/*
 	earthshaker: {
 		id: "earthshaker",
@@ -303,7 +279,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Earth Shaker",
 		rating: 3.5,
+	}, */
+	
+	hotheaded: {
+		id: "hotheaded",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Hot-Headed",
+		rating: 0.1,
 	},
+	/*
 	hotheaded: {
 		onDamagingHit(damage, target, source, effect) {
 			target.addVolatile('focusenergy');
@@ -312,5 +296,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 	*/
-	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper
+	thoughtful: {
+		id: "thoughtful",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Thoughtful",
+		rating: 0.1,
+	},
+	stonehouse: {
+		id: "stonehouse",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Stone House",
+		rating: 0.1,
+	},
+	treetopper: {
+		id: "treetopper",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Tree-Topper",
+		rating: 0.1,
+	},
+	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper (Tree-Topper's levitation effect was coded on the side.)
 };
