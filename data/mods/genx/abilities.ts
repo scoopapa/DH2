@@ -314,5 +314,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tree-Topper",
 		rating: 0.1,
 	},
-	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper (Tree-Topper's levitation effect was coded on the side.)
+	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper (Tree-Topper's levitation effect is coded but it's still incomplete.)
 };
