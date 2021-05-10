@@ -59,7 +59,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			},
 		},
-	},*/
+	},
 	corrosed: {
 		name: 'corrosed',
 		onStart(pokemon, source, sourceEffect) {
@@ -80,5 +80,5 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 		},
-	},
+	},*/
 };

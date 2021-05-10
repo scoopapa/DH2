@@ -48,7 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	corrosivegas: {
+	/*corrosivegas: {
 		num: 810,
 		accuracy: 95,
 		basePower: 0,
@@ -66,7 +66,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Poison",
-	},
+	},*/
 	decorate: {
 		num: 777,
 		accuracy: 100,
