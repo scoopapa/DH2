@@ -198,15 +198,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		self: {
-			onHit(pokemon, target, move) {
-				if (target.newlySwitched || this.queue.willMove(target)) {
-						this.boost({def: -1}, pokemon);
-				}
-						this.boost({spe: -1}, pokemon);			
+		onModifyMove(move, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				move.secondaries = [];
+				move.secondaries.push({
+					chance: 100,
+					boosts: {
+						def: -1,
+					},
+				});
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
@@ -234,7 +242,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.effectData.duration = 100;
 				this.add('-start', pokemon, 'move: Sonic Pulse');
 			},
-			onModifyCritRatio(critRatio) {
+			onSourceModifyCritRatio(critRatio) {
 				return 5;
 			},
 			onEnd(pokemon) {
@@ -371,7 +379,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-    shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
+      shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
 		isViable: true,
 		name: "Dark Fang",
 		pp: 10,
@@ -392,7 +400,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-    shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+      shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		isViable: true,
 		name: "Eye of Chaos",
 		pp: 10,
@@ -411,7 +419,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
-    shortDesc: "Uses target's SpA stat in damage calculation.",
+      shortDesc: "Uses target's SpA stat in damage calculation.",
 		isViable: true,
 		name: "Dread Wing",
 		pp: 15,
@@ -431,7 +439,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-    shortDesc: "Ignores resistances.",
+      shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "Forest Rage",
 		pp: 5,
@@ -457,7 +465,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Special",
-    shortDesc: "Ignores resistances.",
+      shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "River Wrath",
 		pp: 5,
@@ -479,6 +487,95 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
-	
-// Flare Up, Toxic Snowball
+   // Flare Up, Toxic Snowball
+	flareup: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+      shortDesc: "If User's Attack > Target's, it gains +1 Speed, else target gains -1 Defense.",
+		name: "Flare Up",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Taunt", target);
+		},
+		boosts: {
+			def: -1,
+		},
+		onModifyMove(move, source, target) {
+			if (source.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+				delete move.boosts;
+				move.self = {boosts: {spe: 1}};
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cool",
+	},
+	toxicsnowball: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Snowball",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'toxicsnowball',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baneful Bunker", target);
+		},
+		onTryHit(target, source, move) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.category == 'Special') {
+					this.damage(source.baseMaxhp / 4, source, target);
+					source.trySetStatus('psn', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.category == 'Special') {
+					this.damage(source.baseMaxhp / 4, source, target);
+					source.trySetStatus('psn', target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
 };

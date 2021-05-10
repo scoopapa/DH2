@@ -2,7 +2,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	missingbonei: {
 		name: "Missing Bone I",
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1072) || pokemon.baseSpecies.num === 1072) {
+			if ((source && source.baseSpecies.num === 1073) || pokemon.baseSpecies.num === 1073) {
 				return false;
 			}
 			return true;
@@ -16,7 +16,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	missingboneg: {
 		name: "Missing Bone G",
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1073) || pokemon.baseSpecies.num === 1073) {
+			if ((source && source.baseSpecies.num === 1074) || pokemon.baseSpecies.num === 1074) {
 				return false;
 			}
 			return true;
