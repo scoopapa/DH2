@@ -402,7 +402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1049,
 		name: "Punduluum",
 		types: ["Steel", "Flying"],
-		baseStats: {hp: 78, atk: 48, def: 84, spa: 96, spd: 88, spe: 81 475},
+		baseStats: {hp: 78, atk: 48, def: 84, spa: 96, spd: 88, spe: 81},
 		abilities: {0: "Berserk", 1: "Serene Grace", H: "Pure Power"},
 		weightkg: 20,
 	},
