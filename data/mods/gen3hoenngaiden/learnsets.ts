@@ -1722,7 +1722,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			psychup: ["3L1"],
 			quickattack: ["3L1"],
 			raindance: ["3L1"],
-			rest: ["3L1"],: ["3L1"],
+			rest: ["3L1"],
 			return: ["3L1"],
 			secretpower: ["3L1"],
 			seismictoss: ["3L1"],
