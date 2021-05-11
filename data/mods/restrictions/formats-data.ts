@@ -191,4 +191,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	punduluum: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	wraithful: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	panzarma: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+
 };
