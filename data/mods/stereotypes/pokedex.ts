@@ -112,7 +112,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	//Slate 5: Electric, Ghost, Ice
 	dyaunsoon: {
 		num: 13,
-		name: "Dynaunsoon",
+		name: "Dyaunsoon",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 67, def: 80, spa: 100, spd: 70, spe: 130},
 		abilities: {0: "Motor Drive", H: "Intimidate"},
