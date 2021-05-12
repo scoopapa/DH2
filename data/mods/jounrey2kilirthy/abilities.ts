@@ -4337,7 +4337,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 161,
 	},
-	onlympicachievement: {
+	olympicachievement: {
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
@@ -4419,6 +4419,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	iceshell: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Ice Shell weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
 				this.debug('Ice Shell weaken');
 				return this.chainModify(0.5);
