@@ -19617,7 +19617,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1},
 		secondary: {
 			chance: 20,
-			onHit(target) {
+			boosts: {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
@@ -19627,7 +19627,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({bestStat: -1}, target, pokemon, null, true);
+				this.boosts({bestStat: -1}, target, pokemon, null, true);
 			}
 		},
 		target: "normal",
