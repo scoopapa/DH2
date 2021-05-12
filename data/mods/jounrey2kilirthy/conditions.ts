@@ -722,9 +722,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			else if (target.type === 'Rock' || target.type === 'Ground' || target.type === 'Ghost') {
 			this.damage(target.baseMaxhp / 32);
 			}
-		},
-		onImmunity(type, target) {
-			if (target.type === 'Poison' || target.type === 'Steel') return;
+			else (target.type === 'Poison' || target.type === 'Steel') {
+			this.damage(target.baseMaxhp / 0);
+			}
 		},
 			/*this.damage(target.baseMaxhp / 16);
 			const(target.runEffectiveness('Poison'));*/
