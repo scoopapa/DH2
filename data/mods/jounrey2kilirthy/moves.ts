@@ -19623,7 +19623,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 						}
 					}
 					this.boost({bestStat: -1}, target, pokemon, null, true);
-					let s: StatNameExceptHP;
 				}
 			}
 		},
