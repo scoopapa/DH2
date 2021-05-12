@@ -19630,21 +19630,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			onHit(target) {
-				if (target.getStat('spe') > target.getStat('atk', 'def', 'spa', 'spd')) {
+				if (target.getStat('atk') > target.getStat('def', 'spa', 'spd', 'spe')) {
+					this.boost({atk: -1}, target);
+				} else if (target.getStat('def') > target.getStat('atk', 'spa', 'spd', 'spe')) {
+					this.boost({def: -1}, target);
+				} else if (target.getStat('spa') > target.getStat('atk', 'def', 'spd', 'spe')) {
+					this.boost({spa: -1}, target);
+				} else if (target.getStat('spd') > target.getStat('atk', 'def', 'spa', 'spe')) {
+					this.boost({spd: -1}, target);
+				} else (target.getStat('spe') > target.getStat('atk', 'def', 'spa', 'spd')) {
 					this.boost({spe: -1}, target);
 				}
-				else if (target.getStat('spd') > target.getStat('atk', 'def', 'spa', 'spe')) {
-					this.boost({spd: -1}, target);
-				}
-				else if (target.getStat('spa') > target.getStat('atk', 'def', 'spd', 'spe')) {
-					this.boost({spa: -1}, target);
-				}
-				else if (target.getStat('def') > target.getStat('atk', 'spa', 'spd', 'spe')) {
-					this.boost({def: -1}, target);
-				}
-				else if (target.getStat('atk') > target.getStat('def', 'spa', 'spd', 'spe')) {
-					this.boost({atk: -1}, target);
-				}	
 			}
 		},
 			/*onHit(target, source, effect) {
