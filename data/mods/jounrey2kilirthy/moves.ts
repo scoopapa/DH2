@@ -19618,18 +19618,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 20,
 			onHit(target) {
-				if (effect && effect.effectType === 'Move') {
-					let statName = 'atk';
-					let bestStat = 0;
-					let s: StatNameExceptHP;
-					for (s in source.storedStats) {
-						if (source.storedStats[s] > bestStat) {
-							statName = s;
-							bestStat = source.storedStats[s];
-						}
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
 					}
-					this.boost({bestStat: -1}, target, pokemon, null, true);
 				}
+				this.boost({bestStat: -1}, target, pokemon, null, true);
 			}
 		},
 		target: "normal",
