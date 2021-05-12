@@ -730,8 +730,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
-		},
-		onImmunity(type, pokemon) {
 			if (type === 'Poison' || type === 'Steel' ) return false;
 		},
 		onStart: function (battle, source, effect) {
