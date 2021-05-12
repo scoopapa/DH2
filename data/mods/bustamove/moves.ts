@@ -37,12 +37,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onAfterMoveSecondarySelf(pokemon, target, move) {
-				if (target?.statsRaisedThisTurn) this.boost({spa: 1}, pokemon, pokemon, move);
-			},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (target?.statsRaisedThisTurn) this.boost({spa: 1}, pokemon, pokemon, move);
 		},
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
