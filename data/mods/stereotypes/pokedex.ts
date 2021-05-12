@@ -151,7 +151,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Resonake",
 		types: ["Normal"],
 		baseStats: {hp: 84, atk: 70, def: 119, spa: 76, spd: 113, spe: 67},
-		abilities: {0: "Soundproof", H: "Sheer Force"},
+		abilities: {0: "Soundproof", 1: "Gluttony", H: "Sheer Force"},
 		weightkg: 7,
 	},
 	clavelye: {
