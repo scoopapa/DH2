@@ -79215,7 +79215,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlpool: ["8L1"],
 		},
 	},
-	tortural: {
+	tortutal: {
 		learnset: {
 			attract: ["8L1"],
 			bite: ["8L1"],

@@ -4337,7 +4337,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 161,
 	},
-	onlympticachievement: {
+	onlympicachievement: {
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
@@ -4347,7 +4347,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.boost({atk: 2});
 			}
 		},
-		name: "Olymptic Achievement",
+		name: "Olympic Achievement",
 		rating: 2,
 		num: 268,
 	},
@@ -4392,7 +4392,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyMove(move) {
 			if (move.flags['contact']) {
-				return this.addRecoil [1, 5];
+				this.recoil [1, 5];
 			}
 		},
 		name: "Massive Charge",

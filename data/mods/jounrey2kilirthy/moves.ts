@@ -19637,7 +19637,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Fiery Pass",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
