@@ -724,7 +724,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			else if (target.type === 'Poison' || target.type === 'Steel') return;
 			/*this.damage(target.baseMaxhp / 0);*/
-			}
 		},
 			/*this.damage(target.baseMaxhp / 16);
 			const(target.runEffectiveness('Poison'));*/
