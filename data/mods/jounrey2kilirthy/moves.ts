@@ -19636,13 +19636,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				else if (target.getStat('def') > target.getStat('atk', 'spa', 'spd', 'spe')) {
 					this.boost({def: -1}, target);
 				}
-				else if (target.getStat('spa') > target.getStat('def', 'atk', 'spd', 'spe')) {
+				else if (target.getStat('spa') > target.getStat('atk', 'def', 'spd', 'spe')) {
 					this.boost({spa: -1}, target);
 				}
-				else if (target.getStat('spd') > target.getStat('def', 'spa', 'atk', 'spe')) {
+				else if (target.getStat('spd') > target.getStat('atk', 'def', 'spa', 'spe')) {
 					this.boost({spd: -1}, target);
 				}
-				else if (target.getStat('spe') > target.getStat('def', 'spa', 'spd', 'atk')) {
+				else if (target.getStat('spe') > target.getStat('atk', 'def', 'spa', 'spd')) {
 					this.boost({spe: -1}, target);
 				}
 			}
