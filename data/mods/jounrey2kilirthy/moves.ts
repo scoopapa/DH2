@@ -19629,7 +19629,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			onHit(target, source, effect) {
+			onHit(target) {
+				if (target.atk > 'def' && 'spa' && 'spd' && 'spe') {
+					this.boost({atk: -1};
+				}
+				else if (target.def > 'atk' && 'spa' && 'spd' && 'spe') {
+					this.boost({def: -1};
+				}
+				else if (target.spa > 'atk' && 'def' && 'spd' && 'spe') {
+					this.boost({spa: -1};
+				}
+				else if (target.spd > 'atk' && 'def' && 'spa' && 'spe') {
+					this.boost({spd: -1};
+				}
+				else if (target.spe > 'atk' && 'def' && 'spa' && 'spd') {
+					this.boost({spe: -1};
+				}
+			}
+		},
+			/*onHit(target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
 				let bestStat = 0;
@@ -19643,7 +19661,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({s: -1}, target);
 			}
 			}
-		},
+		},*/
 		target: "normal",
 		type: "Steel",
 	},
