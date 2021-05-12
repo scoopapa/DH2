@@ -19586,6 +19586,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Heal Bell", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -19602,6 +19606,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Fighting', type);
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "High Horsepower", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dark",
@@ -19615,6 +19623,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Meteor Mash", target);
+		},
 		secondary: {
 			chance: 20,
 			boosts: {
@@ -19642,6 +19654,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Freezing Glare", target);
+		},
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -19659,6 +19675,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		selfSwitch: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -19673,6 +19693,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {},
 		weather: 'Acid Rain',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rain Dance", target);
+		},
 		secondary: null,
 		target: "all",
 		type: "Poison",
@@ -19687,6 +19711,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {},
 		weather: 'Fog',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
 		secondary: null,
 		target: "all",
 		type: "Ghost",
