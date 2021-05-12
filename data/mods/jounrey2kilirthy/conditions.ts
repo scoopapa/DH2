@@ -734,7 +734,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'Poison' || type === 'Steel' ) return false;
 		},
-		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
