@@ -39,9 +39,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
-			onHit(target, source, move, pokemon) {
+			onHit(target, source, move, self) {
 				if (target?.statsRaisedThisTurn) {
-					this.boost({spa: 1}, pokemon);
+					this.boost({spa: 1}, self);
 				}
 			},
 		},
