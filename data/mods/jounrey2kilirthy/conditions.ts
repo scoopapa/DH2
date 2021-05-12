@@ -722,8 +722,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			else if (target.type === 'Rock' || target.type === 'Ground' || target.type === 'Ghost') {
 			this.damage(target.baseMaxhp / 32);
 			}
-			else (target.type === 'Poison' || target.type === 'Steel') {
-			this.damage(target.baseMaxhp / 0);
+			else if (target.type === 'Poison' || target.type === 'Steel') return;
+			/*this.damage(target.baseMaxhp / 0);*/
 			}
 		},
 			/*this.damage(target.baseMaxhp / 16);
