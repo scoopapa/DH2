@@ -709,6 +709,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Poison') && this.field.isWeather('acidrain')) {
+				return this.modify(def, 1.5);
+			}
+		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
@@ -724,15 +730,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
-			if (target.type === 'Water' || target.type === 'Grass' || target.type === 'Fairy') {
-			this.damage(target.baseMaxhp / 8);
-			}
-			else if (target.type === 'Rock' || target.type === 'Ground' || target.type === 'Ghost') {
-			this.damage(target.baseMaxhp / 32);
-			}
 		},
-			/*this.damage(target.baseMaxhp / 16);
-			const(target.runEffectiveness('Poison'));*/
 		onImmunity(type, target) {
 			if (target.type === "Poison" || target.type === "Steel") return;
 		},
