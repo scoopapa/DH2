@@ -19562,12 +19562,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	bellofpeace: {
 		num: 827,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 0,
 		category: "Physical",
 		name: "Bell of Peace",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		heal: [1, 4],
 		onHit(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
@@ -19578,7 +19579,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.effectData.startTime = this.random(2, 5);
 			this.effectData.time = this.effectData.startTime;
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 		},
 		secondary: null,
 		target: "normal",
@@ -19609,13 +19609,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		onHit(target) {
-			if (this.randomChance(2, 10)) {
-				this.boost({bestStat: -1}, target, pokemon, null, true);
-				let s: StatNameExceptHP;
+		secondary: {
+			chance: 20,
+			onHit(target) {
+				if (effect && effect.effectType === 'Move') {
+					let statName = 'atk';
+					let bestStat = 0;
+					let s: StatNameExceptHP;
+					for (s in source.storedStats) {
+						if (source.storedStats[s] > bestStat) {
+							statName = s;
+							bestStat = source.storedStats[s];
+						}
+					}
+					this.boost({bestStat: -1}, target, pokemon, null, true);
+					let s: StatNameExceptHP;
+				}
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Steel",
 	},
