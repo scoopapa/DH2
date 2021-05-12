@@ -4474,9 +4474,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 277,
 	},
 	hunter: {
-		onPrepareHit(source, target, move, boost) {
-			if (move && target.getMoveHitData(move).typeMod < 0) {
-			this.boost({spe: 2});
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
+				this.boost({spe: 2}, source);
 			}
 		},
 		name: "Hunter",
