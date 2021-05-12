@@ -4419,16 +4419,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	iceshell: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire') {
+			if (move.type === 'Fire') {
 				this.debug('Ice Shell weaken');
 				return this.chainModify(0.5);
 			}
 		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Water') {
-				this.debug('Ice Shell immune');
-				return this.chainModify(0);
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.add('-immune', target, '[from] ability: Ice Shell');
+				return null;
 			}
 		},
 		name: "Ice Shell",
@@ -4467,7 +4466,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 277,
 	},
 	hunter: {
-		nPrepareHit(source, target, move) {
+		onPrepareHit(source, target, move, boost) {
 			if (move && target.getMoveHitData(move).typeMod < 0) {
 			this.boost({spe: 2});
 			}
