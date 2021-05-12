@@ -715,6 +715,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
 		onWeather(pokemon) {
+			if (defender.hasItem('utilityumbrella')) return;
 			poisonRain.type = 'Poison';
 			const typeMod = this.clampIntRange(pokemon.runEffectiveness(poisonRain), -6, 6);
 			this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
