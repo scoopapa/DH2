@@ -728,9 +728,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
-		onWeather(target, pokemon) {
+		onWeather(target, pokemon, type) {
 			this.damage(target.baseMaxhp / 16);
-			if (pokemon.type === 'Poison' || pokemon.type === 'Steel') return false;
+			if (pokemon.type === 'Poison', 'Steel') return false;
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
