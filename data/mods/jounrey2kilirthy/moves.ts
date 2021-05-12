@@ -19628,7 +19628,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Meteor Mash", target);
 		},
 		secondary: {
-			chance: 20,
+			chance: 100,
 			onHit(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
@@ -19640,7 +19640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName: -1]: length}, source);
+				this.boost({statName: -1: length}, source);
 			}
 			}
 		},
