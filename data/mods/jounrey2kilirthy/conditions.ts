@@ -716,15 +716,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
-			if (target.type === "Water" || type === "Grass" || type === "Fairy") {
+			if (target.type === "Water" || target.type === "Grass" || target.type === "Fairy") {
 			this.damage(target.baseMaxhp / 8);
 			}
-			else if (target.type === "Rock" || type === "Ground" || type === "Ghost") {
+			else if (target.type === "Rock" || target.type === "Ground" || target.type === "Ghost") {
 			this.damage(target.baseMaxhp / 32);
 			}
 		},
 		onImmunity(type, target) {
-			if (target.type === "Poison" || type === "Steel") return;
+			if (target.type === "Poison" || target.type === "Steel") return;
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
