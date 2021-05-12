@@ -1072,7 +1072,7 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Dyaunsoon', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
+			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
 		],
 	},
 	{  

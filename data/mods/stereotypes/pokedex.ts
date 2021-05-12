@@ -110,9 +110,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 160,
 	},
 	//Slate 5: Electric, Ghost, Ice
-	dyaunsoon: {
+	storvark: {
 		num: 13,
-		name: "Dyaunsoon",
+		name: "Storvark",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 67, def: 80, spa: 100, spd: 70, spe: 130},
 		abilities: {0: "Motor Drive", H: "Intimidate"},

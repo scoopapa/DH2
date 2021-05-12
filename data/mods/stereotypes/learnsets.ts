@@ -746,7 +746,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 	//Slate 5: Electric, Ghost, Ice
-	dyaunsoon : {
+	storvark : {
 		learnset: {
 			agility: ["8L1"],
 			attract: ["8L1"],
