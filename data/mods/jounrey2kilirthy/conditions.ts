@@ -730,7 +730,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
-			if (type === 'Poison' || type === 'Steel' ) return false;
+			if (targe.type === 'Poison' || target.type === 'Steel' ) return false;
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
