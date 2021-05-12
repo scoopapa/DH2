@@ -679,12 +679,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onSourceModifyAccuracyPriority: 7,
-		onSourceModifyAccuracy(accuracy, target, source, move) {
-			if (move.category === 'Contact' && typeof accuracy === 'number') {
-				return accuracy * 0.8;
-			}
-		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;

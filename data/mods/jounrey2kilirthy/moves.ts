@@ -19568,7 +19568,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		/*onHit(target, source, sourceEffect) {
+		onHit(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
@@ -19578,13 +19578,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.effectData.startTime = this.random(2, 5);
 			this.effectData.time = this.effectData.startTime;
-			success = !!this.heal(Math.ceil(self.baseMaxhp * 0.25));
-		},*/
-		onHit(target, source, move) {
-			if (!target.setStatus('slp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
-			this.heal(self.baseMaxhp * 0.25);
+		},
+		self: {
+			onHit(target, source, move) {
+				for (const pokemon of source.side.active) {
+					this.heal(pokemon.maxhp / 4, pokemon, source, move);
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",

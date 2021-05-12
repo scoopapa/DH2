@@ -4390,9 +4390,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		calcRecoilDamage(damageDealt, move) {
-			return this.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
-			/*return this.clampIntRange(Math.round(1, 5);*/
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+				this.heal(pokemon.lastDamage / 5, pokemon);
+			}
 		},
 		name: "Massive Charge",
 		rating: 3,
