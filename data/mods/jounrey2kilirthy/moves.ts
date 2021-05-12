@@ -19630,19 +19630,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			onHit(target) {
-				if (target.atk > 'def' && 'spa' && 'spd' && 'spe') {
+				if (target.getStat('atk') > target.getStat('def', 'spa', 'spd', 'spe')) {
 					this.boost({atk: -1};
 				}
-				else if (target.def > 'atk' && 'spa' && 'spd' && 'spe') {
+				else if (target.getStat('def') > target.getStat('atk', 'spa', 'spd', 'spe')) {
 					this.boost({def: -1};
 				}
-				else if (target.spa > 'atk' && 'def' && 'spd' && 'spe') {
+				else if (target.getStat('spa') > target.getStat('def', 'atk', 'spd', 'spe')) {
 					this.boost({spa: -1};
 				}
-				else if (target.spd > 'atk' && 'def' && 'spa' && 'spe') {
+				else if (target.getStat('spd') > target.getStat('def', 'spa', 'atk', 'spe')) {
 					this.boost({spd: -1};
 				}
-				else if (target.spe > 'atk' && 'def' && 'spa' && 'spd') {
+				else if (target.getStat('spe') > target.getStat('def', 'spa', 'spd', 'atk')) {
 					this.boost({spe: -1};
 				}
 			}
