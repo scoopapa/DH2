@@ -39,10 +39,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
-			onHit(attacker, target, source, move) {
-				if (target?.statsRaisedThisTurn) {
-					this.boost({spa: 1}, attacker);
-				}
+			onHit(pokemon, target, move) {
+				if (target?.statsRaisedThisTurn) this.boost({spa: 1}, pokemon, pokemon, move);
 			},
 		},
 		target: "allAdjacentFoes",
