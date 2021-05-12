@@ -1774,9 +1774,9 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU", 	
 	},
 	{
-		name: "[Gen 8] Jounrey to Kilirthy",
+		name: "[Gen 8] Journey to Kilirthy",
 		desc: 'A solomod, where Fakemons are added as if it was a new game.',
-		mod: 'jounrey2kilirthy',
+		mod: 'journey2kilirthy',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
@@ -1788,9 +1788,9 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] Jounrey to Kilirthy Ubers",
+		name: "[Gen 8] Journey to Kilirthy Ubers",
 		desc: 'A solomod, where Fakemons are added as if it was a new game.',
-		mod: 'jounrey2kilirthy',
+		mod: 'journey2kilirthy',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Rayquaza-Mega', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass',
