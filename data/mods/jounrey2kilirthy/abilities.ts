@@ -4391,8 +4391,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		calcRecoilDamage(damageDealt, move) {
-			/*return this.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);*/
-			return this.clampIntRange(Math.round(1, 5);
+			return this.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
+			/*return this.clampIntRange(Math.round(1, 5);*/
 		},
 		name: "Massive Charge",
 		rating: 3,
