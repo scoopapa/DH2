@@ -420,7 +420,6 @@ export const TypeChart: {[k: string]: TypeData} = {
 	},
 	Water: {
 		damageTaken: {
-			acidrain: 1,
 			Bug: 0,
 			Dark: 0,
 			Dragon: 0,
