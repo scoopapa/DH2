@@ -32,16 +32,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Lowers the target's Sp. Atk. by 1 when it had a stat rise this turn.",
+		shortDesc: "Raises user's Sp. Atk. by 1 when target had a stat rise this turn.",
 		name: "Burning Jealousy",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
-			onAfterMoveSecondarySelf(target, pokemon, move) {
-				if (target?.statsRaisedThisTurn) {
-					this.boost({spa: 1}, pokemon);
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (target?.statsRaisedThisTurn) this.boost({spa: 1}, pokemon, pokemon, move);
 				}
 			},
 		},
