@@ -714,17 +714,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
-		onWeather(type, pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
-			if (pokemon.type === "Water" || type === "Grass" || type === "Fairy") {
-			this.damage(pokemon.baseMaxhp / 8);
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 16);
+			if (target.type === "Water" || type === "Grass" || type === "Fairy") {
+			this.damage(target.baseMaxhp / 8);
 			}
-			else if (pokemon.type === "Rock" || type === "Ground" || type === "Ghost") {
-			this.damage(pokemon.baseMaxhp / 32);
+			else if (target.type === "Rock" || type === "Ground" || type === "Ghost") {
+			this.damage(target.baseMaxhp / 32);
 			}
 		},
-		onImmunity(type, pokemon) {
-			if (pokemon.type === "Poison" || type === "Steel") return;
+		onImmunity(type, target) {
+			if (target.type === "Poison" || type === "Steel") return;
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
