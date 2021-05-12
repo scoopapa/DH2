@@ -728,10 +728,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
-		onWeather(target) {
+		onWeather(target, type) {
 			this.damage(target.baseMaxhp / 16);
-		},
-		onImmunity(type) {
 			if (type === 'Poison' || type === 'Steel' ) return false;
 		},
 		onStart: function (battle, source, effect) {
