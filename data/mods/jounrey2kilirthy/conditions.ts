@@ -725,7 +725,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onImmunity(type, target) {
 			if (target.type === 'Poison' || target.type === 'Steel') return;
-		}
+		},
 			/*this.damage(target.baseMaxhp / 16);
 			const(target.runEffectiveness('Poison'));*/
 			/*this.damage(target.baseMaxhp / 16);
@@ -739,7 +739,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onImmunity(type, target) {
 			if (target.type === "Poison" || target.type === "Steel") return;
 		},*/
-		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
