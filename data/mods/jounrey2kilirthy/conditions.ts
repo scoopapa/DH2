@@ -714,7 +714,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
-		onWeather(target) {
+		onWeather(pokemon) {
 			poisonRain.type = 'Poison';
 			const typeMod = this.clampIntRange(pokemon.runEffectiveness(poisonRain), -6, 6);
 			this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
@@ -729,6 +729,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onImmunity(type, target) {
 			if (target.type === "Poison" || target.type === "Steel") return;
 		},*/
+		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
