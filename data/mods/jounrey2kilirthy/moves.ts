@@ -19606,7 +19606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	strategicchoice: {
+	/*strategicchoice: {
 		num: 829,
 		accuracy: 100,
 		basePower: 95,
@@ -19632,7 +19632,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Steel",
-	},
+	},*/
 	coldterror: {
 		num: 830,
 		accuracy: 100,
