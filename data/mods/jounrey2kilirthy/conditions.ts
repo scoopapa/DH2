@@ -716,7 +716,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onWeather(pokemon) {
 			this.damage(pokemon.baseMaxhp / 16);
-			const typeMod = this(pokemon.runEffectiveness('Poison'));
+			const(pokemon.runEffectiveness('Poison'));
 			/*this.damage(target.baseMaxhp / 16);
 			if (target.type === "Water" || target.type === "Grass" || target.type === "Fairy") {
 			this.damage(target.baseMaxhp / 8);
