@@ -4393,7 +4393,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.lastDamage / 5, pokemon);
+				this.damage(pokemon.lastDamage / 5, pokemon);
 			}
 		},
 		name: "Massive Charge",
