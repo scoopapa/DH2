@@ -714,9 +714,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
 			if (this.field.isWeather('acidrain')) this.eachEvent('Weather');
 		},
-		onWeather(pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
-			const(pokemon.runEffectiveness('Poison'));
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 16);
+			if (target.type === 'Water' || target.type === 'Grass' || target.type === 'Fairy') {
+			this.damage(target.baseMaxhp / 8);
+			}
+			else if (target.type === 'Rock' || target.type === 'Ground' || target.type === 'Ghost') {
+			this.damage(target.baseMaxhp / 32);
+			}
+		},
+		onImmunity(type, target) {
+			if (target.type === 'Poison' || target.type === 'Steel') return;
+		}
+			/*this.damage(target.baseMaxhp / 16);
+			const(target.runEffectiveness('Poison'));*/
 			/*this.damage(target.baseMaxhp / 16);
 			if (target.type === "Water" || target.type === "Grass" || target.type === "Fairy") {
 			this.damage(target.baseMaxhp / 8);
