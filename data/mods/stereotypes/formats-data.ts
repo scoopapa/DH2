@@ -65,4 +65,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 6: Bug, Normal, Poison
+	magroach: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	resonake: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	clavelye: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
