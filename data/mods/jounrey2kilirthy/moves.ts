@@ -19614,7 +19614,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	/*strategicchoice: {
+	strategicchoice: {
 		num: 829,
 		accuracy: 100,
 		basePower: 95,
@@ -19629,7 +19629,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 20,
-			boosts: {
+			onHit(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
@@ -19639,12 +19640,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boosts({bestStat: -1}, target, pokemon, null, true);
+				this.boost({[statName: -1]: length}, source);
+			}
 			}
 		},
 		target: "normal",
 		type: "Steel",
-	},*/
+	},
 	coldterror: {
 		num: 830,
 		accuracy: 100,
