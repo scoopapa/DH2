@@ -19640,7 +19640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({statName: -1}, target);
+				this.boost({statStat: -1}, target);
 			}
 			}
 		},
