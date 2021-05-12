@@ -19638,7 +19638,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.boost({spa: -1}, target);
 				} else if (target.getStat('spd') > target.getStat('atk', 'def', 'spa', 'spe')) {
 					this.boost({spd: -1}, target);
-				} else (target.getStat('spe') > target.getStat('atk', 'def', 'spa', 'spd')) {
+				} else if (target.getStat('spe') > target.getStat('atk', 'def', 'spa', 'spd')) {
 					this.boost({spe: -1}, target);
 				}
 			}
