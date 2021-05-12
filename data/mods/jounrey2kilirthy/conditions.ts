@@ -709,6 +709,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Acid Rain');
+			}
+		},
 		onResidualOrder: 1,
 		onResidual() {
 			this.add('-weather', 'Acid Rain', '[upkeep]');
@@ -722,22 +730,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			else if (target.type === 'Rock' || target.type === 'Ground' || target.type === 'Ghost') {
 			this.damage(target.baseMaxhp / 32);
 			}
-			else if (target.type === 'Poison' || target.type === 'Steel') return;
-			/*this.damage(target.baseMaxhp / 0);*/
 		},
 			/*this.damage(target.baseMaxhp / 16);
 			const(target.runEffectiveness('Poison'));*/
-			/*this.damage(target.baseMaxhp / 16);
-			if (target.type === "Water" || target.type === "Grass" || target.type === "Fairy") {
-			this.damage(target.baseMaxhp / 8);
-			}
-			else if (target.type === "Rock" || target.type === "Ground" || target.type === "Ghost") {
-			this.damage(target.baseMaxhp / 32);
-			}
-		},
 		onImmunity(type, target) {
 			if (target.type === "Poison" || target.type === "Steel") return;
-		},*/
+		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
