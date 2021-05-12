@@ -19629,7 +19629,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			onHit(length, target, source, effect) {
+			onHit(target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
 				let bestStat = 0;
@@ -19640,7 +19640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({statName: -1: length}, source);
+				this.boost({statName: -1}, target);
 			}
 			}
 		},
