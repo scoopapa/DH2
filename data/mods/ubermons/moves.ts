@@ -48,7 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			onHit(target, source) {
+			onHit(source) {
 				if (source && source.hasItem('burndrive'))
 				boosts: {
 					atk: -1,
