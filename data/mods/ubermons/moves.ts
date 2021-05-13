@@ -41,7 +41,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.ignoringItem()) return;
 			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
 		},
-		onHit(target, pokemon, move) {
+		onModifyMove(target, pokemon, move) {
 			if (pokemon.hasItem('burndrive'))
 			move.secondaries.push({
 					chance: 30,
