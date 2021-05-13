@@ -39,26 +39,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onTryHit(target, pokemon) {
 			let move = 'technoblast';
-			if (this.pokemon.hasItem('burndrive')) {
+			if (pokemon.hasItem('burndrive')) {
 				move = 'technoblastburn';
-			} else if (this.pokemon.hasItem('chilldrive')) {
+			} else if (pokemon.hasItem('chilldrive')) {
 				move = 'technoblastchill';
-			} else if (this.pokemon.hasItem('dousedrive')) {
+			} else if (pokemon.hasItem('dousedrive')) {
 				move = 'technoblastdouse';
-			} else if (this.pokemon.hasItem('shockdrive')) {
+			} else if (pokemon.hasItem('shockdrive')) {
 				move = 'technoblastshock';
 			}
 			this.useMove(move, pokemon, target);
 			return null;
-		},
-		onModifyType(move, pokemon) {
-			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
-		},
-		onBasePower(basePower, pokemon, item) {
-			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
-				return this.chainModify(1.5);
 		},
 		secondary: null,
 		target: "normal",
@@ -78,6 +69,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			atk: -1,
 		},
 		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		target: "normal",
 		type: "Fire",
 	},
@@ -94,6 +89,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			spa: -1,
 		},
 		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		target: "normal",
 		type: "Ice",
 	},
@@ -110,6 +109,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			spd: -1,
 		},
 		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		target: "normal",
 		type: "Water",
 	},
@@ -126,6 +129,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			spe: -1,
 		},
 		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		target: "normal",
 		type: "Electric",
 	},
