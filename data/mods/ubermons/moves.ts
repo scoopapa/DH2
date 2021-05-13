@@ -49,21 +49,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 						atk: -1,
 				}
 			}
-			if (pokemon.hasItem('chilldrive'))
+			else if (pokemon.hasItem('chilldrive'))
 			move.secondaries.push({
 					chance: 30,
 					boosts: {
 						spa: -1,
 				}
 			}
-			if (pokemon.hasItem('dousedrive'))
+			else if (pokemon.hasItem('dousedrive'))
 			move.secondaries.push({
 					chance: 30,
 					boosts: {
 						spd: -1,
 				}
 			}
-			if (pokemon.hasItem('shockdrive'))
+			else if (pokemon.hasItem('shockdrive'))
 			move.secondaries.push({
 					chance: 30,
 					boosts: {
