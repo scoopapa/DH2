@@ -1164,7 +1164,7 @@ export const Formats: FormatList = [
          `&bullet; <a href="https://www.smogon.com/forums/threads/viabilities-slate-2-ability-submissions-stage.3664169/">ViAbilities</a>`,
      ],
  
-    
+     mod: 'viabilities',
      ruleset: ['Standard', 'Dynamax Clause']
 
 	},
