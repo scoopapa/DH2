@@ -49,22 +49,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 30,
 			onHit(source) {
-				if (source && source.hasItem('burndrive'))
-				boosts: {
-					atk: -1,
-				},
-				else if (source && source.hasItem('chilldrive'))
-				boosts: {
-					spa: -1,
-				},
-				else if (source && source.hasItem('dousedrive'))
-				boosts: {
-					spd: -1,
-				},
-				else if (source && source.hasItem('shockdrive'))
-				boosts: {
-					spe: -1,
-				},
+				if (source && source.hasItem('burndrive')) {
+					this.boost: {atk: -1},
+			} else if (source && source.hasItem('chilldrive')) {
+				this.boost: {spa: -1},
+			} else if (source && source.hasItem('dousedrive')) {
+				this.boost: {spd: -1},
+			} else if (source && source.hasItem('shockdrive')) {
+				this.boost: {spe: -1},
+			},
 			},
 		},
 		target: "normal",
