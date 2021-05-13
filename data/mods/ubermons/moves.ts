@@ -37,15 +37,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
-		},
-		onBasePower(basePower, pokemon, item) {
-			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
-				return this.chainModify(1.5);
-		},
 		onTryHit(target, pokemon) {
 			let move = 'technoblast';
 			if (this.pokemon.hasItem('burndrive')) {
@@ -59,6 +50,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.useMove(move, pokemon, target);
 			return null;
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		onBasePower(basePower, pokemon, item) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+				return this.chainModify(1.5);
 		},
 		secondary: null,
 		target: "normal",
