@@ -41,45 +41,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.ignoringItem()) return;
 			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
 		},
-		onModifyMove(target, pokemon, move) {
-			if (pokemon.hasItem('burndrive'))
-			move.secondaries.push({
-					chance: 30,
-					boosts: {
-						atk: -1,
-				}
-			}
-			else if (pokemon.hasItem('chilldrive'))
-			move.secondaries.push({
-					chance: 30,
-					boosts: {
-						spa: -1,
-				}
-			}
-			else if (pokemon.hasItem('dousedrive'))
-			move.secondaries.push({
-					chance: 30,
-					boosts: {
-						spd: -1,
-				}
-			}
-			else if (pokemon.hasItem('shockdrive'))
-			move.secondaries.push({
-					chance: 30,
-					boosts: {
-						spe: -1,
-				}
-			}
-		},
 		onBasePower(basePower, pokemon, item) {
 			if (pokemon.ignoringItem()) return;
 			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
 				return this.chainModify(1.5);
+		},
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				if (source && source.hasItem('burndrive'))
+				boosts: {
+					atk: -1,
+				}
+				else if (source && source.hasItem('chilldrive'))
+				boosts: {
+					spa: -1,
+				}
+				else if (source && source.hasItem('dousedrive'))
+				boosts: {
+					spd: -1,
+				}
+				else if (source && source.hasItem('shockdrive'))
+				boosts: {
+					spe: -1,
+				}
 			}
 		},
-		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Steel",
 		contestType: "Cool",
 	},
 };
