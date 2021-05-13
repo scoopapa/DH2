@@ -28,7 +28,7 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 
 
 export const Moves: {[moveid: string]: MoveData} = {
-	/*technoblast: {
+	technoblast: {
 		num: 546,
 		accuracy: 100,
 		basePower: 120,
@@ -52,23 +52,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (source && source.hasItem('burndrive'))
 				boosts: {
 					atk: -1,
-				}
+				},
 				else if (source && source.hasItem('chilldrive'))
 				boosts: {
 					spa: -1,
-				}
+				},
 				else if (source && source.hasItem('dousedrive'))
 				boosts: {
 					spd: -1,
-				}
+				},
 				else if (source && source.hasItem('shockdrive'))
 				boosts: {
 					spe: -1,
-				}
-			}
+				},
+			},
 		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-	},*/
+	},
 };
