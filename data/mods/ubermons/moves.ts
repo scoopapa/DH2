@@ -31,7 +31,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	technoblast: {
 		num: 546,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 100,
 		category: "Special",
 		name: "Techno Blast",
 		pp: 5,
@@ -46,22 +46,87 @@ export const Moves: {[moveid: string]: MoveData} = {
 			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
 				return this.chainModify(1.5);
 		},
-		secondary: {
-			chance: 30,
-			onHit(source) {
-				if (source && source.hasItem('burndrive')) {
-					this.boost: {atk: -1};
-			} else if (source && source.hasItem('chilldrive')) {
-				this.boost: {spa: -1};
-			} else if (source && source.hasItem('dousedrive')) {
-				this.boost: {spd: -1};
-			} else if (source && source.hasItem('shockdrive')) {
-				this.boost: {spe: -1};
-			},
-			},
+		onTryHit(target, pokemon) {
+			let move = 'technoblast';
+			if (this.pokemon.hasItem('burndrive')) {
+				move = 'technoblastburn';
+			} else if (this.pokemon.hasItem('chilldrive')) {
+				move = 'technoblastchill';
+			} else if (this.pokemon.hasItem('dousedrive')) {
+				move = 'technoblastdouse';
+			} else if (this.pokemon.hasItem('shockdrive')) {
+				move = 'technoblastshock';
+			}
+			this.useMove(move, pokemon, target);
+			return null;
 		},
+		secondary: null,
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+	},
+	technoblastburn: {
+		num: 546,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		boosts: {
+			atk: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	technoblastchill: {
+		num: 546,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		boosts: {
+			spa: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	technoblastdouse: {
+		num: 546,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		boosts: {
+			spd: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	technoblastshock: {
+		num: 546,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		boosts: {
+			spe: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
 	},
 };
