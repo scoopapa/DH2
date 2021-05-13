@@ -3,7 +3,6 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	shaymin: {
 		learnset: {
-		learnset: {
 			aircutter: ["4T"],
 			airslash: ["7L64", "6L64", "6S3", "5L64", "4L64"],
 			aromatherapy: ["7L64", "6L64", "6S4", "5L64", "4L64", "4S0"],
@@ -66,6 +65,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M", "5M", "4M"],
 			worryseed: ["7T", "7L55", "6T", "6L55", "5T", "5L55", "4T", "4L55"],
 			zenheadbutt: ["7T", "6T", "5T", "4T"],
+			knockoff: ["8L1"],
+			taunt: ["8L1"],
 		},
 		eventData: [
 			{generation: 4, level: 50, moves: ["seedflare", "aromatherapy", "substitute", "energyball"], pokeball: "cherishball"},
@@ -82,6 +83,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	landorus: {
 		learnset: {
+			airslash: ["8L1"],
 			attract: ["8M", "7M", "6M", "5M"],
 			block: ["8L10", "7T", "7L1", "6T", "6L1", "5T", "5L1", "5S1"],
 			bodyslam: ["8M"],
@@ -167,7 +169,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			allyswitch: ["8M", "7T"],
 			assurance: ["8M"],
 			blazekick: ["8M", "5S2"],
-			blizzard: ["8M", "7M", "6M", "5M"],
 			bugbite: ["7T", "6T", "5T"],
 			bugbuzz: ["8M", "8L56", "7L55", "6L55", "5L55"],
 			chargebeam: ["7M", "6M", "5M"],
@@ -236,8 +237,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swift: ["8M"],
 			technoblast: ["8L84", "8S4", "7L1", "6L1", "6S3", "5L1", "5S0", "5S1", "5S2"],
 			telekinesis: ["7T"],
-			thunder: ["8M", "7M", "6M", "5M"],
-			thunderbolt: ["8M", "7M", "6M", "5M"],
 			thunderwave: ["8M", "7M", "6M", "5M"],
 			toxic: ["7M", "6M", "5M"],
 			triattack: ["8M", "7L44", "6L44", "5L44"],
