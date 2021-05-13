@@ -28,7 +28,7 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 
 
 export const Moves: {[moveid: string]: MoveData} = {
-	technoblast: {
+	/*technoblast: {
 		num: 546,
 		accuracy: 100,
 		basePower: 120,
@@ -70,5 +70,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-	},
+	},*/
 };
