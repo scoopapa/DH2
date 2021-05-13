@@ -1147,7 +1147,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Ubermons",
-		mod: 'gen8',
+		mod: 'ubermons',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
@@ -1164,7 +1164,7 @@ export const Formats: FormatList = [
          `&bullet; <a href="https://www.smogon.com/forums/threads/viabilities-slate-2-ability-submissions-stage.3664169/">ViAbilities</a>`,
      ],
  
-     mod: 'viabilities',
+    
      ruleset: ['Standard', 'Dynamax Clause']
 
 	},
