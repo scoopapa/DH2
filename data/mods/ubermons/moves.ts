@@ -50,13 +50,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			onHit(source) {
 				if (source && source.hasItem('burndrive')) {
-					this.boost: {atk: -1},
+					this.boost: {atk: -1};
 			} else if (source && source.hasItem('chilldrive')) {
-				this.boost: {spa: -1},
+				this.boost: {spa: -1};
 			} else if (source && source.hasItem('dousedrive')) {
-				this.boost: {spd: -1},
+				this.boost: {spd: -1};
 			} else if (source && source.hasItem('shockdrive')) {
-				this.boost: {spe: -1},
+				this.boost: {spe: -1};
 			},
 			},
 		},
