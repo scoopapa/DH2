@@ -263,6 +263,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
@@ -289,6 +291,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Magic Guard",
 		rating: 4,
 		num: 98,
