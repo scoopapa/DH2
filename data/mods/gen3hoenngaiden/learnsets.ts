@@ -1379,6 +1379,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["3L1"],
 			yawn: ["3L1"],
 		},
+		eventData: [
+			{generation: 3, level: 10, gender: "M", abilities: ["keeneye"], moves: ["leer", "scratch", "foresight", "nightshade"], pokeball: "pokeball"},
+			{generation: 3, level: 33, abilities: ["keeneye"], moves: ["helpinghand", "shadowball", "feintattack", "recover"]},
+		],
 	},
 	hitmonlee: {
 		learnset: {
