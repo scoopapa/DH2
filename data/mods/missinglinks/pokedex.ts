@@ -26,7 +26,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Butterfree",
 		forme: "Mega",
 		types: ["Bug", "Psychic"],
-		baseStats: {hp: 65, atk: 55, def: 70, spa: 110, spd: 130, spe: 70},
+		baseStats: {hp: 65, atk: 50, def: 70, spa: 110, spd: 130, spe: 70},
 		abilities: {0: "Magic Guard"},
 		heightm: 1.5,
 		weightkg: 52,
