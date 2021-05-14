@@ -564,6 +564,7 @@ export const Formats: FormatList = [
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
+		teambuilderFormat: "OU",
 	},
 	{
 		name: "[Gen 8] CCAPM 2020",
