@@ -304,19 +304,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 98,
 	},
 	galvanize: {
+		galvanize: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'multiattack', 'weatherball',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
 				move.type = 'Electric';
 				move.galvanizeBoosted = true;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
+			if (move.galvanizeBoosted) return this.chainModify(1.2);
 		},
 		isNonstandard: null,
 		gen: 3,
