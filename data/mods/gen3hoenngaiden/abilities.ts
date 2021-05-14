@@ -304,7 +304,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 98,
 	},
 	galvanize: {
-		galvanize: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Normal' && (move.category !== 'Status')) {
