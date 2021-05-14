@@ -73,7 +73,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			fling: ["7L1"],
 			nastyplot: ["7L1"],
 			lashout: ["8L1"],
-			aurapshere: ["7L1"],
+			aurasphere: ["7L1"],
 		},
 	},
 };
