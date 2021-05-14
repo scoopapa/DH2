@@ -5,6 +5,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	canonbell: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 };
