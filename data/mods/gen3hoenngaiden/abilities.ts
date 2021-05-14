@@ -312,6 +312,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.galvanizeBoosted = true;
 			}
 		},
+		onModifyMove(move, pokemon) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
+				move.category = 'Special';
+				move.galvanizeBoosted = true;
+			}
+		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.galvanizeBoosted) return this.chainModify(1.2);
