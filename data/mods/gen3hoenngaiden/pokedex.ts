@@ -2289,7 +2289,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	dunsparce: {
 		num: 206,
 		name: "Dunsparce",
-		types: ["Normal"],
+		types: ["Normal", "Dragon"],
 		baseStats: {hp: 110, atk: 80, def: 85, spa: 80, spd: 85, spe: 45},
 		abilities: {0: "Serene Grace", 1: "Overcoat"},
 		heightm: 1.5,
@@ -3448,7 +3448,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	volbeat: {
 		num: 313,
 		name: "Volbeat",
-		types: ["Bug"],
+		types: ["Bug", "Electric"],
 		gender: "M",
 		baseStats: {hp: 65, atk: 103, def: 73, spa: 47, spd: 75, spe: 127},
 		abilities: {0: "Overcoat", 1: "Swarm"},
@@ -3458,7 +3458,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	illumise: {
 		num: 314,
 		name: "Illumise",
-		types: ["Bug"],
+		types: ["Bug", "Electric"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 47, def: 75, spa: 93, spd: 95, spe: 95},
 		abilities: {0: "Oblivious", 1: "Galvanize"},

@@ -110,9 +110,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 160,
 	},
 	//Slate 5: Electric, Ghost, Ice
-	dyaunsoon: {
+	storvark: {
 		num: 13,
-		name: "Dyaunsoon",
+		name: "Storvark",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 67, def: 80, spa: 100, spd: 70, spe: 130},
 		abilities: {0: "Motor Drive", H: "Intimidate"},
@@ -137,4 +137,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 24.3,
 	},
 	//Slate 6: Bug, Normal, Poison
+	magroach: {
+		num: 16,
+		name: "Magroach",
+		types: ["Bug"],
+		baseStats: {hp: 90, atk: 110, def: 85, spa: 85, spd: 110, spe: 90},
+		abilities: {0: "Magic Guard", H: "Rattled"},
+		height: 3.5,
+		weightkg: 135,
+	},
+	resonake: {
+		num: 17,
+		name: "Resonake",
+		types: ["Normal"],
+		baseStats: {hp: 84, atk: 70, def: 119, spa: 76, spd: 113, spe: 67},
+		abilities: {0: "Soundproof", 1: "Gluttony", H: "Sheer Force"},
+		weightkg: 7,
+	},
+	clavelye: {
+		num: 18,
+		name: "Clavelye",
+		types: ["Poison"],
+		baseStats: {hp: 108, atk: 80, def: 95, spa: 120, spd: 85, spe: 60},
+		abilities: {0: "Sticky Hold", 1: "Clear Body", H: "Healer"},
+		weightkg: 58.1,
+	},
 };
