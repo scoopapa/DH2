@@ -18,10 +18,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 */
-this.modData('Learnsets', 'butterfree').learnset.expandingforce = ['7L1'];
-this.modData('Learnsets', 'butterfree').learnset.extrasensory = ['7L1'];
-this.modData('Learnsets', 'butterfree').learnset.futuresight = ['7L1'];
-this.modData('Learnsets', 'butterfree').learnset.lightscreen = ['7L1'];
-this.modData('Learnsets', 'butterfree').learnset.reflect = ['7L1'];
-this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.expandingforce = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.extrasensory = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.futuresight = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.lightscreen = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.reflect = ['7L1'];
+	this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['7L1'];
+	},
 };
