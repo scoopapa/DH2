@@ -7,4 +7,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DUU",
 	},
+	growlithealola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	arcaninealola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
