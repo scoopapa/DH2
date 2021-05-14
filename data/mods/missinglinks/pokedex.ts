@@ -11,6 +11,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Chlorophyll", H: "Mega Launcher"},
 		weightkg: 21,
 		prevo: "Weepinbell",
+		evoType: "useItem",
+		evoItem: "Moon Stone",
 		eggGroups: ["Grass"],
 	},
 	butterfree: {
