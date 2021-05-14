@@ -226,11 +226,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
+		isNonstandard: null,
+		gen: 3,
 	},
 	rkssystem: {
 	shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
 		id: "rkssystem",
+		isNonstandard: null,
+		gen: 3,
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -280,6 +284,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Overcoat",
 		rating: 2,
 		num: 142,
@@ -312,6 +318,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Galvanize",
 		rating: 4,
 		num: 206,
