@@ -36,7 +36,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Techno Blast",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {},
 		onTryHit(target, pokemon) {
 			let move = 'technoblastnormal';
 			if (pokemon.hasItem('burndrive')) {
@@ -54,7 +54,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
+			this.remove('-anim', source, "Techno Blast", target);
 		},
 		target: "normal",
 		type: "Steel",
