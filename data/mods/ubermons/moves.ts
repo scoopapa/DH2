@@ -54,7 +54,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.remove('-anim', source, "Techno Blast", target);
+			this.add('-anim', source, "Techno Blast", target);
 		},
 		target: "normal",
 		type: "Steel",
