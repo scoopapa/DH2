@@ -38,7 +38,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onTryHit(target, pokemon) {
-			let move = 'technoblast';
+			let move = 'technoblastnormal';
 			if (pokemon.hasItem('burndrive')) {
 				move = 'technoblastburn';
 			} else if (pokemon.hasItem('chilldrive')) {
@@ -52,9 +52,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+	},
+	technoblastnormal: {
+		num: 546,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
+		target: "normal",
+		type: "Steel",
 	},
 	technoblastburn: {
 		num: 546,
