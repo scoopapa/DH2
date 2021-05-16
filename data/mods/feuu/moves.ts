@@ -11,4 +11,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	relicsong: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

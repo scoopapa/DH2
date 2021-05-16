@@ -1188,6 +1188,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Haunted Tech",
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
@@ -1606,5 +1607,77 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Skill Link",
 		rating: 3,
 		num: 92,
+	},
+	technician: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Technician",
+		rating: 3.5,
+		num: 101,
+	},
+	battletheme: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Meloslash' || attacker.transformed) return;
+			//if (!move.secondaries) return;
+			const targetForme = (move.secondaries ? 'Meloslash' : 'Meloslash-Melee');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Battle Theme",
+	},
+	flashyjokes: {
+		name: "Flashy Jokes",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] ability: Flashy Jokes');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfire');
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+	},
+	teachingtech: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(damage, target, source, move) {
+			const targetAbility = target.getAbility();
+			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') {
+				return;
+			}
+			if (move.basePower <= 60) {
+				const oldAbility = target.setAbility('mummy', source);
+				if (oldAbility) {
+					this.add('-activate', source, 'ability: Teaching Tech', this.dex.getAbility(oldAbility).name, '[of] ' + target);
+				}
+			}
+		},
+		name: "Teaching Tech",
 	},
 };
