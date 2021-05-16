@@ -1627,8 +1627,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Meloslash' || attacker.transformed) return;
-			//if (!move.secondaries) return;
-			const targetForme = (move.secondaries ? 'Meloslash' : 'Meloslash-Melee');
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = ((move.secondaries || move.id === 'kingsshield') ? 'Meloslash' : 'Meloslash-Melee');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 		isPermanent: true,
@@ -1664,14 +1664,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (basePowerAfterMultiplier <= 60) {
 				this.debug('Technician boost');
 				return this.chainModify(1.5);
+				move.techBoosted = true;
 			}
 		},
-		onSourceHit(damage, target, source, move) {
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.category === 'Status') return;
 			const targetAbility = target.getAbility();
 			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') {
 				return;
 			}
-			if (move.basePower <= 60) {
+			if (move.techBoosted) {
 				const oldAbility = target.setAbility('mummy', source);
 				if (oldAbility) {
 					this.add('-activate', source, 'ability: Teaching Tech', this.dex.getAbility(oldAbility).name, '[of] ' + target);
