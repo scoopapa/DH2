@@ -1672,6 +1672,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				console.log('Teaching Tech: Move used does not qualify (status)');
 				return;
 			}
+			console.log('Teaching Tech: Move BP = ' + move.basePower);
 			const targetAbility = target.getAbility();
 			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') {
 				console.log('Teaching Tech: Target ability cannot be replaced');
