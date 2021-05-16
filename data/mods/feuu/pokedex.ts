@@ -861,7 +861,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 110, def: 165, spa: 98, spd: 115, spe: 77},
 		abilities: {0: "Technician"},
 		weightkg: 100.75,
-		requiredItem: "Gardevoirite",
+		requiredItem: "Scizorite",
 		battleOnly: "Cofazor",
 	},
 	talonsyl: {

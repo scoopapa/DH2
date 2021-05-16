@@ -189,4 +189,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 657,
 		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
 	},
+	scizorite: {
+		name: "Scizorite",
+		spritenum: 605,
+		megaStone: "Cofazor-Mega",
+		megaEvolves: "Cofazor",
+		itemUser: ["Cofazor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by a Cofazor, this item allows it to Mega Evolve in battle.",
+	},
 };
