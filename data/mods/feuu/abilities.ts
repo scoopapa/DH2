@@ -1668,17 +1668,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceHit(target, source, move) {
-			if (!move || !target || move.category === 'Status') return;
+			if (!move || !target || move.category === 'Status') {
+				console.log('Teaching Tech: Move used does not qualify (status)');
+				return;
+			}
 			const targetAbility = target.getAbility();
 			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') {
+				console.log('Teaching Tech: Target ability cannot be replaced');
 				return;
 			}
 			if (move.techBoosted) {
 				const oldAbility = target.setAbility('mummy', source);
+				console.log('Teaching Tech: oldAbility = ' + oldAbility);
 				if (oldAbility) {
 					this.add('-activate', source, 'ability: Teaching Tech', this.dex.getAbility(oldAbility).name, '[of] ' + target);
+					console.log('Teaching Tech: Target ability was supposed to be replaced here');
 				}
-			}
+			} else console.log('Teaching Tech: Move used does not qualify (other)');
 		},
 		name: "Teaching Tech",
 	},
