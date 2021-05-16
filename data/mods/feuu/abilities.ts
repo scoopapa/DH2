@@ -1664,7 +1664,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (basePowerAfterMultiplier <= 60) {
 				this.debug('Technician boost');
 				return this.chainModify(1.5);
-				move.techBoosted = true;
 			}
 		},
 		onSourceHit(target, source, move) {
@@ -1678,7 +1677,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				console.log('Teaching Tech: Target ability cannot be replaced');
 				return;
 			}
-			if (move.techBoosted) {
+			if (move.basePower <= 60) {
 				const oldAbility = target.setAbility('mummy', source);
 				console.log('Teaching Tech: oldAbility = ' + oldAbility);
 				if (oldAbility) {
