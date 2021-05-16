@@ -687,7 +687,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	//slate 10
 	eeluk: {
-		fusion: ['Eelektross', 'Dragalge'],
+		fusion: ['Eelektross', 'Muk'],
 		num: 52,
 		name: "Eeluk",
 		types: ["Electric", "Poison"],
