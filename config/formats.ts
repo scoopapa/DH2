@@ -1850,7 +1850,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
-		ruleset: ['VGC Timer', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['VGC Timer', 'Data Mod', 'Mega Data Mod', 'Team Preview', 'Dynamax Clause'],
 	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
