@@ -165,11 +165,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
    jynx: {
         inherit: true,
         types: ["Ice", "Psychic"],
+		  baseStats: {hp: 65, atk: 60, def: 57, spa: 123, spd: 95, spe: 95},
         evos: ["Yamaboucha"],
     },
    electabuzz: {
         inherit: true,
         types: ["Electric"],
+		  baseStats: {hp: 65, atk: 88, def: 57, spa: 95, spd: 85, spe: 105},
         abilities: {0: "Static", 1: "Vital Spirit", H: "Iron Fist"},
     },
    magmar: {
@@ -2081,10 +2083,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         name: "Yamaboucha",
         types: ["Ice", "Psychic"],
         gender: "F",
-        baseStats: {hp: 75, atk: 65, def: 75, spa: 135, spd: 105, spe: 85},
+        baseStats: {hp: 75, atk: 65, def: 67, spa: 143, spd: 105, spe: 85},
         abilities: {0: "Oblivious", 1: "Cute Charm", H: "Dry Skin"},
         weightkg: 120.6,
         prevo: "Jynx",
+		  evoType: "useItem",
+		  evoItem: "Ice Stone",
     },
     geareon: {
         num: 9092,
