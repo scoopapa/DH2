@@ -398,46 +398,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         flags: {},
         stallingMove: true,
         volatileStatus: 'ballup',
-        onTryHit(pokemon) {
-            return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
-        },
-        onHit(pokemon) {
-            pokemon.addVolatile('stall');
-        },
-        condition: {
-            duration: 1,
-            onStart(target) {
-                this.add('-singleturn', target, 'Protect');
-            },
-            onTryHitPriority: 3,
-            onTryHit(target, source, move) {
-                if (!move.flags['protect'] || move.category === 'Status') {
-                    if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
-                    return;
-                }
-                if (move.smartTarget) {
-                    move.smartTarget = false;
-                } else {
-                    this.add('-activate', target, 'move: Protect');
-                }
-                let lockedmove = source.getVolatile('lockedmove');
-                if (lockedmove) {
-                    // Outrage counter is reset
-                    if (source.volatiles['lockedmove'].duration === 2) {
-                        delete source.volatiles['lockedmove'];
-                    }
-                }
-                if (move.flags['contact']) {
-                    this.boost({def: +2}, source, self, this.dex.getActiveMove("Ball Up"));
-                }
-                return this.NOT_FAIL;
-            },
-            onHit(target, source, move) {
-                if (move.isZPowered && move.flags['contact']) {
-                    this.boost({def: +2}, source, self, this.dex.getActiveMove("Ball Up"));
-                }
-            },
-        },
+			onTryHit(target, source, move) {
+				return !!this.queue.willAct() && this.runEvent('StallMove', target);
+			},
+			onHit(pokemon) {
+				pokemon.addVolatile('stall');
+			},
+			condition: {
+				duration: 1,
+				onStart(target) {
+					this.add('-singleturn', target, 'move: Protect');
+				},
+				onTryHitPriority: 3,
+				onTryHit(target, source, move) {
+					if (!move.flags['protect']) {
+						if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+						return;
+					}
+					if (move.smartTarget) {
+						move.smartTarget = false;
+					} else {
+						this.add('-activate', target, 'move: Protect');
+					}
+					const lockedmove = source.getVolatile('lockedmove');
+					if (lockedmove) {
+						// Outrage counter is reset
+						if (source.volatiles['lockedmove'].duration === 2) {
+							delete source.volatiles['lockedmove'];
+						}
+					}
+					if (move.flags['contact']) {
+						this.damage(source.baseMaxhp / 8, source, target);
+					}
+					return this.NOT_FAIL;
+				},
+				onHit(target, source, move) {
+					if (move.isZOrMaxPowered && move.flags['contact']) {
+						this.damage(source.baseMaxhp / 8, source, target);
+					}
+				},
+			},
         secondary: null,
         target: "self",
         type: "Ground",
@@ -630,35 +630,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         gmaxPower: 120,
         contestType: "Cool",
     },
-    "sharpsteel": {
-        accuracy: true,
-        basePower: 0,
-        category: "Status",
-        shortDesc: "Hurts foes on switch-in. Factors Steel weakness.",
-        id: "Sharp Steel",
-        isViable: true,
-        name: "Sharp Steel",
-        pp: 20,
-        priority: 0,
-        flags: {reflectable: 1},
-        sideCondition: 'sharpsteel',
-        condition: {
-            // this is a side condition
-            onStart(side) {
-                this.add('-sidestart', side, 'move: Sharp Steel');
-            },
-            onSwitchIn(pokemon) {
-                if (pokemon.hasItem('heavydutyboots')) return;
-                let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('sharpsteel')), -6, 6);
-                this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-            },
-        },
-        secondary: null,
-        target: "foeSide",
-        type: "Steel",
-        zMoveBoost: {def: 1},
-        contestType: "Cool",
-    },
+ "sharpsteel": {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Hurts foes on switch-in. Factors Steel weakness.",
+		id: "sharpsteel",
+		isViable: true,
+		name: "Sharp Steel",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'sharpsteel',
+		effect: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Sharp Steel');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('sharpsteel')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Steel",
+		zMoveBoost: {def: 1},
+		contestType: "Cool",
+	},
     "oxidation": {
         accuracy: 100,
         basePower: 70,
@@ -787,5 +787,135 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  type: "Psychic",
 		  maxMove: {basePower: 100},
 		  contestType: "Tough",
+	},
+	defog: {
+		num: 432,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Defog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	rockthrow: {
+		num: 88,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Rock Throw",
+		pp: 40,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rock Throw', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rock Throw', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'sharpsteel'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rock Throw', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
 	},
 };    
