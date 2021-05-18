@@ -852,6 +852,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
    alomomola: {
         inherit: true,
         types: ["Water", "Fairy"],
+		  prevo: "Luvdisc",
+		  evoType: "levelFriendship",
     },
    eelektross: {
         inherit: true,
@@ -1760,6 +1762,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Cloud Nine", 1: "Big Pecks", H: "Serene Grace"},
         weightkg: 25,
         prevo: ["creaviary"],
+		  evoLevel: 30,
     },
     sparsqueak: {
         num: 9056,
