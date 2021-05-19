@@ -545,6 +545,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 10,
         priority: 0,
         flags: {protect: 1, mirror: 1, heal: 1},
+		  drain: [1, 2],
         secondary: null,
         target: "normal",
         type: "Electric",
