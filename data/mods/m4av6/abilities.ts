@@ -1055,7 +1055,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Dragon'] = true;
 			}
 		},
-		onAnyEffectiveness(typeMod, source, target, type, move) {
+		onEffectiveness(typeMod, source, target, type, move) {
 			if (source !== this.effectData.target) return;
 			if (
 				move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Dragon' && type === 'Fairy'
