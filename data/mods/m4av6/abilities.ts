@@ -1056,8 +1056,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyEffectiveness(typeMod, source, target, type, move) {
-			if (move.type !== 'Dragon' || source !== this.effectData.target || !target) return;
-			if (type === 'Fairy') return 1;
+			if (source !== this.effectData.target) return;
+			if (
+				move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Dragon' && type === 'Fairy'
+			) {
+				return 1;
+			}
 		},
 		name: "Prehistoric Rage",
 		rating: 3,
