@@ -35,7 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("staraptor", ["roleplay", "superfang"]);
 		newMoves("bibarel", ["fly"]);
 		newMoves("kricketune", ["closecombat", "drainpunch", "dualwingbeat", "firstimpression", "powertrip", "tripleaxel", "uturn"]);
-		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "partingshot"]);
+		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "poisongas", "partingshot"]);
 		newMoves("murkrow", ["partingshot"]);
 		newMoves("honchkrow", ["partingshot", "dualwingbeat"]);
 		newMoves("spiritomb", ["partingshot"]);
@@ -65,7 +65,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
-		newMoves("sawsbuckwinter", ["blizzard", "freezedry", "icebeam", "iceshard", "iciclecrash"]);
+		newMoves("sawsbuckwinter", ["blizzard", "freezedry", "highhorsepower", "icebeam", "iceshard", "iciclecrash", "tripleaxel"]);
 		newMoves("flygon", ["extremespeed", "flashcannon", "ironhead"]);
 		newMoves("drapion", ["shoreup"]);
 		newMoves("lurantis", ["moonblast", "moonlight", "playrough", "silverwind"]);
