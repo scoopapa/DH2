@@ -354,6 +354,11 @@ export const Scripts: ModdedBattleScriptsData = {
 
 	pokemon: {
 		lostItemForDelibird: null,
+		onBegin() {
+			for (const pokemon of this.getAllPokemon()) {
+				pokemon.lostItemForDelibird = pokemon.item;
+			}
+		},
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
 			if (typeof item === 'string') item = this.battle.dex.getItem(item);
