@@ -1888,10 +1888,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
-				this.add('-ability', target, 'Mole-a-Whac');
-				this.hint(`${target.name}'s Attack boosts were reset!`);
-				target.setBoost({atk: 0});
-				this.add('-clearboost', target, 'atk', '[silent]');
+				const moleawhacBoost: SparseBoostsTable = {};
+				moleawhacBoost.atk = -1 * target.boosts['atk'];
+				this.boost(moleawhacBoost, target, target);
 				target.addVolatile('moleawhac');
 			}
 		},
