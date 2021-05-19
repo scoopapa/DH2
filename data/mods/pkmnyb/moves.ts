@@ -1127,4 +1127,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	darkdivide: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+      shortDesc: "Foe: -1 Def & SpD",
+		isViable: true,
+		name: "Dark Divide",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Spacial Rend", target);
+		  this.add('-anim', source, "Hex", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Cute",
+	},
 };    
