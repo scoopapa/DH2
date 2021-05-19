@@ -1,6 +1,6 @@
 const bladeMoves = [
-	'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword',
-	'secretsword', 'slash', 'xscissor', 'solarblade',
+	'aerialace', 'airslash', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind',
+	'sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade',
 ];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
@@ -1043,13 +1043,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 81,
 	},
 	prehistoricrage: {
-		shortDesc: "This Pokémon can hit Fairy-types with Dragon-type moves.",
+		desc: "This Pokémon's Dragon-type moves' type effectiveness against Fairy is changed to be super effective.",
+		shortDesc: "This Pokémon's Dragon-type moves are super effective against Fairy-types.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Prehistoric Rage');
+		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Dragon'] = true;
 			}
+		},
+		onAnyEffectiveness(typeMod, source, target, type, move) {
+			if (move.type !== 'Dragon' || source !== this.effectData.target || !target) return;
+			if (type === 'Fairy') return 1;
 		},
 		name: "Prehistoric Rage",
 		rating: 3,
@@ -1434,11 +1442,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1040,
 	},
-	awinterstale: {
+	winterstale: {
 		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "Damage of Ice moves used on consecutive turns is increased, max 1.5x (2x in Hail).",
 		onStart(pokemon) {
-			pokemon.addVolatile('awinterstale');
+			pokemon.addVolatile('winterstale');
 		},
 		condition: {
 			onStart(pokemon) {
@@ -1469,7 +1477,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		name: "A Winter's Tale",
+		name: "Winter's Tale",
 		rating: 4,
 		num: -1041,
 	},
