@@ -1050,18 +1050,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
+			if (!move.type === 'Dragon') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Dragon'] = true;
-				move.prehistoricRage = true;
-			}
-		},
-		onAnyEffectiveness(typeMod, source, target, type, move) {
-			if (
-				move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Dragon'
-				&& type === 'Fairy' && move.prehistoricRage === true
-			) {
-				return 1;
+				(move as any).prehistoricrageBoosted = true;
 			}
 		},
 		name: "Prehistoric Rage",
