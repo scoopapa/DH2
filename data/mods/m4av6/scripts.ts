@@ -89,11 +89,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("zebstrika", ["assurance", "jawlock", "snarl", "suckerpunch", "taunt"]);
 		newMoves("mudsdale", ["bulkup", "painsplit", "wideguard"]);
 	},
-	onBegin() {
-		for (const pokemon of this.getAllPokemon()) {
-			(pokemon as any).lostItemForDelibird = pokemon.item;
-		}
-	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
