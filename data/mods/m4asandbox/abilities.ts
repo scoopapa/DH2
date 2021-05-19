@@ -71,7 +71,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!target || target === pokemon) continue;
-				if (target.hasType('Steel') && this.isAdjacent(pokemon, this.effectData.target)) {
+				if (target.hasType('Steel') && this.isAdjacent(target, this.effectData.target)) {
 					target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Amalgam', '[of] ' + pokemon);
 					pokemon.heal(pokemon.baseMaxhp / 3);
