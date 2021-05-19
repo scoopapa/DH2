@@ -17,10 +17,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Pichunite",
 		spritenum: 578,
 		megaStone: "Pichu-Spiky-eared-Mega",
-		megaEvolves: "Pichu",
-		itemUser: ["Pichu"],
+		megaEvolves: "Pichu-Spiky-eared",
+		itemUser: ["Pichu-Spiky-eared"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name.startsWith('Pichu-Spiky-eared')) return false;
 			return true;
 		},
 		num: -5001,
@@ -31,10 +31,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Floettite",
 		spritenum: 578,
 		megaStone: "Floette-Eternal-Mega",
-		megaEvolves: "Floette",
-		itemUser: ["Floette"],
+		megaEvolves: "Floette-Eternal",
+		itemUser: ["Floette-Eternal"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name.startsWith('Floette-Eternal')) return false;
 			return true;
 		},
 		num: -5002,
