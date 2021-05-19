@@ -2119,6 +2119,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Falinksite",
+		battleOnly: "Falinks",
 	},
 	falinksmegacombat: {
 		num: 870,
