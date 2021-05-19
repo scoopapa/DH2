@@ -4,12 +4,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Pichu-Spiky-eared", "Pichu-Spiky-eared-Mega"],
 		formeOrder: ["Pichu", "Pichu-Spiky-eared", "Pichu-Spiky-eared-Mega"],
 	},
+	pichuspikyeared: {
+		inherit: true,
+		gender: "F",
+	},
 	pichuspikyearedmega: {
 		num: 172,
 		name: "Pichu-Spiky-eared-Mega",
 		baseSpecies: "Pichu",
 		forme: "Mega-Spiky-eared",
 		types: ["Electric", "Normal"],
+		gender: "F",
 		baseStats: {hp: 20, atk: 120, def: 15, spa: 20, spd: 20, spe: 110},
 		abilities: {0: "Gamble"},
 		heightm: 0.3,
