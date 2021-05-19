@@ -75,6 +75,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Amalgam', '[of] ' + pokemon);
 					pokemon.heal(pokemon.baseMaxhp / 3);
+					this.add('-heal', pokemon, pokemon.getHealth, '[silent]'); // not displaying the healing correctly
 				}
 			}
 		},
