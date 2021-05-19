@@ -760,6 +760,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  accuracy: 100,
 		  basePower: 250,
 		  category: "Special",
+        shortDesc: "User faints after use. Summons Aurora Veil.",
 		  name: "Split Atoms",
 		  pp: 5,
 		  priority: 0,
@@ -882,6 +883,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
+      shortDesc: "Removes hazards from the field.",
 		name: "Rock Throw",
 		pp: 40,
 		priority: 0,
@@ -917,5 +919,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+	},
+	naturalgift: {
+		num: 363,
+		accuracy: 100,
+		basePower: 0,
+		category: "Physical",
+      shortDesc: "Type and power based on user's berry.",
+		name: "Natural Gift",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			move.type = item.naturalGift.type;
+		},
+		onPrepareHit(target, pokemon, move) {
+			if (pokemon.ignoringItem()) return false;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return false;
+			move.basePower = item.naturalGift.basePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Clever",
 	},
 };    
