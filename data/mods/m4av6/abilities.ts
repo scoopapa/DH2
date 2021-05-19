@@ -1285,27 +1285,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1035,
 	},
 	spiritofgiving: {
-		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it last held, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief.",
+		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it started with, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief. It doesn't work if the Pokémon is already holding something else.",
 		shortDesc: "Restores the party's used or removed items on switch-in.",
 		name: "Spirit of Giving",
 		onStart(pokemon) {
 			const side = pokemon.side;
 			let activated = false;
 			for (const ally of side.pokemon) {
-				if (ally.item) {
-					continue;
-				}
-				if (ally.lastItem) {
-					const item = ally.lastItem;
-					if (ally.setItem(item)) {
-						if (!activated) {
-							this.add('-ability', pokemon, 'Spirit of Giving');
-						}
-						activated = true;
-						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-						ally.lastItem = '';
-					}
-				} else if ((ally as any).lostItemForDelibird) {
+				if (ally.item) continue;
+				if ((ally as any).lostItemForDelibird) {
 					const item = (ally as any).lostItemForDelibird;
 					if (ally.setItem(item)) {
 						if (!activated) {
@@ -1313,7 +1301,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 						activated = true;
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-						(ally as any).lostItemForDelibird = '';
 					}
 				}
 			}
