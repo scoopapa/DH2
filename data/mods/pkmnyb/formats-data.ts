@@ -448,5 +448,18 @@ mytheon: {
 },
 arbborry: {
 		tier: "YB",
+	   doublesTier: "DYB",
+},
+ultratom: {
+		tier: "Uber",
+	   doublesTier: "DUber",
+},
+balatadi: {
+		tier: "Uber",
+	   doublesTier: "DUber",
+},
+poufos: {
+		tier: "Uber",
+	   doublesTier: "DUber",
 },
 };
