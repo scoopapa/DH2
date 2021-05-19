@@ -118,6 +118,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 10,
         priority: 0,
         flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Heat Wave", target);
+		  },
         secondary: {
             chance: 10,
             status: 'brn',
@@ -378,6 +382,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
+		  onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+		  	this.add('-anim', source, "Cross Chop", target);
+		  },
         critRatio: 2,
         secondary: null,
         target: "normal",
@@ -396,6 +404,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 10,
         priority: 4,
         flags: {},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Defense Curl", target);
+		  },
         stallingMove: true,
         volatileStatus: 'ballup',
 			onTryHit(target, source, move) {
@@ -514,6 +526,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 5,
         priority: 0,
         flags: {reflectable: 1, mirror: 1, protect: 1},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Flash", target);
+		  },
         onHit(target, source, move) {
             return target.addVolatile('trapped', source, move, 'trapper');
         },
@@ -672,6 +688,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 20,
         priority: 0,
         flags: {protect: 1, mirror: 1},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Gust", target);
+		  },
         onEffectiveness(typeMod, target, type) {
             if (type === 'Steel') return 1;
         },
@@ -717,6 +737,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  pp: 10,
 		  priority: 0,
 		  flags: {protect: 1, mirror: 1},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Acid Spray", target);
+		  },
 		  onBasePower(basePower, pokemon, target) {
 			  if (target.status === 'psn' || target.status === 'tox' || target.status === 'brn' ) {
 				  return this.chainModify(2);
@@ -766,6 +790,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  pp: 5,
 		  priority: 0,
 		  flags: {protect: 1, mirror: 1},
+		  onPrepareHit: function(target, source, move) {
+			  this.attrLastMove('[still]');
+			  this.add('-anim', source, "Acid Armor", target);
+			  this.add('-anim', source, "Misty Explosion", target);
+		  },
 		  selfdestruct: "always",
 		  self: {
 			  sideCondition: 'auroraveil',
@@ -949,5 +978,149 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Clever",
+	},
+	websling: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+      shortDesc: "+1 Priority. Hits all adjacent foes.",
+		name: "Web Sling",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Sticky Web", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	flash: {
+		num: 148,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+      shortDesc: "+1 Priority. Hits all adjacent foes.",
+		isViable: true,
+		name: "Flash",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	cut: {
+		num: 15,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+      shortDesc: "High critical hit ratio.",
+		isViable: true,
+		name: "Cut",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	rocksmash: {
+		num: 249,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+      shortDesc: "Foe: -1 Def.",
+		isViable: true,
+		name: "Rock Smash",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	strength: {
+		num: 70,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+      shortDesc: "Super Effective on Rock.",
+		isViable: true,
+		name: "Strength",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Rock') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	pound: {
+		num: 1,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Pound",
+		pp: 35,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	rockclimb: {
+		num: 431,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+      shortDesc: "Gives the user the High Ground (Magnet Rise).",
+		isViable: true,
+		name: "Rock Climb",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('magnetrise');
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	bittrip: {
+		accuracy: 100,
+		basePower: 8,
+		category: "Special",
+      shortDesc: "+1 Priority. Hits 8 times",
+		isViable: true,
+		name: "Bit Trip",
+		pp: 10,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		multihit: 8,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
 	},
 };    
