@@ -1053,12 +1053,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Dragon'] = true;
+				move.prehistoricRage = true;
 			}
 		},
-		onEffectiveness(typeMod, source, target, type, move) {
-			if (source !== this.effectData.target) return;
+		onAnyEffectiveness(typeMod, source, target, type, move) {
 			if (
-				move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Dragon' && type === 'Fairy'
+				move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Dragon'
+				&& type === 'Fairy' && move.prehistoricRage === true
 			) {
 				return 1;
 			}
