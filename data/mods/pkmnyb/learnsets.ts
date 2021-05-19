@@ -5483,6 +5483,8 @@ export const Learnsets = {
 			ancientpower: ["8L1"],
 			dazzlinggleam: ["8L1"],
 			flash: ["8L1"],
+			spite: ["8L1"],
+			lashout: ["8L1"],
 		},
 	},
 	balatadi: {
@@ -5536,6 +5538,8 @@ export const Learnsets = {
 			bind: ["8L1"],
 			psybeam: ["8L1"],
 			earthpower: ["8L1"],
+			lashout: ["8L1"],
+			meteorbeam: ["8L1"],
 		},
 	},
 	ultratom: {
@@ -5696,6 +5700,12 @@ export const Learnsets = {
 			pollenpuff: ["8L1"],
 			magneticflux: ["8L1"],
 			bittrip: ["8L1"],
+			expandingforce: ["8L1"],
+			risingvoltage: ["8L1"],
+			terrainpulse: ["8L1"],
+			mistyexplosion: ["8L1"],
+			meteorbeam: ["8L1"],
+			skittersmack: ["8L1"],
 		},
 	},
 };
