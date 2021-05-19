@@ -155,12 +155,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
-		if (
-			['Pichu', 'Floette'].includes(pokemon.species.baseSpecies) &&
-			!(['Pichu-Spiky-eared', 'Floette-Eternal'].includes(pokemon.species.id))
-		) { // futureproofing for random battle Megas - only specific forms can ever Mega Evolve
-			return null;
-		}
 		return item.megaStone;
 	},
 	runMegaEvo(pokemon) {
