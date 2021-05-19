@@ -534,9 +534,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     "ionicbond": {
         accuracy: 90,
         basePower: 0,
-        damageCallback(pokemon, target) {
-            return this.dex.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
-        },
+		  damageCallback(pokemon, target) {
+			return this.clampIntRange(target.getUndynamaxedHP() / 2, 1);
+		  },
         category: "Special",
         desc: "Deals damage to the target equal to half of its current HP, rounded down, but not less than 1 HP. Heals the user by 50% of the damage dealt",
         shortDesc: "Does damage equal to 1/2 target's current HP. Heals 50% of damage dealth",
