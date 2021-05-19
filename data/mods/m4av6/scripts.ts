@@ -155,6 +155,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
+		if (
+			['Pichu', 'Floette', 'Floette-Blue', 'Floette-Orange', 'Floette-White', 'Floette-Yellow'].includes(pokemon.baseSpecies.name)
+		) { // futureproofing for random battle Megas - only specific forms can ever Mega Evolve
+			return null;
+		}
 		return item.megaStone;
 	},
 	runMegaEvo(pokemon) {
