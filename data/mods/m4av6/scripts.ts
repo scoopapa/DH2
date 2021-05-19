@@ -352,6 +352,36 @@ export const Scripts: ModdedBattleScriptsData = {
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
 	},
 
+	dex: {
+		getEffectiveness(
+			source: {type: string} | string,
+			target: {getTypes: () => string[]} | {types: string[]} | string[] | string
+		): number {
+			const sourceType: string = typeof source !== 'string' ? source.type : source;
+			// @ts-ignore
+			const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
+			let totalTypeMod = 0;
+			if (Array.isArray(targetTyping)) {
+				for (const type of targetTyping) {
+					if (type === 'Fairy' && (move as any).prehistoricrageBoosted) {
+						totalTypeMod += 1;
+					} else {
+						totalTypeMod += this.getEffectiveness(sourceType, type);
+					}
+				}
+				return totalTypeMod;
+			}
+			const typeData = this.data.TypeChart[targetTyping];
+			if (!typeData) return 0;
+			switch (typeData.damageTaken[sourceType]) {
+			case 1: return 1; // super-effective
+			case 2: return -1; // resist
+			// in case of weird situations like Gravity, immunity is handled elsewhere
+			default: return 0;
+			}
+		}
+	},
+
 	pokemon: {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
