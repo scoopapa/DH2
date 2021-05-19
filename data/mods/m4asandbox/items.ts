@@ -1,4 +1,60 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	porygonitez: {
+		name: "Porygonite-Z",
+		spritenum: 578,
+		megaStone: "Porygon-Z-Mega",
+		megaEvolves: "Porygon-Z",
+		itemUser: ["Porygon-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5000,
+		gen: 8,
+		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+	},
+	pichunite: {
+		name: "Pichunite",
+		spritenum: 578,
+		megaStone: "Pichu-Spiky-eared-Mega",
+		megaEvolves: "Pichu",
+		itemUser: ["Pichu"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5001,
+		gen: 8,
+		desc: "If held by a Spiky-eared Pichu, this item allows it to Mega Evolve in battle.",
+	},
+	floettite: {
+		name: "Floettite",
+		spritenum: 578,
+		megaStone: "Floette-Eternal-Mega",
+		megaEvolves: "Floette",
+		itemUser: ["Floette"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5002,
+		gen: 8,
+		desc: "If held by a Floette with an Eternal Flower, this item allows it to Mega Evolve in battle.",
+	},
+	meltanite: {
+		name: "Meltanite",
+		spritenum: 578,
+		megaStone: "Meltan-Mega",
+		megaEvolves: "Meltan",
+		itemUser: ["Meltan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5003,
+		gen: 8,
+		desc: "If held by a Meltan, this item allows it to Mega Evolve in battle.",
+	},
 /*
 	mossysandwich: {
 		name: "Mossy Sandwich",
@@ -70,22 +126,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "BlueRay's stone for the submission sandbox.",
 	},
-*/
-	porygonitez: {
-		name: "Porygonite-Z",
-		spritenum: 578,
-		megaStone: "Porygon-Z-Mega",
-		megaEvolves: "Porygon-Z",
-		itemUser: ["Porygon-Z"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5000,
-		gen: 8,
-		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
-	},
-/*
 	inkbug: {
 		name: "inkbug",
 		spritenum: 578,
