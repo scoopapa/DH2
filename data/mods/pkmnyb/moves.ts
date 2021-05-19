@@ -1117,6 +1117,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Signal Beam", target);
+		},
 		multihit: 8,
 		secondary: null,
 		target: "normal",
