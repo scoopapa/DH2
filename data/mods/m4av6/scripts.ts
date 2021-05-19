@@ -156,7 +156,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (
-			['Pichu', 'Floette', 'Floette-Blue', 'Floette-Orange', 'Floette-White', 'Floette-Yellow'].includes(pokemon.baseSpecies.name)
+			['Pichu', 'Floette', 'Floette-Blue', 'Floette-Orange', 'Floette-White', 'Floette-Yellow'].includes(pokemon.species.name)
 		) { // futureproofing for random battle Megas - only specific forms can ever Mega Evolve
 			return null;
 		}
