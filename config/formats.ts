@@ -647,7 +647,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Crossover Chaos Expanded",
 		desc: ["<b>Crossover Chaos Expanded</b>: Crossover Chaos, but for non-video game characters."],
-		desc: [
+		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3647108/">Crossover Chaos Expanded on Smogon Forums</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/crossover-chaos-expanded-part-ii.3657518/">Crossover Chaos Expanded - Part II on Smogon Forums</a>`,
 		      ],
