@@ -142,7 +142,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Magroach",
 		types: ["Bug"],
 		baseStats: {hp: 90, atk: 110, def: 85, spa: 85, spd: 110, spe: 90},
-		abilities: {0: "Magic Guard", H: "Rattled"},
+		abilities: {0: "Magic Guard", 1: "Illuminate", H: "Rattled"},
 		height: 3.5,
 		weightkg: 135,
 	},

@@ -24,6 +24,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		}
 	},
+	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
 		if (sourceEffect && sourceEffect.id === 'instruct') sourceEffect = null;

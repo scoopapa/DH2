@@ -226,11 +226,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
+		isNonstandard: null,
+		gen: 3,
 	},
 	rkssystem: {
 	shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
 		id: "rkssystem",
+		isNonstandard: null,
+		gen: 3,
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -263,6 +267,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
@@ -278,6 +284,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Overcoat",
 		rating: 2,
 		num: 142,
@@ -289,6 +297,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Magic Guard",
 		rating: 4,
 		num: 98,
@@ -296,18 +306,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	galvanize: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'multiattack', 'weatherball',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
 				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
+				move.category = 'Special';
 				move.galvanizeBoosted = true;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
+			if (move.galvanizeBoosted) return this.chainModify(1.2);
 		},
+		isNonstandard: null,
+		gen: 3,
 		name: "Galvanize",
 		rating: 4,
 		num: 206,
