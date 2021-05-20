@@ -1108,24 +1108,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	bittrip: {
-		accuracy: 100,
+		accuracy: 95,
 		basePower: 8,
+		basePowerCallback(pokemon, target, move) {
+			return 8 * move.hit;
+		},
 		category: "Special",
-      shortDesc: "+1 Priority. Hits 8 times",
+      shortDesc: "Hits 4 times. Each hit can miss, but power rises.",
 		isViable: true,
 		name: "Bit Trip",
 		pp: 10,
-		priority: 1,
+		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Signal Beam", target);
 		},
-		multihit: 8,
+		multihit: 4,
+		multiaccuracy: true,
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-		contestType: "Cool",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 140},
 	},
 	darkdivide: {
 		accuracy: 100,
