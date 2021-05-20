@@ -1109,9 +1109,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	bittrip: {
 		accuracy: 95,
-		basePower: 8,
+		basePower: 4,
 		basePowerCallback(pokemon, target, move) {
-			return 8 * move.hit;
+			return 4 * (2 ^ move.hit);
 		},
 		category: "Special",
       shortDesc: "Hits 4 times. Each hit can miss, but power rises.",
