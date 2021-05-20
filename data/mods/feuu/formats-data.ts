@@ -428,6 +428,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+	//slate 12
+	meloslash: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	meloslashmelee: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	tornachamp: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	cofazor: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	cofazormega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	talonsyl: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	heatki: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
 	
 	
 	//Silvino Nightmare Hours
