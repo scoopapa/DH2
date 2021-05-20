@@ -1114,7 +1114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return 4 * (Math.pow(2, move.hit));
 		},
 		category: "Special",
-      shortDesc: "Hits 4 times. Each hit can miss, but power rises.",
+      shortDesc: "Hits 4 times. Each hit can miss, but power rises exponentially.",
 		isViable: true,
 		name: "Bit Trip",
 		pp: 10,
