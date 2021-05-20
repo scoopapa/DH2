@@ -10,6 +10,9 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
 			this.add('-message', `You can find our thread and metagame resources here:`);
 			this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
+			for (const pokemon of this.getAllPokemon()) {
+				(pokemon as any).lostItemForDelibird = pokemon.item;
+			}
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {

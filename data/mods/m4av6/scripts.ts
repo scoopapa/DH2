@@ -35,7 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("staraptor", ["roleplay", "superfang"]);
 		newMoves("bibarel", ["fly"]);
 		newMoves("kricketune", ["closecombat", "drainpunch", "dualwingbeat", "firstimpression", "powertrip", "tripleaxel", "uturn"]);
-		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "partingshot"]);
+		newMoves("mismagius", ["sludgebomb", "sludgewave", "toxicspikes", "poisonfang", "poisongas", "partingshot"]);
 		newMoves("murkrow", ["partingshot"]);
 		newMoves("honchkrow", ["partingshot", "dualwingbeat"]);
 		newMoves("spiritomb", ["partingshot"]);
@@ -65,7 +65,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
-		newMoves("sawsbuckwinter", ["blizzard", "freezedry", "icebeam", "iceshard", "iciclecrash"]);
+		newMoves("sawsbuckwinter", ["blizzard", "freezedry", "highhorsepower", "icebeam", "iceshard", "iciclecrash", "tripleaxel"]);
 		newMoves("flygon", ["extremespeed", "flashcannon", "ironhead"]);
 		newMoves("drapion", ["shoreup"]);
 		newMoves("lurantis", ["moonblast", "moonlight", "playrough", "silverwind"]);
@@ -150,6 +150,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
+			return null;
+		}
+		if (pokemon.baseSpecies.name === "Pichu") {
+			return null;
+		}
+		if (pokemon.baseSpecies.name === "Floette") {
 			return null;
 		}
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
@@ -369,6 +375,19 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.singleEvent('Start', item, this.itemData, this, source, effect);
 			}
 			return true;
+		},
+		runEffectiveness(move: ActiveMove) {
+			let totalTypeMod = 0;
+			for (const type of this.getTypes()) {
+				if (type === 'Fairy' && (move as any).prehistoricrageBoosted) {
+					totalTypeMod += 1;
+				} else {
+					let typeMod = this.battle.dex.getEffectiveness(move, type);
+					typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
+					totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
+				}
+			}
+			return totalTypeMod;
 		},
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;

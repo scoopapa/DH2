@@ -398,4 +398,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Slush Rush", H: "Infiltrator"},
 		weightkg: 24,
 	},
+	punduluum: {
+		num: 1049,
+		name: "Punduluum",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 78, atk: 48, def: 84, spa: 96, spd: 88, spe: 81},
+		abilities: {0: "Berserk", 1: "Serene Grace", H: "Pure Power"},
+		weightkg: 20,
+	},
+	wraithful: {
+		num: 1050,
+		name: "Wraithful",
+		types: ["Dark", "Ghost"],
+		baseStats: {hp: 95, atk: 115, def: 90, spa: 80, spd: 90, spe: 60},
+		abilities: {0: "Intimidate", 1: "Sand Force", H: "Defiant"},
+		weightkg: 83,
+	},
+	panzarma: {
+		num: 1051,
+		name: "Panzarma",
+		types: ["Steel", "Fighting"],
+		baseStats: {hp: 89, atk: 115, def: 95, spa: 110, spd: 75, spe: 36},
+		abilities: {0: "Battle Armor", 1: "Heavy Metal", H: "Mega Launcher"},
+		weightkg: 198,
+	},
 };

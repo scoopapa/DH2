@@ -47,9 +47,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-		wesgranit: {
+	wesgranit: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	//Slate 5: Electric, Ghost, Ice
+	storvark: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dullaham: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skappa: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 6: Bug, Normal, Poison
+	magroach: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	resonake: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	clavelye: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };

@@ -226,11 +226,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
+		isNonstandard: null,
+		gen: 3,
 	},
 	rkssystem: {
 	shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
 		id: "rkssystem",
+		isNonstandard: null,
+		gen: 3,
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -253,5 +257,74 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sand Veil",
 		rating: 3,
 		num: 146,
+	},
+	icebody: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Ice Body",
+		rating: 1,
+		num: 115,
+	},
+	overcoat: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Overcoat');
+				return null;
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Overcoat",
+		rating: 2,
+		num: 142,
+	},
+	magicguard: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Magic Guard",
+		rating: 4,
+		num: 98,
+	},
+	galvanize: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
+				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
+				move.category = 'Special';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.galvanizeBoosted) return this.chainModify(1.2);
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Galvanize",
+		rating: 4,
+		num: 206,
 	},
 };
