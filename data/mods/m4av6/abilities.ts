@@ -1047,10 +1047,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's Dragon-type moves are super effective against Fairy-types.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Prehistoric Rage');
+			this.add('-message', `${pokemon.name}'s Dragon-type moves are super effective against Fairy-types!`);
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.type === 'Dragon') return;
+			if (move.type !== 'Dragon') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Dragon'] = true;
