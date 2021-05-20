@@ -12,7 +12,6 @@ const longwhip: ConditionData = {
 		}
 
 		this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
-		data.target.removeVolatile('Protect');
 		data.target.removeVolatile('Endure');
 
 		if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -31,6 +30,7 @@ const longwhip: ConditionData = {
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
 		delete data.moveData.flags['contact'];
+		delete data.moveData.flags['protect'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {
@@ -49,7 +49,6 @@ const longwhip: ConditionData = {
 		}
 
 		this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
-		data.target.removeVolatile('Protect');
 		data.target.removeVolatile('Endure');
 
 		if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -67,6 +66,8 @@ const longwhip: ConditionData = {
 		data.moveData.accuracy = true;
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
+		delete data.moveData.flags['contact'];
+		delete data.moveData.flags['protect'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {
