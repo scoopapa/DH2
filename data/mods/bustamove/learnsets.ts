@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	beedrill: {
+	/*beedrill: {
 		learnset: {
 			acrobatics: ["7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -1131,5 +1131,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			decorate: ["8L1"],
 			eeriespell: ["8L1"],
 		},
-	},
+	},*/
 };
