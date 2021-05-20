@@ -818,7 +818,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Generation X",
 		desc: ["A mod that aims to add everything you would expect from a whole new generation of Pokemon games. Welcome to the Brazil-inspired Brazdo region!",],
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/generation-x.3670676/</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/generation-x.3670676/>Thread</a>`,
 		],
 
 		mod: 'genx',
