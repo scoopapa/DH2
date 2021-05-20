@@ -216,18 +216,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onAfterHit(target, pokemon) {
+		onAfterHit(target) {
 			const target.sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of target.sideConditions) {
-				if (target.hp && target.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Razor Wind', '[of] ' + pokemon);
-				}
+				if (target.hp && target.side.removeSideCondition(condition)) 
 			}
 		},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Flying",
 		contestType: "Cool",
 	},
 	rocksmash: {
