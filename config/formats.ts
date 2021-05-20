@@ -425,7 +425,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Bench Abilities",
 		desc: [
-			"A Pet Mod based on Battle Spot Singles, in which Pokemon have 'bench abilities' that passively aid their allies when they aren't actively in battle."
+			"A Pet Mod based on SM Battle Spot Singles, in which Pokemon have 'bench abilities' that passively aid their allies when they aren't actively in battle."
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/.3648706/">Bench Abilities on Smogon Forums</a>`,
@@ -548,6 +548,13 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Break This Team",
+		desc: [
+			"In this mod, a team will be posted and people can submit two-Fakemon cores that can beat the entire team.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/break-this-team-the-pet-mod-slate-9-btt-ou-ou-playable-on-dh.3674601/">Break This Team: The Pet Mod on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1tAb8Gq-uvQ0_fx2KLleOC_hhH2PoDU_tDv_Zc8jH3EI/edit#gid=0">Spreadsheet</a>`,
+		],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 		mod: "breakthisteam", 
@@ -555,14 +562,18 @@ export const Formats: FormatList = [
 	},
 	{
   		name: "[Gen 8] Breeding Variants",
-  		desc: ["Breeding Variants, the mod where pokemon degeneracy pays off.",
+  		desc: ["Have you seen those cool fanart posts where someone makes drawings of a Pokemon and what they would look like if their offspring took traits from their breeding partner? This Pet Mod takes this concept and puts it into a playable form.",
 		      ],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v2.3658458/">Breeding Variants V3 on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EElnaRtulywum6cNWS2nzPTwtzMQHvFDNN3uNNWOnHE/edit#gid=1305095826">Spreadsheet</a>`,
+		],
   		ruleset: [ 'Standard', 'Data Mod'],
 		mod: 'breedingvariants',
   	},
 	{
 		name: "[Gen 8] CCAPM 2020",
-		desc: `AAACS.`,
+		desc: `Community Create-a-Pet Mod 2020: an "Almost Any Ability Clean Slate", where a selection of Pokemon can use any of the new custom abilities.`,
 		threads: [
 		],
 		mod: 'ccapm2020',
