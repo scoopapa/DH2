@@ -7,11 +7,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AFD",
 	},
 	porygonzmega: {
-		tier: "God",
+		tier: "AFD",
 	},
 	floetteeternalmega: {
 		randomBattleMoves: ["lightofruin", "psychic", "hiddenpowerground", "moonblast", "calmmind"],
-		randomDoubleBattleLevel: 72,
+		randomBattleLevel: 72,
 		randomDoubleBattleMoves: ["lightofruin", "dazzlinggleam", "psychic", "protect", "hiddenpowerfire", "calmmind"],
 		randomDoubleBattleLevel: 72,
 		tier: "AFD",
@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	meltanmega: {
 		randomBattleMoves: ["toxic", "thunderwave", "acidarmor", "bodypress", "gyroball"],
 		randomBattleLevel: 88,
-		randomBattleMoves: ["toxic", "thunderwave", "acidarmor", "bodypress", "gyroball", "protect"],
+		randomDoubleBattleMoves: ["toxic", "thunderwave", "acidarmor", "bodypress", "gyroball", "protect"],
 		randomDoubleBattleLevel: 88,
 		tier: "AFD",
 	},
