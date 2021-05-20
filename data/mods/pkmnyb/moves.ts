@@ -1111,7 +1111,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 8,
 		basePowerCallback(pokemon, target, move) {
-			return 8 * move.hit;
+			return 8 * (2 ^ move.hit);
 		},
 		category: "Special",
       shortDesc: "Hits 4 times. Each hit can miss, but power rises.",
