@@ -1353,25 +1353,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1038,
 	},
 	summerdays: {
-		desc: "If its Special Attack is greater than its Speed, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, this Pokémon's Ability is Chlorophyll.",
+		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
 		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe >= Sp. Atk.",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if ((pokemon.storedStats('spa') > pokemon.storedStats('spe')) &&
+			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) &&
 				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (target.storedStats('spa') > target.storedStats('spe')) {
+			if (target.getStat('spa', false, true) > target.getStat('spe', false, true)) {
 				if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
 					this.damage(target.baseMaxhp / 8, target, target);
 				}
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.storedStats('spe') >= pokemon.storedStats('spa')) &&
+			if ((pokemon.getStat('spe', false, true) >= pokemon.getStat('spa', false, true)) &&
 				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(2);
 			}
