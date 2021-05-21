@@ -206,7 +206,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		contestType: "Beautiful",
 	},
-	razorwind: {
+	/*razorwind: {
 		num: 13,
 		accuracy: 100,
 		basePower: 80,
@@ -227,7 +227,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
-	},
+	},*/
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
