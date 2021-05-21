@@ -226,8 +226,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Flying",
-		contestType: "Cool",
-	},*/
+		contestType: "Cool",*/
+	},
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
