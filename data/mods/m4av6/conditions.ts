@@ -124,14 +124,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			if (move.type === 'Poison') {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
-						return;
+			move.ignoreImmunity['Poison'] = true;
+		},
+		onTryHit(target, source, move) {
+			if (move.ignoreImmunity['Poison']) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.dex.getImmunity('Poison')) {
+					for (const active of this.getAllActive()) {
+						if (active.hasAbility('downtoearth')) {
+							this.add('-message', `${active.name} suppresses the effects of the terrain!`);
+							this.add('-immune', target);
+							return null;
+						}
 					}
 				}
-				(move as any).acidicterrainBoosted = true;
+				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !target.dex.getImmunity('Poison')) {
+					this.add('-immune', target);
+					this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
+					return null;
+				}
 			}
 		},
 		onStart(battle, source, effect) {
