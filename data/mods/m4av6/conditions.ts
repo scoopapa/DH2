@@ -124,10 +124,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			move.ignoreImmunity['Poison'] = true;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
 		},
 		onTryHit(target, source, move) {
-			if (move.ignoreImmunity['Poison']) {
+			if (move.type === 'Poison') {
 				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.dex.getImmunity('Poison')) {
 					for (const active of this.getAllActive()) {
 						if (active.hasAbility('downtoearth')) {
