@@ -131,7 +131,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						return;
 					}
 				}
-				move.acidicterrainBoosted = true;
+				(move as any).acidicterrainBoosted = true;
 			}
 		},
 		onStart(battle, source, effect) {
