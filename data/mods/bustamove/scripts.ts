@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: BattleScriptsData = {
 	init: function() {
 		
 		//this.modData('learnsets', 'pkmn').learnset.move = ["8L1"];
