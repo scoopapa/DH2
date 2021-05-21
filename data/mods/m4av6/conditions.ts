@@ -124,17 +124,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			if (move.type === 'Poison' && target.isGrounded() && !target.isSemiInvulnerable() && target.hasType('Steel')) {
+			if (move.type === 'Poison') {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
 						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
 						return;
 					}
 				}
-				if (!move.ignoreImmunity) move.ignoreImmunity = {};
-				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Poison'] = true;
-				}
+				move.acidicterrainBoosted = true;
 			}
 		},
 		onStart(battle, source, effect) {
