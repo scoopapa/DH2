@@ -351,30 +351,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Calculate damage modifiers separately (order differs between generations)
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
 	},
-	hitStepTypeImmunity(targets, pokemon, move) {
-		if (move.ignoreImmunity === undefined) {
-			move.ignoreImmunity = (move.category === 'Status');
-		}
-
-		const hitResults = [];
-		if ((move as any).acidicterrainBoosted) {
-			console.log("Acidic Terrain-boosted");
-		} else {
-			console.log("Not Acidic Terrain-boosted");
-		}
-		for (const i of targets.keys()) {
-			hitResults[i] = (
-				(move.ignoreImmunity && (move.ignoreImmunity === true || move.ignoreImmunity[move.type])) ||
-				((move as any).acidicterrainBoosted && targets[i].isGrounded() && !targets[i].isSemiInvulnerable()) ||
-				targets[i].runImmunity(move.type, !move.smartTarget)
-			);
-			if (move.smartTarget && !hitResults[i]) move.smartTarget = false;
-			console.log(targets[i].name);
-			console.log(hitResults[i]);
-		}
-
-		return hitResults;
-	},
 
 	pokemon: {
 		lostItemForDelibird: null,
