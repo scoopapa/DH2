@@ -1,5 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function {
+	init: function() {
 		
 		//newMoves("pkmn", ["move"]);
 		//Burning Jealousy
