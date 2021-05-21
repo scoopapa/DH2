@@ -19569,17 +19569,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		onHit(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
-				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
-			} else {
-				this.add('-status', target, 'slp');
-			}
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
-		},
+		status: 'slp',
 		self: {
 			onHit(target, source, move) {
 				for (const pokemon of source.side.active) {
@@ -19631,7 +19621,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Meteor Mash", target);
 		},
 		secondary: {
-			chance: 100,
+			chance: 20,
 			onHit(target) {
 				if (target.getStat('atk') > target.getStat('def', 'spa', 'spd', 'spe')) {
 					this.boost({atk: -1}, target);
@@ -19646,21 +19636,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-			/*onHit(target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-				}
-				this.boost({s: -1}, target);
-			}
-			}
-		},*/
 		target: "normal",
 		type: "Steel",
 	},
