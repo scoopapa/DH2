@@ -19563,6 +19563,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 827,
 		accuracy: 100,
 		basePower: 0,
+		shortDesc: "Causes the target to fall asleep. Heals the user by 1/4 of its max HP.",
 		category: "Physical",
 		name: "Bell of Peace",
 		pp: 5,
@@ -19598,6 +19599,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 828,
 		accuracy: 100,
 		basePower: 85,
+		shortDesc: "Combines Fighting in its type effectiveness.",
 		category: "Physical",
 		name: "Crushing Hoofs",
 		pp: 5,
@@ -19618,6 +19620,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 829,
 		accuracy: 100,
 		basePower: 95,
+		shortDesc: "20% chance to lower the target's highest stat by 1.",
 		category: "Special",
 		name: "Strategic Choice",
 		pp: 5,
@@ -19665,6 +19668,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 830,
 		accuracy: 100,
 		basePower: 100,
+		shortDesc: "10% chance to freeze the target.",
 		category: "Special",
 		name: "Cold Terror",
 		pp: 10,
@@ -19685,6 +19689,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 831,
 		accuracy: 100,
 		basePower: 60,
+		shortDesc: "User switches out after damaging the target.",
 		category: "Special",
 		name: "Fiery Pass",
 		pp: 15,
@@ -19693,6 +19698,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		selfSwitch: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "U-turn", target);
 			this.add('-anim', source, "Baton Pass", target);
 		},
 		secondary: null,
@@ -19703,6 +19709,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 240,
 		accuracy: true,
 		basePower: 0,
+		shortDesc: "For 5 turns, an acidic rain summons.",
 		category: "Status",
 		name: "Acid Rain",
 		pp: 5,
@@ -19721,6 +19728,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 240,
 		accuracy: true,
 		basePower: 0,
+		shortDesc: "For 5 turns, a fog thickens.",
 		category: "Status",
 		name: "Refog",
 		pp: 5,

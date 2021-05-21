@@ -1926,7 +1926,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["closecombat", "flareblitz", "knockoff", "protect", "swordsdance"],
 		randomDoubleBattleLevel: 78,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	blazikenmega: {
@@ -4111,7 +4111,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["heatwave", "hurricane", "knockoff", "nastyplot", "protect"],
 		randomDoubleBattleLevel: 80,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	thundurus: {
@@ -5395,7 +5395,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["agility", "aurasphere", "dazzlinggleam", "flashcannon", "fleurcannon", "protect", "trick"],
 		randomDoubleBattleLevel: 72,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 	},
 	magearnaoriginal: {
@@ -5403,7 +5403,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["agility", "aurasphere", "dazzlinggleam", "flashcannon", "fleurcannon", "protect", "trick"],
 		randomDoubleBattleLevel: 72,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 	},
 	marshadow: {
@@ -5499,7 +5499,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
 		randomDoubleBattleLevel: 80,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	cinderacegmax: {
@@ -6006,7 +6006,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 70,
 		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
 		randomDoubleBattleLevel: 69,
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 	},
 	zamazenta: {
@@ -6087,7 +6087,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["eerieimpulse", "extremespeed", "protect", "thundercage", "voltswitch"],
 		randomDoubleBattleLevel: 86,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	regidrago: {
@@ -6111,7 +6111,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["darkpulse", "nastyplot", "protect", "shadowball"],
 		randomDoubleBattleLevel: 80,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	calyrex: {
