@@ -357,6 +357,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		const hitResults = [];
+		if ((move as any).acidicterrainBoosted) {
+			console.log("Acidic Terrain-boosted");
+		} else {
+			console.log("Not Acidic Terrain-boosted");
+		}
 		for (const i of targets.keys()) {
 			hitResults[i] = (
 				(move.ignoreImmunity && (move.ignoreImmunity === true || move.ignoreImmunity[move.type])) ||
@@ -364,6 +369,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				targets[i].runImmunity(move.type, !move.smartTarget)
 			);
 			if (move.smartTarget && !hitResults[i]) move.smartTarget = false;
+			console.log(targets[i].name);
+			console.log(hitResults[i]);
 		}
 
 		return hitResults;
