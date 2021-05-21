@@ -131,7 +131,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Poison') {
-				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.dex.getImmunity('Poison')) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.getImmunity('Poison')) {
 					for (const active of this.getAllActive()) {
 						if (active.hasAbility('downtoearth')) {
 							this.add('-message', `${active.name} suppresses the effects of the terrain!`);
@@ -140,7 +140,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						}
 					}
 				}
-				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !target.dex.getImmunity('Poison')) {
+				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !target.getImmunity('Poison')) {
 					this.add('-immune', target);
 					this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
 					return null;
