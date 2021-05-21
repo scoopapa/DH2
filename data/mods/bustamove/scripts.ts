@@ -1,51 +1,51 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function() {
 		
-		//newMoves("pkmn", ["move"]);
+		//this.modData('learnsets', 'pkmn').learnset.move = ["8L1"];
 		//Burning Jealousy
-		newMoves("houndoom", ["burningjealousy"]);
-		newMoves("infernape", ["burningjealousy"]);
-		newMoves("pyroar", ["burningjealousy"]);
+		this.modData('learnsets', 'houndoom').learnset.burningjealousy = ["8L1"];
+		this.modData('learnsets', 'infernape').learnset.burningjealousy = ["8L1"];
+		this.modData('learnsets', 'pyroar').learnset.burningjealousy = ["8L1"];
 	
 		//Decorate
-		newMoves("hatterene", ["decorate"]);
-		newMoves("jirachi", ["decorate"]);
-		newMoves("victini", ["decorate"]);
+		this.modData('learnsets', 'hatterene').learnset.decorate = ["8L1"];
+		this.modData('learnsets', 'jirachi').learnset.decorate = ["8L1"];
+		this.modData('learnsets', 'victini').learnset.decorate = ["8L1"];
 	
 		//Eerie Spell
-		newMoves("delphox", ["eeriespell"]);
-		newMoves("hatterene", ["eeriespell"]);
-		newMoves("mismagius", ["eeriespell"]);
+		this.modData('learnsets', 'delphox').learnset.eeriespell = ["8L1"];
+		this.modData('learnsets', 'hatterene').learnset.eeriespell = ["8L1"];
+		this.modData('learnsets', 'mismagius').learnset.eeriespell = ["8L1"];
 	
 		//Fairy Wind
-		newMoves("celffa", ["fairywind"]);
-		newMoves("clefairy", ["fairywind"]);
-		newMoves("clefable", ["fairywind"]);
-		newMoves("hatenna", ["fairywind"]);
-		newMoves("hattrem", ["fairywind"]);
-		newMoves("hatterene", ["fairywind"]);
-		newMoves("primarina", ["fairywind"]);
-		newMoves("mew", ["fairywind"]);
+		this.modData('learnsets', 'celffa').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'clefairy').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'clefable').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'hatenna').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'hattrem').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'hatterene').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'primarina').learnset.fairywind = ["8L1"];
+		this.modData('learnsets', 'mew').learnset.fairywind = ["8L1"];
 	
 		//Jaw Lock
-		newMoves("rockruff", ["jawlock"]);
-		newMoves("lycanroc", ["jawlock"]);
-		newMoves("lycanrocdusk", ["jawlock"]);
-		newMoves("lycanrocmidnight", ["jawlock"]);
-		newMoves("tyrunt", ["jawlock"]);
-		newMoves("tyrantrum", ["jawlock"]);
+		this.modData('learnsets', 'rockruff').learnset.jawlock = ["8L1"];
+		this.modData('learnsets', 'lycanroc').learnset.jawlock = ["8L1"];
+		this.modData('learnsets', 'lycanrocdusk').learnset.jawlock = ["8L1"];
+		this.modData('learnsets', 'lycanrocmidnight').learnset.jawlock = ["8L1"];
+		this.modData('learnsets', 'tyrunt').learnset.jawlock = ["8L1"];
+		this.modData('learnsets', 'tyrantrum').learnset.jawlock = ["8L1"];
 	
 		//Razor Wind
-		newMoves("tornadus", ["razorwind"]);
-		newMoves("thundurus", ["razorwind"]);
-		newMoves("landorus", ["razorwind"]);
-		newMoves("articunogalar", ["razorwind"]);
-		newMoves("zapdosgalar", ["razorwind"]);
-		newMoves("moltresgalar", ["razorwind"]);
-		newMoves("celesteela", ["razorwind"]);
-		newMoves("xatu", ["razorwind"]);
+		this.modData('learnsets', 'tornadus').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'thundurus').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'landorus').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'articunogalar').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'zapdosgalar').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'moltresgalar').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'celesteela').learnset.razorwind = ["8L1"];
+		this.modData('learnsets', 'xatu').learnset.razorwind = ["8L1"];
 	
 		//Strength
-		newMoves("beedrill", ["strength"]);
+		this.modData('learnsets', 'beedrill').learnset.strength = ["8L1"];
   },
 };
