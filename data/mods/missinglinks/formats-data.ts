@@ -15,4 +15,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	ekansalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	arbokalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	miloticmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
