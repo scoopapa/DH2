@@ -7,85 +7,161 @@ export const Formats: {[k: string]: FormatData} = {
 			if (source || !target?.side) return;
 			if (target.set.name.substr(0, 1) === "*") {
 				let newSpecies = this.dex.deepClone(species);
-				for (const type in [0, 1]) {
-					switch (target.set.name.substr((type + 1), 1)) {
-						case "a":
-						case "A":
-							newSpecies.types[type] = "Dragon";
-							break;
-						case "b":
-						case "B":
-							newSpecies.types[type] = "Bug";
-							break;
-						case "c":
-						case "C":
-							newSpecies.types[type] = "Psychic";
-							break;
-						case "d":
-						case "D":
-							newSpecies.types[type] = "Dark";
-							break;
-						case "e":
-						case "E":
-							newSpecies.types[type] = "Electric";
-							break;
-						case "f":
-						case "F":
-							newSpecies.types[type] = "Fairy";
-							break;
-						case "g":
-						case "G":
-							newSpecies.types[type] = "Grass";
-							break;
-						case "h":
-						case "H":
-							newSpecies.types[type] = "Fighting";
-							break;
-						case "i":
-						case "I":
-							newSpecies.types[type] = "Ice";
-							break;
-						case "k":
-						case "K":
-							newSpecies.types[type] = "Rock";
-							break;
-						case "n":
-						case "N":
-							newSpecies.types[type] = "Normal";
-							break;
-						case "o":
-						case "O":
-							newSpecies.types[type] = "Ghost";
-							break;
-						case "p":
-						case "P":
-		   				newSpecies.types[type] = "Poison";
-							break;
-						case "r":
-						case "R":
-							newSpecies.types[type] = "Fire";
-							break;
-						case "s":
-						case "S":
-							newSpecies.types[type] = "Steel";
-							break;
-						case "u":
-						case "U":
-							newSpecies.types[type] = "Ground";
-							break;
-						case "w":
-						case "W":
-							newSpecies.types[type] = "Water";
-							break;
-						case "y":
-						case "Y":
-							newSpecies.types[type] = "Flying";
-							break;
-						case "z":
-						case "Z":
-							newSpecies.types[type] = "";
-							break;
-					}
+				switch (target.set.name.substr(1, 1)) {
+					case "a":
+					case "A":
+						newSpecies.types[0] = "Dragon";
+						break;
+					case "b":
+					case "B":
+						newSpecies.types[0] = "Bug";
+						break;
+					case "c":
+					case "C":
+						newSpecies.types[0] = "Psychic";
+						break;
+					case "d":
+					case "D":
+						newSpecies.types[0] = "Dark";
+						break;
+					case "e":
+					case "E":
+						newSpecies.types[0] = "Electric";
+						break;
+					case "f":
+					case "F":
+						newSpecies.types[0] = "Fairy";
+						break;
+					case "g":
+					case "G":
+						newSpecies.types[0] = "Grass";
+						break;
+					case "h":
+					case "H":
+						newSpecies.types[0] = "Fighting";
+						break;
+					case "i":
+					case "I":
+						newSpecies.types[0] = "Ice";
+						break;
+					case "k":
+					case "K":
+						newSpecies.types[0] = "Rock";
+						break;
+					case "n":
+					case "N":
+						newSpecies.types[0] = "Normal";
+						break;
+					case "o":
+					case "O":
+						newSpecies.types[0] = "Ghost";
+						break;
+					case "p":
+					case "P":
+	   				newSpecies.types[0] = "Poison";
+						break;
+					case "r":
+					case "R":
+						newSpecies.types[0] = "Fire";
+						break;
+					case "s":
+					case "S":
+						newSpecies.types[0] = "Steel";
+						break;
+					case "u":
+					case "U":
+						newSpecies.types[0] = "Ground";
+						break;
+					case "w":
+					case "W":
+						newSpecies.types[0] = "Water";
+						break;
+					case "y":
+					case "Y":
+						newSpecies.types[0] = "Flying";
+						break;
+					case "z":
+					case "Z":
+						newSpecies.types[0] = "";
+						break;
+				}
+				switch (target.set.name.substr(2, 1)) {
+					case "a":
+					case "A":
+						newSpecies.types[1] = "Dragon";
+						break;
+					case "b":
+					case "B":
+						newSpecies.types[1] = "Bug";
+						break;
+					case "c":
+					case "C":
+						newSpecies.types[1] = "Psychic";
+						break;
+					case "d":
+					case "D":
+						newSpecies.types[1] = "Dark";
+						break;
+					case "e":
+					case "E":
+						newSpecies.types[1] = "Electric";
+						break;
+					case "f":
+					case "F":
+						newSpecies.types[1] = "Fairy";
+						break;
+					case "g":
+					case "G":
+						newSpecies.types[1] = "Grass";
+						break;
+					case "h":
+					case "H":
+						newSpecies.types[1] = "Fighting";
+						break;
+					case "i":
+					case "I":
+						newSpecies.types[1] = "Ice";
+						break;
+					case "k":
+					case "K":
+						newSpecies.types[1] = "Rock";
+						break;
+					case "n":
+					case "N":
+						newSpecies.types[1] = "Normal";
+						break;
+					case "o":
+					case "O":
+						newSpecies.types[1] = "Ghost";
+						break;
+					case "p":
+					case "P":
+	   				newSpecies.types[1] = "Poison";
+						break;
+					case "r":
+					case "R":
+						newSpecies.types[1] = "Fire";
+						break;
+					case "s":
+					case "S":
+						newSpecies.types[1] = "Steel";
+						break;
+					case "u":
+					case "U":
+						newSpecies.types[1] = "Ground";
+						break;
+					case "w":
+					case "W":
+						newSpecies.types[1] = "Water";
+						break;
+					case "y":
+					case "Y":
+						newSpecies.types[1] = "Flying";
+						break;
+					case "z":
+					case "Z":
+						newSpecies.types[1] = "";
+						break;
 				}
 				newSpecies.baseStats.atk = target.set.name.substr(3, 3);
 				newSpecies.baseStats.def = target.set.name.substr(6, 3);
@@ -93,7 +169,7 @@ export const Formats: {[k: string]: FormatData} = {
 				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
 				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
 				target.isModded = true;
-				target.set.name = target.species.name;
+				target.set.name = newSpecies.name;
 				return newSpecies;
 			}
 		},
