@@ -169,7 +169,6 @@ export const Formats: {[k: string]: FormatData} = {
 				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
 				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
 				target.isModded = true;
-				target.set.name = newSpecies.name;
 				return newSpecies;
 			}
 		},
