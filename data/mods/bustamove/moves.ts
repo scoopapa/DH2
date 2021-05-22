@@ -215,9 +215,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
 		onHit(target, source) {
-			const removeTarget = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
+			if target.sideCondition = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'] {
+			const removeTarget = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			}
 			/*let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			for (const targetCondition of removeTarget) {
