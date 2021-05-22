@@ -2,7 +2,7 @@ const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAll
 
 //this.modData('Learnsets', 'pkmn').learnset.move = ['8L1'];
 export const Scripts: BattleScriptsData = {
-	init: function() {
+	/*init: function() {
 	
 		this.modData('Learnsets', 'houndoom').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'infernape').learnset.burningjealousy = ['8L1'];
@@ -217,5 +217,5 @@ export const Scripts: BattleScriptsData = {
 			}
 			
 		}
-	},
+	},*/
 };
