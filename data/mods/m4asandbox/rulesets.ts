@@ -7,88 +7,145 @@ export const Formats: {[k: string]: FormatData} = {
 			if (source || !target?.side) return;
 			if (target.set.name.substr(0, 1) == "*") {
 				let newSpecies = this.dex.deepClone(species);
-				for (const type in [0, 1]) {
-					switch (target.set.name.substr((type + 1), 1)) {
-						case "a":
-							newSpecies.types[type] = "Dragon";
-							break;
-						case "b":
-							newSpecies.types[type] = "Bug";
-							break;
-						case "c":
-							newSpecies.types[type] = "Psychic";
-							break;
-						case "d":
-							newSpecies.types[type] = "Dark";
-							break;
-						case "e":
-							newSpecies.types[type] = "Electric";
-							break;
-						case "f":
-							newSpecies.types[type] = "Fairy";
-							break;
-						case "g":
-							newSpecies.types[type] = "Grass";
-							break;
-						case "h":
-							newSpecies.types[type] = "Fighting";
-							break;
-						case "i":
-							newSpecies.types[type] = "Ice";
-							break;
-						case "k":
-							newSpecies.types[type] = "Rock";
-							break;
-						case "n":
-							newSpecies.types[type] = "Normal";
-							break;
-						case "o":
-							newSpecies.types[type] = "Ghost";
-							break;
-						case "p":
-		   				newSpecies.types[type] = "Poison";
-							break;
-						case "r":
-							newSpecies.types[type] = "Fire";
-							break;
-						case "s":
-							newSpecies.types[type] = "Steel";
-							break;
-						case "u":
-							newSpecies.types[type] = "Ground";
-							break;
-						case "w":
-							newSpecies.types[type] = "Water";
-							break;
-						case "y":
-							newSpecies.types[type] = "Flying";
-							break;
-						case "z":
-							newSpecies.types[type] = "";
-							break;
-					}
+				switch (target.set.name.substr(1, 1)) {
+					case "a":
+						newSpecies.types[0] = "Dragon";
+						break;
+					case "b":
+						newSpecies.types[0] = "Bug";
+						break;
+					case "c":
+						newSpecies.types[0] = "Psychic";
+						break;
+					case "d":
+						newSpecies.types[0] = "Dark";
+						break;
+					case "e":
+						newSpecies.types[0] = "Electric";
+						break;
+					case "f":
+						newSpecies.types[0] = "Fairy";
+						break;
+					case "g":
+						newSpecies.types[0] = "Grass";
+						break;
+					case "h":
+						newSpecies.types[0] = "Fighting";
+						break;
+					case "i":
+						newSpecies.types[0] = "Ice";
+						break;
+					case "k":
+						newSpecies.types[0] = "Rock";
+						break;
+					case "n":
+						newSpecies.types[0] = "Normal";
+						break;
+					case "o":
+						newSpecies.types[0] = "Ghost";
+						break;
+					case "p":
+	   				newSpecies.types[0] = "Poison";
+						break;
+					case "r":
+						newSpecies.types[0] = "Fire";
+						break;
+					case "s":
+						newSpecies.types[0] = "Steel";
+						break;
+					case "u":
+						newSpecies.types[0] = "Ground";
+						break;
+					case "w":
+						newSpecies.types[0] = "Water";
+						break;
+					case "y":
+						newSpecies.types[0] = "Flying";
+						break;
+					case "z":
+						newSpecies.types[0] = "";
+						break;
+				}
+				switch (target.set.name.substr(2, 1)) {
+					case "a":
+						newSpecies.types[1] = "Dragon";
+						break;
+					case "b":
+						newSpecies.types[1] = "Bug";
+						break;
+					case "c":
+						newSpecies.types[1] = "Psychic";
+						break;
+					case "d":
+						newSpecies.types[1] = "Dark";
+						break;
+					case "e":
+						newSpecies.types[1] = "Electric";
+						break;
+					case "f":
+						newSpecies.types[1] = "Fairy";
+						break;
+					case "g":
+						newSpecies.types[1] = "Grass";
+						break;
+					case "h":
+						newSpecies.types[1] = "Fighting";
+						break;
+					case "i":
+						newSpecies.types[1] = "Ice";
+						break;
+					case "k":
+						newSpecies.types[1] = "Rock";
+						break;
+					case "n":
+						newSpecies.types[1] = "Normal";
+						break;
+					case "o":
+						newSpecies.types[1] = "Ghost";
+						break;
+					case "p":
+	   				newSpecies.types[1] = "Poison";
+						break;
+					case "r":
+						newSpecies.types[1] = "Fire";
+						break;
+					case "s":
+						newSpecies.types[1] = "Steel";
+						break;
+					case "u":
+						newSpecies.types[1] = "Ground";
+						break;
+					case "w":
+						newSpecies.types[1] = "Water";
+						break;
+					case "y":
+						newSpecies.types[1] = "Flying";
+						break;
+					case "z":
+						newSpecies.types[1] = "";
+						break;
 				}
 				newSpecies.baseStats.atk = target.set.name.substr(3, 3);
 				newSpecies.baseStats.def = target.set.name.substr(6, 3);
 				newSpecies.baseStats.spa = target.set.name.substr(9, 3);
 				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
 				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
-				target.isModded = newSpecies;
+				target.isModded = true;
 				return newSpecies;
 			}
 		},
 		onSwitchIn(pokemon) {
-			let species = pokemon.isModded;
+			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
 				if (!pokemon.illusion.isModded) return;
-				species = pokemon.illusion.isModded;
-				this.add('-start', pokemon, 'typechange', pokemon.illusion.isModded.types.join('/'), '[silent]');
+				species = pokemon.illusion.species;
+				this.add('-start', pokemon, 'typechange', species.types.join('/'), '[silent]');
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
 				if (!pokemon.isModded) return;
-				this.add('-start', pokemon, 'typechange', pokemon.isModded.types.join('/'), '[silent]');
+				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 				if (pokemon.switchedIn) return;
 				pokemon.switchedIn = true;
 			}
@@ -105,10 +162,10 @@ export const Formats: {[k: string]: FormatData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) { // making sure the correct information is given when an Illusion breaks
 				if (target.isModded) {
-					this.add('-start', target, 'typechange', target.isModded.types.join('/'), '[silent]');
+					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
-						let species = target.isModded;
+						let species = target.species;
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) {
 							abilities += ` / ${species.abilities[1]}`;
