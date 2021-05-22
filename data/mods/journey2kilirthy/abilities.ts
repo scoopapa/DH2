@@ -4398,6 +4398,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
 				this.damage(pokemon.lastDamage / 5, pokemon);
+				this.add('-message', `${pokemon.name} damaged itself!`);
 			}
 		},
 		name: "Massive Charge",
