@@ -214,9 +214,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onAfterHit(target) {
-			if target.sideConditions('spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'); {
-				 remove.side.sideConditions
+		onHit(target, source) {
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
+					success = true;
+				}
 			}
 		},
 		critRatio: 2,
