@@ -19564,7 +19564,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		shortDesc: "Causes the target to fall asleep. Heals the user by 1/4 of its max HP.",
-		category: "Physical",
+		category: "Status",
 		name: "Bell of Peace",
 		pp: 5,
 		priority: 0,
