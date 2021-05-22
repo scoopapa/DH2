@@ -137,4 +137,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Magnezone"],
 		eggGroups: ["Mineral"],
 	},
+	electrode: {
+		inherit: true,
+		evos: ["Gluttohm"],
+	},
+	gluttohm: {
+		num: 1002,
+		name: "Gluttohm",
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 100, atk: 50, def: 80, spa: 90, spd: 85, spe: 130},
+		abilities: {0: "Soundproof", 1: "Static", H: "Aftermath"},
+		weightkg: 235.2,
+		prevo: "Electrode",
+		evoType: "useItem",
+		evoItem: "Thunder Stone",
+		eggGroups: ["Mineral"],
+	},
 };
