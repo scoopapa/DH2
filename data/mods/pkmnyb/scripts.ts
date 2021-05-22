@@ -2755,4 +2755,30 @@ this.modData('Learnsets', 'combee').learnset.frustration = ['7L1'];
 		return true;
 	}
 	},
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return null;
+		}
+		if (item.name === "Galarslowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return "Slowbro-Galar-Mega";
+		}
+		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
+			return null;
+		}
+		if (item.name === "Femmeowstite" && pokemon.baseSpecies.name === "Meowstic-F") {
+			return "Meowstic-F-Mega";
+		}
+		if (item.name === "Femindeedite" && pokemon.baseSpecies.name === "Indeedee-F") {
+			return "Indeedee-F-Mega";
+		}
+		return item.megaStone;
+	},
 };
