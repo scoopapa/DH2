@@ -11,9 +11,10 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onModifySpecies(species, target, source) {
 			if (source || !target?.side) return;
+			if (!target.set.isModded) return;
 			if (target.set.isModded.substr(0, 1) === "*") {
 				let newSpecies = this.dex.deepClone(species);
-				switch (target.set.name.substr(1, 1)) {
+				switch (target.set.isModded.substr(1, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[0] = "Dragon";
@@ -91,7 +92,7 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[0] = "";
 						break;
 				}
-				switch (target.set.name.substr(2, 1)) {
+				switch (target.set.isModded.substr(2, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[1] = "Dragon";
@@ -169,11 +170,11 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[1] = "";
 						break;
 				}
-				newSpecies.baseStats.atk = target.set.name.substr(3, 3);
-				newSpecies.baseStats.def = target.set.name.substr(6, 3);
-				newSpecies.baseStats.spa = target.set.name.substr(9, 3);
-				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
-				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
+				newSpecies.baseStats.atk = target.set.isModded.substr(3, 3);
+				newSpecies.baseStats.def = target.set.isModded.substr(6, 3);
+				newSpecies.baseStats.spa = target.set.isModded.substr(9, 3);
+				newSpecies.baseStats.spd = target.set.isModded.substr(12, 3);
+				newSpecies.baseStats.spe = target.set.isModded.substr(15, 3);
 				target.isModded = true;
 				return newSpecies;
 			}
