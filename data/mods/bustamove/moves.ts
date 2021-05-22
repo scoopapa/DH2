@@ -226,8 +226,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
 					success = true;
 				}
-			}
-		},*/
+			}*/
+		},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
