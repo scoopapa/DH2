@@ -215,8 +215,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
 		onAfterHit(target) {
-			if target.sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge']; {
-				 target.hp && target.side.removeSideCondition(condition)
+			if target.sideConditions('spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'); {
+				 remove.side.sideConditions
 			}
 		},
 		critRatio: 2,
