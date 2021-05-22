@@ -215,6 +215,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
 		onHit(target, source) {
+			const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			/*let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
@@ -222,7 +227,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					success = true;
 				}
 			}
-		},
+		},*/
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
