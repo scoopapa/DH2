@@ -3,9 +3,15 @@ export const Formats: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'Sandbox Mod',
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
+		onChangeSet(set, format) {
+			if (set.name.substr(0, 1) === "*") {
+				set.isModded = set.name;
+				delete set.name;
+			}
+		},
 		onModifySpecies(species, target, source) {
 			if (source || !target?.side) return;
-			if (target.set.name.substr(0, 1) === "*") {
+			if (target.set.isModded.substr(0, 1) === "*") {
 				let newSpecies = this.dex.deepClone(species);
 				switch (target.set.name.substr(1, 1)) {
 					case "a":
