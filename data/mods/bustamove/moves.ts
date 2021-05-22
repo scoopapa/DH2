@@ -221,7 +221,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeTarget.includes(targetCondition)) continue;
 					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
-					success = true;
 				}
 			}
 			/*let success = false;
