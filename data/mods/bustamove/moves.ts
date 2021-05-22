@@ -173,7 +173,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	jawlock: {
 		num: 746,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 80,
 		category: "Physical",
 		shortDesc: "Each turn, target looses 1/8 max HP until either it or the user switches out.",
@@ -188,10 +188,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	ominouswind: {
 		num: 466,
-		accuracy: 100,
-		basePower: 60,
+		accuracy: 95,
+		basePower: 50,
 		category: "Special",
-		isNonstandard: null,
 		name: "Ominous Wind",
 		pp: 5,
 		priority: 0,
@@ -207,33 +206,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	razorwind: {
-		/*num: 13,
+		num: 13,
 		accuracy: 100,
-		basePower: 80,
-		category: "Special",*/
-		isNonstandard: null,
-		/*name: "Razor Wind",
+		basePower: 110,
+		category: "Special",
+		name: "Razor Wind",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
 		onAfterHit(target) {
-			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			for (const condition of target.sideConditions) {
-				if (target.hp && target.side.removeSideCondition(condition)) 
+			if target.sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge']; {
+				 target.hp && target.side.removeSideCondition(condition)
 			}
 		},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Flying",
-		contestType: "Cool",*/
+		contestType: "Cool",
 	},
 	rocksmash: {
 		num: 249,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		isNonstandard: null,
 		shortDesc: "1.5x power when Stealth Rock are on the field. Removes Stealth Rock.",
 		name: "Rock Smash",
 		pp: 10,
