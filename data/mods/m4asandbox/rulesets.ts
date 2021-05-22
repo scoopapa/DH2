@@ -3,18 +3,12 @@ export const Formats: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'Sandbox Mod',
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
-		onChangeSet(set, format) {
-			if (set.name.substr(0, 1) === "*") {
-				set.isModded = set.name.substr(0,18);
-				delete set.name;
-			}
-		},
 		onModifySpecies(species, target, source) {
 			if (source || !target?.side) return;
-			if (!target.set.isModded) return;
-			if (target.set.isModded.substr(0, 1) === "*") {
+			if (!target.set.name) return;
+			if (target.set.name.substr(0, 1) === "*") {
 				let newSpecies = this.dex.deepClone(species);
-				switch (target.set.isModded.substr(1, 1)) {
+				switch (target.set.name.substr(1, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[0] = "Dragon";
@@ -92,7 +86,7 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[0] = "";
 						break;
 				}
-				switch (target.set.isModded.substr(2, 1)) {
+				switch (target.set.name.substr(2, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[1] = "Dragon";
@@ -170,11 +164,11 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[1] = "";
 						break;
 				}
-				newSpecies.baseStats.atk = 0 + target.set.isModded.substr(3, 3);
-				newSpecies.baseStats.def = 0 + target.set.isModded.substr(6, 3);
-				newSpecies.baseStats.spa = 0 + target.set.isModded.substr(9, 3);
-				newSpecies.baseStats.spd = 0 + target.set.isModded.substr(12, 3);
-				newSpecies.baseStats.spe = 0 + target.set.isModded.substr(15, 3);
+				newSpecies.baseStats.atk = target.set.name.substr(3, 3);
+				newSpecies.baseStats.def = target.set.name.substr(6, 3);
+				newSpecies.baseStats.spa = target.set.name.substr(9, 3);
+				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
+				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
 				target.isModded = true;
 				return newSpecies;
 			}
