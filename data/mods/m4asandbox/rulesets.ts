@@ -5,7 +5,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
 		onChangeSet(set, format) {
 			if (set.name.substr(0, 1) === "*") {
-				set.isModded = set.name;
+				set.isModded = set.name.substr(0,18);
 				delete set.name;
 			}
 		},
@@ -170,11 +170,11 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[1] = "";
 						break;
 				}
-				newSpecies.baseStats.atk = target.set.isModded.substr(3, 3);
-				newSpecies.baseStats.def = target.set.isModded.substr(6, 3);
-				newSpecies.baseStats.spa = target.set.isModded.substr(9, 3);
-				newSpecies.baseStats.spd = target.set.isModded.substr(12, 3);
-				newSpecies.baseStats.spe = target.set.isModded.substr(15, 3);
+				newSpecies.baseStats.atk = 0 + target.set.isModded.substr(3, 3);
+				newSpecies.baseStats.def = 0 + target.set.isModded.substr(6, 3);
+				newSpecies.baseStats.spa = 0 + target.set.isModded.substr(9, 3);
+				newSpecies.baseStats.spd = 0 + target.set.isModded.substr(12, 3);
+				newSpecies.baseStats.spe = 0 + target.set.isModded.substr(15, 3);
 				target.isModded = true;
 				return newSpecies;
 			}
