@@ -319,4 +319,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 		doublesTier: "DUU",
 	},
+	gluttohm: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
