@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	shaymin: {
+	/*shaymin: {
 		learnset: {
 			aircutter: ["4T"],
 			airslash: ["7L64", "6L64", "6S3", "5L64", "4L64"],
@@ -265,5 +265,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	genesectshock: {
 		eventOnly: true,
-	},
+	},*/
 };
