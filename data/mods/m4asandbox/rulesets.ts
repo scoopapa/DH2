@@ -5,7 +5,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
 		onChangeSet(set, format) {
 			if (set.name.substr(0, 1) === "*") {
-				let newSpecies = this.dex.deepClone(set.species);
+				let newSpecies = format.dex.deepClone(set.species);
 				switch (set.name.substr(1, 1)) {
 					case "a":
 					case "A":
