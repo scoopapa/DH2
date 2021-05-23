@@ -164,11 +164,11 @@ export const Formats: {[k: string]: FormatData} = {
 							newSpecies.types[0] = "";
 							break;
 					}
-					newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
-					newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
-					newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
-					newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
-					newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
+					if (typeof pokemon.set.name.substr(3, 3) === 'number') newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
+					if (typeof pokemon.set.name.substr(6, 3) === 'number') newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
+					if (typeof pokemon.set.name.substr(9, 3) === 'number') newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
+					if (typeof pokemon.set.name.substr(12, 3) === 'number') newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
+					if (typeof pokemon.set.name.substr(15, 3) === 'number') newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 					pokemon.isModded = true;
 					pokemon.name = newSpecies.name;
 				}
