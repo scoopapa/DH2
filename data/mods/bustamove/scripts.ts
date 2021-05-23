@@ -15,7 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'hatterene').learnset.eeriespell = ['8L1'];
 		this.modData('Learnsets', 'mismagius').learnset.eeriespell = ['8L1'];
 	
-		this.modData('Learnsets', 'cleffa').learnset.fairywind = ['8L1'];
+		/*this.modData('Learnsets', 'cleffa').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'clefairy').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'clefable').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'hatenna').learnset.fairywind = ['8L1'];
@@ -38,7 +38,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zapdosgalar').learnset.razorwind = ['8L1'];
 		this.modData('Learnsets', 'moltresgalar').learnset.razorwind = ['8L1'];
 		this.modData('Learnsets', 'celesteela').learnset.razorwind = ['8L1'];
-		this.modData('Learnsets', 'xatu').learnset.razorwind = ['8L1'];
+		this.modData('Learnsets', 'xatu').learnset.razorwind = ['8L1'];*/
 	
 		this.modData('Learnsets', 'beedrill').learnset.strength = ['8L1'];
 	},
