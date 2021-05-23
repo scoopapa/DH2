@@ -9,6 +9,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'shaymin').learnset.knockoff = ['8L1'];
 		this.modData('Learnsets', 'shaymin').learnset.taunt = ['8L1'];
 		
+		delete this.modData('Learnsets', 'dreepy').learnset.fireblast;
+		delete this.modData('Learnsets', 'dreepy').learnset.hydropump;
+		delete this.modData('Learnsets', 'dreepy').learnset.thunder;
+		delete this.modData('Learnsets', 'dreepy').learnset.phantomforce;
+		delete this.modData('Learnsets', 'drakloak').learnset.fireblast;
+		delete this.modData('Learnsets', 'drakloak').learnset.hydropump;
+		delete this.modData('Learnsets', 'drakloak').learnset.thunder;
+		delete this.modData('Learnsets', 'drakloak').learnset.phantomforce;
 		delete this.modData('Learnsets', 'dragapult').learnset.fireblast;
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
