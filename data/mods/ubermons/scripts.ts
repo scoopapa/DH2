@@ -2,9 +2,8 @@
 this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
 delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 
-export const Scripts: BattleScriptsData = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {
-		//Additions
 		this.modData('Learnsets', 'shayminsky').learnset.knockoff = ['8L1'];
 		this.modData('Learnsets', 'shayminsky').learnset.taunt = ['8L1'];
 		this.modData('Learnsets', 'landorus').learnset.airslash = ['8L1'];
@@ -12,7 +11,6 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 		
-		//Removals
 		delete this.modData('Learnsets', 'genesect').learnset.blizzard;
 		delete this.modData('Learnsets', 'genesect').learnset.thunderbolt;
 		delete this.modData('Learnsets', 'genesect').learnset.thunder;
