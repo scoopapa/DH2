@@ -1,5 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function() {
+	init: function () {
 		/*Template:
 		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
