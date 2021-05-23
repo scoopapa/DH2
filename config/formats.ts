@@ -574,6 +574,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Bust A Move",
     desc: [
+		"<b>Bust A Move</b>: A Pet Mod where previously competitively useless moves are given much needed makeovers.",
       ],
     threads: [
       `&bullet; <a href="https://www.smogon.com/forums/threads/bust-a-move-slate-5-sing-synchronoise-and-sparkling-aria.3681338/">Bust A Move on Smogon Forums</a>`,
@@ -831,7 +832,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Fusion Evolution UU",
 		mod: "feuu",
 		desc: [
-			`<b>Fusion Evolution Under USed</b>: A micrometa Pet Mod aiming to create more-balanced-than-usual "Pokemon Fusions" with unique abilities.`
+			`<b>Fusion Evolution Under Used</b>: A micrometa Pet Mod aiming to create more-balanced-than-usual "Pokemon Fusions" with unique abilities.`
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Fusion Evolution Under Used on Smogon Forums</a>`,
@@ -1510,7 +1511,7 @@ export const Formats: FormatList = [
 */
 	{
 		name: "[Gen 8] M4A VGC",
-		desc: ["&bullet; Megas for All v7 but it's a VGC format",
+		desc: ["Megas for All v7 but it's a VGC format",
 		      ],
 		threads: [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
@@ -1548,9 +1549,10 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] M4A Sandbox",
-		desc: ["&bullet; Megas for All v7 but it's Custom Game",
+		desc: ["Megas for All v7 but it's Custom Game. Add custom typings and stats via Sandbox Mod!",
 		      ],
 		threads: [
+				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
@@ -1562,9 +1564,10 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] M4A VGC Sandbox",
-		desc: ["&bullet; Megas for All v7 but it's a VGC format but it's Custom Game",
+		desc: ["Megas for All v7 but it's a VGC format but it's Custom Game. Add custom typings and stats via Sandbox Mod!",
 		      ],
 		threads: [
+				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
@@ -1583,7 +1586,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] M4A Suspect",
-		desc: ["&bullet; Megas for All v7 with specific unbans for upcoming suspects",
+		desc: ["Megas for All v7 with specific unbans for upcoming suspects",
 		      ],
 		threads: [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
@@ -1684,7 +1687,7 @@ export const Formats: FormatList = [
   },
   {
 		name: "[Gen 8] M4A Monotype",
-		desc: ["&bullet; Megas for All v7 but it's a Monotype format",
+		desc: ["Megas for All v7 but it's a Monotype format",
 		      ],
 		threads: [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
@@ -1712,7 +1715,7 @@ export const Formats: FormatList = [
 	},
 	{  
 		name: "[Gen 8] SylveMons AG",
-		desc: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",
+		threads: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",
 				 "&bullet; <a href=https://docs.google.com/spreadsheets/d/18DiYjbZXv1Nm7tU-W0OMgPow0ZO7J2ETJF-hWapwM-o/edit>SylveMons Archive</a>",
 		      ],
 		mod: 'sylvemonstest',
@@ -1992,7 +1995,7 @@ export const Formats: FormatList = [
 			'Cinderace ++ Libero', 'Kommo-o ++ Clangorous Soul', 'Greninja ++ Protean',
 		],
 	},
-		{
+	{
 		name: "[Gen 5] Prism",
 		desc: "Under Construction",
 		mod: 'prism',
