@@ -170,17 +170,13 @@ export const Formats: {[k: string]: FormatData} = {
 					newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
 					newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 					pokemon.isModded = newSpecies;
-					pokemon.species = newSpecies;
-					pokemon.baseSpecies = newSpecies;
 				}
 			}
 		},
-/*
 		onModifySpecies(species, target, source) {
 			if (source || !target?.side) return;
 			if (target.isModded) return target.isModded;
 		},
-*/
 		onSwitchIn(pokemon) {
 			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
