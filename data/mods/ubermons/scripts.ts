@@ -6,8 +6,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Changes
 		this.modData('Learnsets', 'landorus').learnset.airslash = ['8L1'];
 		
-		this.modData('Learnsets', 'shayminsky').learnset.knockoff = ['8L1'];
-		this.modData('Learnsets', 'shayminsky').learnset.taunt = ['8L1'];
+		this.modData('Learnsets', 'shaymin').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'shaymin').learnset.taunt = ['8L1'];
 		
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
