@@ -325,7 +325,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dragonpulse: ["7L1"],
 		},
 	},
-	arbok: {
+	arbokalola: {
 		learnset: {
 			aquatail: ["7T", "6T", "5T", "4T"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
