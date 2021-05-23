@@ -1452,7 +1452,7 @@ export const Formats: FormatList = [
 		      ],
 		searchShow: false,
 		// now intended as a custom game-esque format with more freedom for testing
-		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
 		mod: 'm4asandbox',
 	},
 	{
@@ -1468,7 +1468,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
-		ruleset: ['Team Preview', 'Cancel Mod', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
 		teambuilderFormat: 'Doubles OU',
 	},
 	{
