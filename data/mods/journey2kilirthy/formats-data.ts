@@ -4979,6 +4979,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	necrozmaultra: {
 		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	magearna: {
 		randomBattleMoves: ["agility", "calmmind", "flashcannon", "fleurcannon", "focusblast", "voltswitch"],
