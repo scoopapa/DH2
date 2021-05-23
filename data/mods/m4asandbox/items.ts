@@ -1,4 +1,34 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	megastone1: {
+		name: "Mega Stone 1",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2000,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
+	megastone2: {
+		name: "Mega Stone 2",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2001,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
+	megastoneh: {
+		name: "Mega Stone H",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2003,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
 	porygonitez: {
 		name: "Porygonite-Z",
 		spritenum: 578,
@@ -54,36 +84,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5003,
 		gen: 8,
 		desc: "If held by a Meltan, this item allows it to Mega Evolve in battle.",
-	},
-	megastone1: {
-		name: "Mega Stone 1",
-		spritenum: 578,
-		onTakeItem(item, source) {
-			return false;
-		},
-		num: -5004,
-		gen: 8,
-		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
-	},
-	megastone2: {
-		name: "Mega Stone 2",
-		spritenum: 578,
-		onTakeItem(item, source) {
-			return false;
-		},
-		num: -5005,
-		gen: 8,
-		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
-	},
-	megastoneh: {
-		name: "Mega Stone H",
-		spritenum: 578,
-		onTakeItem(item, source) {
-			return false;
-		},
-		num: -5006,
-		gen: 8,
-		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
 	},
 /*
 	mossysandwich: {
