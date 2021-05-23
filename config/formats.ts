@@ -1188,8 +1188,12 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Ubermons",
+		desc: `A metagame where banned Pokémon, Abilities, Moves and Mechanics are adjusted for National Dex Play.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-3-you%E2%80%99re-a-natural-kyogre-groudon-rayquaza.3683759/">Twisted Pokemon</a>`,
+		],	
 		mod: 'ubermons',
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			//Pokémon
 			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 
