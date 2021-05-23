@@ -3812,6 +3812,7 @@ export const Learnsets = {
 	/*fyrecho: {
 		learnset: {*/
 			babydolleyes: ['7L1'],
+			boomburst: ['7L1'],
 		}
 	},
 	osprime: {
