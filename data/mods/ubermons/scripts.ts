@@ -11,6 +11,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
+		
 		delete this.modData('Learnsets', 'dragapult').learnset.fireblast;
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
