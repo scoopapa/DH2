@@ -19563,22 +19563,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 827,
 		accuracy: 100,
 		basePower: 0,
-		category: "Physical",
+		shortDesc: "Causes the target to fall asleep. Heals the user by 1/4 of its max HP.",
+		category: "Status",
 		name: "Bell of Peace",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		onHit(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
-				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
-			} else {
-				this.add('-status', target, 'slp');
-			}
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
-		},
+		status: 'slp',
 		self: {
 			onHit(target, source, move) {
 				for (const pokemon of source.side.active) {
@@ -19598,6 +19589,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 828,
 		accuracy: 100,
 		basePower: 85,
+		shortDesc: "Combines Fighting in its type effectiveness.",
 		category: "Physical",
 		name: "Crushing Hoofs",
 		pp: 5,
@@ -19618,6 +19610,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 829,
 		accuracy: 100,
 		basePower: 95,
+		shortDesc: "20% chance to lower the target's highest stat by 1.",
 		category: "Special",
 		name: "Strategic Choice",
 		pp: 5,
@@ -19628,7 +19621,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Meteor Mash", target);
 		},
 		secondary: {
-			chance: 100,
+			chance: 20,
 			onHit(target) {
 				if (target.getStat('atk') > target.getStat('def', 'spa', 'spd', 'spe')) {
 					this.boost({atk: -1}, target);
@@ -19643,21 +19636,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-			/*onHit(target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-				}
-				this.boost({s: -1}, target);
-			}
-			}
-		},*/
 		target: "normal",
 		type: "Steel",
 	},
@@ -19665,6 +19643,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 830,
 		accuracy: 100,
 		basePower: 100,
+		shortDesc: "10% chance to freeze the target.",
 		category: "Special",
 		name: "Cold Terror",
 		pp: 10,
@@ -19685,6 +19664,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 831,
 		accuracy: 100,
 		basePower: 60,
+		shortDesc: "User switches out after damaging the target.",
 		category: "Special",
 		name: "Fiery Pass",
 		pp: 15,
@@ -19693,6 +19673,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		selfSwitch: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "U-turn", target);
 			this.add('-anim', source, "Baton Pass", target);
 		},
 		secondary: null,
@@ -19703,6 +19684,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 240,
 		accuracy: true,
 		basePower: 0,
+		shortDesc: "For 5 turns, an acidic rain summons.",
 		category: "Status",
 		name: "Acid Rain",
 		pp: 5,
@@ -19721,6 +19703,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 240,
 		accuracy: true,
 		basePower: 0,
+		shortDesc: "For 5 turns, a fog thickens.",
 		category: "Status",
 		name: "Refog",
 		pp: 5,

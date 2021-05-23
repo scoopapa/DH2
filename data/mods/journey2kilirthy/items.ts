@@ -7126,6 +7126,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	blurryrock: {
 		name: "Blurry Rock",
+		shortDesc: "Holder's use of Refog lasts 8 turns instead of 5.",
 		spritenum: 88,
 		fling: {
 			basePower: 60,
@@ -7135,6 +7136,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	toxicrock: {
 		name: "Toxic Rock",
+		shortDesc: "Holder's use of Acid Rain lasts 8 turns instead of 5.",
 		spritenum: 88,
 		fling: {
 			basePower: 60,
