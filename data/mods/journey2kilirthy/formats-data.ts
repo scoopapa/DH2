@@ -20,9 +20,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	necrozmaultra: {
 		tier: "Uber",
 	},
-	pheromosa: {
-		tier: "Uber",
-	},
 	magearna: {
 		tier: "Uber",
 	},
