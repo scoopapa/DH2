@@ -6460,7 +6460,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	yukaji: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	deliriee: {
