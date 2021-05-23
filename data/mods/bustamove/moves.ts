@@ -152,9 +152,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
+	fairywind: {
+		num: 263,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Fairy Wind",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 	jawlock: {
 		num: 746,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 80,
 		category: "Physical",
 		shortDesc: "Each turn, target looses 1/8 max HP until either it or the user switches out.",
@@ -166,6 +185,59 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+	},
+	ominouswind: {
+		num: 466,
+		accuracy: 95,
+		basePower: 50,
+		category: "Special",
+		name: "Ominous Wind",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) 
+			this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon, pokemon, move);
+			else this.damage(pokemon.baseMaxhp / 8);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
+	razorwind: {
+		num: 13,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Razor Wind",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1},
+		onHit(target, source) {
+			if (!target.volatiles['substitute'] || move.infiltrates);
+			const removeTarget = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeTarget.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
+				}
+			}
+			/*let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
+					success = true;
+				}
+			}*/
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Flying",
+		contestType: "Cool",
 	},
 	rocksmash: {
 		num: 249,
@@ -212,6 +284,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
+		isNonstandard: null,
 		shortDesc: "Super effective on Rock.",
 		name: "Strength",
 		pp: 20,
