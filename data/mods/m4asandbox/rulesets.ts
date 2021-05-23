@@ -86,7 +86,7 @@ export const Formats: {[k: string]: FormatData} = {
 							newSpecies.types[0] = "";
 							break;
 					}
-					switch (target.set.name.substr(2, 1)) {
+					switch (pokemon.set.name.substr(2, 1)) {
 						case "a":
 						case "A":
 							newSpecies.types[0] = "Dragon";
