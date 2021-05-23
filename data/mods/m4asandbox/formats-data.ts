@@ -1,6 +1,6 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pichuspikyearedmega: {
-		randomBattleMoves: ["volttackle", "metronome", "grassknot", "hiddenpowerice", "encore", "irontail"],
+		randomBattleMoves: ["volttackle", "metronome", "grassknot", "encore"],
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["fakeout", "volttackle", "metronome", "grassknot", "hiddenpowerice", "encore", "protect"],
 		randomDoubleBattleLevel: 82,
