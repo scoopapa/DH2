@@ -170,13 +170,10 @@ export const Formats: {[k: string]: FormatData} = {
 					if (typeof pokemon.set.name.substr(12, 3) === 'number') newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
 					if (typeof pokemon.set.name.substr(15, 3) === 'number') newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 					pokemon.isModded = newSpecies;
-					delete pokemon.set.name;
+					pokemon.species = newSpecies;
+					delete pokemon.name;
 				}
 			}
-		},
-		onModifySpecies(species, target, source) {
-			if (source || !target?.side) return;
-			if (target.isModded) return target.isModded;
 		},
 		onSwitchIn(pokemon) {
 			let species = pokemon.species;
@@ -210,16 +207,6 @@ export const Formats: {[k: string]: FormatData} = {
 					if (!target.switchedIn) {
 						target.switchedIn = true;
 						let species = target.species;
-						let abilities = species.abilities[0];
-						if (species.abilities[1]) {
-							abilities += ` / ${species.abilities[1]}`;
-						}
-						if (species.abilities['H']) {
-							abilities += ` / ${species.abilities['H']}`;
-						}
-						if (species.abilities['S']) {
-							abilities += ` / ${species.abilities['S']}`;
-						}
 						const baseStats = species.baseStats;
 						const type = species.types[0];
 						if (species.types[1]) {
