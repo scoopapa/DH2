@@ -1,26 +1,21 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: BattleScriptsData = {
 	init: function () {
 		/*Template:
-		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];*/
-		//Slate 1
+		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
+		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 		delete this.modData('Learnsets', 'genesect').learnset.blizzard;
 		delete this.modData('Learnsets', 'genesect').learnset.thunderbolt;
 		delete this.modData('Learnsets', 'genesect').learnset.thunder;
-		
 		this.modData('Learnsets', 'shayminsky').learnset.knockoff = ['8L1'];
 		this.modData('Learnsets', 'shayminsky').learnset.taunt = ['8L1'];
-		
 		this.modData('Learnsets', 'landorus').learnset.airslash = ['8L1'];
-		
-		//Slate 2
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
-		
+		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
+		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 		delete this.modData('Learnsets', 'dragapult').learnset.fireblast;
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
 		delete this.modData('Learnsets', 'dragapult').learnset.phantomforce;
-		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
-		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {
