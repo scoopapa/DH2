@@ -1630,11 +1630,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
 			const targetForme = ((move.secondaries || move.id === 'kingsshield') ? 'Meloslash' : 'Meloslash-Melee');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			if (move.id === 'relicsong') {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				pokemon.formeChange('Meloslash-Melee');
+			}
 		},
 		isPermanent: true,
 		name: "Battle Theme",
+		shortDesc: "If Meloslash: change forme to Range before using move with secondary, change form to Melee otherwise",
 	},
 	flashyjokes: {
+		shortDesc: "Flash Fire + Prankster.",
 		name: "Flashy Jokes",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -1679,5 +1689,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Teaching Tech",
+		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
 	},
 };
