@@ -253,7 +253,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 60, moves: ["technoblast", "xscissor", "metalclaw", "fellstinger"], pokeball: "cherishball"},
 		],
 		eventOnly: true,
-	},
+	},*/
 	genesectburn: {
 		eventOnly: true,
 	},
@@ -265,5 +265,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	genesectshock: {
 		eventOnly: true,
-	},*/
+	},
 };
