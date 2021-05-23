@@ -235,7 +235,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Sableye",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 50, atk: 85, def: 95, spa: 85, spd: 95, spe: 40},
-		abilities: {0: "Keen Ey", 1: "Magic Guard"},
+		abilities: {0: "Keen Eye", 1: "Magic Guard"},
 		heightm: 0.5,
 		weightkg: 11,
 		eggGroups: ["Human-Like"],

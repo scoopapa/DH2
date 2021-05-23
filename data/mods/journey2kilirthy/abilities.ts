@@ -4348,6 +4348,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Olympic Achievement",
+		shortDesc: "This Pokemon's Atk is raised by 2 when it reaches 1/2 or less of its max HP.",
 		rating: 2,
 		num: 268,
 	},
@@ -4356,6 +4357,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('fog');
 		},
 		name: "Fog Alert",
+		shortDesc: "On swtich-in, this Pokemon summons Refog.",
 		rating: 4,
 		num: 269,
 	},
@@ -4369,6 +4371,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (type === 'fog') return false;
 		},
 		name: "Foggy Rush",
+		shortDesc: "If Refog is active, this Pokemon's Speed is doubled.",
 		rating: 3,
 		num: 270,
 	},
@@ -4380,6 +4383,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Bringer of Balance",
+		shortDesc: "On switch-in, clears all stat changes.",
 		rating: 3,
 		num: 271,
 	},
@@ -4394,9 +4398,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
 				this.damage(pokemon.lastDamage / 5, pokemon);
+				this.add('-message', `${pokemon.name} damaged itself!`);
 			}
 		},
 		name: "Massive Charge",
+		shortDesc: "This Pokemon's contact moves have their power multiplied by 1.5x and adds 20% recoil.",
 		rating: 3,
 		num: 272,
 	},
@@ -4414,6 +4420,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Castle's Proud",
+		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.2x damage.",
 		rating: 3,
 		num: 273,
 	},
@@ -4439,6 +4446,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Ice Shell",
+		shortDesc: "Fire-type moves against this Pokemon deal damage with a halved attacking stat. Water-type moves are nullified.",
 		rating: 3.5,
 		num: 274,
 	},
@@ -4449,6 +4457,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Blind Rage",
+		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
 		rating: 3.5,
 		num: 275,
 	},
@@ -4457,6 +4466,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('acidrain');
 		},
 		name: "Acid Summoning",
+		shortDesc: "On swtich-in, this Pokemon summons Acid Rain.",
 		rating: 4,
 		num: 276,
 	},
@@ -4470,6 +4480,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (type === 'acidrain') return false;
 		},
 		name: "Acid Recovery",
+		shortDesc: "If Acid Rain is active, this Pokemon heals 1/16 of its max HP each turn.",
 		rating: 1,
 		num: 277,
 	},
@@ -4481,6 +4492,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Hunter",
+		shortDesc: "This Pokemon's Spe is raised by 2 when it damages the target for not super effective damage.",
 		rating: 1,
 		num: 278,
 	},
