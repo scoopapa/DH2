@@ -7,7 +7,7 @@ export const Scripts: BattleScriptsData = {
 init: function () {
 	for (var id in this.data.Pokedex) {
 		if (this.data.Pokedex[id].num > 890) {
-			this.modData('Learnsets', id).learnset['toxic'] = ['8L1'] && this.modData('Learnsets', id).learnset['hiddenpower'] = ['8L1'];
+			this.modData('Learnsets').learnset.toxic = ['8L1'] && this.modData('Learnsets').learnset.hiddenpower = ['8L1'] && this.modData('Learnsets').learnset.frustration = ['8L1'] && this.modData('Learnsets').learnset.return = ['8L1'];
 		}
 	}
 },
