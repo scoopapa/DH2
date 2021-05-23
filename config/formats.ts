@@ -1301,6 +1301,7 @@ export const Formats: FormatList = [
 			//Moves
 			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
      name: "[Gen 8] ViAbilities",
