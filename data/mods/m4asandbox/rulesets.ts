@@ -89,89 +89,88 @@ export const Formats: {[k: string]: FormatData} = {
 					switch (pokemon.set.name.substr(2, 1)) {
 						case "a":
 						case "A":
-							newSpecies.types[0] = "Dragon";
+							newSpecies.types[1] = "Dragon";
 							break;
 						case "b":
 						case "B":
-							newSpecies.types[0] = "Bug";
+							newSpecies.types[1] = "Bug";
 							break;
 						case "c":
 						case "C":
-							newSpecies.types[0] = "Psychic";
+							newSpecies.types[1] = "Psychic";
 							break;
 						case "d":
 						case "D":
-							newSpecies.types[0] = "Dark";
+							newSpecies.types[1] = "Dark";
 							break;
 						case "e":
 						case "E":
-							newSpecies.types[0] = "Electric";
+							newSpecies.types[1] = "Electric";
 							break;
 						case "f":
 						case "F":
-							newSpecies.types[0] = "Fairy";
+							newSpecies.types[1] = "Fairy";
 							break;
 						case "g":
 						case "G":
-							newSpecies.types[0] = "Grass";
+							newSpecies.types[1] = "Grass";
 							break;
 						case "h":
 						case "H":
-							newSpecies.types[0] = "Fighting";
+							newSpecies.types[1] = "Fighting";
 							break;
 						case "i":
 						case "I":
-							newSpecies.types[0] = "Ice";
+							newSpecies.types[1] = "Ice";
 							break;
 						case "k":
 						case "K":
-							newSpecies.types[0] = "Rock";
+							newSpecies.types[1] = "Rock";
 							break;
 						case "n":
 						case "N":
-							newSpecies.types[0] = "Normal";
+							newSpecies.types[1] = "Normal";
 							break;
 						case "o":
 						case "O":
-							newSpecies.types[0] = "Ghost";
+							newSpecies.types[1] = "Ghost";
 							break;
 						case "p":
 						case "P":
-	   					newSpecies.types[0] = "Poison";
+	   					newSpecies.types[1] = "Poison";
 							break;
 						case "r":
 						case "R":
-							newSpecies.types[0] = "Fire";
+							newSpecies.types[1] = "Fire";
 							break;
 						case "s":
 						case "S":
-							newSpecies.types[0] = "Steel";
+							newSpecies.types[1] = "Steel";
 							break;
 						case "u":
 						case "U":
-							newSpecies.types[0] = "Ground";
+							newSpecies.types[1] = "Ground";
 							break;
 						case "w":
 						case "W":
-							newSpecies.types[0] = "Water";
+							newSpecies.types[1] = "Water";
 							break;
 						case "y":
 						case "Y":
-							newSpecies.types[0] = "Flying";
+							newSpecies.types[1] = "Flying";
 							break;
 						case "z":
 						case "Z":
-							newSpecies.types[0] = "";
+							newSpecies.types[1] = "";
 							break;
 					}
-					if (typeof pokemon.set.name.substr(3, 3) === 'number') newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
-					if (typeof pokemon.set.name.substr(6, 3) === 'number') newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
-					if (typeof pokemon.set.name.substr(9, 3) === 'number') newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
-					if (typeof pokemon.set.name.substr(12, 3) === 'number') newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
-					if (typeof pokemon.set.name.substr(15, 3) === 'number') newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
+					newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
+					newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
+					newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
+					newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
+					newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 					pokemon.isModded = newSpecies;
 					pokemon.species = newSpecies;
-					delete pokemon.name;
 				}
 			}
 		},
