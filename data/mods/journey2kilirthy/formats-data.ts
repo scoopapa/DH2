@@ -17,6 +17,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zygarde: {
 		tier: "Uber",
 	},
+	necrozmaultra: {
+		tier: "Uber",
+	},
 	pheromosa: {
 		tier: "Uber",
 	},
