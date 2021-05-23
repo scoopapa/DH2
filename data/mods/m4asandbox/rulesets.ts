@@ -188,7 +188,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 		onModifySpecies(species, target, source) {
-			if (source || !target?.side || target.moddedMega) return;
+			if (source || !target?.side || ['Mega Stone 1', 'Mega Stone 2', 'Mega Stone H'].includes(target.getItem().name)) return;
 			if (target.set.name.substr(0, 1) === "*") {
 				let newSpecies = this.dex.deepClone(species);
 				switch (target.set.name.substr(1, 1)) {
