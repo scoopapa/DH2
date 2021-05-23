@@ -1201,7 +1201,7 @@ export const Formats: FormatList = [
 			//Items
 			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
 			//Moves
-			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Force',
+			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
 	},
 	{
@@ -1895,7 +1895,7 @@ export const Formats: FormatList = [
 		mod: 'journey2kilirthy',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
-			'AG', 'Rayquaza-Mega', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass',
+			'AG', 'Eternatus-Eternamax', 'Rayquaza-Mega', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
 		teambuilderFormat: 'Uber',
 	},
