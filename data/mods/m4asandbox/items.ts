@@ -71,7 +71,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			return false;
 		},
-		num: -5004,
+		num: -5005,
 		gen: 8,
 		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
 	},
@@ -81,7 +81,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			return false;
 		},
-		num: -5004,
+		num: -5006,
 		gen: 8,
 		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
 	},
