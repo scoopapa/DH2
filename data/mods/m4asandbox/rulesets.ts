@@ -204,16 +204,6 @@ export const Formats: {[k: string]: FormatData} = {
 					if (!target.switchedIn) {
 						target.switchedIn = true;
 						let species = target.species;
-						let abilities = species.abilities[0];
-						if (species.abilities[1]) {
-							abilities += ` / ${species.abilities[1]}`;
-						}
-						if (species.abilities['H']) {
-							abilities += ` / ${species.abilities['H']}`;
-						}
-						if (species.abilities['S']) {
-							abilities += ` / ${species.abilities['S']}`;
-						}
 						const baseStats = species.baseStats;
 						const type = species.types[0];
 						if (species.types[1]) {
