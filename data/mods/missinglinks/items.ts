@@ -14,7 +14,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
 	},
 	milotite: {
-		name: "milotite",
+		name: "Milotite",
 		spritenum: 578,
 		megaStone: "Milotic-Mega",
 		megaEvolves: "Milotic",
