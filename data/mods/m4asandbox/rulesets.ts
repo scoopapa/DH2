@@ -3,12 +3,10 @@ export const Formats: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'Sandbox Mod',
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
-		onModifySpecies(species, target, source) {
-			if (source || !target?.side) return;
-			if (!target.set.name) return;
-			if (target.set.name.substr(0, 1) === "*") {
-				let newSpecies = this.dex.deepClone(species);
-				switch (target.set.name.substr(1, 1)) {
+		onChangeSet(set, format) {
+			if (set.name.substr(0, 1) === "*") {
+				let newSpecies = this.dex.deepClone(set.species);
+				switch (set.name.substr(1, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[0] = "Dragon";
@@ -86,7 +84,7 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[0] = "";
 						break;
 				}
-				switch (target.set.name.substr(2, 1)) {
+				switch (set.name.substr(2, 1)) {
 					case "a":
 					case "A":
 						newSpecies.types[1] = "Dragon";
@@ -164,26 +162,27 @@ export const Formats: {[k: string]: FormatData} = {
 						newSpecies.types[1] = "";
 						break;
 				}
-				newSpecies.baseStats.atk = target.set.name.substr(3, 3);
-				newSpecies.baseStats.def = target.set.name.substr(6, 3);
-				newSpecies.baseStats.spa = target.set.name.substr(9, 3);
-				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
-				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
-				target.isModded = true;
-				return newSpecies;
+				newSpecies.baseStats.atk = set.name.substr(3, 3);
+				newSpecies.baseStats.def = set.name.substr(6, 3);
+				newSpecies.baseStats.spa = set.name.substr(9, 3);
+				newSpecies.baseStats.spd = set.name.substr(12, 3);
+				newSpecies.baseStats.spe = set.name.substr(15, 3);
+				newSpecies.isModded = true;
+				set.species = newSpecies;
+				delete set.name;
 			}
 		},
 		onSwitchIn(pokemon) {
 			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
-				if (!pokemon.illusion.isModded) return;
 				species = pokemon.illusion.species;
+				if (!species.isModded) return;
 				this.add('-start', pokemon, 'typechange', species.types.join('/'), '[silent]');
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
-				if (!pokemon.isModded) return;
+				if (!species.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 				if (pokemon.switchedIn) return;
 				pokemon.switchedIn = true;
@@ -200,7 +199,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) { // making sure the correct information is given when an Illusion breaks
-				if (target.isModded) {
+				if (target.species.isModded) {
 					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
