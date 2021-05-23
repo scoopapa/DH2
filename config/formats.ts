@@ -1280,7 +1280,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Ubermons",
+		name: "[Gen 8] Ubermons",	
 		mod: 'ubermons',
     desc: [
       "<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
@@ -1292,7 +1292,7 @@ export const Formats: FormatList = [
 		banlist: [
 			//Pokémon
 			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 
-			'Dialga', 'Dracovish', 'Eternatus', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Marshadow', 'Magearna', 
+			'Dialga', 'Dracovish', 'Eternatus', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 
 			'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
 			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
 			//Abilities
@@ -1300,7 +1300,7 @@ export const Formats: FormatList = [
 			//Items
 			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
 			//Moves
-			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Force',
+			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
 	},
 	{
@@ -2102,7 +2102,7 @@ export const Formats: FormatList = [
 		mod: 'journey2kilirthy',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: [
-			'AG', 'Rayquaza-Mega', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass',
+			'AG', 'Eternatus-Eternamax', 'Rayquaza-Mega', 'Zacian-Crowned', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
 		teambuilderFormat: 'Uber',
 	},

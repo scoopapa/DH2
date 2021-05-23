@@ -121,4 +121,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 5,
 		num: 23,
 	},
+	grimneigh: {
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Grim Neigh",
+		rating: 3,
+		num: 265,
+	},
 };

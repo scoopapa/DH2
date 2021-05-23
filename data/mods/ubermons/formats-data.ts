@@ -20,4 +20,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	genesectshock: {
 		tier: "OU",
 	},
+	dragapult: {
+		tier: "OU",
+	},
+	marshadow: {
+		tier: "OU",
+	},
+	spectrier: {
+		tier: "OU",
+	},
 };
