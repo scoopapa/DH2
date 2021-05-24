@@ -9712,7 +9712,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Leavanny-Mega",
 		forme: "Mega",
 		types: ["Bug", "Grass"],
-		baseStats: {hp: 75, atk: 113, def: 113, spa: 85, spd: 100, spe: 115},
+		baseStats: {hp: 75, atk: 113, def: 113, spa: 85, spd: 100, spe: 114},
 		abilities: {0: "Magic Guard"},
 		heightm: 1.4,
 		weightkg: 25.5,
@@ -17504,7 +17504,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1266,
 		name: "Nemirror",
 		types: ["Psychic"],
-		baseStats: {hp: 60, atk: 40, def: 95, spa: 60, spd: 95, spe: 100},
+		baseStats: {hp: 95, atk: 40, def: 95, spa: 60, spd: 95, spe: 100},
 		abilities: {0: "Magic Bounce", 1: "Skill Issue", H: "Screen Cleaner"},
 	},
 	ulteus: {
