@@ -13278,6 +13278,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7M", "6M", "5M"],
 			wildcharge: ["7M", "6M", "5M"],
 			zapcannon: ["7V"],
+			energyball: ["8M"],
 		},
 		encounters: [
 			{generation: 1, level: 3},
