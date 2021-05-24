@@ -19,6 +19,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field"],
 		requiredItem: "Vaporeonite X", 
+		battleOnly: "Vaporeon",
 	},
 	drampa: {
 		inherit: true,
@@ -38,6 +39,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "White",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Drampite",
+		battleOnly: "Drampa", 
 	},
 	sceptile: {
 		inherit: true,
@@ -58,6 +60,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Sceptilite Sword",
+		battleOnly: "Sceptile",
 	},
 	chandelure: {
 		inherit: true,
