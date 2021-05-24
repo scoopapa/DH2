@@ -5,11 +5,19 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
 		onBegin() {
 			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
-			this.add('-message', `Welcome to Megas for All!`);
-			this.add('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
-			this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
-			this.add('-message', `You can find our thread and metagame resources here:`);
-			this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
+			if (this.format.name === 'M4A Sandbox' || this.format.name === 'M4A VGC Sandbox') {
+				this.add('-message', `Welcome to the Megas for All Sandbox!`);
+				this.add('-message', `This is a custom game format where you can experiment outside of the normal rules.`);
+				this.add('-message', `Thanks to the incredible KeroseneZanchu, you can even alter a Pokémon's type, stats and Mega form with its nickname!`);
+				this.add('-message', `You can find the details on how this works here:`);
+				this.add('-message', `https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/`);
+			} else {
+				this.add('-message', `Welcome to Megas for All!`);
+				this.add('-message', `This is a National Dex-based format where we aim to give a new Mega Evolution to every Pokémon.`);
+				this.add('-message', `Just like any official format, you can still only Mega Evolve one Pokémon per team!`);
+				this.add('-message', `You can find our thread and metagame resources here:`);
+				this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
+			}
 			for (const pokemon of this.getAllPokemon()) {
 				(pokemon as any).lostItemForDelibird = pokemon.item;
 			}
