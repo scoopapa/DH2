@@ -422,4 +422,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Battle Armor", 1: "Heavy Metal", H: "Mega Launcher"},
 		weightkg: 198,
 	},
+	krachiten: {
+		num: 1052,
+		name: "Krachiten",
+		types: ["Water", "Bug"],
+		baseStats: {hp: 90, atk: 120, def: 70, spa: 80, spd: 60, spe: 110},
+		abilities: {0: "Torrent", H: "Prankster"},
+		weightkg: 128,
+	},
+	cellsius: {
+		num: 1053,
+		name: "Cellsius",
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 59, atk: 103, def: 83, spa: 127, spd: 97, spe: 101},
+		abilities: {0: "Beast Boost"},
+		weightkg: 18,
+	},
+	borelem: {
+		num: 1054,
+		name: "Borelem",
+		types: ["Rock", "Ice"],
+		baseStats: {hp: 133, atk: 88, def: 74, spa: 95, spd: 80, spe: 100},
+		abilities: {0: "Snow Warning", H: "No Guard"},
+		weightkg: 430,
+	},
 };
