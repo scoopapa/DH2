@@ -5,7 +5,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
 		onBegin() {
 			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
-			if (this.format.name === 'M4A Sandbox' || this.format.name === 'M4A VGC Sandbox') {
+			if (this.format.name === '[Gen 8] M4A Sandbox' || this.format.name === '[Gen 8] M4A VGC Sandbox') {
 				this.add('-message', `Welcome to the Megas for All Sandbox!`);
 				this.add('-message', `This is a custom game format where you can experiment outside of the normal rules.`);
 				this.add('-message', `Thanks to the incredible KeroseneZanchu, you can even alter a Pokémon's type, stats and Mega form with its nickname!`);
