@@ -38,6 +38,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -690,
 	},
+	swalotite: {
+		name: "Swalotite",
+		megaStone: "Swalot-Mega",
+		megaEvolves: "Swalot",
+		itemUser: ["Swalot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -690,	
+	},
 	garbodite: {
 		name: "Garbodite",
 		megaStone: "Garbodor-Mega",
