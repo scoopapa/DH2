@@ -1240,7 +1240,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceHit(target, source, move) {
-			if (!move.hasSheerForce) {
+			if (!move.hasSheerForce && move.category !== 'Status') {
 				if (this.randomChance(3, 10)) {
 					target.addVolatile('disable', this.effectData.target);
 				}
