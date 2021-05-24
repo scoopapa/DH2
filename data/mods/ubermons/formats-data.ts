@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-		victreebel: {
+	victreebel: {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
@@ -148,7 +148,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	garchompmega: {
-		tier: "OU",
+		tier: "(OU)",
 		doublesTier: "DOU",
 	},
 	latiasmega: {
