@@ -3452,7 +3452,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Electric",
-		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",	
 	},
 	disarmingvoice: {
