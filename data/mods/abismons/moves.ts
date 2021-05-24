@@ -3451,7 +3451,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'disable',
 		},
 		target: "normal",
-		type: "Normal",
+		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",	
 	},
