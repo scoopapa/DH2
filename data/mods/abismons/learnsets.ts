@@ -84265,7 +84265,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleslap: ["8L1"],
 			constrict: ["8L1"],
 			hyperfang: ["8L1"],
-			judgement: ["8L1"],
+			judgment: ["8L1"],
 			revelationdance: ["8L1"],
 			conversion: ["8L1"],
 			reflecttype: ["8L1"],
