@@ -128,6 +128,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Grim Neigh",
+		shortDesc: "This Pokemon deals 1.5x damage to burned opponents.",
 		rating: 3,
 		num: 265,
 	},
