@@ -3033,7 +3033,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Cyber Attack",
-		pp: 30,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
@@ -3451,8 +3451,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'disable',
 		},
 		target: "normal",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		type: "Electric",
 		contestType: "Clever",	
 	},
 	disarmingvoice: {
@@ -6320,7 +6319,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
 				move: 'ghostlywail',
 				source: source,
 				moveData: {
@@ -6331,10 +6329,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					category: "Special",
 					priority: 0,
 					flags: {},
-					ignoreImmunity: false,
 					effectType: 'Move',
 					isFutureMove: true,
-					type: 'ghost',
+					type: 'Ghost',
 				},
 			});
 			this.add('-start', source, 'move: Ghostly Wail');

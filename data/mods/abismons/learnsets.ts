@@ -6164,6 +6164,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["8L1", "8V", "7M", "7V", "6M", "5M", "4M", "3M"],
 			venoshock: ["8M", "7M", "6M", "5M"],
 			worryseed: ["7T", "6T", "5T", "4T"],
+			appleacid: ["8M"],
 		},
 	},
 	bellossom: {
@@ -13278,6 +13279,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7M", "6M", "5M"],
 			wildcharge: ["7M", "6M", "5M"],
 			zapcannon: ["7V"],
+			energyball: ["8M"],
 		},
 		encounters: [
 			{generation: 1, level: 3},
@@ -84265,7 +84267,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleslap: ["8L1"],
 			constrict: ["8L1"],
 			hyperfang: ["8L1"],
-			judgement: ["8L1"],
+			judgment: ["8L1"],
 			revelationdance: ["8L1"],
 			conversion: ["8L1"],
 			reflecttype: ["8L1"],
