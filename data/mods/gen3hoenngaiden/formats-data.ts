@@ -1530,4 +1530,64 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	golett: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	golurk: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	geodudealola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	graveleralola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	golemalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	croagunk: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	toxicroak: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	crabrawler: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	crabominable: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	starly: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	staravia: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	staraptor: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

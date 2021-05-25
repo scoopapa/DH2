@@ -1333,4 +1333,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		type: "Water",
 	},
+	icehammer: {
+		num: 665,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		name: "Ice Hammer",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
 };
