@@ -1953,7 +1953,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	staravia: {
 		learnset: {
-		learnset: {
 			aerialace: ["3L1"],
 			agility: ["3L1"],
 			aircutter: ["3L1"],
@@ -2003,7 +2002,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 	staraptor: {
-		learnset: {
 		learnset: {
 			aerialace: ["3L1"],
 			agility: ["3L1"],
