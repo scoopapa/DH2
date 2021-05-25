@@ -2041,7 +2041,7 @@ export const Formats: FormatList = [
         mod: "abismons",
         teambuilderFormat: 'OU',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause', 'Evasion Clause', 'Species Clause'],
-        banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace ++ Libero', 'Battle Bond', 'Dragapult ++ Ghostium Z', 'Spectrier ++ Ghostium Z', 'Magearna'],
+        banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace ++ Libero', 'Battle Bond', 'Magearna'],
         unbanlist: ['Spectrier']
     },
     {    

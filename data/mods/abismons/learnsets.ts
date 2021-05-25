@@ -76622,7 +76622,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleedge: ["8L66"],
 			doublehit: ["8L30"],
 			dracometeor: ["8T"],
-			dragondance: ["8M", "8L42"],
 			dragonpulse: ["8M", "8L0"],
 			dragonrush: ["8L61"],
 			endure: ["8M"],
