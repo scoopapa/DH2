@@ -2040,7 +2040,7 @@ export const Formats: FormatList = [
         desc: 'The result of "What if we let abismal make his own metagame?"',
         mod: "abismons",
         teambuilderFormat: 'OU',
-        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause', 'Evasion Clause', 'Species Clause'],
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
         banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace ++ Libero', 'Battle Bond', 'Magearna'],
         unbanlist: ['Spectrier']
     },
@@ -2049,7 +2049,7 @@ export const Formats: FormatList = [
         desc: 'Abismons 2 Electric Boogaloo.',
         mod: "abismons",
         teambuilderFormat: 'Ubers',
-        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Evasion Clause', 'Species Clause'],
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod'],
         banlist: ['Rayquaza-Mega'],
     },
     {    
