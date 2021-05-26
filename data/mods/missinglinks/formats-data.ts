@@ -323,4 +323,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	glaliemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
