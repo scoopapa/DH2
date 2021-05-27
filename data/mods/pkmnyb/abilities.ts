@@ -350,15 +350,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Pixie Power",
 		rating: 3,
 	},
-	pixiepower: {
-      shortDesc: "This Pokemon's Special Attack is boosted 1.3x in Misty Terrain.",
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.3);
-		},
-		name: "Pixie Power",
-		rating: 3,
-	},
 	mindmembrane: {
       shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Misty Terrain.",
 		onModifySpDPriority: 6,
@@ -366,6 +357,51 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isTerrain('psychicterrain')) return this.chainModify(1.5);
 		},
 		name: "Mind Membrane",
+		rating: 0.5,
+	},
+	powerspot: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectData.target) {
+				this.debug('Power Spot boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.3);
+		},
+		name: "Power Spot",
+		rating: 1,
+		num: 249,
+	},
+	rivalry: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('Rivalry boost');
+					return this.chainModify(1.25);
+				}
+			}
+		},
+		name: "Rivalry",
+		rating: 0,
+		num: 79,
+	},
+	breakthrough: {
+		onModifyMovePriority: -1,
+		onModifyMove(move, target) {
+			if (move && target.getMoveHitData(move).typeMod < 0) {
+				move.secondaries.push({
+					chance: 100,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+		name: "Breakthrough",
 		rating: 0.5,
 	},
 	};
