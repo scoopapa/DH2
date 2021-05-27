@@ -1333,7 +1333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 55,
 		category: "Physical",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Constrict",
 		pp: 35,
 		priority: 0,
