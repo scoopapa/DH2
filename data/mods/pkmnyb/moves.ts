@@ -1205,6 +1205,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+      shortDesc: "Heals the user by 52% of their max HP.",
 		isNonstandard: null,
 		name: "Heal Order",
 		pp: 10,
