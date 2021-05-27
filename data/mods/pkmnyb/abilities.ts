@@ -322,4 +322,50 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Elemental Teething",
 		id: "elementalteething",
 	},
+	optimalplay: {
+		shortDesc: "This Pokemon's super effective moves have perfect accuracy",
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Optimal Play",
+		rating: 3,
+	},
+	 mistmaker: {
+       shortDesc: "On switch-in, this Pokemon uses Mist.",
+       onStart(source) {
+           this.useMove("Mist", source);
+       },
+       name: "Mist Maker",
+       rating: 3,
+    },
+	pixiepower: {
+      shortDesc: "This Pokemon's Special Attack is boosted 1.3x in Misty Terrain.",
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.3);
+		},
+		name: "Pixie Power",
+		rating: 3,
+	},
+	pixiepower: {
+      shortDesc: "This Pokemon's Special Attack is boosted 1.3x in Misty Terrain.",
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.3);
+		},
+		name: "Pixie Power",
+		rating: 3,
+	},
+	mindmembrane: {
+      shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Misty Terrain.",
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (this.field.isTerrain('psychicterrain')) return this.chainModify(1.5);
+		},
+		name: "Mind Membrane",
+		rating: 0.5,
+	},
 	};
