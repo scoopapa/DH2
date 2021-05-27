@@ -322,6 +322,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Elemental Teething",
 		id: "elementalteething",
 	},
+/*
 	optimalplay: {
 		shortDesc: "This Pokemon's super effective moves have perfect accuracy",
 		onAnyAccuracy(accuracy, target, source, move) {
@@ -333,12 +334,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Optimal Play",
 		rating: 3,
 	},
-	 mistmaker: {
+*/
+	 chllingpresence: {
        shortDesc: "On switch-in, this Pokemon uses Mist.",
        onStart(source) {
            this.useMove("Mist", source);
        },
-       name: "Mist Maker",
+       name: "Chilling Presence",
        rating: 3,
     },
 	pixiepower: {
@@ -406,4 +408,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 0.5,
 	},
 */
+	 sealaway: {
+       shortDesc: "On switch-in, this Pokemon uses Imprison.",
+       onStart(source) {
+           this.useMove("Imprison", source);
+       },
+       name: "Imprison",
+       rating: 3,
+    },
 	};
