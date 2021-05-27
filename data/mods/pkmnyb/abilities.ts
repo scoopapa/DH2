@@ -389,6 +389,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 0,
 		num: 79,
 	},
+	/*
 	breakthrough: {
 		onModifyMovePriority: -1,
 		onModifyMove(move, target) {
@@ -404,4 +405,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Breakthrough",
 		rating: 0.5,
 	},
+*/
 	};
