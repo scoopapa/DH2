@@ -282,7 +282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Phantom Shield",
 		pp: 5,
-		priority: 0,
+		priority: 4,
 		flags: {snatch: 1},
 		stallingMove: true,
 		sideCondition: 'phantomshield',
@@ -373,6 +373,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                 duration: 3,
                 move: 'airbornearia',
                 source: source,
+				position: target.position,
+				side: target.side,
                 moveData: {
                     id: 'airbornearia',
                     name: "Airborne Aria",
@@ -384,10 +386,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     ignoreImmunity: false,
                     effectType: 'Move',
                     isFutureMove: true,
-                    type: 'Flyng',
+                    type: 'Flying',
                 },
             });
-            this.add('-start', source, 'move: Airborne Aria');
+            this.add('-message', source.name + ' whipped up the winds!');
             return null;
         },
         condition: {
@@ -418,15 +420,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
 					data.moveData.longWhipBoost = 3 - data.duration;
 				}
+				/*
 				data.moveData.accuracy = true;
 				data.moveData.isFutureMove = true;
 				data.move.multihit = null;
 				delete data.moveData.flags['contact'];
 				delete data.moveData.flags['protect'];
-
+				*/
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				if (data.source.isActive) {
-					this.add('-anim', data.source, hitMove, data.target);
+					this.add('-anim', data.source, 'skyattack', data.target);
 				}
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
@@ -455,15 +458,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
 					data.moveData.longWhipBoost = 3 - data.duration;
 				}
+				/*
 				data.moveData.accuracy = true;
 				data.moveData.isFutureMove = true;
 				data.move.multihit = null;
 				delete data.moveData.flags['contact'];
 				delete data.moveData.flags['protect'];
-
+				*/
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				if (data.source.isActive) {
-					this.add('-anim', data.source, hitMove, data.target);
+					this.add('-anim', data.source, 'skyattack', data.target);
 				}
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
