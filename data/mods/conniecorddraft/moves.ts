@@ -250,6 +250,275 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Lowers the user's Special Attack by 2 stages.",
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
 	},
+	//side league
+	sapdrink: {
+		num: -3001,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sap Drink",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, authentic: 1},
+		heal: [1, 4],
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Synthesis", target);
+		},
+		target: "allies",
+		type: "Grass",
+		desc: "Heals the user and its allies by 1/4 their max HP.",
+	},	
+	phantomshield: {//This absolutely will not work
+		num: -3002,
+		desc: "Protects the user and its allies next turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Future Sight", target);
+		},
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Phantom Shield",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		stallingMove: true,
+		sideCondition: 'phantomshield',
+		condition: {
+			duration: 2,
+			onStart(target, source) {
+				this.add('-singleturn', source, 'Phantom Shield');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.effectData.duration === 2) return;
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Phantom Shield', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Ghost",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	partytrick: {
+		num: -3003,
+		desc: "Cannot be used twice in a row. If used by a Surge, upgrades to its next form.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "First Impression", target);
+		},
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Party Trick",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: null,
+		onHit(target, pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Surge' && !pokemon.transformed && pokemon.species.id !== 'surgeupgrade3') {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				let forme = '';
+				if (pokemon.species.id === 'surge') {
+					forme = '-Upgrade-1';
+				} else if (pokemon.species.id === 'surgeupgrade1') {
+					forme = '-Upgrade-2';
+				} else if (pokemon.species.id === 'surgeupgrade2') {
+					forme = '-Upgrade-3';
+				}
+				pokemon.formeChange('Surge' + forme, this.effect, true);
+			}
+		},
+		onTryHit(target, source) {
+			if (source.lastMove === 'partytrick') return false;
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	airbornearia: {
+        num: -3004,
+        accuracy: 100,
+        basePower: 50,
+        category: "Special",
+        name: "Airborne Aria",
+        pp: 5,
+        priority: 0,
+        flags: {},
+        ignoreImmunity: true,
+        isFutureMove: true,
+        onTry(source, target) {
+            if (!target.side.addSlotCondition(target, 'airbornearia')) return false;
+            Object.assign(target.side.slotConditions[target.position]['airbornearia'], {
+                duration: 3,
+                move: 'airbornearia',
+                source: source,
+                moveData: {
+                    id: 'airbornearia',
+                    name: "Airborne Aria",
+                    accuracy: 100,
+                    basePower: 50,
+                    category: "Special",
+                    priority: 0,
+                    flags: {},
+                    ignoreImmunity: false,
+                    effectType: 'Move',
+                    isFutureMove: true,
+                    type: 'Flyng',
+                },
+            });
+            this.add('-start', source, 'move: Airborne Aria');
+            return null;
+        },
+        condition: {
+            // this is a slot condition
+			onResidualOrder: 3,
+			onResidual(target) {
+				// unlike a future move, Long Whip activates each turn
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
+				const data = this.effectData;
+				const move = this.dex.getMove(data.move);
+				if (data.target.fainted || data.target === data.source) {
+					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+					return;
+				}
+
+				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+					data.moveData.longWhipBoost = 3 - data.duration;
+				}
+				data.moveData.accuracy = true;
+				data.moveData.isFutureMove = true;
+				data.move.multihit = null;
+				delete data.moveData.flags['contact'];
+				delete data.moveData.flags['protect'];
+
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				if (data.source.isActive) {
+					this.add('-anim', data.source, hitMove, data.target);
+				}
+				this.trySpreadMoveHit([data.target], data.source, hitMove);
+			},
+			onEnd(target) {
+				// unlike a future move, Long Whip activates each turn
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
+				const data = this.effectData;
+				const move = this.dex.getMove(data.move);
+				if (data.target.fainted || data.target === data.source) {
+					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+					return;
+				}
+
+				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				if (data.move.name === 'Triple Axel' || data.move.name === 'Triple Kick') {
+					data.moveData.longWhipBoost = 3 - data.duration;
+				}
+				data.moveData.accuracy = true;
+				data.moveData.isFutureMove = true;
+				data.move.multihit = null;
+				delete data.moveData.flags['contact'];
+				delete data.moveData.flags['protect'];
+
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				if (data.source.isActive) {
+					this.add('-anim', data.source, hitMove, data.target);
+				}
+				this.trySpreadMoveHit([data.target], data.source, hitMove);
+			},
+        },
+        secondary: null,
+        target: "normal",
+        type: "Flying",
+        contestType: "Beautiful",
+    },
+	fungusbomb: {
+		num: -3005,
+		desc: "If target is hit at full HP: 20% to poison/paralyze/burn/badly poison; else, 20% to poison/paralyze.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mud Bomb", target);
+		},
+		accuracy: 80,
+		basePower: 100,
+		category: "Physical",
+		name: "Fungus Bomb",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'psn',
+			}, {
+				chance: 10,
+				status: 'par',
+			},
+		],
+		onModifyMove(move, pokemon, target) {
+			if (target.hp !== target.maxhp) return;
+			move.secondaries = [];
+			move.secondaries.push({
+				chance: 5,
+				status: 'par',
+			});
+			move.secondaries.push({
+				chance: 5,
+				status: 'psn',
+			});
+			move.secondaries.push({
+				chance: 5,
+				status: 'brn',
+			});
+			move.secondaries.push({
+				chance: 5,
+				status: 'tox',
+			});
+		},
+		target: "normal",
+		type: "Bug",
+	},
 	//Misc
 	bombardment: {
 		num: -1006,
@@ -268,6 +537,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Tough",
 		desc: "Hits 2-5 times in one turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Barrage", target);
+		},
 	},
 	slimeshot: {
 		num: -1007,
@@ -288,6 +561,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Smart",
 		desc: "30% chance to lower target's Speed by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mud Shot", target);
+		},
 	},
 	jaggedroot: {
 		num: -1008,
@@ -315,5 +592,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cool",
+		desc: "Sets a hazard on the foe's side of the field that damages on switch-out.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spikes", target);
+		},
+	},
+	faeconstruct: {
+		desc: "Boosts the lower defense stat, counting stat stages, of the Pokemon in the user's slot at the end of each turn for three turns.",
+		shortDesc: "3 turns: boosts lower defense at the end of each turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stockpile", target);
+		},
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fae Construct",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		slotCondition: 'faeconstruct',
+		condition: {
+			duration: 3,
+			onResidualOrder: 4,
+			onResidual(pokemon) {
+				const def = target.getStat('def', false, true);
+				const spd = target.getStat('spd', false, true);
+				if (def && def <= spd) {
+					this.boost({def: 1}, target);
+				} else if (spd) {
+					this.boost({spd: 1}, target);
+				}
+			},
+			onEnd() {
+				this.add('-message', 'The Fae Construct faded away.')
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ground",
 	},
 };

@@ -36,10 +36,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CCD1",
 		doublesTier: "CCD1",
 	},
-	poultergeistheadless: {
-		tier: "CCD1",
-		doublesTier: "CCD1",
-	},
 	regiyehehe: {
 		tier: "CCD1",
 		doublesTier: "CCD1",
@@ -60,46 +56,120 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CCD1",
 		doublesTier: "CCD1",
 	},
+	//side league
+	haullequin: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	batana: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	teslafly: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	surge: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	luneur: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	toxpear: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	cobroom: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	ophalgalim: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	devioth: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	crabulon: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	escargoop: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	
 	//Other custom mons
 	marabastion: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	lurantissinnoh: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	wormuddle: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	shamaiai: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	millibark: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	graciflame: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	flufnir: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	sligneus: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	toxitoad: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	locustab: {
-		tier: "New",
-		doublesTier: "New",
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	terrobeak: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	faerosion: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	ubpocketwatch: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	finneonalola: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	lumineonalola: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	teravole: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	emblob: {
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 	
 };
