@@ -352,13 +352,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Pixie Power",
 		rating: 3,
 	},
-	mindmembrane: {
-      shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Misty Terrain.",
+	mentalhalth: {
+      shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Psychic Terrain.",
 		onModifySpDPriority: 6,
 		onModifySpD(spd, pokemon) {
 			if (this.field.isTerrain('psychicterrain')) return this.chainModify(1.5);
 		},
-		name: "Mind Membrane",
+		name: "Mental Health",
 		rating: 0.5,
 	},
 	powerspot: {
