@@ -290,6 +290,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onStart(target, source) {
 				this.add('-singleturn', source, 'Phantom Shield');
+				this.add('-message', source +"'s side will be protected next turn!");
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
@@ -299,7 +300,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				if (move && (move.target === 'self' || move.category === 'Status')) return;
-				this.add('-activate', target, 'move: Phantom Shield', move.name);
+				//this.add('-activate', target, 'move: Phantom Shield', move.name);
+				this.add('-message', 'Phantom Shield protected ' + target + '!');
 				const lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
 					// Outrage counter is reset
@@ -320,6 +322,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: -3003,
 		desc: "Cannot be used twice in a row. If used by a Surge, upgrades to its next form.",
 		onPrepareHit: function(target, source, move) {
+			return !source.removeVolatile('partytrick');
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "First Impression", target);
 		},
@@ -346,11 +349,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else if (pokemon.species.id === 'surgeupgrade2') {
 					forme = '-Upgrade-3';
 				}
-				pokemon.formeChange('Surge' + forme, this.effect, true);
+				pokemon.formeChange('Surge' + forme, this.effect, false, '[silent]');
+				this.add('-message', `${pokemon.name} upgraded!`);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+				const species = this.dex.getSpecies(pokemon.species.name);
+				const abilities = species.abilities;
+				const baseStats = species.baseStats;
+				const type = species.types[0];
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
+			pokemon.addVolatile('partytrick');
+			this.add('-message', `${pokemon.name} cannot use Party Trick next turn!`)
 		},
-		onTryHit(target, source) {
-			if (source.lastMove === 'partytrick') return false;
+		condition: {
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'partytrick') return;
+				this.debug('removing Party Trick before attack');
+				pokemon.removeVolatile('partytrick');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('partytrick');
+			},
 		},
 		target: "normal",
 		type: "Steel",
@@ -470,6 +490,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-anim', data.source, 'skyattack', data.target);
 				}
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
+				this.add('-message', data.source + "'s Airborne Aria ended!");
 			},
         },
         secondary: null,
@@ -616,25 +637,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1},
-		slotCondition: 'faeconstruct',
+		sideCondition: 'faeconstruct',
 		condition: {
 			duration: 3,
 			onResidualOrder: 4,
-			onResidual(pokemon) {
-				const def = target.getStat('def', false, true);
-				const spd = target.getStat('spd', false, true);
-				if (def && def <= spd) {
-					this.boost({def: 1}, target);
-				} else if (spd) {
-					this.boost({spd: 1}, target);
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Fae Construct');
+			},
+			onResidual(side) {
+				for (const pokemon of side.active) {
+					const def = pokemon.getStat('def', false, true);
+					const spd = pokemon.getStat('spd', false, true);
+					this.add('-message', pokemon.name + ' drew power from the earth!')
+					if (def && def <= spd) {
+						this.boost({def: 1}, pokemon);
+					} else if (spd) {
+						this.boost({spd: 1}, pokemon);
+					}
 				}
 			},
-			onEnd() {
+			onEnd(side) {
+				for (const pokemon of side.active) {
+					const def = pokemon.getStat('def', false, true);
+					const spd = pokemon.getStat('spd', false, true);
+					this.add('-message', pokemon.name + ' drew power from the earth!')
+					if (def && def <= spd) {
+						this.boost({def: 1}, pokemon);
+					} else if (spd) {
+						this.boost({spd: 1}, pokemon);
+					}
+				}
+				this.add('-sideend', side, 'move: Fae Construct', '[silent]');
 				this.add('-message', 'The Fae Construct faded away.')
 			},
 		},
 		secondary: null,
-		target: "self",
+		target: "allySide",
 		type: "Ground",
 	},
 };
