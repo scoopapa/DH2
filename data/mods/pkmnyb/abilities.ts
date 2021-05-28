@@ -335,7 +335,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 */
-	 chllingpresence: {
+	 chillingpresence: {
        shortDesc: "On switch-in, this Pokemon uses Mist.",
        onStart(source) {
            this.useMove("Mist", source);
@@ -353,7 +353,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	/*
-	mentalhalth: {
+	mentalhealth: {
       shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Psychic Terrain.",
 		onModifySpDPriority: 6,
 		onModifySpD(spd, pokemon) {
@@ -363,7 +363,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 0.5,
 	},
 	*/
-	mentalhalth: {
+	mentalhealth: {
       shortDesc: "If Psychic Terrain is active, this Pokemon heals 1/16 of its max HP at the end of the turn.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
