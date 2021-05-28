@@ -482,7 +482,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Bug", "Human-Like"],
 	},
 	terrobeak: {
-		num: -2010
+		num: -2010,
 		name: "Terrobeak",
 		types: ["Fighting", "Ground"],
 		baseStats: {hp: 90, atk: 140, def: 76, spa: 40, spd: 50, spe: 99},
@@ -493,7 +493,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Flying", "Field"],
 	},
 	faerosion: {
-		num: -2011
+		num: -2011,
 		name: "Faerosion",
 		types: ["Fairy", "Ground"],
 		baseStats: {hp: 50, atk: 50, def: 130, spa: 110, spd: 85, spe: 85},
