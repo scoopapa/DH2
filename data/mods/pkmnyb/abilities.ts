@@ -427,7 +427,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
        onStart(source) {
            this.useMove("Imprison", source);
        },
-       name: "Imprison",
+       name: "Seal Away",
        rating: 3,
     },
 	honeygather: {
