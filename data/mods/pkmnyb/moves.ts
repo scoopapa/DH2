@@ -1361,4 +1361,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	healpulse: {
+		num: 505,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Heal Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, pulse: 1, reflectable: 1, distance: 1, heal: 1, mystery: 1},
+		onHit(target, source) {
+			let success = false;
+			if (source.hasAbility('megalauncher')) {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.75));
+			}
+			if (source.hasAbility('longshot')) {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.65));
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && target.side !== source.side) {
+				target.staleness = 'external';
+			}
+			return success;
+		},
+		secondary: null,
+		target: "any",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
 };    
