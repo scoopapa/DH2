@@ -436,7 +436,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.hasItem('honey')) {
-					this.heal(pokemon.baseMaxhp / 16);
+					this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Honey Gather",
