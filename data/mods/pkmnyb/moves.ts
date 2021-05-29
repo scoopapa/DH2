@@ -914,7 +914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	rockthrow: {
 		num: 88,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 40,
 		category: "Physical",
       shortDesc: "Removes hazards from the field.",
 		name: "Rock Throw",
