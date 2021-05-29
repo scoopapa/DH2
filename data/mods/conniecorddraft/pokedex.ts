@@ -361,6 +361,37 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Regenerator", 1: "Hyper Cutter", H: "Intimidate"},
 		weightkg: 220,
 	},
+	dracalloy: {
+		num: -3012,
+		name: "Dracalloy",
+		types: ["Steel", "Dragon"],
+		baseStats: {hp: 96, atk: 115, def: 85, spa: 75, spd: 110, spe: 84},
+		abilities: {0: "Levitate", H: "Lightning Rod"},
+		weightkg: 250,
+	},
+	cozminea: {
+		num: -3013,
+		name: "Cozminea",
+		baseForme: "Mini",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 125, atk: 32, def: 72, spa: 58, spd: 73, spe: 111},
+		abilities: {0: "Levitate", 1: "Cheek Pouch", H: "True Growth"},
+		weightkg: 3,
+		otherFormes: ["Cozminea-True"],
+		formeOrder: ["Cozminea", "Cozminea-True"],
+	},
+	cozmineatrue: {
+		num: -3013,
+		name: "Cozminea-True",
+		baseSpecies: "Cozminea",
+		forme: "True",
+		types: ["Dark", "Psychic"],
+		baseStats: {hp: 125, atk: 118, def: 92, spa: 142, spd: 92, spe: 81},
+		abilities: {0: "True Growth"},
+		weightkg: 999.9,
+		battleOnly: "Cozminea",
+		requiredAbility: "True Growth",
+	},
 	
 	
 	//Other customs

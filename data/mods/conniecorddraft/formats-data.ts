@@ -101,6 +101,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Side League",
 		doublesTier: "Side League",
 	},
+	cozminea: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	dracalloy: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
 	
 	//Other custom mons
 	marabastion: {

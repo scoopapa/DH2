@@ -675,4 +675,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allySide",
 		type: "Ground",
 	},
+	hyperspacefury: {
+		inherit: true,
+		isNonstandard: null,
+		onTry(pokemon) {
+			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Cozminea-True') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Hoopa Unbound or Cozminea True can use this move.");
+			if (pokemon.species.name === 'Hoopa' || pokemon.species.name === 'Cozminea') {
+				this.add('-fail', pokemon, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.add('-fail', pokemon, 'move: Hyperspace Fury');
+			return null;
+		},
+	},
+	//for fucks sake
+	hyperspacehole: {
+		inherit: true,
+		isNonstandard: null, 
+	},
+	hyperfang: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    sketch: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    chatter: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    judgment: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    darkvoid: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    seedflare: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    relicsong: {    
+        inherit: true,
+        isNonstandard: null,
+    },
+    powder: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    lightofruin: {    
+        inherit: true,
+        isNonstandard: null,
+    },
+    icehammer: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    toxicthread: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    revelationdance: {    
+        inherit: true,
+        isNonstandard: null,
+    },    
+    beakblast: {    
+        inherit: true,
+        isNonstandard: null,
+    }, 
 };
