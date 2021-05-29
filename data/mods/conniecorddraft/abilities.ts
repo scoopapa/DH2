@@ -463,13 +463,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1024,
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.category === 'Status') {
-				move.tricksterBoosted = true;
 				return priority - 1;
 			}
 		},
-		onSourceAfterMoveSecondary(target, source, move) {
-			if (move.tricksterBoosted) {
-				this.useMove(move, target, "[from] ability: Trickster", "[of] " + source)
+		onBeforeMove(target, source, move) {
+			if (move.category === 'Status') {
+				//this.add('-activate', source, 'ability: Trickster');
+				this.useMove(move, target, source);
 			}
 		},
 	},
@@ -491,8 +491,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "If Cozminea: Changes to True form after using Hyperspace Hole.",
 		num: -1026,
 		onSourceAfterMoveSecondary(target, source, move) {
-			if (move.id !== 'hyperspacehole' || attacker.species.baseSpecies !== 'Cozminea' || attacker.transformed) return;
+			if (move.id !== 'hyperspacehole' || source.species.baseSpecies !== 'Cozminea' || source.transformed) return;
 			if (source.species.name !== 'Cozminea-True') source.formeChange('Cozminea-True');
+			this.add('-message', source.name + " revealed its true forme!");
 		},
 	},
 };
