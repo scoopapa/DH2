@@ -479,10 +479,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
    shuppet: {
         inherit: true,
         types: ["Ghost", "Normal"],
+        abilities: {0: "Insomnia", 1: "Frisk", H: "Seal Away"},
     },
    banette: {
         inherit: true,
         types: ["Ghost", "Normal"],
+        abilities: {0: "Insomnia", 1: "Frisk", H: "Seal Away"},
     },
    tropius: {
         inherit: true,
@@ -889,6 +891,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         inherit: true,
         types: ["Ground", "Ghost"],
         baseStats: {hp: 89, atk: 124, def: 70, spa: 55, spd: 70, spe: 75},
+        abilities: {0: "Iron Fist", 1: "Seal Away", H: "No Guard"},
     },
    pawniard: {
         inherit: true,
@@ -1237,6 +1240,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         inherit: true,
         types: ["Ice", "Bug"],
         baseStats: {hp: 70, atk: 65, def: 60, spa: 125, spd: 90, spe: 95},
+        abilities: {0: "Shield Dust", 1: "Chilling Presence", H: "Ice Scales"},
+    },
+   snom: {
+        inherit: true,
+        abilities: {0: "Shield Dust", 1: "Chilling Presence", H: "Ice Scales"},
     },
    stonjourner: {
         inherit: true,
@@ -2693,5 +2701,125 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
    elgyem: {
         inherit: true,
         abilities: {0: "Telepathy", 1: "Analytic", H: "Optimize"},
+    },
+   spiritomb: {
+        inherit: true,
+        abilities: {0: "Seal Away", 1: "Pressure", H: "Infiltrator"},
+    },
+   duskull: {
+        inherit: true,
+        abilities: {0: "Seal Away", 1: "Levitate", H: "Frisk"},
+    },
+   dusclops: {
+        inherit: true,
+        abilities: {0: "Seal Away", 1: "Pressure", H: "Frisk"},
+    },
+   dusknoir: {
+        inherit: true,
+        abilities: {0: "Seal Away", 1: "Pressure", H: "Frisk"},
+    },
+   hoopa: {
+        inherit: true,
+        abilities: {0: "Magician", H: "Seal Away"},
+    },
+   hoopaunbound: {
+        inherit: true,
+        abilities: {0: "Magician", H: "Cursed Body"},
+    },
+   klefki: {
+        inherit: true,
+        abilities: {0: "Seal Away", 1: "Prankster", H: "Magician"},
+    },
+   typenull: {
+        inherit: true,
+        abilities: {0: "Battle Armor", H: "Seal Away"},
+    },
+   cofagrigus: {
+        inherit: true,
+        abilities: {0: "Mummy", H: "Seal Away"},
+    },
+   yamask: {
+        inherit: true,
+        abilities: {0: "Mummy", H: "Seal Away"},
+    },
+   yamaskgalar: {
+        inherit: true,
+        abilities: {0: "Wandering Spirit", H: "Seal Away"},
+    },
+   runerigus: {
+        inherit: true,
+        abilities: {0: "Wandering Spirit", H: "Seal Away"},
+    },
+   kyurem: {
+        inherit: true,
+        abilities: {0: "Pressure", H: "Seal Away"},
+    },
+   kyuremblack: {
+        inherit: true,
+        abilities: {0: "Teravolt", H: "Chilling Presence"},
+    },
+   kyuremwhite: {
+        inherit: true,
+        abilities: {0: "Turboblaze", H: "Chilling Presence"},
+    },
+   vulpixalola: {
+        inherit: true,
+        abilities: {0: "Snow Cloak", 1: "Chilling Presence", H: "Snow Warning"},
+    },
+   ninetalesalola: {
+        inherit: true,
+        abilities: {0: "Snow Cloak", 1: "Chilling Presence", H: "Snow Warning"},
+    },
+   ninetales: {
+        inherit: true,
+        abilities: {0: "Flash Fire", 1: "Skill Link", H: "Drought"},
+    },
+   vulpix: {
+        inherit: true,
+        abilities: {0: "Flash Fire", 1: "Skill Link", H: "Drought"},
+    },
+   abomasnow: {
+        inherit: true,
+        abilities: {0: "Snow Warning", 1: "Soundproof", H: "Chilling Presence"},
+    },
+   snover: {
+        inherit: true,
+        abilities: {0: "Snow Warning", 1: "Soundproof", H: "Chilling Presence"},
+    },
+   bergmite: {
+        inherit: true,
+        abilities: {0: "Chilling Presence", 1: "Ice Body", H: "Sturdy"},
+    },
+   avalugg: {
+        inherit: true,
+        abilities: {0: "Chilling Presence", 1: "Ice Body", H: "Sturdy"},
+    },
+   cryogonal: {
+        inherit: true,
+        abilities: {0: "Levitate", 1: "Ice Body", H: "Chilling Presence"},
+    },
+   froslass: {
+        inherit: true,
+        abilities: {0: "Snow Cloak", 1: "Cursed Body", H: "Chilling Presence"},
+    },
+   walrein: {
+        inherit: true,
+        abilities: {0: "Thick Fat", 1: "Ice Body", H: "Chilling Presence"},
+    },
+   sealeo: {
+        inherit: true,
+        abilities: {0: "Thick Fat", 1: "Ice Body", H: "Chilling Presence"},
+    },
+   spheal: {
+        inherit: true,
+        abilities: {0: "Thick Fat", 1: "Ice Body", H: "Chilling Presence"},
+    },
+   latias: {
+        inherit: true,
+        abilities: {0: "Levitate", H: "Chilling Presence"},
+    },
+   latios: {
+        inherit: true,
+        abilities: {0: "Levitate", H: "Illuminate"},
     },
 };
