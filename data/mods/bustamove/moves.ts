@@ -269,6 +269,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1},
+		onHit(target, source) {
+			let success = false;
+			pokemon.trySetStatus('slp', target) {
+				success = !!this.heal(this.modify(source.baseMaxhp, 0.25));
+			}
+			return success;
+		},
 		status: 'slp',
 		secondary: null,
 		target: "normal",
