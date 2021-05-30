@@ -275,7 +275,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
-		secondary: {
+		self: {
+			onHit(attacker, source) {
+				for (const pokemon of source.side.foe.active) {
+					const result = this.random(1);
+					if (result === 0) {
+						pokemon.trySetStatus('slp', source);
+						this.heal(attacker.baseMaxhp / 4);
+					}
+				}
+			},
+		},
+		secondary: null,/*{
 			chance: 100,
 			status: 'slp',
 			onHit(pokemon, target, source) {
@@ -284,7 +295,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.heal(pokemon.baseMaxhp / 4);
 				}
 			}
-		},
+		},*/
 		target: "normal",
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
@@ -336,14 +347,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onAfterHit(pokemon, source, move) {
+		/*onAfterHit(pokemon, source, move) {
 			this.add('-activate', source, 'move: Sparkling Aria');
 			for (const ally of source.side.pokemon) {
-				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates && pokemon.status !== 'psn', 'par', 'slp', 'frz')) {
-					continue;
+				onHit(pokemon) {
+					if (['', 'psn', 'tox', 'par', 'slp', 'frz'].includes(pokemon.status)) return false;
+					pokemon.cureStatus();
 				}
-				ally.cureStatus('brn');
 			}
+		},
+			}
+		},*/
+		secondary: {
+			dustproof: true,
+			chance: 100,
+			onHit(allyTeam) {
+				if (allyTeam.status === 'brn') allyTeam.cureStatus();
+			},
 		},
 		secondary: null,
 		target: "allAdjacent",
