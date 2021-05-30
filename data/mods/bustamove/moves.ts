@@ -266,13 +266,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Sing",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
 		onHit(pokemon, target, source, move) {
-			if (!target.setStatus('slp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
+			if (target.setStatus('slp', source, move));
+			/*target.statusData.time = 3;
+			target.statusData.startTime = 3;*/
 			this.heal(pokemon.baseMaxhp / 4); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 		/*onHit(target, source) {
@@ -310,7 +310,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	sparklingaria: {
 		num: 664,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Sparkling Aria",
 		pp: 10,
@@ -319,10 +319,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			dustproof: true,
 			chance: 100,
-			onHit(target) {
-				if (target.status === 'brn') target.cureStatus();
-			},
+			onHit(pokemon, source) {
+			this.add('-activate', source, 'move: Sparkling Aria');
+			const side = pokemon.side;
+			let success = false;
+			for (const ally of side.pokemon) {
+				if (ally !== source && ally.hasAbility('soundproof')) continue;
+				if (ally.cureStatus('brn')) success = true;
+			}
+			return success;
+			}
 		},
+		/*onHit(allyTeam) {
+			if (allyTeam.status === 'brn') allyTeam.cureStatus();
+		},*/
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
