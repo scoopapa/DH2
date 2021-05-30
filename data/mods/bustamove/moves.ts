@@ -359,7 +359,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onBasePower('brn');(source, target) {
+		onBasePower(source, target) {
 			if (target.hasType === source.getTypes) {
 				return this.chainModify(2);
 			}
