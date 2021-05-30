@@ -268,7 +268,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Sing",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
 		onHit(pokemon, target, source, move) {
 			let success = false;
 			target.trySetStatus('slp', source, move);
