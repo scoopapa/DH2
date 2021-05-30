@@ -274,17 +274,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Sing",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
 		onHit(pokemon, target, source) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			return target.setStatus('slp', source) || success;
 		},
+		/*onHit(pokemon, target, source) {
+			let success = false;
+			if (target.setStatus('slp', source)) {
+				if (!success) {
+					this.add('-activate', pokemon, 'ability: Sing');
+					success = true;
+					this.moveUse('sing2', pokemon);
+				}
+			}
+		},*/
 		secondary: null,
 		target: "normal",
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
 	},
+	/*sing2: {
+		num: 47,
+		accuracy: 60,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "",
+		name: "Sing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
+		heal: [1, 4],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},*/
 	skittersmack: {
 		num: 806,
 		accuracy: 100,
