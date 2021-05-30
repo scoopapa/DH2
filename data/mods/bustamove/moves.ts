@@ -369,7 +369,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (target.hasType(source.getTypes())) return 1;
-			}
 		},
 		/*onModifyMovePriority: -5,
 		onModifyMove(move) {
