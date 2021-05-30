@@ -274,6 +274,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if target.trySetStatus('slp', source, move) {
 				success = this.heal(pokemon.baseMaxhp / 4);
 			}
+			return success;
 		},
 		/*onHit(target, source) {
 			let success = false;
