@@ -308,7 +308,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onAfterHit(allyTeam) {
+		onAfterHit(allyTeam, pokemon, source, move) {
 			this.add('-activate', source, 'move: Sparkling Aria');
 			for (const allyTeam of source.side.pokemon) {
 				if (allyTeam !== source && (allyTeam.volatiles['substitute'] && !move.infiltrates)) {
@@ -351,7 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onEffectiveness(typeMod, source, target, type) {
+		onEffectiveness(source, target) {
 			if (target.hasType === source.getTypes) {
 				return this.chainModify(2);
 			}
