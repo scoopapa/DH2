@@ -309,7 +309,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		onAfterHit(allyTeam) {
-			if (allyTeam.status === 'brn') allyTeam.cureStatus();
+			this.add('-activate', source, 'move: Sparkling Aria');
+			for (const allyTeam of source.side.pokemon) {
+				if (allyTeam !== source && (allyTeam.volatiles['substitute'] && !move.infiltrates)) {
+					continue;
+				}
+				allyTeam.cureStatus('brn');
+			}
 		},
 		secondary: null,
 		target: "allAdjacent",
@@ -345,7 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onEffectiveness(typeMod, target, type) {
+		onEffectiveness(typeMod, source, target, type) {
 			if (target.hasType === source.getTypes) {
 				return this.chainModify(2);
 			}
