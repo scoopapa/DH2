@@ -282,10 +282,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (result === 0) {
 						pokemon.trySetStatus('slp', source);
 						this.heal(attacker.baseMaxhp / 4);
+						if (target.status === 'slp' || target.hasAbility('comatose')) {
+							return null;
+						}
 					}
-				}
-				if (target.status === 'slp' || target.hasAbility('comatose')) {
-					return null;
 				}
 			},
 		},
