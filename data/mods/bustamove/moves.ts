@@ -275,7 +275,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
-		onAfterHit(pokemon, target, source) {
+		onHit(pokemon, target, source) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			return target.setStatus('slp', source) || success;
 		},
@@ -321,6 +321,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					continue;
 				}
 				ally.cureStatus('brn');
+				!ally.cureStatus('psn', 'par', 'slp', 'frz');
 			}
 		},
 		secondary: null,
@@ -358,7 +359,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onEffectiveness(source, target) {
+		onBasePower('brn');(source, target) {
 			if (target.hasType === source.getTypes) {
 				return this.chainModify(2);
 			}
