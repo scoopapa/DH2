@@ -270,18 +270,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
 		onHit(pokemon, target, source, move) {
-			if (target.setStatus('slp', source, move));
-			/*target.statusData.time = 3;
-			target.statusData.startTime = 3;*/
-			this.heal(pokemon.baseMaxhp / 4); // Aesthetic only as the healing happens after you fall asleep in-game
-		},
-		/*onHit(target, source) {
-			let success = false;
-			pokemon.trySetStatus('slp', target) {
-				success = !!this.heal(this.modify(source.baseMaxhp, 0.25));
+			if (target.setStatus('slp', source, move)) {
+				this.heal(pokemon.baseMaxhp / 4);
 			}
-			return success;
-		},*/
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -316,24 +308,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		secondary: {
-			dustproof: true,
-			chance: 100,
-			onHit(allyTeam) {
+		onHit(allyTeam) {
 			if (allyTeam.status === 'brn') allyTeam.cureStatus();
-			}
 		},
-			/*onHit(pokemon, source) {
-			this.add('-activate', source, 'move: Sparkling Aria');
-			const side = pokemon.side;
-			let success = false;
-			for (const ally of side.pokemon) {
-				if (ally !== source && ally.hasAbility('soundproof')) continue;
-				if (ally.cureStatus('brn')) success = true;
-			}
-			return success;
-			}
-		},*/
+		secondary: null,
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
@@ -368,16 +346,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onEffectiveness(typeMod, target, type) {
-			if (target.hasType(source.getTypes())) return 1;
-		},
-		/*onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Fighting'] = true;
-				move.ignoreImmunity['Normal'] = true;
+			if (target.hasType(source.getTypes())) {
+				return this.chainModify(2);
 			}
-		},*/
+		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Psychic",
