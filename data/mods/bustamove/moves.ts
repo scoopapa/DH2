@@ -319,7 +319,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			dustproof: true,
 			chance: 100,
-			onHit(pokemon, source) {
+			onHit(allyTeam) {
+			if (allyTeam.status === 'brn') allyTeam.cureStatus();
+			}
+		},
+			/*onHit(pokemon, source) {
 			this.add('-activate', source, 'move: Sparkling Aria');
 			const side = pokemon.side;
 			let success = false;
@@ -329,9 +333,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			return success;
 			}
-		},
-		/*onHit(allyTeam) {
-			if (allyTeam.status === 'brn') allyTeam.cureStatus();
 		},*/
 		target: "allAdjacent",
 		type: "Water",
@@ -358,17 +359,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	synchronoise: {
 		num: 485,
-		accuracy: 100,
-		basePower: 120,
+		accuracy: 85,
+		basePower: 95,
 		category: "Special",
 		isNonstandard: "Past",
 		name: "Synchronoise",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onTryImmunity(target, source) {
-			return target.hasType(source.getTypes());
+		onEffectiveness(typeMod, target, type) {
+			if (target.hasType(source.getTypes())) return 1;
+			}
 		},
+		/*onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},*/
 		secondary: null,
 		target: "allAdjacent",
 		type: "Psychic",
