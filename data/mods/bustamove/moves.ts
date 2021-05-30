@@ -314,13 +314,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onAfterHit(allyTeam, pokemon, source, move) {
+		onAfterHit(pokemon, source, move) {
 			this.add('-activate', source, 'move: Sparkling Aria');
-			for (const allyTeam of source.side.pokemon) {
-				if (allyTeam !== source && (allyTeam.volatiles['substitute'] && !move.infiltrates)) {
+			for (const ally of source.side.pokemon) {
+				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
 					continue;
 				}
-				allyTeam.cureStatus('brn');
+				ally.cureStatus('brn');
 			}
 		},
 		secondary: null,
