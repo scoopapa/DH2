@@ -274,6 +274,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						pokemon.trySetStatus('slp', source);
 						this.heal(attacker.baseMaxhp / 4);
 					} else if (target.status === 'slp' || target.hasAbility('comatose')) {
+						this.add('-fail', target, 'move: Substitute');
 						return null;
 					}
 				}
@@ -315,8 +316,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		onHit(allyTeam) {
-			if (['', 'psn', 'tox', 'par', 'slp', 'frz'].includes(allyTeam.status)) return false;
-			if (allyTeam.status === 'brn') allyTeam.cureStatus();
+			if (allyTeam.status === 'brn' && allyTeam.status !== 'psn', 'tox', 'par', 'slp', 'frz') allyTeam.cureStatus();
 		},
 		secondary: null,/*{
 			dustproof: true,
