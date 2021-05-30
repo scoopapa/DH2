@@ -25,5 +25,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData('Learnsets', 'butterfree').learnset.reflect = ['7L1'];
 	this.modData('Learnsets', 'butterfree').learnset.dazzlinggleam = ['7L1'];
 	this.modData('Learnsets', 'milotic').learnset.dragonrush = ['7L1'];
+	this.modData('Learnsets', 'froslass').learnset.freezedry = ['7L1'];
 	},
 };
