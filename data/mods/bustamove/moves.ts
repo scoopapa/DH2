@@ -333,14 +333,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onAfterHit(pokemon, source, move) {
-			this.add('-activate', source, 'move: Sparkling Aria');
-			for (const ally of source.side.pokemon) {
-				onHit(pokemon) {
-					if (['', 'psn', 'tox', 'par', 'slp', 'frz'].includes(pokemon.status)) return false;
-					pokemon.cureStatus();
-				}
-			}
+		onAfterHit(allyTeam, source, move) {
+			if (['', 'psn', 'tox', 'par', 'slp', 'frz'].includes(allyTeam.status)) return false;
+			allyTeam.cureStatus();
 		},
 		secondary: null,/*{
 			dustproof: true,
