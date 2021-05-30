@@ -271,8 +271,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1},
 		onHit(pokemon, target, source, move) {
 			let success = false;
-			if target.trySetStatus('slp', source, move) {
-				success = this.heal(pokemon.baseMaxhp / 4);
+			target.trySetStatus('slp', source, move);
+			if (success = true) {
+				this.heal(pokemon.baseMaxhp / 4);
 			}
 			return success;
 		},
