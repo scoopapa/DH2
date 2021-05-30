@@ -1429,7 +1429,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     pyrogrine: {
         num: 9015,
-        name: "pyrogrine",
+        name: "Pyrogrine",
         types: ["Fire", "Flying"],
         baseStats: {hp: 60, atk: 100, def: 60, spa: 100, spd: 60, spe: 125},
         abilities: {0: "Long Shot", 1: "Flash Fire", H: "Justified"},
