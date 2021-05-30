@@ -315,8 +315,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onHit(allyTeam) {
-			if (allyTeam.status === 'brn' && allyTeam.status !== 'psn', 'tox', 'par', 'slp', 'frz') allyTeam.cureStatus();
+		onHit(ally) {
+			for (const ally of source.side.pokemon) {
+				if (ally.status === 'brn' && ally.status !== 'psn', 'tox', 'par', 'slp', 'frz') ally.cureStatus();
+			}
 		},
 		secondary: null,/*{
 			dustproof: true,
