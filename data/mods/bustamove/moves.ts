@@ -308,7 +308,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onHit(allyTeam) {
+		onAfterHit(allyTeam) {
 			if (allyTeam.status === 'brn') allyTeam.cureStatus();
 		},
 		secondary: null,
@@ -346,7 +346,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onEffectiveness(typeMod, target, type) {
-			if (target.hasType(source.getTypes())) {
+			if (target.hasType === source.getTypes) {
 				return this.chainModify(2);
 			}
 		},
