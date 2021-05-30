@@ -270,12 +270,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
 		onHit(pokemon, target, source, move) {
-			let success = false;
-			target.trySetStatus('slp', source, move);
-			if (success = true) {
-				this.heal(pokemon.baseMaxhp / 4);
-			}
-			return success;
+			if (!target.setStatus('slp', source, move)) return false;
+			target.statusData.time = 3;
+			target.statusData.startTime = 3;
+			this.heal(pokemon.baseMaxhp / 4); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 		/*onHit(target, source) {
 			let success = false;
