@@ -283,6 +283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						pokemon.trySetStatus('slp', source);
 						this.heal(attacker.baseMaxhp / 4);
 					}
+					if (target.status === 'slp' || target.hasAbility('comatose')) return this.heal false;
 				}
 			},
 		},
@@ -297,23 +298,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},*/
 		target: "normal",
-		type: "Normal",
-		zMove: {boost: {spe: 1}},
-		contestType: "Cute",
-	},
-	sing2: {
-		num: 47,
-		accuracy: 60,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "",
-		name: "Sing",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
-		heal: [1, 4],
-		secondary: null,
-		target: "self",
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
@@ -347,7 +331,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		/*onAfterHit(pokemon, source, move) {
+		onAfterHit(pokemon, source, move) {
 			this.add('-activate', source, 'move: Sparkling Aria');
 			for (const ally of source.side.pokemon) {
 				onHit(pokemon) {
@@ -356,15 +340,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-			}
-		},*/
-		secondary: {
+		secondary: null,/*{
 			dustproof: true,
 			chance: 100,
 			onHit(allyTeam) {
 				if (allyTeam.status === 'brn') allyTeam.cureStatus();
 			},
-		},
+		},*/
 		secondary: null,
 		target: "allAdjacent",
 		type: "Water",
