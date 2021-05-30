@@ -157,6 +157,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
+		shortDesc: "",
+		isNonstandard: null,
 		name: "Fairy Wind",
 		pp: 15,
 		priority: 0,
@@ -191,6 +193,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 50,
 		category: "Special",
+		shortDesc: "",
 		name: "Ominous Wind",
 		pp: 5,
 		priority: 0,
@@ -210,6 +213,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
+		shortDesc: "",
+		isNonstandard: null,
 		name: "Razor Wind",
 		pp: 10,
 		priority: 0,
@@ -265,14 +270,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 60,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "",
 		name: "Sing",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
-		onHit(pokemon, target, source, move) {
-			if (target.setStatus('slp', source, move)) {
-				this.heal(pokemon.baseMaxhp / 4);
-			}
+		onAfterHit(pokemon, target, source) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return target.setStatus('slp', source) || success;
 		},
 		secondary: null,
 		target: "normal",
@@ -304,6 +309,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "",
 		name: "Sparkling Aria",
 		pp: 10,
 		priority: 0,
@@ -346,7 +352,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 85,
 		basePower: 95,
 		category: "Special",
-		isNonstandard: "Past",
+		shortDesc: "",
+		isNonstandard: null,
 		name: "Synchronoise",
 		pp: 10,
 		priority: 0,
