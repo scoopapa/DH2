@@ -228,15 +228,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
 				}
 			}
-			/*let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
-			for (const targetCondition of removeTarget) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
-					success = true;
-				}
-			}*/
 		},
 		critRatio: 2,
 		secondary: null,
@@ -282,23 +273,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (result === 0) {
 						pokemon.trySetStatus('slp', source);
 						this.heal(attacker.baseMaxhp / 4);
-						if (target.status === 'slp' || target.hasAbility('comatose')) {
-							return null;
-						}
+					} else if (target.status === 'slp' || target.hasAbility('comatose')) {
+						return null;
 					}
 				}
 			},
 		},
-		secondary: null,/*{
-			chance: 100,
-			status: 'slp',
-			onHit(pokemon, target, source) {
-				let success = false;
-				if (success) {
-					this.heal(pokemon.baseMaxhp / 4);
-				}
-			}
-		},*/
+		secondary: null,
 		target: "normal",
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
@@ -333,9 +314,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onAfterHit(allyTeam, source, move) {
+		onHit(allyTeam) {
 			if (['', 'psn', 'tox', 'par', 'slp', 'frz'].includes(allyTeam.status)) return false;
-			allyTeam.cureStatus();
+			if (allyTeam.status === 'brn') allyTeam.cureStatus();
 		},
 		secondary: null,/*{
 			dustproof: true,
