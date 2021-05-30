@@ -327,4 +327,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	froslassmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	poochyenagalar: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	mightyenagalar: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
+	paleolyena: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
