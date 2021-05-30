@@ -260,6 +260,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+	sing: {
+		num: 47,
+		accuracy: 60,
+		basePower: 0,
+		category: "Status",
+		name: "Sing",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1},
+		status: 'slp',
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
 	skittersmack: {
 		num: 806,
 		accuracy: 100,
@@ -279,6 +295,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
+	sparklingaria: {
+		num: 664,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Sparkling Aria",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			dustproof: true,
+			chance: 100,
+			onHit(target) {
+				if (target.status === 'brn') target.cureStatus();
+			},
+		},
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Tough",
+	},
 	strength: {
 		num: 70,
 		accuracy: 100,
@@ -297,5 +333,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+	},
+	synchronoise: {
+		num: 485,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Synchronoise",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		onTryImmunity(target, source) {
+			return target.hasType(source.getTypes());
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Psychic",
+		contestType: "Clever",
 	},
 };
