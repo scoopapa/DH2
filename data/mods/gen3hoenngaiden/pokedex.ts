@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-	cleffa: {
+	clefable: {
 		inherit: true,
 		abilities: {0: "Cute Charm"},
 	},
@@ -7,9 +7,249 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Cute Charm"},
 	},
-	clefable: {
+	cleffa: {
 		inherit: true,
 		abilities: {0: "Cute Charm"},
+	},
+	porygon2: {
+		inherit: true,
+		abilities: {0: "Trace"},
+	},
+	porygon: {
+		inherit: true,
+		abilities: {0: "Trace"},
+	},
+	breloom: {
+		inherit: true,
+		abilities: {0: "Effect Spore"},
+	},
+	shroomish: {
+		inherit: true,
+		abilities: {0: "Effect Spore"},
+	},
+	kingdra: {
+		inherit: true,
+		abilities: {0: "Swift Swim"},
+	},
+	seadra: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	horsea: {
+		inherit: true,
+		abilities: {0: "Swift Swim"},
+	},
+	machamp: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	machoke: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	machop: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	miltank: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	scizor: {
+		inherit: true,
+		abilities: {0: "Swarm"},
+	},
+	scyther: {
+		inherit: true,
+		abilities: {0: "Swarm"},
+	},
+	smeargle: {
+		inherit: true,
+		abilities: {0: "Own Tempo"},
+	},
+	tauros: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	ursaring: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	teddiursa: {
+		inherit: true,
+		abilities: {0: "Pickup"},
+	},
+	absol: {
+		inherit: true,
+		abilities: {0: "Pressure"},
+	},
+	banette: {
+		inherit: true,
+		abilities: {0: "Insomnia"},
+	},
+	shuppet: {
+		inherit: true,
+		abilities: {0: "Insomnia"},
+	},
+	shuckle: {
+		inherit: true,
+		abilities: {0: "Gluttony"},
+	},
+	hitmontop: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	granbull: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	snubbull: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	nidoking: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	nidoqueen: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	nidorino: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	nidorina: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	nidoranm: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	nidoranf: {
+		inherit: true,
+		abilities: {0: "Poison Point"},
+	},
+	kangaskhan: {
+		inherit: true,
+		abilities: {0: "Early Bird"},
+	},
+	pinsir: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter"},
+	},
+	primeape: {
+		inherit: true,
+		abilities: {0: "Vital Spirit"},
+	},
+	stantler: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	walrein: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	sealeo: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	spheal: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	delcatty: {
+		inherit: true,
+		abilities: {0: "Cute Charm"},
+	},
+	skitty: {
+		inherit: true,
+		abilities: {0: "Cute Charm"},
+	},
+	dewgong: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	seel: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	glalie: {
+		inherit: true,
+		abilities: {0: "Inner Focus"},
+	},
+	snorunt: {
+		inherit: true,
+		abilities: {0: "Inner Focus"},
+	},
+	hitmonchan: {
+		inherit: true,
+		abilities: {0: "Keen Eye"},
+	},
+	mightyena: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	poochyena: {
+		inherit: true,
+		abilities: {0: "Run Away"},
+	},
+	murkrow: {
+		inherit: true,
+		abilities: {0: "Insomnia"},
+	},
+	parasect: {
+		inherit: true,
+		abilities: {0: "Effect Spore"},
+	},
+	paras: {
+		inherit: true,
+		abilities: {0: "Insomnia"},
+	},
+	pidgeot: {
+		inherit: true,
+		abilities: {0: "Keen Eye"},
+	},
+	pidgeotto: {
+		inherit: true,
+		abilities: {0: "Keen Eye"},
+	},
+	pidgey: {
+		inherit: true,
+		abilities: {0: "Keen Eye"},
+	},
+	spinda: {
+		inherit: true,
+		abilities: {0: "Own Tempo"},
+	},
+	sunflora: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+	},
+	sunkern: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+	},
+	tangela: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+	},
+	venomoth: {
+		inherit: true,
+		abilities: {0: "Shield Dust"},
+	},
+	venonat: {
+		inherit: true,
+		abilities: {0: "Compound Eyes"},
+	},
+	whiscash: {
+		inherit: true,
+		abilities: {0: "Oblivious"},
+	},
+	barboach: {
+		inherit: true,
+		abilities: {0: "Oblivious"},
 	},
 	shellder: {
 		num: 90,
