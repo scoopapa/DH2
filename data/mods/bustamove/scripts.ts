@@ -1,8 +1,6 @@
-const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
-
 //this.modData('Learnsets', 'pkmn').learnset.move = ['8L1'];
-export const Scripts: BattleScriptsData = {
-	init: function() {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	init: function () {
 	
 		this.modData('Learnsets', 'houndoom').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'infernape').learnset.burningjealousy = ['8L1'];
@@ -35,4 +33,22 @@ export const Scripts: BattleScriptsData = {
 	
 		this.modData('Learnsets', 'beedrill').learnset.strength = ['8L1'];
 	},
+/*
+		for (const id in this.dataCache.Pokedex) {
+			const poke = this.dataCache.Pokedex[id];
+			if (poke.restrictedLearnset) {
+				console.log(this.toID(poke.name));
+				const thisPoke = this.toID(poke.name);
+				const learnset = this.dataCache.Learnsets[this.toID(poke.name)].learnset;
+				for (const move in learnset) {
+					console.log(thisPoke + " has " + move);
+					const moveid = this.dataCache.Moves[move];
+					if (moveid.isNonstandard) {
+						console.log(moveid.isNonstandard);
+						delete this.modData('Learnsets', thisPoke).learnset.moveid;
+					}
+				}
+			}
+		}
+*/
 };
