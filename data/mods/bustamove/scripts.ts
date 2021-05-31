@@ -1,6 +1,6 @@
 //this.modData('Learnsets', 'pkmn').learnset.move = ['8L1'];
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function () {
+	/*init: function () {
 	
 		this.modData('Learnsets', 'houndoom').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'infernape').learnset.burningjealousy = ['8L1'];
