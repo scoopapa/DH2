@@ -20212,4 +20212,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	lightup: {
+		num: 4688,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Light-Up",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			accuracy: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {boost: {atk: 1}},
+		contestType: "Clever",
+	},	
 };
