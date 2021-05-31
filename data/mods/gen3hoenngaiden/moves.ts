@@ -509,12 +509,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		desc: "If this attack is not successful and the target was not immune, the user loses HP equal to half of the damage the target would have taken, rounded down, but no less than 1 HP and no more than half of the target's maximum HP, as crash damage.",
 		shortDesc: "If miss, user takes 1/2 damage it would've dealt.",
+		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			if (target.runImmunity('Fighting')) {
-				const damage = this.getDamage(source, target, move, true);
-				if (typeof damage !== 'number') throw new Error("HJK recoil failed");
-				this.damage(this.clampIntRange(damage / 2, 1, Math.floor(target.maxhp / 2)), source, source, move);
-			}
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
 		},
 	},
 	hyperbeam: {
