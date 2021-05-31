@@ -1,4 +1,16 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	cleffa: {
+		inherit: true,
+		abilities: {0: "Cute Charm"},
+	},
+	clefairy: {
+		inherit: true,
+		abilities: {0: "Cute Charm"},
+	},
+	clefable: {
+		inherit: true,
+		abilities: {0: "Cute Charm"},
+	},
 	shellder: {
 		num: 90,
 		name: "Shellder",
