@@ -2535,7 +2535,7 @@ gmaxbattlecry: {
 					this.boost({spe: -1}, pokemon);
 				}
 				for (const pokemon of source.side.active) {
-					this.boost({atk: 1}, pokemon);
+					this.boost({def: 1}, pokemon);
 				}
 				this.field.setWeather('hail');
 			}
