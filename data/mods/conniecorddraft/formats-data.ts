@@ -179,5 +179,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Lab",
 		doublesTier: "Lab",
 	},
+	wiwoxin: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	phantomaw: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
 	
 };
