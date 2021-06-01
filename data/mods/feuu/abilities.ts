@@ -1681,7 +1681,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.basePower <= 60) {
 				const oldAbility = target.setAbility('teachingtech', source);
 				if (oldAbility) {
-					this.add('-activate', source, 'ability: Teaching Tech', this.dex.getAbility(oldAbility).name, '[of] ' + target);
+					this.add('-activate', source, 'ability: Teaching Tech');
+					this.add('-activate', target, 'ability: Teaching Tech');
 				}
 			}
 		},
