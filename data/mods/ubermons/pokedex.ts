@@ -45,4 +45,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 119, atk: 91, def: 89, spa: 91, spd: 89, spe: 121},
 		abilities: {0: "Clear Body", 1: "Infiltrator", H: "Sniper"},
 	},
+	kyogre: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 80, def: 90, spa: 110, spd: 120, spe: 75},
+	},
+	groudon: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 120, def: 125, spa: 100, spd: 70, spe: 65},
+	},
+	rayquaza: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 115, def: 75, spa: 115, spd: 75, spe: 105},
+	},
 };
