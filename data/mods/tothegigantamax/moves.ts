@@ -2490,6 +2490,60 @@ gmaxevoglace: {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+gmaxbattlecry: {
+        num: 1000,
+        accuracy: true,
+        basePower: 10,
+        category: "Physical",
+      shortDesc: "Base move affects power. Hits adjacent opponents.",
+        isNonstandard: "Gigantamax",
+        name: "G-Max Battle Cry",
+        pp: 10,
+        priority: 0,
+        isMax: "Exploud",
+        onPrepareHit: function(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Boomburst", target);
+            this.add('-anim', source, "Boomburst", target);
+        },
+        secondary: null,
+        target: "allAdjacentFoes",
+        type: "Normal",
+        contestType: "Beautiful",
+    },
+	gmaxfrozenwind: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+      shortDesc: "Base move affects power. Allies: +1 Def, Foes: -1 Spe, Field: Hail.",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Frozen Wind",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: "Frosmoth",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tailwind", target);
+			this.add('-anim', source, "Ice Beam", target);
+		},
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+				for (const pokemon of source.side.active) {
+					this.boost({def: 1}, pokemon);
+				}
+				this.field.setWeather('hail');
+			}
+		 },
+		target: "adjacentFoe",
+		type: "Ice",
+		contestType: "Cool",
+	},
 /*
 	gmaxjackobomb: {
 		num: 1000,

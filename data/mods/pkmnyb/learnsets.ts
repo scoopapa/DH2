@@ -125,6 +125,7 @@ export const Learnsets = {
 	/*synthinobi: {
 		learnset: {*/
 			grasspledge: ['7L1'],
+			cut: ['7L1'],
 		}
 	},
 	chemicander: {
@@ -345,6 +346,7 @@ export const Learnsets = {
 	/*primadillo: {
 		learnset: {*/
 			waterpledge: ['7L1'],
+			rockclimb: ['7L1'],
 		}
 	},
 	bersawk: {
@@ -452,6 +454,7 @@ export const Learnsets = {
 	/*bersawk: {
 		learnset: {*/
 			dualwingbeat: ['7L1'],
+			chipaway: ['7L1'],
 		}
 	},
 	electzal: {
@@ -681,6 +684,8 @@ export const Learnsets = {
 	/*pyrogrine: {
 		learnset: {*/
 			featherdance: ['7L1'],
+			flamethrower: ['7L1'],
+			willowisp: ['7L1'],
 		}
 	},
 	chompean: {
@@ -791,6 +796,7 @@ export const Learnsets = {
 	/*chompean: {
 		learnset: {*/
 			icebeam: ['7L1'],
+			chipaway: ['7L1'],
 		}
 	},
 	mothicoal: {
@@ -1148,6 +1154,7 @@ export const Learnsets = {
 	/*menursa: {
 		learnset: {*/
 			closecombat: ['7L1'],
+			chipaway: ['7L1'],
 		}
 	},
 	bloomivolt: {
@@ -1264,6 +1271,7 @@ export const Learnsets = {
 	/*bloomivolt: {
 		learnset: {*/
 			terrainpulse: ['7L1'],
+			electroweb: ['7L1'],
 		}
 	},
 	muaytiger: {
@@ -1371,6 +1379,9 @@ export const Learnsets = {
 	/*muaytiger: {
 		learnset: {*/
 			fakeout: ['7L1'],
+			crunch: ['7L1'],
+			rockclimb: ['7L1'],
+			meditate: ['7L1'],
 		}
 	},
 	razorine: {
@@ -1677,6 +1688,7 @@ export const Learnsets = {
 	/*arbborry: {
 		learnset: {*/
 			taunt: ['7L1'],
+			rockclimb: ['7L1'],
 		}
 	},
 	mustellar: {
@@ -1909,6 +1921,7 @@ export const Learnsets = {
 	/*wolverflare: {
 		learnset: {*/
 			heatwave: ['7L1'],
+			flamethrower: ['7L1'],
 		}
 	},
 	photyrant: {
@@ -2900,6 +2913,7 @@ export const Learnsets = {
 	/*sanatee: {
 		learnset: {*/
 			auroraveil: ['7L1'],
+			meditate: ['7L1'],
 		}
 	},
 	glaciarch: {
@@ -3488,6 +3502,9 @@ export const Learnsets = {
 	/*giraflame: {
 		learnset: {*/
 			scorchingsands: ['7L1'],
+			meditate: ['7L1'],
+			flamethrower: ['7L1'],
+			signalbeam: ['7L1'],
 		}
 	},
 	petrasapien: {
@@ -4134,6 +4151,7 @@ export const Learnsets = {
 	/*ingarde: {
 		learnset: {*/
 			skittersmack: ['7L1'],
+			cut: ['7L1'],
 		}
 	},
 	venometta: {
@@ -4702,6 +4720,7 @@ export const Learnsets = {
 	/*goblizz: {
 		learnset: {*/
 			dragontail: ['7L1'],
+			chipaway: ['7L1'],
 		}
 	},
 	ptarabola: {
@@ -5486,6 +5505,7 @@ export const Learnsets = {
 			flash: ["8L1"],
 			spite: ["8L1"],
 			lashout: ["8L1"],
+			meditate: ['7L1'],
 		},
 	},
 	balatadi: {
