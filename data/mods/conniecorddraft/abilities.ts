@@ -429,4 +429,71 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return this.chainModify(mod);
 		},
 	},
+	jester: {
+		name: "Jester",
+		desc: "Moves of 60 or less power: +1 priority. Dark-types are immune.",
+		num: -1022,
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move && move.category !== 'Status' && move.basePower <= 60) {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+	},
+	bananatrap: {
+		name: "Banana Trap",
+		desc: "Prevents adjacent opposing Grass-types from choosing to switch.",
+		num: -1023,
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Grass')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+	},
+	trickster: {
+		name: "Trickster",
+		desc: "Status moves have -1 priority but are used twice.",
+		num: -1024,
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				return priority - 1;
+			}
+		},
+		onBeforeMove(target, source, move) {
+			if (move.category === 'Status') {
+				//this.add('-activate', source, 'ability: Trickster');
+				this.useMove(move, target, source);
+			}
+		},
+	},
+	arcaneswitch: {
+		name: "Arcane Switch",
+		desc: "If Cobroom: Changes to Alchemist form before using Poison move; to Sorcerer before using Dark move.",
+		num: -1025,
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Cobroom' || attacker.transformed) return;
+			if (move.type !== 'Poison' && move.type !== 'Dark') return;
+			const targetForme = (move.type === 'Poison' ? 'Cobroom' : 'Cobroom-Sorcerer');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+	},
+	truegrowth: {
+		name: "True Growth",
+		desc: "If Cozminea: Changes to True form after using Hyperspace Hole.",
+		num: -1026,
+		onSourceAfterMoveSecondary(target, source, move) {
+			if (move.id !== 'hyperspacehole' || source.species.baseSpecies !== 'Cozminea' || source.transformed) return;
+			if (source.species.name !== 'Cozminea-True') source.formeChange('Cozminea-True');
+			this.add('-message', source.name + " revealed its true forme!");
+		},
+	},
 };
