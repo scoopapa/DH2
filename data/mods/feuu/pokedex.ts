@@ -126,7 +126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dusking",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 80, atk: 85, def: 125, spa: 90, spd: 125, spe: 40},
-		abilities: {0: "King of Power Points"},
+		abilities: {0: "Overseeing Monarch"},
 		weightkg: 93.1,
 	},
 	jelliswine: {
