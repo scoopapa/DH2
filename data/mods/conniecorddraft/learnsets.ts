@@ -1503,6 +1503,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			round: ["8L1"],
 			endure: ["8L1"],
+			toxic: ["8L1"],
 			
 			partytrick: ["8L1"],
 			thunderpunch: ["8L1"],
@@ -1984,7 +1985,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			falsesurrender: ["8L1"],
 			toxic: ["8L1"],
 			toxicspikes: ["8L1"],
-			coil: ["8L1"],
+			shellsmash: ["8L1"],
 			purify: ["8L1"],
 			powertrip: ["8L1"],
 			
