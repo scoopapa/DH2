@@ -486,6 +486,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         types: ["Ghost", "Normal"],
         abilities: {0: "Insomnia", 1: "Frisk", H: "Seal Away"},
     },
+   banettemega: {
+        inherit: true,
+        types: ["Ghost", "Normal"],
+    },
    tropius: {
         inherit: true,
         types: ["Grass", "Dragon"],
@@ -2821,5 +2825,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
    latios: {
         inherit: true,
         abilities: {0: "Levitate", H: "Illuminate"},
+    },
+   rampardos: {
+        inherit: true,
+        types: ["Rock", "Fighting"],
+        baseStats: {hp: 97, atk: 165, def: 50, spa: 65, spd: 50, spe: 68},
+        abilities: {0: "Mold Breaker", 1: "Reckless", H: "Sheer Force"},
+    },
+   cranidos: {
+        inherit: true,
+        types: ["Rock", "Fighting"],
+        abilities: {0: "Mold Breaker", 1: "Reckless", H: "Sheer Force"},
     },
 };
