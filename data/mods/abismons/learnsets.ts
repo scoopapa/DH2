@@ -22997,6 +22997,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlpool: ["8M", "7V", "4M"],
 			wildcharge: ["8M", "7M", "6M", "5M"],
 			zapcannon: ["7V"],
+			lightup: ["8M"],
 		},
 		encounters: [
 			{generation: 4, level: 20},
@@ -23786,6 +23787,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7M", "6M", "5M"],
 			wildcharge: ["7M", "6M", "5M"],
 			zapcannon: ["7L1", "7V", "6L1"],
+			lightup: ["8M"],
 		},
 	},
 	azurill: {
@@ -29880,6 +29882,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8M", "7M"],
 			worryseed: ["7T", "6T", "5T", "4T"],
 			xscissor: ["8M", "8L1", "7M", "7L45", "6M", "6L16", "5M", "5L16", "4M", "4L16"],
+			sludgebomb: ["8M"],
 		},
 		eventData: [
 			{generation: 5, level: 50, shiny: 1, moves: ["leafstorm", "dragonpulse", "focusblast", "rockslide"], pokeball: "cherishball"},
@@ -35662,6 +35665,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wringout: ["7L1", "6L1", "5L66", "4L59"],
 			yawn: ["7L1", "6L1", "5L1", "4L1", "3L1"],
 			scald: ["8M"],
+			stuffcheeks: ["8M"],
+			bodypress: ["8M"],
 		},
 	},
 	carvanha: {
@@ -56971,6 +56976,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trick: ["8M", "7T", "6T", "5T"],
 			trickroom: ["8M", "7M", "6M", "5M"],
 			willowisp: ["8M", "8L1", "7M", "6M", "5M"],
+			lightup: ["8M"],
 		},
 		eventData: [
 			{generation: 5, level: 50, gender: "F", nature: "Modest", ivs: {spa: 31}, abilities: ["flashfire"], moves: ["heatwave", "shadowball", "energyball", "psychic"], pokeball: "cherishball"},
@@ -75769,6 +75775,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["8L1"],
 			throatchop: ["8M"],
 			zenheadbutt: ["8M"],
+			powertrip: ["8M"],
 		},
 	},
 	pincurchin: {
@@ -76622,7 +76629,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleedge: ["8L66"],
 			doublehit: ["8L30"],
 			dracometeor: ["8T"],
-			dragondance: ["8M", "8L42"],
 			dragonpulse: ["8M", "8L0"],
 			dragonrush: ["8L61"],
 			endure: ["8M"],
@@ -84022,6 +84028,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["8L1"],
 			spark: ["8L1"],
 			thundershock: ["8L1"],
+			moonblast: ["8L1"],
+			calmmind: ["8L1"],
+			leechseed: ["8L1"],
+			sleeppowder: ["8L1"],
+			stunspore: ["8L1"],
+			poisonpowder: ["8L1"],
 		},
 	},
 	entoraze: {
