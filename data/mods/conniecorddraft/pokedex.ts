@@ -332,7 +332,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Toxpear",
 		types: ["Poison", "Steel"],
 		baseStats: {hp: 80, atk: 90, def: 110, spa: 90, spd: 85, spe: 80},
-		abilities: {0: "Lightning Rod", 1: "Magic Guard", H: "Water Bubble"},
+		abilities: {0: "Corrosion", H: "Poison Point"},
 		weightkg: 127,
 	},
 	ophalgalim: {

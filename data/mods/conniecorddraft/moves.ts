@@ -349,7 +349,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else if (pokemon.species.id === 'surgeupgrade2') {
 					forme = '-Upgrade-3';
 				}
-				pokemon.formeChange('Surge' + forme, this.effect, false, '[silent]');
+				pokemon.formeChange('Surge' + forme, this.effect, true, '[silent]');
 				this.add('-message', `${pokemon.name} upgraded!`);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				const species = this.dex.getSpecies(pokemon.species.name);
