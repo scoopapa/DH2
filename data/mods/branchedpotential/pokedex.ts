@@ -56,7 +56,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Pitchasaur",
 		forme: "Mega",
 		types: ["Grass", "Water"],
-		baseStats: {hp: 90, atk: 105 def: 120, spa: 135, spd: 120, spe: 55},
+		baseStats: {hp: 90, atk: 105, def: 120, spa: 135, spd: 120, spe: 55},
 		abilities: {0: "Drizzle"},
 		weightkg: 131.86,
 		//The battleOnly field isn't used in canon megas,
@@ -142,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -104,
 		name: "Stacragus-Chrysalis",
 		baseSpecies: "Stacragus",
-		forme: "Chrysalis"
+		forme: "Chrysalis",
 		types: ["Rock", "Flying"],
 		baseStats: {hp: 55, atk: 60, def: 110, spa: 30, spd: 110, spe: 30},
 		abilities: {0: "Shields Down"},
