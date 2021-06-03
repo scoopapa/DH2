@@ -392,6 +392,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		battleOnly: "Cozminea",
 		requiredAbility: "True Growth",
 	},
+	fauxrend: {
+		num: -3014,
+		name: "Fauxrend",
+		baseForme: "Daydream",
+		types: ["Fairy", "Dark"],
+		baseStats: {hp: 100, atk: 85, def: 125, spa: 85, spd: 125, spe: 80},
+		abilities: {0: "Tinted Lens", 1: "Neuroforce", H: "Befriend"},
+		weightkg: 2.5,
+		otherFormes: ["Fauxrend-Nightmare"],
+		formeOrder: ["Fauxrend", "Fauxrend-Nightmare"],
+	},
+	fauxrendnightmare: {
+		num: -3014,
+		name: "Fauxrend-Nightmare",
+		baseSpecies: "Fauxrend",
+		forme: "Nightmare",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 100, atk: 125, def: 65, spa: 125, spd: 65, spe: 120},
+		abilities: {0: "Tinted Lens", 1: "Neuroforce", H: "Befriend"},
+		weightkg: 2.5,
+		changesFrom: "Fauxrend",
+	},
 	
 	
 	//Other customs

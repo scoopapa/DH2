@@ -129,6 +129,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Side League",
 		doublesTier: "Side League",
 	},
+	fauxrend: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	fauxrendnightmare: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
 	
 	//Other custom mons
 	marabastion: {

@@ -544,6 +544,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
+	snuggle: {
+		num: -3006,
+		desc: "A move that deals NVE damage and Infiltrates types hit, then deals SE damage against Infiltrated types.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Play Rough", target);
+		},
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Snuggle",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, bullet: 1},
+		secondary: null,
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.activePokemon.infiltrated == undefined) this.activePokemon.infiltrated = [];
+			if (this.activePokemon.infiltrated.includes(type)) return 1;
+			else return -1;
+		},
+		onHit(target, source) {
+			if (source.infiltrated == undefined) source.infiltrated = [];
+			if (source.infiltrated.includes(target.types[0])) {
+				if (!source.infiltrated.includes(target.types[1])) source.infiltrated.push(target.types[1]);
+			}
+			else source.infiltrated.push(target.types[0]);
+		},
+		target: "normal",
+		type: "Fairy",
+	},
 	//Misc
 	bombardment: {
 		num: -1006,
