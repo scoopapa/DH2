@@ -315,7 +315,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: -3006,
 		name: "Escargoop",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 75, atk: 95, def: 102, spa: 83, spd: 88, spe: 74},
+		baseStats: {hp: 95, atk: 75, def: 102, spa: 70, spd: 101, spe: 74},
 		abilities: {0: "Poison Point", 1: "Shell Armor", H: "Merciless"},
 		weightkg: 29.9,
 	},
