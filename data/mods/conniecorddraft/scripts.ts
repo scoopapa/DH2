@@ -4,11 +4,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'vaporeon').learnset.dragontail = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.outrage = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.twister = ['8M'];
-		
-		teambuilderConfig: {
-			// only to specify the order of custom tiers
-			customTiers: ['CCD1', 'Lab', 'Side League'],
-		},
+	},
+	
+	teambuilderConfig: {
+		// only to specify the order of custom tiers
+		customTiers: ['CCD1', 'Lab', 'Side League'],
 	},
 
 	faintMessages(lastFirst = false) {
