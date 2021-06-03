@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* Universal TMs: Attract, Bide, Captivate, Confide, Curse, Double Team, Double-Edge, Endure, Facade, Mimic, Protect, Rest, Round, Sleep Talk, Snore, Substitute, Swagger, Take Down, Toxic*/
+/* Universal TMs: Attract, Bide, Captivate, Confide, Double Team, Double-Edge, Endure, Facade, Protect, Rest, Round, Sleep Talk, Snore, Substitute, Swagger, Take Down*/
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	//Slate 1: Grass, Fire, Water
@@ -1127,4 +1127,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["8L1"],
 		},
 	},
+	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
 };

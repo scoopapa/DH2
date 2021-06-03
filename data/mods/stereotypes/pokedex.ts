@@ -162,4 +162,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sticky Hold", 1: "Clear Body", H: "Healer"},
 		weightkg: 58.1,
 	},
+	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
 };

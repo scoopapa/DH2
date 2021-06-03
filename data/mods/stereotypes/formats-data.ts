@@ -77,4 +77,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
 };
