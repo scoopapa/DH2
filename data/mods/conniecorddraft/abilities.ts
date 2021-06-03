@@ -492,8 +492,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1026,
 		onSourceAfterMoveSecondary(target, source, move) {
 			if (move.id !== 'hyperspacehole' || source.species.baseSpecies !== 'Cozminea' || source.transformed) return;
-			if (source.species.name !== 'Cozminea-True') source.formeChange('Cozminea-True');
-			this.add('-message', source.name + " revealed its true forme!");
+			if (source.species.name !== 'Cozminea-True') { 
+				source.formeChange('Cozminea-True');
+				this.add('-message', source.name + " revealed its true forme!");
+			}
 		},
 	},
 };
