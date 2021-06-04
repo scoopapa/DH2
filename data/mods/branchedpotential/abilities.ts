@@ -7,10 +7,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.formeChange('Minior-Meteor');
 				} else if (pokemon.baseSpecies.baseSpecies === 'Stacragus' && pokemon.species.forme !== 'Chrysalis') {
 					pokemon.formeChange('Stacragus-Chrysalis');
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				}
 			} else {
 				if (pokemon.species.forme === 'Meteor' || pokemon.species.forme === 'Chrysalis') {
 					pokemon.formeChange(pokemon.set.species);
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				}
 			}
 		},
@@ -22,10 +24,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.formeChange('Minior-Meteor');
 				} else if (pokemon.baseSpecies.baseSpecies === 'Stacragus' && pokemon.species.forme !== 'Chrysalis') {
 					pokemon.formeChange('Stacragus-Chrysalis');
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				}
 			} else {
 				if (pokemon.species.forme === 'Meteor' || pokemon.species.forme === 'Chrysalis') {
 					pokemon.formeChange(pokemon.set.species);
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				}
 			}
 		},
