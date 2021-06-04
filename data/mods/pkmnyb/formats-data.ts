@@ -1066,6 +1066,10 @@ florges: {
 		tier: "UU",
 	   doublesTier: "DOU",
 },
+floetteeternal: {
+		tier: "UU",
+	   doublesTier: "DOU",
+},
 gogoat: {
 		tier: "UU",
 	   doublesTier: "DOU",
