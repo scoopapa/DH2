@@ -78,4 +78,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
+	whiscamp: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lapopharsi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	spirox: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
