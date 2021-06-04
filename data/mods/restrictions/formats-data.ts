@@ -215,5 +215,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-
+	electangle: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	orchile: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	shinodori: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

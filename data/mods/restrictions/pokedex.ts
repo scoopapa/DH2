@@ -446,4 +446,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", H: "No Guard"},
 		weightkg: 430,
 	},
+	electangle: {
+		num: 1055,
+		name: "Electangle",
+		types: ["Electric"],
+		baseStats: {hp: 100, atk: 75, def: 72, spa: 75, spd: 175, spe: 103},
+		abilities: {0: "Pressure", 1: "Synchronize", H: "Mold Breaker"},
+		weightkg: 238,
+	},
+	orchile: {
+		num: 1056,
+		name: "Orchile",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 65, atk: 60, def: 75, spa: 110, spd: 121, spe: 64},
+		abilities: {0: "Sweet Veil", H: "Aroma Veil"},
+		weightkg: 12,
+	},
+	shinodori: {
+		num: 1057,
+		name: "Shinodori",
+		types: ["Flying", "Fighting"],
+		baseStats: {hp: 92, atk: 95, def: 88, spa: 100, spd: 84, spe: 106},
+		abilities: {0: "Limber", 1: "Natural Cure", H: "Solar Power"},
+		weightkg: 8,
+	},
 };
