@@ -1198,7 +1198,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["8L1"],
 		},
 	},
-	lapopharsi: {
+	laopharsi: {
 		learnset: {
 			acid: ["8L1"],
 			acidarmor: ["8L1"],

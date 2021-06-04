@@ -82,7 +82,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	lapopharsi: {
+	laopharsi: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

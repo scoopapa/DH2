@@ -171,9 +171,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Rain Dish", 1: "Hydration", H: "Mold Breaker"},
 		weightkg: 53,
 	},
-	lapopharsi: {
+	laopharsi: {
 		num: 20,
-		name: "Lapopharsi",
+		name: "Laopharsi",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 46, spe: 109},
 		abilities: {0: "Technician", 1: "Strong Jaw", H: "Corrosion"},
