@@ -73,6 +73,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Side League",
 		doublesTier: "Side League",
 	},
+	surge: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	surgeupgrade1: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	surgeupgrade2: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	surgeupgrade3: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	luneur: {
 		tier: "Side League",
 		doublesTier: "Side League",
@@ -105,7 +121,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Side League",
 		doublesTier: "Side League",
 	},
+	cozmineatrue: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	dracalloy: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	fauxrend: {
+		tier: "Side League",
+		doublesTier: "Side League",
+	},
+	fauxrendnightmare: {
 		tier: "Side League",
 		doublesTier: "Side League",
 	},

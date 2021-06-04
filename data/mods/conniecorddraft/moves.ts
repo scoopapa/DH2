@@ -349,14 +349,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else if (pokemon.species.id === 'surgeupgrade2') {
 					forme = '-Upgrade-3';
 				}
-				pokemon.formeChange('Surge' + forme, this.effect, false, '[silent]');
+				pokemon.formeChange('Surge' + forme, move, true, '[silent]');
 				this.add('-message', `${pokemon.name} upgraded!`);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				const species = this.dex.getSpecies(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				if (species.types[1]) {
+					const type2 = species.types[1];
+					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				} else {
+					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				}
 			}
 			pokemon.addVolatile('partytrick');
 			this.add('-message', `${pokemon.name} cannot use Party Trick next turn!`)
@@ -543,6 +548,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Bug",
+	},
+	snuggle: {
+		num: -3006,
+		desc: "A move that deals NVE damage and Infiltrates types hit, then deals SE damage against Infiltrated types.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Play Rough", target);
+		},
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Snuggle",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, bullet: 1},
+		secondary: null,
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.activePokemon.infiltrated == undefined) this.activePokemon.infiltrated = [];
+			if (this.activePokemon.infiltrated.includes(type)) return 1;
+			else return -1;
+		},
+		onHit(target, source) {
+			if (source.infiltrated == undefined) source.infiltrated = [];
+			if (source.infiltrated.includes(target.types[0])) {
+				if (!source.infiltrated.includes(target.types[1])) source.infiltrated.push(target.types[1]);
+			}
+			else source.infiltrated.push(target.types[0]);
+		},
+		target: "normal",
+		type: "Fairy",
 	},
 	//Misc
 	bombardment: {
