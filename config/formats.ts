@@ -977,6 +977,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'megarevolution',
+		teambuilderFormat: 'OU',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
@@ -1232,6 +1233,7 @@ export const Formats: FormatList = [
 		],
 		unbanlist: [
 			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
+			'Whiscamp', 'Laopharsi', 'Spirox',
 		],
 	},
 	{  
@@ -1758,6 +1760,21 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4av6',
 	},
+	/*{
+		name: "[Gen 8] Mega Revolution Uber",
+		desc: [
+			"<b>Mega Revolution</b>: This Pet Mod converts mega Evolutions into fully evolved independent Pokémon.",
+			],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3674638/">Mega Revolution on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1whBOIqnepKVIjEVOa2HF-3-pxzH8oVcVxVDww0XZgxI/edit?usp=sharing">Spreadsheet</a>`,
+		],
+
+		mod: 'megarevolution',
+		teambuilderFormat: 'Uber'
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
+	},*/
 	{  
 		name: "[Gen 8] SylveMons AG",
 		threads: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",

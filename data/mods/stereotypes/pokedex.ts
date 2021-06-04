@@ -143,7 +143,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Bug"],
 		baseStats: {hp: 90, atk: 110, def: 85, spa: 85, spd: 110, spe: 90},
 		abilities: {0: "Magic Guard", 1: "Illuminate", H: "Rattled"},
-		height: 3.5,
+		heightm: 3.5,
 		weightkg: 135,
 	},
 	resonake: {
@@ -161,5 +161,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 108, atk: 80, def: 95, spa: 120, spd: 85, spe: 60},
 		abilities: {0: "Sticky Hold", 1: "Clear Body", H: "Healer"},
 		weightkg: 58.1,
+	},
+	//Slate 7: Electric/Water, Poison/Dragon, Steel/Ghost
+	whiscamp: {
+		num: 19,
+		name: "Whiscamp",
+		types: ["Electric", "Water"],
+		baseStats: {hp: 80, atk: 70, def: 80, spa: 105, spd: 110, spe: 80},
+		abilities: {0: "Rain Dish", 1: "Hydration", H: "Mold Breaker"},
+		weightkg: 53,
+	},
+	laopharsi: {
+		num: 20,
+		name: "Laopharsi",
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 46, spe: 109},
+		abilities: {0: "Technician", 1: "Strong Jaw", H: "Corrosion"},
+		heightm: 7,
+		weightkg: 750,
+	},
+	spirox: {
+		num: 21,
+		name: "Spirox",
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 71, atk: 62, def: 66, spa: 113, spd: 101, spe: 117},
+		abilities: {0: "Limber", H: "Cursed Body"},
+		weightkg: 24,
 	},
 };
