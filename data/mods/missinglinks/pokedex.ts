@@ -275,18 +275,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Motor Drive", 1: "Defiant", H: "Vital Spirit"},
 	},
-/*
 	magby: {
 		inherit: true,
-		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+		abilities: {0: "Flame Body", 1: "Immunity", H: "Vital Spirit"},
 	},
 	magmar: {
 		inherit: true,
-		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+		abilities: {0: "Flame Body", 1: "Immunity", H: "Vital Spirit"},
 	},
 	magmortar: {
 		inherit: true,
-		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+		abilities: {0: "Flame Body", 1: "Poison Heal", H: "Vital Spirit"},
 	},
-*/
 };
