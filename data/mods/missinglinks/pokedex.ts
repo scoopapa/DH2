@@ -227,4 +227,66 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Magician", H: "Magic Guard"},
 	},
+	skarmory: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 80, def: 140, spa: 40, spd: 70, spe: 70},
+		prevo: "Alicuto",
+		evoType: "levelExtra",
+		evoCondition: "with a Steel-type in party",
+	},
+	alicuto: {
+		num: 1005,
+		name: "Alicuto",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 35, atk: 65, def: 65, spa: 30, spd: 50, spe: 100},
+		abilities: {0: "Keen Eye", 1: "Sturdy", H: "Weak Armor"},
+		heightm: 1,
+		weightkg: 10.5,
+		color: "Grasy",
+		evos: ["Skarmory"],
+		eggGroups: ["Undiscovered"],
+		canHatch: true,
+	},
+	jynx: {
+		inherit: true,
+		evos: ["Frostonna"],
+	},
+	frostonna: {
+		num: 1004,
+		name: "Frostonna",
+		types: ["Ice", "Psychic"],
+		baseStats: {hp: 75, atk: 60, def: 67, spa: 138, spd: 115, spe: 85},
+		abilities: {0: "Oblivious", 1: "Dazzling", H: "Dry Skin"},
+		weightkg: 126.6,
+		prevo: "Jynx",
+		evoType: "trade",
+		evoItem: "Frosterizer",
+		eggGroups: ["Human-Like"],
+	},
+	elekid: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Vital Spirit"},
+	},
+	electabuzz: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Vital Spirit"},
+	},
+	electivire: {
+		inherit: true,
+		abilities: {0: "Motor Drive", 1: "Defiant", H: "Vital Spirit"},
+	},
+/*
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+	},
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "TBD", H: "Vital Spirit"},
+	},
+*/
 };
