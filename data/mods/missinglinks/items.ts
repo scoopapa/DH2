@@ -41,4 +41,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
 	},
+	frosterizer: {
+		name: "Frosterizer",
+		spritenum: 119,
+		fling: {
+			basePower: 80,
+		},
+		num: -1004,
+		gen: 4,
+		desc: "Evolves Jynx into Frostonna when used.",
+	},
 };

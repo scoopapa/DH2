@@ -343,4 +343,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	alicuto: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	frostonna: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
