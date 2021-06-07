@@ -1,6 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
     "cacophony": {
-        desc: "Boosts the power of sound-based moves.",
+        desc: "Boosts the power of sound-based moves by 1.3x.",
         shortDesc: "Boosts sound move power.",
         onBasePowerPriority: 8,
         onBasePower(basePower, attacker, defender, move) {
@@ -321,5 +321,236 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Elemental Teething",
 		id: "elementalteething",
+	},
+/*
+	optimalplay: {
+		shortDesc: "This Pokemon's super effective moves have perfect accuracy",
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Optimal Play",
+		rating: 3,
+	},
+*/
+	 chillingpresence: {
+       shortDesc: "On switch-in, this Pokemon uses Mist.",
+       onStart(source) {
+           this.useMove("Mist", source);
+       },
+       name: "Chilling Presence",
+       rating: 3,
+    },
+	pixiepower: {
+      shortDesc: "This Pokemon's Special Attack is boosted 1.3x in Misty Terrain.",
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.3);
+		},
+		name: "Pixie Power",
+		rating: 3,
+	},
+	/*
+	mentalhealth: {
+      shortDesc: "This Pokemon's Special Defense is boosted 1.5x in Psychic Terrain.",
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (this.field.isTerrain('psychicterrain')) return this.chainModify(1.5);
+		},
+		name: "Mental Health",
+		rating: 0.5,
+	},
+	*/
+	mentalhealth: {
+      shortDesc: "If Psychic Terrain is active, this Pokemon heals 1/16 of its max HP at the end of the turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('psychicterrain')) {
+					this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		name: "Mental Health",
+		rating: 0.5,
+	},
+	powerspot: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectData.target) {
+				this.debug('Power Spot boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.3);
+		},
+		name: "Power Spot",
+		rating: 1,
+		num: 249,
+	},
+	rivalry: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('Rivalry boost');
+					return this.chainModify(1.25);
+				}
+			}
+		},
+		name: "Rivalry",
+		rating: 0,
+		num: 79,
+	},
+	/*
+	breakthrough: {
+		onModifyMovePriority: -1,
+		onModifyMove(move, target) {
+			if (move && target.getMoveHitData(move).typeMod < 0) {
+				move.secondaries.push({
+					chance: 100,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+		name: "Breakthrough",
+		rating: 0.5,
+	},
+*/
+	 sealaway: {
+       shortDesc: "On switch-in, this Pokemon uses Imprison.",
+       onStart(source) {
+           this.useMove("Imprison", source);
+       },
+       name: "Seal Away",
+       rating: 3,
+    },
+	honeygather: {
+      shortDesc: "This Pokemon heals 1/8 of its max HP if it's holding Honey.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.hasItem('honey')) {
+					this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		name: "Honey Gather",
+		rating: 2,
+		num: 118,
+	},
+	leafguard: {
+      shortDesc: "If Sunny Day is active, this Pokemon heals its status at the end of the turn.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('leafguard');
+				this.add('-activate', pokemon, 'ability: Leaf Guard');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Leaf Guard",
+		rating: 1.5,
+		num: 102,
+	},
+	heavymetal: {
+      shortDesc: "This Pokemon's weight is doubled and its Rock-type moves deal 1.3x damage.",
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Heavy Metal",
+		rating: 0,
+		num: 134,
+	},
+	lightmetal: {
+      shortDesc: "This Pokemon's weight is doubled and it takes 50% damage from Rock-type moves.",
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Light Metal",
+		rating: 1,
+		num: 135,
+	},
+	normalize: {
+      shortDesc: "All of this Pokemon's moves are Normal-type and have doubled power.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id)) {
+				move.type = 'Normal';
+				move.normalizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.normalizeBoosted) return this.chainModify(2);
+		},
+		name: "Normalize",
+		rating: 2,
+		num: 96,
+	},
+	optimize: {
+      shortDesc: "This Pokemon's super effective moves deal 1.2x damage.",
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1400, 0x1000]);
+			}
+		},
+		name: "Optimize",
+		rating: 2.5,
+	},
+	illuminate: {
+      shortDesc: "This Pokemon's moves have their accuracy boosted 1.3x.",
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('illuminate - enhancing accuracy');
+			return accuracy * 1.3;
+		},
+		name: "Illuminate",
+		rating: 3,
+		num: 35,
+	},
+	longshot: {
+      shortDesc: "This Pokemon's long distance moves have their power boosted 1.3x.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['distance']) {
+				this.debug('Long Shot boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Long Shot",
+		rating: 3,
 	},
 	};

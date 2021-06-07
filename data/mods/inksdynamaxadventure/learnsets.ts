@@ -34,6 +34,19 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			quash: ["8L1"], 
 			toxic: ["8L1"], 
 			spikes: ["8L1"], 
+			
+			protect: ["8L1"],
+			substitute: ["8L1"],
+			rest: ["8L1"],
+			sleeptalk: ["8L1"],
+			facade: ["8L1"],
+			hyperbeam: ["8L1"],
+			confide: ["8L1"],
+			swagger: ["8L1"],
+			gigaimpact: ["8L1"],
+			round: ["8L1"],
+			endure: ["8L1"],
+			
 		},
 	}, 
 	

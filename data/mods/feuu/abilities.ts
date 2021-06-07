@@ -267,23 +267,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
 	},
-	kingofpowerpoints: {//Too long
-		id: "kingofpowerpoints",
-		name: "King of Power Points",
-		shortDesc: "Moves targeting it: -1 extra PP. Restores 1/3 max PP of its moves on switch-out.",
-		desc: "Moves targeting this Pokemon lose 1 additional PP. Restores 1/3 max PP of its moves on switch-out, rounded down.",
+	overseeingmonarch: {
+		name: "Overseeing Monarch",
+		desc: "On switch-in, identifies foes' items; on switch-out, restores 1/3 max HP.",
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'King of Power Points');
-		},
-		onDeductPP(target, source) {
-			if (target.side === source.side) return;
-			return 1;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Overseeing Monarch', '[of] ' + pokemon, '[identify]');
+				}
+			}
 		},
 		onSwitchOut(pokemon) {
-			for (const moveSlot of pokemon.moveSlots) {
-				moveSlot.pp += Math.floor(moveSlot.maxpp / 3); 
-				if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
-			}
+			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
 	},
 	porousfat: {
@@ -315,21 +311,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	inthicktrator: {
 		id: "inthicktrator",
 		name: "Inthicktrator",
-		shortDesc: "Ignores Screens/Substitutes. Fire/Ice moves: 1/2 power against this Pokemon.",
-		onSourceModifyAtkPriority: 6,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire') {
-				this.debug('Inthicktrator weaken');
-				return this.chainModify(0.5);
-			}
-		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire') {
-				this.debug('Inthicktrator weaken');
-				return this.chainModify(0.5);
-			}
-		},
+		shortDesc: "This Pokemon's moves ignore Screens/Substitutes/Abilities.",
 		onModifyMove(move, pokemon) {
 			///////////PLACEHOLDER FOR STURDY MOLD
 			let ignore = false;
@@ -343,6 +325,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			move.infiltrates = true;
+			move.ignoreAbility = true;
 		},
 	},
 	magicsurge: {
@@ -365,23 +348,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	concussion: {
+	concussion: {//test
 		id: "concussion",
 		name: "Concussion",
-		shortDesc: "Halves the effects of stat changes when taking or dealing damage.",
-		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
-			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = Math.ceil(boosts['def'] / 2);
-				boosts['spd'] = Math.ceil(boosts['spd'] / 2);
-				boosts['evasion'] = Math.ceil(boosts['evasion'] / 2);
+		shortDesc: "While this Pokemon is active, the opponents' held items have no effect.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Concussion');
+				}
+				activated = true;
+				if (!pokemon.volatiles['embargo']) {
+					pokemon.addVolatile('embargo');
+				}
 			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
-				boosts['atk'] = Math.ceil(boosts['atk'] / 2);
-				boosts['def'] = Math.ceil(boosts['def'] / 2);
-				boosts['spa'] = Math.ceil(boosts['spa'] / 2);
-				boosts['accuracy'] = Math.ceil(boosts['accuracy'] / 2);
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['embargo']) {
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('embargo');
 			}
 		},
 		rating: 4,
@@ -859,6 +854,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 46,
 	},
+	/* //No longer in use
 	overclock: {
 		name: "Overclock",
 		shortDesc: "If stats are lowered by foe or if hit by Electric move: Atk +2.",
@@ -887,6 +883,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	*/
 	magicmissile: {
 		/*
 		Need to test:
@@ -1240,7 +1237,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceHit(target, source, move) {
-			if (!move.hasSheerForce) {
+			if (!move.hasSheerForce && move.category !== 'Status') {
 				if (this.randomChance(3, 10)) {
 					target.addVolatile('disable', this.effectData.target);
 				}
@@ -1261,7 +1258,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target === source || move.category !== 'Status') {
+			if (move.category !== 'Status') {
 				return;
 			}
 			this.add('-ability', target, 'Dark Humour');
@@ -1684,7 +1681,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.basePower <= 60) {
 				const oldAbility = target.setAbility('teachingtech', source);
 				if (oldAbility) {
-					this.add('-activate', source, 'ability: Teaching Tech', this.dex.getAbility(oldAbility).name, '[of] ' + target);
+					this.add('-activate', source, 'ability: Teaching Tech');
+					this.add('-activate', target, 'ability: Teaching Tech');
 				}
 			}
 		},
