@@ -84457,6 +84457,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			surf: ["8L1"],
 			withdraw: ["8L1"],
 			scald: ["8L1"],
+			stealthrock: ["8M"],
 		},
 	},
 	daroach: {
@@ -84804,7 +84805,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			blizzard: ["8L1"],
 			bodyslam: ["8L1"],
 			bulldoze: ["8L1"],
-			calmmind: ["8L1"],
 			dazzlinggleam: ["8L1"],
 			doubleteam: ["8L1"],
 			drainingkiss: ["8L1"],
