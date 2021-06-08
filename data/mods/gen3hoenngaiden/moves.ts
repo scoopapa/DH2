@@ -475,7 +475,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gigadrain: {
 		inherit: true,
 		desc: "The user recovers 1/2 the HP lost by the target, rounded down.",
-		pp: 5,
+		pp: 10,
+		basePower: 75,
 	},
 	glare: {
 		inherit: true,
@@ -1347,5 +1348,140 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+	},
+	acrobatics: {
+		num: 512,
+		accuracy: 100,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Acrobatics",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	lunge: {
+		num: 679,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Lunge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
+	},
+	foulplay: {
+		num: 492,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Foul Play",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useTargetOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	suckerpunch: {
+		num: 389,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Sucker Punch",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	spikyshield: {
+		num: 596,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spiky Shield",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'spikyshield',
+		onTryHit(target, source, move) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
 	},
 };
