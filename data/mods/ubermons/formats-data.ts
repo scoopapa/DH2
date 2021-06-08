@@ -321,4 +321,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	spectrier: {
 		tier: "OU",
 	},
+	groudon: {
+		tier: "OU",
+	},
+	kyogre: {
+		tier: "OU",
+	},
+	rayquaza: {
+		tier: "OU",
+	},
 };

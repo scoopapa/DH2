@@ -9,6 +9,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'shaymin').learnset.knockoff = ['8L1'];
 		this.modData('Learnsets', 'shaymin').learnset.taunt = ['8L1'];
 		
+		delete this.modData('Learnsets', 'genesect').learnset.blizzard;
+		delete this.modData('Learnsets', 'genesect').learnset.thunder;
+		delete this.modData('Learnsets', 'genesect').learnset.thunderbolt;
+		
 		delete this.modData('Learnsets', 'dreepy').learnset.fireblast;
 		delete this.modData('Learnsets', 'dreepy').learnset.hydropump;
 		delete this.modData('Learnsets', 'dreepy').learnset.thunder;
@@ -27,9 +31,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 		
-		delete this.modData('Learnsets', 'genesect').learnset.blizzard;
-		delete this.modData('Learnsets', 'genesect').learnset.thunder;
-		delete this.modData('Learnsets', 'genesect').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'groudon').learnset.eruption;
+		
+		delete this.modData('Learnsets', 'kyogre').learnset.waterspout;
+		this.modData('Learnsets', 'kyogre').learnset.flipturn = ['8L1'];
+		
+		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
+		delete this.modData('Learnsets', 'rayquaza').learnset.extremespeed;
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {

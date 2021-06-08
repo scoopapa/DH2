@@ -184,7 +184,9 @@ export const Formats: {[k: string]: FormatData} = {
 				for (const id of set.moves) {
 					const move = this.dex.getMove(id);
 					if (
-						move.isNonstandard && move.isNonstandard === 'Past' && (move.name !== 'Hyper Fang' || set.species !== 'Scout') && (move.name !== 'Psycho Boost' || set.species !== 'Stamizer')
+						move.isNonstandard && move.isNonstandard === 'Past' 
+						&& (move.name !== 'Psycho Boost' || set.species !== 'Stamizer')
+						&& (move.name !== 'Tail Glow' || set.species !== 'Teslafly')
 					) problems.push(move.name + ' does not exist in Gen 8.');
 				}
 			}

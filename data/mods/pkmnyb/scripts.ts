@@ -2689,6 +2689,8 @@ this.modData('Learnsets', 'clefable').learnset.wingattack = ['7L1'];
 this.modData('Learnsets', 'combee').learnset.doubleedge = ['7L1'];
 this.modData('Learnsets', 'combee').learnset.return = ['7L1'];
 this.modData('Learnsets', 'combee').learnset.frustration = ['7L1'];
+this.modData('Learnsets', 'rampardos').learnset.jumpkick = ['7L1'];
+this.modData('Learnsets', 'cranidos').learnset.jumpkick = ['7L1'];
 },
 
 
