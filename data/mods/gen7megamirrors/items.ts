@@ -462,4 +462,144 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If held by a Sableye, this item allows it to Mega Evolve in battle.",
 	},
+	pidgeotitex: {
+		name: "Pidgeotite X",
+		spritenum: 622,
+		megaStone: "Pidgeot-Mega-X",
+		megaEvolves: "Pidgeot",
+		itemUser: ["Pidgeot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10032,
+		gen: 7,
+		desc: "If held by a Pidgeot, this item allows it to Mega Evolve in battle.",
+	},
+	pinsiritey: {
+		name: "Pinsirite Y",
+		spritenum: 602,
+		megaStone: "Pinsir-Mega-Y",
+		megaEvolves: "Pinsir",
+		itemUser: ["Pinsir"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10033,
+		gen: 7,
+		desc: "If held by a Pinsir, this item allows it to Mega Evolve in battle.",
+	},
+	salamencitey: {
+		name: "Salamencite Y",
+		spritenum: 627,
+		megaStone: "Salamence-Mega-Y",
+		megaEvolves: "Salamence",
+		itemUser: ["Salamence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10034,
+		gen: 7,
+		desc: "If held by a Salamence, this item allows it to Mega Evolve in battle.",
+	},
+	sceptilitex: {
+		name: "Sceptilite X",
+		spritenum: 613,
+		megaStone: "Sceptile-Mega-X",
+		megaEvolves: "Sceptile",
+		itemUser: ["Sceptile"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10035,
+		gen: 7,
+		desc: "If held by a Sceptile, this item allows it to Mega Evolve in battle.",
+	},
+	scizoritey: {
+		name: "Scizorite Y",
+		spritenum: 605,
+		megaStone: "Scizor-Mega-Y",
+		megaEvolves: "Scizor",
+		itemUser: ["Scizor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10036,
+		gen: 7,
+		desc: "If held by a Scizor, this item allows it to Mega Evolve in battle.",
+	},
+	sharpedonitey: {
+		name: "Sharpedonite Y",
+		spritenum: 619,
+		megaStone: "Sharpedo-Mega-Y",
+		megaEvolves: "Sharpedo",
+		itemUser: ["Sharpedo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10037,
+		gen: 7,
+		desc: "If held by a Sharpedo, this item allows it to Mega Evolve in battle.",
+	},
+	slowbronitex: {
+		name: "Slowbronite X",
+		spritenum: 620,
+		megaStone: "Slowbro-Mega-X",
+		megaEvolves: "Slowbro",
+		itemUser: ["Slowbro"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10038,
+		gen: 7,
+		desc: "If held by a Slowbro, this item allows it to Mega Evolve in battle.",
+	},
+	steelixitey: {
+		name: "Steelixite Y",
+		spritenum: 621,
+		megaStone: "Steelix-Mega-Y",
+		megaEvolves: "Steelix",
+		itemUser: ["Steelix"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10039,
+		gen: 7,
+		desc: "If held by a Steelix, this item allows it to Mega Evolve in battle.",
+	},
+	swampertitey: {
+		name: "Swampertite Y",
+		spritenum: 612,
+		megaStone: "Swampert-Mega-Y",
+		megaEvolves: "Swampert",
+		itemUser: ["Swampert"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10040,
+		gen: 7,
+		desc: "If held by a Swampert, this item allows it to Mega Evolve in battle.",
+	},
+	tyranitaritey: {
+		name: "Tyranitarite Y",
+		spritenum: 607,
+		megaStone: "Tyranitar-Mega-Y",
+		megaEvolves: "Tyranitar",
+		itemUser: ["Tyranitar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10041,
+		gen: 7,
+		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
+	},
 };
