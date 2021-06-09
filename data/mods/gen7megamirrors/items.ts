@@ -72,7 +72,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	alakazitex: {
 		name: "Alakazite X",
 		spritenum: 579,
-		megaStone: "Alakazam-Mega",
+		megaStone: "Alakazam-Mega-X",
 		megaEvolves: "Alakazam",
 		itemUser: ["Alakazam"],
 		onTakeItem(item, source) {
