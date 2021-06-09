@@ -1957,6 +1957,45 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	/*{
+		name: "[Gen 8] Stereotypes LC",
+		mod: "stereotypes",
+		searchShow: false,
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a unique new Pokemon for all 171 possible types, with the hope that each mon will use its typing and the options that typing affords well, while still being balanced and interesting.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Stereotypes on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Litte Cup'],
+		banlist: [
+			'All Pokemon'
+		],
+		unbanlist: [
+			
+		],
+	},
+	
+	{
+		name: "[Gen 8] Stereotypes NFE",
+		mod: "stereotypes",
+		searchShow: false,
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a unique new Pokemon for all 171 possible types, with the hope that each mon will use its typing and the options that typing affords well, while still being balanced and interesting.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Stereotypes on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Not Fully Evolved'],
+		banlist: [
+			'All Pokemon'
+		],
+		unbanlist: [
+			
+		],
+	},*/
 	{
 		name: "[Gen 8] SylveMons Random Battle",
 		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/.3612509/">SylveMons on Smogon Forums</a>`,
