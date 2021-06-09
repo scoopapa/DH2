@@ -20,7 +20,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Pointed Plummage",
 		rating: 2.5,
 	},
-	rhoinflunence: {
+	rhoinfluence: {
 		shortDesc: "Placeholder.",
 		name: "Rho Influence",
 		rating: 5,
