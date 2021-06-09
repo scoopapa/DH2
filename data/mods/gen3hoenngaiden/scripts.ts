@@ -25,6 +25,28 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 	},
 	init: function () {
+		//Slate 2 Buffs
+		this.modData('Learnsets', 'jumpluff').learnset.rapidspin = ['3L1'];
+		this.modData('Learnsets', 'jumpluff').learnset.batonpass = ['3L1'];
+		
+		this.modData('Learnsets', 'tropius').learnset.dragondance = ['3L1'];
+		this.modData('Learnsets', 'tropius').learnset.outrage = ['3L1'];
+		this.modData('Learnsets', 'tropius').learnset.rockslide = ['3L1'];
+		this.modData('Learnsets', 'tropius').learnset.dragonclaw = ['3L1'];
+		this.modData('Learnsets', 'tropius').learnset.flamethrower = ['3L1'];
+		this.modData('Learnsets', 'tropius').learnset.calmmind = ['3L1'];
+		
+		this.modData('Learnsets', 'armaldo').learnset.raindance = ['3L1'];
+		this.modData('Learnsets', 'armaldo').learnset.signalbeam = ['3L1'];
+		
+		this.modData('Learnsets', 'crawdaunt').learnset.hydropump = ['3L1'];
+		this.modData('Learnsets', 'crawdaunt').learnset.agility = ['3L1'];
+		
+		this.modData('Learnsets', 'slowbro').learnset.slackoff = ['3L1'];
+		this.modData('Learnsets', 'slowking').learnset.slackoff = ['3L1'];
+		
+		
+		
 		//Acrobatics
 		this.modData('Learnsets', 'farfetchd').learnset.acrobatics = ['3L1'];
 		this.modData('Learnsets', 'crobat').learnset.acrobatics = ['3L1'];
