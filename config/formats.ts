@@ -908,7 +908,7 @@ export const Formats: FormatList = [
 			//Moves
 			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch',
 		],
-
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] Megas for All",
@@ -1960,6 +1960,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			
 		],
+		teambuilderFormat: 'LC',
 	},
 	
 	{
@@ -1980,6 +1981,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			
 		],
+		teambuilderFormat: 'NFE',
 	},*/
 	{
 		name: "[Gen 8] SylveMons Random Battle",
