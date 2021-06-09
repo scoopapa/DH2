@@ -1899,6 +1899,16 @@ export const Formats: FormatList = [
         },
   	},
 	{
+  		name: "[Gen 7] Mega Mirrors",
+  		desc: [
+			"Every Mega Evolution recieves an X or Y countepart",
+			"&bullet; <a href=https://www.smogon.com/forums/threads/mega-mirrors-slate-16-5-discussion.3644178/>Mega Mirrors</a>",
+		      ],
+  		ruleset: ['Standard', 'Dynamax Clause', 'Mega Data Mod'],
+		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+		mod: 'gen7megamirrors',
+  	},
+	{
 		name: "[Gen 1 The Pokedex Redone] OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3572352/">RBY OU Viability Ranking</a>`,
