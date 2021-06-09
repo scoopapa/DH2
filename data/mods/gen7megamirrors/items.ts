@@ -100,7 +100,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	ampharositex: {
 		name: "Ampharosite X",
 		spritenum: 580,
-		megaStone: "Ampharos-Mega",
+		megaStone: "Ampharos-Mega-X",
 		megaEvolves: "Ampharos",
 		itemUser: ["Ampharos"],
 		onTakeItem(item, source) {
