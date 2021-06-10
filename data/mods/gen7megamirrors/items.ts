@@ -602,4 +602,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
 	},
+	purenecroziumz: {
+		name: "Purenecrozium Z",
+		spritenum: 687,
+		onTakeItem: false,
+		zMove: "Dawn of a New Day",
+		zMoveFrom: "Life's Light",
+		itemUser: ["Necrozma-Pure"],
+		num: 10042,
+		gen: 7,
+		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Life's Light.",
+	},
 };
