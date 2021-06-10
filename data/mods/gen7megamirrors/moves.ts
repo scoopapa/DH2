@@ -73,4 +73,58 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Tough",
 	},
+	lifeslight: {
+		accuracy: 100,
+		basePower: 90,
+    shortDesc: "Heals the user's side by 50% of the user's max HP at the end of next turn",
+		isViable: true,
+		category: "Special",
+		name: "Life's Light",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		slotCondition: 'Wish',
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				this.effectData.hp = source.maxhp / 2;
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Lifes Light', '[wisher] ' + this.effectData.source.name);
+				}
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	dawnofanewday: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dawn of a New Day",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "purenecroziumz",
+		heal: [1, 1],
+		onHit(pokemon, source) {
+			this.add('-activate', source, 'move: Dawn of a New Day');
+			const side = pokemon.side;
+			let success = false;
+			for (const ally of side.pokemon) {
+				if (ally !== source) continue;
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 };
