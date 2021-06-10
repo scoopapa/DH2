@@ -94,6 +94,6 @@ this.modData('Learnsets', 'kyogre').learnset.energyball = ['7L1'];
 this.modData('Learnsets', 'kyogre').learnset.gigadrain = ['7L1'];
 this.modData('Learnsets', 'necrozma').learnset.moonblast = ['7L1'];
 this.modData('Learnsets', 'necrozma').learnset.dazzlinggleam = ['7L1'];
-
+this.modData('Learnsets', 'necrozma').learnset.lifeslight = ['7L1'];
 	},
 };
