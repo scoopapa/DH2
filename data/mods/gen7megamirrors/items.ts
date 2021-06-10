@@ -613,4 +613,44 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Life's Light.",
 	},
+	greenorb: {
+		name: "Green Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Kyogre-Edge', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
+			return true;
+		},
+		itemUser: ["Kyogre"],
+		num: 10043,
+		gen: 7,
+		desc: "Allows Kyogre to Primal Revert into Edge Kyogre",
+	},
+	goldenorb: {
+		name: "Golden Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Groudon-Fallen', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
+			return true;
+		},
+		itemUser: ["Groudon"],
+		num: 10044,
+		gen: 7,
+		desc: "Allows Groudon to Primal Revert into Fallen Groudon",
+	},
 };
