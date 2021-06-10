@@ -31,7 +31,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1},
 		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Sparkly Swirl", target);
+		  this.add('-anim', source, "Dazzling Gleam", target);
 		},
 		self: {
 			onHit(pokemon, source, move) {
