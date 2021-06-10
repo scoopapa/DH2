@@ -637,7 +637,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Golden Orb",
 		spritenum: 41,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
