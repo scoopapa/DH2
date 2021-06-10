@@ -83,6 +83,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Solar Beam", target);
+		  this.add('-anim', source, "Wish", target);
+		},
 		slotCondition: 'Wish',
 		condition: {
 			duration: 2,
