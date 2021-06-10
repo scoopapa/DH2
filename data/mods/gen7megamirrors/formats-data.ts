@@ -215,4 +215,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
+	necrozmapure: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	kyorgeedge: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	groudonfallen: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
 };
