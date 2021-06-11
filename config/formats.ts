@@ -927,9 +927,9 @@ export const Formats: FormatList = [
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
 			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor',
 			//Moves
-			'Multi-Attack', 'Ice Hammer',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch',
 		],
-
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] Megas for All",
@@ -1760,21 +1760,6 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4av6',
 	},
-	/*{
-		name: "[Gen 8] Mega Revolution Uber",
-		desc: [
-			"<b>Mega Revolution</b>: This Pet Mod converts mega Evolutions into fully evolved independent Pokémon.",
-			],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3674638/">Mega Revolution on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1whBOIqnepKVIjEVOa2HF-3-pxzH8oVcVxVDww0XZgxI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-
-		mod: 'megarevolution',
-		teambuilderFormat: 'Uber'
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
-	},*/
 	{  
 		name: "[Gen 8] SylveMons AG",
 		threads: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",
@@ -2016,6 +2001,47 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	/*{
+		name: "[Gen 8] Stereotypes LC",
+		mod: "stereotypes",
+		searchShow: false,
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a unique new Pokemon for all 171 possible types, with the hope that each mon will use its typing and the options that typing affords well, while still being balanced and interesting.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Stereotypes on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Litte Cup'],
+		banlist: [
+			'All Pokemon'
+		],
+		unbanlist: [
+			
+		],
+		teambuilderFormat: 'LC',
+	},
+	
+	{
+		name: "[Gen 8] Stereotypes NFE",
+		mod: "stereotypes",
+		searchShow: false,
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a unique new Pokemon for all 171 possible types, with the hope that each mon will use its typing and the options that typing affords well, while still being balanced and interesting.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/stereotypes-slate-1-fire-grass-water.3681312/">Stereotypes on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Not Fully Evolved'],
+		banlist: [
+			'All Pokemon'
+		],
+		unbanlist: [
+			
+		],
+		teambuilderFormat: 'NFE',
+	},*/
 	{
 		name: "[Gen 8] SylveMons Random Battle",
 		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/.3612509/">SylveMons on Smogon Forums</a>`,

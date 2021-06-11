@@ -188,4 +188,58 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Limber", H: "Cursed Body"},
 		weightkg: 24,
 	},
+	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
+	/*
+	name: {
+		num: 22,
+		name: "name",
+		types: ["Dark", "Flying"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 23,
+		name: "name",
+		types: ["Grass", "Normal"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 24,
+		name: "name",
+		types: ["Rock", "Fairy"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	*/
+	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	/*
+	name: {
+		num: 25,
+		name: "name",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 26,
+		name: "name",
+		types: ["Ice", "Fire"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 27,
+		name: "name",
+		types: ["Ground", "Psychic"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	*/
 };
