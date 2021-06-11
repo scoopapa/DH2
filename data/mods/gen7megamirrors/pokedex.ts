@@ -829,7 +829,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Sceptile-Mega-X",
 		baseSpecies: "Sceptile",
 		forme: "Mega",
-		types: ["Grass", "Dragon"],
+		types: ["Grass", "Fighting"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 70, atk: 145, def: 95, spa: 105, spd: 95, spe: 120},
 		abilities: {0: "Super Luck"},
