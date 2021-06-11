@@ -1899,6 +1899,19 @@ export const Formats: FormatList = [
         },
   	},
 	{
+  		name: "[Gen 7] Mega Mirrors",
+		desc: [
+			"<b>Mega Mirrors</b>: A Pet Mod where every existing Mega Evolution is given an X or Y counterpart.",
+		],
+		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/mega-mirrors-slate-16-5-discussion.3644178/">Mega Mirrors on Smogon Forums</a>`,
+				 `&bullet; <a href="https://docs.google.com/spreadsheets/d/1ufsBygUXiq1LIpm2ivisQpbKCCsa3WraEeVCCPbmUgQ/edit?usp=sharing">Spreadsheet</a>`,
+		      ],
+  		ruleset: ['Standard', 'Dynamax Clause', 'Mega Data Mod'],
+		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+		mod: 'gen7megamirrors',
+		teambuilderFormat: "OU",
+  	},
+	{
 		name: "[Gen 1 The Pokedex Redone] OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3572352/">RBY OU Viability Ranking</a>`,
