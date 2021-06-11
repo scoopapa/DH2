@@ -49,6 +49,39 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -690,	
 	},
+	serperiorite: {
+		name: "Serperiorite",
+		megaStone: "Serperior-Mega",
+		megaEvolves: "Serperior",
+		itemUser: ["Serperior"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -690,	
+	},
+	meganiumite: {
+		name: "Meganiumite",
+		megaStone: "Meganium-Mega",
+		megaEvolves: "Meganium",
+		itemUser: ["Meganium"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -690,	
+	},
+	exploudite: {
+		name: "Exploudite",
+		megaStone: "Exploud-Mega",
+		megaEvolves: "Exploud",
+		itemUser: ["Exploud"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -690,		
+	},
 	garbodite: {
 		name: "Garbodite",
 		megaStone: "Garbodor-Mega",
