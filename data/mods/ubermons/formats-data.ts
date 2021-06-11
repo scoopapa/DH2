@@ -330,4 +330,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	rayquaza: {
 		tier: "OU",
 	},
+	deoxys: {
+		tier: "OU",
+	},
+	deoxysattack: {
+		tier: "OU",
+	},
+	deoxysspeed: {
+		tier: "OU",
+	},
 };
