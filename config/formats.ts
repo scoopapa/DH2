@@ -2138,6 +2138,9 @@ export const Formats: FormatList = [
 	{    
         name: "[Gen 8] Abismons OU",
         desc: 'The result of "What if we let abismal make his own metagame?"',
+			threads: [
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pQvZOZZ7ZQ7dufJzQ0oQDC19yq5EdTJU_fNl_ZFSdQA/edit#gid=0">Spreadsheet</a>`,
+			],
         mod: "abismons",
         teambuilderFormat: 'OU',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
@@ -2147,6 +2150,9 @@ export const Formats: FormatList = [
     {    
         name: "[Gen 8] Abismons Ubers",
         desc: 'Abismons 2 Electric Boogaloo.',
+		 threads: [
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pQvZOZZ7ZQ7dufJzQ0oQDC19yq5EdTJU_fNl_ZFSdQA/edit#gid=0">Spreadsheet</a>`,
+			],
         mod: "abismons",
         teambuilderFormat: 'Ubers',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod'],
@@ -2155,6 +2161,9 @@ export const Formats: FormatList = [
     {    
         name: "[Gen 8] Abismons AG",
         desc: 'ABISMONS: CLASH OF THE TITANS, IN THEATERS NOW NEAR YOU',
+		 threads: [
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pQvZOZZ7ZQ7dufJzQ0oQDC19yq5EdTJU_fNl_ZFSdQA/edit#gid=0">Spreadsheet</a>`,
+			],
         mod: "abismons",
         teambuilderFormat: 'Ubers',
         ruleset: ['Standard NatDex'],

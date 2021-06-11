@@ -2511,7 +2511,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			snore: ["8L1"],
 			attract: ["8L1"],
 			toxic: ["8L1"],
-			douvleteam: ["8L1"],
+			doubleteam: ["8L1"],
 			hiddenpower: ["8L1"],
 			return: ["8L1"],
 			sunnyday: ["8L1"],
@@ -2881,6 +2881,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["8L1"],
 			whirlwind: ["8L1"],
 			wingattack: ["8L1"],
+			moonlight: ["8L1"],
+			roost: ["8L1"],
 		},
 	},
 };
