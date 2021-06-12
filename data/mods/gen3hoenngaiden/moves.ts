@@ -780,7 +780,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 20,
 			boosts: {
-				def: -1,
+				spd: -1,
 			}
 		},
 	},
@@ -1481,7 +1481,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Grass",
-		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 	},
 };
