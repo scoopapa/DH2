@@ -51,4 +51,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Evolves Jynx into Frostonna when used.",
 	},
+	slowkinite: {
+		name: "Slowkinite",
+		spritenum: 578,
+		megaStone: "Slowking-Mega",
+		megaEvolves: "Slowking",
+		itemUser: ["Slowking"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1005,
+		gen: 8,
+		desc: "If held by a Slowking, this item allows it to Mega Evolve in battle.",
+	},
 };
