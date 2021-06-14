@@ -192,4 +192,4 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 115,
 	},
-},
+};

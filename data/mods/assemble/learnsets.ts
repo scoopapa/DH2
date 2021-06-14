@@ -1717,4 +1717,4 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 7, level: 10},
 		],
 	},
-},
+};
