@@ -75,4 +75,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	ropern: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ropernzen: {
+	},
 },
