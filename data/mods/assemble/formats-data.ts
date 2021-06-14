@@ -80,5 +80,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	ropernzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 },
