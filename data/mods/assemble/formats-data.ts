@@ -83,4 +83,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-},
+};
