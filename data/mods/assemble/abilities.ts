@@ -57,7 +57,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			onStart(pokemon) {
 				if (pokemon.species.id !== 'ropernzen') pokemon.formeChange('Ropern-Zen');
-				}
 			},
 			onEnd(pokemon) {
 				if (['Zen'].includes(pokemon.species.forme)) {
