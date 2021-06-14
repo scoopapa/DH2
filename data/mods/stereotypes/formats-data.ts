@@ -90,4 +90,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
+	spincaba: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	jungape: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	nympheral: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
 };
