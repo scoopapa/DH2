@@ -189,32 +189,30 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 24,
 	},
 	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
-	/*
-	name: {
+	spincaba: {
 		num: 22,
-		name: "name",
+		name: "Spincaba",
 		types: ["Dark", "Flying"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 65, atk: 90, def: 95, spa: 80, spd: 135, spe: 80},
+		abilities: {0: "Insomnia", 1: "Tangled Feet", H: "Contrary"},
+		weightkg: 2.5,
 	},
-	name: {
+	jungape: {
 		num: 23,
-		name: "name",
+		name: "Jungape",
 		types: ["Grass", "Normal"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 82, atk: 90, def: 116, spa: 67, spd: 76, spe: 79},
+		abilities: {0: "Own Tempo", H: "Gorilla Tactics"},
+		weightkg: 189,
 	},
-	name: {
+	nympheral: {
 		num: 24,
-		name: "name",
+		name: "Nympheral",
 		types: ["Rock", "Fairy"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 71, atk: 89, def: 83, spa: 109, spd: 67, spe: 151},
+		abilities: {0: "Beast Boost"},
+		weightkg: 21.6,
 	},
-	*/
 	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
 	/*
 	name: {
