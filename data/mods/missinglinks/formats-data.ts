@@ -351,4 +351,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	slowkingmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	primeapealola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mankeyalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
 };

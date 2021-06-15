@@ -112,7 +112,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "If held by an Ampharos, this item allows it to Mega Evolve in battle.",
 	},
 	glalititex: {
-		name: "Glalitite",
+		name: "Glalitite X",
 		spritenum: 623,
 		megaStone: "Glalie-Mega-X",
 		megaEvolves: "Glalie",

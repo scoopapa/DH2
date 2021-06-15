@@ -342,7 +342,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Steel"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 79, atk: 138, def: 110, spa: 100, spd: 145, spe: 58},
-		abilities: {0: "Mega Launcher"},
+		abilities: {0: "Heavy Metal"},
 		heightm: 1.6,
 		weightkg: 101.1,
 		color: "Blue",
