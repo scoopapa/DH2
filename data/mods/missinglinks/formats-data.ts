@@ -323,4 +323,44 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	glaliemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	froslassmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	poochyenagalar: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	mightyenagalar: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
+	paleolyena: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	alicuto: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	frostonna: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slowkingmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	primeapealola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mankeyalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
 };

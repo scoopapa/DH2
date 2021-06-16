@@ -203,5 +203,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-
+	krachiten: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	cellsius: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	borelem: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	electangle: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	orchile: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	shinodori: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

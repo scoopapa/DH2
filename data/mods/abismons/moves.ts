@@ -3033,7 +3033,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Cyber Attack",
-		pp: 30,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
@@ -3451,8 +3451,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'disable',
 		},
 		target: "normal",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		type: "Electric",
 		contestType: "Clever",	
 	},
 	disarmingvoice: {
@@ -6320,7 +6319,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
 				move: 'ghostlywail',
 				source: source,
 				moveData: {
@@ -6331,10 +6329,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					category: "Special",
 					priority: 0,
 					flags: {},
-					ignoreImmunity: false,
 					effectType: 'Move',
 					isFutureMove: true,
-					type: 'ghost',
+					type: 'Ghost',
 				},
 			});
 			this.add('-start', source, 'move: Ghostly Wail');
@@ -17116,6 +17113,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('lavacarpet')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},	
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Fire')) {
+					this.add('-sideend', pokemon.side, 'move: Lava Carpet', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');	
+				}	
+			},	
 			duration: 4,
 			durationCallback(target, source, effect) {
 				if (source?.hasAbility('persistent')) {
@@ -20215,4 +20219,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	lightup: {
+		num: 4688,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Light-Up",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			accuracy: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {boost: {atk: 1}},
+		contestType: "Clever",
+	},	
 };

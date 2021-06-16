@@ -1133,4 +1133,12 @@ export const Items: {[k: string]: ModdedItemData} = {
         },
         desc: "If holder is a Primadillo, this item allows it to Mega Evolve in battle.",
     },
+	honey: {
+		name: "Honey",
+		fling: {
+			basePower: 20,
+		},
+		gen: 4,
+      shortDesc: "Pokemon with the ability Honey Gather heal 12.5% when holding this item.",
+	},
 };

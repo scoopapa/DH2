@@ -140,14 +140,17 @@ this.modData('Learnsets', 'meowsticf').learnset.pressurecook = ['7L1'];
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return null;
 			if ('magnetrise' in this.volatiles) return false;
-			for (const side of this.battle.sides) {
-				for (const pokemon of side.active) {
-					if (pokemon && !pokemon.ignoringAbility() && pokemon.hasAbility('treetopper')) {
-						return true;
+			if (!(['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) || this.baseSpecies.name === 'Gengar-Mega')) {
+				for (const side of this.battle.sides) {
+					for (const pokemon of side.active) {
+						if (pokemon && !pokemon.ignoringAbility() && pokemon.hasAbility('treetopper')) {
+							return true;
+						}
 					}
 				}
+				//Those mons are immune to telekinesis anyway.
+				if ('telekinesis' in this.volatiles) return false;
 			}
-			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		}
 	},

@@ -340,7 +340,7 @@ export class TeamValidator {
 			if (set.name && set.name.endsWith('-Gmax')) set.name = species.baseSpecies;
 			set.gigantamax = true;
 		}
-		if (set.name && set.name.length > 18) {
+		if (set.name && set.name.length > 30) {
 			if (set.name === set.species) {
 				set.name = species.baseSpecies;
 			} else {

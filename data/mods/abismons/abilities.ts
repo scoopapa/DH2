@@ -4665,7 +4665,47 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Lambent Light",
 		rating: 4.5,
 		num: 7001,
+	},
+	serpentine: {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status'  && move.type === 'Dragon') {
+				this.useMove("Teleport", source);
+			}
+		},
+		name: "Serpentine",
+		rating: 5,
+		num: 1449,	
+		shortdesc: "b",
+		desc: "b",
 	},	
+	lifejolt: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status'&& target.status) {
+				this.heal(pokemon.lastDamage / 2, pokemon);
+				target.cureStatus();
+			}
+		},
+		name: "Life Jolt",
+		rating: 4,
+		num: 1000,
+		shortdesc: "q",
+		desc: "q",
+	},	
+	omnivoice: {
+		shortDesc: "The user",
+		onStart(pokemon) {
+			const move = this.dex.getMove(pokemon.moveSlots[0].id);
+			if (move.flags['sound']) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Normal" ? move.type : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Ability: Omnivoice');
+			}
+		},
+		name: "Omnivoice",	
+		rating: 3,
+		num: -5000,
+	},		
 	// CAP
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
