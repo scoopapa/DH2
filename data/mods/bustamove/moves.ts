@@ -173,6 +173,47 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
+	forestscurse: {
+		num: 571,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Forest's Curse",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxvinelash');
+			},
+		},
+		condition: {
+			duration: 4,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Vine Lash');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+					if (pokemon.item === 'bindingband') this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+					if (pokemon.item === 'bindingband') this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Vine Lash');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
 	jawlock: {
 		num: 746,
 		accuracy: 90,
@@ -305,6 +346,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
+	soak: {
+		num: 487,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Soak",
+		pp: 20,
+		priority: 1,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target) {
+			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Water');
+		},
+		pseudoWeather: 'soak',
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-fieldactivate', 'move: Soak');
+			},
+			onModifyTypePriority: -2,
+			onModifyType(move) {
+				if (move.category === 'Status') {
+					move.type = 'Water';
+					this.debug(move.name + "'s type changed to Water");
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
+	},
 	sparklingaria: {
 		num: 664,
 		accuracy: 100,
@@ -371,5 +450,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
+	},
+	trickortreat: {
+		num: 567,
+		accuracy: 95,
+		basePower: 0,
+		category: "Status",
+		name: "Trick-or-Treat",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target) {
+			if (target.hasType('Ghost')) return false;
+			if (!target.addType('Ghost')) return false;
+			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+
+			// Curse Glitch
+			const action = this.queue.willMove(target);
+			if (action && action.move.id === 'curse') {
+				action.targetLoc = -1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Cute",
 	},
 };
