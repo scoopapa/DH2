@@ -63,7 +63,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	deoxysattack: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 130, def: 105, spa: 130, spd: 105, spe: 90},
+		baseStats: {hp: 50, atk: 130, def: 105, spa: 130, spd: 105, spe: 80},
 	},
 	deoxysdefense: {
 		inherit: true,
