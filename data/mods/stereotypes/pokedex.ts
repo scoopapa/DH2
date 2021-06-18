@@ -188,11 +188,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Limber", H: "Cursed Body"},
 		weightkg: 24,
 	},
-	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
+	//Slate 8: Flying/Dark, Normal/Grass, Rock/Fairy
 	spincaba: {
 		num: 22,
 		name: "Spincaba",
-		types: ["Dark", "Flying"],
+		types: ["Flying", "Dark"],
 		baseStats: {hp: 65, atk: 90, def: 95, spa: 80, spd: 135, spe: 80},
 		abilities: {0: "Insomnia", 1: "Tangled Feet", H: "Contrary"},
 		weightkg: 2.5,
@@ -200,7 +200,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	jungape: {
 		num: 23,
 		name: "Jungape",
-		types: ["Grass", "Normal"],
+		types: ["Normal", "Grass"],
 		baseStats: {hp: 82, atk: 90, def: 116, spa: 67, spd: 76, spe: 79},
 		abilities: {0: "Own Tempo", H: "Gorilla Tactics"},
 		weightkg: 189,
