@@ -381,7 +381,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-fail', target);
 				return null;
 			}
-			this.heal(pokemon.maxhp / 4, source) && target.trySetStatus('slp');
+			this.heal(pokemon.maxhp / 2, source) && target.trySetStatus('slp');
 			}
 		},
 		/*self: {
