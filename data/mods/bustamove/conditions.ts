@@ -40,7 +40,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.volatile('dive')) return; // onLockMove traps the user
 			return this.effectData.move;
 		},
-		onDisableMove(pokemon) {
+		/*onDisableMove(pokemon) {
 			if (pokemon.volatile('dive')) return; // equivalent to onLockMove if the user should not be trapped
 			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 				return;
@@ -50,7 +50,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
-		},
+		},*/
 		onMoveAborted(pokemon) {
 			pokemon.removeVolatile('twoturnmove');
 		},
