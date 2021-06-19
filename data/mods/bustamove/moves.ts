@@ -263,7 +263,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		secondary: [
+		secondaries: [
 		{
 			chance: 50,
 			boosts: {
@@ -376,11 +376,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
 		onHit(pokemon, target) {
+			for (const target of source.side.foe.active) && (const pokemon of source.side.active) {
 			if (target.status === 'slp') {
 				this.add('-fail', target);
 				return null;
 			}
 			this.heal(pokemon.maxhp / 4, pokemon) && target.trySetStatus('slp');
+			}
 		},
 		/*self: {
 			onHit(attacker, source) {
