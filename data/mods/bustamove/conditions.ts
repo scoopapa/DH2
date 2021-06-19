@@ -24,6 +24,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 		},
 	},
+	diving: {
+		name: 'diving',
+		duration: 2,
+		onStart(pokemon) {
+			this.add('-diving', pokemon);
+		},
+	},
 	twoturnmove: { // modified for Dive
 		// Skull Bash, SolarBeam, Sky Drop...
 		name: 'twoturnmove',
@@ -36,12 +43,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd(target) {
 			target.removeVolatile(this.effectData.move);
 		},
-		/*onLockMove(pokemon) {
-			if (pokemon.volatile('dive')) return; // onLockMove traps the user
+		onLockMove(pokemon) {
+			if (pokemon.volatile('diving')) return; // onLockMove traps the user
 			return this.effectData.move;
-		},*/
+		},
 		onDisableMove(pokemon) {
-			if (pokemon.volatile('dive')) return; // equivalent to onLockMove if the user should not be trapped
+			if (pokemon.volatile('diving')) return; // equivalent to onLockMove if the user should not be trapped
 			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
