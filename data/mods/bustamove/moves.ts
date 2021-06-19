@@ -547,7 +547,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Adds Ghost to the target's type(s) permenantly.",
+		shortDesc: "Adds Ghost to the target's type(s) permanently.",
 		name: "Trick-or-Treat",
 		pp: 5,
 		priority: 0,
