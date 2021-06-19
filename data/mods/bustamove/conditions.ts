@@ -59,9 +59,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			},
 		},
-	},
+	},*/
 	corrosed: {
 		name: 'corrosed',
+		effectType: 'Status',
 		onStart(pokemon, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', pokemon, 'corrosed', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
@@ -69,16 +70,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', pokemon, 'corrosed');
 			}
 		},
-		onModifyMovePriority: -5,
-		onModifyMove(move, source, target) {
-			if (move.type === 'Poison' && target.hasType('Steel')) {
-				for (const target of this.getAllActive()) {
-				if (!move.ignoreImmunity) move.ignoreImmunity = {};
-				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Poison'] = true;
-				}
-				}
-			}
-		},
-	},*/
+		onModifyTypePriority: -5,
+		onModifyType(type) {
+			if (type === 'Steel')
+			onNegateImmunity: false,
+		}
+	},
 };
