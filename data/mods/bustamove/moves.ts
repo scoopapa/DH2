@@ -157,7 +157,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "Power doubles of user is burn/poison/paralyzed.",
 		isNonstandard: null,
 		name: "Fairy Wind",
 		pp: 15,
@@ -178,6 +178,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "For four turns, Foes -1/16th max HP. -1/8th with Binding Band. Bypasses Substitute.",
 		name: "Forest's Curse",
 		pp: 20,
 		priority: 0,
@@ -219,6 +220,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
 		isNonstandard: null,
 		name: "Ice Ball",
 		pp: 20,
@@ -256,17 +258,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 85,
 		basePower: 70,
 		category: "Special",
+		shortDesc: "50% chance to lower the target's accuracy by 1 and badly poison the target.",
 		name: "Octazooka",
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		secondary: {
+		secondary: [
+		{
 			chance: 50,
 			boosts: {
 				accuracy: -1,
 			},
+		},
+		{
+			chance: 50,
 			status: 'tox',
 		},
+		],
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
@@ -276,7 +284,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 50,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "Raises all stats by 1 (not acc/eva) if this KOes the target. Otherwise, user looses 1/8 of its max HP.",
 		name: "Ominous Wind",
 		pp: 5,
 		priority: 0,
@@ -296,7 +304,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "Clears the opponents hazards.",
 		isNonstandard: null,
 		name: "Razor Wind",
 		pp: 10,
@@ -362,12 +370,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 60,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "",
+		shortDesc: "User heals 1/4 of its max HP when it puts the target to sleep. Fails if already asleep.",
 		name: "Sing",
 		pp: 10,
 		priority: 0,
+		status: 'slp',
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
-		self: {
+		onHit(pokemon, target) {
+			if (target.status === 'slp') {
+				this.add('-fail', target);
+				return null;
+			}
+			this.heal(pokemon.maxhp / 4, pokemon);
+		},
+		/*self: {
 			onHit(attacker, source) {
 				for (const pokemon of source.side.foe.active) {
 					const result = this.random(1);
@@ -380,7 +396,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 				}
 			},
-		},
+		},*/
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -411,10 +427,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Changes the target's type and its following attack to Water.",
 		name: "Soak",
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		pseudoWeather: 'soakcondition',
 		onHit(target) {
 			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
 				// Soak should animate even when it fails.
@@ -424,7 +442,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-start', target, 'typechange', 'Water');
 		},
-		pseudoWeather: 'soak',
+		pseudoWeather: 'soakcondition',
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
+	},
+	soakcondition: {
+		num: 569,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Soak Condition",
+		pp: 25,
+		priority: 1,
+		flags: {},
+		pseudoWeather: 'soakcondition',
 		condition: {
 			duration: 1,
 			onStart(target) {
@@ -437,19 +472,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.debug(move.name + "'s type changed to Water");
 				}
 			},
-		},
+		},		
 		secondary: null,
-		target: "normal",
-		type: "Water",
+		target: "all",
+		type: "Electric",
 		zMove: {boost: {spa: 1}},
-		contestType: "Cute",
+		contestType: "Beautiful",
 	},
 	sparklingaria: {
 		num: 664,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "Cures the user's party of burn.",
 		name: "Sparkling Aria",
 		pp: 10,
 		priority: 0,
@@ -459,13 +494,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (ally.status === 'brn' && ally.status !== 'psn', 'tox', 'par', 'slp', 'frz') ally.cureStatus();
 			}
 		},
-		secondary: null,/*{
-			dustproof: true,
-			chance: 100,
-			onHit(allyTeam) {
-				if (allyTeam.status === 'brn') allyTeam.cureStatus();
-			},
-		},*/
 		secondary: null,
 		target: "allAdjacent",
 		type: "Water",
@@ -476,8 +504,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		isNonstandard: null,
 		shortDesc: "Super effective on Rock.",
+		isNonstandard: null,
 		name: "Strength",
 		pp: 20,
 		priority: 0,
@@ -516,6 +544,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Adds Ghost to the target's type(s) permenantly.",
 		name: "Trick-or-Treat",
 		pp: 5,
 		priority: 0,
