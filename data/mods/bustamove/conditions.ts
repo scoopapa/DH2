@@ -41,7 +41,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return this.effectData.move;
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.volatile('dive')) return; // equivalent to onLockMove if the user should not be trapped
+			if (!pokemon.hasVolatiles['dive']) return; // equivalent to onLockMove if the user should not be trapped
 			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
