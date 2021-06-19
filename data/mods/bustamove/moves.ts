@@ -96,8 +96,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
-		onPrepareHit(pokemon) {
-			source.volatileStatus: 'dive';
+		self: {
+			volatileStatus: 'dive',
 		},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
