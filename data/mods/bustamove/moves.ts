@@ -374,14 +374,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Sing",
 		pp: 10,
 		priority: 0,
-		status: 'slp',
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
 		onHit(pokemon, target) {
 			if (target.status === 'slp') {
 				this.add('-fail', target);
 				return null;
 			}
-			this.heal(pokemon.maxhp / 4, pokemon);
+			this.heal(pokemon.maxhp / 4, pokemon) && target.trySetStatus('slp');
 		},
 		/*self: {
 			onHit(attacker, source) {
@@ -442,7 +441,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-start', target, 'typechange', 'Water');
 		},
-		pseudoWeather: 'soakcondition',
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -467,7 +465,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onModifyTypePriority: -2,
 			onModifyType(move) {
-				if (move.category === 'Status') {
+				if (move.category !== 'Status') {
 					move.type = 'Water';
 					this.debug(move.name + "'s type changed to Water");
 				}
