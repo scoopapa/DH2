@@ -74,7 +74,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyType(type) {
 			if (type === 'Steel') {
 			onNegateImmunity: false,
-			}
+			},
 		},
 	},
 };
