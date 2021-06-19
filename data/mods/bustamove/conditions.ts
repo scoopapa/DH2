@@ -24,43 +24,38 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 		},
 	},
-	//not finished
-	/*dive: {
-		name: 'dive',
-				onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
+	twoturnmove: { // modified for Dive
+		// Skull Bash, SolarBeam, Sky Drop...
+		name: 'twoturnmove',
+		duration: 2,
+		onStart(target, source, effect) {
+			this.effectData.move = effect.id;
+			target.addVolatile(effect.id, source);
+			this.attrLastMove('[still]');
+		},
+		onEnd(target) {
+			target.removeVolatile(this.effectData.move);
+		},
+		onLockMove(pokemon) {
+			if (pokemon.volatile('dive')) return; // onLockMove traps the user
+			return this.effectData.move;
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.volatile('dive')) return; // equivalent to onLockMove if the user should not be trapped
+			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
-			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
-				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				attacker.formeChange(forme, move);
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender );
-			return null;
-		},
-		condition: {
-			duration: 2,
-			onImmunity(type, pokemon) {
-				if (type === 'sandstorm' || type === 'hail') return false;
-			},
-			onInvulnerability(target, source, move) {
-				if (['surf', 'whirlpool'].includes(move.id)) {
-					return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== this.effectData.move) {
+					pokemon.disableMove(moveSlot.id);
 				}
-				return false;
-			},
-			onSourceModifyDamage(damage, source, target, move) {
-				if (move.id === 'surf' || move.id === 'whirlpool') {
-					return this.chainModify(2);
-				}
-			},
+			}
 		},
-	},*/
-	corrosed: {
+		onMoveAborted(pokemon) {
+			pokemon.removeVolatile('twoturnmove');
+		},
+	},
+	/*corrosed: {
 		name: 'corrosed',
 		effectType: 'Status',
 		onStart(pokemon, source, sourceEffect) {
@@ -74,5 +69,5 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyType(type) {
 			if (type === 'Steel') onNegateImmunity: false,
 		},
-	},
+	},*/
 };
