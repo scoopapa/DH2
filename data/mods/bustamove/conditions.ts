@@ -72,9 +72,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyTypePriority: -5,
 		onModifyType(type) {
-			if (type === 'Steel') {
-			onNegateImmunity: false,
-			},
+			if (type === 'Steel') onNegateImmunity: false,
 		},
 	},
 };
