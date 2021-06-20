@@ -665,6 +665,42 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 	},
+	monothreatdark: {
+		effectType: 'ValidatorRule',
+		name: 'Monothreat Dark',
+		desc: "Forces all Pok&eacute;mon to be Dark-type.",
+		onBegin() {
+			this.add('rule', 'Monothreat: only Dark-type Pokemon are allowed');
+		},
+		onValidateTeam(team) {
+			const teamType = 'Dark';
+			//let typeTable: string[] = [];
+			let problems: string[] = [];
+			for (const [i, set] of team.entries()) {
+				let species = this.dex.getSpecies(set.species);
+				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
+				if (!species.types.includes(teamType)) {
+					problems.push(species + " is not " + teamType + " type.");
+				} 
+				if (this.gen >= 7) {
+					const item = this.dex.getItem(set.item);
+					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
+						species = this.dex.getSpecies(item.megaStone);
+						if (!species.types.includes(teamType)) {
+							problems.push(species + " is not " + teamType + " type.");
+						} 
+					}
+					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
+						species = this.dex.getSpecies("Necrozma-Ultra");
+						if (!species.types.includes(teamType)) {
+							problems.push(species + " is not " + teamType + " type.");
+						} 
+					}
+				}
+				return problems;
+			}
+		},
+	},
 	monothreatsteel: {
 		effectType: 'ValidatorRule',
 		name: 'Monothreat Steel',
