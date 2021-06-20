@@ -188,4 +188,56 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Limber", H: "Cursed Body"},
 		weightkg: 24,
 	},
+	//Slate 8: Flying/Dark, Normal/Grass, Rock/Fairy
+	spincaba: {
+		num: 22,
+		name: "Spincaba",
+		types: ["Flying", "Dark"],
+		baseStats: {hp: 65, atk: 90, def: 95, spa: 80, spd: 135, spe: 80},
+		abilities: {0: "Insomnia", 1: "Tangled Feet", H: "Contrary"},
+		weightkg: 2.5,
+	},
+	jungape: {
+		num: 23,
+		name: "Jungape",
+		types: ["Normal", "Grass"],
+		baseStats: {hp: 82, atk: 90, def: 116, spa: 67, spd: 76, spe: 79},
+		abilities: {0: "Own Tempo", H: "Gorilla Tactics"},
+		weightkg: 189,
+	},
+	nympheral: {
+		num: 24,
+		name: "Nympheral",
+		types: ["Rock", "Fairy"],
+		baseStats: {hp: 71, atk: 89, def: 83, spa: 109, spd: 67, spe: 151},
+		abilities: {0: "Beast Boost"},
+		weightkg: 21.6,
+	},
+	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	/*
+	name: {
+		num: 25,
+		name: "name",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 26,
+		name: "name",
+		types: ["Ice", "Fire"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	name: {
+		num: 27,
+		name: "name",
+		types: ["Ground", "Psychic"],
+		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
+		abilities: {0: "ab1", 1: "ab2", H: "abh"},
+		weightkg: ##,
+	},
+	*/
 };

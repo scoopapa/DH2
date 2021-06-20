@@ -1,106 +1,86 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	//Slate 1 Grass, Fire, Water
-	prairret: {
+	shareat: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	fluxtape: {
+	justom: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	cetaidon: {
+	healack: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 2: Dragon, Fairy, Steel
-	drakotomy: {
+	crystrird: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	gencook: {
+	evawk: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	heraleo: {
+	contox: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 3: Dark, Fighting, Psychic
-	correept: {
+	shockield: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	dojodo: {
+	phoenrim: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	harzodia: {
+	drourag: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 4: Flying, Ground, Rock
-	nimbustorm: {
+	magzolt: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	burrodger: {
+	weathair: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	wesgranit: {
+	absoil: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 5: Electric, Ghost, Ice
-	storvark: {
+	psyroc: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	dullaham: {
+	flabade: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	skappa: {
+	fairull: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 6: Bug, Normal, Poison
-	magroach: {
+	freehale: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	resonake: {
+	burod: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	clavelye: {
+	adexper: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
-	whiscamp: {
+	darmoon: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	laopharsi: {
+	ropern: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	spirox: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
-	spincaba: {
-		tier: "OU",
-		doublesTier: "DOU",	
-	},
-	jungape: {
-		tier: "OU",
-		doublesTier: "DOU",	
-	},
-	nympheral: {
-		tier: "OU",
-		doublesTier: "DOU",	
+	ropernzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 };

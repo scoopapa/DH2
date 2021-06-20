@@ -1443,7 +1443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "LC",
 	},
 	silvally: {
 		isNonstandard: null,

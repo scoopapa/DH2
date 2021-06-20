@@ -57,4 +57,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 115, def: 75, spa: 115, spd: 75, spe: 105},
 	},
+	deoxys: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
+	},
+	deoxysattack: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 130, def: 100, spa: 130, spd: 100, spe: 90},
+	},
+	deoxysdefense: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 70, def: 160, spa: 90, spd: 160, spe: 70},
+	},
+	deoxysspeed: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 90, def: 115, spa: 90, spd: 115, spe: 140},
+	},
 };
