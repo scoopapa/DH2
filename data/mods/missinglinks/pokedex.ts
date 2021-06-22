@@ -305,23 +305,23 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Slowkinite",
 	},
+/*
 	mankey: {
 		inherit: true,
 		otherFormes: ["Mankey-Alola"],
 		formeOrder: ["Mankey", "Mankey-Alola"],
 	},
+*/
 	primeape: {
 		inherit: true,
 		otherFormes: ["Primeape-Alola"],
 		formeOrder: ["Primeape", "Primeape-Alola"],
 	},
-/*
 	mankey: {
 		inherit: true,
 		otherFormes: ["Mankey-Alola", "Mankey-Galar"],
 		formeOrder: ["Mankey", "Mankey-Alola", "Mankey-Galar"],
 	},
-*/
 	mankeyalola: {
 		num: 56,
 		name: "Mankey-Alola",
@@ -350,5 +350,52 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	dustox: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 50, def: 70, spa: 50, spd: 90, spe: 65},
+	},
+	mankeygalar: {
+		num: 56,
+		name: "Mankey-Galar",
+		baseSpecies: "Mankey",
+		forme: "Galar",
+		types: ["Fairy"],
+		baseStats: {hp: 50, atk: 60, def: 45, spa: 35, spd: 70, spe: 45},
+		abilities: {0: "Vital Spirit", 1: "Prankster", H: "Defiant"},
+		weightkg: 56,
+		evos: ["Primotunn"],
+		eggGroups: ["Field"],
+	},
+	primotunn: {
+		num: 1005,
+		name: "Primotunn",
+		types: ["Fairy"],
+		baseStats: {hp: 80, atk: 90, def: 65, spa: 50, spd: 100, spe: 70},
+		abilities: {0: "Wonder Skin", 1: "Prankster", H: "Bask"},
+		heightm: 0.8,
+		weightkg: 64,
+		color: "Pink",
+		prevo: "Mankey-Galar",
+		evoLevel: 28,
+		eggGroups: ["Field"],
+	},
+	machamp: {
+		inherit: true,
+		otherFormes: ["Machamp-Mega"],
+		formeOrder: ["Machamp", "Machamp-Mega"],
+	},
+	machampmega: {
+		num: 68,
+		name: "Machamp-Mega",
+		baseSpecies: "Machamp",
+		forme: "Mega",
+		types: ["Fighting"],
+		baseStats: {hp: 90, atk: 160, def: 115, spa: 65, spd: 130, spe: 45},
+		abilities: {0: "Technician"},
+		heightm: 2.0,
+		weightkg: 250,
+		eggGroups: ["Human-Like"],
+		requiredItem: "Machampite",
+	},
+	politoed: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 75, def: 75, spa: 90, spd: 100, spe: 70},
 	},
 };
