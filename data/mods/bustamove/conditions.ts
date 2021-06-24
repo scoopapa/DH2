@@ -24,7 +24,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 		},
 	},
-	diving: {
+	/*diving: {
 		name: 'diving',
 		duration: 2,
 		onStart(pokemon) {
@@ -62,7 +62,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('twoturnmove');
 		},
 	},
-	/*corrosed: {
+	corrosed: {
 		name: 'corrosed',
 		effectType: 'Status',
 		onStart(pokemon, source, sourceEffect) {

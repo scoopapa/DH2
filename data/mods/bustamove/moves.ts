@@ -45,6 +45,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	//not finished
 	/*corrosivegas: {
 		num: 810,
 		accuracy: 95,
@@ -87,7 +88,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	//not finished
-	dive: {
+	/*dive: {
 		num: 291,
 		accuracy: 100,
 		basePower: 80,
@@ -135,7 +136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},
+	},*/
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -482,7 +483,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
 	},
-	sparklingaria: {
+	//not finished
+	/*sparklingaria: {
 		num: 664,
 		accuracy: 100,
 		basePower: 80,
@@ -501,7 +503,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
-	},
+	},*/
 	strength: {
 		num: 70,
 		accuracy: 100,
@@ -521,7 +523,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-	synchronoise: {
+	//not finished
+	/*synchronoise: {
 		num: 485,
 		accuracy: 85,
 		basePower: 95,
@@ -541,8 +544,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
-	},
-	trickortreat: {
+	},*/
+	//not finished
+	/*trickortreat: {
 		num: 567,
 		accuracy: 95,
 		basePower: 0,
@@ -568,5 +572,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
-	},
+	},*/
 };
