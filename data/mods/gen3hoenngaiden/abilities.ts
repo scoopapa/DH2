@@ -307,13 +307,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyType(move, pokemon) {
 			if (move.type === 'Normal' && (move.category !== 'Status')) {
 				move.type = 'Electric';
-				move.galvanizeBoosted = true;
 			}
 		},
 		onModifyMove(move, pokemon) {
 			if (move.type === 'Normal' && (move.category !== 'Status')) {
 				move.category = 'Special';
-				move.galvanizeBoosted = true;
 			}
 		},
 		onBasePowerPriority: 23,
