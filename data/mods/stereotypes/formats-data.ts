@@ -103,4 +103,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",	
 	},
+	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	beetilient: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	thermasorb: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	cosmole : {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
 };
