@@ -93,6 +93,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'lanturn').learnset.bodyslam = ['3L1'];
 		
+		//Slate 5 Move Additions
 		//Acrobatics
 		this.modData('Learnsets', 'farfetchd').learnset.acrobatics = ['3L1'];
 		this.modData('Learnsets', 'crobat').learnset.acrobatics = ['3L1'];
@@ -156,6 +157,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'omastar').learnset.spikyshield = ['3L1'];
 		this.modData('Learnsets', 'sandslash').learnset.spikyshield = ['3L1'];
 		this.modData('Learnsets', 'qwilfish').learnset.spikyshield = ['3L1'];
+		
+		//Slate 6
+		this.modData('Learnsets', 'sunflora').learnset.weatherball = ['3L1'];
+		this.modData('Learnsets', 'sunflora').learnset.stunspore = ['3L1'];
+		this.modData('Learnsets', 'sunflora').learnset.batonpass = ['3L1'];
+		
+		this.modData('Learnsets', 'mawile').learnset.meteormash = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.slackoff = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.thunderwave = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.knockoff = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.foulplay = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.suckerpunch = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
