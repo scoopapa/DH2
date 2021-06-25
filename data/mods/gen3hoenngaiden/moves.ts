@@ -1073,7 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	bodyslam: {
 		inherit: true,
 		onModifyType(source, move) {
-			if source.hasAbility('galvanize'),
+			if source.hasAbility('galvanize');
 			move.type = 'Electric',
 		},
 	},
