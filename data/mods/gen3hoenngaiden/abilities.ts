@@ -304,7 +304,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 98,
 	},
 	galvanize: {
-		/*onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Normal' && (move.category !== 'Status')) {
 				move.type = 'Electric';
@@ -320,7 +319,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.galvanizeBoosted) return this.chainModify(1.2);
-		},*/
+		},
 		inherit: true,
 		isNonstandard: null,
 		gen: 3,
