@@ -42,10 +42,56 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'crawdaunt').learnset.hydropump = ['3L1'];
 		this.modData('Learnsets', 'crawdaunt').learnset.agility = ['3L1'];
 		
+		this.modData('Learnsets', 'slowpoke').learnset.slackoff = ['3L1'];
 		this.modData('Learnsets', 'slowbro').learnset.slackoff = ['3L1'];
 		this.modData('Learnsets', 'slowking').learnset.slackoff = ['3L1'];
 		
+		//Slate 3 Buffs
+		this.modData('Learnsets', 'piloswine').learnset.shadowball = ['3L1'];
 		
+		this.modData('Learnsets', 'delibird').learnset.drillpeck = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.milkdrink = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.spikes = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.surf = ['3L1'];
+		
+		this.modData('Learnsets', 'ledian').learnset.tailglow = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.psychic = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.firepunch = ['3L1'];
+		
+		this.modData('Learnsets', 'sableye').learnset.yawn = ['3L1'];
+		
+		this.modData('Learnsets', 'hitmonlee').learnset.submission = ['3L1'];
+		
+		this.modData('Learnsets', 'roselia').learnset.sleeppowder = ['3L1'];
+		this.modData('Learnsets', 'roselia').learnset.extrasensory = ['3L1'];
+		
+		this.modData('Learnsets', 'dunsparce').learnset.spikes = ['3L1'];
+		this.modData('Learnsets', 'dunsparce').learnset.dragonclaw = ['3L1'];
+		this.modData('Learnsets', 'dunsparce').learnset.outrage = ['3L1'];
+		this.modData('Learnsets', 'dunsparce').learnset.slackoff = ['3L1'];
+		
+		this.modData('Learnsets', 'grumpig').learnset.thunderwave = ['3L1'];
+		this.modData('Learnsets', 'grumpig').learnset.thunderbolt = ['3L1'];
+		
+		this.modData('Learnsets', 'volbeat').learnset.fly = ['3L1'];
+		
+		this.modData('Learnsets', 'cloyster').learnset.hydropump = ['3L1'];
+		
+		this.modData('Learnsets', 'minun').learnset.sludgebomb = ['3L1'];
+		this.modData('Learnsets', 'minun').learnset.acidarmor = ['3L1'];
+		this.modData('Learnsets', 'minun').learnset.haze = ['3L1'];
+		
+		this.modData('Learnsets', 'illumise').learnset.calmmind = ['3L1'];
+		
+		this.modData('Learnsets', 'ampharos').learnset.growth = ['3L1'];
+		this.modData('Learnsets', 'ampharos').learnset.dragonclaw = ['3L1'];
+		this.modData('Learnsets', 'ampharos').learnset.slackoff = ['3L1'];
+		
+		this.modData('Learnsets', 'plusle').learnset.willowisp = ['3L1'];
+		this.modData('Learnsets', 'plusle').learnset.fireblast = ['3L1'];
+		this.modData('Learnsets', 'plusle').learnset.flamethrower = ['3L1'];
+		
+		this.modData('Learnsets', 'lanturn').learnset.bodyslam = ['3L1'];
 		
 		//Acrobatics
 		this.modData('Learnsets', 'farfetchd').learnset.acrobatics = ['3L1'];

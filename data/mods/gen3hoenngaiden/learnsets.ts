@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	slowpoke: {
+	/*slowpoke: {
 		learnset: {
 			amnesia: ["3M"],
 			attract: ["3M"],
@@ -134,7 +134,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			withdraw: ["3L1"],
 			yawn: ["3L9"],
 		},
-	},
+	},*/
 	ampharos: {
 		learnset: {
 			attract: ["3L1"],
@@ -193,7 +193,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			growth: ["3L1"],
 		}
 	},
-	slowking: {
+	/*slowking: {
 		learnset: {
 			amnesia: ["3M"],
 			attract: ["3M"],
@@ -484,7 +484,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			flamethrower: ["3L1"],
 			calmmind: ["3L1"],
 		},
-	},
+	},*/
 	snover: {
 		learnset: {
 			attract: ["3L1"],
