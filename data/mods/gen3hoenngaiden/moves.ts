@@ -1070,28 +1070,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
-	/*multiattack: {
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		desc: "This move's type depends on the user's held Memory.",
-		shortDesc: "Type varies based on the held Memory.",
-		id: "multiattack",
-		isViable: true,
-		name: "Multi-Attack",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			let type = pokemon.types[0];
-			if (type === "Bird") type = "???";
-			move.type = type;
+	bodyslam: {
+		inherit: true,
+		onModifyType(source, move) {
+			if source.hasAbility('galvanize'),
+			move.type = 'Electric',
 		},
-		onModifyMove(move, pokemon) {
-			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.types[0]))
-            move.category = "Special";
-		},
-	},*/
+	},
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
