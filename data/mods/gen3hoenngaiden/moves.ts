@@ -1070,13 +1070,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
-	bodyslam: {
-		inherit: true,
-		onModifyType(source, move) {
-			if source.hasAbility('galvanize');
-			move.type = 'Electric',
-		},
-	},
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
