@@ -524,4 +524,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 	},
+	
+	gulpmissile: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging', 'abysseelgulping', 'abysseelgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping' || target.species.id === 'abysseelgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange(target.species.baseSpecies, move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				(source.species.name === 'Cramorant' || source.species.name === 'Abysseel') && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'gorging' : 'gulping';
+				source.formeChange(source.species.name + forme, effect);
+			}
+		},
+	},
 };
