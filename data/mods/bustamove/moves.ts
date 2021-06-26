@@ -524,7 +524,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	//not finished
-	/*synchronoise: {
+	synchronoise: {
 		num: 485,
 		accuracy: 85,
 		basePower: 95,
@@ -535,8 +535,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onBasePower(basePower, attacker, target, move) {
-			if (target.hasType === attacker.getTypes) {
+		onBasePower(basePower, attacker, defender) {
+			for (const foeactive of pokemon.side.foe.active) {
+				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				return this.chainModify(2);
 			}
 		},
@@ -544,7 +545,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
-	},*/
+	},
 	//not finished
 	/*trickortreat: {
 		num: 567,
