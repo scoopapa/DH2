@@ -535,9 +535,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		onBasePower(basePower, attacker, defender) {
-			if (!defender || defender.fainted || !defender.hasType(attacker.types)) continue;
-			return this.chainModify(2);
+		onBasePower(basePower, target, move) {
+			if (!target || target.fainted || !target.hasType(source.types)) continue;
+			this.debug('Synchronoise damage boost');
+			return move.basePower * 2;
 		},
 		secondary: null,
 		target: "allAdjacent",
