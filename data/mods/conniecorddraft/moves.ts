@@ -783,4 +783,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         inherit: true,
         isNonstandard: null,
     }, 
+	
+	dive: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			if (attacker.hasAbility('gulpmissile') && (attacker.species.name === 'Cramorant' || attacker.species.name === 'Abysseel') && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'gorging' : 'gulping';
+				attacker.formeChange(attacker.species.name + forme, move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
 };
