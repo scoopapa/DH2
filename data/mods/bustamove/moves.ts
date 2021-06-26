@@ -524,7 +524,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	//not finished
-	synchronoise: {
+	/*synchronoise: {
 		num: 485,
 		accuracy: 85,
 		basePower: 95,
@@ -544,7 +544,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
-	},
+	},*/
 	//not finished
 	/*trickortreat: {
 		num: 567,
