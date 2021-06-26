@@ -536,10 +536,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onBasePower(basePower, attacker, defender) {
-			for (const foeactive of pokemon.side.foe.active) {
-				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
-				return this.chainModify(2);
-			}
+			if (!defender || defender.fainted || !defender.hasType(attacker.types)) continue;
+			return this.chainModify(2);
 		},
 		secondary: null,
 		target: "allAdjacent",
