@@ -536,7 +536,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onBasePower(basePower, target, move) {
-			if (!target || target.fainted || !target.hasType(source.types)) continue;
+			if (!target || target.fainted || !target.hasType(source.types));
 			this.debug('Synchronoise damage boost');
 			return move.basePower * 2;
 		},
