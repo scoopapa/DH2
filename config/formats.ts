@@ -1539,6 +1539,31 @@ export const Formats: FormatList = [
             'Silvino-Steel-Mega', 'Silvino-Water-Mega', 'Silvino-Mega',
         ],
     },
+	/*{
+		name: "[Gen 3] Hoenn Gaiden UU",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		searchShow: false,
+		ruleset: ['Standard', 'NFE Clause', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass'],
+		unbanlist: [
+			//Abilities
+			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
+			//Pokémon
+			'Scyther',
+			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
+			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
+			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
+			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank',
+			//Moves
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch',
+		],
+		teambuilderFormat: 'UU',
+	},*/
 	/*
 	{
 		name: "[Gen 8] M4A Doubles",
