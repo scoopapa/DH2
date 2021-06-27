@@ -1776,6 +1776,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 		},
 	},
+	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 	/*
 	pkmn1: {
 		learnset: {

@@ -116,4 +116,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",	
 	},
+	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 };

@@ -238,4 +238,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Anticipation ", 1: "Tough Claws", H: "Prism Armor"},
 		weightkg: 24.9,
 	},
+	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 };
