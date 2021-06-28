@@ -137,10 +137,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 			pokemon.addVolatile('embargo');
 		},
-		condition: {
-			duration: 999,
+		durationCallback(source, effect) {
+			if (pokemon.species.id === 'darmanitangalar') {
+				return 999;
+			}
+			return 5;
 		},
-		/*onBeforeMove(pokemon, target, move) {
+		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
 			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
 				// Fails unless ability is being ignored (these events will not run), no PP lost.
@@ -163,7 +166,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
-		},*/
+		},
 		onEnd(pokemon) {
 			pokemon.abilityData.choiceLock = "";
 		},
