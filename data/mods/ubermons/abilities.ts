@@ -136,7 +136,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			pokemon.abilityData.choiceLock = "";
 		},
-		onBeforeMove(pokemon, target, move) {
+		/*onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
 			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
 				// Fails unless ability is being ignored (these events will not run), no PP lost.
@@ -159,7 +159,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
-		},
+		},*/
 		onEnd(pokemon) {
 			pokemon.abilityData.choiceLock = "";
 		},
