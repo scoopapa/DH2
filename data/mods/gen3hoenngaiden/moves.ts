@@ -48,6 +48,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	beatup: {
 		inherit: true,
 		category: "Special",
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			// @ts-ignore
+			if (!move.allies.length) return null;
+			return 10;
+		},
 		onModifyMove(move, pokemon) {
 			move.type = 'Dark';
 			move.category = 'Special';
