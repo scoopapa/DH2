@@ -1337,14 +1337,14 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 
-			'Dialga', 'Dracovish', 'Eternatus', 'Giratina', 'Ho-Oh', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 
+			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai',
+			'Dialga', 'Dracovish', 'Eternatus', 'Giratina', 'Ho-Oh', 'Lugia', 'Lunala', 'Magearna', 
 			'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
-			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 
 			//Items
-			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
+			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Blue Orb', 'Red Orb',
 			//Moves
 			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],

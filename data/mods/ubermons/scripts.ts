@@ -51,6 +51,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'deoxys').learnset.drainpunch;
 		delete this.modData('Learnsets', 'deoxys').learnset.brickbreak;
 		delete this.modData('Learnsets', 'deoxys').learnset.agility;
+		
+		this.modData('Learnsets', 'darmanitangalar').learnset.switcheroo = ['8L1'];
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {

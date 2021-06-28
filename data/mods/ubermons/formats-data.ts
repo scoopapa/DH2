@@ -570,4 +570,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	deoxysspeed: {
 		tier: "OU",
 	},
+	darmanitangalar: {
+		tier: "OU",
+	},
+	kyuremblack: {
+		tier: "OU",
+	},
+	kyuremwhite: {
+		tier: "OU",
+	},
 };

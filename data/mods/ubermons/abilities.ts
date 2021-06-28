@@ -132,4 +132,43 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 265,
 	},
+	gorillatactics: {
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Gorilla Tactics");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		ignoringItem() {
+			
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		name: "Gorilla Tactics",
+		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		rating: 4.5,
+		num: 255,
+	},
 };
