@@ -73,6 +73,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 90, def: 115, spa: 90, spd: 115, spe: 140},
 	},
+	darmanitangalar: {
+		inherit: true,
+		abilities: {0: "Klutz", H: "Zen Mode"},
+	},
 	kyuremblack: {
 		inherit: true,
 		baseStats: {hp: 125, atk: 125, def: 105, spa: 85, spd: 65, spe: 85},
