@@ -138,7 +138,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.addVolatile('embargo');
 		},
 		condition: {
-			duration: null,
+			duration: 999,
 		},
 		/*onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
