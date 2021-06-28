@@ -132,7 +132,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 265,
 	},
-	gorillatactics: {
+	/*gorillatactics: {
 		onStart(pokemon) {
 			pokemon.abilityData.choiceLock = "";
 			ignoringItem();
@@ -169,5 +169,5 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
 		rating: 4.5,
 		num: 255,
-	},
+	},*/
 };
