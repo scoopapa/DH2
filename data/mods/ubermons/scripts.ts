@@ -57,7 +57,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 	ignoringItem() {
 		return !!((this.battle.gen >= 5 && !this.isActive) ||
-			(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) || this.hasAbility('gorillatactics') ||
+			(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) || (this.hasAbility('gorillatactics') && !this.getItem().ignoreGorillaTactics) ||
 			this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
 	},
 /*
