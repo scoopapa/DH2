@@ -135,6 +135,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	gorillatactics: {
 		onStart(pokemon) {
 			pokemon.abilityData.choiceLock = "";
+			pokemon.addVolatile('embargo');
 		},
 		/*onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
