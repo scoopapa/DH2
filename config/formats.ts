@@ -1548,7 +1548,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'NFE Clause', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass'],
 		unbanlist: [
 			//Abilities
