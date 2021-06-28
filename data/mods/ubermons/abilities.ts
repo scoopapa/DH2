@@ -137,12 +137,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 			pokemon.addVolatile('embargo');
 		},
-		durationCallback(source, effect) {
-			if (pokemon.species.id === 'darmanitangalar') {
-				return 999;
-			}
-			return 5;
-		},
 		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
 			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
@@ -169,6 +163,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onEnd(pokemon) {
 			pokemon.abilityData.choiceLock = "";
+			pokemon.removeVolatile('embargo');
 		},
 		name: "Gorilla Tactics",
 		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
