@@ -48,6 +48,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	beatup: {
 		inherit: true,
 		category: "Special",
+		onModifyMove(move, pokemon) {
+			move.type = 'Dark';
+			move.category = 'Special';
+			move.allies = pokemon.side.pokemon.filter(ally => !ally.fainted && !ally.status);
+			move.multihit = move.allies.length;
+		},
 		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a major status condition in the user's party, or fails if no Pokemon meet the criteria. For each hit, the damage formula uses the participating Pokemon's base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense; each hit is considered to come from the user.",
 	},
 	bide: {
