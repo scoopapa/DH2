@@ -47,11 +47,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	beatup: {
 		inherit: true,
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			if (!move.allies?.length) return null;
+			return 10;
+		},
 		onModifyMove(move, pokemon) {
+			pokemon.addVolatile('beatup');
 			move.type = '???';
 			move.category = 'Physical';
 			move.allies = pokemon.side.pokemon.filter(ally => !ally.fainted && !ally.status);
 			move.multihit = move.allies.length;
+		},
+		condition: {
+			duration: 1,
+			onModifyAtkPriority: -101,
+			onModifyAtk(atk, pokemon, defender, move) {
+				this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + move.allies![0].name);
+				this.event.modifier = 1;
+				return move.allies!.shift()!.species.baseStats.atk;
+			},
+			onFoeModifyDefPriority: -101,
+			onFoeModifyDef(def, pokemon) {
+				this.event.modifier = 1;
+				return pokemon.species.baseStats.def;
+			},
 		},
 	},
 	bide: {
