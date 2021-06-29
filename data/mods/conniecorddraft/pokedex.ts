@@ -416,6 +416,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	
 	
+	
 	//Other customs
 	marabastion: {
 		num: -2001,
@@ -715,5 +716,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Water 1", "Amorphous"],
 		requiredAbility: "Gulp Missile",
 		battleOnly: "Abysseel",
+	},
+	precko: {
+		num: -2020,
+		name: "Precko",
+		types: ["Dragon", "Water"],
+		baseStats: {hp: 130, atk: 70, def: 60, spa: 125, spd: 60, spe: 115},
+		abilities: {0: "Two Pressured"},
+		weightkg: 885,
 	},
 };

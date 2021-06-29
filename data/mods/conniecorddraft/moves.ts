@@ -659,6 +659,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	faeconstruct: {
+		num: -1009,
 		desc: "Boosts the lower defense stat, counting stat stages, of the Pokemon in the user's slot at the end of each turn for three turns.",
 		shortDesc: "3 turns: boosts lower defense at the end of each turn.",
 		onPrepareHit: function(target, source, move) {
@@ -800,6 +801,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
+		},
+	},
+	
+	aquaticrage: {
+		num: -1010,
+		accuracy: 95,
+		basePower: 75,
+		category: "Special",
+		name: "Aquatic Rage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+		desc: "2x power if the user is below 50% max HP.",
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.hp * 2 <= pokemon.maxhp) {
+				return this.chainModify(2);
+			}
 		},
 	},
 };

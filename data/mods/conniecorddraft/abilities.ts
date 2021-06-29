@@ -550,4 +550,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	
+	twopressured: {
+		name: "Two Pressured",
+		desc: "This Pokemon's water moves have -1 priority, but hit twice at 2/3 power.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Water') {
+				return priority - 1;
+			}
+		},
+		onPrepareHit(source, target, move) {
+			if (move.multihit) return;
+			if (move.type === 'Water' && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Water') return this.chainModify(2/3);
+		},
+	},
 };

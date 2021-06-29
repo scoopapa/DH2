@@ -227,5 +227,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Lab",
 		doublesTier: "Lab",
 	},
-	
+	precko: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
 };
