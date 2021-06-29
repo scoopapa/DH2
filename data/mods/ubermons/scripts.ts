@@ -54,6 +54,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'darmanitangalar').learnset.switcheroo = ['8L1'];
 	},
+	
+	pokemon: {
+    ignoringItem() {
+        return !!((this.battle.gen >= 5 && !this.isActive) ||
+            (this.hasAbility(['klutz', 'gorillatactics']) && !this.getItem().ignoreKlutz) ||
+            this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
+    }
+},
 /*
 		for (const id in this.dataCache.Pokedex) {
 			const poke = this.dataCache.Pokedex[id];
