@@ -45,10 +45,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
-				if (move.isZOrMaxPowered && move.flags['contact'] && !pokemon.species.name === 'Chesnaught-Steel') {
+				if (move.isZOrMaxPowered && move.flags['contact'] && !target.species.name === 'Chesnaught-Steel') {
 					this.damage(source.baseMaxhp / 8, source, target);
 				}
-				if (move.isZOrMaxPowered && move.flags['contact'] && pokemon.species.name === 'Chesnaught-Steel' && pokemon.hasAbility('battlebond')) {
+				if (move.isZOrMaxPowered && move.flags['contact'] && target.species.name === 'Chesnaught-Steel' && target.hasAbility('battlebond')) {
 					this.damage(source.baseMaxhp / 4, source, target);
 				}
 			},
