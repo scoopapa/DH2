@@ -375,4 +375,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	chesnaughtsteel: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	delphoxaria: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
