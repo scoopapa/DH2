@@ -72,7 +72,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.species.name === 'Delphox-Aria' && pokemon.hasAbility('battlebond')) {
 			  target.addVolatile('miracleeye');
 				move.accuracy = true;
-				break;
 			}
 		},
 		secondary: {
