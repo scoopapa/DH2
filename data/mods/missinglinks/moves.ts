@@ -45,11 +45,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
-				if (move.isZOrMaxPowered && move.flags['contact'] && !target.species.name === 'Chesnaught-Steel') {
-					this.damage(source.baseMaxhp / 8, source, target);
-				}
 				if (move.isZOrMaxPowered && move.flags['contact'] && target.species.name === 'Chesnaught-Steel' && target.hasAbility('battlebond')) {
 					this.damage(source.baseMaxhp / 4, source, target);
+				}
+				else if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.damage(source.baseMaxhp / 8, source, target);
 				}
 			},
 		},
@@ -70,8 +70,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.species.name === 'Delphox-Aria' && pokemon.hasAbility('battlebond')) {
-			  target.addVolatile('miracleeye');
 				move.accuracy = true;
+			  target.addVolatile('miracleeye');
 			}
 		},
 		secondary: {
