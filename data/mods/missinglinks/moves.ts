@@ -39,7 +39,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (move.flags['contact']) {
+				if (move.flags['contact'] && target.species.name === 'Chesnaught-Steel' && target.hasAbility('battlebond')) {
+					this.damage(source.baseMaxhp / 4, source, target);
+				}
+				else if (move.flags['contact']) {
 					this.damage(source.baseMaxhp / 8, source, target);
 				}
 				return this.NOT_FAIL;
