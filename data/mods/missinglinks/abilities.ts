@@ -35,4 +35,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bask",
 		rating: 3,
 	},
+	battlebond: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninja' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+			if (source.species.id === 'chesnaught' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Chesnaught-Steel', this.effect, true);
+			}
+			if (source.species.id === 'delphox' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Delphox-Aria', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
+				move.multihit = 3;
+			}
+		},
+		isPermanent: true,
+		name: "Battle Bond",
+		rating: 4,
+		num: 210,
+	},
 };
