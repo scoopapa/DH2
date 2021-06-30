@@ -227,4 +227,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	fluidrake: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	potossum: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	twygdrasill: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };
