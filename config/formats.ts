@@ -423,6 +423,18 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] Alternatium",
+		desc: `<b>Restrictions</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/alternatium-slate-7-slow-twins-slate-also-vote-in-poll.3683767/">Alternatium on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'alternatium',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'lgpe'],
+		teambuilderBans: ['unreleased'],
+	},
+	{
 		name: "[Gen 8] Bench Abilities",
 		desc: [
 			"<b>Bench Abilities</b>: A Pet Mod based on SM Battle Spot Singles, in which Pokemon have 'bench abilities' that passively aid their allies when they aren't actively in battle."
