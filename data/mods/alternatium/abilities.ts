@@ -155,7 +155,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					this.add('-activate', pokemon, 'ability: Sturdy', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
 				}
 			}
-			else (pokemon.species.id === 'silvallywater') {
+			else if (pokemon.species.id === 'silvallywater') {
 				const oldAbility = source.setAbility('waterabsorb', pokemon);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Water Absorb', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
