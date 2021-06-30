@@ -48,7 +48,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 223,
 	},
-	rkssystem: {
+	/*rkssystem: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'RKS System');
 		},
@@ -166,5 +166,5 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "RKS System",
 		rating: 4,
 		num: 225,
-	},
+	},*/
 };
