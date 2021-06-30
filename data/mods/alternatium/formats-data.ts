@@ -582,6 +582,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	silvallyghost: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
+	},
 	silvallygrass: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
