@@ -1073,6 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			switch (this.field.effectiveWeather()) {
 			case 'sunnyday':
+			case 'desolateland':
 				move.type = 'Fire';
 				move.category = 'Special';
 				break;
