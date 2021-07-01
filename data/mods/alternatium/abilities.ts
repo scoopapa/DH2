@@ -51,11 +51,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	rkssystem: {
 		onStart(pokemon) {
 			if (pokemon.species.id === 'silvally') {
-				this.add('-ability', target, 'RKS System');
-				this.add('-ability', target, 'Adaptability', '[from] ability: RKS System', '[of] ' + target);
-				target.setAbility('adaptability');
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Adaptability', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('adaptability');
 				// @ts-ignore
-				target.baseAbility = 'adaptability';
+				pokemon.baseAbility = 'adaptability';
 			}
 			/*else if (pokemon.species.id === 'silvallybug') {
 				const oldAbility = source.setAbility('tintedlens', pokemon);
