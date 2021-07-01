@@ -225,7 +225,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sunflora: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 65, def: 85, spa: 100, spd: 95, spe: 30},
+		baseStats: {hp: 85, atk: 65, def: 85, spa: 105, spd: 95, spe: 30},
 		abilities: {0: "Desolate Land"},
 	},
 	sunkern: {
