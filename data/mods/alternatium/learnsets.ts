@@ -2505,6 +2505,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dugtrio: {
 		learnset: {
+			knockoff: ["8L1"],
+			foulplay: ["8L1"],
+			drillrun: ["8L1"],
+			poisontail: ["8L1"],
+			psychocut: ["8L1"],
+			attackorder: ["8L1"],
+			uturn: ["8L1"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			agility: ["8M", "8V"],
 			allyswitch: ["8M"],
@@ -2592,6 +2599,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dugtrioalola: {
 		learnset: {
+			shoreup: ["8L1"],
+			bulkup: ["8L1"],
 			aerialace: ["7M"],
 			agility: ["8M", "8V"],
 			allyswitch: ["8M"],
@@ -3901,6 +3910,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	muk: {
 		learnset: {
+			earthquake: ["8L1"],
+			bulkup: ["8L1"],
+			stoneedge: ["8L1"],
+			rockslide: ["8L1"],
 			acidarmor: ["8V", "7L46", "7V", "6L43", "5L42", "4L44", "3L34"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			belch: ["7L52", "6L52"],
@@ -3996,8 +4009,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 6, level: 30},
 		],
 	},
-	mukalola: {
+	mukoilslick: {
 		learnset: {
+			powertrip: ["8L1"],
+			suckerpunch: ["8L1"],
+			toxicspikes: ["8L1"],
+			earthquake: ["8L1"],
 			acidarmor: ["8V", "7L46"],
 			acidspray: ["7L15"],
 			attract: ["7M"],

@@ -34,17 +34,15 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onAllyFaint(target) {
+		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
-			const ability = target.getAbility();
-			const additionalBannedAbilities = [
-				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
-			];
-			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectData.target.setAbility(ability);
+			const type = target.getType();
+			if (target.getType().isPermanent) return;
+			this.add('-ability', this.effectData.target, type, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setType(type);
 		},
 		name: "Power of Alchemy",
+		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
 		rating: 0,
 		num: 223,
 	},
