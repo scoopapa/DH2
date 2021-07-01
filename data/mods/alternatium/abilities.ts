@@ -181,7 +181,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
 					return;
 				}
-				this.add('-item', source, yourItem, '[from] ability: Static Cling', '[of] ' + target);
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Static Cling', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Static Cling', '[of] ' + source);
 			}
 		},
 		name: "Static Cling",
@@ -191,7 +192,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	rarecold: {
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
+			if (!target.newlySwitched || !this.queue.willMove(target)) {
 				this.debug('Rare Cold weaken');
 				return this.chainModify(0.5);
 			}
