@@ -1590,4 +1590,29 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	stunky: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	skuntank: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	fletchling: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	fletchinder: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	talonflame: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

@@ -214,30 +214,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 21.6,
 	},
 	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
-	/*
-	name: {
+	beetilient: {
 		num: 25,
-		name: "name",
+		name: "Beetilient",
 		types: ["Bug", "Fighting"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 75, atk: 110, def: 135, spa: 40, spd: 75, spe: 75},
+		abilities: {0: "Shell Armor", 1: "Stamina", H: "Mirror Armor"},
+		weightkg: 65.4,
 	},
-	name: {
+	thermasorb: {
 		num: 26,
-		name: "name",
+		name: "Thermasorb",
 		types: ["Ice", "Fire"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 100, atk: 75, def: 75, spa: 130, spd: 90, spe: 100},
+		abilities: {0: "Flash Fire", 1: "White Smoke", H: "Perish Body"},
+		weightkg: 122.3,
 	},
-	name: {
+	cosmole : {
 		num: 27,
-		name: "name",
+		name: "Cosmole ",
 		types: ["Ground", "Psychic"],
-		baseStats: {hp: ##, atk: ##, def: ##, spa: ##, spd: ##, spe: ##},
-		abilities: {0: "ab1", 1: "ab2", H: "abh"},
-		weightkg: ##,
+		baseStats: {hp: 95, atk: 80, def: 95, spa: 100, spd: 110, spe: 85},
+		abilities: {0: "Anticipation ", 1: "Tough Claws", H: "Prism Armor"},
+		weightkg: 24.9,
 	},
-	*/
+	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 };
