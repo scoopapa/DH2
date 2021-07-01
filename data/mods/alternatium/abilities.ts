@@ -194,7 +194,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.newlySwitched || !this.queue.willMove(target)) {
 				this.debug('Rare Cold weaken');
-				return this.chainModify(1.5);
+				return this.chainModify(0.5);
+			}
+			else if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Rare Cold neutral');
+				return this.chainModify(1.0);
 			}
 		},
 		name: "Rare Cold",
