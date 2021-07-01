@@ -394,7 +394,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Sirfetch\u2019d"],
 		eggGroups: ["Flying", "Field"],
 	},
-
 	muk: {
 		num: 89,
 		name: "Muk",
