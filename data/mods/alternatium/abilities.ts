@@ -171,21 +171,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-item', target, yourItem, '[from] ability: Static Cling', '[of] ' + source);
 			}
 		},
-		onAfterMoveSecondary(target, source, move) {
-			if (source && source !== target && move?.flags['contact']) {
-				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.flags['contact']) {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
 					return;
 				}
-				const yourItem = source.takeItem(target);
-				if (!yourItem) {
-					return;
-				}
-				if (!target.setItem(yourItem)) {
-					source.item = yourItem.id;
-					return;
-				}
-				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Static Cling', '[of] ' + source);
-				this.add('-item', target, yourItem, '[from] ability: Static Cling', '[of] ' + source);
+				this.add('-item', source, yourItem, '[from] ability: Static Cling', '[of] ' + target);
 			}
 		},
 		name: "Static Cling",
