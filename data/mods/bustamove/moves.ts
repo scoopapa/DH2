@@ -45,6 +45,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	//not finished
 	/*corrosivegas: {
 		num: 810,
 		accuracy: 95,
@@ -90,12 +91,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 	/*dive: {
 		num: 291,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Physical",
 		name: "Dive",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
+		self: {
+			volatileStatus: 'diving',
+		},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -157,7 +161,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-		shortDesc: "Power doubles if user is burn/poison/paralyzed.",
+		shortDesc: "Power doubles of user is burn/poison/paralyzed.",
+		isNonstandard: null,
 		name: "Fairy Wind",
 		pp: 15,
 		priority: 0,
@@ -170,6 +175,71 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	forestscurse: {
+		num: 571,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "For four turns, Foes -1/16th max HP. -1/8th with Binding Band. Bypasses Substitute.",
+		name: "Forest's Curse",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxvinelash');
+			},
+		},
+		condition: {
+			duration: 4,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Vine Lash');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+					if (pokemon.item === 'bindingband') this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+					if (pokemon.item === 'bindingband') this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Vine Lash');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	iceball: {
+		num: 301,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		isNonstandard: null,
+		name: "Ice Ball",
+		pp: 20,
+		priority: 0,
+		flags: {bullet: 1, contact: 1, protect: 1, mirror: 1, bullet: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Ice",
 		contestType: "Beautiful",
 	},
 	jawlock: {
@@ -187,12 +257,38 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	octazooka: {
+		num: 190,
+		accuracy: 85,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "50% chance to lower the target's accuracy by 1 and badly poison the target.",
+		name: "Octazooka",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondaries: [
+		{
+			chance: 50,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		{
+			chance: 50,
+			status: 'tox',
+		},
+		],
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
 	ominouswind: {
 		num: 466,
 		accuracy: 95,
 		basePower: 50,
 		category: "Special",
-		shortDesc: "Raises all of the user's stats if this KOes the target. Otherwise, user looses 1/8 of its max HP.",
+		shortDesc: "Raises all stats by 1 (not acc/eva) if this KOes the target. Otherwise, user loses 1/8 of its max HP.",
 		name: "Ominous Wind",
 		pp: 5,
 		priority: 0,
@@ -212,6 +308,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
+		shortDesc: "Clears the opponents hazards.",
+		isNonstandard: null,
 		shortDesc: "The user clears hazards from the opponents side.",
 		name: "Razor Wind",
 		pp: 10,
@@ -226,15 +324,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
 				}
 			}
-			/*let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
-			for (const targetCondition of removeTarget) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
-					success = true;
-				}
-			}*/
 		},
 		critRatio: 2,
 		secondary: null,
@@ -263,6 +352,63 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+	seedbomb: {
+		num: 402,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "50% chance to inflict Leech Seed on foe.",
+		name: "Seed Bomb",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			volatileStatus: 'leechseed',
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	sing: {
+		num: 47,
+		accuracy: 60,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User heals 1/4 of its max HP when it puts the target to sleep. Fails if already asleep.",
+		name: "Sing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, heal: 1},
+		onHit(pokemon, source, target) {
+			for (const target of source.side.foe.active) {
+			if (target.status === 'slp') {
+				this.add('-fail', target);
+				return null;
+			}
+			this.heal(pokemon.maxhp / 2, source) && target.trySetStatus('slp');
+			}
+		},
+		/*self: {
+			onHit(attacker, source) {
+				for (const pokemon of source.side.foe.active) {
+					const result = this.random(1);
+					if (result === 0) {
+						pokemon.trySetStatus('slp', source);
+						this.heal(attacker.baseMaxhp / 4);
+					} else if (target.status === 'slp' || target.hasAbility('comatose')) {
+						this.add('-fail', target, 'move: Substitute');
+						return null;
+					}
+				}
+			},
+		},*/
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
 	skittersmack: {
 		num: 806,
 		accuracy: 100,
@@ -282,13 +428,90 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
+	soak: {
+		num: 487,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Changes the target's type and its following attack to Water.",
+		name: "Soak",
+		pp: 20,
+		priority: 1,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		pseudoWeather: 'soakcondition',
+		onHit(target) {
+			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Water');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
+	},
+	soakcondition: {
+		num: 569,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Soak Condition",
+		pp: 25,
+		priority: 1,
+		flags: {},
+		pseudoWeather: 'soakcondition',
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-fieldactivate', 'move: Soak');
+			},
+			onModifyTypePriority: -2,
+			onModifyType(move) {
+				if (move.category !== 'Status') {
+					move.type = 'Water';
+					this.debug(move.name + "'s type changed to Water");
+				}
+			},
+		},		
+		secondary: null,
+		target: "all",
+		type: "Electric",
+		zMove: {boost: {spa: 1}},
+		contestType: "Beautiful",
+	},
+	//not finished
+	/*sparklingaria: {
+		num: 664,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Cures the user's party of burn.",
+		name: "Sparkling Aria",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onHit(ally) {
+			for (const ally of source.side.pokemon) {
+				if (ally.status === 'brn' && ally.status !== 'psn', 'tox', 'par', 'slp', 'frz') ally.cureStatus();
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Tough",
+	},*/
 	strength: {
 		num: 70,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		isNonstandard: null,
 		shortDesc: "Super effective on Rock.",
+		isNonstandard: null,
 		name: "Strength",
 		pp: 20,
 		priority: 0,
@@ -301,4 +524,54 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+	//not finished
+	/*synchronoise: {
+		num: 485,
+		accuracy: 85,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "",
+		isNonstandard: null,
+		name: "Synchronoise",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		onBasePower(basePower, target, move, source) {
+			if (target.hasType(source.type));
+			this.debug('Synchronoise damage boost');
+			return move.basePower * 2;
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Psychic",
+		contestType: "Clever",
+	},*/
+	//not finished
+	/*trickortreat: {
+		num: 567,
+		accuracy: 95,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Adds Ghost to the target's type(s) permanently.",
+		name: "Trick-or-Treat",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target) {
+			if (target.hasType('Ghost')) return false;
+			if (!target.addType('Ghost')) return false;
+			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+
+			// Curse Glitch
+			const action = this.queue.willMove(target);
+			if (action && action.move.id === 'curse') {
+				action.targetLoc = -1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Cute",
+	},*/
 };
