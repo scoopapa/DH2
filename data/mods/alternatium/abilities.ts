@@ -194,10 +194,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.getStat('spe', false, true) > target.getStat('spe', false, true));
 				return this.chainModify(0.5);
-			}
-			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true));
+			else if (source.getStat('spe', false, true) <= target.getStat('spe', false, true));
 				return this.chainModify(1);
-			}
 		},
 		name: "Rare Cold",
 		shortDesc: "User takes halved damage if user moves before the target.",
