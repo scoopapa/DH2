@@ -363,4 +363,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 		doublesTier: "DUU",
 	},
+	mankeygalar: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	primotunn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	machampmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chesnaughtsteel: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	delphoxaria: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
