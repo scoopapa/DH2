@@ -48,18 +48,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 223,
 	},
-	/*rkssystem: {
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'RKS System');
-		},
+	rkssystem: {
 		onStart(pokemon) {
 			if (pokemon.species.id === 'silvally') {
-				const oldAbility = source.setAbility('adaptability', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Adaptability', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+				this.add('-ability', target, 'RKS System');
+				this.add('-ability', target, 'Adaptability', '[from] ability: RKS System', '[of] ' + target);
+				target.setAbility('adaptability');
+				// @ts-ignore
+				target.baseAbility = 'adaptability';
 			}
-			else if (pokemon.species.id === 'silvallybug') {
+			/*else if (pokemon.species.id === 'silvallybug') {
 				const oldAbility = source.setAbility('tintedlens', pokemon);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Tinted Lens', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
@@ -160,11 +158,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Water Absorb', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
 				}
-			}
+			}*/
 		},
 		isPermanent: true,
 		name: "RKS System",
 		rating: 4,
 		num: 225,
-	},*/
+	},
 };
