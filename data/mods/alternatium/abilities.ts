@@ -154,6 +154,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return false;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Static Cling', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Static Cling', '[of] ' + source);
+			}
+		},
 		onAfterMoveSecondary(target, source, move) {
 			if (source && source !== target && move?.flags['contact']) {
 				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
@@ -177,8 +194,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 	},
 	rarecold: {
-		onSourceModifyDamage(damage, source, target) {
-			if (this.queue.willMove(target)) {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Rare Cold weaken');
 				return this.chainModify(0.5);
 			}
