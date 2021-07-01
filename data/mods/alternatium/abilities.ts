@@ -33,18 +33,18 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	powerofalchemy: {
+	/*powerofalchemy: {
 		onSourceAfterFaint(source, target, type) {
 			if (!newType || target.getTypes().join() === newType || !source.setType(newType)) return;
 				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Power of Alchemy');
 			/*source.setType(type)
-			this.add('-start', target, 'typechange', type);*/
+			this.add('-start', target, 'typechange', type);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
 		rating: 0,
 		num: 223,
-	},
+	},*/
 	rkssystem: {
 		onStart(pokemon) {
 			if (pokemon.species.id === 'silvally') {
