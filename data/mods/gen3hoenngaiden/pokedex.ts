@@ -267,7 +267,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 91,
 		name: "Cloyster",
 		types: ["Water"],
-		baseStats: {hp: 50, atk: 55, def: 150, spa: 110, spd: 35, spe: 95},
+		baseStats: {hp: 80, atk: 55, def: 150, spa: 110, spd: 35, spe: 95},
 		abilities: {0: "Shell Armor", 1: "Overcoat"},
 		heightm: 1.5,
 		weightkg: 132.5,
