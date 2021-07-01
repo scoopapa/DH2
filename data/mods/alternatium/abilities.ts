@@ -199,8 +199,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.debug('Rare Cold weaken');
 				return this.chainModify(0.5);
 			}
-			this.debug('Rare Cold NOT boosted');
-			return this.chainModify;
 		},
 		name: "Rare Cold",
 		shortDesc: "User takes halved damage if user moves before the target.",
