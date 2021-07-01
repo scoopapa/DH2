@@ -215,5 +215,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Lab",
 		doublesTier: "Lab",
 	},
-	
+	abysseel: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	pidodo: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	mangroar: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	precko: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
 };
