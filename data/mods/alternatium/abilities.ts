@@ -192,10 +192,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	rarecold: {
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.getStat('spe', false, true) > target.getStat('spe', false, true);
+			if (source.getStat('spe', false, true) > target.getStat('spe', false, true));
 				return this.chainModify(0.5);
 			}
-			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true);
+			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true));
 				return this.chainModify(1);
 			}
 		},
