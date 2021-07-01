@@ -57,108 +57,125 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				// @ts-ignore
 				pokemon.baseAbility = 'adaptability';
 			}
-			/*else if (pokemon.species.id === 'silvallybug') {
-				const oldAbility = source.setAbility('tintedlens', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Tinted Lens', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			else if (pokemon.species.id === 'silvallybug') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Tinted Lens', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('tintedlens');
+				// @ts-ignore
+				pokemon.baseAbility = 'tintedlens';
 			}
-			else if (pokemon.species.id === 'silvallydark') {
-				const oldAbility = source.setAbility('darkaura', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Dark Aura', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallydark') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Dark Aura', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('darkaura');
+				// @ts-ignore
+				pokemon.baseAbility = 'darkaura';
 			}
-			else if (pokemon.species.id === 'silvallydragon') {
-				const oldAbility = source.setAbility('multiscale', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Multiscale', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallydragon') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Multiscale', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('multiscale');
+				// @ts-ignore
+				pokemon.baseAbility = 'multiscale';
 			}
-			else if (pokemon.species.id === 'silvallyelectric') {
-				const oldAbility = source.setAbility('lightningrod', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Lightning Rod', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyelectric') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Lightning Rod', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('lightningrod');
+				// @ts-ignore
+				pokemon.baseAbility = 'lightningrod';
 			}
-			else if (pokemon.species.id === 'silvallyfairy') {
-				const oldAbility = source.setAbility('cutecharm', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Cute Charm', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyfairy') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Cute Charm', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('cutecharm');
+				// @ts-ignore
+				pokemon.baseAbility = 'cutecharm';
 			}
-			else if (pokemon.species.id === 'silvallyfighting') {
-				const oldAbility = source.setAbility('scrappy', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Scrappy', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyfighting') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('scrappy');
+				// @ts-ignore
+				pokemon.baseAbility = 'scrappy';
 			}
-			else if (pokemon.species.id === 'silvallyfire') {
-				const oldAbility = source.setAbility('flashfire', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Flash Fire', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyfire') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Flash Fire', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('flashfire');
+				// @ts-ignore
+				pokemon.baseAbility = 'flashfire';
 			}
-			else if (pokemon.species.id === 'silvallyflying') {
-				const oldAbility = source.setAbility('unburden', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Unburden', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyflying') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Unburden', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('unburden');
+				// @ts-ignore
+				pokemon.baseAbility = 'unburden';
 			}
-			else if (pokemon.species.id === 'silvallyghost') {
-				const oldAbility = source.setAbility('prankster', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Prankster', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyghost') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Prankster', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('prankster');
+				// @ts-ignore
+				pokemon.baseAbility = 'prankster';
 			}
-			else if (pokemon.species.id === 'silvallygrass') {
-				const oldAbility = source.setAbility('grassysurge', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Grassy Surge', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallygrass') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Grassy Surge', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('grassysurge');
+				// @ts-ignore
+				pokemon.baseAbility = 'grassysurge';
 			}
-			else if (pokemon.species.id === 'silvallyground') {
-				const oldAbility = source.setAbility('sandforce', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Sand Force', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyground') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Sand Force', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('sandforce');
+				// @ts-ignore
+				pokemon.baseAbility = 'sandforce';
 			}
-			else if (pokemon.species.id === 'silvallyice') {
-				const oldAbility = source.setAbility('refrigerate', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Refrigerate', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyice') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Refrigerate', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('refrigerate');
+				// @ts-ignore
+				pokemon.baseAbility = 'refrigerate';
 			}
-			else if (pokemon.species.id === 'silvallypoison') {
-				const oldAbility = source.setAbility('poisonpoint', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Poison Point', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallypoison') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Poison Point', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('poisonpoint');
+				// @ts-ignore
+				pokemon.baseAbility = 'poisonpoint';
 			}
-			else if (pokemon.species.id === 'silvallypsychic') {
-				const oldAbility = source.setAbility('magicguard', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Magic Guard', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallypsychic') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Magic Guard', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('magicguard');
+				// @ts-ignore
+				pokemon.baseAbility = 'magicguard';
 			}
-			else if (pokemon.species.id === 'silvallyrock') {
-				const oldAbility = source.setAbility('solidrock', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Solid Rock', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallyrock') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Solid Rock', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('solidrock');
+				// @ts-ignore
+				pokemon.baseAbility = 'solidrock';
 			}
-			else if (pokemon.species.id === 'silvallysteel') {
-				const oldAbility = source.setAbility('sturdy', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Sturdy', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
+			if (pokemon.species.id === 'silvallysteel') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('sturdy');
+				// @ts-ignore
+				pokemon.baseAbility = 'sturdy';
 			}
-			else if (pokemon.species.id === 'silvallywater') {
-				const oldAbility = source.setAbility('waterabsorb', pokemon);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Water Absorb', this.dex.getAbility(oldAbility).name, '[of] ' + pokemon);
-				}
-			}*/
+			if (pokemon.species.id === 'silvallywater') {
+				this.add('-ability', pokemon, 'RKS System');
+				this.add('-ability', pokemon, 'Water Absorb', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('waterabsorb');
+				// @ts-ignore
+				pokemon.baseAbility = 'waterabsorb';
+			}
 		},
 		isPermanent: true,
 		name: "RKS System",
