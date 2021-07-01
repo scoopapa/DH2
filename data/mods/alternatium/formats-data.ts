@@ -1,4 +1,12 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	/*raticate: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},	
+	raticatealola: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},*/
 	pikachu: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
