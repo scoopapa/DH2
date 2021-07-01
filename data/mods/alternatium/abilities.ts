@@ -192,4 +192,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1002,
 	},
+	watercyle: {
+		onBasePower(basePower, target, move) {
+			if (target.volatile['partiallytrapped']) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Water Cycle",
+		shortDesc: "User deal 1.3x damage to trapped targets.",
+		rating: 0,
+		num: 1003,
+	},
 };
