@@ -433,6 +433,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'lgpe'],
 		teambuilderBans: ['unreleased'],
+		teambuilderFormat: "Alternatium",
 	},
 	{
 		name: "[Gen 8] Bench Abilities",

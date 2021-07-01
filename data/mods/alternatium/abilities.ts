@@ -53,115 +53,129 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.species.id === 'silvally') {
 				this.add('-ability', pokemon, 'Adaptability', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('adaptability');
-				// @ts-ignore
 				pokemon.baseAbility = 'adaptability';
 			}
 			else if (pokemon.species.id === 'silvallybug') {
 				this.add('-ability', pokemon, 'Tinted Lens', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('tintedlens');
-				// @ts-ignore
 				pokemon.baseAbility = 'tintedlens';
 			}
 			if (pokemon.species.id === 'silvallydark') {
 				this.add('-ability', pokemon, 'Dark Aura', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('darkaura');
-				// @ts-ignore
 				pokemon.baseAbility = 'darkaura';
 			}
 			if (pokemon.species.id === 'silvallydragon') {
 				this.add('-ability', pokemon, 'Multiscale', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('multiscale');
-				// @ts-ignore
 				pokemon.baseAbility = 'multiscale';
 			}
 			if (pokemon.species.id === 'silvallyelectric') {
 				this.add('-ability', pokemon, 'Lightning Rod', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('lightningrod');
-				// @ts-ignore
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
 				this.add('-ability', pokemon, 'Cute Charm', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('cutecharm');
-				// @ts-ignore
 				pokemon.baseAbility = 'cutecharm';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('scrappy');
-				// @ts-ignore
 				pokemon.baseAbility = 'scrappy';
 			}
 			if (pokemon.species.id === 'silvallyfire') {
 				this.add('-ability', pokemon, 'Flash Fire', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('flashfire');
-				// @ts-ignore
 				pokemon.baseAbility = 'flashfire';
 			}
 			if (pokemon.species.id === 'silvallyflying') {
 				this.add('-ability', pokemon, 'Unburden', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('unburden');
-				// @ts-ignore
 				pokemon.baseAbility = 'unburden';
 			}
 			if (pokemon.species.id === 'silvallyghost') {
 				this.add('-ability', pokemon, 'Prankster', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('prankster');
-				// @ts-ignore
 				pokemon.baseAbility = 'prankster';
 			}
 			if (pokemon.species.id === 'silvallygrass') {
 				this.add('-ability', pokemon, 'Grassy Surge', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('grassysurge');
-				// @ts-ignore
 				pokemon.baseAbility = 'grassysurge';
 			}
 			if (pokemon.species.id === 'silvallyground') {
 				this.add('-ability', pokemon, 'Sand Force', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('sandforce');
-				// @ts-ignore
 				pokemon.baseAbility = 'sandforce';
 			}
 			if (pokemon.species.id === 'silvallyice') {
 				this.add('-ability', pokemon, 'Refrigerate', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('refrigerate');
-				// @ts-ignore
 				pokemon.baseAbility = 'refrigerate';
 			}
 			if (pokemon.species.id === 'silvallypoison') {
 				this.add('-ability', pokemon, 'Poison Point', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('poisonpoint');
-				// @ts-ignore
 				pokemon.baseAbility = 'poisonpoint';
 			}
 			if (pokemon.species.id === 'silvallypsychic') {
 				this.add('-ability', pokemon, 'Magic Guard', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('magicguard');
-				// @ts-ignore
 				pokemon.baseAbility = 'magicguard';
 			}
 			if (pokemon.species.id === 'silvallyrock') {
 				this.add('-ability', pokemon, 'Solid Rock', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('solidrock');
-				// @ts-ignore
 				pokemon.baseAbility = 'solidrock';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
 				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('sturdy');
-				// @ts-ignore
 				pokemon.baseAbility = 'sturdy';
 			}
 			if (pokemon.species.id === 'silvallywater') {
 				this.add('-ability', pokemon, 'Water Absorb', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('waterabsorb');
-				// @ts-ignore
 				pokemon.baseAbility = 'waterabsorb';
 			}
 		},
 		isPermanent: true,
 		name: "RKS System",
+		shortDesc: "Ability varies based on the user's type.",
 		rating: 4,
 		num: 225,
+	},
+	staticcling: {
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Static Cling');
+				return false;
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move?.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Static Cling', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Static Cling', '[of] ' + source);
+			}
+		},
+		name: "Static Cling",
+		shortDesc: "This Pokemon cannot lose its held item. Contact: Steals opponent's item on contact, if the user has no item.",
+		rating: 0,
+		num: 1001,
 	},
 };

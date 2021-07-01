@@ -419,6 +419,47 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 7,
 		isNonstandard: "Unobtainable",
 	},
+	lightball: {
+		name: "Light Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 30,
+			status: 'par',
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id === 'pikachu' || pokemon.species.id === 'pikachuidol') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(spd, pokemon) {
+			if (pokemon.species.id === 'pikachulibre') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.species.id === 'pikachu' || pokemon.species.id === 'pikachuidol' || pokemon.species.id === 'pikachupartner') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'pikachubelle' || pokemon.species.id === 'pikachulibre') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.species.id === 'pikachubelle' || pokemon.species.id === 'pikachupartner') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Pikachu"],
+		num: 236,
+		gen: 2,
+	},
 	lunaliumz: {
 		name: "Lunalium Z",
 		spritenum: 686,
