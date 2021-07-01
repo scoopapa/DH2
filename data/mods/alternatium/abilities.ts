@@ -191,8 +191,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1002,
 	},
 	watercycle: {
-		onBasePower(basePower, target, move) {
-			if (target.volatile['partiallytrapped']) {
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.volatiles['partiallytrapped']) {
 				return this.chainModify(1.3);
 			}
 		},
