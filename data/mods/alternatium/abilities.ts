@@ -40,7 +40,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Power of Alchemy');
 			/*source.setType(type)
 			this.add('-start', target, 'typechange', type);*/
-		}
+		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
 		rating: 0,
