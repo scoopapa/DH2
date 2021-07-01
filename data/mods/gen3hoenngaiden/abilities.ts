@@ -226,11 +226,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
+		isNonstandard: null,
+		gen: 3,
 	},
 	rkssystem: {
 	shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
 		id: "rkssystem",
+		isNonstandard: null,
+		gen: 3,
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -253,5 +257,131 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sand Veil",
 		rating: 3,
 		num: 146,
+	},
+	icebody: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Ice Body",
+		rating: 1,
+		num: 115,
+	},
+	overcoat: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Overcoat');
+				return null;
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Overcoat",
+		rating: 2,
+		num: 142,
+	},
+	magicguard: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Magic Guard",
+		rating: 4,
+		num: 98,
+	},
+	galvanize: {
+		onModifyMove(move, pokemon) {
+			if (move.type === 'Normal' && (move.category !== 'Status')) {
+				move.type = 'Electric';
+				move.category = 'Special';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.galvanizeBoosted) return this.chainModify(1.2);
+		},
+		inherit: true,
+		isNonstandard: null,
+		gen: 3,
+		name: "Galvanize",
+		rating: 4,
+		num: 206,
+	},
+	desolateland: {
+		onStart(source) {
+			this.field.setWeather('desolateland');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('desolateland')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Desolate Land",
+		rating: 4.5,
+		num: 190,
+	},
+	forecast: {
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+				break;
+			case 'raindance':
+				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+				break;
+			case 'hail':
+				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		name: "Forecast",
+		rating: 2,
+		num: 59,
+	},
+	chlorophyll: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Chlorophyll",
+		rating: 3,
+		num: 34,
 	},
 };

@@ -2626,150 +2626,75 @@ this.modData('Learnsets', 'hoopa').learnset.cometpunch = ['7L1'];
 this.modData('Learnsets', 'neurowatt').learnset.cometpunch = ['7L1'];
 this.modData('Learnsets', 'diancie').learnset.cometpunch = ['7L1'];
 this.modData('Learnsets', 'kecleon').learnset.cometpunch = ['7L1'];
+this.modData('Learnsets', 'spinarak').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'ariados').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'joltik').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'galvantula').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'dewpider').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'araquanid').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'ribombee').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'shuckle').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'cutiefly').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'accelgor').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'kricketune').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'swadloon').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'leavanny').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'masquerain').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'surskit').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'mothim').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'venipede').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'whirlipede').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'scolipede').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'ninjask').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'yanma').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'yanmega').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'slurpuff').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'venusaur').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'swirlix').learnset.websling = ['7L1'];
+this.modData('Learnsets', 'porygon').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'porygon2').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'porygonz').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'rotom').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'genesect').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'silvally').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'klink').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'klang').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'klinklang').learnset.bittrip = ['7L1'];
+this.modData('Learnsets', 'diggersby').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'bunnelby').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'donphan').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'phanpy').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'marowak').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'cubone').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'stunfisk').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'stunfiskgalar').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'camerupt').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'quagsire').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'landorus').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'mudbray').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'mudsdale').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'shieldon').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'bastiodon').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'meowthgalar').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'perrserker').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'regirock').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'regice').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'registeel').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'regigigas').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'stonjourner').learnset.rockclimb = ['7L1'];
+this.modData('Learnsets', 'unfezant').learnset.cut = ['7L1'];
+this.modData('Learnsets', 'unfezant').learnset.slash = ['7L1'];
+this.modData('Learnsets', 'flareon').learnset.cut = ['7L1'];
+this.modData('Learnsets', 'clefable').learnset.wingattack = ['7L1'];
+this.modData('Learnsets', 'combee').learnset.doubleedge = ['7L1'];
+this.modData('Learnsets', 'combee').learnset.return = ['7L1'];
+this.modData('Learnsets', 'combee').learnset.frustration = ['7L1'];
+this.modData('Learnsets', 'rampardos').learnset.jumpkick = ['7L1'];
+this.modData('Learnsets', 'cranidos').learnset.jumpkick = ['7L1'];
 },
 
 
 	gen: 8,
-
-  getDamage: function (pokemon, target, move, suppressMessages = false) {
-    if (typeof move === 'string') move = this.getMove(move);
-
-    if (typeof move === 'number') {
-      let basePower = move;
-      move = new Dex.Move({
-        basePower,
-        type: '???',
-        category: 'Physical',
-        willCrit: false,
-      });
-    }
-
-    if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
-      if (!target.runImmunity(move.type, !suppressMessages)) {
-        return false;
-      }
-    }
-
-    if (move.ohko) {
-      return target.maxhp;
-    }
-
-    if (move.damageCallback) {
-      return move.damageCallback.call(this, pokemon, target);
-    }
-    if (move.damage === 'level') {
-      return pokemon.level;
-    }
-    if (move.damage) {
-      return move.damage;
-    }
-
-    let category = this.getCategory(move);
-    let defensiveCategory = move.defensiveCategory || category;
-
-    let basePower = move.basePower;
-    if (move.basePowerCallback) {
-      basePower = move.basePowerCallback.call(this, pokemon, target, move);
-    }
-    if (!basePower) {
-      if (basePower === 0) return; // returning undefined means not dealing damage
-      return basePower;
-    }
-    basePower = this.clampIntRange(basePower, 1);
-
-    let critMult;
-    let critRatio = this.runEvent('ModifyCritRatio', pokemon, target, move, move.critRatio || 0);
-    if (this.gen <= 5) {
-      critRatio = this.clampIntRange(critRatio, 0, 5);
-      critMult = [0, 16, 8, 4, 3, 2];
-    } else {
-      critRatio = this.clampIntRange(critRatio, 0, 4);
-      if (this.gen === 6) {
-        critMult = [0, 16, 8, 2, 1];
-      } else {
-        critMult = [0, 24, 8, 2, 1];
-      }
-    }
-
-    move.crit = move.willCrit || false;
-    if (move.willCrit === undefined) {
-      if (critRatio) {
-        move.crit = this.randomChance(1, critMult[critRatio]);
-      }
-    }
-
-    if (move.crit) {
-      move.crit = this.runEvent('CriticalHit', target, null, move);
-    }
-
-    // happens after crit calculation
-    basePower = this.runEvent('BasePower', pokemon, target, move, basePower, true);
-
-    if (!basePower) return 0;
-    basePower = this.clampIntRange(basePower, 1);
-
-    let level = pokemon.level;
-
-    let attacker = pokemon;
-    let defender = target;
-    let attackStat = category === 'Physical' ? 'atk' : 'spa';
-    let defenseStat = defensiveCategory === 'Physical' ? 'def' : 'spd';
-    let statTable = {
-      atk: 'Atk',
-      def: 'Def',
-      spa: 'SpA',
-      spd: 'SpD',
-      spe: 'Spe'
-    };
-    let attack;
-    let defense;
-
-    let atkBoosts = move.useTargetOffensive ? defender.boosts[attackStat] : attacker.boosts[attackStat];
-    let defBoosts = move.useSourceDefensive ? attacker.boosts[defenseStat] : defender.boosts[defenseStat];
-
-    let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
-    let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
-
-    if (move.crit) {
-      ignoreNegativeOffensive = true;
-      ignorePositiveDefensive = true;
-    }
-    let ignoreOffensive = !!(move.ignoreOffensive || (ignoreNegativeOffensive && atkBoosts < 0));
-    let ignoreDefensive = !!(move.ignoreDefensive || (ignorePositiveDefensive && defBoosts > 0));
-
-    if (ignoreOffensive) {
-      this.debug('Negating (sp)atk boost/penalty.');
-      atkBoosts = 0;
-    }
-    if (ignoreDefensive) {
-      this.debug('Negating (sp)def boost/penalty.');
-      defBoosts = 0;
-    }
-
-    if (move.useTargetOffensive) {
-      attack = defender.calculateStat(attackStat, atkBoosts);
-    } else if (move.id === "bodypress") {
-      attack = attacker.calculateStat("def", attacker.boosts.def);
-    } else {
-      attack = attacker.calculateStat(attackStat, atkBoosts);
-    }
-
-    if (move.useSourceDefensive) {
-      defense = attacker.calculateStat(defenseStat, defBoosts);
-    } else {
-      defense = defender.calculateStat(defenseStat, defBoosts);
-    }
-
-    // Apply Stat Modifiers
-    attack = this.runEvent('Modify' + statTable[attackStat], attacker, defender, move, attack);
-    defense = this.runEvent('Modify' + statTable[defenseStat], defender, attacker, move, defense);
-
-    //int(int(int(2 * L / 5 + 2) * A * P / D) / 50);
-    let baseDamage = Math.floor(Math.floor(Math.floor(2 * level / 5 + 2) * basePower * attack / defense) / 50);
-
-    // Calculate damage modifiers separately (order differs between generations)
-    return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
-  },
 	
 	pokemon: {
 	/**
@@ -2831,5 +2756,31 @@ this.modData('Learnsets', 'kecleon').learnset.cometpunch = ['7L1'];
 		}
 		return true;
 	}
+	},
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return null;
+		}
+		if (item.name === "Galarslowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return "Slowbro-Galar-Mega";
+		}
+		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
+			return null;
+		}
+		if (item.name === "Femmeowstite" && pokemon.baseSpecies.name === "Meowstic-F") {
+			return "Meowstic-F-Mega";
+		}
+		if (item.name === "Femindeedite" && pokemon.baseSpecies.name === "Indeedee-F") {
+			return "Indeedee-F-Mega";
+		}
+		return item.megaStone;
 	},
 };

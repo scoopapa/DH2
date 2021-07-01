@@ -179,4 +179,64 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+	winterloper: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	agapest: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	volvolpa: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	punduluum: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	wraithful: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	panzarma: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	krachiten: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	cellsius: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	borelem: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	electangle: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	orchile: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	shinodori: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	fluidrake: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	potossum: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
+	twygdrasill: {
+		tier: "Restrictions",
+		doublesTier: "Restrictions",
+	},
 };

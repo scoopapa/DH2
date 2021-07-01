@@ -12,7 +12,6 @@ const longwhip: ConditionData = {
 		}
 
 		this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
-		data.target.removeVolatile('Protect');
 		data.target.removeVolatile('Endure');
 
 		if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -31,6 +30,7 @@ const longwhip: ConditionData = {
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
 		delete data.moveData.flags['contact'];
+		delete data.moveData.flags['protect'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {
@@ -49,7 +49,6 @@ const longwhip: ConditionData = {
 		}
 
 		this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} took the ${move.name} attack!`);
-		data.target.removeVolatile('Protect');
 		data.target.removeVolatile('Endure');
 
 		if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -67,6 +66,8 @@ const longwhip: ConditionData = {
 		data.moveData.accuracy = true;
 		data.moveData.isFutureMove = true;
 		data.move.multihit = null;
+		delete data.moveData.flags['contact'];
+		delete data.moveData.flags['protect'];
 
 		const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 		if (data.source.isActive) {
@@ -123,16 +124,26 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			if (move.type === 'Poison' && target.isGrounded() && !target.isSemiInvulnerable() && target.hasType('Steel')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.add('-message', `${target.name} suppresses the effects of the terrain!`);
-						return;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Poison') {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && !this.dex.getImmunity('Poison', target)) {
+					for (const active of this.getAllActive()) {
+						if (active.hasAbility('downtoearth')) {
+							this.add('-message', `${active.name} suppresses the effects of the terrain!`);
+							this.add('-immune', target);
+							return null;
+						}
 					}
 				}
-				if (!move.ignoreImmunity) move.ignoreImmunity = {};
-				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Poison'] = true;
+				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !this.dex.getImmunity('Poison', target)) {
+					this.add('-immune', target);
+					this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
+					return null;
 				}
 			}
 		},

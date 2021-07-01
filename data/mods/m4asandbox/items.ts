@@ -1,4 +1,90 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	megastone1: {
+		name: "Mega Stone 1",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2000,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
+	megastone2: {
+		name: "Mega Stone 2",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2001,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
+	megastoneh: {
+		name: "Mega Stone H",
+		spritenum: 578,
+		onTakeItem(item, source) {
+			return false;
+		},
+		num: -2003,
+		gen: 8,
+		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
+	},
+	porygonitez: {
+		name: "Porygonite-Z",
+		spritenum: 578,
+		megaStone: "Porygon-Z-Mega",
+		megaEvolves: "Porygon-Z",
+		itemUser: ["Porygon-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5000,
+		gen: 8,
+		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+	},
+	pichunite: {
+		name: "Pichunite",
+		spritenum: 578,
+		megaStone: "Pichu-Spiky-eared-Mega",
+		megaEvolves: "Pichu-Spiky-eared",
+		itemUser: ["Pichu-Spiky-eared"],
+		onTakeItem(item, source) {
+			if (source.species.name.startsWith('Pichu-Spiky-eared')) return false;
+			return true;
+		},
+		num: -5001,
+		gen: 8,
+		desc: "If held by a Spiky-eared Pichu, this item allows it to Mega Evolve in battle.",
+	},
+	floettite: {
+		name: "Floettite",
+		spritenum: 578,
+		megaStone: "Floette-Eternal-Mega",
+		megaEvolves: "Floette-Eternal",
+		itemUser: ["Floette-Eternal"],
+		onTakeItem(item, source) {
+			if (source.species.name.startsWith('Floette-Eternal')) return false;
+			return true;
+		},
+		num: -5002,
+		gen: 8,
+		desc: "If held by a Floette with an Eternal Flower, this item allows it to Mega Evolve in battle.",
+	},
+	meltanite: {
+		name: "Meltanite",
+		spritenum: 578,
+		megaStone: "Meltan-Mega",
+		megaEvolves: "Meltan",
+		itemUser: ["Meltan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5003,
+		gen: 8,
+		desc: "If held by a Meltan, this item allows it to Mega Evolve in battle.",
+	},
 /*
 	mossysandwich: {
 		name: "Mossy Sandwich",
@@ -70,22 +156,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "BlueRay's stone for the submission sandbox.",
 	},
-*/
-	porygonitez: {
-		name: "Porygonite-Z",
-		spritenum: 578,
-		megaStone: "Porygon-Z-Mega",
-		megaEvolves: "Porygon-Z",
-		itemUser: ["Porygon-Z"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5000,
-		gen: 8,
-		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
-	},
-/*
 	inkbug: {
 		name: "inkbug",
 		spritenum: 578,

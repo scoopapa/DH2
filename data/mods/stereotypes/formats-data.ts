@@ -47,9 +47,74 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-		wesgranit: {
+	wesgranit: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	//Slate 5: Electric, Ghost, Ice
+	storvark: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dullaham: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skappa: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 6: Bug, Normal, Poison
+	magroach: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	resonake: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	clavelye: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
+	whiscamp: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	laopharsi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	spirox: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
+	spincaba: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	jungape: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	nympheral: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	beetilient: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	thermasorb: {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	cosmole : {
+		tier: "OU",
+		doublesTier: "DOU",	
+	},
+	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 };

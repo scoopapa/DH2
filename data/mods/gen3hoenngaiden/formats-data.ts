@@ -1443,7 +1443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "LC",
 	},
 	silvally: {
 		isNonstandard: null,
@@ -1526,6 +1526,91 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	silvallywater: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	golett: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	golurk: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	geodudealola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	graveleralola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	golemalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	croagunk: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	toxicroak: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	crabrawler: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	crabominable: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	starly: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	staravia: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	staraptor: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	stunky: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	skuntank: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	fletchling: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	fletchinder: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	talonflame: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",

@@ -1,6 +1,6 @@
 const bladeMoves = [
-	'aerialace', 'airslash', 'behemothblade', 'cut', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind', 'sacredsword',
-	'secretsword', 'slash', 'xscissor', 'solarblade',
+	'aerialace', 'airslash', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind',
+	'sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade',
 ];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
@@ -1043,12 +1043,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 81,
 	},
 	prehistoricrage: {
-		shortDesc: "This Pokémon can hit Fairy-types with Dragon-type moves.",
+		desc: "This Pokémon's Dragon-type moves' type effectiveness against Fairy is changed to be super effective.",
+		shortDesc: "This Pokémon's Dragon-type moves are super effective against Fairy-types.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Prehistoric Rage');
+			this.add('-message', `${pokemon.name}'s Dragon-type moves are super effective against Fairy-types!`);
+		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
+			if (move.type !== 'Dragon') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Dragon'] = true;
+				(move as any).prehistoricrageBoosted = true;
 			}
 		},
 		name: "Prehistoric Rage",
@@ -1059,29 +1066,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
 		shortDesc: "On entry: type changes to match its first move that's super effective against an adjacent opponent.",
 		onStart(pokemon) {
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-			while (possibleTargets.length) {
-				let rand = 0;
-				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-				const target = possibleTargets[rand];
-				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
-					if (move.category === 'Status') continue;
-					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.getMove(moveSlot.move);
+				if (move.category === 'Status') continue;
+				const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
+				for (const target of pokemon.side.foe.active) {
+					if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
 					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, target) > 0
+						this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) > 0
 					) {
 						this.add('-ability', pokemon, 'Luster Swap');
-						if (!pokemon.setType(moveType)) return false;
+						if (!pokemon.setType(moveType)) continue;
 						this.add('-message', `${pokemon.name} changed its type to match its ${move.name}!`);
 						this.add('-start', pokemon, 'typechange', moveType);
 						return;
 					}
 				}
-				this.add('-ability', pokemon, 'Luster Swap');
-				this.add('-message', `${pokemon.name} can't hit ${(target.illusion ? target.illusion.name : target.name)} super effectively!`);
-				return;
 			}
+			this.add('-ability', pokemon, 'Luster Swap');
+			this.add('-message', `${pokemon.name} can't hit any opponent super effectively!`);
+			return;
 		},
 		name: "Luster Swap",
 		rating: 3,
@@ -1281,51 +1285,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1035,
 	},
-	pickup: {
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (pokemon.item) return;
-			const pickupTargets = [];
-			for (const target of this.getAllActive()) {
-				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
-					pickupTargets.push(target);
-				}
-			}
-			if (!pickupTargets.length) return;
-			const randomTarget = this.sample(pickupTargets);
-			const item = randomTarget.lastItem;
-			randomTarget.lastItem = '';
-			(randomTarget as any).lostItemForDelibird = item;
-			this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Pickup');
-			pokemon.setItem(item);
-		},
-		name: "Pickup",
-		rating: 0.5,
-		num: 53,
-	},
 	spiritofgiving: {
-		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it last held, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief.",
+		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it started with, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief. It doesn't work if the Pokémon is already holding something else.",
 		shortDesc: "Restores the party's used or removed items on switch-in.",
 		name: "Spirit of Giving",
 		onStart(pokemon) {
 			const side = pokemon.side;
 			let activated = false;
 			for (const ally of side.pokemon) {
-				if (ally.item) {
-					continue;
-				}
-				if (ally.lastItem) {
-					const item = ally.lastItem;
-					if (ally.setItem(item)) {
-						if (!activated) {
-							this.add('-ability', pokemon, 'Spirit of Giving');
-						}
-						activated = true;
-						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-						ally.lastItem = '';
-					}
-				} else if ((ally as any).lostItemForDelibird) {
+				if (ally.item) continue;
+				if ((ally as any).lostItemForDelibird) {
 					const item = (ally as any).lostItemForDelibird;
 					if (ally.setItem(item)) {
 						if (!activated) {
@@ -1333,7 +1302,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 						activated = true;
 						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
-						(ally as any).lostItemForDelibird = '';
 					}
 				}
 			}
@@ -1434,11 +1402,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1040,
 	},
-	awinterstale: {
+	winterstale: {
 		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "Damage of Ice moves used on consecutive turns is increased, max 1.5x (2x in Hail).",
 		onStart(pokemon) {
-			pokemon.addVolatile('awinterstale');
+			pokemon.addVolatile('winterstale');
 		},
 		condition: {
 			onStart(pokemon) {
@@ -1469,7 +1437,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		name: "A Winter's Tale",
+		name: "Winter's Tale",
 		rating: 4,
 		num: -1041,
 	},
@@ -1859,7 +1827,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 
 				this.add('-message', `${this.effectData.source.name}'s ${move.name} took effect!`);
-				data.target.removeVolatile('Protect');
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -1872,12 +1839,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					data.moveData.stab = 2;
 				}
 				data.moveData.isFutureMove = true;
+				delete data.moveData.flags['contact'];
+				delete data.moveData.flags['protect'];
 
 				if (move.category === 'Status') {
 					this.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-					if (data.source.hp) {
+					if (data.source.isActive) {
 						this.add('-anim', data.source, hitMove, data.target);
 					}
 					this.trySpreadMoveHit([data.target], data.source, hitMove);
@@ -1907,10 +1876,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
-				this.add('-ability', target, 'Mole-a-Whac');
-				this.hint(`${target.name}'s Attack boosts were reset!`);
-				target.setBoost({atk: 0});
-				this.add('-clearboost', target, 'atk', '[silent]');
+				const moleawhacBoost: SparseBoostsTable = {};
+				moleawhacBoost.atk = -1 * target.boosts['atk'];
+				this.boost(moleawhacBoost, target, target);
 				target.addVolatile('moleawhac');
 			}
 		},
@@ -2079,9 +2047,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onAnyDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
 					if (this.effectData.damage) {
-						this.effectData.damage += damage;
+						if (target.hp <= damage) {
+							this.effectData.damage += target.hp;
+						} else {
+							this.effectData.damage += damage;
+						}
 					} else {
-						this.effectData.damage = damage;
+						if (target.hp <= damage) {
+							this.effectData.damage = target.hp;
+						} else {
+							this.effectData.damage = damage;
+						}
 					}
 					this.effectData.lit = true;
 				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectData.target) {

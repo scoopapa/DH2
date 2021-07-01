@@ -5303,7 +5303,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	tapulele: {
 		randomBattleMoves: ["moonblast", "psychic", "psyshock", "calmmind", "focusblast", "hiddenpowerfire", "taunt"],
 		randomDoubleBattleMoves: ["moonblast", "psychic", "dazzlinggleam", "focusblast", "protect", "taunt"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	tapubulu: {
@@ -5402,7 +5402,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	magearna: {
 		randomBattleMoves: ["shiftgear", "ironhead", "calmmind", "fleurcannon", "flashcannon", "thunderbolt", "focusblast"],
 		randomDoubleBattleMoves: ["dazzlinggleam", "flashcannon", "protect", "trickroom", "fleurcannon", "aurasphere", "voltswitch"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 	},
 	magearnaoriginal: {
@@ -5443,7 +5443,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rillaboommega: {
-		randomBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
+		randomBattleMoves: ["grassyglide", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
 		randomDoubleBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
 		tier: "OU",
 		doublesTier: "DOU",

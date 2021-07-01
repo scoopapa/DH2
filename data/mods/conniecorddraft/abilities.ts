@@ -331,4 +331,243 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		desc: "If another Pokémon is poisoned, heals 1/2 the damage taken from that poison.",
 	},
+	
+	//Misc
+	returnfire: {
+		name: "Return Fire",
+		num: -1016,
+		desc: "When this Pokemon is targeted by a ballistic move, attacker loses 1/8 max HP.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['bullet']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	thorngrowth: {
+		name: "Thorn Growth",
+		num: -1018,
+		desc: "On entry, summons a room that turns contact moves into 1/4 recoil moves for 5 turns.",
+		pseudoWeather: 'thorngrowth',
+		onStart(source) {
+			this.field.addPseudoWeather('thorngrowth');
+		},
+		condition: {
+			duration: 5,
+			onStart(side, source) {
+				this.add('-fieldstart', 'ability: Thorn Growth', '[of] ' + source);
+			},
+			onModifyMove(move) {
+				if (move.flags['contact'] && !move.recoil) {
+					move.recoil = [25, 100];
+				}
+			},
+			onEnd() {
+				this.add('-fieldend', 'ability: Thorn Growth');
+			},
+		},
+	},
+	arborous: {
+		name: "Arborous",
+		num: -1019,
+		desc: "This Pokemon is immune to Bug and Flying when over 1/2 max HP.",
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Bug' || move.type === 'Flying') && (target.hp > target.maxhp/2)) {
+				this.add('-immune', target, '[from] ability: Arborous');
+				return null;
+			}
+		},
+	},
+	figurehead: {
+		desc: "This Pokémon moves first in its priority bracket when it is the target of a super effective attack.",
+		shortDesc: "Moves first in its priority bracket when targeted with a super effective attack.",
+		onUpdate(pokemon) { // if this doesn't work, replace with onUpdate - trying to avoid checking 500 times since it shouldn't need to change mid-turn
+			for (const attacker of pokemon.side.foe.active) {
+				if (!attacker || attacker.fainted) continue;
+				const action = this.queue.willMove(attacker);
+				if (!action) return;
+				const move = this.dex.getMove(action.move);
+				if (move.category === 'Status') continue;
+				const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+				if (!target) return; // unfortunately not sure how to make this play nice with doubles ._. that feels like the biggest obstacle
+				const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+				if (
+					this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+					move.ohko
+				) {
+					pokemon.addVolatile('figurehead');
+					return;
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Figurehead');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		name: "Figurehead",
+		rating: 3,
+		num: -1020,
+	},
+	saturation: {
+		name: "Saturation",
+		num: -1021,
+		shortDesc: "Takes 1/2 damage from poisoned foes.",
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (source && (source.status === 'psn' || source.status === 'tox')) {
+				mod /= 2;
+			}
+			return this.chainModify(mod);
+		},
+	},
+	jester: {
+		name: "Jester",
+		desc: "Moves of 60 or less power: +1 priority. Dark-types are immune.",
+		num: -1022,
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move && move.category !== 'Status' && move.basePower <= 60) {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+	},
+	bananatrap: {
+		name: "Banana Trap",
+		desc: "Prevents adjacent opposing Grass-types from choosing to switch.",
+		num: -1023,
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Grass')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+	},
+	trickster: {
+		name: "Trickster",
+		desc: "Status moves have -1 priority but are used twice.",
+		num: -1024,
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				return priority - 1;
+			}
+		},
+		onBeforeMove(target, source, move) {
+			if (move.category === 'Status') {
+				//this.add('-activate', source, 'ability: Trickster');
+				this.useMove(move, target, source);
+			}
+		},
+	},
+	arcaneswitch: {
+		name: "Arcane Switch",
+		desc: "If Cobroom: Changes to Alchemist form before using Poison move; to Sorcerer before using Dark move.",
+		num: -1025,
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Cobroom' || attacker.transformed) return;
+			if (move.type !== 'Poison' && move.type !== 'Dark') return;
+			const targetForme = (move.type === 'Poison' ? 'Cobroom' : 'Cobroom-Sorcerer');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
+		},
+		isPermanent: true,
+	},
+	truegrowth: {
+		name: "True Growth",
+		isPermanent: true,
+		desc: "If Cozminea: Changes to True form after using Hyperspace Hole.",
+		num: -1026,
+		onSourceAfterMoveSecondary(target, source, move) {
+			if (move.id !== 'hyperspacehole' || source.species.baseSpecies !== 'Cozminea' || source.transformed) return;
+			if (source.species.name !== 'Cozminea-True') { 
+				source.formeChange('Cozminea-True', this.effect, true, '[silent]');
+				this.add('-message', `${source.name} revealed its true forme!`);
+				const species = this.dex.getSpecies(source.species.name);
+				const abilities = species.abilities;
+				const baseStats = species.baseStats;
+				const type = species.types[0];
+				if (species.types[1]) {
+					const type2 = species.types[1];
+					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				} else {
+					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				}
+			}
+		},
+	},
+	//thanks Kero!
+	befriend: {
+		name: "Befriend",
+		isPermanent: true,
+		desc: "If Fauxrend: Changes to Nightmare form before using SE move; to Daydream before using NVE move or switching out.",
+		num: -1027,
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Fauxrend' || attacker.transformed) return;
+			if (defender.runEffectiveness(move) == 0) return;
+			const targetForme = (defender.runEffectiveness(move) < 0 ? 'Fauxrend' : 'Fauxrend-Nightmare');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+	},
+	
+	gulpmissile: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging', 'abysseelgulping', 'abysseelgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping' || target.species.id === 'abysseelgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange(target.species.baseSpecies, move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				(source.species.name === 'Cramorant' || source.species.name === 'Abysseel') && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'gorging' : 'gulping';
+				source.formeChange(source.species.name + forme, effect);
+			}
+		},
+	},
+	
+	twopressured: {
+		name: "Two Pressured",
+		desc: "This Pokemon's water moves have -1 priority, but hit twice at 2/3 power.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Water') {
+				return priority - 1;
+			}
+		},
+		onPrepareHit(source, target, move) {
+			if (move.multihit) return;
+			if (move.type === 'Water' && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Water') return this.chainModify(2/3);
+		},
+	},
 };

@@ -1,12 +1,12 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-/*
+	// Wind Blaster could need testing.
 	windblaster: {
 		id: "windblaster",
 		name: "Wind Blaster",
 		shortDesc: "This Pokemon blocks non-contact Flying-type moves and Whirlwind and bounces them back to the user.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (target === source || move.hasBounced || move.type !== 'Flying') {
+			if (target === source || move.hasBounced || move.flags['contact'] || (move.type !== 'Flying' && move.id !== 'whirlwind')) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target.side === source.side || move.hasBounced || move.type !== 'Flying') {
+			if (target.side === source.side || move.hasBounced || move.flags['contact'] || (move.type !== 'Flying' && move.id !== 'whirlwind')) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
@@ -29,7 +29,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			duration: 1,
 		},
 	},
-*/
+
 	piercingvision: {
 		id: "piercingvision",
 		onModifyMovePriority: -5,
@@ -77,12 +77,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Deep Sea",
 		rating: 3,
 	},
-/*
+	//Same for Patience.
 	patience: {
 		id: "patience",
 		shortDesc: "This Pokemon takes 50% damage from moves if it hasn't moved yet.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Patience weaken');
 				return this.chainModify(0.5);
 			}
@@ -90,7 +90,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Patience",
 		rating: 3.5,
 	},
-	*/
+	
 	prowess: {
 		id: "prowess",
 		shortDesc: "This Pokemon's SpA goes up by 1 stage after a KO.",
@@ -183,36 +183,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Venom Vision",
 		rating: 2,
 	},
-	hotheaded: {
-		id: "hotheaded",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Hot-Headed",
-		rating: 0.1,
-	},
-	thoughtful: {
-		id: "thoughtful",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Thoughtful",
-		rating: 0.1,
-	},
-	stonehouse: {
-		id: "stonehouse",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Stone House",
-		rating: 0.1,
-	},
-	treetopper: {
-		id: "treetopper",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Tree-Topper",
-		rating: 0.1,
-	},
-	earthshaker: {
-		id: "earthshaker",
-		shortDesc: "Placeholder, does nothing right now.",
-		name: "Earth Shaker",
-		rating: 0.1,
-	},
 	terraformer: {
 		shortDesc: "Removes terrains upon switch-in.",
 		onSwitchInPriority: 6,
@@ -272,5 +242,117 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "gunkconsumer",
 		name: "Gunk Consumer",
 	},
-	// uncoded with no base code: Stone House, Thoughtful, Tree-Topper, Hot-Headed, Earth Shaker
+	/*
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Earth Shaker",
+		rating: 0.1,
+	},
+	*/
+	earthshaker: {
+		id: "earthshaker",
+		shortDesc: "This Pokemon's Ground moves deal 1.5x damage if it was damaged earlier in the turn.",
+		//Currently this buffs the Ground moves if it attacks the attacker rather than if it attacks anything.
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				const damagedByTarget = attacker.attackedBy.some(
+					p => p.source === defender && p.damage > 0 && p.thisTurn
+				);
+				if (damagedByTarget) {
+					this.debug('Earth Shaker boost for getting hit by ' + defender);
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				const damagedByTarget = attacker.attackedBy.some(
+					p => p.source === defender && p.damage > 0 && p.thisTurn
+				);
+				if (damagedByTarget) {
+					this.debug('Earth Shaker boost for getting hit by ' + defender);
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Earth Shaker",
+		rating: 3.5,
+	}, 
+	
+	/*
+	hotheaded: {
+		id: "hotheaded",
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Hot-Headed",
+		rating: 0.1,
+	},
+	*/
+	hotheaded: {
+		onDamagingHit(damage, target, source, effect) {
+			target.addVolatile('gmaxchistrike');
+		},
+		name: "Hot-Headed",
+		rating: 3.5,
+	},
+	thoughtful: {
+		id: "thoughtful",
+		shortDesc: "Placeholder, does nothing right now.",
+		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team. 
+		onStart(pokemon) {
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (!pokemon.side.pokemon[i]) continue;
+				if (!pokemon.side.pokemon[i].fainted) break;
+			}
+			
+			if (!pokemon.side.pokemon[i]) return;
+			let chosenTeammate = pokemon.side.pokemon[i];
+			if (pokemon === chosenTeammate) return;
+			if (chosenTeammate.species.num === 493 || chosenTeammate.species.num === 773) return;
+			
+			let newBaseTypes = chosenTeammate.getTypes().filter(type => type !== '???');
+			if (!newBaseTypes.length) return;
+			this.add('-start', pokemon, 'typechange', '[from] ability: Thoughtful');
+			pokemon.setType(newBaseTypes);
+		},
+		*/
+		name: "Thoughtful",
+		rating: 0.1,
+	},
+	stonehouse: {
+		id: "stonehouse",
+		shortDesc: "Placeholder, does nothing right now.",
+		/* shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// I'm not sure if getting this ability with stealth rock on your side of the field activates it or if you're immune to Stealth Rock damage, but this should suffice.
+			if (pokemon.side.getSideCondition('stealthrock') && this.effectData.switchingIn) {
+				this.boost({def: 2});
+			}
+		},
+		*/
+		name: "Stone House",
+		rating: 0.1,
+	},
+	treetopper: {
+		id: "treetopper",
+		shortDesc: "Placeholder, does nothing right now.",
+		/* shortDesc: "When this ability is active, all Pokemon are treated as if under Telekinesis.",
+			onStart(pokemon) {
+				this.add('-ability', pokemon, 'Tree-Topper');
+			},
+			onAccuracyPriority: -1,
+			onAnyAccuracy(accuracy, target, source, move) {
+				if (move && !move.ohko && !this.field.getPseudoWeather('gravity') && !(['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) || target.baseSpecies.name === 'Gengar-Mega' || target.volatiles['smackdown'] || target.volatiles['ingrain'])) return true;
+			},
+			// Airborneness implemented under scripts/pokemon.
+		*/
+		name: "Tree-Topper",
+		rating: 0.1,
+	},
 };
