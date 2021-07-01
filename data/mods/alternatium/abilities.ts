@@ -34,9 +34,8 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onSourceAfterFaint(source) {
-			const newType = target.getTypes().join();
-			if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+		onSourceAfterFaint(source, target) {
+			if (!newType || source.getTypes().join() === newType || !target.setType(newType)) return;
 				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Power of Alchemy');
 			/*source.setType(type)
 			this.add('-start', target, 'typechange', type);*/
