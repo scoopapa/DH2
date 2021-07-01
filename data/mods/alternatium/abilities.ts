@@ -178,4 +178,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1001,
 	},
+	rarecold: {
+		onSourceModifyDamage(damage, source, target) {
+			if (this.queue.willMove(target)) {
+				this.debug('Rare Cold weaken');
+				return this.chainModify(0.5);
+			}
+			this.debug('Rare Cold NOT boosted');
+			return this.chainModify;
+		},
+		name: "Rare Cold",
+		shortDesc: "User takes halved damage if user moves before the target.",
+		rating: 0,
+		num: 1002,
+	},
 };
