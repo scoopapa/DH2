@@ -45,9 +45,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(pokemon) {
 				this.add('-singleturn', pokemon, 'move: Behemoth Bash');
 			},
-			onHit(pokemon, source, move) {
+			onDamagingHit(damage, target, source, move) {
 				if (move.flags['contact']) {
-					this.boost({atk: -2}, source, target, this.dex.getActiveMove("Behemoth Bash"));
+					this.boost({atk: -2}, source, target, null, true);
 				}
 			},
 		},
