@@ -48,6 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onDamagingHit(damage, target, source, move) {
 				if (move.flags['contact']) {
 					this.boost({atk: -2}, source, target, null, true);
+					this.add('-activate', target, 'move: Behemoth Bash');
 				}
 			},
 		},
