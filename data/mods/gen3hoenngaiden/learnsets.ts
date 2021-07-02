@@ -906,6 +906,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sunnyday: ["3L1"],
 			superfang: ["3L1"],
 			swagger: ["3L1"],
+			swordsdance: ["3L1"],
 			taunt: ["3L1"],
 			thief: ["3L1"],
 			thunderpunch: ["3L1"],
