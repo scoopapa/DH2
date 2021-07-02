@@ -863,6 +863,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleteam: ["3L1"],
 			dynamicpunch: ["3L1"],
 			earthquake: ["3L1"],
+			encore: ["3L1"],
 			endure: ["3L1"],
 			facade: ["3L1"],
 			feintattack: ["3L1"],
