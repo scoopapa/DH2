@@ -122,6 +122,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			aerialace: ["3M"],
 			attract: ["3M"],
+			batonpass: ["3M"],
 			brickbreak: ["3M"],
 			cut: ["3M"],
 			dig: ["3M"],
