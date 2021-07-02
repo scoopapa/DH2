@@ -30,7 +30,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	pikachu: {
-		num: 25,
+		num: 1019,
 		name: "Pikachu",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 65, atk: 55, def: 70, spa: 50, spd: 75, spe: 90},
@@ -40,7 +40,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 	},
 	pikachurockstar: {
-		num: 25,
+		num: 1020,
 		name: "Pikachu-Rock-Star",
 		types: ["Electric", "Steel"],
 		gender: "F",
@@ -51,7 +51,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachubelle: {
-		num: 25,
+		num: 1021,
 		name: "Pikachu-Belle",
 		types: ["Ice", "Fairy"],
 		gender: "F",
@@ -62,7 +62,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachuidol: {
-		num: 25,
+		num: 1022,
 		name: "Pikachu-Idol",
 		types: ["Electric", "Fairy"],
 		gender: "F",
@@ -73,7 +73,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachuphd: {
-		num: 25,
+		num: 1023,
 		name: "Pikachu-PhD",
 		types: ["Electric", "Psychic"],
 		gender: "F",
@@ -84,7 +84,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachulibre: {
-		num: 25,
+		num: 1024,
 		name: "Pikachu-Libre",
 		types: ["Fighting", "Dark"],
 		gender: "F",
@@ -95,7 +95,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachupartner: {
-		num: 25,
+		num: 1025,
 		name: "Pikachu-Partner",
 		types: ["Electric", "Rock"],
 		gender: "M",
@@ -106,7 +106,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	pikachustarter: {
-		num: 25,
+		num: 1026,
 		name: "Pikachu-Starter",
 		types: ["Electric"],
 		baseStats: {hp: 85, atk: 90, def: 60, spa: 105, spd: 75, spe: 125},
@@ -213,7 +213,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	dugtrio: {
-		num: 51,
+		num: 1043,
 		name: "Dugtrio",
 		types: ["Ground", "Dark"],
 		baseStats: {hp: 75, atk: 110, def: 90, spa: 45, spd: 90, spe: 135},
@@ -223,7 +223,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	dugtrioalola: {
-		num: 51,
+		num: 1044,
 		name: "Dugtrio-Alola",
 		types: ["Ground", "Steel"],
 		baseStats: {hp: 45, atk: 105, def: 150, spa: 55, spd: 55, spe: 105},
@@ -395,7 +395,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Flying", "Field"],
 	},
 	muk: {
-		num: 89,
+		num: 1045,
 		name: "Muk",
 		types: ["Poison", "Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
@@ -405,7 +405,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	mukoilslick: {
-		num: 89,
+		num: 1046,
 		name: "Muk-Oilslick",
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 105, atk: 115, def: 80, spa: 65, spd: 100, spe: 65},
@@ -1003,7 +1003,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		battleOnly: "Cherrim",
 	},
 	rotom: {
-		num: 479,
+		num: 1037,
 		name: "Rotom",
 		types: ["Electric", "Ghost"],
 		gender: "N",
@@ -1014,7 +1014,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	rotomheat: {
-		num: 479,
+		num: 1038,
 		name: "Rotom-Heat",
 		types: ["Fire", "Fairy"],
 		gender: "N",
@@ -1025,7 +1025,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	rotomwash: {
-		num: 479,
+		num: 1039,
 		name: "Rotom-Wash",
 		types: ["Water", "Steel"],
 		gender: "N",
@@ -1036,7 +1036,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	rotomfrost: {
-		num: 479,
+		num: 1040,
 		name: "Rotom-Frost",
 		types: ["Ice", "Fighting"],
 		gender: "N",
@@ -1047,7 +1047,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	rotomfan: {
-		num: 479,
+		num: 1041,
 		name: "Rotom-Fan",
 		types: ["Flying", "Steel"],
 		gender: "N",
@@ -1058,7 +1058,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	rotommow: {
-		num: 479,
+		num: 1042,
 		name: "Rotom-Mow",
 		types: ["Grass", "Psychic"],
 		gender: "N",
@@ -1157,7 +1157,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Water 2"],
 	},
 	darmanitan: {
-		num: 555,
+		num: 1027,
 		name: "Darmanitan",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 105, atk: 140, def: 75, spa: 50, spd: 75, spe: 95},
@@ -1167,7 +1167,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	darmanitanzen: {
-		num: 555,
+		num: 1028,
 		name: "Darmanitan-Zen",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 135, atk: 40, def: 115, spa: 90, spd: 125, spe: 5},
@@ -1177,7 +1177,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	darmanitangalar: {
-		num: 555,
+		num: 1029,
 		name: "Darmanitan-Galar",
 		types: ["Ice", "Rock"],
 		baseStats: {hp: 80, atk: 135, def: 105, spa: 95, spd: 50, spe: 105},
@@ -1187,7 +1187,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	darmanitangalarzen: {
-		num: 555,
+		num: 1030,
 		name: "Darmanitan-Galar-Zen",
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 105, atk: 80, def: 55, spa: 80, spd: 90, spe: 140},
@@ -1651,7 +1651,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Mineral"],
 	},
 	aegislash: {
-		num: 681,
+		num: 1031,
 		name: "Aegislash",
 		types: ["Ghost", "Fighting"],
 		baseStats: {hp: 60, atk: 140, def: 50, spa: 140, spd: 50, spe: 60},
@@ -1661,7 +1661,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Mineral"],
 	},
 	gourgeist: {
-		num: 711,
+		num: 1032,
 		name: "Gourgeist",
 		baseForme: "Average",
 		types: ["Ghost", "Grass"],
@@ -1939,7 +1939,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		battleOnly: "Wishiwashi",
 	},
 	silvally: {
-		num: 773,
+		num: 1001,
 		name: "Silvally",
 		types: ["Normal"],
 		gender: "N",
@@ -1949,7 +1949,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallybug: {
-		num: 773,
+		num: 1002,
 		name: "Silvally-Bug",
 		types: ["Bug"],
 		gender: "N",
@@ -1959,7 +1959,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallydark: {
-		num: 773,
+		num: 1003,
 		name: "Silvally-Dark",
 		types: ["Dark"],
 		gender: "N",
@@ -1969,7 +1969,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallydragon: {
-		num: 773,
+		num: 1004,
 		name: "Silvally-Dragon",
 		types: ["Dragon"],
 		gender: "N",
@@ -1979,7 +1979,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyelectric: {
-		num: 773,
+		num: 1005,
 		name: "Silvally-Electric",
 		types: ["Electric"],
 		gender: "N",
@@ -1989,7 +1989,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyfairy: {
-		num: 773,
+		num: 1006,
 		name: "Silvally-Fairy",
 		types: ["Fairy"],
 		gender: "N",
@@ -1999,7 +1999,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyfighting: {
-		num: 773,
+		num: 1007,
 		name: "Silvally-Fighting",
 		types: ["Fighting"],
 		gender: "N",
@@ -2009,7 +2009,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyfire: {
-		num: 773,
+		num: 1008,
 		name: "Silvally-Fire",
 		types: ["Fire"],
 		gender: "N",
@@ -2019,7 +2019,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyflying: {
-		num: 773,
+		num: 1009,
 		name: "Silvally-Flying",
 		types: ["Flying"],
 		gender: "N",
@@ -2029,7 +2029,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyghost: {
-		num: 773,
+		num: 1010,
 		name: "Silvally-Ghost",
 		types: ["Ghost"],
 		gender: "N",
@@ -2039,7 +2039,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallygrass: {
-		num: 773,
+		num: 1011,
 		name: "Silvally-Grass",
 		types: ["Grass"],
 		gender: "N",
@@ -2049,7 +2049,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyground: {
-		num: 773,
+		num: 1012,
 		name: "Silvally-Ground",
 		types: ["Groudon"],
 		gender: "N",
@@ -2059,7 +2059,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyice: {
-		num: 773,
+		num: 1013,
 		name: "Silvally-Ice",
 		types: ["Ice"],
 		gender: "N",
@@ -2069,7 +2069,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallypoison: {
-		num: 773,
+		num: 1014,
 		name: "Silvally-Poison",
 		types: ["Poison"],
 		gender: "N",
@@ -2079,7 +2079,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallypsychic: {
-		num: 773,
+		num: 1015,
 		name: "Silvally-Psychic",
 		types: ["Psychic"],
 		gender: "N",
@@ -2089,7 +2089,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallyrock: {
-		num: 773,
+		num: 1016,
 		name: "Silvally-Rock",
 		types: ["Rock"],
 		gender: "N",
@@ -2099,7 +2099,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallysteel: {
-		num: 773,
+		num: 1017,
 		name: "Silvally-Steel",
 		types: ["Steel"],
 		gender: "N",
@@ -2109,7 +2109,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 	},
 	silvallywater: {
-		num: 773,
+		num: 1018,
 		name: "Silvally-Water",
 		types: ["Water"],
 		gender: "N",
@@ -2479,7 +2479,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Fairy"],
 	},
 	zacian: {
-		num: 888,
+		num: 1033,
 		name: "Zacian",
 		types: ["Fairy", "Fighting"],
 		gender: "N",
@@ -2489,7 +2489,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 110,
 	},
 	zaciancrowned: {
-		num: 888,
+		num: 1034,
 		name: "Zacian-Crowned",
 		types: ["Fairy", "Steel"],
 		gender: "N",
@@ -2500,7 +2500,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Blue",
 	},
 	zamazenta: {
-		num: 889,
+		num: 1035,
 		name: "Zamazenta",
 		types: ["Fighting"],
 		gender: "N",
@@ -2510,7 +2510,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 210,
 	},
 	zamazentacrowned: {
-		num: 889,
+		num: 1036,
 		name: "Zamazenta-Crowned",
 		types: ["Fighting", "Steel"],
 		gender: "N",
