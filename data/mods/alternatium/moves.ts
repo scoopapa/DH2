@@ -166,12 +166,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyMove(move, source, target) {
 			if (target.getStat('def', false, true) >= target.getStat('spd', false, true)) move.defensiveCategory = 'Special';
 		},
-		onHit(target, source, move) {
-			this.hint(move.defensiveCategory + " Shell Side Arm");
-		},
-		onAfterSubDamage(target, source, move) {
-			this.hint(move.defensiveCategory + " Shell Side Arm");
-		},
 		secondary: {
 			chance: 20,
 			status: 'psn',
