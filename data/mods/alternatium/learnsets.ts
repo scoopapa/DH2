@@ -3668,6 +3668,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swift: ["8M", "7V", "4T", "3T"],
 			tackle: ["8L1", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 			telekinesis: ["7T", "5M"],
+			teleport: ["8L1"],
 			thunderwave: ["8M", "7M", "6M", "5M", "4M", "3T"],
 			toxic: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			triattack: ["8M"],
