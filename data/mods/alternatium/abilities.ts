@@ -48,7 +48,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	quickdraw: {
 		onModifyPriority(priority, source, move) {
 			if (source.activeMoveActions < 2) {
-				priority + 1;
+				this.add('-activate', pokemon, 'ability: Quick Draw');
+				return priority + 1;
 			}
 		},
 		onBasePower(basePower, source, move) {
