@@ -46,14 +46,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 223,
 	},*/
 	quickdraw: {
-		onModifyPriority(priority, source, target, move) {
-			if (source.activeMoveActions = 1) {
-				return priority + 1;
+		onModifyPriority(priority, source, move) {
+			if (source.activeMoveActions < 2) {
+				priority + 1;
 			}
 		},
 		onBasePower(basePower, source, move) {
-			if (source.activeMoveActions = 1) {
-				return this.chainModify(0.75);
+			if (source.activeMoveActions < 2) {
+				this.chainModify(0.75);
 			}
 		},
 		name: "Quick Draw",
