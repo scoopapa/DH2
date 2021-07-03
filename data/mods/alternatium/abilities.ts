@@ -51,7 +51,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority + 1;
 			}
 		},
-		onBasePower(basePower, attacker, defender, move) {
+		onBasePower(basePower, source, move) {
 			if (source.activeMoveActions = 1) {
 				return this.chainModify(0.75);
 			}
