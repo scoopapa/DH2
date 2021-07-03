@@ -102,7 +102,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	rapidashgalar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	slowbro: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -119,7 +119,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	farfetchd: {
+	/*farfetchd: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

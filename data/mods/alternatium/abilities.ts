@@ -45,6 +45,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 223,
 	},*/
+	quickdraw: {
+		onModifyPriority(priority, source, target, move) {
+			if (pokemon.activeMoveActions = 1) {
+				return priority + 1;
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (pokemon.activeMoveActions = 1) {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Quick Draw",
+		rating: 2.5,
+		num: 259,
+	},
 	rkssystem: {
 		onStart(pokemon) {
 			if (pokemon.species.id === 'silvally') {

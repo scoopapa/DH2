@@ -3316,6 +3316,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	slowbro: {
 		learnset: {
+			earthquake: ["8L1"],
+			earthpower: ["8L1"],
+			stealthrock: ["8L1"],
+			rapidspin: ["8L1"],
+			scorchingsands: ["8L1"],
 			aerialace: ["7M", "6M", "5M"],
 			afteryou: ["7T", "6T", "5T"],
 			amnesia: ["8M", "8L27", "8V", "7L43", "7V", "6L43", "5L43", "4L47", "3L36"],
@@ -3551,6 +3556,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	slowking: {
 		learnset: {
+			healbell: ["8L1"],
+			voltswitch: ["8L1"],
+			discharge: ["8L1"],
+			risingvoltage: ["8L1"],
+			thunderbolt: ["8L1"],
+			thunder: ["8L1"],
 			afteryou: ["7T", "6T", "5T"],
 			allyswitch: ["7T"],
 			amnesia: ["8M", "8L27"],
@@ -3675,6 +3686,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	slowkinggalar: {
 		learnset: {
+			toxic: ["8L1"],
+			toxicspikes: ["8L1"],
+			corrosivegas: ["8L1"],
+			darkpulse: ["8L1"],
 			acid: ["8L1"],
 			amnesia: ["8M", "8L27"],
 			attract: ["8M"],
@@ -3694,7 +3709,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			earthquake: ["8M"],
 			eeriespell: ["8L0"],
 			endure: ["8M"],
-			expandingforce: ["8T"],
 			facade: ["8M"],
 			fireblast: ["8M"],
 			flamethrower: ["8M"],

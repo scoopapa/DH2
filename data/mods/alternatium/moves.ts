@@ -74,6 +74,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	eeriespell: {
+		num: 826,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Eerie Spell",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				if (!target.hp) return;
+				const move = target.lastMove;
+				if (!move || move.isZ || move.isMax) return;
+
+				const ppDeducted = target.deductPP(move.id, 3);
+				if (!ppDeducted) return;
+
+				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+			},
+		},
+		target: "normal",
+		type: "Dark",
+	},
 	floatyfall: {
 		num: 731,
 		accuracy: 95,
@@ -127,6 +152,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cute",
+	},
+	shellsidearm: {
+		num: 801,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Shell Side Arm",
+		shortDesc: "Targets opponent's lowest defensive stat.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (target.getStat('def', false, true) >= target.getStat('spd', false, true)) move.defensiveCategory = 'Special';
+		},
+		onHit(target, source, move) {
+			this.hint(move.defensiveCategory + " Shell Side Arm");
+		},
+		onAfterSubDamage(target, source, move) {
+			this.hint(move.defensiveCategory + " Shell Side Arm");
+		},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	splishysplash: {
 		num: 730,
