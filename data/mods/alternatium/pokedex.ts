@@ -337,7 +337,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Slowbro-Galar",
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 110, spd: 70, spe: 30},
-		abilities: {1: "Regenerator", H: "Quick Draw"},
+		abilities: {0: "Regenerator", H: "Quick Draw"},
 		heightm: 1.6,
 		weightkg: 70.5,
 		eggGroups: ["Monster", "Water 1"],
