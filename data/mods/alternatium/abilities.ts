@@ -60,6 +60,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Quick Draw",
+		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
 		rating: 2.5,
 		num: 259,
 	},
