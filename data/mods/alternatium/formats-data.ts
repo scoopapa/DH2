@@ -467,11 +467,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},*/
-	aegislash: {
+	aegishield: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	aegislashblade: {
+	aegislash: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
