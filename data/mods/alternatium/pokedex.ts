@@ -603,7 +603,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	slowking: {
 		num: 1049,
 		name: "Slowking",
-		types: ["Water", "Psychic"],
+		types: ["Water", "Electric"],
 		baseStats: {hp: 95, atk: 75, def: 75, spa: 90, spd: 135, spe: 30},
 		abilities: {0: "Own Tempo", 1: "Natural Cure", H: "Electric Surge"},
 		heightm: 2,
@@ -613,7 +613,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	slowkinggalar: {
 		num: 1050,
 		name: "Slowking-Galar",
-		types: ["Poison", "Psychic"],
+		types: ["Poison", "Dark"],
 		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 110, spe: 30},
 		abilities: {0: "Sturdy", 1: "Aftermath", H: "Regenerator"},
 		heightm: 1.8,
@@ -2006,7 +2006,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Silvally-Grass",
 		types: ["Grass"],
 		gender: "N",
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
+		baseStats: {hp: 115, atk: 95, def: 95, spa: 95, spd: 95, spe: 105},
 		abilities: {0: "RKS System"},
 		heightm: 2.3,
 		weightkg: 100.5,
