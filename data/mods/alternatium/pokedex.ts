@@ -614,7 +614,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1050,
 		name: "Slowking-Galar",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 110, spe: 30},
+		baseStats: {hp: 95, atk: 55, def: 100, spa: 110, spd: 100, spe: 30},
 		abilities: {0: "Sturdy", 1: "Aftermath", H: "Regenerator"},
 		heightm: 1.8,
 		weightkg: 79.5,
