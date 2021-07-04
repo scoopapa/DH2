@@ -122,6 +122,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			aerialace: ["3M"],
 			attract: ["3M"],
+			batonpass: ["3M"],
 			brickbreak: ["3M"],
 			cut: ["3M"],
 			dig: ["3M"],
@@ -862,6 +863,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleteam: ["3L1"],
 			dynamicpunch: ["3L1"],
 			earthquake: ["3L1"],
+			encore: ["3L1"],
 			endure: ["3L1"],
 			facade: ["3L1"],
 			feintattack: ["3L1"],
@@ -905,6 +907,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sunnyday: ["3L1"],
 			superfang: ["3L1"],
 			swagger: ["3L1"],
+			swordsdance: ["3L1"],
 			taunt: ["3L1"],
 			thief: ["3L1"],
 			thunderpunch: ["3L1"],

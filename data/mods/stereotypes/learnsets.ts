@@ -1633,10 +1633,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swordsdance: ["8L1"],
 			tackle: ["8L1"],
 			takedown: ["8L1"],
-			takedown: ["8L1"],
 			taunt: ["8L1"],
+			thrash: ["8L1"],
 			toxic: ["8L1"],
-			trash: ["8L1"],
 		},
 	},
 	thermasorb: {
