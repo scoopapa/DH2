@@ -603,7 +603,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	slowking: {
 		num: 1049,
 		name: "Slowking",
-		types: ["Water", "Psychic"],
+		types: ["Water", "Electric"],
 		baseStats: {hp: 95, atk: 75, def: 75, spa: 90, spd: 135, spe: 30},
 		abilities: {0: "Own Tempo", 1: "Natural Cure", H: "Electric Surge"},
 		heightm: 2,
