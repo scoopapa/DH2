@@ -476,7 +476,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Steel"],
 		baseStats: {hp: 105, atk: 70, def: 100, spa: 75, spd: 95, spe: 80},
 		abilities: {0: "Poison Touch", H: "Sheer Force"},
+<<<<<<< Updated upstream
 		weightkg: 45,
+=======
+		weightkg: 8,
+>>>>>>> Stashed changes
 	},
 	potossum: {
 		num: 1059,
@@ -484,7 +488,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 115, atk: 45, def: 65, spa: 85, spd: 110, spe: 55},
 		abilities: {0: "Poison Touch", 1: "Huge Power", H: "Dancer"},
+<<<<<<< Updated upstream
 		weightkg: 42,
+=======
+		weightkg: 8,
+>>>>>>> Stashed changes
 	},
 	twygdrasill: {
 		num: 1060,
@@ -492,6 +500,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Dragon"],
 		baseStats: {hp: 81, atk: 112, def: 117, spa: 81, spd: 76, spe: 103},
 		abilities: {0: "Prism Armor"},
+<<<<<<< Updated upstream
 		weightkg: 222,
+=======
+		weightkg: 8,
+>>>>>>> Stashed changes
 	},
 };

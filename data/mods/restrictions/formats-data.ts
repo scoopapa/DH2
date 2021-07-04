@@ -227,7 +227,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+<<<<<<< Updated upstream
 	fluidrake: {
+=======
+		fluidrake: {
+>>>>>>> Stashed changes
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
@@ -239,4 +243,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 };
