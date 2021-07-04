@@ -837,7 +837,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			moonblast: ["8L1"],
 			hypervoice: ["8L1"],
 			dazzlinggleam: ["8L1"],
-			sing: ["8L1"],
 			agility: ["6L45"],
 			attract: ["6M"],
 			brickbreak: ["6M"],
