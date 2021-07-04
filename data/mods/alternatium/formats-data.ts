@@ -135,7 +135,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	mukalola: {
+	mukoilslick: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
