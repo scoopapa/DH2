@@ -11,10 +11,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},	
-	pikachucosplay: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
 	pikachurockstar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -23,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	pikachupopstar: {
+	pikachuidol: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -135,7 +131,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	mukalola: {
+	mukoilslick: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

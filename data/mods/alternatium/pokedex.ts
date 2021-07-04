@@ -2014,7 +2014,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	silvallyground: {
 		num: 1012,
 		name: "Silvally-Ground",
-		types: ["Groudon"],
+		types: ["Ground"],
 		gender: "N",
 		baseStats: {hp: 105, atk: 95, def: 95, spa: 95, spd: 95, spe: 115},
 		abilities: {0: "RKS System"},
