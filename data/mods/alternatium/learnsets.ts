@@ -11199,6 +11199,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hail: ["8M", "7M"],
 			healblock: ["7L1"],
 			heatwave: ["8M", "7T"],
+			hex: ["8L1"],
 			hiddenpower: ["7M"],
 			hyperbeam: ["8M", "7M"],
 			hypervoice: ["8M", "7T"],
