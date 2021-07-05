@@ -105,10 +105,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onAnySwitchOut(target) {
+		onAnySwitchOut(target, source) {
 			if (target.beingCalledBack) {
+				this.add('-activate', source, 'ability: Shadow Tag');
 				this.damage(target.baseMaxhp / 8);
-				this.add('-activate', target, 'ability: Shadow Tag');
 			}
 		},
 		name: "Shadow Tag",
