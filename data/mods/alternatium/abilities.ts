@@ -37,9 +37,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
 			let types = target.types;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Power of Alchemy');
+			if (types && types !== '???' && source.getTypes().join() !== types) {
+				if (!source.setType(types)) return;
+				this.add('-start', source, 'typechange', types, '[from] ability: Power of Alchemy');
 			}
 		},
 		name: "Power of Alchemy",
