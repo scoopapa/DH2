@@ -70,11 +70,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-ability', pokemon, 'Adaptability', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('adaptability');
 				pokemon.baseAbility = 'adaptability';
+				onModifyMove(move) {
+					move.stab = 2;
+					},
 			}
 			else if (pokemon.species.id === 'silvallybug') {
 				this.add('-ability', pokemon, 'Tinted Lens', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('tintedlens');
 				pokemon.baseAbility = 'tintedlens';
+				onModifyDamage(damage, source, target, move) {
+					if (target.getMoveHitData(move).typeMod < 0) {
+						this.debug('Tinted Lens boost');
+						return this.chainModify(2);
+						}
+						},
 			}
 			if (pokemon.species.id === 'silvallydark') {
 				this.add('-ability', pokemon, 'Dark Aura', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -120,6 +129,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-ability', pokemon, 'Grassy Surge', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('grassysurge');
 				pokemon.baseAbility = 'grassysurge';
+				onStart(source) {
+					this.field.setTerrain('grassyterrain');
+					},
 			}
 			if (pokemon.species.id === 'silvallyground') {
 				this.add('-ability', pokemon, 'Sand Force', '[from] ability: RKS System', '[of] ' + pokemon);
