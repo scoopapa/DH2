@@ -106,6 +106,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	shadowtag: {
 		onFoeSwitchOut(pokemon) {
+			this.add('-ability', source, 'Shadow Tag');
 			this.damage(pokemon.baseMaxhp / 8);
 		},
 		name: "Shadow Tag",
