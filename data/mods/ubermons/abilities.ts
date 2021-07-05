@@ -105,13 +105,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onAnySwitchOut(source, target) {
-			if (target.beingCalledBack) {
-				this.add('-activate', source, 'ability: Shadow Tag');
-				this.damage(target.baseMaxhp / 8);
-			else if (source.beingCalledBack} {
-				this.add('-fail', source, 'ability: Shadow Tag');
-			}
+		onFoeSwitchOut(pokemon, target) {
+			this.add('-activate', pokemon, 'ability: Shadow Tag');
+			this.damage(target.baseMaxhp / 8);
 		},
 		name: "Shadow Tag",
 		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
