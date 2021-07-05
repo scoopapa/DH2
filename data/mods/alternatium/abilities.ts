@@ -35,15 +35,8 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onSourceAfterFaintPriority: 1,
-		onSourceAfterFaint(target, source, type) {
+		onSourceAfterFaint(target, source) {
 			let type = target.types;
-			/*if (!newBaseTypes.length) {
-				if (target.addedType) {
-					newBaseTypes = ['Normal'];
-				} else {
-					return false;
-				}
-			}*/
 			source.setType(type);
 		},
 		name: "Power of Alchemy",
