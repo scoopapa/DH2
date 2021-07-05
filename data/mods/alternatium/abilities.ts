@@ -34,10 +34,10 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onSourceModify(target, pokemon) {
+		onModifyType(source, target) {
 			let newType = target.types;
 			if (target.fainted) {
-				pokemon.setType(newType);
+				source.setType(newType);
 			}
 		},
 		name: "Power of Alchemy",
