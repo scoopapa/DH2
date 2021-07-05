@@ -34,10 +34,11 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onSourceAfterFaintPriority: 1,
-		onSourceAfterFaint(target, pokemon) {
+		onSourceModify(target, pokemon) {
 			let newType = target.types;
-			pokemon.setType(newType);
+			if (target.fainted) {
+				pokemon.setType(newType);
+			}
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
