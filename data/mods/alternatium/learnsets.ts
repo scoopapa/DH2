@@ -588,7 +588,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachubelle: {
 		learnset: {
@@ -822,7 +821,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuidol: {
 		learnset: {
@@ -1058,7 +1056,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuphd: {
 		learnset: {
@@ -1301,7 +1298,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachulibre: {
 		learnset: {
@@ -1535,7 +1531,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachupartner: {
 		learnset: {
@@ -1793,7 +1788,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 7, level: 21, shiny: 1, nature: "Hardy", moves: ["thunderbolt", "quickattack", "thunder", "irontail"], pokeball: "pokeball"},
 			{generation: 8, level: 25, nature: "Hardy", isHidden: false, moves: ["thunderbolt", "quickattack", "irontail", "electroweb", "volttackle"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachustarter: {
 		learnset: {
@@ -2002,7 +1996,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Serious", moves: ["celebrate", "playnice", "thundershock", "quickattack"], pokeball: "cherishball"},
 			{generation: 7, level: 5, perfectIVs: 6, moves: ["thundershock", "tailwhip", "growl"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	raichu: {
 		learnset: {
