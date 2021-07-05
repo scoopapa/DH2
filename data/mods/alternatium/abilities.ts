@@ -44,7 +44,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					return false;
 				}
 			}*/
-			source.types[1] = target.types[0];
+			source.types = target.types;
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
