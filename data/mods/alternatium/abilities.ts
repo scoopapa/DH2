@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source) {
-			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
+			const newBaseTypes = target.getTypes(true).filter(type => type !== '???');
 			if (!newBaseTypes.length) {
 				if (target.addedType) {
 					newBaseTypes = ['Normal'];
@@ -44,7 +44,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					return false;
 				}
 			}
-			this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.add('-start', target, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
 			source.setType(newBaseTypes);
 			source.addedType = target.addedType;
 			source.knownType = target.side === source.side && target.knownType;
