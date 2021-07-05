@@ -38,7 +38,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyFaint() {
 			const type = target.getTypes();
 			this.add('-start', pokemon, 'typechange', newType, '[from] ability: Power of Alchemy');
-			source.setType(type):
+			source.setType(type);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
