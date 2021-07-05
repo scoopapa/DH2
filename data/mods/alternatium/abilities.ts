@@ -34,20 +34,18 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onAnyFaintPriority: 1,
-		onAnyFaint(target, source) {
+		onSourceAfterFaintPriority: 1,
+		onSourceAfterFaint(target, source) {
 			const newBaseTypes = target.getTypes(true).filter(type => type !== '???');
-			if (!newBaseTypes.length) {
+			/*if (!newBaseTypes.length) {
 				if (target.addedType) {
 					newBaseTypes = ['Normal'];
 				} else {
 					return false;
 				}
-			}
+			}*/
 			this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
 			source.setType(newBaseTypes);
-			source.addedType = target.addedType;
-			source.knownType = target.side === source.side && target.knownType;
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
