@@ -105,11 +105,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onResidual(pokemon) {
-			for (const pokemon of pokemon.side.foe.active) {
-				if (pokemon.beingCalledBack) {
-					pokemon.damage(pokemon.baseMaxhp / 8);
-				}
+		onResidual(target) {
+			let target = pokemon.side.foe.active;
+			if (target.beingCalledBack) {
+				target.damage(target.baseMaxhp / 8);
 			}
 		},
 		name: "Shadow Tag",
