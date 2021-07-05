@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
-			let type = target.types;
+			let types = target.types;
 			source.setType(type);
 		},
 		name: "Power of Alchemy",
