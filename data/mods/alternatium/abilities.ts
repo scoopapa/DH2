@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
-			for (const newBaseTypee of target.baseSpecies.type);
+			let type = target.types[0];
 			/*if (!newBaseTypes.length) {
 				if (target.addedType) {
 					newBaseTypes = ['Normal'];
@@ -44,8 +44,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					return false;
 				}
 			}*/
-			this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
-			source.setType(newBaseType);
+			source.types[1] = type;
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
