@@ -440,6 +440,20 @@ export const Formats: FormatList = [
 					'Dugtrio-Alola', 'Muk', 'Muk-Oilslick', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Slowking-Galar'
 		],
 		teambuilderFormat: "Alternatium",
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (speciesTable[template.species]) {
+					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom, Silvally & Urshifu formes). ", "You have more than one " + template.baseSpecies + "."];
+				}
+				speciesTable[template.species] = true;
+				if ( template.tier !== 'Alternatium' ) {
+					return [set.species + ' is not useable in Alternatium.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 8] Bench Abilities",
