@@ -87,11 +87,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	vibrava: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Sand Force"},
+		abilities: {0: "Levitate", H: "Arena Trap"},
 	},
 	flygon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Sand Force"},
+		abilities: {0: "Levitate", H: "Arena Trap"},
 	},
 	krookodile: {
 		inherit: true,
