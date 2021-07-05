@@ -108,7 +108,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnySwitchOut(target) {
 			if (target.beingCalledBack) {
 				this.damage(target.baseMaxhp / 8);
-				this.add('-activate', pokemon, 'ability: Shadow Tag');
+				this.add('-activate', target, 'ability: Shadow Tag');
 			}
 		},
 		name: "Shadow Tag",
