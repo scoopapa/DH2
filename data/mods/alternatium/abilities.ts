@@ -35,7 +35,7 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onAnyFaintPriority: 1,
-		onAnyFaint() {
+		onAnyFaint(source, target, type) {
 			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
 			if (!newBaseTypes.length) {
 				if (target.addedType) {
