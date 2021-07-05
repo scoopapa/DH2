@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
-			for (const newBaseTypes of target.hasTypes(true).filter(type => type !== '???'));
+			for (const newBaseTypes of target.baseSpecies.types);
 			if (!newBaseTypes.length) {
 				if (target.addedType) {
 					newBaseTypes = ['Normal'];
