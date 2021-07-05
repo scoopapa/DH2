@@ -1946,7 +1946,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Silvally-Electric",
 		types: ["Electric"],
 		gender: "N",
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
+		baseStats: {hp: 95, atk: 95, def: 115, spa: 105, spd: 95, spe: 95},
 		abilities: {0: "RKS System"},
 		heightm: 2.3,
 		weightkg: 100.5,
