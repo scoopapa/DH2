@@ -34,7 +34,7 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onModifyType(source, target) {
+		onSourceAfterFaint(source, target) {
 			let newType = target.types;
 			if (target.fainted) {
 				source.setType(newType);
