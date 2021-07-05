@@ -37,7 +37,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
 			let types = target.types;
-			source.setType(type);
+			source.setTypes(types);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
