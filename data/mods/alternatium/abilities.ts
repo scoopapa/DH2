@@ -69,9 +69,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.species.id === 'silvally') {
 				this.add('-ability', pokemon, 'Adaptability', '[from] ability: RKS System', '[of] ' + pokemon);
 				pokemon.setAbility('adaptability');
-				pokemon.baseAbility = 'adaptability';
+				//pokemon.baseAbility = 'adaptability';
 				//onModifyMove(move) {
-				move.stab = 2;
+				//move.stab = 2;
 			}
 			else if (pokemon.species.id === 'silvallybug') {
 				this.add('-ability', pokemon, 'Tinted Lens', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -164,7 +164,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'waterabsorb';
 			}
 		},
-		isPermanent: true,
+		isPermanent: null,
 		name: "RKS System",
 		shortDesc: "Ability varies based on the user's type.",
 		rating: 4,
