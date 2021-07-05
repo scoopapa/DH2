@@ -5443,7 +5443,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rillaboommega: {
-		randomBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
+		randomBattleMoves: ["grassyglide", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
 		randomDoubleBattleMoves: ["grassyglide", "junglehealing", "leechseed", "drainpunch", "knockoff", "swordsdance", "uturn"],
 		tier: "OU",
 		doublesTier: "DOU",

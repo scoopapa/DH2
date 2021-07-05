@@ -47,8 +47,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	beatup: {
 		inherit: true,
-		category: "Special",
-		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a major status condition in the user's party, or fails if no Pokemon meet the criteria. For each hit, the damage formula uses the participating Pokemon's base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense; each hit is considered to come from the user.",
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			if (!move.allies?.length) return null;
+			return 10;
+		},
+		onModifyMove(move, pokemon) {
+			pokemon.addVolatile('beatup');
+			move.type = '???';
+			move.category = 'Physical';
+			move.allies = pokemon.side.pokemon.filter(ally => !ally.fainted && !ally.status);
+			move.multihit = move.allies.length;
+		},
+		condition: {
+			duration: 1,
+			onModifyAtkPriority: -101,
+			onModifyAtk(atk, pokemon, defender, move) {
+				this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + move.allies![0].name);
+				this.event.modifier = 1;
+				return move.allies!.shift()!.species.baseStats.atk;
+			},
+			onFoeModifyDefPriority: -101,
+			onFoeModifyDef(def, pokemon) {
+				this.event.modifier = 1;
+				return pokemon.species.baseStats.def;
+			},
+		},
 	},
 	bide: {
 		inherit: true,
@@ -473,10 +497,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
 	gigadrain: {
-		inherit: true,
-		desc: "The user recovers 1/2 the HP lost by the target, rounded down.",
-		pp: 10,
+		num: 202,
+		accuracy: 100,
 		basePower: 75,
+		category: "Special",
+		name: "Giga Drain",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Grass",
 	},
 	glare: {
 		inherit: true,
@@ -1041,6 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			switch (this.field.effectiveWeather()) {
 			case 'sunnyday':
+			case 'desolateland':
 				move.type = 'Fire';
 				move.category = 'Special';
 				break;
@@ -1070,28 +1103,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
-	/*multiattack: {
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		desc: "This move's type depends on the user's held Memory.",
-		shortDesc: "Type varies based on the held Memory.",
-		id: "multiattack",
-		isViable: true,
-		name: "Multi-Attack",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			let type = pokemon.types[0];
-			if (type === "Bird") type = "???";
-			move.type = type;
-		},
-		onModifyMove(move, pokemon) {
-			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.types[0]))
-            move.category = "Special";
-		},
-	},*/
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,

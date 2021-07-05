@@ -65,4 +65,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Slowking, this item allows it to Mega Evolve in battle.",
 	},
+	machampite: {
+		name: "Machampite",
+		spritenum: 578,
+		megaStone: "Machamp-Mega",
+		megaEvolves: "Machamp",
+		itemUser: ["Machamp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1006,
+		gen: 8,
+		desc: "If held by a Machamp, this item allows it to Mega Evolve in battle.",
+	},
 };

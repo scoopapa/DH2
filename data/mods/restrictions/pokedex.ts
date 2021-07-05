@@ -470,4 +470,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Limber", 1: "Natural Cure", H: "Solar Power"},
 		weightkg: 8,
 	},
+	fluidrake: {
+		num: 1058,
+		name: "Fluidrake",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 105, atk: 70, def: 100, spa: 75, spd: 95, spe: 80},
+		abilities: {0: "Poison Touch", H: "Sheer Force"},
+		weightkg: 45,
+	},
+	potossum: {
+		num: 1059,
+		name: "Potossum",
+		types: ["Normal"],
+		baseStats: {hp: 115, atk: 45, def: 65, spa: 85, spd: 110, spe: 55},
+		abilities: {0: "Poison Touch", 1: "Huge Power", H: "Dancer"},
+		weightkg: 42,
+	},
+	twygdrasill: {
+		num: 1060,
+		name: "Twygdrasill",
+		types: ["Grass", "Dragon"],
+		baseStats: {hp: 81, atk: 112, def: 117, spa: 81, spd: 76, spe: 103},
+		abilities: {0: "Prism Armor"},
+		weightkg: 222,
+	},
 };
