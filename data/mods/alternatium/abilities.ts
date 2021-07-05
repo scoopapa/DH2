@@ -44,7 +44,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					return false;
 				}
 			}
-			this.add('-start', target, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
+			this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
 			source.setType(newBaseTypes);
 			source.addedType = target.addedType;
 			source.knownType = target.side === source.side && target.knownType;
