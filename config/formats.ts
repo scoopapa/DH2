@@ -1361,7 +1361,7 @@ export const Formats: FormatList = [
 			'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
 			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 
+			'Moody', 'Power Construct',
 			//Items
 			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Blue Orb', 'Red Orb',
 			//Moves

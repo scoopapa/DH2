@@ -81,4 +81,44 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 125, atk: 80, def: 75, spa: 110, spd: 90, spe: 120},
 	},
+	hippowdon: {
+		inherit: true,
+		abilities: {0: "Sand Stream", 1: "Arena Trap", H: "Sand Force"},
+	},
+	vibrava: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Sand Force"},
+	},
+	flygon: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Sand Force"},
+	},
+	krookodile: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Arena Trap"},
+	},
+	rhyperior: {
+		inherit: true,
+		abilities: {0: "Arena Trap", 1: "Solid Rock", H: "Reckless"},
+	},
+	excadrill: {
+		inherit: true,
+		abilities: {0: "Sand Rush", 1: "Arena Trap", H: "Mold Breaker"},
+	},
+	banette: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Frisk", H: "Cursed Body"},
+	},
+	dusknoir: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Shadow Tag", H: "Frisk"},
+	},
+	cursola: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Perish Body"},
+	},
+	corsolagalar: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Cursed Body"},
+	},
 };

@@ -35,19 +35,19 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
-			if (pokemon.isGrounded()) {
+			if (pokemon.hasType('Ground') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+			if (!pokemon.knownType || pokemon.hasType('Ground')) {
 				pokemon.maybeTrapped = true;
 			}
 		},
 		name: "Arena Trap",
+		shortDesc: "Prevents adjacent Ground-type foes from choosing to switch.",
 		rating: 5,
 		num: 71,
 	},
@@ -105,19 +105,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.hasAbility('shadowtag')) {
-				pokemon.maybeTrapped = true;
+		onSwitchOut(target) {
+			for (const target of pokemon.side.foe.active) {
+				target.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Shadow Tag",
+		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
 		rating: 5,
 		num: 23,
 	},
