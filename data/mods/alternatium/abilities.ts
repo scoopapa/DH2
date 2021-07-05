@@ -33,8 +33,8 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	powerofalchemy: {
-		/*onSourceAfterFaint(source, target) {
+	/*powerofalchemy: {
+		onSourceAfterFaint(source, target) {
 			for (const newType of target.types) {
 				source.setType(newType);
 			}
