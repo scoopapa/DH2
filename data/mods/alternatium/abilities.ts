@@ -37,13 +37,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceAfterFaintPriority: 1,
 		onSourceAfterFaint(target, source) {
 			const newBaseTypes = target.getTypes(true).filter(type => type !== '???');
-			/*if (!newBaseTypes.length) {
+			if (!newBaseTypes.length) {
 				if (target.addedType) {
 					newBaseTypes = ['Normal'];
 				} else {
 					return false;
 				}
-			}*/
+			}
 			this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy', '[of] ' + source);
 			source.setType(newBaseTypes);
 		},
