@@ -197,17 +197,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		isNonstandard: null,
 		name: "Zippy Zap",
-		pp: 10,
+		shortDesc: "Nearly always goes first. Always crits.",
+		pp: 15,
 		priority: 2,
 		flags: {contact: 1, protect: 1},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					evasion: 1,
-				},
-			},
-		},
+		willCrit: true,
+		secondary: null,
 		target: "normal",
 		type: "Electric",
 	},
