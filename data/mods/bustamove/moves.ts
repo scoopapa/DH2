@@ -137,6 +137,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},*/
+	dreameater: {
+		num: 138,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Power doubles if target is asleep.",
+		name: "Dream Eater",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -257,6 +276,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Life Dew",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, authentic: 1},
+		heal: [1, 4],
+		slotCondition: 'lifedew',
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(target.maxhp);
+					target.setStatus('');
+					this.add('-heal', target, target.getHealth, '[from] move: Healing Wish');
+					target.side.removeSlotCondition(target, 'healingwish');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+	},
 	octazooka: {
 		num: 190,
 		accuracy: 85,
@@ -302,6 +346,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
+	},
+	paraboliccharge: {
+		num: 570,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		shortDesc: "User recovers 50% of the damage dealt. Raises the user's Sp. Def by 1.", 
+		name: "Parabolic Charge",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spd: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
 	},
 	razorwind: {
 		num: 13,
