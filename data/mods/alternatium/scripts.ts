@@ -14,6 +14,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.accelerock;
 		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.bulkup;
 		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.irondefense;
+		
+		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bodypress;
+		delete this.modData('Learnsets', 'zamazentacrowned').learnset.uturn;
+		delete this.modData('Learnsets', 'zamazentacrowned').learnset.knockoff;
+		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bulkup;
+		
+		delete this.modData('Learnsets', 'rotomheat').learnset.taunt;
+		delete this.modData('Learnsets', 'rotomwash').learnset.taunt;
+		delete this.modData('Learnsets', 'rotommow').learnset.taunt;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.taunt;
+		delete this.modData('Learnsets', 'rotomfan').learnset.taunt;
+		delete this.modData('Learnsets', 'rotomheat').learnset.recover;
+		delete this.modData('Learnsets', 'rotomwash').learnset.recover;
+		delete this.modData('Learnsets', 'rotommow').learnset.recover;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.recover;
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {
