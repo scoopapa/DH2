@@ -326,7 +326,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1047,
 		name: "Slowbro",
 		types: ["Water", "Ground"],
-		baseStats: {hp: 95, atk: 75, def: 165, spa: 95, spd: 55, spe: 30},
+		baseStats: {hp: 90, atk: 75, def: 165, spa: 95, spd: 55, spe: 30},
 		abilities: {0: "Oblivious", 1: "Shell Armor", H: "Sand Spit"},
 		heightm: 1.6,
 		weightkg: 78.5,
