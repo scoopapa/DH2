@@ -910,7 +910,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 73, atk: 123, def: 97, spa: 123, spd: 97, spe: 113},
 		abilities: {0: "Neuroforce"},
 		weightkg: 223.5,
-		requiredItem: "Depleted Ultranecrozmium Z",
+		requiredItem: "Depleted Ultranecrozium Z",
 		battleOnly: "Noze-Dawn-Wings",
 	},
 	bruxray: {
