@@ -2,8 +2,8 @@
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	tyrantrum: {
+		inherit: true,
 		learnset: {
-			inherit: true,
 			jawlock: ["8L1"],
 		},
 	},
@@ -46,20 +46,20 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 	cleffa: {
+		inherit: true,
 		learnset: {
-			inherit: true,
 			fairywind: ["8L1"],
 		},
 	},
 	clefairy: {
+		inherit: true,
 		learnset: {
-			inherit: true,
 			fairywind: ["8L1"],
 		},
 	},
 	clefable: {
+		inherit: true,
 		learnset: {
-			inherit: true,
 			fairywind: ["8L1"],
 		},
 	},
