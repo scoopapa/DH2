@@ -254,16 +254,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 763,
 		desc: "If held by a Glakiss, this item allows it to Mega Evolve in battle.",
 	},
-	depletedultranecrozmiumz: {
-		name: "Depleted Ultranecrozmium Z",
+	depletedultranecroziumz: {
+		name: "Depleted Ultranecrozium Z",
 		spritenum: 687,
-		megaStone: "Noze-Ultra",
-		megaEvolves: "Noze-Dawn-Wings",
 		itemUser: ["Noze-Dawn-Wings"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: -1001,
 		desc: "If held by a Noze-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
