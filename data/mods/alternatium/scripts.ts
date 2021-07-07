@@ -5,6 +5,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 		//Changes
 		
+		delete this.modData('Learnsets', 'pikachurockstar').learnset.nastyplot;
+		delete this.modData('Learnsets', 'pikachuphd').learnset.nastyplot;
+		
 		delete this.modData('Learnsets', 'darmanitanzen').learnset.crunch;
 		delete this.modData('Learnsets', 'darmanitanzen').learnset.knockoff;
 		delete this.modData('Learnsets', 'darmanitanzen').learnset.psychicfangs;
@@ -25,10 +28,41 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rotommow').learnset.taunt;
 		delete this.modData('Learnsets', 'rotomfrost').learnset.taunt;
 		delete this.modData('Learnsets', 'rotomfan').learnset.taunt;
+		
 		delete this.modData('Learnsets', 'rotomheat').learnset.recover;
 		delete this.modData('Learnsets', 'rotomwash').learnset.recover;
 		delete this.modData('Learnsets', 'rotommow').learnset.recover;
 		delete this.modData('Learnsets', 'rotomfrost').learnset.recover;
+		
+		delete this.modData('Learnsets', 'rotomwash').learnset.painsplit;
+		delete this.modData('Learnsets', 'rotomwash').learnset.willowisp;
+		
+		delete this.modData('Learnsets', 'rotommow').learnset.thunder;
+		delete this.modData('Learnsets', 'rotommow').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'rotommow').learnset.discharge;
+		delete this.modData('Learnsets', 'rotommow').learnset.defog;
+		delete this.modData('Learnsets', 'rotommow').learnset.willowisp;
+		delete this.modData('Learnsets', 'rotommow').learnset.shadowball;
+		delete this.modData('Learnsets', 'rotommow').learnset.hex;
+		delete this.modData('Learnsets', 'rotommow').learnset.voltswitch;
+		delete this.modData('Learnsets', 'rotommow').learnset.thunderwave;
+		
+		delete this.modData('Learnsets', 'rotomfrost').learnset.thunder;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.discharge;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.voltswitch;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.thunderwave;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.charge;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.chargebeam;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.eerieimpulse;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.electricterrain;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.electroball;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.electroweb;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.risingvoltage;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.shockwave;
+		delete this.modData('Learnsets', 'rotomfrost').learnset.thundershock;
+		
+		delete this.modData('Learnsets', 'slowkinggalar').learnset.expandingforce;
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {

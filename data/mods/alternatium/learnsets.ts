@@ -295,14 +295,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachurockstar: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
-			meteormash: ["6R"],
+			volttackle: ["8L1"],
 			overdrive: ["8L1"],
 			boomburst: ["8L1"],
 			earthquake: ["8L1"],
@@ -310,6 +303,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			ironhead: ["8L1"],
 			flashcannon: ["8L1"],
 			stealthrock: ["8L1"],
+			meteormash: ["6R"],
 			agility: ["6L45"],
 			attract: ["6M"],
 			brickbreak: ["6M"],
@@ -368,13 +362,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachubelle: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
 			frostbreath: ["8L1"],
 			iciclecrash: ["6R"],
 			agility: ["6L45"],
@@ -435,17 +422,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachuidol: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
-			drainingkiss: ["6R"],
 			moonblast: ["8L1"],
 			hypervoice: ["8L1"],
 			dazzlinggleam: ["8L1"],
+			sing: ["8L1"],
+			drainingkiss: ["6R"],
 			agility: ["6L45"],
 			attract: ["6M"],
 			brickbreak: ["6M"],
@@ -504,13 +485,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachuphd: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
 			calmmind: ["8L1"],
 			psychic: ["8L1"],
 			psyshock: ["8L1"],
@@ -581,13 +555,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachulibre: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
 			bodypress: ["8L1"],
 			flyingpress: ["6R"],
 			agility: ["6L45"],
@@ -648,13 +615,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachupartner: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
 			powergem: ["8L1"],
 			agility: ["8M", "8L24", "7L45"],
 			attract: ["8M", "7M"],
@@ -738,13 +698,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachustarter: {
 		learnset: {
-			wish: ["8L1"],
-			present: ["8L1"],
-			charge: ["8L1"],
-			fakeout: ["8L1"],
-			flail: ["8L1"],
-			disarmingvoice: ["8L1"],
-			tickle: ["8L1"],
 			agility: ["8V", "7L27"],
 			brickbreak: ["8V", "7M"],
 			calmmind: ["8V", "7M"],
