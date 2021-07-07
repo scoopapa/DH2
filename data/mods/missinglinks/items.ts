@@ -79,4 +79,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Machamp, this item allows it to Mega Evolve in battle.",
 	},
+	venusauritey: {
+		name: "Venusaurite Y",
+		spritenum: 578,
+		megaStone: "Venusaur-Mega-Y",
+		megaEvolves: "Venusaur",
+		itemUser: ["Venusaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
+	},
+	blastoisinitex: {
+		name: "Blastoisinite X",
+		spritenum: 578,
+		megaStone: "Blastoise-Mega-X",
+		megaEvolves: "Blastoise",
+		itemUser: ["Blastoise"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1008,
+		gen: 8,
+		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
+	},
 };
