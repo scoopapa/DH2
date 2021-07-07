@@ -1032,7 +1032,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	roaramp: {
 		fusion: ['Ampharos', 'Incineroar'],
 		num: 77,
-		name: "Dracolix",
+		name: "Roaramp",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 102, atk: 105, def: 97, spa: 107, spd: 100, spe: 67},
 		abilities: {0: "Scarily Adorable"},
