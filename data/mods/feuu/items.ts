@@ -254,7 +254,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 763,
 		desc: "If held by a Glakiss, this item allows it to Mega Evolve in battle.",
 	},
-	depletedultranecroziumz: {
+	depletedultranecrozmiumz: {
 		name: "Depleted Ultranecrozmium Z",
 		spritenum: 687,
 		megaStone: "Noze-Ultra",
