@@ -289,7 +289,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		slotCondition: 'lifedew',
 		condition: {
 			onSwap(target) {
-				if (target.maxhp)) {
+				if (target.maxhp) {
 					target.heal(target.baseMaxhp / 4);
 					this.add('-heal', target, '[from] move: Life Dew');
 					target.side.removeSlotCondition(target, 'lifedew');
