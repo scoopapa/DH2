@@ -615,4 +615,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return damage;
 	},
+	canUltraBurst(pokemon) {
+		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'ultranecroziumz') {
+			return "Necrozma-Ultra";
+		}
+		if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'depletedultranecroziumz') {
+			return "Noze-Ultra";
+		}
+		return null;
+	},
 }; 
