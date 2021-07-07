@@ -202,4 +202,66 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 670,
 		desc: "If held by a Cofazor, this item allows it to Mega Evolve in battle.",
 	},
+	ampharosite: {
+		name: "Ampharosite",
+		spritenum: 580,
+		megaStone: "Roaramp-Mega",
+		megaEvolves: "Roaramp",
+		itemUser: ["Roaramp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 658,
+		desc: "If held by a Roaramp, this item allows it to Mega Evolve in battle.",
+	},
+	steelixite: {
+		name: "Steelixite",
+		spritenum: 621,
+		megaStone: "Dracolix-Mega",
+		megaEvolves: "Dracolix",
+		itemUser: ["Dracolix"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 761,
+		desc: "If held by a Dracolix, this item allows it to Mega Evolve in battle.",
+	},
+	medichamite: {
+		name: "Medichamite",
+		spritenum: 599,
+		megaStone: "Vullacham-Mega",
+		megaEvolves: "Vullacham",
+		itemUser: ["Vullacham"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 665,
+		desc: "If held by a Vullacham, this item allows it to Mega Evolve in battle.",
+	},
+	glalitite: {
+		name: "Glalitite",
+		spritenum: 623,
+		megaStone: "Glakiss-Mega",
+		megaEvolves: "Glakiss",
+		itemUser: ["Glakiss"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 763,
+		desc: "If held by a Glakiss, this item allows it to Mega Evolve in battle.",
+	},
+	ultranecroziumz: {
+		name: "Ultranecrozium Z",
+		spritenum: 687,
+		onTakeItem: false,
+		zMove: "Light That Burns the Sky",
+		zMoveFrom: "Photon Geyser",
+		itemUser: ["Noze-Ultra"],
+		num: 923,
+		desc: "If held by a Noze-Dawn-Wings with Photon Geyser, this item allows it to Ultra Burst and use the Z-Move Light That Burns The Sky.",
+	},
 };
