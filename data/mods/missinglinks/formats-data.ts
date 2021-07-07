@@ -383,4 +383,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	swellow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	taillow: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	blastoisemegax: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	venusaurmegay: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
