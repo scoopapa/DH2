@@ -892,7 +892,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 58.7,
 	},
 	nozedawnwings: {
-		fusion: ['Nosepass', 'Necrozma-Dawn-Wings'],
+		fusion: ['Nosepass', 'Necrozma'],
 		num: 66,
 		name: "Noze-Dawn-Wings",
 		types: ["Psychic", "Rock"],
@@ -901,7 +901,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 223.5,
 	},
 	nozeultra: {
-		fusion: ['Nosepass', 'Necrozma-Dawn-Wings'],
+		fusion: ['Nosepass', 'Necrozma'],
 		num: 66,
 		name: "Noze-Ultra",
 		baseSpecies: "Noze-Dawn-Wings",
