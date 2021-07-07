@@ -80,6 +80,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			inherit: true,
 			razorwind: ["8L1"],
+		},
 	},
 	landorustherian: {
 		eventOnly: true,
@@ -106,16 +107,19 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			inherit: true,
 			razorwind: ["8L1"],
+		},
 	},
 	zapdosgalar: {
 		learnset: {
 			inherit: true,
 			razorwind: ["8L1"],
+		},
 	},
 	moltresgalar: {
 		learnset: {
 			inherit: true,
 			razorwind: ["8L1"],
+		},
 	},
 	celesteela: {
 		learnset: {
@@ -127,6 +131,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			inherit: true,
 			razorwind: ["8L1"],
+		},
 	},
 	arctozolt: {
 		learnset: {
