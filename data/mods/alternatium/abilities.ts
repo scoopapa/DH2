@@ -233,4 +233,36 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1003,
 	},
+	cloudburst: {
+		onPrepareHit(attacker, move) {
+			if (move.type === 'Electric') {
+				this.useMove('raindance', pokemon);
+			}
+		},
+		name: "Cloud Burst",
+		shortDesc: "User summons Rain before executing an Electric-type move.",
+		rating: 0,
+		num: 1004,
+	},
+	packleader: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (!target.newlySwitched || !this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Pack Leader boost');
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Pack Leader",
+		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
+		rating: 0,
+		num: 1005,
+	},
 };
