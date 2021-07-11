@@ -234,7 +234,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1003,
 	},
 	cloudburst: {
-		onPrepareHit(source, target, move) {
+		onBeforeMove(source, target, move) {
 			if (move.type === 'Electric' && !this.field.isWeather('raindance')) {
 				this.useMove('raindance', source);
 			}
