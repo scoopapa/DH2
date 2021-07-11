@@ -1567,7 +1567,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			frustration: ["3L1"],
 			gigaimpact: ["3L1"],
 			growl: ["3L1"],
-			healbell:: ["3L1"],
+			healbell: ["3L1"],
 			helpinghand: ["3L1"],
 			hiddenpower: ["3L1"],
 			hyperbeam: ["3L1"],
