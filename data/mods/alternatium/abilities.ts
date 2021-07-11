@@ -234,9 +234,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1003,
 	},
 	cloudburst: {
-		onPrepareHit(attacker, move) {
+		onBeforeMove(source, move) {
 			if (move.type === 'Electric') {
-				this.useMove('raindance', pokemon);
+				this.useMove('raindance', source);
 			}
 		},
 		name: "Cloud Burst",
