@@ -234,9 +234,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1003,
 	},
 	cloudburst: {
-		onTryHit(source, move) {
+		onBeforeMove(attacker, move) {
 			if (move.type === 'Electric') {
-				this.useMove('raindance', source);
+				this.useMove('raindance', attacker);
 			}
 		},
 		name: "Cloud Burst",
@@ -245,20 +245,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onBasePowerPriority: 21,
-		onBasePower(basePower, pokemon) {
-			let boosted = true;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (!target.newlySwitched || !this.queue.willMove(target)) {
-					boosted = false;
-					break;
-				}
-			}
-			if (boosted) {
+		onModifyAtk(atk, attacker, defender, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Pack Leader boost');
-				return this.chainModify(1.3);
+				return this.chainModify(1.5);
 			}
+			this.debug('Pack Leader NOT boosted');
+			return this.chainModify(1);
 		},
 		name: "Pack Leader",
 		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
