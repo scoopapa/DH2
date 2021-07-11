@@ -379,7 +379,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	tornadustherian: {
+	cummulus: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -395,7 +395,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	landorustherian: {
+	landorusbengal: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
