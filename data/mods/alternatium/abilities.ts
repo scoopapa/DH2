@@ -234,9 +234,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1003,
 	},
 	cloudburst: {
-		onPrepareHit(pokemon, move) {
+		onPrepareHit(source, target, move) {
 			if (move.type === 'Electric') {
-				this.useMove('raindance', pokemon);
+				this.useMove('raindance');
 			}
 		},
 		name: "Cloud Burst",
@@ -248,7 +248,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtk(atk, source, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Pack Leader boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 			this.debug('Pack Leader NOT boosted');
 			return this.chainModify(1);
