@@ -170,6 +170,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'mawile').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'mawile').learnset.foulplay = ['3L1'];
 		this.modData('Learnsets', 'mawile').learnset.suckerpunch = ['3L1'];
+		
+		//Slate 7
+		this.modData('Learnsets', 'girafarig').learnset.willowisp = ['3L1'];
+		this.modData('Learnsets', 'girafarig').learnset.trick = ['3L1'];
+		
+		this.modData('Learnsets', 'piloswine').learnset.slackoff = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
