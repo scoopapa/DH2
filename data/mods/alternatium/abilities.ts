@@ -245,7 +245,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyAtk(atk, attacker, defender, move) {
+		onModifyAtk(atk, source, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Pack Leader boost');
 				return this.chainModify(1.5);
