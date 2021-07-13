@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onAnyFaint(source, target) {
 			const types = target.baseSpecies.types;
-			pokemon.getTypes().join() = types;
+			source.getTypes().join() = types;
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
