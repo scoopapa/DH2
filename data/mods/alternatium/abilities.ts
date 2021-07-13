@@ -36,7 +36,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onAnyFaint(source, target) {
 			const types = source.baseSpecies.types;
-			target.getTypes = types;
+			target.getTypes().join() = types;
 			this.add('-start', target, 'typechange', '[from] ability: Power of Alchemy');
 		},
 		name: "Power of Alchemy",
