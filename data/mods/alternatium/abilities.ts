@@ -34,11 +34,11 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	/*powerofalchemy: {
-		onSourceAfterFaint(source, target, type) {
-			if (!newType || target.getTypes().join() === newType || !source.setType(newType)) return;
-				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Power of Alchemy');
-			/*source.setType(type)
-			this.add('-start', target, 'typechange', type);
+		onSourceAfterFaint(source, target) {
+			let newType = target.types;
+			if (target.fainted) {
+				newType = source.setType;
+			}
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
@@ -157,7 +157,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'waterabsorb';
 			}
 		},
-		isPermanent: true,
+		isPermanent: null,
 		name: "RKS System",
 		shortDesc: "Ability varies based on the user's type.",
 		rating: 4,
@@ -232,5 +232,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "User deal 1.3x damage to trapped targets.",
 		rating: 0,
 		num: 1003,
+	},
+	cloudburst: {
+		onBeforeMove(source, target, move) {
+			if (move.type === 'Electric' && !this.field.isWeather('raindance')) {
+				this.useMove('raindance', source);
+			}
+		},
+		name: "Cloud Burst",
+		shortDesc: "User summons Rain before executing an Electric-type move.",
+		rating: 0,
+		num: 1004,
+	},
+	packleader: {
+		onModifyAtk(atk, source, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Pack Leader boost');
+				return this.chainModify(1.3);
+			}
+			this.debug('Pack Leader NOT boosted');
+			return this.chainModify(1);
+		},
+		name: "Pack Leader",
+		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
+		rating: 0,
+		num: 1005,
 	},
 };
