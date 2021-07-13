@@ -35,11 +35,11 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
 		onSourceAfterFaint(source, target) {
-			const type = source.baseSpecies.types;
-			const types = target.baseSpecies.types;
-			if (source.type !== types) {
-				if (!source.type(types)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Power of Alchemy');
+			const type1 = source.baseSpecies.types;
+			const type2 = target.baseSpecies.types;
+			if (type1 !== type2) {
+				if (!type1(type2)) return;
+				this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy');
 			}
 		},
 		name: "Power of Alchemy",
