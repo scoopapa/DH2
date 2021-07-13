@@ -458,7 +458,91 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+// slate 13
+	sirsola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	nozedawnwings: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	nozeultra: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	bruxray: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	kingdeedee: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	tapukoma: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	hawlazzle: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
+// slate 14
+	whimsilotic: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	vullacham: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	vullachamega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dracolix: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dracolixmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	serpanadel: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	accelest: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	buzzeggutoralola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+// slate 15
+	roaramp: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	roarampmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	glakiss: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	glakissmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	leafdon: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
