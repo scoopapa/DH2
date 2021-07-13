@@ -33,7 +33,7 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	powerofalchemy: {
+	/*powerofalchemy: {
 		onSourceAfterFaint(source, target, types) {
 			const type1 = source.baseSpecies.types;
 			const type2 = target.baseSpecies.types;
@@ -46,7 +46,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
 		rating: 0,
 		num: 223,
-	},
+	},*/
 	quickdraw: {
 		onModifyPriority(priority, source, move) {
 			if (source.activeMoveActions < 1) {
