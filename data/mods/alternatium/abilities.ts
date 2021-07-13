@@ -34,7 +34,7 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		onSourceAfterFaint(source, target) {
+		onSourceAfterFaint(source, target, types) {
 			const type1 = source.baseSpecies.types;
 			const type2 = target.baseSpecies.types;
 			if (type1 !== type2) {
