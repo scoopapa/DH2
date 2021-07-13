@@ -232,11 +232,35 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cosmole : {
 		num: 27,
-		name: "Cosmole ",
+		name: "Cosmole",
 		types: ["Ground", "Psychic"],
 		baseStats: {hp: 95, atk: 80, def: 95, spa: 100, spd: 110, spe: 85},
-		abilities: {0: "Anticipation ", 1: "Tough Claws", H: "Prism Armor"},
+		abilities: {0: "Anticipation", 1: "Tough Claws", H: "Prism Armor"},
 		weightkg: 24.9,
 	},
 	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
+	slashowa: {
+		num: 28,
+		name: "Slashowa",
+		types: ["Dark", "Normal"],
+		baseStats: {hp: 70, atk: 55, def: 70, spa: 115, spd: 65, spe: 115},
+		abilities: {0: "Soundproof", 1: "Technician", H: "Punk Rock"},
+		weightkg: 81,
+	},
+	fluormingo: {
+		num: 29,
+		name: "Fluormingo",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 72, atk: 115, def: 80, spa: 50, spd: 120, spe: 58},
+		abilities: {0: "Drought"},
+		weightkg: 36.2,
+	},
+	fuscicea : {
+		num: 30,
+		name: "Fuscicea",
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 65, atk: 80, def: 75, spa: 95, spd: 90, spe: 105},
+		abilities: {0: "Natural Cure", H: "Adaptability"},
+		weightkg: 16,
+	},
 };
