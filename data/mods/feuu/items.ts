@@ -262,4 +262,43 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1001,
 		desc: "If held by a Noze-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
+	charizarditex: {
+		name: "Charizardite X",
+		spritenum: 585,
+		megaStone: "Altarizard-Mega-X",
+		megaEvolves: "Altarizard",
+		itemUser: ["Altarizard"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 660,
+		desc: "If held by a Altarizard, this item allows it to Mega Evolve in battle.",
+	},
+	charizarditey: {
+		name: "Charizardite Y",
+		spritenum: 586,
+		megaStone: "Altarizard-Mega-Y",
+		megaEvolves: "Altarizard",
+		itemUser: ["Altarizard"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 678,
+		desc: "If held by a Altarizard, this item allows it to Mega Evolve in battle.",
+	},
+	altarianite: {
+		name: "Altarianite",
+		spritenum: 615,
+		megaStone: "Altarizard-Mega",
+		megaEvolves: "Altarizard",
+		itemUser: ["Altarizard"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 755,
+		desc: "If held by a Altarizard, this item allows it to Mega Evolve in battle.",
+	},
 };

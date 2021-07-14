@@ -1905,9 +1905,87 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Scarily Adorable",
 		shortDesc: "On switch-in, this Pokemon lowers the Attack and Speed of adjacent opponents by 1 stage.",
 	},
-
-
+	solarboiler: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Water' || move.type === 'Fire')) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Solar Boiler');
+				}
+				return null;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(4);
+			}
+		},
+		name: "Solar Boiler",
+		shortDesc: "immune to Water and Fire-type attacks, heals 25% when hit by one; Heals 12.5% per turn in Rain; Has 4x Spe in Sun.",
+	},
+	voltophyll: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Voltophyll');
+				}
+				return null;
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Voltophyll",
+		shortDesc: "2x Speed in Sun; Heals 25% when hit by a Fire or Electric move; Fire/Electric immunity",
+	},
+	weatherpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland' || effect.id === 'raindance' || effect.id === 'primordialsea' || effect.id === 'hail' || effect.id === 'sandstorm' || effect.id === 'deltastream') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Weather Power",
+		shortDesc: "1.5x SpA while under any weather. User loses 12.5% of its HP in any weather.",
+	},
+/*
+	plotarmor: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Plot Armor boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Plot Armor');
+				return target.hp - 1;
+			}
+		},
+		name: "Plot Armor",
+		shortDesc: "Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
+	},
+*/
+	reversegear: {
+		name: "Reverse Gear",
+		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
+	},
 	
-// Guts ignoring the burn drop and Corrosion ignoring Steel/Poison-types are implemented elsewhere so Gutsy Jaw and Toxic PLay don't fully work, probably have to do stuff in scripts.ts to make it work
+//  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };
  
