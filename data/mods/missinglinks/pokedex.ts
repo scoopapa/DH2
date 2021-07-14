@@ -563,7 +563,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Dragonite",
 		forme: "Mega",
 		types: ["Dragon", "Fairy"],
-		baseStats: {hp: 80, atk: 77, def: 84, spa: 144, spd: 130, spe: 110},
+		baseStats: {hp: 91, atk: 134, def: 115, spa: 144, spd: 115, spe: 101},
 		abilities: {0: "Berserk"},
 		heightm: 5.8,
 		weightkg: 738.5,
