@@ -1085,7 +1085,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	crustboar: {
 		fusion: ['Emboar', 'Crustle'],
 		num: 80,
-		name: "Crustboat",
+		name: "Crustboar",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 90, atk: 134, def: 115, spa: 82, spd: 70, spe: 55},
 		abilities: {0: "Plot Armor"},
