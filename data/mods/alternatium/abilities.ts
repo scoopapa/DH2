@@ -252,8 +252,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.debug('Pack Leader boost');
 				return this.chainModify(1.3);
 			}
-			this.debug('Pack Leader NOT boosted');
-			return this.chainModify(1);
 		},
 		name: "Pack Leader",
 		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
