@@ -1256,7 +1256,7 @@ export const Formats: FormatList = [
 		],
 		unbanlist: [
 			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
-			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea'
+			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax',
 		],
 		teambuilderFormat: "Stereotypes",
 	},
@@ -1846,7 +1846,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['AG', 'Moody', 'Shadow Tag', 'Baton Pass'],
-	},
+	},*/
 	{
 		name: "[Gen 8] Stereotypes LC",
 		mod: "stereotypes",
@@ -1863,11 +1863,10 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			
+			'Sproutsel', 'Triluga',
 		],
-		teambuilderFormat: 'LC',
+		teambuilderFormat: "Stereotypes LC",
 	},
-	
 	{
 		name: "[Gen 8] Stereotypes NFE",
 		mod: "stereotypes",
@@ -1884,10 +1883,10 @@ export const Formats: FormatList = [
 			'All Pokemon'
 		],
 		unbanlist: [
-			
+			'Mestela', 'Tridolphin',
 		],
-		teambuilderFormat: 'NFE',
-	},*/
+		teambuilderFormat: "Stereotypes NFE",
+	},
 	{  
 		name: "[Gen 8] SylveMons AG",
 		threads: ["&bullet; <a href=https://www.smogon.com/forums/threads/.3612509/>SylveMons</a>",
