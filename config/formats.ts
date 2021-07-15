@@ -1361,14 +1361,14 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai',
-			'Dialga', 'Dracovish', 'Eternatus', 'Giratina', 'Ho-Oh', 'Lugia', 'Lunala', 'Magearna', 
+			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai',
+			'Dialga', 'Eternatus', 'Giratina', 'Ho-Oh', 'Lugia', 'Lunala', 'Magearna', 
 			'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
 			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items
-			'Alakazite', 'Blastoisinite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Blue Orb', 'Red Orb',
+			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb',
 			//Moves
 			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
