@@ -1832,7 +1832,7 @@ export const Formats: FormatList = [
 			this.battle.megaCap = 2;
 		},
 	},
-	/*{
+	{
 		name: "[Gen 8] Mega Revolution Uber",
 		desc: [
 			"<b>Mega Revolution</b>: This Pet Mod converts mega Evolutions into fully evolved independent Pokémon.",
@@ -1846,7 +1846,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['AG', 'Moody', 'Shadow Tag', 'Baton Pass'],
-	},*/
+	},
 	{
 		name: "[Gen 8] Stereotypes LC",
 		mod: "stereotypes",
