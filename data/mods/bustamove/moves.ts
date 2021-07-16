@@ -75,7 +75,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: -6,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
+		forceSwitch: true,
 		target: "normal",
 		type: "Normal",
 		zMove: {basePower: 190},
