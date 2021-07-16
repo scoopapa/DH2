@@ -567,7 +567,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sturdymold: {//this one's gonna be a fucking adventure
 		id: "sturdymold",
 		name: "Sturdy Mold",
-		shortDesc: "One-hit KOs leave it with 1 HP. Ignores attacker's ability when taking damage.",
+		shortDesc: "Sturdy + Mold Breaker.",
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: Sturdy Mold');
@@ -580,6 +580,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-ability', target, 'Sturdy Mold');
 				return target.hp - 1;
 			}
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Sturdy Mold');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
 		},
 		//I'm gonna figure out how to code this legit at some point, I swear,
 		//but for now, since we have so few abilities,
@@ -742,9 +748,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	friendshield: {
 		name: "Friend Shield",
-		shortDesc: "Gets +1 Defense on switch-in. Allies recieve 3/4 damage from foes' attacks.",
+		shortDesc: "Gets +1 Def and SpD on switch-in. Allies recieve 3/4 damage from foes' attacks.",
 		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
+			this.boost({def: 1, spd: 1}, pokemon);
 		},
 		onAnyModifyDamage(damage, source, target, move) {
 			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
@@ -1397,17 +1403,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnyModifyBoost(boosts, pokemon) {
-			boosts['atk'] = 0;
-			boosts['def'] = 0;
-			boosts['spa'] = 0;
-			boosts['spd'] = 0;
-			boosts['spe'] = 0;
-			boosts['evasion'] = 0;
-			boosts['accuracy'] = 0;
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
 		},
 		name: "Lemegeton",
-		shortDesc: "While this Pokemon is active, Abilities and stat boosts have no effect.",
+		shortDesc: "Beast Boost + Neutralizing Gas",
 	},
 	//a
 	magicbeast: {
