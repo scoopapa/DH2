@@ -1763,11 +1763,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Guts + Strong Jaw",
 	},
 	finalargument: {
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
 		onSwitchOut(source) {
 			this.field.setTerrain('psychicterrain');
 		},
 		name: "Final Argument",
-		shortDesc: "Summons Psychic Terrain when switched out.",
+		shortDesc: "Summons Psychic Terrain when switched in or out.",
 	},
 	mosscoat: {
 		onModifyAtkPriority: 5,
