@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	lifedew: {
+	/*lifedew: {
 		num: 791,
 		accuracy: true,
 		basePower: 0,
@@ -335,7 +335,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Water",
-	},
+	},*/
 	octazooka: {
 		num: 190,
 		accuracy: 85,
