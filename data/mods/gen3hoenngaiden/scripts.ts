@@ -64,11 +64,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'roselia').learnset.sleeppowder = ['3L1'];
 		this.modData('Learnsets', 'roselia').learnset.extrasensory = ['3L1'];
+		this.modData('Learnsets', 'roselia').learnset.recover = ['3L1'];
 		
 		this.modData('Learnsets', 'dunsparce').learnset.spikes = ['3L1'];
 		this.modData('Learnsets', 'dunsparce').learnset.dragonclaw = ['3L1'];
 		this.modData('Learnsets', 'dunsparce').learnset.outrage = ['3L1'];
 		this.modData('Learnsets', 'dunsparce').learnset.slackoff = ['3L1'];
+		this.modData('Learnsets', 'dunsparce').learnset.healbell = ['3L1'];
 		
 		this.modData('Learnsets', 'grumpig').learnset.thunderwave = ['3L1'];
 		this.modData('Learnsets', 'grumpig').learnset.thunderbolt = ['3L1'];
@@ -77,7 +79,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'cloyster').learnset.hydropump = ['3L1'];
 		
-		this.modData('Learnsets', 'minun').learnset.sludgebomb = ['3L1'];
+		this.modData('Learnsets', 'minun').learnset.blizzard = ['3L1'];
+		this.modData('Learnsets', 'minun').learnset.icebeam = ['3L1'];
+		this.modData('Learnsets', 'minun').learnset.hail = ['3L1'];
 		this.modData('Learnsets', 'minun').learnset.acidarmor = ['3L1'];
 		this.modData('Learnsets', 'minun').learnset.haze = ['3L1'];
 		
