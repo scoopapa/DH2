@@ -206,4 +206,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 	},
+	bodypress: {
+		num: 776,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Body Press",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		onBasePower(basePower, source) {
+			if (source.item && source.item.id === 'lightball' && source.species.id === 'pikachulibre'){
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
 };
