@@ -446,8 +446,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	genesectshock: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	vivillon: {
+	},*/
+	vivillonspirit: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -455,11 +455,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	vivillonpokeball: {
+	vivilloncombat: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	meowstic: {
+	/*meowstic: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

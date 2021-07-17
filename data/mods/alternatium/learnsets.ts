@@ -8086,7 +8086,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	genesectshock: {
 		eventOnly: true,
 	},
-	vivillon: {
+	vivillonspirit: {
 		learnset: {
 			acrobatics: ["7M", "6M"],
 			aerialace: ["7M", "6M"],
@@ -8168,14 +8168,14 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			frustration: ["7M", "6M"],
 			gigadrain: ["7T", "6T"],
 			gigaimpact: ["7M", "6M"],
-			gust: ["7L1", "6L1", "6S0"],
+			gust: ["7L1", "6L1"],
 			hiddenpower: ["7M", "6M"],
-			holdhands: ["6S0"],
+			holdhands: ["8L1"],
 			hurricane: ["7L50", "6L50"],
 			hyperbeam: ["7M", "6M"],
 			infestation: ["7M", "6M"],
 			laserfocus: ["7T"],
-			lightscreen: ["7M", "7L12", "6M", "6L1", "6S0"],
+			lightscreen: ["7M", "7L12", "6M", "6L1"],
 			poisonpowder: ["7L1", "6L1"],
 			powder: ["7L1", "6L1"],
 			protect: ["7M", "6M"],
@@ -8195,7 +8195,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["7M", "6M"],
 			snore: ["7T", "6T"],
 			solarbeam: ["7M", "6M"],
-			strugglebug: ["7L1", "6M", "6L12", "6S0"],
+			strugglebug: ["7L1", "6M", "6L12"],
 			stunspore: ["7L1", "6L1"],
 			substitute: ["7M", "6M"],
 			sunnyday: ["7M", "6M"],
@@ -8206,12 +8206,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M"],
 			uturn: ["7M", "6M"],
 		},
-		eventData: [
-			{generation: 6, level: 12, moves: ["gust", "lightscreen", "strugglebug", "holdhands"], pokeball: "cherishball"},
-		],
-		eventOnly: true,
 	},
-	vivillonpokeball: {
+	vivilloncombat: {
 		learnset: {
 			acrobatics: ["7M", "6M"],
 			aerialace: ["7M", "6M"],
@@ -8233,13 +8229,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			frustration: ["7M", "6M"],
 			gigadrain: ["7T", "6T"],
 			gigaimpact: ["7M", "6M"],
-			gust: ["7L1", "6L1", "6S0"],
+			gust: ["7L1", "6L1"],
 			hiddenpower: ["7M", "6M"],
 			hurricane: ["7L50", "6L50"],
 			hyperbeam: ["7M", "6M"],
 			infestation: ["7M", "6M"],
 			laserfocus: ["7T"],
-			lightscreen: ["7M", "7L12", "6M", "6L1", "6S0"],
+			lightscreen: ["7M", "7L12", "6M", "6L1"],
 			poisonpowder: ["7L1", "6L1"],
 			powder: ["7L1", "6L1"],
 			protect: ["7M", "6M"],
@@ -8259,8 +8255,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["7M", "6M"],
 			snore: ["7T", "6T"],
 			solarbeam: ["7M", "6M"],
-			strugglebug: ["7L1", "6M", "6L12", "6S0"],
-			stunspore: ["7L1", "6L1", "6S0"],
+			strugglebug: ["7L1", "6M", "6L12"],
+			stunspore: ["7L1", "6L1"],
 			substitute: ["7M", "6M"],
 			sunnyday: ["7M", "6M"],
 			supersonic: ["7L21", "6L21"],
@@ -8270,10 +8266,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M"],
 			uturn: ["7M", "6M"],
 		},
-		eventData: [
-			{generation: 6, level: 12, moves: ["stunspore", "gust", "lightscreen", "strugglebug"], pokeball: "pokeball"},
-		],
-		eventOnly: true,
 	},
 	meowstic: {
 		learnset: {
