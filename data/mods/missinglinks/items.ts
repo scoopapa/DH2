@@ -107,4 +107,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
 	},
+	dragonitite: {
+		name: "Dragonitite",
+		spritenum: 578,
+		megaStone: "Dragonite-Mega",
+		megaEvolves: "Dragonite",
+		itemUser: ["Dragonite"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1009,
+		gen: 8,
+		desc: "If held by a Dragonite, this item allows it to Mega Evolve in battle.",
+	},
 };

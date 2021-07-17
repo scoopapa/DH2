@@ -544,6 +544,41 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+// slate 16
+	altarizard: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	altarizardmegax: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	altarizardmegay: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	altarizardmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	crustboar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	paracoal: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	arctovic: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sandamaralola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+
+	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
 	silvinobug: {
