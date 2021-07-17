@@ -399,4 +399,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	dragonitemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gigalithalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	boldorealola: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
+	roggenrolaalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
 };
