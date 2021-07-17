@@ -1251,5 +1251,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 70,
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Zarude",
 	},
 };
