@@ -567,7 +567,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sturdymold: {//this one's gonna be a fucking adventure
 		id: "sturdymold",
 		name: "Sturdy Mold",
-		shortDesc: "One-hit KOs leave it with 1 HP. Ignores attacker's ability when taking damage.",
+		shortDesc: "Sturdy + Mold Breaker.",
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: Sturdy Mold');
@@ -580,6 +580,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-ability', target, 'Sturdy Mold');
 				return target.hp - 1;
 			}
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Sturdy Mold');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
 		},
 		//I'm gonna figure out how to code this legit at some point, I swear,
 		//but for now, since we have so few abilities,
@@ -742,9 +748,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	friendshield: {
 		name: "Friend Shield",
-		shortDesc: "Gets +1 Defense on switch-in. Allies recieve 3/4 damage from foes' attacks.",
+		shortDesc: "Gets +1 Def and SpD on switch-in. Allies recieve 3/4 damage from foes' attacks.",
 		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
+			this.boost({def: 1, spd: 1}, pokemon);
 		},
 		onAnyModifyDamage(damage, source, target, move) {
 			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
@@ -964,7 +970,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//slate 8
 	fatproof: {
 		name: "Fat Proof",
-		shortdesc: "Ice, Fire attacks against this Pokemon use a halved attack stat; Fire moves 1/2 BP.",
+		shortDesc: "Ice, Fire attacks against this Pokemon use a halved attack stat; Fire moves 1/2 BP.",
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -1397,17 +1403,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnyModifyBoost(boosts, pokemon) {
-			boosts['atk'] = 0;
-			boosts['def'] = 0;
-			boosts['spa'] = 0;
-			boosts['spd'] = 0;
-			boosts['spe'] = 0;
-			boosts['evasion'] = 0;
-			boosts['accuracy'] = 0;
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
 		},
 		name: "Lemegeton",
-		shortDesc: "While this Pokemon is active, Abilities and stat boosts have no effect.",
+		shortDesc: "Beast Boost + Neutralizing Gas",
 	},
 	//a
 	magicbeast: {
@@ -1689,4 +1700,306 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Teaching Tech",
 		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
 	},
+	scrappyarmor: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+			}
+		},
+		name: "Scrappy Armor",
+		shortDesc: "Scrappy + Weak Armor",
+	},
+	olfactoryarmor: {
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Steel') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Steel')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Prism Armor neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Olfactory Armor",
+		shortDesc: "This Pokemon prevents adjacent Steel-type foes from choosing to switch and takes 3/4 damage from Super Effective and Steel-type attacks.",
+	},
+	gutsyjaw: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Gutsy Jaw",
+		shortDesc: "Guts + Strong Jaw",
+	},
+	finalargument: {
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+		onSwitchOut(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+		name: "Final Argument",
+		shortDesc: "Summons Psychic Terrain when switched in or out.",
+	},
+	mosscoat: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Moss Coat boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Moss Coat boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'earthquake' || move.id === 'magnitude' || move.id === 'bulldoze') {
+				return this.chainModify(0.5);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
+		name: "Moss Coat",
+		shortDesc: "This Pokemon is considered to be under the effects of Grassy Terrain.",
+	},
+	toxicplay: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Toxic Play');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "Toxic Play",
+		shortDesc: "Mold Breaker + Corrosion.",
+	},
+	covertops: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Covert Ops only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Covert Ops');
+				this.boost({spa: 2}, target, target, null, true);
+			}
+		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		name: "Covert Ops",
+		shortDesc: "Infiltrator + Competitive.",
+	},
+	deluge: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Deluge');
+				}
+				return null;
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Deluge",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Water moves; Water immunity. This Pokemon's Water moves have 1.3x power.",
+	},
+	contraryboost: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let success = false;
+				let i: BoostName;
+				for (i in source.boosts) {
+					if (source.boosts[i] === 0) continue;
+					source.boosts[i] = -source.boosts[i];
+					success = true;
+				}
+				if (!success) return false;
+				this.add('-invertboost', source, '[from] ability: Contrary Boost');
+			}
+		},
+		name: "Contrary Boost",
+		shortDesc: "Reverses stat changes after attacking and KOing a Pokemon.",
+	},
+	itemboost: {
+		name: "Item Boost",
+		shortDesc: "(Non-Functional Placeholder) Highest non-HP stat goes up by 1 after using or losing an item.",
+	},
+	ultrascout: {
+		name: "Ultra Scout",
+		shortDesc: "(Non-Functional Placeholder) On switch-in, this Pokemon identifies the highest non-HP stats of all opposing Pokemon.",
+	},
+	scarilyadorable: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Scarily Adorable', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1, spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Scarily Adorable",
+		shortDesc: "On switch-in, this Pokemon lowers the Attack and Speed of adjacent opponents by 1 stage.",
+	},
+	solarboiler: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Water' || move.type === 'Fire')) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Solar Boiler');
+				}
+				return null;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(4);
+			}
+		},
+		name: "Solar Boiler",
+		shortDesc: "immune to Water and Fire-type attacks, heals 25% when hit by one; Heals 12.5% per turn in Rain; Has 4x Spe in Sun.",
+	},
+	voltophyll: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Voltophyll');
+				}
+				return null;
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Voltophyll",
+		shortDesc: "2x Speed in Sun; Heals 25% when hit by a Fire or Electric move; Fire/Electric immunity",
+	},
+	weatherpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland' || effect.id === 'raindance' || effect.id === 'primordialsea' || effect.id === 'hail' || effect.id === 'sandstorm' || effect.id === 'deltastream') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Weather Power",
+		shortDesc: "1.5x SpA while under any weather. User loses 12.5% of its HP in any weather.",
+	},
+/*
+	plotarmor: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Plot Armor boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Plot Armor');
+				return target.hp - 1;
+			}
+		},
+		name: "Plot Armor",
+		shortDesc: "Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
+	},
+*/
+	reversegear: {
+		name: "Reverse Gear",
+		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
+	},
+	
+//  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };
+ 

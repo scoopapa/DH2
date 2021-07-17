@@ -195,4 +195,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier:'OU',
 		isModded: true,
 	},
+	cerebrawn: {
+		tier:'Uber',
+		isModded: true,
+	},
+	corruptoo: {
+		tier:'Uber',
+		isModded: true,
+	},
+	deltray: {
+		tier:'Uber',
+		isModded: true,
+	},
+	zacian: {
+		tier:'AG',
+		isModded: true,
+	},
+	zaciancrowned: {
+		tier:'AG',
+		isModded: true,
+	},
 };

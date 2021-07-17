@@ -65,6 +65,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Poison",
 	},*/
+	crushgrip: {
+		num: 462,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Forces the target to swtich to a random ally.",
+		name: "Crush Grip",
+		pp: 5,
+		priority: -6,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		forceSwitch: true,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 190},
+		maxMove: {basePower: 140},
+		contestType: "Tough",
+	},
 	decorate: {
 		num: 777,
 		accuracy: 100,
@@ -137,6 +154,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},*/
+	dreameater: {
+		num: 138,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Power doubles if target is asleep.",
+		name: "Dream Eater",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 	eeriespell: {
 		num: 826,
 		accuracy: 100,
@@ -219,6 +255,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	glaciate: {
+		num: 549,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Ignores Abilities.",
+		name: "Glaciate",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		ignoreAbility: true,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 	iceball: {
 		num: 301,
 		accuracy: 100,
@@ -257,6 +312,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	/*lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Life Dew",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, authentic: 1},
+		heal: [1, 4],
+		slotCondition: 'lifedew',
+		condition: {
+			onSwap(target) {
+				if (target.maxhp) {
+					target.heal(target.baseMaxhp / 4);
+					this.add('-heal', target, '[from] move: Life Dew');
+					target.side.removeSlotCondition(target, 'lifedew');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+	},*/
 	octazooka: {
 		num: 190,
 		accuracy: 85,
@@ -302,6 +381,47 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
+	},
+	paraboliccharge: {
+		num: 570,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		shortDesc: "User recovers 50% of the damage dealt. Raises the user's Sp. Def by 1.", 
+		name: "Parabolic Charge",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spd: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	prismaticlaser: {
+		num: 711,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Super effective on Steel.",
+		name: "Prismatic Laser",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
 	},
 	razorwind: {
 		num: 13,

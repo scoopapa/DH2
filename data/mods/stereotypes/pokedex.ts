@@ -1,16 +1,36 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	//Slate 1: Grass, Fire, Water
-	prairret: {
+	sproutsel: {
 		num: 1,
+		name: "Sproutsel",
+		types: ["Grass"],
+		baseStats: {hp: 45, atk: 40, def: 70, spa: 40, spd: 45, spe: 70},
+		abilities: {0: "Overgrow", H: "Poison Heal"},
+		weightkg: 35.5,
+		evos: ["Mestela"],
+	},
+	mestela: {
+		num: 2,
+		name: "Mestela",
+		types: ["Grass"],
+		baseStats: {hp: 75, atk: 55, def: 80, spa: 50, spd: 65, spe: 85},
+		abilities: {0: "Overgrow", H: "Poison Heal"},
+		weightkg: 35.5,
+		evos: ["Prairret"],
+		prevo: "Sproutsel",
+	},
+	prairret: {
+		num: 3,
 		name: "Prairret",
 		types: ["Grass"],
 		baseStats: {hp: 85, atk: 105, def: 100, spa: 65, spd: 75, spe: 100},
 		abilities: {0: "Overgrow", H: "Poison Heal"},
 		heightm: 1.9,
 		weightkg: 35.5,
+		prevo: "Mestela",
 	},
 	fluxtape: {
-		num: 2,
+		num: 4,
 		name: "Fluxtape",
 		types: ["Fire"],
 		gender: "N",
@@ -19,18 +39,38 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.7,
 		weightkg: 0.2,
 	},
+	triluga: {
+		num: 5,
+		name: "Triluga",
+		types: ["Water"],
+		baseStats: {hp: 50, atk: 75, def: 45, spa: 30, spd: 30, spe: 60},
+		abilities: {0: "Torrent", H: "Water Veil"},
+		weightkg: 21.3,
+		evos: ["Tridolphin"],
+	},
+	tridolphin: {
+		num: 6,
+		name: "Tridolphin",
+		types: ["Water"],
+		baseStats: {hp: 70, atk: 95, def: 65, spa: 40, spd: 50, spe: 90},
+		abilities: {0: "Torrent", H: "Water Veil"},
+		weightkg: 89.5,
+		evos: ["Prairret"],
+		prevo: "Triluga",
+	},
 	cetaidon: {
-		num: 3,
+		num: 7,
 		name: "Cetaidon",
 		types: ["Water"],
 		baseStats: {hp: 110, atk: 125, def: 85, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Torrent", H: "Water Veil"},
 		heightm: 3.3,
 		weightkg: 371.1,
+		prevo: "Tridolphin",
 	},
 	//Slate 2: Dragon, Fairy, Steel
 	drakotomy: {
-		num: 4,
+		num: 1004,
 		name: "Drakotomy",
 		types: ["Dragon"],
 		baseStats: {hp: 95, atk: 100, def: 105, spa: 90, spd: 80, spe: 40},
@@ -39,7 +79,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 462.3,
 	},
 	gencook: {
-		num: 5,
+		num: 1005,
 		name: "Gencook",
 		types: ["Fairy"],
 		baseStats: {hp: 80, atk: 70, def: 110, spa: 90, spd: 120, spe: 60},
@@ -48,7 +88,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 115.3,
 	},
 	heraleo: {
-		num: 6,
+		num: 1006,
 		name: "Heraleo",
 		types: ["Steel"],
 		baseStats: {hp: 65, atk: 100, def: 125, spa: 75, spd: 85, spe: 75},
@@ -58,7 +98,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 3: Psychic, Dark, Fighting
 	correept: {
-		num: 7,
+		num: 1007,
 		name: "Correept",
 		types: ["Dark"],
 		baseStats: {hp: 74, atk: 93, def: 129, spa: 75, spd: 107, spe: 32},
@@ -66,7 +106,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 74.5,
 	},
 	dojodo: {
-		num: 8,
+		num: 1008,
 		name: "Dojodo",
 		types: ["Fighting"],
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 60, spd: 100, spe: 80},
@@ -75,7 +115,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 34.8,
 	},
 	harzodia: {
-		num: 9,
+		num: 1009,
 		name: "Harzodia",
 		types: ["Psychic"],
 		baseStats: {hp: 75, atk: 55, def: 65, spa: 130, spd: 125, spe: 90},
@@ -85,7 +125,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 4: Flying, Ground, Rock
 	nimbustorm: {
-		num: 10,
+		num: 1010,
 		name: "Nimbustorm",
 		types: ["Flying"],
 		baseStats: {hp: 170, atk: 40, def: 65, spa: 100, spd: 45, spe: 85},
@@ -93,7 +133,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 326,
 	},
 	burrodger: {
-		num: 11,
+		num: 1011,
 		name: "Burrodger",
 		types: ["Ground"],
 		baseStats: {hp: 60, atk: 90, def: 145, spa: 60, spd: 120, spe: 55},
@@ -101,7 +141,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 32.4,
 	},
 	wesgranit: {
-		num: 12,
+		num: 1012,
 		name: "Wesgranit",
 		types: ["Rock"],
 		baseStats: {hp: 70, atk: 130, def: 85, spa: 75, spd: 60, spe: 110},
@@ -111,7 +151,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 5: Electric, Ghost, Ice
 	storvark: {
-		num: 13,
+		num: 1013,
 		name: "Storvark",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 67, def: 80, spa: 100, spd: 70, spe: 130},
@@ -119,7 +159,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 88,
 	},
 	dullaham: {
-		num: 14,
+		num: 1014,
 		name: "Dullaham",
 		types: ["Ghost"],
 		baseStats: {hp: 100, atk: 85, def: 60, spa: 95, spd: 110, spe: 60},
@@ -128,7 +168,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 97.3,
 	},
 	skappa: {
-		num: 15,
+		num: 1015,
 		name: "Skappa",
 		types: ["Ice"],
 		baseStats: {hp: 60, atk: 75, def: 75, spa: 115, spd: 70, spe: 130},
@@ -138,7 +178,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 6: Bug, Normal, Poison
 	magroach: {
-		num: 16,
+		num: 1016,
 		name: "Magroach",
 		types: ["Bug"],
 		baseStats: {hp: 90, atk: 110, def: 85, spa: 85, spd: 110, spe: 90},
@@ -147,7 +187,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 135,
 	},
 	resonake: {
-		num: 17,
+		num: 1017,
 		name: "Resonake",
 		types: ["Normal"],
 		baseStats: {hp: 84, atk: 70, def: 119, spa: 76, spd: 113, spe: 67},
@@ -155,7 +195,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 7,
 	},
 	clavelye: {
-		num: 18,
+		num: 1018,
 		name: "Clavelye",
 		types: ["Poison"],
 		baseStats: {hp: 108, atk: 80, def: 95, spa: 120, spd: 85, spe: 60},
@@ -164,7 +204,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 7: Electric/Water, Poison/Dragon, Steel/Ghost
 	whiscamp: {
-		num: 19,
+		num: 1019,
 		name: "Whiscamp",
 		types: ["Electric", "Water"],
 		baseStats: {hp: 80, atk: 70, def: 80, spa: 105, spd: 110, spe: 80},
@@ -172,7 +212,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 53,
 	},
 	laopharsi: {
-		num: 20,
+		num: 1020,
 		name: "Laopharsi",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 46, spe: 109},
@@ -181,7 +221,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 750,
 	},
 	spirox: {
-		num: 21,
+		num: 1021,
 		name: "Spirox",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 71, atk: 62, def: 66, spa: 113, spd: 101, spe: 117},
@@ -190,7 +230,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 8: Flying/Dark, Normal/Grass, Rock/Fairy
 	spincaba: {
-		num: 22,
+		num: 1022,
 		name: "Spincaba",
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 65, atk: 90, def: 95, spa: 80, spd: 135, spe: 80},
@@ -198,7 +238,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 2.5,
 	},
 	jungape: {
-		num: 23,
+		num: 1023,
 		name: "Jungape",
 		types: ["Normal", "Grass"],
 		baseStats: {hp: 82, atk: 90, def: 116, spa: 67, spd: 76, spe: 79},
@@ -206,7 +246,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 189,
 	},
 	nympheral: {
-		num: 24,
+		num: 1024,
 		name: "Nympheral",
 		types: ["Rock", "Fairy"],
 		baseStats: {hp: 71, atk: 89, def: 83, spa: 109, spd: 67, spe: 151},
@@ -215,7 +255,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
 	beetilient: {
-		num: 25,
+		num: 1025,
 		name: "Beetilient",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 75, atk: 110, def: 135, spa: 40, spd: 75, spe: 75},
@@ -223,7 +263,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 65.4,
 	},
 	thermasorb: {
-		num: 26,
+		num: 1026,
 		name: "Thermasorb",
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 100, atk: 75, def: 75, spa: 130, spd: 90, spe: 100},
@@ -231,12 +271,62 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 122.3,
 	},
 	cosmole : {
-		num: 27,
-		name: "Cosmole ",
+		num: 1027,
+		name: "Cosmole",
 		types: ["Ground", "Psychic"],
 		baseStats: {hp: 95, atk: 80, def: 95, spa: 100, spd: 110, spe: 85},
-		abilities: {0: "Anticipation ", 1: "Tough Claws", H: "Prism Armor"},
+		abilities: {0: "Anticipation", 1: "Tough Claws", H: "Prism Armor"},
 		weightkg: 24.9,
 	},
 	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
+	slashowa: {
+		num: 1028,
+		name: "Slashowa",
+		types: ["Dark", "Normal"],
+		baseStats: {hp: 70, atk: 55, def: 70, spa: 115, spd: 65, spe: 115},
+		abilities: {0: "Soundproof", 1: "Technician", H: "Punk Rock"},
+		weightkg: 81,
+	},
+	fluormingo: {
+		num: 1029,
+		name: "Fluormingo",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 72, atk: 115, def: 80, spa: 50, spd: 120, spe: 58},
+		abilities: {0: "Drought"},
+		weightkg: 36.2,
+	},
+	fuscicea : {
+		num: 1030,
+		name: "Fuscicea",
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 65, atk: 80, def: 75, spa: 95, spd: 90, spe: 105},
+		abilities: {0: "Natural Cure", H: "Adaptability"},
+		weightkg: 16,
+	},
+	//Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
+	akanalud: {
+		num: 1031,
+		name: "Akanalud",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 109, atk: 71, def: 82, spa: 113, spd: 119, spe: 9},
+		abilities: {0: "Dry Skin", 1: "Sand Veil", H: "Sand Spit"},
+		weightkg: 999.9,
+	},
+	glaciallo: {
+		num: 1032,
+		name: "Glaciallo",
+		types: ["Ice", "Dragon"],
+		baseStats: {hp: 95, atk: 117, def: 93, spa: 45, spd: 70, spe: 85},
+		abilities: {0: "Vital Spirit", 1: "Skill Link", H: "Clear Body"},
+		weightkg: 107.9,
+	},
+	gorilax : {
+		num: 1033,
+		name: "Gorilax",
+		types: ["Psychic", "Fighting"],
+		baseStats: {hp: 116, atk: 61, def: 101, spa: 83, spd: 117, spe: 122},
+		abilities: {0: "Aroma Veil", H: "Sniper"},
+		weightkg: 193,
+	},
+	//Slate 12: Bug/Ghost, Electric/Fire, Rock/Poison
 };

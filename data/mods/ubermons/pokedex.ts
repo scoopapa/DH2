@@ -121,4 +121,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Cursed Body"},
 	},
+	gengarmega: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 85, def: 90, spa: 155, spd: 90, spe: 110},
+	},
+	dracovish: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Analytic", H: "Sand Rush"},
+	},
+	metagrossmega: {
+		inherit: true,
+		abilities: {0: "Heavy Metal"},
+	},
 };

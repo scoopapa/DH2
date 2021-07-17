@@ -32,5 +32,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData("Learnsets", "machamp").learnset.flamewheel = ["8L1"];
 	this.modData("Learnsets", "machamp").learnset.stormthrow = ["8L1"];
 	this.modData("Learnsets", "machamp").learnset.circlethrow = ["8L1"];
+	this.modData("Learnsets", "blastoise").learnset.iceball = ["8L1"];
+	this.modData("Learnsets", "blastoise").learnset.iciclespear = ["8L1"];
+	this.modData("Learnsets", "blastoise").learnset.hammerarm = ["8L1"];
+	this.modData("Learnsets", "venusaur").learnset.shadowball = ["8L1"];
+	this.modData("Learnsets", "venusaur").learnset.shadowclaw = ["8L1"];
+	this.modData("Learnsets", "dragonite").learnset.playrough = ["8L1"];
+	this.modData("Learnsets", "dragonite").learnset.dazzlinggleam = ["8L1"];
+	this.modData("Learnsets", "dragonite").learnset.drainingkiss = ["8L1"];
+	this.modData("Learnsets", "dragonite").learnset.moonblast = ["8L1"];
+
 	},
 };
