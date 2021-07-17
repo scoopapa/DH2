@@ -87,7 +87,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Fairy"],
 		baseStats: {hp: 50, atk: 50, def: 130, spa: 110, spd: 85, spe: 85},
 		abilities: {0: "Stamina", H: "Drought"},
-		weightkg: 59    KG,
+		weightkg: 59,
 	},
 	firenra: {
 		num: 13,
@@ -182,7 +182,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	poultergeistbaseform: {
 		num: 26,
-		name: "Poultergeist                     Base Form",
+		name: "Poultergeist Base Form",
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 105, atk: 65, def: 85, spa: 105, spd: 85, spe: 73},
 		abilities: {0: "Chicken Out"},
@@ -190,7 +190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	poultergeistheadlessform: {
 		num: 27,
-		name: "Poultergeist                     Headless Form",
+		name: "Poultergeist Headless Form",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 1, atk: 65, def: 85, spa: 105, spd: 85, spe: 113},
 		abilities: {0: "Wonder Guard"},
