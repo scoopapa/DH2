@@ -1912,7 +1912,7 @@ export const Formats: FormatList = [
 			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax',
 		],
 		unbanlist: [
-			 'Sproutsel', 'Mestela', 'Triluga', 'Tridolphin',
+			'Sproutsel', 'Mestela', 'Triluga', 'Tridolphin',
 		],
 		teambuilderFormat: "Stereotypes NFE",
 	},
