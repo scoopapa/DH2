@@ -1235,7 +1235,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Cloud Nine"},
 		heightm: 1.8,
 		weightkg: 70,
-		color: "Green",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Zarude-Dada"],
 		formeOrder: ["Zarude", "Zarude-Dada"],
@@ -1251,7 +1250,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Cloud Nine"},
 		heightm: 1.8,
 		weightkg: 70,
-		color: "Green",
 		eggGroups: ["Undiscovered"],
 	},
 };
