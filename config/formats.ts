@@ -1887,7 +1887,7 @@ export const Formats: FormatList = [
 		maxLevel: 5,
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
-			'All Pokemon'
+			'All Pokemon', 'Stereotypes', 'Stereotypes NFE',
 		],
 		unbanlist: [
 			'Sproutsel', 'Triluga',
@@ -1907,7 +1907,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Not Fully Evolved'],
 		banlist: [
-			'All Pokemon'
+			'All Pokemon', 'Stereotypes',
 		],
 		unbanlist: [
 			'Mestela', 'Tridolphin',
