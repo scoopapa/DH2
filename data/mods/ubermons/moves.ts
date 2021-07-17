@@ -192,4 +192,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	wickedblow: {
+		num: 817,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Wicked Blow",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, punch: 1, mirror: 1},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
 };

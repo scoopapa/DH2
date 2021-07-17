@@ -53,6 +53,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'deoxys').learnset.agility;
 		
 		this.modData('Learnsets', 'darmanitangalar').learnset.switcheroo = ['8L1'];
+		
+		delete this.modData('Learnsets', 'kangaskhan').learnset.seismictoss;
+		
+		delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
+		
+		this.modData('Learnsets', 'metagross').learnset.heavyslam = ['8L1'];
+		this.modData('Learnsets', 'metagross').learnset.heatcrash = ['8L1'];
+		
+		delete this.modData('Learnsets', 'squirtle').learnset.shellsmash;
+		delete this.modData('Learnsets', 'wartortle').learnset.shellsmash;
+		delete this.modData('Learnsets', 'blastoise').learnset.shellsmash;
+		this.modData('Learnsets', 'blastoise').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'blastoise').learnset.vacuumwave = ['8L1'];
 	},
 	
 	pokemon: {

@@ -567,6 +567,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	deoxysattack: {
 		tier: "OU",
 	},
+	deoxysdefense: {
+		tier: "(UU)",
+	},
 	deoxysspeed: {
 		tier: "OU",
 	},
@@ -577,6 +580,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	kyuremwhite: {
+		tier: "OU",
+	},
+	gengarmega: {
+		tier: "OU",
+	},
+	kangaskhanmega: {
+		tier: "OU",
+	},
+	urshifu: {
+		tier: "OU",
+	},
+	alakazammega: {
+		tier: "OU",
+	},
+	dracovish: {
+		tier: "OU",
+	},
+	metagrossmega: {
+		tier: "OU",
+	},
+	blastoisemega: {
+		tier: "OU",
+	},
+	blaziken: {
 		tier: "OU",
 	},
 };

@@ -129,4 +129,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Stereotypes",
 		doublesTier: "Stereotypes",
 	},
+	//Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
+	akanalud: {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
+	glaciallo: {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
+	gorilax : {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
+	//Slate 12: Bug/Ghost, Electric/Fire, Rock/Poison
+	//LC Slate 1
+	sproutsel: {
+		tier: "Stereotypes LC",
+		doublesTier: "Stereotypes LC",
+	},
+	triluga: {
+		tier: "Stereotypes LC",
+		doublesTier: "Stereotypes LC",
+	},	
+	//NFE Slate 1
+	mestela: {
+		tier: "Stereotypes NFE",
+		doublesTier: "Stereotypes NFE",
+	},
+	tridolphin: {
+		tier: "Stereotypes NFE",
+		doublesTier: "Stereotypes NFE",
+	},
 };
