@@ -1885,7 +1885,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		maxLevel: 5,
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Litte Cup'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
 			'All Pokemon'
 		],
