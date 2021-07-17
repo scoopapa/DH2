@@ -444,10 +444,10 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (speciesTable[template.baseSpecies]) {
-					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.baseSpecies + "."];
+				if (speciesTable[template.id]) {
+					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.id + "."];
 				}
-				speciesTable[template.baseSpecies] = true;
+				speciesTable[template.id] = true;
 			}
 		},
 	},
