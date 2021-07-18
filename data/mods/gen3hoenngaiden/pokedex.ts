@@ -1220,7 +1220,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Flying"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 95, atk: 110, def: 130, spa: 60, spd: 65, spe: 65},
-		abilities: {0: "Cloud Nine", H: "Cute Charm"},
+		abilities: {0: "Cloud Nine", 1: "Cute Charm"},
 		heightm: 1,
 		weightkg: 23.5,
 		prevo: "Eevee",
