@@ -1608,7 +1608,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Wobbuffet + Leftovers'],		
 		unbanlist: [
 			//Abilities
