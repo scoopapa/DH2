@@ -124,9 +124,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'grassysurge';
 			}
 			if (pokemon.species.id === 'silvallyground') {
-				this.add('-ability', pokemon, 'Sand Force', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('sandforce');
-				pokemon.baseAbility = 'sandforce';
+				this.add('-ability', pokemon, 'Mold Breaker', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('moldbreaker');
+				pokemon.baseAbility = 'moldbreaker';
 			}
 			if (pokemon.species.id === 'silvallyice') {
 				this.add('-ability', pokemon, 'Refrigerate', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -144,9 +144,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'magicguard';
 			}
 			if (pokemon.species.id === 'silvallyrock') {
-				this.add('-ability', pokemon, 'Solid Rock', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('solidrock');
-				pokemon.baseAbility = 'solidrock';
+				this.add('-ability', pokemon, 'Sand Stream', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('sandstream');
+				pokemon.baseAbility = 'sandstream';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
 				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -216,7 +216,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1);
 			}*/
 			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true)) {
-				return this.chainModify(0.5);
+				return this.chainModify(0.7);
 			}
 		},
 		name: "Rare Cold",
