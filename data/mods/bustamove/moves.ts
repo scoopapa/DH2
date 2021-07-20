@@ -756,7 +756,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 798,
 		accuracy: 100,
 		basePower: 85,
-		basePowerCallback(pokemon, target, move) {
+		basePowerCallback(source, target, move) {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
 				return move.basePower + 45;
 			}
@@ -965,7 +965,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
-		onModifyMove(source, move) {
+		onAfterMoveSecondarySelf(move, source, target) {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
 				selfSwitch: true;
 			}
