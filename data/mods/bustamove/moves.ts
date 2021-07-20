@@ -70,7 +70,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},*/
 	//stinky potato
-	coaching: {
+	/*coaching: {
 		num: 811,
 		accuracy: true,
 		basePower: 0,
@@ -95,6 +95,42 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "self",
+		type: "Fighting",
+	},*/
+	//NeonNitroGlycerin
+	coaching: {
+		num: 811,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Coaching",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		volatileStatus: 'coaching',
+		onTryHit(target, source, move) {
+			if (target.volatiles['coaching']) return false;
+			if (target.volatiles['trapped']) {
+				delete move.volatileStatus;
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Coaching');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.addVolatile('focusenergy');
+		},
+		boosts: {
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "adjacentAllyOrSelf",
 		type: "Fighting",
 	},
 	//not finished
