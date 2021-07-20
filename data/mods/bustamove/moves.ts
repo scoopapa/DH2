@@ -748,7 +748,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			self: {
-				onHit() {
+				onHit(pokemon) {
 					if (pokemon.hasItem('magnet')) {
 						this.field.setTerrain('electricterrain');
 					}
