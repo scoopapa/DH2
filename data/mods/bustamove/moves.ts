@@ -45,7 +45,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	coaching: {
+	//Z-nogyroP
+	/*coaching: {
 		num: 811,
 		accuracy: true,
 		basePower: 0,
@@ -67,7 +68,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
-	},
+	},*/
 	//not finished
 	/*corrosivegas: {
 		num: 810,
@@ -686,7 +687,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},*/
-	steelroller: {
+	//Z-nogyroP
+	/*steelroller: {
 		num: 798,
 		accuracy: 100,
 		basePower: 120,
@@ -698,6 +700,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit() {
 			this.field.clearTerrain();
 		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},*/
+	steelroller: {
+		num: 798,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (if (this.field.isTerrain('')) {
+				return move.basePower + 45;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Steel Roller",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -791,7 +812,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 	},*/
-	terrainpulse: {
+	//Z-nogyroP
+	/*terrainpulse: {
 		num: 805,
 		accuracy: 100,
 		basePower: 50,
@@ -844,7 +866,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
-	},
+	},*/
 	//not finished
 	/*trickortreat: {
 		num: 567,
