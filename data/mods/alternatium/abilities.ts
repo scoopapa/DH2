@@ -216,30 +216,31 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.7);
 			}
 		},*/
-		onStart(pokemon) {
-			pokemon.addVolatile('rarecold');
+		onPrepareHit(pokemon, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+			pokemon.sideCondition('auroraveil');
 		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['rarecold'];
+		onAfterHit(pokemon) {
+			delete pokemon.sideCondition['auroraveil'];
 		},
-		condition: {
+		/*condition: {
 			duration: 1,
 			onStart(target) {
 				this.add('-start', target, 'ability: Rare Cold');
 			},
-			/*basePowerCallback(pokemon, target, move) {
+			basePowerCallback(pokemon, target, move) {
 				if (target.newlySwitched || this.queue.willMove(target)) {
 					this.debug('Fishious Rend damage boost');
 					return move.basePower * 2;
 					}
 					this.debug('Fishious Rend NOT boosted');
 					return move.basePower;
-			},*/
+			},
 			onAnyModifyDamage(pokemon, target, move) {
-				/*if (target.newlySwitched || this.queue.willMove(target)) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') || (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
-						}*/
+						}
 				if (target.newlySwitched || this.queue.willMove(target)) {
 					this.debug('Rare Cold weaken');
 					if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -249,7 +250,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			onEnd(target) {
 				this.add('-end', target, 'Rare Cold');
 			},
-		},
+		},*/
 		name: "Rare Cold",
 		shortDesc: "User takes 30% less damage if user moves before the target.",
 		rating: 0,
