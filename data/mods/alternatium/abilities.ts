@@ -217,8 +217,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},*/
 		onPrepareHit(source, target) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				source.side.addSideCondition['auroraveil'];
+			for (const target of pokemon.side.foe.active) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					source.side.addSideCondition['auroraveil'];
+				}
 			}
 		},
 		onAfterHit(source) {
