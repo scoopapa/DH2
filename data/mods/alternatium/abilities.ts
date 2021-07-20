@@ -218,7 +218,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},*/
 		onPrepareHit(pokemon, target) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
-			pokemon.sideCondition('auroraveil');
+				pokemon.sideCondition('auroraveil');
+			}
 		},
 		onAfterHit(pokemon) {
 			delete pokemon.sideCondition['auroraveil'];
