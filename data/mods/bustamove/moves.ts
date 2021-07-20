@@ -642,6 +642,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},*/
+	//VoolPool
+	/*steelroller: {
+		num: 798,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Steel Roller",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			let success = false;
+			const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Steel Roller', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Steel Roller', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},*/
 	steelroller: {
 		num: 798,
 		accuracy: 90,
@@ -720,7 +758,55 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},*/
+	//VoolPool
 	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.hasItem('magnet')) {
+				move.type = 'Electric';
+			}
+			if (pokemon.hasItem('miracleseed')) {
+				move.type = 'Grass';
+			}
+			if (pokemon.hasItem('mysticwater')) {
+				move.type = 'Water';
+			}
+			if (pokemon.hasItem('oddincense')) {
+				move.type = 'Psychic';
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				onHit(pokemon) {
+					if (pokemon.hasItem('magnet')) {
+						this.field.setTerrain('electricterrain');
+					}
+					if (pokemon.hasItem('miracleseed')) {
+						this.field.setTerrain('grassyterrain');
+					}
+					if (pokemon.hasItem('mysticwater')) {
+						this.field.setTerrain('mistyterrain');
+					}
+					if (pokemon.hasItem('oddincense')) {
+						this.field.setTerrain('psychicterrain');
+					}
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+	},
+	/*terrainpulse: {
 		num: 805,
 		accuracy: 100,
 		basePower: 100,
@@ -768,7 +854,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
-	},
+	},*/
 	//not finished
 	/*trickortreat: {
 		num: 567,
