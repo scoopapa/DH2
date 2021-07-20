@@ -82,11 +82,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		slotCondition: 'Coaching',
 		condition: {
 			duration: 2,
+			onStart(target) {
+				this.add('-message', target.name + "is ready to coach!");
 			onResidualOrder: 7,
 			onEnd(target) {
 				if (!target.fainted) {
 					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
-					if (boost) this.add('-active', target, target.getBoost, '[from] move: Coaching', '[wisher] ' + target.name);
+					if (boost) this.add('-activate', target, target.getBoost, '[from] move: Coaching', '[wisher] ' + target.name);
 				}
 			},
 		},
