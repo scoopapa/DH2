@@ -211,7 +211,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 	},
 	rarecold: {
-		onSourceModifyDamage(damage, source, target) {
+		onSourceModifyDamage(damage, source, target, move) {
 			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true) && !move.priority > 0.1) {
 				return this.chainModify(0.7);
 			}
