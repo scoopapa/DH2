@@ -84,6 +84,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			duration: 2,
 			onStart(target) {
 				this.add('-message', target.name + "is ready to coach!");
+			},
 			onResidualOrder: 7,
 			onEnd(target) {
 				if (!target.fainted) {
