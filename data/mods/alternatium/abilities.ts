@@ -211,15 +211,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 	},
 	rarecold: {
-		onPrepareHit(source, target, pokemon) {
+		onPrepareHit(pokemon) {
 			for (const target of pokemon.side.foe.active) {
 				if (target.newlySwitched || this.queue.willMove(target)) {
-					source.side.addSideCondition['auroraveil'];
+					pokemon.side.addSideCondition['auroraveil'];
 				}
 			}
 		},
-		onAfterHit(source) {
-			source.side.removeSideCondition['auroraveil'];
+		onAfterHit(pokemon) {
+			pokemon.side.removeSideCondition['auroraveil'];
 		},
 		name: "Rare Cold",
 		shortDesc: "User takes 30% less damage if user moves before the target.",
