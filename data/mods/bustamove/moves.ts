@@ -54,12 +54,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {authentic: 1},
-		secondary: null,
-		boosts: {
-			atk: 1,
-			def: 1,
+		slotCondition: 'coaching',
+		condition: { 
+			onSwap(target) {
+				if (!target.fainted) {
+					target.addVolatile('laserfocus');
+					target.side.removeSlotCondition(target, 'coaching');
+				}
+			},
 		},
-		target: "adjacentAlly",
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
 		type: "Fighting",
 	},
 	//not finished
@@ -682,36 +688,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},*/
 	steelroller: {
 		num: 798,
-		accuracy: 90,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 120,
 		category: "Physical",
 		name: "Steel Roller",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onHit(target, source, move) {
-			let success = false;
-			const removeTarget = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			const removeAll = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			for (const targetCondition of removeTarget) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Steel Roller', '[of] ' + source);
-					success = true;
-				}
-			}
-			for (const sideCondition of removeAll) {
-				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Steel Roller', '[of] ' + source);
-					success = true;
-				}
-			}
+		onHit() {
 			this.field.clearTerrain();
-			return success;
 		},
 		secondary: null,
 		target: "normal",
@@ -759,7 +744,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},*/
 	//VoolPool
-	terrainpulse: {
+	/*terrainpulse: {
 		num: 805,
 		accuracy: 100,
 		basePower: 100,
@@ -805,56 +790,61 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
-	},
-	/*terrainpulse: {
+	},*/
+	terrainpulse: {
 		num: 805,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 50,
 		category: "Special",
 		name: "Terrain Pulse",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, pulse: 1},
 		onModifyType(move, pokemon) {
-			switch (pokemon.hasItem()) {
-			case 'magnet':
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
 				move.type = 'Electric';
 				break;
-			case 'miracleseed':
+			case 'grassyterrain':
 				move.type = 'Grass';
 				break;
-			case 'mysticwater':
-				move.type = 'Water';
+			case 'mistyterrain':
+				move.type = 'Fairy';
 				break;
-			case 'oddincense':
+			case 'psychicterrain':
 				move.type = 'Psychic';
 				break;
 			}
 		},
-		secondary: {
-			chance: 100,
-			self: {
-				onHit(pokemon) {
-					if (pokemon.hasItem('magnet')) {
-						this.field.setTerrain('electricterrain');
-					}
-					if (pokemon.hasItem('miracleseed')) {
-						this.field.setTerrain('grassyterrain');
-					}
-					if (pokemon.hasItem('mysticwater')) {
-						this.field.setTerrain('mistyterrain');
-					}
-					if (pokemon.hasItem('oddincense')) {
-						this.field.setTerrain('psychicterrain');
-					}
-				},
-			},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+			}
 		},
+		onAfterMove(pokemon) {
+            if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('electricterrain');
+            }
+			if (this.field.isTerrain('grassyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('grassyterrain');
+            }
+			if (this.field.isTerrain('mistyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('mistyterrain');
+            }
+			if (this.field.isTerrain('psychicterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('psychicterrain');
+            }
+        },
 		target: "normal",
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
-	},*/
+	},
 	//not finished
 	/*trickortreat: {
 		num: 567,
