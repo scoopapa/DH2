@@ -82,14 +82,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		slotCondition: 'Coaching',
 		condition: {
 			duration: 2,
-			onStart(pokemon) {
-				this.boost({atk: 1, def: 1, spe: 1});
-			},
-			onResidualOrder: 4,
+			onResidualOrder: 7,
 			onEnd(target) {
-				const boost = this.boost(target, target);
-				if (target && !target.fainted) {
-					if (boost) this.add('-boost', target, '[from] move: Coaching', '[wisher] ' + this.effectData.source.name);
+				if (!target.fainted) {
+					const source = this.effectState.source;
+					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
+					if (boost) this.add('-active', target, target.getBoost, '[from] move: Coaching', '[wisher] ' + source.name);
 				}
 			},
 		},
