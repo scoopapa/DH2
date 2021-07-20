@@ -704,12 +704,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},*/
-	steelroller: {
+	//Samtendo09
+	/*steelroller: {
 		num: 798,
 		accuracy: 100,
 		basePower: 85,
 		basePowerCallback(pokemon, target, move) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
 				return move.basePower + 45;
 			}
 			return move.basePower;
@@ -719,6 +720,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},*/
+	//PalpitoadChamp
+	steelroller: {
+		num: 798,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Steel Roller",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, source) {
+			if (if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain')) && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(2);
+			}
+		},
+		onHit() {
+			this.field.clearTerrain();
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
