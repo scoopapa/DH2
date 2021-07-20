@@ -69,6 +69,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Fighting",
 	},*/
+	//stinky potato
+	coaching: {
+		num: 811,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Coaching",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		slotCondition: 'Coaching',
+		condition: {
+			duration: 2,
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					this.boost({atk: 1, def: 1, spe: 1}, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
 	//not finished
 	/*corrosivegas: {
 		num: 810,
@@ -725,7 +749,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},*/
 	//PalpitoadChamp
-	steelroller: {
+	/*steelroller: {
 		num: 798,
 		accuracy: 100,
 		basePower: 130,
@@ -746,7 +770,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-	},
+	},*/
 	strength: {
 		num: 70,
 		accuracy: 100,
