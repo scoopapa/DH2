@@ -98,7 +98,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},*/
 	//NeonNitroGlycerin
-	coaching: {
+	/*coaching: {
 		num: 811,
 		accuracy: true,
 		basePower: 0,
@@ -115,7 +115,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Fighting",
-	},
+	},*/
 	//not finished
 	/*corrosivegas: {
 		num: 810,
@@ -967,7 +967,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyMove(pokemon, move) {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-				selfSwitch: true,
+				selfSwitch: true;
 			}
 		},
 		target: "normal",
