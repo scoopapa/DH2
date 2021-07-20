@@ -967,7 +967,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onAfterMoveSecondarySelf(move, source, target) {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-				selfSwitch: true;
+				if (!this.canSwitch(target.side) || target.forceSwitchFlag) return;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				target.switchFlag = true;
+				if (target.useItem()) {
+					source.switchFlag = false;
+				} else {
+					target.switchFlag = false;
+				}
 			}
 		},
 		target: "normal",
