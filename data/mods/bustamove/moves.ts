@@ -83,7 +83,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon) {
-				this.boost({atk: 1, def: 1, spe: 1};
+				this.boost({atk: 1, def: 1, spe: 1});
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
