@@ -709,7 +709,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		basePowerCallback(pokemon, target, move) {
-			if (this.field.isTerrain('')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain')) {
 				return move.basePower + 45;
 			}
 			return move.basePower;
