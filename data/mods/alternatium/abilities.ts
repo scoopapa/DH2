@@ -216,13 +216,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.7);
 			}
 		},*/
-		onPrepareHit(pokemon, target) {
+		onPrepareHit(source, target) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
-				pokemon.sideCondition('auroraveil');
+				source.side.addSideCondition['auroraveil'];
 			}
 		},
-		onAfterHit(pokemon) {
-			delete pokemon.sideCondition['auroraveil'];
+		onAfterHit(source) {
+			source.side.removeSideCondition['auroraveil'];
 		},
 		/*condition: {
 			duration: 1,
