@@ -172,8 +172,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pikachu: {
 		learnset: {
-			slackoff: ["8L1"],
-			taunt: ["8L1"],
 			wish: ["8L1"],
 			present: ["8L1"],
 			charge: ["8L1"],
