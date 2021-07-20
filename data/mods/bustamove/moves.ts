@@ -749,16 +749,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			self: {
 				onHit() {
-					if (pokemon.hasItem('magnet') {
+					if (pokemon.hasItem('magnet')) {
 						this.field.setTerrain('electricterrain');
 					}
-					if (pokemon.hasItem('miracleseed') {
+					if (pokemon.hasItem('miracleseed')) {
 						this.field.setTerrain('grassyterrain');
 					}
-					if (pokemon.hasItem('mysticwater') {
+					if (pokemon.hasItem('mysticwater')) {
 						this.field.setTerrain('mistyterrain');
 					}
-					if (pokemon.hasItem('oddincense') {
+					if (pokemon.hasItem('oddincense')) {
 						this.field.setTerrain('psychicterrain');
 					}
 				},
