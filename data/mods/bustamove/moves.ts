@@ -83,7 +83,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onResidualOrder: 7,
-			onEnd(target) {
+			onEnd(target, source) {
 				if (!target.fainted) {
 					const source = this.effectState.source;
 					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
