@@ -965,8 +965,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
-		onModifyMove(pokemon, move) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && pokemon.isGrounded()) {
+		onModifyMove(source, move) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
 				selfSwitch: true;
 			}
 		},
