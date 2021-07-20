@@ -967,17 +967,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded() && source && source !== target && target.hp && move && move.category !== 'Status') {
-				if (!this.canSwitch(target.side) || target.forceSwitchFlag) return;
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon.switchFlag === true) return;
 				}
-				target.switchFlag = true;
-				if (target.useItem()) {
-					source.switchFlag = false;
-				} else {
-					target.switchFlag = false;
-				}
+				source.switchFlag = true;
 			}
 		},
 		target: "normal",
