@@ -211,16 +211,47 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 	},
 	rarecold: {
-		onSourceModifyDamage(damage, source, target) {
-			/*if (source.getStat('spe', false, true) > target.getStat('spe', false, true)) {
-				return this.chainModify(1);
-			}*/
+		/*onSourceModifyDamage(damage, source, target) {
 			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true)) {
 				return this.chainModify(0.7);
 			}
+		},*/
+		onStart(pokemon) {
+			pokemon.addVolatile('rarecold');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['rarecold'];
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-start', target, 'ability: Rare Cold');
+			},
+			/*basePowerCallback(pokemon, target, move) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					this.debug('Fishious Rend damage boost');
+					return move.basePower * 2;
+					}
+					this.debug('Fishious Rend NOT boosted');
+					return move.basePower;
+			},*/
+			onAnyModifyDamage(pokemon, target, move) {
+				/*if (target.newlySwitched || this.queue.willMove(target)) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') || (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+						}*/
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					this.debug('Rare Cold weaken');
+					if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+					return this.chainModify(0.7);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Rare Cold');
+			},
 		},
 		name: "Rare Cold",
-		shortDesc: "User takes halved damage if user moves before the target.",
+		shortDesc: "User takes 30% less damage if user moves before the target.",
 		rating: 0,
 		num: 1002,
 	},
