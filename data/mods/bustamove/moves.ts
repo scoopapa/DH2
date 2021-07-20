@@ -86,7 +86,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd(target) {
 				if (!target.fainted) {
 					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
-					if (boost) this.add('-active', target, target.getBoost, '[from] move: Coaching', '[wisher] ' + source.name);
+					if (boost) this.add('-active', target, target.getBoost, '[from] move: Coaching', '[wisher] ' + target.name);
 				}
 			},
 		},
