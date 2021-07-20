@@ -107,24 +107,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {authentic: 1},
-		volatileStatus: 'coaching',
-		onTryHit(target, source, move) {
-			if (target.volatiles['coaching']) return false;
-			if (target.volatiles['trapped']) {
-				delete move.volatileStatus;
-			}
-		},
-		condition: {
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Coaching');
-			},
-			onTrapPokemon(pokemon) {
-				pokemon.tryTrap();
-			},
-		},
-		onAfterMove(pokemon) {
-			pokemon.addVolatile('focusenergy');
-		},
+		volatileStatus: 'focusenergy',
 		boosts: {
 			def: 1,
 			spe: 1,
