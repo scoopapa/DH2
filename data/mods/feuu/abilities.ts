@@ -553,13 +553,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable') {
 				delete boost.atk;
-				this.add('-immune', target, "[from] ability: Doggy's Maw");
-			} else if (effect.id === 'debilitate') {
-				delete boost.spa; 
-				this.add('-immune', target, "[from] ability: Doggy's Maw");
-			} else if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
-				delete boost.spe; 
-				this.add('-immune', target, "[from] ability: Doggy's Maw");
+				this.add('-immune', target, '[from] ability: Doggys Maw');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Doggys Maw');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Doggys Maw');
 			}
 		},
 	},
