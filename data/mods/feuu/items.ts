@@ -301,4 +301,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 755,
 		desc: "If held by a Altarizard, this item allows it to Mega Evolve in battle.",
 	},
+	adrenalineorb: {
+		name: "Adrenaline Orb",
+		spritenum: 660,
+		fling: {
+			basePower: 30,
+		},
+		onAfterBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'debilitate' || effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		num: 846,
+		gen: 7,
+	},
 };
