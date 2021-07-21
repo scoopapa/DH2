@@ -34,10 +34,12 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	/*powerofalchemy: {
-		onSourceAfterFaint(source, target) {
-			let newType = target.types;
-			if (target.fainted) {
-				newType = source.setType;
+		onSourceAfterFaint(source, target, types) {
+			const type1 = source.baseSpecies.types;
+			const type2 = target.baseSpecies.types;
+			if (type1 !== type2) {
+				if (!type1(type2)) return;
+				this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy');
 			}
 		},
 		name: "Power of Alchemy",
@@ -122,9 +124,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'grassysurge';
 			}
 			if (pokemon.species.id === 'silvallyground') {
-				this.add('-ability', pokemon, 'Sand Force', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('sandforce');
-				pokemon.baseAbility = 'sandforce';
+				this.add('-ability', pokemon, 'Mold Breaker', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('moldbreaker');
+				pokemon.baseAbility = 'moldbreaker';
 			}
 			if (pokemon.species.id === 'silvallyice') {
 				this.add('-ability', pokemon, 'Refrigerate', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -142,9 +144,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'magicguard';
 			}
 			if (pokemon.species.id === 'silvallyrock') {
-				this.add('-ability', pokemon, 'Solid Rock', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('solidrock');
-				pokemon.baseAbility = 'solidrock';
+				this.add('-ability', pokemon, 'Sand Stream', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('sandstream');
+				pokemon.baseAbility = 'sandstream';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
 				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -209,16 +211,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 	},
 	rarecold: {
-		onSourceModifyDamage(damage, source, target) {
-			/*if (source.getStat('spe', false, true) > target.getStat('spe', false, true)) {
-				return this.chainModify(1);
-			}*/
-			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true)) {
-				return this.chainModify(0.5);
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.getStat('spe', false, true) <= target.getStat('spe', false, true) && !move.priority > 0.1) {
+				return this.chainModify(0.7);
 			}
 		},
 		name: "Rare Cold",
-		shortDesc: "User takes halved damage if user moves before the target.",
+		shortDesc: "User takes 30% less damage if user moves before the target.",
 		rating: 0,
 		num: 1002,
 	},
@@ -250,8 +249,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.debug('Pack Leader boost');
 				return this.chainModify(1.3);
 			}
-			this.debug('Pack Leader NOT boosted');
-			return this.chainModify(1);
 		},
 		name: "Pack Leader",
 		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
