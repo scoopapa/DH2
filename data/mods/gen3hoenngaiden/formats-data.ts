@@ -1625,4 +1625,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	zarudedada: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };
