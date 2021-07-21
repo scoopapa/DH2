@@ -42,33 +42,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-activate', source, 'typechange', '[from] ability: Power of Alchemy');
 			}
 		},*/
-		onSourceAfterFaint(pokemon) {
-			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			)) {
-				this.effectData.gaveUp = true;
-			}
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
-			while (possibleTargets.length) {
-				let rand = 0;
-				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-				const target = possibleTargets[rand];
-				const ability = target.getAbility();
-				const additionalBannedAbilities = [
-					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
-				];
-				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
-					possibleTargets.splice(rand, 1);
-					continue;
-				}
-				this.add('-activate', pokemon, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-				pokemon.setAbility(ability);
-				return;
-			}
+		onAnyFaint(target) {
+			if (!this.effectData.target.hp) return;
+			const ability = target.getAbility();
+			const additionalBannedAbilities = [
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+			];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
