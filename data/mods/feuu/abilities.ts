@@ -1710,8 +1710,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'sinkorswim' || effect.id === 'scarilyadorable' || effect.id === 'debilitate' || effect.id === 'innerfocus') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable') {
 				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy Armor');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Scrappy Armor');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
 		},
@@ -1892,12 +1900,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Contrary Boost",
 		shortDesc: "Reverses stat changes after attacking and KOing a Pokemon.",
 	},
-/*
 	itemboost: {
 		name: "Item Boost",
 		shortDesc: "(Non-Functional Placeholder) Highest non-HP stat goes up by 1 after using or losing an item.",
 	},
-*/
 	ultrascout: {
 		name: "Ultra Scout",
 		shortDesc: "(Non-Functional Placeholder) On switch-in, this Pokemon identifies the highest non-HP stats of all opposing Pokemon.",
@@ -2001,7 +2007,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Reverse Gear",
 		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
 	},
-
+/*
 	itemboost: {
 		onAfterUseItem(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -2034,6 +2040,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Item Boost",
 		shortDesc: "Highest non-HP stat goes up by 1 after using or losing an item.",
 	},
+*/
 	plotarmor: {
 		name: "Plot Armor",
 		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
@@ -2055,6 +2062,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Stat boosts to the Speed stat are inversed.",
 	},
 */	
+	innerfocus: {
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+		name: "Inner Focus",
+		rating: 1.5,
+		num: 39,
+	},
 //  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };
  
