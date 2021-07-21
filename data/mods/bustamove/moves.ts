@@ -939,7 +939,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 	},*/
 	//zxgzxg
-	terrainpulse: {
+	/*terrainpulse: {
 		num: 805,
 		accuracy: 100,
 		basePower: 60,
@@ -979,7 +979,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
-	},
+	},*/
 	//not finished
 	/*trickortreat: {
 		num: 567,
