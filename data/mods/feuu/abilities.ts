@@ -1033,7 +1033,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	feelnopain: {
 		name: "Feel No Pain",
-		shortDesc: "Heals 1/8 max HP each turn when poisoned; no HP loss; immune to Poison-type attacks.",
+		shortDesc: "Poison Heal + Levitate",
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'psn' || effect.id === 'tox') {
@@ -1042,7 +1042,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Poison') {
+			if (target !== source && move.type === 'Ground') {
 				this.add('-immune', target, '[from] ability: Feel No Pain');
 				return null;
 			}
@@ -1710,9 +1710,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate') {
+			if (effect.id === 'intimidate' || effect.id === 'sinkorswim' || effect.id === 'scarilyadorable' || effect.id === 'debilitate' || effect.id === 'innerfocus') {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Scrappy');
+				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -1892,10 +1892,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Contrary Boost",
 		shortDesc: "Reverses stat changes after attacking and KOing a Pokemon.",
 	},
+/*
 	itemboost: {
 		name: "Item Boost",
 		shortDesc: "(Non-Functional Placeholder) Highest non-HP stat goes up by 1 after using or losing an item.",
 	},
+*/
 	ultrascout: {
 		name: "Ultra Scout",
 		shortDesc: "(Non-Functional Placeholder) On switch-in, this Pokemon identifies the highest non-HP stats of all opposing Pokemon.",
@@ -1999,7 +2001,60 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Reverse Gear",
 		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
 	},
-	
+
+	itemboost: {
+		onAfterUseItem(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		onTakeItem(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "Item Boost",
+		shortDesc: "Highest non-HP stat goes up by 1 after using or losing an item.",
+	},
+	plotarmor: {
+		name: "Plot Armor",
+		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
+	},
+/*
+	reversegear: {
+		onAfterBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.spe && boost.spe < 0) {
+					if (source.boosts[spe] === 0) continue;
+					source.boosts[i] = -source.boosts[i];
+					success = true;
+				}
+				if (!success) return false;
+				this.add('-invertboost', source, '[from] ability: Contrary Boost');
+			}
+		},
+		name: "Reverse Gear",
+		shortDesc: "Stat boosts to the Speed stat are inversed.",
+	},
+*/	
 //  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };
  
