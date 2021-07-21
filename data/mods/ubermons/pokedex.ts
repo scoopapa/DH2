@@ -133,4 +133,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Heavy Metal"},
 	},
+	blastoisesmega: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Technician"},
+	},
 };

@@ -217,7 +217,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		useSourceDefensiveAsOffensive: true,
 		onBasePower(basePower, source) {
-			if (source.item && source.item.id === 'lightball' && source.species.id === 'pikachulibre'){
+			if (source.item === 'lightball' && source.species.id === 'pikachulibre'){
 				return this.chainModify(2);
 			}
 		},
