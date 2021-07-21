@@ -65,7 +65,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					possibleTargets.splice(rand, 1);
 					continue;
 				}
-				this.add('-ability', pokemon, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+				this.add('-activate', pokemon, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
 				pokemon.setAbility(ability);
 				return;
 			}
