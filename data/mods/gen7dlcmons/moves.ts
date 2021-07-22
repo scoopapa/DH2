@@ -304,12 +304,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 155,
 		category: "Special",
+		shortDesc: "Lowers the user's Atk/Def/SpAtk/SpDef/Spe by 1.",
 		name: "Eternal Nightmare",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		isZ: "plubiumz",
-		secondary: {
+		self: {
 			chance: 100,
 			boosts: {
 				atk: -1,

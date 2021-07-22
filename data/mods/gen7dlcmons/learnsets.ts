@@ -4,11 +4,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	tapukokokinolau: {
 		learnset: {
 			roostercall: ["7L1"],
+			bravebird: ["7L1"],
 		},
 	},
 	tapulelekinolau: {
 		learnset: {
 			manifestation: ["7L1"],
+			naturesmadness: ["7L1"],
 		},
 	},
 	tapubulukinolau: {

@@ -787,6 +787,7 @@ export const Formats: FormatList = [
 			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
 			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish', 'Krabby', 'Kingler',
 			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
+			'Arachsoil', 'Sunkern-Alola', 'Sanddern',
 		],
 		mod: 'gen7dlcmons',
 		teambuilderFormat: 'OU',
