@@ -1393,7 +1393,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxysspeed: {
 		randomBattleMoves: ["calmmind", "icebeam", "psychic", "recover", "shadowball", "spikes", "superpower", "taunt", "toxic"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	snover: {
 		isNonstandard: null,
@@ -1443,7 +1443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "LC",
 	},
 	silvally: {
 		isNonstandard: null,
@@ -1586,6 +1586,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	staraptor: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	stunky: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	skuntank: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	fletchling: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	fletchinder: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	talonflame: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	sylveon: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	zarude: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	zarudedada: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",

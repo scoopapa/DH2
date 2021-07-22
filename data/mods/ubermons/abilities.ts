@@ -35,19 +35,19 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
-			if (pokemon.isGrounded()) {
+			if (pokemon.hasType('Ground') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+			if (!pokemon.knownType || pokemon.hasType('Ground')) {
 				pokemon.maybeTrapped = true;
 			}
 		},
 		name: "Arena Trap",
+		shortDesc: "Prevents adjacent Ground-type foes from choosing to switch.",
 		rating: 5,
 		num: 71,
 	},
@@ -105,19 +105,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.hasAbility('shadowtag')) {
-				pokemon.maybeTrapped = true;
-			}
+		onFoeSwitchOut(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
 		},
 		name: "Shadow Tag",
+		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
 		rating: 5,
 		num: 23,
 	},
@@ -131,5 +123,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon deals 1.5x damage to burned opponents.",
 		rating: 3,
 		num: 265,
+	},
+	gorillatactics: {
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Gorilla Tactics");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		name: "Gorilla Tactics",
+		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		rating: 4.5,
+		num: 255,
 	},
 };

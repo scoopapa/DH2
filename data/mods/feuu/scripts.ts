@@ -30,6 +30,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//so we will simulate that here, instead of actually editing that. 
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
+		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
@@ -260,7 +261,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('therapeutic'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('therapeutic') || pokemon.hasAbility('gutsyjaw'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -613,5 +614,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 
 		return damage;
+	},
+	canUltraBurst(pokemon) {
+		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'ultranecroziumz') {
+			return "Necrozma-Ultra";
+		}
+		if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'depletedultranecroziumz') {
+			return "Noze-Ultra";
+		}
+		return null;
+	},
+	hitStepTryImmunity(targets, pokemon, move) {
+		const hitResults = [];
+		for (const [i, target] of targets.entries()) {
+			if (this.gen >= 6 && move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
+				this.debug('natural powder immunity');
+				this.add('-immune', target);
+				hitResults[i] = false;
+			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
+				this.add('-immune', target);
+				hitResults[i] = false;
+			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes')) &&
+				targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
+				this.debug('natural prankster immunity');
+				if (!target.illusion) this.hint("Since gen 7, Dark is immune to Prankster moves.");
+				this.add('-immune', target);
+				hitResults[i] = false;
+			} else {
+				hitResults[i] = true;
+			}
+		}
+		return hitResults;
 	},
 }; 

@@ -38,6 +38,42 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
 		delete this.modData('Learnsets', 'rayquaza').learnset.extremespeed;
+		
+		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
+		
+		delete this.modData('Learnsets', 'deoxys').learnset.spikes;
+		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
+		delete this.modData('Learnsets', 'deoxys').learnset.superpower;
+		delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
+		delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
+		delete this.modData('Learnsets', 'deoxys').learnset.taunt;
+		delete this.modData('Learnsets', 'deoxys').learnset.focusblast;
+		delete this.modData('Learnsets', 'deoxys').learnset.drainpunch;
+		delete this.modData('Learnsets', 'deoxys').learnset.brickbreak;
+		delete this.modData('Learnsets', 'deoxys').learnset.agility;
+		
+		this.modData('Learnsets', 'darmanitangalar').learnset.switcheroo = ['8L1'];
+		
+		delete this.modData('Learnsets', 'kangaskhan').learnset.seismictoss;
+		
+		delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
+		
+		this.modData('Learnsets', 'metagross').learnset.heavyslam = ['8L1'];
+		this.modData('Learnsets', 'metagross').learnset.heatcrash = ['8L1'];
+		
+		delete this.modData('Learnsets', 'squirtle').learnset.shellsmash;
+		delete this.modData('Learnsets', 'wartortle').learnset.shellsmash;
+		delete this.modData('Learnsets', 'blastoise').learnset.shellsmash;
+		this.modData('Learnsets', 'blastoise').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'blastoise').learnset.vacuumwave = ['8L1'];
+	},
+	
+	pokemon: {
+    ignoringItem() {
+        return !!((this.battle.gen >= 5 && !this.isActive) ||
+            (this.hasAbility(['klutz', 'gorillatactics']) && !this.getItem().ignoreKlutz) ||
+            this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
+		}
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {

@@ -343,4 +343,76 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	alicuto: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	frostonna: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slowkingmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	primeapealola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mankeyalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	mankeygalar: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	primotunn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	machampmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chesnaughtsteel: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	delphoxaria: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	swellow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	taillow: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	blastoisemegax: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	venusaurmegay: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dragonitemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gigalithalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	boldorealola: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
+	roggenrolaalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
 };

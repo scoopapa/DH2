@@ -524,4 +524,50 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 	},
+	
+	gulpmissile: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging', 'abysseelgulping', 'abysseelgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping' || target.species.id === 'abysseelgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange(target.species.baseSpecies, move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				(source.species.name === 'Cramorant' || source.species.name === 'Abysseel') && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'gorging' : 'gulping';
+				source.formeChange(source.species.name + forme, effect);
+			}
+		},
+	},
+	
+	twopressured: {
+		name: "Two Pressured",
+		desc: "This Pokemon's water moves have -1 priority, but hit twice at 2/3 power.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Water') {
+				return priority - 1;
+			}
+		},
+		onPrepareHit(source, target, move) {
+			if (move.multihit) return;
+			if (move.type === 'Water' && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Water') return this.chainModify(2/3);
+		},
+	},
 };

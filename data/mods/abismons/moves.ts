@@ -17113,6 +17113,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('lavacarpet')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},	
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Fire')) {
+					this.add('-sideend', pokemon.side, 'move: Lava Carpet', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');	
+				}	
+			},	
 			duration: 4,
 			durationCallback(target, source, effect) {
 				if (source?.hasAbility('persistent')) {

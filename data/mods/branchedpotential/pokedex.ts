@@ -130,7 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inheritMoves: ['Butterfree'],
 		num: -104,
 		name: "Stacragus",
-		types: ["Rock", "Flying"],
+		types: ["Rock", "Bug"],
 		baseStats: {hp: 55, atk: 110, def: 50, spa: 60, spd: 50, spe: 70},
 		abilities: {0: "Shields Down"},
 		weightkg: 35,

@@ -47,8 +47,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	beatup: {
 		inherit: true,
-		category: "Special",
-		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a major status condition in the user's party, or fails if no Pokemon meet the criteria. For each hit, the damage formula uses the participating Pokemon's base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense; each hit is considered to come from the user.",
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			if (!move.allies?.length) return null;
+			return 10;
+		},
+		onModifyMove(move, pokemon) {
+			pokemon.addVolatile('beatup');
+			move.type = '???';
+			move.category = 'Physical';
+			move.allies = pokemon.side.pokemon.filter(ally => !ally.fainted && !ally.status);
+			move.multihit = move.allies.length;
+		},
+		condition: {
+			duration: 1,
+			onModifyAtkPriority: -101,
+			onModifyAtk(atk, pokemon, defender, move) {
+				this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + move.allies![0].name);
+				this.event.modifier = 1;
+				return move.allies!.shift()!.species.baseStats.atk;
+			},
+			onFoeModifyDefPriority: -101,
+			onFoeModifyDef(def, pokemon) {
+				this.event.modifier = 1;
+				return pokemon.species.baseStats.def;
+			},
+		},
 	},
 	bide: {
 		inherit: true,
@@ -473,9 +497,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
 	gigadrain: {
-		inherit: true,
-		desc: "The user recovers 1/2 the HP lost by the target, rounded down.",
-		pp: 5,
+		num: 202,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Giga Drain",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Grass",
 	},
 	glare: {
 		inherit: true,
@@ -779,7 +812,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 20,
 			boosts: {
-				def: -1,
+				spd: -1,
 			}
 		},
 	},
@@ -1040,6 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			switch (this.field.effectiveWeather()) {
 			case 'sunnyday':
+			case 'desolateland':
 				move.type = 'Fire';
 				move.category = 'Special';
 				break;
@@ -1069,28 +1103,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
-	/*multiattack: {
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		desc: "This move's type depends on the user's held Memory.",
-		shortDesc: "Type varies based on the held Memory.",
-		id: "multiattack",
-		isViable: true,
-		name: "Multi-Attack",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			let type = pokemon.types[0];
-			if (type === "Bird") type = "???";
-			move.type = type;
-		},
-		onModifyMove(move, pokemon) {
-			if (['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'].includes(pokemon.types[0]))
-            move.category = "Special";
-		},
-	},*/
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
@@ -1347,5 +1359,156 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+	},
+	acrobatics: {
+		num: 512,
+		accuracy: 100,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Acrobatics",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	lunge: {
+		num: 679,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Lunge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
+	},
+	foulplay: {
+		num: 492,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Foul Play",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useTargetOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	suckerpunch: {
+		num: 389,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Sucker Punch",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	spikyshield: {
+		num: 596,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spiky Shield",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'spikyshield',
+		onTryHit(target, source, move) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	junglehealing: {
+		num: 816,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Jungle Healing",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, authentic: 1, mystery: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "allies",
+		type: "Grass",
 	},
 };
