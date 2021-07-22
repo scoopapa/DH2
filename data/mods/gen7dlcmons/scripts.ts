@@ -9,27 +9,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		this.modData('Learnsets', 'kommoo').learnset.clangoroussoul = ['7T'];
-	},
-
-	pokemon: {
-		ignoringAbility() {
-			// Check if any active pokemon have the ability Neutralizing Gas
-			let neutralizinggas = false;
-			let fishingrod = false;
-			for (const pokemon of this.battle.getAllActive()) {
-				// can't use hasAbility because it would lead to infinite recursion
-				if (pokemon.item === 'fishingrod') fishingrod = true;
-				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending) {
-					neutralizinggas = true;
-				}
-			}
-
-			return !!(
-				(this.battle.gen >= 5 && !this.isActive) ||
-				(this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (fishingrod && this.hasType('Water')) &&
-				!this.getAbility().isPermanent
-				)
-			);
-		}
+		
+		this.modData('Learnsets', 'tapukoko').learnset.hurricane = ['7T'];
+		this.modData('Learnsets', 'tapukoko').learnset.airslash = ['7T'];
+		this.modData('Learnsets', 'tapukoko').learnset.tailwind = ['7T'];
+		
+		this.modData('Learnsets', 'tapulele').learnset.leechlife = ['7T'];
+		this.modData('Learnsets', 'tapulele').learnset.strengthsap = ['7T'];
+		
+		this.modData('Learnsets', 'tapubulu').learnset.stealthrock = ['7T'];
+		
+		this.modData('Learnsets', 'tapufini').learnset.smartstrike = ['7T'];
+		this.modData('Learnsets', 'tapufini').learnset.swordsdance = ['7T'];
+		this.modData('Learnsets', 'tapufini').learnset.playrough = ['7T'];
 	},
 };
