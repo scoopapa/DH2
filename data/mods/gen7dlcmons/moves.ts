@@ -256,62 +256,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	wrathfulsoulstrike: {
-		num: -1020,
-		accuracy: true,
-		basePower: 160,
-		category: "Physical",
-		shortDesc: "Raises stats depending on fainted allies",
-		name: "Wrathful Soulstrike",
-		pp: 1,
-		priority: 0,
-		flags: {},
-		onModifyMove(pokemon, target, move) {
-			move.allies = pokemon.side.pokemon.filter(ally => ally.fainted);
-			if (move.allies.length > 1) {
-				this.add('-message', `${move.allies.length} souls are helping ${pokemon.name}!`);
-			} else if (move.allies.length) {
-				this.add('-message', `A soul is helping ${pokemon.name}!`);
-			} else {
-				this.add('-message', `There are no souls to help ${pokemon.name}!`);
-			}
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.allies.length) {
-				const boost: SparseBoostsTable = {};
-				if (move.allies.length > 0) boost['atk'] = 1;
-				if (move.allies.length > 1) boost['def'] = 1;
-				if (move.allies.length > 2) boost['spa'] = 1;
-				if (move.allies.length > 3) boost['spd'] = 1;
-				if (move.allies.length > 4) boost['spe'] = 1;
-				this.boost(boost, pokemon);
-			}
-		},
-		isZ: "tikilohiumz",
-		secondary: {
-			// Sheer Force negates the selfBoost even though it is not secondary
-		},
-		onPrepareHit: function(target, source) {	
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Never-Ending Nightmare", target);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
-		contestType: "Tough",
-	},
 	eternalnightmare: {
 		num: -1021,
 		accuracy: true,
 		basePower: 155,
 		category: "Special",
-		shortDesc: "Lowers the user's Atk/Def/SpAtk/SpDef/Spe by 1.",
+		shortDesc: "Lowers the foe's Atk/Def/SpAtk/SpDef/Spe by 1.",
 		name: "Eternal Nightmare",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		isZ: "plubiumz",
-		self: {
+		secondary: {
 			chance: 100,
 			boosts: {
 				atk: -1,
@@ -325,7 +281,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Never-Ending Nightmare", target);
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
