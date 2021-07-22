@@ -17,6 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 20.5,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Koko",
 	},
 	tapulele: {
 		inherit: true,
@@ -36,6 +37,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 18.6,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Lele",
 	},
 	tapubulu: {
 		inherit: true,
@@ -55,6 +57,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 45.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Bulu",
 	},
 	tapufini: {
 		inherit: true,
@@ -74,6 +77,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 21.2,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Fini",
 	},
 	plubia: {
 		num: -1001,
