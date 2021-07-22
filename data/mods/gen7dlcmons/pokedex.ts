@@ -1,6 +1,7 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tapukoko: {
 		inherit: true,
+		abilities: {0: "Electric Surge"},
 		otherFormes: ["Tapu Koko-Kinolau"],
 		formeOrder: ["Tapu Koko", "Tapu Koko-Kinolau"],
 	},
@@ -21,6 +22,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tapulele: {
 		inherit: true,
+		abilities: {0: "Psychic Surge"},
 		otherFormes: ["Tapu Lele-Kinolau"],
 		formeOrder: ["Tapu Lele", "Tapu Lele-Kinolau"],
 	},
@@ -41,6 +43,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tapubulu: {
 		inherit: true,
+		abilities: {0: "Grassy Surge"},
 		otherFormes: ["Tapu Bulu-Kinolau"],
 		formeOrder: ["Tapu Bulu", "Tapu Bulu-Kinolau"],
 	},
@@ -61,6 +64,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tapufini: {
 		inherit: true,
+		abilities: {0: "Misty Surge"},
 		otherFormes: ["Tapu Fini-Kinolau"],
 		formeOrder: ["Tapu Fini", "Tapu Fini-Kinolau"],
 	},
