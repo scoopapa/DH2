@@ -341,7 +341,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 180,
 	},
 	fluxtapestereo: {
-		num: 1035,
+		num: 4,
 		name: "Fluxtape-Stereo",
 		baseSpecies: "Fluxtape",
 		forme: "Stereo",
@@ -354,7 +354,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		changesFrom: "Fluxtape",
 	},
 	gargogunk: {
-		num: 1036,
+		num: 1035,
 		name: "Gargogunk",
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 101, atk: 123, def: 80, spa: 88, spd: 130, spe: 78},
