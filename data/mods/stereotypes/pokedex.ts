@@ -38,6 +38,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Flame Body", 1: "Competitive", H: "Flash Fire"},
 		heightm: 1.7,
 		weightkg: 0.2,
+		otherFormes: ["Fluxtape-Stereo"],
+		formeOrder: ["Fluxtape", "Fluxtape-Stereo"],
 	},
 	triluga: {
 		num: 5,
@@ -328,5 +330,34 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Aroma Veil", H: "Sniper"},
 		weightkg: 193,
 	},
-	//Slate 12: Bug/Ghost, Electric/Fire, Rock/Poison
+	//Slate 12: Bug/Ghost, Fire/Electric, Rock/Poison
+	pharaoach: {
+		num: 1034,
+		name: "Pharaoach",
+		types: ["Bug", "Ghost"],
+		baseStats: {hp: 120, atk: 140, def: 40, spa: 100, spd: 90, spe: 70},
+		abilities: {0: "Cursed Body", 1: "Sand Force", H: "Regenerator"},
+		weightkg: 180,
+	},
+	fluxtapestereo: {
+		num: 1035,
+		name: "Fluxtape-Stereo",
+		baseSpecies: "Fluxtape",
+		forme: "Stereo",
+		types: ["Fire", "Electric"],
+		gender: "N",
+		baseStats: {hp: 110, atk: 120, def: 100, spa: 105, spd: 80, spe: 76},
+		abilities: {0: "Flame Body", 1: "Rock Head", H: "Volt Absorb"},
+		heightm: 5.1,
+		weightkg: 42,
+	},
+	gargogunk: {
+		num: 1036,
+		name: "Gargogunk",
+		types: ["Rock", "Poison"],
+		baseStats: {hp: 101, atk: 123, def: 80, spa: 88, spd: 130, spe: 78},
+		abilities: {0: "Mold Breaker", 1: "Aftermath", H: "Sand Stream"},
+		heightm: 1.8,
+		weightkg: 147,
+	},
 };
