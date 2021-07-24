@@ -32,6 +32,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	fluxtape: {
 		num: 4,
 		name: "Fluxtape",
+		baseForme: "Mono",
 		types: ["Fire"],
 		gender: "N",
 		baseStats: {hp: 60, atk: 89, def: 50, spa: 115, spd: 60, spe: 126},
@@ -350,6 +351,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Flame Body", 1: "Rock Head", H: "Volt Absorb"},
 		heightm: 5.1,
 		weightkg: 42,
+		changesFrom: "Fluxtape",
 	},
 	gargogunk: {
 		num: 1036,
