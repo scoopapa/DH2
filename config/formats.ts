@@ -956,7 +956,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Smeargle + Baton Pass'],
+		banlist: ['Uber', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
@@ -1601,7 +1601,7 @@ export const Formats: FormatList = [
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
 		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass'],
+		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
@@ -1626,7 +1626,7 @@ export const Formats: FormatList = [
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Wobbuffet + Leftovers'],		
+		banlist: ['Wobbuffet + Leftovers', 'Past'],		
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
