@@ -41,6 +41,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData("Learnsets", "dragonite").learnset.dazzlinggleam = ["8L1"];
 	this.modData("Learnsets", "dragonite").learnset.drainingkiss = ["8L1"];
 	this.modData("Learnsets", "dragonite").learnset.moonblast = ["8L1"];
+	this.modData("Learnsets", "zoroark").learnset.shadowsneak = ["8L1"];
+	this.modData("Learnsets", "zoroark").learnset.terrainpulse = ["8L1"];
 
 	},
 };
