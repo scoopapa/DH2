@@ -279,7 +279,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			else if (source.hasItem('shockdrive')) {
 				source.types[1] = 'Electric';
 			}
-			this.add('-activate', pokemon, 'ability: Private Wi-Fi');
+			this.add('-activate', source, 'ability: Private Wi-Fi');
 			/*for (const foeactive of pokemon.side.foe.active) {
 				let allyActive = pokemon.side.active;
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
