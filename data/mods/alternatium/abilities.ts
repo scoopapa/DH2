@@ -265,7 +265,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1005,
 	},
-	publicwifi: {
+	privatewifi: {
 		onStart(length, target, source) {
 			for (const target of source.adjacentFoes()) {
 			if (target.hasType(source.getTypes())) {
@@ -295,9 +295,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		}
 		},
-		name: "Public Wi-Fi",
+		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,
 		num: 1006,
+	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: null,
+		name: "Mountaineer",
+		rating: 3,
+		num: -2,
 	},
 };
