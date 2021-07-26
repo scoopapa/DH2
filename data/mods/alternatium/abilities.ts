@@ -266,32 +266,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1005,
 	},
 	privatewifi: {
-		onStart(length, target, source, pokemon) {
-			for (const target of pokemon.side.foe.active) {
+		onStart(pokemon) {
+			for (const foeactive of pokemon.side.foe.active) {
 				if (!target || target.fainted || !target.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatIDExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = source.storedStats[s];
+						bestStat = pokemon.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, source);
+				this.boost({[statName]: length}, pokemon);
 
 				// Boosts opponent's Pokemon's highest stat
 				let statNameOpp = 'atk';
 				let bestStatOpp = 0;
 				let sOpp: StatIDExceptHP;
-				for (sOpp in target.storedStats) {
-					if (target.storedStats[sOpp] > bestStatOpp) {
+				for (sOpp in foeactive.storedStats) {
+					if (foeactive.storedStats[sOpp] > bestStatOpp) {
 						statNameOpp = sOpp;
-						bestStatOpp = target.storedStats[sOpp];
+						bestStatOpp = foeactive.storedStats[sOpp];
 					}
 				}
-				this.boost({[bestStatOpp]: length}, target);
+				this.boost({[bestStatOpp]: length}, foeactive);
 			}
 		},
 		name: "Private Wi-Fi",
