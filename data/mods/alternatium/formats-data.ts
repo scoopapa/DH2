@@ -426,24 +426,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	meloettapirouette: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	genesect: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectburn: {
+	genesectmolten: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectchill: {
+	genesectfreezer: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectdouse: {
+	genesectpassword: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectshock: {
+	/*genesectshock: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},*/

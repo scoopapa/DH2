@@ -265,4 +265,39 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1005,
 	},
+	publicwifi: {
+		onStart(length, target, source) {
+			for (const target of source.adjacentFoes()) {
+			if (target.hasType(source.getTypes())) {
+				// Boosts player's Pokemon's highest stat
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatIDExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+
+				// Boosts opponent's Pokemon's highest stat
+				let statNameOpp = 'atk';
+				let bestStatOpp = 0;
+				let sOpp: StatIDExceptHP;
+				for (sOpp in target.storedStats) {
+					if (target.storedStats[sOpp] > bestStatOpp) {
+						statNameOpp = sOpp;
+						bestStatOpp = target.storedStats[sOpp];
+					}
+				}
+				this.boost({[bestStatOpp]: length}, target);
+			}
+		}
+		},
+		name: "Public Wi-Fi",
+		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
+		rating: 0,
+		num: 1006,
+	},
 };
