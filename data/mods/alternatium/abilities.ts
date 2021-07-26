@@ -272,14 +272,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 			if (pokemon.hasItem('chilldrive') {
 				pokemon.types[1] = 'Ice',
-			}
+			},
 			if (pokemon.hasItem('dousedrive') {
 				pokemon.types[1] = 'Water',
-			}
+			},
 			if (pokemon.hasItem('shockdrive') {
 				pokemon.types[1] = 'Electric',
-			}
-			
+			},
 			/*for (const foeactive of pokemon.side.foe.active) {
 				let allyActive = pokemon.side.active;
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
