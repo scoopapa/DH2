@@ -267,8 +267,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	privatewifi: {
 		onStart(length, target, source) {
-			for (const target of source.adjacentFoes()) {
-			if (target.hasType(source.getTypes())) {
+			for (const foeactive of pokemon.side.foe.active) {
+				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
@@ -294,7 +294,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.boost({[bestStatOpp]: length}, target);
 			}
 		}
-		},
+		},*/
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,
