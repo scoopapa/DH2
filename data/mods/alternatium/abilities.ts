@@ -266,17 +266,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1005,
 	},
 	privatewifi: {
-		onStart(source, pokemon, length) {
-			for (const foeactive of pokemon.side.foe.active) {
+		onStart(pokemon, length) {
+			/*if (pokemon.hasItem('burndrive') {
+				pokemon.types[1] = 'Fire',
+			},
+			if (pokemon.hasItem('chilldrive') {
+				pokemon.types[1] = 'Ice',
+			}
+			if (pokemon.hasItem('dousedrive') {
+				pokemon.types[1] = 'Water',
+			}
+			if (pokemon.hasItem('shockdrive') {
+				pokemon.types[1] = 'Electric',
+			}*/
+			
+			for (const foeactive of pokemon.side.foe.active) && for (const allyActive of pokemon.side.active) {
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatIDExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
+				for (s in allyActive.storedStats) {
+					if (allyActive.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = source.storedStats[s];
+						bestStat = allyActive.storedStats[s];
 					}
 				}
 				this.boost({[statName]: length}, pokemon);
