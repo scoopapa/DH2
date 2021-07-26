@@ -50,7 +50,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'dewpider').learnset.lifedew = ['8L1'];
 		this.modData('Learnsets', 'araquanid').learnset.lifedew = ['8L1'];
-		this.modData('Learnsets', 'meowtsic').learnset.lifedew = ['8L1'];
+		this.modData('Learnsets', 'meowstic').learnset.lifedew = ['8L1'];
 		this.modData('Learnsets', 'meowsticf').learnset.lifedew = ['8L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.lifedew = ['8L1'];
 		
