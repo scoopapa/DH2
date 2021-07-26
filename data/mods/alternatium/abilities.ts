@@ -280,7 +280,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.types[1] = 'Electric',
 			}*/
 			
-			for (const foeactive of pokemon.side.foe.active) && for (const allyActive of pokemon.side.active) {
+			for (const foeactive of pokemon.side.foe.active) {
+				const allyActive = pokemon.side.active;
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
