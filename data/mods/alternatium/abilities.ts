@@ -267,7 +267,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	privatewifi: {
 		onStart(pokemon, length) {
-			/*if (pokemon.hasItem('burndrive') {
+			if (pokemon.hasItem('burndrive') {
 				pokemon.types[1] = 'Fire',
 			},
 			if (pokemon.hasItem('chilldrive') {
@@ -278,9 +278,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (pokemon.hasItem('shockdrive') {
 				pokemon.types[1] = 'Electric',
-			}*/
+			}
 			
-			for (const foeactive of pokemon.side.foe.active) {
+			/*for (const foeactive of pokemon.side.foe.active) {
 				let allyActive = pokemon.side.active;
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
@@ -306,7 +306,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					}
 				}
 				this.boost({[bestStatOpp]: length}, foeactive);
-			}
+			}*/
 		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
