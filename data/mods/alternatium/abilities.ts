@@ -280,7 +280,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.types[1] = 'Electric';
 			}
 			this.add('-activate', source, 'ability: Private Wi-Fi');
-			this.add('-message', `${source.name} changed its type to match its ${item.name}!`);
+			this.add('-message', `${source.name} changed its type to match its Drive!`);
 			this.add('-start', source, 'typechange');
 			/*for (const foeactive of pokemon.side.foe.active) {
 				let allyActive = pokemon.side.active;
