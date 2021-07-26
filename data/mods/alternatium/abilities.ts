@@ -293,7 +293,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 				this.boost({[bestStatOpp]: length}, target);
 			}
-		}
 		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
