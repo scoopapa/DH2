@@ -281,7 +281,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			this.add('-activate', source, 'ability: Private Wi-Fi');
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
-			this.add('-start', source, 'typechange', type);
 			/*for (const foeactive of pokemon.side.foe.active) {
 				let allyActive = pokemon.side.active;
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
