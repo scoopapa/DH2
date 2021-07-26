@@ -270,13 +270,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (source.hasItem('burndrive')) {
 				source.types[1] = 'Fire',
 			},
-			if (source.hasItem('chilldrive')) {
+			else if (source.hasItem('chilldrive')) {
 				source.types[1] = 'Ice',
 			},
-			if (source.hasItem('dousedrive')) {
+			else if (source.hasItem('dousedrive')) {
 				source.types[1] = 'Water',
 			},
-			if (source.hasItem('shockdrive')) {
+			else if (source.hasItem('shockdrive')) {
 				source.types[1] = 'Electric',
 			},
 			/*for (const foeactive of pokemon.side.foe.active) {
