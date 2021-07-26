@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	tyrantrum: {
+	/*tyrantrum: {
 		learnset: {
 			aerialace: ["7M", "6M"],
 			ancientpower: ["8L1", "7L26", "6L26"],
@@ -5152,5 +5152,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zapcannon: ["8L64", "7L41"],
 			paraboliccharge: ["8L1"],
 		},
-	},
+	},*/
 };
