@@ -266,7 +266,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1005,
 	},
 	privatewifi: {
-		onStart(length, target, source) {
+		onStart(length, target, source, pokemon) {
 			for (const foeactive of pokemon.side.foe.active) {
 				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
 				// Boosts player's Pokemon's highest stat
