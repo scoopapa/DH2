@@ -267,16 +267,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	privatewifi: {
 		onStart(source) {
-			if (source.hasItem('burndrive') {
+			if (source.hasItem('burndrive')) {
 				source.types[1] = 'Fire',
 			},
-			if (source.hasItem('chilldrive') {
+			if (source.hasItem('chilldrive')) {
 				source.types[1] = 'Ice',
 			},
-			if (source.hasItem('dousedrive') {
+			if (source.hasItem('dousedrive')) {
 				source.types[1] = 'Water',
 			},
-			if (source.hasItem('shockdrive') {
+			if (source.hasItem('shockdrive')) {
 				source.types[1] = 'Electric',
 			},
 			/*for (const foeactive of pokemon.side.foe.active) {
