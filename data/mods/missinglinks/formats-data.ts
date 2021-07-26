@@ -455,4 +455,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
+	fauxrestree: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
