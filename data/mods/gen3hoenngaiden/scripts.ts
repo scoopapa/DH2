@@ -196,8 +196,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'walrein').learnset.iceshard = ['3L1'];
 		this.modData('Learnsets', 'delibird').learnset.iceshard = ['3L1'];
 		
-		this.modData('Learnsets', 'flygon').learnset.lunge = ['3L1'];
-		this.modData('Learnsets', 'scizor').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'vibrava').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'scyther').learnset.lunge = ['3L1'];
 		this.modData('Learnsets', 'illumise').learnset.lunge = ['3L1'];
 		this.modData('Learnsets', 'sandslash').learnset.lunge = ['3L1'];
 		this.modData('Learnsets', 'ninjask').learnset.lunge = ['3L1'];
