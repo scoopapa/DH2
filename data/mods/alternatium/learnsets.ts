@@ -8462,7 +8462,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["8M", "7M", "6M", "5M"],
 			swagger: ["7M", "6M", "5M"],
 			swift: ["8M"],
-			technoblast: ["8L84", "7L1", "6L1", "5L1"],
 			telekinesis: ["7T"],
 			thunderwave: ["8M", "7M", "6M", "5M"],
 			toxic: ["7M", "6M", "5M"],
