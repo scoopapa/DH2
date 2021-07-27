@@ -8565,7 +8565,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8M", "7T", "6T", "5T"],
 		},
 	},
-	genesectshock: {
+	genesecttypeδ: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M"],
 			allyswitch: ["8M", "7T"],
@@ -8582,7 +8582,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["8M"],
 			energyball: ["8M", "7M", "6M", "5M"],
 			explosion: ["7M", "6M", "5M"],
-			extremespeed: ["8L1"],
 			facade: ["8M", "7M", "6M", "5M"],
 			fellstinger: ["8L21", "7L1", "6L1"],
 			flamecharge: ["8L28", "7M", "7L18", "6M", "6L18", "5M", "5L18"],
@@ -8625,7 +8624,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			secretpower: ["6M"],
 			selfdestruct: ["8M", "8L91", "7L77", "6L77", "5L77"],
 			shadowclaw: ["8M", "7M", "6M", "5M"],
-			shiftgear: ["8L1"],
 			shockwave: ["7T", "6T"],
 			signalbeam: ["7T", "7L40", "6T", "6L40", "5T", "5L40"],
 			simplebeam: ["8L63", "7L62", "6L62", "5L62"],
@@ -8638,7 +8636,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["8M", "7M", "6M", "5M"],
 			swagger: ["7M", "6M", "5M"],
 			swift: ["8M"],
-			technoblast: ["8L84", "7L1", "6L1", "5L1"],
 			telekinesis: ["7T"],
 			thunder: ["8M", "7M", "6M", "5M"],
 			thunderbolt: ["8M", "7M", "6M", "5M"],
@@ -8649,6 +8646,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["8M", "8L42", "7M", "7L51", "6M", "6L51", "5M", "5L51"],
 			zapcannon: ["8L70", "7L66", "6L66", "5L66"],
 			zenheadbutt: ["8M", "7T", "6T", "5T"],
+			calmmind: ["8L1"],
+			expandingforce: ["8L1"],
+			psychicfangs: ["8L1"],
+			psyshock: ["8L1"],
+			voltswitch: ["8L1"],
+			zingzap: ["8L1"],
+			technoblastdelta: ["8L1"],
 		},
 	},
 	vivillonspirit: {

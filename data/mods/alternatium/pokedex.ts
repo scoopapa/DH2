@@ -1394,13 +1394,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 	},
-	genesectshock: {
+	genesecttypeδ: {
 		num: 649,
-		name: "Genesect-Shock",
-		types: ["Bug", "Steel"],
+		name: "Genesect-Type-δ",
+		types: ["Electric", "Psychic"],
 		gender: "N",
-		baseStats: {hp: 71, atk: 120, def: 95, spa: 120, spd: 95, spe: 99},
-		abilities: {0: "Download"},
+		baseStats: {hp: 71, atk: 75, def: 75, spa: 75, spd: 75, spe: 129},
+		abilities: {0: "Galvanize", H: "Psychic Surge"},
 		heightm: 1.5,
 		weightkg: 82.5,
 		color: "Purple",

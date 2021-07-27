@@ -443,10 +443,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*genesectshock: {
+	genesecttypeδ: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	vivillonspirit: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
