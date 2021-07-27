@@ -291,6 +291,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		shortDesc: "Physical if user's Atk > Sp. Atk. Inflicts Embargo and Heal Block onto the opponent.",
 		name: "Techno Blast (Delta)",
+		volatileStatus: 'embargo',
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -299,7 +300,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'embargo',
 			volatileStatus: 'healblock',
 		},
 		target: "normal",
