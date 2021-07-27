@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesecttypeδ: {
+	genesecttypedelta: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

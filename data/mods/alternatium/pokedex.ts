@@ -1394,9 +1394,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 	},
-	genesecttypeδ: {
+	genesecttypedelta: {
 		num: 649,
-		name: "Genesect-Type-δ",
+		name: "Genesect-Type-Delta",
 		types: ["Electric", "Psychic"],
 		gender: "N",
 		baseStats: {hp: 71, atk: 75, def: 75, spa: 75, spd: 75, spe: 129},
