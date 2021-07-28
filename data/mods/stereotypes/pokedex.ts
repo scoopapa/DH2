@@ -252,7 +252,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1024,
 		name: "Nympheral",
 		types: ["Rock", "Fairy"],
-		baseStats: {hp: 71, atk: 89, def: 83, spa: 109, spd: 67, spe: 151},
+		baseStats: {hp: 71, atk: 109, def: 83, spa: 89, spd: 67, spe: 151},
 		abilities: {0: "Beast Boost"},
 		weightkg: 21.6,
 	},
