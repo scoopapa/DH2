@@ -459,4 +459,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	sudowoodogalar: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
 };
