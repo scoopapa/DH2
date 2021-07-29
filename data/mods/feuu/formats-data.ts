@@ -484,7 +484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	hawlazzle: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	
