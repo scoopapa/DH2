@@ -256,4 +256,55 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
+	eternalnightmare: {
+		num: -1021,
+		accuracy: true,
+		basePower: 155,
+		category: "Special",
+		shortDesc: "Lowers the foe's Atk/Def/SpAtk/SpDef/Spe by 1.",
+		name: "Eternal Nightmare",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "plubiumz",
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Never-Ending Nightmare", target);
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	stickysoil: {
+		num: -1027,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Prevents foe from switching.",
+		name: "Sticky Soil",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thousand Waves", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
+	},
 };

@@ -45,6 +45,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	coaching: {
+		num: 811,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Next turn, the active Pokemon will gain +1 in Atk, Def and Spe.",
+		name: "Coaching",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		slotCondition: 'Coaching',
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-message', target.name + " is ready to coach!");
+			},
+			onResidualOrder: 7,
+			onEnd(target) {
+				if (!target.fainted) {
+					this.add('-message', target.name + " gained some motivation!");
+					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
 	//not finished
 	/*corrosivegas: {
 		num: 810,
@@ -198,7 +226,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Special",
 		shortDesc: "Power doubles of user is burn/poison/paralyzed.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Fairy Wind",
 		pp: 15,
 		priority: 0,
@@ -280,7 +310,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 50,
 		category: "Physical",
 		shortDesc: "100% chance to raise the user's Speed by 1.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Ice Ball",
 		pp: 20,
 		priority: 0,
@@ -429,7 +461,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 110,
 		category: "Special",
 		shortDesc: "Clears the opponents hazards.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		shortDesc: "The user clears hazards from the opponents side.",
 		name: "Razor Wind",
 		pp: 10,
@@ -579,7 +613,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Soak Condition",
 		pp: 25,
 		priority: 1,
@@ -625,13 +661,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},*/
+	steelroller: {
+		num: 798,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(source, target, move) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				return move.basePower + 45;
+			}
+			return move.basePower;
+		},
+		shortDesc: "130 Basepower in Terrain & ends the terrain.",
+		category: "Physical",
+		name: "Steel Roller",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 	strength: {
 		num: 70,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
 		shortDesc: "Super effective on Rock.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Strength",
 		pp: 20,
 		priority: 0,
@@ -645,14 +703,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	//not finished
-	/*synchronoise: {
-		num: 485,
+	synchronoise: {
+		/*num: 485,
 		accuracy: 85,
 		basePower: 95,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "",*/
+		inherit: true,
 		isNonstandard: null,
-		name: "Synchronoise",
+		gen: 8,
+		/*name: "Synchronoise",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
@@ -664,8 +724,63 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Psychic",
-		contestType: "Clever",
-	},*/
+		contestType: "Clever",*/
+	},
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "User on terrain: power doubles, type varies. Resets Terrain.",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+			}
+		},
+		onAfterMove(pokemon) {
+            if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('electricterrain');
+            }
+			if (this.field.isTerrain('grassyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('grassyterrain');
+            }
+			if (this.field.isTerrain('mistyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('mistyterrain');
+            }
+			if (this.field.isTerrain('psychicterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('psychicterrain');
+            }
+        },
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+	},
 	//not finished
 	/*trickortreat: {
 		num: 567,
