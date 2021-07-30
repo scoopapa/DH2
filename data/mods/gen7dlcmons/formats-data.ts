@@ -72,7 +72,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 	sunkernalola: {
-		tier: "OU",
+		tier: "LC",
 		isModded: true,
 	},
 	sanddern: {

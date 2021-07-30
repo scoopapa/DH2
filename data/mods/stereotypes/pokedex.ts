@@ -347,7 +347,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Stereo",
 		types: ["Fire", "Electric"],
 		gender: "N",
-		baseStats: {hp: 110, atk: 120, def: 100, spa: 105, spd: 80, spe: 76},
+		baseStats: {hp: 110, atk: 129, def: 100, spa: 105, spd: 80, spe: 76},
 		abilities: {0: "Flame Body", 1: "Rock Head", H: "Volt Absorb"},
 		heightm: 5.1,
 		weightkg: 42,
