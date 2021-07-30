@@ -1541,7 +1541,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1031,
 		name: "Aegislash",
 		types: ["Ghost", "Fighting"],
-		baseStats: {hp: 60, atk: 140, def: 50, spa: 80, spd: 50, spe: 120},
+		baseStats: {hp: 60, atk: 140, def: 50, spa: 90, spd: 50, spe: 110},
 		abilities: {0: "Defiant"},
 		heightm: 1.7,
 		weightkg: 53,
