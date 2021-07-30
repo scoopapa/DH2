@@ -955,7 +955,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
@@ -1603,7 +1603,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
@@ -1630,7 +1630,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Wobbuffet + Leftovers', 'Past'],		
 		unbanlist: [
 			//Abilities
