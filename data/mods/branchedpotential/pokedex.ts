@@ -52,7 +52,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pitchasaurmega: {
 		megaOf: "Pitchasaur",
 		num: -101,
-		name: "Name",
+		name: "Pitchasaur-Mega",
 		baseSpecies: "Pitchasaur",
 		forme: "Mega",
 		types: ["Grass", "Water"],
@@ -344,7 +344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Lapidourite",
 	},
 	lamprecut: {
-		inheritMoves: ["Eelektrik"],
+		inheritMoves: ["Eelektross"],
 		num: -115,
 		name: "Lamprecut",
 		types: ["Electric", "Fighting"],
