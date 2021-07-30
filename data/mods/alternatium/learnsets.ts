@@ -5957,8 +5957,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	rotomwash: {
 		learnset: {
-			painsplit: ["8L1"],
-			willowisp: ["8L1"],
 			anchorshot: ["8L1"],
 			liquidation: ["8L1"],
 			willowisp: ["8L1"],
