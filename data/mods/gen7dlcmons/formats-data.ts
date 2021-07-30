@@ -115,6 +115,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 		isModded: true,
 	},
+	shayminsky: {
+		tier: "Uber",
+		isModded: true,
+	},
 	absolmega: {
 		tier: "RUBL",
 		isModded: true,
@@ -261,6 +265,78 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	vulpixalola: {
 		tier: "LC",
+		isModded: true,
+	},
+	silvally: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallybug: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallydark: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallydragon: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyelectric: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyfairy: {
+		tier: "PU",
+		isModded: true,
+	},
+	silvallyfighting: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyfire: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyflying: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyghost: {
+		tier: "PU",
+		isModded: true,
+	},
+	silvallygrass: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyground: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyice: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallypoison: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallypsychic: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallyrock: {
+		tier: "(PU)",
+		isModded: true,
+	},
+	silvallysteel: {
+		tier: "PU",
+		isModded: true,
+	},
+	silvallywater: {
+		tier: "(PU)",
 		isModded: true,
 	},
 };
