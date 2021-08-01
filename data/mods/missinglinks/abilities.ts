@@ -101,6 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (effect.id === 'bloodscent') {
 				delete boost.evasion; 
 				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
 		},
 	},
 	oblivious: {
@@ -112,6 +113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (effect.id === 'bloodscent') {
 				delete boost.evasion; 
 				this.add('-immune', target, '[from] ability: Oblivious');
+			}
 		},
 	},
 	owntempo: {
@@ -123,6 +125,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (effect.id === 'bloodscent') {
 				delete boost.evasion; 
 				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
 		},
 	},
 	rattled: {
@@ -149,6 +152,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (effect.id === 'bloodscent') {
 				delete boost.evasion; 
 				this.add('-immune', target, '[from] ability: Scrappy');
+			}
 		},
 	},
 };
