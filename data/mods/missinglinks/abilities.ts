@@ -72,4 +72,83 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
        name: "Alien Aura",
        rating: 4,
     },
+	bloodscent: {
+      shortDesc: "Lowers the foe's Evasion by 1 on switch-in.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Blood Scent', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({evasion: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Blood Scent",
+		rating: 3.5,
+	},
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			} else if (effect.id === 'bloodscent') {
+				delete boost.evasion; 
+				this.add('-immune', target, '[from] ability: Inner Focus');
+		},
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			} else if (effect.id === 'bloodscent') {
+				delete boost.evasion; 
+				this.add('-immune', target, '[from] ability: Oblivious');
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			} else if (effect.id === 'bloodscent') {
+				delete boost.evasion; 
+				this.add('-immune', target, '[from] ability: Own Tempo');
+		},
+	},
+	rattled: {
+		onDamagingHit(damage, target, source, move) {
+			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
+				this.boost({spe: 1});
+			}
+		},
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'intimidate' || effect.id === 'bloodscent') {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Rattled",
+		rating: 1.5,
+		num: 155,
+	},
+	scrappy: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			} else if (effect.id === 'bloodscent') {
+				delete boost.evasion; 
+				this.add('-immune', target, '[from] ability: Scrappy');
+		},
+	},
 };
