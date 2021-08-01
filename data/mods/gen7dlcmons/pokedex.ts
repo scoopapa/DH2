@@ -18,6 +18,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 20.5,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Koko",
 	},
 	tapulele: {
 		inherit: true,
@@ -38,6 +39,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 18.6,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Lele",
 	},
 	tapubulu: {
 		inherit: true,
@@ -58,6 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 45.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Bulu",
 	},
 	tapufini: {
 		inherit: true,
@@ -78,6 +81,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 21.2,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Tapu Fini",
 	},
 	plubia: {
 		num: -1001,
@@ -151,8 +155,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 	},
-	chindle: {
+	arachsoil: {
 		num: -1007,
+		name: "Arachsoil",
+		types: ["Ground", "Bug"],
+		gender: "N",
+		baseStats: {hp: 107, atk: 73, def: 97, spa: 109, spd: 113, spe: 71},
+		abilities: {0: "Beast Boost"},
+		heightm: 8.8,
+		weightkg: 88.8,
+		color: "Black",
+		eggGroups: ["Undiscovered"],
+	},
+	chindle: {
+		num: -1008,
 		name: "Chindle",
 		types: ["Flying"],
 		baseStats: {hp: 65, atk: 80, def: 35, spa: 20, spd: 20, spe: 80},
@@ -164,7 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 	},
 	chaldera: {
-		num: -1008,
+		num: -1009,
 		name: "Chaldera",
 		types: ["Flying", "Fire"],
 		baseStats: {hp: 85, atk: 95, def: 55, spa: 40, spd: 40, spe: 105},
@@ -178,7 +194,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 	},
 	flarenix: {
-		num: -1009,
+		num: -1010,
 		name: "Flarenix",
 		types: ["Flying", "Fire"],
 		baseStats: {hp: 100, atk: 95, def: 90, spa: 110, spd: 110, spe: 95},
@@ -191,7 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 	},
 	firmlio: {
-		num: -1010,
+		num: -1011,
 		name: "Firmlio",
 		types: ["Steel"],
 		baseStats: {hp: 45, atk: 80, def: 55, spa: 35, spd: 55, spe: 65},
@@ -203,7 +219,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Human-Like"],
 	},
 	irotyke: {
-		num: -1011,
+		num: -1012,
 		name: "Irotyke",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 60, atk: 100, def: 75, spa: 45, spd: 70, spe: 85},
@@ -217,7 +233,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Human-Like"],
 	},
 	coyotalloy: {
-		num: -1012,
+		num: -1013,
 		name: "Coyotalloy",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 95, spa: 50, spd: 80, spe: 115},
@@ -230,7 +246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Human-Like"],
 	},
 	tikilohi: {
-		num: -1013,
+		num: -1014,
 		name: "Tikilohi",
 		types: ["Ghost", "Rock"],
 		baseStats: {hp: 80, atk: 120, def: 110, spa: 65, spd: 100, spe: 30},
@@ -239,5 +255,38 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 200,
 		color: "Brown",
 		eggGroups: ["Mineral"],
+	},
+	sunkern: {
+		inherit: true,
+		otherFormes: ["Sunkern-Alola"],
+		formeOrder: ["Sunkern", "Sunkern-Alola"],
+	},
+	sunkernalola: {
+		num: 191,
+		name: "Sunkern-Alola",
+		baseSpecies: "Sunkern",
+		forme: "Alola",
+		types: ["Ground"],
+		baseStats: {hp: 50, atk: 50, def: 50, spa: 50, spd: 50, spe: 50},
+		abilities: {0: "Sand Veil", 1: "Dry Skin", H: "Sifting"},
+		heightm: 0.3,
+		weightkg: 1.8,
+		color: "Yellow",
+		evos: ["Sanddern"],
+		eggGroups: ["Grass"],
+	},
+	sanddern: {
+		num: -1016,
+		name: "Sanddern",
+		types: ["Ground", "Water"],
+		baseStats: {hp: 90, atk: 100, def: 80, spa: 66, spd: 80, spe: 96},
+		abilities: {0: "Sand Veil", 1: "Dry Skin", H: "Sifting"},
+		heightm: 0.8,
+		weightkg: 8.5,
+		color: "Yellow",
+		prevo: "Sunkern-Alola",
+		evoType: "useItem",
+		evoItem: "Sun Stone",
+		eggGroups: ["Grass"],
 	},
 };

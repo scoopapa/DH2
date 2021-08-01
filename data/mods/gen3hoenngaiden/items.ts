@@ -576,7 +576,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 640,
 		gen: 6,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	choicescarf: {
 		name: "Choice Scarf",
@@ -600,7 +600,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		isChoice: true,
 		num: 287,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	choicespecs: {
 		name: "Choice Specs",
@@ -625,7 +625,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		isChoice: true,
 		num: 297,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	eviolite: {
 		name: "Eviolite",
@@ -647,6 +647,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 538,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -661,7 +662,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 268,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	focussash: {
 		name: "Focus Sash",
@@ -678,7 +679,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 275,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	heavydutyboots: {
 		name: "Heavy-Duty Boots",
@@ -688,6 +689,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 1120,
 		gen: 8,
+		isNonstandard: "Past",
 	},
 	lifeorb: {
 		name: "Life Orb",
@@ -705,7 +707,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 270,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	powerherb: {
 		onChargeMove(pokemon, target, move) {
@@ -723,6 +725,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 271,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	rockyhelmet: {
 		name: "Rocky Helmet",
@@ -738,6 +741,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 540,
 		gen: 5,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
+	},
+	expertbelt: {
+		name: "Expert Belt",
+		spritenum: 132,
+		fling: {
+			basePower: 10,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		num: 268,
+		gen: 4,
 	},
 };

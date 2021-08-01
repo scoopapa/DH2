@@ -415,4 +415,52 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 		doublesTier: "DUU",
 	},
+	trubbishalola: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	garbodoralola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	zoroarkmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	camerupt: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	cameruptmega: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	phanpy: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	donphan: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	numel: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	teddiursa: {
+		tier: "LC",
+		doublesTier: "DUU",
+	},
+	ursaring: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	fauxrestree: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sudowoodogalar: {
+		tier: "NFE",
+		doublesTier: "DUU",
+	},
 };
