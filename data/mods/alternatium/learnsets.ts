@@ -5095,7 +5095,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			avalanche: ["8M", "4M"],
 			blizzard: ["8M", "7M", "6M", "5M", "4M", "3M"],
 			block: ["7T", "6T", "5T", "4T"],
-			bodyslam: ["8M", "8L1", "8L11", "7L20", "6L15", "8L5", "5L15", "4L15", "3T", "3L20""],
+			bodyslam: ["8M", "8L1", "8L11", "7L20", "6L15", "8L5", "5L15", "4L15", "3T", "3L20"],
 			brickbreak: ["8M", "7M", "6M", "5M", "4M", "3M"],
 			brine: ["8M", "4M"],
 			bulldoze: ["8M", "7M", "6M", "5M"],
