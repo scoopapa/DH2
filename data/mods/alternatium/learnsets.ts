@@ -5224,6 +5224,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlpool: ["8M", "4M"],
 			powerwhip: ["8L1"],
 			woodhammer: ["8L1"],
+			gigadrain: ["8L1"],
 			energyball: ["8L1"],
 			leafstorm: ["8L1"],
 			forestscurse: ["8L1"],
