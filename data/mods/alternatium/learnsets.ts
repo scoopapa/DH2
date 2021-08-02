@@ -5168,7 +5168,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			aquaring: ["8L54", "8L11", "7L30", "6L30", "8L5", "5L30", "4L30", "8L2"],
 			aquatail: ["8L9", "7T", "7L15", "6T", "6L15", "5T", "5L65", "4T", "4L65"],
 			block: ["7T", "6T", "5T", "4T"],
-			bodyslam: ["8M", "8L1", "8L11", "7L20", "6L15", "8L5", "5L15", "4L15", "3T", "3L20""],
+			bodyslam: ["8M", "8L1", "8L11", "7L20", "6L15", "8L5", "5L15", "4L15", "3T", "3L20"],
 			brickbreak: ["8M", "7M", "6M", "5M", "4M", "3M"],
 			brine: ["8M", "4M"],
 			bulldoze: ["8M", "7M", "6M", "5M"],
