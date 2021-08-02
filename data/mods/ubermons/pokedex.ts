@@ -123,7 +123,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	gengarmega: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 90, spa: 155, spd: 90, spe: 110},
+		baseStats: {hp: 60, atk: 95, def: 90, spa: 155, spd: 90, spe: 110},
 	},
 	dracovish: {
 		inherit: true,
