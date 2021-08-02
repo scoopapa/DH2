@@ -1,46 +1,57 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tapukokokinolau: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	tapulelekinolau: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	tapubulukinolau: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	tapufinikinolau: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	plubia: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	snoxin: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	komodond: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	anglevolt: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	thundigeist: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	forsnaken: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	arachsoil: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	chindle: {
@@ -53,6 +64,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	flarenix: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	firmlio: {
@@ -65,10 +77,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	coyotalloy: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	tikilohi: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	sunkernalola: {
@@ -77,126 +91,162 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sanddern: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	gastrodon: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	krookodile: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	lucario: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	volcanion: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	zeraora: {
 		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	porygon2: {
+		tier: "RU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	porygonz: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	bisharp: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	necrozma: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	shaymin: {
 		tier: "RU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	shayminsky: {
 		tier: "Uber",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	absolmega: {
 		tier: "RUBL",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	aerodactylmega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	alakazammega: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	garchompmega: {
 		tier: "(OU)",
+		doublesTier: "(DOU)",
 		isModded: true,
 	},
 	gyaradosmega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	heracrossmega: {
 		tier: "UUBL",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	houndoommega: {
 		tier: "RUBL",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	lopunnymega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	manectricmega: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	mawilemega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	pinsirmega: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	sableyemega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	scizormega: {
 		tier: "OU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	sharpedomega: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	slowbromega: {
 		tier: "OU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	tyranitarmega: {
 		tier: "OU",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	ampharosmega: {
 		tier: "RU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	glaliemega: {
 		tier: "NU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	banettemega: {
 		tier: "RU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	cameruptmega: {
 		tier: "NUBL",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	diglettalola: {
@@ -205,10 +255,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dugtrioalola: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	exeggutoralola: {
 		tier: "NU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	geodudealola: {
@@ -221,6 +273,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	golemalola: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	grimeralola: {
@@ -229,26 +282,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	marowakalola: {
 		tier: "RU",
+		doublesTier: "DUU",
 		isModded: true,
 	},
 	meowthalola: {
 		tier: "LC",
 		isModded: true,
 	},
+	mukalola: {
+		tier: "OU",
+		doublesTier: "DUU",
+		isModded: true,
+	},
 	ninetalesalola: {
 		tier: "UUBL",
+		doublesTier: "DOU",
 		isModded: true,
 	},
 	persianalola: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	raichualola: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	raticatealola: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	rattataalola: {
@@ -261,6 +324,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sandslashalola: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	vulpixalola: {
@@ -269,74 +333,92 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	silvally: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallybug: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallydark: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallydragon: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyelectric: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyfairy: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyfighting: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyfire: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyflying: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyghost: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallygrass: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyground: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyice: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallypoison: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallypsychic: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallyrock: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallysteel: {
 		tier: "PU",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 	silvallywater: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
 		isModded: true,
 	},
 };
