@@ -153,4 +153,3 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 7,
 	},
 };
-};
