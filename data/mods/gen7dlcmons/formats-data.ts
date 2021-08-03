@@ -421,4 +421,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 		isModded: true,
 	},
+	magearna: {
+		tier: "Uber",
+		doublesTier: "DUber",
+		isModded: true,
+	},
 };
