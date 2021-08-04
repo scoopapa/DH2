@@ -316,6 +316,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Max Overgrowth", target);
+		},
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
@@ -364,6 +368,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				this.add('-sideend', targetSide, 'Desolate Magma');
 			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magma Storm", target);
 		},
 		secondary: null,
 		target: "normal",
