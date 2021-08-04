@@ -577,7 +577,33 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uncoded",
 		doublesTier: "DUU",
 	},
-
+	
+// slate 17
+	jirachonator: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	druddifini: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dredvul: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	swannamence: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	swannamencemega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	tyranetteeternal: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this

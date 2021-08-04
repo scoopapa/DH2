@@ -31,6 +31,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
+		this.modData('Learnsets', 'tyranetteeternal').learnset.lightofruin = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
