@@ -2203,24 +2203,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
 				const effectHolder = this.effectData.target;
-				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
 			if (source && target !== source && effect && effect.id !== 'yawn') {
-				this.debug('interrupting setStatus with Flower Veil');
+				this.debug('interrupting setStatus with Marble Garden');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectData.target;
-					this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+					this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
 				}
 				return null;
 			}
 		},
 		onAllyTryAddVolatile(status, target) {
 			if (status.id === 'yawn') {
-				this.debug('Flower Veil blocking yawn');
+				this.debug('Marble Garden blocking yawn');
 				const effectHolder = this.effectData.target;
-				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
 				return null;
 			}
 		},
