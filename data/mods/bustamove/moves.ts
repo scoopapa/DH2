@@ -868,7 +868,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onHit(target, source, move) {
+		onModifyCritRatio(critRatio, source, target) {
 			if (target.status === 'psn' || target.status === 'tox') {
 				critRatio: 5;
 			}
