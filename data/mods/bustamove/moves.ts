@@ -870,7 +870,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target.status === 'psn' || target.status === 'tox') {
-				return 5;
+				willCrit: true;
 			}
 		},
 		multihit: 2,
@@ -880,8 +880,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 			onHit(target, source, move) {
 				const movelast = source.lastMove;
-				if (target.status === 'psn' && movelast['twineedle']) {
-					target.cureStatus('psn');
+				if (target.status === 'psn') {
+					//target.cureStatus('psn');
 					target.trySetStatus('tox', source);
 				}
 			},
