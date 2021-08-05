@@ -340,9 +340,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	multiantlers: {
 		id: "multiantlers",
 		name: "Multi Antlers",
-		shortDesc: "User takes half damage when switching in.",
+		shortDesc: "User takes half damage when switching in or at full HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.activeTurns) {
+				this.debug('Multi Antlers weaken');
+				return this.chainModify(0.5);
+			}
+			else if (target.hp >= target.maxhp) {
 				this.debug('Multi Antlers weaken');
 				return this.chainModify(0.5);
 			}
@@ -554,6 +558,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Doggys Maw');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
 			if (effect.id === 'debilitate') {
 				delete boost.spa;
@@ -1159,7 +1167,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rattled: {
 		inherit: true,
 		onAfterBoost(boost, target, source, effect) {
-			if (effect && ['intimidate', 'debilitate', 'sinkorswim'].includes(effect.id)) {
+			if (effect && ['intimidate', 'debilitate', 'sinkorswim', 'scarilyadorable', 'peckingorder'].includes(effect.id)) {
 				this.boost({spe: 1});
 			}
 		},
@@ -1704,6 +1712,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Scrappy Armor');
+			}
 			if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
@@ -2058,6 +2070,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
 			if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Inner Focus');
@@ -2117,6 +2133,102 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Leaf Stream",
 		shortDesc: "Leaf Guard + Summons Sunny Day on switch-in.",
 	},
+	jawofthelaw: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Jaw of the Law boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Jaw of the Law boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Jaw of the Law",
+		shortDesc: "Strong Jaw + Stakeout.",
+	},
+	mystic: {
+		onStart(source) {
+			this.field.setTerrain('mistyterrain');
+		},
+		// The rest is implemented in moves.ts
+		name: "Mystic",
+		shortDesc: "Misty Surge + This Pokemon's moves ignore the effects of Misty Terrain.",
+	},
+	peckingorder: {
+		name: "Pecking Order",
+		shortDesc: "On switch-in, this Pokemon lowers the Defense of adjacent opponents by 1 stage.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Pecking Order', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({def: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	marblegarden: {
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onAllyBoost(boost, target, source, effect) {
+			if ((source && target === source)) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Marble Garden');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.debug('Marble Garden blocking yawn');
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Marble Garden', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		name: "Marble Garden",
+		shortDesc: "Protects the user from Recoil, and status infliction and stat reduction from other Pokémon.",
+	},
+
+
 //  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };
  
