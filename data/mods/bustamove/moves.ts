@@ -39,12 +39,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1},
-		onHit(source, target) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				source.trySetStatus('brn', target);
+		secondary: {
+			chance: 100,
+			onHit(source, target) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Beak Blast burn');
+				target.trySetStatus('brn', source);
+			}
+			this.debug('Beak Blast NO burn');
+			return
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
@@ -868,11 +873,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, move) {
 			if (target.status === 'psn') {
+				target.cureStatus();
 				source.trySetStatus('tox', target);
 			}
 		},
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+			if (target && ['psn', 'tox'].includes(target.status)) {
+				return 5;
+			}
 		},
 		multihit: 2,
 		multiaccuracy: true,
