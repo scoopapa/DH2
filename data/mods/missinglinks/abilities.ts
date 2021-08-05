@@ -64,4 +64,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 210,
 	},
+	 alienaura: {
+       shortDesc: "On switch-in, this Pokemon summons Gravity.",
+       onStart(source) {
+           this.useMove("Gravity", source);
+       },
+       name: "Alien Aura",
+       rating: 4,
+    },
 };

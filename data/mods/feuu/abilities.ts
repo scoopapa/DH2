@@ -1225,16 +1225,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	terrorizer: {
 		onModifyMove(move, pokemon) {
-			///////////PLACEHOLDER FOR STURDY MOLD
-			let ignore = false;
-			for (const target of pokemon.side.foe.active) {
-				if (target.hasAbility('sturdymold')) {
-					ignore = true;
-					return;
-				} 
-			} 
-			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
-			///////////END PLACEHOLDER
 			if (move.secondaries) {
 				delete move.secondaries;
 				// Technically not a secondary effect, but it is negated
@@ -1244,19 +1234,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.hasSheerForce = true;
 			}
 		},
-		onSourceHit(target, source, move) {
-			if (!move.hasSheerForce && move.category !== 'Status') {
-				if (this.randomChance(3, 10)) {
-					target.addVolatile('disable', this.effectData.target);
-				}
-			}
-		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
 		},
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isFutureMove) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
 		name: "Terrorizer",
-		shortDesc: "Sheer Force + Moves that did not originally have a secondary effect: 30% to Disable",
+		shortDesc: "Sheer Force + Cursed Body",
 	},
 	darkhumour: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -1549,12 +1540,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Drizzle + Swarm.",
 	},
 	hydrauliccannon: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Hydraulic Cannon');
-				}
-				return null;
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
 			}
 		},
 		onBasePowerPriority: 19,
@@ -1565,7 +1553,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Hydraulic Cannon",
-		shortDesc: "Mega Launcher + Water Absorb.",
+		shortDesc: "Mega Launcher + Swift Swim.",
 	},
 	//more fix
 	solarpower: {
@@ -1903,8 +1891,39 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Reverses stat changes after attacking and KOing a Pokemon.",
 	},
 	itemboost: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectData.target) return;
+			pokemon.addVolatile('itemboost');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('itemboost');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('itemboost');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
 		name: "Item Boost",
-		shortDesc: "(Non-Functional Placeholder) Highest non-HP stat goes up by 1 after using or losing an item.",
+		shortDesc: "Unburden + Beast Boost.",
 	},
 	ultrascout: {
 		name: "Ultra Scout",
@@ -2009,40 +2028,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Reverse Gear",
 		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
 	},
-/*
-	itemboost: {
-		onAfterUseItem(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-				}
-				this.boost({[statName]: length}, source);
-			}
-		},
-		onTakeItem(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-				}
-				this.boost({[statName]: length}, source);
-			}
-		},
-		name: "Item Boost",
-		shortDesc: "Highest non-HP stat goes up by 1 after using or losing an item.",
-	},
-*/
 	plotarmor: {
 		name: "Plot Armor",
 		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
@@ -2085,6 +2070,52 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Inner Focus",
 		rating: 1.5,
 		num: 39,
+	},
+	fairygust: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Fairy';
+				move.pixilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Fairy Gust",
+		shortDesc: "Pixilate + Gale Wings.",
+	},
+	leafstream: {
+		onSetStatus(status, target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Leaf Guard');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] ability: Leaf Guard');
+				return null;
+			}
+		},
+		onStart(source) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
+			this.field.setWeather('sunnyday');
+		},
+		name: "Leaf Stream",
+		shortDesc: "Leaf Guard + Summons Sunny Day on switch-in.",
 	},
 //  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
 };

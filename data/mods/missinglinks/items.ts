@@ -49,7 +49,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1004,
 		gen: 4,
-		desc: "Evolves Jynx into Frostonna when used.",
+		desc: "Evolves Jynx into Frostonna when traded.",
 	},
 	slowkinite: {
 		name: "Slowkinite",
@@ -120,5 +120,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1009,
 		gen: 8,
 		desc: "If held by a Dragonite, this item allows it to Mega Evolve in battle.",
+	},
+	zoroarkite: {
+		name: "Zoroarkite",
+		spritenum: 578,
+		megaStone: "Zoroark-Mega",
+		megaEvolves: "Zoroark",
+		itemUser: ["Zoroark"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1010,
+		gen: 8,
+		desc: "If held by a Zoroark, this item allows it to Mega Evolve in battle.",
 	},
 };

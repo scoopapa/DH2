@@ -83,4 +83,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Banshigen, this item allows it to Mega Evolve in battle.",
 	},
+	lapidourite: {
+		name: "Lapidourite",
+		spritenum: 586,
+		megaStone: "Lapidour-Mega",
+		megaEvolves: "Lapidour",
+		itemUser: ["Lapidour"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by a Lapidour, this item allows it to Mega Evolve in battle.",
+	},
 };
