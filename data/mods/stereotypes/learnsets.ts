@@ -273,6 +273,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			echoedvoice: ["8L1"],
 			ember: ["8L1"],
 			endure: ["8L1"],
+			earthpower: ["8L1"],
 			facade: ["8L1"],
 			fireblast: ["8L1"],
 			firespin: ["8L1"],

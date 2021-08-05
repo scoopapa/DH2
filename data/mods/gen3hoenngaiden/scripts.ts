@@ -207,6 +207,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'torkoal').learnset.solarbeam = ['3L1'];
 		this.modData('Learnsets', 'torkoal').learnset.slackoff = ['3L1'];
 		this.modData('Learnsets', 'torkoal').learnset.willowisp = ['3L1'];
+		
+		this.modData('Learnsets', 'delibird').learnset.taunt = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.batonpass = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.brickbreak = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.lowkick = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {

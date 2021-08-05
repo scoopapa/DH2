@@ -27,6 +27,30 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	beakblast: {
+		num: 690,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Burns if user moves before the target.",
+		isNonstandard: null,
+		gen: 8,
+		name: "Beak Blast",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					target.trySetStatus('brn', source);
+				}
+			}
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+	},
 	burningjealousy: {
 		num: 807,
 		accuracy: 100,
@@ -242,6 +266,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+	},
+	forcepalm: {
+		num: 395,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "30% chance to paralyze the target. Power doubles if the target is paralyzed.",
+		name: "Force Palm",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
 	},
 	forestscurse: {
 		num: 571,
@@ -809,4 +856,39 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
 	},*/
+	twineedle: {
+		num: 41,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		shortDesc: "Poisons target. If target is poisoned, toxics instead. Will always crit against poisoned targets.",
+		isNonstandard: null,
+		gen: 8,
+		name: "Twineedle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				critRatio: true;
+			}
+		},
+		multihit: 2,
+		multiaccuracy: true,
+		secondary: {
+			chance: 100,
+			status: 'psn',
+			onHit(target, source, move) {
+				const movelast = source.lastMove;
+				if (target.status === 'psn') {
+					target.cureStatus('psn');
+					target.trySetStatus('tox', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
 };

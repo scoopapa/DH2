@@ -234,7 +234,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	castformsnowy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	kyogre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -251,7 +251,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	rayquaza: {
+	/*rayquaza: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
