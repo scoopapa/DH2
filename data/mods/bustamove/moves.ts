@@ -869,7 +869,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox'].includes(target.status)) {
+			if (target.status === 'psn' || target.status === 'tox') {
 				return 5;
 			}
 		},
