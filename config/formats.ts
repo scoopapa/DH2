@@ -2342,6 +2342,23 @@ export const Formats: FormatList = [
 		unbanlist: ['Shareat', 'Justom', 'Healack', 'Crystrird', 'Evawk', 'Contox', 'Shockield', 'Phoenrim', 'Drourag', 'Magzolt', 'Weathair', 'Absoil', 'Psyroc', 'Flabade', 'Fairull', 'Freehale', 'Burod', 'Adexper', 'Darmoon', 'Ropern', 'Ropern-Zen'],
 	},
 	{
+        name: "[Gen 8] Duomod",
+        desc: `<b>Duomod</b>: DuoM2's solomod, which cuts 6 of the 18 types and only allows the use of certain Fakemon.`,
+        threads: [
+            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
+        ],
+
+        mod: 'duomod',
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+        banlist: ['All Pokemon'],
+        unbanlist: [
+            'Abysseil', 'Annelait', 'Arachwich', 'Azurolt', 'Baloon', 'Batravolt', 'Bismage', 'Blastora', 'Blaydge', 'Cadbunny', 'Castarupt', 'Catelax', 'Cephalopire', 'Chemiclysm', 'Chimida', 'Chollunge', 'Crazefly', 'Crypterid', 'Debring', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Eggg', 'Eggg-Cracked', 'Electritar', 'Falkick', 'Fantom', 'Flamepion', 'Floundrawn', 'Fluidrake', 'Fluxtape', 'Fluxtape-Stereo', 'Grievenge', 'Hyperoach', 'Inscuba', 'Joulibranch', 'Lemotic', 'Modolith', 'Monstratus', 'Mortemoth', 'Nectrance', 'Pterrost', 'Sharmpedo', 'Smorke', 'Spirox', 'Treemu', 'Valianch', 
+        ],
+        onSwitchIn(pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+        },
+    },
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [
