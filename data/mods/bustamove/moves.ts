@@ -879,7 +879,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			status: 'psn',
 			onHit(target, source, move) {
-				if (target.status === 'psn') {
+				if (target.status === 'psn' && !source.lastMove('twineedle')) {
 					target.cureStatus('psn');
 					target.trySetStatus('tox', source);
 				}
