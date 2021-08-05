@@ -868,7 +868,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyCritRatio(critRatio, source, target) {
+		onHit(target, source, move) {
 			if (target.status === 'psn' || target.status === 'tox') {
 				willCrit: true;
 			}
@@ -881,7 +881,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(target, source, move) {
 				const movelast = source.lastMove;
 				if (target.status === 'psn') {
-					//target.cureStatus('psn');
+					target.cureStatus('psn');
 					target.trySetStatus('tox', source);
 				}
 			},
