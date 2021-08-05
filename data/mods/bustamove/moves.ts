@@ -858,7 +858,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},*/
 	twineedle: {
 		num: 41,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
 		shortDesc: "Poisons target. If target is poisoned, toxics instead. Will always crit against poisoned targets.",
@@ -870,7 +870,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target.status === 'psn' || target.status === 'tox') {
-				critRatio: 5;
+				critRatio: 6;
 			}
 		},
 		multihit: 2,
