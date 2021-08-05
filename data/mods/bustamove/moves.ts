@@ -870,7 +870,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, move) {
 			if (target.status === 'psn' || target.status === 'tox') {
-				willCrit: true;
+				critRatio: 5;
 			}
 		},
 		multihit: 2,
