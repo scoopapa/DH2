@@ -880,8 +880,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 			onHit(target, source, move) {
 				if (target.status === 'psn') {
-					target.cureStatus();
-					source.trySetStatus('tox', target);
+					target.cureStatus('psn');
+					target.trySetStatus('tox', source);
 				}
 			},
 		},
