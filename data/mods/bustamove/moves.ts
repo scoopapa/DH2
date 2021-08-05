@@ -870,7 +870,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target.status === 'psn' || target.status === 'tox') {
-				critRatio: 6;
+				critRatio: true;
 			}
 		},
 		multihit: 2,
