@@ -41,13 +41,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {bullet: 1, protect: 1},
 		secondary: {
 			chance: 100,
-			onHit(source, target) {
+			onHit(target, source) {
 				if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Beak Blast burn');
-				target.trySetStatus('brn', source);
-			}
-			this.debug('Beak Blast NO burn');
-			return
+					target.trySetStatus('brn', source);
+				}
 			}
 		},
 		target: "normal",
@@ -871,12 +868,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onHit(target, source, move) {
-			if (target.status === 'psn') {
-				target.cureStatus();
-				source.trySetStatus('tox', target);
-			}
-		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && ['psn', 'tox'].includes(target.status)) {
 				return 5;
@@ -887,6 +878,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			status: 'psn',
+			onHit(target, source, move) {
+				if (target.status === 'psn') {
+					target.cureStatus();
+					source.trySetStatus('tox', target);
+				}
+			},
 		},
 		target: "normal",
 		type: "Bug",
