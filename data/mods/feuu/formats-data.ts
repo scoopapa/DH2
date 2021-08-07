@@ -554,8 +554,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	altarizardmegay: {
-		tier: "FEUU",
-		doublesTier: "DUU",
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	altarizardmega: {
 		tier: "FEUU",
