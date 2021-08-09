@@ -258,16 +258,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	rayquazamega: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	deoxys: {
+	},*/
+	deoxyswood: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	deoxysattack: {
+	deoxysgem: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	deoxysdefense: {
+	deoxystank: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -275,7 +275,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wormadam: {
+	/*wormadam: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

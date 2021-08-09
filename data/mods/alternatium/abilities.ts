@@ -34,14 +34,6 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerofalchemy: {
-		/*onSourceAfterFaint(source, target, types) {
-			const type1 = source.baseSpecies.types;
-			const type2 = target.baseSpecies.types;
-			if (type1 !== type2) {
-				if (!type1(type2)) return;
-				this.add('-activate', source, 'typechange', '[from] ability: Power of Alchemy');
-			}
-		},*/
 		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
@@ -144,9 +136,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'refrigerate';
 			}
 			if (pokemon.species.id === 'silvallypoison') {
-				this.add('-ability', pokemon, 'Poison Point', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('poisonpoint');
-				pokemon.baseAbility = 'poisonpoint';
+				this.add('-ability', pokemon, 'Corrosion', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('corrosion');
+				pokemon.baseAbility = 'corrosion';
 			}
 			if (pokemon.species.id === 'silvallypsychic') {
 				this.add('-ability', pokemon, 'Magic Guard', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -328,6 +320,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isNonstandard: null,
 		name: "Mountaineer",
+		rating: 3,
+		num: -2,
+	},
+	lifegem: {
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.3);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
+			}
+		},
+		name: "Life Gem",
+		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
+		rating: 3,
+		num: -2,
+	},
+	powercore: {
+		// Hazard Immunity implemented in moves.js
+		name: "Power Core",
+		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field.",
 		rating: 3,
 		num: -2,
 	},
