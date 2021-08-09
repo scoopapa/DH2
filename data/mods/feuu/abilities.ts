@@ -2087,7 +2087,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1.5,
 		num: 39,
 	},
-	fairygust: {
+	pixiewind: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -2105,7 +2105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
-		name: "Fairy Gust",
+		name: "Pixie Wind",
 		shortDesc: "Pixilate + Gale Wings.",
 	},
 	leafstream: {
