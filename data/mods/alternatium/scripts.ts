@@ -5,7 +5,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 		//Changes
 		
-		delete this.modData('Learnsets', 'pikachurockstar').learnset.nastyplot;
 		delete this.modData('Learnsets', 'pikachuphd').learnset.nastyplot;
 		
 		delete this.modData('Learnsets', 'darmanitanzen').learnset.crunch;

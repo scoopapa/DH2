@@ -844,7 +844,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Deoxys-Tank",
 		types: ["Dragon", "Psychic"],
 		gender: "N",
-		baseStats: {hp: 80, atk: 110, def: 125, spa: 100, spd: 105, spe: 60},
+		baseStats: {hp: 80, atk: 110, def: 125, spa: 105, spd: 105, spe: 60},
 		abilities: {0: "Guts", H: "Soul-Heart"},
 		heightm: 1.7,
 		weightkg: 60.8,

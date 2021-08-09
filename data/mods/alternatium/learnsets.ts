@@ -6054,6 +6054,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			fireblast: ["8L1"],
 			firelash: ["8L1"],
 			flamethrower: ["8L1"],
+			flareblitz: ["8L1"],
 			overheat: ["8L1"],
 			swordsdance: ["8L1"],
 		},
