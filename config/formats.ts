@@ -969,8 +969,9 @@ export const Formats: FormatList = [
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
 			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
 			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
 			//Items
 			'Expert Belt',
 		],
@@ -1618,8 +1619,9 @@ export const Formats: FormatList = [
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
 			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
 			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
 			//Items
 			'Expert Belt',
 		],
@@ -1645,8 +1647,9 @@ export const Formats: FormatList = [
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
 			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
 			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
 			//Items
 			'Expert Belt',
 		],
