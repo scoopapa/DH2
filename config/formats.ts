@@ -398,9 +398,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex'],
 	},
 	{
-		name: "[Gen 8] LLC",
+		name: "[Gen 8] Littlest Cup",
 		desc: [
-			"<b>Little Little Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
+			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
+		],
+		threads: [
+			`&bullet; <a href="https://pastebin.com/PtqmRUhG">Littlest Cup VR and Sample Sets</a>`,
 		],
 		mod: 'gen8',
 		maxLevel: 1,
