@@ -870,7 +870,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Talonsyl",
 		types: ["Fairy", "Flying"],
 		baseStats: {hp: 86, atk: 75, def: 70, spa: 110, spd: 100, spe: 110},
-		abilities: {0: "Pixie Wind"},
+		abilities: {0: "Fairy Gust"},
 		weightkg: 24,
 	},
 	heatki: {
