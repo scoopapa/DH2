@@ -344,7 +344,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let showMsg = false;
 			let i: BoostName;
 			for (i in boost) {
-				if (boost[i] <= 0 || boost[i] > 0) {
+				if (target.boost[i] <= 0 || target.boost[i] > 0 || source.boost[i] <= 0 || source.boost[i] > 0) {
 					delete boost[i];
 					showMsg = true;
 				}
