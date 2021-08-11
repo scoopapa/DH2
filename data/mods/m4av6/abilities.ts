@@ -2361,6 +2361,46 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1063,
 	},
+	implode: {
+		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves as long as a target is successfully KOed.",
+		shortDesc: "If it KOs a target, ignores recoil and self-KO effects of that move.",
+		onModifyMove(move) {
+			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
+				this.effectData.addVolatile('implode');
+				this.effectData.move = move;
+				if (move.mindBlownRecoil) this.effectData.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
+				if (move.selfdestruct) this.effectData.volatiles['implode'].selfdestruct = move.selfdestruct;
+			}
+		},
+		onSourceAfterFaint(target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.removeVolatile('implode');
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (this.effectData.volatiles['implode']) return;
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		condition: {
+			duration: 1,
+			onUpdate(pokemon) {
+				if (this.effectData.selfdestruct) {
+					this.battle.faint(pokemon, pokemon, this.effectData.move);
+					pokemon.removeVolatile('implode');
+				}
+				if (this.effectData.mindBlownRecoil) {
+					this.battle.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
+					pokemon.removeVolatile('implode');
+				}
+			},
+		},
+		name: "Implode",
+		rating: 4,
+		num: -1064,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
