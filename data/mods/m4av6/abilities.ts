@@ -2383,23 +2383,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onPrepareHit(target, source, move) {
-			if (move.selfdestruct === 'always') this.add('-anim', source, "Breakneck Blitz", target);
+			if (this.effectData.target.volatiles['implode'].selfdestruct) this.add('-anim', source, "Breakneck Blitz", target);
 		},
 		condition: {
 			duration: 1,
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon === source) continue;
-					if (pokemon.hp) {
+					if (!pokemon.hp) {
 						source.removeVolatile('implode');
 						return;
 					}
 				}
 				if (this.effectData.recoil && move.totalDamage) {
-					this.damage(this.calcRecoilDamage(move.totalDamage, this.effectData.move), source, source, 'recoil');
+					if (!this.activeMove) throw new Error("Battle.activeMove is null");
+					this.damage(this.calcRecoilDamage(this.activeMove.totalDamage, this.effectData.move), source, source, 'recoil');
 				}
 				if (this.effectData.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.getEffect('Mind Blown'), true);
 				}
 				if (this.effectData.selfdestruct) {
 					this.faint(source, source, this.effectData.move);
