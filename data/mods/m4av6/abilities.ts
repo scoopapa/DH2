@@ -2368,35 +2368,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				this.effectData.target.addVolatile('implode');
 				this.effectData.target.volatiles['implode'].move = move;
-				if (move.mindBlownRecoil) this.effectData.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-				if (move.selfdestruct) this.effectData.target.volatiles['implode'].selfdestruct = move.selfdestruct;
+				if (move.recoil) {
+					this.effectData.target.volatiles['implode'].recoil = true;
+					delete move.recoil;
+				}
+				if (move.mindBlownRecoil) {
+					this.effectData.target.volatiles['implode'].mindBlownRecoil = true;
+					delete move.mindBlownRecoil;
+				}
+				if (move.selfdestruct && move.selfdestruct === 'always') {
+					this.effectData.target.volatiles['implode'].selfdestruct = true;
+					delete move.selfdestruct;
+				}
 			}
 		},
 		onPrepareHit(target, source, move) {
-			if (move.selfdestruct === 'always') this.add('-anim', source, "Last Resort", target);
-		},
-		onDamage(damage, target, source, effect) {
-			if (effect.id === 'recoil') {
-				if (source.volatiles['implode']) return;
-				if (!this.activeMove) throw new Error("Battle.activeMove is null");
-				if (this.activeMove.id !== 'struggle') return null;
-			}
+			if (move.selfdestruct === 'always') this.add('-anim', source, "Breakneck Blitz", target);
 		},
 		condition: {
 			duration: 1,
-			onSourceAfterFaint(target, source, effect) {
-				if (effect && effect.effectType === 'Move') {
-					source.removeVolatile('implode');
-				}
-			},
 			onAfterMove(source, target, move) {
-				if (this.effectData.selfdestruct) {
-					this.battle.faint(source, source, this.effectData.move);
-					source.removeVolatile('implode');
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon === source) continue;
+					if (pokemon.hp) {
+						source.removeVolatile('implode');
+						return;
+					}
+				}
+				if (this.effectData.recoil && move.totalDamage) {
+					this.damage(this.calcRecoilDamage(move.totalDamage, this.effectData.move), source, source, 'recoil');
 				}
 				if (this.effectData.mindBlownRecoil) {
-					this.battle.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-					source.removeVolatile('implode');
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
+				}
+				if (this.effectData.selfdestruct) {
+					this.faint(source, source, this.effectData.move);
 				}
 				source.removeVolatile('implode');
 			},
