@@ -2227,8 +2227,123 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Marble Garden",
 		shortDesc: "Protects the user from Recoil, and status infliction and stat reduction from other Pokémon.",
 	},
+	devilsadvocate: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Devil\'s Advocate', pokemon.side.foe);
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				boost[i]! *= -1;
+			}
+		},
+		onFoeTryEatItem: false,
+		name: "Devil's Advocate",
+		shortDesc: "Unnerve + Contrary",
+	},
+	snowglobe: {
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('hail')) {
+				if (move.type === 'Ice') {
+					this.debug('Snow Globe boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		name: "Snow Globe",
+		shortDesc: "Summons Hail on switch-in. Ice moves deal 1.3x damage in Hail; Hail immunity.",
+	},
+	bugscicle: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Bug' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ice';
+				move.refrigerateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Bugscicle",
+		shortDesc: "This Pokémon's Bug-Type moves become Ice-Type and deal 1.2x damage.",
+	},
+	magicfist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (!attacker.item) {
+				this.debug('Magic Fist boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Magic Fist",
+		shortDesc: "If this Pokemon has no item, its attacks have 1.2x power.",
+	},
+	sandbubbler: {
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onModifyMove(move) {
+			if (move.flags['punch'] && this.field.getWeather().id !== 'sandstorm') {
+				this.field.setWeather('sandstorm');
+			}
+		},
+		name: "Sand Bubbler",
+		shortDesc: "Summons Sand on switch or when using a Punch move.",
+	},
+	bombardier: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Bombardier",
+		shortDesc: "Bullet and Bomb moves have 1.5x power.",
+	},
+	asonekecleon: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve', pokemon.side.foe);
+		},
+		onFoeTryEatItem: false,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (!target.hp) return;
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				type !== '???' && !target.hasType(type)
+			) {
+				if (!target.setType(type)) return false;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
 
-
-//  Corrosion ignoring Steel/Poison-types is implemented elsewhere so Toxic Play doesn't fully work, probably have to do stuff in scripts.ts to make it work
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		name: "As One (Kecleon)",
+		shortDesc: "As One (Spectrier) + Color Change.",
+	},
 };
  
