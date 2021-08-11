@@ -206,4 +206,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	aeroblast: {
+		num: 177,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Aeroblast",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	psystrike: {
+		num: 540,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Psystrike",
+		shortDesc: "Ignores Dark-type immunity under Psychic Terrain.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				ignoreImmunity: {'Psychic': true},
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 };
