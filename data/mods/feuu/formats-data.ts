@@ -604,6 +604,40 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+// slate 18
+	keclyrexshadow: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	rosenaught: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	gigacrab: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	monferpaunbound: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	aurorona: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	ninelandsalola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	lurodactyl: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	lurodactylmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this

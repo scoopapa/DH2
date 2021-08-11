@@ -331,4 +331,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 769,
 		desc: "If held by a Swannamence, this item allows it to Mega Evolve in battle.",
 	},
+	aerodactylite: {
+		name: "Aerodactylite",
+		spritenum: 577,
+		megaStone: "Lurodactyl-Mega",
+		megaEvolves: "Lurodactyl",
+		itemUser: ["Lurodactyl"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 672,
+		desc: "If held by a Lurodactyl, this item allows it to Mega Evolve in battle.",
+	},
 };
