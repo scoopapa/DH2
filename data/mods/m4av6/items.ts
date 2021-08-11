@@ -1470,4 +1470,57 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Mudsdale, this item allows it to Mega Evolve in battle.",
 	},
+	electrodite: {
+		name: "Electrodite", // sorry, Kero, no Thermite for you
+		spritenum: 578,
+		megaStone: "Electrode-Mega",
+		megaEvolves: "Electrode",
+		itemUser: ["Electrode"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1094,
+		gen: 8,
+		desc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
+	},
+	golurkite: {
+		name: "Golurkite",
+		spritenum: 578,
+		megaStone: "Golurk-Mega",
+		megaEvolves: "Golurk",
+		itemUser: ["Golurk"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1095,
+		gen: 8,
+		desc: "If held by a Golurk, this item allows it to Mega Evolve in battle.",
+	},
+	rksmegamemory: {
+		name: "RKS Megamemory",
+		spritenum: 578,
+		megaStone: "Silvally-Mega",
+		megaEvolves: "Silvally",
+		itemUser: ["Silvally"],
+		onMemory(item, source) {
+			return source.hpType || "Dark";
+		},
+		forcedForme(source) {
+			if (source.hpType) {
+				return "Silvally-" + source.hpType;
+			} else {
+				return "Silvally-Dark";
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.species.name.startsWith('Silvally')) return false;
+			return true;
+		},
+		num: -1096,
+		gen: 8,
+		desc: "If held by a Silvally, this item allows it to Mega Evolve in battle. The form it takes depends on its Hidden Power type.",
+		shortDesc: "Silvally Mega Evolves according to its Hidden Power type.",
+	},
 };
