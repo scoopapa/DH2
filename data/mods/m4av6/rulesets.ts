@@ -23,8 +23,15 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 		onChangeSet(set) {
-			if (set.species.baseSpecies === 'Silvally' && this.toID(set.item) === 'rksmegamemory') {
-				set.species = 'Silvally-' + (set.hpType || 'Dark');
+			const item = this.toID(set.item);
+			if (set.species.baseSpecies === 'Silvally') {
+				if (item === 'rksmegamemory') {
+					if (set.hpType) {
+						set.species = 'Silvally-' + set.hpType;
+					} else {
+						set.species = 'Silvally-Dark';
+					}
+				}
 			}
 		},
 		onSwitchIn(pokemon) {
