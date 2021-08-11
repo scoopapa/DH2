@@ -24,7 +24,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onChangeSet(set) {
 			const item = this.toID(set.item);
-			if (set.species.baseSpecies === 'Silvally') {
+			if (set.species === 'Silvally') {
 				if (item === 'rksmegamemory') {
 					if (set.hpType) {
 						set.species = 'Silvally-' + set.hpType;
