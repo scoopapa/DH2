@@ -1219,11 +1219,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			if (pokemon.ignoringItem()) return;
-			if (pokemon.item === 'rksmegamemory') {
-				if (pokemon.hpType) return pokemon.hpType;
-				return 'Dark';
-			}
 			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
+			if (pokemon.item === 'rksmegamemory') {
+				if (pokemon.hpType) {
+					move.type = pokemon.hpType;
+				} else {
+					move.type = 'Dark';
+				}
+			}
 		},
 	},
 };
