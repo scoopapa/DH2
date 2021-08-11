@@ -1901,6 +1901,74 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally-Mega",
 		],
 	},
+	silvallyfire: {
+		inherit: true,
+		requiredItems: ["Fire Memory", "RKS Megamemory"],
+	},
+	silvallywater: {
+		inherit: true,
+		requiredItems: ["Water Memory", "RKS Megamemory"],
+	},
+	silvallyelectric: {
+		inherit: true,
+		requiredItems: ["Electric Memory", "RKS Megamemory"],
+	},
+	silvallygrass: {
+		inherit: true,
+		requiredItems: ["Grass Memory", "RKS Megamemory"],
+	},
+	silvallyice: {
+		inherit: true,
+		requiredItems: ["Ice Memory", "RKS Megamemory"],
+	},
+	silvallyfighting: {
+		inherit: true,
+		requiredItems: ["Fighting Memory", "RKS Megamemory"],
+	},
+	silvallypoison: {
+		inherit: true,
+		requiredItems: ["Poison Memory", "RKS Megamemory"],
+	},
+	silvallyground: {
+		inherit: true,
+		requiredItems: ["Ground Memory", "RKS Megamemory"],
+	},
+	silvallyflying: {
+		inherit: true,
+		requiredItems: ["Flying Memory", "RKS Megamemory"],
+	},
+	silvallypsychic: {
+		inherit: true,
+		requiredItems: ["Psychic Memory", "RKS Megamemory"],
+	},
+	silvallybug: {
+		inherit: true,
+		requiredItems: ["Bug Memory", "RKS Megamemory"],
+	},
+	silvallyrock: {
+		inherit: true,
+		requiredItems: ["Rock Memory", "RKS Megamemory"],
+	},
+	silvallyghost: {
+		inherit: true,
+		requiredItems: ["Ghost Memory", "RKS Megamemory"],
+	},
+	silvallydragon: {
+		inherit: true,
+		requiredItems: ["Dragon Memory", "RKS Megamemory"],
+	},
+	silvallydark: {
+		inherit: true,
+		requiredItems: ["Dark Memory", "RKS Megamemory"],
+	},
+	silvallysteel: {
+		inherit: true,
+		requiredItems: ["Steel Memory", "RKS Megamemory"],
+	},
+	silvallyfairy: {
+		inherit: true,
+		requiredItems: ["Fairy Memory", "RKS Megamemory"],
+	},
 	silvallymega: {
 		num: 773,
 		name: "Silvally-Mega",
