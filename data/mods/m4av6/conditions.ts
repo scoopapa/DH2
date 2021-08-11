@@ -371,7 +371,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'rkssystem') {
-				if (pokemon.getItem() === 'RKS Megamemory') {
+				if (pokemon.getItem() === 'rksmegamemory') {
 					return pokemon.hpType || 'Dark';
 				}
 				type = pokemon.getItem().onMemory;
