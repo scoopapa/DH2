@@ -27,7 +27,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("chandelure", ["mindblown"]);
 		newMoves("gothitelle", ["wish", "teleport", "doomdesire", "flashcannon"]);
 		newMoves("conkeldurr", ["shoreup"]);
-		newMoves("gigalith", ["skullbash", "sunnyday", "synthesis"]);
+		newMoves("gigalith", ["skullbash", "sunnyday", "synthesis", "trickroom"]);
 		newMoves("reuniclus", ["photongeyser", "psychoboost"]);
 		newMoves("boltund", ["pursuit"]);
 		newMoves("archeops", ["fireblast", "dualwingbeat", "bravebird"]);
@@ -39,13 +39,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("murkrow", ["partingshot"]);
 		newMoves("honchkrow", ["partingshot", "dualwingbeat"]);
 		newMoves("spiritomb", ["partingshot"]);
-		newMoves("ariados", ["spikes"]);
+		newMoves("ariados", ["spikes", "strengthsap", "uturn"]);
 		newMoves("gourgeist", ["bodypress", "encore", "flareblitz", "partingshot", "strengthsap"]);
 		newMoves("mimikyu", ["firstimpression", "strengthsap", "uturn"]);
 		newMoves("nidoqueen", ["milkdrink"]);
 		newMoves("walrein", ["darkpulse", "flipturn", "focusblast", "freezedry", "slackoff"]);
 		newMoves("aurorus", ["rapidspin", "voltswitch"]);
-		newMoves("trevenant", ["floralhealing", "synthesis", "floralhealing", "synthesis"]);
+		newMoves("trevenant", ["bulkup", "floralhealing", "synthesis"]);
 		newMoves("eelektross", ["recover", "scald"]);
 		newMoves("dragalge", ["acidspray", "gastroacid", "roost", "terrainpulse"]);
 		newMoves("dhelmise", ["flipturn", "superpower"]);
@@ -59,13 +59,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("parasect", ["junglehealing", "taunt"]);
 		newMoves("samurott", ["flipturn", "psychocut", "slackoff"]);
 		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
-		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast", "mysticalfire"]);
+		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
 		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
 		newMoves("sawsbuck", ["moonblast", "petalblizzard", "playrough"]);
 		newMoves("sawsbucksummer", ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"]);
 		newMoves("sawsbuckautumn", ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"]);
-		newMoves("sawsbuckwinter", ["blizzard", "freezedry", "highhorsepower", "icebeam", "iceshard", "iciclecrash", "tripleaxel"]);
+		newMoves("sawsbuckwinter", ["highhorsepower", "iceshard", "iciclecrash", "tripleaxel"]);
 		newMoves("flygon", ["extremespeed", "flashcannon", "ironhead"]);
 		newMoves("drapion", ["shoreup"]);
 		newMoves("lurantis", ["moonblast", "moonlight", "playrough", "silverwind"]);
@@ -73,7 +73,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("noivern", ["encore", "psyshock"]);
 		newMoves("toxtricity", ["frustration", "gearup", "hiddenpower"]);
 		newMoves("toxtricitylowkey", ["hiddenpower", "return", "slackoff"]);
-		newMoves("cacturne", ["assurance", "knockoff", "strengthsap"]);
+		newMoves("cacturne", ["assurance", "brine", "knockoff", "strengthsap"]);
 		newMoves("hawlucha", ["partingshot", "stormthrow"]);
 		newMoves("araquanid", ["hypnosis", "lifedew", "painsplit", "purify"]);
 		newMoves("zoroark", ["focuspunch", "gunkshot", "superpower"]);
@@ -88,6 +88,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("rapidash", ["airslash", "uturn"]);
 		newMoves("zebstrika", ["assurance", "jawlock", "snarl", "suckerpunch", "taunt"]);
 		newMoves("mudsdale", ["bulkup", "painsplit", "wideguard"]);
+		newMoves("electrode", ["mindblown"]);
+		newMoves("silvally", ["firepledge", "waterpledge", "taunt"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -151,6 +153,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
 			return null;
+		}
+		if (item.name === "RKS Megamemory" && pokemon.species.name.startsWith('Silvally')) {
+			let newSpecies = this.dex.deepClone("Silvally-Mega");
+			newSpecies.types[0] = pokemon.hpType || "Dark";
+			newSpecies.name = newSpecies.name + '-' + newSpecies.types[0];
+			pokemon.canMegaEvo = newSpecies;
 		}
 		if (pokemon.baseSpecies.name === "Pichu") {
 			return null;
