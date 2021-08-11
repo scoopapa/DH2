@@ -2372,10 +2372,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.selfdestruct) this.effectData.volatiles['implode'].selfdestruct = move.selfdestruct;
 			}
 		},
-		onSourceAfterFaint(target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				source.removeVolatile('implode');
-			}
+		onPrepareHit(target, source, move) {
+			if (move.selfdestruct === 'always') this.add('-anim', source, "Last Resort", target);
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -2386,15 +2384,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onUpdate(pokemon) {
+			onSourceAfterFaint(target, source, effect) {
+				if (effect && effect.effectType === 'Move') {
+					source.removeVolatile('implode');
+				}
+			},
+			onAfterMove(source, target, move) {
 				if (this.effectData.selfdestruct) {
-					this.battle.faint(pokemon, pokemon, this.effectData.move);
-					pokemon.removeVolatile('implode');
+					this.battle.faint(source, source, this.effectData.move);
+					source.removeVolatile('implode');
 				}
 				if (this.effectData.mindBlownRecoil) {
-					this.battle.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
-					pokemon.removeVolatile('implode');
+					this.battle.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
+					source.removeVolatile('implode');
 				}
+				source.removeVolatile('implode');
 			},
 		},
 		name: "Implode",
