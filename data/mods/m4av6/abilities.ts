@@ -2366,10 +2366,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If it KOs a target, ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
-				this.effectData.addVolatile('implode');
-				this.effectData.move = move;
-				if (move.mindBlownRecoil) this.effectData.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-				if (move.selfdestruct) this.effectData.volatiles['implode'].selfdestruct = move.selfdestruct;
+				this.effectData.target.addVolatile('implode');
+				this.effectData.target.volatiles['implode'].move = move;
+				if (move.mindBlownRecoil) this.effectData.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
+				if (move.selfdestruct) this.effectData.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -2377,7 +2377,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
-				if (this.effectData.volatiles['implode']) return;
+				if (source.volatiles['implode']) return;
 				if (!this.activeMove) throw new Error("Battle.activeMove is null");
 				if (this.activeMove.id !== 'struggle') return null;
 			}
