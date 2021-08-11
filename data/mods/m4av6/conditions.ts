@@ -377,8 +377,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 			if (pokemon.item === 'rksmegamemory') {
-				if (pokemon.hpType) return pokemon.hpType;
-				return 'Dark';
+				type = pokemon.hpType;
+				if (!pokemon.hpType) {
+					type = 'Dark';
+				}
 			}
 			return [type];
 		},
