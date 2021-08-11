@@ -2368,22 +2368,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				this.effectData.target.addVolatile('implode');
 				this.effectData.target.volatiles['implode'].move = move;
-				if (move.recoil) {
-					this.effectData.target.volatiles['implode'].recoil = true;
-					delete move.recoil;
-				}
-				if (move.mindBlownRecoil) {
-					this.effectData.target.volatiles['implode'].mindBlownRecoil = true;
-					delete move.mindBlownRecoil;
-				}
+				this.effectData.target.volatiles['implode'].recoil = move.recoil;
+				this.effectData.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
+				delete move.recoil;
+				delete move.mindBlownRecoil;
 				if (move.selfdestruct && move.selfdestruct === 'always') {
-					this.effectData.target.volatiles['implode'].selfdestruct = true;
+					this.effectData.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
 			}
 		},
 		onPrepareHit(target, source, move) {
-			if (this.effectData.target.volatiles['implode'].selfdestruct) this.add('-anim', source, "Breakneck Blitz", target);
+			if (this.effectData.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
 		},
 		condition: {
 			duration: 1,
@@ -2397,7 +2393,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				if (this.effectData.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.calcRecoilDamage(this.activeMove.totalDamage, this.effectData.move), source, source, 'recoil');
+					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectData.recoil![0] / this.effectData.recoil![1]), 1), source, source, 'recoil');
 				}
 				if (this.effectData.mindBlownRecoil) {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.getEffect('Mind Blown'), true);
