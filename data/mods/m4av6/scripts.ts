@@ -158,7 +158,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let newSpecies = this.dex.deepClone(this.dex.getSpecies('Silvally-Mega'));
 			newSpecies.types[0] = pokemon.hpType || "Dark";
 			newSpecies.name = newSpecies.name + '-' + newSpecies.types[0];
-			pokemon.canMegaEvo = newSpecies;
+			return newSpecies;
 		}
 		if (pokemon.baseSpecies.name === "Pichu") {
 			return null;
