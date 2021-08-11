@@ -22,6 +22,11 @@ export const Formats: {[k: string]: FormatData} = {
 				(pokemon as any).lostItemForDelibird = pokemon.item;
 			}
 		},
+		onChangeSet(set) {
+			if (set.species.name.startsWith('Silvally') && set.item === 'rksmegamemory') {
+				set.species = 'Silvally-' + (set.hpType || 'Dark');
+			}
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {
 				if (pokemon.illusion.species.forme.startsWith('Mega') || pokemon.illusion.species.forme.startsWith('Ultra')) {
