@@ -2822,7 +2822,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Poison Custom Game",
-		ruleset: ['Monothreat Poison' 'Standard NatDex', 'Standard M4A Monothreat'],
+		ruleset: ['Monothreat Poison', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
