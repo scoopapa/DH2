@@ -1504,16 +1504,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Silvally-Mega",
 		megaEvolves: "Silvally",
 		itemUser: ["Silvally"],
-		onMemory(item, source) {
-			return source.hpType || "Dark";
-		},
-		forcedForme(source) {
-			if (source.hpType) {
-				return "Silvally-" + source.hpType;
-			} else {
-				return "Silvally-Dark";
-			}
-		},
 		onTakeItem(item, source) {
 			if (source.species.name.startsWith('Silvally')) return false;
 			return true;
