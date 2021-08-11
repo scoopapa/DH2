@@ -155,7 +155,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "RKS Megamemory" && pokemon.species.name.startsWith('Silvally')) {
-			let newSpecies = this.dex.deepClone("Silvally-Mega");
+			let newSpecies = this.dex.deepClone(this.dex.getSpecies('Silvally-Mega'));
 			newSpecies.types[0] = pokemon.hpType || "Dark";
 			newSpecies.name = newSpecies.name + '-' + newSpecies.types[0];
 			pokemon.canMegaEvo = newSpecies;
