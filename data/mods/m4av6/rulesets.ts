@@ -23,7 +23,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 		onChangeSet(set) {
-			if (set.species.startsWith('Silvally') && set.item === 'rksmegamemory') {
+			if (set.species.baseSpecies === 'Silvally' && set.item === 'rksmegamemory') {
 				set.species = 'Silvally-' + (set.hpType || 'Dark');
 			}
 		},
