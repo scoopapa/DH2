@@ -335,4 +335,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
+	icehammer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
