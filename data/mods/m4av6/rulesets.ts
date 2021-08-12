@@ -27,7 +27,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const silvally = [
 				'Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel',
 				'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy',
-			],
+			];
 			if (silvally.includes(set.species)) {
 				if (item === 'rksmegamemory') {
 					if (set.hpType) {
