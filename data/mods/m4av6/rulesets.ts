@@ -115,6 +115,36 @@ export const Formats: {[k: string]: FormatData} = {
 			'Butterfrite', 'Cinderite', 'Dragonitite',
 		],
 	},
+	teampreview: {
+		effectType: 'Rule',
+		name: 'Team Preview',
+		desc: "Allows each player to see the Pok&eacute;mon on their opponent's team before they choose their lead Pok&eacute;mon",
+		onBegin() {
+			this.add('clearpoke');
+			for (const pokemon of this.getAllPokemon()) {
+				const details = pokemon.details.replace(', shiny', '')
+					.replace(/(Arceus|Gourgeist|Pumpkaboo|Silvally|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*');
+				this.add('poke', pokemon.side.id, details, '');
+			}
+		},
+		onTeamPreview() {
+			if (this.format.name === '[Gen 8] M4A VGC' || this.format.name === '[Gen 8] M4A VGC Sandbox' || this.format.name === '[Gen 8] M4A VGC Sandierbox') {
+				this.makeRequest('teampreview');
+			} else {
+				let ordercounts = false;
+				for (const pokemon of this.getAllPokemon()) {
+					if (pokemon.item === 'inteleonite' || pokemon.item === 'hawluchanite' || pokemon.item === 'zoroarkite') {
+						ordercounts = true;
+					}
+				}
+				if (ordercounts) {
+					this.makeRequest('teampreview', 6);
+				} else {
+					this.makeRequest('teampreview');
+				}
+			}
+		},
+	},
 
 	megahintmod: {
 		effectType: 'Rule',
