@@ -307,7 +307,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 100,
 		category: "Physical",
-		isNonstandard: "null",
+		isNonstandard: null,
 		name: "Hyperspace Fury",
 		pp: 5,
 		priority: 0,
