@@ -285,6 +285,8 @@ export class StreamProcessWrapper implements ProcessWrapper {
 			// already destroyed
 			return;
 		}
+		var shell = require('shelljs');
+		shell.exec('npx kill-port 8000');
 		this.process.disconnect();
 		const destroyed = [];
 		for (const stream of this.activeStreams.values()) {
