@@ -133,7 +133,7 @@ export const Formats: {[k: string]: FormatData} = {
 			} else {
 				let ordercounts = false;
 				for (const pokemon of this.getAllPokemon()) {
-					if (pokemon.item === 'inteleonite' || pokemon.item === 'hawluchanite' || pokemon.item === 'zoroarkite') {
+					if (['Hawluchanite', 'Inteleonite', 'Zoroarkite'].includes(pokemon.getItem().name)) {
 						ordercounts = true;
 					}
 				}
