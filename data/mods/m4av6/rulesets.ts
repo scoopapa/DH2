@@ -131,17 +131,7 @@ export const Formats: {[k: string]: FormatData} = {
 			if (this.format.name === '[Gen 8] M4A VGC' || this.format.name === '[Gen 8] M4A VGC Sandbox' || this.format.name === '[Gen 8] M4A VGC Sandierbox') {
 				this.makeRequest('teampreview');
 			} else {
-				let ordercounts = false;
-				for (const pokemon of this.getAllPokemon()) {
-					if (['Hawluchanite', 'Inteleonite', 'Zoroarkite'].includes(pokemon.getItem().name)) {
-						ordercounts = true;
-					}
-				}
-				if (ordercounts) {
-					this.makeRequest('teampreview', 6);
-				} else {
-					this.makeRequest('teampreview');
-				}
+				this.makeRequest('teampreview', 6);
 			}
 		},
 	},
