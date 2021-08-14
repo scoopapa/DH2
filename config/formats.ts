@@ -1580,7 +1580,7 @@ export const Formats: FormatList = [
         gameType: "doubles",
         ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
         banlist: [
-            'All Pokemon', 'Tapu Lop-Mega', 'Grousle-Primal', 'Ninjacross-Mega', 'Kokovoir-Mega', 
+			'All Pokemon', 'Lopunnite', 'Red Orb', 'Baton Pass', 'Heracronite', 'Gardevoirite', 'Salamencite', 'Charizardite Y', 
         ],
         unbanlist: [
             'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
