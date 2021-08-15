@@ -144,7 +144,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		species.weighthg = Math.max(1, species.weighthg + deltas.weighthg);
 		species.originalMega = deltas.originalMega;
 		species.requiredItem = deltas.requiredItem;
-		species.forme = "Mega"; // forcing Mega Data Mod compatibility
 		if (deltas.isMega) species.isMega = true;
 		species.deltas = deltas; // preserving deltas for potential form change compatibility
 		return species;
