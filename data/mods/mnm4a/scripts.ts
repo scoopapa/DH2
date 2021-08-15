@@ -23,7 +23,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (pokemon.species.isMega) return false;
 
 		// @ts-ignore
-		let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, pokemon.canMegaEvo);
+		let species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
 		if (pokemon.getItem().name === 'RKS Megamemory') {
 			species.types[0] = pokemon.hpType || 'Dark';
 		}
