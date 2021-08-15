@@ -172,7 +172,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.add('-message', `More of ${pokemon.name}'s friends came together!`);
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = pokemon.species;
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
