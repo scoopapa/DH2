@@ -1802,7 +1802,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Calyrex-Shadow', 'Zacian-Crowned',
 			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite',
-			'Araquanite', 'Bastiodite', 'Butterfrite', 'Delibirdite', 'Gourgeite', 'Gumshoosite', 'Klinklite', 'Leavannite', 'Lurantisite', 'Luxrite', 'Meowsticite',
+			'Araquanite', 'Bastiodite', 'Butterfrite', 'Delibirdite', 'Electrodite', 'Gourgeite', 'Gumshoosite', 'Klinklite', 'Leavannite', 'Lurantisite', 'Luxrite', 'Meowsticite',
 			'Parasite', 'Talonflite',
 			'Moody', 'Shadow Tag', 'Baton Pass', 'Electrify',
 		],
