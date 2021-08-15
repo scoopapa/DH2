@@ -42,6 +42,49 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 149,
 	},
+	zenmode: { // altered onEnd so a Darmanitan-Zen can Mega Evolve properly
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (pokemon.species.isMega) return;
+			if (pokemon.species.baseSpecies === 'Darmanitan' && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.species.isMega) return;
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
+			},
+			onEnd(pokemon) {
+				if (pokemon.species.isMega) return;
+				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		isPermanent: true,
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
+	},
 	flowergift: { // removed form dependence and prevented Mega Cherrim from changing form
 		desc: "If this Pokémon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Mega Meganium and Sunny Day is active, the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Cherrim or a Mega Meganium and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokémon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokémon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form or Meganium is Mega Evolved, they will not receive the Attack and Special Defense boosts.",
 		shortDesc: "If user is Cherrim or Mega Meganium and Sunny Day is active: 1.5x ally team Atk and Sp. Def.",
