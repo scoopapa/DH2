@@ -112,7 +112,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.add('-message', `${attacker.name} changed to Combat formation!`);
 						this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Mega Falinks
-							const species = this.dex.getSpecies(attacker.species.name);
 							const abilities = species.abilities;
 							const baseStats = species.baseStats;
 							const type = species.types[0];
@@ -175,7 +174,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			const species = this.dex.getSpecies(pokemon.species.name);
 			const abilities = species.abilities;
-			const baseStats = species.baseStats;\
+			const baseStats = species.baseStats;
 			const type = species.types[0];
 			if (species.types[1]) {
 				const type2 = species.types[1];
