@@ -146,7 +146,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (
 				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.species.isMega) || pokemon.transformed || !pokemon.hp || !pokemon.activeTurns ||
 				pokemon.species.id === 'wishiwashi' || pokemon.species.id === 'wishiwashischool' ||
-				pokemon.species.wishiwashi === 'School';
+				pokemon.species.wishiwashi === 'School'
 			) return;
 			this.add('-activate', pokemon, 'ability: SOS');
 			this.add('-message', `${pokemon.name} called for help!`);
