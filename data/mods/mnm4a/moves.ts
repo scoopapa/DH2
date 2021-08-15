@@ -23,6 +23,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				const meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
 				if (pokemon.species.isMega) {
 					const species = this.doGetMixedSpecies('Meloetta' + meloettaForme, pokemon.species.deltas);
+					if (pokemon.getItem().name === 'RKS Megamemory') {
+						let silvallyType = pokemon.hpType || 'Dark';
+						if (species.types[1] === silvallyType) {
+							species.types = [silvallyType];
+						} else if (!species.types[1] && species.types[0] !== silvallyType) {
+							// single-typed Pokémon can still have a primary type as their secondary type
+							species.types = [species.types[0], silvallyType];
+						} else {
+							species.types = [silvallyType, species.types[1]];
+						}
+					}
 					pokemon.formeChange(species, this.effect, false, '[msg]');
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 					const abilities = species.abilities;
