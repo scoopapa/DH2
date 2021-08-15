@@ -28,6 +28,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			let silvallyType = pokemon.hpType || 'Dark';
 			if (species.types[1] === silvallyType) {
 				species.types = [silvallyType];
+			} else if (!species.types[1] && species.types[0] !== silvallyType) {
+				// single-typed Pokémon can still have a primary type as their secondary type
+				species.types = [species.types[0], silvallyType];
 			} else {
 				species.types = [silvallyType, species.types[1]];
 			}
@@ -138,6 +141,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		} else if (deltas.type === 'type0') {
 			if (species.types[1] === deltas.type0) {
 				species.types = [deltas.type0];
+			} else if (!species.types[1] && species.types[0] !== deltas.type0) {
+				// single-typed Pokémon can still have a primary type as their secondary type
+				species.types = [species.types[0], deltas.type0];
 			} else {
 				species.types = [deltas.type0, species.types[1]];
 			}
