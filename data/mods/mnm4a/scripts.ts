@@ -64,9 +64,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const oMegaSpecies = this.dex.getSpecies(species.originalMega);
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			this.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
-			if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
-				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-			}
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
