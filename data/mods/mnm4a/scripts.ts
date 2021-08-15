@@ -25,7 +25,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		// @ts-ignore
 		let species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
 		if (pokemon.getItem().name === 'RKS Megamemory') {
-			species.types[0] = pokemon.hpType || 'Dark';
+			let silvallyType = pokemon.hpType || 'Dark';
+			if (species.types[1] === silvallyType) {
+				species.types = [silvallyType];
+			} else {
+				species.types = [silvallyType, species.types[1]];
+			}
 		}
 		const side = pokemon.side;
 
