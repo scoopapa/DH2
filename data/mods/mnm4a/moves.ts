@@ -25,7 +25,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					const species = this.doGetMixedSpecies('Meloetta' + meloettaForme, pokemon.species.deltas);
 					pokemon.formeChange(species, this.effect, false, '[msg]');
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-					const species = this.dex.getSpecies(pokemon.species.name);
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];
