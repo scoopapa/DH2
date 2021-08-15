@@ -115,7 +115,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			deltas.type = 'type1';
 			deltas.type1 = megaSpecies.types[1];
 		}
-		if (megaSpecies.isMega) deltas.isMega = true;
+		deltas.isMega = true;
 		return deltas;
 	},
 	doGetMixedSpecies(speciesOrForme, deltas) {
