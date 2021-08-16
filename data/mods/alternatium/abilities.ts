@@ -344,10 +344,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let i: BoostName;
 			for (i in boost) {
 				delete boost[i];
-				showMsg = true;
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "unboost", "[from] ability: Power Core", "[of] " + target);
 			}
 		},
 		name: "Power Core",
