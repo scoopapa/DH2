@@ -237,8 +237,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
-			if (this.field.isTerrain('psychicterrain') && source.isGrounded() && type === 'Dark') {
-				ignoreImmunity: true,
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				move.ignoreImmunity['Psychic'] = true;
 			}
 		},
 		secondary: null,
