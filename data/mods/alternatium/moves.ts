@@ -480,4 +480,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+	snowstorm: {
+		num: 103,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		name: "Snowstorm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'hail':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = 50;
+				break;
+			}
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
 };
