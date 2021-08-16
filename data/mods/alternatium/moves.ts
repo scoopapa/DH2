@@ -481,7 +481,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	snowstorm: {
-		num: 103,
+		num: 1003,
 		accuracy: 75,
 		basePower: 100,
 		category: "Special",
