@@ -1665,4 +1665,44 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	litten: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	torracat: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	incineroar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	mimejr: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	mrmimegalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	mrrime: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	glaceon: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	uxie: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

@@ -302,4 +302,41 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
+	hyperspacefury: {
+		num: 621,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: null,
+		name: "Hyperspace Fury",
+		pp: 5,
+		priority: 0,
+		flags: {mirror: 1, authentic: 1},
+		breaksProtect: true,
+		onTry(pokemon) {
+			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Monferpa-Unbound') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Hoopa Unbound can use this move.");
+			if (pokemon.species.name === 'Hoopa') {
+				this.add('-fail', pokemon, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.add('-fail', pokemon, 'move: Hyperspace Fury');
+			return null;
+		},
+		self: {
+			boosts: {
+				def: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	icehammer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

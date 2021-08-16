@@ -212,6 +212,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'delibird').learnset.batonpass = ['3L1'];
 		this.modData('Learnsets', 'delibird').learnset.brickbreak = ['3L1'];
 		this.modData('Learnsets', 'delibird').learnset.lowkick = ['3L1'];
+		
+		//Slate 9
+		this.modData("Learnsets", 'dusclops').learnset.brickbreak = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.counter = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.suckerpunch = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.haze = ['3L1'];
+		
+		this.modData("Learnsets", 'parasect').learnset.lunge = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.knockoff = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.shadowball = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
