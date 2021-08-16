@@ -364,4 +364,25 @@ export const Conditions: {[k: string]: ConditionData} = {
 	longwhip3: longwhip,
 	longwhip4: longwhip,
 	longwhip5: longwhip,
+	silvally: {
+		name: 'Silvally',
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'rkssystem') {
+				type = pokemon.getItem().onMemory;
+				if (!type) {
+					type = 'Normal';
+				}
+			}
+			if (pokemon.item === 'rksmegamemory') {
+				type = pokemon.hpType;
+				if (!pokemon.hpType) {
+					type = 'Dark';
+				}
+			}
+			return [type];
+		},
+	},
 };

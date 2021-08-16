@@ -1414,8 +1414,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
-				if (!pokemon.hasAbility('awinterstale') && !pokemon.hasAbility('asonesawsbuck')) {
-					pokemon.removeVolatile('awinterstale');
+				if (!pokemon.hasAbility('winterstale') && !pokemon.hasAbility('asonesawsbuck')) {
+					pokemon.removeVolatile('winterstale');
 					return;
 				}
 				if (move.type === 'Ice' && pokemon.moveLastTurnResult) {
@@ -2225,7 +2225,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
 						if (!success) {
 							success = true;
-							this.add('-ability', source, 'Gravitational Pull');
+							this.add('-ability', target, 'Gravitational Pull');
 						}
 						let layers = 0;
 						if (target.side.sideConditions['toxicspikes']) {
@@ -2243,7 +2243,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
 						if (!success) {
 							success = true;
-							this.add('-ability', source, 'Gravitational Pull');
+							this.add('-ability', target, 'Gravitational Pull');
 						}
 						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
@@ -2252,7 +2252,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
 						if (!success) {
 							success = true;
-							this.add('-ability', source, 'Gravitational Pull');
+							this.add('-ability', target, 'Gravitational Pull');
 						}
 						this.add('-activate', source, 'move: Sticky Web');
 						this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
@@ -2260,7 +2260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
 						if (!success) {
 							success = true;
-							this.add('-ability', source, 'Gravitational Pull');
+							this.add('-ability', target, 'Gravitational Pull');
 						}
 						const steelHazard = this.dex.getActiveMove('Stealth Rock');
 						steelHazard.type = 'Steel';
@@ -2334,6 +2334,79 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Inner Fortitude",
 		rating: 3,
 		num: -1062,
+	},
+	buildup: {
+		desc: "This Pokémon restores 1/8 of its maximum HP, rounded down, at the end of each full turn if it uses an attacking move, but only if it was not hit by a damaging move in the same turn.",
+		shortDesc: "Healed by 1/8 of its max HP each attacking turn; fails if attacked same turn.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('buildup');
+		},
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status') {
+				source.addVolatile('buildup');
+			}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns && !pokemon.volatiles['buildup']) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		condition: {
+			duration: 1,
+		},
+		name: "Buildup",
+		rating: 4,
+		num: -1063,
+	},
+	implode: {
+		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves as long as a target is successfully KOed.",
+		shortDesc: "If it KOs a target, ignores recoil and self-KO effects of that move.",
+		onModifyMove(move) {
+			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
+				this.effectData.target.addVolatile('implode');
+				this.effectData.target.volatiles['implode'].move = move;
+				this.effectData.target.volatiles['implode'].recoil = move.recoil;
+				this.effectData.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
+				delete move.recoil;
+				delete move.mindBlownRecoil;
+				if (move.selfdestruct && move.selfdestruct === 'always') {
+					this.effectData.target.volatiles['implode'].selfdestruct = move.selfdestruct;
+					delete move.selfdestruct;
+				}
+			}
+		},
+		onPrepareHit(target, source, move) {
+			if (this.effectData.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
+		},
+		condition: {
+			duration: 1,
+			onAfterMove(source, target, move) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon === source) continue;
+					if (!pokemon.hp) {
+						source.removeVolatile('implode');
+						return;
+					}
+				}
+				if (this.effectData.recoil && move.totalDamage) {
+					if (!this.activeMove) throw new Error("Battle.activeMove is null");
+					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectData.recoil![0] / this.effectData.recoil![1]), 1), source, source, 'recoil');
+				}
+				if (this.effectData.mindBlownRecoil) {
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.getEffect('Mind Blown'), true);
+				}
+				if (this.effectData.selfdestruct) {
+					this.faint(source, source, this.effectData.move);
+				}
+				source.removeVolatile('implode');
+			},
+		},
+		name: "Implode",
+		rating: 4,
+		num: -1064,
 	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
