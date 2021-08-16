@@ -87,7 +87,7 @@ export const Formats: {[k: string]: FormatData} = {
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-			'Dragonitite', 'Cinderite', // temporary
+			'Butterfrite', 'Dragonitite', 'Cinderite', // temporary
 		],
 	},
 	standardm4amonothreat: {
