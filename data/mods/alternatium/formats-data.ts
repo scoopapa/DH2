@@ -46,8 +46,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	raichualola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	sandslash: {
+	},*/
+	sandslashlustrous: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -55,14 +55,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	ninetales: {
+	ninetalessteamwork: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	ninetalesalola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	dugtrio: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

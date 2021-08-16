@@ -339,8 +339,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powercore: {
 		// Hazard Immunity implemented in moves.js
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				delete boost[i];
+				this.add('-ability', target, 'Power Core');
+				this.hint("Power Core prevents stat changes for the user.");
+			}
+		},
 		name: "Power Core",
-		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field.",
+		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
 		rating: 3,
 		num: -2,
 	},
