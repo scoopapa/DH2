@@ -339,20 +339,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powercore: {
 		// Hazard Immunity implemented in moves.js
-		/*onBoost(boost, target, source, effect) {
+		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			let showMsg = false;
 			let i: BoostName;
 			for (i in boost) {
-				if (target.boost[i] <= 0 || target.boost[i] > 0 || source.boost[i] <= 0 || source.boost[i] > 0) {
-					delete boost[i];
-					showMsg = true;
-				}
+				delete boost[i];
+				showMsg = true;
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add("-fail", target, "unboost", "[from] ability: Power Core", "[of] " + target);
 			}
-		},*/
+		},
 		name: "Power Core",
 		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field.",
 		rating: 3,
