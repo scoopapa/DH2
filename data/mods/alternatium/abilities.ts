@@ -344,7 +344,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let i: BoostName;
 			for (i in boost) {
 				delete boost[i];
-				this.add('-activate', source, 'ability: Power Core');
+				this.add('-activate', target, 'ability: Power Core');
 			}
 		},
 		name: "Power Core",
