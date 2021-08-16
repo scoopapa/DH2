@@ -340,8 +340,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powercore: {
 		// Hazard Immunity implemented in moves.js
 		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
+			if (effect && effect.id === 'zpower') return;
 			let i: BoostName;
 			for (i in boost) {
 				delete boost[i];
