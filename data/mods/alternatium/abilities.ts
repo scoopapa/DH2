@@ -344,7 +344,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let i: BoostName;
 			for (i in boost) {
 				delete boost[i];
-				this.add('-ability', target, 'ability: Power Core');
+				this.add('-ability', target, 'Power Core');
 				this.hint("Power Core prevents stat changes for the user.");
 			}
 		},
