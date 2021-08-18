@@ -1671,6 +1671,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		evos: ["Marowak", "Marowak-Alola"],
 	},
+	marowak: {
+		inherit: true,
+		otherFormes: ["Marowak-Alola", "Marowak-Alola-Totem"],
+		formeOrder: ["Marowak", "Marowak-Alola", "Marowak-Alola-Totem"],
+	},
 	marowakalola: {
 		num: 105,
 		name: "Marowak-Alola",
