@@ -501,6 +501,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glacial Lance", target);
+		},
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
 		target: "normal",
