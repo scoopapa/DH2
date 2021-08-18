@@ -651,7 +651,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return hitResults;
 	},
-      setStatus(
+    pokemon: {
+        setStatus(
         status: string | Condition,
         source: Pokemon | null = null,
         sourceEffect: Effect | null = null,
