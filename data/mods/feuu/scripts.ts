@@ -652,27 +652,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return hitResults;
 	},
     pokemon: {
-        ignoringAbility() {
-            // Check if any active pokemon have the ability Neutralizing Gas or Lemegeton
-            let neutralizinggas = false;
-            let lemegeton = false;
-            for (const pokemon of this.battle.getAllActive()) {
-                // can't use hasAbility because it would lead to infinite recursion
-                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
-                    neutralizinggas = true;
-                    lemegeton = true;
-                    break;
-                }
-            }
-
-            return !!(
-                (this.battle.gen >= 5 && !this.isActive) ||
-                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (lemegeton && this.ability !== ('lemegeton' as ID)) ) &&
-                !this.getAbility().isPermanent
-                )
-            );
-        }
-    },
         setStatus(
         status: string | Condition,
         source: Pokemon | null = null,
@@ -737,6 +716,28 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
             return false;
         }
         return true;
+        }
+    },
+pokemon: {
+        ignoringAbility() {
+            // Check if any active pokemon have the ability Neutralizing Gas
+            let neutralizinggas = false;
+            let runaway = false;
+            for (const pokemon of this.battle.getAllActive()) {
+                // can't use hasAbility because it would lead to infinite recursion
+                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('runaway' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+                    neutralizinggas = true;
+                    runaway = true;
+                    break;
+                }
+            }
+
+            return !!(
+                (this.battle.gen >= 5 && !this.isActive) ||
+                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (runaway && this.ability !== ('runaway' as ID)) ) &&
+                !this.getAbility().isPermanent
+                )
+            );
         }
     },
 }; 
