@@ -3,41 +3,49 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["gigadrain", "hydropump", "leechseed", "earthpower", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	pitchasaurmega: {
 		randomBattleMoves: ["gigadrain", "hydropump", "leechseed", "earthpower", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	blastonoise: {
 		randomBattleMoves: ["slackoff", "scald", "flipturn", "rapidspin", "waterspout"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	blastonoisemega: {
 		randomBattleMoves: ["slackoff", "scald", "flipturn", "rapidspin", "waterspout", "boomburst"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	charodile: {
 		randomBattleMoves: ["flareblitz", "stoneedge", "earthquake", "dragondance", "thunderpunch", "stealthrock"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	charodilemegax: {
 		randomBattleMoves: ["flareblitz", "stoneedge", "earthquake", "dragondance", "thunderpunch", "stealthrock"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	charodilemegay: {
 		randomBattleMoves: ["flareblitz", "sandstorm", "stoneedge", "earthquake", "dragondance", "thunderpunch", "stealthrock"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	stacragus: {
 		randomBattleMoves: ["shellsmash", "dualwingbeat", "roost", "stoneedge", "stealthrock", "defog"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	stacraguschrysalis: {
 		tier: "Illegal",
@@ -47,21 +55,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["toxicspikes", "toxic", "shadowball", "venoshock", "roost"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	hornetoxmega: {
 		randomBattleMoves: ["toxicspikes", "toxic", "shadowball", "venoshock", "roost"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	banshigen: {
 		randomBattleMoves: ["nastyplot", "hypervoice", "shadowball", "roost", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	banshigenmega: {
 		randomBattleMoves: ["nastyplot", "hypervoice", "shadowball", "roost", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	raticate: {
 		randomBattleMoves: ["protect", "facade", "stompingtantrum", "suckerpunch", "uturn", "swordsdance"],
@@ -71,11 +83,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["softboiled", "swordsdance", "doubleedge", "bodyslam", "crunch"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},	
 	ratidam: {
 		randomBattleMoves: ["hyperfang", "swordsdance", "aquajet", "liquidation", "stompingtantrum"],
 		tier: "OU",
 		doublesTier: "OU",	
+		isModded: true,
 	},
 	fearow: {
 		tier: "NFE",
@@ -84,11 +98,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["irondefense", "roost", "bodypress", "acrobatics", "defog"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	storrow: {
 		randomBattleMoves: ["swordsdance", "drillrun", "playrough", "bravebird", "uturn"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	arbok: {
 		randomBattleMoves: ["coil", "gunkshot", "suckerpunch", "aquatail", "earthquake", "rest"],
@@ -98,6 +114,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "gunkshot", "poltergeist", "aquatail", "earthquake", "rest"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	phankyrrevealed: {
 		tier: "Illegal",
@@ -107,26 +124,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["nastyplot", "surf", "sludgewave", "earthpower", "flamethrower"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	mountoswine: {
 		randomBattleMoves: ["auroraveil", "blizzard", "earthpower", "freezedry", "stealthrock"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	lapidour: {
 		randomBattleMoves: ["stealthrock", "moonblast", "hiddenpowerground", "powergem", "moonlight", "darkpulse"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	lapidourmega: {
 		randomBattleMoves: ["stealthrock", "moonblast", "hiddenpowerground", "powergem", "moonlight", "darkpulse"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},	
 	lamprecut: {
 		randomBattleMoves: ["drainpunch", "plasmafists", "aquatail", "coil", "icepunch"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	durant: {
 		randomBattleMoves: ["honeclaws", "ironhead", "xscissor", "rockslide", "superpower"],
@@ -136,11 +158,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["firstimpression", "uturn", "knockoff", "stoneedge", "xscissor", "ironhead"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	durandurant: {
 		randomBattleMoves: ["bugbuzz", "overdrive", "nastyplot", "hiddenpowerice", "voltswitch"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	dragalge: {
 		randomBattleMoves: ["dracometeor", "sludgewave", "focusblast", "scald", "hiddenpowerfire", "toxicspikes", "dragonpulse", "flipturn"],
@@ -150,11 +174,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "sludgewave", "hydropump", "hiddenpowerground"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	thermalge: {
 		randomBattleMoves: ["sludgewave", "flamethrower", "sleeppowder", "sludgebomb", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	parelp: {
 		tier: "LC",
@@ -167,6 +193,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["rapidspin", "protect", "leechseed", "synthesis", "toxic", "knockoff", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	lusopass: {
 		randomBattleMoves: ["poltergeist", "earthquake", "knockoff", "ironhead", "substitute"],
@@ -176,6 +203,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["aurasphere", "flashcannon", "darkpulse", "shadowball", "waterpulse", "nastyplot"],
 		tier: "OU",
 		doublesTier: "OU",
+		isModded: true,
 	},
 	//
 	//
