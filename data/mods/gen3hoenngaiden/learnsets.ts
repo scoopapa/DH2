@@ -2683,6 +2683,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hiddenpower: ["3L1"],
 			toxic: ["3L1"],
 			refresh: ["3L1"],
+		},
 	},
 	marowakalola: {
 		learnset: {
@@ -2954,5 +2955,4 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3L1"],
 		},
 	},
-},
 };
