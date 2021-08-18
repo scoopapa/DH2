@@ -2529,7 +2529,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["3L1"],
 			facade: ["3L1"],
 			fakeout: ["3L1"],
-			focusblast: ["3L1"],
 			foulplay: ["3L1"],
 			futuresight: ["3L1"],
 			hail: ["3L1"],
