@@ -718,26 +718,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         return true;
         }
     },
-pokemon: {
-        ignoringAbility() {
-            // Check if any active pokemon have the ability Neutralizing Gas
-            let neutralizinggas = false;
-            let runaway = false;
-            for (const pokemon of this.battle.getAllActive()) {
-                // can't use hasAbility because it would lead to infinite recursion
-                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('runaway' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
-                    neutralizinggas = true;
-                    runaway = true;
-                    break;
-                }
-            }
-
-            return !!(
-                (this.battle.gen >= 5 && !this.isActive) ||
-                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (runaway && this.ability !== ('runaway' as ID)) ) &&
-                !this.getAbility().isPermanent
-                )
-            );
-        }
-    },
 }; 
