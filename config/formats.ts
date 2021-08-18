@@ -2176,7 +2176,7 @@ export const Formats: FormatList = [
 			],
 		mod: 'branchedpotential',
 		team: 'random',
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Data Mod', 'Mega Data Mod'],
 	},
 	{
 		name: "[Gen 8] Fusion Evolution UU Random Battle",
