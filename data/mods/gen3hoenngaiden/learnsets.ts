@@ -2954,4 +2954,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3L1"],
 		},
 	},
+},
 };
