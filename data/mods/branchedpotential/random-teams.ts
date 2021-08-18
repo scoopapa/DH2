@@ -1663,6 +1663,7 @@ export class RandomTeams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		
 		let megaCount = 0; 
+		let hasModded = false;
 
 		// We make at most two passes through the potential Pokemon pool when creating a team - if the first pass doesn't
 		// result in a team of six Pokemon we perform a second iteration relaxing as many restrictions as possible.
@@ -1713,7 +1714,7 @@ export class RandomTeams {
 				const types = species.types;
 				const typeCombo = types.slice().sort().join();
 				const isMega = (species.name.endsWith('-Mega') || species.name.endsWith('-Mega-Y') || species.name.endsWith('-Mega-X'));
-				
+				const modded = species.isModded;
 
 				if (restrict) {
 					// Limit one Pokemon per tier, two for Monotype
@@ -1743,6 +1744,13 @@ export class RandomTeams {
 						else megaCount++;
 					} else {
 						if (megaCount === 0 && pokemon.length === 5) continue;
+					}
+					
+					//Require at least one modded Pokemon per team
+					if (modded) {
+						hasModded = true;
+					} else {
+						if (hasModded === false && pokemon.length === 5) continue;
 					}
 				}
 
