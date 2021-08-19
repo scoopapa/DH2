@@ -2379,6 +2379,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onPrepareHit(target, source, move) {
+			if (!this.effectData.target.volatiles['implode']) return;
 			if (this.effectData.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
 		},
 		condition: {
