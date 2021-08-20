@@ -621,7 +621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, sound: 1},
 		ignoreImmunity: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.hasType(source.getTypes())) {
+			if (target.hasType(pokemon.getTypes())) {
 				return this.chainModify(2);
 			}
 		},
