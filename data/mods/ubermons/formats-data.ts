@@ -606,4 +606,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	blaziken: {
 		tier: "OU",
 	},
+	mewtwo: {
+		tier: "OU",
+	},
+	hooh: {
+		tier: "OU",
+	},
+	lugia: {
+		tier: "OU",
+	},
 };
