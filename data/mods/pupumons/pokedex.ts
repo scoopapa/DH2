@@ -4,7 +4,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		species: "Grizzeal",
 		types: ["Grass", "Dark"],
 		baseStats: {hp: 120, atk: 70, def: 95, spa: 80, spd: 110, spe: 60},
-		abilities: {0: "Overgrow", H: "Pathless"},
+		abilities: {0: "Overgrow", H: "Natural Cure"},
 		weightkg: 200,
 	},
 	stampyro: {
