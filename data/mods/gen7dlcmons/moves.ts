@@ -477,15 +477,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!move.spreadHit) this.attrLastMove('[miss]');
 			this.add('-miss', pokemon, target);
 			if (!move.ohko && move === 'misfire') {
-				if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
-				for (const side of this.sides) {
-					for (const active of side.active) {
-						active.switchFlag = false;
-					}
+				if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
 				}
 				source.switchFlag = true;
+				}
 		},*/
-		onAfterMoveSecondaryPriority: 2,
+		/*onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
 			const hitResults = [];
 				let accuracy = move.accuracy;
@@ -495,12 +494,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				else if (!move.spreadHit) this.attrLastMove('[miss]');
 					this.add('-miss', pokemon, source);
-					if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
-						for (const side of this.sides) {
-						for (const active of side.active) {
-							active.switchFlag = false;
-						}
-					}
+					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
+					for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				source.switchFlag = true;
+			}
+		},*/
+		onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			const hitResults = [];
+				let accuracy = move.accuracy;
+				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
+					for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
 				source.switchFlag = true;
 			}
 		},
