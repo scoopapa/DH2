@@ -544,4 +544,282 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		abilities: {0: "Pressure", H: "Scrappy"},
 	},
+	mightyena: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 60, spd: 60, spe: 100},
+	},
+	beautifly: {
+    	inherit: true,
+		baseStats: {hp: 60, atk: 70, def: 50, spa: 100, spd: 50, spe: 75},
+		abilities: {0: "Swarm", 1: "Tinted Lens", H: "Rivalry"},
+	},
+	dustox: {
+    	inherit: true,
+		baseStats: {hp: 60, atk: 50, def: 70, spa: 50, spd: 100, spe: 75},
+		abilities: {0: "Shield Dust", 1: "Compound Eyes", H: "Honey Gather"},
+	},
+	taillow: {
+    	inherit: true,
+		abilities: {0: "Guts", 1: "Scrappy", H: "Cacophony"},
+	},
+	swellow: {
+    	inherit: true,
+		abilities: {0: "Guts", 1: "Scrappy", H: "Cacophony"},
+	},
+	masquerain: {
+    	inherit: true,
+		types: ["Bug", "Water"],
+	},
+	slakoth: {
+    	inherit: true,
+		abilities: {0: "Truant", H: "Klutz"},
+	},
+	slaking: {
+    	inherit: true,
+		abilities: {0: "Truant", H: "Klutz"},
+	},
+	vigoroth: {
+    	inherit: true,
+		abilities: {0: "Vital Spirit", H: "Tough Claws"},
+	},
+	shedinja: {
+    	inherit: true,
+		baseStats: {hp: 1, atk: 110, def: 45, spa: 30, spd: 30, spe: 40},
+	},
+	loudred: {
+    	inherit: true,
+		abilities: {0: "Soundproof", 1: "Scrappy", H: "Cacophony"},
+	},
+	exploud: {
+    	inherit: true,
+		abilities: {0: "Soundproof", 1: "Scrappy", H: "Cacophony"},
+	},
+	whismur: {
+    	inherit: true,
+		abilities: {0: "Soundproof", 1: "Rattled", H: "Cacophony"},
+	},
+	nosepass: {
+    	inherit: true,
+		types: ["Rock", "Electric"],
+	},
+	delcatty: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 65, def: 65, spa: 55, spd: 55, spe: 90},
+	},
+	plusle: {
+    	inherit: true,
+		types: ["Electric", "Fire"],
+		baseStats: {hp: 60, atk: 60, def: 50, spa: 95, spd: 85, spe: 95},
+	},
+	minun: {
+    	inherit: true,
+		types: ["Electric", "Ice"],
+		baseStats: {hp: 60, atk: 50, def: 60, spa: 85, spd: 95, spe: 95},
+	},
+	gulpin: {
+    	inherit: true,
+		types: ["Poison", "Normal"],
+	},
+	swalot: {
+    	inherit: true,
+		types: ["Poison", "Normal"],
+		baseStats: {hp: 113, atk: 83, def: 83, spa: 83, spd: 83, spe: 63},
+	},
+	wailord: {
+    	inherit: true,
+		baseStats: {hp: 190, atk: 100, def: 45, spa: 100, spd: 45, spe: 60},
+	},
+	grumpig: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 65, spa: 90, spd: 110, spe: 80},
+	},
+	spinda: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 70},
+	},
+	trapinch: {
+    	inherit: true,
+		types: ["Ground", "Bug"],
+	},
+	vibrava: {
+    	inherit: true,
+		types: ["Ground", "Bug"],
+		abilities: {0: "Levitate", 1: "Shield Dust", H: "Tinted Lens"},
+	},
+	flygon: {
+    	inherit: true,
+		types: ["Ground", "Bug"],
+		abilities: {0: "Levitate", 1: "Shield Dust", H: "Tinted Lens"},
+	},
+	zangoose: {
+    	inherit: true,
+		baseStats: {hp: 73, atk: 115, def: 60, spa: 60, spd: 60, spe: 100},
+	},
+	seviper: {
+    	inherit: true,
+		baseStats: {hp: 73, atk: 75, def: 60, spa: 100, spd: 60, spe: 100},
+	},
+	whiscash: {
+    	inherit: true,
+		baseStats: {hp: 130, atk: 78, def: 73, spa: 78, spd: 73, spe: 71},
+	},
+	baltoy: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Seal Away"},
+	},
+	claydol: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Seal Away"},
+	},
+	milotic: {
+    	inherit: true,
+		otherFormes: ["Milotic-Mega"],
+		formeOrder: ["Milotic", "Milotic-Mega"],
+	},
+	miloticmega: {
+		num: 350,
+		name: "Milotic-Mega",
+		baseSpecies: "Milotic",
+		forme: "Mega",
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 95, atk: 70, def: 109, spa: 130, spd: 155, spe: 81},
+		abilities: {0: "Pressure"},
+		weightkg: 162,
+		color: "Blue",
+		requiredItem: "Milotite",
+	},
+	castform: {
+    	inherit: true,
+		otherFormes: ["Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Sandy"],
+		formeOrder: ["Castform", "Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Sandy"],
+	},
+	castformsandy: {
+		num: 351,
+		name: "Castform-Sandy",
+		baseSpecies: "Castform",
+		forme: "Sandy",
+		types: ["Rock"],
+		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 70},
+		abilities: {0: "Forecast"},
+		heightm: 0.3,
+		weightkg: 0.8,
+		color: "Brown",
+		eggGroups: ["Fairy", "Amorphous"],
+		requiredAbility: "Forecast",
+		battleOnly: "Castform",
+	},
+	kecleon: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 100, def: 70, spa: 70, spd: 120, spe: 40},
+	},
+	shuppet: {
+    	inherit: true,
+		types: ["Ghost", "Normal"],
+	},
+	banette: {
+    	inherit: true,
+		types: ["Ghost", "Normal"],
+	},
+	banettemega: {
+    	inherit: true,
+		types: ["Ghost", "Normal"],
+	},
+	duskull: {
+    	inherit: true,
+		abilities: {0: "Levitate", 1: "Seal Away", H: "Frisk"},
+	},
+	dusclops: {
+    	inherit: true,
+		abilities: {0: "Pressure", 1: "Seal Away", H: "Frisk"},
+	},
+	dusknoir: {
+    	inherit: true,
+		abilities: {0: "Levitate", 1: "Seal Away", H: "Frisk"},
+		otherFormes: ["Dusknoir-Mega"],
+		formeOrder: ["Dusknoir", "Dusknoir-Mega"],
+	},
+	dusknoirmega: {
+		num: 477,
+		name: "Dusknoir-Mega",
+		baseSpecies: "Dusknoir",
+		forme: "Mega",
+		types: ["Ghost", "Fighting"],
+		baseStats: {hp: 45, atk: 140, def: 160, spa: 75, spd: 160, spe: 45},
+		abilities: {0: "Iron Fist"},
+		weightkg: 107,
+		color: "Black",
+		requiredItem: "Dusknoirite",
+	},
+	tropius: {
+    	inherit: true,
+		types: ["Grass", "Dragon"],
+		baseStats: {hp: 109, atk: 68, def: 93, spa: 72, spd: 97, spe: 51},
+		abilities: {0: "Chlorophyll", 1: "Thick Fat", H: "Harvest"},
+	},
+	chimecho: {
+    	inherit: true,
+		types: ["Psychic", "Steel"],
+		baseStats: {hp: 75, atk: 50, def: 80, spa: 105, spd: 100, spe: 65},
+	},
+	absolmega: {
+    	inherit: true,
+		types: ["Dark", "Fairy"],
+	},
+	froslass: {
+    	inherit: true,
+		otherFormes: ["Froslass-Mega"],
+		formeOrder: ["Froslass", "Froslass-Mega"],
+	},
+	froslassmega: {
+		num: 478,
+		name: "Froslass-Mega",
+		baseSpecies: "Froslass",
+		forme: "Mega",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 70, atk: 120, def: 70, spa: 120, spd: 70, spe: 130},
+		abilities: {0: "Shadow Beacon"},
+		weightkg: 27,
+		color: "White",
+		requiredItem: "Froslassite",
+	},
+	huntail: {
+    	inherit: true,
+		types: ["Water", "Dark"],
+	},
+	gorebyss: {
+    	inherit: true,
+		types: ["Water", "Psychic"],
+	},
+	luvdisc: {
+    	inherit: true,
+		types: ["Water", "Fairy"],
+		abilities: {0: "Swift Swim", 1: "Mental Health", H: "Regenerator"},
+		evos: ["Alomomola"],
+	},
+	alomomola: {
+    	inherit: true,
+		types: ["Water", "Fairy"],
+		abilities: {0: "Swift Swim", 1: "Mental Health", H: "Regenerator"},
+		prevo: "Luvdisc",
+		evoLevel: 40,
+		canHatch: true,
+	},
+	deoxys: {
+    	inherit: true,
+		types: ["Psychic", "Poison"],
+		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
+	},
+	deoxysattack: {
+    	inherit: true,
+		types: ["Psychic", "Poison"],
+	},
+	deoxysdefense: {
+    	inherit: true,
+		types: ["Psychic", "Poison"],
+	},
+	deoxysspeed: {
+    	inherit: true,
+		types: ["Psychic", "Poison"],
+	},
+
 };
