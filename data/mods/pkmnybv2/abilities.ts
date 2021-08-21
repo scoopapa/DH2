@@ -720,7 +720,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 */
 	elementalteething: {
-      shortDesc: "TThis Pokemon's type changes before using a move and its biting moves are boosted 1.2x",
+      shortDesc: "This Pokemon's type changes before using a move and its biting moves are boosted 1.2x",
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			const type = move.type;
@@ -737,5 +737,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Elemental Teething",
 		rating: 4.5,
+	},
+	maximumpotential: {
+      shortDesc: "This Pokemon's is immune to the same moves Dynamax Pokemon are immune to.",
+		onTryHit(pokemon, target, move) {
+         if (move.name === 'Knock Off' || move.name === 'Low Kick' || move.name === 'Heat Crash' || move.name === 'Grass Knot' || move.name === 'Heavy Slam' || move.name === 'Pluck' || move.name === 'Bug Bite' || move.name === 'Incinerate' || move.name === 'Thief' || move.name === 'Covet' || move.name === 'Horn Drill' || move.name === 'Sheer Cold' || move.name === 'Guillotine' || move.name === 'Fissure' || move.name === 'Sky Drop' || move.name === 'Skill Swap' || move.name === 'Entrainment') {
+				this.add('-immune', pokemon, '[from] ability: Maximum Potential');
+				return null;
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch' || status.id === 'disable') return null;
+		},
+		onDragOutPriority: 1,
+		onDragOut(pokemon) {
+			this.add('-activate', pokemon, 'ability: Maximum Potential');
+			return null;
+		},
+		name: "Maximum Potential",
+		rating: 3,
 	},
 };
