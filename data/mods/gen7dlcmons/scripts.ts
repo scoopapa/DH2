@@ -215,7 +215,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.add('-miss', pokemon, target);
 				}
 				if (!move.ohko && move.id === 'misfire') {
-					source.switchFlag = true;
+					pokemon.switchFlag = true;
 				}
 				hitResults[i] = false;
 				continue;
