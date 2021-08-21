@@ -779,7 +779,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQLdCoZ4q0Oar_bxPFrv-tEg3OSWpgqjPkq_1KOnXFfg69navnSjsTOiRKn-MpqtawS3nvnFs0xRdEy/pubhtml">Spreadsheet</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/dlcmons-ultra-metagame-discussion.3673357/post-8711996">Metagame Resources</a>`,
 		],
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'All Pokemon', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite'
 		],
