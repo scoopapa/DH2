@@ -488,14 +488,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
 			const hitResults = [];
-			for (const [i, target] of targets.entries()) {
-				this.activeTarget = target;
-				// calculate true accuracy
 				let accuracy = move.accuracy;
 				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
 				if (move.smartTarget) {
 					move.smartTarget = false;
-				} else {
+				}
+				else if {
 					if (!move.spreadHit) this.attrLastMove('[miss]');
 						this.add('-miss', pokemon, source);
 						if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
