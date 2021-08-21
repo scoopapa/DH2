@@ -739,7 +739,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 	},
 	maximumpotential: {
-      shortDesc: "This Pokemon's is immune to the same moves Dynamax Pokemon are immune to.",
+      shortDesc: "This Pokemon is immune to the same moves Dynamax Pokemon are immune to.",
 		onTryHit(pokemon, target, move) {
          if (move.name === 'Knock Off' || move.name === 'Low Kick' || move.name === 'Heat Crash' || move.name === 'Grass Knot' || move.name === 'Heavy Slam' || move.name === 'Pluck' || move.name === 'Bug Bite' || move.name === 'Incinerate' || move.name === 'Thief' || move.name === 'Covet' || move.name === 'Horn Drill' || move.name === 'Sheer Cold' || move.name === 'Guillotine' || move.name === 'Fissure' || move.name === 'Sky Drop' || move.name === 'Skill Swap' || move.name === 'Entrainment') {
 				this.add('-immune', pokemon, '[from] ability: Maximum Potential');
