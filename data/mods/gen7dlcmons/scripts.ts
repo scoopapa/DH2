@@ -214,7 +214,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.spreadHit) this.attrLastMove('[miss]');
 					this.add('-miss', pokemon, target);
 				}
-				if (!move.ohko && move = 'misfire') {
+				if (!move.ohko && move.id === 'misfire') {
 					source.switchFlag = true;
 				}
 				hitResults[i] = false;
