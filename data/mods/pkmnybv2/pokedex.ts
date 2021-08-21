@@ -1104,4 +1104,204 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 85, spa: 103, spd: 85, spe: 127},
 		abilities: {0: "Cloud Nine"},
 	},
+	pignite: {
+    	inherit: true,
+		types: ["Fire", "Rock"],
+	},
+	emboar: {
+    	inherit: true,
+		types: ["Fire", "Rock"],
+	},
+	oshawott: {
+    	inherit: true,
+		abilities: {0: "Torrent", H: "Knight's Blade"},
+	},
+	dewott: {
+    	inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "Knight's Blade"},
+	},
+	samurott: {
+    	inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "Knight's Blade"},
+	},
+	watchog: {
+    	inherit: true,
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 60, atk: 105, def: 69, spa: 60, spd: 69, spe: 97},
+	},
+	simisage: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 113, def: 63, spa: 113, spd: 63, spe: 101},
+		abilities: {0: "Gluttony", 1: "Own Tempo", H: "Overgrow"},
+	},
+	simisear: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 113, def: 63, spa: 113, spd: 63, spe: 101},
+		abilities: {0: "Gluttony", 1: "Soundproof", H: "Blaze"},
+	},
+	simipour: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 113, def: 63, spa: 113, spd: 63, spe: 101},
+		abilities: {0: "Gluttony", 1: "Keen Eye", H: "Torrent"},
+	},
+	musharna: {
+    	inherit: true,
+		types: ["Psychic", "Fairy"],
+		abilities: {0: "Telepathy", 1: "Synchronize", H: "Comatose"},
+	},
+	swoobat: {
+    	inherit: true,
+		baseStats: {hp: 77, atk: 57, def: 65, spa: 77, spd: 65, spe: 114},
+	},
+	audinomega: {
+    	inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	throh: {
+    	inherit: true,
+		abilities: {0: "Guts", 1: "Sniper", H: "Mold Breaker"},
+	},
+	leavanny: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 103, def: 80, spa: 70, spd: 80, spe: 102},
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Grass Pelt"},
+	},
+	darmanitangalarzen: {
+    	inherit: true,
+		baseStats: {hp: 105, atk: 160, def: 85, spa: 30, spd: 85, spe: 75},
+	},
+	maractus: {
+    	inherit: true,
+		baseStats: {hp: 125, atk: 86, def: 67, spa: 116, spd: 67, spe: 60},
+		abilities: {0: "Water Absorb", 1: "Iron Barbs", H: "Storm Drain"},
+	},
+	garbodor: {
+    	inherit: true,
+		types: ["Poison", "Steel"],
+		baseStats: {hp: 80, atk: 95, def: 92, spa: 60, spd: 92, spe: 81},
+	},
+	cinccino: {
+    	inherit: true,
+		types: ["Normal", "Fairy"],
+		otherFormes: ["Cinccino-Mega"],
+		formeOrder: ["Cinccino", "Cinccino-Mega"],
+	},
+	cinccinomega: {
+		num: 573,
+		name: "Cinccino-Mega",
+		baseSpecies: "Cinccino",
+		forme: "Mega",
+		types: ["Normal", "Fairy"],
+		baseStats: {hp: 75, atk: 126, def: 82, spa: 65, spd: 82, spe: 140},
+		abilities: {0: "Fur Coat"},
+		weightkg: 15,
+		color: "Gray",
+		requiredItem: "Cinccinite",
+	},
+	gothita: {
+    	inherit: true,
+		abilities: {0: "Mental Health", 1: "Competitive", H: "Shadow Tag"},
+	},
+	gothorita: {
+    	inherit: true,
+		abilities: {0: "Mental Health", 1: "Competitive", H: "Shadow Tag"},
+	},
+	gothitelle: {
+    	inherit: true,
+		abilities: {0: "Mental Health", 1: "Competitive", H: "Shadow Tag"},
+	},
+	swanna: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 87, def: 73, spa: 87, spd: 73, spe: 108},
+	},
+	sawsbuck: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 60, spd: 70, spe: 95},
+	},
+	emolga: {
+    	inherit: true,
+		baseStats: {hp: 55, atk: 75, def: 60, spa: 75, spd: 60, spe: 105},
+		abilities: {0: "Static", 1: "Motor Drive", H: "Energy Beacon"},
+	},
+	eelektross: {
+    	inherit: true,
+		baseStats: {hp: 85, atk: 125, def: 80, spa: 115, spd: 80, spe: 50},
+	},
+	beartic: {
+    	inherit: true,
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 130, def: 80, spa: 65, spd: 80, spe: 55},
+	},
+	accelgor: {
+    	inherit: true,
+		types: ["Bug", "Dark"],
+	},
+	mienshao: {
+    	inherit: true,
+		types: ["Fighting", "Fairy"],
+	},
+	golett: {
+    	inherit: true,
+		abilities: {0: "Iron Fist", 1: "Seal Away", H: "No Guard"},
+	},
+	golurk: {
+    	inherit: true,
+		abilities: {0: "Iron Fist", 1: "Seal Away", H: "No Guard"},
+	},
+	bouffalant: {
+    	inherit: true,
+		abilities: {0: "Reckless", 1: "Sap Sipper", H: "Rock Head"},
+	},
+	rufflet: {
+    	inherit: true,
+		types: ["Fighting", "Flying"],
+	},
+	braviary: {
+    	inherit: true,
+		types: ["Fighting", "Flying"],
+	},
+	heatmor: {
+    	inherit: true,
+		baseStats: {hp: 85, atk: 117, def: 66, spa: 95, spd: 66, spe: 75},
+	},
+	durant: {
+    	inherit: true,
+		baseStats: {hp: 58, atk: 109, def: 112, spa: 58, spd: 58, spe: 109},
+	},
+	hydreigon: {
+    	inherit: true,
+		otherFormes: ["Hydreigon-Mega"],
+		formeOrder: ["Hydreigon", "Hydreigon-Mega"],
+	},
+	hydreigonmega: {
+		num: 635,
+		name: "Hydreigon-Mega",
+		baseSpecies: "Hydreigon",
+		forme: "Mega",
+		types: ["Dark", "Dragon"],
+		baseStats: {hp: 92, atk: 125, def: 110, spa: 165, spd: 110, spe: 98},
+		abilities: {0: "Intimidate"},
+		weightkg: 160,
+		color: "Black",
+		requiredItem: "Hydreigonite",
+	},
+	cobalion: {
+    	inherit: true,
+		abilities: {0: "Justified", H: "Knight's Blade"},
+	},
+	terrakion: {
+    	inherit: true,
+		abilities: {0: "Justified", H: "Knight's Blade"},
+	},
+	virizion: {
+    	inherit: true,
+		abilities: {0: "Justified", H: "Knight's Blade"},
+	},
+	keldeo: {
+    	inherit: true,
+		abilities: {0: "Justified", H: "Knight's Blade"},
+	},
+
 };
