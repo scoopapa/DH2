@@ -81,7 +81,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'pikipek').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'litleo').learnset.quickblitz = ['7T'];
-		this.modData('Learnsets', 'stuffel').learnset.quickblitz = ['7T'];
+		this.modData('Learnsets', 'stufful').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'rufflet').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'lopunny').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'tauros').learnset.quickblitz = ['7T'];
