@@ -27,6 +27,108 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) {
+					return;
+				} else if (this.effectData.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 	behemothbash: {
 		num: 782,
 		accuracy: 100,
@@ -34,7 +136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Behemoth Bash",
 		shortDesc: "Lowers attack harshly on contact with the user before it moves.",
-		pp: 5,
+		pp: 10,
 		priority: -3,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		beforeTurnCallback(pokemon) {
@@ -224,5 +326,185 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+	},
+	technoblast: {
+		num: 546,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	technoblastbase: {
+		num: 546,
+		accuracy: 90,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Matches user's secondary type.",
+		name: "Techno Blast (Base)",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[1];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	technoblastfreezer: {
+		num: 546,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
+		name: "Techno Blast (Freezer)",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	technoblastdelta: {
+		num: 546,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Inflicts Embargo and Heal Block onto the opponent.",
+		name: "Techno Blast (Delta)",
+		volatileStatus: 'embargo',
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'healblock',
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	primordialnature: {
+		num: 1001,
+		accuracy: 90,
+		basePower: 160,
+		category: "Special",
+		shortDesc: "The user cannot move on the next turn. Summons Grassy Terrain.",
+		name: "Primordial Nature",
+		pp: 10,
+		priority: 0,
+		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Max Overgrowth", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				onHit() {
+					this.field.setTerrain('grassyterrain');
+				},
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	desolatemagma: {
+		num: 1002,
+		accuracy: 85,
+		basePower: 110,
+		category: "Special",
+		shortDesc: "Non Rock-type foes loose 1/16 HP of their max HP for 4 turns.",
+		name: "Desolate Magma",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('desolatemagma');
+			},
+		},
+		condition: {
+			duration: 4,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Desolate Magma');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+				}
+				this.add('-sideend', targetSide, 'Desolate Magma');
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magma Storm", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	snowstorm: {
+		num: 1003,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		name: "Snowstorm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'hail':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = 50;
+				break;
+			}
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
 	},
 };

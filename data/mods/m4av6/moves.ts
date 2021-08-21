@@ -1215,4 +1215,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 80},
 		contestType: "Cool",
 	},
+	multiattack: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
+			if (pokemon.item === 'rksmegamemory') {
+				if (pokemon.hpType) {
+					move.type = pokemon.hpType;
+				} else {
+					move.type = 'Dark';
+				}
+			}
+		},
+	},
 };

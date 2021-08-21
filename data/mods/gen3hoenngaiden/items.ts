@@ -743,4 +743,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
+	expertbelt: {
+		name: "Expert Belt",
+		spritenum: 132,
+		fling: {
+			basePower: 10,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		num: 268,
+		gen: 4,
+	},
 };

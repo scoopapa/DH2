@@ -123,7 +123,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	gengarmega: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 90, spa: 155, spd: 90, spe: 110},
+		baseStats: {hp: 60, atk: 95, def: 90, spa: 155, spd: 90, spe: 110},
 	},
 	dracovish: {
 		inherit: true,
@@ -137,5 +137,19 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Water", "Fighting"],
 		abilities: {0: "Technician"},
+	},
+	mewtwo: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Neuroforce"},
+		baseStats: {hp: 106, atk: 110, def: 85, spa: 124, spd: 85, spe: 90},
+	},
+	lugia: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Berserk"},
+		baseStats: {hp: 86, atk: 70, def: 110, spa: 110, spd: 114, spe: 110},
+	},
+	hooh: {
+		inherit: true,
+		baseStats: {hp: 101, atk: 135, def: 52, spa: 135, spd: 87, spe: 90},
 	},
 };

@@ -384,4 +384,69 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 34,
 	},
+	moldbreaker: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Mold Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Mold Breaker",
+		rating: 3.5,
+		num: 104,
+	},
+	gulpmissile: {
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				source.species.name === 'Cramorant' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		isPermanent: true,
+		name: "Gulp Missile",
+		rating: 2.5,
+		num: 241,
+	},
+	analytic: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		isNonstandard: null,
+		gen: 3,
+		name: "Analytic",
+		rating: 2.5,
+		num: 148,
+	},
 };

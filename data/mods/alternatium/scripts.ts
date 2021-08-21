@@ -5,7 +5,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 		//Changes
 		
-		delete this.modData('Learnsets', 'pikachurockstar').learnset.nastyplot;
 		delete this.modData('Learnsets', 'pikachuphd').learnset.nastyplot;
 		
 		delete this.modData('Learnsets', 'darmanitanzen').learnset.crunch;
@@ -33,9 +32,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rotomwash').learnset.recover;
 		delete this.modData('Learnsets', 'rotommow').learnset.recover;
 		delete this.modData('Learnsets', 'rotomfrost').learnset.recover;
-		
-		delete this.modData('Learnsets', 'rotomwash').learnset.painsplit;
-		delete this.modData('Learnsets', 'rotomwash').learnset.willowisp;
 		
 		delete this.modData('Learnsets', 'rotommow').learnset.thunder;
 		delete this.modData('Learnsets', 'rotommow').learnset.thunderbolt;

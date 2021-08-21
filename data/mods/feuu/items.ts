@@ -308,7 +308,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onAfterBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'debilitate' || effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+			if (effect.id === 'intimidate' || effect.id === 'debilitate' || effect.id === 'sinkorswim' || effect.id === 'scarilyadorable' || effect.id === 'peckingorder') {
 				target.useItem();
 			}
 		},
@@ -317,5 +317,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 846,
 		gen: 7,
+	},
+	salamencite: {
+		name: "Salamencite",
+		spritenum: 627,
+		megaStone: "Swannamence-Mega",
+		megaEvolves: "Swannamence",
+		itemUser: ["Swannamence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 769,
+		desc: "If held by a Swannamence, this item allows it to Mega Evolve in battle.",
+	},
+	aerodactylite: {
+		name: "Aerodactylite",
+		spritenum: 577,
+		megaStone: "Lurodactyl-Mega",
+		megaEvolves: "Lurodactyl",
+		itemUser: ["Lurodactyl"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 672,
+		desc: "If held by a Lurodactyl, this item allows it to Mega Evolve in battle.",
 	},
 };

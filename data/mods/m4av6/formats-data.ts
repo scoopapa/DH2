@@ -628,11 +628,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	electrodemega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["voltswitch", "explosion", "taunt", "mindblown", "wildcharge"],
+		randomDoubleBattleMoves: ["voltswitch", "explosion", "mindblown", "taunt", "foulplay", "protect", "thunderwave"],
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	exeggutor: {
 		randomBattleMoves: ["substitute", "leechseed", "gigadrain", "psychic", "sleeppowder", "hiddenpowerfire"],
 		randomDoubleBattleMoves: ["substitute", "leechseed", "energyball", "psychic", "sleeppowder", "hiddenpowerfire", "protect", "trickroom"],
@@ -3811,8 +3812,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	sawsbuckwintermega: {
-		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "iceshard", "icebeam", "substitute"],
-		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "iceshard", "icebeam", "protect"],
+		randomBattleMoves: ["swordsdance", "hornleech", "jumpkick", "iceshard", "tripleaxel", "substitute"],
+		randomDoubleBattleMoves: ["swordsdance", "hornleech", "jumpkick", "iceshard", "tripleaxel", "protect"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
@@ -4023,11 +4024,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	golurkmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["earthquake", "phantomforce", "dynamicpunch", "icepunch", "stealthrock", "rockpolish"],
+		randomDoubleBattleMoves: ["earthquake", "phantomforce", "dynamicpunch", "icepunch", "stoneedge", "protect", "rockpolish"],
+		tier: "PU",
+		doublesTier: "(DUU)",
+	},
 	bisharp: {
 		randomBattleMoves: ["swordsdance", "knockoff", "ironhead", "suckerpunch", "lowkick"],
 		randomDoubleBattleMoves: ["swordsdance", "suckerpunch", "ironhead", "knockoff", "protect"],
@@ -5206,6 +5208,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["protect", "multiattack", "icebeam", "thunderbolt", "flamethrower", "partingshot", "uturn", "thunderwave"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
+	},
+	silvallymega: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	minior: {
 		randomBattleMoves: ["shellsmash", "powergem", "acrobatics", "earthquake"],

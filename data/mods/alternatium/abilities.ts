@@ -33,20 +33,22 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	/*powerofalchemy: {
-		onSourceAfterFaint(source, target, types) {
-			const type1 = source.baseSpecies.types;
-			const type2 = target.baseSpecies.types;
-			if (type1 !== type2) {
-				if (!type1(type2)) return;
-				this.add('-start', source, 'typechange', '[from] ability: Power of Alchemy');
-			}
+	powerofalchemy: {
+		onAnyFaint(target) {
+			if (!this.effectData.target.hp) return;
+			const ability = target.getAbility();
+			const additionalBannedAbilities = [
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+			];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
-		shortDesc: "This Pokémon copies the type of the last fainted Pokémon, for its secondary type.",
+		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
 		rating: 0,
 		num: 223,
-	},*/
+	},
 	quickdraw: {
 		onModifyPriority(priority, source, move) {
 			if (source.activeMoveActions < 1) {
@@ -134,9 +136,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'refrigerate';
 			}
 			if (pokemon.species.id === 'silvallypoison') {
-				this.add('-ability', pokemon, 'Poison Point', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('poisonpoint');
-				pokemon.baseAbility = 'poisonpoint';
+				this.add('-ability', pokemon, 'Corrosion', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('corrosion');
+				pokemon.baseAbility = 'corrosion';
 			}
 			if (pokemon.species.id === 'silvallypsychic') {
 				this.add('-ability', pokemon, 'Magic Guard', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -254,5 +256,101 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
 		rating: 0,
 		num: 1005,
+	},
+	privatewifi: {
+		onStart(source) {
+			if (source.hasItem('burndrive')) {
+				source.types[1] = 'Fire';
+			}
+			else if (source.hasItem('chilldrive')) {
+				source.types[1] = 'Ice';
+			}
+			else if (source.hasItem('dousedrive')) {
+				source.types[1] = 'Water';
+			}
+			else if (source.hasItem('shockdrive')) {
+				source.types[1] = 'Electric';
+			}
+			this.add('-activate', source, 'ability: Private Wi-Fi');
+			this.add('-message', `${source.name} changed its type to match its Drive!`);
+			/*for (const foeactive of pokemon.side.foe.active) {
+				let allyActive = pokemon.side.active;
+				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
+				// Boosts player's Pokemon's highest stat
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatIDExceptHP;
+				for (s in allyActive.storedStats) {
+					if (allyActive.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = allyActive.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, pokemon);
+
+				// Boosts opponent's Pokemon's highest stat
+				let statNameOpp = 'atk';
+				let bestStatOpp = 0;
+				let sOpp: StatIDExceptHP;
+				for (sOpp in foeactive.storedStats) {
+					if (foeactive.storedStats[sOpp] > bestStatOpp) {
+						statNameOpp = sOpp;
+						bestStatOpp = foeactive.storedStats[sOpp];
+					}
+				}
+				this.boost({[bestStatOpp]: length}, foeactive);
+			}*/
+		},
+		name: "Private Wi-Fi",
+		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
+		rating: 0,
+		num: 1006,
+	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: null,
+		name: "Mountaineer",
+		rating: 3,
+		num: -2,
+	},
+	lifegem: {
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.3);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
+			}
+		},
+		name: "Life Gem",
+		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
+		rating: 3,
+		num: -2,
+	},
+	powercore: {
+		// Hazard Immunity implemented in moves.js
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				delete boost[i];
+				this.add('-ability', target, 'Power Core');
+				this.hint("Power Core prevents stat changes for the user.");
+			}
+		},
+		name: "Power Core",
+		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
+		rating: 3,
+		num: -2,
 	},
 };

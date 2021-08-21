@@ -46,8 +46,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	raichualola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	sandslash: {
+	},*/
+	sandslashlustrous: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -55,14 +55,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	ninetales: {
+	ninetalessteamwork: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	ninetalesalola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	dugtrio: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -234,7 +234,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	castformsnowy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	kyogre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -251,23 +251,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	rayquaza: {
+	/*rayquaza: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	rayquazamega: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	deoxys: {
+	},*/
+	deoxyswood: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	deoxysattack: {
+	deoxysgem: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	deoxysdefense: {
+	deoxystank: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -275,7 +275,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wormadam: {
+	/*wormadam: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -426,27 +426,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	meloettapirouette: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	genesect: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectburn: {
+	genesectmolten: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectchill: {
+	genesectfreezer: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectdouse: {
+	genesectpassword: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectshock: {
+	genesecttypedelta: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	vivillonspirit: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

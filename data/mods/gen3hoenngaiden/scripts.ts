@@ -187,6 +187,41 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'girafarig').learnset.trick = ['3L1'];
 		
 		this.modData('Learnsets', 'piloswine').learnset.slackoff = ['3L1'];
+		
+		//Slate 8
+		this.modData('Learnsets', 'glalie').learnset.iceshard = ['3L1'];
+		this.modData('Learnsets', 'regice').learnset.iceshard = ['3L1'];
+		this.modData('Learnsets', 'abomasnow').learnset.iceshard = ['3L1'];
+		this.modData('Learnsets', 'lapras').learnset.iceshard = ['3L1'];
+		this.modData('Learnsets', 'walrein').learnset.iceshard = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.iceshard = ['3L1'];
+		
+		this.modData('Learnsets', 'vibrava').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'scyther').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'illumise').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'sandslash').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'ninjask').learnset.lunge = ['3L1'];
+		
+		this.modData('Learnsets', 'torkoal').learnset.bodypress = ['3L1'];
+		this.modData('Learnsets', 'torkoal').learnset.earthquake = ['3L1'];
+		this.modData('Learnsets', 'torkoal').learnset.solarbeam = ['3L1'];
+		this.modData('Learnsets', 'torkoal').learnset.slackoff = ['3L1'];
+		this.modData('Learnsets', 'torkoal').learnset.willowisp = ['3L1'];
+		
+		this.modData('Learnsets', 'delibird').learnset.taunt = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.batonpass = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.brickbreak = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.lowkick = ['3L1'];
+		
+		//Slate 9
+		this.modData("Learnsets", 'dusclops').learnset.brickbreak = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.counter = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.suckerpunch = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.haze = ['3L1'];
+		
+		this.modData("Learnsets", 'parasect').learnset.lunge = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.knockoff = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.shadowball = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {

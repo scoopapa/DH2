@@ -27,6 +27,30 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	beakblast: {
+		num: 690,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Burns if user moves before the target.",
+		isNonstandard: null,
+		gen: 8,
+		name: "Beak Blast",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					target.trySetStatus('brn', source);
+				}
+			}
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+	},
 	burningjealousy: {
 		num: 807,
 		accuracy: 100,
@@ -44,6 +68,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
+	},
+	coaching: {
+		num: 811,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Next turn, the active Pokemon will gain +1 in Atk, Def and Spe.",
+		name: "Coaching",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		slotCondition: 'Coaching',
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-message', target.name + " is ready to coach!");
+			},
+			onResidualOrder: 7,
+			onEnd(target) {
+				if (!target.fainted) {
+					this.add('-message', target.name + " gained some motivation!");
+					const boost = this.boost({atk: 1, def: 1, spe: 1}, target, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
 	},
 	//not finished
 	/*corrosivegas: {
@@ -198,7 +250,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Special",
 		shortDesc: "Power doubles of user is burn/poison/paralyzed.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Fairy Wind",
 		pp: 15,
 		priority: 0,
@@ -212,6 +266,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+	},
+	forcepalm: {
+		num: 395,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "30% chance to paralyze the target. Power doubles if the target is paralyzed.",
+		name: "Force Palm",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
 	},
 	forestscurse: {
 		num: 571,
@@ -280,7 +357,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 50,
 		category: "Physical",
 		shortDesc: "100% chance to raise the user's Speed by 1.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Ice Ball",
 		pp: 20,
 		priority: 0,
@@ -429,7 +508,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 110,
 		category: "Special",
 		shortDesc: "Clears the opponents hazards.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		shortDesc: "The user clears hazards from the opponents side.",
 		name: "Razor Wind",
 		pp: 10,
@@ -579,7 +660,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Soak Condition",
 		pp: 25,
 		priority: 1,
@@ -625,13 +708,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},*/
+	steelroller: {
+		num: 798,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(source, target, move) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				return move.basePower + 45;
+			}
+			return move.basePower;
+		},
+		shortDesc: "130 Basepower in Terrain & ends the terrain.",
+		category: "Physical",
+		name: "Steel Roller",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 	strength: {
 		num: 70,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
 		shortDesc: "Super effective on Rock.",
+		inherit: true,
 		isNonstandard: null,
+		gen: 8,
 		name: "Strength",
 		pp: 20,
 		priority: 0,
@@ -645,14 +750,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	//not finished
-	/*synchronoise: {
-		num: 485,
+	synchronoise: {
+		/*num: 485,
 		accuracy: 85,
 		basePower: 95,
 		category: "Special",
-		shortDesc: "",
+		shortDesc: "",*/
+		inherit: true,
 		isNonstandard: null,
-		name: "Synchronoise",
+		gen: 8,
+		/*name: "Synchronoise",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
@@ -664,8 +771,63 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Psychic",
-		contestType: "Clever",
-	},*/
+		contestType: "Clever",*/
+	},
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "User on terrain: power doubles, type varies. Resets Terrain.",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+			}
+		},
+		onAfterMove(pokemon) {
+            if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('electricterrain');
+            }
+			if (this.field.isTerrain('grassyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('grassyterrain');
+            }
+			if (this.field.isTerrain('mistyterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('mistyterrain');
+            }
+			if (this.field.isTerrain('psychicterrain')) {
+				this.field.clearTerrain();
+                this.field.setTerrain('psychicterrain');
+            }
+        },
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+	},
 	//not finished
 	/*trickortreat: {
 		num: 567,
@@ -694,4 +856,39 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
 	},*/
+	twineedle: {
+		num: 41,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		shortDesc: "Poisons target. If target is poisoned, toxics instead. Will always crit against poisoned targets.",
+		isNonstandard: null,
+		gen: 8,
+		name: "Twineedle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				critRatio: true;
+			}
+		},
+		multihit: 2,
+		multiaccuracy: true,
+		secondary: {
+			chance: 100,
+			status: 'psn',
+			onHit(target, source, move) {
+				const movelast = source.lastMove;
+				if (target.status === 'psn') {
+					target.cureStatus('psn');
+					target.trySetStatus('tox', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
 };

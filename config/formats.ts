@@ -397,6 +397,20 @@ export const Formats: FormatList = [
 		mod: 'gen8',
 		ruleset: ['Standard NatDex'],
 	},
+	{
+		name: "[Gen 8] Littlest Cup",
+		desc: [
+			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
+		],
+		threads: [
+			`&bullet; <a href="https://pastebin.com/PtqmRUhG">Littlest Cup VR and Sample Sets</a>`,
+		],
+		mod: 'gen8',
+		maxLevel: 1,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
+	},
 		// Smogon Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Smogon Pet Mods",
@@ -438,7 +452,8 @@ export const Formats: FormatList = [
 					'Pikachu-Belle', 'Pikachu-Idol', 'Pikachu-PhD', 'Pikachu-Libre', 'Pikachu-Partner', 'Pikachu-Starter', 'Darmanitan', 'Darmanitan-Zen', 'Darmanitan-Galar', 'Darmanitan-Galar-Zen', 
 					'Aegishield', 'Aegislash', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Rotom', 'Rotom-Heat', 'Rotom-Wash', 'Rotom-Frost', 'Rotom-Fan', 'Rotom-Mow', 'Dugtrio', 
 					'Dugtrio-Alola', 'Muk', 'Muk-Oilslick', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Slowking-Galar', 'Tornadus', 'Cummulus', 'Thundurus', 'Thundurus-Therian', 'Landorus', 'Landorus-Bengal', 
-					'Vivillon-Fancy', 'Vivillon-Spirit', 'Vivillon-Combat'
+					'Vivillon-Fancy', 'Vivillon-Spirit', 'Vivillon-Combat', 'Genesect', 'Genesect-Password', 'Genesect-Molten', 'Genesect-Freezer', 'Genesect-Type-Delta', 'Groudon', 'Groudon-Primal', 'Kyogre', 
+					'Kyogre-Primal', 'Deoxys-Wood', 'Deoxys-Gem', 'Deoxys-Tank', 'Deoxys-Speed', 'Sandslash-Lustrous', 'Sandslash-Alola', 'Ninetales-Steamwork', 'Ninetales-Alola',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -781,7 +796,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite'
+			'All Pokemon', 'Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite'
 		],
 		unbanlist: [
 			'Rowlet', 'Dartrix', 'Decidueye', 'Litten', 'Torracat', 'Incineroar', 'Popplio', 'Brionne', 'Primarina', 'Pikipek', 'Trumbeak', 'Toucannon', 'Yungoos', 'Gumshoos',
@@ -802,24 +817,25 @@ export const Formats: FormatList = [
 			'Comfey', 'Pinsir', 'Hoothoot', 'Noctowl', 'Kecleon', 'Oranguru', 'Passimian', 'Goomy', 'Sliggoo', 'Goodra', 'Castform', 'Wimpod', 'Golisopod', 'Staryu', 'Starmie',
 			'Sandygast', 'Palossand', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Lileep', 'Cradily', 'Anorith', 'Armaldo', 'Cranidos', 'Rampardos', 'Shieldon', 'Bastiodon',
 			'Archen', 'Archeops', 'Tirtouga', 'Carracosta', 'Tyrunt', 'Tyrantrum', 'Amaura', 'Aurorus', 'Larvitar', 'Pupitar', 'Tyranitar', 'Phantump', 'Trevenant', 'Natu',
-			'Xatu', 'Nosepass', 'Probopass', 'Pyukumuku', 'Chinchou', 'Lanturn', 'Type: Null', 'Silvally', 'Poipole', 'Zygarde-10', 'Trubbish', 'Garbodor', 'Minccino',
-			'Cinccino', 'Pineco', 'Forretress', 'Skarmory', 'Ditto', 'Cleffa', 'Clefairy', 'Clefable', 'Elgyem', 'Beheeyem', 'Minior', 'Beldum', 'Metang', 'Metagross', 'Porygon',
-			'Porygon2', 'Porygon-Z', 'Pancham', 'Pangoro', 'Komala', 'Torkoal', 'Turtonator', 'Houndour', 'Houndoom', 'Dedenne', 'Togedemaru', 'Electrike', 'Manectric', 'Elekid',
-			'Electabuzz', 'Electivire', 'Geodude', 'Graveler', 'Golem', 'Sandile', 'Krokorok', 'Krookodile', 'Trapinch', 'Vibrava', 'Flygon', 'Gible', 'Gabite', 'Garchomp',
-			'Baltoy', 'Claydol', 'Golett', 'Golurk', 'Klefki', 'Mimikyu', 'Shuppet', 'Banette', 'Frillish', 'Jellicent', 'Bruxish', 'Drampa', 'Absol', 'Snorunt', 'Glalie',
-			'Froslass', 'Sneasel', 'Weavile', 'Sandshrew', 'Sandslash', 'Vulpix', 'Ninetales', 'Vanillite', 'Vanillish', 'Vanilluxe', 'Scraggy', 'Scrafty', 'Pawniard', 'Bisharp',
-			'Snubbull', 'Granbull', 'Shellos', 'Gastrodon', 'Relicanth', 'Dhelmise', 'Carvanha', 'Sharpedo', 'Skrelp', 'Dragalge', 'Clauncher', 'Clawitzer', 'Wailmer', 'Wailord',
-			'Lapras', 'Tropius', 'Exeggcute', 'Exeggutor', 'Corphish', 'Crawdaunt', 'Mienfoo', 'Mienshao', 'Jangmo-o', 'Hakamo-o', 'Kommo-o', 'Emolga', 'Scyther', 'Scizor',
-			'Heracross', 'Aipom', 'Ambipom', 'Litleo', 'Pyroar', 'Misdreavus', 'Mismagius', 'Druddigon', 'Lickitung', 'Lickilicky', 'Riolu', 'Lucario', 'Dratini', 'Dragonair',
-			'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Koko-Kinolau', 'Tapu Lele', 'Tapu Lele-Kinolau', 'Tapu Bulu', 'Tapu Bulu-Kinolau', 'Tapu Fini', 'Tapu Fini-Kinolau',
-			'Cosmog', 'Cosmoem', 'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Xurkitree', 'Celesteela', 'Kartana', 'Guzzlord', 'Necrozma-Base', 'Magearna', 'Zeraora',
-			'Diglett-Alola', 'Dugtrio-Alola', 'Exeggutor-Alola', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Grimer-Alola', 'Marowak-Alola', 'Meowth-Alola', 'Muk-Alola',
-			'Ninetales-Alola', 'Persian-Alola', 'Raichu-Alola', 'Raticate-Alola', 'Rattata-Alola', 'Sandshrew-Alola', 'Sandslash-Alola', 'Vulpix-Alola',
-			'Absol-Mega', 'Aerodactyl-Mega', 'Alakazam-Mega', 'Garchomp-Mega', 'Gyarados-Mega', 'Heracross-Mega', 'Houndoom-Mega', 'Lopunny-Mega', 'Manectric-Mega', 'Mawile-Mega',
+			'Xatu', 'Nosepass', 'Probopass', 'Pyukumuku', 'Chinchou', 'Lanturn', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',	'Silvally-Dragon', 'Silvally-Electric', 
+			'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 'Silvally-Poison', 
+			'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Poipole', 'Zygarde-10', 'Trubbish', 'Garbodor', 'Minccino', 'Cinccino', 'Pineco', 'Forretress', 
+			'Skarmory', 'Ditto', 'Cleffa', 'Clefairy', 'Clefable', 'Elgyem', 'Beheeyem', 'Minior', 'Beldum', 'Metang', 'Metagross', 'Porygon', 'Porygon2', 'Porygon-Z', 'Pancham', 
+			'Pangoro', 'Komala', 'Torkoal', 'Turtonator', 'Houndour', 'Houndoom', 'Dedenne', 'Togedemaru', 'Electrike', 'Manectric', 'Elekid', 'Electabuzz', 'Electivire', 'Geodude', 
+			'Graveler', 'Golem', 'Sandile', 'Krokorok', 'Krookodile', 'Trapinch', 'Vibrava', 'Flygon', 'Gible', 'Gabite', 'Garchomp', 'Baltoy', 'Claydol', 'Golett', 'Golurk', 'Klefki', 
+			'Mimikyu', 'Shuppet', 'Banette', 'Frillish', 'Jellicent', 'Bruxish', 'Drampa', 'Absol', 'Snorunt', 'Glalie', 'Froslass', 'Sneasel', 'Weavile', 'Sandshrew', 'Sandslash', 
+			'Vulpix', 'Ninetales', 'Vanillite', 'Vanillish', 'Vanilluxe', 'Scraggy', 'Scrafty', 'Pawniard', 'Bisharp', 'Snubbull', 'Granbull', 'Shellos', 'Gastrodon', 'Relicanth', 
+			'Dhelmise', 'Carvanha', 'Sharpedo', 'Skrelp', 'Dragalge', 'Clauncher', 'Clawitzer', 'Wailmer', 'Wailord', 'Lapras', 'Tropius', 'Exeggcute', 'Exeggutor', 'Corphish', 
+			'Crawdaunt', 'Mienfoo', 'Mienshao', 'Jangmo-o', 'Hakamo-o', 'Kommo-o', 'Emolga', 'Scyther', 'Scizor', 'Heracross', 'Aipom', 'Ambipom', 'Litleo', 'Pyroar', 'Misdreavus', 
+			'Mismagius', 'Druddigon', 'Lickitung', 'Lickilicky', 'Riolu', 'Lucario', 'Dratini', 'Dragonair', 'Dragonite', 'Aerodactyl', 'Tapu Koko', 'Tapu Koko-Kinolau', 'Tapu Lele', 
+			'Tapu Lele-Kinolau', 'Tapu Bulu', 'Tapu Bulu-Kinolau', 'Tapu Fini', 'Tapu Fini-Kinolau', 'Cosmog', 'Cosmoem', 'Nihilego', 'Stakataka', 'Blacephalon', 'Buzzwole', 'Xurkitree', 
+			'Celesteela', 'Kartana', 'Guzzlord', 'Necrozma-Base', 'Magearna', 'Zeraora', 'Diglett-Alola', 'Dugtrio-Alola', 'Exeggutor-Alola', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 
+			'Grimer-Alola', 'Marowak-Alola', 'Meowth-Alola', 'Muk-Alola', 'Ninetales-Alola', 'Persian-Alola', 'Raichu-Alola', 'Raticate-Alola', 'Rattata-Alola', 'Sandshrew-Alola', 'Sandslash-Alola', 
+			'Vulpix-Alola', 'Absol-Mega', 'Aerodactyl-Mega', 'Alakazam-Mega', 'Garchomp-Mega', 'Gyarados-Mega', 'Heracross-Mega', 'Houndoom-Mega', 'Lopunny-Mega', 'Manectric-Mega', 'Mawile-Mega',
 			'Pinsir-Mega', 'Sableye-Mega', 'Scizor-Mega', 'Sharpedo-Mega', 'Slowbro-Mega', 'Tyranitar-Mega', 'Ampharos-Mega', 'Glalie-Mega', 'Banette-Mega', 'Camerupt-Mega',
 			'Plubia', 'Snoxin', 'Komodond', 'Anglevolt', 'Thundigeist', 'Forsnaken',
 			'Chindle', 'Chaldera', 'Flarenix', 'Firmlio', 'Irotyke', 'Coyotalloy', 'Tikilohi',
-			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin-Base', 'Heatran', 'Qwilfish', 'Krabby', 'Kingler',
+			'Numel', 'Camerupt', 'Drilbur', 'Excadrill', 'Volcanion', 'Shaymin', 'Shaymin-Sky', 'Heatran', 'Qwilfish', 'Krabby', 'Kingler',
 			'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 			'Arachsoil', 'Sunkern-Alola', 'Sanddern',
 			'Kubfu', 'Urshifu-Alola', 'Urshifu-Rapid-Strike-Alola', 'Tynamo', 'Tynamo-Alola', 'Eelektrik', 'Eelektrik-Alola', 'Eelektross', 'Eelektross-Alola', 'Onix', 'Onix-Alola', 
@@ -898,7 +914,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Tapu Lop-Mega', 'Grousle-Primal', 'Baton Pass', 'Ninjacross-Mega', 'Kokovoir-Mega',
+			'All Pokemon', 'Lopunnite', 'Red Orb', 'Baton Pass', 'Heracronite', 'Gardevoirite', 'Salamencite', 'Charizardite Y'
 		],
 		unbanlist: [
 			'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -918,6 +934,8 @@ export const Formats: FormatList = [
 			'Whimsilotic', 'Vullacham', 'Vullacham-Mega', 'Dracolix', 'Dracolix-Mega', 'Serpanadel', 'Accelest', 'Buzzeggutor-Alola',
 			'Roaramp', 'Roaramp-Mega', 'Glakiss', 'Glakiss-Mega', 'Leafdon',
 			'Crustboar', 'Paracoal', 'Arctovic', 'Altarizard', 'Altarizard-Mega-X', 'Altarizard-Mega', 'Altarizard-Mega-Y', 'Sandamar-Alola', 
+			'Jirachonator', 'Dredvul', 'Druddifini', 'Swannamence', 'Tyranette-Eternal',
+			'Lurodactyl', 'Lurodactyl-Mega', 'Ninelands-Alola', 'Aurorona', 'Monferpa-Unbound', 'Gigacrab', 'Rosenaught', 'Keclyrex-Shadow',
 			
 			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
 			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -958,19 +976,22 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
+			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile',
 			//Pokémon
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
 			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
 			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
-			'Zarude-Dada',
+			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.', 'Glaceon',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
+			//Items
+			'Expert Belt',
 		],
 		teambuilderFormat: 'OU',
 	},
@@ -983,16 +1004,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
 	},
 	{
@@ -1276,7 +1288,8 @@ export const Formats: FormatList = [
 		],
 		unbanlist: [
 			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
-			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax',
+			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax', 'Pharaoach', 'Fluxtape-Stereo', 
+			'Gargogunk',
 		],
 		teambuilderFormat: "Stereotypes",
 	},
@@ -1382,13 +1395,13 @@ export const Formats: FormatList = [
 		banlist: [
 			//Pokémon
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai',
-			'Dialga', 'Eternatus', 'Giratina', 'Ho-Oh', 'Lugia', 'Lunala', 'Magearna', 
-			'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
+			'Dialga', 'Eternatus', 'Giratina', 'Lunala', 'Magearna', 
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
 			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items
-			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb',
+			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y',
 			//Moves
 			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
@@ -1490,7 +1503,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Obtainable', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Team Preview', 'Cancel Mod', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon'
+			'DUber', 'All Pokemon'
 		],
 		unbanlist: [
 			'Rowlet', 'Dartrix', 'Decidueye', 'Litten', 'Torracat', 'Incineroar', 'Popplio', 'Brionne', 'Primarina', 'Pikipek', 'Trumbeak', 'Toucannon', 'Yungoos', 'Gumshoos',
@@ -1564,7 +1577,7 @@ export const Formats: FormatList = [
         gameType: "doubles",
         ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
         banlist: [
-            'All Pokemon', 'Tapu Lop-Mega', 'Grousle-Primal', 'Ninjacross-Mega', 'Kokovoir-Mega', 
+			'All Pokemon', 'Lopunnite', 'Red Orb', 'Baton Pass', 'Heracronite', 'Gardevoirite', 'Salamencite', 'Charizardite Y', 
         ],
         unbanlist: [
             'Volquag', 'Toxalure', 'Kingtsar', 'Tanette', 'Slowton', 
@@ -1584,6 +1597,9 @@ export const Formats: FormatList = [
 			'Whimsilotic', 'Vullacham', 'Vullacham-Mega', 'Dracolix', 'Dracolix-Mega', 'Serpanadel', 'Accelest', 'Buzzeggutor-Alola',
 			'Roaramp', 'Roaramp-Mega', 'Glakiss', 'Glakiss-Mega', 'Leafdon',
 			'Crustboar', 'Paracoal', 'Arctovic', 'Altarizard', 'Altarizard-Mega-X', 'Altarizard-Mega', 'Altarizard-Mega-Y', 'Sandamar-Alola', 
+			'Jirachonator', 'Dredvul', 'Druddifini', 'Swannamence', 'Tyranette-Eternal',
+			'Lurodactyl', 'Lurodactyl-Mega', 'Ninelands-Alola', 'Aurorona', 'Monferpa-Unbound', 'Gigacrab', 'Rosenaught', 'Keclyrex-Shadow',
+
             
             'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
             'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -1597,7 +1613,7 @@ export const Formats: FormatList = [
             'Silvino-Steel-Mega', 'Silvino-Water-Mega', 'Silvino-Mega',
         ],
     },
-	/*{
+	{
 		name: "[Gen 3] Hoenn Gaiden UU",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
@@ -1606,22 +1622,25 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', '3 Baton Pass Clause', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Smeargle + Baton Pass', 'Past'],
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
+			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile',
 			//Pokémon
-			'Scyther',
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
 			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
-			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank',
+			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
+			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.', 'Glaceon',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
+			//Items
+			'Expert Belt',
 		],
 		teambuilderFormat: 'UU',
-	},*/
+	},
 	{
 		name: "[Gen 3] Hoenn Gaiden Uber",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
@@ -1631,19 +1650,22 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Wobbuffet + Leftovers', 'Past'],		
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land',
+			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile',
 			//Pokémon
-			'Scyther',
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
 			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
 			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
-			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank',
+			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
+			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.', 'Glaceon',
 			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch',
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Analytic',
+			//Items
+			'Expert Belt',
 		],
 		teambuilderFormat: 'Uber',
 	},
@@ -1679,6 +1701,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
+		banlist: ['Cinderite'],
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
 		teambuilderFormat: 'Doubles OU',
@@ -1718,6 +1741,21 @@ export const Formats: FormatList = [
 		mod: 'm4asandbox',
 	},
 	{
+		name: "[Gen 8] M4A Sandierbox",
+		desc: ["Megas for All v7 but it's Custom Game. Add custom typings and stats via Sandbox Mod! + Test Abilities",
+		      ],
+		threads: [
+				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
+				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      ],
+		searchShow: false,
+		// now intended as a custom game-esque format with more freedom for testing
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
+		mod: 'm4asandierbox',
+	},
+	{
 		name: "[Gen 8] M4A VGC Sandbox",
 		desc: ["Megas for All v7 but it's a VGC format but it's Custom Game. Add custom typings and stats via Sandbox Mod!",
 		      ],
@@ -1740,6 +1778,29 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Doubles OU',
 	},
 	{
+		name: "[Gen 8] M4A VGC Sandierbox",
+		desc: ["Megas for All v7 but it's a VGC format but it's Custom Game. Add custom typings and stats via Sandbox Mod! + Test Abilities",
+		      ],
+		threads: [
+				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
+				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      ],
+		// now intended as a custom game-esque format with more freedom for testing
+		mod: 'm4asandierbox',
+		searchShow: false,
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['Team Preview', 'Cancel Mod', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
+		teambuilderFormat: 'Doubles OU',
+	},
+/*
+	{
 		name: "[Gen 8] M4A Suspect",
 		desc: ["Megas for All v7 with specific unbans for upcoming suspects",
 		      ],
@@ -1748,22 +1809,11 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass', 'Tapu Lele',
-			'Dragonitite', // temporary
-			//'Blaziken', 'Cinderace', 'Deoxys-Speed', 'Zamazenta-Crowned'
-		],
-		unbanlist: [
-			'Zamazenta-Crowned', 
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
+		searchShow: false,
 	},
+*/
 	{
 		name: "[Gen 8] Mix and M4A",
 		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,
@@ -1774,12 +1824,12 @@ export const Formats: FormatList = [
 		      ],
 		mod: 'mnm4a',
 		searchShow: false,
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Overflow Stat Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Overflow Stat Mod', 'Mega Data Mod'],
 		banlist: [
 			'Calyrex-Shadow', 'Zacian-Crowned',
 			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite',
-			'Araquanite', 'Bastiodite', 'Butterfrite', 'Delibirdite', 'Gourgeite', 'Gumshoosite', 'Klinklite', 'Leavannite', 'Lurantisite', 'Luxrite', 'Meowsticite',
-			'Parasite', 'Vikavoltite',
+			'Araquanite', 'Bastiodite', 'Butterfrite', 'Delibirdite', 'Electrodite', 'Gourgeite', 'Gumshoosite', 'Klinklite', 'Leavannite', 'Lurantisite', 'Luxrite', 'Meowsticite',
+			'Parasite', 'Talonflite',
 			'Moody', 'Shadow Tag', 'Baton Pass', 'Electrify',
 		],
 		restricted: [
@@ -1865,7 +1915,8 @@ export const Formats: FormatList = [
 			'Baton Pass',
 			
 			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
+			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender',
+			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
 			//Banned MfA Stones
 			'Butterfrite', 'Cinderite', 'Dragalgite', 'Dragonitite',
 		],
@@ -1874,18 +1925,10 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Megas for Two",
 		desc: ["Megas for All but you get to Mega Evolve two Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: ['Hawluchanite ++ Lurantisite'],
 		mod: 'm4many',
-		//searchShow: false,
+		searchShow: false,
 		//challengeShow: false,
 		onBegin() {
 			this.battle.megaCap = 2;
@@ -1933,10 +1976,12 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/19CbVWEkREchf_88VNfyEpcYEIdH_aJe20VMQyc8i-8Y/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		forcedLevel: 5,
+		defaultLevel: 5,
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
 			'All Pokemon', 'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
-			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax', 'Mestela', 'Tridolphin',
+			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax', 'Mestela', 'Tridolphin', 'Pharaoach', 'Fluxtape-Stereo', 
+			'Gargogunk',
 		],
 		unbanlist: [
 			'Sproutsel', 'Triluga',
@@ -1957,7 +2002,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Not Fully Evolved'],
 		banlist: [
 			'All Pokemon', 'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
-			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax',
+			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax', 'Pharaoach', 'Fluxtape-Stereo', 'Gargogunk',
 		],
 		unbanlist: [
 			'Sproutsel', 'Mestela', 'Triluga', 'Tridolphin',
@@ -2360,6 +2405,23 @@ export const Formats: FormatList = [
 		unbanlist: ['Shareat', 'Justom', 'Healack', 'Crystrird', 'Evawk', 'Contox', 'Shockield', 'Phoenrim', 'Drourag', 'Magzolt', 'Weathair', 'Absoil', 'Psyroc', 'Flabade', 'Fairull', 'Freehale', 'Burod', 'Adexper', 'Darmoon', 'Ropern', 'Ropern-Zen'],
 	},
 	{
+        name: "[Gen 8] Duomod",
+        desc: `<b>Duomod</b>: DuoM2's solomod, which cuts 6 of the 18 types and only allows the use of certain Fakemon.`,
+        threads: [
+            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
+        ],
+
+        mod: 'duomod',
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+        banlist: ['All Pokemon'],
+        unbanlist: [
+            'Abysseil', 'Annelait', 'Arachwich', 'Azurolt', 'Baloon', 'Batravolt', 'Bismage', 'Blastora', 'Blaydge', 'Cadbunny', 'Castarupt', 'Catelax', 'Cephalopire', 'Chemiclysm', 'Chimida', 'Chollunge', 'Crazefly', 'Crypterid', 'Debring', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Eggg', 'Eggg-Cracked', 'Electritar', 'Falkick', 'Fantom', 'Flamepion', 'Floundrawn', 'Fluidrake', 'Fluxtape', 'Fluxtape-Stereo', 'Grievenge', 'Hyperoach', 'Inscuba', 'Joulibranch', 'Lemotic', 'Modolith', 'Monstratus', 'Mortemoth', 'Nectrance', 'Pterrost', 'Sharmpedo', 'Smorke', 'Spirox', 'Treemu', 'Valianch', 
+        ],
+        onSwitchIn(pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+        },
+    },
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [
@@ -2736,491 +2798,141 @@ export const Formats: FormatList = [
 	// These are all titled Custom Game so they don't show up in the teambuilder.
 	{
 		name: "[Gen 8] M4A Monothreat Normal Custom Game",
-		ruleset: ['Monothreat Normal', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-			'Lopunnite', 
-		],
+		ruleset: ['Monothreat Normal', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Lopunnite'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Fire Custom Game",
-		ruleset: ['Monothreat Fire', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Fire', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Water Custom Game",
-		ruleset: ['Monothreat Water', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Water', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Electric Custom Game",
-		ruleset: ['Monothreat Electric', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Electric', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Grass Custom Game",
-		ruleset: ['Monothreat Grass', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Grass', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Ice Custom Game",
-		ruleset: ['Monothreat Ice', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			//Watchlist: Slush Rush
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Ice', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Fighting Custom Game",
-		ruleset: ['Monothreat Fighting', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			'Hawlucha',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Fighting', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Poison Custom Game",
-		ruleset: ['Monothreat Poison', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Poison', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Ground Custom Game",
-		ruleset: ['Monothreat Ground', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Ground', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Flying Custom Game",
-		ruleset: ['Monothreat Flying', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Cinderite', 'Dragonitite', 'Talonflite',
-		],
+		ruleset: ['Monothreat Flying', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Talonflite'],
+		unbanlist: ['Butterfrite'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Psychic Custom Game",
-		ruleset: ['Monothreat Psychic', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite', 'Meowstic-Base ++ Meowsticite', 'Meowstic-Mega',
-		],
-		unbanlist: [
-			'Meowstic-F-Mega',
-		],
+		ruleset: ['Monothreat Psychic', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Meowstic-Base ++ Meowsticite', 'Meowstic-Mega'],
+		unbanlist: ['Meowstic-F-Mega'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Bug Custom Game",
-		ruleset: ['Monothreat Bug', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Bug', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Rock Custom Game",
-		ruleset: ['Monothreat Rock', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite', 'Lycanroc-Dusk-Mega', 'Lycanroc-Dusk ++ Lycanite',
-		],
+		ruleset: ['Monothreat Rock', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Lycanroc-Dusk-Mega', 'Lycanroc-Dusk ++ Lycanite'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Ghost Custom Game",
-		ruleset: ['Monothreat Ghost', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite', 'Gourgeist-Large-Mega', 'Gourgeist-Large ++ Gourgeite', 
-		],
+		ruleset: ['Monothreat Ghost', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Gourgeist-Large-Mega', 'Gourgeist-Large ++ Gourgeite'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Dragon Custom Game",
-		ruleset: ['Monothreat Dragon', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-			'Altarianite', 
-		],
+		ruleset: ['Monothreat Dragon', 'Standard NatDex', 'Standard M4A Monothreat'],
+		banlist: ['Altarianite'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Dark Custom Game",
-		ruleset: ['Monothreat Dark', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Dark', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Steel Custom Game",
-		ruleset: ['Monothreat Steel', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Steel', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Monothreat Fairy Custom Game",
-		ruleset: ['Monothreat Fairy', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender', 
-			//Banned MfA Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
-		],
+		ruleset: ['Monothreat Fairy', 'Standard NatDex', 'Standard M4A Monothreat'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] M4A Megas Only Custom Game",
-		ruleset: ['Megas Only Mod', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Megas Only Mod', 'Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
@@ -3228,16 +2940,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Megas for Three Custom Game",
 		desc: ["Megas for All but you get to Mega Evolve three Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: ['Hawluchanite ++ Lurantisite'],
 		mod: 'm4many',
 		searchShow: false,
 		challengeShow: false,
@@ -3248,16 +2952,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Megas for Four Custom Game",
 		desc: ["Megas for All but you get to Mega Evolve four Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: ['Hawluchanite ++ Lurantisite'],
 		mod: 'm4many',
 		searchShow: false,
 		challengeShow: false,
@@ -3268,16 +2964,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Megas for Five Custom Game",
 		desc: ["Megas for All but you get to Mega Evolve 5 Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: ['Hawluchanite ++ Lurantisite'],
 		mod: 'm4many',
 		searchShow: false,
 		challengeShow: false,
@@ -3288,16 +2976,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Megas for Six Custom Game",
 		desc: ["Megas for All but you get to Mega Evolve all of your Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blaziken', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Dragonitite', // temporary
-		],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: ['Hawluchanite ++ Lurantisite'],
 		mod: 'm4many',
 		searchShow: false,
 		challengeShow: false,
@@ -3306,4 +2986,3 @@ export const Formats: FormatList = [
 		},
 	},
 ];
-    
