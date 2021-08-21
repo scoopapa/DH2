@@ -505,7 +505,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onAfterMoveSecondary(target, source, move) {
 			const hitResults = [];
 				let accuracy = move.accuracy;
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+				if (accuracy === true && !this.randomChance(accuracy, 100)) {
 					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
 					for (const pokemon of this.getAllActive()) {
 					if (pokemon.switchFlag === true) return;
