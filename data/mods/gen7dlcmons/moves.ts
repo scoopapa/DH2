@@ -334,6 +334,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "Removes the target's Ground immunity.",
 		name: "Gravity Hammer",
 		pp: 10,
 		priority: 0,
