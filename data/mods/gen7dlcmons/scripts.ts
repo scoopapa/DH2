@@ -216,6 +216,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if (!move.ohko && move.id === 'misfire') {
 					pokemon.switchFlag = true;
+					this.attrLastMove('[still]');
 				}
 				hitResults[i] = false;
 				continue;
