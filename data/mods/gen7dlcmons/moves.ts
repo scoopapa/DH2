@@ -472,6 +472,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 		},*/
+		onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
 			if (!move.spreadHit) this.attrLastMove('[miss]');
 			this.add('-miss', pokemon, target);
