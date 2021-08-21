@@ -483,7 +483,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						active.switchFlag = false;
 					}
 				}
-			source.switchFlag = true;
+				source.switchFlag = true;
 		},
 		secondary: null,
 		target: "normal",
