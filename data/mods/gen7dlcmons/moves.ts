@@ -447,7 +447,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
-		hitStepAccuracy(targets, pokemon, move) {
+		/*hitStepAccuracy(targets, pokemon, move) {
 			const hitResults = [];
 			for (const [i, target] of targets.entries()) {
 				this.activeTarget = target;
@@ -471,6 +471,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			}
+		},*/
+		onAfterMoveSecondary(target, source, move) {
+			if (!move.spreadHit) this.attrLastMove('[miss]');
+			this.add('-miss', pokemon, target);
+			if (!move.ohko && move === 'misfire') {
+				if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+			source.switchFlag = true;
 		},
 		secondary: null,
 		target: "normal",
