@@ -425,7 +425,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	steelixalola: {
 		num: 208,
 		name: "Steelix-Alola",
-		baseSpecies: "Steel",
+		baseSpecies: "Steelix",
 		forme: "Alola",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 75, atk: 85, def: 110, spa: 55, spd: 65, spe: 120},
