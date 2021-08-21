@@ -821,5 +821,287 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		types: ["Psychic", "Poison"],
 	},
-
+	torterra: {
+    	inherit: true,
+		baseStats: {hp: 95, atk: 114, def: 110, spa: 66, spd: 85, spe: 64},
+	},
+	piplup: {
+    	inherit: true,
+		abilities: {0: "Torrent", H: "Competitive"},
+	},
+	prinplup: {
+    	inherit: true,
+		abilities: {0: "Torrent", H: "Competitive"},
+	},
+	empoleon: {
+    	inherit: true,
+		baseStats: {hp: 88, atk: 86, def: 88, spa: 111, spd: 101, spe: 60},
+		abilities: {0: "Torrent", H: "Competitive"},
+	},
+	bibarel: {
+    	inherit: true,
+		baseStats: {hp: 99, atk: 85, def: 60, spa: 75, spd: 60, spe: 81},
+	},
+	kricketune: {
+    	inherit: true,
+		types: ["Bug", "Normal"],
+		baseStats: {hp: 77, atk: 85, def: 51, spa: 85, spd: 51, spe: 75},
+		abilities: {0: "Swarm", 1: "Cacophony", H: "Technician"},
+	},
+	kricketot: {
+    	inherit: true,
+		types: ["Bug", "Normal"],
+		abilities: {0: "Shed Skin", 1: "Soundproof", H: "Run Away"},
+	},
+	shinx: {
+    	inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Intimidate", H: "Guts"},
+	},
+	luxio: {
+    	inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Intimidate", H: "Guts"},
+	},
+	luxray: {
+    	inherit: true,
+		types: ["Electric", "Dark"],
+		baseStats: {hp: 80, atk: 120, def: 79, spa: 95, spd: 79, spe: 80},
+		abilities: {0: "Strong Jaw", 1: "Intimidate", H: "Guts"},
+	},
+	cranidos: {
+    	inherit: true,
+		types: ["Rock", "Fighting"],
+		abilities: {0: "Mold Breaker", 1: "Reckless", H: "Sheer Force"},
+	},
+	rampardos: {
+    	inherit: true,
+		types: ["Rock", "Fighting"],
+		baseStats: {hp: 97, atk: 165, def: 50, spa: 65, spd: 50, spe: 68},
+		abilities: {0: "Mold Breaker", 1: "Reckless", H: "Sheer Force"},
+	},
+	shieldon: {
+    	inherit: true,
+		baseStats: {hp: 30, atk: 42, def: 118, spa: 52, spd: 88, spe: 20},
+		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+	},
+	bastiodon: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 42, def: 158, spa: 62, spd: 138, spe: 20},
+		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+	},
+	burmy: {
+    	inherit: true,
+		abilities: {0: "Shed Skin", 1: "Rattled", H: "Overcoat"},
+	},
+	wormadam: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 69, def: 95, spa: 89, spd: 135, spe: 36},
+		abilities: {0: "Anticipation", 1: "Grass Pelt", H: "Overcoat"},
+	},
+	wormadamsandy: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 89, def: 135, spa: 69, spd: 95, spe: 36},
+		abilities: {0: "Anticipation", 1: "Sand Force", H: "Overcoat"},
+	},
+	wormadamtrash: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 79, def: 115, spa: 79, spd: 115, spe: 36},
+		abilities: {0: "Anticipation", 1: "Light Metal", H: "Overcoat"},
+	},
+	mothim: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 104, def: 60, spa: 104, spd: 60, spe: 86},
+		abilities: {0: "Swarm", 1: "Honey Gather", H: "Tinted Lens"},
+	},
+	combee: {
+    	inherit: true,
+		abilities: {0: "Healer", 1: "Honey Gather", H: "Hustle"},
+	},
+	vespiquen: {
+    	inherit: true,
+		types: ["Bug", "Poison"],
+		baseStats: {hp: 70, atk: 90, def: 112, spa: 90, spd: 112, spe: 40},
+		abilities: {0: "Royal Presence", 1: "Honey Gather", H: "Intimidate"},
+	},
+	pachirisu: {
+    	inherit: true,
+		types: ["Electric", "Grass"],
+		baseStats: {hp: 70, atk: 45, def: 90, spa: 55, spd: 90, spe: 95},
+		abilities: {0: "Anticipation", 1: "Pickup", H: "Volt Absorb"},
+	},
+	buizel: {
+    	inherit: true,
+		abilities: {0: "Swift Swim", 1: "Technician", H: "Water Veil"},
+	},
+	floatzel: {
+    	inherit: true,
+		types: ["Water", "Dark"],
+		baseStats: {hp: 85, atk: 115, def: 55, spa: 85, spd: 50, spe: 115},
+		abilities: {0: "Swift Swim", 1: "Technician", H: "Water Veil"},
+	},
+	cherrim: {
+    	inherit: true,
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 70, atk: 80, def: 70, spa: 87, spd: 78, spe: 105},
+	},
+	cherrimsunshine: {
+    	inherit: true,
+		types: ["Grass", "Fairy"],
+		baseStats: {hp: 70, atk: 80, def: 70, spa: 87, spd: 78, spe: 105},
+	},
+	drifblim: {
+    	inherit: true,
+		baseStats: {hp: 150, atk: 80, def: 44, spa: 100, spd: 54, spe: 80},
+	},
+	mismagius: {
+    	inherit: true,
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 60, atk: 60, def: 60, spa: 115, spd: 115, spe: 115},
+	},
+	honchkrow: {
+    	inherit: true,
+		types: ["Dark", "Flying"],
+		baseStats: {hp: 100, atk: 125, def: 52, spa: 105, spd: 52, spe: 91},
+	},
+	chingling: {
+    	inherit: true,
+		types: ["Psychic", "Steel"],
+	},
+	stunky: {
+    	inherit: true,
+		abilities: {0: "Stench", 1: "Aftermath", H: "Honey Gather"},
+	},
+	skuntank: {
+    	inherit: true,
+		baseStats: {hp: 103, atk: 93, def: 67, spa: 91, spd: 61, spe: 84},
+		abilities: {0: "Stench", 1: "Aftermath", H: "Honey Gather"},
+	},
+	chatot: {
+    	inherit: true,
+		baseStats: {hp: 76, atk: 65, def: 65, spa: 97, spd: 62, spe: 91},
+		abilities: {0: "Keen Eye", 1: "Cacophony", H: "Own Tempo"},
+	},
+	spiritomb: {
+    	inherit: true,
+		baseStats: {hp: 54, atk: 108, def: 108, spa: 108, spd: 108, spe: 54},
+		abilities: {0: "Seal Away", 1: "Shadow Beacon", H: "Infiltrator"},
+	},
+	drapion: {
+    	inherit: true,
+		otherFormes: ["Drapion-Mega"],
+		formeOrder: ["Drapion", "Drapion-Mega"],
+	},
+	drapionmega: {
+		num: 452,
+		name: "Drapion-Mega",
+		baseSpecies: "Drapion",
+		forme: "Mega",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 70, atk: 130, def: 130, spa: 60, spd: 110, spe: 110},
+		abilities: {0: "Tough Claws"},
+		weightkg: 62,
+		color: "Purple",
+		requiredItem: "Drapionite",
+	},
+	toxicroak: {
+    	inherit: true,
+		baseStats: {hp: 83, atk: 106, def: 65, spa: 86, spd: 65, spe: 95},
+	},
+	carnivine: {
+    	inherit: true,
+		baseStats: {hp: 84, atk: 120, def: 82, spa: 90, spd: 82, spe: 46},
+	},
+	lumineon: {
+    	inherit: true,
+		baseStats: {hp: 89, atk: 69, def: 89, spa: 89, spd: 89, spe: 109},
+	},
+	abomasnowmega: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 122, def: 90, spa: 132, spd: 90, spe: 70},
+	},
+	weavile: {
+    	inherit: true,
+		abilities: {0: "Pressure", 1: "Unnerve", H: "Pickpocket"},
+	},
+	electivire: {
+    	inherit: true,
+		types: ["Electric", "Fighting"],
+		abilities: {0: "Motor Drive", 1: "Reckless", H: "Vital Spirit"},
+	},
+	magmortar: {
+    	inherit: true,
+		types: ["Fire", "Dark"],
+		abilities: {0: "Flame Body", 1: "Mega Launcher", H: "Vital Spirit"},
+	},
+	yanmega: {
+    	inherit: true,
+		types: ["Bug", "Dragon"],
+	},
+	leafeon: {
+    	inherit: true,
+		abilities: {0: "Chlorophyll", H: "Technician"},
+	},
+	glaceon: {
+    	inherit: true,
+		abilities: {0: "Ice Body", H: "Magic Guard"},
+	},
+	gallade: {
+    	inherit: true,
+		abilities: {0: "Steadfast", 1: "Inner Focus", H: "Justified"},
+	},
+	gallademega: {
+    	inherit: true,
+		abilities: {0: "Knight's Blade"},
+	},
+	rotom: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Download"},
+	},
+	rotomheat: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Flame Body"},
+	},
+	rotomwash: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Water Absorb"},
+	},
+	rotomfrost: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Ice Body"},
+	},
+	rotommow: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Hyper Cutter"},
+	},
+	rotomfan: {
+    	inherit: true,
+		types: ["Electric", "Steel"],
+		abilities: {0: "Levitate", H: "Light Metal"},
+	},
+	uxie: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Oblivious"},
+	},
+	mesprit: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Vital Spirit"},
+	},
+	azelf: {
+    	inherit: true,
+		abilities: {0: "Levitate", H: "Sturdy"},
+	},
+	phione: {
+    	inherit: true,
+		types: ["Water", "Fairy"],
+		abilities: {0: "Hydration", H: "Pixie Power"},
+	},
+	manaphy: {
+    	inherit: true,
+		types: ["Water", "Fairy"],
+		abilities: {0: "Hydration", H: "Pixie Power"},
+	},
+	shayminsky: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 85, spa: 103, spd: 85, spe: 127},
+		abilities: {0: "Cloud Nine"},
+	},
 };
