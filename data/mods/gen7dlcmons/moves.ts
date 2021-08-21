@@ -323,6 +323,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Meteor Mash", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -339,6 +343,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Knock Off", target);
+			this.add('-anim', source, "Gravity", target);
+		},
 		volatileStatus: 'smackdown',
 		secondary: null,
 		target: "normal",
@@ -359,6 +368,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		ignoreImmunity: {'Poison': true},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
 		},
 		secondary: {
 			chance: 10,
@@ -386,6 +399,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			return null;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slack Off", target);
+		},
 		self: {
 			onHit(pokemon) {
 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
@@ -411,6 +428,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			return pokemon.cureStatus() || success;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
 		secondary: null,
 		target: "allies",
 		zMove: {effect: 'clearnegativeboost'},
@@ -425,7 +446,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Misfire",
 		pp: 10,
 		priority: 0,
-		flags: {authentic: 1, mystery: 1, bullet: 1},
+		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
 		hitStepAccuracy(targets, pokemon, move) {
 			const hitResults = [];
 			for (const [i, target] of targets.entries()) {
@@ -438,16 +459,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else {
 					if (!move.spreadHit) this.attrLastMove('[miss]');
 						this.add('-miss', pokemon, target);
-				}
-				if (!move.ohko && move === 'misfire') {
-					if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
-						for (const side of this.sides) {
-						for (const active of side.active) {
-							active.switchFlag = false;
+						if (!move.ohko && move === 'misfire') {
+							if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+							for (const side of this.sides) {
+							for (const active of side.active) {
+								active.switchFlag = false;
+							}
 						}
 					}
-				}
-				target.switchFlag = true;
+					target.switchFlag = true;
+					}
 				}
 			}
 		},
@@ -470,6 +491,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target.addType('Grass')) return false;
 			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rototiller", target);
+		},
 		boosts: {
 			spa: 1,
 			spe: 1,
@@ -490,6 +515,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
 		self: {
 			boosts: {
 				atk: -2,
@@ -514,9 +543,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.activeMoveActions > 1) {
 				this.add('-fail', pokemon);
 				this.attrLastMove('[still]');
-				this.hint("First Impression only works on your first turn out.");
+				this.hint("Quick Blitz only works on your first turn out.");
 				return null;
 			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Breakneck Blitz", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -533,6 +566,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Rush", target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
