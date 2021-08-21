@@ -263,4 +263,96 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		isModded: true,
 	},
+	kubfu: {
+		tier: "LC",
+		isModded: true,
+	},
+	urshifualola: {
+		tier: "OU",
+		isModded: true,
+	},
+	urshifurapidstrikealola: {
+		tier: "OU",
+		isModded: true,
+	},
+	tynamo: {
+		tier: "LC",
+		isModded: true,
+	},
+	tynamoalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	eelektrik: {
+		tier: "NFE",
+		isModded: true,
+	},
+	eelektrikalola: {
+		tier: "NFE",
+		isModded: true,
+	},
+	eelektross: {
+		tier: "PU",
+		isModded: true,
+	},
+	eelektrossalola: {
+		tier: "OU",
+		isModded: true,
+	},
+	onix: {
+		tier: "LC",
+		isModded: true,
+	},
+	onixalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	steelix: {
+		tier: "NU",
+		isModded: true,
+	},
+	steelixalola: {
+		tier: "OU",
+		isModded: true,
+	},
+	steelixmega: {
+		tier: "UU",
+		isModded: true,
+	},
+	steelixalolamega: {
+		tier: "OU",
+		isModded: true,
+	},
+	shelmet: {
+		tier: "LC",
+		isModded: true,
+	},
+	shelmetalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	accelgor: {
+		tier: "NU",
+		isModded: true,
+	},
+	accelgoralola: {
+		tier: "OU",
+		isModded: true,
+	},
+	shinobug: {
+		tier: "OU",
+		isModded: true,
+	},
+	falinksalola: {
+		tier: "OU",
+		isModded: true,
+	},
+	feebas: {
+		tier: "LC",
+		isModded: true,
+	},
+	feebasalola: {
+		tier: "LC",
+		isModded: true,
+	},
 };
