@@ -472,7 +472,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 		},*/
-		onAfterMoveSecondaryPriority: 2,
+		/*onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
 			if (!move.spreadHit) this.attrLastMove('[miss]');
 			this.add('-miss', pokemon, target);
@@ -484,6 +484,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				source.switchFlag = true;
+		},*/
+		onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			const hitResults = [];
+			for (const [i, target] of targets.entries()) {
+				this.activeTarget = target;
+				// calculate true accuracy
+				let accuracy = move.accuracy;
+				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					if (!move.spreadHit) this.attrLastMove('[miss]');
+						this.add('-miss', pokemon, target);
+						if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+							for (const side of this.sides) {
+							for (const active of side.active) {
+								active.switchFlag = false;
+							}
+						}
+					}
+					target.switchFlag = true;
+				}
+			}
 		},
 		secondary: null,
 		target: "normal",
