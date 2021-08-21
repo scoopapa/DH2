@@ -493,14 +493,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				}
-				else if {
-					if (!move.spreadHit) this.attrLastMove('[miss]');
-						this.add('-miss', pokemon, source);
-						if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
-							for (const side of this.sides) {
-							for (const active of side.active) {
-								active.switchFlag = false;
-							}
+				else if (!move.spreadHit) this.attrLastMove('[miss]');
+					this.add('-miss', pokemon, source);
+					if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return;
+						for (const side of this.sides) {
+						for (const active of side.active) {
+							active.switchFlag = false;
 						}
 					}
 					source.switchFlag = true;
