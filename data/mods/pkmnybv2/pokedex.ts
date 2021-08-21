@@ -1281,7 +1281,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Hydreigon",
 		forme: "Mega",
 		types: ["Dark", "Dragon"],
-		baseStats: {hp: 92, atk: 125, def: 110, spa: 165, spd: 110, spe: 98},
+		baseStats: {hp: 92, atk: 130, def: 115, spa: 150, spd: 115, spe: 98},
 		abilities: {0: "Intimidate"},
 		weightkg: 160,
 		color: "Black",
