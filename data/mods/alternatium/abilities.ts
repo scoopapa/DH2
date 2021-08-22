@@ -349,7 +349,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Power Core",
-		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
+		shortDesc: "Immunity to hazards and any kind of stat changes.",
 		rating: 3,
 		num: 1008,
 	},
