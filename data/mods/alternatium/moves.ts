@@ -695,22 +695,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, charge: 1, mirror: 1},
 		breaksProtect: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
+			if (attacker.removeVolatile(move.id) pokemon.species.name !== 'Giratina-Shadow') {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+			if (!this.runEvent('ChargeMove', attacker, defender, move) pokemon.species.name !== 'Giratina-Shadow') {
 				return;
 			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
+			if (pokemon.species.name !== 'Giratina-Shadow') {
+				attacker.addVolatile('twoturnmove', defender);
+				return null;
+			}
 		},
 		condition: {
 			duration: 2,
 			onInvulnerability: false,
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (target.volatiles['protect'] && user.baseSpecies.name === 'Giratina-Shadow') {
+			if (target.volatiles['protect'] && pokemon.species.name === 'Giratina-Shadow') {
 				return this.chainModify(2);
 			}
 		},
@@ -741,12 +743,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		onBoost(boost, target, source, effect) {
-			if (user.baseSpecies.name === 'Eternatus') {
-				if (this.randomChance(4, 10)) {
+			if (pokemon.species.name === 'Eternatus') {
+				if (this.randomChance(10, 10)) {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
 			}
 		},
+		secondary: null,
 		target: "normal",
 		type: "Dragon",
 	},
