@@ -695,11 +695,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, charge: 1, mirror: 1},
 		breaksProtect: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id) && attacker.species.name === 'Giratina-Shadow') {
+			if (attacker.removeVolatile(move.id) && attacker.species.name !== 'Giratina-Shadow') {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move) && attacker.species.name === 'Giratina-Shadow') {
+			if (!this.runEvent('ChargeMove', attacker, defender, move) && attacker.species.name !== 'Giratina-Shadow') {
 				return;
 			}
 			if (attacker.species.name !== 'Giratina-Shadow') {
