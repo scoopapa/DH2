@@ -158,6 +158,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	pheromosa: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 117, def: 67, spa: 117, spd: 67, spe: 121},
+		baseStats: {hp: 83, atk: 113, def: 67, spa: 113, spd: 67, spe: 127},
 	},
 };
