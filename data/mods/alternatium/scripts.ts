@@ -17,11 +17,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.bulkup;
 		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.irondefense;
 		
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bodypress;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.uturn;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.knockoff;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bulkup;
-		
 		delete this.modData('Learnsets', 'rotomheat').learnset.taunt;
 		delete this.modData('Learnsets', 'rotomwash').learnset.taunt;
 		delete this.modData('Learnsets', 'rotommow').learnset.taunt;
