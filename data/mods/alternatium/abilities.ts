@@ -363,7 +363,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		name: "Aerial Menace",
-		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
+		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move. Flying-type immunity.",
 		rating: 3,
 		num: 1009,
    },
