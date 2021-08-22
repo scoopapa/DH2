@@ -9,6 +9,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 		gen: 7,
 	},
+	noretreat: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 7,
+	},
 	infection: {
 		num: -1001,
 		accuracy: 90,
@@ -306,5 +311,281 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+	},
+	astraltackle: {
+		num: -1028,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Damages target based on Special Defense, not Def.",
+		defensiveCategory: "Special",
+		name: "Astral Tackle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Meteor Mash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	gravityhammer: {
+		num: -1029,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Removes the target's Ground immunity.",
+		name: "Gravity Hammer",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Knock Off", target);
+			this.add('-anim', source, "Gravity", target);
+		},
+		volatileStatus: 'smackdown',
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	solventshot: {
+		num: -1030,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "10% chance to toxic. Super effective on Steel.",
+		name: "Solvent Shot",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Poison': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		contestType: "Beautiful",
+	},
+	exhaust: {
+		num: -1031,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals 50% HP. User's Fire type becomes typeless; must be Fire.",
+		name: "Exhaust",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, heal: 1},
+		heal: [1, 2],
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Burn Up');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slack Off", target);
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	refreshingtide: {
+		num: -1032,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User and allies: healed 1/4 max HP, status cured.",
+		name: "Refreshing Tide",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, authentic: 1, mystery: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		secondary: null,
+		target: "allies",
+		zMove: {effect: 'clearnegativeboost'},
+		type: "Water",
+	},
+	misfire: {
+		num: -1033,
+		accuracy: 70,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "The user switches out, if the move misses.",
+		name: "Misfire",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
+		/*onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			const hitResults = [];
+				let accuracy = move.accuracy;
+				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				}
+				else if (!move.spreadHit) this.attrLastMove('[miss]');
+					this.add('-miss', pokemon, source);
+					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
+					for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				source.switchFlag = true;
+			}
+		},
+		onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			const hitResults = [];
+				let accuracy = move.accuracy;
+				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
+					for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				source.switchFlag = true;
+			}
+		},*/
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flare Blitz", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	fieldday: {
+		num: -1034,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's SpAtk and Spe by 1. The user gains the Grass typing in addition to its existing typing.",
+		name: "Field Day",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mystery: 1},
+		onHit(target) {
+			if (target.hasType('Grass')) return false;
+			if (!target.addType('Grass')) return false;
+			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rototiller", target);
+		},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	shortcircuit: {
+		num: -1035,
+		accuracy: 90,
+		basePower: 130,
+		category: "Physical",
+		shortDesc: "Lowers the user's Atk by 2.",
+		name: "Short Circuit",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	quickblitz: {
+		num: -1036,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		shortDesc: "Hits first. First turn out only.",
+		name: "Quick Blitz",
+		pp: 10,
+		priority: 3,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTry(pokemon, target) {
+			if (pokemon.activeMoveActions > 1) {
+				this.add('-fail', pokemon);
+				this.attrLastMove('[still]');
+				this.hint("Quick Blitz only works on your first turn out.");
+				return null;
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Breakneck Blitz", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	draconiccrash: {
+		num: -1037,
+		accuracy: 85,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		name: "Draconic Crash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Rush", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cute",
 	},
 };

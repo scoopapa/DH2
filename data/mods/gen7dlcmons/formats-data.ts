@@ -426,4 +426,118 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUber",
 		isModded: true,
 	},
+	kubfu: {
+		tier: "LC",
+		isModded: true,
+	},
+	urshifualola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	urshifurapidstrikealola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	tynamo: {
+		tier: "LC",
+		isModded: true,
+	},
+	tynamoalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	eelektrik: {
+		tier: "NFE",
+		isModded: true,
+	},
+	eelektrikalola: {
+		tier: "NFE",
+		isModded: true,
+	},
+	eelektross: {
+		tier: "PU",
+		doublesTier: "(DUU)",
+		isModded: true,
+	},
+	eelektrossalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	onix: {
+		tier: "LC",
+		isModded: true,
+	},
+	onixalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	steelix: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+		isModded: true,
+	},
+	steelixalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	steelixmega: {
+		tier: "UU",
+		doublesTier: "(DUU)",
+		isModded: true,
+	},
+	steelixalolamega: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	shelmet: {
+		tier: "LC",
+		isModded: true,
+	},
+	shelmetalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	accelgor: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+		isModded: true,
+	},
+	accelgoralola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	shinobug: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	falinksalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	feebas: {
+		tier: "LC",
+		isModded: true,
+	},
+	feebasalola: {
+		tier: "LC",
+		isModded: true,
+	},
+	milotic: {
+		tier: "RU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
+	miloticalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+		isModded: true,
+	},
 };
