@@ -1539,4 +1539,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 	},
+	boomburst: {
+		num: 586,
+		accuracy: 100,
+		basePower: 140,
+		category: "Physical",
+		name: "Boomburst",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Normal",
+		contestType: "Tough",
+	},
 };

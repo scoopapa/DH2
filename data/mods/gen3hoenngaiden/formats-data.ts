@@ -1705,4 +1705,29 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	marowakalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	marowakalolatotem: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	dracovish: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	slowkinggalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	slowpokegalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
 };

@@ -222,6 +222,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", 'parasect').learnset.lunge = ['3L1'];
 		this.modData("Learnsets", 'parasect').learnset.knockoff = ['3L1'];
 		this.modData("Learnsets", 'parasect').learnset.shadowball = ['3L1'];
+		
+		//Slate 10
+		this.modData("Learnsets", 'flygon').learnset.spikes = ['3L1'];
+		this.modData("Learnsets", 'flygon').learnset.morningsun = ['3L1'];
+		this.modData("Learnsets", 'flygon').learnset.dragondance = ['3L1'];
+		
+		this.modData("Learnsets", 'exploud').learnset.boomburst = ['3L1'];		
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
