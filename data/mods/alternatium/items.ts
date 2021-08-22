@@ -338,7 +338,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
-			if (user.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
+			if (source.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},

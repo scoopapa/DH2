@@ -688,7 +688,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Breaks protection and doubles damage.",
+		shortDesc: "Goes through protection and doubles damage.",
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
