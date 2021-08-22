@@ -693,10 +693,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
-		breaksProtect: true,
-		onBasePower(basePower, pokemon, target) {
+		onBasePower(basePower, source, target) {
 			if (target.volatiles['protect']) {
 				return this.chainModify(2);
+				delete move.flags['protect'];
 			}
 		},
 		secondary: null,
