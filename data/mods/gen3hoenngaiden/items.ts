@@ -757,4 +757,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 268,
 		gen: 4,
 	},
+	thickclub: {
+		name: "Thick Club",
+		spritenum: 491,
+		fling: {
+			basePower: 90,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone' || pokemon.baseSpecies.baseSpecies === 'Marowak') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Marowak", "Cubone", "Marowak-Alola"],
+		num: 258,
+		gen: 2,
+	},
 };
