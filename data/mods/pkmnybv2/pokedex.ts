@@ -1812,5 +1812,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	// New Mons
-	
+	synthinobi: {
+		num: 9001,
+		name: "Synthinobi",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 80, atk: 105, def: 70, spa: 75, spd: 80, spe: 120},
+		abilities: {0: "Overgrow", H: "Super Luck"},
+		weightkg: 50,
+	},
 };
