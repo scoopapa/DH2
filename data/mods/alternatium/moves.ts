@@ -686,45 +686,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shadowforce: {
 		num: 467,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "Breaks protect. Giratina: 2 turns. Giratina-Shadow: 90 BP, 2x damage against protect.",
+		shortDesc: "Breaks protection and doubles damage.",
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1},
+		flags: {contact: 1, mirror: 1},
 		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id) && attacker.species.name !== 'Giratina-Shadow') {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move) && attacker.species.name !== 'Giratina-Shadow') {
-				return;
-			}
-			if (attacker.species.name !== 'Giratina-Shadow') {
-				attacker.addVolatile('twoturnmove', defender);
-				return null;
-			}
-		},
-		condition: {
-			duration: 2,
-			onInvulnerability: false,
-		},
-		onBasePower(basePower, source, target) {
-			if (target.volatiles['protect'] && source.species.name === 'Giratina-Shadow') {
+		onBasePower(basePower, pokemon, target) {
+			if (target.volatiles['protect']) {
 				return this.chainModify(2);
-			}
-		},
-		basePowerCallback(source, move) {
-			if (source.species.name === 'Giratina-Shadow') {
-				return move.basePower - 30;
-			}
-			return move.basePower;
-		},
-		onModifyMove(move, source) {
-			if (source.species.name === 'Giratina-Shadow') {
-				move.flags.charge = 0;
 			}
 		},
 		secondary: null,
@@ -737,19 +709,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "If Eternatus, 40% chance to lower the target's Special Defense by 1.",
+		shortDesc: "40% chance to lower the target's Special Defense by 1.",
 		name: "Dynamax Cannon",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		onBoost(boost, target, source, effect) {
-			if (pokemon.species.name === 'Eternatus') {
-				if (this.randomChance(10, 10)) {
-					this.boost({atk: -1}, target, pokemon, null, true);
-				}
-			}
+		secondary: {
+			chance: 40,
+			boosts: {
+				spd: -1,
+			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Dragon",
 	},
