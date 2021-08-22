@@ -1458,9 +1458,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "necrozma").learnset.dracometeor = ["8L1"];
 		this.modData("Learnsets", "necrozma").learnset.steelbeam = ["8L1"];
 		this.modData("Learnsets", "necrozma").learnset.adaptableattack = ["8L1"];
+		// Meltan
+		this.modData("Learnsets", "meltan").learnset.hiddenpower = ["8L1"];
+		this.modData("Learnsets", "meltan").learnset.return = ["8L1"];
+		this.modData("Learnsets", "meltan").learnset.frustration = ["8L1"];
 		// Melmetal
 		this.modData("Learnsets", "melmetal").learnset.meteormash = ["8L1"];
 		this.modData("Learnsets", "melmetal").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "melmetal").learnset.return = ["8L1"];
 		this.modData("Learnsets", "melmetal").learnset.frustration = ["8L1"];
+
+
 };
