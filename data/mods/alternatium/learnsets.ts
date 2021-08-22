@@ -12147,7 +12147,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			superpower: ["8L1"],
 			knockoff: ["8L1"],
 			futuresight: ["8L1"],
-			calmmind: ["8L1"],
 			teleport: ["8L1"],
 		},
 		eventData: [
