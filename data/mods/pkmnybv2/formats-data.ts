@@ -215,5 +215,81 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "YB",
 		doublesTier: "DYB",
 	},
+	butterfreemega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	tentacruelmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	meganiummega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	typhlosionmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	feraligatrmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	slowkingmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	granbullmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	miloticmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	dusknoirmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	froslassmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	drapionmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	cinccinomega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	hydregionmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	talonflamemega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	malamarmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	shiinoticmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	bewearmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	thievulmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
+	duraludonmega: {
+		tier: "YB Megas",
+		doublesTier: "DYB Megas",
+	},
 
 };
