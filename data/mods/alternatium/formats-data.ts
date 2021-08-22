@@ -319,15 +319,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*giratina: {
+	giratina: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	giratinaorigin: {
+	giratinashadow: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	shaymin: {
+	/*shaymin: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -727,4 +727,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},*/
+	eternatus: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
+	manustorm: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
 };
