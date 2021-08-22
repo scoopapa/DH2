@@ -1016,7 +1016,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	giratinashadow: {
 		num: 487,
 		name: "Giratina-Shadow",
-		types: ["Ghost", "Dragon"],
+		types: ["Dragon", "Ghost"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Levitate", H: "Shadow World"},
