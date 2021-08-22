@@ -111,9 +111,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'flashfire';
 			}
 			if (pokemon.species.id === 'silvallyflying') {
-				this.add('-ability', pokemon, 'Unburden', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('unburden');
-				pokemon.baseAbility = 'unburden';
+				this.add('-ability', pokemon, 'Gale Wings', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('galewings');
+				pokemon.baseAbility = 'galewings';
 			}
 			if (pokemon.species.id === 'silvallyghost') {
 				this.add('-ability', pokemon, 'Prankster', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -151,9 +151,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'sandstream';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
-				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('sturdy');
-				pokemon.baseAbility = 'sturdy';
+				this.add('-ability', pokemon, 'Magnet Pull', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('magnetpull');
+				pokemon.baseAbility = 'magnetpull';
 			}
 			if (pokemon.species.id === 'silvallywater') {
 				this.add('-ability', pokemon, 'Water Absorb', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -335,7 +335,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Life Gem",
 		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 		rating: 3,
-		num: -2,
+		num: 1007,
 	},
 	powercore: {
 		// Hazard Immunity implemented in moves.js
@@ -351,6 +351,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Power Core",
 		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
 		rating: 3,
-		num: -2,
+		num: 1008,
+	},
+	aerialmenace: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Flying') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Aerial Menace');
+				}
+				return null;
+			}
+		},
+		name: "Aerial Menace",
+		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
+		rating: 3,
+		num: 1009,
+   },
+   shadowworld: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shadow World');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(1.2);
+			}
+			else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(0.8);
+			}
+		},
+		isUnbreakable: true,
+		name: "Shadow World",
+		shortDesc: "When this Pokemon is active, Ghost and Dark moves do 1.2x damage. Psychic and Fairy moves do 0.8x damage.",
+		rating: 3,
+		num: 1010,
 	},
 };

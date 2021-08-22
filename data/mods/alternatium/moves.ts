@@ -27,6 +27,178 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	baddybad: {
+		num: 737,
+		accuracy: 95,
+		basePower: 80,
+		category: "Special",
+		isNonstandard: null,
+		name: "Baddy Bad",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1},
+		self: {
+			sideCondition: 'reflect',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	bouncybubble: {
+		num: 733,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		isNonstandard: null,
+		name: "Bouncy Bubble",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	buzzybuzz: {
+		num: 734,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		isNonstandard: null,
+		name: "Buzzy Buzz",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	freezyfrost: {
+		num: 739,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: null,
+		name: "Freezy Frost",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		onHit() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+	},
+	glitzyglow: {
+		num: 736,
+		accuracy: 95,
+		basePower: 80,
+		category: "Special",
+		isNonstandard: null,
+		name: "Glitzy Glow",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1},
+		self: {
+			sideCondition: 'lightscreen',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	sappyseed: {
+		num: 738,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: null,
+		name: "Sappy Seed",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1},
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	sizzlyslide: {
+		num: 735,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		isNonstandard: null,
+		name: "Sizzly Slide",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, defrost: 1},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	sparklyswirl: {
+		num: 740,
+		accuracy: 85,
+		basePower: 120,
+		category: "Special",
+		isNonstandard: null,
+		name: "Sparkly Swirl",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		self: {
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+						continue;
+					}
+					ally.cureStatus();
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
+	veeveevolley: {
+		num: 741,
+		accuracy: true,
+		basePower: 0,
+		basePowerCallback(pokemon) {
+			return Math.floor((pokemon.happiness * 10) / 25) || 1;
+		},
+		category: "Physical",
+		isNonstandard: null,
+		name: "Veevee Volley",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
 	spikes: {
 		num: 191,
 		accuracy: true,
@@ -510,5 +682,45 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
+	},
+	shadowforce: {
+		num: 467,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Goes through protection and doubles damage.",
+		name: "Shadow Force",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		onBasePower(basePower, source, target) {
+			if (target.volatiles['protect']) {
+				return this.chainModify(2);
+				delete move.flags['protect'];
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	dynamaxcannon: {
+		num: 744,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "40% chance to lower the target's Special Defense by 1.",
+		name: "Dynamax Cannon",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 40,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
 	},
 };
