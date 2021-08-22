@@ -683,42 +683,68 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Tough",
 	},
-	shadowforceshadow: {
+	shadowforce: {
 		num: 467,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
-		shortDesc: "Breaks protection and does double damage.",
+		shortDesc: "Breaks protect. Giratina: 2 turns. Giratina-Shadow: 90 BP, 2x damage against protect.",
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, mirror: 1},
+		flags: {contact: 1, charge: 1, mirror: 1},
+		breaksProtect: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability: false,
+		},
 		onBasePower(basePower, pokemon, target) {
-			if (target.volatiles['protect']) {
+			if (target.volatiles['protect'] && user.baseSpecies.name === 'Giratina-Shadow') {
 				return this.chainModify(2);
 			}
 		},
-		breaksProtect: true,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Giratina-Shadow') {
+				return move.basePower - 30;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.name === 'Giratina-Shadow') {
+				move.flags.charge = 0;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
 	},
-	dynamaxcannoneternal: {
+	dynamaxcannon: {
 		num: 744,
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "40% chance to lower the target's Special Defense by 1.",
+		shortDesc: "If Eternatus, 40% chance to lower the target's Special Defense by 1.",
 		name: "Dynamax Cannon",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		secondary: {
-			chance: 40,
-			boosts: {
-				spd: -1,
-			},
+		onBoost(boost, target, source, effect) {
+			if (user.baseSpecies.name === 'Eternatus') continue;
+			if (this.randomChance(4, 10)) {
+				this.boost({atk: -1}, target, pokemon, null, true);
+			}
 		},
 		target: "normal",
 		type: "Dragon",
