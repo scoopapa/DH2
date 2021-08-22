@@ -1303,5 +1303,148 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		abilities: {0: "Justified", H: "Knight's Blade"},
 	},
-
+	talonflame: {
+    	inherit: true,
+		otherFormes: ["Talonflame-Mega"],
+		formeOrder: ["Talonflame", "Talonflame-Mega"],
+	},
+	talonflamemega: {
+		num: 663,
+		name: "Talonflame-Mega",
+		baseSpecies: "Talonflame",
+		forme: "Mega",
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 78, atk: 132, def: 81, spa: 74, spd: 94, spe: 140},
+		abilities: {0: "Reckless"},
+		weightkg: 25,
+		color: "Red",
+		requiredItem: "Talonflite",
+	},
+	pyroar: {
+    	inherit: true,
+		abilities: {0: "Rivalry", 1: "Demotivate", H: "Cacophony"},
+	},
+	flabebe: {
+    	inherit: true,
+		abilities: {0: "Pixie Power", 1: "Flower Veil", H: "Symbiosis"},
+	},
+	floette: {
+    	inherit: true,
+		abilities: {0: "Pixie Power", 1: "Flower Veil", H: "Symbiosis"},
+	},
+	floetteeternal: {
+    	inherit: true,
+		abilities: {0: "Pixie Power"},
+	},
+	florges: {
+    	inherit: true,
+		abilities: {0: "Pixie Power", 1: "Flower Veil", H: "Symbiosis"},
+	},
+	furfrou: {
+    	inherit: true,
+		baseStats: {hp: 83, atk: 80, def: 60, spa: 65, spd: 90, spe: 102},
+	},
+	meowstic: {
+    	inherit: true,
+		baseStats: {hp: 74, atk: 68, def: 76, spa: 81, spd: 93, spe: 124},
+	},
+	meowsticf: {
+    	inherit: true,
+		baseStats: {hp: 74, atk: 76, def: 68, spa: 93, spd: 81, spe: 124},
+	},
+	honedge: {
+    	inherit: true,
+		abilities: {0: "No Guard", H: "Knight's Blade"},
+	},
+	doublade: {
+    	inherit: true,
+		abilities: {0: "No Guard", H: "Knight's Blade"},
+	},
+	spritzee: {
+    	inherit: true,
+		types: ["Fairy", "Poison"],
+	},
+	aromatisse: {
+    	inherit: true,
+		types: ["Fairy", "Poison"],
+		baseStats: {hp: 110, atk: 72, def: 79, spa: 99, spd: 89, spe: 29},
+	},
+	malamar: {
+    	inherit: true,
+		baseStats: {hp: 86, atk: 92, def: 88, spa: 88, spd: 75, spe: 73},
+		otherFormes: ["Malamar-Mega"],
+		formeOrder: ["Malamar", "Malamar-Mega"],
+	},
+	malamarmega: {
+		num: 687,
+		name: "Malamar-Mega",
+		baseSpecies: "Malamar",
+		forme: "Mega",
+		types: ["Dark", "Psychic"],
+		baseStats: {hp: 86, atk: 122, def: 98, spa: 118, spd: 85, spe: 93},
+		abilities: {0: "Download"},
+		weightkg: 47,
+		color: "Black",
+		requiredItem: "Malamarite",
+	},
+	aurorus: {
+    	inherit: true,
+		baseStats: {hp: 123, atk: 62, def: 77, spa: 101, spd: 90, spe: 68},
+	},
+	goodra: {
+    	inherit: true,
+		types: ["Dragon", "Water"],
+	},
+	klefki: {
+    	inherit: true,
+		abilities: {0: "Prankster", 1: "Seal Away", H: "Magician"},
+	},
+	trevenant: {
+    	inherit: true,
+		baseStats: {hp: 105, atk: 116, def: 86, spa: 65, spd: 82, spe: 56},
+	},
+	gourgeist: {
+    	inherit: true,
+		baseStats: {hp: 65, atk: 100, def: 122, spa: 58, spd: 75, spe: 90},
+		abilities: {0: "Intimidate", 1: "Frisk", H: "Flare Boost"},
+	},
+	gourgeistsmall: {
+    	inherit: true,
+		baseStats: {hp: 55, atk: 95, def: 122, spa: 58, spd: 75, spe: 105},
+		abilities: {0: "Intimidate", 1: "Frisk", H: "Flare Boost"},
+	},
+	gourgeistlarge: {
+    	inherit: true,
+		baseStats: {hp: 75, atk: 105, def: 122, spa: 58, spd: 75, spe: 75},
+		abilities: {0: "Intimidate", 1: "Frisk", H: "Flare Boost"},
+	},
+	gourgeistsuper: {
+    	inherit: true,
+		baseStats: {hp: 85, atk: 110, def: 122, spa: 58, spd: 75, spe: 60},
+		abilities: {0: "Intimidate", 1: "Frisk", H: "Flare Boost"},
+	},
+	avalugg: {
+    	inherit: true,
+		abilities: {0: "Anticipation", 1: "Sturdy", H: "Ice Body"},
+	},
+	noibat: {
+    	inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Cacophony"},
+	},
+	noivern: {
+    	inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Cacophony"},
+	},
+	hoopa: {
+    	inherit: true,
+		abilities: {0: "Magician", H: "Seal Away"},
+	},
+	hoopaunbound: {
+    	inherit: true,
+		abilities: {0: "Magician", H: "Cursed Body"},
+	},
+	volcanion: {
+    	inherit: true,
+		abilities: {0: "Water Absorb", H: "Mega Launcher"},
+	},
 };
