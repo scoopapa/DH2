@@ -695,11 +695,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, charge: 1, mirror: 1},
 		breaksProtect: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id) && attacker.species.name !== 'Giratina-Shadow') {
+			if (attacker.removeVolatile(move.id) && attacker.species.name === 'Giratina-Shadow') {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move) && attacker.species.name !== 'Giratina-Shadow') {
+			if (!this.runEvent('ChargeMove', attacker, defender, move) && attacker.species.name === 'Giratina-Shadow') {
 				return;
 			}
 			if (attacker.species.name !== 'Giratina-Shadow') {
@@ -711,19 +711,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 			duration: 2,
 			onInvulnerability: false,
 		},
-		onBasePower(basePower, pokemon, target) {
-			if (target.volatiles['protect'] && pokemon.species.name === 'Giratina-Shadow') {
+		onBasePower(basePower, source, target) {
+			if (target.volatiles['protect'] && source.species.name === 'Giratina-Shadow') {
 				return this.chainModify(2);
 			}
 		},
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.species.name === 'Giratina-Shadow') {
+		basePowerCallback(source, move) {
+			if (source.species.name === 'Giratina-Shadow') {
 				return move.basePower - 30;
 			}
 			return move.basePower;
 		},
-		onModifyMove(move, pokemon, target) {
-			if (pokemon.species.name === 'Giratina-Shadow') {
+		onModifyMove(move, source) {
+			if (source.species.name === 'Giratina-Shadow') {
 				move.flags.charge = 0;
 			}
 		},
