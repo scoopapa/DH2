@@ -615,4 +615,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lugia: {
 		tier: "OU",
 	},
+	cinderace: {
+		tier: "OU",
+	},
+	magearna: {
+		tier: "OU",
+	},
+	pheromosa: {
+		tier: "OU",
+	},
 };

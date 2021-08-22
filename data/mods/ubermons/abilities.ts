@@ -160,4 +160,43 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 255,
 	},
+	soulheart: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			this.debug('Soul-Heart Sp. Atk Boost');
+			return this.chainModify(1.5);
+		},
+		name: "Soul-Heart",
+		shortDesc: "This Pokemon's Special Attack is 1.5x.",
+		rating: 3.5,
+		num: 220,
+	},
+	libero: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['bullet']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['bullet']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		name: "Libero",
+		shortDesc: "This Pokemon blocks ballistic moves and instead uses the move against the original user.",
+		rating: 4.5,
+		num: 236,
+	},
 };
