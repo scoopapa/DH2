@@ -1610,5 +1610,207 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		abilities: {0: "Beast Boost", H: "Aftermath"},
 	},
+	rillaboom: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 115, def: 90, spa: 70, spd: 70, spe: 85},
+	},
+	cinderace: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 96, def: 85, spa: 75, spd: 85, spe: 109},
+	},
+	greedent: {
+    	inherit: true,
+		baseStats: {hp: 120, atk: 100, def: 100, spa: 45, spd: 75, spe: 20},
+	},
+	thievul: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 58, def: 58, spa: 107, spd: 92, spe: 110},
+		otherFormes: ["Thievul-Mega"],
+		formeOrder: ["Thievul", "Thievul-Mega"],
+	},
+	thievulmega: {
+		num: 828,
+		name: "Thievul-Mega",
+		baseSpecies: "Thievul",
+		forme: "Mega",
+		types: ["Dark"],
+		baseStats: {hp: 70, atk: 58, def: 88, spa: 137, spd: 122, spe: 120},
+		abilities: {0: "Stakeout"},
+		weightkg: 20,
+		color: "Brown",
+		requiredItem: "Thievulite",
+	},
+	eldegoss: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 50, def: 90, spa: 80, spd: 120, spe: 60},
+	},
+	dubwool: {
+    	inherit: true,
+		baseStats: {hp: 72, atk: 100, def: 100, spa: 60, spd: 90, spe: 88},
+	},
+	yamper: {
+    	inherit: true,
+		abilities: {0: "Ball Fetch", 1: "Cute Charm", H: "Rattled"},
+	},
+	boltund: {
+    	inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Energy Beacon", H: "Competitive"},
+	},
+	flapple: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 95, spd: 60, spe: 80},
+	},
+	appletun: {
+    	inherit: true,
+		baseStats: {hp: 110, atk: 85, def: 85, spa: 110, spd: 85, spe: 30},
+	},
+	cramorant: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 85, def: 85, spa: 85, spd: 95, spe: 85},
+	},
+	cramorantgulping: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 85, def: 85, spa: 85, spd: 95, spe: 85},
+	},
+	cramorantgorging: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 85, def: 85, spa: 85, spd: 95, spe: 85},
+	},
+	centiskorch: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 115, def: 90, spa: 65, spd: 90, spe: 65},
+	},
+	clobbopus: {
+    	inherit: true,
+		types: ["Fighting", "Water"],
+	},
+	grapploct: {
+    	inherit: true,
+		types: ["Fighting", "Dark"],
+	},
+	perrserker: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 110, def: 100, spa: 50, spd: 60, spe: 65},
+	},
+	cursola: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 50, def: 95, spa: 145, spd: 120, spe: 30},
+		abilities: {0: "Weak Armor", 1: "Cursed Body", H: "Perish Body"},
+	},
+	sirfetchd: {
+    	inherit: true,
+		types: ["Fighting", "Flying"],
+	},
+	mrrime: {
+    	inherit: true,
+		baseStats: {hp: 80, atk: 75, def: 75, spa: 110, spd: 100, spe: 80},
+		abilities: {0: "Quick Feet", 1: "Screen Cleaner", H: "Ice Body"},
+	},
+	milcery: {
+    	inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Aroma Veil", H: "Pixie Power"},
+	},
+	alcremie: {
+    	inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Aroma Veil", H: "Pixie Power"},
+	},
+	falinks: {
+    	inherit: true,
+		types: ["Fighting", "Steel"],
+		abilities: {0: "Battle Armor", 1: "Skill Link", H: "Defiant"},
+	},
+	pincurchin: {
+    	inherit: true,
+		baseStats: {hp: 78, atk: 91, def: 95, spa: 101, spd: 95, spe: 15},
+	},
+	frosmoth: {
+    	inherit: true,
+		baseStats: {hp: 70, atk: 65, def: 60, spa: 125, spd: 90, spe: 85},
+	},
+	stonjourner: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 70, spe: 70},
+	},
+	eiscue: {
+    	inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 90, spe: 50},
+	},
+	eiscuenoice: {
+    	inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 70, spa: 80, spd: 50, spe: 130},
+	},
+	morpekohangry: {
+    	inherit: true,
+		baseStats: {hp: 58, atk: 115, def: 53, spa: 60, spd: 53, spe: 97},
+	},
+	morpeko: {
+    	inherit: true,
+		baseStats: {hp: 58, atk: 95, def: 63, spa: 60, spd: 63, spe: 97},
+	},
+	copperajah: {
+    	inherit: true,
+		baseStats: {hp: 142, atk: 130, def: 69, spa: 80, spd: 69, spe: 30},
+	},
+	dracovish: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 80, spd: 90, spe: 55},
+	},
+	duraludon: {
+    	inherit: true,
+		otherFormes: ["Duraludon-Mega"],
+		formeOrder: ["Duraludon", "Duraludon-Mega"],
+	},
+	duraludonmega: {
+		num: 884,
+		name: "Thievul-Mega",
+		baseSpecies: "Thievul",
+		forme: "Mega",
+		types: ["Steel", "Dragon"],
+		baseStats: {hp: 70, atk: 105, def: 135, spa: 150, spd: 70, spe: 105},
+		abilities: {0: "Clear Body"},
+		weightkg: 86,
+		color: "White",
+		requiredItem: "Duraludite",
+	},
+	eternatuseternamax: {
+		num: 890,
+		name: "Eternatus-Eternamax",
+		baseSpecies: "Eternatus",
+		forme: "Eternamax",
+		types: ["Poison", "Dragon"],
+		gender: "N",
+		baseStats: {hp: 140, atk: 85, def: 105, spa: 165, spd: 105, spe: 140},
+		abilities: {0: "Maximum Potential"},
+		heightm: 100,
+		weightkg: 999,
+		color: "Purple",
+		eggGroups: ["Undiscovered"],
+		cannotDynamax: true,
+		requiredItem: "Eternamax Candy",
+	},
+	kubfu: {
+    	inherit: true,
+		abilities: {0: "Scrappy"},
+		baseStats: {hp: 70, atk: 90, def: 80, spa: 53, spd: 50, spe: 77},
+	},
+	urshifu: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 130, def: 100, spa: 73, spd: 60, spe: 87},
+	},
+	regieleki: {
+    	inherit: true,
+		abilities: {0: "Clear Body", H: "Transistor"},
+	},
+	regidrago: {
+    	inherit: true,
+		abilities: {0: "Clear Body", H: "Dragon's Maw"},
+	},
+	calyrex: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
+		abilities: {0: "Harvester"},
+	},
 
+	// New Mons
+	
 };
