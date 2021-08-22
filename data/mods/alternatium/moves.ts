@@ -741,9 +741,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		onBoost(boost, target, source, effect) {
-			if (user.baseSpecies.name === 'Eternatus') continue;
-			if (this.randomChance(4, 10)) {
-				this.boost({atk: -1}, target, pokemon, null, true);
+			if (user.baseSpecies.name === 'Eternatus') {
+				if (this.randomChance(4, 10)) {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
 			}
 		},
 		target: "normal",
