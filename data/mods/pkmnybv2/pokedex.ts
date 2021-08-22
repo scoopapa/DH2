@@ -1447,4 +1447,168 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		abilities: {0: "Water Absorb", H: "Mega Launcher"},
 	},
+	rowlet: {
+    	inherit: true,
+		baseStats: {hp: 48, atk: 65, def: 55, spa: 50, spd: 42, spe: 60},
+	},
+	dartrix: {
+    	inherit: true,
+		baseStats: {hp: 58, atk: 85, def: 70, spa: 70, spd: 52, spe: 85},
+	},
+	decidueye: {
+    	inherit: true,
+		baseStats: {hp: 78, atk: 107, def: 75, spa: 100, spd: 70, spe: 100},
+	},
+	pikipek: {
+    	inherit: true,
+		abilities: {0: "Cacophony", 1: "Skill Link", H: "Sheer Force"},
+	},
+	trumbeak: {
+    	inherit: true,
+		abilities: {0: "Cacophony", 1: "Skill Link", H: "Sheer Force"},
+	},
+	toucannon: {
+    	inherit: true,
+		baseStats: {hp: 95, atk: 120, def: 75, spa: 75, spd: 75, spe: 60},
+		abilities: {0: "Cacophony", 1: "Skill Link", H: "Sheer Force"},
+	},
+	gumshoos: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 110, def: 75, spa: 55, spd: 75, spe: 45},
+	},
+	crabominable: {
+    	inherit: true,
+		baseStats: {hp: 97, atk: 132, def: 97, spa: 62, spd: 87, spe: 43},
+	},
+	oricorio: {
+    	inherit: true,
+		abilities: {0: "Dancer", H: "Serene Grace"},
+	},
+	oricoriopompom: {
+    	inherit: true,
+		abilities: {0: "Dancer", H: "Serene Grace"},
+	},
+	oricoriopau: {
+    	inherit: true,
+		abilities: {0: "Dancer", H: "Serene Grace"},
+	},
+	oricoriosensu: {
+    	inherit: true,
+		abilities: {0: "Dancer", H: "Serene Grace"},
+	},
+	lycanroc: {
+    	inherit: true,
+		types: ["Rock", "Normal"],
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "No Guard"},
+	},
+	lycanrocmidnight: {
+    	inherit: true,
+		types: ["Rock", "Dark"],
+		baseStats: {hp: 105, atk: 115, def: 65, spa: 55, spd: 65, spe: 82},
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "No Guard"},
+	},
+	lycanrocdusk: {
+    	inherit: true,
+		types: ["Rock", "Fighting"],
+	},
+	shiinotic: {
+    	inherit: true,
+		otherFormes: ["Shiinotic-Mega"],
+		formeOrder: ["Shiinotic", "Shiinotic-Mega"],
+	},
+	shiinoticmega: {
+		num: 756,
+		name: "Shiinotic-Mega",
+		baseSpecies: "Shiinotic",
+		forme: "Mega",
+		types: ["Grass", "Fairy"],
+		baseStats: {hp: 60, atk: 45, def: 110, spa: 130, spd: 140, spe: 20},
+		abilities: {0: "Triage"},
+		weightkg: 12,
+		color: "Purple",
+		requiredItem: "Shiinotite",
+	},
+	bewear: {
+    	inherit: true,
+		otherFormes: ["Bewear-Mega"],
+		formeOrder: ["Bewear", "Bewear-Mega"],
+	},
+	bewearmega: {
+		num: 760,
+		name: "Bewear-Mega",
+		baseSpecies: "Bewear",
+		forme: "Mega",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 120, atk: 155, def: 120, spa: 55, spd: 90, spe: 60},
+		abilities: {0: "Prankster"},
+		weightkg: 135,
+		color: "Pink",
+		requiredItem: "Bewearite",
+	},
+	tsareena: {
+    	inherit: true,
+		abilities: {0: "Leaf Guard", 1: "Royal Presence", H: "Sweet Veil"},
+	},
+	comfey: {
+    	inherit: true,
+		baseStats: {hp: 52, atk: 51, def: 90, spa: 92, spd: 110, spe: 100},
+	},
+	sandygast: {
+    	inherit: true,
+		abilities: {0: "Water Compaction", 1: "Sand Veil", H: "Regenerator"},
+	},
+	palossand: {
+    	inherit: true,
+		abilities: {0: "Water Compaction", 1: "Sand Veil", H: "Regenerator"},
+	},
+	typenull: {
+    	inherit: true,
+		abilities: {0: "Battle Armor", H: "Seal Away"},
+	},
+	nihilego: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Levitate"},
+	},
+	buzzwole: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Iron Fist"},
+	},
+	pheromosa: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Dazzling"},
+	},
+	xurkitree: {
+    	inherit: true,
+		types: ["Electric", "Grass"],
+		abilities: {0: "Beast Boost", H: "Lightning Rod"},
+	},
+	celesteela: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Heavy Metal"},
+	},
+	kartana: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Knight's Blade"},
+	},
+	guzzlord: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Thick Fat"},
+	},
+	poipole: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Sniper"},
+	},
+	naganadel: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Sniper"},
+	},
+	stakataka: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Bulletproof"},
+	},
+	blacephalon: {
+    	inherit: true,
+		abilities: {0: "Beast Boost", H: "Aftermath"},
+	},
+
 };
