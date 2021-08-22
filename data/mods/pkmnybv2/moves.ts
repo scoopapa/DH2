@@ -1195,6 +1195,442 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
                                     
-// Z-Moves
-
+// Z-Moves 
+	cobblestonecarnage: {
+		accuracy: true,
+		basePower: 210,
+		category: "Physical",
+    	shortDesc: "No additional effect",
+		isNonstandard: "Past",
+		name: "Cobblestone Carnage",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Stealth Rock", target);
+		  this.add('-anim', source, "Rock Wrecker", target);
+		},
+		isZ: "rhyperiumz",
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	tonguetiedtirade: {
+		accuracy: true,
+		basePower: 200,
+		category: "Physical",
+    	shortDesc: "Wraps foe",
+		isNonstandard: "Past",
+		name: "Tongue-Tied Tirade",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Wrap", target);
+		  this.add('-anim', source, "Stomp", target);
+		},
+		isZ: "lickilickiumz",
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	crowscallingcard: {
+		accuracy: true,
+		basePower: 190,
+		category: "Physical",
+    	shortDesc: "No additional effect",
+		isNonstandard: "Past",
+		name: "Crow's Calling Card",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Trump Card", target);
+		  this.add('-anim', source, "Fiery Wrath", target);
+		},
+		isZ: "honchkriumz",
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	witcheswishes: {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+    	shortDesc: "No additional effect",
+		isNonstandard: "Past",
+		name: "Witches' Wishes",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Astral Barrage", target);
+		  this.add('-anim', source, "Hex", target);
+		},
+		isZ: "mismagiumz",
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	lilyslastdance: {
+		accuracy: true,
+		basePower: 180,
+		category: "Special",
+    	shortDesc: "Sets one layer of Toxic Spikes",
+		isNonstandard: "Past",
+		name: "Lily's Last Dance",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Petal Dance", target);
+		  this.add('-anim', source, "Toxic Spikes", target);
+		},
+		isZ: "roseradiumz",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('toxicspikes');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	iceagereign: {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+    	shortDesc: "Summons Mist",
+		isNonstandard: "Past",
+		name: "Ice Age Reign",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Sheer Cold", target);
+		  this.add('-anim', source, "Mist", target);
+		},
+		isZ: "walreiniumz",
+		self: {
+			sideCondition: 'mist',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	salutetosunshine : {
+		accuracy: true,
+		basePower: 180,
+		category: "Physical",
+    	shortDesc: "Summons Sunny Day",
+		isNonstandard: "Past",
+		name: "Salute to Sunshine",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Solar Blade", target);
+		  this.add('-anim', source, "Morning Sun", target);
+		},
+		isZ: "cherriumz",
+		self: {
+			onHit(source) {
+				this.field.setWeather('sunnyday');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	hectichivemind : {
+		accuracy: true,
+		basePower: 185,
+		category: "Physical",
+    	shortDesc: "User: +2 Def and SpD",
+		isNonstandard: "Past",
+		name: "Hectic Hivemind",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Heal Order", target);
+		  this.add('-anim', source, "Attack Order", target);
+		},
+		isZ: "vespiumz",
+		selfBoost: {
+			boosts: {
+				def: 2,
+				spd: 2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	desertdisaster : {
+		accuracy: true,
+		basePower: 195,
+		category: "Physical",
+    	shortDesc: "No additional effect",
+		isNonstandard: "Past",
+		name: "Desert Disaster",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Laser Focus", target);
+		  this.add('-anim', source, "Drill Run", target);
+		},
+		isZ: "krookiumz",
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	alienatmosphere : {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+		defensiveCategory: "Physical",
+    	shortDesc: "Targets foe's Defense. Summons Gravity",
+		isNonstandard: "Past",
+		name: "Alien Atmosphere",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Calm Mind", target);
+		  this.add('-anim', source, "Expanding Force", target);
+		},
+		isZ: "beheeyemiumz",
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	earsplittingechoes : {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+    	shortDesc: "No additional effect",
+		isNonstandard: "Past",
+		name: "Ear-Splitting Echoes",
+		pp: 1,
+		priority: 0,
+		flags: {sound: 1, authentic: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Hyper Voice", target);
+		  this.add('-anim', source, "Boomburst", target);
+		},
+		isZ: "noiviumz",
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	smolderingsauna : {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+    	shortDesc: "Burns foe. 2x damage in Sun",
+		isNonstandard: "Past",
+		name: "Smoldering Sauna",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Steam Eruption", target);
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (['sunnyday'].includes(pokemon.effectiveWeather())) {
+				this.debug('strengthend by sun');
+				return this.chainModify(2);
+			}
+		},
+		isZ: "volcaniumz",
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
+	eternalblossom : {
+		accuracy: true,
+		basePower: 195,
+		category: "Special",
+    	shortDesc: "Heals user by 50% of the damage dealt",
+		isNonstandard: "Past",
+		name: "Eternal Blossom",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Recover", target);
+		  this.add('-anim', source, "Light of Ruin", target);
+		},
+		drain: [1, 2],
+		isZ: "floettiumz",
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cool",
+	},
+	ampedupspikeball : {
+		accuracy: true,
+		basePower: 180,
+		category: "Physical",
+    	shortDesc: "Sets one layer of Spikes",
+		isNonstandard: "Past",
+		name: "Amped-Up Spikeball",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Bolt Strike", target);
+		  this.add('-anim', source, "Spikes", target);
+		},
+		isZ: "togedemariumz",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('spikes');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	neverendingwarstory : {
+		accuracy: true,
+		basePower: 180,
+		category: "Special",
+    	shortDesc: "User: +2 Special Attack",
+		isNonstandard: "Past",
+		name: "Neverending War Story",
+		pp: 1,
+		priority: 0,
+		flags: {sound: 1, authentic: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Hyper Voice", target);
+		  this.add('-anim', source, "Clanging Scales", target);
+		},
+		isZ: "drampiumz",
+		selfBoost: {
+			boosts: {
+				spa: 2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	moltenminefield : {
+		accuracy: true,
+		basePower: 180,
+		category: "Special",
+    	shortDesc: "Burns foe",
+		isNonstandard: "Past",
+		name: "Molten Minefield",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Work Up", target);
+		  this.add('-anim', source, "Inferno Overdrive", target);
+		},
+		isZ: "turtonatiumz",
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},		
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	crusaderscourage : {
+		accuracy: true,
+		basePower: 130,
+		category: "Physical",
+    	shortDesc: "User: +1 All Stats",
+		isNonstandard: "Past",
+		name: "Crusader's Courage",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "No Retreat", target);
+		  this.add('-anim', source, "Sacred Sword", target);
+		},
+		isZ: "falinksiumz",
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	metallicmausoleum : {
+		accuracy: true,
+		basePower: 180,
+		category: "Physical",
+    	shortDesc: "Sets a hazard that factors Steel weakness",
+		isNonstandard: "Past",
+		name: "Metallic Mausoleum",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "G-Max Steelsurge", target);
+		},
+		isZ: "copperajiumz",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxsteelsurge');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
 };  
