@@ -1911,6 +1911,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			nightshade: ["7L1"],
 			disable: ["7L1"],
 			knockoff: ["7L1"],
+			circlethrow: ["7L1"],
 		},
 	},
 	feebasalola: {
