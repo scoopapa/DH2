@@ -1197,5 +1197,270 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "genesect").learnset.adaptableattack = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.bittrip = ["8L1"];
 
+		// Chesnaught
+		this.modData("Learnsets", "chesnaught").learnset.grassyglide = ["8L1"];
+		this.modData("Learnsets", "chesnaught").learnset.coaching = ["8L1"];
+		this.modData("Learnsets", "chesnaught").learnset.steelroller = ["8L1"];
+		this.modData("Learnsets", "chesnaught").learnset.bodypress = ["8L1"];
+		// Delphox
+		this.modData("Learnsets", "delphox").learnset.burningjealousy = ["8L1"];
+		this.modData("Learnsets", "delphox").learnset.expandingforce = ["8L1"];
+		this.modData("Learnsets", "delphox").learnset.scorchingsands = ["8L1"];
+		this.modData("Learnsets", "delphox").learnset.speedswap = ["8L1"];
+		// Greninja
+		this.modData("Learnsets", "greninja").learnset.hiddenleafstrike = ["8L1"];
+		// Vivillon
+		this.modData("Learnsets", "vivillon").learnset.dualwingbeat = ["8L1"];
+		this.modData("Learnsets", "vivillon").learnset.skittersmack = ["8L1"];
+		this.modData("Learnsets", "vivillon").learnset.pollenpuff = ["8L1"];
+		this.modData("Learnsets", "vivillon").learnset.steelwing = ["8L1"];
+		// Pyroar
+		this.modData("Learnsets", "pyroar").learnset.spitfire = ["8L1"];
+		this.modData("Learnsets", "pyroar").learnset.burningjealousy = ["8L1"];
+		this.modData("Learnsets", "pyroar").learnset.scorchingsands = ["8L1"];
+		this.modData("Learnsets", "pyroar").learnset.mysticalfire = ["8L1"];
+		// Florges
+		this.modData("Learnsets", "florges").learnset.mistyexplosion = ["8L1"];
+		this.modData("Learnsets", "florges").learnset.grassyglide = ["8L1"];
+		this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
+		this.modData("Learnsets", "florges").learnset.pollenpuff = ["8L1"];
+		// Gogoat
+		this.modData("Learnsets", "gogoat").learnset.grassyglide = ["8L1"];
+		this.modData("Learnsets", "gogoat").learnset.rototiller = ["8L1"];
+		this.modData("Learnsets", "gogoat").learnset.stoneedge = ["8L1"];
+		// Pangoro
+		this.modData("Learnsets", "pangoro").learnset.machpunch = ["8L1"];
+		// Furfrou
+		this.modData("Learnsets", "furfrou").learnset.slackoff = ["8L1"];
+		this.modData("Learnsets", "furfrou").learnset.healbell = ["8L1"];
+		this.modData("Learnsets", "furfrou").learnset.bodypress = ["8L1"];
+		// Meowstic
+		this.modData("Learnsets", "meowstic").learnset.aurasphere = ["8L1"];
+		// Meowstic-F
+		this.modData("Learnsets", "meowsticf").learnset.aurasphere = ["8L1"];
+		// Doublade
+		this.modData("Learnsets", "doublade").learnset.smartstrike = ["8L1"];
+		// Aromatisse
+		this.modData("Learnsets", "aromatisse").learnset.sludgebomb = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.sludgewave = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.venoshock = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.corrosivegas = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.poisongas = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.clearsmog = ["8L1"];
+		this.modData("Learnsets", "aromatisse").learnset.acidspray = ["8L1"];
+		// Slurpuff
+		this.modData("Learnsets", "slurpuff").learnset.dizzypunch = ["8L1"];
+		this.modData("Learnsets", "slurpuff").learnset.heartbeat = ["8L1"];
+		this.modData("Learnsets", "slurpuff").learnset.thunderpunch = ["8L1"];
+		this.modData("Learnsets", "slurpuff").learnset.websling = ["8L1"];
+		// Malamar
+		this.modData("Learnsets", "malamar").learnset.overheat = ["8L1"];
+		this.modData("Learnsets", "malamar").learnset.eclipse = ["8L1"];
+		// Barbaracle
+		this.modData("Learnsets", "barbaracle").learnset.stalagbite = ["8L1"];
+		this.modData("Learnsets", "barbaracle").learnset.washaway = ["8L1"];
+		this.modData("Learnsets", "barbaracle").learnset.icepunch = ["8L1"];
+		// Dragalge
+		this.modData("Learnsets", "dragalge").learnset.washaway = ["8L1"];
+		this.modData("Learnsets", "dragalge").learnset.synthesis = ["8L1"];
+		// Clawitzer
+		this.modData("Learnsets", "clawitzer").learnset.washaway = ["8L1"];
+		this.modData("Learnsets", "clawitzer").learnset.wipeout = ["8L1"];
+		this.modData("Learnsets", "clawitzer").learnset.chillout = ["8L1"];
+		// Heliolisk
+		this.modData("Learnsets", "heliolisk").learnset.powergem = ["8L1"];
+		// Tyrunt
+		this.modData("Learnsets", "tyrunt").learnset.stalagbite = ["8L1"];
+		// Tyrantrum
+		this.modData("Learnsets", "tyrantrum").learnset.stalagbite = ["8L1"];
+		// Aurorus
+		this.modData("Learnsets", "aurorus").learnset.chillout = ["8L1"];
+		this.modData("Learnsets", "aurorus").learnset.wildcharge = ["8L1"];
+		this.modData("Learnsets", "aurorus").learnset.iceshard = ["8L1"];
+		// Sylveon
+		this.modData("Learnsets", "sylveon").learnset.feint = ["8L1"];
+		// Dedenne
+		this.modData("Learnsets", "dedenne").learnset.stuffcheeks = ["8L1"];
+		this.modData("Learnsets", "dedenne").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "dedenne").learnset.disarmingvoice = ["8L1"];
+		// Carbink
+		this.modData("Learnsets", "carbink").learnset.storedpower = ["8L1"];
+		this.modData("Learnsets", "carbink").learnset.drainingkiss = ["8L1"];
+		// Goodra
+		this.modData("Learnsets", "goodra").learnset.washaway = ["8L1"];
+		this.modData("Learnsets", "goodra").learnset.liquidation = ["8L1"];
+		this.modData("Learnsets", "goodra").learnset.whirlpool = ["8L1"];
+		// Trevenant
+		this.modData("Learnsets", "trevenant").learnset.shadowpunch = ["8L1"];
+		this.modData("Learnsets", "trevenant").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "trevenant").learnset.stoneedge = ["8L1"];
+		// Gourgeist
+		this.modData("Learnsets", "gourgeist").learnset.firepunch = ["8L1"];
+		this.modData("Learnsets", "gourgeist").learnset.shadowpunch = ["8L1"];
+		// Avalugg
+		this.modData("Learnsets", "avalugg").learnset.wipeout = ["8L1"];
+		this.modData("Learnsets", "avalugg").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "avalugg").learnset.chillout = ["8L1"];
+		this.modData("Learnsets", "avalugg").learnset.iciclecrash = ["8L1"];
+		// Noivern
+		this.modData("Learnsets", "noivern").learnset.spitfire = ["8L1"];
+		// Diancie
+		this.modData("Learnsets", "diancie").learnset.dizzypunch = ["8L1"];
+		// Volcanion
+		this.modData("Learnsets", "volcanion").learnset.mysticalfire = ["8L1"];
+		this.modData("Learnsets", "volcanion").learnset.darkpulse = ["8L1"];
+		this.modData("Learnsets", "volcanion").learnset.aurasphere = ["8L1"];
 
+		// Toucannon
+		this.modData("Learnsets", "toucannon").learnset.spikecannon = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.heartbeat = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.quickattack = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.spitfire = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.flareblitz = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.dualwingbeat = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.cloudcrush = ["8L1"];
+		this.modData("Learnsets", "toucannon").learnset.lashout = ["8L1"];
+		// Gumshoos
+		this.modData("Learnsets", "gumshoos").learnset.trickroom = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.lashout = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.psychicfangs = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.poisonfang = ["8L1"];
+		// Vikavolt
+		this.modData("Learnsets", "vikavolt").learnset.calmmind = ["8L1"];
+		// Crabominable
+		this.modData("Learnsets", "crabominable").learnset.wipeout = ["8L1"];
+		this.modData("Learnsets", "crabominable").learnset.slackoff = ["8L1"];
+		this.modData("Learnsets", "crabominable").learnset.bodypress = ["8L1"];
+		this.modData("Learnsets", "crabominable").learnset.coaching = ["8L1"];
+		// Oricorio
+		this.modData("Learnsets", "oricorio").learnset.quiverdance = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.fierydance = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.teeterdance = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.eclipse = ["8L1"];
+		// Ribombee
+		this.modData("Learnsets", "ribombee").learnset.endeavor = ["8L1"];
+		// Lycanroc
+		this.modData("Learnsets", "lycanroc").learnset.stalagbite = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.doubleedge = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.icefang = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.poisonfang = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.morningsun = ["8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.solarblade = ["8L1"];
+		// Lycanroc-Midnight
+		this.modData("Learnsets", "lycanrocmidnight").learnset.stalagbite = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.icepunch = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.icefang = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.poisonfang = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.eclipse = ["8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.moonlight = ["8L1"];
+		// Lycanroc-Dusk
+		this.modData("Learnsets", "lycanrocdusk").learnset.stalagbite = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.poisonfang = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.doublekick = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.lowkick = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.finalgambit = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.morningsun = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.moonlight = ["8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.solarblade = ["8L1"];
+		// Wishiwashi
+		this.modData("Learnsets", "wishiwashi").learnset.painsplit = ["8L1"];
+		this.modData("Learnsets", "wishiwashi").learnset.washaway = ["8L1"];
+		this.modData("Learnsets", "wishiwashi").learnset.wipeout = ["8L1"];
+		this.modData("Learnsets", "wishiwashi").learnset.lifedew = ["8L1"];
+		// Araquanid
+		this.modData("Learnsets", "araquanid").learnset.washaway = ["8L1"];
+		// Lurantis
+		this.modData("Learnsets", "lurantis").learnset.tailwind = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.curse = ["8L1"];
+		// Shiinotic
+		this.modData("Learnsets", "shiinotic").learnset.thunderbolt = ["8L1"];
+		this.modData("Learnsets", "shiinotic").learnset.thunder = ["8L1"];
+		// Bewear
+		this.modData("Learnsets", "bewear").learnset.helpinghand = ["8L1"];
+		this.modData("Learnsets", "bewear").learnset.thunderwave = ["8L1"];
+		this.modData("Learnsets", "bewear").learnset.faketears = ["8L1"];
+		this.modData("Learnsets", "bewear").learnset.nobleroar = ["8L1"];
+		// Salazzle
+		this.modData("Learnsets", "salazzle").learnset.toxicspikes = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.spitfire = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.corrosiveacid = ["8L1"];
+		// Tsareena
+		this.modData("Learnsets", "tsareena").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "tsareena").learnset.doublekick = ["8L1"];
+		// Comfey
+		this.modData("Learnsets", "comfey").learnset.dreameater = ["8L1"];
+		this.modData("Learnsets", "comfey").learnset.hypnosis = ["8L1"];
+		this.modData("Learnsets", "comfey").learnset.healingwish = ["8L1"];
+		// Oranguru
+		this.modData("Learnsets", "oranguru").learnset.fakeout = ["8L1"];
+		this.modData("Learnsets", "oranguru").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "oranguru").learnset.powerswap = ["8L1"];
+		this.modData("Learnsets", "oranguru").learnset.speedswap = ["8L1"];
+		this.modData("Learnsets", "oranguru").learnset.guardswap = ["8L1"];
+		this.modData("Learnsets", "oranguru").learnset.beatup = ["8L1"];
+		// Passimian
+		this.modData("Learnsets", "passimian").learnset.batonpass = ["8L1"];
+		this.modData("Learnsets", "passimian").learnset.psychup = ["8L1"];
+		// Golisopod
+		this.modData("Learnsets", "golisopod").learnset.wipeout = ["8L1"];
+		// Pyukumuku
+		this.modData("Learnsets", "pyukumuku").learnset.aquaring = ["8L1"];
+		this.modData("Learnsets", "pyukumuku").learnset.charm = ["8L1"];
+		this.modData("Learnsets", "pyukumuku").learnset.captivate = ["8L1"];
+		this.modData("Learnsets", "pyukumuku").learnset.disable = ["8L1"];
+		this.modData("Learnsets", "pyukumuku").learnset.refresh = ["8L1"];
+		// Type: Null
+		this.modData("Learnsets", "typenull").learnset.adaptableattack = ["8L1"];
+		this.modData("Learnsets", "typenull").learnset.cobaltwave = ["8L1"];
+		// Silvally
+		this.modData("Learnsets", "silvally").learnset.adaptableattack = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.cobaltwave = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.dazzlinggleam = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.aquatail = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.waterpledge = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.firepledge = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.calmmind = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.chillout = ["8L1"];
+		// Minior
+		this.modData("Learnsets", "minior").learnset.scorchingsands = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.expandingforce = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.meteormash = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.moonlight = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.steelroller = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.bodypress = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.cloudcrush = ["8L1"];
+		// Komala
+		this.modData("Learnsets", "komala").learnset.slackoff = ["8L1"];
+		this.modData("Learnsets", "komala").learnset.nightmare = ["8L1"];
+		this.modData("Learnsets", "komala").learnset.doubleedge = ["8L1"];
+		this.modData("Learnsets", "komala").learnset.amnesia = ["8L1"];
+		// Togedemaru
+		this.modData("Learnsets", "togedemaru").learnset.spikes = ["8L1"];
+		// Mimikyu
+		this.modData("Learnsets", "mimikyu").learnset.dizzypunch = ["8L1"];
+		// Bruxish
+		this.modData("Learnsets", "bruxish").learnset.flipturn = ["8L1"];
+		this.modData("Learnsets", "bruxish").learnset.wipeout = ["8L1"];
+		this.modData("Learnsets", "bruxish").learnset.expandingforce = ["8L1"];
+		// Xurkitree
+		this.modData("Learnsets", "xurkitree").learnset.gigadrain = ["8L1"];
+		this.modData("Learnsets", "xurkitree").learnset.paraboliccharge = ["8L1"];
+		// Necrozma
+		this.modData("Learnsets", "necrozma").learnset.dracometeor = ["8L1"];
+		this.modData("Learnsets", "necrozma").learnset.steelbeam = ["8L1"];
+		this.modData("Learnsets", "necrozma").learnset.adaptableattack = ["8L1"];
+		// Melmetal
+		this.modData("Learnsets", "melmetal").learnset.meteormash = ["8L1"];
+		this.modData("Learnsets", "melmetal").learnset.hiddenpower = ["8L1"];
+		this.modData("Learnsets", "melmetal").learnset.return = ["8L1"];
+		this.modData("Learnsets", "melmetal").learnset.frustration = ["8L1"];
 };
