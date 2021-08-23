@@ -1194,6 +1194,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
+	behemothblade: {
+		num: 781,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Behemoth Blade",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.hasAbility('maximumpotential')) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	behemothbash: {
+		num: 782,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Behemoth Bash",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.hasAbility('maximumpotential')) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
                                     
 // Z-Moves 
 	cobblestonecarnage: {
