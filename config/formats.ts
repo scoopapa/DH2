@@ -2522,7 +2522,7 @@ export const Formats: FormatList = [
 			'Duraludon', 'Copperajah', 'Empoleon', 'Wormadam-Steel', 'Chimecho', 'Skarmory', 'Scizor', 'Perrserker', 'Klinklang', 'Bisharp', 
 			'Feraligatr', 'Slowking', 'Milotic', 'Arctovish', 'Clawitzer', 'Floatzel', 'Politoed', 'Seaking', 'Qwilfish', 'Quagsire',
 			'Zweilous', 'Electabuzz', 'Magmar', 'Murkrow', 'Misdreavus', 'Dusclops', 'Lickitung', 'Roselia', 'Rhydon', 'Floette', 'Mr. Mime-Galar', 'Pikachu', 'Charjabug', 'Jigglypuff', 'Jynx', 'Scyther', 
-			'Unown', 'Mr. Rime', 'Azelf', 'Uxie', 'Mesprit', 'Rapidash-Galar', 'Ninetales-Alola', 'Simisage', 'Simisear', 'Simipour', 'Darmanitan-Galar', 'Gourgeist-Large', 'Gourgeist-Super', 'Gourgeist-Small', 'Runerigus', 'Bellossom', 'Golem-Alola', 'Dugtrio', 'Sandslash-Alola', 'Plusle', 'Exeggutor-Alola', 'Lycanroc-Midnight', 'Lycanroc-Dusk', 'Persian', 'Persian-Alola', 
+			'Unown', 'Mr. Rime', 'Azelf', 'Uxie', 'Mesprit', 'Rapidash-Galar', 'Ninetales-Alola', 'Simisage', 'Simisear', 'Simipour', 'Darmanitan-Galar', 'Gourgeist-Large', 'Gourgeist-Super', 'Gourgeist-Small', 'Runerigus', 'Bellossom', 'Golem-Alola', 'Dugtrio-Alola', 'Sandslash-Alola', 'Plusle', 'Exeggutor-Alola', 'Lycanroc-Midnight', 'Lycanroc-Dusk', 'Persian', 'Persian-Alola', 
 		],
 	},
 	// Past Gens OU
