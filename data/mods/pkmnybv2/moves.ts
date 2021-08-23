@@ -41,6 +41,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.type = '???';
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.species.name === 'Type: Null') {
+				return this.chainModify(1.5);
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
