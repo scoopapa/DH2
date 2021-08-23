@@ -958,7 +958,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "arceus").learnset.lashout = ["8L1"];
 		this.modData("Learnsets", "arceus").learnset.expandingforce = ["8L1"];
 		this.modData("Learnsets", "arceus").learnset.adaptableattack = ["8L1"];
-	},
 
 		// Serperior
 		this.modData("Learnsets", "serperior").learnset.grassyglide = ["8L1"];
@@ -2018,5 +2017,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "calyrexice").learnset.return = ["8L1"];
 		this.modData("Learnsets", "calyrexice").learnset.frustration = ["8L1"];
 		this.modData("Learnsets", "calyrexice").learnset.rototiller = ["8L1"];
-
+	},
 };
