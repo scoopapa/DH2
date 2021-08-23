@@ -1524,6 +1524,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["8L1"],
 			gigaimpact: ["8L1"],
 			hyperbeam: ["8L1"],
+			wildcharge: ["8L1"],
 		},
 	},
 	sanatee: {
@@ -2202,6 +2203,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["8L1"],
 			gigaimpact: ["8L1"],
 			hyperbeam: ["8L1"],
+			stealthrock: ["8L1"],
 		},
 	},
 	fyrecho: {
