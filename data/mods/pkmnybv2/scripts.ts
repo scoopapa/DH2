@@ -1625,11 +1625,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "rolycoly").learnset.return = ["8L1"];
 		this.modData("Learnsets", "rolycoly").learnset.frustration = ["8L1"];
 		this.modData("Learnsets", "rolycoly").learnset.lavapulme = ["8L1"];
-		// Carkoal
-		this.modData("Learnsets", "carkoal").learnset.hiddenpower = ["8L1"];
-		this.modData("Learnsets", "carkoal").learnset.return = ["8L1"];
-		this.modData("Learnsets", "carkoal").learnset.frustration = ["8L1"];
-		this.modData("Learnsets", "carkoal").learnset.lavapulme = ["8L1"];
+		// Carkol
+		this.modData("Learnsets", "carkol").learnset.hiddenpower = ["8L1"];
+		this.modData("Learnsets", "carkol").learnset.return = ["8L1"];
+		this.modData("Learnsets", "carkol").learnset.frustration = ["8L1"];
+		this.modData("Learnsets", "carkol").learnset.lavapulme = ["8L1"];
 		// Coalossal
 		this.modData("Learnsets", "coalossal").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "coalossal").learnset.return = ["8L1"];
