@@ -1429,6 +1429,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "silvally").learnset.firepledge = ["8L1"];
 		this.modData("Learnsets", "silvally").learnset.calmmind = ["8L1"];
 		this.modData("Learnsets", "silvally").learnset.chillout = ["8L1"];
+		this.modData("Learnsets", "silvally").learnset.bittrip = ["8L1"];
 		// Minior
 		this.modData("Learnsets", "minior").learnset.scorchingsands = ["8L1"];
 		this.modData("Learnsets", "minior").learnset.meteorbeam = ["8L1"];
