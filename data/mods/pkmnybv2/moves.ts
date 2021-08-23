@@ -207,7 +207,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Defense Curl", target);
 		},
 		stallingMove: true,
-		volatileStatus: 'obstruct',
+		volatileStatus: 'ballup',
 		onTryHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
@@ -781,34 +781,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Icy Wind", target);
 		  this.add('-anim', source, "Mist", target);
 		},
-		sideCondition: 'mist',
-		condition: {
-			duration: 5,
-			onBoost(boost, target, source, effect) {
-				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
-				if (source && target !== source) {
-					let showMsg = false;
-					let i: BoostName;
-					for (i in boost) {
-						if (boost[i]! < 0) {
-							delete boost[i];
-							showMsg = true;
-						}
-					}
-					if (showMsg && !(effect as ActiveMove).secondaries) {
-						this.add('-activate', target, 'move: Mist');
-					}
-				}
-			},
-			onStart(side) {
-				this.add('-sidestart', side, 'Mist');
-			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 3,
-			onEnd(side) {
-				this.add('-sideend', side, 'Mist');
-			},
-		},
 		self: {
 			onHit(pokemon) {
 				const boosts: SparseBoostsTable = {};
@@ -822,6 +794,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-clearnegativeboost', pokemon, '[silent]');
 				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
 	    },
+			sideCondition: 'mist',
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
