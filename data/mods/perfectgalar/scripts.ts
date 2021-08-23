@@ -273,6 +273,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		//Vespiquen
 		this.modData('Learnsets', 'vespiquen').learnset.stickyweb = ["8L1"];
+		
+		//Stunfisk-Galar
+		this.modData('Learnsets', 'stunfiskgalar').learnset.firefang = ["8L1"];
+		this.modData('Learnsets', 'stunfiskgalar').learnset.icefang = ["8L1"];
+		this.modData('Learnsets', 'stunfiskgalar').learnset.thunderfang = ["8L1"];
+		this.modData('Learnsets', 'stunfiskgalar').learnset.psychicfangs = ["8L1"];
+		
+		//Runerigus
+		this.modData('Learnsets', 'runerigus').learnset.painsplit = ["8L1"];
+		this.modData('Learnsets', 'runerigus').learnset.toxic = ["8L1"];
+		this.modData('Learnsets', 'runerigus').learnset.encore = ["8L1"];
+		this.modData('Learnsets', 'runerigus').learnset.moonlight = ["8L1"];
+		
+		//Mr. Rime
+		this.modData('Learnsets', 'mrrime').learnset.teleport = ["8L1"];
+		this.modData('Learnsets', 'mrrime').learnset.healbell = ["8L1"];
+		this.modData('Learnsets', 'mrrime').learnset.hypervoice = ["8L1"];
 	},
 	//Modded functions
 	canDynamax(pokemon, skipChecks) {

@@ -333,6 +333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	sonicboom: {
 		inherit: true,
+		damage: null,
 		basePower: 40,
 		category: "Special",
 		desc: "Priority +1, Sound move.",
