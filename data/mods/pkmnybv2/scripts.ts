@@ -1529,15 +1529,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "skwovet").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "skwovet").learnset.return = ["8L1"];
 		this.modData("Learnsets", "skwovet").learnset.frustration = ["8L1"];
-		// Greedunt
-		this.modData("Learnsets", "greedunt").learnset.taunt = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.knockoff = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.toxic = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.curse = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.doubleedge = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.hiddenpower = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.return = ["8L1"];
-		this.modData("Learnsets", "greedunt").learnset.frustration = ["8L1"];
+		// Greedent
+		this.modData("Learnsets", "greedent").learnset.taunt = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.toxic = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.curse = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.doubleedge = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.hiddenpower = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.return = ["8L1"];
+		this.modData("Learnsets", "greedent").learnset.frustration = ["8L1"];
 		// Rookidee
 		this.modData("Learnsets", "rookidee").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "rookidee").learnset.return = ["8L1"];
