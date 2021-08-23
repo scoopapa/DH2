@@ -1040,5 +1040,9 @@ cinderace: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
+dracovish: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 	
 };
