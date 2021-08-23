@@ -221,11 +221,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	spectrier: {
-		inherit:true
+		inherit:true,
 		tier: "OU",
 	},
 	cinderace: {
-		inherit:true
+		inherit:true,
 		tier: "OU",
 	},
 };
