@@ -349,7 +349,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Power Core",
-		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
+		shortDesc: "Immunity to hazards and any kind of stat changes.",
 		rating: 3,
 		num: 1008,
 	},
@@ -387,7 +387,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isUnbreakable: true,
 		name: "Shadow World",
-		shortDesc: "When this Pokemon is active, Ghost and Dark moves do 1.2x damage. Psychic and Fairy moves do 0.8x damage.",
+		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have do 0.8x power.",
 		rating: 3,
 		num: 1010,
 	},
