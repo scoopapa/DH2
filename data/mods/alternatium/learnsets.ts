@@ -9116,7 +9116,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			attackorder: ["8L1"],
 			tripleaxel: ["8L1"],
 			icywind: ["8L1"],
-			defenseorder: ["8L1"],
+			defendorder: ["8L1"],
 			healorder: ["8L1"],
 			stickyweb: ["8L1"],
 			technoblastfreezer: ["8L1"],
