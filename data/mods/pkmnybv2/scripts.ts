@@ -335,6 +335,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "jumpluff").learnset.cloudcrush = ["8L1"];
 		this.modData("Learnsets", "jumpluff").learnset.oxidation = ["8L1"];
 		this.modData("Learnsets", "jumpluff").learnset.heartbeat = ["8L1"];
+		this.modData("Learnsets", "jumpluff").learnset.pollenpuff = ["8L1"];
 		// Quagsire
 		this.modData("Learnsets", "quagsire").learnset.wipeout = ["8L1"];
 		// Espeon
