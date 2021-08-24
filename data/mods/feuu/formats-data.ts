@@ -668,7 +668,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	zerclef: {
-		tier: "FEUU",
+		tier: "Uncoded",
 		doublesTier: "DUU",
 	},
 	
