@@ -2398,40 +2398,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fire Starter",
 		shortDesc: "30% chance to burn opponent when using a contact move or when the opponent makes contact with this Pokemon",
 	},
-	parasomnia: {
-		onSourceAfterFaint(length, target, source, effect) {
+	"parasomnia": { 
+		shortDesc: "Upon a KO or falling asleep, highest non-HP stat is raised by 1 stage.",
+		id: "parasomnia",
+		name: "Parasomnia",
+		onSourceFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				let statName = 'atk';
 				let bestStat = 0;
-				let s: StatNameExceptHP;
+				/** @type {StatNameExceptHP} */
+				let s;
 				for (s in source.storedStats) {
 					if (source.storedStats[s] > bestStat) {
 						statName = s;
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, source);
+				this.boost({[statName]: 1}, source);
 			}
 		},
-		onSetStatus(status, length, target, source, effect) {
-			if (status.id !== 'slp') return;
-			if ((effect as Move)?.status) {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
+		onSetStatus(status, target, source, effect) { 
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
 				}
-				this.boost({[statName]: length}, source);
 			}
-			return false;
+			if (status.id === 'slp') {
+				this.boost({[statName]: 1}, this.effectData.target);
+			}
 		},
-		name: "Parasomnia",
-		shortDesc: "Raises this Pokemon's highest raw stat after KOing a foe or falling asleep",
-	},
+	}, 
 	willfulcharge: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
@@ -2444,24 +2445,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyBoost(boosts, pokemon, move) {
 			const unawareUser = this.effectData.target;
 			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget && move.type === 'Electric') {
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
 				boosts['spd'] = 0;
 				boosts['evasion'] = 0;
 			}
 		},
 		name: "Willful Charge",
-		shortDesc: "Ignores opponent’s stat changes when doing damage with Electric-type moves and recovers 1/4 max HP when hit by an electric type move; Electric immunity.",
+		shortDesc: "(Bugged) Ignores opponent’s stat changes when doing damage with Electric-type moves and recovers 1/4 max HP when hit by an electric type move; Electric immunity.",
 	},
 	sheerheart: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.category === 'Special') return this.chainModify([0x14CD, 0x1000]);
 		},
-		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['spa'] = 0;
+		onBoost(boost, target, source, effect) {
+			if (boost.spa && boost.spa < 0) {
+				delete boost.spa;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Sheer Heart", "[of] " + target);
+				}
 			}
 		},
 		name: "Sheer Heart",
