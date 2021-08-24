@@ -2460,7 +2460,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Special') return this.chainModify([0x14CD, 0x1000]);
 		},
 		onBoost(boost, target, source, effect) {
-			if (boost.spa && boost.spa < 0) {
+			if (boost.spa && boost.spa < 0 || boost.spa > 0) {
 				delete boost.spa;
 				if (!(effect as ActiveMove).secondaries) {
 					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Sheer Heart", "[of] " + target);
