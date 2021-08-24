@@ -2038,29 +2038,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 */
 	reversegear: {
 		name: "Reverse Gear",
-		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
+		onBoost(boost) {
+      		 boost.spe *= -1;
+      },
+		shortDesc: "Stat boosts to the Speed stat are inversed.",
 	},
 	plotarmor: {
 		name: "Plot Armor",
 		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
-/*
-	reversegear: {
-		onAfterBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if (boost.spe && boost.spe < 0) {
-					if (source.boosts[spe] === 0) continue;
-					source.boosts[i] = -source.boosts[i];
-					success = true;
-				}
-				if (!success) return false;
-				this.add('-invertboost', source, '[from] ability: Contrary Boost');
-			}
-		},
-		name: "Reverse Gear",
-		shortDesc: "Stat boosts to the Speed stat are inversed.",
-	},
-*/	
 	innerfocus: {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
@@ -2344,6 +2330,145 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "As One (Kecleon)",
 		shortDesc: "As One (Spectrier) + Color Change.",
+	},
+	heavyarmor: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Heavy Armor", "[of] " + target);
+			}
+		},
+		onCriticalHit: false,
+		name: "Heavy Armor",
+		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages. This Pokemon cannot be struck by a critical hit.",
+	},
+	magicwand: {
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		name: "Magic Wand",
+		shortDesc: "Long Reach + Magic Guard",
+	},
+	sportsshowtime: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Sports Showtime');
+				this.heal(source.baseMaxhp / 16);
+			}
+		},
+		name: "Sports Showtime",
+		shortDesc: "Changes to the type of its used move and heals 1/16 of its max HP before dealing damage",
+	},
+	firestarter: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'brn',
+				ability: this.dex.getAbility('firestarter'),
+			});
+		},
+		name: "Fire Starter",
+		shortDesc: "30% chance to burn opponent when using a contact move or when the opponent makes contact with this Pokemon",
+	},
+	"parasomnia": { 
+		shortDesc: "Upon a KO or falling asleep, highest non-HP stat is raised by 1 stage.",
+		id: "parasomnia",
+		name: "Parasomnia",
+		onSourceFaint(target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				/** @type {StatNameExceptHP} */
+				let s;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, source);
+			}
+		},
+		onSetStatus(status, target, source, effect) { 
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (status.id === 'slp') {
+				this.boost({[statName]: 1}, this.effectData.target);
+			}
+		},
+	}, 
+	willfulcharge: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Willful Charge');
+				}
+				return null;
+			}
+		},
+		onAnyModifyBoost(boosts, pokemon, move) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+		},
+		name: "Willful Charge",
+		shortDesc: "(Bugged) Ignores opponent’s stat changes when doing damage with Electric-type moves and recovers 1/4 max HP when hit by an electric type move; Electric immunity.",
+	},
+	sheerheart: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.category === 'Special') return this.chainModify([0x14CD, 0x1000]);
+		},
+		onBoost(boost, target, source, effect) {
+			if (boost.spa && boost.spa < 0 || boost.spa > 0) {
+				delete boost.spa;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Sheer Heart", "[of] " + target);
+				}
+			}
+		},
+		name: "Sheer Heart",
+		shortDesc: "Special attacks have 1.3x power; stat changes to the Special Attack stat have no effect.",
 	},
 };
  

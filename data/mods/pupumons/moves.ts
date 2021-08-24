@@ -1179,6 +1179,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
+		bellow: {
+		num: 1000,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Bellow",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			spa: 3,
+			def: -1,
+			spd: -1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cool",
+	},
 	bestow: {
 		num: 516,
 		accuracy: true,
@@ -4432,6 +4452,46 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+	},
+	engulf: {
+		num: 1003,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			const pokemonWeight = pokemon.getWeight();
+			if (pokemonWeight > targetWeight * 5) {
+				return 140;
+			}
+			if (pokemonWeight > targetWeight * 4) {
+				return 120;
+			}
+			if (pokemonWeight > targetWeight * 3) {
+				return 100;
+			}
+			if (pokemonWeight > targetWeight * 2) {
+				return 80;
+			}
+			return 60;
+		},
+		category: "Physical",
+		name: "Engulf",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		onTryHit(target, pokemon, move) {
+			if (target.volatiles['dynamax']) {
+				this.add('-fail', pokemon, 'Dynamax');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Tough",
 	},
 	entrainment: {
 		num: 494,
@@ -11235,7 +11295,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	mindsurge: {
 		num: 831,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 110,
 		category: "Physical",
 		name: "Mind Surge",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
@@ -12648,6 +12708,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	planetarycrash: {
+		num: 1002,
+		accuracy: 70,
+		basePower: 120,
+		category: "Special",
+		name: "Planetary Crash",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+		},
+		secondary: null,
+		type: "Rock",
 		contestType: "Cool",
 	},
 	plasmafists: {
@@ -19062,6 +19142,61 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+	/*wanderercurse: {
+		num: 1000,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Wanderer Curse",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'obstruct',
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.boost({def: -2}, source, target, this.dex.getActiveMove("Obstruct"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.boost({def: -2}, source, target, this.dex.getActiveMove("Obstruct"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Dark",
+	},*/
 	waterfall: {
 		num: 127,
 		accuracy: 100,

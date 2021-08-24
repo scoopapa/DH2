@@ -344,4 +344,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 672,
 		desc: "If held by a Lurodactyl, this item allows it to Mega Evolve in battle.",
 	},
+	beedrillite: {
+		name: "Beedrillite",
+		spritenum: 628,
+		megaStone: "Regibee-Mega",
+		megaEvolves: "Regibee",
+		itemUser: ["Regibee"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 770,
+		desc: "If held by a Regibee, this item allows it to Mega Evolve in battle.",
+	},
 };

@@ -574,7 +574,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	sandamaralola: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	
@@ -635,6 +635,40 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lurodactylmega: {
 		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+
+// Slate 19
+	regibee: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	regibeemega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sigileye: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	darmearna: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	mrace: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	deciduskorch: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	hypnakart: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	zerclef: {
+		tier: "Uncoded",
 		doublesTier: "DUU",
 	},
 	
