@@ -1859,7 +1859,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["7L1"],
 		},
 	},
-	falinks: {
+	falinksalola: {
 		learnset: {
 			beatup: ["7M"],
 			brickbreak: ["7M"],
@@ -1911,7 +1911,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			nightshade: ["7L1"],
 			disable: ["7L1"],
 			knockoff: ["7L1"],
-			circlethrow: ["7L1"],
+			stormthrow: ["7L1"],
 		},
 	},
 	feebasalola: {
