@@ -3746,7 +3746,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 21,
 	},
 	sundancer: {
-		onModifyMove(move) {
+		onAfterMove(move) {
 			if (move.flags['dance']) {
 				if (this.field.getWeather().id !== 'sunnyday') {
 					this.field.setWeather('sunnyday');
@@ -3754,7 +3754,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sundancer",
-		shortDesc: "When this Pokemon uses a Dance move, Sunny Day begins.",
+		shortDesc: "When this Pokemon successfully uses a Dance move, Sunny Day begins.",
 		rating: 3,
 		num: 270,
 	},
