@@ -161,14 +161,55 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 255,
 	},
 	soulheart: {
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			this.debug('Soul-Heart Sp. Atk Boost');
-			return this.chainModify(1.5);
+		onCheckShow(pokemon) {
+			if (pokemon.side.active.length === 1) return;
+			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			const cureList = [];
+			let noCureCount = 0;
+			for (const curPoke of pokemon.side.active) {
+				if (!curPoke || !curPoke.status) {
+					continue;
+				}
+				if (curPoke.showCure) {
+					continue;
+				}
+				const species = curPoke.species;
+				if (!Object.values(species.abilities).includes('Soul-Heart')) {
+					continue;
+				}
+				if (!species.abilities['1'] && !species.abilities['H']) {
+					continue;
+				}
+				if (curPoke !== pokemon && !this.queue.willSwitch(curPoke)) {
+					continue;
+				}
+				if (curPoke.hasAbility('soulheart')) {
+					cureList.push(curPoke);
+				} else {
+					noCureCount++;
+				}
+			}
+			if (!cureList.length || !noCureCount) {
+				for (const pkmn of cureList) {
+					pkmn.showCure = true;
+				}
+			} else {
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Soul-Heart.)");
+				for (const pkmn of cureList) {
+					pkmn.showCure = false;
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (!pokemon.status) return;
+			if (pokemon.showCure === undefined) pokemon.showCure = true;
+			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
+			pokemon.setStatus('');
+			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
 		name: "Soul-Heart",
-		shortDesc: "This Pokemon's Special Attack is 1.5x.",
-		rating: 3.5,
+		shortDesc: "This Pokemon has its non-volatile status condition cured when it switches out.",
+		rating: 2.5,
 		num: 220,
 	},
 	libero: {
