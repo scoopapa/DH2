@@ -2038,29 +2038,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 */
 	reversegear: {
 		name: "Reverse Gear",
-		shortDesc: "(Non-functional placeholder) Stat boosts to the Speed stat are inversed.",
+		onBoost(boost) {
+      		 boost.spe *= -1;
+      },
+		shortDesc: "Stat boosts to the Speed stat are inversed.",
 	},
 	plotarmor: {
 		name: "Plot Armor",
 		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
-/*
-	reversegear: {
-		onAfterBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if (boost.spe && boost.spe < 0) {
-					if (source.boosts[spe] === 0) continue;
-					source.boosts[i] = -source.boosts[i];
-					success = true;
-				}
-				if (!success) return false;
-				this.add('-invertboost', source, '[from] ability: Contrary Boost');
-			}
-		},
-		name: "Reverse Gear",
-		shortDesc: "Stat boosts to the Speed stat are inversed.",
-	},
-*/	
 	innerfocus: {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
@@ -2345,5 +2331,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "As One (Kecleon)",
 		shortDesc: "As One (Spectrier) + Color Change.",
 	},
+
 };
  
