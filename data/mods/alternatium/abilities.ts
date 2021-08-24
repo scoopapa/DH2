@@ -273,9 +273,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			this.add('-activate', source, 'ability: Private Wi-Fi');
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
-			/*for (const foeactive of pokemon.side.foe.active) {
-				let allyActive = pokemon.side.active;
-				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
+			for (const foeactive of source.side.foe.active) {
+				let allyActive = source.side.active;
+				if (!foeactive || foeactive.fainted || !foeactive.hasType(source.types[1]) || !foeactive.hasType("Steel")) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
@@ -286,7 +286,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						bestStat = allyActive.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, pokemon);
+				this.boost({[statName]: length}, source);
 
 				// Boosts opponent's Pokemon's highest stat
 				let statNameOpp = 'atk';
@@ -299,7 +299,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					}
 				}
 				this.boost({[bestStatOpp]: length}, foeactive);
-			}*/
+			}
 		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",

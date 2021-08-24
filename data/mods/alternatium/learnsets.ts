@@ -13325,6 +13325,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			thunderfang: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
+			uturn: ["8L1"],
 		},
 		eventData: [
 			{generation: 8, level: 70, perfectIVs: 3, moves: ["sacredsword", "swordsdance", "ironhead", "crunch"]},
@@ -13344,6 +13345,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dazzlinggleam: ["8M"],
 			dig: ["8M"],
 			endure: ["8M"],
+			earthquake: ["8M"],
 			facade: ["8M"],
 			firefang: ["8M"],
 			flashcannon: ["8M"],
