@@ -274,8 +274,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-activate', source, 'ability: Private Wi-Fi');
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
 			for (const foeactive of source.side.foe.active) {
+				console.log(foeactive.hasType("Steel"));
 				let allyActive = source.side.active;
-				if (!foeactive || foeactive.fainted || !foeactive.hasType(source.types[1]) || !foeactive.hasType("Steel")) continue;
+				if (
+					!foeactive || 
+					foeactive.fainted || 
+					(
+						!foeactive.hasType(source.types[1]) && 
+						!foeactive.hasType("Steel")
+					)
+				) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
@@ -286,7 +294,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						bestStat = allyActive.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, source);
+				this.boost({[statName]: 1}, source);
 
 				// Boosts opponent's Pokemon's highest stat
 				let statNameOpp = 'atk';
@@ -298,7 +306,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						bestStatOpp = foeactive.storedStats[sOpp];
 					}
 				}
-				this.boost({[bestStatOpp]: length}, foeactive);
+				this.boost({[statNameOpp]: 1}, foeactive);
 			}
 		},
 		name: "Private Wi-Fi",
