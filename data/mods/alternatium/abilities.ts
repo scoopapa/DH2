@@ -275,7 +275,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
 			for (const foeactive of source.side.foe.active) {
 				console.log(foeactive.hasType("Steel"));
-				let allyActive = source.side.active;
 				if (
 					!foeactive || 
 					foeactive.fainted || 
@@ -288,10 +287,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatIDExceptHP;
-				for (s in allyActive.storedStats) {
-					if (allyActive.storedStats[s] > bestStat) {
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = allyActive.storedStats[s];
+						bestStat = source.storedStats[s];
 					}
 				}
 				this.boost({[statName]: 1}, source);
