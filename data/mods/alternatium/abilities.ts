@@ -33,6 +33,14 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp || pokemon.species.id === 'silvallyflying' && move.id === 'multiattack' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+	},
 	powerofalchemy: {
 		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
