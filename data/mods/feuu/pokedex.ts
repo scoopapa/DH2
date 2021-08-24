@@ -1377,7 +1377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Zerclef",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 91, atk: 111, def: 74, spa: 98, spd: 85, spe: 121},
-		abilities: {0: "Parasomnia"},
+		abilities: {0: "Willful Charge"},
 		weightkg: 42.3,
 	},
 		
