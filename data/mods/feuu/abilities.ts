@@ -1017,6 +1017,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Leviflame');
+				return null;
+			}
+		},
 	},
 	prophylaxis: {
 		name: "Prophylaxis",
@@ -1116,6 +1122,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			move.stab = 2;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Levitability');
+				return null;
+			}
 		},
 	},
 	//Implement immunity for Intimidate clones: 
@@ -1226,6 +1238,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Sticky Float');
 				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Feel No Pain');
+				return null;
 			}
 		},
 		name: "Sticky Float",
