@@ -1795,7 +1795,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	urshifu: {
     	inherit: true,
-		baseStats: {hp: 100, atk: 130, def: 100, spa: 73, spd: 60, spe: 87},
+		baseStats: {hp: 100, atk: 120, def: 110, spa: 73, spd: 60, spe: 87},
+	},
+	urshifurapidstrike: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 90, def: 110, spa: 73, spd: 60, spe: 117},
 	},
 	regieleki: {
     	inherit: true,
