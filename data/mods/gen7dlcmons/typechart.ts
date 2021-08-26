@@ -144,7 +144,7 @@ export const TypeChart: {[k: string]: TypeData} = {
 	},
 	Fire: {
 		damageTaken: {
-			//frostbite: 3,
+			frostbite: 3,
 			brn: 3,
 			Bug: 2,
 			Dark: 0,
@@ -269,7 +269,7 @@ export const TypeChart: {[k: string]: TypeData} = {
 	},
 	Ice: {
 		damageTaken: {
-			//frostbite: 3,
+			frostbite: 3,
 			hail: 3,
 			frz: 3,
 			Bug: 0,
