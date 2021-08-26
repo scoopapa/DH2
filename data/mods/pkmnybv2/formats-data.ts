@@ -1048,5 +1048,9 @@ unown: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
+urshifu: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 	
 };
