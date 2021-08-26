@@ -1810,6 +1810,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Harvester"},
 	},
+	volbeat: {
+    	inherit: true,
+		types: ["Bug", "Electric"],
+	},
+	illumise: {
+    	inherit: true,
+		types: ["Bug", "Fairy"],
+	},
 
 	// New Mons
 	synthinobi: {
