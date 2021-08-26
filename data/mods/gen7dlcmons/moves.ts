@@ -402,6 +402,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
+		zMove: {effect: 'clearnegativeboost'},
 		type: "Fire",
 		contestType: "Clever",
 	},
