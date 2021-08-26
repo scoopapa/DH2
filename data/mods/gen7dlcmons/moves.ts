@@ -315,6 +315,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", target);
 			this.add('-anim', source, "Meteor Mash", target);
 		},
 		secondary: null,
@@ -385,7 +386,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 2],
 		onTryMove(pokemon, target, move) {
 			if (pokemon.hasType('Fire')) return;
-			this.add('-fail', pokemon, 'move: Burn Up');
+			this.add('-fail', pokemon, 'move: Exhaust');
 			this.attrLastMove('[still]');
 			return null;
 		},
@@ -486,7 +487,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Wild Charge", target);
+			this.add('-anim', source, "Bolt Strike", target);
 		},
 		self: {
 			boosts: {
