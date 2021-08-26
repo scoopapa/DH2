@@ -38,7 +38,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		onTryImmunity(target) {
-			return if(!target.hasType('Ice') || !target.hasType('Fire'));
+			return (!target.hasType('Ice') || !target.hasType('Fire'));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
