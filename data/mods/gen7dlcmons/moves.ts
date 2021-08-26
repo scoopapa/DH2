@@ -37,9 +37,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		onTryImmunity(target) {
-			return !target.hasType('Ice') || !target.hasType('Fire');
-		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
