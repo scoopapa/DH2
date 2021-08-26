@@ -673,6 +673,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	milotic: {
     	inherit: true,
+		abilities: {0: "Marvel Scale", 1: "Competitive", H: "Demotivate"},
 		otherFormes: ["Milotic-Mega"],
 		formeOrder: ["Milotic", "Milotic-Mega"],
 	},
