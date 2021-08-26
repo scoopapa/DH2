@@ -436,7 +436,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Misfire",
 		pp: 10,
 		priority: 0,
-		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
+		flags: {protect: 1, bullet: 1, defrost: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", target);
