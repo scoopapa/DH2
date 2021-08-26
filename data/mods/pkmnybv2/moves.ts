@@ -56,6 +56,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
+    	shortDesc: "Type varies based on held memory. Special if SpA > Atk.",
 		name: "Multi-Attack",
 		pp: 10,
 		priority: 0,
