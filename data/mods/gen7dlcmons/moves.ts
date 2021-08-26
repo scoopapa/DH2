@@ -38,8 +38,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		onTryImmunity(target) {
-			return !target.hasType('Ice');
-			return !target.hasType('Fire');
+			return if(!target.hasType('Ice') || !target.hasType('Fire'));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
@@ -441,35 +440,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
-		/*onAfterMoveSecondaryPriority: 2,
-		onAfterMoveSecondary(target, source, move) {
-			const hitResults = [];
-				let accuracy = move.accuracy;
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				}
-				else if (!move.spreadHit) this.attrLastMove('[miss]');
-					this.add('-miss', pokemon, source);
-					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
-					for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
-				}
-				source.switchFlag = true;
-			}
-		},
-		onAfterMoveSecondaryPriority: 2,
-		onAfterMoveSecondary(target, source, move) {
-			const hitResults = [];
-				let accuracy = move.accuracy;
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
-					for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
-				}
-				source.switchFlag = true;
-			}
-		},*/
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", target);
