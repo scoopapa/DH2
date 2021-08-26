@@ -38,4 +38,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 7,
 		num: -1004,
 	},
+	kommoniumz: {
+		name: "Kommonium Z",
+		spritenum: 690,
+		onTakeItem: false,
+		zMove: "Clangorous Soulblaze",
+		zMoveFrom: "Clanging Scales",
+		itemUser: ["Kommo-o", "Kommo-o-Totem", "Komodond"],
+		num: 926,
+		gen: 7,
+	},
 };

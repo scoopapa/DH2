@@ -15,7 +15,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tapukoko').learnset.tailwind = ['7T'];
 		
 		this.modData('Learnsets', 'tapulele').learnset.leechlife = ['7T'];
-		this.modData('Learnsets', 'tapulele').learnset.strengthsap = ['7T'];
+		this.modData('Learnsets', 'tapulele').learnset.healorder = ['7T'];
 		
 		this.modData('Learnsets', 'tapubulu').learnset.stealthrock = ['7T'];
 		

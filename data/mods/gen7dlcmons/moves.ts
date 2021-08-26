@@ -1,42 +1,32 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	clangoroussoul: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 7,
-	},
-	tarshot: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 7,
-	},
 	noretreat: {
 		inherit: true,
 		isNonstandard: null,
 		gen: 7,
 	},
-	infection: {
+	frostbite: {
 		num: -1001,
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
 		desc: "The Pokémon at the user's position steals some of the target's maximum HP at the end of each turn. Damage begins at 1/16, rounded down, and increases each turn like Toxic. If Big Root is held by the recipient, the HP recovered is 1.3x normal, rounded half down. If the target uses Baton Pass, the replacement will continue being leeched. If the target switches out, the effect ends.",
 		shortDesc: "Target's HP is restored to user every turn. Damage increases like Toxic.",
-		name: "Infection",
+		name: "Frostbite",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		volatileStatus: 'infection',
+		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
 			  this.effectData.stage = 0;
-				this.add('-start', target, 'move: Infection');
+				this.add('-start', target, 'move: Frostbite');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 	  		if (this.effectData.stage < 15) {
 		  		this.effectData.stage++;
 		  	}
-				const target = this.effectData.source.side.active[pokemon.volatiles['infection'].sourcePosition];
+				const target = this.effectData.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -46,6 +36,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.heal(damage, target, pokemon);
 				}
 			},
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Ice');
+			return !target.hasType('Fire');
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
