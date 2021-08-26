@@ -2532,7 +2532,8 @@ export const Formats: FormatList = [
 			'Feraligatr', 'Slowking', 'Milotic', 'Arctovish', 'Clawitzer', 'Floatzel', 'Politoed', 'Seaking', 'Qwilfish', 'Quagsire',
 			'Zweilous', 'Electabuzz', 'Magmar', 'Murkrow', 'Misdreavus', 'Dusclops', 'Lickitung', 'Roselia', 'Rhydon', 'Floette', 'Mr. Mime-Galar', 'Pikachu', 'Charjabug', 'Jigglypuff', 'Jynx', 'Scyther', 
 			'Unown', 'Mr. Rime', 'Azelf', 'Uxie', 'Mesprit', 'Rapidash-Galar', 'Ninetales-Alola', 'Simisage', 'Simisear', 'Simipour', 'Darmanitan-Galar', 'Gourgeist-Large', 'Gourgeist-Super', 'Gourgeist-Small', 'Runerigus', 'Bellossom', 'Golem-Alola', 'Dugtrio-Alola', 'Sandslash-Alola', 'Plusle', 'Exeggutor-Alola', 'Lycanroc-Midnight', 'Lycanroc-Dusk', 'Persian', 'Persian-Alola',
- 			'Farfetchd', 'Farfetchd-Galar', 'Raichu-Alola', 'Eevee', 'Vaporeon', 'Flareon', 'Jolteon', 'Espeon', 'Umbreon', 'Leafeon', 'Sylveon', 'Glaceon', 'Skuntank', 'Sneasel', 'Gligar',			
+ 			'Farfetchd', 'Farfetchd-Galar', 'Raichu-Alola', 'Eevee', 'Vaporeon', 'Flareon', 'Jolteon', 'Espeon', 'Umbreon', 'Leafeon', 'Sylveon', 'Glaceon', 'Skuntank', 'Sneasel', 'Gligar',		
+			'Absol-Mega', 'Altaria-Mega', 'Banette-Mega', 'Bewear-Mega', 'Butterfree-Mega', 'Camerupt-Mega', 'Cinccino-Mega', 'Drapion-Mega', 'Duraludon-Mega', 'Dusknoir-Mega', 'Feraligatr-Mega', 'Froslass-Mega', 'Gallade-Mega', 'Gardevoir-Mega', 'Glalie-Mega', 'Granbull-Mega', 'Heracross-Mega', 'Houndoom-Mega', 'Hydreigon-Mega', 'Malamar-Mega', 'Meganium-Mega', 'Milotic-Mega', 'Pidgeot-Mega', 'Pinsir-Mega', 'Sableye-Mega', 'Scizor-Mega', 'Sharpedo-Mega', 'Shiinotic-Mega', 'Slowbro-Mega', 'Slowking-Mega', 'Steelix-Mega', 'Talonflame-Mega', 'Thievul-Mega', 'Tentacruel-Mega', 'Typhlosion-Mega',
 		],
 	},
 	{    
