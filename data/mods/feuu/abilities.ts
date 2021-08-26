@@ -1242,7 +1242,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
-				this.add('-immune', target, '[from] ability: Feel No Pain');
+				this.add('-immune', target, '[from] ability: Sticky Float');
 				return null;
 			}
 		},
