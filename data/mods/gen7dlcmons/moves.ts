@@ -44,7 +44,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
 	shedstrike: {
