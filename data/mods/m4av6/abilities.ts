@@ -2409,6 +2409,52 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1064,
 	},
+	mindrider: {
+		shortDesc: "If Psychic Terrain is active, this Pokemon's Speed is doubled.",
+		onModifySpe(spe) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('downtoearth')) {
+					this.debug('Down-to-Earth prevents Speed increase');
+					return;
+				}
+			}
+			if (this.field.isTerrain('psychicterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Mind Rider",
+		rating: 2.5,
+		num: -1065,
+	},
+	erraticcode: {
+		desc: "While this Pokémon is present, all Pokémon are prevented from from using the same move twice in a row.",
+		shortDesc: "While present, all Pokémon are prevented from using the same move twice in a row.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (!activated) {
+					this.add('-ability', source, 'Erratic Code');
+				}
+				activated = true;
+				if (!pokemon.volatiles['torment']) {
+					pokemon.addVolatile('torment');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['torment']) {
+				pokemon.addVolatile('torment');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('torment');
+			}
+		},
+		name: "Erratic Code",
+		rating: 3.5,
+		num: -1066,
+	},
 	stickyresidues: {
 		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
