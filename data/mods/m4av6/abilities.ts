@@ -145,7 +145,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1003,
 	},
 	grasspelt: {
-		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",
+		shortDesc: "If Grassy Terrain is active, this Pokémon's Defense is multiplied by 1.5.",
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
 			for (const target of this.getAllActive()) {
@@ -161,7 +161,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 179,
 	},
 	mimicry: {
-		shortDesc: "This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",
+		shortDesc: "This Pokémon's type changes to match the Terrain. Type reverts when Terrain ends.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('downtoearth')) {
@@ -240,7 +240,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 250,
 	},
 	surgesurfer: {
-		shortDesc: "If Electric Terrain is active, this Pokemon's Speed is doubled.",
+		shortDesc: "If Electric Terrain is active, this Pokémon's Speed is doubled.",
 		onModifySpe(spe) {
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('downtoearth')) {
@@ -2410,7 +2410,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1064,
 	},
 	mindrider: {
-		shortDesc: "If Psychic Terrain is active, this Pokemon's Speed is doubled.",
+		shortDesc: "If Psychic Terrain is active, this Pokémon's Speed is doubled.",
 		onModifySpe(spe) {
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('downtoearth')) {
