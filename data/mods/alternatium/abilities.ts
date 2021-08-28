@@ -33,6 +33,14 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp || pokemon.species.id === 'silvallyflying' && move.id === 'multiattack' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+	},
 	powerofalchemy: {
 		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
@@ -96,9 +104,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Cute Charm', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('cutecharm');
-				pokemon.baseAbility = 'cutecharm';
+				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistyterrain');
+				pokemon.baseAbility = 'mistyterrain';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -394,7 +402,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isUnbreakable: true,
 		name: "Shadow World",
-		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have do 0.8x power.",
+		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
 		rating: 3,
 		num: 1010,
 	},

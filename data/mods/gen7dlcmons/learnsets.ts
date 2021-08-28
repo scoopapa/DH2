@@ -112,6 +112,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			flashcannon: ["7M"],
 			fly: ["7M"],
 			freezedry: ["7L47"],
+			frostbite: ["7L61"],
 			frustration: ["7M"],
 			gigaimpact: ["7M"],
 			hail: ["7L53", "7M"],
@@ -119,8 +120,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hyperbeam: ["7M"],
 			icebeam: ["7L37", "7M"],
 			icywind: ["7T"],
-			infection: ["7L61"],
-			infestation: ["7M"],
 			knockoff: ["7T"],
 			lightscreen: ["7M"],
 			magiccoat: ["7T"],
@@ -161,7 +160,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			aquatail: ["7L47", "7T"],
 			bind: ["7T"],
 			blizzard: ["7M"],
-			clangoroussoul: ["7T"],
+			clangingscales: ["7T"],
 			coil: ["7L41"],
 			confide: ["7M"],
 			defog: ["7L11", "7T"],
@@ -1014,7 +1013,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swagger: ["7M"],
 			swordsdance: ["7M"],
 			tackle: ["7L1"],
-			tarshot: ["7L17"], // will ask if this is on purpose
 			toxic: ["7M"],
 			trickroom: ["7L43","7M"],
 		},
@@ -1859,7 +1857,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["7L1"],
 		},
 	},
-	falinks: {
+	falinksalola: {
 		learnset: {
 			beatup: ["7M"],
 			brickbreak: ["7M"],
@@ -1911,7 +1909,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			nightshade: ["7L1"],
 			disable: ["7L1"],
 			knockoff: ["7L1"],
-			circlethrow: ["7L1"],
+			stormthrow: ["7L1"],
 		},
 	},
 	feebasalola: {

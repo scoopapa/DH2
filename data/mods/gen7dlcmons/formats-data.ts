@@ -435,9 +435,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 		isModded: true,
 	},
+	urshifu: {
+		tier: "AG",
+		doublesTier: "DUber",
+		isModded: true,
+	},
 	urshifurapidstrikealola: {
 		tier: "OU",
 		doublesTier: "DOU",
+		isModded: true,
+	},
+	urshifurapidstrike: {
+		tier: "AG",
+		doublesTier: "DUber",
 		isModded: true,
 	},
 	tynamo: {
@@ -515,6 +525,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shinobug: {
 		tier: "OU",
 		doublesTier: "DOU",
+		isModded: true,
+	},
+	falinks: {
+		tier: "AG",
+		doublesTier: "DUber",
 		isModded: true,
 	},
 	falinksalola: {

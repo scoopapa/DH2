@@ -1331,6 +1331,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rocksmash: ["8L1"],
 			rollout: ["8L1"],
 			round: ["8L1"],
+			shadowball: ["8L1"],
 			shockwave: ["8L1"],
 			sleeptalk: ["8L1"],
 			snore: ["8L1"],

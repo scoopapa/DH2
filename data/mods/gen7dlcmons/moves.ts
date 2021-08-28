@@ -1,42 +1,32 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	clangoroussoul: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 7,
-	},
-	tarshot: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 7,
-	},
 	noretreat: {
 		inherit: true,
 		isNonstandard: null,
 		gen: 7,
 	},
-	infection: {
+	frostbite: {
 		num: -1001,
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
 		desc: "The Pokémon at the user's position steals some of the target's maximum HP at the end of each turn. Damage begins at 1/16, rounded down, and increases each turn like Toxic. If Big Root is held by the recipient, the HP recovered is 1.3x normal, rounded half down. If the target uses Baton Pass, the replacement will continue being leeched. If the target switches out, the effect ends.",
 		shortDesc: "Target's HP is restored to user every turn. Damage increases like Toxic.",
-		name: "Infection",
+		name: "Frostbite",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		volatileStatus: 'infection',
+		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
 			  this.effectData.stage = 0;
-				this.add('-start', target, 'move: Infection');
+				this.add('-start', target, 'move: Frostbite');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 	  		if (this.effectData.stage < 15) {
 		  		this.effectData.stage++;
 		  	}
-				const target = this.effectData.source.side.active[pokemon.volatiles['infection'].sourcePosition];
+				const target = this.effectData.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -54,7 +44,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
 	shedstrike: {
@@ -325,6 +315,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", target);
 			this.add('-anim', source, "Meteor Mash", target);
 		},
 		secondary: null,
@@ -395,7 +386,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 2],
 		onTryMove(pokemon, target, move) {
 			if (pokemon.hasType('Fire')) return;
-			this.add('-fail', pokemon, 'move: Burn Up');
+			this.add('-fail', pokemon, 'move: Exhaust');
 			this.attrLastMove('[still]');
 			return null;
 		},
@@ -411,6 +402,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
+		zMove: {effect: 'clearnegativeboost'},
 		type: "Fire",
 		contestType: "Clever",
 	},
@@ -446,36 +438,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Misfire",
 		pp: 10,
 		priority: 0,
-		flags: {authentic: 1, mystery: 1, bullet: 1, defrost: 1},
-		/*onAfterMoveSecondaryPriority: 2,
-		onAfterMoveSecondary(target, source, move) {
-			const hitResults = [];
-				let accuracy = move.accuracy;
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				}
-				else if (!move.spreadHit) this.attrLastMove('[miss]');
-					this.add('-miss', pokemon, source);
-					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
-					for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
-				}
-				source.switchFlag = true;
-			}
-		},
-		onAfterMoveSecondaryPriority: 2,
-		onAfterMoveSecondary(target, source, move) {
-			const hitResults = [];
-				let accuracy = move.accuracy;
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-					if (!this.canSwitch(source.side) || source.forceSwitchFlag) return;
-					for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
-				}
-				source.switchFlag = true;
-			}
-		},*/
+		flags: {protect: 1, bullet: 1, defrost: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", target);
@@ -510,7 +473,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Grass",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
 	shortcircuit: {
@@ -525,7 +488,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Wild Charge", target);
+			this.add('-anim', source, "Bolt Strike", target);
 		},
 		self: {
 			boosts: {
