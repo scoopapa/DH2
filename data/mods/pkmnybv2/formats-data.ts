@@ -193,16 +193,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DYB",
 	},
 	poufos: {
-		tier: "YB",
-		doublesTier: "DYB",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	balatadi: {
-		tier: "YB",
-		doublesTier: "DYB",
+		tier: "Uber",
+		doublesTier: "Uber",
 	},
 	ultratom: {
-		tier: "YB",
-		doublesTier: "DYB",
+		tier: "Uber",
+		doublesTier: "Uber",
 	},
 	frostonna: {
 		tier: "YB",
@@ -1041,6 +1041,14 @@ cinderace: {
 	   doublesTier: "DOU",
 },
 dracovish: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+unown: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+urshifu: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },

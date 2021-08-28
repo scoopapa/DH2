@@ -1017,6 +1017,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Leviflame');
+				return null;
+			}
+		},
 	},
 	prophylaxis: {
 		name: "Prophylaxis",
@@ -1116,6 +1122,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
 			///////////END PLACEHOLDER
 			move.stab = 2;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Levitability');
+				return null;
+			}
 		},
 	},
 	//Implement immunity for Intimidate clones: 
@@ -1226,6 +1238,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Sticky Float');
 				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Sticky Float');
+				return null;
 			}
 		},
 		name: "Sticky Float",
@@ -2434,25 +2452,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	}, 
 	willfulcharge: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Electric') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Willful Charge');
-				}
-				return null;
-			}
-		},
-		onAnyModifyBoost(boosts, pokemon, move) {
-			const unawareUser = this.effectData.target;
-			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
-			}
-		},
+		 onTryHit(target, source, move) {
+            if (target !== source && move.type === 'Electric') {
+                if (!this.heal(target.baseMaxhp / 4)) {
+                    this.add('-immune', target, '[from] ability: Willful Charge');
+                }
+                return null;
+            }
+        },
+        onModifyMove(move) {
+            if (move.type === 'Electric') {
+                move.ignoreDefensive = true;
+                move.ignoreEvasion = true;
+            }
+        },
 		name: "Willful Charge",
-		shortDesc: "(Bugged) Ignores opponent’s stat changes when doing damage with Electric-type moves and recovers 1/4 max HP when hit by an electric type move; Electric immunity.",
+		shortDesc: "Ignores opponent’s stat changes when doing damage with Electric-type moves and recovers 1/4 max HP when hit by an electric type move; Electric immunity.",
 	},
 	sheerheart: {
 		onBasePowerPriority: 21,

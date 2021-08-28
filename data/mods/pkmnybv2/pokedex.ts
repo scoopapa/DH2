@@ -673,6 +673,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	milotic: {
     	inherit: true,
+		abilities: {0: "Marvel Scale", 1: "Competitive", H: "Demotivate"},
 		otherFormes: ["Milotic-Mega"],
 		formeOrder: ["Milotic", "Milotic-Mega"],
 	},
@@ -1795,7 +1796,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	urshifu: {
     	inherit: true,
-		baseStats: {hp: 100, atk: 130, def: 100, spa: 73, spd: 60, spe: 87},
+		baseStats: {hp: 100, atk: 120, def: 110, spa: 73, spd: 60, spe: 87},
+	},
+	urshifurapidstrike: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 90, def: 110, spa: 73, spd: 60, spe: 117},
 	},
 	regieleki: {
     	inherit: true,
@@ -1809,6 +1814,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		baseStats: {hp: 100, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Harvester"},
+	},
+	volbeat: {
+    	inherit: true,
+		types: ["Bug", "Electric"],
+	},
+	illumise: {
+    	inherit: true,
+		types: ["Bug", "Fairy"],
 	},
 
 	// New Mons
