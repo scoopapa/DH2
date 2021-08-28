@@ -413,51 +413,49 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('poolfloaties' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} { // only relevant to Mega Gigalith right now
+		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} {
 			let targets: Pokemon[] = [];
-			
+			let pressureTargets;
+
 			switch (move.target) {
 				case 'all':
 				case 'foeSide':
 				case 'allySide':
 				case 'allyTeam':
 					if (!move.target.startsWith('foe')) {
-						targets.push(...this.alliesAndSelf());
+						targets.push(...this.allies());
 					}
 					if (!move.target.startsWith('ally')) {
-						targets.push(...this.foes(true));
+						targets.push(...this.foes());
 					}
 					if (targets.length && !targets.includes(target)) {
 						this.battle.retargetLastMove(targets[targets.length - 1]);
 					}
 					break;
 				case 'allAdjacent':
-					targets.push(...this.adjacentAllies());
+					targets.push(...this.nearbyAllies());
 					// falls through
 				case 'allAdjacentFoes':
-					targets.push(...this.adjacentFoes());
+					targets.push(...this.nearbyFoes());
 					if (targets.length && !targets.includes(target)) {
 						this.battle.retargetLastMove(targets[targets.length - 1]);
 					}
 					break;
 				case 'allies':
-					targets = this.alliesAndSelf();
+					targets = this.allies();
 					break;
 				default:
 					const selectedTarget = target;
-					if (!target || (target.fainted && !target.isAlly(this)) && this.battle.gameType !== 'freeforall') {
+					if (!target || (target.fainted && target.side !== this.side)) {
 						// If a targeted foe faints, the move is retargeted
 						const possibleTarget = this.battle.getRandomTarget(this, move);
 						if (!possibleTarget) return {targets: [], pressureTargets: []};
 						target = possibleTarget;
 					}
-					if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
-						let isCharging = move.flags['charge']; // section rewritten to accommodate Mega Gigalith
-						if (this.volatiles['twoturnmove']) isCharging = null;
-						if (move.id.startsWith('solarb') || this.hasAbility('solarcore')) {
-							if (this.battle.field.isWeather(['sunnyday', 'desolateland'])) isCharging = null;
-						}
-						if (this.hasItem('powerherb') && move.id !== 'skydrop') isCharging = null;
+					if (target.side.active.length > 1 && !move.tracksTarget) {
+						const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
+								!((move.id.startsWith('solarb') || this.hasAbility('solarcore')) && this.battle.field.isWeather(['sunnyday', 'desolateland'])) &&
+								!(this.hasItem('powerherb') && move.id !== 'skydrop');
 						if (!isCharging) {
 							target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
 						}
@@ -468,27 +466,23 @@ export const Scripts: ModdedBattleScriptsData = {
 					} else {
 						targets.push(target);
 					}
-					if (target.fainted && !move.isFutureMove) {
+					if (target.fainted) {
 						return {targets: [], pressureTargets: []};
 					}
 					if (selectedTarget !== target) {
 						this.battle.retargetLastMove(target);
 					}
+
+					// Resolve apparent targets for Pressure.
+					if (move.pressureTarget) {
+						// At the moment, this is the only supported target.
+						if (move.pressureTarget === 'foeSide') {
+							pressureTargets = this.foes();
+						}
+					}
 			}
-			
-			// Resolve apparent targets for Pressure.
-			let pressureTargets = targets;
-			switch (move.pressureTarget) {
-				case 'foeSide':
-					pressureTargets = this.foes();
-					break;
-				case 'self':
-					pressureTargets = [];
-					break;
-					// At the moment, there are no other supported targets.
-			}
-			
-			return {targets, pressureTargets};
+
+			return {targets, pressureTargets: pressureTargets || targets};
 		}
 	},
 };
