@@ -452,9 +452,12 @@ export const Scripts: ModdedBattleScriptsData = {
 						target = possibleTarget;
 					}
 					if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
-						const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
-								!((move.id.startsWith('solarb') || this.hasAbility('solarcore')) && this.battle.field.isWeather(['sunnyday', 'desolateland'])) && // accommodating for Mega Gigalith
-								!(this.hasItem('powerherb') && move.id !== 'skydrop');
+						let isCharging = move.flags['charge']; // section rewritten to accommodate Mega Gigalith
+						if (this.volatiles['twoturnmove']) isCharging = null;
+						if (move.id.startsWith('solarb') || this.hasAbility('solarcore')) {
+							if (this.battle.field.isWeather(['sunnyday', 'desolateland'])) isCharging = null;
+						}
+						if (this.hasItem('powerherb') && move.id !== 'skydrop') isCharging = null;
 						if (!isCharging) {
 							target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
 						}
