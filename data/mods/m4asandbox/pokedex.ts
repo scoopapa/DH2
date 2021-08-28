@@ -26,12 +26,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	porygonz: {
 		inherit: true,
-		otherFormes: ["Porygon-Z-Mega"],
-		formeOrder: ["Porygon-Z", "Porygon-Z-Mega"],
+		otherFormes: ["Porygon-Z-Mega", "Porygod-Z-Mega"],
+		formeOrder: ["Porygon-Z", "Porygon-Z-Mega", "Porygod-Z-Mega"],
 	},
-	porygonzmega: {
+	porygodzmega: {
 		num: 474,
-		name: "Porygon-Z-Mega",
+		name: "Porygod-Z-Mega",
 		baseSpecies: "Porygon-Z",
 		forme: "Mega",
 		types: ["Normal"],
