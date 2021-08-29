@@ -432,4 +432,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zapdosgalar').learnset.wildcharge = ['8L1'];
 		this.modData('Learnsets', 'zapdosgalar').learnset.thunder = ['8L1'];
 		this.modData('Learnsets', 'zapdosgalar').learnset.defog = ['8L1'];
+	},
 };
