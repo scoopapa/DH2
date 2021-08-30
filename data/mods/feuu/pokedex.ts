@@ -1380,6 +1380,35 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Willful Charge"},
 		weightkg: 42.3,
 	},
+	
+// Slate 20
+	exeggutorprime: {
+		fusion: ['Exeggutor', 'Exeggutor-Alola'],
+		num: 104,
+		name: "Exeggutor-Prime",
+		types: ["Psychic", "Dragon"],
+		baseStats: {hp: 105, atk: 110, def: 95, spa: 135, spd: 85, spe: 60},
+		abilities: {0: "Berry Nice"},
+		weightkg: 267.8,
+	},
+	porygrigus: {
+		fusion: ['Porygon2', 'Cofagrigus'],
+		num: 105,
+		name: "Porygrigus",
+		types: ["Normal", "Ghost"],
+		baseStats: {hp: 90, atk: 65, def: 130, spa: 108, spd: 100, spe: 45},
+		abilities: {0: "Pillage"},
+		weightkg: 54.5,
+	},
+	golisotops: {
+		fusion: ['Golisopod', 'Kabutops'],
+		num: 106,
+		name: "Golisotops",
+		types: ["Bug", "Water"],
+		baseStats: {hp: 77, atk: 130, def: 132, spa: 72, spd: 90, spe: 70},
+		abilities: {0: "Swift Retreat"},
+		weightkg: 74.3,
+	},
 		
 	//silvino formes
 	silvinobug: {
