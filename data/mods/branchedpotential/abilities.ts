@@ -89,7 +89,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (['phankyr'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = 'Phankyr-Revealed';
-				pokemon.formeChange(speciesid, this.effect, false);
+				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
 			}
 		},
