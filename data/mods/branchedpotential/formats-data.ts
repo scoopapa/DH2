@@ -205,9 +205,47 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
 		isModded: true,
 	},
+	jorunny: {
+		randomBattleMoves: ["liquidation", "gunkshot", "scald", "flipturn", "tripleaxel", "toxic"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+   jorunnymega: {
+		randomBattleMoves: ["liquidation", "gunkshot", "scald", "flipturn", "tripleaxel", "toxic"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+   exsunei: {
+		randomBattleMoves: ["knockoff", "uturn", "zenheadbutt", "flareblitz", "swordsdance", "taunt"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+   auranubis: {
+		randomBattleMoves: ["recover", "willowisp", "shadowbone", "spiritshackle", "closecombat", "drainpunch", "bulkup"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	auranubismega: {
+		randomBattleMoves: ["recover", "swordsdance", "shadowbone", "spiritshackle", "closecombat", "drainpunch", "bonerush", "crunch", "stoneedge"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	//
+	//
+	//
+	//
 	//
 	//
 	// National Dex Pokemon after this point
+	//
+	//
+	//
+	//
 	//
 	//
 	venusaurmega: {
