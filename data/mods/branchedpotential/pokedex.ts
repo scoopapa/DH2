@@ -482,6 +482,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 76, def: 84, spa: 54, spd: 96, spe: 65},
 		abilities: {0: "Immunity", 1: "Cute Charm", H: "Oblivious"},
 		weightkg: 33.3,
+		otherFormes: ["Jorunny-Mega"],
+		formeOrder: ["Jorunny", "Jorunny-Mega"],
 	},
    jorunnymega: {
 		megaOf: "Jorunny",
@@ -513,6 +515,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 110, spa: 70, spd: 110, spe: 95},
 		abilities: {0: "Mummy", 1: "Trace", H: "Sand Force"},
 		weightkg: 54,
+      otherFormes: ["Auranubis-Mega"],
+		formeOrder: ["Auranubis", "Auranubis-Mega"],
 	},
     auranubismega: {
 		megaOf: "auranubis",
