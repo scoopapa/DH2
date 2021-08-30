@@ -307,6 +307,40 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'sunkennon').learnset.brickbreak;
 		delete this.modData('Learnsets', 'sunkennon').learnset.assurance;
 		delete this.modData('Learnsets', 'sunkennon').learnset.thief;
+		
+		this.modData('Learnsets', 'jorunny').learnset.liquidation = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.scald = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.poisonjab = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.venomdrench = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.purify = ['8L1'];
+		delete this.modData('Learnsets', 'jorunny').learnset.healingwish;
+		delete this.modData('Learnsets', 'jorunny').learnset.healbell;
+		delete this.modData('Learnsets', 'jorunny').learnset.fakeout;
+		delete this.modData('Learnsets', 'jorunny').learnset.quickattack;
+		delete this.modData('Learnsets', 'jorunny').learnset.closecombat;
+		delete this.modData('Learnsets', 'jorunny').learnset.highjumpkick;
+        
+      this.modData('Learnsets', 'exsunei').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'exsunei').learnset.flareblitz = ['8L1'];
+		this.modData('Learnsets', 'exsunei').learnset.uturn = ['8L1'];
+		this.modData('Learnsets', 'exsunei').learnset.crunch = ['8L1'];
+		this.modData('Learnsets', 'exsunei').learnset.swordsdance = ['8L1'];
+      this.modData('Learnsets', 'exsunei').learnset.swordsdance = ['8L1'];
+		delete this.modData('Learnsets', 'exsunei').learnset.thunderpunch;
+		delete this.modData('Learnsets', 'exsunei').learnset.wish;
+        
+      this.modData('Learnsets', 'auranubis').learnset.recover = ['8L1'];
+		this.modData('Learnsets', 'auranubis').learnset.willowisp = ['8L1'];
+		this.modData('Learnsets', 'auranubis').learnset.shadowbone = ['8L1'];
+		this.modData('Learnsets', 'auranubis').learnset.spiritshackle = ['8L1'];
+		this.modData('Learnsets', 'auranubis').learnset.scorchingsands = ['8L1'];
+		delete this.modData('Learnsets', 'auranubis').learnset.meteormash;
+      delete this.modData('Learnsets', 'auranubis').learnset.steelbeam;
+      delete this.modData('Learnsets', 'auranubis').learnset.forcepalm;
+      delete this.modData('Learnsets', 'auranubis').learnset.irontail;
+      delete this.modData('Learnsets', 'auranubis').learnset.extremespeed;
 
 		
 		
