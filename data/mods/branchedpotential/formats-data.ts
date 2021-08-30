@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	soroburuo: {
+	soroboruo: {
 		randomBattleMoves: ["nastyplot", "surf", "sludgewave", "earthpower", "flamethrower"],
 		tier: "OU",
 		doublesTier: "OU",
