@@ -530,6 +530,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Magnetic Waves');
+				return null;
+			}
+		},
 	},
 	doggysmaw: {
 		id: "doggysmaw",
