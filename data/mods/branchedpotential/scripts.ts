@@ -200,14 +200,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "phankyr").learnset.taunt = ["8L1"];
 		this.modData("Learnsets", "phankyr").learnset.willowisp = ["8L1"];
 		
-		this.modData("Learnsets", "soroburuo").learnset.dragondance = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.dragonpulse = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.earthpower = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.fireblast = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.flamethrower = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.nastyplot = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.powergem = ["8L1"];
-		this.modData("Learnsets", "soroburuo").learnset.surf = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.dragondance = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.dragonpulse = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.fireblast = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.powergem = ["8L1"];
+		this.modData("Learnsets", "soroboruo").learnset.surf = ["8L1"];
 		
 		this.modData("Learnsets", "mountoswine").learnset.auroraveil = ["8L1"];
 		delete this.modData('Learnsets', 'mountoswine').learnset.ancientpower;
