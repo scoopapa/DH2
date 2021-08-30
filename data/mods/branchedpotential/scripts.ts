@@ -275,6 +275,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'parelp').learnset.whirpool;
 		
 		this.modData("Learnsets", "alomoguish").learnset.gigadrain = ["8L1"];
+		delete this.modData('Learnsets', 'alomoguish').learnset.anchorshot;
+		delete this.modData('Learnsets', 'alomoguish').learnset.astonish;
+		delete this.modData('Learnsets', 'alomoguish').learnset.brutalswing;
+		delete this.modData('Learnsets', 'alomoguish').learnset.earthquake;
+		delete this.modData('Learnsets', 'alomoguish').learnset.gigadrain;
+		delete this.modData('Learnsets', 'alomoguish').learnset.gyroball;
+		delete this.modData('Learnsets', 'alomoguish').learnset.heavyslam;
+		delete this.modData('Learnsets', 'alomoguish').learnset.hex;
+		delete this.modData('Learnsets', 'alomoguish').learnset.ironhead;
+		delete this.modData('Learnsets', 'alomoguish').learnset.phantomforce;
+		delete this.modData('Learnsets', 'alomoguish').learnset.poltergeist;
+		delete this.modData('Learnsets', 'alomoguish').learnset.shadowball;
+		delete this.modData('Learnsets', 'alomoguish').learnset.shadowclaw;
+		delete this.modData('Learnsets', 'alomoguish').learnset.steelroller;
+		delete this.modData('Learnsets', 'alomoguish').learnset.whirpool;
 		
 		this.modData("Learnsets", "annhailord").learnset.haze = ["8L1"];
 		this.modData("Learnsets", "annhailord").learnset.leechseed = ["8L1"];
