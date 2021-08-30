@@ -468,7 +468,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			))
-			|| pokemon.species.id !== 'yaciancrowned') {
+			|| pokemon.species.id !== 'yaciancrowned' || pokemon.species.id !== 'porygrigus') {
 				this.effectData.gaveUp = true;
 			}
 		},
