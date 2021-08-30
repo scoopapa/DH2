@@ -279,7 +279,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'alomoguish').learnset.astonish;
 		delete this.modData('Learnsets', 'alomoguish').learnset.brutalswing;
 		delete this.modData('Learnsets', 'alomoguish').learnset.earthquake;
-		delete this.modData('Learnsets', 'alomoguish').learnset.gigadrain;
 		delete this.modData('Learnsets', 'alomoguish').learnset.gyroball;
 		delete this.modData('Learnsets', 'alomoguish').learnset.heavyslam;
 		delete this.modData('Learnsets', 'alomoguish').learnset.hex;
@@ -295,6 +294,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "annhailord").learnset.leechseed = ["8L1"];
 		this.modData("Learnsets", "annhailord").learnset.surf = ["8L1"];
 		this.modData("Learnsets", "annhailord").learnset.waterspout = ["8L1"];
+		this.modData("Learnsets", "annhailord").learnset.gigadrain = ["8L1"];
+		delete this.modData('Learnsets', 'annhailord').learnset.anchorshot;
+		delete this.modData('Learnsets', 'annhailord').learnset.astonish;
+		delete this.modData('Learnsets', 'annhailord').learnset.brutalswing;
+		delete this.modData('Learnsets', 'annhailord').learnset.earthquake;
+		delete this.modData('Learnsets', 'annhailord').learnset.gyroball;
+		delete this.modData('Learnsets', 'annhailord').learnset.heavyslam;
+		delete this.modData('Learnsets', 'annhailord').learnset.hex;
+		delete this.modData('Learnsets', 'annhailord').learnset.ironhead;
+		delete this.modData('Learnsets', 'annhailord').learnset.phantomforce;
+		delete this.modData('Learnsets', 'annhailord').learnset.poltergeist;
+		delete this.modData('Learnsets', 'annhailord').learnset.shadowball;
+		delete this.modData('Learnsets', 'annhailord').learnset.shadowclaw;
+		delete this.modData('Learnsets', 'annhailord').learnset.steelroller;
+		delete this.modData('Learnsets', 'annhailord').learnset.whirpool;
 		
 		this.modData("Learnsets", "lusopass").learnset.gyroball = ["8L1"];
 		this.modData("Learnsets", "lusopass").learnset.gigadrain = ["8L1"];
