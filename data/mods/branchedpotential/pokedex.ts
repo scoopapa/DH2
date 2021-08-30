@@ -277,7 +277,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		prevo: "Ekans",
 		evoLevel: 22,
-		evos: ['Phankyr', 'Soroburuo'],
+		evos: ['Phankyr', 'Soroboruo'],
 		eggGroups: ["Field", "Dragon"],	
 	},
 	phankyr: {
@@ -303,10 +303,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredAbility: "Esiugsid",
 		battleOnly: "Phankyr",	
 	},
-	soroburuo: {
+	soroboruo: {
 		inheritMoves: ['Arbok'],
 		num: -112,
-		name: "Soroburuo",
+		name: "Soroboruo",
 		types: ["Poison"],
 		baseStats: {hp: 100, atk: 65, def: 69, spa: 120, spd: 89, spe: 100},
 		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Berserk"},
