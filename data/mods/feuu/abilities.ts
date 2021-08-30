@@ -460,7 +460,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 	},
-/*
 	pillage: {
 		id: "pillage",
 		name: "Pillage",
@@ -502,7 +501,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-*/
 	magneticwaves: {
 		id: "magneticwaves",
 		name: "Magnetic Waves",
@@ -2558,13 +2556,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Swift Retreat",
 		shortDesc: "Emergency Exit + Weak Armor.",
 	},	
-	 pillage: {
-       shortDesc: "On switch-in, this Pokemon swaps abilities with the foe.",
-       onStart(source) {
-           this.useMove("Skill Swap", source);
-       },
-       name: "Pillage",
-       rating: 3,
-    },
 };
  
