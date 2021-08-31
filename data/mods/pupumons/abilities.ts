@@ -3746,7 +3746,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 21,
 	},
 	sundancer: {
-		onAfterMove(move) {
+		onAfterMove(source, target, move) {
 			if (move.flags['dance']) {
 				if (this.field.getWeather().id !== 'sunnyday') {
 					this.field.setWeather('sunnyday');
@@ -4457,5 +4457,28 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		// implemented in the corresponding move
 		rating: 3,
 		num: -4,
+	},
+	nefarious: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				this.damage(target.baseMaxhp / 8, target, pokemon);
+			}
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		name: "Nefarious",
+		rating: 3.5,
+		num: 1000,
+		shortDesc: "Both Pokemon lose 1/8 of their max HP each turn.",
+	},
+	copperheart: {
+		onAnyModifyDamage(damage, source, target, move) {
+			return this.chainModify(0.60);
+		},
+		name: "Copper Heart",
+		rating: 3.5,
+		num: 1001,
+		shortDesc: "Damage taken from attacks is reduced by 40%.",
 	},
 };

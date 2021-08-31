@@ -918,13 +918,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			move.type = type;
 		},
-		onTryMove(attacker, defender, move) {
-			if (attacker.species.name === 'Ooreina' && !attacker.transformed) {
+		onAfterMove(pokemon, target, move) {
+			if (pokemon.species.id === 'ooreina') {
 				const forme = 'Ooreina-Flare';
-				attacker.formeChange(forme, move);
-			} else if (attacker.species.name === 'Ooreina-Flare') {
+				pokemon.formeChange(forme);
+			} else if (pokemon.species.id === 'ooreinaflare') {
 				const forme1 = 'Ooreina';
-				attacker.formeChange(forme1, move);
+				pokemon.formeChange(forme1);
 			}
 			return;
 		},
