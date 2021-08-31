@@ -501,6 +501,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+/*
 	magneticwaves: {
 		id: "magneticwaves",
 		name: "Magnetic Waves",
@@ -537,6 +538,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+*/
 	doggysmaw: {
 		id: "doggysmaw",
 		name: "Doggy's Maw",
@@ -2561,6 +2563,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Swift Retreat",
 		shortDesc: "Emergency Exit + Weak Armor.",
+	},	
+	magneticwaves: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Magnetic Waves');
+				return null;
+			}
+		},
+		name: "Magnetic Waves",
+		shortDesc: "Galvanize + Levitate.",
 	},	
 };
  
