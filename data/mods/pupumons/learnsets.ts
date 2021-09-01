@@ -1040,6 +1040,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		heatwave: ["8L1"],
 		focusenergy: ["8L1"],
 		snipeshot: ["8L1"],
+		irontail: ["8L1"],
 	},},
 	solrock: {learnset: {
 		protect: ["8L1"],
