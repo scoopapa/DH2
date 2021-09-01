@@ -1436,6 +1436,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		scald: ["8L1"],
 		flipturn: ["8L1"],
 		earthpower: ["8L1"],
+		earthquake: ["8L1"],
 		stompingtantrum: ["8L1"],
 		lifedew: ["8L1"],
 		liquidation: ["8L1"],
@@ -1461,6 +1462,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		icepunch: ["8L1"],
 		machpunch: ["8L1"],
 		superpower: ["8L1"],
+		swordsdance: ["8L1"],
+		focusblast: ["8L1"],
+		taunt: ["8L1"],
 	},},
 	detectrice: {learnset: {
 		glare: ["8L1"],
