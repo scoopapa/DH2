@@ -735,13 +735,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		self: {
 			onHit(source) {
-				if (this.random(1) === 0) return;
-				for (const pokemon of source.side.active) {
-					if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
-						const item = pokemon.lastItem;
-						pokemon.lastItem = '';
-						this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
-						pokemon.setItem(item);
+				if (this.randomChance(1, 1)) {
+					for (const pokemon of source.side.active) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+							const item = pokemon.lastItem;
+							pokemon.lastItem = '';
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+							pokemon.setItem(item);
+						}
 					}
 				}
 			},
