@@ -35,7 +35,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
-	weelpim: {
+	weeplim: {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
