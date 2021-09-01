@@ -723,4 +723,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
+	eggbomb: {
+		num: 1004,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		name: "Egg Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(source) {
+			if (!source.item && source.lastItem && this.dex.getItem(source.lastItem).isBerry) {
+				const item = source.lastItem;
+				source.lastItem = '';
+				this.add('-item', source, this.dex.getItem(item), '[from] move: Egg Bomb');
+				source.setItem(item);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
 };
