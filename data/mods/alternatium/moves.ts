@@ -735,7 +735,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(source) {
 			for (const pokemon of source.side.active) {
-				if (pokemon.item && !pokemon.lastItem && !this.dex.getItem(pokemon.lastItem).isBerry) return false;
+				if (pokemon.item || !pokemon.lastItem && !this.dex.getItem(pokemon.lastItem).isBerry) return false;
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
