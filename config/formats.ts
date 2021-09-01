@@ -1132,6 +1132,66 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] National Dex Balanced Hackmons v3",
+		desc: `<b>More Balanced Hackmons</b>: A National Dex mod of Balanced Hackmons with new pokemon, moves, and abilities, as well as some additional bans.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/national-dex-bh-v3.3690179/">More Balanced Hackmons on Smogon Forums</a>`,
+		],
+
+		mod: 'gen8',
+		ruleset: ['Standard NatDex', '+Unobtainable', 'Forme Clause', 'Sleep Clause', '2-Ability Clause', 'OHKO Clause', 'Evasion Clause', 'CFZ Clause', 'Dynamax Clause', 'Arceus Clause'],
+		banlist: [
+				'Groudon-Primal', 'Rayquaza-Mega', 'Zacian-Crowned', 'Shedinja', 'Cramorant-Gorging', 'Calyrex-Shadow', 'Eternatus-Eternamax', 
+				'Arena Trap', 'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'nnards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 
+				'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 
+				'Gengarite', 
+				'Chatter', 'Octolock', 'Double Iron Bash', 'Shell Smash', 'Bolt Beak', 'Belly Drum', 'Electrify', 
+				'Comatose + Sleep Talk', 'Imprison + Transform',
+		],
+		onChangeSet(set) {
+			const item = this.dex.toID(set.item);
+			if (set.species === 'Zacian' && item === 'rustedsword') {
+				set.species = 'Zacian-Crowned';
+				set.ability = 'Intrepid Sword';
+				const ironHead = set.moves.indexOf('ironhead');
+				if (ironHead >= 0) {
+					set.moves[ironHead] = 'behemothblade';
+				}
+			}
+			if (set.species === 'Zamazenta' && item === 'rustedshield') {
+				set.species = 'Zamazenta-Crowned';
+				set.ability = 'Dauntless Shield';
+				const ironHead = set.moves.indexOf('ironhead');
+				if (ironHead >= 0) {
+					set.moves[ironHead] = 'behemothbash';
+				}
+			}
+		},
+		onValidateTeam(team, format){
+			/**@type {{[k: string]: true}} */
+			for (const set of team) {
+				if (set.species == 'Zacian-Crowned' && set.ability !== 'Intrepid Sword')
+					 return ["Zacian-Crowned can only have Intrepid Sword as its ability."]
+				if ((set.species !== 'Zacian-Crowned' && set.species !== 'Zacian') && set.ability === 'Intrepid Sword')
+					 return ["Only Zacian-Crowned can have Intrepid Sword as its ability."]
+			}
+		},
+	},
+	{
+		name: "[Gen 8] Littlest Cup",
+		desc: [
+			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
+		],
+		threads: [
+			`&bullet; <a href="https://pastebin.com/PtqmRUhG">Littlest Cup VR and Sample Sets</a>`,
+		],
+		mod: 'gen8',
+		maxLevel: 1,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
+	},
+	{
 		name: "[Gen 8] OptiMons",
 		desc: [
 			"<b>OptiMons</b>: A Pet Mod where each Pokemon is 'optimized' to its fullest extent.",
