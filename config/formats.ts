@@ -1139,7 +1139,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'nationaldexbalancedhackmons',
-		ruleset: ['Standard NatDex', '-Unobtainable', 'Forme Clause', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'CFZ Clause', 'Dynamax Clause'/*, 'Arceus Clause'*/],
+		ruleset: ['Standard NatDex', '+Nonexistant', 'Forme Clause', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'CFZ Clause', 'Dynamax Clause'/*, 'Arceus Clause'*/],
 		banlist: [
 				'Groudon-Primal', 'Rayquaza-Mega', 'Zacian-Crowned', 'Shedinja', 'Cramorant-Gorging', 'Calyrex-Shadow', 'Eternatus-Eternamax', 
 				'Arena Trap', 'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 
