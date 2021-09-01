@@ -738,7 +738,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.lastItem = '';
 				this.add('-item', source, this.dex.getItem(item), '[from] move: Egg Bomb');
 				source.setItem(item);
-			},
+			}
 		},
 		secondary: null,
 		target: "normal",
