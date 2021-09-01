@@ -1185,6 +1185,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Bellow",
+		shortDesc: "Raises the user's SpAtk by 3, lowers Def and SpDef by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
