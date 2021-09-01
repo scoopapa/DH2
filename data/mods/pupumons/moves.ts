@@ -12717,6 +12717,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Planetary Crash",
+		shortDesc: "User takes 50% of max HP if it misses. Phys if Atk > Sp. Atk",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},

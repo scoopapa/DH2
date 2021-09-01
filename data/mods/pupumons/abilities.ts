@@ -1420,7 +1420,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Heavy Air",
 		desc: "This Pokemon's Flying-type attacks that are not very effective on a target deal double damage, cannot be protected, and always move last.",
-		shortDesc: "This Pokemon's Flying-type attacks deal 2x damage against resisting targets, can't be protected, and move last.",
+		shortDesc: "Flying-type attacks deal 2x dmg against resistances, can't be protected, and move last.",
 		rating: 3.5,
 		num: 271,
 	},
