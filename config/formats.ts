@@ -1138,7 +1138,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/national-dex-bh-v3.3690179/">More Balanced Hackmons on Smogon Forums</a>`,
 		],
 
-		mod: 'gen8',
+		mod: 'nationaldexbalancedhackmons',
 		ruleset: ['Standard NatDex', '+Unobtainable', 'Forme Clause', 'Sleep Clause', '2-Ability Clause', 'OHKO Clause', 'Evasion Clause', 'CFZ Clause', 'Dynamax Clause', 'Arceus Clause'],
 		banlist: [
 				'Groudon-Primal', 'Rayquaza-Mega', 'Zacian-Crowned', 'Shedinja', 'Cramorant-Gorging', 'Calyrex-Shadow', 'Eternatus-Eternamax', 
