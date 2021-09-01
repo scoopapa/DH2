@@ -728,17 +728,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
+		shortDesc: "Restores the berry the user last used.",
 		name: "Egg Bomb",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onHit(source) {
-			if (!source.item && source.lastItem && this.dex.getItem(source.lastItem).isBerry) {
-				const item = source.lastItem;
-				source.lastItem = '';
-				this.add('-item', source, this.dex.getItem(item), '[from] move: Egg Bomb');
-				source.setItem(item);
-			}
+		onHit(pokemon) {
+			if (pokemon.item && !pokemon.lastItem && !this.dex.getItem(pokemon.lastItem).isBerry) return false;
+			const item = pokemon.lastItem;
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+			pokemon.setItem(item);
 		},
 		secondary: null,
 		target: "normal",
