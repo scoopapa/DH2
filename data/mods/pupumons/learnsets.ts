@@ -1115,7 +1115,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		toxic: ["8L1"],
 		raindance: ["8L1"],
 		mistyexplosion: ["8L1"],
-		expandingforce: ["8L1"],
 	},},
 	venomab: {learnset: {
 		protect: ["8L1"],
