@@ -1207,7 +1207,7 @@ export const Formats: FormatList = [
 		mod: 'randomdex',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Quick Claw', 'Razor Fang'],
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['RDex OU', 'RDex UUBL', 'RDex UU', 'RDex NFE', 'RDex LC'];
@@ -2001,7 +2001,7 @@ export const Formats: FormatList = [
 		mod: 'randomdex',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Quick Claw', 'Razor Fang'],
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['RDex Uber', 'RDex OU', 'RDex UUBL', 'RDex UU', 'RDex NFE', 'RDex LC'];
@@ -2022,7 +2022,7 @@ export const Formats: FormatList = [
 		mod: 'randomdex',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Quick Claw', 'Razor Fang'],
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['RDex UU', 'RDex NFE', 'RDex LC'];
