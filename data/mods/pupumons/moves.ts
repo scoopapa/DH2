@@ -12712,7 +12712,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	planetarycrash: {
 		num: 1002,
-		accuracy: 70,
+		accuracy: 80,
 		basePower: 120,
 		category: "Special",
 		name: "Planetary Crash",
