@@ -187,7 +187,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'pheromosa').learnset.hivemind = ['7T'];
 		this.modData('Learnsets', 'arachsoil').learnset.hivemind = ['7T'];
 		this.modData('Learnsets', 'accelgoralola').learnset.hivemind = ['7T'];
-		this.modData('Learnsets', 'tapulelekinolau').learnset.hivemind = ['7T'];
 		
 		this.modData('Learnsets', 'whiscash').learnset.mudsling = ['7T'];
 		this.modData('Learnsets', 'arachsoil').learnset.mudsling = ['7T'];
