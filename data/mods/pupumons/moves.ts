@@ -918,13 +918,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			move.type = type;
 		},
-		onTryMove(attacker, defender, move) {
-			if (attacker.species.name === 'Ooreina' && !attacker.transformed) {
+		onAfterMove(pokemon, target, move) {
+			if (pokemon.species.id === 'ooreina') {
 				const forme = 'Ooreina-Flare';
-				attacker.formeChange(forme, move);
-			} else if (attacker.species.name === 'Ooreina-Flare') {
+				pokemon.formeChange(forme);
+			} else if (pokemon.species.id === 'ooreinaflare') {
 				const forme1 = 'Ooreina';
-				attacker.formeChange(forme1, move);
+				pokemon.formeChange(forme1);
 			}
 			return;
 		},
@@ -1185,6 +1185,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Bellow",
+		shortDesc: "Raises the user's SpAtk by 3, lowers Def and SpDef by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
@@ -12712,10 +12713,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	planetarycrash: {
 		num: 1002,
-		accuracy: 70,
+		accuracy: 80,
 		basePower: 120,
 		category: "Special",
 		name: "Planetary Crash",
+		shortDesc: "User takes 50% of max HP if it misses. Phys if Atk > Sp. Atk",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},

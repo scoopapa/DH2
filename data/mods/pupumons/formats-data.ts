@@ -35,7 +35,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
-	weelpim: {
+	weeplim: {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
@@ -139,11 +139,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
-	solrock: {
+	solrockapple: {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
-	lunatone: {
+	lunatoneapple: {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
@@ -180,6 +180,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DOU)",
 	},
 	eruptil: {
+		tier: "Pupumons Ubers",
+		doublesTier: "(DOU)",
+	},
+	amphikits: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	detectrice: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	nosferoyle: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	amplifire: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	lumberax: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	batakala: {
+		tier: "Pupumons Ubers",
+		doublesTier: "(DOU)",
+	},
+	batambu: {
 		tier: "Pupumons Ubers",
 		doublesTier: "(DOU)",
 	},
