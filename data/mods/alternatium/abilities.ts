@@ -344,7 +344,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('lifegem'));
 			}
 		},
 		name: "Life Gem",

@@ -723,4 +723,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
+	eggbomb: {
+		num: 1004,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Restores the berry the user last used.",
+		name: "Egg Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				if (this.randomChance(1, 1)) {
+					for (const pokemon of source.side.active) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+							const item = pokemon.lastItem;
+							pokemon.lastItem = '';
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+							pokemon.setItem(item);
+						}
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
 };

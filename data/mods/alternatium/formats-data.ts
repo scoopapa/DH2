@@ -135,39 +135,35 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*exeggutor: {
+	exeggutor: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	exeggutoralola: {
+	exeggutorlighthouse: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	marowak: {
+	/*marowak: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	marowakalola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	weezing: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	weezinggalar: {
+	weezingking: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	mrmime: {
+	/*mrmime: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	mrmimegalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	mrrime: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
