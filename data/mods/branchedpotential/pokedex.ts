@@ -509,7 +509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Exsunei",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 75, atk: 124, def: 72, spa: 69, spd: 70, spe: 124},
-		abilities: {0: "Early Bird", H: "Tough Claws"},
+		abilities: {0: "Blaze", H: "Tough Claws"},
 		weightkg: 47,
 	},
 	auranubis: {
