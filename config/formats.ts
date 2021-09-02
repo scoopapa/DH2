@@ -598,18 +598,20 @@ export const Formats: FormatList = [
 			"<b>Branched Potential</b>: A mod that designs new branched evolutions (i.e., Slowpoke being able to evolve into either Slowbro or Slowking) for Pokemon that don't already have them.",
 			],
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/branched-potential-slate-3-raticate-fearow-and-arbok.3683756/">Branched Potential on Smogon Forums</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/branched-potential-v2-aircraft-slate-yanmega-magnezone-dragapult.3688252/">Branched Potential on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/135ZGOSBMqzI9Ff-iVhtQzAwy80nORF2Qrv8iJU583NE/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'branchedpotential',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar',
-            'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish', 'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina',
-            'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
-            'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
-            'Necrozma-Ultra', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian',
-            'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',
-            'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar',
+         'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dracovish', 'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina',
+         'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega',
+         'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
+         'Necrozma-Ultra', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian',
+         'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',
+         'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 
+			'Alakazite', 'Blastoisinite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
 		],
 	},
 	{

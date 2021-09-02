@@ -48,6 +48,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		isUnbreakable: true,
+		desc: "Minior/Stacragus, upon switch-in/end of turn change to Core/Offense at 1/2 max HP or less, else Meteor/Chrysalis.",
 		name: "Shields Down",
 		rating: 3,
 		num: 197,
@@ -88,7 +89,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (['phankyr'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = 'Phankyr-Revealed';
-				pokemon.formeChange(speciesid, this.effect, false);
+				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
 			}
 		},
