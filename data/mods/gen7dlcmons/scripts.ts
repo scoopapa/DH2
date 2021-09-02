@@ -106,6 +106,165 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'turtonator').learnset.draconiccrash = ['7T'];
 		this.modData('Learnsets', 'feraligatr').learnset.draconiccrash = ['7T'];
 		this.modData('Learnsets', 'flygon').learnset.draconiccrash = ['7T'];
+		
+		this.modData('Learnsets', 'mantine').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'aerodactyl').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'archen').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'archeops').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'braviary').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'chindle').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'chaldera').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'flarenix').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'dragonite').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'drifloon').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'driflblim').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'fletchling').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'fletchinder').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'talonflame').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'gyarados').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'hawlucha').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'hoothoot').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'noctowl').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'lunala').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'murkrow').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'honchkrow').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'natu').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'xatu').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'noibat').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'noivern').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'oricorio').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'pikipek').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'trumbeak').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'toucannon').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'rowlet').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'dartrix').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'decidueye').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'salamence').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'skarmory').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'spearow').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'fearow').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'wingull').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'pelipper').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'zubat').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'golbat').learnset.jetstream = ['7T'];
+		this.modData('Learnsets', 'crobat').learnset.jetstream = ['7T'];
+		
+		this.modData('Learnsets', 'glalie').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'snorunt').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'froslass').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'snoxin').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'amaura').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'aurorus').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'glaceon').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'jynx').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'lapras').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'snoxin').learnset.sinterstorm = ['7T'];
+		
+		this.modData('Learnsets', 'excadrill').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'drilbur').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'bastiodon').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'shieldon').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'celesteela').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'diglett').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'dugtrio').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'diglettalola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'dugtrioalola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'forretress').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'gigalith').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'boldore').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'roggenrola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'golem').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'graveler').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'geodude').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'golemalola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'graveleralola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'geodudealola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'metagross').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'metang').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'onix').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'onixalola').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'steelix').learnset.excavation = ['7T'];
+		this.modData('Learnsets', 'steelixalola').learnset.excavation = ['7T'];
+		
+		this.modData('Learnsets', 'plubia').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'toxicroak').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'croagunk').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'tikilohi').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'froslass').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'snorunt').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'gengar').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'haunter').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'gastly').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'marowakalola').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'palossand').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'sandygast').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'colotalloy').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'firmlio').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'irotyke').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'hawlucha').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'kommoo').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'hakamoo').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'jangmoo').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'lucario').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'riolu').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'buzzwole').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'heracross').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'pangoro').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'pancham').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'scrafty').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'scraggy').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'poliwrath').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'poliwhirl').learnset.indomitablespirit = ['7T'];
+		this.modData('Learnsets', 'poliwag').learnset.indomitablespirit = ['7T'];
+		
+		this.modData('Learnsets', 'buzzwole').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'butterfree').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'caterpie').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'metapod').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'ledian').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'ledyba').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'ariados').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'spinarak').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'vikavolt').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'charjabug').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'grubbin').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'ribombee').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'cutiefly').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'masquerain').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'surskit').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'araquanid').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'dewpider').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'parasect').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'paras').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'volcarona').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'larvesta').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'pinsir').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'wimpod').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'golisopod').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'anorith').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'armaldo').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'forretress').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'pinecone').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'scizor').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'scyther').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'heracross').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'pheromosa').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'arachsoil').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'shinobug').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'accelgoralola').learnset.hivemind = ['7T'];
+		this.modData('Learnsets', 'tapulelekinolau').learnset.hivemind = ['7T'];
+		
+		this.modData('Learnsets', 'whiscash').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'arachsoil').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'diglett').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'diglettalola').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'dugtrio').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'dugtrioalola').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'geodude').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'graveler').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'golem').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'mudbray').learnset.mudsling = ['7T'];
+		this.modData('Learnsets', 'mudsdale').learnset.mudsling = ['7T'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -225,4 +384,27 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		return hitResults;
 	},
+	runSwitch(pokemon: Pokemon) { // modified for both Hive Mind and Indomitable Spirit
+		this.runEvent('Swap', pokemon);
+		this.runEvent('SwitchIn', pokemon);
+		if (this.gen <= 2 && !pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.turn) {
+			this.runEvent('AfterSwitchInSelf', pokemon);
+		}
+		if (!pokemon.hp) return false;
+		pokemon.isStarted = true;
+		if (!pokemon.fainted) {
+			this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+			pokemon.abilityOrder = this.abilityOrder++;
+			this.singleEvent('Start', pokemon.getItem(), pokemon.itemData, pokemon);
+		}
+		if (this.gen === 4) {
+			for (const foeActive of pokemon.side.foe.active) {
+				foeActive.removeVolatile('substitutebroken');
+			}
+		}
+		this.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
+		pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
+		pokemon.draggedIn = null;
+		return true;
+	}
 };
