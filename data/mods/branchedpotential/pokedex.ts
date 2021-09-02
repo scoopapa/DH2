@@ -221,7 +221,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -107,
 		name: "Ratichef",
 		types: ["Normal", "Fairy"],
-		baseStats: {hp: 110, atk: 81, def: 85, spa: 50, spd: 105, spe: 97},
+		baseStats: {hp: 110, atk: 50, def: 85, spa: 81, spd: 105, spe: 97},
 		abilities: {0: "Triage", 1: "Sweet Veil", H: "Ripen"},
 		weightkg: 15,
 	},
