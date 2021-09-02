@@ -360,7 +360,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	weezlordgalar: {
-		tier: "FEUU",
+		tier: "Uncoded",
 		doublesTier: "DUU",
 	},
 	sableior: {
@@ -668,7 +668,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	zerclef: {
-		tier: "Uncoded",
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+// Slate 20
+	golisotops: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	porygrigus: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	exeggutorprime: {
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	
