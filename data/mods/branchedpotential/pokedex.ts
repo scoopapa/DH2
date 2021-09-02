@@ -230,7 +230,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -108,
 		name: "Ratidam",
 		types: ["Normal", "Water"],
-		baseStats: {hp: 95, atk: 91, def: 75, spa: 50, spd: 110, spe: 97},
+		baseStats: {hp: 97, atk: 91, def: 77, spa: 52, spd: 112, spe: 99},
 		abilities: {0: "Strong Jaw", 1: "Guts", H: "Hustle"},
 		weightkg: 39,
 	},
