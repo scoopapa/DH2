@@ -874,4 +874,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	spectrier: {
 		tier: "OU",
 	},
+	cramorant: {
+		tier: "OU",
+	},
+	porygon2: {
+		tier: "OU",
+	},
+	linoone: {
+		tier: "OU",
+	},
+	cofagrigus: {
+		tier: "OU",
+	},
+	dugtrio: {
+		tier: "OU",
+	},
+	dugtrioalola: {
+		tier: "OU",
+	},
+	calyrex: {
+		tier: "OU",
+	},
 };
