@@ -79,10 +79,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	perrserker: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
 	golem: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -120,10 +116,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium",
 	},
 	farfetchdgalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	sirfetchd: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},*/
@@ -199,19 +191,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	cursola: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
 	linoone: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	linoonegalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	obstagoon: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -247,14 +231,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*rayquaza: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	rayquazamega: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	deoxyswood: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -355,15 +331,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*cofagrigus: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	runerigus: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	stunfisk: {
+	/*stunfisk: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
