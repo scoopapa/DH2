@@ -377,6 +377,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'appletun').learnset.earthpower = ['8L1'];
 		this.modData('Learnsets', 'appletun').learnset.toxic = ['8L1'];
 		
+		this.modData('Learnsets', 'cramorant').learnset.waterspout = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.stealthrock = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.stickyweb = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.endeavor = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.stormthrow = ['8L1'];
+		
 		this.modData('Learnsets', 'indeedee').learnset.wish = ['8L1'];
 		this.modData('Learnsets', 'indeedee').learnset.toxic = ['8L1'];
 		this.modData('Learnsets', 'indeedee').learnset.celebrate = ['8L1'];
@@ -410,7 +417,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'glastrier').learnset.slackoff = ['8L1'];
 		
-		this.modData('Learnsets', 'regieleki').learnset.stickywebs = ['8L1'];
+		this.modData('Learnsets', 'regieleki').learnset.stickyweb = ['8L1'];
 		this.modData('Learnsets', 'regieleki').learnset.toxic = ['8L1'];
 		
 		this.modData('Learnsets', 'regidrago').learnset.metalclaw = ['8L1'];

@@ -394,11 +394,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	absol: {
 		inherit: true,
+		baseStats: {hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 91},
 		abilities: {0: "Pressure", 1: "Super Luck", H: "Justified"},
 	},
 	absolmega: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 155, def: 60, spa: 121, spd: 60, spe: 125},
+		baseStats: {hp: 65, atk: 155, def: 60, spa: 116, spd: 60, spe: 125},
 	},
 	glalie: {
 		inherit: true,

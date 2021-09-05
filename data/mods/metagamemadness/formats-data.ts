@@ -5,9 +5,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	venusaurmega: {
 		tier: "OU",
 	},
-	venusaurgmax: {
-		tier: "OU",
-	},
 	charizard: {
 		tier: "OU",
 	},
@@ -17,22 +14,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	charizardmegay: {
 		tier: "OU",
 	},
-	charizardgmax: {
-		tier: "OU",
-	},
 	blastoise: {
 		tier: "OU",
 	},
 	blastoisemega: {
 		tier: "Uber",
 	},
-	blastoisegmax: {
-		tier: "OU",
-	},
 	butterfree: {
-		tier: "OU",
-	},
-	butterfreegmax: {
 		tier: "OU",
 	},
 	beedrill: {
@@ -89,9 +77,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	gengarmega: {
 		tier: "Uber",
 	},
-	gengargmax: {
-		tier: "OU",
-	},
 	marowak: {
 		tier: "OU",
 	},
@@ -119,9 +104,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	eevee: {
 		tier: "OU",
 	},
-	eeveegmax: {
-		tier: "OU",
-	},
 	vaporeon: {
 		tier: "OU",
 	},
@@ -144,9 +126,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	snorlax: {
-		tier: "OU",
-	},
-	snorlaxgmax: {
 		tier: "OU",
 	},
 	articuno: {
@@ -745,31 +724,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	melmetal: {
 		tier: "OU",
 	},
-	melmetalgmax: {
-		tier: "OU",
-	},
 	rillaboom: {
-		tier: "OU",
-	},
-	rillaboomgmax: {
 		tier: "OU",
 	},
 	cinderace: {
 		tier: "OU",
 	},
-	cinderacegmax: {
-		tier: "OU",
-	},
 	inteleon: {
 		tier: "OU",
 	},
-	inteleongmax: {
-		tier: "OU",
-	},
 	corviknight: {
-		tier: "OU",
-	},
-	corviknightgmax: {
 		tier: "OU",
 	},
 	dubwool: {
@@ -778,25 +742,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	coalossal: {
 		tier: "OU",
 	},
-	coalossalgmax: {
-		tier: "OU",
-	},
 	flapple: {
-		tier: "OU",
-	},
-	flapplegmax: {
 		tier: "OU",
 	},
 	appletun: {
 		tier: "OU",
 	},
-	appletungmax: {
-		tier: "OU",
-	},
 	sandaconda: {
-		tier: "OU",
-	},
-	sandacondagmax: {
 		tier: "OU",
 	},
 	barraskewda: {
@@ -808,13 +760,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	hatterene: {
 		tier: "OU",
 	},
-	hatterenegmax: {
-		tier: "OU",
-	},
 	grimmsnarl: {
-		tier: "OU",
-	},
-	grimmsnarlgmax: {
 		tier: "OU",
 	},
 	obstagoon: {
@@ -835,9 +781,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	copperajah: {
 		tier: "OU",
 	},
-	copperajahgmax: {
-		tier: "OU",
-	},
 	dracozolt: {
 		tier: "OU",
 	},
@@ -851,9 +794,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	duraludon: {
-		tier: "OU",
-	},
-	duraludongmax: {
 		tier: "OU",
 	},
 	dragapult: {
@@ -872,6 +812,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	spectrier: {
+		tier: "OU",
+	},
+	cramorant: {
+		tier: "OU",
+	},
+	porygon2: {
+		tier: "OU",
+	},
+	linoone: {
+		tier: "OU",
+	},
+	cofagrigus: {
+		tier: "OU",
+	},
+	dugtrio: {
+		tier: "OU",
+	},
+	dugtrioalola: {
+		tier: "OU",
+	},
+	calyrex: {
 		tier: "OU",
 	},
 };
