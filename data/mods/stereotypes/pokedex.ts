@@ -362,4 +362,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 147,
 	},
+	//Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
+	corundell: {
+		num: 1036,
+		name: "Corundell",
+		types: ["Electric", "Rock"],
+		baseStats: {hp: 50, atk: 100, def: 150, spa: 50, spd: 100, spe: 105},
+		abilities: {0: "Prankster", 1: "Rough Skin", H: "Sand Force"},
+		weightkg: 89,
+	},
+	platypad: {
+		num: 1037,
+		name: "Platypad",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 85, atk: 85, def: 85, spa: 110, spd: 103, spe: 82},
+		abilities: {0: "Triage", 1: "Oblivious", H: "Flower Veil"},
+		weightkg: 125,
+	},
+	luffacoa: {
+		num: 1038,
+		name: "Luffacoa",
+		types: ["Water", "Dragon"],
+		baseStats: {hp: 82, atk: 80, def: 75, spa: 90, spd: 65, spe: 115},
+		abilities: {0: "Shed Skin", 1: "Fluffy", H: "Natural Cure"},
+		//weightkg: 147,
+	},
 };
