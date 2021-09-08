@@ -437,7 +437,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['trickroom'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'ability: Counter-Clockwise Spiral', effect, '[of] ' + this.effectData.target);
+				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', move, '[of] ' + target);
 				return false;
 			}
 		},
