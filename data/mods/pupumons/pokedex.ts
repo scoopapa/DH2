@@ -392,7 +392,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		species: "Detectrice",
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 103, atk: 110, def: 116, spa: 100, spd: 97, spe: 74},
-		abilities: {0: "Stakeout", H: "Shed Skin"},
+		abilities: {0: "Stakeout", H: "Intimidate"},
 		weightkg: 25,
 	},
 	nosferoyle: {
