@@ -272,10 +272,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.field.terrainData.duration = 0;
 			}
 		},
+		onAnyTerrainStart(target, source, terrain) {
+			if (terrain.id !== 'grassyterrain') {
+				this.field.clearTerrain();
+				this.field.setTerrain('grassyterrain');
+			}
+		},
+/*
 		onAnySetTerrain(target, source, terrain) {
 			if (source.hasAbility('arenarock') && terrain.id === 'grassyterrain') return;
 			return false;
 		},
+*/
 		onEnd(pokemon) {
 			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
