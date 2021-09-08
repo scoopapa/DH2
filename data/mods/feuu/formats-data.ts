@@ -150,8 +150,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 100,
 	},
 	tapulopmega: {
-		tier: "FEUUber",
-		doublesTier: "FEUUber",
+		tier: "FEUU",
+		doublesTier: "DUU",
 	},
 	dragontler: {
 		tier: "FEUU",
@@ -420,8 +420,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	kyottlerprimal: {
-		tier: "FEUU",
-		doublesTier: "DUU",
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	clawliwrath: {
 		tier: "FEUU",
