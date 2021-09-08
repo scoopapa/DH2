@@ -421,17 +421,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			if (this.field.addPseudoWeather('trickroom')) {
+			if (this.field.getPseudoWeather('trickroom')) {
 				this.add('-ability', source, 'Counter-Clockwise Spiral');
 				this.add('-message', `${source.name} twisted the dimensions!`);
 				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
-				this.field.pseudoWeather['trickroom'].source = source;
-				this.field.pseudoWeather['trickroom'].duration = 0;
+				this.field.pseudoWeather.trickroom.source = source;
+				this.field.pseudoWeather.trickroom.duration = 0;
 			} else {
 				this.add('-ability', source, 'Counter-Clockwise Spiral');
 				this.field.addPseudoWeather('trickroom');
 				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
-				this.field.pseudoWeather['trickroom'].duration = 0;
+				this.field.pseudoWeather.trickroom.duration = 0;
 			}
 		},
 		onAnyTryMove(target, source, effect) {
