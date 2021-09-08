@@ -155,6 +155,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Stereotypes",
 		doublesTier: "Stereotypes",
 	},
+	//Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
+	corundell: {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
+	platypad: {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
+	luffacoa: {
+		tier: "Stereotypes",
+		doublesTier: "Stereotypes",
+	},
 	//LC Slate 1
 	sproutsel: {
 		tier: "Stereotypes LC",
