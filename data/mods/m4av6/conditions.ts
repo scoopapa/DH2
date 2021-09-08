@@ -376,7 +376,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.species.name !== forme) pokemon.formeChange(forme, this.effect, true);
 			}
 		},
-		onUpdate(pokemon)
+		onUpdate(pokemon) {
 			if (pokemon.item === 'rksmegamemory' && !pokemon.isMega) {
 				let type = pokemon.hpType;
 				if (!pokemon.hpType) {
