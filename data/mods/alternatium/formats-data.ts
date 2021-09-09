@@ -1,12 +1,12 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	/*raticate: {
+	raticate: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},	
 	raticatealola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	pikachu: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -190,16 +190,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	corsolagalar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	linoone: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	linoonegalar: {
+	linoonepunk: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	castform: {
+	/*castform: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
