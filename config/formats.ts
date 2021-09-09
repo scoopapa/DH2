@@ -2040,7 +2040,6 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Data Mod'],
 		banlist: [],
 	},
-	/*
 	{
 		name: "[Gen 8] Random Dex Ubers",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
@@ -2062,6 +2061,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	/*
 	{
 		name: "[Gen 8] Random Dex UU",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
