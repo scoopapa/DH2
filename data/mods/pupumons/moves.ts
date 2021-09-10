@@ -20106,7 +20106,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Psychic",
+		type: "Dark",
 		contestType: "Cool",
 	},
 	banefulbladedance: {
