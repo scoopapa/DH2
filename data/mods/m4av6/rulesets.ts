@@ -33,7 +33,7 @@ export const Formats: {[k: string]: FormatData} = {
 					if (set.hpType) {
 						set.species = 'Silvally-' + set.hpType;
 					} else {
-						set.species = 'Silvally-Dark';
+						set.species = 'Silvally-' + this.dex.getHiddenPower(set.ivs).type;
 					}
 				}
 			}
@@ -87,7 +87,7 @@ export const Formats: {[k: string]: FormatData} = {
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-			'Butterfrite', 'Dragonitite', 'Cinderite', // temporary
+			'Butterfrite', 'Dragonitite', 'Rillaboomite', 'Cinderite',
 		],
 	},
 	standardm4amonothreat: {

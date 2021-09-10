@@ -260,14 +260,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Grassy Terrain begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.clearTerrain();
-			this.field.setTerrain('grassyterrain');
-		},
-		onAnyTerrainStart(target, source, terrain) {
-			if (!source.hasAbility('arenarock')) {
-				this.field.setTerrain('grassyterrain', this.effectData.target);
+			if (this.field.setTerrain('grassyterrain')) {
+				this.add('-message', `${source.name} covered the arena with unrelenting plant growth!`);
+				this.hint("Arena Rock doesn't wear off until the user leaves the field!");
+				this.field.terrainData.duration = 0;
+			} else if (this.field.isTerrain('grassyterrain') && this.field.terrainData.duration !== 0) {
+				this.add('-ability', source, 'Arena Rock');
+				this.add('-message', `${source.name} covered the arena with unrelenting plant growth!`);
+				this.hint("Arena Rock doesn't wear off until the user leaves the field!");
+				this.field.terrainData.source = source;
+				this.field.terrainData.duration = 0;
 			}
 		},
+		onAnyTerrainStart(target, source, terrain) {
+			if (terrain.id !== 'grassyterrain') {
+				this.field.clearTerrain();
+				this.field.setTerrain('grassyterrain');
+			}
+		},
+/*
+		onAnySetTerrain(target, source, terrain) {
+			if (source.hasAbility('arenarock') && terrain.id === 'grassyterrain') return;
+			return false;
+		},
+*/
 		onEnd(pokemon) {
 			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
@@ -405,13 +421,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.removePseudoWeather('trickroom');
-			this.field.addPseudoWeather('trickroom');
+			if (this.field.getPseudoWeather('trickroom')) {
+				this.add('-ability', source, 'Counter-Clockwise Spiral');
+				this.add('-message', `${source.name} twisted the dimensions!`);
+				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.trickroom.source = source;
+				this.field.pseudoWeather.trickroom.duration = 0;
+			} else {
+				this.add('-ability', source, 'Counter-Clockwise Spiral');
+				this.field.addPseudoWeather('trickroom');
+				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.trickroom.duration = 0;
+			}
 		},
 		onAnyTryMove(target, source, effect) {
 			if (['trickroom'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', move, '[of] ' + target);
 				return false;
 			}
 		},
@@ -1649,8 +1675,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.setWeather('hail');
-			this.field.weatherData.duration = 0;
+			if (this.field.setWeather('hail')) {
+				this.add('-message', `${source.name} created an unrelenting winter storm!`);
+				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
+				this.field.weatherData.duration = 0;
+			} else if (this.field.isWeather('hail') && this.field.weatherData.duration !== 0) {
+				this.add('-ability', source, 'Everlasting Winter');
+				this.add('-message', `${source.name} created an unrelenting winter storm!`);
+				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
+				this.field.weatherData.source = source;
+				this.field.weatherData.duration = 0;
+			}
 		},
 		onAnySetWeather(target, source, weather) {
 			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;

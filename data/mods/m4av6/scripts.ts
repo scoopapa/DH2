@@ -21,7 +21,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("inteleon", ["taunt", "firstimpression", "encore", "pursuit"]);
 		newMoves("klinklang", ["overheat", "rapidspin"]);
 		newMoves("garbodor", ["stealthrock", "knockoff"]);
-		newMoves("jolteon", ["calmmind"]);
 		newMoves("flareon", ["burnup", "morningsun"]);
 		newMoves("butterfree", ["taunt", "earthpower"]);
 		newMoves("chandelure", ["mindblown"]);
@@ -29,7 +28,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("conkeldurr", ["shoreup"]);
 		newMoves("gigalith", ["skullbash", "sunnyday", "synthesis", "trickroom"]);
 		newMoves("reuniclus", ["photongeyser", "psychoboost"]);
-		newMoves("boltund", ["pursuit"]);
+		newMoves("boltund", ["dazzlinggleam", "pursuit"]);
 		newMoves("archeops", ["fireblast", "dualwingbeat", "bravebird"]);
 		newMoves("talonflame", ["scorchingsands"]);
 		newMoves("staraptor", ["roleplay", "superfang"]);
@@ -44,8 +43,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("mimikyu", ["firstimpression", "strengthsap", "uturn"]);
 		newMoves("nidoqueen", ["milkdrink"]);
 		newMoves("walrein", ["darkpulse", "flipturn", "focusblast", "freezedry", "slackoff"]);
-		newMoves("aurorus", ["rapidspin", "voltswitch"]);
-		newMoves("trevenant", ["bulkup", "floralhealing", "synthesis"]);
+		newMoves("aurorus", ["paraboliccharge", "rapidspin", "voltswitch"]);
+		newMoves("trevenant", ["floralhealing", "synthesis"]);
 		newMoves("eelektross", ["recover", "scald"]);
 		newMoves("dragalge", ["acidspray", "gastroacid", "roost", "terrainpulse"]);
 		newMoves("dhelmise", ["flipturn", "superpower"]);

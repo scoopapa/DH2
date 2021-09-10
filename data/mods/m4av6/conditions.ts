@@ -366,6 +366,28 @@ export const Conditions: {[k: string]: ConditionData} = {
 	longwhip5: longwhip,
 	silvally: {
 		name: 'Silvally',
+/* // this is only needed if I can't get onSet to work
+		onStart(pokemon) {
+			if (pokemon.item === 'rksmegamemory' && !pokemon.isMega) {
+				let type = pokemon.hpType;
+				if (!pokemon.hpType) {
+					type = 'Dark';
+				}
+				const forme = 'Silvally-' + type;
+				if (pokemon.species.name !== forme) pokemon.formeChange(forme, this.effect, true);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.item === 'rksmegamemory' && !pokemon.isMega) {
+				let type = pokemon.hpType;
+				if (!pokemon.hpType) {
+					type = 'Dark';
+				}
+				const forme = 'Silvally-' + type;
+				if (pokemon.species.name !== forme) pokemon.formeChange(forme, this.effect, true);
+			}
+		},
+*/
 		onTypePriority: 1,
 		onType(types, pokemon) {
 			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
