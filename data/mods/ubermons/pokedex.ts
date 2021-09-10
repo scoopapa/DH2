@@ -160,4 +160,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 83, atk: 113, def: 67, spa: 113, spd: 67, spe: 127},
 	},
+	reshiram: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 80, spa: 130, spd: 110, spe: 90},
+	},
+	zekrom: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 120},
+	},
 };

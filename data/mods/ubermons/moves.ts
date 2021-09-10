@@ -246,4 +246,80 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	fusionbolt: {
+		num: 559,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "If a Pokémon in the user's party has Fusion Flare; 1.3x power & 20% chance to burn.",
+		name: "Fusion Bolt",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, move) {
+			for (const ally of pokemon.side.pokemon) {
+				if (!ally || ally.fainted) continue;
+				for (const moveSlot of ally.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.id === 'fusionflare') continue;
+					this.debug('double power');
+					return this.chainModify(1.3);
+				}
+			}
+		},
+		secondary: {
+			chance: 20,
+			onHit(target, pokemon, move) {
+				for (const ally of pokemon.side.pokemon) {
+					if (!ally || ally.fainted) continue;
+					for (const moveSlot of ally.moveSlots) {
+						const move = this.dex.getMove(moveSlot.move);
+						if (move.id === 'fusionflare') continue;
+						target.trySetStatus('brn');
+					}
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	fusionflare: {
+		num: 558,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		shortDesc: "If a Pokémon in the user's party has Fusion Bolt; 1.3x power & 20% chance to paralyze.",
+		name: "Fusion Flare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		onBasePower(basePower, pokemon, move) {
+			for (const ally of pokemon.side.pokemon) {
+				if (!ally || ally.fainted) continue;
+				for (const moveSlot of ally.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.id === 'fusionbolt') continue;
+					this.debug('double power');
+					return this.chainModify(1.3);
+				}
+			}
+		},
+		secondary: {
+			chance: 20,
+			onHit(target, pokemon, move) {
+				for (const ally of pokemon.side.pokemon) {
+					if (!ally || ally.fainted) continue;
+					for (const moveSlot of ally.moveSlots) {
+						const move = this.dex.getMove(moveSlot.move);
+						if (move.id === 'fusionbolt') continue;
+						target.trySetStatus('par');
+					}
+				}
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
 };
