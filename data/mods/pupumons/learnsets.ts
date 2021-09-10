@@ -1538,6 +1538,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		shadowclaw: ["8L1"],
 		ominouswind: ["8L1"],
 		phantomforce: ["8L1"],
+		powergem: ["8L1"],
+		earthpower: ["8L1"],
 	},},
 	amplifire: {learnset: {
 		substitute: ["8L1"],

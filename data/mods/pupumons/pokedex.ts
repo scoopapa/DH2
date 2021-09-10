@@ -1,7 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	grizzeal: {
 		num: 1.5,
-		species: "Grizzeal",
+		name: "Grizzeal",
 		types: ["Grass", "Dark"],
 		baseStats: {hp: 120, atk: 70, def: 95, spa: 80, spd: 110, spe: 60},
 		abilities: {0: "Overgrow", H: "Natural Cure"},
@@ -9,7 +9,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	stampyro: {
 		num: 2.5,
-		species: "Stampyro",
+		name: "Stampyro",
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 89, atk: 105, def: 112, spa: 55, spd: 85, spe: 89},
 		abilities: {0: "Blaze", H: "Levitate"},
@@ -17,7 +17,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	hippothagoras: {
 		num: 3.5,
-		species: "Hippothagoras",
+		name: "Hippothagoras",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 77, atk: 105, def: 87, spa: 96, spd: 97, spe: 73},
 		abilities: {0: "Torrent", H: "Drizzle"},
@@ -25,7 +25,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	moleder: {
 		num: 4.5,
-		species: "Moleder",
+		name: "Moleder",
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 72, atk: 92, def: 60, spa: 55, spd: 60, spe: 84},
 		abilities: {0: "Run Away", 1: "Sand Force", H: "Adaptability"},
@@ -33,7 +33,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	bombatross: {
 		num: 5.5,
-		species: "Bombatross",
+		name: "Bombatross",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 90, atk: 55, def: 110, spa: 100, spd: 65, spe: 60},
 		abilities: {0: "Swift Swim", H: "Mega Launcher"},
@@ -41,7 +41,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	galvia: {
 		num: 6.5,
-		species: "Galvia",
+		name: "Galvia",
 		types: ["Electric", "Ground"],
 		baseStats: {hp: 140, atk: 51, def: 62, spa: 53, spd: 64, spe: 50},
 		abilities: {0: "Water Absorb"},
@@ -49,7 +49,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	calistaiji: {
 		num: 7.5,
-		species: "Calistaiji",
+		name: "Calistaiji",
 		types: ["Fighting"],
 		baseStats: {hp: 90, atk: 55, def: 90, spa: 105, spd: 105, spe: 60},
 		abilities: {0: "Berserk", 1: "Bulletproof", H: "No Guard"},
@@ -57,7 +57,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	setstorm: {
 		num: 8.5,
-		species: "Setstorm",
+		name: "Setstorm",
 		types: ["Bug", "Rock"],
 		baseStats: {hp: 84, atk: 60, def: 112, spa: 94, spd: 85, spe: 31},
 		abilities: {0: "Swarm", H: "Sand Stream"},
@@ -65,7 +65,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	kheprise: {
 		num: 9.5,
-		species: "Kheprise",
+		name: "Kheprise",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 52, atk: 126, def: 55, spa: 59, spd: 60, spe: 114},
 		abilities: {0: "Swarm", H: "Drought"},
@@ -73,7 +73,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	weeplim: {
 		num: 10.5,
-		species: "Weeplim",
+		name: "Weeplim",
 		types: ["Grass", "Normal"],
 		baseStats: {hp: 80, atk: 72, def: 85, spa: 100, spd: 65, spe: 83},
 		abilities: {0: "Poison Heal", H: "Grassy Surge"},
@@ -81,7 +81,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	puddogre: {
 		num: 11.5,
-		species: "Puddogre",
+		name: "Puddogre",
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 104, atk: 50, def: 128, spa: 60, spd: 123, spe: 20},
 		abilities: {0: "Storm Drain", H: "Intimidate"},
@@ -89,7 +89,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	doderror: {
 		num: 12.5,
-		species: "Doderror",
+		name: "Doderror",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 70, atk: 130, def: 83, spa: 75, spd: 88, spe: 94},
 		abilities: {0: "Early Bird", 1: "Run Away", H: "Heavy Air"},
@@ -97,7 +97,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	strignight: {
 		num: 13.5,
-		species: "Strignight",
+		name: "Strignight",
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 100, atk: 65, def: 72, spa: 108, spd: 92, spe: 103},
 		abilities: {0: "Insomnia", 1: "Keen Eye", H: "Tinted Lens"},
@@ -105,7 +105,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	coowoo: {
 		num: 14.5,
-		species: "Coowoo",
+		name: "Coowoo",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 60, atk: 98, def: 78, spa: 98, spd: 78, spe: 23},
 		abilities: {0: "Normalize", H: "Multiscale"},
@@ -113,7 +113,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	spectropa: {
 		num: 15.5,
-		species: "Spectropa",
+		name: "Spectropa",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 75, atk: 65, def: 70, spa: 125, spd: 65, spe: 90},
 		abilities: {0: "Liquid Ooze", 1: "Damp", H: "Hydration"},
@@ -121,7 +121,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	crikeri: {
 		num: 16.5,
-		species: "Crikeri",
+		name: "Crikeri",
 		types: ["Water", "Bug"],
 		baseStats: {hp: 67, atk: 70, def: 61, spa: 108, spd: 70, spe: 62},
 		abilities: {0: "Truant", 1: "Liquid Voice", H: "Punk Rock"},
@@ -129,7 +129,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	boxetta: {
 		num: 17.5,
-		species: "Boxetta",
+		name: "Boxetta",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 70, atk: 130, def: 81, spa: 62, spd: 62, spe: 79},
 		abilities: {0: "Iron Fist", H: "Scrappy"},
@@ -137,7 +137,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	kingphan: {
 		num: 18.5,
-		species: "Kingphan",
+		name: "Kingphan",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 100, atk: 130, def: 120, spa: 60, spd: 80, spe: 50},
 		abilities: {0: "Sturdy", 1: "Stamina", H: "Filter"},
@@ -145,7 +145,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	skuntomic: {
 		num: 19.5,
-		species: "Skuntomic",
+		name: "Skuntomic",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 112, atk: 97, def: 84, spa: 80, spd: 83, spe: 84},
 		abilities: {0: "Aftermath", 1: "Intimidate", H: "Corrosion"},
@@ -153,7 +153,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	croantagion: {
 		num: 20.5,
-		species: "Croantagion",
+		name: "Croantagion",
 		types: ["Poison", "Fire"],
 		baseStats: {hp: 83, atk: 116, def: 90, spa: 96, spd: 75, spe: 80},
 		abilities: {0: "Effect Spore", 1: "Anticipation", H: "Technician"},
@@ -161,7 +161,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	gaggular: {
 		num: 21.5,
-		species: "Gaggular",
+		name: "Gaggular",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 63, atk: 90, def: 50, spa: 120, spd: 83, spe: 94},
 		abilities: {0: "Prankster", H: "Electric Surge"},
@@ -169,7 +169,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ultranaut: {
 		num: 22.5,
-		species: "Ultranaut",
+		name: "Ultranaut",
 		types: ["Steel", "Fairy"],
 		baseStats: {hp: 70, atk: 115, def: 80, spa: 80, spd: 85, spe: 78},
 		abilities: {0: "Lightning Rod", 1: "Klutz", H: "Magnet Pull"},
@@ -177,7 +177,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dragulonimbus: {
 		num: 23.5,
-		species: "Dragulonimbus",
+		name: "Dragulonimbus",
 		types: ["Dragon", "Electric"],
 		baseStats: {hp: 80, atk: 118, def: 75, spa: 97, spd: 75, spe: 115},
 		abilities: {0: "Levitate", H: "Sheer Force"},
@@ -185,7 +185,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dragulare: {
 		num: 24.5,
-		species: "Dragulare",
+		name: "Dragulare",
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 90, atk: 125, def: 80, spa: 75, spd: 110, spe: 80},
 		abilities: {0: "Levitate", H: "Rock Head"},
@@ -193,7 +193,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dragulanche: {
 		num: 25.5,
-		species: "Dragulanche",
+		name: "Dragulanche",
 		types: ["Dragon", "Ice"],
 		baseStats: {hp: 90, atk: 80, def: 110, spa: 140, spd: 80, spe: 60},
 		abilities: {0: "Levitate", H: "Magic Guard"},
@@ -201,7 +201,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	scrittle: {
 		num: 26.5,
-		species: "Scrittle",
+		name: "Scrittle",
 		types: ["Ghost", "Flying"],
 		baseStats: {hp: 30, atk: 42, def: 30, spa: 90, spd: 33, spe: 150},
 		abilities: {0: "Defeatist", H: "Shadow Tag"},
@@ -209,7 +209,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	corruptrain: {
 		num: 27.5,
-		species: "Corruptrain",
+		name: "Corruptrain",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 100, atk: 87, def: 100, spa: 55, spd: 66, spe: 72},
 		abilities: {1: "Light Metal", 2: "Heavy Metal", H: "Steam Engine"},
@@ -217,7 +217,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	pasdovo: {
 		num: 28.5,
-		species: "Pasdovo",
+		name: "Pasdovo",
 		types: ["Flying", "Ice"],
 		baseStats: {hp: 63, atk: 103, def: 83, spa: 83, spd: 93, spe: 83},
 		abilities: {0: "Anticipation", 1: "Skill Link", H: "Snow Warning"},
@@ -225,7 +225,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	glasiosaur: {
 		num: 29.5,
-		species: "Glasiosaur",
+		name: "Glasiosaur",
 		types: ["Ice", "Water"],
 		baseStats: {hp: 98, atk: 72, def: 80, spa: 130, spd: 80, spe: 75},
 		abilities: {0: "Thick Fat", 1: "Soundproof", H: "Slush Rush"},
@@ -233,7 +233,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	bellophus: {
 		num: 30.5,
-		species: "Bellophus",
+		name: "Bellophus",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 90, atk: 80, def: 130, spa: 65, spd: 107, spe: 43},
 		abilities: {0: "Regenerator", 1: "Heatproof", H: "Iron Barbs"},
@@ -241,7 +241,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	velocust: {
 		num: 31.5,
-		species: "Velocust",
+		name: "Velocust",
 		types: ["Rock", "Steel"],
 		baseStats: {hp: 65, atk: 107, def: 81, spa: 76, spd: 65, spe: 121},
 		abilities: {0: "Tough Claws", 1: "Dry Skin", H: "Moxie"},
@@ -249,7 +249,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	kuwengu: {
 		num: 32.5,
-		species: "Kuwengu",
+		name: "Kuwengu",
 		types: ["Dark"],
 		baseStats: {hp: 75, atk: 60, def: 70, spa: 112, spd: 85, spe: 60},
 		abilities: {0: "Magic Bounce", 1: "Prankster", H: "Serene Grace"},
@@ -257,7 +257,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	putango: {
 		num: 33.5,
-		species: "Putango",
+		name: "Putango",
 		types: ["Normal"],
 		baseStats: {hp: 75, atk: 100, def: 102, spa: 55, spd: 70, spe: 60},
 		abilities: {0: "Unaware", 1: "Guts", H: "Sand Rush"},
@@ -265,7 +265,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	rishelios: {
 		num: 34.5,
-		species: "Rishelios",
+		name: "Rishelios",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 81, atk: 108, def: 81, spa: 108, spd: 81, spe: 81},
 		abilities: {0: "Sundancer"},
@@ -273,7 +273,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	odonaga: {
 		num: 35.5,
-		species: "Odonaga",
+		name: "Odonaga",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 90, atk: 80, def: 90, spa: 130, spd: 110, spe: 100},
 		abilities: {0: "Shell Armor", 1: "Sniper", H: "Compound Eyes"},
@@ -281,7 +281,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	solrockapple: {
 		num: 36.5,
-		species: "Solrock-Apple",
+		name: "Solrock-Apple",
 		baseSpecies: "Solrock",
 		forme: "Apple",
 		types: ["Ground", "Fairy"],
@@ -291,7 +291,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	lunatoneapple: {
 		num: 37.5,
-		species: "Lunterra-Apple",
+		name: "Lunatone-Apple",
 		baseSpecies: "Lunatone",
 		forme: "Apple",
 		types: ["Ground", "Psychic"],
@@ -301,7 +301,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	venomab: {
 		num: 38.5,
-		species: "Venomab",
+		name: "Venomab",
 		types: ["Fairy", "Poison"],
 		baseStats: {hp: 82, atk: 96, def: 48, spa: 143, spd: 128, spe: 103},
 		abilities: {0: "Trace", H: "Competitive"},
@@ -309,7 +309,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	forganon: {
 		num: 39.5,
-		species: "Forganon",
+		name: "Forganon",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 105, atk: 140, def: 110, spa: 70, spd: 140, spe: 35},
 		abilities: {0: "Flash Fire"},
@@ -317,7 +317,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	isladon: {
 		num: 40.5,
-		species: "Isladon",
+		name: "Isladon",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 130, atk: 133, def: 90, spa: 113, spd: 90, spe: 84},
 		abilities: {0: "Sap Sipper"},
@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ooreina: {
 		num: 41.5,
-		species: "Ooreina",
+		name: "Ooreina",
 		baseForme: "Romance",
 		types: ["Fairy", "Fighting"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
@@ -336,7 +336,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ooreinaflare: {
 		num: 41.5,
-		species: "Ooreina-Flare",
+		name: "Ooreina-Flare",
 		baseSpecies: "Ooreina",
 		forme: "Flare",
 		formeLetter: "F",
@@ -349,7 +349,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	rangdemos: {
 		num: 42.5,
-		species: "Rangdemos",
+		name: "Rangdemos",
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 90, spa: 155, spd: 105, spe: 135},
 		abilities: {0: "Fiendish"},
@@ -357,7 +357,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	baronglaiv: {
 		num: 43.5,
-		species: "Baronglaiv",
+		name: "Baronglaiv",
 		types: ["Fighting", "Ground"],
 		baseStats: {hp: 150, atk: 150, def: 120, spa: 78, spd: 110, spe: 72},
 		abilities: {0: "Herculean"},
@@ -365,7 +365,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	thundra: {
 		num: 44.5,
-		species: "Thundra",
+		name: "Thundra",
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 110, atk: 90, def: 90, spa: 126, spd: 100, spe: 84},
 		abilities: {0: "Pressure", H: "Galvanize"},
@@ -373,7 +373,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	eruptil: {
 		num: 45.5,
-		species: "Eruptil",
+		name: "Eruptil",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 80, atk: 115, def: 89, spa: 122, spd: 80, spe: 114},
 		abilities: {0: "Pressure", H: "Defiant"},
@@ -381,7 +381,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	amphikits: {
 		num: 46.5,
-		species: "Amphikits",
+		name: "Amphikits",
 		types: ["Water"],
 		baseStats: {hp: 83, atk: 105, def: 80, spa: 111, spd: 96, spe: 125},
 		abilities: {0: "Mold Breaker", H: "Poison Heal"},
@@ -389,7 +389,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	detectrice: {
 		num: 47.5,
-		species: "Detectrice",
+		name: "Detectrice",
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 103, atk: 110, def: 116, spa: 100, spd: 97, spe: 74},
 		abilities: {0: "Stakeout", H: "Intimidate"},
@@ -397,7 +397,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	nosferoyle: {
 		num: 48.5,
-		species: "Nosferoyle",
+		name: "Nosferoyle",
 		types: ["Psychic", "Ghost"],
 		baseStats: {hp: 50, atk: 110, def: 80, spa: 115, spd: 129, spe: 116},
 		abilities: {0: "Unnerve", H: "Nefarious"},
@@ -405,7 +405,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	amplifire: {
 		num: 49.5,
-		species: "Amplifire",
+		name: "Amplifire",
 		types: ["Fire", "Electric"],
 		baseStats: {hp: 60, atk: 80, def: 82, spa: 121, spd: 91, spe: 86},
 		abilities: {0: "Turboblaze", H: "Punk Rock"},
@@ -413,7 +413,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	lumberax: {
 		num: 50.5,
-		species: "Lumberax",
+		name: "Lumberax",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 100, atk: 100, def: 110, spa: 85, spd: 65, spe: 70},
 		abilities: {0: "Chlorophyll", H: "Tough Claws"},
@@ -421,7 +421,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	batakala: {
 		num: 51.5,
-		species: "Batakala",
+		name: "Batakala",
 		types: ["Dark", "Ice"],
 		baseStats: {hp: 90, atk: 129, def: 94, spa: 112, spd: 104, spe: 136},
 		abilities: {0: "Gluttony"},
@@ -429,11 +429,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	batambu: {
 		num: 52.5,
-		species: "Batambu",
+		name: "Batambu",
 		types: ["Flying", "Steel"],
 		baseStats: {hp: 100, atk: 80, def: 105, spa: 121, spd: 156, spe: 103},
 		abilities: {0: "Copper Heart"},
 		weightkg: 300,
 	},
-	
 };
