@@ -285,7 +285,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	groudon: {
-		tier: "RDex OU",
+		tier: "RDex Uber",
 		doublesTier: "RDex DOU",
 	},
 	hippopotas: {
@@ -369,7 +369,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	kyuremwhite: {
-		tier: "RDex OU",
+		tier: "RDex Uber",
 		doublesTier: "RDex DOU",
 	},
 	landorus: {
@@ -485,7 +485,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	reshiram: {
-		tier: "RDex OU",
+		tier: "RDex Uber",
 		doublesTier: "RDex DOU",
 	},
 	yamaskgalar: {

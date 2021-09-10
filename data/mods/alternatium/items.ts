@@ -758,4 +758,25 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 7,
 		isNonstandard: "Unobtainable",
 	},
+	eviolite: {
+		name: "Eviolite",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+				return this.chainModify(1.5);
+			}
+		},
+		num: 538,
+		gen: 5,
+	},
 };
