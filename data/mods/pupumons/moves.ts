@@ -906,7 +906,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ballroomtwirl: {
 		num: 827,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 95,
 		category: "Special",
 		name: "Ballroom Twirl",
 		shortDesc: "Type varies based on the user's secondary type. Transforms Ooreina between formes.",
@@ -1197,7 +1197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
-		zMove: {boost: {atk: 1}},
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
 	bestow: {
@@ -19888,6 +19888,266 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Electric",
+		contestType: "Cool",
+	},
+	terrifyingthunderstomp: {
+		num: 1004,
+		accuracy: true,
+		basePower: 210,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Terrifying Thunderstomp",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "doderriumz",
+		ignoreAbility: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	legendarylandslide: {
+		num: 1005,
+		accuracy: true,
+		basePower: 185,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Legendary Landslide",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "kingphaniumz",
+		secondary: {
+			chance: 100,
+			self: {
+				onHit() {
+					this.field.setTerrain('grassyterrain');
+				},
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	meltdownmetamorphosis: {
+		num: 1006,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Meltdown Metamorphosis",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		status: 'tox',
+		heal: [1, 1],
+		isZ: "skuntoniumz",
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	searingstomachacid: {
+		num: 1007,
+		accuracy: true,
+		basePower: 170,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Searing Stomach Acid",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "croantagiumz",
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					atk: 2,
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	menacingmindbreak: {
+		num: 1008,
+		accuracy: true,
+		basePower: 150,
+		category: "Special",
+		defensiveCategory: "Physical",
+		isNonstandard: "Past",
+		name: "Menacing Mindbreak",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "strigniumz",
+		self: {
+			sideCondition: 'lightscreen',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	satellitesmash: {
+		num: 1009,
+		accuracy: true,
+		basePower: 170,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Satellite Smash",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1},
+		isZ: "solrockiumz",
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	lunarlaserbeam: {
+		num: 1010,
+		accuracy: true,
+		basePower: 210,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Lunar Laserbeam",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "lunatoniumz",
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	braniacbeatdown: {
+		num: 1011,
+		accuracy: true,
+		basePower: 185,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Brainiac Beatdown",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "hippothagoriumz",
+		self: {
+			pseudoWeather: 'trickroom',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	smolderingstampede: {
+		num: 1012,
+		accuracy: true,
+		basePower: 185,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Smoldering Stampede",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "stampyriumz",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxwildfire');
+			},
+		},
+		condition: {
+			duration: 4,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Wildfire');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 6, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 6, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Wildfire');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	hypnotichysteria: {
+		num: 1013,
+		accuracy: true,
+		basePower: 150,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Hypnotic Hysteria",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "grizzealiumz",
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
+		onHit(target, source, move) {
+			const item = "stickybarb";
+			this.add('-item', target, item.name, '[from] move: Bestow', '[of] ' + source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	banefulbladedance: {
+		num: 1014,
+		accuracy: true,
+		basePower: 160,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Baneful Blade Dance",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "odonagiumz",
+		volatileStatus: 'focusenergy',
+		condition: {
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-start', target, 'move: Focus Energy', '[zeffect]');
+				} else if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', target, 'move: Focus Energy', '[silent]');
+				} else {
+					this.add('-start', target, 'move: Focus Energy');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 3;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
 		contestType: "Cool",
 	},
 };
