@@ -1345,6 +1345,28 @@ export const Formats: FormatList = [
 		mod: 'smashmodsmelee',
 	},
 	{
+		name: "[Gen 8] Super Smash Stereotypes",
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		//banlist: ['Gengarite', 'Slowbronite', 'Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'SSS') {
+					return [set.species + ' is not usable in Super Smash Stereotypes.'];
+				}
+			}
+		},
+		mod: 'smashstereotypes',
+	},
+	{
 		name: "[Gen 8] Stereotypes",
 		mod: "stereotypes",
 		desc: [
