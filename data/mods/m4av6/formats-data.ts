@@ -4771,6 +4771,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	/*decidueyemega: {
+		randomBattleMoves: ["spiritshackle", "uturn", "leafblade", "roost", "swordsdance", "suckerpunch"],
+		randomDoubleBattleMoves: ["spiritshackle", "leafblade", "bravebird", "protect", "suckerpunch"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},*/
 	litten: {
 		tier: "LC",
 	},
@@ -4783,6 +4789,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 		doublesTier: "DOU",
 	},
+	/*incineroarmega: {
+		randomBattleMoves: ["fakeout", "darkestlariat", "flareblitz", "uturn", "earthquake", "knockoff"],
+		randomDoubleBattleMoves: ["fakeout", "knockoff", "flareblitz", "willowisp", "taunt", "snarl", "uturn"],
+		tier: "OU",
+		doublesTier: "DOU",
+	},*/
 	popplio: {
 		tier: "LC",
 	},
@@ -4795,6 +4807,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "(DUU)",
 	},
+	/*primarinamega: {
+		randomBattleMoves: ["hydropump", "moonblast", "scald", "psychic", "hiddenpowerfire"],
+		randomDoubleBattleMoves: ["hypervoice", "moonblast", "protect", "psychic", "icebeam"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},*/
 	pikipek: {
 		tier: "LC",
 	},
