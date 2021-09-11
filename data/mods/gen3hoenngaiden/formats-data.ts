@@ -1730,4 +1730,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "LC",
 	},
+	milcery: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	alcremie: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	regieleki: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

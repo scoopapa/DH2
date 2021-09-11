@@ -527,6 +527,238 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
+	jetstream: {
+		num: -1040,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Usually goes first.",
+		name: "Jet Stream",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Air Slash", target);
+		},		
+	},
+	sinterstorm: {
+		num: -1039,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "User heals 25%. Under Hail, damage is 1.5x and healing is 50%.",
+		name: "Sinter Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'hail':
+				move.basePower *= 1.5;
+				break;
+			}
+		},
+		onHit(target, source) {
+			let factor = 0.25;
+			if (this.field.isWeather('hail')) {
+				   factor = 0.5
+				}
+			return !!source.heal(this.modify(source.maxhp, factor));
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Blizzard", target);
+		},
+	},
+	excavation: {
+		num: -1041,
+		accuracy: 85,
+		basePower: 150,
+		category: "Physical",
+		shortDesc: "User faints. All hazards on the user's side are removed.",
+		name: "Excavation",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Steel",
+		contestType: "Beautiful",
+				onAfterHit(target, pokemon) {
+			if (pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Excavation', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+			for (const condition of sideConditions) {
+				if (pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Excavation', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Excavation', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+			for (const condition of sideConditions) {
+				if (pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Excavation', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Corkscrew Crash", target);
+		},
+	},
+	hivemind: {
+		num: -1038,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "User switches out. Replacement uses the attack.",
+		name: "Hive Mind",
+		pp: 15,
+		priority: 0,
+		flags: {}, // removing flags from the first part because it's effectively self-targeting
+		onTry(source, target) {
+			if (!this.canSwitch(source.side) || source.forceSwitchFlag || source.switchFlag) return false; // fails if the user cannot switch
+			if (source.side.addSlotCondition(source, 'hivemind')) { // first Pokémon sets the slot condition
+				Object.assign(source.side.slotConditions[source.position]['hivemind'], {
+					duration: 3,
+					move: 'hivemind',
+					moveTarget: target, // preserve selected target for the second hit
+					moveData: {
+						id: 'hivemind',
+						name: "Hive Mind",
+						accuracy: 100,
+						basePower: 70,
+						category: "Special",
+						priority: 0,
+						flags: {contact: 1, protect: 1, mirror: 1}, // the "real" hit has these qualities
+						ignoreImmunity: false,
+						effectType: 'Move',
+						target: "normal",
+						type: 'Bug',
+					},
+				});
+				this.add('-anim', source, "Defend Order", source);
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false; // only one Pokémon can switch per move
+					}
+				}
+				source.switchFlag = true; // switches the user out immediately after setting the volatile
+				return null; // first Pokémon switches only; this is in the conditional so the second Pokémon can execute the move fully
+			}
+		},
+		slotCondition: 'hivemind',
+		condition: {
+			duration: 1, // failsafe: remove at the end of the turn if it hasn't yet taken effect
+			onFaint(target) {
+				target.side.removeSlotCondition(target, 'hivemind'); // it only has one chance to activate
+				// this is so that it can't happen at the end of the turn if the switch-in is KOed
+				// otherwise, a Pokémon could use a move after replacements are chosen for the turn, and I don't think that's safe
+			},
+			onHiveMind(target) {
+				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
+					const move = this.dex.getMove(this.effectData.move);
+					this.useMove(move, target, this.effectData.moveTarget);
+				}
+				target.side.removeSlotCondition(target, 'hivemind'); // make sure to remove the slot condition immediately
+			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Attack Order", target);
+		},
+		secondary: null,
+		ignoreImmunity: true, // not that any exist normally, but a good failsafe to make sure the switching part is always possible
+		target: "normal", // you should be able to select a target in a double battle, right?
+		type: "Bug",
+		contestType: "Clever",
+	},
+	indomitablespirit: {
+		num: -1038,
+		accuracy: 95,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Power doubles if last move failed or was resisted.",
+		name: "Indomitable Spirit",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) return move.basePower * 2; // if the last move failed
+			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted
+			return move.basePower;
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Vacuum Wave", target);
+		},
+		condition: { // this is *not* meant to be set as part of the move; partially defined in scripts.ts!
+			onModifyDamage(damage, source, target, move) {
+				if (target.getMoveHitData(move).typeMod < 0) {
+					this.effectData.boost = 'thisMoveResisted';
+					this.debug('set Indomitable Spirit boost');
+				}
+			},
+			onBeforeMove(pokemon) {
+				if (this.effectData.boost === 'thisMoveResisted') {
+					this.effectData.boost = 'lastMoveResisted';
+				} else {
+					this.effectData.boost = null;
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	mudsling: {
+		num: -1039,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Hits floating targets.",
+		name: "Mud Sling",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Beautiful",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Muddy Water", target);
+		},
+	},
 	draconiccrash: {
 		num: -1037,
 		accuracy: 85,

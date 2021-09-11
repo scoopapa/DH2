@@ -213,7 +213,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 100, atk: 87, def: 100, spa: 55, spd: 66, spe: 72},
 		abilities: {1: "Light Metal", 2: "Heavy Metal", H: "Steam Engine"},
-		weightkg: 999,
+		weightkg: 700,
 	},
 	pasdovo: {
 		num: 28.5,
@@ -398,8 +398,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	nosferoyle: {
 		num: 48.5,
 		species: "Nosferoyle",
-		types: ["Psychic"],
-		baseStats: {hp: 50, atk: 105, def: 80, spa: 110, spd: 139, spe: 116},
+		types: ["Psychic", "Ghost"],
+		baseStats: {hp: 50, atk: 110, def: 80, spa: 115, spd: 129, spe: 116},
 		abilities: {0: "Unnerve", H: "Nefarious"},
 		weightkg: 430,
 	},

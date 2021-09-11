@@ -9,6 +9,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	tapulelekinolau: {
 		learnset: {
 			manifestation: ["7L1"],
+			hivemind: ["7T"],
 		},
 	},
 	tapubulukinolau: {
