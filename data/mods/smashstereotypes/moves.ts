@@ -97,14 +97,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	seedbomb: {
 		inherit: true,
-		onModifyMove(move, source, target) {
-			move.secondaries = [];
-			if (source.species.id === 'shaymin') {
-				move.secondaries.push({
-					chance: 50,
+		secondary: {
+			chance: 50,
+			onHit(target, pokemon, move) {
+				if (source.species.id === 'shaymin') {
 					volatileStatus: 'leechseed',
 				}
-			})
+			},
 		},
 	},
 };
