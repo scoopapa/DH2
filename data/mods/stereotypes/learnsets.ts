@@ -702,6 +702,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	//Slate 3: Psychic, Dark, Fighting
 	correept: {
 		learnset: {
+			partingshot: ["8L1"],
+			trickroom: ["8L1"],
 			attract: ["8L1"],
 			bodypress: ["8L1"],
 			bodyslam: ["8L1"],
