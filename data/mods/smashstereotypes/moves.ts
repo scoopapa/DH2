@@ -99,10 +99,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		secondary: {
 			chance: 50,
-			onHit(target, pokemon, move) {
-				if (source.species.id === 'shaymin') {
-					volatileStatus: 'leechseed',
-				},
+			onHit(target, source, move) {
+				if (source.species.id !== 'shaymin') return;
+				target.addVolatile('leechseed');
 			},
 		},
 	},
