@@ -102,7 +102,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onHit(target, pokemon, move) {
 				if (source.species.id === 'shaymin') {
 					volatileStatus: 'leechseed',
-				}
+				},
 			},
 		},
 	},
