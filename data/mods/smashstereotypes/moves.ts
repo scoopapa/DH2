@@ -104,7 +104,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					chance: 50,
 					volatileStatus: 'leechseed',
 				}
-			}),
+			})
 		},
 	},
 };
