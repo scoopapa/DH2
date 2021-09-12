@@ -5542,6 +5542,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(OU)",
 		doublesTier: "(DUU)",
 	},
+	dragapult: {
+		randomBattleMoves: ["dracometeor", "fireblast", "shadowball", "thunderbolt", "uturn"],
+		randomDoubleBattleMoves: ["dragondarts", "fireblast", "protect", "shadowball", "thunderbolt", "willowisp"],
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
 	dragapultmega: {
 		randomBattleMoves: ["dracometeor", "fireblast", "shadowball", "thunderbolt", "uturn"],
 		randomDoubleBattleMoves: ["dragondance", "dragondarts", "fireblast", "phantomforce", "protect", "shadowball", "thunderbolt", "willowisp"],
