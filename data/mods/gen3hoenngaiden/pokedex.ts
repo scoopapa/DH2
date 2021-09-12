@@ -14,6 +14,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	porygon2: {
 		inherit: true,
 		abilities: {0: "Trace", 1: "Analytic"},
+		evos: ["Porygon-Z"],
 	},
 	porygon: {
 		inherit: true,
@@ -21,7 +22,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	eevee: {
 		inherit: true,
-		evos: ["Vaporeon", "Jolteon", "Flareon", "Glaceon", "Sylveon"],
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Glaceon", "Sylveon", "Leafeon"],
 	},
 	breloom: {
 		inherit: true,
@@ -41,11 +42,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	meowth: {
 		inherit: true,
-		abilities: {0: "Pickup"},
+		abilities: {0: "Pickup", 1: "Limber"},
+		otherFormes: ["Meowth-Alola", "Meowth-Galar"],
+		formeOrder: ["Meowth", "Meowth-Alola", "Meowth-Galar"],
 	},
 	persian: {
 		inherit: true,
-		abilities: {0: "Pickup"},
+		abilities: {0: "Pickup", 1: "Limber"},
+		otherFormes: ["Persian-Alola"],
+		formeOrder: ["Persian", "Persian-Alola"],
 	},
 	smoochum: {
 		inherit: true,
@@ -131,6 +136,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 75, def: 130, spa: 75, spd: 130, spe: 45},
 		abilities: {0: "Pressure", 1: "Ice Body"},
+		evos: ["Dusknoir"],
 	},
 	duskull: {
 		inherit: true,
@@ -191,10 +197,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	pikachu: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Mold Breaker"},
+		evos: ["Raichu", "Raichu-Alola"],
 	},
 	raichu: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Mold Breaker"},
+		otherFormes: ["Raichu-Alola"],
+		formeOrder: ["Raichu", "Raichu-Alola"],
 	},
 	rhyhorn: {
 		inherit: true,
@@ -203,6 +212,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	rhydon: {
 		inherit: true,
 		abilities: {0: "Lightning Rod", 1: "Mold Breaker"},
+		evos: ["Rhyperior"],
 	},
 	primeape: {
 		inherit: true,
@@ -247,6 +257,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	snorunt: {
 		inherit: true,
 		abilities: {0: "Inner Focus"},
+		evos: ["Glalie", "Froslass"],
 	},
 	hitmonchan: {
 		inherit: true,
@@ -263,6 +274,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	murkrow: {
 		inherit: true,
 		abilities: {0: "Insomnia"},
+		evos: ["Honchkrow"],
 	},
 	parasect: {
 		inherit: true,
@@ -312,6 +324,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	tangela: {
 		inherit: true,
 		abilities: {0: "Chlorophyll"},
+		evos: ["Tangrowth"],
 	},
 	venomoth: {
 		inherit: true,
@@ -543,6 +556,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 55.8,
 		prevo: "Swinub",
+		evoLevel: 33,
+		evos: ["Mamoswine"],
 		eggGroups: ["Field"],
 	},
 	delibird: {
@@ -626,6 +641,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Overcoat", 1: "Poison Point"},
 		heightm: 0.3,
 		weightkg: 2,
+		prevo: "Budew",
+		evoType: "levelFriendship",
+		evoCondition: "during the day",
+		evos: ["Roserade"],
 		eggGroups: ["Fairy", "Grass"],
 	},
 	spoink: {
@@ -1143,6 +1162,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	golem: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 130, spa: 55, spd: 65, spe: 75},
 		otherFormes: ["Golem-Alola"],
 		formeOrder: ["Golem", "Golem-Alola"],
 	},
@@ -1276,7 +1296,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Stunky",
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 63, atk: 63, def: 47, spa: 41, spd: 41, spe: 74},
-		abilities: {0: "Overcoat", 1: "Intimidate"},
+		abilities: {0: "Neutralizing Gas", 1: "Intimidate"},
 		heightm: 0.4,
 		weightkg: 19.2,
 		evos: ["Skuntank"],
@@ -1287,7 +1307,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Skuntank",
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 111, atk: 77, def: 79, spa: 77, spd: 79, spe: 91},
-		abilities: {0: "Overcoat", 1: "Intimidate"},
+		abilities: {0: "Neutralizing Gas", 1: "Intimidate"},
 		heightm: 1,
 		weightkg: 38,
 		prevo: "Stunky",
@@ -1632,6 +1652,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Slowpoke-Galar"],
 		formeOrder: ["Slowpoke", "Slowpoke-Galar"],
 	},
+	slowbro: {
+		inherit: true,
+		otherFormes: ["Slowbro-Galar"],
+		formeOrder: ["Slowbro", "Slowbro-Galar"],
+	},
 	slowking: {
 		inherit: true,
 		otherFormes: ["Slowking-Galar"],
@@ -1648,7 +1673,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 36,
 		color: "Pink",
-		evos: ["Slowking-Galar"],
+		evos: ["Slowbro-Galar", "Slowking-Galar"],
 		eggGroups: ["Monster", "Water 1"],
 	},
 	slowkinggalar: {
