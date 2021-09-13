@@ -2578,21 +2578,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.runEvent('CheapHeat', target);
 			}
 		},
+		onAfterMove(source, target, move) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
+			}
+		},
+		onEnd(pokemon) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
+			}
+		},
 		condition: {
 			onCheapHeat(pokemon) {
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
 				this.effectData.activeMove = this.activeMove;
 				this.effectData.completed = true;
 			},
-			onSourceHit(target, source, move) {
-				if (!source.hp) return;
+			onReverseCheapHeat(pokemon) {
+				if (!pokemon.hp) return;
 				this.boost(this.effectData.boost * -1, source, this.effectData.source, null, true);
-				source.removeVolatile('cheapheat');
-			},
-			onHit(target, source, move) {
-				if (!target.hp) return;
-				this.boost(this.effectData.boost * -1, target, this.effectData.source, null, true);
-				target.removeVolatile('cheapheat');
+				pokemon.removeVolatile('cheapheat');
 			},
 		},
 		name: "Cheap Heat",
