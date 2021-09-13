@@ -2586,12 +2586,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onUpdate(pokemon) {
 				if (!this.effectData.completed) return;
+				if (this.effectData.busted) return;
 				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) {
+					this.effectData.busted = true;
 					if (!pokemon.hp || pokemon.switchFlag) return;
 					this.effectData.boost *= -1;
 					this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+					pokemon.removeVolatile('cheapheat');
 				}
-				pokemon.removeVolatile('cheapheat');
 			},
 		},
 		name: "Cheap Heat",
