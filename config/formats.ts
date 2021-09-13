@@ -1828,15 +1828,16 @@ export const Formats: FormatList = [
 			'Genesect', 'Diancie', 'Hoopa', 'Volcanion', 'Magearna', 'Marshadow', 'Zeraora', 'Meltan', 'Melmetal', 'Zarude',
 			'Cinderite', 'Mewtwonite X', 'Mewtwonite Y', 'Blue Orb', 'Red Orb', 'Dragon Ascent',
 		],
+		resricted: [
+			'Mewtwo', 'Ho-Oh', 'Lugia', 'Kyogre', 'Groudon', 'Rayquaza', 'Dialga', 'Palkia', 'Giratina', 'Reshiram', 'Zekrom', 'Kyurem',
+			'Xerneas', 'Yveltal', 'Zygarde', 'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Zacian', 'Zamazenta', 'Eternatus',
+			'Calyrex',
+		],
 		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
 		teambuilderFormat: 'Doubles OU',
 		onValidateTeam(team) {
-			const restrictedSpecies = [
-				'Mewtwo', 'Ho-Oh', 'Lugia', 'Kyogre', 'Groudon', 'Rayquaza', 'Dialga', 'Palkia', 'Giratina', 'Reshiram', 'Zekrom', 'Kyurem',
-				'Xerneas', 'Yveltal', 'Zygarde', 'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Zacian', 'Zamazenta', 'Eternatus',
-				'Calyrex',
-			];
+			const restrictedSpecies = [];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
