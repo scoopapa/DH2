@@ -230,6 +230,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		shoreup: ["8L1"],
 		weatherball: ["8L1"],
 		sandstorm: ["8L1"],
+		silverwind: ["8L1"],
+		mudshot: ["8L1"],
 	},},
 	kheprise: {learnset: {
 		stealthrock: ["8L1"],
@@ -259,6 +261,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		haze: ["8L1"],
 		defog: ["8L1"],
 		pursuit: ["8L1"],
+		megahorn: ["8L1"],
+		attackorder: ["8L1"],
+		fellstinger: ["8L1"],
 	},},
 	weeplim: {learnset: {
 		gigadrain: ["8L1"],
@@ -596,6 +601,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		toxic: ["8L1"],
 		fakeout: ["8L1"],
 		pursuit: ["8L1"],
+		acid: ["8L1"],
+		acidspray: ["8L1"],
+		bulldoze: ["8L1"],
+		drainpunch: ["8L1"],
 	},},
 	gaggular: {learnset: {
 		protect: ["8L1"],
@@ -916,7 +925,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		metalclaw: ["8L1"],
 		firstimpression: ["8L1"],
 		honeclaws: ["8L1"],
-		fellstinger: ["8L1"],
 		brickbreak: ["8L1"],
 		smackdown: ["8L1"],
 		beatup: ["8L1"],
@@ -949,6 +957,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		psychic: ["8L1"],
 		toxic: ["8L1"],
 		foulplay: ["8L1"],
+		thunderbolt: ["8L1"],
+		dazzlinggleam: ["8L1"],
+		mysticalfire: ["8L1"],
+		waterpulse: ["8L1"],
 	},},
 	putango: {learnset: {
 		protect: ["8L1"],
@@ -1466,6 +1478,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		swordsdance: ["8L1"],
 		focusblast: ["8L1"],
 		taunt: ["8L1"],
+		nastyplot: ["8L1"],
 	},},
 	detectrice: {learnset: {
 		glare: ["8L1"],
@@ -1574,6 +1587,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		risingvoltage: ["8L1"],
 		reflect: ["8L1"],
 		lightscreen: ["8L1"],
+		workup: ["8L1"],
+		chargebeam: ["8L1"],
+		metalsound: ["8L1"],
 	},},
 	lumberax: {learnset: {
 		substitute: ["8L1"],
@@ -1611,6 +1627,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		woodhammer: ["8L1"],
 		heavyslam: ["8L1"],
 		bodypress: ["8L1"],
+		growth: ["8L1"],
 	},},
 	batakala: {learnset: {
 		substitute: ["8L1"],
