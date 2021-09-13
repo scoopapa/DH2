@@ -494,7 +494,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			if (source.hasAbility('staccato') && source.side !== target.side) {
 				target.setStatus('par', source, '[from] ability: Staccato', '[of] ' + source);
-			},
+			}
 			return true;
 		},
 	},
