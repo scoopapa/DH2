@@ -2573,8 +2573,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.addVolatile('cheapheat');
 				target.volatiles['cheapheat'].source = source;
 				target.volatiles['cheapheat'].boost = cheapHeatBoostTarget;
-				if (defendingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
-				if (defendingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
+				if (defendingStat === 'def') target.volatiles['cheapheat'].boost.def = 1;
+				if (defendingStat === 'spd') target.volatiles['cheapheat'].boost.spd = 1;
 				this.runEvent('CheapHeat', target);
 			}
 		},
@@ -2586,13 +2586,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onUpdate(pokemon) {
 				if (!this.effectData.completed) return;
-				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) pokemon.removeVolatile('cheapheat');
-			},
-			onEnd(pokemon) {
-				if (this.effectData.busted || !pokemon.hp) return;
-				this.effectData.boost *= -1;
-				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
-				this.effectData.busted = true;
+				if (this.effectData.busted) {
+					pokemon.removeVolatile('cheapheat');
+					return;
+				}
+				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) {
+					if (!pokemon.hp || pokemon.switchFlag) return;
+					this.effectData.busted = true;
+					this.effectData.boost *= -1;
+					this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				}
+				pokemon.removeVolatile('cheapheat');
 			},
 		},
 		name: "Cheap Heat",
@@ -2610,7 +2614,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 1,
 			onEnd(pokemon) {
-				if (this.effectData.busted) pokemon.setStatus('par', this.effectData.source, "[from] ability: Staccato", "[of] " + this.effectData.source);
+				if (this.effectData.busted) {
+					this.add('-ability', this.effectData.source, 'Staccato');
+					pokemon.setStatus('par', this.effectData.source);
+				}
 			},
 			onAfterMoveSecondary(source, target, move) {
 				target.removeVolatile('staccato');
