@@ -1756,7 +1756,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	blaziken: {
 		randomBattleMoves: ["fireblast", "highjumpkick", "protect", "knockoff", "hiddenpowerice"],
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	blazikenmega: {
@@ -2641,7 +2641,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	deoxysspeed: {
 		randomBattleMoves: ["spikes", "stealthrock", "superpower", "psychoboost", "taunt", "magiccoat", "knockoff"],
 		randomDoubleBattleMoves: ["superpower", "psychoboost", "taunt", "lightscreen", "reflect", "protect", "knockoff"],
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	torterra: {
@@ -5482,7 +5482,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
 		randomDoubleBattleLevel: 80,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	cinderacemega: {
