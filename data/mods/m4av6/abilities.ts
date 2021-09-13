@@ -865,7 +865,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1024,
 	},
 	stickyresidues: {
-		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Fails if the effect is already active on the user's side.",
 		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
 		onStart(source) {
 			if (this.field.addPseudoWeather('stickyresidues')) {
@@ -874,12 +874,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 5,
-			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay')) {
-					return 8;
-				}
-				return 5;
-			},
 			onEnd() {
 				this.add('-message', `The sticky residues disappeared from the battlefield!`);
 			},
@@ -2611,7 +2605,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	staccato: {
 		desc: "If this Pokémon cures an opposing Pokémon's non-volatile status condition, the affected Pokémon will be paralyzed.",
 		shortDesc: "When curing a foe's status (ex. Purify, Sparkling Aria), replaces with paralysis.",
-		// effect defined in scripts.ts under cureStatus
+		onBeforeMove(source, move) {
+			if (['purify', 'sparklingaria', 'wakeupslap', 'smellingsalts', 'uproar'].includes(move.id)) {
+				this.field.addPseudoWeather('staccato');
+			} else {
+				this.field.removePseudoWeather('staccato');
+			}
+		},
+		onFoeStaccato(pokemon) {
+			if (
+				!this.field.getPseudoWeather('staccato') || !this.field.pseudoweather.staccato.source !== this.effectData.source
+			) return;
+			pokemon.setStatus('par', this.effectData.source);
+		},
+		condition: {
+			duration: 1,
+			onAnyBeforeMove(source, move) {
+				if (source !== this.effectData.source) this.field.removePseudoWeather('staccato');
+			},
+			onAnyAfterMoveSecondary(source, target, move) {
+				if (source !== this.effectData.source) this.field.removePseudoWeather('staccato');
+			},
+		},
 		name: "Staccato",
 		rating: 3,
 		num: -1067,
