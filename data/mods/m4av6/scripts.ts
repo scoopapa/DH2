@@ -484,6 +484,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			return {targets, pressureTargets: pressureTargets || targets};
-		}
+		},
+		cureStatus(source: Pokemon | null = null, target: Pokemon | null = null, silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			if (source.hasAbility('staccato') && source.side !== target.side) {
+				target.setStatus('par', source, '[from] ability: Staccato', '[of] ' + source);
+			},
+			return true;
+		},
 	},
 };
