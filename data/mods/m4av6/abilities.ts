@@ -2582,8 +2582,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onCheapHeat(pokemon) {
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
 				this.effectData.activeMove = this.activeMove;
+				this.effectData.completed = true;
 			},
 			onUpdate(pokemon) {
+				if (!this.effectData.completed) return;
 				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) pokemon.removeVolatile('cheapheat');
 			},
 			onEnd(pokemon) {
@@ -2608,7 +2610,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 1,
 			onEnd(pokemon) {
-				if (this.effectData.busted) pokemon.setStatus('par', this.effectData.source);
+				if (this.effectData.busted) pokemon.setStatus('par', this.effectData.source, "[from] ability: Staccato", "[of] " + this.effectData.source);
 			},
 			onAfterMoveSecondary(source, target, move) {
 				target.removeVolatile('staccato');
