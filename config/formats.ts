@@ -1839,7 +1839,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team) {
 			const restrictedSpecies = [];
 			for (const set of team) {
-				const species = this.dex.species.get(set.species);
+				const species = this.dex.getSpecies(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
 			}
 			if (restrictedSpecies.length > 1) {
