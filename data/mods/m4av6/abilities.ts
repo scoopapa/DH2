@@ -2596,7 +2596,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onReverseCheapHeat(pokemon) {
 				if (!pokemon.hp) return;
-				this.effectData.boost *= -1;
+				let i: BoostName;
+				for (i in this.effectData.boost) {
+					this.effectData.boost[i]! *= -1;
+				}
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
 				pokemon.removeVolatile('cheapheat');
 			},
