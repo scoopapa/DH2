@@ -2586,13 +2586,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onUpdate(pokemon) {
 				if (!this.effectData.completed) return;
-				if (this.effectData.busted) {
-					pokemon.removeVolatile('cheapheat');
-					return;
-				}
 				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) {
 					if (!pokemon.hp || pokemon.switchFlag) return;
-					this.effectData.busted = true;
 					this.effectData.boost *= -1;
 					this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
 				}
