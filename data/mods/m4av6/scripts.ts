@@ -485,14 +485,14 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			return {targets, pressureTargets: pressureTargets || targets};
 		},
-		cureStatus(silent = false) {
+		cureStatus(pokemon: Pokemon, silent = false) {
 			if (!this.hp || !this.status) return false;
 			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
 			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
 				this.battle.add('-end', this, 'Nightmare', '[silent]');
 			}
 			this.setStatus('');
-			this.runEvent('Staccato');
+			this.runEvent('Staccato', pokemon);
 			return true;
 		},
 	},
