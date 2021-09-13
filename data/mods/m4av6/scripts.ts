@@ -492,7 +492,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.add('-end', this, 'Nightmare', '[silent]');
 			}
 			this.setStatus('');
-			this.runEvent('Staccato', pokemon);
+			if (this.volatiles['staccato']) {
+				this.volatiles['staccato'].busted = true;
+				this.removeVolatile('staccato')
+			}
 			return true;
 		},
 	},
