@@ -91,6 +91,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("silvally", ["firepledge", "waterpledge", "taunt"]);
 		newMoves("golduck", ["expandingforce", "psychicterrain", "recover", "shadowball"]);
 		newMoves("sirfetchd", ["playrough", "roost", "toxic"]);
+		newMoves("incineroar", ["focusenergy", "nightslash", "punishment", "stormthrow"]);
+		newMoves("primarina", ["purify"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
