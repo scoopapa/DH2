@@ -326,6 +326,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		bravebird: ["8L1"],
 		uturn: ["8L1"],
 		jumpkick: ["8L1"],
+		highjumpkick: ["8L1"],
 		quickattack: ["8L1"],
 		swordsdance: ["8L1"],
 		mirrormove: ["8L1"],
@@ -1607,6 +1608,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		bulkup: ["8L1"],
 		rest: ["8L1"],
 		sleeptalk: ["8L1"],
+		woodhammer: ["8L1"],
+		heavyslam: ["8L1"],
+		bodypress: ["8L1"],
 	},},
 	batakala: {learnset: {
 		substitute: ["8L1"],
