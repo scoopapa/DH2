@@ -2532,10 +2532,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	cheapheat: {
 		desc: "When this Pokémon uses an attacking move, before the move hits, the Pokémon's attacking stat and the target's defending stat are raised by 1 stage. The stats that were raised are lowered by 1 stage after the move hits.",
 		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
-		onBeforeMove(source, targets, move) {
-			if (!move.basePower) return;
+		onBeforeMove(source, target, move) {
+			if (!move.basePower || target === source || move.spreadHit) return;
 			let activated = false;
-			let defenders = targets;
 			let attackingStat = 'atk';
 			let defendingStat = 'def';
 			if (move.category === 'Special') {
@@ -2552,32 +2551,34 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-ability', source, 'Cheap Heat', 'boost');
 			if (move.useTargetOffensive) {
 				const cheapHeatBoost: SparseBoostsTable = {};
-				cheapHeatBoost.attackingStat = 1;
-				cheapHeatBoost.defendingStat = 1;
-				for (const defender in defenders) {
-					defender.addVolatile('cheapheat');
-					defender.volatiles['cheapheat'].source = source;
-					defender.volatiles['cheapheat'].boost = cheapHeatBoost;
-					this.runEvent('CheapHeat', defender);
-				}
+				if (attackingStat === 'atk') cheapHeatBoost.atk = 1;
+				if (attackingStat === 'def' || defendingStat === 'def') cheapHeatBoost.def = 1;
+				if (attackingStat === 'spa') cheapHeatBoost.spa = 1;
+				if (attackingStat === 'spd' || defendingStat === 'spd') cheapHeatBoost.spd = 1;
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoost;
+				this.runEvent('CheapHeat', target);
 			} else {
 				let cheapHeatBoost: SparseBoostsTable = {};
 				source.addVolatile('cheapheat');
 				source.volatiles['cheapheat'].source = source;
 				source.volatiles['cheapheat'].boost = cheapHeatBoost;
-				source.volatiles['cheapheat'].boost.attackingStat = 1;
+				if (attackingStat === 'atk') source.volatiles['cheapheat'].boost.atk = 1;
+				if (attackingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
+				if (attackingStat === 'spa') source.volatiles['cheapheat'].boost.spa = 1;
+				if (attackingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
 				this.runEvent('CheapHeat', source);
-				for (const defender in defenders) {
-					defender.addVolatile('cheapheat');
-					defender.volatiles['cheapheat'].source = source;
-					defender.volatiles['cheapheat'].boost = cheapHeatBoost;
-					defender.volatiles['cheapheat'].boost.defendingStat = 1;
-					this.runEvent('CheapHeat', defender);
-				}
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoost;
+				if (defendingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
+				if (defendingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
+				this.runEvent('CheapHeat', target);
 			}
 		},
 		condition: {
-			onAfterMoveSecondary(target, source, move) {
+			onDamagingHit(target, source, move) {
 				source.removeVolatile('cheapheat');
 				target.removeVolatile('cheapheat');
 			},
