@@ -2578,22 +2578,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.runEvent('CheapHeat', target);
 			}
 		},
-		onSourceHit(source, target, move) {
-			if (!source.hp) return;
-			this.effectData.boost *= -1;
-			this.boost(this.effectData.boost, source, this.effectData.source, null, true);
-			source.removeVolatile('cheapheat');
-		},
 		condition: {
 			onCheapHeat(pokemon) {
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
 				this.effectData.activeMove = this.activeMove;
 				this.effectData.completed = true;
 			},
-			onHit(source, target, move) {
+			onSourceHit(target, source, move) {
+				if (!source.hp) return;
+				this.boost(this.effectData.boost * -1, source, this.effectData.source, null, true);
+				source.removeVolatile('cheapheat');
+			},
+			onHit(target, source, move) {
 				if (!target.hp) return;
-				this.effectData.boost *= -1;
-				this.boost(this.effectData.boost, target, this.effectData.source, null, true);
+				this.boost(this.effectData.boost * -1, target, this.effectData.source, null, true);
 				target.removeVolatile('cheapheat');
 			},
 		},
