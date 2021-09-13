@@ -2560,10 +2560,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.volatiles['cheapheat'].boost = cheapHeatBoost;
 				this.runEvent('CheapHeat', target);
 			} else {
-				let cheapHeatBoost: SparseBoostsTable = {};
+				let cheapHeatBoostSource: SparseBoostsTable = {};
+				let cheapHeatBoostTarget: SparseBoostsTable = {};
 				source.addVolatile('cheapheat');
 				source.volatiles['cheapheat'].source = source;
-				source.volatiles['cheapheat'].boost = cheapHeatBoost;
+				source.volatiles['cheapheat'].boost = cheapHeatBoostSource;
 				if (attackingStat === 'atk') source.volatiles['cheapheat'].boost.atk = 1;
 				if (attackingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
 				if (attackingStat === 'spa') source.volatiles['cheapheat'].boost.spa = 1;
@@ -2571,32 +2572,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.runEvent('CheapHeat', source);
 				target.addVolatile('cheapheat');
 				target.volatiles['cheapheat'].source = source;
-				target.volatiles['cheapheat'].boost = cheapHeatBoost;
+				target.volatiles['cheapheat'].boost = cheapHeatBoostTarget;
 				if (defendingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
 				if (defendingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
 				this.runEvent('CheapHeat', target);
 			}
 		},
 		condition: {
-			onDamagingHit(target, source, move) {
-				source.removeVolatile('cheapheat');
-				target.removeVolatile('cheapheat');
-			},
-			onSourceHit(target, source, move) {
-				source.removeVolatile('cheapheat');
-				target.removeVolatile('cheapheat');
-			},
-			onResidual(pokemon) { // failsafe if something goes wrong
-				pokemon.removeVolatile('cheapheat');
-			},
 			onCheapHeat(pokemon) {
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				this.effectData.activeMove = this.activeMove;
+			},
+			onUpdate(pokemon) {
+				if (!this.activeMove || this.activeMove !== this.effectData.activeMove) pokemon.removeVolatile('cheapheat');
 			},
 			onEnd(pokemon) {
-				if (this.effectData.busted || !pokemon.hp || pokemon.switchFlag) return;
-				this.effectData.busted = true;
+				if (this.effectData.busted || !pokemon.hp) return;
 				this.effectData.boost *= -1;
 				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				this.effectData.busted = true;
 			},
 		},
 		name: "Cheap Heat",
@@ -2606,26 +2600,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	staccato: {
 		desc: "If this Pokémon cures an opposing Pokémon's non-volatile status condition, the affected Pokémon will be paralyzed.",
 		shortDesc: "When curing a foe's status (ex. Purify, Sparkling Aria), replaces with paralysis.",
-		onBeforeMove(source, move) {
+		onBeforeMove(source, target, move) {
 			if (['purify', 'sparklingaria', 'wakeupslap', 'smellingsalts', 'uproar'].includes(move.id)) {
-				this.field.addPseudoWeather('staccato');
-			} else {
-				this.field.removePseudoWeather('staccato');
+				target.addVolatile('staccato');
 			}
-		},
-		onFoeStaccato(pokemon) {
-			if (
-				!this.field.getPseudoWeather('staccato') || !this.field.pseudoweather.staccato.source !== this.effectData.source
-			) return;
-			pokemon.setStatus('par', this.effectData.source);
 		},
 		condition: {
 			duration: 1,
-			onAnyBeforeMove(source, move) {
-				if (source !== this.effectData.source) this.field.removePseudoWeather('staccato');
+			onEnd(pokemon) {
+				if (this.effectData.busted) pokemon.setStatus('par', this.effectData.source);
 			},
-			onAnyAfterMoveSecondary(source, target, move) {
-				if (source !== this.effectData.source) this.field.removePseudoWeather('staccato');
+			onAfterMoveSecondary(source, target, move) {
+				target.removeVolatile('staccato');
 			},
 		},
 		name: "Staccato",
