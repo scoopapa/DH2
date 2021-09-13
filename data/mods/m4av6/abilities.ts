@@ -2562,22 +2562,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				cheapHeatBoost.defendingStat = 1;
 				for (const defender in defenders) {
 					defender.addVolatile('cheapheat');
-					defender.volatiles('cheapheat').source = source;
-					defender.volatiles('cheapheat').boost = cheapHeatBoost;
+					defender.volatiles['cheapheat'].source = source;
+					defender.volatiles['cheapheat'].boost = cheapHeatBoost;
 					this.runEvent('CheapHeat', defender);
 				}
 			} else {
 				let cheapHeatBoost: SparseBoostsTable = {};
 				source.addVolatile('cheapheat');
-				source.volatiles('cheapheat').source = source;
-				source.volatiles('cheapheat').boost = cheapHeatBoost;
-				source.volatiles('cheapheat').boost.attackingStat = 1;
+				source.volatiles['cheapheat'].source = source;
+				source.volatiles['cheapheat'].boost = cheapHeatBoost;
+				source.volatiles['cheapheat'].boost.attackingStat = 1;
 				this.runEvent('CheapHeat', source);
 				for (const defender in defenders) {
 					defender.addVolatile('cheapheat');
-					defender.volatiles('cheapheat').source = source;
-					defender.volatiles('cheapheat').boost = cheapHeatBoost;
-					defender.volatiles('cheapheat').boost.defendingStat = 1;
+					defender.volatiles['cheapheat'].source = source;
+					defender.volatiles['cheapheat'].boost = cheapHeatBoost;
+					defender.volatiles['cheapheat'].boost.defendingStat = 1;
 					this.runEvent('CheapHeat', defender);
 				}
 			}
