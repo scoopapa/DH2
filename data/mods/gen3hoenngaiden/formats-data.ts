@@ -2020,4 +2020,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	munchlax: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
 };
