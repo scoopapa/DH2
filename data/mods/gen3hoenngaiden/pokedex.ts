@@ -2091,6 +2091,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 50, def: 50, spa: 86, spd: 96, spe: 70},
 	},
+	beedrill: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 90, def: 40, spa: 45, spd: 80, spe: 75},
+	},
 	pelipper: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 50, def: 100, spa: 95, spd: 70, spe: 65},
