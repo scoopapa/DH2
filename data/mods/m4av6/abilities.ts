@@ -373,6 +373,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		hazardImmune: true,
 		name: "Trash Compactor",
 		rating: 5,
 		num: -1007,
@@ -2345,6 +2346,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
+		hazardImmune: true,
 		rating: 3,
 		num: -1059,
 	},
