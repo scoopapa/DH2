@@ -2550,9 +2550,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.useSourceDefensiveAsOffensive) {
 				attackingStat = attackingStat === 'atk' ? 'def' : 'spd';
 			}
-			if (move.useTargetOffensive) {
-				attackers = targets;
-			}
 			if (move.defensiveCategory) {
 				defendingStat = move.defensiveCategory === 'Physical' ? 'def' : 'spd';
 			} else {
