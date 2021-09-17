@@ -420,8 +420,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1011,
 	},
 	sharpshooter: {
-		onSwitchIn(pokemon, target) {
-			pokemon.addVolatile('lockon', target);
+		onStart(source) {
+			this.useMove('raindance', source);
 		},
 		name: "Sharpshooter",
 		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
