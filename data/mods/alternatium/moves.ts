@@ -771,4 +771,88 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
+	weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.id !== 'catastroform') {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.type = 'Fire';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.type = 'Water';
+					break;
+				case 'sandstorm':
+					move.type = 'Rock';
+					break;
+				case 'hail':
+					move.type = 'Ice';
+					break;
+				}
+			}
+			else if (pokemon.species.id === 'catastroform') {
+				if (pokemon.hasItem('heatrock')) {
+					move.type = 'Fire';
+				}
+				if (pokemon.hasItem('damprock')) {
+					move.type = 'Water';
+				}
+				if (pokemon.hasItem('icyrock')) {
+					move.type = 'Ice';
+				}
+				if (pokemon.hasItem('smoothrock')) {
+					move.type = 'Rock';
+				}
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.id !== 'catastroform') {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.basePower *= 2;
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.basePower *= 2;
+					break;
+				case 'sandstorm':
+					move.basePower *= 2;
+					break;
+				case 'hail':
+					move.basePower *= 2;
+					break;
+				}
+			}
+			else if (pokemon.species.id === 'catastroform') {
+				if (pokemon.hasItem('heatrock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('damprock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('icyrock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('smoothrock')) {
+					move.basePower *= 2;
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
 };
