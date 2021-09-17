@@ -9706,9 +9706,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTryHit(target, source) {
 			if (source.volatiles['lockon']) return false;
 		},
-		onHit(target, pokemon) {
-			target.addVolatile('lockon');
-			this.add('-activate', pokemon, 'move: Lock-On', '[of] ' + target);
+		onHit(target, source) {
+			source.addVolatile('lockon', target);
+			this.add('-activate', source, 'move: Lock-On', '[of] ' + target);
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
