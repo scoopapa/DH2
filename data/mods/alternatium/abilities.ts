@@ -420,7 +420,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1011,
 	},
 	sharpshooter: {
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			pokemon.addVolatile('lockon');
 		},
 		name: "Sharpshooter",
