@@ -226,15 +226,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondaries: [
 			{
 				chance: 30,
-				onHit(source, target) {
-					if (target.species.id === 'mytheon') {
+				onHit(source, pokemon) {
+					if (pokemon.species.id === 'mytheon') {
 						this.boost({spa: -1}, source);
 					}
 				}
 			}, {
 				chance: 100,
-				onHit(source, target) {
-					if (target.species.id !== 'mytheon') {
+				onHit(source, pokemon) {
+					if (pokemon.species.id !== 'mytheon') {
 						this.boost({spa: -1}, source);
 					}
 				}
