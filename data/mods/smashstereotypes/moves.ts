@@ -203,7 +203,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				status: 'tox',
 			}, {
 				chance: 10,
-				onHit(target) {
+				onHit(source) {
 					if (source.species.id !== 'mytheon') return;
 					volatileStatus: 'flinch',
 				}
