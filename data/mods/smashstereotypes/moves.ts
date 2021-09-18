@@ -188,6 +188,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	poisonfang: {
 		inherit: true,
+		onTryImmunity(target, source) {
+			if (source.species.id !== 'mytheon') {
+				eturn target.hasType(source.getTypes());
+			}
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'mytheon') {
 				move.basePower = 65;
@@ -228,14 +233,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				chance: 30,
 				onHit(source, target) {
 					if (source.species.id === 'mytheon') {
-						this.boost({spe: -1}, target);
+						this.boost({spa: -1}, pokemon);
 					}
 				}
 			}, {
 				chance: 100,
 				onHit(source, target) {
 					if (source.species.id !== 'mytheon') {
-						this.boost({spe: -1}, target);
+						this.boost({spa: -1}, pokemon);
 					}
 				}
 			},
