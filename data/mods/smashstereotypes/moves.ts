@@ -197,18 +197,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id !== 'mytheon') return;
 			return accuracy - 5;
 		},
-		secondaries: [
-			{
-				chance: 50,
-				status: 'tox',
-			}, {
-				chance: 10,
-				onHit(source) {
-					if (source.species.id !== 'mytheon') return;
-					volatileStatus: 'flinch',
-				}
-			},
-		],
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		}, 
+		self: {
+			chance: 10,
+			onHit(source, pokemon) {
+				if (source.species.id !== 'mytheon') return;
+				pokemon.addVolatile('flinch');
+			}
+		},				
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
