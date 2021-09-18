@@ -190,7 +190,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onTryImmunity(target, source) {
 			if (source.species.id !== 'mytheon') {
-				eturn target.hasType(source.getTypes());
+				return target.hasType(source.getTypes());
 			}
 		},
 		onModifyMove(move, source, target) {
