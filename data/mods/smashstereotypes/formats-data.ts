@@ -8,4 +8,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	slowclone: {
 		tier: "SSS",
 	},
+	mytheon: {
+		tier: "SSS",
+	},
+	melmetal: {
+		tier: "SSS",
+	},
+	melmetalgmax: {
+		tier: "SSS Uber",
+	},
+	kokovoir: {
+		tier: "SSS",
+	},
+	kokovoirmega: {
+		tier: "SSS Uber",
+	},
 };

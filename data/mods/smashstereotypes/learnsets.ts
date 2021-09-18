@@ -122,4 +122,28 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gunkshot: ["8L1"],
 		}
 	},
+	mytheon: {
+		learnset: {
+			chipaway: ["8L1"],
+			dragonclaw: ["8L1"],
+			dragonrush: ["8L1"],
+			swordsdance: ["8L1"],
+			poisonfang: ["8L1"],
+			firefang: ["8L1"],
+			icefang: ["8L1"],
+			thunderfang: ["8L1"],
+			psychicfangs: ["8L1"],
+			crunch: ["8L1"],
+			skittersmack: ["8L1"],
+			uturn: ["8L1"],
+			dracometeor: ["8L1"],
+			dragonpulse: ["8L1"],
+			doublekick: ["8L1"],
+			embargo: ["8L1"],
+			honeclaws: ["8L1"],
+			twister: ["8L1"],
+			breakingswipe: ["8L1"],
+			reflect: ["8L1"],
+		},
+	},
 };

@@ -23,5 +23,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'shaymin').learnset.shedleaves = ['8L1'];
 		
 		this.modData('Learnsets', 'heatmor').learnset.spikes = ['8L1'];
+		
+		
+		delete this.modData('Learnsets', 'melmetal').learnset.superpower;
+		delete this.modData('Learnsets', 'melmetal').learnset.bodypress;
+		delete this.modData('Learnsets', 'melmetal').learnset.brickbreak;
+		this.modData('Learnsets', 'melmetal').learnset.bulkup = ['8L1'];
+	},
+	
+	teambuilderConfig: {
+        // for micrometas to only show custom tiers
+        excludeStandardTiers: true,
+        // only to specify the order of custom tiers
+        customTiers: ['SSS', 'SSS Uber'],
 	},
 };

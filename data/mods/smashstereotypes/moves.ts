@@ -105,4 +105,181 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	focusblast: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'heatmor') return;
+			return accuracy + 15;
+		},
+	},
+	adaptableattack: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Deals typeless damage. Special if SpA > Atk.",
+		isViable: true,
+		name: "Adaptable Attack",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Multi-Attack", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			move.type = '???';
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.species.name === 'Type: Null') {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	chipaway: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.type = 'Dragon';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'mytheon') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	doublekick: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'mytheon') return;
+			return accuracy - 10;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.basePower = 50;
+			}
+		},
+	},
+	naturalgift: {
+		inherit: true,
+		onPrepareHit(target, pokemon, move) {
+			if (pokemon.species.id !== 'mytheon') {
+				if (pokemon.ignoringItem()) return false;
+				const item = pokemon.getItem();
+				if (!item.naturalGift) return false;
+				move.basePower = item.naturalGift.basePower;
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+			}
+			else if (pokemon.species.id === 'mytheon') {
+				if (pokemon.ignoringItem()) return false;
+				const item = pokemon.getItem();
+				if (!item.naturalGift) return false;
+				move.basePower = item.naturalGift.basePower;
+			}
+		},
+	},
+	poisonfang: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.basePower = 65;
+			}
+		},
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'mytheon') return;
+			return accuracy - 5;
+		},
+		secondaries: [
+			{
+				chance: 50,
+				status: 'tox',
+			}, {
+				chance: 10,
+				onHit(target) {
+					if (source.species.id !== 'mytheon') return;
+					volatileStatus: 'flinch',
+				}
+			},
+		],
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	skittersmack: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.basePower = 90;
+			}
+		},
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'mytheon') return;
+			return accuracy = 100;
+		},
+		secondaries: [
+			{
+				chance: 30,
+				onHit(source, target) {
+					if (source.species.id === 'mytheon') {
+						this.boost({spe: -1}, target);
+					}
+				}
+			}, {
+				chance: 100,
+				onHit(source, target) {
+					if (source.species.id !== 'mytheon') {
+						this.boost({spe: -1}, target);
+					}
+				}
+			},
+		],
+	},
+	synchronoise: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.basePower = 70;
+				move.ignoreImmunity = false;
+				move.flags.sound = 1;
+			}
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (target.hasType(pokemon.getTypes()) && pokemon.species.id === 'mytheon') {
+				return this.chainModify(2);
+			}
+		},
+	},
+	uturn: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'mytheon') {
+				move.basePower = 60;
+			}
+		},
+	},
+	doubleironbash: {
+		num: 742,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "Hits twice.",
+		name: "Double Iron Bash",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		multihit: 2,
+		target: "normal",
+		type: "Steel",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 140},
+		contestType: "Clever",
+	},
 };
