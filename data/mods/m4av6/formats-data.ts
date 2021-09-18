@@ -468,13 +468,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	slowbro: {
 		randomBattleMoves: ["scald", "toxic", "thunderwave", "psyshock", "fireblast", "icebeam", "slackoff"],
 		randomDoubleBattleMoves: ["scald", "psychic", "thunderwave", "slackoff", "protect", "psyshock", "toxic"],
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	slowbromega: {
 		randomBattleMoves: ["calmmind", "scald", "psyshock", "slackoff", "fireblast", "icebeam"],
 		randomDoubleBattleMoves: ["scald", "fireblast", "icebeam", "psychic", "slackoff", "trickroom", "protect", "psyshock"],
-		tier: "RUBL",
+		tier: "(OU)",
 		doublesTier: "(DUU)",
 	},
 	/*
@@ -4221,7 +4221,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kyurem: {
 		randomBattleMoves: ["dracometeor", "icebeam", "earthpower", "outrage", "substitute", "focusblast", "roost"],
 		randomDoubleBattleMoves: ["icebeam", "dracometeor", "dragonpulse", "glaciate", "earthpower", "roost", "protect"],
-		tier: "RUBL",
+		tier: "UUBL",
 		doublesTier: "(DUU)",
 	},
 	kyuremblack: {
@@ -5350,7 +5350,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	tapubulu: {
 		randomBattleMoves: ["woodhammer", "hornleech", "stoneedge", "superpower", "megahorn", "bulkup"],
 		randomDoubleBattleMoves: ["woodhammer", "hornleech", "stoneedge", "superpower", "protect", "naturesmadness"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	tapufini: {
