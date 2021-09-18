@@ -238,17 +238,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1009,
 	},
 	swarm: {
-		shortDesc: "This Pokémon's attacking stat is multiplied by 1.5 while using a Bug-type attack.",
+		desc: "When this Pokémon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",
+		shortDesc: "At 1/2 or less of its max HP, this Pokémon's attacking stat is 1.5x with Bug attacks.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug'&& attacker.hp <= attacker.maxhp / 2) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug'&& attacker.hp <= attacker.maxhp / 2) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}

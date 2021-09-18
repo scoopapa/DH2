@@ -29,10 +29,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by any Pokémon with a certain nickname, this item allows it to Mega Evolve in battle.",
 	},
-	porygonitez: {
-		name: "Porygonite-Z",
+	porygoditez: {
+		name: "Porygodite-Z",
 		spritenum: 578,
-		megaStone: "Porygon-Z-Mega",
+		megaStone: "Porygod-Z-Mega",
 		megaEvolves: "Porygon-Z",
 		itemUser: ["Porygon-Z"],
 		onTakeItem(item, source) {
@@ -41,7 +41,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -5000,
 		gen: 8,
-		desc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+		desc: "Please do not confuse this for Porygonite-Z because it's not that",
 	},
 	pichunite: {
 		name: "Pichunite",

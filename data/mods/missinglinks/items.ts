@@ -135,4 +135,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Zoroark, this item allows it to Mega Evolve in battle.",
 	},
+	adrenalineorb: {
+		name: "Adrenaline Orb",
+		spritenum: 660,
+		fling: {
+			basePower: 30,
+		},
+		onAfterBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'bloodscent') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		num: 846,
+		gen: 7,
+	},
 };

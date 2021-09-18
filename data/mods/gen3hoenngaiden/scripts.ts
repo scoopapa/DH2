@@ -207,6 +207,58 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'torkoal').learnset.solarbeam = ['3L1'];
 		this.modData('Learnsets', 'torkoal').learnset.slackoff = ['3L1'];
 		this.modData('Learnsets', 'torkoal').learnset.willowisp = ['3L1'];
+		
+		this.modData('Learnsets', 'delibird').learnset.taunt = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.batonpass = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.brickbreak = ['3L1'];
+		this.modData('Learnsets', 'delibird').learnset.lowkick = ['3L1'];
+		
+		//Slate 9
+		this.modData("Learnsets", 'dusclops').learnset.brickbreak = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.counter = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.suckerpunch = ['3L1'];
+		this.modData("Learnsets", 'dusclops').learnset.haze = ['3L1'];
+		
+		this.modData("Learnsets", 'parasect').learnset.lunge = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.knockoff = ['3L1'];
+		this.modData("Learnsets", 'parasect').learnset.shadowball = ['3L1'];
+		
+		//Slate 10
+		this.modData("Learnsets", 'flygon').learnset.spikes = ['3L1'];
+		this.modData("Learnsets", 'flygon').learnset.morningsun = ['3L1'];
+		this.modData("Learnsets", 'flygon').learnset.dragondance = ['3L1'];
+		
+		this.modData("Learnsets", 'exploud').learnset.boomburst = ['3L1'];
+		
+		//Slate 11
+		this.modData("Learnsets", 'stantler').learnset.earthquake = ['3L1'];
+		this.modData("Learnsets", 'stantler').learnset.icebeam = ['3L1'];
+		this.modData("Learnsets", 'stantler').learnset.thunderbolt = ['3L1'];
+		this.modData("Learnsets", 'stantler').learnset.psychic = ['3L1'];
+		this.modData("Learnsets", 'stantler').learnset.hypnosis = ['3L1'];
+		
+		this.modData("Learnsets", 'lapras').learnset.dragonclaw = ['3L1'];
+		this.modData("Learnsets", 'lapras').learnset.outrage = ['3L1'];
+		this.modData("Learnsets", 'lapras').learnset.recover = ['3L1'];
+
+		this.modData("Learnsets", 'arbok').learnset.brickbreak = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.crunch = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.futuresight = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.psychic = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.suckerpunch = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.curse = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.hypnosis = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.roleplay = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.skillswap = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.snatch = ['3L1'];
+		this.modData("Learnsets", 'arbok').learnset.trick = ['3L1'];
+		
+		this.modData("Learnsets", 'relicanth').learnset.bounce = ['3L1'];
+		this.modData("Learnsets", 'relicanth').learnset.flail = ['3L1'];
+		this.modData("Learnsets", 'relicanth').learnset.rockblast = ['3L1'];
+		this.modData("Learnsets", 'relicanth').learnset.sludgebomb = ['3L1'];
+		this.modData("Learnsets", 'relicanth').learnset.superpower = ['3L1'];
+		this.modData("Learnsets", 'relicanth').learnset.whirlpool = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {

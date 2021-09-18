@@ -1,4 +1,23 @@
 export const Items: {[itemid: string]: ItemData} = {
+	blueorb: {
+		name: "Blue Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Kyogre-Primal', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
+			return true;
+		},
+		num: 535,
+		gen: 6,
+		isNonstandard: "Past",
+	},
 	bugmemory: {
 		name: "Bug Memory",
 		spritenum: 673,
@@ -9,7 +28,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Bug"],
 		num: 909,
 		gen: 7,
 	},
@@ -35,7 +53,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onDrive: 'Fire',
-		itemUser: ["Genesect-Burn"],
 		num: 118,
 		gen: 5,
 	},
@@ -49,7 +66,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onDrive: 'Ice',
-		itemUser: ["Genesect-Chill"],
 		num: 119,
 		gen: 5,
 	},
@@ -63,7 +79,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Dark"],
 		num: 919,
 		gen: 7,
 	},
@@ -100,7 +115,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onDrive: 'Water',
-		itemUser: ["Genesect-Douse"],
 		num: 116,
 		gen: 5,
 	},
@@ -114,7 +128,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Dragon"],
 		num: 918,
 		gen: 7,
 	},
@@ -151,7 +164,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Electric"],
 		num: 915,
 		gen: 7,
 	},
@@ -189,7 +201,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Fairy"],
 		num: 920,
 		gen: 7,
 	},
@@ -203,7 +214,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Fighting"],
 		num: 904,
 		gen: 7,
 	},
@@ -229,7 +239,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Fire"],
 		num: 912,
 		gen: 7,
 	},
@@ -255,7 +264,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Flying"],
 		num: 905,
 		gen: 7,
 	},
@@ -281,7 +289,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Ghost"],
 		num: 910,
 		gen: 7,
 	},
@@ -307,7 +314,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Grass"],
 		num: 914,
 		gen: 7,
 	},
@@ -326,22 +332,17 @@ export const Items: {[itemid: string]: ItemData} = {
 	griseousorb: {
 		name: "Griseous Orb",
 		spritenum: 180,
+		isGem: true,
 		fling: {
 			basePower: 60,
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.num === 487 && (move.type === 'Ghost' || move.type === 'Dragon')) {
-				return this.chainModify([0x1333, 0x1000]);
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (source.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
+				source.addVolatile('gem');
 			}
 		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 487) || pokemon.baseSpecies.num === 487) {
-				return false;
-			}
-			return true;
-		},
-		itemUser: ["Giratina-Origin"],
+		shortDesc: "If this Pokemon is Giratina, its first successful Ghost or Dragon move will have 1.5x power. Single-use.",
 		num: 112,
 		gen: 4,
 	},
@@ -355,7 +356,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Ground"],
 		num: 907,
 		gen: 7,
 	},
@@ -381,7 +381,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Ice"],
 		num: 917,
 		gen: 7,
 	},
@@ -557,7 +556,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Poison"],
 		num: 906,
 		gen: 7,
 	},
@@ -594,7 +592,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Psychic"],
 		num: 916,
 		gen: 7,
 	},
@@ -625,7 +622,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
 			return true;
 		},
-		itemUser: ["Groudon"],
 		num: 534,
 		gen: 6,
 		isNonstandard: "Past",
@@ -640,7 +636,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Rock"],
 		num: 908,
 		gen: 7,
 	},
@@ -666,7 +661,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onDrive: 'Electric',
-		itemUser: ["Genesect-Shock"],
 		num: 117,
 		gen: 5,
 	},
@@ -702,7 +696,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Steel"],
 		num: 911,
 		gen: 7,
 	},
@@ -750,7 +743,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Silvally-Water"],
 		num: 913,
 		gen: 7,
 	},
@@ -765,5 +757,26 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 778,
 		gen: 7,
 		isNonstandard: "Unobtainable",
+	},
+	eviolite: {
+		name: "Eviolite",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+				return this.chainModify(1.5);
+			}
+		},
+		num: 538,
+		gen: 5,
 	},
 };

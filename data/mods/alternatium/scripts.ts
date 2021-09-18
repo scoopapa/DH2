@@ -1,85 +1,85 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function () {
-		/*Template:
-		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
-		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
-		//Changes
-		
-		delete this.modData('Learnsets', 'pikachurockstar').learnset.nastyplot;
-		delete this.modData('Learnsets', 'pikachuphd').learnset.nastyplot;
-		
-		delete this.modData('Learnsets', 'darmanitanzen').learnset.crunch;
-		delete this.modData('Learnsets', 'darmanitanzen').learnset.knockoff;
-		delete this.modData('Learnsets', 'darmanitanzen').learnset.psychicfangs;
-		delete this.modData('Learnsets', 'darmanitanzen').learnset.thunderfang;
-		
-		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.tripleaxel;
-		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.accelerock;
-		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.bulkup;
-		delete this.modData('Learnsets', 'darmanitangalarzen').learnset.irondefense;
-		
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bodypress;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.uturn;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.knockoff;
-		delete this.modData('Learnsets', 'zamazentacrowned').learnset.bulkup;
-		
-		delete this.modData('Learnsets', 'rotomheat').learnset.taunt;
-		delete this.modData('Learnsets', 'rotomwash').learnset.taunt;
-		delete this.modData('Learnsets', 'rotommow').learnset.taunt;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.taunt;
-		delete this.modData('Learnsets', 'rotomfan').learnset.taunt;
-		
-		delete this.modData('Learnsets', 'rotomheat').learnset.recover;
-		delete this.modData('Learnsets', 'rotomwash').learnset.recover;
-		delete this.modData('Learnsets', 'rotommow').learnset.recover;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.recover;
-		
-		delete this.modData('Learnsets', 'rotomwash').learnset.painsplit;
-		delete this.modData('Learnsets', 'rotomwash').learnset.willowisp;
-		
-		delete this.modData('Learnsets', 'rotommow').learnset.thunder;
-		delete this.modData('Learnsets', 'rotommow').learnset.thunderbolt;
-		delete this.modData('Learnsets', 'rotommow').learnset.discharge;
-		delete this.modData('Learnsets', 'rotommow').learnset.defog;
-		delete this.modData('Learnsets', 'rotommow').learnset.willowisp;
-		delete this.modData('Learnsets', 'rotommow').learnset.shadowball;
-		delete this.modData('Learnsets', 'rotommow').learnset.hex;
-		delete this.modData('Learnsets', 'rotommow').learnset.voltswitch;
-		delete this.modData('Learnsets', 'rotommow').learnset.thunderwave;
-		
-		delete this.modData('Learnsets', 'rotomfrost').learnset.thunder;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.thunderbolt;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.discharge;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.voltswitch;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.thunderwave;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.charge;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.chargebeam;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.eerieimpulse;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.electricterrain;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.electroball;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.electroweb;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.risingvoltage;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.shockwave;
-		delete this.modData('Learnsets', 'rotomfrost').learnset.thundershock;
-		
-		delete this.modData('Learnsets', 'slowkinggalar').learnset.expandingforce;
-	},
-/*
-		for (const id in this.dataCache.Pokedex) {
-			const poke = this.dataCache.Pokedex[id];
-			if (poke.restrictedLearnset) {
-				console.log(this.toID(poke.name));
-				const thisPoke = this.toID(poke.name);
-				const learnset = this.dataCache.Learnsets[this.toID(poke.name)].learnset;
-				for (const move in learnset) {
-					console.log(thisPoke + " has " + move);
-					const moveid = this.dataCache.Moves[move];
-					if (moveid.isNonstandard) {
-						console.log(moveid.isNonstandard);
-						delete this.modData('Learnsets', thisPoke).learnset.moveid;
-					}
-				}
+	//Included for Burn Heal:
+	//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
+	//So we have to bypass it manually here.
+	modifyDamage(
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+		) {
+			const tr = this.trunc;
+			if (!move.type) move.type = '???';
+			const type = move.type;
+
+			baseDamage += 2;
+
+			// multi-target modifier (doubles only)
+			if (move.spreadHit) {
+				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+				this.debug('Spread modifier: ' + spreadModifier);
+				baseDamage = this.modify(baseDamage, spreadModifier);
+		}
+
+		// weather modifier
+		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.randomizer(baseDamage);
+
+		// STAB
+		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
 			}
 		}
-*/
-};
+		if (typeMod < 0) {
+			if (!suppressMessages) this.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('burnheal'))) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			baseDamage = this.modify(baseDamage, 0.25);
+			this.add('-zbroken', target);
+			}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
+	},	
+}; 

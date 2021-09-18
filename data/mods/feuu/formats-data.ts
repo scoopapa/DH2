@@ -150,8 +150,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 100,
 	},
 	tapulopmega: {
-		tier: "FEUUber",
-		doublesTier: "FEUUber",
+		tier: "FEUU",
+		doublesTier: "DUU",
 	},
 	dragontler: {
 		tier: "FEUU",
@@ -360,7 +360,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	weezlordgalar: {
-		tier: "FEUU",
+		tier: "Uncoded",
 		doublesTier: "DUU",
 	},
 	sableior: {
@@ -420,8 +420,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	kyottlerprimal: {
-		tier: "FEUU",
-		doublesTier: "DUU",
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	clawliwrath: {
 		tier: "FEUU",
@@ -554,8 +554,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	altarizardmegay: {
-		tier: "FEUU",
-		doublesTier: "DUU",
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	altarizardmega: {
 		tier: "FEUU",
@@ -574,10 +574,118 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	sandamaralola: {
-		tier: "Uncoded",
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+// slate 17
+	jirachonator: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	druddifini: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	dredvul: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	swannamence: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	swannamencemega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	tyranetteeternal: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+// slate 18
+	keclyrexshadow: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	rosenaught: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	gigacrab: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	monferpaunbound: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	aurorona: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	ninelandsalola: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	lurodactyl: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	lurodactylmega: {
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 
+// Slate 19
+	regibee: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	regibeemega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	sigileye: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	darmearna: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	mrace: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	deciduskorch: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	hypnakart: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	zerclef: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
+// Slate 20
+	golisotops: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	porygrigus: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	exeggutorprime: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this

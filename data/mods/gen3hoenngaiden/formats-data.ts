@@ -1665,4 +1665,84 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	litten: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	torracat: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	incineroar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	mimejr: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	mrmimegalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	mrrime: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	glaceon: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	uxie: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	marowakalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	marowakalolatotem: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	dracovish: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	slowkinggalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	slowpokegalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	milcery: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	alcremie: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	regieleki: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

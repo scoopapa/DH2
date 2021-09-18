@@ -135,9 +135,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (source?.hasItem('terrainextender')) {
 					return 8;
 				}
-				if (source?.hasAbility('arenarock')) {
-					return 0;
-				}
 				return 5;
 			},
 			onBasePowerPriority: 6,
@@ -451,34 +448,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
 					}
 				}
-			},
-		},
-	},
-	trickroom: {
-		inherit: true,
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasAbility('persistent')) {
-					this.add('-activate', source, 'ability: Persistent', effect);
-					return 7;
-				}
-				if (source?.hasAbility('counterclockwisespiral')) {
-					this.add('-activate', source, 'ability: Counter-Clockwise Spiral', effect);
-					return 0;
-				}
-				return 5;
-			},
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
-			},
-			onRestart(target, source) {
-				this.field.removePseudoWeather('trickroom');
-			},
-			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
-			onResidualOrder: 23,
-			onEnd() {
-				this.add('-fieldend', 'move: Trick Room');
 			},
 		},
 	},
@@ -1214,5 +1183,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 120},
 		maxMove: {basePower: 80},
 		contestType: "Cool",
+	},
+	multiattack: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
+			if (pokemon.item === 'rksmegamemory') {
+				if (pokemon.hpType) {
+					move.type = pokemon.hpType;
+				} else {
+					move.type = 'Dark';
+				}
+			}
+		},
 	},
 };

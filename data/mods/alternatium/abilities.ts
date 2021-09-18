@@ -33,15 +33,15 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp || pokemon.species.id === 'silvallyflying' && move.id === 'multiattack' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+	},
 	powerofalchemy: {
-		/*onSourceAfterFaint(source, target, types) {
-			const type1 = source.baseSpecies.types;
-			const type2 = target.baseSpecies.types;
-			if (type1 !== type2) {
-				if (!type1(type2)) return;
-				this.add('-activate', source, 'typechange', '[from] ability: Power of Alchemy');
-			}
-		},*/
 		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
@@ -104,9 +104,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Cute Charm', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('cutecharm');
-				pokemon.baseAbility = 'cutecharm';
+				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistyterrain');
+				pokemon.baseAbility = 'mistyterrain';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -119,9 +119,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'flashfire';
 			}
 			if (pokemon.species.id === 'silvallyflying') {
-				this.add('-ability', pokemon, 'Unburden', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('unburden');
-				pokemon.baseAbility = 'unburden';
+				this.add('-ability', pokemon, 'Gale Wings', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('galewings');
+				pokemon.baseAbility = 'galewings';
 			}
 			if (pokemon.species.id === 'silvallyghost') {
 				this.add('-ability', pokemon, 'Prankster', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -144,9 +144,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'refrigerate';
 			}
 			if (pokemon.species.id === 'silvallypoison') {
-				this.add('-ability', pokemon, 'Poison Point', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('poisonpoint');
-				pokemon.baseAbility = 'poisonpoint';
+				this.add('-ability', pokemon, 'Corrosion', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('corrosion');
+				pokemon.baseAbility = 'corrosion';
 			}
 			if (pokemon.species.id === 'silvallypsychic') {
 				this.add('-ability', pokemon, 'Magic Guard', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -159,9 +159,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'sandstream';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
-				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('sturdy');
-				pokemon.baseAbility = 'sturdy';
+				this.add('-ability', pokemon, 'Magnet Pull', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('magnetpull');
+				pokemon.baseAbility = 'magnetpull';
 			}
 			if (pokemon.species.id === 'silvallywater') {
 				this.add('-ability', pokemon, 'Water Absorb', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -281,20 +281,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			this.add('-activate', source, 'ability: Private Wi-Fi');
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
-			/*for (const foeactive of pokemon.side.foe.active) {
-				let allyActive = pokemon.side.active;
-				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
+			for (const foeactive of source.side.foe.active) {
+				console.log(foeactive.hasType("Steel"));
+				if (
+					!foeactive || 
+					foeactive.fainted || 
+					(
+						!foeactive.hasType(source.types[1]) && 
+						!foeactive.hasType("Steel")
+					)
+				) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatIDExceptHP;
-				for (s in allyActive.storedStats) {
-					if (allyActive.storedStats[s] > bestStat) {
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = allyActive.storedStats[s];
+						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, pokemon);
+				this.boost({[statName]: 1}, source);
 
 				// Boosts opponent's Pokemon's highest stat
 				let statNameOpp = 'atk';
@@ -306,8 +313,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						bestStatOpp = foeactive.storedStats[sOpp];
 					}
 				}
-				this.boost({[bestStatOpp]: length}, foeactive);
-			}*/
+				this.boost({[statNameOpp]: 1}, foeactive);
+			}
 		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
@@ -330,5 +337,86 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Mountaineer",
 		rating: 3,
 		num: -2,
+	},
+	lifegem: {
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.3);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('lifegem'));
+			}
+		},
+		name: "Life Gem",
+		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
+		rating: 3,
+		num: 1007,
+	},
+	powercore: {
+		// Hazard Immunity implemented in moves.js
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				delete boost[i];
+				this.add('-ability', target, 'Power Core');
+				this.hint("Power Core prevents stat changes for the user.");
+			}
+		},
+		name: "Power Core",
+		shortDesc: "Immunity to hazards and any kind of stat changes.",
+		rating: 3,
+		num: 1008,
+	},
+	aerialmenace: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Flying') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Aerial Menace');
+				}
+				return null;
+			}
+		},
+		name: "Aerial Menace",
+		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
+		rating: 3,
+		num: 1009,
+   },
+   shadowworld: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shadow World');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(1.2);
+			}
+			else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(0.8);
+			}
+		},
+		isUnbreakable: true,
+		name: "Shadow World",
+		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
+		rating: 3,
+		num: 1010,
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP loss or damage reduction.",
+		rating: 4,
+		num: 1011,
 	},
 };

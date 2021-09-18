@@ -3,6 +3,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		/*Template:
 		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
+		this.modData('Learnsets', 'honchkrow').learnset.beakblast = ['8L1'];
+		this.modData('Learnsets', 'cramorant').learnset.beakblast = ['8L1'];
+		this.modData('Learnsets', 'mandibuzz').learnset.beakblast = ['8L1'];
+		
 		this.modData('Learnsets', 'houndoom').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'infernape').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'pyroar').learnset.burningjealousy = ['8L1'];
@@ -23,6 +27,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'hatterene').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'primarina').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'mew').learnset.fairywind = ['8L1'];
+		
+		this.modData('Learnsets', 'aipom').learnset.forcepalm = ['8L1'];
+		this.modData('Learnsets', 'regigigas').learnset.forcepalm = ['8L1'];
+		this.modData('Learnsets', 'meloetta').learnset.forcepalm = ['8L1'];
 		
 		this.modData('Learnsets', 'chandelure').learnset.forestscurse = ['8L1'];
 		this.modData('Learnsets', 'decidueye').learnset.forestscurse = ['8L1'];
@@ -109,6 +117,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'banette').learnset.trickortreat = ['8L1'];
 		this.modData('Learnsets', 'gengar').learnset.trickortreat = ['8L1'];
 		this.modData('Learnsets', 'sableye').learnset.trickortreat = ['8L1'];
+		
+		this.modData('Learnsets', 'nidoranf').learnset.twineedle = ['8L1'];
+		this.modData('Learnsets', 'nidoranm').learnset.twineedle = ['8L1'];
+		this.modData('Learnsets', 'toxapex').learnset.twineedle = ['8L1'];
 	},
 /*
 		for (const id in this.dataCache.Pokedex) {

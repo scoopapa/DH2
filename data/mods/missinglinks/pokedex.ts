@@ -663,4 +663,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 42,
 		eggGroups: ["Mineral"],
 	},
+	phanpy: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Dry Skin", H: "Sand Veil"},
+	},
+	donphan: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Speed Boost", H: "Sand Veil"},
+	},
+	carvanha: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Blood Scent", H: "Speed Boost"},
+	},
+	sharpedo: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Blood Scent", H: "Speed Boost"},
+	},
+	magikarp: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Damp", H: "Rattled"},
+	},
+	gyarados: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Defiant", H: "Moxie"},
+	},
 };
