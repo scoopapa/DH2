@@ -1768,6 +1768,37 @@ export const Formats: FormatList = [
 	},
 */
 	{
+		name: "[Gen 8] M4A UU",
+		desc: ["Megas for All v7 but it's Natdex UU",
+		      ],
+		threads: [
+				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      ],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: [
+			'Aegislash', 'Alakazam', 'Arctozolt', 'Azumarill', 'Blacephalon', 'Blaziken', 'Blissey', 'Buzzwole', 'Clefable', 'Corviknight', 'Ferrothorn', 'Garchomp', 'Gengar',
+			'Gliscor', 'Greninja', 'Gyarados', 'Hawlucha', 'Heatran', 'Hippowdon', 'Hoopa-Unbound', 'Hydreigon', 'Jirachi', 'Kartana', 'Kommo-o', 'Kyurem', 'Landorus-Therian',
+			'Latias', 'Latios', 'Magnezone', 'Manaphy', 'Melmetal', 'Mew', 'Nidoqueen', 'Pelipper', 'Rillaboom', 'Scizor', 'Serperior', 'Slowbro-Base', 'Slowking-Galar',
+			'Tapu Fini', 'Tapu Koko', 'Tapu Lele', 'Thundurus-Base', 'Thundurus-Therian', 'Toxapex', 'Tyranitar', 'Urshifu-Rapid-Strike', 'Victini', 'Volcarona', 'Weavile',
+			'Xurkitree', 'Zapdos-Base', 'Zapdos-Galar',
+			// canon Mega Stones
+			'Aerodactylite', 'Charizardite X', 'Charizardite Y', 'Diancite', 'Galladite', 'Gardevoirite', 'Heracronite', 'Lopunnite', 'Mawilite', 'Medichamite', 'Pinsirite',
+			'Sablenite', 'Swampertite', 'Venusaurite',
+			// M4A Mega Stones - does not include stones that are already banned from OU or Pokémon that are already banned from UU!
+			'Goodranite', 'Thievulite', 'Toucannonite', 'Lycanroc-Dusk ++ Lycanite', 'Vikavoltite', 'Lycanroc-Base ++ Lycanite', 'Raichunite', 'item: Vanillite', 'Garbodorite',
+			'Jolteonite', 'Slowkinite', 'Conkeldite', 'Gothitite', 'Chandelite', 'Bisharpite', 'Gigalite', 'Reunite', 'Luxrite', 'Talonflite', 'Aurorite', 'Trevenite',
+			'Eelektrossite', 'Dragalgite', 'Dhelmite', 'Typhlosionite', 'Registeel ++ Reginite', 'Magcargonite', 'Bastiodite', 'Leavannite', 'Parasite', 'Samurite',
+			'Meowstic-F ++ Meowsticite', 'Starminite', 'Flygonite', 'Drapionite', 'Lurantisite', 'Exploudite', 'Noivernite', 'Toxtricity-Low-Key ++ Toxtricitite', 'Cacturnite',
+			'Hawluchanite', 'Araquanite', 'Zoroarkite', 'Wishiwashinite', 'Falinksite', 'Krookodilite', 'Infernite', 'Empoleonite', 'Mudsdalite', 'Golurkite', 'RKS Megamemory',
+			'Porygonite-Z', 'Sirfetch\u2019dite', 'Deciduite', 'Incinerite', 'Primarinite',
+			// Abilities
+			'Drizzle', 'Drought',
+		],
+		mod: 'm4av6',
+	},
+	{
 		name: "[Gen 8] M4A VGC",
 		desc: ["Megas for All v7 but it's a VGC format",
 		      ],
