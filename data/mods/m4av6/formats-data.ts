@@ -2647,7 +2647,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	deoxysdefense: {
 		randomBattleMoves: ["spikes", "stealthrock", "recover", "taunt", "toxic", "seismictoss", "knockoff"],
 		randomDoubleBattleMoves: ["protect", "stealthrock", "recover", "taunt", "reflect", "seismictoss", "lightscreen", "trickroom"],
-		tier: "Uber",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	deoxysspeed: {
