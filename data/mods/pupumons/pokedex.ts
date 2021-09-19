@@ -60,7 +60,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Setstorm",
 		types: ["Bug", "Rock"],
 		baseStats: {hp: 84, atk: 50, def: 112, spa: 94, spd: 85, spe: 41},
-		abilities: {0: "Swarm", 1: "Sturdy", H: "Sand Stream"},
+		abilities: {0: "Swarm", 1: "Weak Armor", H: "Sand Stream"},
 		weightkg: 10,
 	},
 	kheprise: {
@@ -68,7 +68,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Kheprise",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 52, atk: 126, def: 55, spa: 59, spd: 60, spe: 114},
-		abilities: {0: "Swarm", 1: "Own Tempo", H: "Drought"},
+		abilities: {0: "Swarm", 1: "White Smoke", H: "Drought"},
 		weightkg: 10,
 	},
 	weeplim: {
