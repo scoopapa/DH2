@@ -145,6 +145,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'mytheon') {
 				move.type = 'Dragon';
+				move.basePower = 85;
 			}
 		},
 		onUseMoveMessage(pokemon, target, move) {
