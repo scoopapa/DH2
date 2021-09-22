@@ -2855,26 +2855,98 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Grassy Stream",
 		shortDesc: "Sets Grassy Surge upon switch-in. 1.5x Def under Sandstorm.",
 	},	
-	undercut: {
-		onBasePowerPriority: 24,
-		onBasePower(basePower, attacker, defender, move) {
-					this.debug('Undercut weaken');
-					return this.chainModify(0.75);
+	electrolytes: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon, length) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				pokemon.cureStatus();
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = pokemon.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, pokemon);
 			}
 		},
+		name: "Electrolytes",
+		shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+	},	
+	workability: {
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Workability boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Workability boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Workability",
+		shortDesc: "This Pokemon's STAB boost is 2x instead of 1.5x. Steel-type moves are considered STAB for this Pokemon",
+	},	
+	deusexmachina: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishirupti' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishirupti') {
+					pokemon.formeChange('Wishirupti-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiruptischool') {
+					pokemon.formeChange('Wishirupti');
+					pokemon.setBoost({atk: 6});
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishirupti' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishirupti') {
+					pokemon.formeChange('Wishirupti-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiruptschool') {
+					pokemon.formeChange('Wishirupti');
+					pokemon.setBoost({atk: 6});
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Deus Ex Machina",
+		shortDesc: "Schooling effects. When this Pokemon enters Solo form, it gains +12 Attack.",
+	},
+	undercut: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
+			this.chainModify(0.75);
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Undercut boost');
-				return this.chainModify(1.5);
+				this.debug('Technician boost');
+				return this.chainModify(1.875);
 			}
 		},
 		name: "Undercut",
 		shortDesc: "All this Pokemon's moves have x0.75 base power. From there, this Pokemon's moves of 60 power or less have 1.875x power.",
-	},	
-
 	},	
 };
  
