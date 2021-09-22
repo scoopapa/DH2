@@ -3502,6 +3502,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
+			if (attacker.hasAbility('gulpmissile2') && attacker.species.name === 'Wailord-Mega' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'wailordmegamending' : 'wailordmegagulping';
+				attacker.formeChange(forme, move);	
+			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;

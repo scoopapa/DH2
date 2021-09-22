@@ -1376,6 +1376,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 241,
 	},
+	gulpmissile2: {
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['wailordmegagulping', 'wailordmegamending'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'wailordmegagulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					this.useMove("Wish", target);
+				}
+				target.formeChange('wailordmega', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile2') &&
+				source.species.name === 'Wailord-Mega' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'wailordmegamending' : 'wailordmegagulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		isPermanent: true,
+		name: "Gulp Missile 2",
+		rating: 2.5,
+		num: 241,
+	},
 	guts: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
