@@ -2833,5 +2833,48 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Anatidaephobia",
 		shortDesc: "This Pokemon's Normal and Fighting-type moves can hit Ghost-types and inflict the target with the Perish Song effect.",
 	},	
+	permafrost: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Permafrost neutralize');
+				return this.chainModify(0.75);
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		name: "Permafrost",
+		shortDesc: "When hit by a super effective move, that move deals 3/4 damage and this Pokemon gets healed by 1/16 of its max HP.",
+	},	
+	grassystream: {
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			if (this.field.isWeather('sandstorm')) return this.chainModify(1.5);
+		},
+		name: "Grassy Stream",
+		shortDesc: "Sets Grassy Surge upon switch-in. 1.5x Def under Sandstorm.",
+	},	
+	undercut: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+					this.debug('Undercut weaken');
+					return this.chainModify(0.75);
+			}
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Undercut boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Undercut",
+		shortDesc: "All this Pokemon's moves have x0.75 base power. From there, this Pokemon's moves of 60 power or less have 1.875x power.",
+	},	
+
+	},	
 };
  
