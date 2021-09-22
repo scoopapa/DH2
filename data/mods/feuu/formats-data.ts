@@ -686,6 +686,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	
+// Slate 21
+	avarupt: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	avaruptmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	goatitar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	goatitarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	fraxshadow: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	pherogonga: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	crawmise: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishirupti: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishiruptischool: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishiruptimega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	wishiruptischoolmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
