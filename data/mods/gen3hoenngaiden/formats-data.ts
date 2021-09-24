@@ -1745,4 +1745,284 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	mamoswine: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	roserade: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	dusknoir: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	leafeon: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	slowbrogalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	mismagius: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	honchkrow: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	budew: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	bonsly: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	mantyke: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	chingling: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	happiny: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	ambipom: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	weavile: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	magnezone: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	porygonz: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	lickilicky: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	rhyperior: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	tangrowth: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	probopass: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	electivire: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	magmortar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	togekiss: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	yanmega: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	gallade: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	froslass: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	raticatealola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	rattataalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	raichualola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	sandshrewalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	sandslashalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},	
+	vulpixalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	ninetalesalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	diglettalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	dugtrioalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	persianalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	meowthalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	meowthgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	perrserker: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	mukalola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	grimeralola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	exeggutoralola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	ponytagalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	rapidashgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},	
+	farfetchdgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	sirfetchd: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	cursola: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	corsolagalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	weezinggalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	articunogalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	zapdosgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	moltresgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	zigzagoongalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	linoonegalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	obstagoon: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	munchlax: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
 };
