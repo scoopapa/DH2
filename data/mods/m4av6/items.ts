@@ -1555,4 +1555,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Sirfetch\u2019d, this item allows it to Mega Evolve in battle.",
 	},
+	deciduite: {
+		name: "Deciduite",
+		spritenum: 578,
+		megaStone: "Decidueye-Mega",
+		megaEvolves: "Decidueye",
+		itemUser: ["Decidueye"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1100,
+		gen: 8,
+		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
+	},
+	incinerite: {
+		name: "Incinerite",
+		spritenum: 578,
+		megaStone: "Incineroar-Mega",
+		megaEvolves: "Incineroar",
+		itemUser: ["Incineroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1101,
+		gen: 8,
+		desc: "If held by an Incineroar, this item allows it to Mega Evolve in battle.",
+	},
+	primarinite: {
+		name: "Primarinite",
+		spritenum: 578,
+		megaStone: "Primarina-Mega",
+		megaEvolves: "Primarina",
+		itemUser: ["Primarina"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1102,
+		gen: 8,
+		desc: "If held by a Primarina, this item allows it to Mega Evolve in battle.",
+	},
 };

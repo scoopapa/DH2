@@ -773,4 +773,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 258,
 		gen: 2,
 	},
+	stick: {
+		name: "Stick",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
+		num: 259,
+		gen: 2,
+	},
 };

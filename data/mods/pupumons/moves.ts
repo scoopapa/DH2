@@ -922,9 +922,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.species.id === 'ooreina') {
 				const forme = 'Ooreina-Flare';
 				pokemon.formeChange(forme);
+				this.hint("Ooreina twirled into Flare Forme!");
 			} else if (pokemon.species.id === 'ooreinaflare') {
 				const forme1 = 'Ooreina';
 				pokemon.formeChange(forme1);
+				this.hint("Ooreina twirled into Romance Forme!");
 			}
 			return;
 		},
@@ -2953,7 +2955,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Cryosleep",
 		desc: "This move charges on the first turn and heals 1/2 of the user's maximum HP, rounded half up, on the second. Raises the user's Defense by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Raises user's Defense by 1 on turn 1. Heals the user by 50% of its max HP turn 2.",
-
 		prepare: "[POKEMON] is absorbing power!",
 		pp: 10,
 		priority: 0,
@@ -19895,8 +19896,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 210,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Terrifying Thunderstomp",
+		shortDesc: "Ignores abilities.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -19912,18 +19913,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 185,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Legendary Landslide",
+		shortDesc: "Sets Grassy Terrain.",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		isZ: "kingphaniumz",
-		secondary: {
-			chance: 100,
-			self: {
-				onHit() {
-					this.field.setTerrain('grassyterrain');
-				},
+		secondary: null,
+		self: {
+			onHit(source) {
+				this.field.setTerrain('grassyterrain');
 			},
 		},
 		secondary: null,
@@ -19936,13 +19935,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Meltdown Metamorphosis",
+		shortDesc: "Toxics and heals completely.",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		status: 'tox',
-		heal: [1, 1],
+		self: {
+			onHit(target, source, move) {
+				for (const pokemon of source.side.active) {
+					this.heal(pokemon.maxhp, pokemon, source, move);
+				}
+			},
+		},
 		isZ: "skuntoniumz",
 		secondary: null,
 		target: "normal",
@@ -19954,8 +19959,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 170,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Searing Stomach Acid",
+		shortDesc: "Raises Atk by 2 stages and Spe by 1 stage.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -19979,8 +19984,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 150,
 		category: "Special",
 		defensiveCategory: "Physical",
-		isNonstandard: "Past",
 		name: "Menacing Mindbreak",
+		shortDesc: "Sets a Light Screen.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -19998,8 +20003,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 170,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Satellite Smash",
+		shortDesc: "Ignores Ground immunities; sets gravity.",
 		pp: 1,
 		priority: 0,
 		flags: {contact: 1},
@@ -20026,7 +20031,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 210,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Lunar Laserbeam",
 		pp: 1,
 		priority: 0,
@@ -20037,13 +20041,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
-	braniacbeatdown: {
+	brainiacbeatdown: {
 		num: 1011,
 		accuracy: true,
-		basePower: 185,
+		basePower: 150,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Brainiac Beatdown",
+		shortDesc: "Sets Trick Room.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -20051,9 +20055,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		self: {
 			pseudoWeather: 'trickroom',
 		},
+		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Psychic",
+		type: "Water",
 		contestType: "Cool",
 	},
 	smolderingstampede: {
@@ -20061,8 +20066,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 185,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Smoldering Stampede",
+		shortDesc: "Sets Wildfire.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -20101,8 +20106,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 150,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Hypnotic Hysteria",
+		shortDesc: "Replaces target's item with Sticky Barb.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -20111,12 +20116,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return !target.hasAbility('stickyhold');
 		},
 		onHit(target, source, move) {
-			const item = "stickybarb";
-			this.add('-item', target, item.name, '[from] move: Bestow', '[of] ' + source);
+			const hItem = "stickybarb";
+			if (target.takeItem() && hItem) {
+				target.setItem(hItem);
+				this.add('-item', target, hItem.name, '[from] move: Hypnotic Hysteria');
+			}
+			else {
+				return
+			}
 		},
 		secondary: null,
 		target: "normal",
-		type: "Psychic",
+		type: "Dark",
 		contestType: "Cool",
 	},
 	banefulbladedance: {
@@ -20124,21 +20135,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 160,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Baneful Blade Dance",
+		shortDesc: "Guarantees critical hits.",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		isZ: "odonagiumz",
-		volatileStatus: 'focusenergy',
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('banefulbladedance');
+				}
+			},
+		},
 		condition: {
+			noCopy: true,
 			onStart(target, source, effect) {
-				if (effect?.id === 'zpower') {
-					this.add('-start', target, 'move: Focus Energy', '[zeffect]');
-				} else if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
-					this.add('-start', target, 'move: Focus Energy', '[silent]');
-				} else {
-					this.add('-start', target, 'move: Focus Energy');
+				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+					this.add('-start', target, 'move: Baneful Blade Dance');
 				}
 			},
 			onModifyCritRatio(critRatio) {

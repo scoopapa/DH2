@@ -373,6 +373,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		hazardImmune: true,
 		name: "Trash Compactor",
 		rating: 5,
 		num: -1007,
@@ -863,6 +864,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Orderly Target",
 		rating: -1,
 		num: -1024,
+	},
+	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Fails if the effect is already active on the user's side.",
+		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		condition: {
+			duration: 5,
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -1025,
 	},
 	disguise: {
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
@@ -1537,6 +1556,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Steelbreaker",
 		rating: 3,
 		num: -1043,
+	},
+	elegance: {
+		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
+		shortDesc: "Secondary effects of moves are guaranteed unless it has a status or a mental affliction.",
+		onModifyMovePriority: -2,
+		onModifyMove(move, attacker) {
+			if (attacker.status) return;
+			if (attacker.volatiles['attract'] || attacker.volatiles['confusion'] ||
+				attacker.volatiles['disable'] || attacker.volatiles['encore'] || attacker.volatiles['healblock'] ||
+				attacker.volatiles['taunt'] || attacker.volatiles['torment']) return;
+			if (move.secondaries) {
+				this.debug('maximizing secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance = 100;
+				}
+			}
+			if (move.self?.chance) move.self.chance = 100;
+		},
+		name: "Elegance",
+		rating: 5,
+		num: -1044,
 	},
 	seismicscream: {
 		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
@@ -2306,6 +2346,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
+		hazardImmune: true,
 		rating: 3,
 		num: -1059,
 	},
@@ -2490,49 +2531,107 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -1066,
 	},
-	stickyresidues: {
-		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
-		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
-		onStart(source) {
-			if (this.field.addPseudoWeather('stickyresidues')) {
-				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+	cheapheat: {
+		desc: "When this Pokémon uses an attacking move, before the move hits, the Pokémon's attacking stat and the target's defending stat are raised by 1 stage. The stats that were raised are lowered by 1 stage after the move hits.",
+		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
+		onBeforeMove(source, target, move) {
+			if (!move.basePower || target === source || move.spreadHit) return;
+			let activated = false;
+			let attackingStat = 'atk';
+			let defendingStat = 'def';
+			if (move.category === 'Special') {
+				attackingStat = 'spa';
+			}
+			if (move.useSourceDefensiveAsOffensive) {
+				attackingStat = attackingStat === 'atk' ? 'def' : 'spd';
+			}
+			if (move.defensiveCategory) {
+				defendingStat = move.defensiveCategory === 'Physical' ? 'def' : 'spd';
+			} else {
+				defendingStat = move.category === 'Physical' ? 'def' : 'spd';
+			}
+			this.add('-ability', source, 'Cheap Heat', 'boost');
+			if (move.useTargetOffensive) {
+				const cheapHeatBoost: SparseBoostsTable = {};
+				if (attackingStat === 'atk') cheapHeatBoost.atk = 1;
+				if (attackingStat === 'def' || defendingStat === 'def') cheapHeatBoost.def = 1;
+				if (attackingStat === 'spa') cheapHeatBoost.spa = 1;
+				if (attackingStat === 'spd' || defendingStat === 'spd') cheapHeatBoost.spd = 1;
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoost;
+				this.runEvent('CheapHeat', target);
+			} else {
+				let cheapHeatBoostSource: SparseBoostsTable = {};
+				let cheapHeatBoostTarget: SparseBoostsTable = {};
+				source.addVolatile('cheapheat');
+				source.volatiles['cheapheat'].source = source;
+				source.volatiles['cheapheat'].boost = cheapHeatBoostSource;
+				if (attackingStat === 'atk') source.volatiles['cheapheat'].boost.atk = 1;
+				if (attackingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
+				if (attackingStat === 'spa') source.volatiles['cheapheat'].boost.spa = 1;
+				if (attackingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
+				this.runEvent('CheapHeat', source);
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoostTarget;
+				if (defendingStat === 'def') target.volatiles['cheapheat'].boost.def = 1;
+				if (defendingStat === 'spd') target.volatiles['cheapheat'].boost.spd = 1;
+				this.runEvent('CheapHeat', target);
+			}
+		},
+		onAfterMove(source, target, move) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
+			}
+		},
+		onEnd(pokemon) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
 			}
 		},
 		condition: {
-			duration: 5,
-			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay')) {
-					return 8;
-				}
-				return 5;
+			onCheapHeat(pokemon) {
+				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				this.effectData.activeMove = this.activeMove;
+				this.effectData.completed = true;
 			},
-			onEnd() {
-				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			onReverseCheapHeat(pokemon) {
+				if (!pokemon.hp) return;
+				let i: BoostName;
+				for (i in this.effectData.boost) {
+					this.effectData.boost[i]! *= -1;
+				}
+				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				pokemon.removeVolatile('cheapheat');
 			},
 		},
-		name: "Sticky Residues",
+		name: "Cheap Heat",
 		rating: 3,
-		num: -1025,
+		num: -1067,
 	},
-	elegance: {
-		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
-		shortDesc: "Secondary effects of moves are guaranteed unless it has a status or a mental affliction.",
-		onModifyMovePriority: -2,
-		onModifyMove(move, attacker) {
-			if (attacker.status) return;
-			if (attacker.volatiles['attract'] || attacker.volatiles['confusion'] ||
-				attacker.volatiles['disable'] || attacker.volatiles['encore'] || attacker.volatiles['healblock'] ||
-				attacker.volatiles['taunt'] || attacker.volatiles['torment']) return;
-			if (move.secondaries) {
-				this.debug('maximizing secondary chance');
-				for (const secondary of move.secondaries) {
-					if (secondary.chance) secondary.chance = 100;
-				}
+	staccato: {
+		desc: "If this Pokémon cures an opposing Pokémon's non-volatile status condition, the affected Pokémon will be paralyzed.",
+		shortDesc: "When curing a foe's status (ex. Purify, Sparkling Aria), replaces with paralysis.",
+		onBeforeMove(source, target, move) {
+			if (['purify', 'sparklingaria', 'wakeupslap', 'smellingsalts', 'uproar'].includes(move.id)) {
+				target.addVolatile('staccato');
 			}
-			if (move.self?.chance) move.self.chance = 100;
 		},
-		name: "Elegance",
-		rating: 5,
-		num: -1044,
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				if (this.effectData.busted) {
+					this.add('-ability', this.effectData.source, 'Staccato');
+					pokemon.setStatus('par', this.effectData.source);
+				}
+			},
+			onAfterMoveSecondary(source, target, move) {
+				target.removeVolatile('staccato');
+			},
+		},
+		name: "Staccato",
+		rating: 3,
+		num: -1067,
 	},
 };
