@@ -419,4 +419,64 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 1011,
 	},
+	sharpshooter: {
+		onStart(source) {
+			this.useMove('lockon', source);
+		},
+		name: "Sharpshooter",
+		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
+		rating: 2,
+		num: 1012,
+	},
+	forecast: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (this.effectData.switchingIn) {
+				if (this.field.isWeather('raindance')) {
+					this.field.clearWeather();
+					this.field.setWeather('raindance');
+				}
+				if (this.field.isWeather('sunnyday')) {
+					this.field.clearWeather();
+					this.field.setWeather('sunnyday');
+				}
+				if (this.field.isWeather('sandstorm')) {
+					this.field.clearWeather();
+					this.field.setWeather('sandstorm');
+				}
+				if (this.field.isWeather('hail')) {
+					this.field.clearWeather();
+					this.field.setWeather('hail');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id !== 'catastroform') return;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Water';
+				break;
+			case 'hail':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Ice';
+				break;
+			case 'sandstorm':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Rock';
+				break;
+			default:
+				if (pokemon.species.id === 'catastroform') return;
+				break;
+			}
+		},
+		name: "Forecast",
+		shortDesc: "Upon Entry, resets any regular weather. Gets secondary typing matching weather.",
+		rating: 2,
+		num: 59,
+	},
 };

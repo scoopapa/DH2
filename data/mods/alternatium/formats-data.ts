@@ -199,22 +199,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*castform: {
+	catastroform: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	castformsunny: {
+	castformfirestorm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	castformrainy: {
+	castformthunderstorm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	castformsnowy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	kyogre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

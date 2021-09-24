@@ -454,7 +454,8 @@ export const Formats: FormatList = [
 					'Dugtrio-Alola', 'Muk', 'Muk-Oilslick', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Slowking-Galar', 'Tornadus', 'Cummulus', 'Thundurus', 'Thundurus-Therian', 'Landorus', 'Landorus-Bengal', 
 					'Vivillon-Fancy', 'Vivillon-Spirit', 'Vivillon-Combat', 'Genesect', 'Genesect-Password', 'Genesect-Molten', 'Genesect-Freezer', 'Genesect-Type-Delta', 'Groudon', 'Groudon-Primal', 'Kyogre', 
 					'Kyogre-Primal', 'Deoxys-Wood', 'Deoxys-Gem', 'Deoxys-Tank', 'Deoxys-Speed', 'Sandslash-Lustrous', 'Sandslash-Alola', 'Ninetales-Steamwork', 'Ninetales-Alola', 'Giratina', 'Giratina-Shadow', 
-					'Eternatus', 'Manustorm', 'Exeggutor', 'Exeggutor-Lighthouse', 'Weezing', 'Weezing-King', 'Raticate', 'Raticate-Alola', 'Linoone', 'Linoone-Punk', 
+					'Eternatus', 'Manustorm', 'Exeggutor', 'Exeggutor-Lighthouse', 'Weezing', 'Weezing-King', 'Raticate', 'Raticate-Alola', 'Linoone', 'Linoone-Punk', 'Catastroform', 'Castform-Firestorm', 
+					'Castform-Thunderstorm', 'Castform-Snowy',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -1017,6 +1018,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] Megamax",
@@ -1352,6 +1354,28 @@ export const Formats: FormatList = [
 		mod: 'smashmodsmelee',
 	},
 	{
+		name: "[Gen 8] Super Smash Stereotypes",
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Gardevoirite', 'Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'SSS') {
+					return [set.species + ' is not usable in Super Smash Stereotypes.'];
+				}
+			}
+		},
+		mod: 'smashstereotypes',
+	},
+	{
 		name: "[Gen 8] Stereotypes",
 		mod: "stereotypes",
 		desc: [
@@ -1368,7 +1392,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			'Prairret', 'Fluxtape', 'Cetaidon', 'Gencook', 'Heraleo', 'Drakotomy', 'Correept', 'Dojodo', 'Harzodia', 'Nimbustorm', 'Burrodger', 'Wesgranit', 'Storvark', 'Dullaham', 'Skappa', 'Magroach', 'Resonake', 'Clavelye',
 			'Whiscamp', 'Laopharsi', 'Spirox', 'Spincaba', 'Jungape', 'Nympheral', 'Beetilient', 'Thermasorb', 'Cosmole', 'Slashowa', 'Fluormingo', 'Fuscicea', 'Akanalud', 'Glaciallo', 'Gorilax', 'Pharaoach', 'Fluxtape-Stereo', 
-			'Gargogunk', 'Corundell', 'Platypad', 'Luffacoa', 
+			'Gargogunk', 'Corundell', 'Platypad', 'Luffacoa', 'Despertur', 'Mountough', 'Twinklesnows',
 		],
 		teambuilderFormat: "Stereotypes",
 	},
@@ -1475,8 +1499,8 @@ export const Formats: FormatList = [
 			//Pokémon
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai',
 			'Dialga', 'Eternatus', 'Giratina', 'Lunala',
-			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Reshiram', 'Solgaleo', 'Tornadus-Therian', 
-			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Rayquaza-Mega',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Solgaleo', 'Tornadus-Therian', 
+			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items

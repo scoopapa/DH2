@@ -385,6 +385,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 82, atk: 80, def: 75, spa: 90, spd: 65, spe: 115},
 		abilities: {0: "Shed Skin", 1: "Fluffy", H: "Natural Cure"},
-		//weightkg: 147,
+		weightkg: 210,
+	},
+	//Slate 14: Dark/Steel, Ground/Fighting, Ice/Fairy
+	despertur: {
+		num: 1039,
+		name: "Despertur",
+		types: ["Dark", "Steel"],
+		baseStats: {hp: 56, atk: 108, def: 78, spa: 114, spd: 62, spe: 112},
+		abilities: {0: "Quick Draw", 1: "Queenly Majesty", H: "Skill Link"},
+		weightkg: 42,
+	},
+	mountough: {
+		num: 1040,
+		name: "Mountough",
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 90, atk: 120, def: 110, spa: 70, spd: 90, spe: 54},
+		abilities: {0: "Heatproof", H: "Rock Head"},
+		weightkg: 578,
+	},
+	twinklesnows: {
+		num: 1041,
+		name: "Twinklesnows",
+		types: ["Ice", "Fairy"],
+		baseStats: {hp: 70, atk: 54, def: 91, spa: 94, spd: 111, spe: 75},
+		abilities: {0: "Unaware", H: "Levitate"},
+		weightkg: 50,
 	},
 };
