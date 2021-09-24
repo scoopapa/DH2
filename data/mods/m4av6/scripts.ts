@@ -91,6 +91,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("silvally", ["firepledge", "waterpledge", "taunt"]);
 		newMoves("golduck", ["expandingforce", "psychicterrain", "recover", "shadowball"]);
 		newMoves("sirfetchd", ["playrough", "roost", "toxic"]);
+		newMoves("incineroar", ["focusenergy", "nightslash", "punishment", "stormthrow"]);
+		newMoves("primarina", ["purify"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -482,6 +484,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			return {targets, pressureTargets: pressureTargets || targets};
-		}
+		},
+		cureStatus(pokemon: Pokemon, silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			if (this.volatiles['staccato']) {
+				this.volatiles['staccato'].busted = true;
+				this.removeVolatile('staccato')
+			}
+			return true;
+		},
 	},
 };
