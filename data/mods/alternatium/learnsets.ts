@@ -5199,7 +5199,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["8L1"],
 		},
 	},
-	castformrthunderstorm: {
+	castformthunderstorm: {
 		learnset: {
 			amnesia: ["7E", "6E", "5E", "4E"],
 			attract: ["7M", "6M", "5M", "4M", "3M"],
