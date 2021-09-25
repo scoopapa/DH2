@@ -2838,7 +2838,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
-				this.heal(target.baseMaxhp / 16);
+				this.heal(source.baseMaxhp / 16);
 			}
 		},
 		name: "Permafrost",
@@ -2859,9 +2859,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon, length) {
-			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
-				this.debug('hydration');
-				this.add('-activate', pokemon, 'ability: Hydration');
+			if (pokemon.status) {
+				this.debug('electrolytes');
+				this.add('-activate', pokemon, 'ability: Electrolytes');
 				pokemon.cureStatus();
 				let statName = 'atk';
 				let bestStat = 0;
