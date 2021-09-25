@@ -2838,7 +2838,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
-				target.heal(target.baseMaxhp / 16);
+				source.heal(target.baseMaxhp / 16);
 			}
 		},
 		name: "Permafrost",
@@ -2895,6 +2895,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
 				target.cureStatus();
 				this.boost({[statName]: 1}, this.effectData.target);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status) {
+				this.debug('electrolytes');
+				this.add('-activate', pokemon, 'ability: Electrolytes');
+				pokemon.cureStatus();
 			}
 		},
 		name: "Electrolytes",
