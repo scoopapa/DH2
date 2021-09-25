@@ -2893,7 +2893,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
-				target.cureStatus();
 				this.boost({[statName]: 1}, this.effectData.target);
 			}
 		},
