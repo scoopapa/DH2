@@ -2838,7 +2838,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
-				this.heal(source.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 16);
 			}
 		},
 		name: "Permafrost",
@@ -2853,7 +2853,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isWeather('sandstorm')) return this.chainModify(1.5);
 		},
 		name: "Grassy Stream",
-		shortDesc: "Sets Grassy Surge upon switch-in. 1.5x Def under Sandstorm.",
+		shortDesc: "Sets Grassy Terrain upon switch-in. 1.5x Def under Sandstorm.",
 	},	
 	electrolytes: {
 		onResidualOrder: 5,
@@ -2886,14 +2886,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Steel') {
 				this.debug('Workability boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Steel') {
 				this.debug('Workability boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		name: "Workability",
@@ -2924,7 +2924,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.formeChange('Wishirupti-School');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiruptschool') {
+				if (pokemon.species.id === 'wishiruptischool') {
 					pokemon.formeChange('Wishirupti');
 					pokemon.setBoost({atk: 6});
 				}
