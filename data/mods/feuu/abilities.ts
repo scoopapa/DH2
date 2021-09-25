@@ -2838,7 +2838,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
-				this.heal(target.baseMaxhp / 16);
+				target.heal(target.baseMaxhp / 16);
 			}
 		},
 		name: "Permafrost",
@@ -2855,6 +2855,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Grassy Stream",
 		shortDesc: "Sets Grassy Terrain upon switch-in. 1.5x Def under Sandstorm.",
 	},	
+/*
 	electrolytes: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
@@ -2873,6 +2874,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 				this.boost({[statName]: length}, pokemon);
+			}
+		},
+		name: "Electrolytes",
+		shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+	},	
+*/
+	electrolytes: {
+		onSetStatus(status, target, source, effect) { 
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
+				target.cureStatus();
+				this.boost({[statName]: 1}, this.effectData.target);
 			}
 		},
 		name: "Electrolytes",
@@ -2910,6 +2932,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.species.id === 'wishiruptischool') {
 					pokemon.formeChange('Wishirupti');
 					pokemon.setBoost({atk: 6});
+					this.add('-setboost', pokemon, 'atk', 12, '[from] ability: Deus Ex Machina');
 				}
 			}
 		},
@@ -2927,6 +2950,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.species.id === 'wishiruptischool') {
 					pokemon.formeChange('Wishirupti');
 					pokemon.setBoost({atk: 6});
+					this.add('-setboost', pokemon, 'atk', 12, '[from] ability: Deus Ex Machina');
 				}
 			}
 		},
