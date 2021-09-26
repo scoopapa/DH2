@@ -107,7 +107,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Machamp-India",
 		types: ["Psychic"],
 		baseStats: {hp: 80, atk: 120, def: 80, spa: 65, spd: 85, spe: 75},
-		abilities: {0: "Sheer Force", 1: "No Guard", H: "Serence Grace"},
+		abilities: {0: "Sheer Force", 1: "No Guard", H: "Serene Grace"},
 		heightm: 2.0,
 		weightkg: 102.9,
 		eggGroups: ["Human-Like"],
