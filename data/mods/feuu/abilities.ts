@@ -2966,6 +2966,56 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Deus Ex Machina",
 		shortDesc: "Schooling effects. When this Pokemon enters Solo form, it gains +12 Attack.",
 	},
+	neutralizinggas: {
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (source.species.baseSpecies !== 'Weezlord-Galar') return;
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		onEnd(source) {
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If your tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source) {
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+		},
+		name: "Neutralizing Gas",
+		rating: 5,
+		num: 256,
+	},
 	undercut: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
