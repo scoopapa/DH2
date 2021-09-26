@@ -2893,7 +2893,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 			}
 			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
-				this.boost({[statName]: 1}, this.effectData.target);
+				this.boost({[statName]: 1}, this.effectData.source);
 			}
 		},
 		onResidualOrder: 5,
