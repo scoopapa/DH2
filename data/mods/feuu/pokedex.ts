@@ -627,7 +627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Weezlord-Galar",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 151, atk: 103, def: 97, spa: 103, spd: 61, spe: 53},
-		abilities: {0: "Lemegeton"},
+		abilities: {0: "Neutralizing Gas"},
 		weightkg: 452,
 	},
 	sableior: {
