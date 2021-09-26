@@ -3013,6 +3013,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Neutralizing Gas",
+		shortDesc: "While this Pokemon is active, Abilities have no effect. Weezlord: +1 to highest stat upon KO",
 		rating: 5,
 		num: 256,
 	},
