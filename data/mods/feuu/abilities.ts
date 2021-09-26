@@ -2838,7 +2838,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
-				source.heal(target.baseMaxhp / 16);
+				target.heal(target.baseMaxhp / 16);
+				this.add('-heal', target, target.getHealth, '[from] ability: Permafrost');
 			}
 		},
 		name: "Permafrost",
@@ -2882,15 +2883,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 */
 	electrolytes: {
 		onSetStatus(status, target, source, effect) { 
-			let statName = 'atk';
-			let bestStat = 0;
-			/** @type {StatNameExceptHP} */
-			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
-					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
-				}
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
 			}
 			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
 				this.boost({[statName]: 1}, this.effectData.target);
