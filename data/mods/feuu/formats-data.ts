@@ -360,7 +360,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	weezlordgalar: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	sableior: {
@@ -684,6 +684,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	exeggutorprime: {
 		tier: "FEUU",
 		doublesTier: "DUU",
+	},
+	
+// Slate 21
+	avarupt: {
+		tier: "Uncoded",
+		doublesTier: "DUU",
+	},
+	avaruptmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	goatitar: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	goatitarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	fraxshadow: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	pherogonga: {
+		tier: "Uncoded",
+		doublesTier: "DUU",
+	},
+	crawmise: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishirupti: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishiruptischool: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+	},
+	wishiruptimega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+	},
+	wishiruptischoolmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
 	},
 	
 	

@@ -109,6 +109,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Absable-Mega-Y"; 
 		}
 		
+		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Goatitar") {
+			return "Goatitar-Mega"; 
+		}
+		
 		return item.megaStone;
 	},
 	
