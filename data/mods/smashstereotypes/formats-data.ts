@@ -23,4 +23,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kokovoirmega: {
 		tier: "SSS Uber",
 	},
+	salaos: {
+		tier: "SSS",
+	},
+	machamp: {
+		tier: "SSS",
+	},
+	machampmega: {
+		tier: "SSS",
+	},
+	machampindia: {
+		tier: "SSS",
+	},
 };

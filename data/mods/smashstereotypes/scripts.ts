@@ -36,6 +36,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'melmetal').learnset.bodypress;
 		delete this.modData('Learnsets', 'melmetal').learnset.brickbreak;
 		this.modData('Learnsets', 'melmetal').learnset.bulkup = ['8L1'];
+		
+		
+		this.modData("Learnsets", "machamp").learnset.machpunch = ["8L1"];
+		this.modData("Learnsets", "machamp").learnset.forcepalm = ["8L1"];
+		this.modData("Learnsets", "machamp").learnset.laserfocus = ["8L1"];
+		this.modData("Learnsets", "machamp").learnset.flamewheel = ["8L1"];
+		this.modData("Learnsets", "machamp").learnset.stormthrow = ["8L1"];
+		this.modData("Learnsets", "machamp").learnset.circlethrow = ["8L1"];
 	},
 	
 	teambuilderConfig: {

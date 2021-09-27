@@ -287,4 +287,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 140},
 		contestType: "Clever",
 	},
+	eyeofchaos: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		isViable: true,
+		name: "Eye of Chaos",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glare", target);
+		},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
 };

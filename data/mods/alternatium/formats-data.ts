@@ -247,19 +247,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*wormadam: {
+	wormadam: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wormadamsandy: {
+	/*wormadamsandy: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},*/
+	fibormadam: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wormadamtrash: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	cherrim: {
+	/*cherrim: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
