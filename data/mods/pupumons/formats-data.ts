@@ -211,4 +211,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons Ubers",
 		doublesTier: "(DOU)",
 	},
+	anjamanis: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
+	bonfiper: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
 };
