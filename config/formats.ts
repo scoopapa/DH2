@@ -1592,7 +1592,7 @@ export const Formats: FormatList = [
 				pokemon.baseStats[statName] = Utils.clampIntRange(pokemon.baseStats[statName] + boost, 1, 255);
 			}
 			return pokemon;
-		}
+		},
 		onChangeSet(set) {
 			if (set.species === 'Snorlax-Gmax') {
 				set.species = 'Snorlax';
