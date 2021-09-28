@@ -542,7 +542,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	plutrapeze: {
 		num: 60,
 		name: "Plutrapeze",
-		types: ["Bug"],
+		types: ["Bug", "Ghost"],
 		baseStats: {hp: 90, atk: 125, def: 75, spa: 125, spd: 51, spe: 104},
 		abilities: {0: "Invader", H: "Foreign Gas"},
 		weightkg: 10,
