@@ -3029,7 +3029,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Undercut",
-		shortDesc: "All this Pokemon's moves have x0.75 base power. From there, this Pokemon's moves of 60 power or less have 1.875x power.",
+		shortDesc: "This Pokemon's moves of 80 power or less have 1.40625x power, but its moves higher than 80 power have 0.75x power.",
 	},	
 };
  
