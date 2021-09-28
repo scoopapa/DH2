@@ -4481,4 +4481,50 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1001,
 		shortDesc: "Damage taken from attacks is reduced by 40%.",
 	},
+	burrower: {
+		onPrepareHit(source, target, move) {
+			if (move.type === 'Ground') {
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		name: "Burrower",
+		rating: 4,
+		num: 90,
+		shortDesc: "Heal 1/8 of max HP when using a Ground-type move.",
+	},
+	foreigngas: {
+		onStart(source) {
+			this.field.setWeather('vacuum');
+		},
+		name: "Foreign Gas",
+		rating: 4,
+		num: 1003,
+	},
+	invader: {
+		onStart(pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let s: StatNameExceptHP;
+			for (s in source.storedStats) {
+				if (source.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = source.storedStats[s];
+				}
+			}
+			this.boost({[statName]: length}, source);
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) { //should stay if vacuum weather is active
+			if (pokemon.activeTurns) {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				this.boost({s: -1});
+			}
+		},
+		name: "Invader",
+		rating: 4,
+		num: 1004,
+	},
 };

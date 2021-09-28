@@ -20164,4 +20164,271 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		contestType: "Cool",
 	},
+	implosion: {
+		num: 153,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Implosion",
+		shortDesc: "Hits adjacent Pokemon. The user faints.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
+	terraforming: {
+		num: 1015,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Terraforming",
+		shortDesc: "Fails if there is no weather active. Ends the weather.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit() {
+			if (this.field.isWeather('')) return false;
+		},
+		onHit() {
+			this.field.clearWeather();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+	vacuum: {
+		num: 1016,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Vacuum",
+		shortDesc: "For 5 turns, the vacuum of space powers Ghost and Flying moves.",
+		pp: 5,
+		priority: 1,
+		flags: {},
+		weather: 'vacuum',
+		onTry(pokemon, target) {
+			if (pokemon.activeMoveActions > 1) {
+				this.add('-fail', pokemon);
+				this.attrLastMove('[still]');
+				this.hint("Vacuum only works on your first turn out.");
+				return null;
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ghost",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+	},
+	/*cyberbuster: {
+		num: 1017,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Cyber Buster",
+		shortDesc: "In Vacuum, doubles stat boosts.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (['vacuum'].includes(pokemon.effectiveWeather())) {
+				onHit(target, source) {
+					let i: BoostName;
+					for (i in source.boosts) {
+						source.boosts[i] = 2 * source.boosts[i];
+					}
+					this.add('-copyboost', source, target, '[from] move: Cyber Buster');
+				},
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	wormhole: {
+		num: 1018,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Worm Hole",
+		shortDesc: "In Vacuum, doubles stat boosts.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (['vacuum'].includes(pokemon.effectiveWeather())) {
+				onHit(target, source) {
+					let i: BoostName;
+					for (i in source.boosts) {
+						source.boosts[i] = 2 * source.boosts[i];
+					}
+					this.add('-copyboost', source, target, '[from] move: Worm Hole');
+				},
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	quickstep: {
+		num: 1019,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Quickstep",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	heatstomp: {
+		num: 1020,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Heat Stomp",
+		shortDesc: "If a foe is switching out, hits it and burns incoming Pokemon.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('pursuit', pokemon);
+				const data = side.getSideConditionData('pursuit');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('pursuit');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Pursuit');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('pursuit', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	cocoonfeeding: {
+		num: 262,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Cocoon Feeding",
+		shortDesc: "User faints. Incoming Pokemon gains +1 Def and +1 SpDef.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		boosts: {
+			def: 1,
+			spd: 1,
+		},
+		selfdestruct: "ifHit",
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Tough",
+	},
+	changingtides: {
+		num: 18,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Changing Tides",
+		pp: 20,
+		priority: -6,
+		flags: {reflectable: 1, mirror: 1, authentic: 1, mystery: 1},
+		selfSwitch: true,
+		forceSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
+	enroot: {
+		num: 525,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Enroot",
+		pp: 10,
+		priority: -6,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		drain: [1, 2],
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	slipstream: {
+		num: 332,
+		accuracy: true,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (target.beingCalledBack) {
+				this.debug('Slipstream damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Slipstream",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},*/
+	
 };
