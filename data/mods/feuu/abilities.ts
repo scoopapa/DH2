@@ -2833,5 +2833,203 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Anatidaephobia",
 		shortDesc: "This Pokemon's Normal and Fighting-type moves can hit Ghost-types and inflict the target with the Perish Song effect.",
 	},	
+	permafrost: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Permafrost neutralize');
+				return this.chainModify(0.75);
+				target.heal(target.baseMaxhp / 16);
+				this.add('-heal', target, target.getHealth, '[from] ability: Permafrost');
+			}
+		},
+		name: "Permafrost",
+		shortDesc: "(Bugged) When hit by a super effective move, that move deals 3/4 damage and this Pokemon gets healed by 1/16 of its max HP.",
+	},	
+	grassystream: {
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			if (this.field.isWeather('sandstorm')) return this.chainModify(1.5);
+		},
+		name: "Grassy Stream",
+		shortDesc: "Sets Grassy Terrain upon switch-in. 1.5x Def under Sandstorm.",
+	},	
+/*
+	electrolytes: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon, length) {
+			if (pokemon.status) {
+				this.debug('electrolytes');
+				this.add('-activate', pokemon, 'ability: Electrolytes');
+				pokemon.cureStatus();
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = pokemon.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, pokemon);
+			}
+		},
+		name: "Electrolytes",
+		shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+	},	
+*/
+	electrolytes: {
+		onSetStatus(status, target, source, effect) { 
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+			}
+			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
+				this.boost({[statName]: 1}, this.effectData.source);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status) {
+				this.debug('electrolytes');
+				this.add('-activate', pokemon, 'ability: Electrolytes');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Electrolytes",
+		shortDesc: "(Bugged) When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+	},	
+	workability: {
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Workability boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Workability boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Workability",
+		shortDesc: "This Pokemon's STAB boost is 2x instead of 1.5x. Steel-type moves are considered STAB for this Pokemon",
+	},	
+	deusexmachina: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishirupti' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishirupti') {
+					pokemon.formeChange('Wishirupti-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiruptischool') {
+					pokemon.formeChange('Wishirupti');
+					pokemon.setBoost({atk: 6});
+					this.add('-setboost', pokemon, 'atk', 12, '[from] ability: Deus Ex Machina');
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishirupti' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishirupti') {
+					pokemon.formeChange('Wishirupti-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiruptischool') {
+					pokemon.formeChange('Wishirupti');
+					pokemon.setBoost({atk: 6});
+					this.add('-setboost', pokemon, 'atk', 12, '[from] ability: Deus Ex Machina');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Deus Ex Machina",
+		shortDesc: "Schooling effects. When this Pokemon enters Solo form, it gains +12 Attack.",
+	},
+	neutralizinggas: {
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (source.species.baseSpecies !== 'Weezlord-Galar') return;
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		onEnd(source) {
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If your tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source) {
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+		},
+		name: "Neutralizing Gas",
+		shortDesc: "While this Pokemon is active, Abilities have no effect. Weezlord: +1 to highest stat upon KO",
+		rating: 5,
+		num: 256,
+	},
+	undercut: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			this.chainModify(0.75);
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.875);
+			}
+		},
+		name: "Undercut",
+		shortDesc: "All this Pokemon's moves have x0.75 base power. From there, this Pokemon's moves of 60 power or less have 1.875x power.",
+	},	
 };
  

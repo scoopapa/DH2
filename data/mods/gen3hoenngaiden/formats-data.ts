@@ -2025,4 +2025,74 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "LC",
 	},
+	impidimp: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	sandile: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	wimpod: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	skrelp: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	krokorok: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	morgrem: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	grimmsnarl: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	golisopod: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	dragalge: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	krookodile: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	pincurchin: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	regidrago: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	stunfisk: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	stunfiskgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };
