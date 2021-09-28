@@ -1553,6 +1553,21 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (speciesTable[template.name]) {
+					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom formes). ", "You have more than one " + template.baseSpecies + "."];
+				}
+				speciesTable[template.name] = true;
+				let tiers = [ 'CSM', 'CS1', 'CS2' ];
+				if ( !tiers.includes( template.tier )) {
+					return [set.name + ' is not useable in Clean Slate: Tier Shift.'];
+				}
+			}
+		},
 		onModifySpecies(species, target, source, effect) {
 			let stats = this.unownStats[ species.id ];
 			if (stats) {
@@ -1578,6 +1593,11 @@ export const Formats: FormatList = [
 			}
 			return pokemon;
 		}
+		onChangeSet(set) {
+			if (set.species === 'Snorlax-Gmax') {
+				set.species = 'Snorlax';
+			}
+		},
 	},
 	{
 		name: "[Gen 8] Crossover Chaos v2 + Expanded Ubers",
