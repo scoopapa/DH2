@@ -569,6 +569,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				   factor = 0.5
 				}
 			return !!source.heal(this.modify(source.maxhp, factor));
+			this.add('-heal', source, source.getHealth, '[from] move: Sinter Storm');
 		},
 		target: "normal",
 		type: "Ice",
@@ -758,6 +759,193 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Muddy Water", target);
 		},
+	},
+	buildupstrike: {
+		num: -1043,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Hits with Sand Tomb on the following turn.",
+		name: "Build-Up Strike",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 2,
+				move: 'sandtomb',
+				source: source,
+				moveData: {
+					id: 'sandtomb',
+					name: "Sand Tomb",
+					accuracy: 85,
+					basePower: 35,
+					category: "Physical",
+					priority: 0,
+					flags: {},
+					volatileStatus: 'partiallytrapped',
+					secondary: null,
+					type: "Ground",
+				},
+			});
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Tomb", target);
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	curse: { // edited so that it doesn't say the user of Haunting Dance cut its own HP
+		inherit: true,
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'hauntingdance') {
+					this.add('-message', `${pokemon.name} was cursed!`);
+					this.add('-start', pokemon, 'Curse', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				}
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+	},
+	hauntingdance: {
+		num: -1045,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "User's HP 3/4 or more: Spite effect; 1/4 or less: Curse effect.",
+		name: "Haunting Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Never-Ending Nightmare", target);
+		},
+		onModifyMove(move, source, target) {
+			move.secondaries = [];
+			if (source.hp * 4 <= source.maxhp) {
+				move.secondaries.push({
+					chance: 100,
+					volatileStatus: 'curse',
+				});
+			} else if (source.hp * 4 >= source.maxhp * 3) {
+				move.secondaries.push({
+					chance: 100,
+					onHit(target) {
+						if (!target.hp) return;
+						const move = target.lastMove;
+						if (!move || move.isZ || move.isMax) return;
+
+						const ppDeducted = target.deductPP(move.id, 4);
+						if (!ppDeducted) return;
+
+						this.add('-message', `${move.name} lost 4 of its PP!`);
+					},
+				});
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
+	gravitation: {
+		num: -1046,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		shortDesc: "Intensifies gravity after use.",
+		name: "Gravitation",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Gravitas", target);
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+    contrariety: {
+        num: -1050,
+        accuracy: true,
+        basePower: 0,
+        category: "Status",
+        name: "Contrariety",
+        pp: 15,
+        priority: 0,
+		onHitField() {
+            let success = false;
+            for (const pokemon of this.getAllActive()) {
+                if (pokemon.ability === 'truant' || pokemon.ability === 'contrary' || pokemon.getAbility().isPermanent) continue;
+                const oldAbility = pokemon.setAbility('contrary');
+                if (oldAbility) this.add('-ability', pokemon, 'Contrary', '[from] move: Contrary');
+                success = true;
+            }
+            return success;
+        },
+        secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Torment", target, source);
+		},
+        target: "all",
+        type: "Dark",
+        zMove: {boost: {def: 1}},
+    },
+	poisondrain: {
+		num: -1048,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "Restores HP by 50% of damage dealt. 1.5x power on poisoned targets.",
+		name: "Poison Drain",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1},
+		drain: [1, 2],
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				return this.chainModify(1.5);
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Fang", target);
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	happyfail: {
+		num: -1044,
+		accuracy: 85,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Restores the user's HP by 1/16 if it misses.",
+		name: "Happy Fail",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Twinkle Tackle", target);
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
 	},
 	draconiccrash: {
 		num: -1037,
