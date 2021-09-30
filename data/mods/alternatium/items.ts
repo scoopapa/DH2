@@ -342,6 +342,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				source.addVolatile('gem');
 			}
 		},
+		itemUser: ["Giratina"],
 		shortDesc: "If this Pokemon is Giratina, its first successful Ghost or Dragon move will have 1.5x power. Single-use.",
 		num: 112,
 		gen: 4,
@@ -455,7 +456,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu"],
+		itemUser: ["Pikachu", "Pikachu-Idol", "Pikachu-Libre", "Pikachu-Partner", "Pikachu-Belle"],
 		num: 236,
 		gen: 2,
 	},
@@ -776,6 +777,8 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		itemUser: ["Rotom"],
+		shortDesc: "If Rotom, its Defense and Sp. Def are 1.5x.",
 		num: 538,
 		gen: 5,
 	},

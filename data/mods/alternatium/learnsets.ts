@@ -6398,6 +6398,16 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	wormadamsandy: {
 		learnset: {
+			firstimpression: ["8L1"],
+			taunt: ["8L1"],
+			stoneedge: ["8L1"],
+			rockslide: ["8L1"],
+			highhorsepower: ["8L1"],
+			drillrun: ["8L1"],
+			shoreup: ["8L1"],
+			stickyweb: ["8L1"],
+			uturn: ["8L1"],
+			craftyshield: ["8L1"],
 			allyswitch: ["7T"],
 			attract: ["7M", "7L41", "6M", "6L41", "5M", "5L41", "4M", "4L41"],
 			bugbite: ["7T", "7L1", "6T", "6L15", "5T", "5L15", "4T", "4L15"],
