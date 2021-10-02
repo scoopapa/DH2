@@ -817,7 +817,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
-					this.add('-immune', target, '[from] ability: Wonder Seal');
+					this.add('-immune', target, '[from] ability: Wonder Seal', '[of] ' + pokemon);
 				}
 				return null;
 			}
