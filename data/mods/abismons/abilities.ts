@@ -2987,20 +2987,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: 44,
 	},
-	phoenixflame: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			for (const ally of pokemon.side.pokemon) {
-				if (pokemon.hp) {
-					ally.heal(ally.baseMaxhp / 20);
-				}
-			}
-		},
-		name: "Phoenix Flame",
-		rating: 5,
-		num: 449,	
-	},
 	rattled: {
 		onDamagingHit(damage, target, source, move) {
 			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
@@ -4568,8 +4554,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	arcana: {
 		shortDesc: "Sets Wonder Room indefinitely until replaced by another room, or if Wonder Room is activated again.",
 		onStart(source) {
-			this.useMove("Arcana Room", source);
-		},
+			this.field.addPseudoWeather('Arcana Room');
+		},	
 		name: "Arcana",	
 	},	
 	deepfreeze: {
@@ -4629,62 +4615,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1000,
 		shortdesc: "Restores 1/4th of damage dealt.",
 		desc: "Restores 1/4th of the users HP after dealing damage.",
-	},	
-	distresschain: {
-		shortdesc: "The target is laced with a sequence of volatiles depending on which they are effected by.",
-		onSourceHit(target, source, move) {
-			if (move.category !== 'Status' && (move.type === 'Psychic' || move.type === 'Ghost')) {
-				if (!target.volatiles['torment'] && !target.volatiles['curse']) {
-					target.addVolatile('torment');
-				} 
-				else if (target.volatiles['torment'] && !target.volatiles['encore']) {
-					target.addVolatile('curse');
-				} 
-				else if (target.volatiles['curse'] && !target.volatiles['torment']) {
-					target.addVolatile('encore');
-				}
-			}	
-		},		
-		name: "Distress Chain",
-		rating: 3,
 		num: 6669,
-	},
-	dreadnought: {
-		onTryHit(target, source, move) {
-			if (move.type === 'Fire' && this.field.isWeather('sunnyday')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Water' && this.field.isWeather('raindance')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Ice' && this.field.isWeather('hail')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Rock' && this.field.isWeather('sandstorm')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-		},
-		name: "Dreadnought",
-		rating: 5,
-		num: 7000,
-		desc: "This pokemon is immune to the type of the corresponding weather.",
-		shortdesc: "Immune to same type as the active Weather.",
-	},
-	afterimage: {
-		onStart(source) {
-			this.useMove("Substitute", source);
-		},
-		name: "Afterimage",
-		rating: 4.5,
-		num: 7001,
 	},	
 	lambentlight: {
 		onStart(source) {
@@ -4694,33 +4625,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 7001,
 	},
-	serpentine: {
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (target !== source && move.category !== 'Status'  && move.type === 'Dragon') {
-				this.useMove("Teleport", source);
-			}
-		},
-		name: "Serpentine",
-		rating: 5,
-		num: 1449,	
-		shortdesc: "b",
-		desc: "b",
-	},	
-	lifejolt: {
-		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.category !== 'Status'&& target.status) {
-				this.heal(pokemon.lastDamage / 2, pokemon);
-				target.cureStatus();
-			}
-		},
-		name: "Life Jolt",
-		rating: 4,
-		num: 1000,
-		shortdesc: "q",
-		desc: "q",
-	},	
 	omnivoice: {
 		shortDesc: "The user",
 		onStart(pokemon) {
@@ -4733,7 +4637,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Omnivoice",	
 		rating: 3,
 		num: -5000,
-	},		
+	},	
+	siphon: {
+		onSourceHit(target, source, move) {
+			if (defender.volatiles['partiallytrapped']) {
+				this.add('-start', target, 'move: Leech Seed');
+			}
+		},	
+		name: "Siphon",
+		rating: 0,
+		num: 7002,
+	},	
 	// CAP
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
