@@ -6616,7 +6616,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",	
 	},	
 	taaban: {
-		tier: "ABYSMAL1"
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},	
 };
