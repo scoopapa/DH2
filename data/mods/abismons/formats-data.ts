@@ -6471,10 +6471,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
-	turbann: {
-		tier: "ABYSMAL1",
-		doublesTier: "DOU",
-	},
 	raitora: {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",
@@ -6618,5 +6614,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	emboarmega: {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",	
+	},	
+	taaban: {
+		tier: "ABYSMAL1"
+		doublesTier: "DOU",
 	},	
 };

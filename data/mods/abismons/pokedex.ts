@@ -17290,6 +17290,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	taaban: {
 		num: 1255,
+		inheritMoves: ['Shellder'],
 		name: "Tabaan",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 30, atk: 85, def: 150, spa: 45, spd: 150, spe: 20},
