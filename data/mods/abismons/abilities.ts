@@ -4640,8 +4640,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},	
 	siphon: {
 		onSourceHit(target, source, move) {
-			if (defender.volatiles['partiallytrapped']) {
-				this.add('-start', target, 'move: Leech Seed');
+			if (target.volatiles['partiallytrapped']) {
+				target.addVolatile('leechseed');
 			}
 		},	
 		name: "Siphon",
