@@ -4639,11 +4639,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -5000,
 	},	
 	siphon: {
-		onSourceHit(target, source, move) {
-			if (target.volatiles['partiallytrapped']) {
-				target.addVolatile('leechseed');
+		onResidual(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.volatiles['partiallytrapped'] || target.volatiles['trapped']) {
+					const damage = this.damage(target.baseMaxhp / 8, target, pokemon);
+					if (damage) {
+						this.heal(damage, pokemon, target);
+					}
+				}
 			}
-		},	
+		},
 		name: "Siphon",
 		rating: 0,
 		num: 7002,
