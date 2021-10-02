@@ -6,6 +6,5 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		};
 		newMoves("exploud", ["overdrive", "partingshot", "sparklingaria", "bugbuzz", "knockoff", "flashcannon", "eeriespell", "clangingscales", "grasswhistle"]);
-		newMoves("taaban", ["jawlock", "crunch", "bite", "assurance", "gigadrain", "absorb", "megadrain", "noretreat"]);
 	},	
 };
