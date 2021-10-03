@@ -4654,6 +4654,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 7002,
 	},	
+	twitchsubs: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
+			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 1000;
+				move.multihitType = 'twitchsubs';
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'twitchsubs' && move.hit > 1) return this.chainModify(0.001);
+		},
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'twitchsubs' && move.id === 'secretpower' && move.hit < 1000) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Twitch Subs",
+		rating: 4.5,
+		num: 184,
+	},
 	// CAP
 	mountaineer: {
 		onDamage(damage, target, source, effect) {

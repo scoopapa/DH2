@@ -1225,7 +1225,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Diglett",
 		types: ["Ground"],
 		baseStats: {hp: 10, atk: 55, def: 25, spa: 35, spd: 45, spe: 95},
-		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Sand Force"},
+		abilities: {0: "Sand Veil", 1: "Twitch Subs", H: "Sand Force"},
 		heightm: 0.2,
 		weightkg: 0.8,
 		color: "Brown",
