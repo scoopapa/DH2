@@ -860,33 +860,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
-	jynxmega: {
-		
-	},	
-	*/
+	jynx: {
+		randomBattleMoves: ["icebeam", "psychic", "bodypress", "barrier", "nastyplot", "lovelykiss", "substitute", "psyshock"],
+		randomDoubleBattleMoves: ["icebeam", "psychic", "focusblast", "protect", "lovelykiss", "psyshock", "nastyplot"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	electivire: {
 		randomBattleMoves: ["wildcharge", "crosschop", "icepunch", "flamethrower", "earthquake", "voltswitch"],
 		randomDoubleBattleMoves: ["wildcharge", "crosschop", "icepunch", "flamethrower", "stompingtantrum", "protect", "followme"],
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*
 	electiviremega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["wildcharge", "drainpunch", "flamethrower", "earthquake", "voltswitch"],
+		randomDoubleBattleMoves: ["wildcharge", "crosschop", "icepunch", "flamethrower", "stompingtantrum", "protect", "followme"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	magmortar: {
 		randomBattleMoves: ["fireblast", "focusblast", "hiddenpowergrass", "thunderbolt", "earthquake", "substitute"],
 		randomDoubleBattleMoves: ["fireblast", "taunt", "hiddenpowergrass", "thunderbolt", "heatwave", "willowisp", "protect", "followme"],
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	/*
 	magmortarmega: {
-		
-	},	
-	*/
+		randomBattleMoves: ["fireblast", "focusblast", "thunderbolt", "recover", "scald", "substitute"],
+		randomDoubleBattleMoves: ["fireblast", "taunt", "hiddenpowergrass", "thunderbolt", "heatwave", "willowisp", "protect", "followme"],
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	pinsir: {
 		randomBattleMoves: ["earthquake", "xscissor", "closecombat", "stoneedge", "stealthrock", "knockoff"],
 		randomDoubleBattleMoves: ["protect", "feint", "xscissor", "closecombat", "rockslide", "knockoff"],
