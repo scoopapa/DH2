@@ -38,16 +38,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -690,			
 	},
-	hoopite: {
-		name: "Hoopite",
-		megaStone: "Hoopa-Mega", "Hoopa-Unbound-Mega",
-		megaEvolves: "Hoopa", "Hoopa-Unbound",
-		itemUser: ["Hoopa", "Hoopa-Unbound"],
+	hoopanite: {
+		name: "Hoopanite",
+		megaStone: "Hoopa-Mega",
+		megaEvolves: "Hoopa",
+		itemUser: ["Hoopa"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -690,			
+		num: -697,			
 	},
 	lurantisite: {
 		name: "Lurantisite",

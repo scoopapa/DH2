@@ -12587,6 +12587,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 24,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		requiredItem: "Hoopanite",
 	},
 	hoopaunbound: {
 		num: 720,
@@ -12616,6 +12617,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 490,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		requiredItem: "Hoopanite",
 	},
 	volcanion: {
 		num: 721,
