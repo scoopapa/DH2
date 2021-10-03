@@ -6619,4 +6619,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},	
+	dugcillion: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	animon: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	hoopamega: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	hoopaunboundmega: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},	
 };

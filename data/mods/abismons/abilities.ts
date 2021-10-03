@@ -4654,28 +4654,48 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 7002,
 	},	
-	twitchsubs: {
+	unseenfists: {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
 			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
-				move.multihit = 1000;
-				move.multihitType = 'twitchsubs';
+				move.multihit = 10;
+				move.multihitType = 'unseenfists';
 			}
 		},
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'twitchsubs' && move.hit > 1) return this.chainModify(0.001);
+			if (move.multihitType === 'unseenfists' && move.hit > 1) return this.chainModify(0.10);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
-			if (move.multihitType === 'twitchsubs' && move.id === 'secretpower' && move.hit < 1000) {
+			if (move.multihitType === 'unseenfists' && move.id === 'secretpower' && move.hit < 1000) {
 				// hack to prevent accidentally suppressing King's Rock/Razor Fang
 				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 			}
 		},
-		name: "Twitch Subs",
+		name: "Unseen Fists",
 		rating: 4.5,
 		num: 184,
+	},
+	wonderseal: {
+		onAnyTryHit(target, source, move) {
+			const pokemon = this.effectData.target;
+			if (source !== pokemon && target !== pokemon) return;
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Seal immunity: ' + move.id);
+			if (target.runEffectiveness(move) !== 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Seal', '[of] ' + pokemon);
+				}
+				return null;
+			}
+		},
+		name: "Wonder Seal",
+		rating: 4,
+		num: -6038,
 	},
 	// CAP
 	mountaineer: {

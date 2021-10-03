@@ -38,6 +38,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -690,			
 	},
+	hoopite: {
+		name: "Hoopite",
+		megaStone: "Hoopa-Mega", "Hoopa-Unbound-Mega",
+		megaEvolves: "Hoopa", "Hoopa-Unbound",
+		itemUser: ["Hoopa", "Hoopa-Unbound"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -690,			
+	},
 	lurantisite: {
 		name: "Lurantisite",
 		megaStone: "Lurantis-Mega",
@@ -3509,11 +3520,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 287,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Ditto' || 'Animon' && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Ditto"],
+		itemUser: ["Ditto", 'Animon'],
 		num: 257,
 		gen: 2,
 	},
@@ -4481,11 +4492,11 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 10,
 		},
 		onModifySpe(spe, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Ditto' || 'Animon' && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Ditto"],
+		itemUser: ["Ditto", 'Animon'],
 		num: 274,
 		gen: 4,
 	},
