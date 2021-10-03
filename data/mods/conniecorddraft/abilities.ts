@@ -574,7 +574,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	pounce: {
 		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it lowers the Defense of adjacent opponents.",
 		shortDesc: "Hazard immunity. Lowers adjacent opponents' Defense by 1 stage if switched in on them.",
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
