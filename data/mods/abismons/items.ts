@@ -44,7 +44,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaEvolves: "Hoopa",
 		itemUser: ["Hoopa"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === 'Hoopa') return false;
+			if (source.baseSpecies.baseSpecies === 'Hoopa-Unbound') return false;
 			return true;
 		},
 		num: -697,			

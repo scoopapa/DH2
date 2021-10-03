@@ -12607,7 +12607,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	hoopaunboundmega: {
 		num: 720,
 		name: "Hoopa-Unbound-Mega",
-		baseSpecies: "Hoopa",
+		baseSpecies: "Hoopa-Unbound",
 		forme: "Mega",
 		types: ["Psychic", "Dark"],
 		gender: "N",
