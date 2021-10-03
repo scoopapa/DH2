@@ -39,6 +39,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.clearVolatile(false);
 				if (!pokemon.headless) {
 					pokemon.fainted = true;
+				} else {
+					pokemon.status = '';
 				}
 				pokemon.illusion = null;
 				pokemon.isActive = false;
