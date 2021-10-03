@@ -6620,8 +6620,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},	
 	dugcillion: {
-		tier: "ABYSMAL1",
-		doublesTier: "DOU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	animon: {
 		tier: "ABYSMAL1",

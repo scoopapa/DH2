@@ -4665,7 +4665,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'unseenfists' && move.hit > 1) return this.chainModify(0.10);
+			if (move.multihitType === 'unseenfists' && move.hit > 1) return this.chainModify(1);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'unseenfists' && move.id === 'secretpower' && move.hit < 1000) {
