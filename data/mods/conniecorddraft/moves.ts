@@ -751,6 +751,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSwitchOut(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasAbility('pounce')) { // coded here because Jagged Root behaves unlike other hazards
+					let activated = false;
 					for (const target of pokemon.side.foe.active) {
 						if (!target || !this.isAdjacent(target, pokemon)) continue;
 						if (!activated) {
