@@ -4,6 +4,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'vaporeon').learnset.dragontail = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.outrage = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.twister = ['8M'];
+		this.modData('Learnsets', 'incineroar').learnset.courtchange = ['8M'];
+		this.modData('Learnsets', 'incineroar').learnset.rapidspin = ['8M'];
 	},
 	
 	teambuilderConfig: {
