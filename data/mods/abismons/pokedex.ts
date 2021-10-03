@@ -12607,7 +12607,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	hoopaunboundmega: {
 		num: 720,
 		name: "Hoopa-Unbound-Mega",
-		baseSpecies: "Hoopa-Unbound",
+		baseSpecies: "Hoopa",
 		forme: "Mega",
 		types: ["Psychic", "Dark"],
 		gender: "N",
@@ -17579,12 +17579,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 100, atk: 1, def: 45, spa: 1, spd: 45, spe: 95},
 		abilities: {0: "Unseen Fists"},
+		weight: 8
 	},
 	animon: {
 		num: 1286,
 		name: "Animon",
 		types: ["Normal", "Steel"],
-		baseStats: {hp: 108, atk: 48, def: 78, spa: 48, spd: 108},
+		baseStats: {hp: 108, atk: 48, def: 78, spa: 48, spd: 78, spe: 108},
 		abilities: {0: "Illusion"},
 		heightm: 0.5,
 		weightkg: 12,

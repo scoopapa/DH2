@@ -20,5 +20,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Hoopanite" && pokemon.baseSpecies.name === "Hoopa-Unbound") {
 			return "Hoopa-Unbound-Mega";
 		}
+		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+			return null;
+		}
+		return item.megaStone;
 	},	
 };
