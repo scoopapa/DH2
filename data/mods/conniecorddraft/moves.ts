@@ -750,6 +750,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchOut(pokemon) {
 				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasAbility('pounce')) { // coded here because Jagged Root behaves unlike other hazards
+					for (const target of pokemon.side.foe.active) {
+						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pounce', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({def: -1}, target, pokemon, null, true);
+						}
+					}
+				}
 				if (
 					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
