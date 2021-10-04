@@ -330,6 +330,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
+		shortDesc: "User switches out after damaging the target. If used by Sandaconda, it transforms into Sandaconda-Uncoiled for the rest of the match.",
 		name: "Slither Strike",
 		pp: 20,
 		priority: 0,
