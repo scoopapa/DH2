@@ -335,9 +335,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
-				const sandacondaForme = pokemon.species.id === 'sandacondauncoiled' ? '' : '-Uncoiled';
-				pokemon.formeChange('Sandaconda' + sandacondaForme, this.effect, false, '[msg]');
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Sandaconda') {
+				pokemon.formeChange('Sandaconda-Uncoiled');
 			}
 		},
 		selfSwitch: true,
