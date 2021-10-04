@@ -4914,6 +4914,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	linoonepunk: {
 		learnset: {
+			partingshot: ["8L1"],
 			assurance: ["8M"],
 			attract: ["8M"],
 			babydolleyes: ["8L1"],
