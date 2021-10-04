@@ -338,6 +338,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Sandaconda') {
 				pokemon.formeChange('Sandaconda-Uncoiled');
 			}
+			isPermanent: true,
 		},
 		selfSwitch: true,
 		secondary: null,
