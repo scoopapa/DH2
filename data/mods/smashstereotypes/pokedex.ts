@@ -134,7 +134,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Sandaconda",
 		forme: "Uncoiled",
 		types: ["Ground"],
-		baseStats: {hp: 92, atk: 125, def: 71, spa: 65, spd: 70, spe: 125},
+		baseStats: {hp: 92, atk: 127, def: 71, spa: 65, spd: 70, spe: 125},
 		abilities: {0: "Sand Spit", 1: "Shed Skin", H: "Natural Cure"},
 		heightm: 22,
 		weightkg: 0,
