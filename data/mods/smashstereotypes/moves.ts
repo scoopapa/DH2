@@ -306,4 +306,44 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	multiattack: {
+		num: 718,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Multi-Attack",
+		shortDesc: "Type varies based on the user's type.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	slitherstrike: {
+		num: -1,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Slither Strike",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				const sandacondaForme = pokemon.species.id === 'sandacondauncoiled' ? '' : '-Uncoiled';
+				pokemon.formeChange('Sandaconda' + sandacondaForme, this.effect, false, '[msg]');
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
+	},
 };

@@ -35,4 +35,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	machampindia: {
 		tier: "SSS",
 	},
+	sandaconda: {
+		tier: "SSS",
+	},
+	sandacondauncoiled: {
+	},
+	cummulus: {
+		tier: "SSS",
+	},
+	silvallyrock: {
+		tier: "SSS",
+	},
 };

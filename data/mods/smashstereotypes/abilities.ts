@@ -59,4 +59,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "E-Copy",
 		shortDesc: "Sets Electric Terrain, and then copies the foe's Ability.",
 	},
+	rkssystem: {
+		onStart(pokemon) {
+			if (pokemon.species.id === 'silvallyrock') {
+				this.add('-ability', pokemon, 'Sand Stream', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('sandstream');
+				pokemon.baseAbility = 'sandstream';
+			}
+		},
+		isPermanent: null,
+		name: "RKS System",
+		shortDesc: "If Silvally-Rock, changes to Sand Stream.",
+		rating: 4,
+		num: 225,
+	},
 };
