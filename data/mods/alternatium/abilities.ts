@@ -483,7 +483,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Liquid Scales",
 		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		onResidual(target, source) {
-			if (target === source) return;
+			if (target !== source) return;
 			this.heal(target.baseMaxhp / 10);
 		},
 		rating: 3,
