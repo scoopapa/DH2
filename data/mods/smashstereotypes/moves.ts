@@ -343,7 +343,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Bug",
+		type: "Ground",
 		contestType: "Cute",
 	},
 };

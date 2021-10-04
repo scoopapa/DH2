@@ -125,8 +125,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Silicobra",
 		evoLevel: 36,
 		eggGroups: ["Field", "Dragon"],
-		otherFormes: ["Sandaconda-Unbound"],
-		formeOrder: ["Sandaconda", "Sandaconda-Unbound"],
+		otherFormes: ["Sandaconda-Uncoiled"],
+		formeOrder: ["Sandaconda", "Sandaconda-Uncoiled"],
 	},
 	sandacondauncoiled: {
 		num: 10,
