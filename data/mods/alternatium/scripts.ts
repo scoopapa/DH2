@@ -2,6 +2,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	//Included for Burn Heal:
 	//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
 	//So we have to bypass it manually here.
+	teambuilderConfig: {
+        // for micrometas to only show custom tiers
+        excludeStandardTiers: true,
+        // only to specify the order of custom tiers
+        customTiers: ['Alternatium', 'Uncoded'],
+	},
+	
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {

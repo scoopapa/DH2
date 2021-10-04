@@ -479,7 +479,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 59,
 	},
-	liquidscales: {
+	/*liquidscales: {
 		name: "Liquid Scales",
 		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		onResidual(target, source) {
@@ -488,5 +488,5 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		rating: 3,
 		num: 1013,
-	},
+	},*/
 };

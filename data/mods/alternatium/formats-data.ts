@@ -188,8 +188,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium",
 	},
 	corsoul: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
+		tier: "Uncoded",
+		doublesTier: "Uncoded",
 	},
 	linoone: {
 		tier: "Alternatium",
