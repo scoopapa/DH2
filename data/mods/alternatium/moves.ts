@@ -876,4 +876,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
+	coralcrash: {
+		num: 1006,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
+		name: "Coral Crash",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 4],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
 };

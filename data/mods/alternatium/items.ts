@@ -767,19 +767,40 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
 				return this.chainModify(1.5);
 			}
 		},
 		itemUser: ["Rotom"],
-		shortDesc: "If Rotom, its Defense and Sp. Def are 1.5x.",
+		shortDesc: "If Rotom or Farfetch\u2019d-Galar, its Defense and Sp. Def are 1.5x.",
 		num: 538,
 		gen: 5,
+	},
+	leek: {
+		name: "Leek",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Grass' && pokemon.species.id === 'farfetchd') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d"],
+		num: 259,
+		gen: 8,
 	},
 };
