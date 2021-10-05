@@ -335,9 +335,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Sandaconda' && !pokemon.transformed && pokemon.species.id !== 'sandacondauncoiled') {
+				move.willChangeForme = true;
+			}
+		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Sandaconda') {
-				pokemon.formeChange('Sandaconda-Uncoiled', this.effect, true);
+			if (move.willChangeForme) {
+				let forme = '';
+				if (pokemon.species.id === 'sandaconda') {
+					forme = '-Uncoiled';
+				}
+				pokemon.formeChange('Sandaconda' + forme, move, true, '[silent]');
+				this.add('-message', `${pokemon.name} uncoiled!`);
+				const species = this.dex.getSpecies(pokemon.species.name);
+				const abilities = species.abilities;
+				const baseStats = species.baseStats;
+				const type = species.types[0];
 			}
 		},
 		selfSwitch: true,
