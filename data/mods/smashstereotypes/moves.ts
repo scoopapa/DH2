@@ -340,7 +340,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.formeChange('Sandaconda-Uncoiled');
 			}
 		},
-		isPermanent: true;
+		isPermanent: true,
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
