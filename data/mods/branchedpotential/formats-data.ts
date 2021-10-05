@@ -235,6 +235,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	deserdra: {
+		randomBattleMoves: ["overheat", "weatherball", "flamethrower", "dracometeor", "stealthrock", "morningsun", "earthpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	calibosa: {
+		randomBattleMoves: ["gigadrain", "leechseed", "flamethrower", "scald", "leafstorm", "earthpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	escarghoul: {
+		randomBattleMoves: ["poltergeist", "spiritshackle", "firelash", "rockpolish", "destinybond", "stoneedge", "earthquake"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	gastronaut: {
+		randomBattleMoves: ["calmmind", "psychic", "wish", "scald", "hydropump", "earthquake", "icebeam", "recover", "cosmicpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	tsigastrox: {
+		randomBattleMoves: ["gunkshot", "liquidation", "flipturn", "recover", "stoneedge", "earthquake", "toxic"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
 	//
 	//
 	//
