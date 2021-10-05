@@ -336,10 +336,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
+			const species = this.setSpecies(sandacondauncoiled);
 			if (pokemon.species.id === 'sandaconda') {
 				this.add('-formechange', pokemon, 'Sandaconda-Uncoiled', '[msg]');
-				pokemon.setSpecies('sandacondauncoiled');
-				pokemon.baseSpecies = 'sandacondauncoiled';
+				pokemon.species;
 			}
 		},
 		selfSwitch: true,
