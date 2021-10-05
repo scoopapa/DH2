@@ -253,6 +253,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	gastrodon: {
+		randomBattleMoves: ["earthquake", "icebeam", "scald", "toxic", "recover", "clearsmog"],
+		tier: "NFE",
+	},
 	gastronaut: {
 		randomBattleMoves: ["calmmind", "psychic", "wish", "scald", "hydropump", "earthquake", "icebeam", "recover", "cosmicpower"],
       tier: "OU",
@@ -2016,12 +2020,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	cherrimsunshine: {
 		randomBattleMoves: ["sunnyday", "solarbeam", "gigadrain", "weatherball", "hiddenpowerice"],
 		randomDoubleBattleMoves: ["sunnyday", "solarbeam", "gigadrain", "weatherball", "helpinghand"],
-	},
-	gastrodon: {
-		randomBattleMoves: ["earthquake", "icebeam", "scald", "toxic", "recover", "clearsmog"],
-		randomDoubleBattleMoves: ["earthpower", "scald", "muddywater", "recover", "icywind", "protect"],
-		tier: "PU",
-		doublesTier: "DOU",
 	},
 	drifblim: {
 		randomBattleMoves: ["acrobatics", "willowisp", "substitute", "destinybond", "shadowball", "hex"],
