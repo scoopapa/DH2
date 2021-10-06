@@ -107,7 +107,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		desc: "Atk +2.",
+		desc: "This Pokemon's Attack is raised by 2 stages if it KOes another Pokemon within 5 turns.",
 		name: "Lethal Poison",
 		rating: 3,
 		num: 210,
