@@ -401,15 +401,37 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'deserdra').learnset.hail;
 		delete this.modData('Learnsets', 'deserdra').learnset.acidarmor;
 		
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
-		this.modData('Learnsets', 'calibosa').learnset.overheat = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.energyball = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.gigadrain = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.grassknot = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.leafstorm = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.leechseed = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.mysticalfire = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.scald = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.lifedew = ['8L1'];
+		
+		this.modData('Learnsets', 'escarghoul').learnset.poltergeist = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.spiritshackle = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.firelash = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.memento = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.destinybond = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.pursuit = ['8L1'];
+		
+		this.modData('Learnsets', 'gastronaut').learnset.psychic = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.cosmicpower = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.wish = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.meteorbeam = ['8L1'];
+		
+		this.modData('Learnsets', 'tsigastrox').learnset.poisonjab = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.toxicthread = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.liquidation = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.fellstinger = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.firstimpression = ['8L1'];
+
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...
