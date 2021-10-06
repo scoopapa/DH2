@@ -755,8 +755,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 	snarl: {
 		num: 555,
 		accuracy: 95,
-		basePower: 80,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Linoone-Punk') {
+				return move.basePower + 25;
+			}
+			return move.basePower;
+		},
 		category: "Special",
+		shortDesc: "Lowers the foe(s) Sp. Atk by 1. If Linoone-Punk: 80 BP.",
 		name: "Snarl",
 		pp: 15,
 		priority: 0,
@@ -776,6 +783,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
+		shortDesc: "If Catastroform, doubles in Power and changes typing when holding a Weather Rock.",
 		name: "Weather Ball",
 		pp: 10,
 		priority: 0,
