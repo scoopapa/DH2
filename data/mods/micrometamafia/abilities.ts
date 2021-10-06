@@ -22,3 +22,17 @@ Ratings and how they work:
 	  The sort of ability that defines metagames.
 	ex. Imposter, Shadow Tag
 */
+export const Abilities: {[abilityid: string]: AbilityData} = {
+	corrosiveaura: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		name: "Corrosive Aura",
+		rating: 3,
+		num: -1001,
+	},
+};
