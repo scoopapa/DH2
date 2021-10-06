@@ -1057,7 +1057,6 @@ export const Formats: FormatList = [
             'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'
 		],
 	},
-	*/
 	{
 	name: "[Gen 8] Micrometa Mafia",
 		desc: `<b>Micrometa Mafia</b>: A Micrometa based around adjusted Pokémon where randomly selected participants will attempt to have unhealthy additions to the meta added alongside normal submissions.`,
@@ -1072,6 +1071,7 @@ export const Formats: FormatList = [
 					'Gastrdon', 'Klefki', 'Regice-Saboteur', 'Skarmory', 'Latios-Saboteur', 'Honchkrow', 'Sableye', 'Pincurchin', 'Dedenne', 'Salazzle', 'Slowbro-Galar-Saboteur', 'Shiftry-Saboteur', 'Articuno-Saboteur', 'Sandslash-Alola-Saboteur',
 		],
 	},
+	*/
 	{
 		name: "[Gen 8] Missing Links",
 		desc: `<b>Missing Links</b>: A National Dex mod that adds evolutions, Mega Evolutions, stat changes, regional forms, and more to Pokemon who's counterparts have them but they don't.`,
