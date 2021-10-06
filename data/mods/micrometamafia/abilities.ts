@@ -32,6 +32,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Corrosive Aura",
+		shortDesc: "Poison moves hit Steel.",
 		rating: 3,
 		num: -1001,
 	},
