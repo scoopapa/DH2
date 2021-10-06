@@ -2838,12 +2838,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Permafrost neutralize');
 				return this.chainModify(0.75);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
 				target.heal(target.baseMaxhp / 16);
 				this.add('-heal', target, target.getHealth, '[from] ability: Permafrost');
 			}
 		},
 		name: "Permafrost",
-		shortDesc: "(Bugged) When hit by a super effective move, that move deals 3/4 damage and this Pokemon gets healed by 1/16 of its max HP.",
+		shortDesc: "When hit by a super effective move, that move deals 3/4 damage and this Pokemon gets healed by 1/16 of its max HP.",
 	},	
 	grassystream: {
 		onStart(source) {
