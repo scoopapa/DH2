@@ -800,6 +800,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d"],
+		shortDesc: "If Farfetch’d, its critical hit ratio is 2 and Grass move do 1.2x damage.",
 		num: 259,
 		gen: 8,
 	},
