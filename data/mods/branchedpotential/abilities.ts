@@ -99,4 +99,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 209,
 	},
+	lethalpoison: {
+		onSourceAfterFaint(length, target, source, effect) {
+		if (source.activeMoveActions < 6) {
+			if (effect && effect.effectType === 'Move') {
+			this.boost({atk: 2}, source);
+				}
+			}
+		},
+		desc: "Atk +2.",
+		name: "Lethal Poison",
+		rating: 3,
+		num: 210,
+	},
 };
