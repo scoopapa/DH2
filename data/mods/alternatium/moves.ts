@@ -906,7 +906,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		target: "normal",
-		type: "Rock",
+		type: "Fairy",
 		contestType: "Tough",
 	},
 };
