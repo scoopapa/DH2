@@ -193,6 +193,121 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'diglettalola').learnset.mudsling = ['7T'];
 		this.modData('Learnsets', 'geodude').learnset.mudsling = ['7T'];
 		this.modData('Learnsets', 'mudbray').learnset.mudsling = ['7T'];
+		
+		this.modData('Learnsets', 'pawniard').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'sandile').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'carvanha').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'larvitar').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'zorua').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'inkay').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'guzzlord').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'rowlet').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'tyrunt').learnset.contrariety = ['7T'];
+		this.modData('Learnsets', 'houndour').learnset.contrariety = ['7T'];
+		
+		this.modData('Learnsets', 'trapinch').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'tyrunt').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'roggenrola').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'geodude').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'trapinch').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'sandshrew').learnset.buildupstrike = ['7T'];
+		this.modData('Learnsets', 'archen').learnset.buildupstrike = ['7T'];
+		
+		this.modData('Learnsets', 'tapukoko').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'blacephalon').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'hawlucha').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'buneary').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'tapulele').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'tapubulu').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'tapufini').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'stufful').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'golett').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'mienfoo').learnset.happyfail = ['7T'];
+		this.modData('Learnsets', 'bounsweet').learnset.happyfail = ['7T'];
+
+		this.modData('Learnsets', 'golett').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'blacephalon').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'gastly').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'snorunt').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'cubonealola').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'oricorio').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'rowlet').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'jangmoo').learnset.hauntingdance = ['7T'];
+		this.modData('Learnsets', 'mimikyu').learnset.hauntingdance = ['7T'];
+		
+		this.modData('Learnsets', 'tapulele').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'abra').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'arceus').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'audino').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'baltoy').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'elgyem').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'happiny').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'roggenrola').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'bronzor').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'carbink').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'celesteela').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'chingling').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'cleffa').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'cresselia').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'deoxys').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'dialga').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'diancie').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'solosis').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'duskull').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'espurr').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'exeggcute').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'ferroseed').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'genesect').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'girafarig').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'giratina').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'golett').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'gothita').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'hoopa').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'igglybuff').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'jirachi').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'klink').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'landorus').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'lunatone').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'magnemite').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'meditite').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'meloetta').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'mew').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'mewtwo').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'minior').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'munna').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'necrozma').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'nosepass').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'oranguru').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'palkia').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'pineco').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'porygon').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'regice').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'regigigas').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'regirock').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'registeel').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'sableye').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'sandygast').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'sigilyph').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'solrock').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'stakataka').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'stantler').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'staryu').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'tapufini').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'togedemaru').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'xerneas').learnset.gravitation = ['7T'];
+		this.modData('Learnsets', 'xurkitree').learnset.gravitation = ['7T'];
+		
+		this.modData('Learnsets', 'foongus').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'weedle').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'dustox').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'gulpin').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'koffing').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'grimer').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'spinarak').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'nidoranm').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'nidoranf').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'venipede').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'bellsprout').learnset.poisondrain = ['7T'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -303,6 +418,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if (!move.ohko && move.id === 'misfire') {
 					pokemon.switchFlag = true;
+					this.attrLastMove('[still]');
+				}
+				if (!move.ohko && move.id === 'happyfail') {
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon, '[from] move: Happy Fail');
 					this.attrLastMove('[still]');
 				}
 				hitResults[i] = false;
