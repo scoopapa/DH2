@@ -282,7 +282,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Farfetch\u2019d-Galar",
 		types: ["Fighting"],
 		baseStats: {hp: 62, atk: 125, def: 115, spa: 58, spd: 72, spe: 85},
-		abilities: {0: "Steadfast", H: "Scrappy"},
+		abilities: {0: "Harvest", 1: "Scrappy", H: "Unburden"},
 		heightm: 0.8,
 		weightkg: 15,
 		evos: ["Sirfetch\u2019d"],
