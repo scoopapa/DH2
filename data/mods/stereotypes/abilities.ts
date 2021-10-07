@@ -38,10 +38,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'Jaegorm') {
-					pokemon.formeChange('Jaegorm-School');
+					pokemon.formeChange('Jaegorm-Collective');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
+				if (pokemon.species.id === 'jaegormcollective') {
 					pokemon.formeChange('Jaegorm');
 				}
 			}
@@ -49,22 +49,22 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidualOrder: 27,
 		onResidual(pokemon) {
 			if (
-				pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.level < 20 ||
+				pokemon.baseSpecies.baseSpecies !== 'Jaegorm' ||
 				pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'Jaegorm') {
-					pokemon.formeChange('Jaegorm-School');
+					pokemon.formeChange('Jaegorm-Collective');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
+				if (pokemon.species.id === 'jaegormcollective') {
 					pokemon.formeChange('Jaegorm');
 				}
 			}
 		},
 		isPermanent: true,
 		name: "Schooling",
-		shortDesc: "If user is Jaegorm, changes to School Form if it has > 1/4 max HP, else Solo Form.",
+		shortDesc: "If user is Jaegorm, changes to Collective Form if it has > 1/4 max HP, else Solo Form.",
 		rating: 3,
 		num: 208,
 	},
