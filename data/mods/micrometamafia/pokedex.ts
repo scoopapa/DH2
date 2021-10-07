@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	regicesaboteur: {
 		inheritMoves: ['Regice'],
-		num: -378,
+		num: 378,
 		name: "Regice-Saboteur",
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 100, atk: 50, def: 100, spa: 110, spd: 160, spe: 30},
@@ -34,7 +34,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	latiossaboteur: {
 		inheritMoves: ['Latios'],
-		num: -381,
+		num: 381,
 		name: "Latios-Saboteur",
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 85, atk: 100, def: 80, spa: 105, spd: 80, spe: 110},
@@ -83,7 +83,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	slowbrogalarsaboteur: {
 		inheritMoves: ['Slowbro-Galar'],
-		num: -80,
+		num: 80,
 		name: "Slowbro-Galar-Saboteur",
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 95, atk: 75, def: 110, spa: 100, spd: 80, spe: 30},
@@ -92,7 +92,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	shiftrysaboteur: {
 		inheritMoves: ['Shiftry'],
-		num: -275,
+		num: 275,
 		name: "Shiftry-Saboteur",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 90, spd: 70, spe: 100},
@@ -101,7 +101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	articunosaboteur: {
 		inheritMoves: ['Articuno'],
-		num: -144,
+		num: 144,
 		name: "Articuno-Saboteur",
 		types: ["Ice", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 85, spa: 110, spd: 85, spe: 125},
@@ -110,7 +110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sandslashalolasaboteur: {
 		inheritMoves: ['Sandslash-Alola'],
-		num: -28,
+		num: 28,
 		name: "Sandslash-Alola-Saboteur",
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 75, atk: 100, def: 125, spa: 25, spd: 65, spe: 65},
