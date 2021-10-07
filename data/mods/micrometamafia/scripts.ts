@@ -52,6 +52,44 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'skarmory').learnset.spikes;
 		delete this.modData('Learnsets', 'skarmory').learnset.ironhead;
 		
+		this.modData('Learnsets', 'latiossaboteur').learnset.brickbreak = ['8L1'];
+		this.modData('Learnsets', 'latiossaboteur').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'latiossaboteur').learnset.superpower = ['8L1'];
+		this.modData('Learnsets', 'latiossaboteur').learnset.seismictoss = ['8L1'];
+		this.modData('Learnsets', 'latiossaboteur').learnset.uturn = ['8L1'];
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.dracometeor;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.outrage;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.earthquake;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.lightscreen;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.reflect;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.magiccoat;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.mysticalfire;
+		delete this.modData('Learnsets', 'latiossaboteur').learnset.futuresight;
+		
+		this.modData('Learnsets', 'honchkrow').learnset.uturn = ['8L1'];
+		this.modData('Learnsets', 'honchkrow').learnset.darkestlariat = ['8L1'];
+		
+		this.modData('Learnsets', 'sableye').learnset.poltergeist = ['8L1'];
+		
+		this.modData('Learnsets', 'dedenne').learnset.moonblast = ['8L1'];
+		this.modData('Learnsets', 'dedenne').learnset.mysticalfire = ['8L1'];
+		
+		this.modData('Learnsets', 'salazzle').learnset.moonblast = ['8L1'];
+		this.modData('Learnsets', 'salazzle').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'salazzle').learnset.trick = ['8L1'];
+		
+		this.modData('Learnsets', 'slowbrogalarsaboteur').learnset.toxicspikes = ['8L1'];
+		
+		this.modData('Learnsets', 'shiftrysaboteur').learnset.fireblast = ['8L1'];
+		this.modData('Learnsets', 'shiftrysaboteur').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'shiftrysaboteur').learnset.flareblitz = ['8L1'];
+		this.modData('Learnsets', 'shiftrysaboteur').learnset.hex = ['8L1'];
+		
+		this.modData('Learnsets', 'articunosaboteur').learnset.powergem = ['8L1'];
+		this.modData('Learnsets', 'articunosaboteur').learnset.taunt = ['8L1'];
+		
+		this.modData('Learnsets', 'sandslashalolasaboteur').learnset.glaciallance = ['8L1'];
+		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...
 		//Construct Mega Evolution learnsets, for those horrible clowns that for SOME REASON select Megas in the teambuilder
