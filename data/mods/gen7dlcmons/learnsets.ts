@@ -362,7 +362,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			snore: ["7T"],
 			spark: ["7L1"],
 			spite: ["7T"],
-			hauntingdance: ["7T"]
+			hauntingdance: ["7T"],
 			substitute: ["7M"],
 			tackle: ["7L1"],
 			telekinesis: ["7T"],
