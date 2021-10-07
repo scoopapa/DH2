@@ -89,7 +89,6 @@ coupdegrass: {
         rating: 4, 
         num: -6004,
     },
-	```
 	ragemode: {
         onResidualOrder: 27,
         onResidual(pokemon) {
@@ -116,4 +115,3 @@ coupdegrass: {
         num: -6005,
 	}
 };
-```
