@@ -1075,6 +1075,18 @@ export const Formats: FormatList = [
 	},
 	*/
 	{
+	name: "[Gen 8] Micrometa Mafia",
+		desc: `<b>Micrometa Mafia</b>: A Clean Slate based Micrometa where randomly selected participants will attempt to have unhealthy additions to the meta added alongside normal submissions.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/micrometa-mafia-a-clean-slate-spinoff-slate-4-2-enablers-2-abusers.3690180/">Micrometa Mafia on Smogon Forums</a>`,
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IQUF4j3A_cxfIn-ICvedck0EZ28NAw2AoEC_UDus-yg/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'micrometamafia',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Gastrodon', 'Klefki', 'Regice-Saboteur', 'Skarmory', 'Latios-Saboteur', 'Honchkrow', 'Sableye', 'Pincurchin', 'Dedenne', 'Salazzle', 'Slowbro-Galar-Saboteur', 'Shiftry-Saboteur', 'Articuno-Saboteur', 'Sandslash-Alola-Saboteur'],
+	},
+	{
 		name: "[Gen 8] Missing Links",
 		desc: `<b>Missing Links</b>: A National Dex mod that adds evolutions, Mega Evolutions, stat changes, regional forms, and more to Pokemon who's counterparts have them but they don't.`,
 		threads: [

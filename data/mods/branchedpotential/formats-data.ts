@@ -235,6 +235,44 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	deserdra: {
+		randomBattleMoves: ["overheat", "weatherball", "flamethrower", "dracometeor", "stealthrock", "morningsun", "earthpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	magcargo: {
+		randomBattleMoves: ["recover", "lavaplume", "toxic", "hiddenpowergrass", "stealthrock", "fireblast", "earthpower", "shellsmash", "ancientpower"],
+		tier: "NFE",
+	},
+	calibosa: {
+		randomBattleMoves: ["gigadrain", "leechseed", "flamethrower", "scald", "leafstorm", "earthpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	escarghoul: {
+		randomBattleMoves: ["poltergeist", "spiritshackle", "firelash", "rockpolish", "destinybond", "stoneedge", "earthquake"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	gastrodon: {
+		randomBattleMoves: ["earthquake", "icebeam", "scald", "toxic", "recover", "clearsmog"],
+		tier: "NFE",
+	},
+	gastronaut: {
+		randomBattleMoves: ["calmmind", "psychic", "wish", "scald", "hydropump", "earthquake", "icebeam", "recover", "cosmicpower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	tsigastrox: {
+		randomBattleMoves: ["gunkshot", "liquidation", "flipturn", "recover", "stoneedge", "earthquake", "toxic"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
 	//
 	//
 	//
@@ -1137,12 +1175,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	magcargo: {
-		randomBattleMoves: ["recover", "lavaplume", "toxic", "hiddenpowergrass", "stealthrock", "fireblast", "earthpower", "shellsmash", "ancientpower"],
-		randomDoubleBattleMoves: ["protect", "heatwave", "willowisp", "stealthrock", "fireblast", "incinerate", "earthpower"],
-		tier: "(PU)",
-		doublesTier: "(DUU)",
-	},
 	mamoswine: {
 		randomBattleMoves: ["iceshard", "earthquake", "endeavor", "iciclecrash", "stealthrock", "superpower", "knockoff"],
 		randomDoubleBattleMoves: ["iceshard", "earthquake", "rockslide", "iciclecrash", "protect", "superpower", "knockoff"],
@@ -1987,12 +2019,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["sunnyday", "solarbeam", "gigadrain", "weatherball", "hiddenpowerice"],
 		randomDoubleBattleMoves: ["sunnyday", "solarbeam", "gigadrain", "weatherball", "helpinghand"],
 	},
-	gastrodon: {
-		randomBattleMoves: ["earthquake", "icebeam", "scald", "toxic", "recover", "clearsmog"],
-		randomDoubleBattleMoves: ["earthpower", "scald", "muddywater", "recover", "icywind", "protect"],
-		tier: "PU",
-		doublesTier: "DOU",
-	},
 	drifblim: {
 		randomBattleMoves: ["acrobatics", "willowisp", "substitute", "destinybond", "shadowball", "hex"],
 		randomDoubleBattleMoves: ["acrobatics", "shadowball", "hypnosis", "thunderbolt", "destinybond", "willowisp", "protect"],
@@ -2050,7 +2076,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	garchompmega: {
 		randomBattleMoves: ["outrage", "dracometeor", "earthquake", "stoneedge", "fireblast", "swordsdance"],
 		randomDoubleBattleMoves: ["dragonclaw", "earthquake", "stoneedge", "rockslide", "swordsdance", "protect", "fireblast"],
-		tier: "(OU)",
+		tier: "OU",
 		doublesTier: "(DOU)",
 	},
 	lucario: {

@@ -371,7 +371,67 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
       delete this.modData('Learnsets', 'auranubis').learnset.irontail;
       delete this.modData('Learnsets', 'auranubis').learnset.extremespeed;
 
+		this.modData('Learnsets', 'deserdra').learnset.overheat = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.heatwave = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.willowisp = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.inferno = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.heatcrash = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.flareblitz = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.flamecharge = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.eruption = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.dragonclaw = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.scaleshot = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.morningsun = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.earthpower = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.stealthrock = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.firelash = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.irondefense = ['8L1'];
+		this.modData('Learnsets', 'deserdra').learnset.solarbeam = ['8L1'];
+		delete this.modData('Learnsets', 'deserdra').learnset.aquatail;
+      delete this.modData('Learnsets', 'deserdra').learnset.hydropump;
+      delete this.modData('Learnsets', 'deserdra').learnset.surf;
+		delete this.modData('Learnsets', 'deserdra').learnset.bubble;
+      delete this.modData('Learnsets', 'deserdra').learnset.lifedew;
+      delete this.modData('Learnsets', 'deserdra').learnset.muddywater;
+		delete this.modData('Learnsets', 'deserdra').learnset.raindance;
+		delete this.modData('Learnsets', 'deserdra').learnset.watergun;
+		delete this.modData('Learnsets', 'deserdra').learnset.waterpulse;
+		delete this.modData('Learnsets', 'deserdra').learnset.blizzard;
+		delete this.modData('Learnsets', 'deserdra').learnset.icebeam;
+		delete this.modData('Learnsets', 'deserdra').learnset.hail;
+		delete this.modData('Learnsets', 'deserdra').learnset.acidarmor;
 		
+		this.modData('Learnsets', 'calibosa').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.energyball = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.gigadrain = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.grassknot = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.leafstorm = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.leechseed = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.mysticalfire = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.scald = ['8L1'];
+		this.modData('Learnsets', 'calibosa').learnset.lifedew = ['8L1'];
+		
+		this.modData('Learnsets', 'escarghoul').learnset.poltergeist = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.spiritshackle = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.firelash = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.memento = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.destinybond = ['8L1'];
+		this.modData('Learnsets', 'escarghoul').learnset.pursuit = ['8L1'];
+		
+		this.modData('Learnsets', 'gastronaut').learnset.psychic = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.cosmicpower = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.wish = ['8L1'];
+		this.modData('Learnsets', 'gastronaut').learnset.meteorbeam = ['8L1'];
+		
+		this.modData('Learnsets', 'tsigastrox').learnset.poisonjab = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.toxicthread = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.liquidation = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.fellstinger = ['8L1'];
+		this.modData('Learnsets', 'tsigastrox').learnset.firstimpression = ['8L1'];
+
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...
