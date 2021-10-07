@@ -2836,6 +2836,30 @@ export const Formats: FormatList = [
 		],
 	},
 	{    
+        name: "[Gen 8] Pokemon North & South OU",
+        desc: "Gravity Monkey's solomod, where a brand new generation of pokemon is playable in a restricted regional dex format.",
+			threads: [
+				`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-4#post-8981852">Thread</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1yW-XuEn5FoXQ6zbdFGwQ9bk9A5ex9pIHbbie84Beyzw/edit?usp=sharing">Spreadsheet</a>`,
+			],
+        mod: "pokemonns",
+        ruleset: ['Standard', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+        banlist: ['Baton Pass'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				let tiers = [ 'NSLC', 'NSNFE', 'NSOU' ];
+				if ( !tiers.includes( template.tier )) {
+					return [set.species + ' is not useable in Pokemon North & South OU.'];
+				}
+			}
+		},
+	{    
 		name: "[Gen 8] Pupumons OU",
 		desc: "Pupugugu's fakemon region, the Apple region!",
 		threads: [
