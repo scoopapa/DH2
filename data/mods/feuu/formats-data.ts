@@ -688,7 +688,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 // Slate 21
 	avarupt: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	avaruptmega: {

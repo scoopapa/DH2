@@ -2895,6 +2895,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wish: ["3L1"],
 			workup: ["8M", "7M", "5M"],
 			yawn: ["3L1"],
+			leafblade: ["8L1"],
+			solarblade: ["8L1"],
+			energyball: ["8L1"],
 		},
 		eventData: [
 			{generation: 3, level: 5, shiny: 1, moves: ["yawn", "wish"], pokeball: "pokeball"},
@@ -2907,6 +2910,15 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	farfetchdgalar: {
 		learnset: {
+			naturalgift: ["8L1"],
+			powertrip: ["8L1"],
+			bodypress: ["8L1"],
+			tailwind: ["8L1"],
+			reversal: ["8L1"],
+			fling: ["8L1"],
+			leechseed: ["8L1"],
+			branchpoke: ["8L1"],
+			roost: ["8L1"],
 			assurance: ["8M"],
 			attract: ["8M"],
 			bodyslam: ["8M"],
@@ -4640,14 +4652,24 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			watergun: ["8L5"],
 			waterpulse: ["8E", "7T", "7E", "6T", "6E", "5E", "4M", "3M"],
 			whirlpool: ["8M", "7V", "4M"],
+			powergem: ["8L1"],
+			mistyterrain: ["8L1"],
+			moonblast: ["8L1"],
+			dazzlinggleam: ["8L1"],
+			teleport: ["8L1"],
+			swordsdance: ["8L1"],
+			accelerock: ["8L1"],
+			coralcrash: ["8L1"],
 		},
 		eventData: [
 			{generation: 3, level: 5, shiny: 1, moves: ["tackle", "mudsport"], pokeball: "pokeball"},
 			{generation: 7, level: 50, gender: "F", nature: "Serious", abilities: ["hustle"], moves: ["tackle", "powergem"], pokeball: "ultraball"},
 		],
 	},
-	corsolagalar: {
+	corsoul: {
 		learnset: {
+			bulkup: ["8L1"],
+			poltergeist: ["8L1"],
 			amnesia: ["8M"],
 			ancientpower: ["8L20"],
 			astonish: ["8L5", "8L1"],
@@ -4893,6 +4915,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	linoonepunk: {
 		learnset: {
+			partingshot: ["8L1"],
 			assurance: ["8M"],
 			attract: ["8M"],
 			babydolleyes: ["8L1"],
@@ -6399,6 +6422,16 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	wormadamsandy: {
 		learnset: {
+			firstimpression: ["8L1"],
+			taunt: ["8L1"],
+			stoneedge: ["8L1"],
+			rockslide: ["8L1"],
+			highhorsepower: ["8L1"],
+			drillrun: ["8L1"],
+			shoreup: ["8L1"],
+			stickyweb: ["8L1"],
+			uturn: ["8L1"],
+			craftyshield: ["8L1"],
 			allyswitch: ["7T"],
 			attract: ["7M", "7L41", "6M", "6L41", "5M", "5L41", "4M", "4L41"],
 			bugbite: ["7T", "7L1", "6T", "6L15", "5T", "5L15", "4T", "4L15"],

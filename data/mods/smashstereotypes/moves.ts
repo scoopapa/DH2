@@ -306,4 +306,58 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	multiattack: {
+		num: 718,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Multi-Attack",
+		shortDesc: "Type varies based on the user's type.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	slitherstrike: {
+		num: -1,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "User switches out after damaging the target. If used by Sandaconda, it transforms into Sandaconda-Uncoiled for the rest of the match.",
+		name: "Slither Strike",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Sandaconda' && !pokemon.transformed && pokemon.species.id !== 'sandacondauncoiled') {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				let forme = '';
+				if (pokemon.species.id === 'sandaconda') {
+					forme = '-Uncoiled';
+				}
+				pokemon.formeChange('Sandaconda' + forme, move, true, '[silent]');
+				this.add('-message', `${pokemon.name} uncoiled!`);
+				const species = this.dex.getSpecies(pokemon.species.name);
+				const abilities = species.abilities;
+				const baseStats = species.baseStats;
+				const type = species.types[0];
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cute",
+	},
 };

@@ -111,14 +111,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*farfetchd: {
+	farfetchd: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	farfetchdgalar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	muk: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -182,15 +182,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	moltresgalar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	corsola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	corsolagalar: {
+	corsoul: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	linoone: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -251,10 +251,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*wormadamsandy: {
+	wormadamsandy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	fibormadam: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

@@ -44,6 +44,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "machamp").learnset.flamewheel = ["8L1"];
 		this.modData("Learnsets", "machamp").learnset.stormthrow = ["8L1"];
 		this.modData("Learnsets", "machamp").learnset.circlethrow = ["8L1"];
+		
+		
+		this.modData("Learnsets", "sandaconda").learnset.crunch = ["8L1"];
+		this.modData("Learnsets", "sandaconda").learnset.suckerpunch = ["8L1"];
+		this.modData("Learnsets", "sandaconda").learnset.slitherstrike = ["8L1"];
 	},
 	
 	teambuilderConfig: {

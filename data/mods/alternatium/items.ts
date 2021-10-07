@@ -342,6 +342,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				source.addVolatile('gem');
 			}
 		},
+		itemUser: ["Giratina"],
 		shortDesc: "If this Pokemon is Giratina, its first successful Ghost or Dragon move will have 1.5x power. Single-use.",
 		num: 112,
 		gen: 4,
@@ -455,7 +456,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu"],
+		itemUser: ["Pikachu", "Pikachu-Idol", "Pikachu-Libre", "Pikachu-Partner", "Pikachu-Belle"],
 		num: 236,
 		gen: 2,
 	},
@@ -766,17 +767,41 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom') {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
 				return this.chainModify(1.5);
 			}
 		},
+		itemUser: ["Rotom"],
+		shortDesc: "If Rotom or Farfetch\u2019d-Galar, its Defense and Sp. Def are 1.5x.",
 		num: 538,
 		gen: 5,
+	},
+	leek: {
+		name: "Leek",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Grass' && pokemon.species.id === 'farfetchd') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d"],
+		shortDesc: "If Farfetch’d, its critical hit ratio is 2 and Grass move do 1.2x damage.",
+		num: 259,
+		gen: 8,
 	},
 };
