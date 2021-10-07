@@ -1815,6 +1815,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		whirlpool: ["8L1"],
 		sleeptalk: ["8L1"],
 		agility: ["8L1"],
+		painsplit: ["8L1"],
+		hex: ["8L1"],
 	},},
 	/*sophisturn: {learnset: {
 		teleport: ["8L1"],
