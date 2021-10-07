@@ -1,4 +1,4 @@
-export const Pokedex: {[speciesid: string]: SpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gastrodon: {
 		num: 423,
 		name: "Gastrodon",
@@ -16,7 +16,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 3,
 	},
 	regicesaboteur: {
-		num: 378,
+		num: -378,
 		name: "Regice-Saboteur",
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 100, atk: 50, def: 100, spa: 110, spd: 160, spe: 30},
@@ -32,7 +32,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 50.5,
 	},
 	latiossaboteur: {
-		num: 381,
+		num: -381,
 		name: "Latios-Saboteur",
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 85, atk: 100, def: 80, spa: 105, spd: 80, spe: 110},
@@ -80,7 +80,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 4.8,
 	},
 	slowbrogalarsaboteur: {
-		num: 80,
+		num: -80,
 		name: "Slowbro-Galar-Saboteur",
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 95, atk: 75, def: 110, spa: 100, spd: 80, spe: 30},
@@ -88,7 +88,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 78.5,
 	},
 	shiftrysaboteur: {
-		num: 275,
+		num: -275,
 		name: "Shiftry-Saboteur",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 90, spd: 70, spe: 100},
@@ -96,7 +96,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 59.6,
 	},
 	articunosaboteur: {
-		num: 144,
+		num: -144,
 		name: "Articuno-Saboteur",
 		types: ["Ice", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 85, spa: 110, spd: 85, spe: 125},
@@ -104,7 +104,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 55.4,
 	},
 	sandslashalolasaboteur: {
-		num: 28,
+		num: -28,
 		name: "Sandslash-Alola-Saboteur",
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 75, atk: 100, def: 125, spa: 25, spd: 65, spe: 65},
