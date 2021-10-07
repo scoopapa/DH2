@@ -272,14 +272,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
-					if (!pokemon.volatiles['stockpile']) {
-						this.useMove('stockpile', pokemon);
-					}
-					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('gmaxsteelsurge');
-					return;
-				}
 				if (
 					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
@@ -318,14 +310,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
-					if (!pokemon.volatiles['stockpile']) {
-						this.useMove('stockpile', pokemon);
-					}
-					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('spikes');
-					return;
-				}
 				if (
 					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
@@ -351,14 +335,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
-					if (!pokemon.volatiles['stockpile']) {
-						this.useMove('stockpile', pokemon);
-					}
-					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('stealthrock');
-					return;
-				}
 				if (
 					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
@@ -384,14 +360,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
-					if (!pokemon.volatiles['stockpile']) {
-						this.useMove('stockpile', pokemon);
-					}
-					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('stickyweb');
-					return;
-				}
 				if (
 					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
@@ -424,14 +392,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasAbility('trashcompactor') && !this.field.getPseudoWeather('stickyresidues')) {
-					if (!pokemon.volatiles['stockpile']) {
-						this.useMove('stockpile', pokemon);
-					}
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
-					return;
-				}
 				if (pokemon.hasType('Poison') && !this.field.getPseudoWeather('stickyresidues')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
