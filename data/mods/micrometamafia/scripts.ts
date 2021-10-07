@@ -66,6 +66,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'latiossaboteur').learnset.mysticalfire;
 		delete this.modData('Learnsets', 'latiossaboteur').learnset.futuresight;
 		
+		this.modData('Learnsets', 'honchkrow').learnset.uturn = ['8L1'];
+		this.modData('Learnsets', 'honchkrow').learnset.darkestlariat = ['8L1'];
+		
 		this.modData('Learnsets', 'sableye').learnset.poltergeist = ['8L1'];
 		
 		this.modData('Learnsets', 'dedenne').learnset.moonblast = ['8L1'];
