@@ -26,7 +26,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -6000,
 	},
-pyrokinesis: {
+	pyrokinesis: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -44,7 +44,8 @@ pyrokinesis: {
 		name: "Pyrokinesis",
 		rating: 3.5,
 		num: -6001,
-scaleoff: {
+	},
+	scaleoff: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
@@ -55,7 +56,8 @@ scaleoff: {
 		name: "Scale Off",
 		rating: 3.5,
 		num: -6002,
-coupdegrass: {
+	},
+	coupdegrass: {
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
 		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
 		onUpdate(pokemon) {
@@ -70,6 +72,7 @@ coupdegrass: {
 		name: "Coup de Grass",
 		rating: 3.5,
 		num: -6003,
+	},
     galewind: {
         shortDesc: "This Pokémon switches out after using a Flying-type status move.",
         onAfterMove(target, source, move) {
