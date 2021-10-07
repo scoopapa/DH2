@@ -97,7 +97,7 @@ coupdegrass: {
             }
             if (pokemon.hp <= pokemon.maxhp / 2 && !['Rage'].includes(pokemon.species.forme)) {
                 pokemon.addVolatile('ragemode');
-            } else if (pokemon.hp > pokemon.maxhp / 2 && ['Rage'].includes(pokemon.species.forme)) 
+            } else if (pokemon.hp > pokemon.maxhp / 2 && ['Rage'].includes(pokemon.species.forme)) {
                 pokemon.removeVolatile('ragemode');
             }
         },
