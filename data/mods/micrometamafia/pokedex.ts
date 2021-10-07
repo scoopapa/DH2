@@ -42,7 +42,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 60,
 	},
 	honchkrow: {
-		inheritMoves: ['Honchkrow'],
 		num: 430,
 		name: "Honchkrow",
 		types: ["Dark", "Flying"],
