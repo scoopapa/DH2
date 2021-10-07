@@ -120,4 +120,35 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1010,
 		gen: 7,
 	},
+	/*nest: {
+		name: "Nest",
+		desc: If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.
+		spritenum: 491,
+		fling: {
+			basePower: 90,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Coowoo') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Coowoo') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Coowoo') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Coowoo"],
+		num: 258,
+		gen: 8,
+	},
+	futuristicmetal: {
+		name: "Futuristic Metal",*/
 };

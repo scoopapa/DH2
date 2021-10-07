@@ -1597,4 +1597,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Primarina, this item allows it to Mega Evolve in battle.",
 	},
+	jynxite: {
+		name: "Jynxite",
+		spritenum: 578,
+		megaStone: "Jynx-Mega",
+		megaEvolves: "Jynx",
+		itemUser: ["Jynx"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1103,
+		gen: 8,
+		desc: "If held by a Jynx, this item allows it to Mega Evolve in battle.",
+	},
+	electivirite: {
+		name: "Electivirite",
+		spritenum: 578,
+		megaStone: "Electivire-Mega",
+		megaEvolves: "Electivire",
+		itemUser: ["Electivire"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1104,
+		gen: 8,
+		desc: "If held by an Electivire, this item allows it to Mega Evolve in battle.",
+	},
+	magmortarite: {
+		name: "Magmortarite",
+		spritenum: 578,
+		megaStone: "Magmortar-Mega",
+		megaEvolves: "Magmortar",
+		itemUser: ["Magmortar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1105,
+		gen: 8,
+		desc: "If held by a Magmortar, this item allows it to Mega Evolve in battle.",
+	},
 };

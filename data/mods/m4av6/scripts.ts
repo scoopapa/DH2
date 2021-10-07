@@ -6,10 +6,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		};
 		newMoves("dragonite", ["playrough"]);
-		newMoves("goodra", ["gigadrain", "drainpunch"]);
+		newMoves("goodra", ["gigadrain", "drainpunch", "moonlight"]);
 		newMoves("dragapult", ["icebeam"]);
 		newMoves("orbeetle", ["focusblast", "teleport"]);
 		newMoves("thievul", ["focusblast", "aurasphere", "hiddenpower", "moonlight", "spiritbreak"]);
+		newMoves("toucannon", ["appleacid", "hurricane", "nastyplot"]);
 		newMoves("gumshoos", ["coil", "bodyslam"]);
 		newMoves("vikavolt", ["leafblade", "darkpulse", "uturn", "thundercage"]);
 		newMoves("lycanrocmidnight", ["headsmash"]);
@@ -17,7 +18,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("raichu", ["highjumpkick"]);
 		newMoves("clefable", ["hex", "nastyplot", "shadowsneak", "willowisp"]);
 		newMoves("rillaboom", ["toxic"]);
-		newMoves("cinderace", ["energyball"]);
 		newMoves("inteleon", ["taunt", "firstimpression", "encore", "pursuit"]);
 		newMoves("klinklang", ["overheat", "rapidspin"]);
 		newMoves("garbodor", ["stealthrock", "knockoff"]);
@@ -28,7 +28,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("conkeldurr", ["shoreup"]);
 		newMoves("gigalith", ["skullbash", "sunnyday", "synthesis", "trickroom"]);
 		newMoves("reuniclus", ["photongeyser", "psychoboost"]);
-		newMoves("boltund", ["dazzlinggleam", "pursuit"]);
+		newMoves("boltund", ["dazzlinggleam", "hiddenpower", "pursuit"]);
 		newMoves("archeops", ["fireblast", "dualwingbeat", "bravebird"]);
 		newMoves("talonflame", ["scorchingsands"]);
 		newMoves("staraptor", ["roleplay", "superfang"]);
@@ -57,7 +57,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("leavanny", ["appleacid", "lunge", "thunderouskick", "quiverdance"]);
 		newMoves("parasect", ["junglehealing", "taunt"]);
 		newMoves("samurott", ["flipturn", "psychocut", "slackoff"]);
-		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
+		newMoves("meowstic", ["foulplay", "knockoff", "partingshot", "psychicfangs", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
 		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
@@ -91,8 +91,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("silvally", ["firepledge", "waterpledge", "taunt"]);
 		newMoves("golduck", ["expandingforce", "psychicterrain", "recover", "shadowball"]);
 		newMoves("sirfetchd", ["playrough", "roost", "toxic"]);
-		newMoves("incineroar", ["focusenergy", "nightslash", "punishment", "stormthrow"]);
+		newMoves("incineroar", ["focusenergy", "nightslash", "punishment", "rapidspin", "stormthrow"]);
 		newMoves("primarina", ["purify"]);
+		newMoves("jynx", ["barrier", "bodypress"]);
+		newMoves("electivire", ["bulkup", "drainpunch"]);
+		newMoves("magmortar", ["recover", "scald"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);

@@ -1570,6 +1570,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["8M"],
 			wonderroom: ["8M", "7T"],
 			zenheadbutt: ["8M", "7T"],
+			freezedry: ["8L1"],
 		},
 	},
 	dugtrio: {

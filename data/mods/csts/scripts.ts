@@ -35,7 +35,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			heightm: 0.5,
 			weightkg: 5,
 			gender: "N",
-		},	
+		},
 	},
 	onUnown: function( pokemon, unownStats ) {
 		let pokemonid = toID( pokemon.set.species );
