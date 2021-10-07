@@ -16,6 +16,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 3,
 	},
 	regicesaboteur: {
+		inheritMoves: ['Regice'],
 		num: -378,
 		name: "Regice-Saboteur",
 		types: ["Ice", "Ghost"],
@@ -32,6 +33,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 50.5,
 	},
 	latiossaboteur: {
+		inheritMoves: ['Latios'],
 		num: -381,
 		name: "Latios-Saboteur",
 		types: ["Psychic", "Fighting"],
@@ -80,6 +82,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 4.8,
 	},
 	slowbrogalarsaboteur: {
+		inheritMoves: ['Slowbro-Galar'],
 		num: -80,
 		name: "Slowbro-Galar-Saboteur",
 		types: ["Poison", "Psychic"],
@@ -88,6 +91,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 78.5,
 	},
 	shiftrysaboteur: {
+		inheritMoves: ['Shiftry'],
 		num: -275,
 		name: "Shiftry-Saboteur",
 		types: ["Grass", "Fire"],
@@ -96,6 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 59.6,
 	},
 	articunosaboteur: {
+		inheritMoves: ['Articuno'],
 		num: -144,
 		name: "Articuno-Saboteur",
 		types: ["Ice", "Flying"],
@@ -104,6 +109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 55.4,
 	},
 	sandslashalolasaboteur: {
+		inheritMoves: ['Sandslash-Alola'],
 		num: -28,
 		name: "Sandslash-Alola-Saboteur",
 		types: ["Ice", "Steel"],
