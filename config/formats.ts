@@ -2842,6 +2842,7 @@ export const Formats: FormatList = [
 		],
 	},
 	{    
+<<<<<<< HEAD
         name: "[Gen 8] Pokemon North & South OU",
         desc: "Gravity Monkey's solomod, where a brand new generation of pokemon is playable in a restricted regional dex format.",
 			threads: [
@@ -2867,6 +2868,8 @@ export const Formats: FormatList = [
 		},
 	},
 	{    
+=======
+>>>>>>> parent of 6b9d964e4 (Merge pull request #476 from GraviTMonkey/patch-17)
 		name: "[Gen 8] Pupumons OU",
 		desc: "Pupugugu's fakemon region, the Apple region!",
 		threads: [
