@@ -860,7 +860,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	jynx: {
+	jynxmega: {
 		randomBattleMoves: ["icebeam", "psychic", "bodypress", "barrier", "nastyplot", "lovelykiss", "substitute", "psyshock"],
 		randomDoubleBattleMoves: ["icebeam", "psychic", "focusblast", "protect", "lovelykiss", "psyshock", "nastyplot"],
 		tier: "OU",
