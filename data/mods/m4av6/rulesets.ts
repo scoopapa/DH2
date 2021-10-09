@@ -87,7 +87,7 @@ export const Formats: {[k: string]: FormatData} = {
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-			'Butterfrite', 'Cinderite', 'Dragonitite', 'Rillaboomite',
+			'Butterfrite', 'Cinderite', 'Rillaboomite',
 		],
 	},
 	standardm4amonothreat: {
@@ -112,7 +112,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//Item Restrictions
 			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender',
 			//Banned M4A Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
+			'Butterfrite', 'Cinderite',
 		],
 	},
 
