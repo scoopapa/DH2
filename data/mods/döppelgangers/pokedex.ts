@@ -1,12 +1,12 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	clefable: {
 		inherit: true,
-		otherFormes: ["Anti-Clefable"],
-		formeOrder: ["Clefable", "Anti-Clefable"],
+		otherFormes: ["Clefable-Anti"],
+		formeOrder: ["Clefable", "Clefable-Anti"],
 	},
-	anticlefable: {
+	clefableanti: {
 		num: 36,
-		name: "Anti-Clefable",
+		name: "Clefable-Anti",
 		baseSpecies: "Clefable",
 		forme: "Anti",
 		types: ["Steel"],
@@ -16,7 +16,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.3,
 		weightkg: 40,
 	},
-	ninetales: {
+	/*ninetales: {
 		inherit: true,
 		otherFormes: ["Ninetales-Alola", "Anti-Ninetales-Alola"],
 		formeOrder: ["Ninetales", "Ninetales-Alola", "Anti-Ninetales-Alola"],
@@ -182,5 +182,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Thick Fat", 1: "Aftermath", H: "Clear Body"},
 		heightm: 2.3,
 		weightkg: 150,
-	},
+	},*/
 };
