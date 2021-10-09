@@ -820,6 +820,19 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'OU',
 	},
 	{
+		name: "[Gen 8] Döppelgangers",
+		desc: [
+			"<b>Stereotypes</b>: A project that aims to create a counter to every Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/d%C3%B6ppelgangers-v2.3691045/">Döppelgangers on Smogon Forums</a>`,
+		      ],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		mod: 'döppelgängers',
+		teambuilderFormat: 'OU',
+	},
+	{
 		name: "[Gen 8] Double Trouble",
 		desc: `<b>Double Trouble</b>: Doubles-based metagame where Pok&eacute;mon are adjusted to become DOU-viable.`,
 		threads: [
