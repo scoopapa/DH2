@@ -2016,10 +2016,18 @@ export const Formats: FormatList = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
+			const offseason = [
+				'Deerling', 'Deerling-Summer', 'Deerling-Winter',
+				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Winter',
+			];
 			const species = this.dex.getSpecies(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			if (offseason.includes(species.name)) {
+				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
+				return [`${set.name || set.species} is not spooky enough! Try fall colors instead. .w.`];
 			}
 			if (species.tier === "Unreleased") {
 				const basePokemon = this.toID(species.baseSpecies);
