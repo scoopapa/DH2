@@ -4,7 +4,7 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Mega Data Mod',
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
 		onBegin() {
-			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
+			this.add(`raw|<img src="https://raw.githubusercontent.com/scoopapa/DH/master/data/mods/m4av6/sprites/m4a_banner.png" height="65" width="381">`);
 			if (this.format.name === '[Gen 8] M4A Sandbox' || this.format.name === '[Gen 8] M4A VGC Sandbox') {
 				this.add('-message', `Welcome to the Megas for All Sandbox!`);
 				this.add('-message', `This is a custom game format where you can experiment outside of the normal rules.`);
