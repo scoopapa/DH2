@@ -125,7 +125,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	clefable: {
 		tier: "OU",
 	},
-	clefableanti: {
+	anticlefable: {
 		tier: "OU",
 	},
 	vulpix: {

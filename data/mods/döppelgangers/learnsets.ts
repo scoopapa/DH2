@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	clefableanti: {
+	anticlefable: {
 		learnset: {
 			afteryou: ["8L1"],
 			allyswitch: ["8M"],
@@ -160,7 +160,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			healingwish: null,
 		},
 	},
-	/*antininetalesalola: {
+	antininetalesalola: {
 		learnset: {
 			agility: ["8M"],
 			aquatail: ["7T"],
@@ -1029,5 +1029,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			steelbeam: ["8L1"],
 			shoreup: ["8L1"],
 		},
-	},*/
+	},
 };

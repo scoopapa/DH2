@@ -829,7 +829,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
-		mod: 'döppelgängers',
+		mod: 'döppelgangers',
 		teambuilderFormat: 'OU',
 	},
 	{
