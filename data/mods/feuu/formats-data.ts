@@ -562,7 +562,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	crustboar: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	paracoal: {
