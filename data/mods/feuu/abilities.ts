@@ -2116,36 +2116,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Weather Power",
 		shortDesc: "1.5x SpA while under any weather. User loses 12.5% of its HP in any weather.",
 	},
-/*
 	plotarmor: {
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.recoil || move.hasCrashDamage) {
-				this.debug('Plot Armor boost');
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onDamagePriority: -100,
-		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'Plot Armor');
-				return target.hp - 1;
-			}
-		},
+        onBasePowerPriority: 23,
+        onBasePower(basePower, attacker, defender, move) {
+            if (move.recoil || move.hasCrashDamage) {
+                this.debug('Plot Armor boost');
+                return this.chainModify([0x1333, 0x1000]);
+            }
+        },
+        onDamagePriority: -100,
+        onDamage(damage, target, source, effect) {
+            if (damage >= target.hp && effect && (effect.id === 'recoil' || effect.id === 'jumpkick' || effect.id === 'highjumpkick')) {
+                this.add('-ability', target, 'Plot Armor');
+                return target.hp - 1;
+            }
+        },
 		name: "Plot Armor",
 		shortDesc: "Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
-*/
 	reversegear: {
 		name: "Reverse Gear",
 		onBoost(boost) {
       		 boost.spe *= -1;
       },
 		shortDesc: "Stat boosts to the Speed stat are inversed.",
-	},
-	plotarmor: {
-		name: "Plot Armor",
-		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
 	innerfocus: {
 		onTryAddVolatile(status, pokemon) {
