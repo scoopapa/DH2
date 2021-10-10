@@ -2014,10 +2014,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Item Boost",
 		shortDesc: "Unburden + Beast Boost.",
 	},
-	ultrascout: {
-		name: "Ultra Scout",
-		shortDesc: "(Non-Functional Placeholder) On switch-in, this Pokemon identifies the highest non-HP stats of all opposing Pokemon.",
-	},
+    ultrascout: {
+        onStart(pokemon) {
+            let activated = false;
+            for (const target of pokemon.side.foe.active) {
+                if (!target || target.fainted) continue;
+                if (!activated) this.add('-ability', pokemon, 'Ultra Scout');
+                activated = true;
+                let statName = 'atk';
+                let bestStat = 0;
+                let s: StatNameExceptHP;
+                for (s in target.storedStats) {
+                    if (target.storedStats[s] > bestStat) {
+                        statName = s;
+                        bestStat = target.storedStats[s];
+                    }
+                }
+                if (statName === 'atk') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Attack!`);
+                if (statName === 'def') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Defense!`);
+                if (statName === 'spa') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Special Attack!`);
+                if (statName === 'spd') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Special Defense!`);
+                if (statName === 'spe') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Speed!`);
+            }
+        },
+        name: "Ultra Scout",
+        rating: 1.5,
+		  shortDesc: "On switch-in, this Pokemon identifies the foe's highest non-HP stat",
+    },
 	scarilyadorable: {
 		onStart(pokemon) {
 			let activated = false;
