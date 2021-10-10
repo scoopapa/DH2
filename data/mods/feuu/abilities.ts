@@ -3149,7 +3149,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
                 }
             },
         },
-      name: "Self-Sacrifice",
+      name: "Self Sacrifice",
 		shortDesc: "When this Pokemon faints, the replacement is healed by 1/4 of this Pokemon's max HP",
     },
 };
