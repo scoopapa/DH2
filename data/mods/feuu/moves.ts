@@ -280,4 +280,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	selfsacrificeattack: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Self Sacrifice Attack",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		onTryHit(pokemon, target, move) {
+			if (!this.canSwitch(pokemon.side)) {
+				delete move.selfdestruct;
+				return false;
+			}
+		},
+		selfdestruct: "ifHit",
+		slotCondition: 'selfsacrificeattack',
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(Math.floor(target.baseMaxhp * 0.25));
+					this.add('-heal', target, target.getHealth, '[from] move: Self Sacrifice');
+					target.side.removeSlotCondition(target, 'selfsacrificeattack');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
 };
