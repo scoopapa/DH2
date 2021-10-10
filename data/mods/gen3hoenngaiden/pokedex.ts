@@ -312,7 +312,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	steelix: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 105, def: 200, spa: 55, spd: 75, spe: 30},
+		baseStats: {hp: 75, atk: 105, def: 200, spa: 55, spd: 75, spe: 30},
 		abilities: {0: "Clear Body", 1: "Sand Veil"},
 	},
 	torkoal: {
