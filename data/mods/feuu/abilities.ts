@@ -3133,15 +3133,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sticky Surge",
 		shortDesc: "Sticky Hold + Electric Surge.",
 	},	
-	selfsacrifice: {
-		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
-			if (!target.hp) {
-           	this.useMove("Self Sacrifice Attack", target);
-			}
-		},
-		name: "Self Sacrifice",
-		shortDesc: "When this Pokemon faints, replacement is healed by 1/4 of this Pokemon's max HP.",
-	},	
+    selfsacrifice: {
+        onFaint(pokemon) {
+            pokemon.side.addSlotCondition(pokemon, 'selfsacrifice');
+        },
+        condition: {
+            onStart(pokemon, source) {
+                this.effectData.hp = source.maxhp / 4;
+            },
+            onSwap(target) {
+                if (!target.fainted) {
+                    const damage = this.heal(this.effectData.hp, target, target);
+                    if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Self Sacrifice', '[of] ' + this.effectData.source);
+                    target.side.removeSlotCondition(target, 'selfsacrifice');
+                }
+            },
+        },
+      name: "Self-Sacrifice",
+		shortDesc: "When this Pokemon faints, the replacement is healed by 1/4 of this Pokemon's max HP",
+    },
 };
  
