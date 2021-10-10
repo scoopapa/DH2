@@ -280,6 +280,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+/*
 	selfsacrificeattack: {
 		accuracy: true,
 		basePower: 0,
@@ -310,4 +311,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		contestType: "Beautiful",
 	},
+/*
 };
