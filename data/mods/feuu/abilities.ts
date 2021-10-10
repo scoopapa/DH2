@@ -3035,5 +3035,113 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Undercut",
 		shortDesc: "This Pokemon's moves of 80 power or less have 1.40625x power, but its moves higher than 80 power have 0.75x power.",
 	},	
+	heatgenerator: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Generator');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Generator');
+				return this.chainModify(1.5);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Heat Generator",
+		shortDesc: "Regenerator + Blaze",
+	},	
+	flamingskin: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Flaming Skin');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectData.target !== defender) return;
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Flaming Skin",
+		shortDesc: "Dry Skin + Flame Body",
+	},	
+	etativel: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				boost[i]! *= -1;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Etativel');
+				return null;
+			}
+		},
+		name: "Etativel",
+		shortDesc: "Contrary + Levitate",
+	},	
+	clutchfactor: {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.category === 'Special' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Clutch Factor boost boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Clutch Factor",
+		shortDesc: "Special Attacks are boosted by 1.5x at 1/3 HP or less.",
+	},	
+	stickysurge: {
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Surge');
+				return false;
+			}
+		},
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+		name: "Sticky Surge",
+		shortDesc: "Sticky Hold + Electric Surge.",
+	},	
+	selfsacrifice: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
+           	this.useMove("Self Sacrifice Attack", target);
+			}
+		},
+		name: "Self Sacrifice",
+		shortDesc: "When this Pokemon faints, replacement is healed by 1/4 of this Pokemon's max HP.",
+	},	
 };
  
