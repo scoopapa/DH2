@@ -41,7 +41,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'Uncoded', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Uncoded', 'Silvino', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -145,6 +145,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Levitability');
 						} else if (this.hasAbility('stickyfloat')) {
 							this.battle.add('-immune', this, '[from] ability: Sticky Float');
+						} else if (this.hasAbility('etativel')) {
+							this.battle.add('-immune', this, '[from] ability: Etativel');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -176,7 +178,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
-				this.hasAbility('stickyfloat')) &&
+				this.hasAbility('stickyfloat')) || 
+				this.hasAbility('etativel')) &&
 				!this.battle.suppressingAttackEvents()
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
