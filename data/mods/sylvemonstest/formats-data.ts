@@ -51,7 +51,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	*/
 	articuno: {
-		randomBattleMoves: ["auroraveil", "blizzard", "roost", "uturn", "freezedry", "hiddenpowerfire"],
+		randomBattleMoves: ["blizzard", "roost", "uturn", "freezedry", "hiddenpowerfire"],
 		tier: "OU",
 	},
 	aegislash: {
@@ -88,7 +88,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxysdefense: {
 		randomBattleMoves: ["sludgebomb", "knockoff", "spikes", "recover", "teleport", "toxicspikes", "taunt", "hiddenpowerfire"],
-		tier: "OU",
+		tier: "UUBL",
 	},
 	dracozolt: {
 		randomBattleMoves: ["boltbeak", "voltswitch", "firefang", "icepunch", "dragonfang", "earthquake", "dracometeor"],
@@ -184,7 +184,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	magnezone: {
 		randomBattleMoves: ["thunderbolt", "metalsound", "hiddenpowerfire", "voltswitch", "magnetrise", "bodypress"],
-		tier: "OU",
+		tier: "UUBL",
 	},
 	manaphy: {
 		randomBattleMoves: ["tailglow", "surf", "moonblast", "icebeam", "psychic", "energyball"],
@@ -308,7 +308,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	charizardmegax: {
 		randomBattleMoves: ["dragondance", "flareblitz", "dualchop", "earthquake", "thunderpunch", "roost"],
-		tier: "UUBL",
+		tier: "OU",
 	},
 	dragonite: {
 		randomBattleMoves: ["riverstream", "roost", "dualwingbeat", "healbell", "defog", "haze", "extremespeed"],
@@ -316,7 +316,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	flygon: {
 		randomBattleMoves: ["firstimpression", "stickyweb", "twineedle", "uturn", "earthquake", "thunderclap", "dragondance"],
-		tier: "UUBL",
+		tier: "UU",
 	},
 	hawlucha: {
 		randomBattleMoves: ["swordsdance", "closecombat", "taunt", "acrobatics", "roost", "icepunch"],
@@ -348,7 +348,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lycanrocdusk: {
 		randomBattleMoves: ["firelash", "stoneedge", "accelerock", "playrough", "closecombat", "swordsdance"],
-		tier: "UUBL",
+		tier: "OU",
 	},
 	marowakalola: {
 		randomBattleMoves: ["astonish", "poltergeist", "flareblitz", "bonemerang", "stealthrock", "flamewheel"],
@@ -404,7 +404,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	thundurustherian: {
 		randomBattleMoves: ["ionabsorb", "voltswitch", "focusblast", "hiddenpowerice", "incinerate", "grassknot"],
-		tier: "UUBL",
+		tier: "UU",
 	},
 	wishiwashi: {
 		randomBattleMoves: ["scald", "earthquake", "icebeam", "uturn", "protect", "toxic"],
@@ -1441,7 +1441,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	spectrier: {
 		randomBattleMoves: ["shadowball", "taunt", "willowisp", "nastyplot", "substitute", "darkpulse"],
-		tier: "UUBL",
+		tier: "OU",
 	},
 	primarina: {
 		randomBattleMoves: ["hydropump", "moonblast", "psychic", "flipturn", "energyball", "hiddenpowerfire"],
@@ -1497,7 +1497,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regieleki: {
 		randomBattleMoves: ["wildcharge", "voltswitch", "rapidspin", "thunderbolt", "lightscreen", "reflect"],
-		tier: "OU",
+		tier: "UUBL",
 	},
 	kricketune: {
 		randomBattleMoves: ["stickyweb", "bugbite", "brickbreak", "knockoff", "fellstinger"],
