@@ -877,6 +877,7 @@ export const Learnsets = {
 			bounce: ["8M", "8L28", "7T", "7L32", "6T", "6L32"],
 			bravebird: ["8M"],
 			brickbreak: ["8M", "7M", "6M"],
+			bulkup: ["8M"],
 			closecombat: ["8M"],
 			coaching: ["8T"],
 			confide: ["7M", "6M"],
