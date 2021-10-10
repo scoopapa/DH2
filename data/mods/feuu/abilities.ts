@@ -2126,7 +2126,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         },
         onDamagePriority: -100,
         onDamage(damage, target, source, effect) {
-            if (damage >= target.hp && effect && (effect.id === 'recoil' || effect.id === 'jumpkick' || effect.id === 'highjumpkick')) {
+            if (damage >= target.hp && effect && (effect.id === 'recoil' || ((effect.id === 'jumpkick' || effect.id === 'highjumpkick') && source === target))) {
                 this.add('-ability', target, 'Plot Armor');
                 return target.hp - 1;
             }
