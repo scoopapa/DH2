@@ -596,7 +596,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bruxray: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["superpower", "icefang", "thunderfang", "psychicsfangs"],
+		randomBattleMoves: ["superpower", "icefang", "thunderfang", "psychicfangs"],
 		randomBattleLevel: 77,
 	},
 	kingdeedee: {
@@ -741,13 +741,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	paracoal: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["headsmash", "flareblitz", "spikes", "shellsmash", "earthquake", "superpower"],
+		randomBattleMoves: ["spore", "leechlife", "flareblitz", "earthquake"],
 		randomBattleLevel: 77,
 	},
 	arctovic: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["spore", "leechlife", "flareblitz", "earthquake"],
+		randomBattleMoves: ["swordsdance", "iciclecrash", "boltbeak", "lowkick", "sleeppowder", "strengthsap"],
 		randomBattleLevel: 77,
 	},
 	sandamaralola: {
@@ -935,13 +935,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	goatitar: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["bulkup", "leafblade", "milkdrink", "stoneedge"],
+		randomBattleMoves: ["bulkup", "leafblade", "milkdrink", "crunch"],
 		randomBattleLevel: 77,
 	},
 	goatitarmega: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["dragondance", "leafblade", "stoneedge", "brickbreak"],
+		randomBattleMoves: ["dragondance", "leafblade", "stoneedge", "crunch"],
 		randomBattleLevel: 77,
 		requiredItem: "Tyranitarite",
 	},
