@@ -772,7 +772,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swampfloramega: {
 		tier: "FERU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["raindance", "liquidation", "petalblizzard", "icepunch"],
+		randomBattleMoves: ["raindance", "liquidation", "petalblizzard", "icepunch", "superpower"],
 		randomBattleLevel: 100,
 	},
 	swalurchin: {
