@@ -1,7 +1,7 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	yanmegashell: {
       fusion: ['Yanmega', 'Torkoal'],
-		num: 1,
+		num: 1001,
 		name: "Yanmega-Shell",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 70, atk: 85, def: 145, spa: 105, spd: 90, spe: 60},
@@ -10,7 +10,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pelipperink: {
       fusion: ['Pelipper', 'Tentacruel'],
-		num: 2,
+		num: 1002,
 		name: "Pelipper-Ink",
 		types: ["Water", "Poison"],
 		baseStats: {hp: 80, atk: 78, def: 85, spa: 100, spd: 135, spe: 105},
@@ -19,7 +19,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	excadrillboulder: {
 		fusion: ['Excadrill', 'Gigalith'],
-		num: 3,
+		num: 1003,
 		name: "Excadrill-Boulder",
 		types: ["Steel", "Rock"],
 		baseStats: {hp: 85, atk: 135, def: 130, spa: 90, spd: 80, spe: 79},
@@ -28,7 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vanilluxefur: {
 		fusion: ['Vanilluxe', 'Beartic'],
-		num: 4,
+		num: 1004,
 		name: "Vanilluxe-Fur",
 		types: ["Ice"],
 		baseStats: {hp: 90, atk: 90, def: 115, spa: 124, spd: 115, spe: 60},
@@ -37,7 +37,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	butterfreeangler: {
 		fusion: ['Butterfree', 'Lanturn'],
-		num: 5,
+		num: 1005,
 		name: "Butterfree-Angler",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 125, atk: 83, def: 58, spa: 106, spd: 76, spe: 67},
@@ -46,7 +46,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     dedenneluchador: {
 		fusion: ['Dedenne', 'Hawlucha'],
-		num: 6,
+		num: 1006,
 		name: "Dedenne-Luchador",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 78, atk: 120, def: 95, spa: 74, spd: 83, spe: 121},
@@ -55,7 +55,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     shucklebrick: {
 		fusion: ['Shuckle', 'Stakataka'],
-		num: 7,
+		num: 1007,
 		name: "Shuckle-Brick",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 61, atk: 131, def: 231, spa: 117, spd: 101, spe: 13},
@@ -64,7 +64,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     munchlaxforest: {
 		fusion: ['Munchlax', 'Torterra'],
-		num: 8,
+		num: 1008,
 		name: "Munchlax-Forest",
 		types: ["Normal", "Grass"],
 		baseStats: {hp: 95, atk: 109, def: 130, spa: 95, spd: 85, spe: 76},
@@ -73,7 +73,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     bunnelbyworker: {
 		fusion: ['Bunnelby', 'Mudsdale'],
-		num: 9,
+		num: 1009,
 		name: "Bunnelby-Worker",
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 114, spd: 80, spe: 65},
@@ -82,7 +82,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     sirfetchdfantasy: {
 		fusion: ['Sirfetch\u2019d', 'Rapidash-Galar'],
-		num: 10,
+		num: 1010,
 		name: "Sirfetch\u2019d-Fantasy",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 90, atk: 114, def: 90, spa: 105, spd: 80, spe: 105},
@@ -91,7 +91,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     frogadierbeetle: {
 		fusion: ['Frogadier', 'Heracross'],
-		num: 11,
+		num: 1011,
 		name: "Frogadier-Beetle",
 		types: ["Water", "Bug"],
 		baseStats: {hp: 80, atk: 130, def: 75, spa: 102, spd: 95, spe: 85},
@@ -100,7 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     chandelureballoon: {
 		fusion: ['Chandelure', 'Drifblim'],
-		num: 12,
+		num: 1012,
 		name: "Chandelure-Balloon",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 150, atk: 105, def: 65, spa: 113, spd: 65, spe: 86},
@@ -109,7 +109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     infernapeclimber: {
 		fusion: ['Infernape', 'Exeggutor-Alola'],
-		num: 13,
+		num: 1013,
 		name: "Infernape-Climber",
 		types: ["Fire", "Dragon"],
 		baseStats: {hp: 95, atk: 125, def: 85, spa: 125, spd: 110, spe: 89},
@@ -118,7 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     ribombeecharmer: {
 		fusion: ['Ribombee', 'Steelix'],
-		num: 14,
+		num: 1014,
 		name: "Ribombee-Charmer",
 		types: ["Fairy", "Steel"],
 		baseStats: {hp: 75, atk: 85, def: 205, spa: 105, spd: 85, spe: 32},
@@ -127,7 +127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     beheeyemufo: {
 		fusion: ['Beheeyem', 'Magnezone'],
-		num: 15,
+		num: 1015,
 		name: "Beheeyem-UFO",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 70, atk: 120, def: 130, spa: 130, spd: 105, spe: 60},
@@ -136,7 +136,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     sableyedoom: {
 		fusion: ['Sableye', 'Absol'],
-		num: 16,
+		num: 1016,
 		name: "Sableye-Doom",
 		types: ["Dark"],
 		baseStats: {hp: 65, atk: 140, def: 100, spa: 75, spd: 85, spe: 76},
@@ -145,7 +145,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     mareaniemagma: {
 		fusion: ['Mareanie', 'Salazzle'],
-		num: 17,
+		num: 1017,
 		name: "Mareanie-Magma",
 		types: ["Merciless", "Corrosion"],
 		baseStats: {hp: 68, atk: 64, def: 80, spa: 111, spd: 80, spe: 127},
@@ -154,7 +154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     thwackeydune: {
 		fusion: ['Thwackey', 'Hippowdown'],
-		num: 18,
+		num: 1018,
 		name: "Thwackey-Dune",
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 108, atk: 112, def: 118, spa: 68, spd: 127, spe: 62},
@@ -163,7 +163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     sphealsiren: {
 		fusion: ['Spheal', 'Tapu-Fini'],
-		num: 19,
+		num: 1019,
 		name: "Spheal-Siren",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 70, atk: 105, def: 125, spa: 95, spd: 130, spe: 93},
@@ -172,7 +172,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     pincurchingoo: {
 		fusion: ['Pincurchin', 'Sligoo'],
-		num: 20,
+		num: 1020,
 		name: "Pincurchin-Goo",
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 68, atk: 75, def: 102, spa: 95, spd: 120, spe: 64},
@@ -181,7 +181,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     nihilegopsychosis: {
 		fusion: ['Nihilego', 'Indeedee-f'],
-		num: 21,
+		num: 1021,
 		name: "Nihilego-Psychosis",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 70, atk: 65, def: 95, spa: 115, spd: 125, spe: 100},
@@ -190,7 +190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     stunfiskjagged: {
 		fusion: ['Stunfisk', 'Druddigon'],
-		num: 22,
+		num: 1022,
 		name: "Stunfisk-Jagged",
 		types: ["Ground", "Dragon"],
 		baseStats: {hp: 77, atk: 120, def: 120, spa: 100, spd: 90, spe: 56},
@@ -199,7 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     pawniardaviation: {
 		fusion: ['Pawniard', 'Mandibuzz'],
-		num: 23,
+		num: 1023,
 		name: "Pawniard-Aviation",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 110, atk: 105, def: 105, spa: 55, spd: 95, spe: 96},
@@ -208,7 +208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     watchogscout: {
 		fusion: ['Watchog', 'Braviary'],
-		num: 24,
+		num: 1024,
 		name: "Watchog-Scout",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 100, atk: 123, def: 95, spa: 57, spd: 125, spe: 80},
@@ -217,7 +217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     mothimgourd: {
 		fusion: ['Mothim', 'Gourgeist-Super'],
-		num: 25,
+		num: 1025,
 		name: "Mothim-Gourd",
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 85, atk: 115, def: 122, spa: 58, spd: 95, spe: 89},
@@ -226,7 +226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     clefairyselene: {
 		fusion: ['Clefairy', 'Selene'],
-		num: 26,
+		num: 1026,
 		name: "Clefairy-Selene",
 		types: ["Fairy", "Rock"],
 		baseStats: {hp: 90, atk: 75, def: 90, spa: 91, spd: 90, spe: 77},
@@ -235,7 +235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     hoothootperch: {
 		fusion: ['Hoothoot', 'Slowking-Galar'],
-		num: 27,
+		num: 1027,
 		name: "Hoothoot-Perch",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 95, atk: 75, def: 100, spa: 120, spd: 110, spe: 33},
@@ -244,7 +244,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     swoobataroma: {
 		fusion: ['Swoobat', 'Vileplume'],
-		num: 28,
+		num: 1028,
 		name: "Swoobat-Aroma",
 		types: ["Psychic", "Grass"],
 		baseStats: {hp: 75, atk: 85, def: 95, spa: 135, spd: 105, spe: 65},
@@ -253,7 +253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     blacephalonborealis: {
 		fusion: ['Blacephalon', 'Aurorus'],
-		num: 29,
+		num: 1029,
 		name: "Blacephalon-Borealis",
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 123, atk: 77, def: 82, spa: 123, spd: 92, spe: 119},
@@ -262,7 +262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
     malamargirafarig: {
 		fusion: ['Malamar', 'Girafarig'],
-		num: 30,
+		num: 1030,
 		name: "Malamar-Parallel",
 		types: ["Dark", "Psychic"],
 		baseStats: {hp: 70, atk: 95, def: 100, spa: 100, spd: 100, spe: 70},
