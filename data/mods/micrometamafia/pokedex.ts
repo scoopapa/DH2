@@ -28,7 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 227,
 		name: "Skarmory",
 		types: ["Flying"],
-		baseStats: {hp: 65, atk: 90, def: 140, spa: 110, spd: 160, spe: 30},
+		baseStats: {hp: 65, atk: 90, def: 140, spa: 40, spd: 70, spe: 60},
 		abilities: {0: "Keen Eye", 1: "Rough Skin", H: "Weak Armor"},
 		weightkg: 50.5,
 	},
@@ -42,6 +42,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 60,
 	},
 	honchkrow: {
+		inherit: true,
 		num: 430,
 		name: "Honchkrow",
 		types: ["Dark", "Flying"],

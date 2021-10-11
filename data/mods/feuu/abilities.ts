@@ -2014,10 +2014,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Item Boost",
 		shortDesc: "Unburden + Beast Boost.",
 	},
-	ultrascout: {
-		name: "Ultra Scout",
-		shortDesc: "(Non-Functional Placeholder) On switch-in, this Pokemon identifies the highest non-HP stats of all opposing Pokemon.",
-	},
+    ultrascout: {
+        onStart(pokemon) {
+            let activated = false;
+            for (const target of pokemon.side.foe.active) {
+                if (!target || target.fainted) continue;
+                if (!activated) this.add('-ability', pokemon, 'Ultra Scout');
+                activated = true;
+                let statName = 'atk';
+                let bestStat = 0;
+                let s: StatNameExceptHP;
+                for (s in target.storedStats) {
+                    if (target.storedStats[s] > bestStat) {
+                        statName = s;
+                        bestStat = target.storedStats[s];
+                    }
+                }
+                if (statName === 'atk') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Attack!`);
+                if (statName === 'def') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Defense!`);
+                if (statName === 'spa') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Special Attack!`);
+                if (statName === 'spd') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Special Defense!`);
+                if (statName === 'spe') this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} is most proficient in Speed!`);
+            }
+        },
+        name: "Ultra Scout",
+        rating: 1.5,
+		  shortDesc: "On switch-in, this Pokemon identifies the foe's highest non-HP stat",
+    },
 	scarilyadorable: {
 		onStart(pokemon) {
 			let activated = false;
@@ -2093,36 +2116,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Weather Power",
 		shortDesc: "1.5x SpA while under any weather. User loses 12.5% of its HP in any weather.",
 	},
-/*
 	plotarmor: {
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.recoil || move.hasCrashDamage) {
-				this.debug('Plot Armor boost');
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onDamagePriority: -100,
-		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'Plot Armor');
-				return target.hp - 1;
-			}
-		},
+        onBasePowerPriority: 23,
+        onBasePower(basePower, attacker, defender, move) {
+            if (move.recoil || move.hasCrashDamage) {
+                this.debug('Plot Armor boost');
+                return this.chainModify([0x1333, 0x1000]);
+            }
+        },
+        onDamagePriority: -100,
+        onDamage(damage, target, source, effect) {
+            if (damage >= target.hp && effect && (effect.id === 'recoil' || ((effect.id === 'jumpkick' || effect.id === 'highjumpkick') && source === target))) {
+                this.add('-ability', target, 'Plot Armor');
+                return target.hp - 1;
+            }
+        },
 		name: "Plot Armor",
 		shortDesc: "Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
-*/
 	reversegear: {
 		name: "Reverse Gear",
 		onBoost(boost) {
       		 boost.spe *= -1;
       },
 		shortDesc: "Stat boosts to the Speed stat are inversed.",
-	},
-	plotarmor: {
-		name: "Plot Armor",
-		shortDesc: "(Non-Functional Placeholder) Reckless + If this Pokemon would faint due to recoil or crash damage, it will instead survive with 1 HP.",
 	},
 	innerfocus: {
 		onTryAddVolatile(status, pokemon) {
@@ -2885,33 +2902,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
 	},	
 */
-	electrolytes: {
-		onSetStatus(status, target, source, effect) { 
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-			}
-			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
-				this.boost({[statName]: 1}, this.effectData.source);
-			}
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (pokemon.status) {
-				this.debug('electrolytes');
-				this.add('-activate', pokemon, 'ability: Electrolytes');
-				pokemon.cureStatus();
-			}
-		},
-		name: "Electrolytes",
-		shortDesc: "(Bugged) When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
-	},	
+    electrolytes: {
+        onResidualOrder: 5,
+        onResidualSubOrder: 4,
+        onResidual(pokemon) {
+            if (pokemon.hp && pokemon.status) {
+                if (!pokemon.statusData.source || !pokemon.statusData.source.side || pokemon.statusData.source.side === pokemon.side) return;
+                this.debug('Electrolytes');
+                let statName = 'atk';
+                let bestStat = 0;
+                let s: StatNameExceptHP;
+                for (s in pokemon.storedStats) {
+                    if (pokemon.storedStats[s] > bestStat) {
+                        statName = s;
+                        bestStat = pokemon.storedStats[s];
+                    }
+                }
+                this.boost({[statName]: 1}, pokemon);
+                pokemon.cureStatus();
+            }
+        },
+        name: "Electrolytes",
+        rating: 4,
+		  shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+    },
 	workability: {
 		onModifyMove(move) {
 			move.stab = 2;
@@ -3035,5 +3049,122 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Undercut",
 		shortDesc: "This Pokemon's moves of 80 power or less have 1.40625x power, but its moves higher than 80 power have 0.75x power.",
 	},	
+	heatgenerator: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Generator');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Generator');
+				return this.chainModify(1.5);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Heat Generator",
+		shortDesc: "Regenerator + Blaze",
+	},	
+	flamingskin: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Flaming Skin');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectData.target !== defender) return;
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Flaming Skin",
+		shortDesc: "Dry Skin + Flame Body",
+	},	
+	etativel: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				boost[i]! *= -1;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Etativel');
+				return null;
+			}
+		},
+		name: "Etativel",
+		shortDesc: "Contrary + Levitate",
+	},	
+	clutchfactor: {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.category === 'Special' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Clutch Factor boost boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Clutch Factor",
+		shortDesc: "Special Attacks are boosted by 1.5x at 1/3 HP or less.",
+	},	
+	stickysurge: {
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Surge');
+				return false;
+			}
+		},
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+		name: "Sticky Surge",
+		shortDesc: "Sticky Hold + Electric Surge.",
+	},	
+    selfsacrifice: {
+        onFaint(pokemon) {
+            pokemon.side.addSlotCondition(pokemon, 'selfsacrifice');
+        },
+        condition: {
+            onStart(pokemon, source) {
+                this.effectData.hp = source.maxhp / 4;
+            },
+            onSwap(target) {
+                if (!target.fainted) {
+                    const damage = this.heal(this.effectData.hp, target, target);
+                    if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Self Sacrifice', '[of] ' + this.effectData.source);
+                    target.side.removeSlotCondition(target, 'selfsacrifice');
+                }
+            },
+        },
+      name: "Self Sacrifice",
+		shortDesc: "When this Pokemon faints, the replacement is healed by 1/4 of this Pokemon's max HP",
+    },
 };
  

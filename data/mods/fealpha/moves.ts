@@ -10,4 +10,8 @@ darkvoid: {
 			return null;
 		},
 	},
+	icehammer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
