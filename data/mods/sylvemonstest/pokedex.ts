@@ -2653,7 +2653,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dracovish: {
       inherit: true,
-      abilities: {0: "Water Absorb", 1: "Strong Jaw", H: "Sand Rush"},
+      abilities: {0: "Water Absorb", 1: "Rough Skin", H: "Sand Rush"},
 	},
 	arctovish: {
       inherit: true,

@@ -2643,7 +2643,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
 			if (move.type === 'Fighting' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
-				move.type = 'Dark';
+				move.type = 'Fire';
 				(move as any).gyaruBoosted = true;
 			}
 		},

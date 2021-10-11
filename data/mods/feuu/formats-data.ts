@@ -562,7 +562,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	crustboar: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	paracoal: {
@@ -708,7 +708,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	pherogonga: {
-		tier: "Uncoded",
+		tier: "FEUU",
 		doublesTier: "DUU",
 	},
 	crawmise: {
@@ -730,6 +730,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wishiruptischoolmega: {
 		tier: "FEUUber",
 		doublesTier: "DUUber",
+	},
+	torranadustherian: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	togetops: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	claylamar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	toxicargo: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	vishitomb: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	swampflora: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	swampfloramega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	swalurchin: {
+		tier: "FERU",
+		doublesTier: "DUU",
+	},
+	serpeblim: {
+		tier: "FERU",
+		doublesTier: "DUU",
 	},
 	
 	
