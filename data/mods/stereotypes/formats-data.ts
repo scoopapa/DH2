@@ -186,7 +186,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	jaegormschool: {
+	jaegormcollective: {
 	},
 	fantom: {
 		tier: "ST",
