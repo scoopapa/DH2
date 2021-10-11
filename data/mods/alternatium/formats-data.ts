@@ -302,12 +302,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	/*shaymin: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	shayminsky: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	basculin: {
+	/*basculin: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -374,12 +374,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kyuremwhite: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	keldeo: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	keldeoresolute: {
+	swordeo: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -387,10 +387,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	meloettapirouette: {
+	meloettafighter: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	genesect: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

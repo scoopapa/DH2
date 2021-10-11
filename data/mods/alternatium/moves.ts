@@ -909,4 +909,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
+	relicsong: {
+		num: 547,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Relic Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			move.type = 'Psychic';
+			move.basePower = 75;
+			move.ignoreImmunity = {'Psychic': true};
+		},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	rockyslash: {
+		num: 1007,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 20 * pokemon.positiveBoosts('atk');
+		},
+		category: "Physical",
+		shortDesc: "+ 20 power for each of the user's Attack boosts.",
+		name: "Rocky Slash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
 };
