@@ -2480,6 +2480,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	slowbrogalar: {
 		learnset: {
+			toxic: ["8L1"],
+			teleport: ["8L1"],
+			toxicspikes: ["8L1"],
 			acid: ["8L1"],
 			amnesia: ["8M", "8L27"],
 			attract: ["8M"],
@@ -5961,6 +5964,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			bulkup: ["8L1"],
 			leechseed: ["8L1"],
 			synthesis: ["8L1"],
+			swordsdance: ["8L1"],
+			recover: ["8L1"],
+			powerwhip: ["8L1"],
+			closecombat: ["8L1"],
 		},
 	},
 	deoxysgem: {
@@ -6215,6 +6222,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			storedpower: ["8L1"],
 			earthquake: ["8L1"],
 			bodypress: ["8L1"],
+			coreenforcer: ["8L1"],
+			stealthrock: ["8L1"],
 		},
 	},
 	deoxysspeed: {
@@ -9635,6 +9644,15 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["8M", "8L42", "7M", "7L51", "6M", "6L51", "5M", "5L51"],
 			zapcannon: ["8L70", "7L66", "6L66", "5L66"],
 			zenheadbutt: ["8M", "7T", "6T", "5T"],
+			scald: ["8L1"],
+			soak: ["8L1"],
+			flareblitz: ["8L1"],
+			willowisp: ["8L1"],
+			freezedry: ["8L1"],
+			haze: ["8L1"],
+			volttackle: ["8L1"],
+			magnetrise: ["8L1"],
+			infestation: ["8L1"],
 		},
 	},
 	genesecttypedelta: {
@@ -10862,6 +10880,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	silvally: {
 		learnset: {
+			extremespeed: ["8L1"],
 			aerialace: ["8L1", "7M", "7L20"],
 			airslash: ["8M", "8L30", "7L60"],
 			bite: ["8L1", "7L15"],

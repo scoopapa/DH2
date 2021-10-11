@@ -66,11 +66,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority + 0;
 			}
 		},
-		onBasePower(basePower, source, move) {
-			if (source.activeMoveActions < 2) {
-				this.chainModify(0.75);
-			}
-		},
 		name: "Quick Draw",
 		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
 		rating: 2.5,
@@ -314,6 +309,33 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					}
 				}
 				this.boost({[statNameOpp]: 1}, foeactive);
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, source) {
+			if (source.hasItem('burndrive')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpA(spa, source) {
+			if (source.hasItem('chilldrive')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDef(def, source) {
+			if (source.hasItem('dousedrive')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, source) {
+			if (source.hasItem('dousedrive')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe, source) {
+			if (source.hasItem('shockdrive')) {
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Private Wi-Fi",
