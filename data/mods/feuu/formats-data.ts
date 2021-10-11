@@ -864,7 +864,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sigileye: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["calmmind", "hex", "psychoshift", "roost"],
+		randomBattleMoves: ["calmmind", "hex", "thunderwave", "roost"],
 		randomBattleLevel: 77,
 	},
 	darmearna: {
