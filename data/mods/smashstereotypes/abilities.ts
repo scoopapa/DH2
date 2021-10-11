@@ -73,4 +73,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 225,
 	},
+	grimneigh: {
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Grim Neigh",
+		shortDesc: "This Pokemon deals 1.5x damage to burned opponents.",
+		rating: 3,
+		num: 265,
+	},
 };

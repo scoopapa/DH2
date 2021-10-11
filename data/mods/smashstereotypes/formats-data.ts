@@ -46,4 +46,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	silvallyrock: {
 		tier: "SSS",
 	},
+	pincurchin: {
+		tier: "SSS",
+	},
+	spectrier: {
+		tier: "SSS",
+	},
+	chillyte: {
+		tier: "SSS",
+	},
+	chillytemega: {
+		tier: "SSS Uber",
+	},
 };
