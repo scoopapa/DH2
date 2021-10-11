@@ -564,6 +564,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crustboar: {
 		tier: "FEUU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["headsmash", "flareblitz", "spikes", "shellsmash", "earthquake", "superpower"],
+		randomBattleLevel: 100,
 	},
 	paracoal: {
 		tier: "FEUU",
@@ -734,38 +736,56 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	torranadustherian: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["hurricane", "fireblast", "nastyplot", "focusblast", "knockoff", "partingshot", "willowisp", "defog"],
+		randomBattleLevel: 100,
 	},
 	togetops: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["flipturn", "liquidation", "aquajet", "ironhead", "swordsdance", "knockoff"],
+		randomBattleLevel: 100,
 	},
 	claylamar: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["knockoff", "rapidspin", "toxic", "stealthrock", "earthquake", "superpower"],
+		randomBattleLevel: 100,
 	},
 	toxicargo: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["shellsmash", "sludgebomb", "earthpower", "fireblast", "lavaplume", "recover", "stealthrock", "knockoff"],
+		randomBattleLevel: 100,
 	},
 	vishitomb: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["fishiousrend", "willowisp", "poltergeist", "protect", "shadowsneak", "iciclecrash"],
+		randomBattleLevel: 100,
 	},
 	swampflora: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["flipturn", "synthesis", "stealthrock", "gigadrain", "scald"],
+		randomBattleLevel: 100,
 	},
 	swampfloramega: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["raindance", "liquidation", "petalblizzard", "earthquake"],
+		randomBattleLevel: 100,
 	},
 	swalurchin: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["sludgebomb", "risingvoltage", "spikes", "recover", "icebeam", "hydropump"],
+		randomBattleLevel: 100,
 	},
 	serpeblim: {
 		tier: "FERU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["glare", "hex", "strengthsap", "leechseed", "knockoff", "shadowball", "willowisp"],
+		randomBattleLevel: 100,
 	},
 	
 	
