@@ -1,6 +1,6 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	yanmegashell: {
-        inheritMoves: ['Yanmega', 'Torkoal'],
+      fusion: ['Yanmega', 'Torkoal'],
 		num: 1,
 		name: "Yanmega-Shell",
 		types: ["Bug", "Fire"],
@@ -9,7 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 131.9,
 	},
 	pelipperink: {
-        inheritMoves: ['Pelipper', 'Tentacruel'],
+      fusion: ['Pelipper', 'Tentacruel'],
 		num: 2,
 		name: "Pelipper-Ink",
 		types: ["Water", "Poison"],
@@ -18,7 +18,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 83,
 	},
 	excadrillboulder: {
-		inheritMoves: ['Excadrill', 'Gigalith'],
+		fusion: ['Excadrill', 'Gigalith'],
 		num: 3,
 		name: "Excadrill-Boulder",
 		types: ["Steel", "Rock"],
@@ -27,7 +27,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 300.4,
 	},
 	vanilluxefur: {
-		inheritMoves: ['Vanilluxe', 'Beartic'],
+		fusion: ['Vanilluxe', 'Beartic'],
 		num: 4,
 		name: "Vanilluxe-Fur",
 		types: ["Ice"],
@@ -36,7 +36,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 311.5,
 	},
 	butterfreeangler: {
-		inheritMoves: ['Butterfree', 'Lanturn'],
+		fusion: ['Butterfree', 'Lanturn'],
 		num: 5,
 		name: "Butterfree-Angler",
 		types: ["Water", "Flying"],
@@ -45,7 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 54.5,
 	},
     dedenneluchador: {
-		inheritMoves: ['Dedenne', 'Hawlucha'],
+		fusion: ['Dedenne', 'Hawlucha'],
 		num: 6,
 		name: "Dedenne-Luchador",
 		types: ["Electric", "Fighting"],
@@ -54,7 +54,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 23.7,
 	},
     shucklebrick: {
-		inheritMoves: ['Shuckle', 'Stakataka'],
+		fusion: ['Shuckle', 'Stakataka'],
 		num: 7,
 		name: "Shuckle-Brick",
 		types: ["Bug", "Steel"],
@@ -63,7 +63,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 840.5,
 	},
     munchlaxforest: {
-		inheritMoves: ['Munchlax', 'Torterra'],
+		fusion: ['Munchlax', 'Torterra'],
 		num: 8,
 		name: "Munchlax-Forest",
 		types: ["Normal", "Grass"],
@@ -72,7 +72,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 415,
 	},
     bunnelbyworker: {
-		inheritMoves: ['Bunnelby', 'Mudsdale'],
+		fusion: ['Bunnelby', 'Mudsdale'],
 		num: 9,
 		name: "Bunnelby-Worker",
 		types: ["Normal", "Ground"],
@@ -81,7 +81,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 925,
 	},
     sirfetchdfantasy: {
-		inheritMoves: ['Sirfetch\u2019d', 'Rapidash-Galar'],
+		fusion: ['Sirfetch\u2019d', 'Rapidash-Galar'],
 		num: 10,
 		name: "Sirfetch\u2019d-Fantasy",
 		types: ["Fighting", "Fairy"],
@@ -90,7 +90,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 197,
 	},
     frogadierbeetle: {
-		inheritMoves: ['Frogadier', 'Heracross'],
+		fusion: ['Frogadier', 'Heracross'],
 		num: 11,
 		name: "Frogadier-Beetle",
 		types: ["Water", "Bug"],
@@ -99,7 +99,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 64.9,
 	},
     chandelureballoon: {
-		inheritMoves: ['Chandelure', 'Drifblim'],
+		fusion: ['Chandelure', 'Drifblim'],
 		num: 12,
 		name: "Chandelure-Balloon",
 		types: ["Fire", "Ghost"],
@@ -108,7 +108,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 49.4,
 	},
     infernapeclimber: {
-		inheritMoves: ['Infernape', 'Exeggutor-Alola'],
+		fusion: ['Infernape', 'Exeggutor-Alola'],
 		num: 13,
 		name: "Infernape-Climber",
 		types: ["Fire", "Dragon"],
@@ -117,7 +117,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 470,
 	},
     ribombeecharmer: {
-		inheritMoves: ['Ribombee', 'Steelix'],
+		fusion: ['Ribombee', 'Steelix'],
 		num: 14,
 		name: "Ribombee-Charmer",
 		types: ["Fairy", "Steel"],
@@ -126,7 +126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 400.5,
 	},
     beheeyemufo: {
-		inheritMoves: ['Beheeyem', 'Magnezone'],
+		fusion: ['Beheeyem', 'Magnezone'],
 		num: 15,
 		name: "Beheeyem-UFO",
 		types: ["Psychic", "Electric"],
@@ -135,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 214.5,
 	},
     sableyedoom: {
-		inheritMoves: ['Sableye', 'Absol'],
+		fusion: ['Sableye', 'Absol'],
 		num: 16,
 		name: "Sableye-Doom",
 		types: ["Dark"],
@@ -144,7 +144,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 58,
 	},
     mareaniemagma: {
-		inheritMoves: ['Mareanie', 'Salazzle'],
+		fusion: ['Mareanie', 'Salazzle'],
 		num: 17,
 		name: "Mareanie-Magma",
 		types: ["Merciless", "Corrosion"],
@@ -153,7 +153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 30.2,
 	},
     thwackeydune: {
-		inheritMoves: ['Thwackey', 'Hippowdown'],
+		fusion: ['Thwackey', 'Hippowdown'],
 		num: 18,
 		name: "Thwackey-Dune",
 		types: ["Grass", "Ground"],
@@ -162,7 +162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 314,
 	},
     sphealsiren: {
-		inheritMoves: ['Spheal', 'Tapu-Fini'],
+		fusion: ['Spheal', 'Tapu-Fini'],
 		num: 19,
 		name: "Spheal-Siren",
 		types: ["Ice", "Fairy"],
@@ -171,7 +171,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 60.7,
 	},
     pincurchingoo: {
-		inheritMoves: ['Pincurchin', 'Sligoo'],
+		fusion: ['Pincurchin', 'Sligoo'],
 		num: 20,
 		name: "Pincurchin-Goo",
 		types: ["Electric", "Dragon"],
@@ -180,7 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 151.5,
 	},
     nihilegopsychosis: {
-		inheritMoves: ['Nihilego', 'Indeedee-f'],
+		fusion: ['Nihilego', 'Indeedee-f'],
 		num: 21,
 		name: "Nihilego-Psychosis",
 		types: ["Rock", "Psychic"],
@@ -189,7 +189,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 83,
 	},
     stunfiskjagged: {
-		inheritMoves: ['Stunfisk', 'Druddigon'],
+		fusion: ['Stunfisk', 'Druddigon'],
 		num: 22,
 		name: "Stunfisk-Jagged",
 		types: ["Ground", "Dragon"],
@@ -198,7 +198,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 150,
 	},
     pawniardaviation: {
-		inheritMoves: ['Pawniard', 'Mandibuzz'],
+		fusion: ['Pawniard', 'Mandibuzz'],
 		num: 23,
 		name: "Pawniard-Aviation",
 		types: ["Steel", "Dark"],
@@ -207,7 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 49.5,
 	},
     watchogscout: {
-		inheritMoves: ['Watchog', 'Braviary'],
+		fusion: ['Watchog', 'Braviary'],
 		num: 24,
 		name: "Watchog-Scout",
 		types: ["Normal", "Flying"],
@@ -216,7 +216,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 68,
 	},
     mothimgourd: {
-		inheritMoves: ['Mothim', 'Gourgeist-Super'],
+		fusion: ['Mothim', 'Gourgeist-Super'],
 		num: 25,
 		name: "Mothim-Gourd",
 		types: ["Bug", "Ghost"],
@@ -225,7 +225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 62.3,
 	},
     clefairyselene: {
-		inheritMoves: ['Clefairy', 'Selene'],
+		fusion: ['Clefairy', 'Selene'],
 		num: 26,
 		name: "Clefairy-Selene",
 		types: ["Fairy", "Rock"],
@@ -234,7 +234,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 175.5,
 	},
     hoothootperch: {
-		inheritMoves: ['Hoothoot', 'Slowking-Galar'],
+		fusion: ['Hoothoot', 'Slowking-Galar'],
 		num: 27,
 		name: "Hoothoot-Perch",
 		types: ["Normal", "Poison"],
@@ -243,7 +243,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 100.7,
 	},
     swoobataroma: {
-		inheritMoves: ['Swoobat', 'Vileplume'],
+		fusion: ['Swoobat', 'Vileplume'],
 		num: 28,
 		name: "Swoobat-Aroma",
 		types: ["Psychic", "Grass"],
@@ -252,7 +252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 29.1,
 	},
     blacephalonborealis: {
-		inheritMoves: ['Blacephalon', 'Aurorus'],
+		fusion: ['Blacephalon', 'Aurorus'],
 		num: 29,
 		name: "Blacephalon-Borealis",
 		types: ["Ghost", "Ice"],
@@ -261,7 +261,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 238,
 	},
     malamargirafarig: {
-		inheritMoves: ['Malamar', 'Girafarig'],
+		fusion: ['Malamar', 'Girafarig'],
 		num: 30,
 		name: "Malamar-Parallel",
 		types: ["Dark", "Psychic"],
