@@ -106,7 +106,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	shadowtag: {
 		onSwitchOut(source, target) {
-			if (target === source) return;
 			this.damage(target.baseMaxhp / 8, source);
 			this.add('-ability', source, 'Shadow Tag');
 		},
