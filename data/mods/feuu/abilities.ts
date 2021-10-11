@@ -2902,33 +2902,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
 	},	
 */
-	electrolytes: {
-		onSetStatus(status, target, source, effect) { 
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-			}
-			if (status.id === ['slp', 'brn', 'tox', 'psn', 'frz', 'par']) {
-				this.boost({[statName]: 1}, this.effectData.source);
-			}
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (pokemon.status) {
-				this.debug('electrolytes');
-				this.add('-activate', pokemon, 'ability: Electrolytes');
-				pokemon.cureStatus();
-			}
-		},
-		name: "Electrolytes",
-		shortDesc: "(Bugged) When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
-	},	
+    electrolytes: {
+        onResidualOrder: 5,
+        onResidualSubOrder: 4,
+        onResidual(pokemon) {
+            if (pokemon.hp && pokemon.status) {
+                if (!pokemon.statusData.source || !pokemon.statusData.source.side || pokemon.statusData.source.side === pokemon.side) return;
+                this.debug('Electrolytes');
+                let statName = 'atk';
+                let bestStat = 0;
+                let s: StatNameExceptHP;
+                for (s in pokemon.storedStats) {
+                    if (pokemon.storedStats[s] > bestStat) {
+                        statName = s;
+                        bestStat = pokemon.storedStats[s];
+                    }
+                }
+                this.boost({[statName]: 1}, pokemon);
+                pokemon.cureStatus();
+            }
+        },
+        name: "Electrolytes",
+        rating: 4,
+		  shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+    },
 	workability: {
 		onModifyMove(move) {
 			move.stab = 2;
