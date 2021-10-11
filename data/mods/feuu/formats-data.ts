@@ -437,7 +437,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sableior: {
 		tier: "FEUU",
-		doublesTier: "DUU",,
+		doublesTier: "DUU",
 	},
 	sableiormeteor: {
 		tier: "FEUU",
