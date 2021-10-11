@@ -506,7 +506,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 264,
 		name: "Linoone",
 		types: ["Normal", "Fairy"],
-		baseStats: {hp: 77, atk: 103, def: 73, spa: 127, spd: 97, spe: 97},
+		baseStats: {hp: 73, atk: 103, def: 73, spa: 127, spd: 97, spe: 97},
 		abilities: {0: "Beast Boost"},
 		heightm: 0.5,
 		weightkg: 32.5,
