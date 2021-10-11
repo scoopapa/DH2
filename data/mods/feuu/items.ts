@@ -370,4 +370,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 767,
 		desc: "If held by an Avarupt or Wishirupti, this item allows it to Mega Evolve in battle.",
 	},
+	swampertite: {
+		name: "Swampertite",
+		spritenum: 612,
+		megaStone: "Swampflora-Mega",
+		megaEvolves: "Swampflora",
+		itemUser: ["Swampflora"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 752,
+		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+	},
 };
