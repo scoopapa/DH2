@@ -105,7 +105,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onSwitchOut(source, target) {
+		onFoeSwitchOut(source, target) {
 			for (const target of source.side.foe.active) {
 				this.damage(target.baseMaxhp / 8, target, source);
 				this.add('-ability', source, 'Shadow Tag');
