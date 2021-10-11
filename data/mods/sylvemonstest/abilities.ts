@@ -541,7 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe (spe) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(2);
 			}
 		},
