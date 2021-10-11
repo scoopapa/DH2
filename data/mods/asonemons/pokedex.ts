@@ -81,9 +81,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 925,
 	},
     sirfetchdfantasy: {
-		inheritMoves: ['Sirfetch'd, 'Rapidash-Galar'],
+		inheritMoves: ['Sirfetch\u2019d', 'Rapidash-Galar'],
 		num: 10,
-		name: "Sirfetch'd-Fantasy",
+		name: "Sirfetch\u2019d-Fantasy",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 90, atk: 114, def: 90, spa: 105, spd: 80, spe: 105},
 		abilities: {0: "As One (Rapidash-Galar)"},
