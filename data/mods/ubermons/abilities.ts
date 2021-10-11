@@ -105,7 +105,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	shadowtag: {
-		onFoeSwitchOut(source, target) {
+		onSwitchOut(source, target) {
+			if (target === source) return;
 			this.damage(target.baseMaxhp / 8, source);
 			this.add('-message', `${target.name} got tagged by ${source.name}!`);
 		},
