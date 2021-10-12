@@ -1,6 +1,6 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: {[k: string]: SpeciesFormatsData} = {	
 	yanmegashell: {
 		tier: "OU",
-		doublesTier: "DOU",
-	},	
+		doublesTier: "OU",
+	},
 };
