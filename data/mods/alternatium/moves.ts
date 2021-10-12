@@ -965,17 +965,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(move, pokemon) {
 			if (this.field.isWeather('sunnyday')) {
 				this.field.clearWeather();
-			},
+			}
 			else if (this.field.isWeather('desolateland')) {
 				move.suppressWeather = true;
-			},
+			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Scald", target);
+			this.add('-anim', source, "Whirlpool", target);
 		},
 		secondary: null,
 		target: "normal",
-		type: "Fire",
+		type: "Water",
 	},
 };
