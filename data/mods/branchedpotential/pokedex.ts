@@ -485,7 +485,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Jorunny",
 		types: ["Normal", "Water"],
 		baseStats: {hp: 105, atk: 76, def: 84, spa: 54, spd: 96, spe: 65},
-		abilities: {0: "Immunity", 1: "Cute Charm", H: "Oblivious"},
+		abilities: {0: "Cute Charm", 1: "Immunity", H: "Oblivious"},
 		weightkg: 33.3,
 		otherFormes: ["Jorunny-Mega"],
 		formeOrder: ["Jorunny", "Jorunny-Mega"],

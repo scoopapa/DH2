@@ -11,7 +11,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("orbeetle", ["focusblast", "teleport"]);
 		newMoves("thievul", ["focusblast", "aurasphere", "hiddenpower", "moonlight", "spiritbreak"]);
 		newMoves("toucannon", ["appleacid", "hurricane", "nastyplot"]);
-		newMoves("gumshoos", ["coil", "bodyslam"]);
+		newMoves("gumshoos", ["bodyslam", "coil", "drainpunch"]);
 		newMoves("vikavolt", ["leafblade", "darkpulse", "uturn", "thundercage"]);
 		newMoves("lycanrocmidnight", ["headsmash"]);
 		newMoves("lycanroc", ["extremespeed", "spikes"]);

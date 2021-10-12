@@ -312,7 +312,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	steelix: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 105, def: 200, spa: 55, spd: 75, spe: 30},
+		baseStats: {hp: 75, atk: 105, def: 200, spa: 55, spd: 75, spe: 30},
 		abilities: {0: "Clear Body", 1: "Sand Veil"},
 	},
 	torkoal: {
@@ -2152,8 +2152,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 291,
 		color: "Brown",
 		prevo: "Piloswine",
-		evoType: "levelMove",
-		evoMove: "Ancient Power",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Field"],
 	},
 	roserade: {
@@ -2271,8 +2271,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 20.3,
 		color: "Purple",
 		prevo: "Aipom",
-		evoType: "levelMove",
-		evoMove: "Double Slap",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Field"],
 	},
 	sneasel: {
@@ -2307,8 +2307,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 140,
 		color: "Pink",
 		prevo: "Lickitung",
-		evoType: "levelMove",
-		evoMove: "Rollout",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Monster"],
 	},
 	rhyperior: {
@@ -2335,8 +2335,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 128.6,
 		color: "Blue",
 		prevo: "Tangela",
-		evoType: "levelMove",
-		evoMove: "Ancient Power",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Grass"],
 	},
 	magnezone: {
@@ -2429,8 +2429,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 51.5,
 		color: "Green",
 		prevo: "Yanma",
-		evoType: "levelMove",
-		evoMove: "Ancient Power",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
 		eggGroups: ["Bug"],
 	},
 	kirlia: {

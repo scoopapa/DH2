@@ -86,33 +86,86 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	"adamantorb": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Dialga') return false;
+			return true;
+		},
 	},
 	"deepseascale": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
+			return true;
+		},
 	},
 	"deepseatooth": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Clamperl') return false;
+			return true;
+		},
 	},
 	"griseousorb": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Giratina') return false;
+			return true;
+		},
 	},
 	"luckypunch": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Chansey') return false;
+			return true;
+		},
 	},
 	"lustrousorb": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Palkia') return false;
+			return true;
+		},
 	},
 	"metalpowder": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
+			return true;
+		},
 	},
 	"quickpowder": {
 		inherit: true,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ditto') return false;
+			return true;
+		},
 	},
 	"stick": {
 		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
+				return false;
+			}
+			return true;
+		},
+	},
+	"leek": {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
+				return false;
+			}
+			return true;
+		},
 	},
 	"thickclub": {
 		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 105) || pokemon.baseSpecies.num === 105) {
+				return false;
+			}
+			return true;
+		},
 	},
 	"graduationscale": {
 		id: "graduationscale",
@@ -533,6 +586,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
+		},
+		onTakeItem: function(item, pokemon) {
+			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
+			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
+				return false;
+			}
+			return true;
 		},
 		itemUser: ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'],
 		num: 236,
