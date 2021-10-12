@@ -967,7 +967,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.field.clearWeather();
 			}
 			else if (this.field.isWeather('desolateland')) {
-				move.suppressWeather = true;
+				this.suppressWeather = true;
 			}
 		},
 		onPrepareHit: function(target, source, move) {
