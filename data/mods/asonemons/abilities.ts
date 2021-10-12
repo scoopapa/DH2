@@ -10,8 +10,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.field.setWeather('sunnyday');
 		},
-        onResidualOrder: 26,
-		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				this.boost({spe: 1}),
