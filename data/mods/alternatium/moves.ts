@@ -966,9 +966,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (this.field.isWeather('sunnyday')) {
 				this.field.clearWeather();
 			}
-			else if (this.field.isWeather('desolateland')) {
-				this.suppressWeather = true;
-			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
