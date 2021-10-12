@@ -823,7 +823,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Döppelgangers",
 		desc: [
-			"<b>Stereotypes</b>: A project that aims to create a counter to every Pokemon.",
+			"<b>Döppelgangers</b>: A project that aims to create a counter to every Pokemon.",
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/d%C3%B6ppelgangers-v2.3691045/">Döppelgangers on Smogon Forums</a>`,
@@ -1403,7 +1403,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Super Smash Stereotypes",
 		desc: [
-			"<b>Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
+			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
