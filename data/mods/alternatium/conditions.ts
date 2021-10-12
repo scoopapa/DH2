@@ -37,7 +37,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
-			if (move.type === 'Water' && move.category !== 'Status' || move.id !== 'boilingvortex') {
+			if (move.id === 'boilingvortex') return;
+			if (move.type === 'Water' && move.category !== 'Status') {
 				this.debug('Desolate Land water suppress');
 				this.add('-fail', attacker, move, '[from] Desolate Land');
 				this.attrLastMove('[still]');
