@@ -330,7 +330,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	thornbrogalar: {
 		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleMoves: ["calmind", "slackoff", "sludgebomb", "scald", "flamethrower", "spikes"],
+		randomBattleMoves: ["calmmind", "slackoff", "sludgebomb", "scald", "flamethrower", "spikes"],
 		randomBattleLevel: 77,
 	},
 	glidol: {
