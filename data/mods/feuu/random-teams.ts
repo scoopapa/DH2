@@ -1550,7 +1550,7 @@ export class RandomTeams {
 				if (restrict) {					
 					// Make sure only Fusion Evolution UU Pokemon are used
 					// I'm certain there's a better way to do this but I'm too fucking tired right now
-					if (species.tier !== "FEUU" || species.tier !== "FERU") {
+					if (species.tier !== "FEUU") {
 						continue;
 					}
 
