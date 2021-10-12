@@ -14,7 +14,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				this.boost({spe: 1}, this.dex.getAbility('speedboost')),
+				this.boost({spe: 1}),
 			}
 		},
 		isPermanent: true,
