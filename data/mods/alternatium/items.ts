@@ -52,6 +52,11 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.5);
+			}
+		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
@@ -64,6 +69,11 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false;
 			}
 			return true;
+		},
+		onModifySpA(spa, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.5);
+			}
 		},
 		onDrive: 'Ice',
 		num: 119,
@@ -113,6 +123,16 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false;
 			}
 			return true;
+		},
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.5);
+			}
 		},
 		onDrive: 'Water',
 		num: 116,
@@ -660,6 +680,11 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false;
 			}
 			return true;
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.5);
+			}
 		},
 		onDrive: 'Electric',
 		num: 117,

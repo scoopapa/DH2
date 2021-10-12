@@ -311,33 +311,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.boost({[statNameOpp]: 1}, foeactive);
 			}
 		},
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, source) {
-			if (source.hasItem('burndrive')) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpA(spa, source) {
-			if (source.hasItem('chilldrive')) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifyDef(def, source) {
-			if (source.hasItem('dousedrive')) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpDPriority: 2,
-		onModifySpD(spd, source) {
-			if (source.hasItem('dousedrive')) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpe(spe, source) {
-			if (source.hasItem('shockdrive')) {
-				return this.chainModify(1.5);
-			}
-		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,

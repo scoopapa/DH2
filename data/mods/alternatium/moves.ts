@@ -919,7 +919,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		onModifyType(move, pokemon) {
-			if (pokemon.species.id !== 'shayminsky') return;
+			if (pokemon.species.id !== 'meloetta') return;
 			move.type = 'Psychic';
 			move.basePower = 75;
 			move.ignoreImmunity = {'Psychic': true};
@@ -945,8 +945,37 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sacred Sword", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+	},
+	boilingvortex: {
+		num: 1008,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		name: "Boiling Vortex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('sunnyday')) {
+				this.field.clearWeather();
+			},
+			else if (this.field.isWeather('desolateland')) {
+				move.suppressWeather = true;
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scald", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
 	},
 };
