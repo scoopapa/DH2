@@ -909,4 +909,94 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
+	relicsong: {
+		num: 547,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Relic Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.id !== 'meloetta') return;
+			move.type = 'Psychic';
+			move.basePower = 75;
+			move.ignoreImmunity = {'Psychic': true};
+		},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	rockyslash: {
+		num: 1007,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 20 * pokemon.positiveBoosts('atk');
+		},
+		category: "Physical",
+		shortDesc: "+ 20 power for each of the user's Attack boosts.",
+		name: "Rocky Slash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sacred Sword", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	boilingvortex: {
+		num: 1008,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "Ignores Desolate Land and removes Sunny Day.",
+		name: "Boiling Vortex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('sunnyday')) {
+				this.field.clearWeather();
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Whirlpool", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	seethingsauna: {
+		num: 1009,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "Ignores Primordial Sea and removes Rain Dance.",
+		name: "Seething Sauna",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('raindance')) {
+				this.field.clearWeather();
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scald", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
 };

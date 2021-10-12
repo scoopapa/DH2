@@ -66,11 +66,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority + 0;
 			}
 		},
-		onBasePower(basePower, source, move) {
-			if (source.activeMoveActions < 2) {
-				this.chainModify(0.75);
-			}
-		},
 		name: "Quick Draw",
 		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
 		rating: 2.5,
@@ -489,5 +484,35 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		rating: 3,
 		num: 1013,
+	},
+	flowergift: {
+		onModifyAtkPriority: 3,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 4,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Flower Gift",
+		shortDesc: "If user is Shaymin-Sky and Sunny Day is active, its Attack and Sp. Def are 1.5x.",
+		rating: 1,
+		num: 122,
+	},
+	mistycoat: {
+		onModifySpDPriority: 6,
+		onModifySpD(pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.5);
+		},
+		name: "Misty Coat",
+		shortDesc: "If Misty Terrain is active, this Pokemon's Special Defense is multiplied by 1.5.",
+		rating: 0.5,
+		num: 1014,
 	},
 };

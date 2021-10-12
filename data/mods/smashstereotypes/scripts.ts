@@ -49,6 +49,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "sandaconda").learnset.crunch = ["8L1"];
 		this.modData("Learnsets", "sandaconda").learnset.suckerpunch = ["8L1"];
 		this.modData("Learnsets", "sandaconda").learnset.slitherstrike = ["8L1"];
+		
+		
+		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 	},
 	
 	teambuilderConfig: {
