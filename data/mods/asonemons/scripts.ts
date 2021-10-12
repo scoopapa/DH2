@@ -31,5 +31,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // only to specify the order of custom tiers
         customTiers: ['As OUne'],
 	},
-	
 };
