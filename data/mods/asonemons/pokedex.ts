@@ -1,6 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	yanmegashell: {
-      fusion: ['Yanmega', 'Torkoal'],
 		num: 1001,
 		name: "Yanmega-Shell",
 		types: ["Bug", "Fire"],
