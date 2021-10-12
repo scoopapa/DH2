@@ -1480,6 +1480,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterspout: ["8L1"],
 			teleport: ["8L1"],
 			trick: ["8L1"],
+			boilingvortex: ["8L1"],
 		},
 	},
 	ninetalesalola: {
