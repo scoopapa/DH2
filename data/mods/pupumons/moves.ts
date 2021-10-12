@@ -903,6 +903,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		name: "Tetrodotoxin",
+		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
