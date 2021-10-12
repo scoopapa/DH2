@@ -1,5 +1,6 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	grizzeal: {learnset: {
+		enroot: ["8L1"],
 		uturn: ["8L1"],
 		wish: ["8L1"],
 		protect: ["8L1"],
