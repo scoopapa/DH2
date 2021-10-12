@@ -975,4 +975,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	seethingsauna: {
+		num: 1009,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		name: "Seething Sauna",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('raindance')) {
+				this.field.clearWeather();
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scald", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
 };

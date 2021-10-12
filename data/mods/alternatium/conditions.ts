@@ -5,6 +5,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
+			if (move.id === 'seethingsauna') return;
 			if (move.type === 'Fire' && move.category !== 'Status') {
 				this.debug('Primordial Sea fire suppress');
 				this.add('-fail', attacker, move, '[from] Primordial Sea');
