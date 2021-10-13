@@ -405,7 +405,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://pastebin.com/PtqmRUhG">Littlest Cup VR and Sample Sets</a>`,
 		],
-		mod: 'gen8',
+		mod: 'littleestcup',
 		maxLevel: 1,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
 		banlist: ['All Pokemon'],
