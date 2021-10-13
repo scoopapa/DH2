@@ -1931,7 +1931,7 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'Doubles OU',
+		teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
@@ -1981,7 +1981,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'Doubles OU',
+		teambuilderFormat: 'Restricted',
 		onValidateTeam(team) {
 			const restrictedSpecies = [];
 			for (const set of team) {
