@@ -23,4 +23,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomDoubleBattleLevel: 88,
 		tier: "AFD",
 	},
+	stoutlandmegau: {
+		tier: "Special",
+		randomBattleMoves: ["pursuit", "recover", "return", "earthquake", "knockoff"],
+	},
 };
