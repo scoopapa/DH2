@@ -520,7 +520,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					} else {
 						this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
-						if (rawSpecies.creator) this.hint(`${rawSpecies.name} was submitted by ${rawSpecies.creator}!`);
+						if (rawSpecies.creator) this.add('-message', `${rawSpecies.name} was submitted by ${rawSpecies.creator}!`);
 						this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 					}
 				} else if (source.effectType === 'Status') {
