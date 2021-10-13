@@ -1639,4 +1639,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Magmortar, this item allows it to Mega Evolve in battle.",
 	},
+	granbite: {
+		name: "Granbite",
+		spritenum: 578,
+		megaStone: "Granbull-Mega",
+		megaEvolves: "Granbull",
+		itemUser: ["Granbull"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1106,
+		gen: 8,
+		desc: "If held by a Granbull, this item allows it to Mega Evolve in battle.",
+	},
+	mightyenite: {
+		name: "Mightyenite",
+		spritenum: 578,
+		megaStone: "Mightyena-Mega",
+		megaEvolves: "Mightyena",
+		itemUser: ["Mightyena"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1107,
+		gen: 8,
+		desc: "If held by a Mightyena, this item allows it to Mega Evolve in battle.",
+	},
+	stoutlandite: {
+		name: "Stoutlandite",
+		spritenum: 578,
+		megaStone: "Stoutland-Mega",
+		megaEvolves: "Stoutland",
+		itemUser: ["Stoutland"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1108,
+		gen: 8,
+		desc: "If held by a Stoutland, this item allows it to Mega Evolve in battle.",
+	},
 };
