@@ -123,8 +123,6 @@ export const Formats: {[k: string]: FormatData} = {
 				tierSpecies = this.dex.getSpecies('Groudon-Primal');
 			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
 				tierSpecies = this.dex.getSpecies('Kyogre-Primal');
-			} else if (species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID)) {
-				tierSpecies = this.dex.getSpecies('Rayquaza-Mega');
 			}
 			let problem = this.checkSpecies(set, species, tierSpecies, setHas);
 			if (problem) problems.push(problem);
