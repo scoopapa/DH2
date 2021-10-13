@@ -3,6 +3,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Butterfree-Gmax", "Butterfree-Mega"],
 		formeOrder: ["Butterfree", "Butterfree-Gmax", "Butterfree-Mega"],
+		movepoolAdditions: ["earthpower", "taunt"],
 	},
 	butterfreemega: {
 		num: 12,
@@ -17,11 +18,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Bug"],
 		requiredItem: "Butterfrite",
+		creator: "Mateeus",
 	},
 	raichu: {
 		inherit: true,
 		otherFormes: ["Raichu-Alola", "Raichu-Mega"],
 		formeOrder: ["Raichu", "Raichu-Alola", "Raichu-Mega"],
+		movepoolAdditions: ["highjumpkick"],
 	},
 	raichumega: {
 		num: 26,
@@ -29,18 +32,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Raichu",
 		forme: "Mega",
 		types: ["Electric", "Fighting"],
-		baseStats: {hp: 60, atk: 125, def: 55, spa: 110, spd: 100, spe: 125},
+		baseStats: {hp: 60, atk: 125, def: 65, spa: 110, spd: 100, spe: 125},
 		abilities: {0: "Reckless"},
 		heightm: 0.8,
 		weightkg: 30,
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
 		requiredItem: "Raichunite",
+		creator: "DrPumpkinz",
 	},
 	nidoqueen: {
 		inherit: true,
 		otherFormes: ["Nidoqueen-Mega"],
 		formeOrder: ["Nidoqueen", "Nidoqueen-Mega"],
+		movepoolAdditions: ["milkdrink"],
 	},
 	nidoqueenmega: {
 		num: 31,
@@ -56,6 +61,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Nidoqueenite",
+		creator: "MegaFlareon",
 	},
 	nidoking: {
 		inherit: true,
@@ -76,11 +82,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Monster", "Field"],
 		requiredItem: "Nidokinite",
+		creator: "MegaFlareon",
 	},
 	clefable: {
 		inherit: true,
 		otherFormes: ["Clefable-Mega"],
 		formeOrder: ["Clefable", "Clefable-Mega"],
+		movepoolAdditions: ["hex", "nastyplot", "shadowsneak", "willowisp"],
 	},
 	clefablemega: {
 		num: 36,
@@ -96,6 +104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Fairy"],
 		requiredItem: "Clefabite",
+		creator: "zxgzxg",
 	},
 	ninetales: {
 		inherit: true,
@@ -117,11 +126,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Ninetalesite",
 		battleOnly: "Ninetales-Alola",
+		creator: "DrPumpkinz",
 	},
 	parasect: {
 		inherit: true,
 		otherFormes: ["Parasect-Mega"],
 		formeOrder: ["Parasect", "Parasect-Mega"],
+		movepoolAdditions: ["junglehealing", "taunt"],
 	},
 	parasectmega: {
 		num: 47,
@@ -136,6 +147,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Bug", "Grass"],
 		requiredItem: "Parasite",
+		creator: "BitBitio",
 	},
 	dugtrio: {
 		inherit: true,
@@ -155,11 +167,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Dugtrionite",
+		creator: "lydian",
 	},
 	golduck: {
 		inherit: true,
 		otherFormes: ["Golduck-Mega"],
 		formeOrder: ["Golduck", "Golduck-Mega"],
+		movepoolAdditions: ["expandingforce", "psychicterrain", "recover", "shadowball"],
 	},
 	golduckmega: {
 		num: 55,
@@ -174,11 +188,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Golduckite",
+		creator: "KeroseneZanchu",
 	},
 	rapidash: {
 		inherit: true,
 		otherFormes: ["Rapidash-Galar", "Rapidash-Mega"],
 		formeOrder: ["Rapidash", "Rapidash-Galar", "Rapidash-Mega"],
+		movepoolAdditions: ["airslash", "uturn"],
 	},
 	rapidashmega: {
 		num: 78,
@@ -193,11 +209,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Rapidashinite",
+		creator: "Ausma",
 	},
 	electrode: {
 		inherit: true,
 		otherFormes: ["Electrode-Mega"],
 		formeOrder: ["Electrode", "Electrode-Mega"],
+		movepoolAdditions: ["mindblown"],
 	},
 	electrodemega: {
 		num: 101,
@@ -213,11 +231,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Mineral"],
 		requiredItem: "Electrodite",
+		creator: "KeroseneZanchu",
 	},
 	starmie: {
 		inherit: true,
 		otherFormes: ["Starmie-Mega"],
 		formeOrder: ["Starmie", "Starmie-Mega"],
+		movepoolAdditions: ["calmmind", "futuresight", "followme", "moonblast", "storedpower"],
 	},
 	starmiemega: {
 		num: 121,
@@ -233,11 +253,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Water 3"],
 		requiredItem: "Starminite",
+		creator: "BlueRay",
 	},
 	jynx: {
 		inherit: true,
 		otherFormes: ["Jynx-Mega"],
 		formeOrder: ["Jynx", "Jynx-Mega"],
+		movepoolAdditions: ["barrier", "bodypress"],
 	},
 	jynxmega: {
 		num: 124,
@@ -253,6 +275,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Jynxite",
+		creator: "KeroseneZanchu and Paulluxx",
 	},
 	vaporeon: {
 		inherit: true,
@@ -273,6 +296,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field"],
 		requiredItem: "Vaporeonite",
+		creator: "inkbug",
 	},
 	jolteon: {
 		inherit: true,
@@ -293,11 +317,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Jolteonite",
+		creator: "Hematite",
 	},
 	flareon: {
 		inherit: true,
 		otherFormes: ["Flareon-Mega"],
 		formeOrder: ["Flareon", "Flareon-Mega"],
+		movepoolAdditions: ["burnup", "morningsun"],
 	},
 	flareonmega: {
 		num: 136,
@@ -315,11 +341,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Flareon-Mega"],
 		formeOrder: ["Flareon", "Flareon-Mega"],
 		requiredItem: "Flareonite",
+		creator: "inkbug",
 	},
 	dragonite: {
 		inherit: true,
 		otherFormes: ["Dragonite-Mega"],
 		formeOrder: ["Dragonite", "Dragonite-Mega"],
+		movepoolAdditions: ["playrough"],
 	},
 	dragonitemega: {
 		num: 149,
@@ -334,11 +362,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Water 1", "Dragon"],
 		requiredItem: "Dragonitite",
+		creator: "lydian",
 	},
 	meganium: {
 		inherit: true,
 		otherFormes: ["Meganium-Mega"],
 		formeOrder: ["Meganium", "Meganium-Mega"],
+		movepoolAdditions: ["calmmind", "dragondance", "rockslide", "solarblade", "weatherball"],
 	},
 	meganiummega: {
 		num: 154,
@@ -354,11 +384,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Meganiumite",
+		creator: "inkbug",
 	},
 	typhlosion: {
 		inherit: true,
 		otherFormes: ["Typhlosion-Mega"],
 		formeOrder: ["Typhlosion", "Typhlosion-Mega"],
+		movepoolAdditions: ["explosion", "headcharge", "honeclaws", "morningsun", "rapidspin"],
 	},
 	typhlosionmega: {
 		num: 157,
@@ -374,11 +406,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Typhlosionite",
+		creator: "BitBitio",
 	},
 	feraligatr: {
 		inherit: true,
 		otherFormes: ["Feraligatr-Mega"],
 		formeOrder: ["Feraligatr", "Feraligatr-Mega"],
+		movepoolAdditions: ["darkpulse", "firefang", "suckerpunch", "thunderfang"],
 	},
 	feraligatrmega: {
 		num: 160,
@@ -394,11 +428,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Feraligatrite",
+		creator: "Ausma",
 	},
 	ariados: {
 		inherit: true,
 		otherFormes: ["Ariados-Mega"],
 		formeOrder: ["Ariados", "Ariados-Mega"],
+		movepoolAdditions: ["spikes", "strengthsap", "uturn"],
 	},
 	ariadosmega: {
 		num: 168,
@@ -413,27 +449,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Bug"],
 		requiredItem: "Ariadosite",
+		creator: "kakaks",
 	},
 	slowking: {
 		inherit: true,
 		otherFormes: ["Slowking-Galar", "Slowking-Mega"],
 		formeOrder: ["Slowking", "Slowking-Galar", "Slowking-Mega"],
-	},
-	slowkinggalar: {
-		num: 199,
-		name: "Slowking-Galar",
-		baseSpecies: "Slowking",
-		forme: "Galar",
-		types: ["Poison", "Psychic"],
-		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 110, spe: 30},
-		abilities: {0: "Curious Medicine", 1: "Own Tempo", H: "Regenerator"},
-		heightm: 1.8,
-		weightkg: 79.5,
-		color: "Pink",
-		prevo: "Slowpoke-Galar",
-		evoType: "trade",
-		evoItem: "King's Rock",
-		eggGroups: ["Monster", "Water 1"],
 	},
 	slowkingmega: {
 		num: 199,
@@ -451,11 +472,35 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoItem: "King's Rock",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Slowkinite",
+		creator: "Hematite",
+	},
+	granbull: {
+		inherit: true,
+		otherFormes: ["Granbull-Mega"],
+		formeOrder: ["Granbull", "Granbull-Mega"],
+		movepoolAdditions: ["knockoff", "milkdrink"],
+	},
+	granbullmega: {
+		num: 210,
+		name: "Granbull-Mega",
+		baseSpecies: "Granbull",
+		forme: "Mega",
+		types: ["Fairy", "Ground"],
+		genderRatio: {M: 0.25, F: 0.75},
+		baseStats: {hp: 90, atk: 150, def: 110, spa: 60, spd: 90, spe: 50},
+		abilities: {0: "Overcoat"},
+		heightm: 1.4,
+		weightkg: 48.7,
+		color: "Purple",
+		eggGroups: ["Field", "Fairy"],
+		requiredItem: "Granbite",
+		creator: "KeroseneZanchu",
 	},
 	magcargo: {
 		inherit: true,
 		otherFormes: ["Magcargo-Mega"],
 		formeOrder: ["Magcargo", "Magcargo-Mega"],
+		movepoolAdditions: ["energyball", "firelash"],
 	},
 	magcargomega: {
 		num: 219,
@@ -470,11 +515,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Magcargonite",
+		creator: "Ausma",
 	},
 	delibird: {
 		inherit: true,
 		otherFormes: ["Delibird-Mega"],
 		formeOrder: ["Delibird", "Delibird-Mega"],
+		movepoolAdditions: ["celebrate", "healingwish", "roost", "uturn", "wish"],
 	},
 	delibirdmega: {
 		num: 225,
@@ -489,11 +536,34 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Delibirdite",
+		creator: "Hematite",
+	},
+	mightyena: {
+		inherit: true,
+		otherFormes: ["Mightyena-Mega"],
+		formeOrder: ["Mightyena", "Mightyena-Mega"],
+		movepoolAdditions: ["moonlight", "pursuit", "stompingtantrum"],
+	},
+	mightyenamega: {
+		num: 262,
+		name: "Mightyena-Mega",
+		baseSpecies: "Mightyena",
+		forme: "Mega",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 70, atk: 140, def: 85, spa: 60, spd: 60, spe: 105},
+		abilities: {0: "Comedian"},
+		heightm: 1,
+		weightkg: 37,
+		color: "Gray",
+		eggGroups: ["Field"],
+		requiredItem: "Mightyenite",
+		creator: "jazzmat",
 	},
 	exploud: {
 		inherit: true,
 		otherFormes: ["Exploud-Mega"],
 		formeOrder: ["Exploud", "Exploud-Mega"],
+		movepoolAdditions: ["clangingscales", "dragonpulse", "snarl"],
 	},
 	exploudmega: {
 		num: 295,
@@ -508,11 +578,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Field"],
 		requiredItem: "Exploudite",
+		creator: "Ausma",
 	},
 	flygon: {
 		inherit: true,
 		otherFormes: ["Flygon-Mega"],
 		formeOrder: ["Flygon", "Flygon-Mega"],
+		movepoolAdditions: ["extremespeed", "flashcannon", "ironhead"],
 	},
 	flygonmega: {
 		num: 330,
@@ -527,11 +599,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Bug", "Dragon"],
 		requiredItem: "Flygonite",
+		creator: "Ausma",
 	},
 	cacturne: {
 		inherit: true,
 		otherFormes: ["Cacturne-Mega"],
 		formeOrder: ["Cacturne", "Cacturne-Mega"],
+		movepoolAdditions: ["assurance", "brine", "knockoff", "strengthsap"],
 	},
 	cacturnemega: {
 		num: 332,
@@ -546,11 +620,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Grass", "Human-Like"],
 		requiredItem: "Cacturnite",
+		creator: "Hematite",
 	},
 	walrein: {
 		inherit: true,
 		otherFormes: ["Walrein-Mega"],
 		formeOrder: ["Walrein", "Walrein-Mega"],
+		movepoolAdditions: ["darkpulse", "flipturn", "focusblast", "freezedry", "slackoff"],
 	},
 	walreinmega: {
 		num: 365,
@@ -565,6 +641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Walreinite",
+		creator: "kakaks",
 	},
 	regirock: {
 		inherit: true,
@@ -585,11 +662,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Reginite",
+		creator: "DrPumpkinz",
 	},
 	regice: {
 		inherit: true,
 		otherFormes: ["Regice-Mega"],
 		formeOrder: ["Regice", "Regice-Mega"],
+		movepoolAdditions: ["teleport"],
 	},
 	regicemega: {
 		num: 378,
@@ -605,6 +684,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Reginite",
+		creator: "Full_Korbe",
 	},
 	registeel: {
 		inherit: true,
@@ -625,11 +705,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Reginite",
+		creator: "DrPumpkinz",
 	},
 	torterra: {
 		inherit: true,
 		otherFormes: ["Torterra-Mega"],
 		formeOrder: ["Torterra", "Torterra-Mega"],
+		movepoolAdditions: ["bodypress", "gravapple", "meteorbeam"],
 	},
 	torterramega: {
 		num: 389,
@@ -645,6 +727,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Torterranite",
+		creator: "abismal",
 	},
 	infernape: {
 		inherit: true,
@@ -665,11 +748,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Infernite",
+		creator: "Ausma",
 	},
 	empoleon: {
 		inherit: true,
 		otherFormes: ["Empoleon-Mega"],
 		formeOrder: ["Empoleon", "Empoleon-Mega"],
+		movepoolAdditions: ["flipturn", "haze", "originpulse", "roost"],
 	},
 	empoleonmega: {
 		num: 395,
@@ -685,11 +770,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Empoleonite",
+		creator: "BlueRay",
 	},
 	staraptor: {
 		inherit: true,
 		otherFormes: ["Staraptor-Mega"],
 		formeOrder: ["Staraptor", "Staraptor-Mega"],
+		movepoolAdditions: ["roleplay", "superfang"],
 	},
 	staraptormega: {
 		num: 398,
@@ -704,11 +791,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 		requiredItem: "Staraptorite",
+		creator: "IsoCon",
 	},
 	bibarel: {
 		inherit: true,
 		otherFormes: ["Bibarel-Mega"],
 		formeOrder: ["Bibarel", "Bibarel-Mega"],
+		movepoolAdditions: ["fly"],
 	},
 	bibarelmega: {
 		num: 400,
@@ -723,11 +812,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Bibarelite",
+		creator: "かたわれ時", // might change to Hodaka depending how this displays
 	},
 	kricketune: {
 		inherit: true,
 		otherFormes: ["Kricketune-Mega"],
 		formeOrder: ["Kricketune", "Kricketune-Mega"],
+		movepoolAdditions: ["closecombat", "drainpunch", "dualwingbeat", "firstimpression", "powertrip", "tripleaxel", "uturn"],
 	},
 	kricketunemega: {
 		num: 402,
@@ -742,6 +833,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Bug"],
 		requiredItem: "Kricketite",
+		creator: "inkbug",
 	},
 	luxray: {
 		inherit: true,
@@ -761,11 +853,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field"],
 		requiredItem: "Luxrite",
+		creator: "DrPumpkinz",
 	},
 	bastiodon: {
 		inherit: true,
 		otherFormes: ["Bastiodon-Mega"],
 		formeOrder: ["Bastiodon", "Bastiodon-Mega"],
+		movepoolAdditions: ["earthpower"],
 	},
 	bastiodonmega: {
 		num: 411,
@@ -781,11 +875,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Monster"],
 		requiredItem: "Bastiodite",
+		creator: "woworiginal",
 	},
 	floatzel: {
 		inherit: true,
 		otherFormes: ["Floatzel-Mega"],
 		formeOrder: ["Floatzel", "Floatzel-Mega"],
+		movepoolAdditions: ["coaching", "flipturn"],
 	},
 	floatzelmega: {
 		num: 419,
@@ -800,11 +896,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Floatzelite",
+		creator: "inkbug",
 	},
 	mismagius: {
 		inherit: true,
 		otherFormes: ["Mismagius-Mega"],
 		formeOrder: ["Mismagius", "Mismagius-Mega"],
+		movepoolAdditions: ["partingshot", "poisonfang", "poisongas", "sludgebomb", "sludgewave", "toxicspikes"],
 	},
 	mismagiusmega: {
 		num: 429,
@@ -819,11 +917,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Mismaginite",
+		creator: "Ausma",
+	},
+	murkrow: {
+		inherit: true,
+		movepoolAdditions: ["partingshot"],
 	},
 	honchkrow: {
 		inherit: true,
 		otherFormes: ["Honchkrow-Mega"],
 		formeOrder: ["Honchkrow", "Honchkrow-Mega"],
+		movepoolAdditions: ["dualwingbeat"],
 	},
 	honchkrowmega: {
 		num: 430,
@@ -838,11 +942,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Flying"],
 		requiredItem: "Honchkronite",
+		creator: "Ausma",
 	},
 	spiritomb: {
 		inherit: true,
 		otherFormes: ["Spiritomb-Mega"],
 		formeOrder: ["Spiritomb", "Spiritomb-Mega"],
+		movepoolAdditions: ["partingshot"],
 	},
 	spiritombmega: {
 		num: 442,
@@ -857,11 +963,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Odd Keystone",
+		creator: "inkbug",
 	},
 	drapion: {
 		inherit: true,
 		otherFormes: ["Drapion-Mega"],
 		formeOrder: ["Drapion", "Drapion-Mega"],
+		movepoolAdditions: ["shoreup"],
 	},
 	drapionmega: {
 		num: 452,
@@ -876,11 +984,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Bug", "Water 3"],
 		requiredItem: "Drapionite",
+		creator: "Hematite",
 	},
 	electivire: {
 		inherit: true,
 		otherFormes: ["Electivire-Mega"],
 		formeOrder: ["Electivire", "Electivire-Mega"],
+		movepoolAdditions: ["bulkup", "drainpunch"],
 	},
 	electiviremega: {
 		num: 466,
@@ -896,11 +1006,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Electivirite",
+		creator: "shinxthe17!",
 	},
 	magmortar: {
 		inherit: true,
 		otherFormes: ["Magmortar-Mega"],
 		formeOrder: ["Magmortar", "Magmortar-Mega"],
+		movepoolAdditions: ["scald", "recover"],
 	},
 	magmortarmega: {
 		num: 467,
@@ -916,6 +1028,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Magmortarite",
+		creator: "Paulluxx and abismal",
 	},
 	porygonz: {
 		inherit: true,
@@ -936,6 +1049,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Mineral"],
 		requiredItem: "Porygonite-Z",
+		creator: "Violettes",
 	},
 	froslass: {
 		inherit: true,
@@ -956,11 +1070,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Froslassite",
+		creator: "Hematite",
 	},
 	samurott: {
 		inherit: true,
 		otherFormes: ["Samurott-Mega"],
 		formeOrder: ["Samurott", "Samurott-Mega"],
+		movepoolAdditions: ["flipturn", "psychocut", "slackoff"],
 	},
 	samurottmega: {
 		num: 503,
@@ -976,11 +1092,34 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field"],
 		requiredItem: "Samurite",
+		creator: "BlueRay",
+	},
+	stoutland: {
+		inherit: true,
+		otherFormes: ["Stoutland-Mega"],
+		formeOrder: ["Stoutland", "Stoutland-Mega"],
+		movepoolAdditions: ["bodyslam", "earthquake", "uturn", "wish"],
+	},
+	stoutlandmega: {
+		num: 508,
+		name: "Stoutland-Mega",
+		baseSpecies: "Stoutland",
+		forme: "Mega",
+		types: ["Normal", "Steel"],
+		baseStats: {hp: 85, atk: 135, def: 125, spa: 45, spd: 100, spe: 110},
+		abilities: {0: "Pacifying Pelt"},
+		heightm: 1.2,
+		weightkg: 61,
+		color: "Gray",
+		eggGroups: ["Field"],
+		requiredItem: "Stoutlandite",
+		creator: "okispokis",
 	},
 	simisear: {
 		inherit: true,
 		otherFormes: ["Simisear-Mega"],
 		formeOrder: ["Simisear", "Simisear-Mega"],
+		movepoolAdditions: ["calmmind", "dazzlinggleam", "drainingkiss", "mysticalfire", "playrough", "slackoff"],
 	},
 	simisearmega: {
 		num: 514,
@@ -996,11 +1135,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Simisearite",
+		creator: "Ausma",
 	},
 	zebstrika: {
 		inherit: true,
 		otherFormes: ["Zebstrika-Mega"],
 		formeOrder: ["Zebstrika", "Zebstrika-Mega"],
+		movepoolAdditions: ["assurance", "jawlock", "snarl", "suckerpunch", "taunt"],
 	},
 	zebstrikamega: {
 		num: 523,
@@ -1015,11 +1156,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 		requiredItem: "Zebstrikanite",
+		creator: "BlueRay and JosJet",
 	},
 	gigalith: {
 		inherit: true,
 		otherFormes: ["Gigalith-Mega"],
 		formeOrder: ["Gigalith", "Gigalith-Mega"],
+		movepoolAdditions: ["skullbash", "sunnyday", "synthesis", "trickroom"],
 	},
 	gigalithmega: {
 		num: 526,
@@ -1034,11 +1177,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Mineral"],
 		requiredItem: "Gigalite",
+		creator: "inkbug",
 	},
 	conkeldurr: {
 		inherit: true,
 		otherFormes: ["Conkeldurr-Mega"],
 		formeOrder: ["Conkeldurr", "Conkeldurr-Mega"],
+		movepoolAdditions: ["shoreup"],
 	},
 	conkeldurrmega: {
 		num: 534,
@@ -1054,11 +1199,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Conkeldite",
+		creator: "DrPumpkinz",
 	},
 	leavanny: {
 		inherit: true,
 		otherFormes: ["Leavanny-Mega"],
 		formeOrder: ["Leavanny", "Leavanny-Mega"],
+		movepoolAdditions: ["appleacid", "lunge", "thunderouskick", "quiverdance"],
 	},
 	leavannymega: {
 		num: 542,
@@ -1073,11 +1220,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Bug"],
 		requiredItem: "Leavannite",
+		creator: "Hematite",
 	},
 	krookodile: {
 		inherit: true,
 		otherFormes: ["Krookodile-Mega"],
 		formeOrder: ["Krookodile", "Krookodile-Mega"],
+		movepoolAdditions: ["memento", "topsyturvy"],
 	},
 	krookodilemega: {
 		num: 553,
@@ -1092,11 +1241,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Krookodilite",
+		creator: "BitBitio",
 	},
 	archeops: {
 		inherit: true,
 		otherFormes: ["Archeops-Mega"],
 		formeOrder: ["Archeops", "Archeops-Mega"],
+		movepoolAdditions: ["bravebird", "dualwingbeat", "fireblast"],
 	},
 	archeopsmega: {
 		num: 567,
@@ -1112,11 +1263,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Flying", "Water 3"],
 		requiredItem: "Archeonite",
+		creator: "Ausma",
 	},
 	garbodor: {
 		inherit: true,
 		otherFormes: ["Garbodor-Gmax", "Garbodor-Mega"],
 		formeOrder: ["Garbodor", "Garbodor-Gmax", "Garbodor-Mega"],
+		movepoolAdditions: ["knockoff", "stealthrock"],
 	},
 	garbodormega: {
 		num: 569,
@@ -1131,11 +1284,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Mineral"],
 		requiredItem: "Garbodorite",
+		creator: "inkbug",
 	},
 	zoroark: {
 		inherit: true,
 		otherFormes: ["Zoroark-Mega"],
 		formeOrder: ["Zoroark", "Zoroark-Mega"],
+		movepoolAdditions: ["focuspunch", "gunkshot", "superpower"],
 	},
 	zoroarkmega: {
 		num: 571,
@@ -1151,6 +1306,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Field"],
 		requiredItem: "Zoroarkite",
+		creator: "Magmajudis",
 	},
 	cinccino: {
 		inherit: true,
@@ -1171,11 +1327,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Field"],
 		requiredItem: "Cinccinite",
+		creator: "KeroseneZanchu",
 	},
 	gothitelle: {
 		inherit: true,
 		otherFormes: ["Gothitelle-Mega"],
 		formeOrder: ["Gothitelle", "Gothitelle-Mega"],
+		movepoolAdditions: ["doomdesire", "flashcannon", "teleport", "wish"],
 	},
 	gothitellemega: {
 		num: 576,
@@ -1191,11 +1349,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Gothitite",
+		creator: "inkbug",
 	},
 	reuniclus: {
 		inherit: true,
 		otherFormes: ["Reuniclus-Mega"],
 		formeOrder: ["Reuniclus", "Reuniclus-Mega"],
+		movepoolAdditions: ["photongeyser", "psychoboost"],
 	},
 	reuniclusmega: {
 		num: 579,
@@ -1210,6 +1370,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Reunite",
+		creator: "Hematite",
 	},
 	vanilluxe: {
 		inherit: true,
@@ -1229,11 +1390,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Mineral"],
 		requiredItem: "Vanillite",
+		creator: "Hematite",
 	},
 	sawsbuck: {
 		inherit: true,
 		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
+		movepoolAdditions: ["moonblast", "petalblizzard", "playrough"],
 	},
 	sawsbucksummer: {
 		num: 586,
@@ -1249,6 +1412,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Deerling",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		movepoolAdditions: ["flameburst", "flamethrower", "growth", "leafstorm", "overheat"],
 	},
 	sawsbuckautumn: {
 		num: 586,
@@ -1264,6 +1428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Deerling",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		movepoolAdditions: ["petalblizzard", "poltergeist", "shadowsneak", "strengthsap", "trickortreat"],
 	},
 	sawsbuckwinter: {
 		num: 586,
@@ -1279,6 +1444,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Deerling",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		movepoolAdditions: ["highhorsepower", "iceshard", "iciclecrash", "tripleaxel"],
 	},
 	sawsbuckmega: {
 		num: 586,
@@ -1293,6 +1459,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
+		creator: "ViZar",
 	},
 	sawsbucksummermega: {
 		num: 586,
@@ -1308,6 +1475,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
 		battleOnly: "Sawsbuck-Summer",
+		creator: "ViZar",
 	},
 	sawsbuckautumnmega: {
 		num: 586,
@@ -1323,6 +1491,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
 		battleOnly: "Sawsbuck-Autumn",
+		creator: "ViZar",
 	},
 	sawsbuckwintermega: {
 		num: 586,
@@ -1338,11 +1507,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Sawsbuckite",
 		battleOnly: "Sawsbuck-Winter",
+		creator: "ViZar",
 	},
 	klinklang: {
 		inherit: true,
 		otherFormes: ["Klinklang-Mega"],
 		formeOrder: ["Klinklang", "Klinklang-Mega"],
+		movepoolAdditions: ["overheat", "rapidspin"],
 	},
 	klinklangmega: {
 		num: 601,
@@ -1358,11 +1529,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Mineral"],
 		requiredItem: "Klinklite",
+		creator: "zxgzxg",
 	},
 	eelektross: {
 		inherit: true,
 		otherFormes: ["Eelektross-Mega"],
 		formeOrder: ["Eelektross", "Eelektross-Mega"],
+		movepoolAdditions: ["recover", "scald"],
 	},
 	eelektrossmega: {
 		num: 604,
@@ -1377,11 +1550,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Eelektrossite",
+		creator: "Ausma",
 	},
 	chandelure: {
 		inherit: true,
 		otherFormes: ["Chandelure-Mega"],
 		formeOrder: ["Chandelure", "Chandelure-Mega"],
+		movepoolAdditions: ["mindblown"],
 	},
 	chandeluremega: {
 		num: 609,
@@ -1396,6 +1571,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Chandelite",
+		creator: "inkbug and BotwNerd745",
 	},
 	golurk: {
 		inherit: true,
@@ -1416,6 +1592,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Mineral"],
 		requiredItem: "Golurkite",
+		creator: "KeroseneZanchu",
 	},
 	bisharp: {
 		inherit: true,
@@ -1435,6 +1612,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Bisharpite",
+		creator: "DrPumpkinz",
 	},
 	hydreigon: {
 		inherit: true,
@@ -1454,11 +1632,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Dragon"],
 		requiredItem: "Hydreigonite",
+		creator: "Demon Dragon",
 	},
 	delphox: {
 		inherit: true,
 		otherFormes: ["Delphox-Mega"],
 		formeOrder: ["Delphox", "Delphox-Mega"],
+		movepoolAdditions: ["recover", "speedswap", "teleport"],
 	},
 	delphoxmega: {
 		num: 655,
@@ -1474,11 +1654,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Delphite",
+		creator: "Magmajudis",
 	},
 	talonflame: {
 		inherit: true,
 		otherFormes: ["Talonflame-Mega"],
 		formeOrder: ["Talonflame", "Talonflame-Mega"],
+		movepoolAdditions: ["scorchingsands"],
 	},
 	talonflamemega: {
 		num: 663,
@@ -1493,11 +1675,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Flying"],
 		requiredItem: "Talonflite",
+		creator: "RottenInfernape",
 	},
 	meowstic: {
 		inherit: true,
 		otherFormes: ["Meowstic-F", "Meowstic-Mega", "Meowstic-F-Mega"],
 		formeOrder: ["Meowstic", "Meowstic-F", "Meowstic-Mega", "Meowstic-F-Mega"],
+		movepoolAdditions: ["foulplay", "knockoff", "partingshot", "psychicfangs", "pursuit"],
+	},
+	meowsticf: {
+		inherit: true,
+		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "moonblast"],
 	},
 	meowsticmega: {
 		num: 678,
@@ -1513,6 +1701,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field"],
 		requiredItem: "Meowsticite",
+		creator: "Mossy Sandwich",
 	},
 	meowsticfmega: {
 		num: 678,
@@ -1529,11 +1718,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Meowsticite",
 		battleOnly: "Meowstic-F",
+		creator: "Mossy Sandwich",
 	},
 	dragalge: {
 		inherit: true,
 		otherFormes: ["Dragalge-Mega"],
 		formeOrder: ["Dragalge", "Dragalge-Mega"],
+		movepoolAdditions: ["acidspray", "gastroacid", "roost", "terrainpulse"],
 	},
 	dragalgemega: {
 		num: 691,
@@ -1548,6 +1739,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Water 1", "Dragon"],
 		requiredItem: "Dragalgite",
+		creator: "BlueRay",
 	},
 	tyrantrum: {
 		inherit: true,
@@ -1568,11 +1760,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Tyranite",
+		creator: "Mossy Sandwich",
 	},
 	aurorus: {
 		inherit: true,
 		otherFormes: ["Aurorus-Mega"],
 		formeOrder: ["Aurorus", "Aurorus-Mega"],
+		movepoolAdditions: ["paraboliccharge", "rapidspin", "voltswitch"],
 	},
 	aurorusmega: {
 		num: 699,
@@ -1588,11 +1782,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster"],
 		requiredItem: "Aurorite",
+		creator: "Hematite",
 	},
 	hawlucha: {
 		inherit: true,
 		otherFormes: ["Hawlucha-Mega"],
 		formeOrder: ["Hawlucha", "Hawlucha-Mega"],
+		movepoolAdditions: ["partingshot", "stormthrow"],
 	},
 	hawluchamega: {
 		num: 701,
@@ -1607,11 +1803,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Flying", "Human-Like"],
 		requiredItem: "Hawluchanite",
+		creator: "BlueRay",
 	},
 	goodra: {
 		inherit: true,
 		otherFormes: ["Goodra-Mega"],
 		formeOrder: ["Goodra", "Goodra-Mega"],
+		movepoolAdditions: ["drainpunch", "gigadrain", "moonlight"],
 	},
 	goodramega: {
 		num: 706,
@@ -1626,11 +1824,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Dragon"],
 		requiredItem: "Goodranite",
+		creator: "MegaFlareon",
 	},
 	trevenant: {
 		inherit: true,
 		otherFormes: ["Trevenant-Mega"],
 		formeOrder: ["Trevenant", "Trevenant-Mega"],
+		movepoolAdditions: ["floralhealing", "synthesis"],
 	},
 	trevenantmega: {
 		num: 709,
@@ -1645,11 +1845,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Grass", "Amorphous"],
 		requiredItem: "Trevenite",
+		creator: "IsoCon",
 	},
 	gourgeist: {
 		inherit: true,
 		otherFormes: ["Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super", "Gourgeist-Mega", "Gourgeist-Small-Mega", "Gourgeist-Large-Mega", "Gourgeist-Super-Mega"],
 		formeOrder: ["Gourgeist", "Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
+		movepoolAdditions: ["bodypress", "encore", "flareblitz", "partingshot", "strengthsap"],
 	},
 	gourgeistmega: {
 		num: 711,
@@ -1664,6 +1866,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
+		creator: "inkbug",
 	},
 	gourgeistsmallmega: {
 		num: 711,
@@ -1679,6 +1882,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
 		battleOnly: "Gourgeist-Small",
+		creator: "inkbug",
 	},
 	gourgeistlargemega: {
 		num: 711,
@@ -1694,6 +1898,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
 		battleOnly: "Gourgeist-Large",
+		creator: "inkbug",
 	},
 	gourgeistsupermega: {
 		num: 711,
@@ -1709,11 +1914,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gourgeite",
 		battleOnly: "Gourgeist-Super",
+		creator: "inkbug",
 	},
 	noivern: {
 		inherit: true,
 		otherFormes: ["Noivern-Mega"],
 		formeOrder: ["Noivern", "Noivern-Mega"],
+		movepoolAdditions: ["encore", "psyshock"],
 	},
 	noivernmega: {
 		num: 715,
@@ -1728,6 +1935,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Flying", "Dragon"],
 		requiredItem: "Noivernite",
+		creator: "BitBitio",
 	},
 	decidueye: {
 		inherit: true,
@@ -1748,11 +1956,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 		requiredItem: "Deciduite",
+		creator: "inkbug",
 	},
 	incineroar: {
 		inherit: true,
 		otherFormes: ["Incineroar-Mega"],
 		formeOrder: ["Incineroar", "Incineroar-Mega"],
+		movepoolAdditions: ["focusenergy", "nightslash", "punishment", "rapidspin", "stormthrow"],
 	},
 	incineroarmega: {
 		num: 727,
@@ -1768,11 +1978,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requirdItem: "Incinerite",
+		creator: "Vipotis",
 	},
 	primarina: {
 		inherit: true,
 		otherFormes: ["Primarina-Mega"],
 		formeOrder: ["Primarina", "Primarina-Mega"],
+		movepoolAdditions: ["purify"],
 	},
 	primarinamega: {
 		num: 730,
@@ -1788,11 +2000,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Primarinite",
+		creator: "Rosiario",
 	},
 	toucannon: {
 		inherit: true,
 		otherFormes: ["Toucannon-Mega"],
 		formeOrder: ["Toucannon", "Toucannon-Mega"],
+		movepoolAdditions: ["appleacid", "hurricane", "nastyplot"],
 	},
 	toucannonmega: {
 		num: 733,
@@ -1807,11 +2021,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Flying"],
 		requiredItem: "Toucannonite",
+		creator: "Mateeus",
 	},
 	gumshoos: {
 		inherit: true,
 		otherFormes: ["Gumshoos-Totem", "Gumshoos-Mega"],
 		formeOrder: ["Gumshoos", "Gumshoos-Totem", "Gumshoos-Mega"],
+		movepoolAdditions: ["bodyslam", "coil", "drainpunch"],
 	},
 	gumshoosmega: {
 		num: 735,
@@ -1826,11 +2042,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Gumshoosite",
+		creator: "MegaFlareon",
 	},
 	vikavolt: {
 		inherit: true,
 		otherFormes: ["Vikavolt-Totem", "Vikavolt-Mega"],
 		formeOrder: ["Vikavolt", "Vikavolt-Totem", "Vikavolt-Mega"],
+		movepoolAdditions: ["darkpulse", "leafblade", "thundercage", "uturn"],
 	},
 	vikavoltmega: {
 		num: 738,
@@ -1845,11 +2063,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Bug"],
 		requiredItem: "Vikavoltite",
+		creator: "kakaks",
 	},
 	lycanroc: {
 		inherit: true,
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Midnight-Mega", "Lycanroc-Dusk-Mega"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Mega", "Lycanroc-Midnight-Mega", "Lycanroc-Dusk-Mega"],
+		movepoolAdditions: ["extremespeed", "spikes"],
+	},
+	lycanrocmidnight: {
+		inherit: true,
+		movepoolAdditions: ["headsmash"],
 	},
 	lycanrocmega: {
 		num: 745,
@@ -1864,6 +2088,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Lycanite",
+		creator: "Hematite",
 	},
 	lycanrocmidnightmega: {
 		num: 745,
@@ -1879,6 +2104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Lycanite",
 		battleOnly: "Lycanroc-Midnight",
+		creator: "MegaFlareon",
 	},
 	lycanrocduskmega: {
 		num: 745,
@@ -1894,6 +2120,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Lycanite",
 		battleOnly: "Lycanroc-Dusk",
+		creator: "Cheezy",
 	},
 	wishiwashi: {
 		inherit: true,
@@ -1903,6 +2130,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: [
 			"Wishiwashi", "Wishiwashi-School", "Wishiwashi-Mega", "Wishiwashi-Mega-1", "Wishiwashi-Mega-2", "Wishiwashi-Mega-3", "Wishiwashi-Mega-4", "Wishiwashi-Mega-School",
 		],
+		movepoolAdditions: ["lifedew", "wish"],
 	},
 	wishiwashimega: {
 		num: 746,
@@ -1918,6 +2146,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	wishiwashimega1: {
 		num: 746,
@@ -1933,6 +2162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	wishiwashimega2: {
 		num: 746,
@@ -1948,6 +2178,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	wishiwashimega3: {
 		num: 746,
@@ -1963,6 +2194,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	wishiwashimega4: {
 		num: 746,
@@ -1978,6 +2210,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	wishiwashimegaschool: {
 		num: 746,
@@ -1993,11 +2226,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
+		creator: "inkbug",
 	},
 	mudsdale: {
 		inherit: true,
 		otherFormes: ["Mudsdale-Mega"],
 		formeOrder: ["Mudsdale", "Mudsdale-Mega"],
+		movepoolAdditions: ["bulkup", "painsplit", "wideguard"],
 	},
 	mudsdalemega: {
 		num: 750,
@@ -2012,11 +2247,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Mudsdalite",
+		creator: "BitBitio",
 	},
 	araquanid: {
 		inherit: true,
 		otherFormes: ["Araquanid-Totem", "Araquanid-Mega"],
 		formeOrder: ["Araquanid", "Araquanid-Totem", "Araquanid-Mega"],
+		movepoolAdditions: ["hypnosis", "lifedew", "painsplit", "purify"],
 	},
 	araquanidmega: {
 		num: 752,
@@ -2031,11 +2268,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Water 1", "Bug"],
 		requiredItem: "Araquanite",
+		creator: "Hematite",
 	},
 	lurantis: {
 		inherit: true,
 		otherFormes: ["Lurantis-Totem", "Lurantis-Mega"],
 		formeOrder: ["Lurantis", "Lurantis-Totem", "Lurantis-Mega"],
+		movepoolAdditions: ["moonblast", "moonlight", "playrough", "silverwind"],
 	},
 	lurantismega: {
 		num: 754,
@@ -2050,6 +2289,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Grass"],
 		requiredItem: "Lurantisite",
+		creator: "BitBitio",
 	},
 	silvally: {
 		inherit: true,
@@ -2059,6 +2299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
 			"Silvally-Mega",
 		],
+		movepoolAdditions: ["firepledge", "taunt", "waterpledge"],
 	},
 	silvallyfire: {
 		inherit: true,
@@ -2142,11 +2383,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "RKS Megamemory",
+		creator: "KeroseneZanchu",
 	},
 	mimikyu: {
 		inherit: true,
 		otherFormes: ["Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem", "Mimikyu-Mega", "Mimikyu-Busted-Mega"],
 		formeOrder: ["Mimikyu", "Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem", "Mimikyu-Mega", "Mimikyu-Busted-Mega"],
+		movepoolAdditions: ["firstimpression", "strengthsap", "uturn"],
 	},
 	mimikyumega: {
 		num: 778,
@@ -2162,6 +2405,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Mimikyunite",
 		battleOnly: "Mimikyu",
+		creator: "zxgzxg",
 	},
 	mimikyubustedmega: {
 		num: 778,
@@ -2177,11 +2421,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Mimikyunite",
 		battleOnly: "Mimikyu",
+		creator: "zxgzxg",
 	},
 	dhelmise: {
 		inherit: true,
 		otherFormes: ["Dhelmise-Mega"],
 		formeOrder: ["Dhelmise", "Dhelmise-Mega"],
+		movepoolAdditions: ["flipturn", "superpower"],
 	},
 	dhelmisemega: {
 		num: 781,
@@ -2197,6 +2443,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		requiredItem: "Dhelmite",
 		eggGroups: ["Mineral"],
+		creator: "Mossy Sandwich",
 	},
 	kommoo: {
 		inherit: true,
@@ -2216,11 +2463,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Dragon"],
 		requiredItem: "Kommonite",
+		creator: "MegaFlareon",
 	},
 	rillaboom: {
 		inherit: true,
 		otherFormes: ["Rillaboom-Gmax", "Rillaboom-Mega"],
 		formeOrder: ["Rillaboom", "Rillaboom-Gmax", "Rillaboom-Mega"],
+		movepoolAdditions: ["toxic"],
 	},
 	rillaboommega: {
 		num: 812,
@@ -2236,6 +2485,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Field", "Grass"],
 		requiredItem: "Rillaboomite",
+		creator: "Hematite",
 	},
 	cinderace: {
 		inherit: true,
@@ -2256,11 +2506,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Cinderite",
+		creator: "Mateeus",
 	},
 	inteleon: {
 		inherit: true,
 		otherFormes: ["Inteleon-Gmax", "Inteleon-Mega"],
 		formeOrder: ["Inteleon", "Inteleon-Gmax", "Inteleon-Mega"],
+		movepoolAdditions: ["encore", "firstimpression", "pursuit", "taunt"],
 	},
 	inteleonmega: {
 		num: 818,
@@ -2276,6 +2528,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Inteleonite",
+		creator: "inkbug",
 	},
 	corviknight: {
 		inherit: true,
@@ -2295,11 +2548,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Flying"],
 		requiredItem: "Corviknite",
+		creator: "IsoCon",
 	},
 	orbeetle: {
 		inherit: true,
 		otherFormes: ["Orbeetle-Gmax", "Orbeetle-Mega"],
 		formeOrder: ["Orbeetle", "Orbeetle-Gmax", "Orbeetle-Mega"],
+		movepoolAdditions: ["focusblast", "teleport"],
 	},
 	orbeetlemega: {
 		num: 826,
@@ -2314,11 +2569,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Bug"],
 		requiredItem: "Orbeetlite",
+		creator: "Scoopapa",
 	},
 	thievul: {
 		inherit: true,
 		otherFormes: ["Thievul-Mega"],
 		formeOrder: ["Thievul", "Thievul-Mega"],
+		movepoolAdditions: ["aurasphere", "hiddenpower", "focusblast", "moonlight", "spiritbreak"],
 	},
 	thievulmega: {
 		num: 828,
@@ -2333,11 +2590,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		requiredItem: "Thievulite",
+		creator: "MegaFlareon",
 	},
 	boltund: {
 		inherit: true,
 		otherFormes: ["Boltund-Mega"],
 		formeOrder: ["Boltund", "Boltund-Mega"],
+		movepoolAdditions: ["dazzlinggleam", "hiddenpower", "pursuit"],
 	},
 	boltundmega: {
 		num: 836,
@@ -2352,6 +2611,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Boltundite",
+		creator: "kakaks",
 	},
 	toxtricity: {
 		inherit: true,
@@ -2361,6 +2621,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: [
 			"Toxtricity", "Toxtricity-Low-Key", "Toxtricity-Mega", "Toxtricity-Low-Key-Mega",
 		],
+		movepoolAdditions: ["frustration", "gearup", "hiddenpower"],
+	},
+	toxtricitylowkey: {
+		inherit: true,
+		movepoolAdditions: ["slackoff", "hiddenpower", "return"],
 	},
 	toxtricitymega: {
 		num: 849,
@@ -2375,6 +2640,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Toxtricitite",
+		creator: "DrPumpkinz",
 	},
 	toxtricitylowkeymega: {
 		num: 849,
@@ -2390,11 +2656,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		requiredItem: "Toxtricitite",
 		battleOnly: "Toxtricity-Low-Key",
+		creator: "DrPumpkinz",
 	},
 	sirfetchd: {
 		inherit: true,
 		otherFormes: ["Sirfetch\u2019d-Mega"],
 		formeOrder: ["Sirfetch\u2019d", "Sirfetch\u2019d-Mega"],
+		movepoolAdditions: ["playrough", "roost", "toxic"],
 	},
 	sirfetchdmega: {
 		num: 865,
@@ -2409,11 +2677,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Flying", "Field"],
 		requiredItem: "Sirfetch\u2019dite",
+		creator: "Paulluxx and BlueRay",
 	},
 	falinks: {
 		inherit: true,
 		otherFormes: ["Falinks-Mega-Legion", "Falinks-Mega-Combat"],
 		formeOrder: ["Falinks", "Falinks-Mega-Legion", "Falinks-Mega-Combat"],
+		movepoolAdditions: ["aurasphere", "flameburst", "flashcannon", "kingsshield", "thunder"],
 	},
 	falinksmegalegion: {
 		num: 870,
@@ -2430,6 +2700,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Falinksite",
 		battleOnly: "Falinks",
+		creator: "Ausma",
 	},
 	falinksmegacombat: {
 		num: 870,
@@ -2446,11 +2717,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Falinksite",
 		battleOnly: "Falinks",
+		creator: "Ausma",
 	},
 	dragapult: {
 		inherit: true,
 		otherFormes: ["Dragapult-Mega"],
 		formeOrder: ["Dragapult", "Dragapult-Mega"],
+		movepoolAdditions: ["icebeam"],
 	},
 	dragapultmega: {
 		num: 887,
@@ -2465,5 +2738,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Amorphous", "Dragon"],
 		requiredItem: "Dragapultite",
+		creator: "Mateeus",
 	},
 };
