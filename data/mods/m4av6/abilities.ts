@@ -2669,4 +2669,61 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -70,
 	},
+	comedian: {
+		desc: "This Pokémon is immune to Fairy-type moves. When hit by a Fairy-type move, it raises its Attack and its adjacent allies' Attack by 1 stage each.",
+		shortDesc: "Fairy immunity; user's Attack and allies' Attack are both raised 1 stage if user is hit by a Fairy move.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+				if (!activated) {
+					this.add('-immune', target, '[from] ability: Comedian');
+					this.add('-message', `${target.name} is howling with laughter!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+			}
+		},
+		name: "Comedian",
+		rating: 3,
+		num: -71,
+	},
+	pacifyingpelt: {
+		desc: "This Pokémon is immune to Fighting-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Fighting-type move.",
+		shortDesc: "This Pokémon heals 1/4 of its max HP when hit by Fighting moves; Fighting immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fighting') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Pacifying Pelt');
+				}
+				return null;
+			}
+		},
+		name: "Pacifying Pelt",
+		rating: 4,
+		num: -72,
+	},
 };
