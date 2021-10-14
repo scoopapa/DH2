@@ -2386,18 +2386,6 @@ export const Formats: FormatList = [
         banlist: [],
 	},
 	{    
-		name: "[Gen 8] AsOnemons",
-		desc: 'AsOnemons is a Generation 8 based Solomod that revolves around creating new As One forms for official Pokémon.',
-		threads: [
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TRYfbFkLYSnFrOidd42FvQVlOjgYBzuSoK4tCFZPNOU/edit?usp=sharing">Spreadsheet</a>`,
-			],
-		mod: "asonemons",
-		teambuilderFormat: 'OU',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod','Sleep Clause Mod', 'Species Clause', 'Evasion Moves Clause'],
-		banlist: ['All Pokemon', 'Baton Pass'],
-		unbanlist: ['Yanmega-Shell'],
-	},
-	{    
 		name: "[Gen 8] Assemble",
 		desc: 'A Solomod where every Pokemon is a mixture of 3 existing Pokemon.',
 		threads: [
