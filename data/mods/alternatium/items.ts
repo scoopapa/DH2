@@ -128,18 +128,18 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDef(def, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 		},
 		onModifySpD(spd, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Defenses are boosted by 1.5x.",
+		shortDesc: "If Genesect-Password: Defenses are boosted by 1.25x.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
