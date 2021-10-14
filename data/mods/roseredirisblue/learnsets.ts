@@ -1,4 +1,4 @@
-export const BattleLearnsets: {[speciesid: string]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	bulbasaur: {learnset: {
 		ancientpower: ["2S0"],
 		attract: ["2M"],

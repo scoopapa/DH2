@@ -275,5 +275,3 @@ export class RandomLetsGoTeams extends RandomTeams {
 		return pokemon;
 	}
 }
-
-export default RandomLetsGoTeams;

@@ -1,7 +1,4 @@
-'use strict';
-
-
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"pressurebounce": { //Functional!
 		shortDesc: "This Pokemon blocks certain status moves and bounces them back twice to the user.",
 		id: "pressurebounce",
@@ -34,8 +31,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	},
 	
-	"aurevoir": { //Functional!
-		shortDesc: "This Pokemon switches out when it reaches 1/2 or less of its maximum HP and restores 1/3 of its maximum HP, rounded down.",
+	"aurevoir": { //this one looks like EXACTLY the character limit
+		shortDesc: "Switches out when it reaches 1/2 or less of its max HP and restores 1/3 of its max HP.",
 		onEmergencyExit(target) {
 			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
 			for (const side of this.sides) {
@@ -43,16 +40,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					active.switchFlag = false;
 				}
 			}
+			this.effectData.exiting = true;
 			target.switchFlag = true;
-			target.heal(target.baseMaxhp / 3);
 			this.add('-activate', target, 'ability: Au Revoir');
+		},
+		onSwitchOut(pokemon) {
+			if (this.effectData.exiting === true) {
+				this.effectData.exiting = undefined;
+			} else {
+				pokemon.heal(pokemon.baseMaxhp / 3);
+			}
 		},
 		id: "aurevoir",
 		name: "Au Revoir",
 	},
 	
   	"clearcleaner": { //Functional!
-		shortDesc: "Screen Cleaner	+ Clear Body",
+		shortDesc: "On switch-in, Screens end for both sides. Other Pokemon cannot lower its stat stages.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
@@ -92,7 +96,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"terraform": { //Functional!
-		shortDesc: " This Pokemon is immune to Ground-type attacks, and raises its highest non-HP stat when hit by one or when it gets a KO.",
+		shortDesc: "Raises its highest non-HP stat when hit by Ground or when it gets a KO; Ground immunity.",
 		id: "terraform",
 		name: "Terraform",
 		onTryHitPriority: 1,
@@ -143,7 +147,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"thunderclap": { //Functional!
-		shortDesc: "On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage and restores 1/4 of its maximum HP, rounded down. This Pokemon is immune to Electric-type moves.",
+		shortDesc: "On switch-in, restores 1/4 max HP + lowers foe(s) Attack by one stage; Electric immunity.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -187,8 +191,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Passion Star",
 	},
 	
-	"volcanicity": { //Functional!
-		shortDesc: "Water Absorb + Filter",
+	"volcanicity": { //Too long
+		shortDesc: "3/4 damage from supereffective; Restores 1/4 max HP when hit by Water; Water immunity.",
+		desc: "Takes 3/4 damage from supereffective attacks. Restores 1/4 max HP when hit by Water; Water immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -208,7 +213,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"ironstinger": { //Functional!
-		shortDesc: "Pressure + Iron Barbs",
+		shortDesc: "Pokemon making contact lose 1/8 max HP; moves targeting this Pokemon lose 1 extra PP.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Iron Stinger');
 		},
@@ -242,8 +247,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Spell Master",
 	},
 	
-	"compulsive": {//Functional!
-		shortDesc: "This Pokemon's Attack is raised by 1 stage after it flinches or is damaged by a Dark-type move.",
+	"compulsive": {//too long
+		shortDesc: "When flinched or damaged by Dark move: +1 Attack.",
+		desc: "This Pokemon's Attack is raised by 1 stage after it flinches or is damaged by a Dark-type move.",
 		onFlinch(pokemon) {
 			this.boost({atk: 1});
 		},
@@ -256,8 +262,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Compulsive",
 	},
 	
-	"badprogram": { // Functional! 
-		shortDesc: "This Pokemon's moves of 60 power or less have 1.5x power. If the opponent uses a move with 60 power or less, they lose 1/8 maximum HP, rounded down.",
+	"badprogram": { //too long
+		shortDesc: "Moves of <=60 power; 1.5x power. If foe uses <=60 power move, foe loses 1/8 max HP.",
+		desc: "Moves of 60 power or less; 1.5x power. If foe uses a move with 60 power or less, foe loses 1/8 maximum HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (basePower <= 60) {
@@ -303,7 +310,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"galvaforce": { //Functional, other than a minor error? It doesn't crash but... 
-		shortDesc: "Electric Surge + Pressure",
+		shortDesc: "Sets Electric Terrain on switch-in. Moves targeting this Pokemon lose 1 additional PP.",
 		onStart(source, pokemon) {
 			this.field.setTerrain('electricterrain');
 			this.add('-ability', pokemon, 'Galvaforce');
@@ -316,8 +323,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Galvaforce",
 	},
 	
-	"pressureboost": { //Functional! 
-		shortDesc: "Beast Boost + Pressure",
+	"pressureboost": { //JUST BARELY too long
+		shortDesc: "Moves targeting this Pokemon: -1 extra PP. Raises highest non-HP stat when it gets a KO.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Pressure Boost');
 		},
@@ -345,7 +352,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"chivalry": { //Functional!
-		shortDesc: "This Pokemon's Attack is raised by 2 stages and its Speed by 1 stage for each of its stats that is lowered by a foe, or upon being flinched.",
+		shortDesc: "Upon flinching, or for each stat lowered by a foe: +2 Atk, +1 Spe.",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.side === source.side) {
 				if (effect.id === 'stickyweb') {
@@ -373,7 +380,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	// ---------------- below here is where you're editing, park; dont get lost!!!!!!! 
 	"unamused": { //Functional!
-		shortDesc: "Ignores stat changes, summons Sandstorm when taking or dealing damage",
+		shortDesc: "Ignores stat changes. Summons Sandstorm when taking or dealing damage.",
 		id: "unamused",
 		name: "Unamused",
 		onAnyModifyBoost(boosts, pokemon) {
@@ -407,7 +414,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"armorsurge": { // Functional!
-		shortDesc: "Sets Psychic Terrain when damaged by a physical attack",
+		shortDesc: "Sets Psychic Terrain when damaged by a physical attack.",
 		id: "armorsurge",
 		name: "Armor Surge",
 		onDamagingHit(damage, target, source, move) {
@@ -418,7 +425,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"unbullet": { //Functional!
-		shortDesc: "Bulletproof + Unburden",
+		shortDesc: "Speed doubles if it uses an item; immunity to ballistic moves.",
 		id: "unbullet",
 		name: "Unbullet",
 		onAfterUseItem(item, pokemon) {
@@ -447,7 +454,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"diamonddust": { //Functional! 
-		shortDesc: "Takes 0.5x damage from Fire, Ice, Dark; raises Atk by 1 stage if hit by one",
+		shortDesc: "Takes 0.5x damage from Fire, Ice, Dark; raises Atk by 1 stage if hit by one.",
 		id: "diamonddust",
 		name: "Diamond Dust",
 		onSourceModifyAtkPriority: 6,
@@ -472,7 +479,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"integrity": { //Functional! 
-		shortDesc: "If affected by a move-limiting status, that status also applies to the opponent",
+		shortDesc: "If affected by a move-limiting status, that status also applies to the opponent.",
 		id: "integrity",
 		name: "Integrity",
 		onTryAddVolatile(status, target, source, effect) {
@@ -486,7 +493,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"ambientaid": {//Functions!
-		shortDesc: "Teravolt + Defiant",
+		shortDesc: "This Pokemon's moves ignore abilities. Attack +2 for each stat lowered by a foe.",
 		id: "ambientaid",
 		name: "Ambient Aid",
 		onStart(pokemon) {
@@ -517,7 +524,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"technicalcurse": {//Functional! 
-		shortDesc: "Cursed Body + Technician",
+		shortDesc: "Moves 60 power or less: 1.5x power. If hit by an attack, 30% chance to disable that move.",
 		id: "technicalcurse",
 		name: "Technical Curse",
 		onBasePowerPriority: 30,
@@ -541,12 +548,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"plusultra": {//Functional! 
-		shortDesc: "SpA 1.5x against targets of other gender",
+		shortDesc: "SpA 1.5x against targets of other gender.",
 		id: "plusultra",
 		name: "Plus Ultra",
 		onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (attacker.gender !== defender.gender) {
+				if (defender && ['psn', 'tox'].includes(defender.status)) {
 					this.debug('Plus Ultra boost');
 					return this.chainModify(1.5);
 				}
@@ -554,7 +561,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"nocturnalflash": {
-		shortDesc: "Attacks have 1.5x power and a 30% chance to Poison if it moves last",
+		shortDesc: "Attacks have 1.5x power and a 30% chance to Poison if it moves last.",
 		id: "nocturnalflash",
 		name: "Nocturnal Flash",
 		onBasePower(basePower, pokemon) {
@@ -594,7 +601,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"fatalend": {
-		shortDesc: "Punching moves 1.5x",
+		shortDesc: "Punching moves 1.5x.",
 		id: "fatalend",
 		name: "Fatal End",
 		onBasePowerPriority: 23,
@@ -607,7 +614,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"thunderstorm": {
-		shortDesc: "Pressure + Drizzle",
+		shortDesc: "Moves targeting this Pokemon lose 1 extra PP. Summons Rain on switch-in.",
 		id: "thunderstorm",
 		name: "Thunderstorm",
 		onStart(pokemon) {
@@ -645,7 +652,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	
 	//----------------------------
 	"faustianpact": {
-		shortDesc: "Swaps abilities with target before landing a contact move",
+		shortDesc: "Swaps abilities with target before landing a contact move.",
 		id: "faustianpact",
 		name: "Faustian Pact",	
 		// Effect coded directly in scripts.ts. 
@@ -655,7 +662,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	}, 
 	
 	"sandfilling": { // Seems functional
-		shortDesc: "Sets Sandstorm. In Sand: Heal from status effects",
+		shortDesc: "Sets Sandstorm. In Sand: Heal from status effects.",
 		id: "sandfilling",
 		name: "Sand Filling",
 		onStart(source) {
@@ -673,7 +680,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	
 	"abysmalsurge": { // Seems functional
-		shortDesc: "Fire attacks have 45% brn chance; other attacks have 35% brn chance",
+		shortDesc: "Fire attacks have 45% brn chance; other attacks have 35% brn chance.",
 		id: "abysmalsurge",
 		name: "Abysmal Surge",
 		onModifyMove(move) {
@@ -698,7 +705,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	}, 
 	
 	"crystalize": { // Seems functional
-		shortDesc: "Normal attacks become Rock; 1.3x power",
+		shortDesc: "Normal attacks become Rock; 1.3x power.",
 		id: "crystalize",
 		name: "Crystalize",
 		onModifyTypePriority: -1,
@@ -718,7 +725,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	}, 
 	
 	"parasomnia": { // Seems functional
-		shortDesc: "Upon a KO or falling asleep, highest stat is raised by 1 stage",
+		shortDesc: "Upon a KO or falling asleep, highest non-HP stat is raised by 1 stage.",
 		id: "parasomnia",
 		name: "Parasomnia",
 		onSourceFaint(target, source, effect) {

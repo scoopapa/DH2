@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     stakataka: {
         inherit: true,
-        types: ["Ghost", "Steel"],
+        types: ["Ghost", "Rock"],
 		  abilities: {0: "Beast Boost", H: "Bulletproof"},
     },
     staraptor: {
@@ -250,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//deerling: null,
     deerlingwinter: {
     	num: 585,
-		species: "Deerling-Winter",
+		name: "Deerling-Winter",
 		baseSpecies: "Deerling",
 		forme: "Winter",
 		formeLetter: 'W',
@@ -265,7 +265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerlingsummer: {
     	num: 585,
-		species: "Deerling-Summer",
+		name: "Deerling-Summer",
 		baseSpecies: "Deerling",
 		forme: "Summer",
 		formeLetter: 'S',
@@ -280,7 +280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerling: {
     	num: 585,
-		species: "Deerling",
+		name: "Deerling",
 		baseForme: "Spring",
 		baseStats: {hp: 60, atk: 60, def: 50, spa: 40, spd: 50, spe: 75},
 		heightm: 0.6,
@@ -294,7 +294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     deerlingautumn: {
     	num: 585,
-		species: "Deerling-Autumn",
+		name: "Deerling-Autumn",
 		baseSpecies: "Deerling",
 		forme: "Autumn",
 		formeLetter: 'A',
@@ -309,7 +309,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuckwinter: {
 		num: 586,
-		species: "Sawsbuck-Winter",
+		name: "Sawsbuck-Winter",
 		baseSpecies: "Sawsbuck",
 		forme: "Winter",
 		formeLetter: 'W',
@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbucksummer: {
 		num: 586,
-		species: "Sawsbuck-Summer",
+		name: "Sawsbuck-Summer",
 		baseSpecies: "Sawsbuck",
 		forme: "Summer",
 		formeLetter: 'S',
@@ -342,7 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuck: {
 		num: 586,
-		species: "Sawsbuck",
+		name: "Sawsbuck",
 		baseForme: "Spring",
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 60, spd: 70, spe: 95},
 		heightm: 1.9,
@@ -357,7 +357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     sawsbuckautumn: {
 		num: 586,
-		species: "Sawsbuck-Autumn",
+		name: "Sawsbuck-Autumn",
 		baseSpecies: "Sawsbuck",
 		forme: "Autumn",
 		formeLetter: 'A',
@@ -372,27 +372,27 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Chrolophyll", 1: "Sap Sipper", H: "Shadow Surge"},
     },
 	oricorio: {
-      inherit: true,
+        inherit: true,
 		types: ["Fire", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriopompom: {
-      inherit: true,
+        inherit: true,
 		types: ["Electric", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriopau: {
-      inherit: true,
+        inherit: true,
 		types: ["Psychic", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	oricoriosensu: {
-      inherit: true,
+        inherit: true,
 		types: ["Ghost", "Flying"],
 		abilities: {0: "Dancer", H: "Serene Grace"},
 	},
 	audinomega: {
-      inherit: true,
+        inherit: true,
 		types: ["Normal", "Fairy"],
 		abilities: {0: "Magic Healing"},
 	},
@@ -775,52 +775,52 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	swadloon: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
+		abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
 	},
 	leavanny: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
+		abilities: {0: "Grassy Surge", 1: "Chlorophyll", H: "Mimetism"},
 	},
 	spewpa: {
 		inherit: true,
 		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Friend Guard", H: "Guard Up"},
+		abilities: {0: "Shed Skin", 1: "Friend Guard", H: "Guard Up"},
 	},
 	hitmonchan: {
 		inherit: true,
 		types: ["Fighting"],
-      abilities: {0: "Guard Up", 1: "Iron Fist", H: "Block Master"},
+		abilities: {0: "Guard Up", 1: "Iron Fist", H: "Block Master"},
 	},
 	burmy: {
 		inherit: true,
 		types: ["Bug"],
       abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
 	},
-	burmysandy: {
-		inherit: true,
-		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
-	},
-	burmytrash: {
-		inherit: true,
-		types: ["Bug"],
-      abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
-	},
+	// burmysandy: {
+		// inherit: true,
+		// types: ["Bug"],
+		// abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
+	// },
+	// burmytrash: {
+		// inherit: true,
+		// types: ["Bug"],
+		// abilities: {0: "Shed Skin", 1: "Guard Up", H: "Overcoat"},
+	// },
 	wormadam: {
 		inherit: true,
 		types: ["Bug", "Grass"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	wormadamsandy: {
 		inherit: true,
 		types: ["Bug", "Ground"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	wormadamtrash: {
 		inherit: true,
 		types: ["Bug", "Steel"],
-      abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
+		abilities: {0: "Fluffy", 1: "Guard Up", H: "Overcoat"},
 	},
 	mothim: {
 		inherit: true,
@@ -930,7 +930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tyrunt: {
 		inherit: true,
 		types: ["Rock", "Dragon"],
-      abilities: {0: "Strong Jaw", H: "Anger Point"},
+      abilities: {0: "Strong Jaw", 1: "Cold Blood", H: "Anger Point"},
 	},
 	klink: {
 		inherit: true,
@@ -975,17 +975,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	meloetta: {
 		inherit: true,
 		types: ["Normal", "Psychic"],
-      abilities: {0: "Serene Grace", H: "Technician"},
+      abilities: {0: "Serene Grace", 1: "Loudspeaker", H: "Dancer"},
 	},
 	meloettapirouette: {
 		inherit: true,
 		types: ["Normal", "Fighting"],
-      abilities: {0: "Serene Grace", H: "Technician"},
+      abilities: {0: "Serene Grace", 1: "Loudspeaker", H: "Dancer"},
 	},
 	tauros: {
 		inherit: true,
 		types: ["Normal"],
-      abilities: {0: "Intimidate", 1: "Obstinacy", H: "Technician"},
+      abilities: {0: "Intimidate", 1: "Obstinacy", H: "Sheer Force"},
 	},
 	braviary: {
 		inherit: true,
@@ -1378,7 +1378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rhyperior: {
 		inherit: true,
-      abilities: {0: "Bulletproof", 1: "Solid Rock", H: "Stall"},
+      abilities: {0: "Bulletproof", 1: "Solid Rock", H: "Hasty"},
 	},
 	giratina: {
 		inherit: true,
@@ -1545,7 +1545,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	druddigon: {
 		inherit: true,
-      abilities: {0: "Rough Skin", 1: "Stamina", H: "Mold Breaker"},
+      abilities: {0: "Rough Skin", 1: "Stamina", H: "Cold Blood"},
 	},
 	anorith: {
 		inherit: true,
@@ -1585,11 +1585,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	loudred: {
 		inherit: true,
-      abilities: {0: "Soundproof", 1: "Infuriation", H: "Scrappy"},
+      abilities: {0: "Loudspeaker", 1: "Infuriation", H: "Scrappy"},
 	},
 	exploud: {
 		inherit: true,
-      abilities: {0: "Soundproof", 1: "Infuriation", H: "Scrappy"},
+      abilities: {0: "Loudspeaker", 1: "Infuriation", H: "Scrappy"},
 	},
 	chikorita: {
 		inherit: true,
@@ -1749,7 +1749,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bisharp: {
 		inherit: true,
-      abilities: {0: "Defiant", 1: "Inner Focus", H: "Dark Rising"},
+      abilities: {0: "Defiant", 1: "Knight's Blade", H: "Dark Rising"},
 	},
 	pangoro: {
 		inherit: true,
@@ -1757,55 +1757,55 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	weavile: {
 		inherit: true,
-      abilities: {0: "Pressure", 1: "Dark Rising", H: "Pickpocket"},
+		abilities: {0: "Pressure", 1: "Dark Rising", H: "Pickpocket"},
 	},
 	shiftry: {
 		inherit: true,
-      abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
 	},
 	nuzleaf: {
 		inherit: true,
-      abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Dark Rising"},
 	},
 	popplio: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
 	},
 	brionne: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
 	},
 	primarina: {
 		inherit: true,
-      abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Liquid Voice"},
+		abilities: {0: "Torrent", 1: "Jack of all Trades", H: "Loudspeaker"},
 	},
 	mimejr: {
 		inherit: true,
-      abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
+		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	mrmime: {
 		inherit: true,
-      abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
+		abilities: {0: "Magic Warp", 1: "Jack of all Trades", H: "Magician"},
 	},
 	kecleon: {
 		inherit: true,
-      abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
+		abilities: {0: "Mimetism", 1: "Jack of all Trades", H: "Protean"},
 	},
 	smeargle: {
 		inherit: true,
-      abilities: {0: "Own Tempo", 1: "Technician", H: "Moody"},
+		abilities: {0: "Own Tempo", 1: "Technician", H: "Moody"},
 	},
 	sigilyph: {
 		inherit: true,
-      abilities: {0: "Jack of all Trades", 1: "Magic Guard", H: "Tinted Lens"},
+		abilities: {0: "Jack of all Trades", 1: "Magic Guard", H: "Tinted Lens"},
 	},
 	absol: {
 		inherit: true,
-      abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
+		abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
 	},
-	hoopaconfined: {
+	hoopa: {
 		inherit: true,
-      abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
+		abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
 	},
 	sudowoodo: {
 		inherit: true,
@@ -1976,11 +1976,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lickitung: {
 		inherit: true,
-      abilities: {0: "Regenerator", 1: "Oblivious", H: "Cloud Nine"},
+      abilities: {0: "Regenerator", 1: "Cold Blood", H: "Cloud Nine"},
 	},
 	lickilicky: {
 		inherit: true,
-      abilities: {0: "Regenerator", 1: "Oblivious", H: "Cloud Nine"},
+      abilities: {0: "Regenerator", 1: "Cold Blood", H: "Cloud Nine"},
 	},
 	snorlax: {
 		inherit: true,
@@ -2077,11 +2077,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	electrike: {
 		inherit: true,
-      abilities: {0: "Static", 1: "Lighting Rod", H: "Quick Feet"},
+      abilities: {0: "Static", 1: "Lightning Rod", H: "Quick Feet"},
 	},
 	manectric: {
 		inherit: true,
-      abilities: {0: "Static", 1: "Lighting Rod", H: "Quick Feet"},
+      abilities: {0: "Static", 1: "Lightning Rod", H: "Quick Feet"},
 	},
 	blitzle: {
 		inherit: true,
@@ -2142,6 +2142,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pidgeot: {
 		inherit: true,
       abilities: {0: "Keen Eye", 1: "Tangled Feet", H: "Hasty"},
+	},
+	pidgeotmega: {
+		inherit: true,
+      abilities: {0: "Air Stream"},
 	},
 	farfetchd: {
 		inherit: true,
@@ -2392,7 +2396,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
       inherit: true,
       abilities: {0: "Sweet Veil", H: "Beast Boost"},
    }, 
-   luranitstotem: {
+   lurantistotem: {
       inherit: true,
       abilities: {0: "Leaf Guard", H: "Beast Boost"},
    },
@@ -2649,7 +2653,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dracovish: {
       inherit: true,
-      abilities: {0: "Water Absorb", 1: "Strong Jaw", H: "Sand Rush"},
+      abilities: {0: "Water Absorb", 1: "Rough Skin", H: "Sand Rush"},
 	},
 	arctovish: {
       inherit: true,
@@ -2670,5 +2674,139 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	zamazentacrowned: {
       inherit: true,
       abilities: {0: "Dauntless Shield", H: "Guard Up"},
+	},
+	illumise: {
+		inherit: true,
+      abilities: {0: "Oblivious", 1: "Prankster", H: "Loudspeaker"},
+	},
+	volbeat: {
+		inherit: true,
+      abilities: {0: "Illuminate", 1: "Swarm", H: "Loudspeaker"},
+	},
+	kricketune: {
+		inherit: true,
+      abilities: {0: "Swarm", 1: "Loudspeaker", H: "Technician"},
+	},
+	chatot: {
+		inherit: true,
+      abilities: {0: "Keen Eye", 1: "Loudspeaker", H: "Tangled Feet"},
+	},
+	noibat: {
+		inherit: true,
+      abilities: {0: "Frisk", 1: "Infiltrator", H: "Loudspeaker"},
+	},
+	noivern: {
+		inherit: true,
+      abilities: {0: "Frisk", 1: "Infiltrator", H: "Loudspeaker"},
+	},
+	ekans: {
+		inherit: true,
+      abilities: {0: "Intimidate", 1: "Shed Skin", H: "Cold Blood"},
+	},
+	seviper: {
+		inherit: true,
+      abilities: {0: "Shed Skin", 1: "Cold Blood", H: "Infiltrator"},
+	},
+	tropius: {
+		inherit: true,
+      abilities: {0: "Chlorophyll", 1: "Cold Blood", H: "Harvest"},
+	},
+	bagon: {
+		inherit: true,
+      abilities: {0: "Rock Head", 1: "Cold Blood", H: "Sheer Force"},
+	},
+	shelgon: {
+		inherit: true,
+      abilities: {0: "Shell Armor", 1: "Cold Blood", H: "Overcoat"},
+	},
+	salamence: {
+		inherit: true,
+      abilities: {0: "Intimidate", 1: "Cold Blood", H: "Moxie"},
+	},
+	froslass: {
+		inherit: true,
+      abilities: {0: "Snow Cloak", 1: "Cold Blood", H: "Ice Body"},
+	},
+	scraggy: {
+		inherit: true,
+      abilities: {0: "Moxie", 1: "Cold Blood", H: "Intimidate"},
+	},
+	scrafty: {
+		inherit: true,
+      abilities: {0: "Moxie", 1: "Cold Blood", H: "Intimidate"},
+	},
+	tyrantrum: {
+		inherit: true,
+		types: ["Rock", "Dragon"],
+      abilities: {0: "Strong Jaw", 1: "Cold Blood", H: "Anger Point"},
+	},
+	slowbrogalar: {
+      inherit: true,
+      abilities: {0: "Quick Draw", 1: "Mega Launcher", H: "Regenerator"},
+	},
+	articunogalar: {
+      inherit: true,
+      abilities: {0: "Competitive", H: "Sheer Force"},
+	},
+	zapdosgalar: {
+      inherit: true,
+      abilities: {0: "Defiant", H: "Sole Caliber"},
+	},
+	moltresgalar: {
+      inherit: true,
+      abilities: {0: "Berserk", H: "Adaptability"},
+	},
+	slowkinggalar: {
+      inherit: true,
+      abilities: {0: "Curious Medicine", 1: "Corrosion", H: "Regenerator"},
+	},
+	zarude: {
+      inherit: true,
+      abilities: {0: "Leaf Guard", H: "Disperal"},
+	},
+	kubfu: {
+      inherit: true,
+      abilities: {0: "Scrappy"},
+	},
+	regieleki: {
+      inherit: true,
+      abilities: {0: "Clear Body", 1: "Transistor", H: "Regenerator"},
+	},
+	regidrago: {
+      inherit: true,
+      abilities: {0: "Clear Body", 1: "Dragon's Maw", H: "Regenerator"},
+	},
+	glastrier: {
+      inherit: true,
+      abilities: {0: "Chilling Neigh", H: "Obstinacy"},
+	},
+	spectrier: {
+      inherit: true,
+      abilities: {0: "Grim Neigh", H: "Obstinacy"},
+	},
+	calyrex: {
+      inherit: true,
+      abilities: {0: "Unnerve", H: "Disperal"},
+	},
+	patrat: {
+      inherit: true,
+      abilities: {0: "Shadow Tag", 1: "Keen Eye", H: "Analytic"},
+	},
+	watchog: {
+      inherit: true,
+      abilities: {0: "Shadow Tag", 1: "Keen Eye", H: "Analytic"},
+	},
+	decidueye: {
+      inherit: true,
+      abilities: {0: "Overgrow", H: "Shadow Tag"},
+	},
+	cinderace: {
+      inherit: true,
+		types: ["Fire", "Fighting"],
+      abilities: {0: "Blaze", H: "Sole Caliber"},
+	},
+	raichualola: {
+      inherit: true,
+      abilities: {0: "Levitate"},
 	},
 };

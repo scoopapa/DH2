@@ -4,6 +4,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	zacian: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	urshifu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},	
+	zamazenta: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	darmanitangalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dracovish: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	venusaurgmax: {
 		isGigantamax: "G-Max Vine Lash",
 		tier: "OU",
@@ -50,7 +70,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isGigantamax: "G-Max Terror",
 		tier: "OU",
 		doublesTier: "DUU",
-	},
+			},
 	kinglergmax: {
 		isGigantamax: "G-Max Foam Burst",
 		tier: "OU",
@@ -199,5 +219,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		tier: "OU",
 		doublesTier: "DOU",
+	},
+	spectrier: {
+		inherit:true,
+		tier: "OU",
+	},
+	cinderace: {
+		inherit:true,
+		tier: "OU",
 	},
 };

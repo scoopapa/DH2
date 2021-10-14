@@ -340,11 +340,11 @@ export class TeamValidator {
 			if (set.name && set.name.endsWith('-Gmax')) set.name = species.baseSpecies;
 			set.gigantamax = true;
 		}
-		if (set.name && set.name.length > 18) {
+		if (set.name && set.name.length > 30) {
 			if (set.name === set.species) {
 				set.name = species.baseSpecies;
 			} else {
-				problems.push(`Nickname "${set.name}" too long (should be 18 characters or fewer)`);
+				problems.push(`Nickname "${set.name}" too long (should be 30 characters or fewer)`);
 			}
 		}
 		set.name = dex.getName(set.name);
@@ -386,7 +386,7 @@ export class TeamValidator {
 
 		const setHas: {[k: string]: true} = {};
 
-		const allowEVs = dex.currentMod !== 'letsgo';
+		const allowEVs = dex.currentMod !== 'letsgo' || dex.currentMod !== 'prism';
 		const capEVs = dex.gen > 2 && (ruleTable.has('obtainablemisc') || dex.gen === 6);
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, allowEVs && !capEVs ? 252 : 0);
 		if (!set.ivs) set.ivs = TeamValidator.fillStats(null, 31);

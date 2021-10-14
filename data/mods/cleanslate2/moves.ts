@@ -54,4 +54,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
 	},
+	"healorder": {
+		inherit: true,
+		isNonstandard: null,
+	},
+	"revelationdance": {
+		inherit: true,
+		isNonstandard: null,
+	}
 };

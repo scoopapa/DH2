@@ -1,5 +1,4 @@
-'use strict';
-exports.BattleAbilities = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stench: {
 		shortDesc: "Grants immunity to Fairy-type moves.",
 		onTryHit(target, source, move) {

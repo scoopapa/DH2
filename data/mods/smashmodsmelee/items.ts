@@ -9,18 +9,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		onAfterMega(pokemon) {
-			const species = this.dex.getSpecies(pokemon.species.name);
-			const abilities = species.abilities;
-			const baseStats = species.baseStats;
-			const type = species.types[0];
-			if (species.types[1]) {
-				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			}
-		},
 		num: -1001,
 		gen: 8,
 		desc: "If held by a Raichu, this item allows it to Mega Evolve in battle.",
@@ -35,18 +23,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		onAfterMega(pokemon) {
-			const species = this.dex.getSpecies(pokemon.species.name);
-			const abilities = species.abilities;
-			const baseStats = species.baseStats;
-			const type = species.types[0];
-			if (species.types[1]) {
-				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			}
-		},
 		num: -1002,
 		gen: 8,
 		desc: "If held by a Garbodor, this item allows it to Mega Evolve in battle.",
@@ -60,18 +36,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
-		},
-		onAfterMega(pokemon) {
-			const species = this.dex.getSpecies(pokemon.species.name);
-			const abilities = species.abilities;
-			const baseStats = species.baseStats;
-			const type = species.types[0];
-			if (species.types[1]) {
-				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col numcol">` + species.tier + `</span> <span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			}
 		},
 		num: -1003,
 		gen: 8,
@@ -107,28 +71,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "The holder is protected from the secondary effects of moves.",
 	},
-	weatherwarriorscrystal: {
-		name: "Weather Warrior's Crystal",
-		spritenum: 307,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && !this.field.isWeather('')) {
-				pokemon.useItem();
+	"weatherwarriorscrystal": {
+		shortDesc: "When a weather is active, increases the holder's Atk and Sp Atk stats by 1 stage each.",
+		onUpdate: function(pokemon) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm']) && pokemon.useItem()) {
+				this.boost({
+					atk: 1,
+					spa: 1
+				});
 			}
 		},
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === '') return;
-			this.effectData.target.useItem();
+		fling: {
+			basePower: 60,
 		},
-		boosts: {
-			atk: 1,
-			spa: 1,
-		},
-		num: -1005,
-		gen: 8,
-		desc: "If there is a weather effect, raises holder's Attack and Sp. Atk by 1 stage. Single use.",
+		gen: 7,
+		id: "weatherwarriorscrystal",
+		name: "Weather Warriors Crystal",
 	},
 	marshadiumz: {
 		name: "Marshadium Z",
@@ -140,5 +98,95 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 802,
 		gen: 7,
 		desc: "If held by Trubbish-Marshadow with Spectral Residue, it can use Scum-Stealing 7-Scrap Strike.",
+	},
+	silkscarf: {
+		name: "Silk Scarf",
+		spritenum: 444,
+		fling: {
+			basePower: 10,
+		},
+		onModifyMove(move) {
+			move.stab = 1.8;
+		},
+		num: 251,
+		gen: 3,
+		desc: "Holder's STAB attacks have 1.2x power.",
+	},
+	reliccharm: {
+		name: "Relic Charm",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
+	},
+	redriotite: {
+		name: "Redriotite",
+		spritenum: 578,
+		megaStone: "Red Riot-Mega",
+		megaEvolves: "Red Riot",
+		itemUser: ["Red Riot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by Red Riot, this item allows him to Mega Evolve in battle.",
+	},
+	gengaritex: {
+		name: "Gengarite X",
+		spritenum: 578,
+		megaStone: "Gengar-Mega-X",
+		megaEvolves: "Gengar",
+		itemUser: ["Gengar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1008,
+		gen: 8,
+		desc: "If held by a Gengar, this item allows it to Mega Evolve in battle.",
+	},
+	augmentedlens: {
+		name: "Augmented Lens",
+		spritenum: 537,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive) {
+				this.add('-message', `${pokemon.name} has an Augmented Lens!`);
+			}
+		},
+		onSourceModifyAccuracyPriority: 3,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (!move.ohko && move.category !== 'Status') {
+				return true;
+			}
+		},
+		onSourceHit(target, source) {
+			let move: Move | ActiveMove | null = source.lastMove;
+			if (!move || move.isZ || move.ohko || move.category === 'Status') return;
+			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+			source.deductPP(move.id, 1);
+		},
+		num: -1009,
+		gen: 8,
+		desc: "Every move used by the holder will always hit; moves cost 1 PP more per use.",
 	},
 };

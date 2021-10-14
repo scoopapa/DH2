@@ -14,8 +14,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.illusion) this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 			this.add('-start', pokemon, 'Dynamax');
 			this.doMaxBoostFormeChange( pokemon, false );
-			if (pokemon.canGigantamax){
-				this.add('-formechange', pokemon, pokemon.canGigantamax);
+			if (pokemon.gigantamax){
+				this.add('-formechange', pokemon, pokemon.gigantamax);
 				pokemon.volatileTag = 'gmaxstatboost';
 			}
 			if (pokemon.species === 'Shedinja') return;
@@ -32,13 +32,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('dynamax');
 		},
 		onTryHit( target, source, move ){
-			if ( move.isMax || move.maxPowered ){
+			if ( move.isMax || move.isZOrMaxPowered ){
 				let str = move.name + ' was used at ' + move.basePower + ' base power.';
 				this.addSplit( source.side.id, [str])
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
+			if (move.id === 'dynamaxcannon') {
 				return this.chainModify(2);
 			}
 		},
@@ -55,8 +55,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax');
-			this.add('-formechange', pokemon, pokemon.template.baseSpecies);
-			if ( pokemon.species !== 'Shedinja' ) {
+			this.add('-formechange', pokemon, pokemon.species.baseSpecies);
+			if ( pokemon.species.name !== 'Shedinja' ) {
 				pokemon.hp = pokemon.getUndynamaxedHP();
 				pokemon.maxhp = pokemon.baseMaxhp;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
@@ -108,7 +108,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
-			let maxID = toID( this.getMaxMove( this.effectData.move, pokemon ))
+			let maxID = this.toID( this.getMaxMove( this.effectData.move, pokemon ))
 			if ( !pokemon.ignoringItem() 
 				&& ( move.id !== this.effectData.move
 					&& move.id !== maxID )

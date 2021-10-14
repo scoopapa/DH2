@@ -596,6 +596,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'xurkitree').learnset.ionabsorb = ['7L1'];
     this.modData('Learnsets', 'zapdos').learnset.ionabsorb = ['7L1'];
     this.modData('Learnsets', 'zebstrika').learnset.ionabsorb = ['7L1'];
+	 this.modData('Learnsets', 'raikou').learnset.ionabsorb = ['7L1'];
+	 this.modData('Learnsets', 'stunfisk').learnset.ionabsorb = ['7L1']; 
 
     // Plume Cannon
     this.modData('Learnsets', 'fearow').learnset.plumecannon = ['7L1'];
@@ -617,6 +619,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'dartrix').learnset.plumecannon = ['7L1'];
     this.modData('Learnsets', 'decidueye').learnset.plumecannon = ['7L1'];
     this.modData('Learnsets', 'dunsparce').learnset.plumecannon = ['7L1'];
+	 this.modData('Learnsets', 'toucannon').learnset.plumecannon = ['7L1'];
 
     // Spike Cannon
     this.modData('Learnsets', 'ferrothorn').learnset.spikecannon = ['7L1'];
@@ -1179,7 +1182,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'servine').learnset.outrage= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.dualchop= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.dracometeor= ['7L1'];
-    this.modData('Learnsets', 'serperior').learnset.flamethrower= ['7L1'];
     this.modData('Learnsets', 'serperior').learnset.outrage= ['7L1'];
     this.modData('Learnsets', 'parasect').learnset.shadowcharge= ['7L1'];
     this.modData('Learnsets', 'parasect').learnset.shadowclaw= ['7L1'];
@@ -1213,7 +1215,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'sawsbuck').learnset.mistyterrain= ['7L1'];
     this.modData('Learnsets', 'sawsbuck').learnset.leafblade= ['7L1'];
     this.modData('Learnsets', 'sawsbuck').learnset.earthquake= ['7L1'];
-    this.modData('Learnsets', 'rotomfan').learnset.flashcannon= ['7L1'];
+    this.modData('Learnsets', 'rotomfan').learnset.metalsound= ['7L1'];
     this.modData('Learnsets', 'granbull').learnset.suckerpunch= ['7L1'];
     this.modData('Learnsets', 'granbull').learnset.bellydrum= ['7L1'];
     this.modData('Learnsets', 'granbull').learnset.ironhead= ['7L1'];
@@ -1788,7 +1790,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData('Learnsets', 'cinderace').learnset.thunderpunch = ['7L1'];
 	this.modData('Learnsets', 'cinderace').learnset.flamewheel = ['7L1'];
 	this.modData('Learnsets', 'cinderace').learnset.mudslap = ['7L1'];
-	this.modData('Learnsets', 'cinderace').learnset.hottag = ['7L1'];
 	this.modData('Learnsets', 'sobble').learnset.swampland = ['7L1'];
 	this.modData('Learnsets', 'sobble').learnset.icepunch = ['7L1'];
 	this.modData('Learnsets', 'sobble').learnset.rinseoff = ['7L1'];
@@ -2105,6 +2106,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData('Learnsets', 'milcery').learnset.inverseroom = ['7L1'];
 	this.modData('Learnsets', 'milcery').learnset.fairywind = ['7L1'];
 	this.modData('Learnsets', 'milcery').learnset.solarbeam = ['7L1'];
+	this.modData('Learnsets', 'milcery').learnset.hyperbeam = ['7L1'];  
 	this.modData('Learnsets', 'alcremie').learnset.trickroom = ['7L1'];
 	this.modData('Learnsets', 'alcremie').learnset.inverseroom = ['7L1'];
 	this.modData('Learnsets', 'alcremie').learnset.fairywind = ['7L1'];	  
@@ -2245,7 +2247,82 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	this.modData('Learnsets', 'eternatus').learnset.acidmelt = ['7L1'];
 	this.modData('Learnsets', 'eternatus').learnset.dragonfang = ['7L1'];
 	this.modData('Learnsets', 'eternatus').learnset.shadowsky = ['7L1'];
-	this.modData('Learnsets', 'eternatus').learnset.souldrain = ['7L1'];  
+	this.modData('Learnsets', 'eternatus').learnset.souldrain = ['7L1'];
+	this.modData('Learnsets', 'slowbrogalar').learnset.acidmelt = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.flamebullet = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.riverstream = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.teleport = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.psywave = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.bubblebeam = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.armthrust = ['7L1'];
+   this.modData('Learnsets', 'slowbrogalar').learnset.spikecannon = ['7L1'];
+	this.modData('Learnsets', 'slowkinggalar').learnset.acidmelt = ['7L1'];
+   this.modData('Learnsets', 'slowkinggalar').learnset.riverstream = ['7L1'];
+   this.modData('Learnsets', 'slowkinggalar').learnset.teleport = ['7L1'];
+   this.modData('Learnsets', 'slowkinggalar').learnset.psywave = ['7L1'];
+   this.modData('Learnsets', 'slowkinggalar').learnset.bubblebeam = ['7L1'];
+	this.modData('Learnsets', 'articunogalar').learnset.teleport = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.pluck = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.mirrormove = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.magicroom = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.wonderroom = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.psywave = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.plumecannon = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.slipstream = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.jetstream = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.aircurrent = ['7L1'];
+   this.modData('Learnsets', 'articunogalar').learnset.inverseroom = ['7L1'];
+	this.modData('Learnsets', 'zapdosgalar').learnset.fellstinger = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.pluck = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.mirrormove = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.furycutter = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.doublekick = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.aircurrent = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.plumecannon = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.slipstream = ['7L1'];
+   this.modData('Learnsets', 'zapdosgalar').learnset.jetstream = ['7L1']; 
+	this.modData('Learnsets', 'moltresgalar').learnset.morningsun = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.pluck = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.mirrormove = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.astonish = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.shadowsky = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.aircurrent = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.plumecannon = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.slipstream = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.jetstream = ['7L1'];
+   this.modData('Learnsets', 'moltresgalar').learnset.souldrain = ['7L1'];
+	this.modData('Learnsets', 'kubfu').learnset.armthrust = ['7L1'];
+	this.modData('Learnsets', 'urshifu').learnset.armthrust = ['7L1'];
+   this.modData('Learnsets', 'urshifu').learnset.dualchop = ['7L1'];
+   this.modData('Learnsets', 'urshifu').learnset.pragmastrike = ['7L1'];
+	this.modData('Learnsets', 'urshifurapidstrike').learnset.armthrust = ['7L1'];
+   this.modData('Learnsets', 'urshifurapidstrike').learnset.dualchop = ['7L1'];
+   this.modData('Learnsets', 'urshifurapidstrike').learnset.aquaticassault = ['7L1'];
+	this.modData('Learnsets', 'regieleki').learnset.thunderclap = ['7L1'];
+	this.modData('Learnsets', 'regidrago').learnset.dragonfang = ['7L1'];
+   this.modData('Learnsets', 'regidrago').learnset.psychicfangs = ['7L1'];
+   this.modData('Learnsets', 'regidrago').learnset.icefang = ['7L1'];
+   this.modData('Learnsets', 'regidrago').learnset.guillotine = ['7L1'];
+	this.modData('Learnsets', 'zarude').learnset.pragmastrike = ['7L1'];
+   this.modData('Learnsets', 'zarude').learnset.leafage = ['7L1'];
+   this.modData('Learnsets', 'zarude').learnset.leaftornado = ['7L1'];
+   this.modData('Learnsets', 'zarude').learnset.shedleaves = ['7L1'];
+   this.modData('Learnsets', 'zarude').learnset.furycutter = ['7L1'];
+	this.modData('Learnsets', 'glastrier').learnset.powdersnow = ['7L1'];
+   this.modData('Learnsets', 'glastrier').learnset.sheercold = ['7L1'];
+   this.modData('Learnsets', 'glastrier').learnset.horndrill = ['7L1'];
+   this.modData('Learnsets', 'glastrier').learnset.spikecannon = ['7L1'];
+	this.modData('Learnsets', 'spectrier').learnset.wildcharge = ['7L1'];
+   this.modData('Learnsets', 'spectrier').learnset.allterrainblast = ['7L1'];
+   this.modData('Learnsets', 'spectrier').learnset.shadowsky = ['7L1'];
+   this.modData('Learnsets', 'spectrier').learnset.shadowcharge = ['7L1'];
+   this.modData('Learnsets', 'spectrier').learnset.pragmastrike = ['7L1'];
+	this.modData('Learnsets', 'calyrex').learnset.psychocut = ['7L1'];
+   this.modData('Learnsets', 'calyrex').learnset.psywave = ['7L1'];
+   this.modData('Learnsets', 'calyrex').learnset.inverseroom = ['7L1'];
+	this.modData('Learnsets', 'swampert').learnset.rinseoff = ['7L1'];
+	this.modData('Learnsets', 'meloetta').learnset.heartbeat = ['7L1']; 
+
 	  
 // trickroom 
 this.modData('Learnsets', 'palkia').learnset.trickroom = ['7L1'];
@@ -2765,7 +2842,6 @@ this.modData('Learnsets', 'ludicolo').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'wishiwashi').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'toxapex').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'gyarados').learnset.aquaticassault= ['7L1']; 
-this.modData('Learnsets', 'swampert').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'kyogre').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'greninja').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'sharpedo').learnset.aquaticassault= ['7L1']; 
@@ -2774,7 +2850,6 @@ this.modData('Learnsets', 'golisopod').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'crawdaunt').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'palkia').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'kabutops').learnset.aquaticassault= ['7L1']; 
-this.modData('Learnsets', 'swampert').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'volcanion').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'carracosta').learnset.aquaticassault= ['7L1']; 
 this.modData('Learnsets', 'krabby').learnset.aquaticassault= ['7L1']; 
@@ -2802,7 +2877,6 @@ this.modData('Learnsets', 'swanna').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'empoleon').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'lapras').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'quagsire').learnset.aquaticassault= ['7L1'];
-this.modData('Learnsets', 'marshtomp').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'bibarel').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'gorebyss').learnset.aquaticassault= ['7L1'];
 this.modData('Learnsets', 'gastrodon').learnset.aquaticassault= ['7L1'];
@@ -2974,7 +3048,6 @@ this.modData('Learnsets', 'simisear').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'plusle').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'minun').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'victini').learnset.hottag = ['7L1'];
-this.modData('Learnsets', 'pichu').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'heracross').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'lopunny').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'nidoqueen').learnset.hottag = ['7L1'];
@@ -2984,8 +3057,6 @@ this.modData('Learnsets', 'chesnaught').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'timburr').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'combusken').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'blaziken').learnset.hottag = ['7L1'];
-this.modData('Learnsets', 'pikachu').learnset.hottag = ['7L1'];
-this.modData('Learnsets', 'raichu').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'gurdurr').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'conkeldurr').learnset.hottag = ['7L1'];
 this.modData('Learnsets', 'croagunk').learnset.hottag = ['7L1'];
@@ -3644,205 +3715,5 @@ this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
     }*/
   },
 
-  getDamage: function (pokemon, target, move, suppressMessages = false) {
-    if (typeof move === 'string') move = this.getMove(move);
 
-    if (typeof move === 'number') {
-      let basePower = move;
-      move = new Data.Move({
-        basePower,
-        type: '???',
-        category: 'Physical',
-        willCrit: false,
-      });
-    }
-
-    if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
-      if (!target.runImmunity(move.type, !suppressMessages)) {
-        return false;
-      }
-    }
-
-    if (move.ohko) {
-      return target.maxhp;
-    }
-
-    if (move.damageCallback) {
-      return move.damageCallback.call(this, pokemon, target);
-    }
-    if (move.damage === 'level') {
-      return pokemon.level;
-    }
-    if (move.damage) {
-      return move.damage;
-    }
-
-    let category = this.getCategory(move);
-    let defensiveCategory = move.defensiveCategory || category;
-
-    let basePower = move.basePower;
-    if (move.basePowerCallback) {
-      basePower = move.basePowerCallback.call(this, pokemon, target, move);
-    }
-    if (!basePower) {
-      if (basePower === 0) return; // returning undefined means not dealing damage
-      return basePower;
-    }
-    basePower = this.clampIntRange(basePower, 1);
-
-    let critMult;
-    let critRatio = this.runEvent('ModifyCritRatio', pokemon, target, move, move.critRatio || 0);
-    if (this.gen <= 5) {
-      critRatio = this.clampIntRange(critRatio, 0, 5);
-      critMult = [0, 16, 8, 4, 3, 2];
-    } else {
-      critRatio = this.clampIntRange(critRatio, 0, 4);
-      if (this.gen === 6) {
-        critMult = [0, 16, 8, 2, 1];
-      } else {
-        critMult = [0, 24, 8, 2, 1];
-      }
-    }
-
-    move.crit = move.willCrit || false;
-    if (move.willCrit === undefined) {
-      if (critRatio) {
-        move.crit = this.randomChance(1, critMult[critRatio]);
-      }
-    }
-
-    if (move.crit) {
-      move.crit = this.runEvent('CriticalHit', target, null, move);
-    }
-
-    // happens after crit calculation
-    basePower = this.runEvent('BasePower', pokemon, target, move, basePower, true);
-
-    if (!basePower) return 0;
-    basePower = this.clampIntRange(basePower, 1);
-
-    let level = pokemon.level;
-
-    let attacker = pokemon;
-    let defender = target;
-    let attackStat = category === 'Physical' ? 'atk' : 'spa';
-    let defenseStat = defensiveCategory === 'Physical' ? 'def' : 'spd';
-    let statTable = {
-      atk: 'Atk',
-      def: 'Def',
-      spa: 'SpA',
-      spd: 'SpD',
-      spe: 'Spe'
-    };
-    let attack;
-    let defense;
-
-    let atkBoosts = move.useTargetOffensive ? defender.boosts[attackStat] : attacker.boosts[attackStat];
-    let defBoosts = move.useSourceDefensive ? attacker.boosts[defenseStat] : defender.boosts[defenseStat];
-
-    let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
-    let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
-
-    if (move.crit) {
-      ignoreNegativeOffensive = true;
-      ignorePositiveDefensive = true;
-    }
-    let ignoreOffensive = !!(move.ignoreOffensive || (ignoreNegativeOffensive && atkBoosts < 0));
-    let ignoreDefensive = !!(move.ignoreDefensive || (ignorePositiveDefensive && defBoosts > 0));
-
-    if (ignoreOffensive) {
-      this.debug('Negating (sp)atk boost/penalty.');
-      atkBoosts = 0;
-    }
-    if (ignoreDefensive) {
-      this.debug('Negating (sp)def boost/penalty.');
-      defBoosts = 0;
-    }
-
-    if (move.useTargetOffensive) {
-      attack = defender.calculateStat(attackStat, atkBoosts);
-    } else if (move.id === "shieldslam") {
-      attack = attacker.calculateStat("def", attacker.boosts.def);
-    } else {
-      attack = attacker.calculateStat(attackStat, atkBoosts);
-    }
-
-    if (move.useSourceDefensive) {
-      defense = attacker.calculateStat(defenseStat, defBoosts);
-    } else {
-      defense = defender.calculateStat(defenseStat, defBoosts);
-    }
-
-    // Apply Stat Modifiers
-    attack = this.runEvent('Modify' + statTable[attackStat], attacker, defender, move, attack);
-    defense = this.runEvent('Modify' + statTable[defenseStat], defender, attacker, move, defense);
-
-    //int(int(int(2 * L / 5 + 2) * A * P / D) / 50);
-    let baseDamage = Math.floor(Math.floor(Math.floor(2 * level / 5 + 2) * basePower * attack / defense) / 50);
-
-    // Calculate damage modifiers separately (order differs between generations)
-    return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
-  },
-	
-	pokemon: {
-	/**
-	 * Changes this Pokemon's forme to match the given templateId (or template).
-	 * This function handles all changes to stats, ability, type, template, etc.
-	 * as well as sending all relevant messages sent to the client.
-	 */
-	formeChange(
-		speciesId: string | Species, source: Effect = this.battle.effect,
-		isPermanent?: boolean, message?: string
-	) {
-		const rawSpecies = this.battle.dex.getSpecies(speciesId);
-
-		const species = this.setSpecies(rawSpecies, source);
-		if (!species) return false;
-
-		if (this.battle.gen <= 2) return true;
-
-		// The species the opponent sees
-		const apparentSpecies =
-			this.illusion ? this.illusion.species.species : species.baseSpecies;
-		if (isPermanent) {
-			this.baseSpecies = rawSpecies;
-			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
-				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
-			this.battle.add('detailschange', this, (this.illusion || this).details);
-			if (source.effectType === 'Item') {
-				if (source.zMove) {
-					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
-					this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
-				} else if (source.onPrimal) {
-					if (this.illusion) {
-						this.ability = '';
-						this.battle.add('-primal', this.illusion);
-					} else {
-						this.battle.add('-primal', this);
-					}
-				} else {
-					this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
-					this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
-				}
-			} else if (source.effectType === 'Status') {
-				// Shaymin-Sky -> Shaymin
-				this.battle.add('-formechange', this, species.name, message);
-			}
-		} else {
-			if (source.effectType === 'Ability') {
-				this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
-			} else {
-				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
-			}
-		}
-		if (source.effectType !== 'Ability' && source.id !== 'reliccharm' && source.id !== 'relicsong' && source.id !== 'zenmode') {
-			if (this.illusion) {
-				this.ability = ''; // Don't allow Illusion to wear off
-			}
-			this.setAbility(species.abilities['0'], null, true); //
-			if (isPermanent) this.baseAbility = this.ability;
-		}
-		return true;
-	}
-	},
 };

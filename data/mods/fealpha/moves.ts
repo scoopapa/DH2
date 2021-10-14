@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: MoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 darkvoid: {
 		inherit: true,
 		onTryMove(pokemon, target, move) {
@@ -9,5 +9,9 @@ darkvoid: {
 			this.hint("Only a Pokemon whose form is Darkrai can use this move.");
 			return null;
 		},
+	},
+	icehammer: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

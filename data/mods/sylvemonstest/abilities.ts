@@ -1,24 +1,24 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"forecast": {
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
-		shortDesc: "If this Pokémon is holding a Weather Rock, its secondary typing becomes Water/Fire/Rock/Ice/Flying/Dark (depending on the rock) and summon the corresponding weather upon entering the field. Under Strong Winds, this mon gains the added Flying type.",
+		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm",
+		shortDesc: "If this Pokémon is holding a Weather Rock, its secondary typing becomes Water/Fire/Rock/Ice/Flying/Ghost (depending on the rock) and summon the corresponding weather upon entering the field. Under Strong Winds, this mon gains the added Flying type.",
 		onStart(pokemon) {
-			if (pokemon.item === 'heatrock') {
+			if (pokemon.item === 'forecastofsun') {
 				pokemon.addType('Fire');
 				this.field.setWeather('sunnyday');
-			} else if (pokemon.item === 'damprock') {
+			} else if (pokemon.item === 'forecastofrain') {
 				pokemon.addType('Water');
 				this.field.setWeather('raindance');
-			} else if (pokemon.item === 'smoothrock') {
+			} else if (pokemon.item === 'forecastofsand') {
 				pokemon.addType('Rock');
 				this.field.setWeather('sandstorm');
-			} else if (pokemon.item === 'icyrock') {
+			} else if (pokemon.item === 'forecastofhail') {
 				pokemon.addType('Ice');
 				this.field.setWeather('hail');
-			} else if (pokemon.item === 'shadowrock') {
+			} else if (pokemon.item === 'forecastofshadows') {
 				pokemon.addType('Ghost');
 				this.field.setWeather('shadowsky');
-			} else if (pokemon.item === 'breezerock') {
+			} else if (pokemon.item === 'forecastofwind') {
 				pokemon.addType('Flying');
 				this.field.setWeather('aircurrent');
 			} else if (this.field.isWeather('deltastream')) {
@@ -55,7 +55,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 59,
 	},
 	"obstinacy": {
-		shortDesc: "User gains a boost in it's moves the lower it's HP gets. Formula:  (1.0 - [Current percentage of HP in decimal form]) + 1.0",
+		shortDesc: "User gains a boost in it's moves the lower it's HP gets. Formula: (1.0 - [Current percentage of HP in decimal form]) + 1.0",
 		onModifyAtkPriority: 5,
 		onModifyAtk (atk, attacker, defender, move) {
 			let obstiancyboost = (1 - attacker.hp / attacker.maxhp) + 1;
@@ -118,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Knight's Blade",
 	},
 	"disperal": {
-		shortDesc: "Boosts Bullet Seed, Seed Bomb, and Seed Flare by 1.2x power, and Leech Seed deals 20% more damage and heals 30% more HP each turn.",
+		shortDesc: "Boosts Bullet Seed, Seed Bomb, Seed Flare, Apple Acid, and Grav Apple by 1.2x. Leech Seed deals 20% more damage and heals 30% more HP each turn.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.name === 'Bullet Seed' || move.name === 'Seed Bomb' || move.name === 'Seed Flare' || move.name === 'Grav Apple' || move.name === 'Apple Acid') {
@@ -146,7 +146,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's pulse moves have 1.5x power. Heal Pulse heals 3/4 target's max HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['pulse'] || move.name === 'Steam Eruption' || move.name === 'Flash Cannon' || move.name === 'Techno Blast' || move.name === 'Fire Blast' || move.name === 'Moonblast' || move.name === 'Aeroblast' || move.name === 'Bullet Fire' || move.name === 'Twineedle' || move.name === 'Plume Cannon' || move.name === 'Draco Meteor' || move.name === 'Bullet Punch' || move.name === 'Spike Cannon' || move.name === 'Fleur Cannon' || move.name === 'Meteor Shower' || move.name === 'Hydro Cannon' || move.name === 'Blast Burn' || move.name === 'Dynamax Cannon' || move.name === 'Snipe Shot') {
+			if (move.flags['pulse'] || move.flags['bullet'] || move.name === 'Steam Eruption' || move.name === 'Flash Cannon' || move.name === 'Techno Blast' || move.name === 'Fire Blast' || move.name === 'Moonblast' || move.name === 'Aeroblast' || move.name === 'Bullet Fire' || move.name === 'Twineedle' || move.name === 'Plume Cannon' || move.name === 'Draco Meteor' || move.name === 'Bullet Punch' || move.name === 'Spike Cannon' || move.name === 'Fleur Cannon' || move.name === 'Meteor Shower' || move.name === 'Hydro Cannon' || move.name === 'Blast Burn' || move.name === 'Dynamax Cannon' || move.name === 'Snipe Shot' || move.name === 'Shell Side Arm') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -170,30 +170,47 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 171,
 	},
 	"shadowsurge": {
-		shortDesc: "Summons Shadow Sky upon switching in.",
+		shortDesc: "Summons Shadow Sky upon switching in, which boosts the power of Dark and Ghost-type moves by 1.5x.",
 		onStart(source) {
 			this.field.setWeather('shadowsky');
-			this.add('-ability', source, 'Shadow Surge');
 		},
 		id: "shadowsurge",
 		name: "Shadow Surge",
 	},
 	"airstream": {
-		shortDesc: "Summons Air Current upon switching in.",
+		shortDesc: "Summons Air Current upon switching in, which makes Flying-types take 0.75x damage from Rock, Ice, and Electric-type moves.",
 		onStart(source) {
 			this.field.setWeather('aircurrent');
-			this.add('-ability', source, 'Air Stream');
 		},
 		id: "airstream",
 		name: "Air Stream",
 	},
-	"timewarp": {
-		shortDesc: "On switch-in, this Pokemon summons Trick Room.",
+	timewarp: { //copied from hematite's version in smash mods melee, which was copied from his code from mfa! 
+		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
+		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.useMove("Trick Room", source);
+			this.field.removePseudoWeather('trickroom');
+			this.field.addPseudoWeather('trickroom');
 		},
-		id: "timewarp",
+		onAnyTryMove(target, source, effect) {
+			if (['trickroom'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Time Warp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('timewarp')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('trickroom');
+		},
 		name: "Time Warp",
+		rating: 4.5,
+		num: -1004,
 	},
 	"dimensionwarp": {
 		shortDesc: "On switch-in, this Pokemon summons Inverse Room.",
@@ -204,7 +221,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Dimension Warp",
 	},
 	housekeeping: {
-		shortDesc: "Removes hazards upon switch-in.",
+		shortDesc: "Removes hazards & rooms upon switch-in.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
 			this.field.removePseudoWeather('trickroom');
@@ -253,17 +270,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"swarm": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Bug attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Bug attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
@@ -275,17 +292,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"blaze": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Fire-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Fire attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Fire attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
@@ -297,17 +314,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"torrent": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Water-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Water attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Water attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
@@ -319,17 +336,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"overgrow": {
 		desc: "When this Pokemon has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Grass-type attack.",
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Grass attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Grass attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
@@ -340,7 +357,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 65,
 	},
 	"technician": {
-		desc: "This Pokemon's moves of 60 power or less have their power multiplied by 1.5. Does affect Struggle.",
+		desc: "This Pokemon's moves of 75 power or less have their power multiplied by 1.5. Does affect Struggle.",
 		shortDesc: "This Pokemon's moves of 75 power or less have 1.5x power. Includes Struggle.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
@@ -353,20 +370,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Technician",
 		rating: 4,
 		num: 101,
-	},
-	"megalauncher": {
-		desc: "This Pokemon's pulse, ball and bomb moves have their power multiplied by 1.5. Heal Pulse restores 3/4 of a target's maximum HP, rounded half down.",
-		shortDesc: "This Pokemon's pulse, ball and bomb moves have 1.5x power. Heal Pulse heals 3/4 target's max HP.",
-		onBasePowerPriority: 8,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['pulse' || 'bullet']) {
-				return this.chainModify(1.5);
-			}
-		},
-		id: "megalauncher",
-		name: "Mega Launcher",
-		rating: 3.5,
-		num: 178,
 	},
 	"thickfat": {
 		desc: "If a Pokemon uses a Fire- or Ice-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon.",
@@ -401,7 +404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	"liquidvoice": {
 		desc: "This Pokemon's sound-based moves become Water-type moves. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's sound-based moves become Water type and power up by 1.2x times.",
+		shortDesc: "This Pokemon's sound moves become Water type and are boosted by 1.2x.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.flags['sound']) {
@@ -475,7 +478,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 113,
 	},
 	"flareboost": {
-		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",
+		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 2.",
 		shortDesc: "While this Pokemon is burned, its special attacks have 2x power.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
@@ -491,7 +494,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"angerpoint": {
 		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
-             this.boost({atk: 1});
+         if (source === target) return;     
+			this.boost({atk: 1});
 		},
 		id: "angerpoint",
 		name: "Anger Point",
@@ -501,6 +505,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"infuriation": {
 		shortDesc: "This Pokemon's Special Attack is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spa: 1});
 		},
 		id: "infuriation",
@@ -509,6 +514,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"perseverance": {
 		shortDesc: "This Pokemon's Special Defense is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spd: 1});
 		},
 		id: "perseverance",
@@ -517,6 +523,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"stalwart": {
 		shortDesc: "This Pokemon's Speed is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
 			this.boost({spe: 1});
 		},
 		id: "stalwart",
@@ -524,10 +531,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 242,
 	},	    
+	stamina: { //added when fixing the synthesis bug, just as a failsafe
+		inherit: true, 
+		onDamagingHit(damage, target, source, effect) {
+			if (source === target) return;  
+			this.boost({def: 1});
+		},
+	},
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe (spe) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(2);
 			}
 		},
@@ -565,7 +579,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's kick-based attacks have 1.2x power.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Low Sweep' || move.name === 'Rolling Kick' || move.name === 'Triple Kick' || move.name === 'Stomp' || move.name === 'High Horsepower' || move.name === 'Triple Axel' || move.name === 'Stomping Tantrum') {
+			if (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Low Sweep' || move.name === 'Rolling Kick' || move.name === 'Triple Kick' || move.name === 'Stomp' || move.name === 'High Horsepower' || move.name === 'Triple Axel' || move.name === 'Stomping Tantrum' || move.name === 'Thunderous Kick') {
 				return this.chainModify(1.2);
 			}
 		},
@@ -605,7 +619,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"bask": {
 		shortDesc: "Under Harsh Sunlight, this Pokemon takes 33% less damage from all but NvE moves (Includes Stealth Rocks)",
 		onSourceModifyDamage (damage, source, target, move) {
-			if (move.typeMod < 0 && this.field.isWeather(['desolateland'])) {
+			if (move.typeMod < 0 && this.field.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(0.67);
 			}
 		},
@@ -687,7 +701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 200,
 	},
 "jackofalltrades": {
-		desc: "This Pokemon's moves not of it's typing gain 1.5x power. This pokemon does not gain STAB.",
+		desc: "This Pokemon's moves not of it's typing gain 1.5x power. This Pokemon does not gain STAB.",
 		onModifyMove (move) {
 			move.stab = 1;
 		},
@@ -774,7 +788,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Space Warp",
 	},
 	"stall": {
-		shortDesc: "This Pokemon moves last among Pokemon using the same or greater priority moves. This pokemon's moves have 1.5x power.",
+		shortDesc: "This Pokemon moves last among Pokemon using the same or greater priority moves. This Pokemon's moves have 1.5x power.",
 		onModifyPriority (priority) {
 			return Math.round(priority) - 0.1;
 		},
@@ -792,17 +806,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 100,
 	},
 	"colossaltitan": {
-		shortDesc: "This Pokemon's attacking stat is multiplied by 1.2 while using a Steel, Ice, or Rock-type attack.",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.2 while using a Steel, Ice, Rock, Dragon, or Electric-type attack.",
 		onModifyAtkPriority: 5,
 		onModifyAtk (atk, attacker, defender, move) {
-			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice') {
+			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice' || move.type === 'Dragon' || move.type === 'Electric') {
 				this.debug('Colossal Titan boost');
 				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA (atk, attacker, defender, move) {
-			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice') {
+			if (move.type === 'Steel' || move.type === 'Rock' || move.type === 'Ice' || move.type === 'Dragon' || move.type === 'Electric') {
 				this.debug('Colossal Titan boost');
 				return this.chainModify(1.2);
 			}
@@ -821,7 +835,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bell Chime",
 	},
 	"hasty": {
-		shortDesc: "This Pokemon's attacks do not have to charge/recharge.",
+		shortDesc: "This Pokemon's attacks do not have to charge or recharge.",
 		onModifyMove(move) {
 			delete move.flags['charge', 'recharge'];
 		},
@@ -840,17 +854,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 203,
 	},
 	"battery": {
-		shortDesc: "This Pokemon's attacking stat is 1.5x with Electric attacks.",
+		shortDesc: "This Pokemon's attacking stat is 1.5x with Electric attacks when at 50% or less HP.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
+			if (move.type === 'Electric' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Battery boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
+			if (move.type === 'Electric' && attacker.hp <= attacker.maxhp / 2) {
 				this.debug('Battery boost');
 				return this.chainModify(1.5);
 			}
@@ -928,8 +942,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
     "loudspeaker": {
-        desc: "Boosts the power of sound-based moves.",
-        shortDesc: "Boosts sound move power.",
+        desc: "Boosts the power of sound-based moves by 1.3x.",
+        shortDesc: "Boosts sound move power by 1.3x.",
         onBasePowerPriority: 8,
         onBasePower(basePower, attacker, defender, move) {
             if (move.flags['sound']) {
@@ -1003,7 +1017,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 	"mindtrick": {
 		desc: "When this Pokémon's stat stages would be modified, other Pokémon's stat stages are modified instead. When other Pokémon's stat stages would be modified, this Pokémon's stat stages are modified instead.",
-		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker.",
+		shortDesc: "Stat changes on this Pokémon are reflected back to the attacker and vice versa.",
 		onAnyBoost(boost, target, source, effect) {
 			// Don't bounce self stat changes, or boosts that have already bounced
 			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'mindtrick') return;
@@ -1041,5 +1055,77 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "mindtrick",
 		name: "Mind Trick",
 		rating: 2,
+	},
+	"shadowtag": {
+		shortDesc: "Traps Ghost-types and takes 0.5x damage from Ghost-type moves.",
+        onFoeTrapPokemon(pokemon) {
+            if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+                if (pokemon.hasType('Ghost')) {
+                    pokemon.tryTrap(true);
+                    pokemon.trapped = true;
+                    pokemon.trappedBy = this.effectData.target; 
+                }
+            }
+        },
+        onFoeMaybeTrapPokemon(pokemon, source) {
+            if (!source) source = this.effectData.target;
+            if (!source || !this.isAdjacent(pokemon, source)) return;
+            if (!pokemon.hasAbility('shadowtag')) {
+                if (pokemon.hasType('Ghost')) {
+                    pokemon.maybeTrapped = true;
+                }
+            }
+        },
+        onEnd(pokemon) {
+            for (const target of this.getAllActive()) {
+                if (target.trapped && target.trappedBy === this.effectData.target) {
+                    target.trapped = false; 
+                }
+            }
+        },
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadow Tag weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadow Tag weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Shadow Tag",
+		rating: 5,
+		num: 23,
+	},
+	insider: {
+		desc: "Changes Deoxys' form and sets up a Room in base of the Stone it is holding. If Moon Stone: transfroms into Deoxys and summons Inverse Room. If Shiny Stone: transfroms into Deoxys-Attack and summons Wonder Room. If Dawn Stone: transfroms into Deoxys-Defense and summons Trick Room. If Dusk Stone: transfroms into Deoxys-Speed and summons Magic Room.",
+		shortDesc: "Changes Deoxys' form and sets up a Room in base of the Stone it is holding.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Deoxys' || !pokemon.transformed) {
+				if (pokemon.hasItem('moonstone')) {
+					pokemon.formeChange('Deoxys');
+					this.field.addPseudoWeather('inverseroom');
+				}
+				else if (pokemon.hasItem('shinystone')) {
+					pokemon.formeChange('Deoxys-Attack');
+					this.field.addPseudoWeather('wonderroom');
+				}
+				else if (pokemon.hasItem('dawnstone')) {
+					pokemon.formeChange('Deoxys-Defense');
+					this.field.addPseudoWeather('trickroom');
+				}
+				else if (pokemon.hasItem('duskstone')) {
+					pokemon.formeChange('Deoxys-Speed');
+					this.field.addPseudoWeather('magicroom');
+				}
+			} 
+		},
+		id: "insider",
+		name: "Insider",
+		rating: 4,
 	},
 };

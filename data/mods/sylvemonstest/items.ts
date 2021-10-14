@@ -149,6 +149,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+	"leek": {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 83) || pokemon.baseSpecies.num === 83) {
+				return false;
+			}
+			return true;
+		},
+	},
 	"thickclub": {
 		inherit: true,
 		onTakeItem(item, pokemon, source) {
@@ -188,12 +197,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If holder is a Wishiwashi, it becomes School Form. It's ability becomes Intimidate. Water moves are boosted by 1.2x",
 	},
-	"ragecandybar": {
-		id: "ragecandybar",
+	
+	ragecandybar: {
 		name: "Rage Candy Bar",
-		onStart: function(pokemon) {
-			this.add('-item', pokemon, 'Rage Candy Bar');
-			if (pokemon.species.baseSpecies === 'Darmanitan') {
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
 				if (!pokemon.species.name.includes('Galar')) {
 					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
 				} else {
@@ -201,11 +210,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				}
 			}
 		},
-		fling: {
-			basePower: 20,
-		},
-		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
@@ -213,42 +218,36 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 555) || pokemon.baseSpecies.num === 555) {
-				return false;
-			}
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Darmanitan') return false;
 			return true;
 		},
-		gen: 7,
-		desc: "If this Pokémon is a Darmanitan, it becomes Zen Mode Darmanitan, and it's Psychic-Type moves have 1.2x more power",
+		itemUser: ["Darmanitan"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Darmanitan: Zen Mode on entry, 1.2x power Psychic- or Fire-type (Unova/Galar) attacks.",
 	},
-	"reliccharm": {
-		id: "reliccharm",
+	reliccharm: {
 		name: "Relic Charm",
-		onStart: function(pokemon) {
-			this.add('-item', pokemon, 'Relic Charm');
-			if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
-				this.add('-formechange', pokemon, 'Meloetta-Pirouette', '[msg]');
-				pokemon.formeChange("Meloetta-Pirouette");
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
 			}
 		},
-		fling: {
-			basePower: 40,
-		},
-		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
-			if (move && (user.baseSpecies.num === 648) && (move.type === 'Fighting')) {
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 648) || pokemon.baseSpecies.num === 648) {
-				return false;
-			}
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
 			return true;
 		},
-		gen: 7,
-		desc: "If this Pokémon is a Meloetta, it changes to Pirouette, and it's Fighting-Type moves have 1.2x more power",
+		itemUser: ["Meloetta"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
 	},
 	"shadowrock": {
 		id: "shadowrock",
@@ -415,10 +414,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
-		onModifySpe: function(spe) {
-			return this.chainModify(1.33);
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
 		},
-		desc: "Holder's Speed is 1.33x, but it can't use the same move twice in a row",
+		onModifySpe: function(spe) {
+			return this.chainModify(1.2);
+		},
+		desc: "Holder's Speed is 1.2x, but it can't use the same move twice in a row",
 	},
 	"anguishbandanna": {
 		id: "anguishbandanna",
@@ -430,10 +432,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
-		onModifyAtk: function(atk) {
-			return this.chainModify(1.33);
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
 		},
-		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
+		onModifyAtk: function(atk) {
+			return this.chainModify(1.2);
+		},
+		desc: "Holder's Attack is 1.2x, but it can't use the same move twice in a row",
 	},
 	"distressglass": {
 		id: "distressglass",
@@ -445,10 +450,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
-		onModifySpA: function(spa) {
-			return this.chainModify(1.33);
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
 		},
-		desc: "Holder's Attack is 1.33x, but it can't use the same move twice in a row",
+		onModifySpA: function(spa) {
+			return this.chainModify(1.2);
+		},
+		desc: "Holder's Special Attack is 1.2x, but it can't use the same move twice in a row",
 	},
 	assaultshield: {
 		name: "Assault Shield",
@@ -1316,5 +1324,65 @@ export const Items: {[k: string]: ModdedItemData} = {
         num: 778,
         gen: 7,
         desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
+    },
+    "forecastofsun": {
+        name: "Forecast of Sun",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sun when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsun",
+        gen: 8,
+    },
+    "forecastofrain": {
+        name: "Forecast of Rain",
+        desc: "If the holder has the ability Forecast, this Pokémon summons rain when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofrain",
+        gen: 8,
+    },
+    "forecastofsand": {
+        name: "Forecast of Sand",
+        desc: "If the holder has the ability Forecast, this Pokémon summons sand when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofsand",
+        gen: 8,
+    },
+    "forecastofhail": {
+        name: "Forecast of Hail",
+        desc: "If the holder has the ability Forecast, this Pokémon summons hail when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofhail",
+        gen: 8,
+    },
+    "forecastofshadows": {
+        name: "Forecast of Shadows",
+        desc: "If the holder has the ability Forecast, this Pokémon summons shadow sky when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofshadows",
+        gen: 8,
+    },
+    "forecastofwind": {
+        name: "Forecast of Wind",
+        desc: "If the holder has the ability Forecast, this Pokémon summons air current when it is sent out.",
+        fling: {
+            basePower: 10,
+        },
+        onTakeItem: false,
+        id: "forecastofwind",
+        gen: 8,
     },
 };

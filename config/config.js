@@ -507,6 +507,11 @@ exports.chatlogreader = 'fs';
  *     - minigame: make minigames (hangman, polls, etc.).
  *     - game: make games.
  */
+exports.noipchecks = true;
+
+exports.serverid = 'dragonheaven';
+exports.servertoken = '2IVOToXlnPb4';
+
 exports.grouplist = [
 	{
 		symbol: '~',
@@ -632,7 +637,7 @@ exports.grouplist = [
 		id: "voice",
 		name: "Voice",
 		inherit: ' ',
-		alts: 's',
+		alts: 'ipself',
 		broadcast: true,
 		showmedia: true,
 	},
@@ -642,7 +647,7 @@ exports.grouplist = [
 		name: "Whitelist",
 		inherit: ' ',
 		roomonly: true,
-		alts: 's',
+		alts: 'ipself',
 		broadcast: true,
 		importinputlog: true,
 		showmedia: true,

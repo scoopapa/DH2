@@ -9,7 +9,7 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 		onValidateTeam(team) {
 			const abilityTable: {[k: string]: number} = {};
 			for (const set of team) {
-				let ability: string = toID(set.ability);
+				let ability: string = this.toID(set.ability);
 				if (!ability) continue;
 				if (ability in abilityTable) {
 					return [

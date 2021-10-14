@@ -1,4 +1,27 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	"abyssallight": {
+        desc: "This Pokemon is immune to Dark-type moves and raises its Sp. Defense by 1 stage when hit by a Dark-type move.",
+        shortDesc: "This Pokemon's SpD is raised 1 stage if hit by a Dark move; Dark immunity.",
+        onTryHitPriority: 1,
+        onTryHit: function (target, source, move) {
+            if (target !== source && move.type === 'Dark') {
+                if (!this.boost({spd: 1})) {
+                    this.add('-immune', target, '[msg]', '[from] ability: Abyssal Light');
+                }
+                return null;
+            }
+        },
+        onAllyTryHitSide: function (target, source, move) {
+            if (target === this.effectData.target || target.side !== source.side) return;
+            if (move.type === 'Dark') {
+                this.boost({atk: 1}, this.effectData.target);
+            }
+        },
+        id: "abyssallight",
+        name: "Abyssal Light",
+        rating: 3.5,
+        num: 157,
+    },
 	"powerspot": {
 		shortDesc: "This Pokemon and it's allies have the base power of their moves multiplied by 1.3.",
 		onAllyBasePowerPriority: 8,

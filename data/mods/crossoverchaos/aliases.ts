@@ -1,4 +1,4 @@
-export const BattleAliases = {
+export const Aliases = {
 	// basically a bunch of names
 	"seiba": "Saber",
 	"artoriapendragon": "Saber",

@@ -3,34 +3,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// electivirekungfu: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	flygonbuzz: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// banetteblademaster: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
-	// banettemegablademaster: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
-	// kingdracamo: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	vikavoltmigale: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// typhlosioncinder: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	flareonocean: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -39,10 +19,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// exploudmeow: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	butterfreearmor: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -59,30 +35,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// delphoxlazy: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
-	// lurantisnut: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	sylveonprotector: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// skarmoryprimordial: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
-	// infernapebugout: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
-	// breloomluau: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	leafeoncutlass: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -91,15 +47,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// dodriomystical: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
 	mantinespiny: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	rapidashgalarmeow: {
+	rapidashmeowgalar: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -140,6 +92,58 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	roseradescarfed: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kingdracamo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	exploudmeow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lurantisnut: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skarmoryprimordial: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	marowakhalberd: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slowkingexplosive: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	rapidashmule: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dusknoircake: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	electivirekungfu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	drampaschrödinger: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	espeonaura: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sirfetchdarcher: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	weezingdoctor: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

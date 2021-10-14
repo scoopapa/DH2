@@ -3,6 +3,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 35, def: 70, spa: 95, spd: 80, spe: 85},
 	},
+	butterfreegmax: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 35, def: 70, spa: 95, spd: 80, spe: 85},
+	},
 	vileplume: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Grassy Surge", H: "Effect Spore"},
@@ -32,7 +36,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 85, spa: 95, spd: 65, spe: 70},
 	},
+	flapplegmax: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 85, spa: 95, spd: 65, spe: 70},
+	},
 	appletun: {
+		inherit: true,
+		baseStats: {hp: 120, atk: 85, def: 85, spa: 100, spd: 85, spe: 30},
+	},
+	appletungmax: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 85, def: 85, spa: 100, spd: 85, spe: 30},
 	},
@@ -59,6 +71,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Corrosion"},
 	},
 	melmetal: {
+		inherit: true,
+		baseStats: {hp: 125, atk: 123, def: 123, spa: 80, spd: 65, spe: 84},
+	},
+	melmetalgmax: {
 		inherit: true,
 		baseStats: {hp: 125, atk: 123, def: 123, spa: 80, spd: 65, spe: 84},
 	},
@@ -122,10 +138,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Competitive", 1: "Infiltrator", H: "Corrosion"},
 		baseStats: {hp: 85, atk: 70, def: 80, spa: 90, spd: 80, spe: 130},
 	},
-	slowkinggalar: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 55, def: 90, spa: 110, spd: 110, spe: 30},
-	},
 	urshifurapidstrike: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 115, def: 80, spa: 63, spd: 80, spe: 112},
@@ -135,6 +147,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 160, def: 100, spa: 100, spd: 100, spe: 100},
 	},
 	rapidashgalar: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 120, def: 60, spa: 70, spd: 100, spe: 110},
+	},
+	rapidash: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 120, def: 60, spa: 70, spd: 100, spe: 110},
 	},
@@ -157,5 +173,64 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 80, def: 112, spa: 70, spd: 102, spe: 40},
 		abilities: {0: "Pressure", H: "Prankster"},
+	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 60, def: 63, spa: 130, spd: 97, spe: 100},
+	},
+	zamazenta: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 90, def: 115, spa: 80, spd: 115, spe: 108},
+	},
+	zacian: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 130, def: 95, spa: 90, spd: 95, spe: 108},
+	},
+	heatmor: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 102, def: 61, spa: 102, spd: 61, spe: 80},
+		abilities: {0: "Gluttony", 1: "Flash Fire", H: "Stakeout"},		
+	},
+	pangoro: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 134, def: 98, spa: 54, spd: 86, spe: 68},
+	},
+	cherrim: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 67, spd: 78, spe: 95},
+	},
+	cherrimsunshine: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 67, spd: 78, spe: 95},
+	},
+	machamp: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 130, def: 80, spa: 55, spd: 85, spe: 65},
+	},
+	spectrier: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 85, def: 60, spa: 145, spd: 80, spe: 100},
+	},
+	stunfiskgalar: {
+		inherit: true,
+		baseStats: {hp: 109, atk: 101, def: 109, spa: 66, spd: 84, spe: 52},
+		abilities: {0: "Mimicry", 1: "Strong Jaw", H: "Unnerve"},		
+	},
+	stunfisk: {
+		inherit: true,
+		baseStats: {hp: 109, atk: 66, def: 84, spa: 101, spd: 109, spe: 52},
+	},
+	runerigus: {
+		inherit: true,
+		baseStats: {hp: 58, atk: 110, def: 155, spa: 50, spd: 115, spe: 30},
+	},
+	runerigus: {
+		inherit: true,
+		baseStats: {hp: 58, atk: 110, def: 155, spa: 50, spd: 115, spe: 30},
+	},
+	mrrime: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 75, def: 85, spa: 110, spd: 100, spe: 70},
+		abilities: {0: "Refrigerate", 1: "Screen Cleaner", H: "Ice Body"},		
 	},
 };
