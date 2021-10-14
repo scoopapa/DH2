@@ -1965,8 +1965,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Doduo",
 		evoLevel: 31,
 		eggGroups: ["Flying"],
-		otherFormes: ["Dodrio-Mega"]
-		formeOrder: ["Dodrio", "Dodrio-Mega"]
+		otherFormes: ["Dodrio-Mega"],
+		formeOrder: ["Dodrio", "Dodrio-Mega"],
 	},
 	dodriomega: {
 		num: 85,
