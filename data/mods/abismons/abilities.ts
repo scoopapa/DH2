@@ -4719,11 +4719,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	threshold: {
 		onStart(pokemon) {
 			this.boost({def: 2}, pokemon);
-			this.boost({spdef: 2}, pokemon);
+			this.boost({spd: 2}, pokemon);
 		},
 		onDamagingHit(damage, target, source, effect) {
 			this.boost({def: -1});
-			this.boost({spdef: -1});
+			this.boost({spd: -1});
 		},
 		name: "Threshold",
 		rating: 3.5,
