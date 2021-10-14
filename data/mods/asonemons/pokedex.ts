@@ -1,6 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	yanmegashell: {
-		num: -1001,
+		fusion: ['Yanmega', 'Torkoal'],
+		num: 1,
 		name: "Yanmega-Shell",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 70, atk: 85, def: 145, spa: 105, spd: 90, spe: 60},
