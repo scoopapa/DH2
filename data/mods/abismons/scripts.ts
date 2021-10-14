@@ -7,6 +7,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 		newMoves("exploud", ["overdrive", "partingshot", "sparklingaria", "bugbuzz", "knockoff", "flashcannon", "eeriespell", "clangingscales", "grasswhistle"]);
 		newMoves("hoopa", ["hex","willowisp"]);
+		newMoves("obstagoon", ["matblock", "powertrip"]);
+		newMoves("dodrio", ["assist", "metronome", "mefirst", "naturepower", "uturn"]);
 	},	
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
