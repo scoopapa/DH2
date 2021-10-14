@@ -1148,7 +1148,7 @@ export const Formats: {[k: string]: FormatData} = {
 				let modded = false;
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
-						console.log(species.types[type] + " is different from " + baseSpecies.types[type]);
+						// console.log(species.types[type] + " is different from " + baseSpecies.types[type]);
 						modded = true;
 					}
 				}
@@ -1164,9 +1164,9 @@ export const Formats: {[k: string]: FormatData} = {
 				if (species.abilities['S'] !== baseSpecies.abilities['S']) modded = true;
 				if (modded) {
 					pokemon.isModded = true;
-					console.log(species.name + " is different from in canon");
-				} else {
-					console.log(species.name + " is the same as in canon");
+					// console.log(species.name + " is different from in canon");
+				// } else {
+					// console.log(species.name + " is the same as in canon");
 				}
 			}
 		},
@@ -1175,13 +1175,13 @@ export const Formats: {[k: string]: FormatData} = {
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
 				species = this.dex.getSpecies(pokemon.illusion.species.name);
-				console.log(pokemon.illusion.name + " is being reported");
+				// console.log(pokemon.illusion.name + " is being reported");
 				if (!pokemon.illusion.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
-				console.log(pokemon.name + " is being reported");
+				// console.log(pokemon.name + " is being reported");
 				if (!pokemon.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				if (pokemon.switchedIn) return;

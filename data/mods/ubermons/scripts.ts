@@ -69,6 +69,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'lugia').learnset.calmmind;
 		this.modData('Learnsets', 'lugia').learnset.workup = ['8L1'];
+		
+		delete this.modData('Learnsets', 'pheromosa').learnset.tripleaxel;
+		delete this.modData('Learnsets', 'pheromosa').learnset.quiverdance;
+		delete this.modData('Learnsets', 'pheromosa').learnset.blizzard;
+		
+		delete this.modData('Learnsets', 'magearna').learnset.agility;
+		delete this.modData('Learnsets', 'magearna').learnset.shiftgear;
+		delete this.modData('Learnsets', 'magearna').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearna').learnset.focusblast;
+		delete this.modData('Learnsets', 'magearna').learnset.aurasphere;
+		delete this.modData('Learnsets', 'magearna').learnset.icebeam;
+		delete this.modData('Learnsets', 'magearna').learnset.aurorabeam;
+		
+		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
+		
+		this.modData('Learnsets', 'zekrom').learnset.knockoff = ['8L1'];
 	},
 	
 	pokemon: {

@@ -1376,6 +1376,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 241,
 	},
+	gulpmissile2: {
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['wailordmegagulping', 'wailordmegamending'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'wailordmegagulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					this.useMove("Wish", target);
+				}
+				target.formeChange('wailordmega', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile2') &&
+				source.species.name === 'Wailord-Mega' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'wailordmegamending' : 'wailordmegagulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		isPermanent: true,
+		name: "Gulp Missile 2",
+		rating: 2.5,
+		num: 241,
+	},
 	guts: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
@@ -2959,20 +2987,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: 44,
 	},
-	phoenixflame: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			for (const ally of pokemon.side.pokemon) {
-				if (pokemon.hp) {
-					ally.heal(ally.baseMaxhp / 20);
-				}
-			}
-		},
-		name: "Phoenix Flame",
-		rating: 5,
-		num: 449,	
-	},
 	rattled: {
 		onDamagingHit(damage, target, source, move) {
 			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
@@ -4540,8 +4554,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	arcana: {
 		shortDesc: "Sets Wonder Room indefinitely until replaced by another room, or if Wonder Room is activated again.",
 		onStart(source) {
-			this.useMove("Arcana Room", source);
-		},
+			this.field.addPseudoWeather('Arcana Room');
+		},	
 		name: "Arcana",	
 	},	
 	deepfreeze: {
@@ -4601,62 +4615,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1000,
 		shortdesc: "Restores 1/4th of damage dealt.",
 		desc: "Restores 1/4th of the users HP after dealing damage.",
-	},	
-	distresschain: {
-		shortdesc: "The target is laced with a sequence of volatiles depending on which they are effected by.",
-		onSourceHit(target, source, move) {
-			if (move.category !== 'Status' && (move.type === 'Psychic' || move.type === 'Ghost')) {
-				if (!target.volatiles['torment'] && !target.volatiles['curse']) {
-					target.addVolatile('torment');
-				} 
-				else if (target.volatiles['torment'] && !target.volatiles['encore']) {
-					target.addVolatile('curse');
-				} 
-				else if (target.volatiles['curse'] && !target.volatiles['torment']) {
-					target.addVolatile('encore');
-				}
-			}	
-		},		
-		name: "Distress Chain",
-		rating: 3,
 		num: 6669,
-	},
-	dreadnought: {
-		onTryHit(target, source, move) {
-			if (move.type === 'Fire' && this.field.isWeather('sunnyday')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Water' && this.field.isWeather('raindance')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Ice' && this.field.isWeather('hail')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-			if (move.type === 'Rock' && this.field.isWeather('sandstorm')) {
-				this.add('-message', `${target.name} was protected from ${move.name} by its Dreadnought!`);
-				this.add('-immune', target);
-				return null;
-			}
-		},
-		name: "Dreadnought",
-		rating: 5,
-		num: 7000,
-		desc: "This pokemon is immune to the type of the corresponding weather.",
-		shortdesc: "Immune to same type as the active Weather.",
-	},
-	afterimage: {
-		onStart(source) {
-			this.useMove("Substitute", source);
-		},
-		name: "Afterimage",
-		rating: 4.5,
-		num: 7001,
 	},	
 	lambentlight: {
 		onStart(source) {
@@ -4666,33 +4625,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 7001,
 	},
-	serpentine: {
-		onSourceHit(target, source, move) {
-			if (!move || !target) return;
-			if (target !== source && move.category !== 'Status'  && move.type === 'Dragon') {
-				this.useMove("Teleport", source);
-			}
-		},
-		name: "Serpentine",
-		rating: 5,
-		num: 1449,	
-		shortdesc: "b",
-		desc: "b",
-	},	
-	lifejolt: {
-		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.category !== 'Status'&& target.status) {
-				this.heal(pokemon.lastDamage / 2, pokemon);
-				target.cureStatus();
-			}
-		},
-		name: "Life Jolt",
-		rating: 4,
-		num: 1000,
-		shortdesc: "q",
-		desc: "q",
-	},	
 	omnivoice: {
 		shortDesc: "The user",
 		onStart(pokemon) {
@@ -4705,7 +4637,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Omnivoice",	
 		rating: 3,
 		num: -5000,
-	},		
+	},	
+	siphon: {
+		onResidual(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.volatiles['partiallytrapped'] || target.volatiles['trapped']) {
+					const damage = this.damage(target.baseMaxhp / 8, target, pokemon);
+					if (damage) {
+						this.heal(damage, pokemon, target);
+					}
+				}
+			}
+		},
+		name: "Siphon",
+		rating: 0,
+		num: 7002,
+	},	
+	unseenfists: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
+			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 10;
+				move.multihitType = 'unseenfists';
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'unseenfists' && move.hit > 1) return this.chainModify(1);
+		},
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'unseenfists' && move.id === 'secretpower' && move.hit < 1000) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Unseen Fists",
+		rating: 4.5,
+		num: 184,
+	},
+	wonderseal: {
+		onAnyTryHit(target, source, move) {
+			const pokemon = this.effectData.target;
+			if (source !== pokemon && target !== pokemon) return;
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Seal immunity: ' + move.id);
+			if (target.runEffectiveness(move) !== 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Seal', '[of] ' + pokemon);
+				}
+				return null;
+			}
+		},
+		name: "Wonder Seal",
+		rating: 4,
+		num: -6038,
+	},
 	// CAP
 	mountaineer: {
 		onDamage(damage, target, source, effect) {

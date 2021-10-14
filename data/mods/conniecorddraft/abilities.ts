@@ -570,4 +570,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.type === 'Water') return this.chainModify(2/3);
 		},
 	},
+
+	pounce: {
+		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it lowers the Defense of adjacent opponents.",
+		shortDesc: "Hazard immunity. Lowers adjacent opponents' Defense by 1 stage if switched in on them.",
+		onSwitchIn(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					for (const target of pokemon.side.foe.active) {
+						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pounce', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({def: -1}, target, pokemon, null, true);
+						}
+					}
+					return;
+				}
+			}
+		},
+		hazardImmune: true,
+		name: "Pounce",
+		rating: 4,
+		num: -1029,
+	},
 };

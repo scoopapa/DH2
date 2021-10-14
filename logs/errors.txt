@@ -2541,3 +2541,763 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.EventEmitter.emit (domain.js:483:12)
     at finish (internal/child_process.js:861:14)
     at processTicksAndRejections (internal/process/task_queues.js:79:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 5320 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: bind EADDRINUSE 0.0.0.0:8000
+    at listenOnMasterHandle (net.js:1385:18)
+    at shared (internal/cluster/child.js:132:3)
+    at Worker.<anonymous> (internal/cluster/child.js:103:7)
+    at process.onInternalMessage (internal/cluster/utils.js:48:5)
+    at process.emit (events.js:327:22)
+    at process.EventEmitter.emit (domain.js:467:12)
+    at emit (internal/child_process.js:903:12)
+    at processTicksAndRejections (internal/process/task_queues.js:81:21)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+TypeError: Cannot read property 'then' of null
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+TypeError: Cannot read property 'then' of null
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 1116 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 33816 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 36044 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 25596 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 15072 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 5408 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+ReferenceError: length is not defined
+    at Battle.onStart (C:\Users\pccom\Documents\local_test_server\DH\.data-dist\mods\alternatium\abilities.js:297:29)
+    at Battle.singleEvent (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:487:25)
+    at Battle.runSwitch (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:1343:9)
+    at Battle.runAction (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:2631:9)
+    at Battle.go (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\local_test_server\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\local_test_server\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 team 1
+  inputLog = 
+>version 5c368443547256a20f463d3383d899746cf19958
+>start {"formatid":"gen8alternatium","seed":[23559,21486,51751,57185]}
+>player p1 {"name":"iamasandwich","avatar":"pokekid","team":"Genesect-Password||burndrive|privatewifi|flamethrower,thunderbolt,uturn,flashcannon|Timid|,,,252,4,252|N||||","rating":0}
+>player p2 {"name":"asdasdvasdv","avatar":"1","team":"Ninetales-Alola||lightclay|snowwarning|snowstorm,willowisp,auroraveil,recover|Calm|252,,200,,,56||,0,,,,|||]Giratina-Shadow||spelltag|shadowworld|willowisp,hex,moonlight,calmmind|Bold|252,,132,60,,64|N|,0,,,,|||]Silvally-Psychic||lifeorb|rkssystem|icebeam,psychic,earthpower,recover|Modest|20,,,252,,236|N|,0,,,,|||]Thundurus||leftovers|levitate|voltswitch,recover,knockoff,toxic|Bold|252,,244,,,12|M|,,,,,0|||]Deoxys-Wood||lifeorb|triage|drainpunch,hornleech,bulkup,thunderwave|Adamant|252,252,,,4,|N||||]Silvally-Dark||lumberry|rkssystem|swordsdance,multiattack,psychicfangs,recover|Jolly|,252,4,,,252|N||||","rating":0}
+>p1 team 1
+>p2 team 1, 2, 3, 4, 5, 6
+  log = 
+|t:|1629767911
+|player|p1|iamasandwich|pokekid|
+|player|p2|asdasdvasdv|1|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Alternatium
+|clearpoke
+|poke|p1|Genesect-Password|
+|poke|p2|Ninetales-Alola, F|
+|poke|p2|Giratina-Shadow|
+|poke|p2|Silvally-*|
+|poke|p2|Thundurus, M|
+|poke|p2|Deoxys-Wood|
+|poke|p2|Silvally-*|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1629767915
+|start
+|switch|p1a: Genesect-Password|Genesect-Password|311/311
+|switch|p2a: Ninetales-Alola|Ninetales-Alola, F|364/364
+|-start|p1a: Genesect-Password|typechange|Steel/Bug|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Genesect-Password</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png" alt="Bug" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Private Wi-Fi</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>110</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>110</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>110</span> </span></li><li style="clear: both"></li></ul>
+|-activate|p1a: Genesect-Password|ability: Private Wi-Fi
+|-message|Genesect-Password changed its type to match its Drive!
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 21448 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:858:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+Error: Process sockets.js 29588 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\local_test_server\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (events.js:315:20)
+    at Worker.EventEmitter.emit (domain.js:467:12)
+    at ChildProcess.<anonymous> (internal/cluster/master.js:220:12)
+    at Object.onceWrapper (events.js:421:28)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:467:12)
+    at finish (internal/child_process.js:888:14)
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)

@@ -658,4 +658,172 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: -6030,
 	},
+	pounce: {
+		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it lowers the Defense of adjacent opponents.",
+		shortDesc: "Hazard immunity. Lowers adjacent opponents' Defense by 1 stage if switched in on them.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					for (const target of pokemon.side.foe.active) {
+						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pounce', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({def: -1}, target, pokemon, null, true);
+						}
+					}
+					return;
+				}
+			}
+		},
+		hazardImmune: true,
+		name: "Pounce",
+		rating: 4,
+		num: -6031,
+	},
+	residrain: {
+		desc: "Every time another Pokémon is damaged indirectly, this Pokémon's HP is restored by the same amount.",
+		shortDesc: "Heals from the indirect damage dealt to others.",
+		onAnyDamage(damage, target, source, effect) {
+			const pokemon = this.effectData.target;
+			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
+				pokemon.heal(damage);
+			}
+		},
+		name: "Draining Effect",
+		rating: 4,
+		num: -6032,
+	},
+	overflow: {
+		desc: "When this Pokemon uses a Fire-type move, it receives a 50% damage boost, but loses the Fire type and this boost for 2 turns.",
+		shortDesc: "1.5x Fire moves; loses Fire type and boost for 2 turns after.",
+		onModifyMove(move, pokemon, target) {
+            if (move.type === "Fire" && !pokemon.volatiles['overflow']) {
+				move.overflow = true;
+			}
+			else move.overflow = false;
+			
+        },
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.overflow) return this.chainModify(1.5);
+		},
+		onAfterMove(source, target, move) {
+			if (move.overflow) {
+				source.addVolatile('overflow');
+			}
+		},
+		name: "Overflow",
+		rating: 4,
+		num: -6033,
+	},
+	lasttoxin: {
+		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
+		shortDesc: "Badly poison enemies brought under half health..",
+		onAfterMove(source, target, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				target.setStatus('tox');
+			}
+		},
+		name: "Last Toxin",
+		rating: 4,
+		num: -6034,
+	},
+	junkprocessor: {
+		desc: "Every time this Pokemon's stats are lowered, heals 20% of its max HP.",
+		shortDesc: "Heal 1/5 HP on stat drops.",
+		onAfterEachBoost(boost, target, source, effect) {
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Junk Processor');
+				this.heal(target.baseMaxhp / 5, target);
+			}
+		},
+		name: "Junk Processor",
+		rating: 4,
+		num: -6035,
+	},
+	danceofthorns: {
+		desc: "If this pokemon has it’s stats lowered, it sets a layer of toxic spikes on the opponent’s side of the field.",
+		shortDesc: "Set Toxic Spikes on stat drops.",
+		onAfterEachBoost(boost, target, source, effect) {
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', this.effectData.target, 'Dance of Thorns');
+				this.effectData.target.side.foe.addSideCondition('toxicspikes');
+			}
+		},
+		name: "Dance of Thorns",
+		rating: 4,
+		num: -6036,
+	},
+	boobytrap: {
+		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it uses Tar Shot on all active enemy Pokemon.",
+		shortDesc: "Hazard immunity. Adjacent opponents get Tar Shot if switched in on them.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					for (const target of pokemon.side.foe.active) {
+						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pounce', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({spe: -1}, target, pokemon, null, true);
+							target.addVolatile('tarshot');
+						}
+					}
+					return;
+				}
+			}
+		},
+		hazardImmune: true,
+		name: "Booby Trap",
+		rating: 4,
+		num: -6037,
+	},
+	wonderseal: {
+		onAnyTryHit(target, source, move) {
+			const pokemon = this.effectData.target;
+			if (source !== pokemon && target !== pokemon) return;
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Seal immunity: ' + move.id);
+			if (target.runEffectiveness(move) !== 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Seal', '[of] ' + pokemon);
+				}
+				return null;
+			}
+		},
+		name: "Wonder Seal",
+		rating: 4,
+		num: -6038,
+	},
 };

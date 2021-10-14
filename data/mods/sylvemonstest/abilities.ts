@@ -541,7 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"surgesurfer": {
 		shortDesc: "If a Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe (spe) {
-			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(2);
 			}
 		},
@@ -1100,5 +1100,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shadow Tag",
 		rating: 5,
 		num: 23,
+	},
+	insider: {
+		desc: "Changes Deoxys' form and sets up a Room in base of the Stone it is holding. If Moon Stone: transfroms into Deoxys and summons Inverse Room. If Shiny Stone: transfroms into Deoxys-Attack and summons Wonder Room. If Dawn Stone: transfroms into Deoxys-Defense and summons Trick Room. If Dusk Stone: transfroms into Deoxys-Speed and summons Magic Room.",
+		shortDesc: "Changes Deoxys' form and sets up a Room in base of the Stone it is holding.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Deoxys' || !pokemon.transformed) {
+				if (pokemon.hasItem('moonstone')) {
+					pokemon.formeChange('Deoxys');
+					this.field.addPseudoWeather('inverseroom');
+				}
+				else if (pokemon.hasItem('shinystone')) {
+					pokemon.formeChange('Deoxys-Attack');
+					this.field.addPseudoWeather('wonderroom');
+				}
+				else if (pokemon.hasItem('dawnstone')) {
+					pokemon.formeChange('Deoxys-Defense');
+					this.field.addPseudoWeather('trickroom');
+				}
+				else if (pokemon.hasItem('duskstone')) {
+					pokemon.formeChange('Deoxys-Speed');
+					this.field.addPseudoWeather('magicroom');
+				}
+			} 
+		},
+		id: "insider",
+		name: "Insider",
+		rating: 4,
 	},
 };
