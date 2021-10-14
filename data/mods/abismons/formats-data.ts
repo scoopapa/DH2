@@ -6642,5 +6642,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dodriomega {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",
-	},
+	}
 };
