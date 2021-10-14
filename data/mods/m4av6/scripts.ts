@@ -62,7 +62,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (niche.includes(id)) this.modData('FormatsData', id).tier = "Niche";
 				else if (illegal.includes(id)) this.modData('FormatsData', id).tier = "Illegal";
 				else if (id.endsWith('mega') || id.endsWith('megax') || id.endsWith('megay')) this.modData('FormatsData', id).tier = "Undecided";
-				else if (!this.modData('FormatsData', id).isNonstandard && this.dex.getSpecies(id).nfe) this.modData('FormatsData', id).tier = "(Heat)";
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "Heat";
 				// truetier
 				if (ag.includes(id)) this.modData('FormatsData', id).truetier = "AG";
@@ -81,7 +80,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (b.includes(id)) this.modData('FormatsData', id).doublesTier = "B";
 				else if (bminus.includes(id)) this.modData('FormatsData', id).doublesTier = "B-";
 				else if (c.includes(id)) this.modData('FormatsData', id).doublesTier = "C";
-				else if (!this.modData('FormatsData', id).isNonstandard && this.dex.getSpecies(id).nfe) this.modData('FormatsData', id).doublesTier = "(Unranked)";
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).doublesTier = "Unranked";
 			}
 		};
