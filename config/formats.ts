@@ -2393,8 +2393,8 @@ export const Formats: FormatList = [
 			],
 		mod: "asonemons",
 		teambuilderFormat: 'OU',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod','Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
-		banlist: ['All Pokemon'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod','Sleep Clause Mod', 'Species Clause', 'Evasion Moves Clause'],
+		banlist: ['All Pokemon', 'Baton Pass'],
 		unbanlist: ['Yanmega-Shell'],
 	},
 	{    
