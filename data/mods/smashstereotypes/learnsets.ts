@@ -124,6 +124,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	mytheon: {
 		learnset: {
+			adaptableattack: ["8L1"],
 			chipaway: ["8L1"],
 			dragonclaw: ["8L1"],
 			dragonrush: ["8L1"],

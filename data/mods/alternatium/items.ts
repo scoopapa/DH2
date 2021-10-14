@@ -60,6 +60,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Attack is boosted by 1.5x.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -78,6 +79,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Special Attack is boosted by 1.5x.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -137,6 +139,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Defenses are boosted by 1.5x.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -689,6 +692,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Speed is boosted by 1.5x.",
 	},
 	snorliumz: {
 		name: "Snorlium Z",

@@ -299,10 +299,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*shaymin: {
+	shaymin: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	shayminsky: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

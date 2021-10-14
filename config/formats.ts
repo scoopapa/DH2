@@ -455,8 +455,8 @@ export const Formats: FormatList = [
 					'Vivillon-Fancy', 'Vivillon-Spirit', 'Vivillon-Combat', 'Genesect', 'Genesect-Password', 'Genesect-Molten', 'Genesect-Freezer', 'Genesect-Type-Delta', 'Groudon', 'Groudon-Primal', 'Kyogre', 
 					'Kyogre-Primal', 'Deoxys-Wood', 'Deoxys-Gem', 'Deoxys-Tank', 'Deoxys-Speed', 'Sandslash-Lustrous', 'Sandslash-Alola', 'Ninetales-Steamwork', 'Ninetales-Alola', 'Giratina', 'Giratina-Shadow', 
 					'Eternatus', 'Manustorm', 'Exeggutor', 'Exeggutor-Lighthouse', 'Weezing', 'Weezing-King', 'Raticate', 'Raticate-Alola', 'Linoone', 'Linoone-Punk', 'Catastroform', 'Castform-Firestorm', 
-					'Castform-Thunderstorm', 'Castform-Snowy', 'Wormadam', 'Wormadam-Sandy', 'Fibormadam', 'Farfetch\u2019d', 'Farfetch\u2019d-Galar', 'Corsola', 'Corsoul', 'Shaymin-Sky', 'Keldeo', 'Swordeo', 
-					'Meloetta', 'Meloetta-Fighter',
+					'Castform-Thunderstorm', 'Castform-Snowy', 'Wormadam', 'Wormadam-Sandy', 'Fibormadam', 'Farfetch\u2019d', 'Farfetch\u2019d-Galar', 'Corsola', 'Corsoul', 'Shaymin', 'Shaymin-Sky', 'Keldeo', 
+					'Swordeo', 'Meloetta', 'Meloetta-Fighter',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -830,7 +830,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
-		mod: 'döppelgangers',
+		mod: 'doeppelgangers',
 	},
 	{
 		name: "[Gen 8] Double Trouble",
@@ -1409,7 +1409,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Gardevoirite', 'Baton Pass'],
+		banlist: ['Gardevoirite', 'Chillytite', 'Baton Pass'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
