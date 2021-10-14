@@ -232,7 +232,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Lab",
 	},
 	incineroarmega: {
-		tier: "CCD1",
-		doublesTier: "CCD1",
+		tier: "Lab",
+		doublesTier: "Lab",
 	},
 };
