@@ -2704,7 +2704,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="http://conniecorddraft.wikidot.com/">Incomplete reference</a>`,
 
 		],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Anti-Invulnerability Mod', 'Z-Move Clause', 'Movexit Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Movexit Clause', 'Data Mod', 'Mega Data Mod'],
 		mod: 'conniecorddraft',
 		searchShow: false,
 		banlist: [
