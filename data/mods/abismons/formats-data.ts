@@ -6635,4 +6635,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},	
+	obstagoonmega: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	dodriomega
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
 };
