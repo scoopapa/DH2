@@ -824,7 +824,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Grass' && pokemon.species.id === 'farfetchd') {
+			if (move.type === 'Grass' && user.species.id === 'farfetchd') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
