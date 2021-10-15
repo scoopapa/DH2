@@ -53,27 +53,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: {
-			chance: 30,
+			chance: 100,
 			onHit(target, pokemon, move) {
 				if (pokemon.hasItem('burndrive')) {
-					boosts: {
-						atk: -1;
-					}
+					this.boost({atk: -1}, target);
 				}
 				else if (pokemon.hasItem('chilldrive')) {
-					boosts: {
-						spa: -1;
-					}
+					this.boost({spa: -1}, target);
 				}
 				else if (pokemon.hasItem('dousedrive')) {
-					boosts: {
-						spd: -1;
-					}
+					this.boost({spd: -1}, target);
 				}
 				else if (pokemon.hasItem('shockdrive')) {
-					boosts: {
-						spe: -1;
-					}
+					this.boost({spe: -1}, target);
 				}
 			}
 		},
