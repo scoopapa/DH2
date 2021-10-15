@@ -4,6 +4,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Drought');
 		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				this.add('-ability', pokemon, 'Speed Boost');
