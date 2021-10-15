@@ -12,12 +12,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onStart(source) {
-		let activated = false;
 			for (const action of this.queue) {
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
 				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
-				if (!activated) this.add('-ability', pokemon, 'Drought');
-				activated = true;
 			}
 			this.field.setWeather('sunnyday');
 		},
