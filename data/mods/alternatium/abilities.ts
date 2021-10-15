@@ -100,8 +100,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
 				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('mistyterrain');
-				pokemon.baseAbility = 'mistyterrain';
+				pokemon.setAbility('mistysurge');
+				pokemon.baseAbility = 'mistysurge';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
