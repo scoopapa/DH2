@@ -2804,7 +2804,7 @@ export const Formats: FormatList = [
         ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Baton Pass Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod'],
         banlist: ['All Pokemon'],
         unbanlist: [
-            'Yanmega-Shell'
+            'Yanmega-Shell', 'Pelipper-Ink'
         ],
    },
 	{
