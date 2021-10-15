@@ -57,22 +57,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(target, pokemon, move) {
 				if (pokemon.hasItem('burndrive')) {
 					boosts: {
-						atk: -1,
+						atk: -1;
 					}
 				}
 				else if (pokemon.hasItem('chilldrive')) {
 					boosts: {
-						spa: -1,
+						spa: -1;
 					}
 				}
 				else if (pokemon.hasItem('dousedrive')) {
 					boosts: {
-						spd: -1,
+						spd: -1;
 					}
 				}
 				else if (pokemon.hasItem('shockdrive')) {
 					boosts: {
-						spe: -1,
+						spe: -1;
 					}
 				}
 			}
