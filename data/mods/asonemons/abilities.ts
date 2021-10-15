@@ -3,8 +3,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				this.add('-ability', pokemon, 'Speed Boost');
