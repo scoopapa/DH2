@@ -4,7 +4,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1,
 		name: "Yanmega-Shell",
 		types: ["Bug", "Fire"],
-		baseStats: {hp: 70, atk: 85, def: 145, spa: 105, spd: 90, spe: 60},
+		baseStats: {hp: 70, atk: 105, def: 145, spa: 85, spd: 90, spe: 60},
 		abilities: {0: "As One (Torkoal)"},
 		weightkg: 131.9,
 	},
