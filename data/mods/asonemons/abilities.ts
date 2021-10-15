@@ -2,6 +2,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorkoal: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Drought');
 		},
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
