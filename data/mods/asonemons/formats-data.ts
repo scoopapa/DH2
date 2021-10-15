@@ -3,4 +3,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AsOUne",
 		doublesTier: "AsDOUne",
 	},
+	pelipperink: {
+		tier: "AsOUne",
+		doublesTier: "AsOUne",
+	},	
 };
