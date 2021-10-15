@@ -18,17 +18,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-    inkshot: {
+    inkgulp: {
 		num: 828,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		name: "Ink Shot",
-		shortDesc: "Inflicts Inked status on target. (Target's next move does half damage.)",
+		name: "Ink Gulp",
+		shortDesc: "User recovers 50% of the damage dealt. Raises user's Defense by 3 if this KOes the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
-        heal: [1, 4],
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({def: 3}, pokemon, pokemon, move);
+		},
+      drain: [3, 4],
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
