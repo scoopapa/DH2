@@ -12,11 +12,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onStart(source) {
-			this.add('-ability', pokemon, 'Drought');
 			for (const action of this.queue) {
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
 				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
 			}
+			this.add('-ability', pokemon, 'Drought');
 			this.field.setWeather('sunnyday');
 		},
 		name: "As One (Torkoal)",
