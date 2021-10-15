@@ -27,6 +27,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
+	chariumz: {
+		name: "Charium Z",
+		spritenum: 656,
+		onTakeItem: false,
+		zMove: "Baleful Blaze",
+		zMoveFrom: "Flamethrower",
+		itemUser: ["Charizard"],
+		num: -454,
+	},
 	exploudite: {
 		name: "Exploudite",
 		megaStone: "Exploud-Mega",
