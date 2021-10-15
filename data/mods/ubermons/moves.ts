@@ -53,7 +53,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: {
-			chance: 100,
+			chance: 30,
 			onHit(target, pokemon, move) {
 				if (pokemon.hasItem('burndrive')) {
 					this.boost({atk: -1}, target);
