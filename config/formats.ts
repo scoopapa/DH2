@@ -1311,7 +1311,7 @@ export const Formats: FormatList = [
 		mod: 'randomdex',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Kangaskhanite'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['RDex OU', 'RDex UUBL', 'RDex UU', 'RDex NFE', 'RDex LC'];
