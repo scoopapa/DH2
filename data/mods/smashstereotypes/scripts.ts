@@ -24,6 +24,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
+		
+		for (var id in this.data.Pokedex) {
+			if (this.data.Pokedex[id].breedingVariant) {
+				const name = this.data.Pokedex[id].baseSpecies;
+				const variant = this.data.Pokedex[id].breedingVariant;
+				const learnset = this.data.Learnsets[this.toID(name)].learnset;
+				if (!this.data.Learnsets[id]) this.data.Learnsets[id] = { learnset: {}};
+				for (const moveid in learnset) {
+					this.modData('Learnsets', id).learnset[moveid] = ['8L1', '7L1', '6L1', '5L1', '4L1'];
+				}
+				const weight = (this.data.Pokedex[id].weightkg + this.data.Pokedex[this.toID(variant)].weightkg) / 2;
+				this.modData('Pokedex', id).weightkg = weight;
+			}
+		}
+		
 
 		this.modData('Learnsets', 'shaymin').learnset.allterrainblast = ['8L1'];
 		this.modData('Learnsets', 'shaymin').learnset.leafage = ['8L1'];
@@ -52,6 +67,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
+		
+		
+		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8M"];
+		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8M"];
+		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8M"];
 	},
 	
 	teambuilderConfig: {
