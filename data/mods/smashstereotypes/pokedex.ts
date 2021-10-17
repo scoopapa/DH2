@@ -216,7 +216,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	exploud: {
 		inherit: true,
-		otherFormes: ["exploudmeow"],
+		otherFormes: ["Exploud-Meow"],
+		formeOrder: ["Exploud", "Exploud-Meow"],
 	},
 	exploudmeow: {
 		num: 17,
@@ -224,15 +225,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Exploud",
 		breedingVariant: "Persian",
 		forme: "Meow",
-		formeLetter: "M",
 		types: ["Normal"],
 		baseStats: {hp: 104, atk: 91, def: 63, spa: 91, spd: 73, spe: 91},
 		abilities: {0: "Soundproof", 1: "Technician", H: "Scrappy"},
 		heightm: 1.2,
 		weightkg: 58,
-		color: "Yellow",
 		prevo: "loudred",
-		evoLevel: 40,
 		eggGroups: ["Field"],
 	},
 	garbodor: {
@@ -250,7 +248,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Neutralizing Gas"},
 		heightm: 1.9,
 		weightkg: 107.3,
-		color: "Green",
 		eggGroups: ["Mineral"],
 		requiredItem: "Garbodite",
 		gen: 8,
