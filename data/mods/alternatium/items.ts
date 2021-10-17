@@ -361,8 +361,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
-			if (source.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
+			if (source.species.id === 'giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
 				source.addVolatile('gem');
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.species.id === 'giratinashadow' && (move.type === 'Ghost' || move.type === 'Dragon')) {
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		itemUser: ["Giratina"],
