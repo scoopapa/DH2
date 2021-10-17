@@ -2978,7 +2978,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
 				if ( !allowedTiers.includes(template.tier) ) {
-					return [set.species + ' is not useable in Random Dex.'];
+					return [set.species + ' is not useable in Pokemon North & South OU.'];
 				}
 			}
 		},
