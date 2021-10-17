@@ -2970,19 +2970,15 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1yW-XuEn5FoXQ6zbdFGwQ9bk9A5ex9pIHbbie84Beyzw/edit?usp=sharing">Spreadsheet</a>`,
 			],
         mod: "pokemonns",
-        ruleset: ['Standard', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+        ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
         banlist: ['Baton Pass'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
-		},
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
+			let allowedTiers = ['NSOU', 'NSNFE', 'NSLC'];
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				let tiers = [ 'NSLC', 'NSNFE', 'NSOU' ];
-				if ( !tiers.includes( template.tier )) {
-					return [set.species + ' is not useable in Pokemon North & South OU.'];
+				if ( !allowedTiers.includes(template.tier) ) {
+					return [set.species + ' is not useable in Random Dex.'];
 				}
 			}
 		},
