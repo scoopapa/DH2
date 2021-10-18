@@ -61,9 +61,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	magroach: {
 		tier: "SSS",
 	},
-	/*exploudmeow: {
+	exploudmeow: {
 		tier: "SSS",
-	},*/
+	},
 	garbodor: {
 		tier: "SSS",
 	},
