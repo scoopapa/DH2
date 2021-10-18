@@ -657,6 +657,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		acidspray: ["8L1"],
 		bulldoze: ["8L1"],
 		drainpunch: ["8L1"],
+		ominouswind: ["8L1"],
 	},},
 	gaggular: {learnset: {
 		shadowmirror: ["8L1"],
