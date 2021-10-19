@@ -33,4 +33,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
+	shadowtag: {
+		name: 'Shadow Tag',
+		id: 'shadowtag',
+		num: 0,
+		onStart(battle, source, effect) {
+		},
+	},
   };
