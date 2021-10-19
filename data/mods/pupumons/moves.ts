@@ -1010,7 +1010,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 	readyornot: {
@@ -1026,6 +1026,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {mirror: 1},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
 		secondary: null,
 		selfBoost: {
 			boosts: {
@@ -1038,7 +1041,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		isZ: "halloweeniumz",
 		target: "normal",
-		type: "Dark",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 };
