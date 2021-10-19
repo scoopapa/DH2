@@ -2516,8 +2516,8 @@ export const Formats: FormatList = [
 		mod: "pupumons",
 		teambuilderFormat: 'Pupumons',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-	banlist: ['All Pokemon', 'Peek-a-Boo', 'Halloweenium Z'],
-	unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper'],
+		banlist: ['All Pokemon', 'Peek-a-Boo', 'Halloweenium Z'],
+		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper'],
 	},
 	{    
 		name: "[Gen 8] Pupumons Ubers",
@@ -2528,8 +2528,8 @@ export const Formats: FormatList = [
 		mod: "pupumons",
 		teambuilderFormat: 'Pupumons Ubers',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-	banlist: ['All Pokemon', 'Peek-a-Boo', 'Halloweenium Z'],
-	unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Venomab', 'Forganon', 'Isladon', 'Ooreina', 'Ooreina-Flare', 'Rangdemos', 'Baronglaiv', 'Thundra', 'Eruptil', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Batakala', 'Batambu', 'Anjamanis', 'Bonfiper'],
+		banlist: ['All Pokemon', 'Peek-a-Boo', 'Halloweenium Z'],
+		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Venomab', 'Forganon', 'Isladon', 'Ooreina', 'Ooreina-Flare', 'Rangdemos', 'Baronglaiv', 'Thundra', 'Eruptil', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Batakala', 'Batambu', 'Anjamanis', 'Bonfiper'],
 	},
 	{    
 		name: "[Gen 8] Pupumons Halloween Cup",
@@ -2540,8 +2540,8 @@ export const Formats: FormatList = [
 		mod: "pupumons",
 		teambuilderFormat: 'Pupumons',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-	banlist: ['All Pokemon'],
-	unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper'],
 		onBegin() {
 			this.field.setWeather('harvestmoon');
 		},
