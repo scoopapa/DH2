@@ -985,4 +985,60 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+	peekaboo: {
+		num: 712,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(130);
+		},
+		category: "Special",
+		name: "Peek-a-Boo",
+		shortDesc: "Deals a random amount of damage and forces user out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		/*onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},*/
+		self: {
+			forceSwitch: true,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	readyornot: {
+		num: 712,
+		accuracy: true,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(200);
+		},
+		category: "Special",
+		name: "Ready or Not",
+		shortDesc: "Deals a random amount of damage and omniboosts.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		secondary: null,
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		isZ: "halloweeniumz",
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
 };
