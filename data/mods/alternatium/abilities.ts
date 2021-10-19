@@ -33,6 +33,14 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp || pokemon.species.id === 'silvallyflying' && move.id === 'multiattack' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+	},
 	powerofalchemy: {
 		onAnyFaint(target) {
 			if (!this.effectData.target.hp) return;
@@ -56,11 +64,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			else if (source.activeMoveActions > 1) {
 				return priority + 0;
-			}
-		},
-		onBasePower(basePower, source, move) {
-			if (source.activeMoveActions < 2) {
-				this.chainModify(0.75);
 			}
 		},
 		name: "Quick Draw",
@@ -96,9 +99,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Cute Charm', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('cutecharm');
-				pokemon.baseAbility = 'cutecharm';
+				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistyterrain');
+				pokemon.baseAbility = 'mistyterrain';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -111,9 +114,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'flashfire';
 			}
 			if (pokemon.species.id === 'silvallyflying') {
-				this.add('-ability', pokemon, 'Unburden', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('unburden');
-				pokemon.baseAbility = 'unburden';
+				this.add('-ability', pokemon, 'Gale Wings', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('galewings');
+				pokemon.baseAbility = 'galewings';
 			}
 			if (pokemon.species.id === 'silvallyghost') {
 				this.add('-ability', pokemon, 'Prankster', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -151,9 +154,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'sandstream';
 			}
 			if (pokemon.species.id === 'silvallysteel') {
-				this.add('-ability', pokemon, 'Sturdy', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('sturdy');
-				pokemon.baseAbility = 'sturdy';
+				this.add('-ability', pokemon, 'Magnet Pull', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('magnetpull');
+				pokemon.baseAbility = 'magnetpull';
 			}
 			if (pokemon.species.id === 'silvallywater') {
 				this.add('-ability', pokemon, 'Water Absorb', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -273,20 +276,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			this.add('-activate', source, 'ability: Private Wi-Fi');
 			this.add('-message', `${source.name} changed its type to match its Drive!`);
-			/*for (const foeactive of pokemon.side.foe.active) {
-				let allyActive = pokemon.side.active;
-				if (!foeactive || foeactive.fainted || !foeactive.hasType(pokemon.types)) continue;
+			for (const foeactive of source.side.foe.active) {
+				console.log(foeactive.hasType("Steel"));
+				if (
+					!foeactive || 
+					foeactive.fainted || 
+					(
+						!foeactive.hasType(source.types[1]) && 
+						!foeactive.hasType("Steel")
+					)
+				) continue;
 				// Boosts player's Pokemon's highest stat
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatIDExceptHP;
-				for (s in allyActive.storedStats) {
-					if (allyActive.storedStats[s] > bestStat) {
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = allyActive.storedStats[s];
+						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName]: length}, pokemon);
+				this.boost({[statName]: 1}, source);
 
 				// Boosts opponent's Pokemon's highest stat
 				let statNameOpp = 'atk';
@@ -298,8 +308,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						bestStatOpp = foeactive.storedStats[sOpp];
 					}
 				}
-				this.boost({[bestStatOpp]: length}, foeactive);
-			}*/
+				this.boost({[statNameOpp]: 1}, foeactive);
+			}
 		},
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
@@ -329,13 +339,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('lifegem'));
 			}
 		},
 		name: "Life Gem",
 		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 		rating: 3,
-		num: -2,
+		num: 1007,
 	},
 	powercore: {
 		// Hazard Immunity implemented in moves.js
@@ -349,8 +359,160 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Power Core",
-		shortDesc: "When switching in, the holder is unaffected by hazards on its side of the field. Immunity to any stat changes.",
+		shortDesc: "Immunity to hazards and any kind of stat changes.",
 		rating: 3,
-		num: -2,
+		num: 1008,
+	},
+	aerialmenace: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Flying') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Aerial Menace');
+				}
+				return null;
+			}
+		},
+		name: "Aerial Menace",
+		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
+		rating: 3,
+		num: 1009,
+   },
+   shadowworld: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shadow World');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(1.2);
+			}
+			else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(0.8);
+			}
+		},
+		isUnbreakable: true,
+		name: "Shadow World",
+		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
+		rating: 3,
+		num: 1010,
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP loss or damage reduction.",
+		rating: 4,
+		num: 1011,
+	},
+	sharpshooter: {
+		onStart(source) {
+			this.useMove('lockon', source);
+		},
+		name: "Sharpshooter",
+		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
+		rating: 2,
+		num: 1012,
+	},
+	forecast: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (this.effectData.switchingIn) {
+				if (this.field.isWeather('raindance')) {
+					this.field.clearWeather();
+					this.field.setWeather('raindance');
+				}
+				if (this.field.isWeather('sunnyday')) {
+					this.field.clearWeather();
+					this.field.setWeather('sunnyday');
+				}
+				if (this.field.isWeather('sandstorm')) {
+					this.field.clearWeather();
+					this.field.setWeather('sandstorm');
+				}
+				if (this.field.isWeather('hail')) {
+					this.field.clearWeather();
+					this.field.setWeather('hail');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id !== 'catastroform') return;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Water';
+				break;
+			case 'hail':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Ice';
+				break;
+			case 'sandstorm':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Rock';
+				break;
+			default:
+				if (pokemon.species.id === 'catastroform') return;
+				break;
+			}
+		},
+		name: "Forecast",
+		shortDesc: "Upon Entry, resets any regular weather. Gets secondary typing matching weather.",
+		rating: 2,
+		num: 59,
+	},
+	liquidscales: {
+		name: "Liquid Scales",
+		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.category !== 'Status') {
+				this.heal(target.baseMaxhp / 10);
+			}
+		},
+		rating: 3,
+		num: 1013,
+	},
+	flowergift: {
+		onModifyAtkPriority: 3,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 4,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Flower Gift",
+		shortDesc: "If user is Shaymin-Sky and Sunny Day is active, its Attack and Sp. Def are 1.5x.",
+		rating: 1,
+		num: 122,
+	},
+	mistycoat: {
+		onModifySpDPriority: 6,
+		onModifySpD(pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.5);
+		},
+		name: "Misty Coat",
+		shortDesc: "If Misty Terrain is active, this Pokemon's Special Defense is multiplied by 1.5.",
+		rating: 0.5,
+		num: 1014,
 	},
 };

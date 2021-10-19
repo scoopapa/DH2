@@ -211,4 +211,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 110, atk: 85, def: 60, spa: 145, spd: 80, spe: 100},
 	},
+	stunfiskgalar: {
+		inherit: true,
+		baseStats: {hp: 109, atk: 101, def: 109, spa: 66, spd: 84, spe: 52},
+		abilities: {0: "Mimicry", 1: "Strong Jaw", H: "Unnerve"},		
+	},
+	stunfisk: {
+		inherit: true,
+		baseStats: {hp: 109, atk: 66, def: 84, spa: 101, spd: 109, spe: 52},
+	},
+	runerigus: {
+		inherit: true,
+		baseStats: {hp: 58, atk: 110, def: 155, spa: 50, spd: 115, spe: 30},
+	},
+	runerigus: {
+		inherit: true,
+		baseStats: {hp: 58, atk: 110, def: 155, spa: 50, spd: 115, spe: 30},
+	},
+	mrrime: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 75, def: 85, spa: 110, spd: 100, spe: 70},
+		abilities: {0: "Refrigerate", 1: "Screen Cleaner", H: "Ice Body"},		
+	},
 };

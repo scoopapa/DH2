@@ -41,7 +41,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'Uncoded', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Uncoded', 'Silvino', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -109,6 +109,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Absable-Mega-Y"; 
 		}
 		
+		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Goatitar") {
+			return "Goatitar-Mega"; 
+		}
+		
 		return item.megaStone;
 	},
 	
@@ -141,6 +145,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Levitability');
 						} else if (this.hasAbility('stickyfloat')) {
 							this.battle.add('-immune', this, '[from] ability: Sticky Float');
+						} else if (this.hasAbility('etativel')) {
+							this.battle.add('-immune', this, '[from] ability: Etativel');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -173,6 +179,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
 				this.hasAbility('stickyfloat')) &&
+				
 				!this.battle.suppressingAttackEvents()
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
@@ -181,29 +188,30 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 		
 		
-		ignoringAbility() {
-			// Check if any active pokemon have the ability Neutralizing Gas
-			let neutralizinggas = false;
-			for (const pokemon of this.battle.getAllActive()) {
-				// can't use hasAbility because it would lead to infinite recursion
-				if ((pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID))) && !pokemon.volatiles['gastroacid'] &&
-					!pokemon.abilityData.ending) {
-					neutralizinggas = true;
-					break;
-				}
-			}
+        ignoringAbility() {
+            // Check if any active pokemon have the ability Neutralizing Gas
+            let neutralizinggas = false;
+            let lemegeton = false;
+            for (const pokemon of this.battle.getAllActive()) {
+                // can't use hasAbility because it would lead to infinite recursion
+                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+                    neutralizinggas = true;
+                    lemegeton = true;
+                    break;
+                }
+            }
 
-			return !!(
-				(this.battle.gen >= 5 && !this.isActive) ||
-				(this.volatiles['gastroacid'] || (neutralizinggas && ((this.ability !== ('neutralizinggas' as ID)) && (this.ability !== ('lemegeton' as ID)))) &&
-				!this.getAbility().isPermanent
-				)
-			);
-		}
-	},
+            return !!(
+                (this.battle.gen >= 5 && !this.isActive) ||
+                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (lemegeton && this.ability !== ('lemegeton' as ID)) ) &&
+                !this.getAbility().isPermanent
+                )
+            );
+        }
+    },
 	
 	
-		//Included for Therapeutic:
+		//Included for Gutsy Jaw:
 		//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
 		//So we have to bypass it manually here.
 		modifyDamage(
@@ -263,7 +271,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('therapeutic') || pokemon.hasAbility('gutsyjaw'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -437,7 +445,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('terrorizer'))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
@@ -452,7 +460,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('terrorizer'))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
@@ -601,7 +609,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('terrorizer'))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
 			for (const [i, d] of damage.entries()) {
 				// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
 				// The previous check was for `move.multihit`, but that fails for Dragon Darts
@@ -650,7 +658,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return hitResults;
 	},
-
     pokemon: {
         setStatus(
         status: string | Condition,

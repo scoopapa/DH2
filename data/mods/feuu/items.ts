@@ -109,7 +109,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 669,
-		desc: "If held by a Pincurchitar, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Pincurchitar or Goatitar, this item allows it to Mega Evolve in battle.",
 	},
 	absolite: {
 		name: "Absolite",
@@ -343,5 +343,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 672,
 		desc: "If held by a Lurodactyl, this item allows it to Mega Evolve in battle.",
+	},
+	beedrillite: {
+		name: "Beedrillite",
+		spritenum: 628,
+		megaStone: "Regibee-Mega",
+		megaEvolves: "Regibee",
+		itemUser: ["Regibee"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 770,
+		desc: "If held by a Regibee, this item allows it to Mega Evolve in battle.",
+	},
+	cameruptite: {
+		name: "Cameruptite",
+		spritenum: 625,
+		megaStone: "Avarupt-Mega",
+		megaEvolves: "Avarupt",
+		itemUser: ["Avarupt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 767,
+		desc: "If held by an Avarupt or Wishirupti, this item allows it to Mega Evolve in battle.",
+	},
+	swampertite: {
+		name: "Swampertite",
+		spritenum: 612,
+		megaStone: "Swampflora-Mega",
+		megaEvolves: "Swampflora",
+		itemUser: ["Swampflora"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 752,
+		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
 	},
 };

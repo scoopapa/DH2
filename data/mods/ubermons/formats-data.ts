@@ -606,4 +606,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	blaziken: {
 		tier: "OU",
 	},
+	mewtwo: {
+		tier: "OU",
+	},
+	hooh: {
+		tier: "OU",
+	},
+	lugia: {
+		tier: "OU",
+	},
+	cinderace: {
+		tier: "OU",
+	},
+	magearna: {
+		tier: "OU",
+	},
+	pheromosa: {
+		tier: "OU",
+	},
+	reshiram: {
+		tier: "OU",
+	},
+	zekrom: {
+		tier: "OU",
+	},
 };

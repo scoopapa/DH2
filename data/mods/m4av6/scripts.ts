@@ -6,22 +6,21 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		};
 		newMoves("dragonite", ["playrough"]);
-		newMoves("goodra", ["gigadrain", "drainpunch"]);
+		newMoves("goodra", ["gigadrain", "drainpunch", "moonlight"]);
 		newMoves("dragapult", ["icebeam"]);
 		newMoves("orbeetle", ["focusblast", "teleport"]);
 		newMoves("thievul", ["focusblast", "aurasphere", "hiddenpower", "moonlight", "spiritbreak"]);
-		newMoves("gumshoos", ["coil", "bodyslam"]);
+		newMoves("toucannon", ["appleacid", "hurricane", "nastyplot"]);
+		newMoves("gumshoos", ["bodyslam", "coil", "drainpunch"]);
 		newMoves("vikavolt", ["leafblade", "darkpulse", "uturn", "thundercage"]);
 		newMoves("lycanrocmidnight", ["headsmash"]);
 		newMoves("lycanroc", ["extremespeed", "spikes"]);
 		newMoves("raichu", ["highjumpkick"]);
 		newMoves("clefable", ["hex", "nastyplot", "shadowsneak", "willowisp"]);
 		newMoves("rillaboom", ["toxic"]);
-		newMoves("cinderace", ["energyball"]);
 		newMoves("inteleon", ["taunt", "firstimpression", "encore", "pursuit"]);
 		newMoves("klinklang", ["overheat", "rapidspin"]);
 		newMoves("garbodor", ["stealthrock", "knockoff"]);
-		newMoves("jolteon", ["calmmind"]);
 		newMoves("flareon", ["burnup", "morningsun"]);
 		newMoves("butterfree", ["taunt", "earthpower"]);
 		newMoves("chandelure", ["mindblown"]);
@@ -29,7 +28,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("conkeldurr", ["shoreup"]);
 		newMoves("gigalith", ["skullbash", "sunnyday", "synthesis", "trickroom"]);
 		newMoves("reuniclus", ["photongeyser", "psychoboost"]);
-		newMoves("boltund", ["pursuit"]);
+		newMoves("boltund", ["dazzlinggleam", "hiddenpower", "pursuit"]);
 		newMoves("archeops", ["fireblast", "dualwingbeat", "bravebird"]);
 		newMoves("talonflame", ["scorchingsands"]);
 		newMoves("staraptor", ["roleplay", "superfang"]);
@@ -44,8 +43,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("mimikyu", ["firstimpression", "strengthsap", "uturn"]);
 		newMoves("nidoqueen", ["milkdrink"]);
 		newMoves("walrein", ["darkpulse", "flipturn", "focusblast", "freezedry", "slackoff"]);
-		newMoves("aurorus", ["rapidspin", "voltswitch"]);
-		newMoves("trevenant", ["bulkup", "floralhealing", "synthesis"]);
+		newMoves("aurorus", ["paraboliccharge", "rapidspin", "voltswitch"]);
+		newMoves("trevenant", ["floralhealing", "synthesis"]);
 		newMoves("eelektross", ["recover", "scald"]);
 		newMoves("dragalge", ["acidspray", "gastroacid", "roost", "terrainpulse"]);
 		newMoves("dhelmise", ["flipturn", "superpower"]);
@@ -58,7 +57,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("leavanny", ["appleacid", "lunge", "thunderouskick", "quiverdance"]);
 		newMoves("parasect", ["junglehealing", "taunt"]);
 		newMoves("samurott", ["flipturn", "psychocut", "slackoff"]);
-		newMoves("meowstic", ["brickbreak", "foulplay", "knockoff", "partingshot", "pursuit"]);
+		newMoves("meowstic", ["foulplay", "knockoff", "partingshot", "psychicfangs", "pursuit"]);
 		newMoves("meowsticf", ["dazzlinggleam", "drainingkiss", "moonblast"]);
 		newMoves("starmie", ["calmmind", "futuresight", "followme", "moonblast", "storedpower"]);
 		newMoves("delibird", ["celebrate", "healingwish", "roost", "uturn", "wish"]);
@@ -90,6 +89,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("mudsdale", ["bulkup", "painsplit", "wideguard"]);
 		newMoves("electrode", ["mindblown"]);
 		newMoves("silvally", ["firepledge", "waterpledge", "taunt"]);
+		newMoves("golduck", ["expandingforce", "psychicterrain", "recover", "shadowball"]);
+		newMoves("sirfetchd", ["playrough", "roost", "toxic"]);
+		newMoves("incineroar", ["focusenergy", "nightslash", "punishment", "rapidspin", "stormthrow"]);
+		newMoves("primarina", ["purify"]);
+		newMoves("jynx", ["barrier", "bodypress"]);
+		newMoves("electivire", ["bulkup", "drainpunch"]);
+		newMoves("magmortar", ["recover", "scald"]);
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
@@ -410,6 +416,90 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('telekinesis' in this.volatiles) return false;
 			if ('poolfloaties' in this.volatiles) return false;
 			return item !== 'airballoon';
+		},
+		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} {
+			let targets: Pokemon[] = [];
+			let pressureTargets;
+
+			switch (move.target) {
+				case 'all':
+				case 'foeSide':
+				case 'allySide':
+				case 'allyTeam':
+					if (!move.target.startsWith('foe')) {
+						targets.push(...this.allies());
+					}
+					if (!move.target.startsWith('ally')) {
+						targets.push(...this.foes());
+					}
+					if (targets.length && !targets.includes(target)) {
+						this.battle.retargetLastMove(targets[targets.length - 1]);
+					}
+					break;
+				case 'allAdjacent':
+					targets.push(...this.nearbyAllies());
+					// falls through
+				case 'allAdjacentFoes':
+					targets.push(...this.nearbyFoes());
+					if (targets.length && !targets.includes(target)) {
+						this.battle.retargetLastMove(targets[targets.length - 1]);
+					}
+					break;
+				case 'allies':
+					targets = this.allies();
+					break;
+				default:
+					const selectedTarget = target;
+					if (!target || (target.fainted && target.side !== this.side)) {
+						// If a targeted foe faints, the move is retargeted
+						const possibleTarget = this.battle.getRandomTarget(this, move);
+						if (!possibleTarget) return {targets: [], pressureTargets: []};
+						target = possibleTarget;
+					}
+					if (target.side.active.length > 1 && !move.tracksTarget) {
+						const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
+								!((move.id.startsWith('solarb') || this.hasAbility('solarcore')) && this.battle.field.isWeather(['sunnyday', 'desolateland'])) &&
+								!(this.hasItem('powerherb') && move.id !== 'skydrop');
+						if (!isCharging) {
+							target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
+						}
+					}
+					if (move.smartTarget) {
+						targets = this.getSmartTargets(target, move);
+						target = targets[0];
+					} else {
+						targets.push(target);
+					}
+					if (target.fainted) {
+						return {targets: [], pressureTargets: []};
+					}
+					if (selectedTarget !== target) {
+						this.battle.retargetLastMove(target);
+					}
+
+					// Resolve apparent targets for Pressure.
+					if (move.pressureTarget) {
+						// At the moment, this is the only supported target.
+						if (move.pressureTarget === 'foeSide') {
+							pressureTargets = this.foes();
+						}
+					}
+			}
+
+			return {targets, pressureTargets: pressureTargets || targets};
+		},
+		cureStatus(pokemon: Pokemon, silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			if (this.volatiles['staccato']) {
+				this.volatiles['staccato'].busted = true;
+				this.removeVolatile('staccato')
+			}
+			return true;
 		},
 	},
 };
