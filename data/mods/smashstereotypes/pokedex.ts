@@ -216,6 +216,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	exploud: {
 		inherit: true,
+		num: 17,
 		otherFormes: ["Exploud-Meow"],
 		formeOrder: ["Exploud", "Exploud-Meow"],
 	},
