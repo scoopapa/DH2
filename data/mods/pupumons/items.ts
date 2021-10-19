@@ -120,6 +120,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1010,
 		gen: 7,
 	},
+	halloweeniumz: {
+		name: "Halloweenium Z",
+		desc: "If holder has Peek-a-Boo, can use Z-move.",
+		spritenum: 642,
+		onTakeItem: false,
+		zMove: "Ready or Not",
+		zMoveFrom: "Peek-a-Boo",
+		num: 1011,
+		gen: 7,
+	},
 	/*nest: {
 		name: "Nest",
 		desc: If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.
