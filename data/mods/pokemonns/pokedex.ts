@@ -1850,7 +1850,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Catastrofly",
 		types: ["Bug", "Flying"],
 		baseStats: {hp: 80, atk: 100, def: 62, spa: 127, spd: 137, spe: 94},
-		abilities: {0: "Drizzle", H: "Pressure", S: "High Flight"},
+		abilities: {0: "Drizzle", H: "Pressure", S: "Water Veil"},
 		weightkg: 38.6,
 		prevo: "Crystalis",
 		eggGroups: ["Bug"],
