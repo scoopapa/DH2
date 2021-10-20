@@ -2730,6 +2730,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Alluring');
+			this.add('-message', `Pokémon opposing ${pokemon.name} can't pivot out of battle!`);
 		},
 		onAnyModifyMove(move, pokemon) {
 			if (pokemon.side === this.effectData.target.side) return;
@@ -2740,6 +2741,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -73,
 	},
 	rebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			let rebel = null;
