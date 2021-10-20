@@ -2726,4 +2726,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -72,
 	},
+	alluring: {
+		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Alluring');
+		},
+		onAnyModifyMove(move, pokemon) {
+			if (pokemon.side === this.effectData.target.side) return;
+			if (move.selfSwitch && !move.ignoreAbility) delete move.selfSwitch;
+		},
+		name: "Alluring",
+		rating: 4,
+		num: -73,
+	},
+	rebel: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statPlus] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Rebel",
+		rating: 2.5,
+		num: -74,
+	},
 };
