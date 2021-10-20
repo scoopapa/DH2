@@ -2746,7 +2746,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const pokemon of this.getAllActive()) {
 				let statDrop: BoostName;
 				for (statDrop in pokemon.boosts) {
-					if (pokemon.boosts[statPlus] < 0) rebel = true;
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
 				}
 			}
 			if (rebel) {
