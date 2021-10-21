@@ -2970,6 +2970,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1yW-XuEn5FoXQ6zbdFGwQ9bk9A5ex9pIHbbie84Beyzw/edit?usp=sharing">Spreadsheet</a>`,
 			],
         mod: "pokemonns",
+		teambuilderFormat: 'NSOU',
         ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
         banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
@@ -2978,7 +2979,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
 				if ( !allowedTiers.includes(template.tier) ) {
-					return [set.species + ' is not useable in Pokemon North & South OU.'];
+					return [set.species + ' is not usable in Pokemon North & South OU.'];
 				}
 			}
 		},
