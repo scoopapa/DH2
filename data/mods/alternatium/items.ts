@@ -54,13 +54,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Attack is boosted by 1.5x.",
+		shortDesc: "If Genesect-Password: Attack is boosted by 1.3x.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -71,15 +71,23 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpA(spa, pokemon) {
+		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
+			}
+		},
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy) {
+			if (pokemon.species.id === 'genesectpassword') {
+				if (typeof accuracy !== 'number') return;
+				this.debug('chilldrive - enhancing accuracy');
+				return accuracy * 1.25;
 			}
 		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Special Attack is boosted by 1.5x.",
+		shortDesc: "If Genesect-Password: Speed and Accuracy is boosted by 1.25x.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -690,15 +698,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpe(spe, pokemon) {
+		onStart(pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				this.useMove('lockon', pokemon);
 			}
 		},
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Speed is boosted by 1.5x.",
+		shortDesc: "If Genesect-Password: Activates Charge upon entry.",
 	},
 	snorliumz: {
 		name: "Snorlium Z",

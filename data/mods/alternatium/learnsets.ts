@@ -3026,6 +3026,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	muk: {
 		learnset: {
+			moonlight: ["8L1"],
+			stealthrock: ["8L1"],
 			imprison: ["8L1"],
 			haze: ["8L1"],
 			spitup: ["8L1"],
@@ -3140,6 +3142,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	mukoilslick: {
 		learnset: {
+			moonlight: ["8L1"],
 			imprison: ["8L1"],
 			spitup: ["8L1"],
 			curse: ["8L1"],
@@ -5073,6 +5076,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	catastroform: {
 		learnset: {
+			recover: ["8L1"],
+			calmmind: ["8L1"],
+			hypervoice: ["8L1"],
 			amnesia: ["7E", "6E", "5E", "4E"],
 			attract: ["7M", "6M", "5M", "4M", "3M"],
 			avalanche: ["4M"],
