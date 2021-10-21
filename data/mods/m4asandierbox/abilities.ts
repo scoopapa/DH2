@@ -693,6 +693,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const pokemon = this.effectData.target;
 			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
 				pokemon.heal(damage);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
 		name: "Residrain",
@@ -833,6 +834,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const pokemon = this.effectData.target;
 			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
 				pokemon.heal(damage / 2);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
 		name: "Residrain (Half)",
