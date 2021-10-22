@@ -1058,7 +1058,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	oricolyphsensu: {
-		tier: "FERU",
+		tier: "Uncoded",
 		doublesTier: "DUU",
 		randomBattleMoves: ["hurricane", "shadowball", "heatwave", "uturn"],
 		randomBattleLevel: 79,
