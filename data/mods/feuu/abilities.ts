@@ -3209,7 +3209,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon, source) {
-			if (pokemon.status)) {
+			if (pokemon.status) {
 				if (!source || source === pokemon) return;
 				this.add('-activate', pokemon, 'ability: Vengeful Shift');
            	this.useMove("Psycho Shift", pokemon);
