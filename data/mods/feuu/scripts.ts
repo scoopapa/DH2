@@ -113,6 +113,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Goatitar-Mega"; 
 		}
 		
+		if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Duramaw") {
+			return "Duramaw-Mega"; 
+		}
+	
+		if (item.name === "Gardevoirite" && pokemon.baseSpecies.name === "Goodevoir") {
+			return "Goodevoir-Mega"; 
+		}
+		
 		return item.megaStone;
 	},
 	
@@ -147,6 +155,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Sticky Float');
 						} else if (this.hasAbility('etativel')) {
 							this.battle.add('-immune', this, '[from] ability: Etativel');
+						} else if (this.hasAbility('lighthearted')) {
+							this.battle.add('-immune', this, '[from] ability: Lighthearted');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -445,7 +455,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
@@ -460,7 +470,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
