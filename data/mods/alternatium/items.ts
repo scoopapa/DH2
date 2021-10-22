@@ -77,7 +77,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onSourceModifyAccuracyPriority: 9,
-		onSourceModifyAccuracy(accuracy) {
+		onSourceModifyAccuracy(accuracy, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
 				if (typeof accuracy !== 'number') return;
 				this.debug('chilldrive - enhancing accuracy');
