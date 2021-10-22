@@ -1039,7 +1039,56 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["glare", "hex", "strengthsap", "leechseed", "knockoff", "shadowball", "willowisp"],
 		randomBattleLevel: 79,
 	},
-	
+	azekrow: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["nastyplot", "darkpulse", "fireblast", "icebeam"],
+		randomBattleLevel: 79,
+	},
+	trapeino: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["earthquake", "crunch", "firstimpression", "quickattack"],
+		randomBattleLevel: 79,
+	},
+	rhybite: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["stealthrock", "highhorsepower", "dragonclaw", "stoneedge"],
+		randomBattleLevel: 79,
+	},
+	oricolyphsensu: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["hurricane", "shadowball", "heatwave", "uturn"],
+		randomBattleLevel: 79,
+	},
+	goodevoir: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["moonblast", "dracometeor", "trick", "mysticalfire"],
+		randomBattleLevel: 79,
+	},
+	goodevoirmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+		randomBattleMoves: ["moonblast", "sludgewave", "calmmind", "mysticalfire"],
+		randomBattleLevel: 75,
+		requiredItem: "Gardevoirite",
+	},
+	duramaw: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["ironhead", "playrough", "fireblast", "stealthrock"],
+		randomBattleLevel: 79,
+	},
+	duramawmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+		randomBattleMoves: ["ironhead", "playrough", "suckerpunch", "swordsdance"],
+		randomBattleLevel: 75,
+		requiredItem: "Mawilite",
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
