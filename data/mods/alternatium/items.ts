@@ -700,7 +700,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onStart(pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				this.useMove('lockon', pokemon);
+				this.useMove('charge', pokemon);
 			}
 		},
 		onDrive: 'Electric',
