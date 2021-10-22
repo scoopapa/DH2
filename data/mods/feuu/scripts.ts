@@ -722,7 +722,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
 				this.add('-immune', target);
 				hitResults[i] = false;
-			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes')) &&
+			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes') || pokemon.hasAbility('lighthearted')) &&
 				targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
 				this.debug('natural prankster immunity');
 				if (!target.illusion) this.hint("Since gen 7, Dark is immune to Prankster moves.");
