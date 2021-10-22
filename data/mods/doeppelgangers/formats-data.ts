@@ -590,6 +590,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dragonite: {
 		tier: "OU",
 	},
+	antidragonite: {
+		tier: "AU",
+	},
 	mewtwo: {
 		tier: "Uber",
 	},
@@ -757,6 +760,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	swampert: {
 		tier: "UU",
+	},
+	antiswampert: {
+		tier: "AU",
 	},
 	zigzagoon: {
 		tier: "LC",
@@ -1992,6 +1998,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tapukoko: {
 		tier: "OU",
+	},
+	antitapukoko: {
+		tier: "AU",
 	},
 	tapulele: {
 		tier: "OU",
