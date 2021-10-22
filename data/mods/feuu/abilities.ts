@@ -3258,7 +3258,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	parroting: {
 		// implemented in runMove in scripts.js
 		name: "Parroting",
-		shortDesc: "After another Pokemon uses a status move, this Pokemon uses the same move.",
+		shortDesc: "(Not coded) After another Pokemon uses a status move, this Pokemon uses the same move.",
 	},	
 };
  
