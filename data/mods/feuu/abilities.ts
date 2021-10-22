@@ -3166,5 +3166,99 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       name: "Self Sacrifice",
 		shortDesc: "When this Pokemon faints, the replacement is healed by 1/4 of this Pokemon's max HP",
     },
+	lighthearted: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Lighthearted');
+				return null;
+			}
+		},
+		name: "Lighthearted",
+		shortDesc: "Prankster + Levitate",
+	},	
+	tigerpit: {
+		onFoeTrapPokemon(pokemon) {
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if ((pokemon.isGrounded() || pokemon.hasAbility('Feel No Pain') || pokemon.hasAbility('Magnetic Waves') || pokemon.hasAbility('Sticky Float') || pokemon.hasAbility('Etativel') || pokemon.hasAbility('Lighthearted') || pokemon.hasAbility('Leviflame') || pokemon.hasAbility('Levitability'))) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+				pokemon.maybeTrapped = true;
+			}
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if ((target.isGrounded() || target.hasAbility('Feel No Pain') || target.hasAbility('Magnetic Waves') || target.hasAbility('Sticky Float') || target.hasAbility('Etativel') || target.hasAbility('Lighthearted') || target.hasAbility('Leviflame') || target.hasAbility('Levitability'))) {
+				return accuracy * 0.8;
+			}
+		},
+		name: "Tiger Pit",
+		shortDesc: "Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
+	},	
+	vengefulshift: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon, source) {
+			if (pokemon.status)) {
+				if (!source || source === pokemon) return;
+				this.add('-activate', pokemon, 'ability: Vengeful Shift');
+           	this.useMove("Psycho Shift", pokemon);
+			}
+		},
+		name: "Vengeful Shift",
+		shortDesc: "If statused by a foe, this Pokemon attempts to transfer its status to a foe at the end of each turn.",
+	},	
+	toughskin: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify(1.2);
+			}
+		},
+		name: "Tough Skin",
+		shortDesc: "Foes making contact with this Pokemon lose 1/8 of their max HP. This Pokemon's contact moves have 1.2x power.",
+	},	
+	hydraulicpress: {
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "Hydraulic Press",
+		shortDesc: "Sheer Force + Light Metal.",
+	},	
+	parroting: {
+		// implemented in runMove in scripts.js
+		name: "Parroting",
+		shortDesc: "After another Pokemon uses a status move, this Pokemon uses the same move.",
+	},	
 };
  
