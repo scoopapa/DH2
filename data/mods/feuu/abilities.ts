@@ -3192,7 +3192,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+			if (pokemon.isGrounded(!pokemon.knownType) || pokemon.hasAbility('Feel No Pain') || pokemon.hasAbility('Magnetic Waves') || pokemon.hasAbility('Sticky Float') || pokemon.hasAbility('Etativel') || pokemon.hasAbility('Lighthearted') || pokemon.hasAbility('Leviflame') || pokemon.hasAbility('Levitability'))) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}
 		},
