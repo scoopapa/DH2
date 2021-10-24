@@ -104,10 +104,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Pincurchitar-Mega",
 		megaEvolves: "Pincurchitar",
 		itemUser: ["Pincurchitar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 669,
 		desc: "If held by a Pincurchitar or Goatitar, this item allows it to Mega Evolve in battle.",
 	},
@@ -130,10 +127,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Sableior-Mega",
 		megaEvolves: "Sableior",
 		itemUser: ["Sableior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 754,
 		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
 	},
