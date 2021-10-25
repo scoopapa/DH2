@@ -37,6 +37,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		customDoublesTiers: ['Banned', 'Restricted', 'S', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C', 'Unranked'],
 	},
 	init() {
+		console.log('init m4a');
 		for (const id in this.dataCache.Pokedex) {
 			let debug = false;
 			if (id === 'sawsbucksummer') debug = true;
