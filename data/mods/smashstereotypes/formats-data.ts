@@ -58,4 +58,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chillytemega: {
 		tier: "SSS Uber",
 	},
+	magroach: {
+		tier: "SSS",
+	},
+	exploudmeow: {
+		tier: "SSS",
+	},
+	garbodor: {
+		tier: "SSS",
+	},
+	garbodorgmax: {
+		tier: "SSS",
+	},
 };

@@ -37,124 +37,41 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {},
-		onTryHit(target, pokemon) {
-			let move = 'technoblastnormal';
+		onModifyMove(move, pokemon) {
 			if (pokemon.hasItem('burndrive')) {
-				move = 'technoblastburn';
+				move.basePower *= 1.5;
+				move.type = 'Fire';
 			} else if (pokemon.hasItem('chilldrive')) {
-				move = 'technoblastchill';
+				move.basePower *= 1.5;
+				move.type = 'Ice';
 			} else if (pokemon.hasItem('dousedrive')) {
-				move = 'technoblastdouse';
+				move.basePower *= 1.5;
+				move.type = 'Water';
 			} else if (pokemon.hasItem('shockdrive')) {
-				move = 'technoblastshock';
+				move.basePower *= 1.5;
+				move.type = 'Electric';
 			}
-			this.useMove(move, pokemon, target);
-			return null;
 		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
+		secondary: {
+			chance: 30,
+			onHit(target, pokemon, move) {
+				if (pokemon.hasItem('burndrive')) {
+					this.boost({atk: -1}, target);
+				}
+				else if (pokemon.hasItem('chilldrive')) {
+					this.boost({spa: -1}, target);
+				}
+				else if (pokemon.hasItem('dousedrive')) {
+					this.boost({spd: -1}, target);
+				}
+				else if (pokemon.hasItem('shockdrive')) {
+					this.boost({spe: -1}, target);
+				}
+			}
 		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-	},
-	technoblastnormal: {
-		num: 546,
-		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Steel",
-	},
-	technoblastburn: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			atk: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Fire",
-	},
-	technoblastchill: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spa: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Ice",
-	},
-	technoblastdouse: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spd: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Water",
-	},
-	technoblastshock: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spe: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Electric",
 	},
 	freezeshock: {
 		num: 553,

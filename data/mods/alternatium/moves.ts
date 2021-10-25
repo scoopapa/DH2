@@ -914,6 +914,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
+		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
 		name: "Relic Song",
 		pp: 10,
 		priority: 0,
@@ -921,8 +922,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyType(move, pokemon) {
 			if (pokemon.species.id !== 'meloetta') return;
 			move.type = 'Psychic';
-			move.basePower = 75;
 			move.ignoreImmunity = {'Psychic': true};
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (pokemon.species.id !== 'meloetta') return;
+			if (type === 'Dark') return 1;
 		},
 		secondary: {
 			chance: 10,

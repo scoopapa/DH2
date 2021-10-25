@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Quick Draw",
-		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
+		shortDesc: "User's moves have increased priority in the first turn.",
 		rating: 2.5,
 		num: 259,
 	},
@@ -99,9 +99,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('mistyterrain');
-				pokemon.baseAbility = 'mistyterrain';
+				this.add('-ability', pokemon, 'Misty Surge', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistysurge');
+				pokemon.baseAbility = 'mistysurge';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -475,13 +475,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 59,
 	},
 	liquidscales: {
-		name: "Liquid Scales",
-		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.category !== 'Status') {
 				this.heal(target.baseMaxhp / 10);
 			}
 		},
+		name: "Liquid Scales",
+		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		rating: 3,
 		num: 1013,
 	},
