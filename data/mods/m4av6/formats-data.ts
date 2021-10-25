@@ -122,6 +122,9 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	sirfetchdmega: {},
 	falinksmega: {},
 	dragapultmega: {},
+	sawsbucksummer: { tier: "Sawsbuck" },
+	sawsbuckwinter: { tier: "Sawsbuck" },
+	sawsbuckautumn: { tier: "Sawsbuck" },
 };
 
 const randomMoves = (mon: string, moves: string) => {
