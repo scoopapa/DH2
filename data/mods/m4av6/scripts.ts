@@ -130,13 +130,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
 			return "Meowstic-F-Mega";
 		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Summer") {
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbucksummer") {
 			return "Sawsbuck-Summer-Mega";
 		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Autumn") {
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckautumn") {
 			return "Sawsbuck-Autumn-Mega";
 		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.name === "Sawsbuck-Winter") {
+		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckwinter") {
 			return "Sawsbuck-Winter-Mega";
 		}
 		if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
