@@ -127,6 +127,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	anticlefable: {
 		tier: "AU",
+		isModded: true,
 	},
 	vulpix: {
 		tier: "LC",
@@ -142,6 +143,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antininetalesalola: {
 		tier: "AU",
+		isModded: true,
 	},
 	igglybuff: {
 		tier: "LC",
@@ -286,6 +288,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antislowking: {
 		tier: "AU",
+		isModded: true,
 	},
 	slowkinggalar: {
 		tier: "OU",
@@ -406,6 +409,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antiblissey: {
 		tier: "AU",
+		isModded: true,
 	},
 	tangela: {
 		tier: "NFE",
@@ -592,6 +596,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antidragonite: {
 		tier: "AU",
+		isModded: true,
 	},
 	mewtwo: {
 		tier: "Uber",
@@ -763,6 +768,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antiswampert: {
 		tier: "AU",
+		isModded: true,
 	},
 	zigzagoon: {
 		tier: "LC",
@@ -1077,6 +1083,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antigarchomp: {
 		tier: "AU",
+		isModded: true,
 	},
 	riolu: {
 		tier: "LC",
@@ -1412,6 +1419,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antiferrothorn: {
 		tier: "AU",
+		isModded: true,
 	},
 	klink: {
 		tier: "LC",
@@ -1559,12 +1567,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antilandorustherian: {
 		tier: "AU",
+		isModded: true,
 	},
 	kyurem: {
 		tier: "OU",
 	},
 	antikyurem: {
 		tier: "AU",
+		isModded: true,
 	},
 	kyuremblack: {
 		tier: "Uber",
@@ -1845,6 +1855,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antitoxapex: {
 		tier: "AU",
+		isModded: true,
 	},
 	mudbray: {
 		tier: "LC",
@@ -2001,6 +2012,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antitapukoko: {
 		tier: "AU",
+		isModded: true,
 	},
 	tapulele: {
 		tier: "OU",
@@ -2043,6 +2055,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antikartana: {
 		tier: "AU",
+		isModded: true,
 	},
 	guzzlord: {
 		tier: "NU",
@@ -2346,6 +2359,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	antiarctozolt: {
 		tier: "AU",
+		isModded: true,
 	},
 	dracovish: {
 		tier: "Uber",
