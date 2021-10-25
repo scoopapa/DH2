@@ -38,6 +38,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
+			let debug = false;
+			if (id === 'sawsbucksummer') debug = true;
+			if (debug) console.log(id);
 			const pokemon = this.dataCache.Pokedex[id];
 			if (pokemon.movepoolAdditions) {
 				for (const move of pokemon.movepoolAdditions) {
