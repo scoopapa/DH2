@@ -1053,7 +1053,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'OU',
+		// teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] Megamax",
