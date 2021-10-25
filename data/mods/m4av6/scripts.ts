@@ -41,7 +41,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (const id in this.dataCache.Pokedex) {
 			let debug = false;
 			if (id === 'sawsbucksummer') debug = true;
-			if (debug) console.log(id);
 			const pokemon = this.dataCache.Pokedex[id];
 			if (pokemon.movepoolAdditions) {
 				for (const move of pokemon.movepoolAdditions) {
@@ -49,6 +48,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (this.modData('FormatsData', id)) {
+				if (debug) console.log(id + ' - setting tier info');
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
 				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
