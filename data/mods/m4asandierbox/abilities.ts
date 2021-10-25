@@ -693,9 +693,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const pokemon = this.effectData.target;
 			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
 				pokemon.heal(damage);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
-		name: "Draining Effect",
+		name: "Residrain",
 		rating: 4,
 		num: -6032,
 	},
@@ -825,5 +826,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wonder Seal",
 		rating: 4,
 		num: -6038,
+	},
+	residrainhalf: {
+		desc: "Every time another Pokémon is damaged indirectly, this Pokémon's HP is restored by half of the same amount.",
+		shortDesc: "Heals from half of the indirect damage dealt to others.",
+		onAnyDamage(damage, target, source, effect) {
+			const pokemon = this.effectData.target;
+			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
+				pokemon.heal(damage / 2);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+		name: "Residrain (Half)",
+		rating: 4,
+		num: -6039,
 	},
 };

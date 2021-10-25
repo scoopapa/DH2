@@ -85,6 +85,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Meltan, this item allows it to Mega Evolve in battle.",
 	},
+	stoutlanditeu: {
+		name: "Stoutlandite-U",
+		spritenum: 578,
+		megaStone: "Stoutland-Mega-U",
+		megaEvolves: "Stoutland",
+		itemUser: ["Stoutland"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5004,
+		gen: 8,
+		desc: "If held by a Stoutland, this item allows it to Mega Evolve differently in battle...!",
+	},
 /*
 	mossysandwich: {
 		name: "Mossy Sandwich",

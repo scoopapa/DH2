@@ -1907,25 +1907,12 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		banlist: [
-			'Aegislash', 'Alakazam', 'Arctozolt', 'Azumarill', 'Blacephalon', 'Blaziken', 'Blissey', 'Buzzwole', 'Cinderace', 'Clefable', 'Corviknight', 'Deoxys-Speed',
-			'Ferrothorn', 'Garchomp', 'Gengar', 'Gliscor', 'Greninja', 'Gyarados', 'Hawlucha', 'Heatran', 'Hippowdon', 'Hoopa-Unbound', 'Hydreigon', 'Jirachi', 'Kartana',
-			'Kommo-o', 'Kyurem', 'Landorus-Therian', 'Latias', 'Latios', 'Magnezone', 'Manaphy', 'Melmetal', 'Mew', 'Nidoqueen', 'Pelipper', 'Rillaboom', 'Scizor', 'Serperior',
-			'Slowbro-Base', 'Slowking-Galar', 'Tapu Fini', 'Tapu Koko', 'Thundurus-Base', 'Thundurus-Therian', 'Tornadus-Therian', 'Toxapex', 'Tyranitar', 'Urshifu-Rapid-Strike',
-			'Victini', 'Volcarona', 'Weavile', 'Xurkitree', 'Zapdos-Base', 'Zapdos-Galar',
-			// canon Mega Stones
-			'Aerodactylite', 'Charizardite X', 'Charizardite Y', 'Diancite', 'Galladite', 'Gardevoirite', 'Heracronite', 'Lopunnite', 'Mawilite', 'Medichamite', 'Pinsirite',
-			'Sablenite', 'Swampertite', 'Venusaurite',
-			// M4A Mega Stones - does not include stones that are already banned from OU or Pokémon that are already banned from UU!
-			'Goodranite', 'Thievulite', 'Toucannonite', 'Lycanroc-Dusk ++ Lycanite', 'Vikavoltite', 'Lycanroc-Base ++ Lycanite', 'Raichunite', 'item: Vanillite', 'Garbodorite',
-			'Jolteonite', 'Slowkinite', 'Conkeldite', 'Gothitite', 'Chandelite', 'Bisharpite', 'Reunite', 'Luxrite', 'Talonflite', 'Aurorite', 'Trevenite',
-			'Eelektrossite', 'Dragalgite', 'Dhelmite', 'Typhlosionite', 'Registeel ++ Reginite', 'Magcargonite', 'Bastiodite', 'Leavannite', 'Parasite', 'Samurite',
-			'Meowstic-F ++ Meowsticite', 'Starminite', 'Flygonite', 'Drapionite', 'Lurantisite', 'Exploudite', 'Noivernite', 'Toxtricity-Low-Key ++ Toxtricitite',
-			'Hawluchanite', 'Araquanite', 'Zoroarkite', 'Wishiwashinite', 'Falinksite', 'Krookodilite', 'Infernite', 'Empoleonite', 'Mudsdalite', 'Golurkite', 'RKS Megamemory',
-			'Porygonite-Z', 'Sirfetch\u2019dite', 'Deciduite', 'Incinerite', 'Primarinite',
+			'OU',
 			// Abilities
 			'Drizzle', 'Drought',
 		],
-		mod: 'm4av6',
+		mod: 'm4auu',
+		teambuilderFormat: 'UU',
 	},
 	{
 		name: "[Gen 8] M4A VGC",
@@ -1944,7 +1931,7 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'Doubles OU',
+		teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
@@ -1994,7 +1981,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'Doubles OU',
+		teambuilderFormat: 'Restricted',
 		onValidateTeam(team) {
 			const restrictedSpecies = [];
 			for (const set of team) {
