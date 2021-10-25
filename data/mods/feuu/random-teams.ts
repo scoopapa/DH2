@@ -1260,6 +1260,8 @@ export class RandomTeams {
 			item = this.sample(species.requiredItems);
 
 		// First, the extra high-priority items
+		} else if (species.name === 'Sigileye' && counter.Status < 2) {
+			item = 'Flame Orb';
 		} else if (species.name === 'Eternatus' && counter.Status < 2) {
 			item = 'Metronome';
 		} else if (species.name === 'Farfetch\u2019d') {
