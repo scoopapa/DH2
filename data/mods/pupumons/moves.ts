@@ -873,7 +873,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
 		secondary: null,
-		target: "any",
+		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -893,8 +893,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "Ghost",
-		type: "Fire",
+		target: "normal",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 	tetrodotoxin: {
@@ -903,6 +903,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		name: "Tetrodotoxin",
+		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
@@ -982,6 +983,65 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
+		contestType: "Cool",
+	},
+	peekaboo: {
+		num: 712,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(130);
+		},
+		category: "Special",
+		name: "Peek-a-Boo",
+		shortDesc: "Deals a random amount of damage and forces user out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		/*onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},*/
+		self: {
+			forceSwitch: true,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	readyornot: {
+		num: 712,
+		accuracy: true,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(200);
+		},
+		category: "Special",
+		name: "Ready or Not",
+		shortDesc: "Deals a random amount of damage and omniboosts.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		secondary: null,
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		isZ: "halloweeniumz",
+		target: "normal",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 };
