@@ -1912,7 +1912,7 @@ export const Formats: FormatList = [
 			'Drizzle', 'Drought',
 		],
 		mod: 'm4auu',
-		teambuilderFormat: 'UU',
+		// teambuilderFormat: 'UU',
 	},
 	{
 		name: "[Gen 8] M4A VGC",
@@ -1931,7 +1931,7 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'S',
+		// teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
@@ -1981,7 +1981,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		mod: 'm4av6',
-		teambuilderFormat: 'Restricted',
+		// teambuilderFormat: 'Restricted',
 		onValidateTeam(team) {
 			const restrictedSpecies = [];
 			for (const set of team) {
