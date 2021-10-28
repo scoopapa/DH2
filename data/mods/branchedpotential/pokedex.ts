@@ -631,9 +631,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 50,
 	},
 	magneboom: {
-		inheritMoves: ['Magneboom'],
+		inheritMoves: ['Magnezone'],
 		num: -135,
-		name: "Tsigastrox",
+		name: "Magneboom",
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 130, atk: 60, def: 100, spa: 90, spd: 120, spe: 35},
 		abilities: {0: "Levitate", 1: "Analytic", H: "Regenerator"},
