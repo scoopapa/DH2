@@ -99,7 +99,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onModifyMove(accuracy, move, pokemon) {
+		/*onModifyMove(accuracy, move, pokemon) {
 			if (typeof accuracy !== 'number') return;
 			if (accuracy <= 95) {
 				move.basePower *= 1.2;
@@ -111,6 +111,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (typeof accuracy !== 'number') return;
 			if (move.widelensboosted) {
 				return accuracy * 1.15;
+			}
+		},*/
+		onModifyMove(accuracy, move, pokemon) {
+			if (move.accuracy <= 95) {
+				move.basePower *= 1.2;
+				move.accuracy *= 1.15;
 			}
 		},
 		num: 265,
