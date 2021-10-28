@@ -10678,8 +10678,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8M", "7T"],
 		},
 	},
-	lycanrocmidnight: {
+	lycanrocspectre: {
 		learnset: {
+			moonlight: ["8L1"],
+			spiritshackle: ["8L1"],
+			shadowclaw: ["8L1"],
+			doubleedge: ["8L1"],
 			attract: ["8M", "7M"],
 			bite: ["8L20", "7L1"],
 			brickbreak: ["8M", "7M"],
@@ -10761,6 +10765,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	lycanrocdusk: {
 		learnset: {
+			moonlight: ["8L1"],
+			morningsun: ["8L1"],
+			earthquake: ["8L1"],
 			accelerock: ["8L1", "7L1"],
 			attract: ["8M", "7M"],
 			bite: ["8L20", "7L1"],

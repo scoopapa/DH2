@@ -494,8 +494,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lycanroc: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	lycanrocmidnight: {
+	},*/
+	lycanrocspectre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -503,7 +503,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wishiwashi: {
+	/*wishiwashi: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
