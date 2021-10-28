@@ -113,15 +113,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return accuracy * 1.15;
 			}
 		},*/
-		onModifyMove(accuracy, move, pokemon) {
-			if (move.accuracy !== 100) {
-				move.basePower *= 1.2;
+		onModifyMove(move) {
+			if (move.accuracy < 100) {
+				move.widelens = true;
 			}
 		},
-		onSourceModifyAccuracyPriority: 4,
-		onSourceModifyAccuracy(accuracy, move) {
-			if (move.accuracy !== 100) {
-				return accuracy * 1.15;
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('widelens - enhancing accuracy');
+			return accuracy * 1.15;
+		},
+		onBasePower(basePower, move, pokemon, target) {
+			if (move.widelens) {
+				return this.chainModify(1.2);
 			}
 		},
 		num: 265,
