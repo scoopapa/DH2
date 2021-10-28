@@ -99,32 +99,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		/*onModifyMove(accuracy, move, pokemon) {
-			if (typeof accuracy !== 'number') return;
-			if (accuracy <= 95) {
-				move.basePower *= 1.2;
-				move.widelensboosted = true;
-			}
-		},
 		onSourceModifyAccuracyPriority: 4,
-		onSourceModifyAccuracy(accuracy, move) {
-			if (typeof accuracy !== 'number') return;
-			if (move.widelensboosted) {
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy === 'number') {
 				return accuracy * 1.15;
 			}
-		},*/
-		onModifyMove(move) {
-			if (move.accuracy < 100) {
-				move.widelens = true;
-			}
 		},
-		onSourceModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			this.debug('widelens - enhancing accuracy');
-			return accuracy * 1.15;
-		},
+		onBasePowerPriority: 5,
 		onBasePower(basePower, move, pokemon, target) {
-			if (move.widelens) {
+			if (move.accuracy <= 95) {
 				return this.chainModify(1.2);
 			}
 		},
