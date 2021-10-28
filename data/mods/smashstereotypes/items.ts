@@ -114,9 +114,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},*/
 		onModifyMove(accuracy, move, pokemon) {
-			if (move.accuracy <= 95) {
+			if (move.accuracy !== 100) {
 				move.basePower *= 1.2;
-				move.accuracy *= 1.15;
+			}
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, move) {
+			if (move.accuracy !== 100) {
+				return accuracy * 1.15;
 			}
 		},
 		num: 265,
