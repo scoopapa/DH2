@@ -2236,4 +2236,33 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Atom Smasher"},
 		weightkg: 200,
 	},
+	thermodo: {
+		num: 9052,
+		name: "Thermodo",
+		types: ["Fire", "Ice"],
+		baseStats: {hp: 73, atk: 99, def: 73, spa: 109, spd: 73, spe: 100},
+		abilities: {0: "Flame Body", 1: "Ice Body", H: "Mold Breaker"},
+		weightkg: 100,
+	},
+	sompuer: {
+		num: 9053,
+		name: "Sompuer",
+		types: ["Fairy"],
+		baseStats: {hp: 70, atk: 55, def: 80, spa: 80, spd: 85, spe: 80},
+		abilities: {0: "Comatose"},
+		weightkg: 9,
+		evos: ["Darkrai", "Cresselia"],
+	},
+	darkrai: {
+    	inherit: true,
+		prevo: "Sompuer",
+		evoType: "levelFriendship",
+		evoCondition: "during the night",
+	},
+	cresselia: {
+    	inherit: true,
+		prevo: "Sompuer",
+		evoType: "levelFriendship",
+		evoCondition: "during the day",
+	},
 };
