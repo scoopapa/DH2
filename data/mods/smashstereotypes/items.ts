@@ -107,7 +107,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onSourceModifyAccuracyPriority: 4,
-		onSourceModifyAccuracy(accuracy) {
+		onSourceModifyAccuracy(accuracy, move) {
 			if (typeof accuracy !== 'number') return;
 			if (move.widelensboosted) {
 				return accuracy * 1.15;
@@ -135,8 +135,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		num: 538,
-		gen: 5,
+		num: -1,
+		gen: 2,
 		shortDesc: "If holder's species can evolve, its Attack and Sp. Atk are 1.5x.",
 	},
 };
