@@ -106,7 +106,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onBasePowerPriority: 5,
-		onBasePower(basePower, move, pokemon, target) {
+		onBasePower(basePower, move, accuracy, pokemon, target) {
 			if (move.accuracy <= 95) {
 				return this.chainModify(1.2);
 			}
