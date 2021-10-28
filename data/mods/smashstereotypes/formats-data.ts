@@ -70,4 +70,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	garbodorgmax: {
 		tier: "SSS",
 	},
+	grimmsnarlalola: {
+		tier: "SSS",
+	},
+	peasmaker: {
+		tier: "SSS",
+	},
+	peasmakermega: {
+		tier: "SSS",
+	},
+	cofazor: {
+		tier: "SSS",
+	},
+	cofazormega: {
+		tier: "SSS",
+	},
 };

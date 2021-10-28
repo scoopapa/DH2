@@ -84,4 +84,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 265,
 	},
+	hauntedtech: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isFutureMove) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
+		name: "Haunted Tech",
+		shortDesc: "Moves 60 power or less: 1.5x power. If hit by an attack, 30% chance to disable that move.",
+	},
 };
