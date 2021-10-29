@@ -628,7 +628,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	hivemind: {
-		num: -1038,
+		num: -1060,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -946,6 +946,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+	},
+	anvildrop: {
+		num: -1065,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Intensifies gravity after use.",
+		name: "Anvil Drop",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Anchor Shot", target);
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
 	},
 	draconiccrash: {
 		num: -1037,
