@@ -2167,7 +2167,7 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		searchShow: false,
 	},
-
+*/
 	{
 		name: "[Gen 8] Mix and M4A",
 		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,
@@ -2244,7 +2244,6 @@ export const Formats: FormatList = [
 			}
 		},
   },
-  */
   {
 		name: "[Gen 8] M4A Monotype",
 		desc: ["Megas for All v7 but it's a Monotype format",
