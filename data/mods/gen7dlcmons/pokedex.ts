@@ -565,10 +565,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Stethaaina",
 		types: ["Water", "Fire"],
 		baseStats: {hp: 115, atk: 125, def: 105, spa: 60, spd: 85, spe: 80},
-		abilities: {0: "Rough Skin", H: "Steelworker"}
+		abilities: {0: "Rough Skin", H: "Steelworker"},
 		heightm: 1,
 		weightkg: 40,
-		color: "red"
+		color: "red",
 		eggGroups: ["Undiscovered"],
 	},
 };
