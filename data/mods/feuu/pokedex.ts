@@ -2856,7 +2856,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Mr. Mime-Galar', 'Raboot'],
 		num: 1104,
 		name: "Mr. Boot-Galar",
-		types: ["Grass", "Poison"],
+		types: ["Fire", "Psychic"],
 		baseStats: {hp: 57, atk: 75, def: 82, spa: 72, spd: 83, spe: 109},
 		abilities: {0: "Sports Showtime"},
 		weightkg: 32.9,
