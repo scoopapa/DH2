@@ -560,7 +560,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	raichu: {
 		learnset: {
-			inherit: true,
 			agility: ["8L1"],
 			attract: ["8L1"],
 			bide: ["8L1"],
@@ -906,7 +905,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	munchlax: {
 		learnset: {
-			inherit: true,
 			afteryou: ["8L1"],
 			amnesia: ["8L1"],
 			attract: ["8L1"],
@@ -1005,7 +1003,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	snorlax: {
 		learnset: {
-			inherit: true,
 			afteryou: ["8L1"],
 			amnesia: ["8L1"],
 			attract: ["8L1"],
