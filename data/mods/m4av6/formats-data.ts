@@ -122,6 +122,21 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	sirfetchdmega: {},
 	falinksmega: {},
 	dragapultmega: {},
+	wishiwashimega1: { tier: "Tier 3 Mega" },
+	wishiwashimega2: { tier: "Tier 3 Mega" },
+	wishiwashimega3: { tier: "Tier 3 Mega" },
+	wishiwashimega4: { tier: "Tier 3 Mega" },
+	wishiwashimegaschool: { tier: "Tier 3 Mega" },
+	mimikyubustedmega: { tier: "Undecided" },
+	falinksmegacombat: { tier: "Tier 3 Mega" },
+	darmanitanzen: { tier: "Heat" },
+	mimikyubusted: { tier: "Heat" },
+	cramorantgulping: { tier: "Heat" },
+	cramorantgorging: { tier: "Heat" },
+	sinisteaantique: { tier: "Heat" },
+	polteageistantique: { tier: "Heat" },
+	eiscuenoice: { tier: "Heat" },
+	morpekohangry: { tier: "Heat" },
 };
 
 const randomMoves = (mon: string, moves: string) => {
