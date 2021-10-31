@@ -461,7 +461,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -635,7 +635,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
