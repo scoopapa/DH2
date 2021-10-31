@@ -566,7 +566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Fire"],
 		baseStats: {hp: 115, atk: 125, def: 105, spa: 60, spd: 85, spe: 80},
 		abilities: {0: "Rough Skin", H: "Steelworker"}
-		heightm: 1
+		heightm: 1,
 		weightkg: 40,
 		color: "red"
 		eggGroups: ["Undiscovered"],
