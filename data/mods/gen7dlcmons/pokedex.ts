@@ -570,4 +570,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 		color: "red"
 		eggGroups: ["Undiscovered"],
+	},
 };
