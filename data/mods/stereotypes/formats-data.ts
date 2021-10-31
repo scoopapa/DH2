@@ -196,6 +196,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
+	//Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
+	puffoon: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	outunk: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	lillipond: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
 	//LC Slate 1
 	sproutsel: {
 		tier: "ST LC",

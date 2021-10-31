@@ -452,4 +452,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Prankster"},
 		weightkg: 20,
 	},
+	//Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
+	puffoon: {
+		num: 1045,
+		name: "Puffoon",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 101, atk: 100, def: 80, spa: 80, spd: 80, spe: 99},
+		abilities: {0: "Pressure", 1: "Rattled", H: "Flare Boost"},
+		weightkg: 110,
+	},
+	outunk: {
+		num: 1046,
+		name: "Outunk",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 65, atk: 70, def: 75, spa: 110, spd: 140, spe: 50},
+		abilities: {0: "Neutralizing Gas", 1: "Poison Point", H: "Stench"},
+		weightkg: 110,
+	},
+	lillipond: {
+		num: 1047,
+		name: "Lillipond",
+		types: ["Water", "Grass"],
+		baseStats: {hp: 100, atk: 105, def: 95, spa: 80, spd: 85, spe: 65},
+		abilities: {0: "Water Absorb", 1: "Hydration", H: "Flower Gift"},
+		weightkg: 38,
+	},
 };
