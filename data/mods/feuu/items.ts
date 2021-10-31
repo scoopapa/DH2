@@ -104,10 +104,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Pincurchitar-Mega",
 		megaEvolves: "Pincurchitar",
 		itemUser: ["Pincurchitar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 669,
 		desc: "If held by a Pincurchitar or Goatitar, this item allows it to Mega Evolve in battle.",
 	},
@@ -130,10 +127,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Sableior-Mega",
 		megaEvolves: "Sableior",
 		itemUser: ["Sableior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 754,
 		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
 	},
@@ -187,7 +181,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 657,
-		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Kokovoir or Goodevoir, this item allows it to Mega Evolve in battle.",
 	},
 	scizorite: {
 		name: "Scizorite",
@@ -382,5 +376,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 752,
 		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+	},
+	mawilite: {
+		name: "Mawilite",
+		spritenum: 598,
+		megaStone: "Duramaw-Mega",
+		megaEvolves: "Duramaw",
+		itemUser: ["Duramaw"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 681,
+		desc: "If held by a Duramaw, this item allows it to Mega Evolve in battle.",
 	},
 };
