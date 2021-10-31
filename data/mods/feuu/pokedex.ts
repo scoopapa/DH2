@@ -2201,7 +2201,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1009,
 		name: "Elgyemite",
 		types: ["Steel", "Psychic"],
-		baseStats: {hp: 71, atk: 53, def: 75, spa: 59, spd: 75, spe: 39},
+		baseStats: {hp: 43, atk: 45, def: 72, spa: 94, spd: 68, spe: 47},
 		abilities: {0: "Analytic"},
 		weightkg: 7.5,
 		evos: ["Beheeyem", "Magnezone"],
