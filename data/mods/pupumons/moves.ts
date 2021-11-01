@@ -626,7 +626,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
 			let hasLastResort = false; // User must actually have Last Resort for it to succeed
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id === 'lastresort') {
+				if (moveSlot.id === 'lasersword') {
 					hasLastResort = true;
 					continue;
 				}
@@ -985,7 +985,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	peekaboo: {
+	/*peekaboo: {
 		num: 712,
 		accuracy: 100,
 		basePower: 0,
@@ -1043,5 +1043,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-	},
+	},*/
 };
