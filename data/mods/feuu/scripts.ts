@@ -650,7 +650,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
