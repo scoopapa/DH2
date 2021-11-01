@@ -219,4 +219,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "(DOU)",
 	},
+	kalover: {
+		tier: "Pupumons",
+		doublesTier: "(DOU)",
+	},
 };
