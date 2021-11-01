@@ -130,7 +130,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1011,
 		gen: 7,
 	},
-	/*nest: {
+	nest: {
 		name: "Nest",
 		desc: If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.
 		spritenum: 491,
@@ -159,6 +159,92 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 258,
 		gen: 8,
 	},
-	futuristicmetal: {
-		name: "Futuristic Metal",*/
+	boazanianmetal:  {
+		name: "Boazanian Metal",
+		spritenum: 699,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 22) || pokemon.baseSpecies.num === 22) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Ultranaut-V",
+		itemUser: ["Ultranaut-V"],
+		num: 1104,
+		gen: 8,
+	},
+	luxurycard: {
+		name: "Luxury Card",
+		spritenum: 387,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
+				if (target.useItem(source)) {
+					if (!pokemon.volatiles['taunt']) {
+						pokemon.addVolatile('taunt');
+					}
+				}
+			}
+		},
+		num: 542,
+		gen: 5,
+	},
+	blankcard: {
+		name: "Blank Card",
+		spritenum: 387,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
+				if (target.useItem(source)) {
+					this.add('-clearallboost');
+					for (const pokemon of this.getAllActive()) {
+						pokemon.clearBoosts();
+					}
+				}
+			}
+		},
+		num: 542,
+		gen: 5,
+	},
+	hardhat: {
+		name: "Hard Hat",
+		spritenum: 417,
+		fling: {
+			basePower: 60,
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		num: 540,
+		gen: 5,
+	},
+	campfire: {
+		name: "Campfire",
+		spritenum: 307,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (move.type === 'Status' && source.useItem()) {
+				source.heal(pokemon.baseMaxhp / 4);
+			}
+		},
+		num: 564,
+		gen: 5,
+	},
+	tarpack: {
+		name: "Tar Pack",
+		spritenum: 230,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		num: 211,
+		gen: 4,
+	},
 };
