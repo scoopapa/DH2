@@ -453,7 +453,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Amphikits",
 		types: ["Water"],
 		baseStats: {hp: 83, atk: 105, def: 80, spa: 111, spd: 96, spe: 125},
-		abilities: {0: "Mold Breaker", H: "Poison Heal"},
+		abilities: {0: "Mold Breaker", H: "Natural Cure"},
 		weightkg: 30,
 	},
 	detectrice: {
@@ -519,6 +519,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 75, atk: 80, def: 60, spa: 115, spd: 104, spe: 91},
 		abilities: {0: "Shed Skin", 1: "Swift Swim", H: "Infiltrator"},
 		weightkg: 20,
+	},
+	kalover: {
+		num: 56,
+		name: "Kalover",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 99, atk: 120, def: 80, spa: 70, spd: 85, spe: 85},
+		abilities: {0: "Unburden", 1: "Glitter Bomber", H: "Regenerator"},
+		weightkg: 123,
 	},
 	/*sophisturn: {
 		num: 56,
