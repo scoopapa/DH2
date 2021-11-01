@@ -131,4 +131,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 1004,
 	},
+	glitterbomber: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (target.getTypes().join() === 'Fairy' || !target.setType('Fairy')) {
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Fairy');
+		},
+		name: "Glitter Bomber",
+		rating: 3,
+		num: 1004,
+		shortDesc: "After hitting target w/ contact, makes them a Fairy type.",
+	},
 };
