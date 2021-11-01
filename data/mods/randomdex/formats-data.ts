@@ -900,12 +900,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	kangaskhanmega: {
-		tier: "RDex OU",
-		doublesTier: "RDex DOU",
+		tier: "RDex Uber",
+		doublesTier: "RDex Uber",
 	},
 	kartana: {
-		tier: "RDex OU",
-		doublesTier: "RDex DOU",
+		tier: "RDex Uber",
+		doublesTier: "RDex Uber",
 	},
 	kommoo: {
 		tier: "RDex OU",
@@ -920,8 +920,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	kyurem: {
-		tier: "RDex OU",
-		doublesTier: "RDex DOU",
+		tier: "RDex Uber",
+		doublesTier: "RDex Uber",
 	},
 	lanturn: {
 		tier: "RDex OU",
@@ -992,8 +992,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RDex DOU",
 	},
 	medichammega: {
-		tier: "RDex OU",
-		doublesTier: "RDex DOU",
+		tier: "RDex Uber",
+		doublesTier: "RDex Uber",
 	},
 	meditite: {
 		tier: "RDex LC",
