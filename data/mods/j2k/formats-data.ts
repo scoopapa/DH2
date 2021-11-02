@@ -586,6 +586,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	garbodorkilirthy: {
 		tier: "OU",
 	},
+	goomy: {
+		tier: "LC",
+	},
+	goomykilirthy: {
+		tier: "LC",
+	},
+	sliggoo: {
+		tier: "NFE",
+	},
+	sliggookilirthy: {
+		tier: "NFE",
+	},
+	goodra: {
+		tier: "NU",
+	},
+	goodrakilirthy: {
+		tier: "OU",
+	},
 	lyseed: {
 		tier: "LC",
 	},
