@@ -1,4 +1,34 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	deino: {
+		tier: "LC",
+	},
+	deinokilirthy: {
+		tier: "LC",
+	},
+	zweilous: {
+		tier: "NFE",
+	},
+	zweilouskilirthy: {
+		tier: "NFE",
+	},
+	hydreigon: {
+		tier: "UU",
+	},
+	hydreigonkilirthy: {
+		tier: "OU",
+	},
+	koffing: {
+		tier: "LC",
+	},
+	weezing: {
+		tier: "PU",
+	},
+	weezinggalar: {
+		tier: "RU",
+	},
+	weezingkilirthy: {
+		tier: "OU",
+	},
 	blissey: {
 		tier: "OU",
 	},
