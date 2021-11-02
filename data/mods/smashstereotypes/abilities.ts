@@ -84,7 +84,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 265,
 	},
-	hauntedtech: {
+	teachingtech: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender.hasAbility('sturdymold')) return;
@@ -95,15 +95,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['disable']) return;
-			if (!move.isFutureMove) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('disable', this.effectData.target);
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.category === 'Status') return;
+			console.log('Teaching Tech: Move BP = ' + move.basePower);
+			const targetAbility = target.getAbility();
+			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') return;
+			if (move.basePower <= 60) {
+				const oldAbility = target.setAbility('teachingtech', source);
+				if (oldAbility) {
+					this.add('-activate', source, 'ability: Teaching Tech');
+					this.add('-activate', target, 'ability: Teaching Tech');
 				}
 			}
 		},
-		name: "Haunted Tech",
-		shortDesc: "Moves 60 power or less: 1.5x power. If hit by an attack, 30% chance to disable that move.",
+		name: "Teaching Tech",
+		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
 	},
 };
