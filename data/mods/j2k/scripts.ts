@@ -2,7 +2,7 @@ import type {Dex} from '../sim/dex';
 
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
-export const Scripts: BattleScriptsData = {
+/*export const Scripts: BattleScriptsData = {
 	init: function () {
 		for (var id in this.data.Pokedex) {
 			if (!this.modData('Learnsets', id)) continue;
@@ -15,4 +15,4 @@ export const Scripts: BattleScriptsData = {
 			}
 		}
 	},
-};
+};*/
