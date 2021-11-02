@@ -574,6 +574,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	calyrexshadow: {
 		tier: "Uber",
 	},
+	trubbish: {
+		tier: "LC",
+	},
+	trubbishkilirthy: {
+		tier: "LC",
+	},
+	garbodor: {
+		tier: "NU",
+	},
+	garbodorkilirthy: {
+		tier: "OU",
+	},
 	lyseed: {
 		tier: "LC",
 	},
