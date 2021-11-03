@@ -3185,20 +3185,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	tigerpit: {
 		onFoeTrapPokemon(pokemon) {
 			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
-			if ((pokemon.isGrounded() || pokemon.hasAbility('Feel No Pain') || pokemon.hasAbility('Magnetic Waves') || pokemon.hasAbility('Sticky Float') || pokemon.hasAbility('Etativel') || pokemon.hasAbility('Lighthearted') || pokemon.hasAbility('Leviflame') || pokemon.hasAbility('Levitability'))) {
+			if ((pokemon.isGrounded())) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectData.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (pokemon.isGrounded(!pokemon.knownType) || pokemon.hasAbility('Feel No Pain') || pokemon.hasAbility('Magnetic Waves') || pokemon.hasAbility('Sticky Float') || pokemon.hasAbility('Etativel') || pokemon.hasAbility('Lighthearted') || pokemon.hasAbility('Leviflame') || pokemon.hasAbility('Levitability')) { // Negate immunity if the type is unknown
+			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}
 		},
 		onSourceModifyAccuracyPriority: 7,
 		onSourceModifyAccuracy(accuracy, target, source, move) {
-			if ((target.isGrounded() || target.hasAbility('Feel No Pain') || target.hasAbility('Magnetic Waves') || target.hasAbility('Sticky Float') || target.hasAbility('Etativel') || target.hasAbility('Lighthearted') || target.hasAbility('Leviflame') || target.hasAbility('Levitability'))) {
+			if ((!target.isGrounded())) {
 				return accuracy * 0.8;
 			}
 		},
