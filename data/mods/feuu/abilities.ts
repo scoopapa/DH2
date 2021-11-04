@@ -3260,6 +3260,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Parroting",
 		shortDesc: "After another Pokemon uses a status move, this Pokemon uses the same move.",
 	},	
+/*
 	lifedrain: {
 		onPrepareHit(source, target, move, basePower) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -3286,13 +3287,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Life Drain",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
 	},	
+*/
+	lifedrain: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Life Drain boost');
+				return this.chainModify(1.5);
+				this.heal(attacker.baseMaxhp / 8);
+				this.add('-heal', attacker, attacker.getHealth, '[from] ability: Life Drain');
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				return false;
+			}
+		},
+		name: "Life Drain",
+		shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
+	},	
 	metalhead: {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
-					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					this.add('-ability', pokemon, 'Metalhead', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
