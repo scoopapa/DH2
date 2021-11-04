@@ -2148,10 +2148,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Concussion"},
 		weightkg: 71.4,
 	},	
-	fetchy: {
+	fetchey: {
 		fusion: ['Chansey', 'Farfetch\u2019d'],
 		num: 131,
-		name: "Fetchy",
+		name: "Fetchey",
 		types: ["Normal"],
 		baseStats: {hp: 151, atk: 50, def: 30, spa: 46, spd: 83, spe: 55},
 		abilities: {0: "Huge Power"},
