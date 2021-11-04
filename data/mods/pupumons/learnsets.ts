@@ -175,7 +175,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		bravebird: ["8L1"],
 		fly: ["8L1"],
 		toxic: ["8L1"],
-		healingpulse: ["8L1"],
+		healpulse: ["8L1"],
 	},},
 	galvia: {learnset: {
 		//peekaboo: ["8L1"],
