@@ -18,12 +18,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Silvino-Mega",
 		megaEvolves: "Silvino",
 		itemUser: ["Silvino"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 757,
-		desc: "If held by a Silvino, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Silvino or Audiyem, this item allows it to Mega Evolve in battle.",
 	},
 	lopunnite: {
 		name: "Lopunnite",
@@ -176,10 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Kokovoir-Mega",
 		megaEvolves: "Kokovoir",
 		itemUser: ["Kokovoir"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 657,
 		desc: "If held by a Kokovoir or Goodevoir, this item allows it to Mega Evolve in battle.",
 	},
@@ -383,10 +377,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Duramaw-Mega",
 		megaEvolves: "Duramaw",
 		itemUser: ["Duramaw"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 681,
 		desc: "If held by a Duramaw, this item allows it to Mega Evolve in battle.",
 	},
