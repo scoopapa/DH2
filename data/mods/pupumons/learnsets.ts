@@ -758,7 +758,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},},
 	ultranaut: {learnset: {
 		peekaboo: ["8L1"],
-		autotomize: ["8L1"],
+		lasersword: ["8L1"],
 		sharpscrape: ["8L1"],
 		protect: ["8L1"],
 		ironhead: ["8L1"],
@@ -794,6 +794,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		wideguard: ["8L1"],
 		dazzlinggleam: ["8L1"],
 		safeguard: ["8L1"],
+	},},
+	ultranaut: {learnset: {
+		sacredsword: ["8L1"],
+		autotomize: ["8L1"],
 	},},
 	dragulonimbus: {learnset: {
 		peekaboo: ["8L1"],

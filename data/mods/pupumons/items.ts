@@ -120,7 +120,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1010,
 		gen: 7,
 	},
-	halloweeniumz: {
+	/*halloweeniumz: {
 		name: "Halloweenium Z",
 		desc: "If holder has Peek-a-Boo, can use Z-move.",
 		spritenum: 642,
@@ -129,10 +129,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveFrom: "Peek-a-Boo",
 		num: 1011,
 		gen: 7,
-	},
+	},*/
 	nest: {
 		name: "Nest",
-		desc: If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.
+		desc: "If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.",
+		shortDesc: "+1 Atk, Def, SpDef for Coowoo - grounded.",
 		spritenum: 491,
 		fling: {
 			basePower: 90,
@@ -161,6 +162,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	boazanianmetal:  {
 		name: "Boazanian Metal",
+		shortDesc: "If held by an Ultranaut, changes its forme to V.",
 		spritenum: 699,
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 22) || pokemon.baseSpecies.num === 22) {
@@ -175,6 +177,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	luxurycard: {
 		name: "Luxury Card",
+		shortDesc: "If holder survives a hit, attacker is Taunted (single use).",
 		spritenum: 387,
 		fling: {
 			basePower: 10,
@@ -182,8 +185,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondary(target, source, move) {
 			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
 				if (target.useItem(source)) {
-					if (!pokemon.volatiles['taunt']) {
-						pokemon.addVolatile('taunt');
+					if (!source.volatiles['taunt']) {
+						source.addVolatile('taunt');
 					}
 				}
 			}
@@ -193,6 +196,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	blankcard: {
 		name: "Blank Card",
+		shortDesc: "If holder survives a hit, Hazes (single use).",
 		spritenum: 387,
 		fling: {
 			basePower: 10,
@@ -212,6 +216,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	hardhat: {
 		name: "Hard Hat",
+		shortDesc: "User takes no recoil.",
 		spritenum: 417,
 		fling: {
 			basePower: 60,
@@ -227,10 +232,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	campfire: {
 		name: "Campfire",
+		shortDesc: "Heals 25% HP after using a status move (single use).",
 		spritenum: 307,
-		onSourceTryPrimaryHit(target, source, move) {
-			if (move.type === 'Status' && source.useItem()) {
-				source.heal(pokemon.baseMaxhp / 4);
+		onAnyTryMove(target, source, move, pokemon) {
+			if (move.category === 'Status' && source.useItem()) {
+				this.heal(source.baseMaxhp / 4);
 			}
 		},
 		num: 564,
@@ -238,6 +244,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	tarpack: {
 		name: "Tar Pack",
+		shortDesc: "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",
 		spritenum: 230,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {

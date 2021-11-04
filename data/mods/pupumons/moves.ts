@@ -619,6 +619,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		name: "Laser Sword",
+		shortDesc: "Last Resort but Steel-type.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -727,7 +728,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Heat Stomp",
 		shortDesc: "If a foe is switching out, hits it and burns it.",
 		pp: 20,
@@ -1004,7 +1004,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
             }
 			source.forceSwitch();
 			return;
-		},*/
+		},
 		self: {
 			forceSwitch: true,
 		},
