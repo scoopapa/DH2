@@ -1113,7 +1113,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "earthquake", "rockslide", "swordsdance"],
 		randomBattleLevel: 79,
 	},
-	fetchy: {
+	fetchey: {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["bodyslam", "knockoff", "closecombat", "roost"],
