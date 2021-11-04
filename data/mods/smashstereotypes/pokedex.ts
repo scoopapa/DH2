@@ -320,4 +320,38 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		requiredItem: "Scizorite",
 		battleOnly: "Cofazor",
 	},
+	corsola: {
+		num: 22,
+		name: "Corsola",
+		types: ["Rock", "Fairy"],
+		genderRatio: {M: 0.25, F: 0.75},
+		baseStats: {hp: 75, atk: 85, def: 105, spa: 145, spd: 105, spe: 45},
+		abilities: {0: "Hustle", H: "Immunity"},
+		heightm: 0.6,
+		weightkg: 5,
+		eggGroups: ["Water 1", "Water 3"],
+	},
+	dragalge: {
+		inherit: true,
+		evos: ['Algalisk'],
+	},
+	algalisk: {
+		num: 23,
+		name: "Algalisk",
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 85, atk: 75, def: 110, spa: 97, spd: 103, spe: 69},
+		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
+		weightkg: 130,
+		prevo: "Dragalge",
+	},
+	ringoando: {
+		num: 24,
+		name: "Ringo Ando", /* Puyo Puyo */
+		types: ["Electric", "Water"],
+		gender: "F",
+		baseStats: {hp: 80, atk: 100, def: 80, spa: 100, spd: 120, spe: 60},
+		abilities: {0: "Analytic", 1: "Rattled", H: "Harvest"},
+		heightm: 1.5,
+		weightkg: 48,
+	},
 };

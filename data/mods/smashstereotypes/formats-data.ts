@@ -85,4 +85,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cofazormega: {
 		tier: "SSS",
 	},
+	corsola: {
+		tier: "SSS",
+	},
+	algalisk: {
+		tier: "SSS",
+	},
+	ringoando: {
+		tier: "SSS",
+	},
 };
