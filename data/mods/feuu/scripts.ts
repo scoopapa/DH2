@@ -121,6 +121,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Goodevoir-Mega"; 
 		}
 		
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
+			return "Audiyem-Mega"; 
+		}
+		
 		return item.megaStone;
 	},
 	
