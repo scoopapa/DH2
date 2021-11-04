@@ -1,6 +1,6 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	grizzeal: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		uturn: ["8L1"],
 		wish: ["8L1"],
 		protect: ["8L1"],
@@ -36,7 +36,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		snarl: ["8L1"],
 	},},
 	stampyro: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		heatstomp: ["8L1"],
 		ironhead: ["8L1"],
 		flamecharge: ["8L1"],
@@ -70,7 +70,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		nobleroar: ["8L1"],
 	},},
 	hippothagoras: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		liquidation: ["8L1"],
 		aquajet: ["8L1"],
@@ -110,7 +110,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		allyswitch: ["8L1"],
 	},},
 	moleder: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		quickstep: ["8L1"],
 		earthquake: ["8L1"],
 		stoneedge: ["8L1"],
@@ -144,7 +144,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		charm: ["8L1"],
 	},},
 	bombatross: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		slipstream: ["8L1"],
 		hurricane: ["8L1"],
@@ -178,7 +178,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		healingpulse: ["8L1"],
 	},},
 	galvia: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		wish: ["8L1"],
 		toxic: ["8L1"],
 		protect: ["8L1"],
@@ -212,7 +212,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		eerieimpulse: ["8L1"],
 	},},
 	calistaiji: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		focusblast: ["8L1"],
 		calmmind: ["8L1"],
 		irondefense: ["8L1"],
@@ -252,7 +252,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		detect: ["8L1"],
 	},},
 	setstorm: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		cocoonfeeding: ["8L1"],
 		planetarycrash: ["8L1"],
 		stealthrock: ["8L1"],
@@ -286,7 +286,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		strugglebug: ["8L1"],
 	},},
 	kheprise: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		cocoonfeeding: ["8L1"],
 		stealthrock: ["8L1"],
 		flareblitz: ["8L1"],
@@ -321,7 +321,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		quickguard: ["8L1"],
 	},},
 	weeplim: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		quickstep: ["8L1"],
 		enroot: ["8L1"],
 		gigadrain: ["8L1"],
@@ -361,7 +361,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		wideguard: ["8L1"],
 	},},
 	puddogre: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sacrifice: ["8L1"],
 		stealthrock: ["8L1"],
 		spikes: ["8L1"],
@@ -398,7 +398,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		counter: ["8L1"],
 	},},
 	doderror: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		slipstream: ["8L1"],
 		wildcharge: ["8L1"],
 		bravebird: ["8L1"],
@@ -433,7 +433,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		featherdance: ["8L1"],
 	},},
 	strignight: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		slipstream: ["8L1"],
 		protect: ["8L1"],
 		synchronoise: ["8L1"],
@@ -469,7 +469,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		imprison: ["8L1"],
 	},},
 	coowoo: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		slipstream: ["8L1"],
 		protect: ["8L1"],
 		swordsdance: ["8L1"],
@@ -502,7 +502,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		helpinghand: ["8L1"],
 	},},
 	spectropa: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		enroot: ["8L1"],
 		protect: ["8L1"],
 		quiverdance: ["8L1"],
@@ -536,7 +536,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		ragepowder: ["8L1"],
 	},},
 	crikeri: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		rapidspin: ["8L1"],
 		cocoonfeeding: ["8L1"],
@@ -574,7 +574,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		helpinghand: ["8L1"],
 	},},
 	boxetta: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		protect: ["8L1"],
 		liquidation: ["8L1"],
 		closecombat: ["8L1"],
@@ -607,7 +607,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		detect: ["8L1"],
 	},},
 	kingphan: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		bellow: ["8L1"],
 		protect: ["8L1"],
 		earthquake: ["8L1"],
@@ -641,7 +641,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		bulldoze: ["8L1"],
 	},},
 	skuntomic: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		tetrodotoxin: ["8L1"],
 		protect: ["8L1"],
@@ -679,7 +679,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		purify: ["8L1"],
 	},},
 	croantagion: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		tetrodotoxin: ["8L1"],
 		heatstomp: ["8L1"],
 		protect: ["8L1"],
@@ -718,7 +718,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		drainpunch: ["8L1"],
 	},},
 	gaggular: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		shadowmirror: ["8L1"],
 		risingvoltage: ["8L1"],
 		protect: ["8L1"],
@@ -758,7 +758,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		faketears: ["8L1"],
 	},},
 	ultranaut: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		lasersword: ["8L1"],
 		sharpscrape: ["8L1"],
 		protect: ["8L1"],
@@ -801,7 +801,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		autotomize: ["8L1"],
 	},},
 	dragulonimbus: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		prehistoricfrenzy: ["8L1"],
 		protect: ["8L1"],
 		thunderbolt: ["8L1"],
@@ -835,7 +835,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		thunderwave: ["8L1"],
 	},},
 	dragulare: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		heatstomp: ["8L1"],
 		prehistoricfrenzy: ["8L1"],
 		protect: ["8L1"],
@@ -868,7 +868,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		stoneedge: ["8L1"],
 	},},
 	dragulanche: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		prehistoricfrenzy: ["8L1"],
 		protect: ["8L1"],
 		calmmind: ["8L1"],
@@ -901,7 +901,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		frostbreath: ["8L1"],
 	},},
 	scrittle: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		explosion: ["8L1"],
 		agility: ["8L1"],
 		hypnosis: ["8L1"],
@@ -928,7 +928,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		encore: ["8L1"],
 	},},
 	corruptrain: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sharpscrape: ["8L1"],
 		protect: ["8L1"],
 		toxicspikes: ["8L1"],
@@ -963,7 +963,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		steelroller: ["8L1"],
 	},},
 	pasdovo: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		slipstream: ["8L1"],
 		protect: ["8L1"],
 		iceshard: ["8L1"],
@@ -996,7 +996,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		acrobatics: ["8L1"],
 	},},
 	glasiosaur: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		protect: ["8L1"],
 		hydropump: ["8L1"],
@@ -1029,7 +1029,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		icywind: ["8L1"],
 	},},
 	bellophus: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		earthpower: ["8L1"],
 		calmmind: ["8L1"],
 		meteorbeam: ["8L1"],
@@ -1063,7 +1063,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		floralhealing: ["8L1"],
 	},},
 	velocust: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		prehistoricfrenzy: ["8L1"],
 		protect: ["8L1"],
 		stoneedge: ["8L1"],
@@ -1098,7 +1098,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		feint: ["8L1"],
 	},},
 	kuwengu: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		shadowmirror: ["8L1"],
 		protect: ["8L1"],
 		darkpulse: ["8L1"],
@@ -1133,7 +1133,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		followme: ["8L1"],
 	},},
 	putango: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		quickstep: ["8L1"],
 		protect: ["8L1"],
 		bodyslam: ["8L1"],
@@ -1167,7 +1167,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		detect: ["8L1"],
 	},},
 	rishelios: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		enroot: ["8L1"],
 		protect: ["8L1"],
 		swordsdance: ["8L1"],
@@ -1198,7 +1198,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		growth: ["8L1"],
 	},},
 	odonaga: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		cocoonfeeding: ["8L1"],
 		protect: ["8L1"],
 		feudalharpoon: ["8L1"],
@@ -1237,7 +1237,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		lunge: ["8L1"],
 	},},
 	solrock: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sluaghkiss: ["8L1"],
 		terraforming: ["8L1"],
 		protect: ["8L1"],
@@ -1281,7 +1281,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		safeguard: ["8L1"],
 	},},
 	lunatone: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		terraforming: ["8L1"],
 		protect: ["8L1"],
 		meteorbeam: ["8L1"],
@@ -1454,7 +1454,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		bulldoze: ["8L1"],
 	},},
 	ooreina: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sluaghkiss: ["8L1"],
 		heatstomp: ["8L1"],
 		quickstep: ["8L1"],
@@ -1660,7 +1660,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		feint: ["8L1"],
 	},},
 	amphikits: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		changingtides: ["8L1"],
 		protect: ["8L1"],
 		substitute: ["8L1"],
@@ -1700,7 +1700,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		followme: ["8L1"],
 	},},
 	detectrice: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		glare: ["8L1"],
 		roost: ["8L1"],
 		substitute: ["8L1"],
@@ -1733,7 +1733,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		tailwind: ["8L1"],
 	},},
 	nosferoyle: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sacrifice: ["8L1"],
 		substitute: ["8L1"],
 		protect: ["8L1"],
@@ -1782,7 +1782,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		earthpower: ["8L1"],
 	},},
 	amplifire: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sharpscrape: ["8L1"],
 		substitute: ["8L1"],
 		protect: ["8L1"],
@@ -1820,7 +1820,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		metalsound: ["8L1"],
 	},},
 	lumberax: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		bulletpunch: ["8L1"],
 		sharpscrape: ["8L1"],
 		enroot: ["8L1"],
@@ -1952,7 +1952,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		imprison: ["8L1"],
 	},},
 	anjamanis: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		terraforming: ["8L1"],
 		earthquake: ["8L1"],
 		uturn: ["8L1"],
@@ -1989,7 +1989,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		afteryou: ["8L1"],
 	},},
 	bonfiper: {learnset: {
-		peekaboo: ["8L1"],
+		//peekaboo: ["8L1"],
 		sacrifice: ["8L1"],
 		shadowball: ["8L1"],
 		shadowclaw: ["8L1"],
