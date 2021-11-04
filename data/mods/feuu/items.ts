@@ -381,4 +381,64 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 681,
 		desc: "If held by a Duramaw, this item allows it to Mega Evolve in battle.",
 	},
+	burndrive: {
+		name: "Burn Drive",
+		spritenum: 54,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Fire',
+		forcedForme: "Litleesect-Burn",
+		itemUser: ["Litleesect-Burn"],
+		num: 118,
+		gen: 5,
+	},
+	chilldrive: {
+		name: "Chill Drive",
+		spritenum: 67,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Ice',
+		forcedForme: "Litleesect-Chill",
+		itemUser: ["Litleesect-Chill"],
+		num: 119,
+		gen: 5,
+	},
+	dousedrive: {
+		name: "Douse Drive",
+		spritenum: 103,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Water',
+		forcedForme: "Litleesect-Douse",
+		itemUser: ["Litleesect-Douse"],
+		num: 116,
+		gen: 5,
+	},
+	shockdrive: {
+		name: "Shock Drive",
+		spritenum: 442,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Electric',
+		forcedForme: "Litleesect-Shock",
+		itemUser: ["Litleesect-Shock"],
+		num: 117,
+		gen: 5,
+	},
 };
