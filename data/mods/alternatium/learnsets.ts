@@ -10609,8 +10609,14 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["7M"],
 		},
 	},
-	lycanroc: {
+	lycanday: {
 		learnset: {
+			flareblitz: ["8L1"],
+			headsmash: ["8L1"],
+			ember: ["8L1"],
+			fireblast: ["8L1"],
+			flamethrower: ["8L1"],
+			flamecharge: ["8L1"],
 			accelerock: ["8L1", "7L1"],
 			agility: ["8M"],
 			assurance: ["8M"],

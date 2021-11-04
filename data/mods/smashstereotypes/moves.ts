@@ -360,4 +360,77 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Cute",
 	},
+	coralcrash: {
+		num: 1006,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
+		name: "Coral Crash",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 4],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+	},
+	puyopop: {
+		num: 40046,
+		accuracy: 90,
+		basePower: 10,
+		basePowerCallback(pokemon, target, move) {
+			return 10 * move.hit;
+		},
+		category: "Special",
+		shortDesc: "Hits 4 times. Each hit can miss, but power rises. Fourth hit clears user side's hazards.",
+		id: "puyopop",
+		name: "Puyo Pop",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source, move) {
+		if (move.hit !== 4) return;
+			let removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.getEffect(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
+				}
+			}
+		},
+		multihit: 4,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMovePower: 180,
+		contestType: "Cute",
+	},
+	permutation: {
+		num: 40053,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		shortDesc: "No additional effect.",
+		id: "permutation",
+		name: "Permutation",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "puyoniumz",
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
 };

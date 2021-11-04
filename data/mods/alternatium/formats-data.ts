@@ -490,11 +490,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	oricoriosensu: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
-	lycanroc: {
+	},*/
+	lycanday: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	lycanrocspectre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

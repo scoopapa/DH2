@@ -137,4 +137,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		shortDesc: "If holder's species can evolve, its Attack and Sp. Atk are 1.5x.",
 	},
+	puyoniumz: {
+        id: "puyoniumz",
+        name: "Puyonium Z",
+        onTakeItem: false,
+        zMove: "Permutation",
+        zMoveFrom: "Thunderbolt",
+        zMoveUser: ["Ringo Ando"],
+		num: -100,
+		gen: 8,
+        shortDesc: "If held by Ringo Ando with Thunderbolt, she can use Permutation.",
+    },
 };

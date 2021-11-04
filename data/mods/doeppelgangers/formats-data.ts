@@ -126,7 +126,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	anticlefable: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	vulpix: {
@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antininetalesalola: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	igglybuff: {
@@ -287,7 +287,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	antislowking: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	slowkinggalar: {
@@ -408,7 +408,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antiblissey: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	tangela: {
@@ -595,7 +595,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antidragonite: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	mewtwo: {
@@ -767,7 +767,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	antiswampert: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	zigzagoon: {
@@ -1082,7 +1082,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antigarchomp: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	riolu: {
@@ -1418,7 +1418,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antiferrothorn: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	klink: {
@@ -1566,14 +1566,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antilandorustherian: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	kyurem: {
 		tier: "OU",
 	},
 	antikyurem: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	kyuremblack: {
@@ -1854,7 +1854,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antitoxapex: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	mudbray: {
@@ -2011,7 +2011,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antitapukoko: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	tapulele: {
@@ -2054,7 +2054,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	antikartana: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	guzzlord: {
@@ -2358,7 +2358,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	antiarctozolt: {
-		tier: "AU",
+		tier: "OU",
 		isModded: true,
 	},
 	dracovish: {

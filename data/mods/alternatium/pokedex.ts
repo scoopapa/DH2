@@ -1357,12 +1357,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 3.4,
 		eggGroups: ["Flying"],
 	},
-	lycanroc: {
+	lycanday: {
 		num: 745,
-		name: "Lycanroc",
-		types: ["Rock"],
-		baseStats: {hp: 75, atk: 115, def: 65, spa: 55, spd: 65, spe: 112},
-		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Steadfast"},
+		name: "Lycanday",
+		types: ["Rock", "Fire"],
+		baseStats: {hp: 75, atk: 105, def: 70, spa: 55, spd: 70, spe: 85},
+		abilities: {0: "Rock Head", H: "Tough Claws"},
 		heightm: 0.8,
 		weightkg: 25,
 		eggGroups: ["Field"],
