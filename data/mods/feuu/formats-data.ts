@@ -1070,10 +1070,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	goodevoirmega: {
-		tier: "FEUUber",
-		doublesTier: "DUUber",
+		tier: "FEUU",
+		doublesTier: "DUU",
 		randomBattleMoves: ["moonblast", "sludgewave", "calmmind", "mysticalfire"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 77,
 		requiredItem: "Gardevoirite",
 	},
 	duramaw: {
@@ -1088,6 +1088,49 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["ironhead", "playrough", "suckerpunch", "swordsdance"],
 		randomBattleLevel: 75,
 		requiredItem: "Mawilite",
+	},
+	grapplor: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["drainpunch", "octolock", "roost", "aerialace"],
+		randomBattleLevel: 79,
+	},
+	masquerajah: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["heavyslam", "stealthrock", "roost", "uturn"],
+		randomBattleLevel: 79,
+	},
+	litleesect: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["fireblast", "thunderbolt", "psychic", "uturn"],
+		randomBattleLevel: 79,
+	},
+	bearyx: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["closecombat", "earthquake", "rockslide", "swordsdance"],
+		randomBattleLevel: 79,
+	},
+	fetchy: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["bodyslam", "knockoff", "closecombat", "roost"],
+		randomBattleLevel: 79,
+	},
+	audiyem: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["futuresight", "flamethrower", "recover", "teleport"],
+		randomBattleLevel: 79,
+	},
+	audiyemmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["dazzlinggleam", "knockoff", "recover", "teleport"],
+		randomBattleLevel: 79,
+		requiredItem: "Audinite",
 	},
 	
 	//Silvino Nightmare Hours
