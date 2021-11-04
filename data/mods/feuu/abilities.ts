@@ -3941,6 +3941,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Plain Cool",
 		shortDesc: "This Pokemon's stat changes are doubled. Heals 1/16 of its HP when a stat is changed.",
+	},
+	cursedduck: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isFutureMove) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Cursed Duck');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Cursed Duck');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Cursed Duck');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Cursed Duck');
+			}
+		},
+		name: "Cursed Duck",
+		shortDesc: "Scrappy + Cursed Body.",
 	},	
 };
  
