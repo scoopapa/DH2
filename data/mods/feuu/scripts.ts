@@ -41,7 +41,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERU', 'Uncoded', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Uncoded', 'FENFE', 'FELC', 'Silvino', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -119,6 +119,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 		if (item.name === "Gardevoirite" && pokemon.baseSpecies.name === "Goodevoir") {
 			return "Goodevoir-Mega"; 
+		}
+		
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
+			return "Audiyem-Mega"; 
 		}
 		
 		return item.megaStone;
@@ -461,7 +465,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -635,7 +639,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
@@ -650,7 +654,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
@@ -847,5 +851,53 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 		return hitResults;
+	},
+	hitStepStealBoosts(targets, pokemon, move) {
+		const target = targets[0]; // hardcoded
+		if (move.stealsBoosts) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostName;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
+
+				let statName2: BoostName;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.addMove('-anim', pokemon, "Spectral Thief", target);
+			}
+		}
+		// this DEFINITELY should fucking not have worked first try. I am so mad. 
+		if (pokemon.ability === 'faustianpact' && move.flags['contact']) {
+			let swapped = false; 
+			const targetAbility = target.getAbility();
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (!targetAbility.isPermanent || !additionalBannedAbilities.includes(targetAbility) || !pokemon.volatiles['dynamax']) {
+				swapped = true; 
+			} 
+			if (swapped) {
+				this.attrLastMove('[still]'); //Will it work without this line...?
+				target.setAbility('faustianpact', pokemon);
+				pokemon.setAbility(targetAbility);
+				this.add('-activate', pokemon, 'ability: Faustian Pact');
+				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
+				this.add('-activate', pokemon, 'ability: ' + targetAbility.name);
+				this.add('-activate', target, 'ability: Faustian Pact');
+				this.addMove('-anim', pokemon, move.name, target);
+			}
+			
+		}
+		return undefined;
 	},
 }; 
