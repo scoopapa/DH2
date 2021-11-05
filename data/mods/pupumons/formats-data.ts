@@ -87,6 +87,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "PupuVGC",
 	},
+	ultranautv: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
 	dragulonimbus: {
 		tier: "Pupumons",
 		doublesTier: "PupuVGC",
