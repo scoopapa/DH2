@@ -35,6 +35,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'pitchasaur').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'pitchasaur').learnset.hydropump = ['8L1'];
 		this.modData('Learnsets', 'pitchasaur').learnset.waterpulse = ['8L1'];
+		this.modData('Learnsets', 'pitchasaur').learnset.icebeam = ['8L1'];
 		delete this.modData('Learnsets', 'pitchasaur').learnset.sludge;
 		delete this.modData('Learnsets', 'pitchasaur').learnset.sludgebomb;
 		delete this.modData('Learnsets', 'pitchasaur').learnset.venoshock;
@@ -210,6 +211,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "soroboruo").learnset.surf = ["8L1"];
 		
 		this.modData("Learnsets", "mountoswine").learnset.auroraveil = ["8L1"];
+		this.modData("Learnsets", "mountoswine").learnset.milkdrink = ["8L1"];
 		delete this.modData('Learnsets', 'mountoswine').learnset.ancientpower;
 		delete this.modData('Learnsets', 'mountoswine').learnset.superpower;
 		
