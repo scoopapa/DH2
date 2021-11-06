@@ -1003,4 +1003,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	feast: {
+		num: 1010,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Boost Atk. and Sp. Atk. depending on Stockpile.",
+		name: "Feast",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(pokemon) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 };
