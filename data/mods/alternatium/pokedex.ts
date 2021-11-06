@@ -1252,7 +1252,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 711,
 		name: "Supergeist",
 		types: ["Ghost", "Grass"],
-		baseStats: {hp: 6ß, atk: 104, def: 117, spa: 104, spd: 117, spe: 98},
+		baseStats: {hp: 60, atk: 104, def: 117, spa: 104, spd: 117, spe: 98},
 		abilities: {0: "Pressure", 1: "Frisk", H: "Perish Body"},
 		heightm: 1.7,
 		weightkg: 39,
