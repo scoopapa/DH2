@@ -4055,5 +4055,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Cursed Duck",
 		shortDesc: "Scrappy + Cursed Body.",
 	},	
+	swiftmetal: {
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+		name: "Swift Metal",
+		shortDesc: "Swift Swim + Heavy Metal",
+	},
+	poisoncontrol: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Poison Control boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-activate', pokemon, 'ability: Poison Control');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Poison Control');
+			}
+			return false;
+		},
+		name: "Poison Control",
+		shortDesc: "Technician + Immunity",
+	},
 };
  
