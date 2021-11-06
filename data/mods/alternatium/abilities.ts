@@ -517,13 +517,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	pulpup: {
 		onStart(pokemon) {
-			if (pokemon.hp >= pokemon.hp - pokemon.maxhp / 3) {
-				this.useMove('lockon', pokemon);
+			if (pokemon.hp >= pokemon.maxhp - pokemon.maxhp / 3) {
+				this.useMove('stockpile');
 			}
 			else if (pokemon.hp <= pokemon.maxhp / 3) {
-				this.useMove('lockon', pokemon) * 3;
+				this.useMove('stockpile') * 3;
 			}
-			this.useMove('lockon', pokemon) * 2;
+			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
+				this.useMove('stockpile') * 2;
+			}
 		},
 		name: "Pulp Up",
 		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
