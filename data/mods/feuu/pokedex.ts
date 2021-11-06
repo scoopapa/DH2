@@ -2940,6 +2940,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 4.7,
 		evos: ["Goodevoir"],
 	},
+	sursfant: {
+		fusion: ['Surskit', 'Cufant'],
+		num: 1071,
+		name: "Sursfant",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 56, atk: 55, def: 50, spa: 50, spd: 50, spe: 52},
+		abilities: {0: "Swift Metal"},
+		weightkg: 50.1,
+		evos: ["Masquerajah"],
+	},
+	clobbgar: {
+		fusion: ['Clobbopus', 'Gligar'],
+		num: 1072,
+		name: "Clobbgar",
+		types: ["Fighting", "Flying"],
+		baseStats: {hp: 60, atk: 75, def: 85, spa: 45, spd: 60, spe: 70},
+		abilities: {0: "Poison Control"},
+		weightkg: 34.4,
+		evos: ["Grapplor"],
+	},
 	
 // NFE
 	corveotto: {
