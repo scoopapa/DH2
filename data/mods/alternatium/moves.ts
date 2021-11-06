@@ -1013,7 +1013,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		onHit(pokemon) {
+		onHit(pokemon, atk, spa) {
 			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
 			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
 		},
