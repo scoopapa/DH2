@@ -1721,6 +1721,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	sursfant: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	clobbgar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
