@@ -1013,14 +1013,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		onHit(pokemon, atk, spa) {
+		/*onHit(pokemon, atk, spa) {
 			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
 			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stockpile", target);
-		},
+		},*/
 		secondary: null,
 		target: "self",
 		type: "Normal",
