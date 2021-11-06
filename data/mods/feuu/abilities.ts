@@ -3183,25 +3183,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Prankster + Levitate",
 	},	
 	tigerpit: {
-		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
-			if ((pokemon.isGrounded()) || !pokemon.hasAbility('Feel No Pain') || !pokemon.hasAbility('Magnetic Waves') || !pokemon.hasAbility('Sticky Float') || !pokemon.hasAbility('Etativel') || !pokemon.hasAbility('Lighthearted') || !pokemon.hasAbility('Leviflame') || !!pokemon.hasAbility('Levitability')) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
-			if (pokemon.isGrounded(!pokemon.knownType) || !pokemon.hasAbility('Feel No Pain') || !pokemon.hasAbility('Magnetic Waves') || !pokemon.hasAbility('Sticky Float') || !pokemon.hasAbility('Etativel') || !pokemon.hasAbility('Lighthearted') || !pokemon.hasAbility('Leviflame') || !!pokemon.hasAbility('Levitability')) { // Negate immunity if the type is unknown
-				pokemon.maybeTrapped = true;
-			}
-		},
-		onSourceModifyAccuracyPriority: 7,
-		onSourceModifyAccuracy(accuracy, target, source, move) {
-			if ((!target.isGrounded()) || !target.hasAbility('Feel No Pain') || !target.hasAbility('Magnetic Waves') || !target.hasAbility('Sticky Float') || !target.hasAbility('Etativel') || !target.hasAbility('Lighthearted') || !target.hasAbility('Leviflame') || !!target.hasAbility('Levitability')) {
-				return accuracy * 0.8;
-			}
-		},
+        onFoeTrapPokemon(pokemon) {
+            if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+            if (pokemon.isGrounded() || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
+            !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain')) {
+                pokemon.tryTrap(true);
+            }
+        },
+        onFoeMaybeTrapPokemon(pokemon, source) {
+            if (!source) source = this.effectData.target;
+            if (!source || !this.isAdjacent(pokemon, source)) return;
+            if (pokemon.isGrounded(!pokemon.knownType) || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
+            !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain')) { // Negate immunity if the type is unknown
+                pokemon.maybeTrapped = true;
+            }
+        },
+        onSourceModifyAccuracyPriority: 7,
+        onSourceModifyAccuracy(accuracy, target, source, move) {
+            if (!target.isGrounded() || target.hasAbility('feelnopain') || target.hasAbility('magneticwaves') || 
+            target.hasAbility('stickyfloat') || target.hasAbility('etativel') || target.hasAbility('lighthearted') || 
+            target.hasAbility('leviflame') || target.hasAbility('levitability') || target.hasAbility('feelsomepain')) {
+                return accuracy * 0.8;
+            }
+        },
 		name: "Tiger Pit",
 		shortDesc: "Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
 	},	
@@ -3547,6 +3553,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (source.hasType(move.type)) {
 				this.debug('Unusual weaken');
 				return this.chainModify(0.67);
+			}
+			if (source.hasType(move.type) && (source.hasAbility('versatility') || source.hasAbility('levitability') || source.hasAbility('workability'))) {
+				this.debug('Unusual weaken');
+				return this.chainModify(0.5);
+			}
+			if (move.type === 'Steel' && source.hasAbility('workability')) {
+				this.debug('Unusual weaken');
+				return this.chainModify(0.5);
 			}
 		},
 		name: "Unusual",
