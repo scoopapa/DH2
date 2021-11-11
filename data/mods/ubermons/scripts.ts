@@ -81,6 +81,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magearna').learnset.aurasphere;
 		delete this.modData('Learnsets', 'magearna').learnset.icebeam;
 		delete this.modData('Learnsets', 'magearna').learnset.aurorabeam;
+		
+		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
+		
+		this.modData('Learnsets', 'zekrom').learnset.knockoff = ['8L1'];
 	},
 	
 	pokemon: {

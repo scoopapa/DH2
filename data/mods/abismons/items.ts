@@ -27,50 +27,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	machite: {
-		name: "Machite",
-		megaStone: "Machamp-Mega",
-		megaEvolves: "Machamp",
-		itemUser: ["Machamp"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,
-	},
-	swalotite: {
-		name: "Swalotite",
-		megaStone: "Swalot-Mega",
-		megaEvolves: "Swalot",
-		itemUser: ["Swalot"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,	
-	},
-	serperiorite: {
-		name: "Serperiorite",
-		megaStone: "Serperior-Mega",
-		megaEvolves: "Serperior",
-		itemUser: ["Serperior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,	
-	},
-	meganiumite: {
-		name: "Meganiumite",
-		megaStone: "Meganium-Mega",
-		megaEvolves: "Meganium",
-		itemUser: ["Meganium"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,	
-	},
 	exploudite: {
 		name: "Exploudite",
 		megaStone: "Exploud-Mega",
@@ -80,41 +36,19 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -690,		
+		num: -690,			
 	},
-	garbodite: {
-		name: "Garbodite",
-		megaStone: "Garbodor-Mega",
-		megaEvolves: "Garbodor",
-		itemUser: ["Garbodor"],
+	hoopanite: {
+		name: "Hoopanite",
+		megaStone: "Hoopa-Mega",
+		megaEvolves: "Hoopa",
+		itemUser: ["Hoopa"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === 'Hoopa') return false;
+			if (source.baseSpecies.baseSpecies === 'Hoopa-Unbound') return false;
 			return true;
 		},
-		num: -694,	
-	},
-	whimsicottite: {
-		name: "Whimsicottite",
-		megaStone: "Whimsicott-Mega",
-		megaEvolves: "Whimsicott",
-		itemUser: ["Whimsicott"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -695,	
-	},
-	dough: {
-		name: "Dough",
-		shortdesc: "Hand over dah money.",
-		megaStone: "Honchkrow-Mega",
-		megaEvolves: "Honchkrow",
-		itemUser: ["Honchkrow"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -695,		
+		num: -697,			
 	},
 	lurantisite: {
 		name: "Lurantisite",
@@ -138,28 +72,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -692,	
 	},
-	sandslashite: {
-		name: "Sandslashite",
-		megaStone: "Sandslash-Mega",
-		megaEvolves: "Sandslash",
-		itemUser: ["Sandslash"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -691,	
-	},
-	leavannite: {
-		name: "Leavannite",
-		megaStone: "Leavanny-Mega",
-		megaEvolves: "Leavanny",
-		itemUser: ["Leavanny"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -689,	
-	},
 	emboarite: {
 		name: "Emboarite",
 		megaStone: "Emboar-Mega",
@@ -181,17 +93,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		num: -687,	
-	},
-	rhyperite: {
-		name: "Rhyperite",
-		megaStone: "Rhyperior-Mega",
-		megaEvolves: "Rhyperior",
-		itemUser: ["Rhyperior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -686,		
 	},
 	wailordite: {
 		name: "Wailordite",
@@ -226,28 +127,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -683,			
 	},
-	tyrantrumite: {
-		name: "Tyrantrumite",
-		megaStone: "Tyrantrum-Mega",
-		megaEvolves: "Tyrantrum",
-		itemUser: ["Tyrantrum"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -682,	
-	},
-	aurorite: {
-		name: "Aurorite",
-		megaStone: "Aurorus-Mega",
-		megaEvolves: "Aurorus",
-		itemUser: ["Aurorus"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -681,	
-	},
 	dewgongite: {
 		name: "Dewgongite",
 		megaStone: "Dewgong-Mega",
@@ -259,17 +138,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -681,	
 	},
-	luminite: {
-		name: "Luminite",
-		megaStone: "Lumineon-Mega",
-		megaEvolves: "Lumineon",
-		itemUser: ["Lumineon"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -680,	
-	},
 	claydolite: {
 		name: "Claydolite",
 		megaStone: "Claydol-Mega",
@@ -280,17 +148,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		num: -679,	
-	},
-	furrite: {
-		name: "Furrite",
-		megaStone: "Furret-Mega",
-		megaEvolves: "Furret",
-		itemUser: ["Furret"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -677,	
 	},
 	absorbbulb: {
 		name: "Absorb Bulb",
@@ -3664,11 +3521,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 287,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Ditto' || 'Animon' && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Ditto"],
+		itemUser: ["Ditto", 'Animon'],
 		num: 257,
 		gen: 2,
 	},
@@ -4636,11 +4493,11 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 10,
 		},
 		onModifySpe(spe, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Ditto' || 'Animon' && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Ditto"],
+		itemUser: ["Ditto", 'Animon'],
 		num: 274,
 		gen: 4,
 	},

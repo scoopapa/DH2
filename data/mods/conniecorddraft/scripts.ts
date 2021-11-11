@@ -4,6 +4,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'vaporeon').learnset.dragontail = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.outrage = ['8M'];
 		this.modData('Learnsets', 'vaporeon').learnset.twister = ['8M'];
+		this.modData('Learnsets', 'incineroar').learnset.courtchange = ['8M'];
+		this.modData('Learnsets', 'incineroar').learnset.rapidspin = ['8M'];
 	},
 	
 	teambuilderConfig: {
@@ -37,6 +39,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.clearVolatile(false);
 				if (!pokemon.headless) {
 					pokemon.fainted = true;
+				} else {
+					pokemon.faintQueued = null;
 				}
 				pokemon.illusion = null;
 				pokemon.isActive = false;
@@ -103,6 +107,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					pokemon.status = 'fnt' as ID;
 					pokemon.switchFlag = true;
 				} else if (pokemon.headless) {
+					pokemon.status = '';
 					pokemon.switchFlag = true;
 				}
 			}

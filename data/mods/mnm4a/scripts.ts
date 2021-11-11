@@ -1,11 +1,11 @@
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'm4av6',
+	// inherit: 'm4av6',
 	init() {
 		for (const i in this.data.Items) {
 			if (!this.data.Items[i].megaStone) continue;
 			this.modData('Items', i).onTakeItem = false;
 			const id = this.toID(this.data.Items[i].megaStone);
-			this.modData('FormatsData', id).isNonstandard = null;
+			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
 	},
 	canMegaEvo(pokemon) {

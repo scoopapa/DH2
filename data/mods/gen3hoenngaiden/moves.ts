@@ -1106,7 +1106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1120,7 +1120,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackbug: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1134,7 +1134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackdark: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1148,7 +1148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackdragon: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1162,7 +1162,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackelectric: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1176,7 +1176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackfighting: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1190,7 +1190,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackfire: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1204,7 +1204,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackflying: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1218,7 +1218,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackghost: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1232,7 +1232,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackgrass: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1246,7 +1246,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackground: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1260,7 +1260,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackice: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1274,7 +1274,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackpoison: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1288,7 +1288,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackpsychic: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1302,7 +1302,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackrock: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1316,7 +1316,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattacksteel: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1330,7 +1330,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	multiattackwater: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "This move's type depends on the user's held Memory.",
 		shortDesc: "Type varies based on the held Memory.",
@@ -1552,5 +1552,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Tough",
+	},
+	spiritbreak: {
+		num: 789,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Spirit Break",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
 	},
 };

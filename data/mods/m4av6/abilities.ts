@@ -10,7 +10,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Gravitas",
 		rating: 4,
-		num: -1001,
+		num: -1,
 	},
 	ignite: {
 		desc: "This Pokémon's Normal-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
@@ -31,7 +31,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Ignite",
 		rating: 4,
-		num: -1002,
+		num: -2,
 	},
 	downtoearth: {
 		shortDesc: "While this Pokémon is active, the effects of terrains are disabled.",
@@ -142,7 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Down-to-Earth",
 		rating: 2,
-		num: -1003,
+		num: -3,
 	},
 	grasspelt: {
 		shortDesc: "If Grassy Terrain is active, this Pokémon's Defense is multiplied by 1.5.",
@@ -260,14 +260,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Grassy Terrain begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.clearTerrain();
-			this.field.setTerrain('grassyterrain');
-		},
-		onAnyTerrainStart(target, source, terrain) {
-			if (!source.hasAbility('arenarock')) {
-				this.field.setTerrain('grassyterrain', this.effectData.target);
+			if (this.field.setTerrain('grassyterrain')) {
+				this.add('-message', `${source.name} covered the arena with unrelenting plant growth!`);
+				this.hint("Arena Rock doesn't wear off until the user leaves the field!");
+				this.field.terrainData.duration = 0;
+			} else if (this.field.isTerrain('grassyterrain') && this.field.terrainData.duration !== 0) {
+				this.add('-ability', source, 'Arena Rock');
+				this.add('-message', `${source.name} covered the arena with unrelenting plant growth!`);
+				this.hint("Arena Rock doesn't wear off until the user leaves the field!");
+				this.field.terrainData.source = source;
+				this.field.terrainData.duration = 0;
 			}
 		},
+		onAnyTerrainStart(target, source, terrain) {
+			if (terrain.id !== 'grassyterrain') {
+				this.field.clearTerrain();
+				this.field.setTerrain('grassyterrain');
+			}
+		},
+/*
+		onAnySetTerrain(target, source, terrain) {
+			if (source.hasAbility('arenarock') && terrain.id === 'grassyterrain') return;
+			return false;
+		},
+*/
 		onEnd(pokemon) {
 			if (this.field.terrainData.source !== pokemon || !this.field.isTerrain('grassyterrain')) return;
 			for (const target of this.getAllActive()) {
@@ -281,20 +297,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Arena Rock",
 		rating: 4.5,
-		num: -1004,
+		num: -4,
 	},
 	sharpstriker: {
-		desc: "This Pokémon's ballistic moves have their power multiplied by 1.5. Ballistic moves include Bullet Seed, Octazooka, Barrage, Rock Wrecker, Zap Cannon, Acid Spray, Aura Sphere, Focus Blast, and all moves with Ball or Bomb in their name.",
-		shortDesc: "This Pokémon's ballistic moves have 1.5x power.",
+		desc: "This Pokémon's ballistic moves have their power multiplied by 1.2. Ballistic moves include Bullet Seed, Octazooka, Barrage, Rock Wrecker, Zap Cannon, Acid Spray, Aura Sphere, Focus Blast, and all moves with Ball or Bomb in their name.",
+		shortDesc: "This Pokémon's ballistic moves have 1.2x power.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bullet']) {
-				return this.chainModify(1.5);
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Sharp Striker",
 		rating: 3,
-		num: -1005,
+		num: -5,
 	},
 	coldsweat: {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
@@ -338,28 +354,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Cold Sweat",
 		rating: 4,
-		num: -1006,
+		num: -6,
 	},
 	trashcompactor: {
 		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it clears the hazard and Stockpiles 1.",
 		shortDesc: "Hazard immunity. Clears hazards, Stockpiles 1 if switched in on them.",
-		onAfterMega(pokemon) {
+		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition) && !this.field.getPseudoWeather('stickyresidues')) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Trash Compactor');
+						pokemon.addVolatile('stockpile');
 						activated = true;
-						this.useMove('stockpile', pokemon);
 					}
 					pokemon.side.removeSideCondition(sideCondition);
 					this.add('-sideend', pokemon.side, this.dex.getEffect(sideCondition).name, '[from] Ability: Trash Compactor', '[of] ' + pokemon);
 				}
 			}
 		},
+		hazardImmune: true,
 		name: "Trash Compactor",
 		rating: 5,
-		num: -1007,
+		num: -7,
 	},
 	tempestuous: {
 		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
@@ -378,7 +395,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Tempestuous",
 		rating: 3,
-		num: -1008,
+		num: -8,
 	},
 	sootguard: {
 		shortDesc: "This Pokémon receives 3/4 damage from neutrally effective attacks.",
@@ -390,7 +407,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Soot Guard",
 		rating: 3,
-		num: -1009,
+		num: -9,
 	},
 	dustscatter: {
 		shortDesc: "This Pokémon bypasses immunuties to its spore and powder moves.",
@@ -399,19 +416,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Dust Scatter",
 		rating: 2,
-		num: -1010,
+		num: -10,
 	},
 	counterclockwisespiral: {
 		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.removePseudoWeather('trickroom');
-			this.field.addPseudoWeather('trickroom');
+			if (this.field.getPseudoWeather('trickroom')) {
+				this.add('-ability', source, 'Counter-Clockwise Spiral');
+				this.add('-message', `${source.name} twisted the dimensions!`);
+				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.trickroom.source = source;
+				this.field.pseudoWeather.trickroom.duration = 0;
+			} else {
+				this.add('-ability', source, 'Counter-Clockwise Spiral');
+				this.field.addPseudoWeather('trickroom');
+				this.hint("Counter-Clockwise Spiral doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.trickroom.duration = 0;
+			}
 		},
 		onAnyTryMove(target, source, effect) {
 			if (['trickroom'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Counter-Clockwise Spiral', move, '[of] ' + target);
 				return false;
 			}
 		},
@@ -426,7 +453,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Counter-Clockwise Spiral",
 		rating: 4.5,
-		num: -1011,
+		num: -11,
 	},
 	nightmareheart: {
 		desc: "When this Pokémon faints, the Pokémon that knocked it out is cursed, losing 1/4 of its maximum HP, rounded down, at the end of each turn while it is active. In addition, the Pokémon that knocked it out permanently receives this Ability, which persists even through switching, until it is knocked out and the Ability is passed along again.",
@@ -451,7 +478,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Nightmare Heart",
 		rating: 3,
-		num: -1012,
+		num: -12,
 	},
 	executioner: {
 		desc: "When this Pokémon's target has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using an attack.",
@@ -472,7 +499,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Executioner",
 		rating: 4,
-		num: -1013,
+		num: -13,
 	},
 	solarcore: {
 		shortDesc: "During intense sunlight, this Pokémon can skip the charging turn of its moves.",
@@ -486,7 +513,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Solar Core",
 		rating: 2,
-		num: -1014,
+		num: -14,
 	},
 	twominded: {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
@@ -518,7 +545,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Two-Minded",
 		rating: 4,
-		num: -1015,
+		num: -15,
 	},
 	adrenaline: {
 		desc: "This Pokémon's next move is guaranteed to be a critical hit after it attacks and knocks out another Pokémon.",
@@ -530,7 +557,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Adrenaline",
 		rating: 3,
-		num: -1016,
+		num: -16,
 	},
 	ambush: {
 		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
@@ -539,7 +566,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Ambush",
 		rating: 4,
-		num: -1017,
+		num: -17,
 	},
 	secondwind: {
 		desc: "While this Pokémon has more than 1/2 of its maximum HP, its Attack and Special Attack are halved.",
@@ -558,7 +585,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Second Wind",
 		rating: -1,
-		num: -1018,
+		num: -18,
 	},
 	birdofprey: {
 		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
@@ -577,7 +604,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Bird of Prey",
 		rating: 4.5,
-		num: -1019,
+		num: -19,
 	},
 	showdown: {
 		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
@@ -606,7 +633,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Showdown",
 		rating: 3.5,
-		num: -1020,
+		num: -20,
 	},
 	regenerator: {
 		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
@@ -633,7 +660,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Hard Worker",
 		rating: 3,
-		num: -1021,
+		num: -21,
 	},
 	alchemist: {
 		desc: "After attacking a poisoned target with a Poison-type move, this Pokémon has an equal chance to cause one of various random effects. Possible effects include: replacing the poison status with paralysis, burn or toxic poison; afflicting the target with confusion, Torment or Encore; choosing two random stats and either boosting or lowering each one; causing the target to use Explosion if its current HP is 25% or less or afflicting it with a Curse if not; or transforming the target into Seismitoad, Ariados or Butterfree until it switches out.",
@@ -803,7 +830,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Alchemist",
 		rating: 3,
-		num: -1022,
+		num: -22,
 	},
 	blackmail: {
 		desc: "After using a physical Dark-type move, this Pokémon permanently replaces its target's Ability with Orderly Target. The Pokémon with Orderly Target cannot knock out Mega Honchkrow - all of its moves will leave Mega Honchkrow with at least 1 HP. Blackmail can only affect one target per battle.",
@@ -821,12 +848,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Blackmail",
 		rating: 3,
-		num: -1023,
+		num: -23,
 	},
 	orderlytarget: {
 		desc: "If the target of this Pokémon's move has Blackmail, it survives every hit with at least 1 HP.",
 		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
-		onDamagePriority: -100,
+		onDamagePriority: -0,
 		onAnyDamage(damage, target, source, effect) {
 			if (source === this.effectData.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
@@ -836,7 +863,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Orderly Target",
 		rating: -1,
-		num: -1024,
+		num: -24,
+	},
+	stickyresidues: {
+		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Fails if the effect is already active on the user's side.",
+		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
+		onStart(source) {
+			if (this.field.addPseudoWeather('stickyresidues')) {
+				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+			}
+		},
+		condition: {
+			duration: 5,
+			onEnd() {
+				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			},
+		},
+		name: "Sticky Residues",
+		rating: 3,
+		num: -25,
 	},
 	disguise: {
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
@@ -898,7 +943,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Spectral Anger",
 		rating: 3,
-		num: -1026,
+		num: -26,
 	},
 	diamonddust: {
 		desc: "On switch-in, this Pokémon summons Diamond Dust for 5 turns. During the effect, Pokémon are immune to all Rock-type attacks and Stealth Rock; Weather Ball becomes an Ice-type move, and its base power is 100; and other weather-related moves and Abilities behave as they do in Hail.",
@@ -908,7 +953,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Diamond Dust",
 		rating: 3,
-		num: -1027,
+		num: -27,
 	},
 	forecast: {
 		onUpdate(pokemon) {
@@ -1060,7 +1105,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Prehistoric Rage",
 		rating: 3,
-		num: -1028,
+		num: -28,
 	},
 	lusterswap: {
 		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
@@ -1089,7 +1134,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Luster Swap",
 		rating: 3,
-		num: -1029,
+		num: -29,
 	},
 	acidicsurge: {
 		desc: "On switch-in, this Pokémon summons Acidic Terrain for 5 turns. During the effect, the power of Poison-type attacks made by grounded Pokémon is multiplied by 1.3, and grounded Steel-types are not immune to Poison-type damage. Steel-type Pokémon are still immune to being poisoned and badly poisoned, except by Pokémon with Corrosion. Camouflage transforms the user into a Poison-type, Nature Power becomes Sludge Bomb, and Secret Power has a 30% chance to cause poison. Lasts for 8 turns if the user is holding a Terrain Extender (such as through Skill Swap).",
@@ -1099,7 +1144,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Acidic Surge",
 		rating: 4,
-		num: -1030,
+		num: -30,
 	},
 	flowergift: {
 		desc: "If this Pokémon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Mega Meganium and Sunny Day is active, the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Cherrim or a Mega Meganium and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokémon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokémon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form or Meganium is Mega Evolved, they will not receive the Attack and Special Defense boosts.",
@@ -1154,7 +1199,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Savage",
 		rating: 3.5,
-		num: -1031,
+		num: -31,
 	},
 	volcanicsinge: {
 		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
@@ -1202,7 +1247,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 		rating: 3.5,
-		num: -1032,
+		num: -32,
 	},
 	settle: {
 		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 100%. Has no effect if the same special move has been used in the last three turns.",
@@ -1242,7 +1287,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 3,
-		num: -1033,
+		num: -33,
 	},
 	heavenlytechniques: {
 		desc: "If this Pokémon is at full HP, its blade-based and slashing moves have their priority increased by 1. When its HP is in between full and 1/3, this Pokémon's Defense is raised by 1 stage after it uses a blade-based or slashing move. When it has 1/3 or less of its maximum HP, rounded down, this Pokémon's blade-based and slashing moves are critical hits.",
@@ -1262,7 +1307,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Heavenly Techniques",
 		rating: 3,
-		num: -1034,
+		num: -34,
 	},
 	rotation: {
 		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
@@ -1283,7 +1328,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Rotation",
 		rating: 4,
-		num: -1035,
+		num: -35,
 	},
 	spiritofgiving: {
 		desc: "On switch-in, every Pokémon in this Pokémon's party regains the item it started with, even if the item was a popped Air Balloon, if the item was picked up by a Pokémon with the Pickup Ability, or the item was lost to Bug Bite, Covet, Incinerate, Knock Off, Pluck, or Thief. It doesn't work if the Pokémon is already holding something else.",
@@ -1307,7 +1352,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 4,
-		num: -1036,
+		num: -36,
 	},
 /*
 	asonesawsbuck: {
@@ -1332,7 +1377,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 4,
-		num: -1037,
+		num: -2000, // does not exist
 	},
 */
 	springfever: {
@@ -1350,7 +1395,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Spring Fever",
 		rating: 4,
-		num: -1038,
+		num: -37,
 	},
 	summerdays: {
 		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
@@ -1378,10 +1423,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Summer Days",
 		rating: 4,
-		num: -1039,
+		num: -38,
 	},
 	autumnleaves: {
-		desc: "This Pokémon's Grass-type attacks cause the Ghost type to be added to the target, effectively making it have two or three types. Has no effect if the target is already a Ghost type. If Forest's Curse adds a type to the target, it replaces the type added by this Ability and vice versa.",
+		desc: "This Pokémon's Grass-type attacks cause the Ghost type to be added to the target, effectively making it have two or three types. Has no effect if the target is already a Ghost-type. If Forest's Curse or Electroplating adds a type to the target, it replaces the type added by this Ability and vice versa.",
 		shortDesc: "This Pokémon's Grass attacks add Ghost to the targets' type(s).",
 		onSourceHit(target, source, move) {
 			if (move.category !== 'Status' && move.type === 'Grass') {
@@ -1400,7 +1445,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Autumn Leaves",
 		rating: 4,
-		num: -1040,
+		num: -39,
 	},
 	winterstale: {
 		desc: "The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
@@ -1439,7 +1484,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Winter's Tale",
 		rating: 4,
-		num: -1041,
+		num: -40,
 	},
 	desertgales: {
 		desc: "On switch-in, this Pokémon summons Desert Gales for 5 turns. During the effect, Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.2; Normal-type moves become Ground-type moves; Weather Ball becomes a Ground-type move, and its base power is 100; and other weather-related moves and Abilities behave as they do in Sandstorm.",
@@ -1449,7 +1494,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Desert Gales",
 		rating: 4,
-		num: -1042,
+		num: -41,
 	},
 	sandforce: {
 		onBasePowerPriority: 21,
@@ -1510,7 +1555,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Steelbreaker",
 		rating: 3,
-		num: -1043,
+		num: -42,
+	},
+	elegance: {
+		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
+		shortDesc: "Secondary effects of moves are guaranteed unless it has a status or a mental affliction.",
+		onModifyMovePriority: -2,
+		onModifyMove(move, attacker) {
+			if (attacker.status) return;
+			if (attacker.volatiles['attract'] || attacker.volatiles['confusion'] ||
+				attacker.volatiles['disable'] || attacker.volatiles['encore'] || attacker.volatiles['healblock'] ||
+				attacker.volatiles['taunt'] || attacker.volatiles['torment']) return;
+			if (move.secondaries) {
+				this.debug('maximizing secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance = 100;
+				}
+			}
+			if (move.self?.chance) move.self.chance = 100;
+		},
+		name: "Elegance",
+		rating: 5,
+		num: -43,
 	},
 	seismicscream: {
 		desc: "This Pokémon uses Earthquake at 60 base power after using a sound-based move. If the sound-based move is a special attack, the Earthquake that is used is also a special attack.",
@@ -1527,7 +1593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Seismic Scream",
 		rating: 3,
-		num: -1044,
+		num: -44,
 	},
 	acidrock: {
 		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Pokémon with Soundproof are immune. Poison inflicted through this Ability does half as much damage as normal poison.",
@@ -1550,7 +1616,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Acid Rock",
 		rating: 4,
-		num: -1045,
+		num: -45,
 	},
 	coupdegrass: {
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
@@ -1560,7 +1626,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!action) return;
 			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 			if (!target) return;
-			if (!action.move.spreadHit && target.hp <= target.maxhp / 2) {
+			if (!action.move.spreadHit && target.hp && target.hp <= target.maxhp / 2) {
 				pokemon.addVolatile('coupdegrass');
 			}
 		},
@@ -1579,7 +1645,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Coup de Grass",
 		rating: 3,
-		num: -1046,
+		num: -46,
 	},
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
@@ -1630,7 +1696,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Masquerade",
 		rating: 3,
-		num: -1047,
+		num: -47,
 	},
 	bodyofwater: {
 		desc: "When this Pokémon uses a Water-type attack, damage is calculated using the user's Defense stat as its Attack or its Special Defense as its Special Attack. Other effects that modify the Attack and Special Attack stats are used as normal, including stat stage changes.",
@@ -1643,14 +1709,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 3.5,
-		num: -1048,
+		num: -48,
 	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
 		onStart(source) {
-			this.field.setWeather('hail');
-			this.field.weatherData.duration = 0;
+			if (this.field.setWeather('hail')) {
+				this.add('-message', `${source.name} created an unrelenting winter storm!`);
+				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
+				this.field.weatherData.duration = 0;
+			} else if (this.field.isWeather('hail') && this.field.weatherData.duration !== 0) {
+				this.add('-ability', source, 'Everlasting Winter');
+				this.add('-message', `${source.name} created an unrelenting winter storm!`);
+				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
+				this.field.weatherData.source = source;
+				this.field.weatherData.duration = 0;
+			}
 		},
 		onAnySetWeather(target, source, weather) {
 			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
@@ -1670,7 +1745,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Everlasting Winter",
 		rating: 4.5,
-		num: -1049,
+		num: -49,
 	},
 	deltastream: {
 		desc: "On switch-in, the weather becomes strong winds that remove the weaknesses of the Flying type from Flying-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Desolate Land, Everlasting Winter or Primordial Sea.",
@@ -1788,7 +1863,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Forgery",
 		rating: 3,
-		num: -1050,
+		num: -50,
 	},
 	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
@@ -1855,7 +1930,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Clairvoyance",
 		rating: 3,
-		num: -1051,
+		num: -51,
 	},
 	sleightofhand: {
 		desc: "This Pokémon's contact moves become special attacks and do not make contact with the target.",
@@ -1868,7 +1943,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Sleight of Hand",
 		rating: 3,
-		num: -1052,
+		num: -52,
 	},
 	moleawhac: {
 		desc: "This Pokémon's Attack is raised by 1 stage at the end of each full turn if it uses an attacking move. Its Attack boosts are cleared and its Attack is not increased on the same turn when it is hit by a contact move.",
@@ -1899,7 +1974,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Mole-a-Whac",
 		rating: 4.5,
-		num: -1053,
+		num: -53,
 	},
 	sos: {
 		desc: "If this Pokémon is a Wishiwashi that has Mega Evolved, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Wishiwashi (School Form) over five turns.",
@@ -1947,7 +2022,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "SOS",
 		rating: 5,
-		num: -1054,
+		num: -54,
 	},
 	stancechange: {
 		desc: "If this Pokémon is an Aegislash or a Falinks-Mega, it changes to Blade Forme or Mega Combat before attempting to use an attacking move, and changes to Shield Forme or Mega Legion before attempting to use King's Shield.",
@@ -2030,7 +2105,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Pool Floaties",
 		rating: 3,
-		num: -1055,
+		num: -55,
 	},
 	redlicorice: {
 		desc: "This Pokémon's Fairy-type attacks cause the target to become sticky and flammable. When a Fire-type attack is used against a target that is sticky and flammable, its power is multiplied by 1.5, and the target is burned but is no longer sticky and flammable. When a Fire-type attack is used by an attacker that is sticky and flammable, the user takes recoil damage equal to 50% the HP lost by the target (rounded half up, but not less than 1 HP), and the user is burned but is no longer sticky and flammable.",
@@ -2079,7 +2154,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Red Licorice",
 		rating: 3,
-		num: -1056,
+		num: -56,
 	},
 	stygianshades: {
 		desc: "This Pokémon's Dark-type status moves set one layer of Spikes on the opposing side of the field.",
@@ -2093,7 +2168,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Stygian Shades",
 		rating: 3,
-		num: -1057,
+		num: -57,
 	},
 	longwhip: {
 		desc: "This Pokémon's multi-hit attacks do damage at the end of each turn, for the maximum number of times the attack could hit, instead of being used immediately. More than one move can stack in this way.",
@@ -2143,7 +2218,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Long Whip",
 		rating: 3,
-		num: -1058,
+		num: -58,
 	},
 	gravitationalpull: {
 		desc: "This Pokémon is immune to all entry hazards and incorporates them into its body. Pokémon making contact with this Pokémon are affected by all of the hazards on both sides of the field, in the same way as if they had switched in.",
@@ -2271,8 +2346,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
+		hazardImmune: true,
 		rating: 3,
-		num: -1059,
+		num: -59,
 	},
 	chakralock: {
 		desc: "After this Pokémon uses an attack that is super effective on the target, the target is burned.",
@@ -2285,7 +2361,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Chakra Lock",
 		rating: 3,
-		num: -1060,
+		num: -60,
 	},
 	vajra: {
 		desc: "This Pokémon's Dark-type moves become Electric-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
@@ -2306,7 +2382,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Vajra",
 		rating: 4,
-		num: -1061,
+		num: -61,
 	},
 	innerfortitude: {
 		desc: "When this Pokémon has 1/2 or less of its maximum HP, rounded down, its Defense and Special Defense are doubled. Immune to Intimidate.",
@@ -2333,7 +2409,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Inner Fortitude",
 		rating: 3,
-		num: -1062,
+		num: -62,
 	},
 	buildup: {
 		desc: "This Pokémon restores 1/8 of its maximum HP, rounded down, at the end of each full turn if it uses an attacking move, but only if it was not hit by a damaging move in the same turn.",
@@ -2359,7 +2435,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Buildup",
 		rating: 4,
-		num: -1063,
+		num: -63,
 	},
 	implode: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves as long as a target is successfully KOed.",
@@ -2407,7 +2483,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Implode",
 		rating: 4,
-		num: -1064,
+		num: -64,
 	},
 	mindrider: {
 		shortDesc: "If Psychic Terrain is active, this Pokémon's Speed is doubled.",
@@ -2424,7 +2500,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Mind Rider",
 		rating: 2.5,
-		num: -1065,
+		num: -65,
 	},
 	erraticcode: {
 		desc: "While this Pokémon is present, all Pokémon are prevented from from using the same move twice in a row.",
@@ -2453,51 +2529,235 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Erratic Code",
 		rating: 3.5,
-		num: -1066,
+		num: -66,
 	},
-	stickyresidues: {
-		desc: "On switch-in, this Pokémon summons sticky residues that prevent hazards from being cleared or moved by Court Change for five turns. Lasts for 8 turns if the user is holding Light Clay. Fails if the effect is already active on the user's side.",
-		shortDesc: "On switch-in, prevents hazards from being cleared or moved by Court Change for 5 turns.",
-		onStart(source) {
-			if (this.field.addPseudoWeather('stickyresidues')) {
-				this.add('-message', `${source.name} set up sticky residues on the battlefield!`);
+	cheapheat: {
+		desc: "When this Pokémon uses an attacking move, before the move hits, the Pokémon's attacking stat and the target's defending stat are raised by 1 stage. The stats that were raised are lowered by 1 stage after the move hits.",
+		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
+		onBeforeMove(source, target, move) {
+			if (!move.basePower || target === source || move.spreadHit) return;
+			let activated = false;
+			let attackingStat = 'atk';
+			let defendingStat = 'def';
+			if (move.category === 'Special') {
+				attackingStat = 'spa';
+			}
+			if (move.useSourceDefensiveAsOffensive) {
+				attackingStat = attackingStat === 'atk' ? 'def' : 'spd';
+			}
+			if (move.defensiveCategory) {
+				defendingStat = move.defensiveCategory === 'Physical' ? 'def' : 'spd';
+			} else {
+				defendingStat = move.category === 'Physical' ? 'def' : 'spd';
+			}
+			this.add('-ability', source, 'Cheap Heat', 'boost');
+			if (move.useTargetOffensive) {
+				const cheapHeatBoost: SparseBoostsTable = {};
+				if (attackingStat === 'atk') cheapHeatBoost.atk = 1;
+				if (attackingStat === 'def' || defendingStat === 'def') cheapHeatBoost.def = 1;
+				if (attackingStat === 'spa') cheapHeatBoost.spa = 1;
+				if (attackingStat === 'spd' || defendingStat === 'spd') cheapHeatBoost.spd = 1;
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoost;
+				this.runEvent('CheapHeat', target);
+			} else {
+				let cheapHeatBoostSource: SparseBoostsTable = {};
+				let cheapHeatBoostTarget: SparseBoostsTable = {};
+				source.addVolatile('cheapheat');
+				source.volatiles['cheapheat'].source = source;
+				source.volatiles['cheapheat'].boost = cheapHeatBoostSource;
+				if (attackingStat === 'atk') source.volatiles['cheapheat'].boost.atk = 1;
+				if (attackingStat === 'def') source.volatiles['cheapheat'].boost.def = 1;
+				if (attackingStat === 'spa') source.volatiles['cheapheat'].boost.spa = 1;
+				if (attackingStat === 'spd') source.volatiles['cheapheat'].boost.spd = 1;
+				this.runEvent('CheapHeat', source);
+				target.addVolatile('cheapheat');
+				target.volatiles['cheapheat'].source = source;
+				target.volatiles['cheapheat'].boost = cheapHeatBoostTarget;
+				if (defendingStat === 'def') target.volatiles['cheapheat'].boost.def = 1;
+				if (defendingStat === 'spd') target.volatiles['cheapheat'].boost.spd = 1;
+				this.runEvent('CheapHeat', target);
+			}
+		},
+		onAfterMove(source, target, move) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
+			}
+		},
+		onEnd(pokemon) {
+			for (const defender of this.getAllActive()) {
+				this.runEvent('ReverseCheapHeat', defender);
 			}
 		},
 		condition: {
-			duration: 5,
-			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay')) {
-					return 8;
-				}
-				return 5;
+			onCheapHeat(pokemon) {
+				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				this.effectData.activeMove = this.activeMove;
+				this.effectData.completed = true;
 			},
-			onEnd() {
-				this.add('-message', `The sticky residues disappeared from the battlefield!`);
+			onReverseCheapHeat(pokemon) {
+				if (!pokemon.hp) return;
+				let i: BoostName;
+				for (i in this.effectData.boost) {
+					this.effectData.boost[i]! *= -1;
+				}
+				this.boost(this.effectData.boost, pokemon, this.effectData.source, null, true);
+				pokemon.removeVolatile('cheapheat');
 			},
 		},
-		name: "Sticky Residues",
+		name: "Cheap Heat",
 		rating: 3,
-		num: -1025,
+		num: -67,
 	},
-	elegance: {
-		desc: "This Pokémon's moves have their secondary effect chance guaranteed, unless it has a non-volatile status condition, is confused, or is affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",
-		shortDesc: "Secondary effects of moves are guaranteed unless it has a status or a mental affliction.",
-		onModifyMovePriority: -2,
-		onModifyMove(move, attacker) {
-			if (attacker.status) return;
-			if (attacker.volatiles['attract'] || attacker.volatiles['confusion'] ||
-				attacker.volatiles['disable'] || attacker.volatiles['encore'] || attacker.volatiles['healblock'] ||
-				attacker.volatiles['taunt'] || attacker.volatiles['torment']) return;
-			if (move.secondaries) {
-				this.debug('maximizing secondary chance');
-				for (const secondary of move.secondaries) {
-					if (secondary.chance) secondary.chance = 100;
+	staccato: {
+		desc: "If this Pokémon cures an opposing Pokémon's non-volatile status condition, the affected Pokémon will be paralyzed.",
+		shortDesc: "When curing a foe's status (ex. Purify, Sparkling Aria), replaces with paralysis.",
+		onBeforeMove(source, target, move) {
+			if (['purify', 'sparklingaria', 'wakeupslap', 'smellingsalts', 'uproar'].includes(move.id)) {
+				target.addVolatile('staccato', this.effectData.target);
+			}
+		},
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				if (this.effectData.busted) {
+					this.add('-ability', this.effectData.source, 'Staccato');
+					pokemon.setStatus('par', this.effectData.source);
+				}
+			},
+			onAfterMoveSecondary(source, target, move) {
+				target.removeVolatile('staccato');
+			},
+		},
+		name: "Staccato",
+		rating: 3,
+		num: -68,
+	},
+	gyaru: {
+		desc: "This Pokémon's Fighting-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokémon's Fighting-type moves become Fire-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Fighting' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Fire';
+				(move as any).gyaruBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if ((move as any).gyaruBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Gyaru",
+		rating: 4,
+		num: -69,
+	},
+	electroplating: {
+		desc: "This Pokémon's Electric-type attacks that make contact cause the Steel type to be added to the target, effectively making it have two or three types. Has no effect if the target is already a Steel-type. If Forest's Curse, Trick-or-Treat or Autumn Leaves adds a type to the target, it replaces the type added by this Ability and vice versa.",
+		shortDesc: "This Pokémon's Electric contact moves add steel to the targets' type(s).",
+		onSourceHit(target, source, move) {
+			if (move.type === 'Electric' && move.flags['contact']) {
+				if (target.hasType('Steel')) return;
+				if (!target.addType('Steel')) return;
+				this.add('-start', target, 'typeadd', 'Steel', '[from] Ability: Electroplating');
+			}
+		},
+		name: "Electroplating",
+		rating: 4,
+		num: -70,
+	},
+	comedian: {
+		desc: "This Pokémon is immune to Fairy-type moves. When hit by a Fairy-type move, it raises its Attack and its adjacent allies' Attack by 1 stage each.",
+		shortDesc: "Fairy immunity; user's Attack and allies' Attack are both raised 1 stage if user is hit by a Fairy move.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+				if (!activated) {
+					this.add('-immune', target, '[from] ability: Comedian');
+					this.add('-message', `${target.name} is howling with laughter!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
 				}
 			}
-			if (move.self?.chance) move.self.chance = 100;
 		},
-		name: "Elegance",
-		rating: 5,
-		num: -1044,
+		name: "Comedian",
+		rating: 3,
+		num: -71,
+	},
+	pacifyingpelt: {
+		desc: "This Pokémon is immune to Fighting-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Fighting-type move.",
+		shortDesc: "This Pokémon heals 1/4 of its max HP when hit by Fighting moves; Fighting immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fighting') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Pacifying Pelt');
+				}
+				return null;
+			}
+		},
+		name: "Pacifying Pelt",
+		rating: 4,
+		num: -72,
+	},
+	alluring: {
+		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Alluring');
+			this.add('-message', `Pokémon opposing ${pokemon.name} can't pivot out of battle!`);
+		},
+		onAnyModifyMove(move, pokemon) {
+			if (pokemon.side === this.effectData.target.side) return;
+			if (move.selfSwitch && !move.ignoreAbility) delete move.selfSwitch;
+		},
+		name: "Alluring",
+		rating: 4,
+		num: -73,
+	},
+	rebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Rebel",
+		rating: 2.5,
+		num: -74,
 	},
 };

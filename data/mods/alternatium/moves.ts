@@ -723,4 +723,306 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
+	eggbomb: {
+		num: 1004,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Restores the berry the user last used.",
+		name: "Egg Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				if (this.randomChance(1, 1)) {
+					for (const pokemon of source.side.active) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+							const item = pokemon.lastItem;
+							pokemon.lastItem = '';
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+							pokemon.setItem(item);
+						}
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	snarl: {
+		num: 555,
+		accuracy: 95,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Linoone-Punk') {
+				return move.basePower + 25;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Lowers the foe(s) Sp. Atk by 1. If Linoone-Punk: 80 BP.",
+		name: "Snarl",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "If Catastroform, doubles in Power and changes typing when holding a Weather Rock.",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.id !== 'catastroform') {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.type = 'Fire';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.type = 'Water';
+					break;
+				case 'sandstorm':
+					move.type = 'Rock';
+					break;
+				case 'hail':
+					move.type = 'Ice';
+					break;
+				}
+			}
+			else if (pokemon.species.id === 'catastroform') {
+				if (pokemon.hasItem('heatrock')) {
+					move.type = 'Fire';
+				}
+				if (pokemon.hasItem('damprock')) {
+					move.type = 'Water';
+				}
+				if (pokemon.hasItem('icyrock')) {
+					move.type = 'Ice';
+				}
+				if (pokemon.hasItem('smoothrock')) {
+					move.type = 'Rock';
+				}
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.id !== 'catastroform') {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.basePower *= 2;
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.basePower *= 2;
+					break;
+				case 'sandstorm':
+					move.basePower *= 2;
+					break;
+				case 'hail':
+					move.basePower *= 2;
+					break;
+				}
+			}
+			else if (pokemon.species.id === 'catastroform') {
+				if (pokemon.hasItem('heatrock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('damprock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('icyrock')) {
+					move.basePower *= 2;
+				}
+				if (pokemon.hasItem('smoothrock')) {
+					move.basePower *= 2;
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
+	gathermaterials: {
+		num: 1005,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals the user by 50% of its max HP.",
+		name: "Gather Materials",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Heal Order", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	coralcrash: {
+		num: 1006,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
+		name: "Coral Crash",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 4],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+	},
+	relicsong: {
+		num: 547,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
+		name: "Relic Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.id !== 'meloetta') return;
+			move.type = 'Psychic';
+			move.ignoreImmunity = {'Psychic': true};
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (pokemon.species.id !== 'meloetta') return;
+			if (type === 'Dark') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	rockyslash: {
+		num: 1007,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 20 * pokemon.positiveBoosts('atk');
+		},
+		category: "Physical",
+		shortDesc: "+ 20 power for each of the user's Attack boosts.",
+		name: "Rocky Slash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sacred Sword", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	boilingvortex: {
+		num: 1008,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "Ignores Desolate Land and removes Sunny Day.",
+		name: "Boiling Vortex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('sunnyday')) {
+				this.field.clearWeather();
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Whirlpool", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	seethingsauna: {
+		num: 1009,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "Ignores Primordial Sea and removes Rain Dance.",
+		name: "Seething Sauna",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(move, pokemon) {
+			if (this.field.isWeather('raindance')) {
+				this.field.clearWeather();
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scald", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	feast: {
+		num: 1010,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile.",
+		name: "Feast",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		/*onHit(pokemon, atk, spa) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stockpile", target);
+		},*/
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 };

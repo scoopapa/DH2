@@ -66,13 +66,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority + 0;
 			}
 		},
-		onBasePower(basePower, source, move) {
-			if (source.activeMoveActions < 2) {
-				this.chainModify(0.75);
-			}
-		},
 		name: "Quick Draw",
-		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
+		shortDesc: "User's moves have increased priority in the first turn.",
 		rating: 2.5,
 		num: 259,
 	},
@@ -104,9 +99,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('mistyterrain');
-				pokemon.baseAbility = 'mistyterrain';
+				this.add('-ability', pokemon, 'Misty Surge', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistysurge');
+				pokemon.baseAbility = 'mistysurge';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -344,7 +339,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('lifegem'));
 			}
 		},
 		name: "Life Gem",
@@ -405,5 +400,136 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
 		rating: 3,
 		num: 1010,
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP loss or damage reduction.",
+		rating: 4,
+		num: 1011,
+	},
+	sharpshooter: {
+		onStart(source) {
+			this.useMove('lockon', source);
+		},
+		name: "Sharpshooter",
+		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
+		rating: 2,
+		num: 1012,
+	},
+	forecast: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (this.effectData.switchingIn) {
+				if (this.field.isWeather('raindance')) {
+					this.field.clearWeather();
+					this.field.setWeather('raindance');
+				}
+				if (this.field.isWeather('sunnyday')) {
+					this.field.clearWeather();
+					this.field.setWeather('sunnyday');
+				}
+				if (this.field.isWeather('sandstorm')) {
+					this.field.clearWeather();
+					this.field.setWeather('sandstorm');
+				}
+				if (this.field.isWeather('hail')) {
+					this.field.clearWeather();
+					this.field.setWeather('hail');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id !== 'catastroform') return;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Water';
+				break;
+			case 'hail':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Ice';
+				break;
+			case 'sandstorm':
+				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Rock';
+				break;
+			default:
+				if (pokemon.species.id === 'catastroform') return;
+				break;
+			}
+		},
+		name: "Forecast",
+		shortDesc: "Upon Entry, resets any regular weather. Gets secondary typing matching weather.",
+		rating: 2,
+		num: 59,
+	},
+	liquidscales: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category !== 'Status') {
+				this.heal(target.baseMaxhp / 10);
+			}
+		},
+		name: "Liquid Scales",
+		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
+		rating: 3,
+		num: 1013,
+	},
+	flowergift: {
+		onModifyAtkPriority: 3,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 4,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id !== 'shayminsky') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Flower Gift",
+		shortDesc: "If user is Shaymin-Sky and Sunny Day is active, its Attack and Sp. Def are 1.5x.",
+		rating: 1,
+		num: 122,
+	},
+	mistycoat: {
+		onModifySpDPriority: 6,
+		onModifySpD(pokemon) {
+			if (this.field.isTerrain('mistyterrain')) return this.chainModify(1.5);
+		},
+		name: "Misty Coat",
+		shortDesc: "If Misty Terrain is active, this Pokemon's Special Defense is multiplied by 1.5.",
+		rating: 0.5,
+		num: 1014,
+	},
+	pulpup: {
+		/*onStart(source) {
+			if (source.hp >= source.maxhp - source.maxhp / 3) {
+				this.useMove('stockpile', source);
+			}
+			else if (source.hp <= source.maxhp / 3) {
+				this.useMove('stockpile', source) * 3;
+			}
+			else if (source.maxhp - source.maxhp / 3 > source.hp > source.maxhp / 3) {
+				this.useMove('stockpile', source) * 2;
+			}
+		},*/
+		name: "Pulp Up",
+		shortDesc: "(Uncoded) On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		rating: 3,
+		num: 1015,
 	},
 };

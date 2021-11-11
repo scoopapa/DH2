@@ -1453,7 +1453,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	boltbeak: {
 		num: 754,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Bolt Beak damage boost');
@@ -2326,7 +2326,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	closecombat: {
 		num: 370,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		name: "Close Combat",
 		pp: 5,
@@ -3501,6 +3501,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
+			}
+			if (attacker.hasAbility('gulpmissile2') && attacker.species.name === 'Wailord-Mega' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'wailordmegamending' : 'wailordmegagulping';
+				attacker.formeChange(forme, move);	
 			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {

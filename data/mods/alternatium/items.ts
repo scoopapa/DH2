@@ -52,9 +52,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.3);
+			}
+		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Attack is boosted by 1.3x.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -65,9 +71,23 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.25);
+			}
+		},
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				if (typeof accuracy !== 'number') return;
+				this.debug('chilldrive - enhancing accuracy');
+				return accuracy * 1.25;
+			}
+		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Speed and Accuracy is boosted by 1.25x.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -114,9 +134,20 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.25);
+			}
+		},
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				return this.chainModify(1.25);
+			}
+		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Defenses are boosted by 1.25x.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -338,10 +369,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
-			if (source.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
+			if (source.species.id === 'giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.species.id === 'giratinashadow' && (move.type === 'Ghost' || move.type === 'Dragon')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		itemUser: ["Giratina"],
 		shortDesc: "If this Pokemon is Giratina, its first successful Ghost or Dragon move will have 1.5x power. Single-use.",
 		num: 112,
 		gen: 4,
@@ -455,7 +493,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu"],
+		itemUser: ["Pikachu", "Pikachu-Idol", "Pikachu-Libre", "Pikachu-Partner", "Pikachu-Belle"],
 		num: 236,
 		gen: 2,
 	},
@@ -660,9 +698,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		onStart(pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				this.useMove('charge', pokemon);
+			}
+		},
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Activates Charge upon entry.",
 	},
 	snorliumz: {
 		name: "Snorlium Z",
@@ -757,5 +801,50 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 778,
 		gen: 7,
 		isNonstandard: "Unobtainable",
+	},
+	eviolite: {
+		name: "Eviolite",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'rotom' || pokemon.species.id === 'farfetchdgalar') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Rotom"],
+		shortDesc: "If Rotom or Farfetch\u2019d-Galar, its Defense and Sp. Def are 1.5x.",
+		num: 538,
+		gen: 5,
+	},
+	leek: {
+		name: "Leek",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Grass' && user.species.id === 'farfetchd') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d"],
+		shortDesc: "If Farfetch’d, its critical hit ratio is 2 and Grass move do 1.2x damage.",
+		num: 259,
+		gen: 8,
 	},
 };

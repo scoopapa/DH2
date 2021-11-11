@@ -97,4 +97,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lapidour, this item allows it to Mega Evolve in battle.",
 	},
+	jorunnite: {
+		name: "Jorunnite",
+		spritenum: 586,
+		megaStone: "Jorunny-Mega",
+		megaEvolves: "Jorunny",
+		itemUser: ["Jorunny"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1008,
+		gen: 8,
+		desc: "If held by a Jorunny, this item allows it to Mega Evolve in battle.",
+	},
+	auranubite: {
+		name: "Auranubite",
+		spritenum: 586,
+		megaStone: "Auranubis-Mega",
+		megaEvolves: "Auranubis",
+		itemUser: ["Auranubis"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1009,
+		gen: 8,
+		desc: "If held by a Auranubis, this item allows it to Mega Evolve in battle.",
+	},
 };

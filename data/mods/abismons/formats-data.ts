@@ -6084,8 +6084,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["darkpulse", "nastyplot", "protect", "shadowball"],
 		randomDoubleBattleLevel: 80,
-		tier: "OU",
-		doublesTier: "DUU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	calyrex: {
 		randomBattleMoves: ["calmmind", "gigadrain", "psyshock", "substitute"],
@@ -6428,23 +6428,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	terravia: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 		qiracle: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 		gohng: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	gaogao: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	spinni: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	emperard: {
@@ -6452,75 +6452,71 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	valkune: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	sculpsicle: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	yukaji: {
-		tier: "Uber",
+		tier: "ABYSMAL1",
 		doublesTier: "DUU",
 	},
 	deliriee: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	gun: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	turbann: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	raitora: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	tactenark: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	rayleep: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	eternaean: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	antherion: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	stratoclysm: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	sunnee: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	plux: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	jaranra: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	nemirror: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	ulteus: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	swampog: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	darknebula: {
@@ -6528,19 +6524,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	metalunk: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	bluumesis: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	entoraze: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	crystallibrium: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	noormiee: {
@@ -6548,11 +6544,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	yanteron: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	thorwark: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	tikitong: {
@@ -6560,103 +6556,83 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	miyith: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	julrai: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	eclipsui: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	combusten: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
-	},
-	rhyperiormega: {
-		tier: "Uber",
-		doublestier: "DOU",
 	},
 	incamoth: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	furretmega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	machampmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	claydolmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	dewgongmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	ariadosmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	typhlosionmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	wailordmega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	aurorusmega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	tyrantrummega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	vikavoltmega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	leavannymega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	sandslashmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	zebstrikamega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	lurantismega: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	garbodormega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	gleaden: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	honchkrowmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",
 	},
 	emboarmega: {
-		tier: "OU",
+		tier: "ABYSMAL1",
 		doublesTier: "DOU",	
 	},	
-	swalotmega: {
-		tier: "OU",
-		doublesTier: "DOU",	
+	taaban: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},	
+	dugcillion: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	animon: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	hoopamega: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
+	},
+	hoopaunboundmega: {
+		tier: "ABYSMAL1",
+		doublesTier: "DOU",
 	},	
 };

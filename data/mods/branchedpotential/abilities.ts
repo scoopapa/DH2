@@ -48,6 +48,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		isUnbreakable: true,
+		desc: "Minior/Stacragus, upon switch-in/end of turn change to Core/Offense at 1/2 max HP or less, else Meteor/Chrysalis.",
 		name: "Shields Down",
 		rating: 3,
 		num: 197,
@@ -88,7 +89,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (['phankyr'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = 'Phankyr-Revealed';
-				pokemon.formeChange(speciesid, this.effect, false);
+				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
 			}
 		},
@@ -97,5 +98,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Esiugsid",
 		rating: 3.5,
 		num: 209,
+	},
+	lethalpoison: {
+		onSourceAfterFaint(length, target, source, effect) {
+		if (source.activeMoveActions < 6) {
+			if (effect && effect.effectType === 'Move') {
+			this.boost({atk: 2}, source);
+				}
+			}
+		},
+		desc: "This Pokemon's Attack is raised by 2 stages if it KOes another Pokemon within 5 turns.",
+		name: "Lethal Poison",
+		rating: 3,
+		num: 210,
 	},
 };

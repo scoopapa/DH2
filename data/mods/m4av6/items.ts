@@ -1118,7 +1118,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1068,
 		gen: 8,
-		desc: "If held by a Sawsbuck or a Delibird, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Sawsbuck, this item allows it to Mega Evolve in battle.",
 	},
 	flygonite: {
 		name: "Flygonite",
@@ -1554,5 +1554,187 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1099,
 		gen: 8,
 		desc: "If held by a Sirfetch\u2019d, this item allows it to Mega Evolve in battle.",
+	},
+	deciduite: {
+		name: "Deciduite",
+		spritenum: 578,
+		megaStone: "Decidueye-Mega",
+		megaEvolves: "Decidueye",
+		itemUser: ["Decidueye"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1100,
+		gen: 8,
+		desc: "If held by a Decidueye, this item allows it to Mega Evolve in battle.",
+	},
+	incinerite: {
+		name: "Incinerite",
+		spritenum: 578,
+		megaStone: "Incineroar-Mega",
+		megaEvolves: "Incineroar",
+		itemUser: ["Incineroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1101,
+		gen: 8,
+		desc: "If held by an Incineroar, this item allows it to Mega Evolve in battle.",
+	},
+	primarinite: {
+		name: "Primarinite",
+		spritenum: 578,
+		megaStone: "Primarina-Mega",
+		megaEvolves: "Primarina",
+		itemUser: ["Primarina"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1102,
+		gen: 8,
+		desc: "If held by a Primarina, this item allows it to Mega Evolve in battle.",
+	},
+	jynxite: {
+		name: "Jynxite",
+		spritenum: 578,
+		megaStone: "Jynx-Mega",
+		megaEvolves: "Jynx",
+		itemUser: ["Jynx"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1103,
+		gen: 8,
+		desc: "If held by a Jynx, this item allows it to Mega Evolve in battle.",
+	},
+	electivirite: {
+		name: "Electivirite",
+		spritenum: 578,
+		megaStone: "Electivire-Mega",
+		megaEvolves: "Electivire",
+		itemUser: ["Electivire"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1104,
+		gen: 8,
+		desc: "If held by an Electivire, this item allows it to Mega Evolve in battle.",
+	},
+	magmortarite: {
+		name: "Magmortarite",
+		spritenum: 578,
+		megaStone: "Magmortar-Mega",
+		megaEvolves: "Magmortar",
+		itemUser: ["Magmortar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1105,
+		gen: 8,
+		desc: "If held by a Magmortar, this item allows it to Mega Evolve in battle.",
+	},
+	granbite: {
+		name: "Granbite",
+		spritenum: 578,
+		megaStone: "Granbull-Mega",
+		megaEvolves: "Granbull",
+		itemUser: ["Granbull"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1106,
+		gen: 8,
+		desc: "If held by a Granbull, this item allows it to Mega Evolve in battle.",
+	},
+	mightyenite: {
+		name: "Mightyenite",
+		spritenum: 578,
+		megaStone: "Mightyena-Mega",
+		megaEvolves: "Mightyena",
+		itemUser: ["Mightyena"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1107,
+		gen: 8,
+		desc: "If held by a Mightyena, this item allows it to Mega Evolve in battle.",
+	},
+	stoutlandite: {
+		name: "Stoutlandite",
+		spritenum: 578,
+		megaStone: "Stoutland-Mega",
+		megaEvolves: "Stoutland",
+		itemUser: ["Stoutland"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1108,
+		gen: 8,
+		desc: "If held by a Stoutland, this item allows it to Mega Evolve in battle.",
+	},
+	victreebite: {
+		name: "Victreebite",
+		spritenum: 578,
+		megaStone: "Victreebel-Mega",
+		megaEvolves: "Victreebel",
+		itemUser: ["Victreebel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1109,
+		gen: 8,
+		desc: "If held by a Victreebel, this item allows it to Mega Evolve in battle.",
+	},
+	dodrionite: {
+		name: "Dodrionite",
+		spritenum: 578,
+		megaStone: "Dodrio-Mega",
+		megaEvolves: "Dodrio",
+		itemUser: ["Dodrio"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1110,
+		gen: 8,
+		desc: "If held by a Dodrio, this item allows it to Mega Evolve in battle.",
+	},
+	lanturnite: {
+		name: "Lanturnite",
+		spritenum: 578,
+		megaStone: "Lanturn-Mega",
+		megaEvolves: "Lanturn",
+		itemUser: ["Lanturn"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1111,
+		gen: 8,
+		desc: "If held by a Lanturn, this item allows it to Mega Evolve in battle.",
+	},
+	obstagoonite: {
+		name: "Obstagoonite",
+		spritenum: 578,
+		megaStone: "Obstagoon-Mega",
+		megaEvolves: "Obstagoon",
+		itemUser: ["Obstagoon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1112,
+		gen: 8,
+		desc: "If held by an Obstagoon, this item allows it to Mega Evolve in battle.",
 	},
 };

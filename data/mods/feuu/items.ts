@@ -18,12 +18,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Silvino-Mega",
 		megaEvolves: "Silvino",
 		itemUser: ["Silvino"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 757,
-		desc: "If held by a Silvino, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Silvino or Audiyem, this item allows it to Mega Evolve in battle.",
 	},
 	lopunnite: {
 		name: "Lopunnite",
@@ -104,12 +101,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Pincurchitar-Mega",
 		megaEvolves: "Pincurchitar",
 		itemUser: ["Pincurchitar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 669,
-		desc: "If held by a Pincurchitar, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Pincurchitar or Goatitar, this item allows it to Mega Evolve in battle.",
 	},
 	absolite: {
 		name: "Absolite",
@@ -130,10 +124,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Sableior-Mega",
 		megaEvolves: "Sableior",
 		itemUser: ["Sableior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 754,
 		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
 	},
@@ -182,12 +173,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Kokovoir-Mega",
 		megaEvolves: "Kokovoir",
 		itemUser: ["Kokovoir"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 657,
-		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Kokovoir or Goodevoir, this item allows it to Mega Evolve in battle.",
 	},
 	scizorite: {
 		name: "Scizorite",
@@ -356,5 +344,101 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 770,
 		desc: "If held by a Regibee, this item allows it to Mega Evolve in battle.",
+	},
+	cameruptite: {
+		name: "Cameruptite",
+		spritenum: 625,
+		megaStone: "Avarupt-Mega",
+		megaEvolves: "Avarupt",
+		itemUser: ["Avarupt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 767,
+		desc: "If held by an Avarupt or Wishirupti, this item allows it to Mega Evolve in battle.",
+	},
+	swampertite: {
+		name: "Swampertite",
+		spritenum: 612,
+		megaStone: "Swampflora-Mega",
+		megaEvolves: "Swampflora",
+		itemUser: ["Swampflora"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 752,
+		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+	},
+	mawilite: {
+		name: "Mawilite",
+		spritenum: 598,
+		megaStone: "Duramaw-Mega",
+		megaEvolves: "Duramaw",
+		itemUser: ["Duramaw"],
+		onTakeItem: false,
+		num: 681,
+		desc: "If held by a Duramaw, this item allows it to Mega Evolve in battle.",
+	},
+	burndrive: {
+		name: "Burn Drive",
+		spritenum: 54,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Fire',
+		forcedForme: "Litleesect-Burn",
+		itemUser: ["Litleesect-Burn"],
+		num: 118,
+		gen: 5,
+	},
+	chilldrive: {
+		name: "Chill Drive",
+		spritenum: 67,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Ice',
+		forcedForme: "Litleesect-Chill",
+		itemUser: ["Litleesect-Chill"],
+		num: 119,
+		gen: 5,
+	},
+	dousedrive: {
+		name: "Douse Drive",
+		spritenum: 103,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Water',
+		forcedForme: "Litleesect-Douse",
+		itemUser: ["Litleesect-Douse"],
+		num: 116,
+		gen: 5,
+	},
+	shockdrive: {
+		name: "Shock Drive",
+		spritenum: 442,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Electric',
+		forcedForme: "Litleesect-Shock",
+		itemUser: ["Litleesect-Shock"],
+		num: 117,
+		gen: 5,
 	},
 };

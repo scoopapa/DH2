@@ -624,4 +624,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pheromosa: {
 		tier: "OU",
 	},
+	reshiram: {
+		tier: "OU",
+	},
+	zekrom: {
+		tier: "OU",
+	},
 };

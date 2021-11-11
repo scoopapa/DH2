@@ -125,6 +125,100 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Attempts to paralyze holder at the end of every turn.",
 	},
+	lunarwing: {
+		name: "Lunar Wing",
+		spritenum: 180,
+		fling: {
+			basePower: 10,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.baseSpecies.name === 'Sompuer') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.baseSpecies.name === 'Sompuer') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 9053) || pokemon.baseSpecies.num === 9053) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Sompuer"],
+		num: -1047,
+		gen: 8,
+		desc: "If the holder is Sompuer, this Pokemon heals 12.5% of its max HP every turn.",
+	},
+	enigmaticwing: {
+		name: "Enigmatic Wing",
+		spritenum: 180,
+		fling: {
+			basePower: 10,
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.name === 'Sompuer') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.name === 'Sompuer') {
+				return this.chainModify(1.3);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 9053) || pokemon.baseSpecies.num === 9053) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Sompuer"],
+		num: -1048,
+		gen: 8,
+		desc: "If the holder is Sompuer, this Pokemon's attacks deal 1.3x damage.",
+	},
+	deepseascale: {
+		name: "Deep Sea Scale",
+		spritenum: 93,
+		onTakeItem: false,
+		fling: {
+			basePower: 30,
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Clamperl"],
+		num: 227,
+		gen: 3,
+	},
+	deepseatooth: {
+		name: "Deep Sea Tooth",
+		spritenum: 94,
+		onTakeItem: false,
+		fling: {
+			basePower: 90,
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Clamperl"],
+		num: 226,
+		gen: 3,
+	},
 
 // Z-Crystals
 	rhyperiumz: {

@@ -83,7 +83,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'litleo').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'stufful').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'rufflet').learnset.quickblitz = ['7T'];
-		this.modData('Learnsets', 'lopunny').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'tauros').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'eevee').learnset.quickblitz = ['7T'];
 		this.modData('Learnsets', 'firmlio').learnset.quickblitz = ['7T'];
@@ -231,7 +230,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'blacephalon').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'gastly').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'snorunt').learnset.hauntingdance = ['7T'];
-		this.modData('Learnsets', 'cubone').learnset.hauntingdance = ['7T'];
+
+		this.modData('Learnsets', 'marowakalola').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'oricorio').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'rowlet').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'jangmoo').learnset.hauntingdance = ['7T'];
