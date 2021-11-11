@@ -1028,6 +1028,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		dragontail: ["8L1"],
 		whirlpool: ["8L1"],
 		icywind: ["8L1"],
+		flipturn: ["8L1"],
 	},},
 	bellophus: {learnset: {
 		//peekaboo: ["8L1"],
