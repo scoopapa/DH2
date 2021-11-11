@@ -796,9 +796,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		dazzlinggleam: ["8L1"],
 		safeguard: ["8L1"],
 	},},
-	ultranaut: {learnset: {
+	ultranautv: {learnset: {
 		sacredsword: ["8L1"],
 		autotomize: ["8L1"],
+		swordsdance: ["8L1"],
 	},},
 	dragulonimbus: {learnset: {
 		//peekaboo: ["8L1"],
