@@ -439,7 +439,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*gourgeist: {
+	gourgeist: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -447,15 +447,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistlarge: {
+	gourgeistpulpy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistsuper: {
+	supergeist: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygarde: {
+	/*zygarde: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

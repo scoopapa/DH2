@@ -331,10 +331,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 5,
 		eggGroups: ["Water 1", "Water 3"],
 	},
-	dragalge: {
+	/*dragalge: {
 		inherit: true,
 		evos: ['Algalisk'],
-	},
+	},*/
 	algalisk: {
 		num: 23,
 		name: "Algalisk",
@@ -342,7 +342,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 85, atk: 75, def: 110, spa: 97, spd: 103, spe: 69},
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
 		weightkg: 130,
-		prevo: "Dragalge",
+		//prevo: "Dragalge",
 	},
 	ringoando: {
 		num: 24,

@@ -515,4 +515,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0.5,
 		num: 1014,
 	},
+	pulpup: {
+		/*onStart(source) {
+			if (source.hp >= source.maxhp - source.maxhp / 3) {
+				this.useMove('stockpile', source);
+			}
+			else if (source.hp <= source.maxhp / 3) {
+				this.useMove('stockpile', source) * 3;
+			}
+			else if (source.maxhp - source.maxhp / 3 > source.hp > source.maxhp / 3) {
+				this.useMove('stockpile', source) * 2;
+			}
+		},*/
+		name: "Pulp Up",
+		shortDesc: "(Uncoded) On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		rating: 3,
+		num: 1015,
+	},
 };

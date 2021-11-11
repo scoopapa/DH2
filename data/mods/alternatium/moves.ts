@@ -1003,4 +1003,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	feast: {
+		num: 1010,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile.",
+		name: "Feast",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		/*onHit(pokemon, atk, spa) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stockpile", target);
+		},*/
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 };
