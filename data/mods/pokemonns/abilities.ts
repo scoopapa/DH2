@@ -237,7 +237,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const pokemon of this.getAllActive()) {
 				if (!activated) {
-					this.add('-ability', source, 'Showdown');
+					this.add('-ability', source, 'Stubborn');
 				}
 				activated = true;
 				if (!pokemon.volatiles['healblock']) {
@@ -286,18 +286,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	weakspotter: {
 		name: "Weak Spotter",
-		onStart(pokemon) {
-			let totaldef = 0;
-			let totalspd = 0;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted) continue;
-				totaldef += target.getStat('def', false, true);
-				totalspd += target.getStat('spd', false, true);
-			}
-			if (totaldef && totaldef >= totalspd) {
-				this.boost({spa: 1});
-			} else if (totalspd) {
-				this.boost({atk: 1});
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1400, 0x1000]);
 			}
 		},
 		shortDesc: "On switch-in, Attack or Sp. Atk is raised 1 stage based on the foes' weaker Defense.",
@@ -413,7 +404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const pokemon of source.side.foe.active) {
 				if (!activated) {
-					this.add('-ability', source, 'Concussion');
+					this.add('-ability', source, 'Unnerve');
 				}
 				activated = true;
 				if (!pokemon.volatiles['embargo']) {
