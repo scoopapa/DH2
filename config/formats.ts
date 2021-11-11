@@ -815,7 +815,7 @@ export const Formats: FormatList = [
 			'Arachsoil', 'Sunkern-Alola', 'Sanddern',
 			'Kubfu', 'Urshifu', 'Urshifu-Alola', 'Urshifu-Rapid-Strike', 'Urshifu-Rapid-Strike-Alola', 'Tynamo', 'Tynamo-Alola', 'Eelektrik', 'Eelektrik-Alola', 'Eelektross', 'Eelektross-Alola', 'Onix', 'Onix-Alola', 
 			'Steelix', 'Steelix-Alola', 'Steelix-Mega', 'Steelix-Alola-Mega', 'Shelmet', 'Shelmet-Alola', 'Accelgor', 'Accelgor-Alola', 'Shinobug', 'Falinks', 'Falinks-Alola', 'Feebas-Alola', 
-			'Milotic-Alola',
+			'Milotic-Alola', 'Stethaaina'
 		],
 		mod: 'gen7dlcmons',
 		teambuilderFormat: 'OU',
@@ -1767,7 +1767,7 @@ export const Formats: FormatList = [
 			'Arachsoil', 'Sunkern-Alola', 'Sanddern',
 			'Kubfu', 'Urshifu-Alola', 'Urshifu-Rapid-Strike-Alola', 'Tynamo', 'Tynamo-Alola', 'Eelektrik', 'Eelektrik-Alola', 'Eelektross', 'Eelektross-Alola', 'Onix', 'Onix-Alola', 
 			'Steelix', 'Steelix-Alola', 'Steelix-Mega', 'Steelix-Alola-Mega', 'Shelmet', 'Shelmet-Alola', 'Accelgor', 'Accelgor-Alola', 'Shinobug', 'Falinks-Alola', 'Feebas-Alola', 
-			'Milotic-Alola',
+			'Milotic-Alola', 'Stethaaina'
 		],
 		gameType: 'doubles',
 		forcedLevel: 50,
