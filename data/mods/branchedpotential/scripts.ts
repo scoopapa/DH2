@@ -346,6 +346,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'jorunny').learnset.gunkshot = ['8L1'];
 		this.modData('Learnsets', 'jorunny').learnset.venomdrench = ['8L1'];
 		this.modData('Learnsets', 'jorunny').learnset.purify = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.toxicspikes = ['8L1'];
 		delete this.modData('Learnsets', 'jorunny').learnset.healingwish;
 		delete this.modData('Learnsets', 'jorunny').learnset.healbell;
 		delete this.modData('Learnsets', 'jorunny').learnset.fakeout;
