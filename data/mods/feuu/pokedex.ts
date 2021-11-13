@@ -2827,7 +2827,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Deciduskorch"],
 	},
 	scorjr: {
-		fusion: ['Scorbunny', 'Sizzlipede'],
+		fusion: ['Scorbunny', 'Mime Jr.'],
 		num: 1060,
 		name: "Scor Jr.",
 		types: ["Fire", "Psychic"],
