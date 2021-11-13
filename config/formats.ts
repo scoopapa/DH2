@@ -595,6 +595,27 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Blindsided",
+		mod: "blindsided",
+		desc: [
+			`<b>Blindsided</b>: A Pet Mod where users submit Fakemon without knowing the ones other people made.`
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/blindsided-slate-1-discussion-and-playtesting.3690242/">Blindsided on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1VQ2G1bbR3yDVbmmPJAQ7BAqBtGPlmP9u8q3F8Zx26X4">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'All Pokemon','Baton Pass',
+		],
+		unbanlist: [
+			'Asubakraken', 'Barad-Jur', 'Batana', 'Boreastra', 'Burrodon', 'Cachanaut', 'Casko', 'Dolphena', 'Dolphure', 'Drasapor', 'Elbalfatross',
+			'Faerosion', 'Firenra', 'Frozalisk', 'Gammaroo', 'Gloriode', 'Headrake', 'idk', 'Lunoccyx', 'Minocharge', 'Neuroboxin', 'Nixlean',
+			'Niyang', 'Ruinastle', 'Parakinesis', 'Poultergeist', 'Puremaid', 'Rosereve', 'Salava', 'Saltidan', 'Scorpiost', 'Spexel', 'Tactaval',
+			'Wendigoul', 'Vesuvenge', 'Vipier', 'Zawa'
+		],
+	},
+	{
 		name: "[Gen 8] Branched Potential",
 		desc: [
 			"<b>Branched Potential</b>: A mod that designs new branched evolutions (i.e., Slowpoke being able to evolve into either Slowbro or Slowking) for Pokemon that don't already have them.",
