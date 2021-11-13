@@ -1351,7 +1351,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 60, def: 40, spa: 60, spd: 40, spe: 80},
 		abilities: {0: "Oblivious", 1: "Hyper Cutter", H: "Magma Armor", S: "Storm Drain"},
 		weightkg: 4.5,
-		evos: ["Crustasea"],
+		evos: ["Crustasear"],
 		eggGroups: ["Water 3"],
 	},
 	crustasear: {
@@ -1362,7 +1362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Oblivious", 1: "Hyper Cutter", H: "Magma Armor", S: "Steam Engine"},
 		weightkg: 31,
 		prevo: "Crustasea",
-		evos: ["Crustasear"],
+		evos: ["Clawbyss"],
 		eggGroups: ["Water 3"],
 	},
 	clawbyss: {
