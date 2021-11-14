@@ -500,7 +500,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 130, spd: 90, spe: 35},
 		abilities: {0: "Mirror Armor", 1: "Dazzling", H: "Snow Cloak"},
-		//weightkg: Weight,
+		weightkg: 426,
 	},
 	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
 	
