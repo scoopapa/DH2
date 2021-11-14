@@ -3354,7 +3354,7 @@ lifedrain: {
 	},
 	waterpressure: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Pressure');
+			this.add('-ability', pokemon, 'Water Pressure');
 		},
 		onDeductPP(target, source) {
 			if (target.side === source.side) return;
