@@ -2903,6 +2903,41 @@ export const Formats: FormatList = [
         },
     },
 	{
+		name: "[Gen 8] Earth & Sky OU",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
+		],
+		ruleset: [ 'Earth & Sky',],
+		mod: 'earthsky',
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blaziken', 'Blastoise-Mega', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom',
+			/*'ES Uber', */'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+		],
+	},
+	{
+		name: "[Gen 8] Earth & Sky Egelas Dex",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/u/1/d/1N_kSuPC2XifKplZ9huLVlxmkYv3fCmt2">Egelan Pokedex</a>`,
+		],
+		ruleset: [ '[Gen 8] Earth & Sky OU', 'Egelas Pokedex',],
+		mod: 'earthsky',
+	},
+	{
+		name: "[Gen 8] Earth & Sky Ubers",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
+		],
+		ruleset: [ 'Earth & Sky',],
+		banlist: [],
+		mod: 'earthsky',
+		teambuilderFormat: 'Ubers',
+	},
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [
