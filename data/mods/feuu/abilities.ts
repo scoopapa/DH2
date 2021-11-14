@@ -3312,7 +3312,7 @@ lifedrain: {
         }
     },
     onAfterMove(target, source, move){
-        if (move.lifeDrain) this.heal(source.baseMaxhp / 10);
+        if (move.lifeDrain) this.heal(target.baseMaxhp / 8);
     },
     name: "Life Drain",
     shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
