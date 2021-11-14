@@ -385,14 +385,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Burn Drive",
 		spritenum: 54,
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
 				return false;
 			}
 			return true;
 		},
 		onDrive: 'Fire',
-		forcedForme: "Litleesect-Burn",
-		itemUser: ["Litleesect-Burn"],
+		forcedForme: "Litleesect-Burn", "Genebro-Galar-Burn",
+		itemUser: ["Litleesect-Burn", "Genebro-Galar-Burn"],
 		num: 118,
 		gen: 5,
 	},
@@ -400,14 +400,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Chill Drive",
 		spritenum: 67,
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
 				return false;
 			}
 			return true;
 		},
 		onDrive: 'Ice',
-		forcedForme: "Litleesect-Chill",
-		itemUser: ["Litleesect-Chill"],
+		forcedForme: "Litleesect-Chill", "Genebro-Galar-Chill",
+		itemUser: ["Litleesect-Chill", "Genebro-Galar-Chill"],
 		num: 119,
 		gen: 5,
 	},
@@ -415,14 +415,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Douse Drive",
 		spritenum: 103,
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
 				return false;
 			}
 			return true;
 		},
 		onDrive: 'Water',
-		forcedForme: "Litleesect-Douse",
-		itemUser: ["Litleesect-Douse"],
+		forcedForme: "Litleesect-Douse", "Genebro-Galar-Douse",
+		itemUser: ["Litleesect-Douse", "Genebro-Galar-Douse"],
 		num: 116,
 		gen: 5,
 	},
@@ -430,15 +430,28 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Shock Drive",
 		spritenum: 442,
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 129) || pokemon.baseSpecies.num === 129) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
 				return false;
 			}
 			return true;
 		},
 		onDrive: 'Electric',
-		forcedForme: "Litleesect-Shock",
-		itemUser: ["Litleesect-Shock"],
+		forcedForme: "Litleesect-Shock", "Genebro-Galar-Shock",
+		itemUser: ["Litleesect-Shock", "Genebro-Galar-Shock"],
 		num: 117,
 		gen: 5,
+	},
+	galladite: {
+		name: "Galladite",
+		spritenum: 616,
+		megaStone: "Galsola-Mega",
+		megaEvolves: "Galsola",
+		itemUser: ["Galsola"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 756,
+		desc: "If held by a Galsola, this item allows it to Mega Evolve in battle.",
 	},
 };
