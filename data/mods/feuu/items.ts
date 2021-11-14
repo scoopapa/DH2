@@ -391,7 +391,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		onDrive: 'Fire',
-		forcedForme: "Litleesect-Burn", "Genebro-Galar-Burn",
+		forcedForme: ["Litleesect-Burn", "Genebro-Galar-Burn"],
 		itemUser: ["Litleesect-Burn", "Genebro-Galar-Burn"],
 		num: 118,
 		gen: 5,
@@ -406,7 +406,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		onDrive: 'Ice',
-		forcedForme: "Litleesect-Chill", "Genebro-Galar-Chill",
+		forcedForme: ["Litleesect-Chill", "Genebro-Galar-Chill"],
 		itemUser: ["Litleesect-Chill", "Genebro-Galar-Chill"],
 		num: 119,
 		gen: 5,
@@ -421,7 +421,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		onDrive: 'Water',
-		forcedForme: "Litleesect-Douse", "Genebro-Galar-Douse",
+		forcedForme: ["Litleesect-Douse", "Genebro-Galar-Douse"],
 		itemUser: ["Litleesect-Douse", "Genebro-Galar-Douse"],
 		num: 116,
 		gen: 5,
@@ -436,7 +436,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		onDrive: 'Electric',
-		forcedForme: "Litleesect-Shock", "Genebro-Galar-Shock",
+		forcedForme: ["Litleesect-Shock", "Genebro-Galar-Shock"],
 		itemUser: ["Litleesect-Shock", "Genebro-Galar-Shock"],
 		num: 117,
 		gen: 5,
