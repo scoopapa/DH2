@@ -242,7 +242,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
-					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
