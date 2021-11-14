@@ -1160,6 +1160,71 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 		requiredItem: "Audinite",
 	},
+	eelektoad: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["voltswitch", "scald", "stealthrock", "knockoff"],
+		randomBattleLevel: 79,
+	},
+	dialgast: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["scorchingsands", "shoreup", "stealthrock", "dracometeor"],
+		randomBattleLevel: 79,
+	},
+	galsola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["trickroom", "closecombat", "stoneedge", "tripleaxel"],
+		randomBattleLevel: 79,
+	},
+	galsolamega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["swordsdance", "closecombat", "stoneedge", "tripleaxel"],
+		randomBattleLevel: 79,
+		requiredItem: "Galladite",
+	},
+	genebrogalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "flamethrower", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+	},
+	genebrogalardouse: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Douse Drive",
+	},
+	genebrogalarburn: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Burn Drive",
+	},
+	genebrogalarshock: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Shock Drive",
+	},
+	genebrogalarchill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Chill Drive",
+	},
+	hatterune: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["earthpower", "dazzlinggleam", "nuzzle", "stealthrock"],
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -1729,6 +1794,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	hatamaskgalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	tynapole: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -1742,6 +1815,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	mrbootgalar: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	palpitrik: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
