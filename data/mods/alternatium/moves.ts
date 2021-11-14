@@ -1025,4 +1025,47 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 	},
+	gulpmissle: {
+		num: 1011,
+		accuracy: 100,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.id === 'cramorant' && !target.newlySwitched || !this.queue.willMove(target)) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "If Cramorant: 1.5x power; if Swimmer: Summons rain, when moves last.",
+		name: "Gulp Missle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		self: {
+			onHit(source, target) {
+				if (!source.species.id !== 'cramorantswimmer') return;
+				if (!target.newlySwitched || !this.queue.willMove(target)) {
+					this.field.setWeather('raindance');
+				}
+			},
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	oilslick: {
+		num: 1012,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "User switches out after damaging the target.",
+		name: "Oilslick",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
 };

@@ -618,20 +618,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	magearnaoriginal: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
+	},*/
+	cramorant: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
 	},
-	toxtricity: {
+	cramorantswimmer: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
+	cramorantgorging: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
+	/*toxtricity: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
 	toxtricitylowkey: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},
+	},*/
 	eiscue: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	indeedee: {
+	eiscuenoice: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
+	/*indeedee: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
