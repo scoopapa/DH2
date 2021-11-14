@@ -170,6 +170,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1007,
 	},
 	flameboyant: {
+		shortDesc: "Special Moxie but your defense lowers by 1 when it activates.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({def: -1 * length, spa: length}, source);
@@ -204,8 +205,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const pokemon = this.effectData.target;
             if (target.side === pokemon.side) return;
             if (effect && effect.id === 'brn') {
-                pokemon.heal(pokemon.baseMaxHp / 8);
-                this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+                this.heal(pokemon.baseMaxhp / 8, pokemon);
             }
 		},
 		name: "Immolate",

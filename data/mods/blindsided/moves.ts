@@ -897,6 +897,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     }
                 }
             },
+			onEnd(side) {
+				this.add('message', 'The Water Wall faded away')
+			},
 		},
 		secondary: null,
 		target: "allySide",
