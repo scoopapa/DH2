@@ -4045,11 +4045,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (move.flags['punch']) {
-				this.boost({def: -1, spe: 2}, source, source);
-			}
-		},
+      onAfterMove(target, source, move) {
+          if (move.flags['punch']) {
+             this.boost({def: -1, spe: 2});
+          }
+      },
 		name: "Boulder Fists",
 		shortDesc: "This Pokemon's punching moves have 1.2x and give it -1 Def & +2 Spe.",
 	},	
