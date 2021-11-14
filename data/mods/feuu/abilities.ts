@@ -3294,27 +3294,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
 	},	
 */
-	lifedrain: {
-		onBasePowerPriority: 30,
-		onBasePower(basePower, attacker, defender, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			this.debug('Base Power: ' + basePowerAfterMultiplier);
-			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Life Drain boost');
-				return this.chainModify(1.5);
-				this.heal(attacker.baseMaxhp / 8);
-				this.add('-heal', attacker, attacker.getHealth, '[from] ability: Life Drain');
-			}
-		},
-		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-			if (effect.id === 'psn' || effect.id === 'tox') {
-				return false;
-			}
-		},
-		name: "Life Drain",
-		shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
-	},	
+lifedrain: {
+    onBasePowerPriority: 30,
+    onBasePower(basePower, attacker, defender, move) {
+        const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+        this.debug('Base Power: ' + basePowerAfterMultiplier);
+        if (basePowerAfterMultiplier <= 60) {
+            this.debug('Life Drain boost');
+            move.lifeDrain = true;
+            return this.chainModify(1.5);
+        }
+    },
+    onDamagePriority: 1,
+    onDamage(damage, target, source, effect) {
+        if (effect.id === 'psn' || effect.id === 'tox') {
+            return false;
+        }
+    },
+    onAfterHit(target, source, move){
+        if (move.lifeDrain) this.heal(source.baseMaxhp / 8);
+    },
+    name: "Life Drain",
+    shortDesc: "Moves with ≤60 BP have 1.5x power and heal this Pokemon by 12.5%; Immune to poison damage.",
+},
 	metalhead: {
 		onStart(pokemon) {
 			let activated = false;
