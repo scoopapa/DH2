@@ -3311,7 +3311,7 @@ lifedrain: {
             return false;
         }
     },
-    onAfterHit(target, source, move){
+    onAfterMove(target, source, move){
         if (move.lifeDrain) this.heal(source.baseMaxhp / 8);
     },
     name: "Life Drain",
