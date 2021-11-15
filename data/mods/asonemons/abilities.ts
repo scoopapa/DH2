@@ -40,4 +40,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Tentacruel)",
 		shortDesc: "The combination of Drizzle and Rain Dish.",
 	},
+	asonegigalith: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		name: "As One (Gigalith)",
+		shortDesc: "The combination of Sand Force and Sand Stream.",
+	},
 };
