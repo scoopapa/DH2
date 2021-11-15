@@ -3474,7 +3474,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			outrage: ["8L1"],
 			protect: ["8L1"],
 			psychic: ["8L1"],
-			psyshock​: ["8L1"],
+			psyshock: ["8L1"],
 			rest: ["8L1"],
 			round: ["8L1"],
 			sleeptalk: ["8L1"],
