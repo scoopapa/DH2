@@ -15,4 +15,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	butterfreeangler: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+	dedenneluchador: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
