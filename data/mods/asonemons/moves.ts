@@ -70,4 +70,44 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	baitsplash: {
+		num: 831,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		name: "Bait Splash",
+        shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+   hamsterslam: {
+        accuracy: 100,
+        basePower: 45,
+        category: "Physical",
+        desc: "Hits twice. First Fighting then Electric.",
+        shortDesc: "Hits 2 times in one turn.",
+        name: "Hamster Slam",
+        pp: 10,
+        priority: 0,
+        flags: {contact: 1, protect: 1, mirror: 1},
+        multihit: 2,
+        onModifyMove(move) {
+           if (move.hit === 1) {
+                move.type === 'Fighting';
+            }
+           if (move.hit === 2) {
+                move.type === 'Electric';
+            }
+        },
+        secondary: false,
+        target: "normal",
+        type: "Fighting",
+        contestType: "Tough",
+    },
 };
