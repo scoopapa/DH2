@@ -28,5 +28,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'pelipperink').learnset.inkgulp = ['8L1'];
 		
 		this.modData('Learnsets', 'excadrillboulder').learnset.bouldertoss = ['8L1'];
+		
+		this.modData('Learnsets', 'vanilluxefur').learnset.icescream = ['8L1'];
 	},
 };
