@@ -7,4 +7,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AsOUne",
 		doublesTier: "AsOUne",
 	},	
+	excadrillboulder: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
