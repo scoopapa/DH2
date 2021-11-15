@@ -26,4 +26,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Gigalith)"},
 		weightkg: 300.4,
 	},
+	vanilluxefur: {
+		fusion: ['Vanilluxe', 'Beartic'],
+		num: 4,
+		name: "Vanilluxe-Fur",
+		types: ["Ice"],
+		baseStats: {hp: 90, atk: 90, def: 115, spa: 124, spd: 115, spe: 60},
+		abilities: {0: "As One (Beartic)"},
+		weightkg: 311.5,
+	},
 };
