@@ -106,6 +106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
             }
         },
         secondary: false,
+		  type: move.type,
         target: "normal",
         contestType: "Tough",
     },
