@@ -46,10 +46,80 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const dmgMod = [0x1000, 0x14CC, 0x1CCC, 0x2000];
 				const numConsecutive = this.effectData.numConsecutive > 3 ? 3 : this.effectData.numConsecutive;
 				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
-        }
+			  }
 			},
 		},
 		name: "Binge Eater",
-    shortDesc: "This Pokemon's Food-type attacks deal more damage with consecutive hits.",
+      shortDesc: "This Pokemon's Food-type attacks deal more damage with consecutive hits.",
+	},
+	ferocity: {
+		onModifyMove(move) {
+			if (move.type === 'Feral') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				boosts: {
+					def: -1,
+				},
+				ability: this.dex.getAbility('ferocity'),
+			});
+		},
+		name: "Ferocity",
+    shortDesc: "The user's Feral-type moves have a 30% chance to drop the target's Defense.",
+	},
+	foodpoisoning: {
+		onModifyMove(move) {
+			if (move.type === 'Food') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('foodpoisoning'),
+			});
+		},
+		name: "Food Poisoning",
+    shortDesc: "The user's Food-type moves have a 30% chance to poison the target.",
+	},
+	relentless: {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Outrage' || move.name === 'Thrash' || move.name === 'Petal Dance') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Relentless",
+    shortDesc: "Moves that confuse the user due to fatigue have 1.5x power.",
+	},
+	runaway: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Feral') {
+				this.boost({spe: 2});
+			}
+		},
+		name: "Run Away",
+		num: 50,
+		shortDesc: "This Pokemon's Speed goes up 2 stages when hit by a Feral-type move.",
+	},
+	scraps: {
+    onAfterMove(target, source, move){
+			if (move.type === 'Food') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		name: "Scraps",
+		shortDesc: "Using a Food-type move heals the user for 12.5% of its max HP.",
+	},
+	sugarrush: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Food') {
+				this.boost({spe: 2});
+			}
+		},
+		name: "Sugar Rush",
+		shortDesc: "This Pokemon's Speed goes up 2 stages when hit by a Food-type move.",
 	},
 };
