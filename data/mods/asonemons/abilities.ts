@@ -74,4 +74,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Beartic)",
 		shortDesc: "The combination of Snow Warning and Slush Rush.",
 	},
+	asonelanturn: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return accuracy * 1.3;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: As One (Lanturn)');
+				}
+				return null;
+			}
+		},
+		name: "As One (Lanturn)",
+		shortDesc: "The combination of Compound Eyes and Volt Absorb.",
+	},
+	asonehawlucha: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onEatItem(item, pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "As One (Hawlucha)",
+		shortDesc: "The combination of Cheek Pouch and Mold Breaker.",
+	},
 };
