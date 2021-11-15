@@ -36,4 +36,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
+	bouldertoss: {
+		num: 829,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Boulder Toss",
+		shortDesc: "No additional effect.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
 };
