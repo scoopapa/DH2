@@ -477,4 +477,41 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Hydration", H: "Flower Gift"},
 		weightkg: 38,
 	},
+	//Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
+	dunipede: {
+		num: 1048,
+		name: "Dunipede",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 103, atk: 110, def: 80, spa: 72, spd: 60, spe: 103},
+		abilities: {0: "Sand Veil", 1: "Sand Force", H: "Rough Skin"},
+		weightkg: 190,
+	},
+	nightmaleon: {
+		num: 1049,
+		name: "Nightmaleon",
+		types: ["Dark", "Dragon"],
+		baseStats: {hp: 65, atk: 120, def: 70, spa: 80, spd: 130, spe: 85},
+		abilities: {0: "Unnerve", 1: "Protean", H: "Psychic Surge"},
+		weightkg: 18,
+	},
+	palisage: {
+		num: 1050,
+		name: "Palisage",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 90, atk: 110, def: 80, spa: 130, spd: 90, spe: 35},
+		abilities: {0: "Mirror Armor", 1: "Dazzling", H: "Snow Cloak"},
+		weightkg: 426,
+	},
+	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
+	
+	/*
+	template: {
+		num: 1000,
+		name: "Template",
+		types: ["Type", "Type"],
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+		abilities: {0: "Ability", 1: "Ability", H: "Ability"},
+		weightkg: Weight,
+	},
+	*/
 };
