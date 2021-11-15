@@ -1833,7 +1833,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 875,
 		name: "Eiscue",
 		types: ["Ice", "Water"],
-		baseStats: {hp: 100, atk: 80, def: 135, spa: 105 spd: 110, spe: 50},
+		baseStats: {hp: 100, atk: 80, def: 135, spa: 105, spd: 110, spe: 50},
 		abilities: {0: "Ice Face"},
 		heightm: 1.4,
 		weightkg: 89,
