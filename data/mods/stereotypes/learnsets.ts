@@ -3480,11 +3480,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			snore: ["8L1"],
 			substitute: ["8L1"],
-			suckerpunch​: ["8L1"],
+			suckerpunch: ["8L1"],
 			swagger: ["8L1"],
 			takedown: ["8L1"],
 			taunt: ["8L1"],
-			teleport​: ["8L1"],
+			teleport: ["8L1"],
 		},
 	},
 	palisage: {
