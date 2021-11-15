@@ -50,4 +50,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Tough",
 	},
+	icescream: {
+		num: 830,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Ice Scream",
+        shortDesc: "Lowers the user's Sp. Atk by 2.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 };
