@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-export const Learnsets: {["8L1"]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	clefableanti: {
 		learnset: {
 			afteryou: ["8L1"],
