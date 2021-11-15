@@ -35,4 +35,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Beartic)"},
 		weightkg: 311.5,
 	},
+	butterfreeangler: {
+		fusion: ['Butterfree', 'Lanturn'],
+		num: 5,
+		name: "Butterfree-Angler",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 125, atk: 83, def: 58, spa: 106, spd: 76, spe: 67},
+		abilities: {0: "As One (Lanturn)"},
+		weightkg: 54.5,
+	},
+   dedenneluchador: {
+		fusion: ['Dedenne', 'Hawlucha'],
+		num: 6,
+		name: "Dedenne-Luchador",
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 78, atk: 120, def: 95, spa: 74, spd: 83, spe: 121},
+		abilities: {0: "As One (Hawlucha)"},
+		weightkg: 23.7,
+	},
 };
