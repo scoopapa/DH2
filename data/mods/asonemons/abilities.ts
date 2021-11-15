@@ -57,6 +57,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.setWeather('sandstorm');
 		},
 		name: "As One (Gigalith)",
-		shortDesc: "The combination of Sand Force and Sand Stream.",
+		shortDesc: "The combination of Sand Stream and Sand Force.",
+	},
+	asonebeartic: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(2);
+			}
+		},
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		name: "As One (Beartic)",
+		shortDesc: "The combination of Snow Warning and Slush Rush.",
 	},
 };
