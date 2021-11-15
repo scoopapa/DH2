@@ -125,7 +125,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	clefable: {
 		tier: "OU",
 	},
-	anticlefable: {
+	clefableanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -141,7 +141,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	ninetalesalola: {
 		tier: "OU",
 	},
-	antininetalesalola: {
+	ninetalesalolaanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -286,7 +286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	slowking: {
 		tier: "UU",
 	},
-	antislowking: {
+	slowkinganti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -407,7 +407,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	blissey: {
 		tier: "OU",
 	},
-	antiblissey: {
+	blisseyanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -594,7 +594,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dragonite: {
 		tier: "OU",
 	},
-	antidragonite: {
+	dragoniteanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -672,6 +672,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	weavile: {
 		tier: "OU",
+	},
+	weavileanti: {
+		tier: "OU",
+		isModded: true,
 	},
 	swinub: {
 		tier: "LC",
@@ -766,7 +770,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	swampert: {
 		tier: "UU",
 	},
-	antiswampert: {
+	swampertanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -1081,7 +1085,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	garchomp: {
 		tier: "OU",
 	},
-	antigarchomp: {
+	garchompanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -1417,7 +1421,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	ferrothorn: {
 		tier: "OU",
 	},
-	antiferrothorn: {
+	ferrothornanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -1565,14 +1569,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	landorustherian: {
 		tier: "OU",
 	},
-	antilandorustherian: {
+	landorustheriananti: {
 		tier: "OU",
 		isModded: true,
 	},
 	kyurem: {
 		tier: "OU",
 	},
-	antikyurem: {
+	kyuremanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -1853,7 +1857,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	toxapex: {
 		tier: "OU",
 	},
-	antitoxapex: {
+	toxapexanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -2010,7 +2014,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	tapukoko: {
 		tier: "OU",
 	},
-	antitapukoko: {
+	tapukokoanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -2022,6 +2026,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tapufini: {
 		tier: "OU",
+	},
+	tapufinianti: {
+		tier: "OU",
+		isModded: true,
 	},
 	cosmog: {
 		tier: "LC",
@@ -2053,7 +2061,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kartana: {
 		tier: "OU",
 	},
-	antikartana: {
+	kartanaanti: {
 		tier: "OU",
 		isModded: true,
 	},
@@ -2357,7 +2365,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	arctozolt: {
 		tier: "UUBL",
 	},
-	antiarctozolt: {
+	arctozoltanti: {
 		tier: "OU",
 		isModded: true,
 	},

@@ -831,16 +831,6 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['AU', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'PUBL', 'PU', '(PU)', 'NFE', 'LC'];
-			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
-				if ( !allowedTiers.includes(template.tier) ) {
-					return [set.species + ' is not useable in Döppelgangers.'];
-				}
-			}
-		},
 		mod: 'doeppelgangers',
 	},
 	{
