@@ -757,7 +757,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
-	hardrock: {
+	hardstone: {
 		inherit: true,
 		onBasePower(basePower, user, target, move) {
 			if (move && (move.type === 'Rock' || (move.twoType && move.twoType === 'Rock'))) {
