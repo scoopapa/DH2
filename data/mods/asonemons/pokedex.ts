@@ -17,4 +17,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Tentacruel)"},
 		weightkg: 83,
 	},
+	excadrillboulder: {
+		fusion: ['Excadrill', 'Gigalith'],
+		num: 3,
+		name: "Excadrill-Boulder",
+		types: ["Steel", "Rock"],
+		baseStats: {hp: 85, atk: 135, def: 130, spa: 90, spd: 80, spe: 79},
+		abilities: {0: "As One (Gigalith)"},
+		weightkg: 300.4,
+	},
 };
