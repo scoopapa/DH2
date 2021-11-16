@@ -46,8 +46,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		boosts: {
-			spa: 1,
-			spd: 1,
+			atk: 1,
+			def: 1,
 			spe: 1,
 		},
 		secondary: null,
