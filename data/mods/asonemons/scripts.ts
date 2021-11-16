@@ -38,5 +38,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'shucklebrick').learnset.shellstack = ['8L1'];
 		
 		this.modData('Learnsets', 'munchlaxforest').learnset.biobelly = ['8L1'];
+		
+		this.modData('Learnsets', 'bunnelbyworker').learnset.hardwork = ['8L1'];
 	},
 };
