@@ -86,6 +86,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	hamster: {
+        accuracy: 100,
+        basePower: 45,
+        category: "Physical",
+        desc: "Hits twice. First Fighting then Electric.",
+        shortDesc: "Hits 2 times in one turn.",
+        name: "Hamster",
+        pp: 10,
+        priority: 0,
+        flags: {contact: 1, protect: 1, mirror: 1},
+        secondary: false,
+		  type: "Fighting",
+        target: "normal",
+        contestType: "Tough",
+    },
+	slam: {
+        accuracy: 100,
+        basePower: 45,
+        category: "Physical",
+        desc: "Hits twice. First Fighting then Electric.",
+        shortDesc: "Hits 2 times in one turn.",
+        name: "Hamster",
+        pp: 10,
+        priority: 0,
+        flags: {contact: 1, protect: 1, mirror: 1},
+        secondary: false,
+		  type: "Electric",
+        target: "normal",
+        contestType: "Tough",
+    },
    hamsterslam: {
         accuracy: 100,
         basePower: 45,
@@ -96,18 +126,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
-        multihit: 2,
-        onModifyMove(move) {
-           if (move.hit === 1) {
-                move.type === 'Fighting';
-            }
-           if (move.hit === 2) {
-                move.type === 'Electric';
-            }
-        },
         secondary: false,
-		  type: move.type,
+		  type: "Fighting",
         target: "normal",
         contestType: "Tough",
+		  onTryHit: function(source){
+			  this.useMove('Hamster', source);
+			  this.useMove('Slam', source);
+		  }
     },
 };
