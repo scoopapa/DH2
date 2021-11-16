@@ -131,8 +131,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1},
-		onHit(pokemon) {
-			return pokemon.cureStatus() || success;
+		onHit(pokemon, source) {
+			this.add('-activate', source, 'move: Aromatherapy');
+			let side = pokemon.side;
+			let success = false;
+			return success;
 		},
 		drain: [1, 2],
 		secondary: null,
