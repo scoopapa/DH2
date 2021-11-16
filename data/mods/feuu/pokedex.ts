@@ -2653,7 +2653,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Bronlin",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 50, atk: 35, def: 95, spa: 43, spd: 75, spe: 21},
-		abilities: {0: "Fat Proof"},
+		abilities: {0: "Fridge"},
 		weightkg: 30.5,
 		evos: ["Brontun"],
 	},

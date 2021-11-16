@@ -694,6 +694,24 @@ export const Formats: FormatList = [
 		unbanlist: ['porygon2', 'jellicent', 'crabominable', 'oricoriosensu', 'wigglytuff', 'wormadamtrash', 'heatmor', 'beheeyem', 'golbat', 'eelektross', 'togedemaru', 'garchomp', 'whimsicott', 'skuntank', 'lycanrocdusk', 'frosmoth', 'dragonair', 'reshiram', 'aegislash', 'camerupt', 'explosion', 'chesnaught', 'empoleon', 'delibird', 'adaptive', 'elemental', 'contradict', 'countershield', 'embargoact', 'exhaust', 'forager', 'identitytheft', 'inextremis', 'lagbehind', 'prepared', 'survey', 'terror', 'triggerfinger', 'unflagging'],
 	},
 	{
+		name: "[Gen 8] CCAPM 2021",
+		desc: `<b>Community Create-a-Pet Mod 2021</b>: Redoing Typing: The Mod, where 2 new types were created alongside numerous moves, items, and abilities.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/community-create-a-pet-mod-2021.3693263/">CCAPM 2021 on Smogon Forums</a>`,
+      `&bullet; <a href="https://docs.google.com/spreadsheets/d/1YfSmgK0CSPYT5FiRdJR1vFGLvxoQCRKjJbmejL1niQw/edit?usp=sharing>Spreadsheet</a>`,
+		],
+		mod: 'ccapm2021',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Dracovish', 'Dragapult', 'Spectrier', 
+		],
+	},
+	{
 		name: "[Gen 8] Clean Slate 2",
 		desc: `Ubers clean slate. Ubers clean slate.`,
 		threads: [
@@ -1643,6 +1661,17 @@ export const Formats: FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 8] CCAPM 2021 Galar Dex",
+		desc: `<b>Community Create-a-Pet Mod 2021</b>: Redoing Typing: The Mod, where 2 new types were created alongside numerous moves, items, and abilities.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/community-create-a-pet-mod-2021.3693263/">CCAPM 2021 on Smogon Forums</a>`,
+      `&bullet; <a href="https://docs.google.com/spreadsheets/d/1YfSmgK0CSPYT5FiRdJR1vFGLvxoQCRKjJbmejL1niQw/edit?usp=sharing>Spreadsheet</a>`,
+		],
+		mod: 'ccapm2021',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+  },
+  {
 		name: "[Gen 8] Blindsided VGC",
 		mod: "blindsided",
 		desc: [
