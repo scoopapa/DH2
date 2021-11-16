@@ -1535,7 +1535,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
 			//Change generational accessibility
 			if(unavailablePokemon.includes(pokemonID) || pokemonID.endsWith('gmax')){
-				pokemon.isNonstandard === "Past";
+				pokemon.isNonstandard = "Past";
+				if(this.dex.FormatsData[pokemonID]) this.data.FormatsData[pokemonID].tier = "Illegal";
 				continue;
 			} else if(this.data.FormatsData[pokemonID] && this.data.FormatsData[pokemonID].isNonstandard === "Past") {
 				//console.log(pokemon.name + " restoration");
