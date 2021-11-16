@@ -54,7 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ferocity: {
 		onModifyMove(move) {
-			if (move.type === 'Feral') return;
+			if (!move.type === 'Feral') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
@@ -71,7 +71,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	foodpoisoning: {
 		onModifyMove(move) {
-			if (move.type === 'Food') return;
+			if (!move.type === 'Food') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
