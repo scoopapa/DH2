@@ -2803,8 +2803,8 @@ export const Formats: FormatList = [
 		mod: 'asonemons',
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Data Mod','Sleep Clause Mod', 'Species Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause'],
-		banlist: ['All Pokemon', 'Hidden Power'],
-		unbanlist: ['Yanmega-Shell', 'Pelipper-Ink', 'Excadrill-Boulder', 'Vanilluxe-Fur', 'Butterfree-Angler', 'Dedenne-Luchador'],
+		banlist: ['All Pokemon', 'Hidden Power', 'Pursuit'],
+		unbanlist: ['Yanmega-Shell', 'Pelipper-Ink', 'Excadrill-Boulder', 'Vanilluxe-Fur', 'Butterfree-Angler', 'Dedenne-Luchador', 'Shuckle-Brick'],
 	},
 	{
         name: "[Gen 8] Duomod",
