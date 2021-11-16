@@ -130,9 +130,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  type: "Fighting",
         target: "normal",
         contestType: "Tough",
-		  onTryHit: function(source){
-			  this.useMove('Hamster', source);
-			  this.useMove('Slam', source);
+		  onTryHit: function(target){
+			  this.useMove('Hamster', target);
+			  this.useMove('Slam', target);
 		  }
     },
 };
