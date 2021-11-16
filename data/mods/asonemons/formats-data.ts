@@ -31,4 +31,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	bunnelbyworker: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},
 };
