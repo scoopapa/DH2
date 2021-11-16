@@ -123,4 +123,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	biobelly: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Bio Belly",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1},
+		onHit(pokemon) {
+			return pokemon.cureStatus() || success;
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
 };
