@@ -140,4 +140,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+	hardwork: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hard Work",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			atk: 1,
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Cool",
+	},
 };
