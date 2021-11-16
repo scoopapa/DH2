@@ -108,7 +108,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		this.add('turn', this.turn);
 		this.makeRequest('move');
-	}
 },
 	init: function () {
 /*
