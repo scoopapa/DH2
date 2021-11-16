@@ -34,5 +34,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'butterfreeangler').learnset.baitsplash = ['8L1'];
 		
 		this.modData('Learnsets', 'dedenneluchador').learnset.hamsterslam = ['8L1'];
+		
+		this.modData('Learnsets', 'shucklebrick').learnset.shellstack = ['8L1'];
 	},
 };
