@@ -144,4 +144,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Stakataka)",
 		shortDesc: "The combination of Gluttony and Beast Boost.",
 	},
+	asonetorterra: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onCriticalHit: false,
+		name: "As One (Torterra)",
+		shortDesc: "The combination of Thick Fat and Overgrow.",
+	},
 };
