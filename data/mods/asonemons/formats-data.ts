@@ -35,4 +35,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},
+	sirfetchdfantasy: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},
 };
