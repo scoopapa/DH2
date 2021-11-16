@@ -166,4 +166,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Torterra)",
 		shortDesc: "The combination of Thick Fat and Overgrow.",
 	},
+	asonemudsdale: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(2);
+		},
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		name: "As One (Mudsdale)",
+		shortDesc: "The combination of Huge Power and Stamina.",
+	},
 };
