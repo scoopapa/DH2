@@ -122,4 +122,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Hawlucha)",
 		shortDesc: "The combination of Cheek Pouch and Unburden.",
 	},
+	asonestakataka: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Gluttony');
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "As One (Stakataka)",
+		shortDesc: "The combination of Gluttony and Beast Boost.",
+	},
 };
