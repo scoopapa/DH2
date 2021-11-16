@@ -27,4 +27,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},
+	munchlaxforest: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
