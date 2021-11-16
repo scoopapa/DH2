@@ -561,23 +561,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Feral",
 		contestType: "Beautiful",
 	},
-	whiskaway: {// will add proper activation for Defense boost later
+	whiskaway: {// mostly working placeholder
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "Removes hazards from the user's side. +1 Def if successful",
+    	shortDesc: "Removes hazards from the user's side of the field. +1 Def if successful.",
 		isViable: true,
 		name: "Whisk Away",
-		pp: 40,
+		pp: 10,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quiver Dance", target);
 		},
 		onAfterHit(target, pokemon) {
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
-				this.add('-end', pokemon, 'Leech Seed', '[from] move: Whisk Away', '[of] ' + pokemon);
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
@@ -605,11 +605,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			boosts: {
-				def: 1,
+			self: {
+				boosts: {
+					def: 1,
+				},
 			},
 		},
-		target: "self",
+		target: "normal",
 		type: "Food",
 		contestType: "Cool",
 	},
