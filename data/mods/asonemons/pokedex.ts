@@ -49,7 +49,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 6,
 		name: "Dedenne-Luchador",
 		types: ["Electric", "Fighting"],
-		baseStats: {hp: 78, atk: 120, def: 95, spa: 74, spd: 83, spe: 121},
+		baseStats: {hp: 78, atk: 120, def: 95, spa: 74, spd: 86, spe: 118},
 		abilities: {0: "As One (Hawlucha)"},
 		weightkg: 23.7,
 	},
@@ -61,5 +61,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 61, atk: 131, def: 231, spa: 117, spd: 101, spe: 13},
 		abilities: {0: "As One (Stakataka)"},
 		weightkg: 840.5,
+	},
+	munchlaxforest: {
+		fusion: ['Munchlax', 'Torterra'],
+		num: 8,
+		name: "Munchlax-Forest",
+		types: ["Normal", "Grass"],
+		baseStats: {hp: 95, atk: 109, def: 130, spa: 95, spd: 85, spe: 76},
+		abilities: {0: "As One (Torterra)"},
+		weightkg: 415,
 	},
 };
