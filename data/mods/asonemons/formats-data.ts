@@ -23,4 +23,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	shucklebrick: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},
 };
