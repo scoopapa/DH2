@@ -51,7 +51,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
+		onSourceTryMove(attacker, defender, move) {
     		if (attacker.ateBerry) move.secondary = {chance: 100, status: 'tox'};
 		},
 		secondary: {
