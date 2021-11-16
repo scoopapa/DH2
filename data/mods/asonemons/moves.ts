@@ -157,4 +157,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	excaliburslash: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Excalibur Slash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cool",
+	},
 };
