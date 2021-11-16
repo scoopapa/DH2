@@ -284,6 +284,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		mudshot: ["8L1"],
 		rocktomb: ["8L1"],
 		strugglebug: ["8L1"],
+		meteorbeam: ["8L1"],
 	},},
 	kheprise: {learnset: {
 		//peekaboo: ["8L1"],
