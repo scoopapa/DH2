@@ -532,4 +532,54 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 1015,
 	},
+	asonearrokuda: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Mold Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		isPermanent: true,
+		name: "As One (Arrokuda)",
+		shortDesc: "Mold Breaker + Swift Swim",
+		rating: 4,
+		num: 1016,
+	},
+	iceface: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Ice Face weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Ice Face stronger');
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Ice Face weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Ice Face stronger');
+				return this.chainModify(2);
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		name: "Ice Face",
+		shortDesc: "Takes 2x damage from Fire and 0.5x damage from Water. Immune to flinch.",
+		rating: 3,
+		num: 248,
+	},
 };

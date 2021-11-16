@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Blindsided",
 		doublesTier: "Blindsided",
 	},
-	chachanaut: {
+	cachanaut: {
 		tier: "Blindsided",
 		doublesTier: "Blindsided",
 	},

@@ -4727,6 +4727,7 @@ obstagoon: {
 			trick: ["3L1"],
 			uproar: ["3L1"],
 			pursuit: ["3L1"],
+			hiddenpower: ["3L1"],
 		},
 	},
 	morgrem: {
@@ -4760,6 +4761,7 @@ obstagoon: {
 			pursuit: ["3L1"],
 			reflect: ["3L1"],
 			lightscreen: ["3L1"],
+			hiddenpower: ["3L1"],
 		},
 	},
 	grimmsnarl: {
@@ -4805,6 +4807,7 @@ obstagoon: {
 			torment: ["3L1"],
 			trick: ["3L1"],
 			uproar: ["3L1"],
+			hiddenpower: ["3L1"],
 		},
 	},
 	regidrago: {
