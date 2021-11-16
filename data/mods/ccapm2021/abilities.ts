@@ -43,9 +43,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyDamage(damage, source, target, move) {
 			  if (move.type === 'Food') {
-				const dmgMod = [0x1000, 0x14CC, 0x1CCC, 0x2000];
+				const dmgMod = [1, 1.33, 1.66, 2];
 				const numConsecutive = this.effectData.numConsecutive > 3 ? 3 : this.effectData.numConsecutive;
-				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
+				return this.chainModify(dmgMod[numConsecutive]);
 			  }
 			},
 		},
