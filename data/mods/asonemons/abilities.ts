@@ -102,10 +102,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onEatItem(item, pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
 		},
-		onModifyMove(move) {
-			move.ignoreAbility = true;
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectData.target) return;
+			pokemon.addVolatile('unburden');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('unburden');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('unburden');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item) {
+					return this.chainModify(2);
+				}
+			},
 		},
 		name: "As One (Hawlucha)",
-		shortDesc: "The combination of Cheek Pouch and Mold Breaker.",
+		shortDesc: "The combination of Cheek Pouch and Unburden.",
 	},
 };
