@@ -4,6 +4,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		type: "Food",
 	},
+	aurawheel: {
+		num: 783,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+    	shortDesc: "Morpeko: Electric; Hangry: Feral; 100% +1 Spe.",
+		name: "Aura Wheel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		onTry(pokemon) {
+			if (pokemon.species.baseSpecies === 'Morpeko') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Morpeko or Morpeko-Hangry can use this move.");
+			this.add('-fail', pokemon, 'move: Aura Wheel');
+			return null;
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Morpeko-Hangry') {
+				move.type = 'Feral';
+			} else {
+				move.type = 'Electric';
+			}
+		},
+		target: "normal",
+		type: "Electric",
+	},
 	belch: { // will add the berry effect later
 		num: 562,
 		accuracy: 100,
