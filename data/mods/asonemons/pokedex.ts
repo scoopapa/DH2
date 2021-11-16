@@ -53,4 +53,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Hawlucha)"},
 		weightkg: 23.7,
 	},
+	shucklebrick: {
+		fusion: ['Shuckle', 'Stakataka'],
+		num: 7,
+		name: "Shuckle-Brick",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 61, atk: 131, def: 231, spa: 117, spd: 101, spe: 13},
+		abilities: {0: "As One (Stakataka)"},
+		weightkg: 840.5,
+	},
 };
