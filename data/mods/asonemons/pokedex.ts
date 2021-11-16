@@ -71,4 +71,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Torterra)"},
 		weightkg: 415,
 	},
+	bunnelbyworker: {
+		fusion: ['Bunnelby', 'Mudsdale'],
+		num: 9,
+		name: "Bunnelby-Worker",
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 100, atk: 60, def: 100, spa: 114, spd: 80, spe: 65},
+		abilities: {0: "As One (Mudsdale)"},
+		weightkg: 925,
+	},
 };
