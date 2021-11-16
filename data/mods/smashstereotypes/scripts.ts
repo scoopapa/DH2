@@ -72,12 +72,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8M"];
 		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8M"];
 		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8M"];
-		
-		
-		this.modData("Learnsets", "algalisk").learnset.glare = ["8L1"];
-		this.modData("Learnsets", "algalisk").learnset.spikes = ["8L1"];
-		this.modData("Learnsets", "algalisk").learnset.synthesis = ["8L1"];
-		delete this.modData('Learnsets', 'algalisk').learnset.focusblast;
 	},
 	
 	teambuilderConfig: {

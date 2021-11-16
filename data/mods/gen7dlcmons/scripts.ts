@@ -230,6 +230,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'blacephalon').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'gastly').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'snorunt').learnset.hauntingdance = ['7T'];
+
 		this.modData('Learnsets', 'marowakalola').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'oricorio').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'rowlet').learnset.hauntingdance = ['7T'];

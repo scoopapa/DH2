@@ -431,10 +431,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	misfire: {
 		num: -1033,
-		accuracy: 70,
-		basePower: 120,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "The user switches out, if the move misses.",
+		shortDesc: "The user switches out, if the move fails.",
 		name: "Misfire",
 		pp: 10,
 		priority: 0,
@@ -442,6 +442,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", target);
+		},
+		onMoveFail(target, source, move) {
+			for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false; // only one Pokémon can switch per move
+					}
+				}
+				source.switchFlag = true;
 		},
 		secondary: null,
 		target: "normal",
