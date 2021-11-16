@@ -86,29 +86,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
-   hamsterslam: {
+	hamsterslam: {
         accuracy: 100,
         basePower: 45,
         category: "Physical",
-        desc: "Hits twice. First Fighting then Electric.",
-        shortDesc: "Hits 2 times in one turn.",
         name: "Hamster Slam",
-        pp: 15,
+        pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
-        multihit: 2,
-        onTryHit(move) {
-            if (move.hit === 1) {
-                move.type === 'Fighting';
-            }
-           if (move.hit === 2) {
-                move.type === 'Electric';
+        onModifyType(move, source) {
+            move.type = source.getTypes()[0];
+        },
+        onHit(target, source, move) {
+            if (source.getTypes().length === 1) {
+                move.type = source.getTypes()[0];
+            } else {
+                move.type = source.getTypes()[1];
             }
         },
-        secondary: false,
+        multihit: 2,
+        secondary: null,
         target: "normal",
-        type: move,
-        zMovePower: 100,
+        type: "Normal",
         contestType: "Tough",
     },
 };
