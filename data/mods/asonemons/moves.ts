@@ -110,4 +110,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         type: "Normal",
         contestType: "Tough",
     },
+	shellstack: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Shell Stack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 };
