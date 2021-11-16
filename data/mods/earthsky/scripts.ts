@@ -5023,9 +5023,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'escavalier').learnset.toxic;
 		// Foongus
 		this.modData("Learnsets", "foongus").learnset.copycat = ["8D"];
+		this.modData("Learnsets", "foongus").learnset.recover = ["8L35"];
 		delete this.modData('Learnsets', 'foongus').learnset.synthesis;
 		// Amoonguss
 		this.modData("Learnsets", "amoonguss").learnset.copycat = ["8D"];
+		this.modData("Learnsets", "amoonguss").learnset.recover = ["8L35"];
 		delete this.modData('Learnsets', 'amoonguss').learnset.grassyterrain;
 		delete this.modData('Learnsets', 'amoonguss').learnset.synthesis;
 		// Frillish
@@ -5614,6 +5616,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'helioptile').learnset.toxic;
 		// Heliolisk
 		this.modData("Learnsets", "heliolisk").learnset.morningsun = ["8D"];
+		this.modData("Learnsets", "heliolisk").learnset.weatherball = ["8L1"];
 		this.modData("Learnsets", "heliolisk").learnset.flash = ["8M"];
 		delete this.modData('Learnsets', 'heliolisk').learnset.toxic;
 		// Tyrunt

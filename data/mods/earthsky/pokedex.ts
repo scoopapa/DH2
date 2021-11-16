@@ -896,7 +896,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	pikeral: {
 		num: -567,
 		name: "Pikeral",
-		forme: "Red-Striped",
+		//forme: "Red-Striped",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 70, atk: 112, def: 75, spa: 90, spd: 65, spe: 108},
 		abilities: {0: "Reckless", 1: "Adaptability", H: "Mold Breaker"},
