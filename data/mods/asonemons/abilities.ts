@@ -180,4 +180,60 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Mudsdale)",
 		shortDesc: "The combination of Huge Power and Stamina.",
 	},
+	asonerapidashgalar: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+		onStart(pokemon) {
+			for (const ally of pokemon.allies()) {
+				if (['psn', 'tox'].includes(ally.status)) {
+					this.add('-activate', pokemon, 'ability: Pastel Veil');
+					ally.cureStatus();
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onAllySwitchIn(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', this.effectData.target, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Pastel Veil');
+			}
+			return false;
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
+			}
+			return false;
+		},
+		name: "As One (Rapidash-Galar)",
+		shortDesc: "The combination of Scrappy and Pastel Veil.",
+	},
 };
