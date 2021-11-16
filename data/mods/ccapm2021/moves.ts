@@ -611,7 +611,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quiver Dance", target);
 		},
-		onHit(target, pokemon) {
+		onHit(pokemon) {
 			 let didRemove = false;
 			 if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				  this.add('-end', pokemon, 'Leech Seed', '[from] move: Whisk Away', '[of] ' + pokemon);
