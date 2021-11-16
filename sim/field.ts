@@ -162,10 +162,11 @@ export class Field {
 		this.terrainData = {id: ''};
 		return true;
 	}
+	
 	suppressingTerrain(){
 		for (const side of this.battle.sides) {
 			for (const pokemon of side.active) {
-				if (pokemon && !pokemon.ignoringAbility() && pokemon.getAbility().suppressWeather) {
+				if (pokemon && !pokemon.ignoringAbility() && pokemon.getAbility().suppressTerrain) {
 					return true;
 				}
 			}
