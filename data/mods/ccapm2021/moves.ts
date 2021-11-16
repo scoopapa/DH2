@@ -45,12 +45,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-    shortDesc: "30% chance to Poison, 100% to Toxic if a berry was eaten.",
+    	shortDesc: "30% chance to Poison, 100% to Toxic if a berry was eaten.",
 		isViable: true,
 		name: "Belch",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onTryMove(attacker, defender, move) {
+    		if (attacker.ateBerry) move.secondary = {chance: 100, status: 'tox'};
+		},
 		secondary: {
 			chance: 30,
 			status: 'psn',
