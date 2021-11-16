@@ -588,7 +588,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Work Up", target);
+			this.add('-anim', source, "Dragon Dance", target);
 			this.add('-anim', source, "Aura Sphere", target);
 		},
 		willCrit: true,
@@ -597,44 +597,45 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Feral",
 		contestType: "Beautiful",
 	},
-	whiskaway: {// mostly working placeholder
+	whiskaway: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    	shortDesc: "Removes hazards from the user's side of the field. +1 Def if successful.",
+    shortDesc: "Removes hazards from the user's side of the field. +1 Def if successful.",
 		isViable: true,
 		name: "Whisk Away",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quiver Dance", target);
 		},
-		onAfterMove(target, pokemon) {
-			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
-				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
-			}
-			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			for (const condition of sideConditions) {
-				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Whisk Away', '[of] ' + pokemon);
-				}
-			}
-			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
-				pokemon.removeVolatile('partiallytrapped');
-			}
+		onHit(target, pokemon) {
+			 let didRemove = false;
+			 if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				  this.add('-end', pokemon, 'Leech Seed', '[from] move: Whisk Away', '[of] ' + pokemon);
+				  didRemove = true;
+			 }
+			 const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			 for (const condition of sideConditions) {
+				  if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Whisk Away', '[of] ' + pokemon);
+						didRemove = true;
+				  }
+			 }
+			 if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				  pokemon.removeVolatile('partiallytrapped');
+				  didRemove = true;
+			 }
+			 if (didRemove){
+					 this.boost({def: 1}, pokemon);
+			 }    
 		},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					def: 1,
-				},
-			},
-		},
-		target: "normal",
+		secondary: null,
+		target: "self",
 		type: "Food",
+		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
 	},
 };
