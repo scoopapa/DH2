@@ -139,5 +139,136 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-
+	cleffahoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	clefairyhoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	clefatal: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	murkrowhoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	crowceror: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sandygasthoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	palojjunk: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	solosishoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	duosionhoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	quadroplex: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	duckletthoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	swannahoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	flambiguos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	flambiguoszen: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mrmimehoenn: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mrclimb: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	furretsinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	shentret: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	purrloinsinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	liepardsinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	winterpard: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	poochyenasinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mightyenasinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	arctoyena: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skiddosinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	arctigoat: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skwovetsinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	greedentsinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gourmandire: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	zoruasinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	zorrarctic: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	carvanhasinnoh: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sharklone: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
