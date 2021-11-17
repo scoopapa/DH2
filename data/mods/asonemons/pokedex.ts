@@ -98,4 +98,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Heracross)"},
 		weightkg: 64.9,
 	},
+	chandelureballoon: {
+		fusion: ['Chandelure', 'Drifblim'],
+		num: 12,
+		name: "Chandelure-Balloon",
+		types: ["Fire", "Ghost"],
+		baseStats: {hp: 150, atk: 105, def: 65, spa: 113, spd: 65, spe: 86},
+		abilities: {0: "As One (Drifblim)"},
+		weightkg: 49.4,
+	},
 };
