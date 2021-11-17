@@ -92,6 +92,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 76,
 	},
+	hardcourt: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectData.switchingIn) return;
+			this.add('-ability', pokemon, 'Hard Court');
+			this.effectData.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Hard Court",
+		rating: 2,
+		num: 76,
+	},
 	analytic: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
@@ -1775,6 +1790,18 @@ dragonscales: {
 		rating: 3,
 		num: 89,
 	},
+		thagomizer: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Aqua Tail' || move.name === 'Dragon Tail' || move.name === 'Poison Tail' || move.name === 'Iron Tail') {
+				this.debug('Thagomizer boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Thagomizer",
+		rating: 3,
+		num: 89,
+	},
 	justified: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Dark') {
@@ -1875,6 +1902,17 @@ dragonscales: {
 			}
 		},
 		name: "Lightning Rod",
+		rating: 3,
+		num: 31,
+	},
+	highground: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.add('-immune', target, '[from] ability: High Ground');
+				return null;
+			}
+		},
+		name: "High Ground",
 		rating: 3,
 		num: 31,
 	},
@@ -2391,6 +2429,21 @@ dragonscales: {
 			return accuracy;
 		},
 		name: "No Guard",
+		rating: 4,
+		num: 99,
+	},
+	deadlyaccuracy: {
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && move.category ==== 'Physical' && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && move.category ==== 'Physical' && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Deadly Accuracy",
 		rating: 4,
 		num: 99,
 	},
@@ -3650,6 +3703,22 @@ dragonscales: {
 		rating: 2,
 		num: 243,
 	},
+	aerodynamic: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		melty: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
 	electrician: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -4317,6 +4386,16 @@ malevolence: {
 			}
 		},
 		name: "Water Compaction",
+		rating: 1.5,
+		num: 195,
+	},
+		junkarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fighting') {
+				this.boost({def: 2});
+			}
+		},
+		name: "Junk Armor",
 		rating: 1.5,
 		num: 195,
 	},
