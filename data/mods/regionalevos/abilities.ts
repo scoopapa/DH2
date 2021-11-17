@@ -2242,6 +2242,19 @@ dragonscales: {
 		rating: 3,
 		num: 78,
 	},
+		warmup: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Warm Up');
+				}
+				return null;
+			}
+		},
+		name: "Warm Up",
+		rating: 3,
+		num: 78,
+	},
 	moxie: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
