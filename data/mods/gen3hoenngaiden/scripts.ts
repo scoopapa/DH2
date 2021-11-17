@@ -901,6 +901,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	pokemon: {
 		copyVolatileFrom(pokemon: Pokemon) {
 			this.clearVolatile();
+			this.boosts = pokemon.boosts;
 			for (const i in pokemon.volatiles) {
 				if (this.battle.dex.getEffectByID(i as ID).noCopy) continue;
 				// shallow clones
@@ -908,7 +909,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (this.volatiles[i].linkedPokemon) {
 					delete pokemon.volatiles[i].linkedPokemon;
 					delete pokemon.volatiles[i].linkedStatus;
-					delete pokemon.positiveBoosts();
+					delete pokemon.boosts;
 					for (const linkedPoke of this.volatiles[i].linkedPokemon) {
 						const linkedPokeLinks = linkedPoke.volatiles[this.volatiles[i].linkedStatus].linkedPokemon;
 						linkedPokeLinks[linkedPokeLinks.indexOf(pokemon)] = this;
