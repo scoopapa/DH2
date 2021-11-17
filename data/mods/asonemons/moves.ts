@@ -203,7 +203,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
-		pseudoWeather: 'magnetrise',
+		volatileStatus: 'magnetrise',
 		thawsTarget: true,
 		secondary: {
 		chance: 10,
