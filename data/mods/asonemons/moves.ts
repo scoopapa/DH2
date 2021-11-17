@@ -195,4 +195,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	balloonburner: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Balloon Burner",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, gravity: 1},
+		volatileStatus: 'float',
+		 condition: {
+		 duration: 5,
+		 onStart(self) {
+				if (self.volatiles['smackdown'] || self.volatiles['ingrain']) return false;
+				this.add('-start', self, 'Float');
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'Float');
+			},
+		},
+		thawsTarget: true,
+		secondary: {
+		chance: 10,
+		status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
 };
