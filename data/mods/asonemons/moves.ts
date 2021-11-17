@@ -203,19 +203,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, gravity: 1},
-		volatileStatus: 'float',
-		 condition: {
-		 duration: 5,
-		 onStart(self) {
+		condition: {
+		duration: 5,
+		onStart(self) {
 				if (self.volatiles['smackdown'] || self.volatiles['ingrain']) return false;
-				this.add('-start', self, 'Float');
+				this.add('-start', self, 'Magnet Rise');
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
 			},
 			onResidualOrder: 15,
 			onEnd(self) {
-				this.add('-end', self, 'Float');
+				this.add('-end', self, 'Magnet Rise');
 			},
 		},
 		thawsTarget: true,
