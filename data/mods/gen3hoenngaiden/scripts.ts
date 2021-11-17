@@ -908,7 +908,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (this.volatiles[i].linkedPokemon) {
 					delete pokemon.volatiles[i].linkedPokemon;
 					delete pokemon.volatiles[i].linkedStatus;
-					delete pokemon.volatiles[i].linkedBoost;
+					delete pokemon.positiveBoosts();
 					for (const linkedPoke of this.volatiles[i].linkedPokemon) {
 						const linkedPokeLinks = linkedPoke.volatiles[this.volatiles[i].linkedStatus].linkedPokemon;
 						linkedPokeLinks[linkedPokeLinks.indexOf(pokemon)] = this;
