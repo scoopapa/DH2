@@ -45,6 +45,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
+	batonpass: {
+		inherit: true,
+		selfSwitch: true,
+		shortDesc: "User switches out.",
+	},
 	beatup: {
 		inherit: true,
 		basePower: 10,
