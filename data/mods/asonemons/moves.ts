@@ -195,6 +195,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	float: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Float",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, gravity: 1},
+		volatileStatus: 'float',
+		condition: {
+			duration: 5,
+			onStart(target) {
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Float');
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'Float');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		contestType: "Clever",
+	},
 	balloonburner: {
 		accuracy: 100,
 		basePower: 75,
@@ -204,7 +232,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
 		self: {
-				volatileStatus: 'magnetrise',
+				volatileStatus: 'float',
 			},
 		thawsTarget: true,
 		secondary: {
