@@ -214,8 +214,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (type === 'Ground') return false;
 			},
 			onResidualOrder: 15,
-			onEnd(target) {
-				this.add('-end', target, 'Float');
+			onEnd(self) {
+				this.add('-end', self, 'Float');
 			},
 		},
 		thawsTarget: true,
