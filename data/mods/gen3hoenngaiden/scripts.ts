@@ -898,7 +898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	calcRecoilDamage(damageDealt, move) {
 		return this.clampIntRange(Math.floor(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 	},
-	pokemon: {
+	//pokemon: {
 		copyVolatileFrom(pokemon: Pokemon) {
 			this.clearVolatile();
 			this.boosts = pokemon.boosts;
@@ -921,6 +921,5 @@ export const Scripts: ModdedBattleScriptsData = {
 				const volatile = this.getVolatile(i) as Condition;
 				this.battle.singleEvent('Copy', volatile, this.volatiles[i], this);
 			}
-		}
-	},
+		},
 };
