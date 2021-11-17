@@ -44,5 +44,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'sirfetchdfantasy').learnset.excaliburslash = ['8L1'];
 		
 		this.modData('Learnsets', 'frogadierbeetle').learnset.bubbleblades = ['8L1'];
+		
+		this.modData('Learnsets', 'chandelureballoon').learnset.balloonburner = ['8L1'];
 	},
 };
