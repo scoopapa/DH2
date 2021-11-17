@@ -479,5 +479,209 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	pawniardgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	bisharpgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chivalot: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddiursagalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberrylove: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberrystawberry: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberryberry: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberrystar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberryclover: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	teddyberryribbon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mudbraygalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	thoroughbolt: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	rockruffgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lycanrocmiddaygalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lycanrocmidnightgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lycanrocdawngalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cerbhound: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	klinkgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	klanggalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	klanklunk: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ferroseedgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cavalrace: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	giblegalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gabitegalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	arctochomp: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	relicanthgalar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	relivish: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	inkayultra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	malamarultra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hplamaroth: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	drampaultra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	yungon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	horseaultra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	seadraultra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hanabidra: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	stonjournerdistorted: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tectonebula: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	eiscuedistorted: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	aukillable: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	doduoorre: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dodrioorre: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	quadotrich: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	maractusorre: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sagualta: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skarmoryorre: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skarocious: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	happinyransei: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chanseyransei: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sensey: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	leditanium: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	palmodon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 
 };
