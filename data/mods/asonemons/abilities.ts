@@ -236,4 +236,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Rapidash-Galar)",
 		shortDesc: "The combination of Scrappy and Pastel Veil.",
 	},
+	asoneheracross: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onModifyMove(move) {
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				move.multihit = move.multihit[1];
+			}
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+			}
+		},
+		name: "As One (Heracross)",
+		shortDesc: "The combination of Protean and Skill Link.",
+	},
 };
