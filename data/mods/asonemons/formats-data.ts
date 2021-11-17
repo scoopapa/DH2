@@ -43,4 +43,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	chandelureballoon: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},
 };
