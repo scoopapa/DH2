@@ -294,7 +294,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 257,
 		gen: 2,
 		desc: "When Flung, increases the target's Defense and Sp. Def stats by 1 stage. Fails if target is immune to powder.",
-		shortDesc: "When Flung, +1 Def and Sp. Def. Counts as a powder move.",
 	},
 	oddincense: {
 		name: "Odd Incense",
@@ -310,7 +309,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 314,
 		gen: 4,
-		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
+		desc: "Allies' Psychic-type moves have 1.1x power.",
 	},
 	quickpowder: {
 		name: "Quick Powder",
@@ -323,7 +322,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 274,
 		gen: 4,
 		desc: "When Flung, increases the target's Speed by 1 stage. Fails if target is immune to powder.",
-		shortDesc: "When Flung, +1 Speed. Counts as a powder move.",
 	},
 	rockincense: {
 		name: "Rock Incense",
@@ -339,7 +337,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 315,
 		gen: 4,
-		desc: "Holder and allies' Rock-type moves have 1.1x power.",
+		desc: "Allies' Rock-type moves have 1.1x power.",
 	},
 	roseincense: {
 		name: "Rose Incense",
@@ -355,7 +353,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 318,
 		gen: 4,
-		desc: "Holder and allies' Grass-type moves have 1.1x power.",
+		desc: "Allies' Grass-type moves have 1.1x power.",
 	},
 	seaincense: {
 		name: "Sea Incense",
@@ -371,7 +369,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 254,
 		gen: 3,
-		desc: "Holder and allies' Water-type moves have 1.1x power.",
+		desc: "Allies' Water-type moves have 1.1x power.",
 	},
 	silverpowder: {
 		inherit: true,
@@ -438,7 +436,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		desc: "Prevents holder and allies from receiving burns.",
+		desc: "Prevents allies from receiving burns.",
 	},
 	aguavberry: {
 		inherit: true,
@@ -455,8 +453,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If -SpD Nature, restores 50% instead, but confuses. Single use.",
 	},
 	figyberry: {
 		inherit: true,
@@ -473,8 +470,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Spicy food (-Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If -Atk Nature, restores 50% instead, but confuses. Single use.",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -491,8 +487,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If -SpA Nature, restores 50% instead, but confuses. Single use.",
 	},
 	magoberry: {
 		inherit: true,
@@ -509,8 +504,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If -Spe Nature, restores 50% instead, but confuses. Single use.",
 	},
 	wikiberry: {
 		inherit: true,
@@ -527,8 +521,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If -Def Nature, restores 50% instead, but confuses. Single use.",
 	},
 	/* Items edited as part of other elements */
 	blueorb: {
@@ -1102,8 +1095,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d", "Kendo\u2019no"],
-		desc: "If held by a Farfetch’d, Sirfetch’d, or Kendo'no, its critical hit ratio is raised by 2 stages.",
-		shortDesc: "If held by a Farfetch’d family member, its critical hit ratio is raised by 2 stages.",
 	},
 	machobrace: {
 		inherit: true,
