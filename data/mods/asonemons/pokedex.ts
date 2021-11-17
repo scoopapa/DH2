@@ -89,4 +89,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Rapidash-Galar)"},
 		weightkg: 197,
 	},
+	frogadierbeetle: {
+		fusion: ['Frogadier', 'Heracross'],
+		num: 11,
+		name: "Frogadier-Beetle",
+		types: ["Water", "Bug"],
+		baseStats: {hp: 80, atk: 130, def: 75, spa: 102, spd: 95, spe: 85},
+		abilities: {0: "As One (Heracross)"},
+		weightkg: 64.9,
+	},
 };
