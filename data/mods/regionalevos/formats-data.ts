@@ -271,4 +271,213 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+		misdreavusunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	melanimus: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chinglingunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chimechounova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chimelody: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	eeveeunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	breezeon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	polluteon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	graveleon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	platineon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ghouleon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	fuzzeon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dusteon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	combateon: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	venonatunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	venomothunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	venoraptor: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	natuunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	natotem: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	porygonunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	porygon2unova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	porygono: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	farfetchdunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	yankeefetchd: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tyruntunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	arctyrant: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	amauraunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	fulgaurus: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dreepyunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	drakloakunova: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	explealth: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	munchlaxkalos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hyperlax: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	pikipekkalos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	trumbeakkalos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hummingbrr: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	luvdisckalos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	amoureal: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mrmimekalos: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mrcrime: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falinksulaulaalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falinksponialola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falitotemmelemele: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falitotemakala: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falitotemulaula: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	falitotemponi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	darumakaalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	darmanitanalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	darughandi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	bellsproutalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	weepinbellalola: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	habanecro: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+
 };
