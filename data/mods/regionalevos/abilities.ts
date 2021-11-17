@@ -1065,6 +1065,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 166,
 	},
+	friendlyheat: {
+		onAllyBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Fire')) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Friendly Heat');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Fire') && status.id === 'yawn') {
+				this.debug('Friendly Heat blocking yawn');
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		name: "Friendly Heat",
+		rating: 0,
+		num: 166,
+	},
 	fluffy: {
 		onSourceModifyDamage(damage, source, target, move) {
 			let mod = 1;
@@ -1410,6 +1448,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return this.chainModify(2);
 		},
 		name: "Huge Power",
+		rating: 5,
+		num: 37,
+	},
+	awakenedpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			return this.chainModify(2);
+		},
+		name: "Awakened Power",
 		rating: 5,
 		num: 37,
 	},
@@ -3193,6 +3240,30 @@ dragonscales: {
 		rating: 2,
 		num: 251,
 	},
+		floorcleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Floor Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Floor Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+		},
+		name: "Floor Cleaner",
+		rating: 2,
+		num: 251,
+	},
 	serenegrace: {
 		onModifyMovePriority: -2,
 		onModifyMove(move) {
@@ -3579,7 +3650,7 @@ dragonscales: {
 		rating: 2,
 		num: 243,
 	},
-	steelworker: {
+	electrician: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Steel') {
@@ -3594,7 +3665,22 @@ dragonscales: {
 				return this.chainModify(1.5);
 			}
 		},
-		name: "Steelworker",
+		steelworker: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Electrician",
 		rating: 3.5,
 		num: 200,
 	},
