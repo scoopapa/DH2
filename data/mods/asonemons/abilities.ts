@@ -259,4 +259,63 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Heracross)",
 		shortDesc: "The combination of Protean and Skill Link.",
 	},
+	asonedrifblim: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] ability: Flash Fire');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfire');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Flash Fire');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('flashfire')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('flashfire')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Flash Fire', '[silent]');
+			},
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectData.target) return;
+			pokemon.addVolatile('unburden');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('unburden');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('unburden');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		name: "As One (Drifblim)",
+		shortDesc: "The combination of Flash Fire and Unburden.",
+	},
 };
