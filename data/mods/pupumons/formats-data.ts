@@ -1,222 +1,230 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	grizzeal: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	stampyro: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	hippothagoras: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	moleder: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	bombatross: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	galvia: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	calistaiji: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	setstorm: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	kheprise: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	weeplim: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	puddogre: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	doderror: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	strignight: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	coowoo: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	spectropa: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	crikeri: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	boxetta: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	kingphan: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	skuntomic: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	croantagion: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	gaggular: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	ultranaut: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
+	},
+	ultranautv: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
 	},
 	dragulonimbus: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	dragulare: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	dragulanche: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	scrittle: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	corruptrain: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	pasdovo: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	glasiosaur: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	bellophus: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	velocust: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	kuwengu: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	putango: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	rishelios: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	odonaga: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	solrockapple: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	lunatoneapple: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	venomab: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	forganon: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	isladon: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC Restricted",
 	},
 	ooreina: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	ooreinaflare: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	rangdemos: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC Restricted",
 	},
 	baronglaiv: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC Restricted",
 	},
 	thundra: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	eruptil: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	amphikits: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	detectrice: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	nosferoyle: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	amplifire: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	lumberax: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	batakala: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC Restricted",
 	},
 	batambu: {
 		tier: "Pupumons Ubers",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC Restricted",
 	},
 	anjamanis: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
 	},
 	bonfiper: {
 		tier: "Pupumons",
-		doublesTier: "(DOU)",
+		doublesTier: "PupuVGC",
+	},
+	kalover: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
 	},
 };

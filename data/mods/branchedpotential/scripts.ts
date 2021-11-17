@@ -35,6 +35,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'pitchasaur').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'pitchasaur').learnset.hydropump = ['8L1'];
 		this.modData('Learnsets', 'pitchasaur').learnset.waterpulse = ['8L1'];
+		this.modData('Learnsets', 'pitchasaur').learnset.icebeam = ['8L1'];
 		delete this.modData('Learnsets', 'pitchasaur').learnset.sludge;
 		delete this.modData('Learnsets', 'pitchasaur').learnset.sludgebomb;
 		delete this.modData('Learnsets', 'pitchasaur').learnset.venoshock;
@@ -210,6 +211,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "soroboruo").learnset.surf = ["8L1"];
 		
 		this.modData("Learnsets", "mountoswine").learnset.auroraveil = ["8L1"];
+		this.modData("Learnsets", "mountoswine").learnset.milkdrink = ["8L1"];
 		delete this.modData('Learnsets', 'mountoswine').learnset.ancientpower;
 		delete this.modData('Learnsets', 'mountoswine').learnset.superpower;
 		
@@ -344,6 +346,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'jorunny').learnset.gunkshot = ['8L1'];
 		this.modData('Learnsets', 'jorunny').learnset.venomdrench = ['8L1'];
 		this.modData('Learnsets', 'jorunny').learnset.purify = ['8L1'];
+		this.modData('Learnsets', 'jorunny').learnset.toxicspikes = ['8L1'];
 		delete this.modData('Learnsets', 'jorunny').learnset.healingwish;
 		delete this.modData('Learnsets', 'jorunny').learnset.healbell;
 		delete this.modData('Learnsets', 'jorunny').learnset.fakeout;
@@ -443,7 +446,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'dragocaulus').learnset.dualchop = ['8L1'];
 		this.modData('Learnsets', 'dragocaulus').learnset.aquajet = ['8L1'];
 		this.modData('Learnsets', 'dragocaulus').learnset.waterfall = ['8L1'];
-		this.modData('Learnsets', 'dragocaulus').learnset.liquadition = ['8L1'];
+		this.modData('Learnsets', 'dragocaulus').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'dragocaulus').learnset.flipturn = ['8L1'];
 		this.modData('Learnsets', 'dragocaulus').learnset.rocktomb = ['8L1'];
 		this.modData('Learnsets', 'dragocaulus').learnset.rockblast = ['8L1'];

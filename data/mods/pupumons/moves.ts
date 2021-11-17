@@ -619,6 +619,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		name: "Laser Sword",
+		shortDesc: "Last Resort but Steel-type.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -626,7 +627,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
 			let hasLastResort = false; // User must actually have Last Resort for it to succeed
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id === 'lastresort') {
+				if (moveSlot.id === 'lasersword') {
 					hasLastResort = true;
 					continue;
 				}
@@ -727,7 +728,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Heat Stomp",
 		shortDesc: "If a foe is switching out, hits it and burns it.",
 		pp: 20,
@@ -985,7 +985,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	peekaboo: {
+	/*peekaboo: {
 		num: 712,
 		accuracy: 100,
 		basePower: 0,
@@ -1004,7 +1004,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
             }
 			source.forceSwitch();
 			return;
-		},*/
+		},
 		self: {
 			forceSwitch: true,
 		},
@@ -1043,5 +1043,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-	},
+	},*/
 };

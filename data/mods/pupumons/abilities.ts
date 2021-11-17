@@ -131,4 +131,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 1004,
 	},
+	glitterbomber: {
+		onAfterMove(source, target, move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (target.getTypes().join() === 'Fairy' || !target.setType('Fairy')) {
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Fairy');
+		},
+		name: "Glitter Bomber",
+		rating: 3,
+		num: 1004,
+		shortDesc: "After hitting target w/ contact, makes them a Fairy type.",
+	},
+	fuelheavy: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: -1});
+			}
+		},
+		name: "Fuel Heavy",
+		rating: 1,
+		num: 3,
+		shortDesc: "-1 speed at the end of every turn.",
+	},
 };

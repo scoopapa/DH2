@@ -1070,10 +1070,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	goodevoirmega: {
-		tier: "FEUUber",
-		doublesTier: "DUUber",
+		tier: "FEUU",
+		doublesTier: "DUU",
 		randomBattleMoves: ["moonblast", "sludgewave", "calmmind", "mysticalfire"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 77,
 		requiredItem: "Gardevoirite",
 	},
 	duramaw: {
@@ -1088,6 +1088,142 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["ironhead", "playrough", "suckerpunch", "swordsdance"],
 		randomBattleLevel: 75,
 		requiredItem: "Mawilite",
+	},
+	grapplor: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["drainpunch", "octolock", "roost", "aerialace"],
+		randomBattleLevel: 79,
+	},
+	masquerajah: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["heavyslam", "stealthrock", "roost", "uturn"],
+		randomBattleLevel: 79,
+	},
+	litleesect: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["fireblast", "thunderbolt", "psychic", "uturn"],
+		randomBattleLevel: 79,
+	},
+	litleesectdouse: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["fireblast", "thunderbolt", "technoblast", "rockpolish"],
+		randomBattleLevel: 79,
+		requiredItem: "Douse Drive",
+	},
+	litleesectshock: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["fireblast", "psychic", "technoblast", "rockpolish"],
+		randomBattleLevel: 79,
+		requiredItem: "Shock Drive",
+	},
+	litleesectburn: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["technoblast", "psychic", "thunderbolt", "rockpolish"],
+		randomBattleLevel: 79,
+		requiredItem: "Burn Drive",
+	},
+	litleesectchill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["fireblast", "psychic", "technoblast", "rockpolish"],
+		randomBattleLevel: 79,
+		requiredItem: "Chill Drive",
+	},
+	bearyx: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["closecombat", "earthquake", "rockslide", "swordsdance"],
+		randomBattleLevel: 79,
+	},
+	fetchey: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["bodyslam", "knockoff", "closecombat", "roost"],
+		randomBattleLevel: 79,
+	},
+	audiyem: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["futuresight", "flamethrower", "recover", "teleport"],
+		randomBattleLevel: 79,
+	},
+	audiyemmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["dazzlinggleam", "knockoff", "recover", "teleport"],
+		randomBattleLevel: 79,
+		requiredItem: "Audinite",
+	},
+	eelektoad: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["voltswitch", "scald", "stealthrock", "knockoff"],
+		randomBattleLevel: 79,
+	},
+	dialgast: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["scorchingsands", "shoreup", "stealthrock", "dracometeor"],
+		randomBattleLevel: 79,
+	},
+	galsola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["trickroom", "closecombat", "stoneedge", "tripleaxel"],
+		randomBattleLevel: 79,
+	},
+	galsolamega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["swordsdance", "closecombat", "stoneedge", "tripleaxel"],
+		randomBattleLevel: 79,
+		requiredItem: "Galladite",
+	},
+	genebrogalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "flamethrower", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+	},
+	genebrogalardouse: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Douse Drive",
+	},
+	genebrogalarburn: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Burn Drive",
+	},
+	genebrogalarshock: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Shock Drive",
+	},
+	genebrogalarchill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["shellsidearm", "technoblast", "slackoff", "calmmind"],
+		randomBattleLevel: 79,
+		requiredItem: "Chill Drive",
+	},
+	hatterune: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["earthpower", "dazzlinggleam", "nuzzle", "stealthrock"],
+		randomBattleLevel: 79,
 	},
 	
 	//Silvino Nightmare Hours
@@ -1365,4 +1501,327 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 77,
 	},
 	
+// LC and NFE
+	woopopotas: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	mareapod: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	beljr: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	seedbee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	stardile: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	wailidee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	treemoo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	elgyemite: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	eezee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	toxoranmale: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	porykrelp: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	crabitten: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	rowlaskgalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	larvilmet: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	chimwick: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	mariwick: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	krabsweet: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	slowmite: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	eebat: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	gibloon: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	mieyu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	duspoke: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	frillnub: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	dreepig: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	meowruffgalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	golidimp: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	panchanpy: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	shroolix: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	pidgeidee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	noixel: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	bronlin: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	seedpokegalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	glitoy: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	munchyke: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	venipawn: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	krelpinch: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	tirtipek: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	grinamo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	cubodile: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	snodew: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	claunchiwag: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	scymask: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	fletchee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	farsolagalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	cottonas: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	snipole: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	maritten: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	snogepi: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	hippee: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	dwepig: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	parycoly: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	charblu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	inkshrewalola: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	chewkit: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	duckgon: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	larvaura: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	crabrola: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	chespew: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	rowlipede: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	scorjr: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	exeggcute: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	porymask: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	wimbuto: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	larkiddo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	bergmel: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	croagma: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	inktoy: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	sunkip: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	sniloon: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	rhyble: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	goolts: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	sursfant: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	clobbgar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	hatamaskgalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	tynapole: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	corveotto: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	torraaffy: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	rosadin: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	mrbootgalar: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	palpitrik: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+
+
 }; 
