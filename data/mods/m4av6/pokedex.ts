@@ -538,7 +538,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		movepoolAdditions: ["spite", "toxic"],
 	},
-	slowkinggalar: {
+	slowkinggalarmega: {
 		num: 199,
 		name: "Slowking-Galar-Mega",
 		baseSpecies: "Slowking",
