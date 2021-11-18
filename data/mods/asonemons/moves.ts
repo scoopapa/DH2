@@ -223,6 +223,139 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Clever",
 	},
+	gravity: {
+		num: 356,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Gravity",
+		pp: 5,
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'gravity',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				return 5;
+			},
+			onStart() {
+				this.add('-fieldstart', 'move: Gravity');
+				for (const pokemon of this.getAllActive()) {
+					let applies = false;
+					if (pokemon.removeVolatile('bounce') || pokemon.removeVolatile('fly')) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['skydrop']) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+
+						if (pokemon.volatiles['skydrop'].source) {
+							this.add('-end', pokemon.volatiles['twoturnmove'].source, 'Sky Drop', '[interrupt]');
+						}
+						pokemon.removeVolatile('skydrop');
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['magnetrise']) {
+						applies = true;
+						delete pokemon.volatiles['magnetrise'];
+					}
+					if (pokemon.volatiles['telekinesis']) {
+						applies = true;
+						delete pokemon.volatiles['telekinesis'];
+					}
+					if (pokemon.volatiles['float']) {
+						applies = true;
+						delete pokemon.volatiles['float'];
+					}
+					if (applies) this.add('-activate', pokemon, 'move: Gravity');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return accuracy * 5 / 3;
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.id).flags['gravity']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['gravity']) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd() {
+				this.add('-fieldend', 'move: Gravity');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	smackdown: {
+		num: 479,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Smack Down",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		volatileStatus: 'smackdown',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				let applies = false;
+				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
+				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
+					this.field.getPseudoWeather('gravity')) applies = false;
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					applies = true;
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+				}
+				if (pokemon.volatiles['magnetrise']) {
+					applies = true;
+					delete pokemon.volatiles['magnetrise'];
+				}
+				if (pokemon.volatiles['telekinesis']) {
+					applies = true;
+					delete pokemon.volatiles['telekinesis'];
+				}
+				if (pokemon.volatiles['float']) {
+					applies = true;
+					delete pokemon.volatiles['float'];
+				}
+				if (!applies) return false;
+				this.add('-start', pokemon, 'Smack Down');
+			},
+			onRestart(pokemon) {
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					this.queue.cancelMove(pokemon);
+					this.add('-start', pokemon, 'Smack Down');
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
 	balloonburner: {
 		accuracy: 100,
 		basePower: 75,
