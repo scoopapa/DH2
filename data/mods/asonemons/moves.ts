@@ -206,21 +206,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'float',
 		condition: {
 			duration: 5,
-			onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
-			if (move.type === 'Ground') {
-				let activated = false;
-				for (const ally of target.side.active) {
-					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
-					if (!activated) {
-						this.add('-ability', target, 'Comedian', 'boost');
-						this.add('-message', `${target.name} is howling with laughter!`);
-						activated = true;
-					}
-					this.boost({atk: 1}, ally, target, null, true);
-				}
-			}
-		},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
 		},
 		secondary: null,
 		target: "self",
