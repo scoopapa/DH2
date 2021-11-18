@@ -1711,6 +1711,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -48,
 	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility(target.getAbility()) && target.getAbility().name !== 'Neutralizing Gas') {
+					this.singleEvent('End', target.getAbility(), target.abilityData, target);
+				}
+			}
+		},
+	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
