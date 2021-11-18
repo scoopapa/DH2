@@ -297,8 +297,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-		if ((move as any).settleBoosted) {
-			attackStat = 'atk';
+		if (move.useTargetOffensiveAsOffensive || (move as any).settleBoosted) {
+			attackStat = 'atk'; // hard-coding for Sleight of Hand: do not use Special Attack
 		}
 
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
