@@ -206,17 +206,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'float',
 		condition: {
 			duration: 5,
-			onStart(target) {
-				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
-				this.add('-start', target, 'Magnet Rise');
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onResidualOrder: 15,
-			onEnd(target) {
-				this.add('-end', target, 'Magnet Rise');
-			},
+			onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Ground') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+			}
+		},
 		},
 		secondary: null,
 		target: "self",
