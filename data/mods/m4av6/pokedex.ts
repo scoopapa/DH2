@@ -2695,11 +2695,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: [
 			"Toxtricity", "Toxtricity-Low-Key", "Toxtricity-Mega", "Toxtricity-Low-Key-Mega",
 		],
-		movepoolAdditions: ["frustration", "gearup", "hiddenpower"],
+		movepoolAdditions: ["frustration", "gearup", "hiddenpower", "return"],
 	},
 	toxtricitylowkey: {
 		inherit: true,
-		movepoolAdditions: ["slackoff", "hiddenpower", "return"],
+		movepoolAdditions: ["frustration", "slackoff", "hiddenpower", "return"],
 	},
 	toxtricitymega: {
 		num: 849,
@@ -2736,7 +2736,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Obstagoon-Mega"],
 		formeOrder: ["Obstagoon", "Obstagoon-Mega"],
-		movepoolAdditions: ["foulplay", "frustration", "hiddenpower", "stealthrock", "toxic", "wish"],
+		movepoolAdditions: ["foulplay", "frustration", "hiddenpower", "return", "stealthrock", "toxic", "wish"],
 	},
 	obstagoonmega: {
 		num: 862,
