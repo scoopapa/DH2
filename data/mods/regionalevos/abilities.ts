@@ -2445,6 +2445,7 @@ dragonscales: {
 		rating: 4,
 		num: 99,
 	},
+/*
 	deadlyaccuracy: {
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
@@ -2458,8 +2459,8 @@ dragonscales: {
 		},
 		name: "Deadly Accuracy",
 		rating: 4,
-		num: 99,
 	},
+*/
 	normalize: {
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
