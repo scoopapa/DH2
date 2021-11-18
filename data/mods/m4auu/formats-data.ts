@@ -107,7 +107,7 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	celesteela: { tier: "UU", doublesTier: "C", randomBattleMoves: ["autotomize", "heavyslam", "airslash", "fireblast", "earthquake", "leechseed", "protect"] },
 	chandelure: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["calmmind", "shadowball", "energyball", "fireblast", "hiddenpowerground", "trick", "substitute", "painsplit"] },
 	chandeluremega: { tier: "UUBL", doublesTier: "Unranked", randomBattleMoves: ["calmmind", "shadowball", "energyball", "fireblast", "hiddenpowerground", "substitute", "painsplit", "mindblown"] },
-	chansey: { tier: "UU", doublesTier: "Unranked" },
+	chansey: { tier: "UUBL", doublesTier: "Unranked" },
 	charizardmegax: { tier: "OU", doublesTier: "Unranked", randomBattleMoves: ["dragondance", "flareblitz", "dragonclaw", "earthquake", "roost", "willowisp"] },
 	charizardmegay: { tier: "OU", doublesTier: "A-", randomBattleMoves: ["fireblast", "airslash", "roost", "solarbeam", "focusblast", "dragonpulse"] },
 	charjabug: { tier: "UU", doublesTier: "Unranked" },
