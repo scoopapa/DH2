@@ -47,4 +47,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},
+	infernapeclimber: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+    ribombeecharmer: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+    beheeyemufo: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
