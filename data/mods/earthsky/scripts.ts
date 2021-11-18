@@ -944,12 +944,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 		},
-		canMegaEvo(pokemon) { //Magic Room suppression and Mega-Ray change
+		canMegaEvo(pokemon) { //Magic Room suppression, friendship req, Mega-Ray change
 			if('magicroom' in this.field.pseudoWeather) return null;
 			const species = pokemon.baseSpecies;
 			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+				if(!pokemon.megaEvolvable) return null;
 				//Additional check for required move
 				if (altForme?.isMega && altForme?.requiredMove) {
 					if(pokemon.baseMoves.includes(this.toID(altForme.requiredMove))){

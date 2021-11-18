@@ -6,7 +6,11 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Gen 8 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
 			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
 		onValidateSet(set, format) {//Caps friendship to 160
-			if(set.happiness === undefined || set.happiness > 160){ //undefined = default = 255
+			if(set.happiness === undefined) set.happiness = 255; //undefined = default = 255
+			if(set.happiness >= 180) { //Mega Evolution requirement
+				set.megaEvolvable = true;
+			}
+			if(set.happiness > 160){
 				set.happiness = 160;
 				//Put a log here as documentation
 			}
