@@ -217,9 +217,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEnd(target) {
 				this.add('-end', target, 'Float');
 			},
-			isGrounded(negateImmunity = false) {
-		   if ('float' in this.volatiles) return false;
-	}
 		},
 		secondary: null,
 		target: "self",
