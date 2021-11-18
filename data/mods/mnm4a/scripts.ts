@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	// inherit: 'm4av6',
+	inherit: 'm4av6',
 	init() {
 		for (const i in this.data.Items) {
 			if (!this.data.Items[i].megaStone) continue;

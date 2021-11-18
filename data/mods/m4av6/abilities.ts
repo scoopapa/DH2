@@ -1711,6 +1711,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -48,
 	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			for (const target of this.getAllActive()) {
+				if (target.getAbility() && target.getAbility().name !== 'Neutralizing Gas') {
+					this.singleEvent('End', target.getAbility(), target.abilityData, target);
+				}
+			}
+			pokemon.abilityData.ending = false;
+		},
+	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
@@ -2759,5 +2771,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Rebel",
 		rating: 2.5,
 		num: -74,
+	},
+	agitate: {
+		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
+		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
+		onAnyBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			if (!target || !source || target === source || source !== this.effectData.target) return; // doesn't work on itself
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
+				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+			}
+		},
+		name: "Agitate",
+		rating: 3,
+		num: -75,
 	},
 };

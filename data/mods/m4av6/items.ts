@@ -486,7 +486,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Slowking",
 		itemUser: ["Slowking"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name.startsWith('Slowking')) return false;
 			return true;
 		},
 		num: -1025,
@@ -1736,5 +1736,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1112,
 		gen: 8,
 		desc: "If held by an Obstagoon, this item allows it to Mega Evolve in battle.",
+	},
+	dusknite: {
+		name: "Dusknite",
+		spritenum: 578,
+		megaStone: "Dusknoir-Mega",
+		megaEvolves: "Dusknoir",
+		itemUser: ["Dusknoir"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1113,
+		gen: 8,
+		desc: "If held by a Dusknoir, this item allows it to Mega Evolve in battle.",
+	},
+	galvantulite: {
+		name: "Galvantulite",
+		spritenum: 578,
+		megaStone: "Galvantula-Mega",
+		megaEvolves: "Galvantula",
+		itemUser: ["Galvantula"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1114,
+		gen: 8,
+		desc: "If held by a Galvantula, this item allows it to Mega Evolve in battle.",
 	},
 };

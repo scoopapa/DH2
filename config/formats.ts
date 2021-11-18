@@ -2053,7 +2053,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		banlist: [
-			'OU',
+			'OU', 'UUBL',
 			// Abilities
 			'Drizzle', 'Drought',
 		],
