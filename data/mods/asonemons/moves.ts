@@ -206,8 +206,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'float',
 		condition: {
 			duration: 5,
+			onStart(target) {
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Float');
+			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'Float');
 			},
 		},
 		secondary: null,
