@@ -1,4 +1,4 @@
-const data: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	abomasnow: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["woodhammer", "iceshard", "blizzard", "gigadrain", "leechseed", "substitute", "focuspunch", "earthquake"] },
 	abomasnowmega: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["blizzard", "gigadrain", "woodhammer", "earthquake", "iceshard", "hiddenpowerfire"] },
 	absol: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["swordsdance", "suckerpunch", "knockoff", "superpower", "pursuit", "playrough"] },
