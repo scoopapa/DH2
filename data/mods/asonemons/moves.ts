@@ -208,14 +208,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 5,
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
-				this.add('-start', target, 'Float');
+				this.add('-start', target, 'Magnet Rise');
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
 			},
 			onResidualOrder: 15,
 			onEnd(target) {
-				this.add('-end', target, 'Float');
+				this.add('-end', target, 'Magnet Rise');
 			},
 		},
 		secondary: null,
