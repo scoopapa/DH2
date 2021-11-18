@@ -442,7 +442,7 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	mimikyu: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["swordsdance", "shadowsneak", "playrough", "taunt", "shadowclaw"] },
 	mimikyumega: { tier: "Undecided", doublesTier: "Unranked", randomBattleMoves: ["strengthsap", "shadowsneak", "playrough", "taunt", "shadowclaw", "leechlife", "swordsdance", "firstimpression", "uturn"] },
 	minior: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["shellsmash", "powergem", "acrobatics", "earthquake"] },
-	miniormeteor},: { tier: "Heat", doublesTier: "Unranked" },
+	miniormeteor: { tier: "Heat", doublesTier: "Unranked" },
 	minun: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["nastyplot", "thunderbolt", "substitute", "hiddenpowerice", "encore"] },
 	misdreavus: { tier: "Heat", doublesTier: "Unranked" },
 	mismagius: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["nastyplot", "substitute", "willowisp", "shadowball", "thunderbolt", "dazzlinggleam", "taunt", "painsplit", "destinybond"] },
