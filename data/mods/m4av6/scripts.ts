@@ -1,7 +1,7 @@
 // tiering information
 const ag = ["gengarmega", "rayquazamega", "zacian", "zaciancrowned", "calyrexshadow"];
 const uber = ["butterfreemega", "rillaboommega", "dragapultmega", "alakazammega", "blastoisemega", "blazikenmega", "darkrai", "darmanitangalar", "deoxysattack", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "kyogre", "kyogreprimal", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "tapulele", "urshifu", "xerneas", "yveltal", "zamazenta", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock"];
-const newest = ["jynxmega", "electiviremega", "magmortarmega", "decidueyemega", "incineroarmega", "primarinamega", "granbullmega", "mightyenamega", "stoutlandmega", "victreebelmega", "dodriomega", "lanturnmega", "obstagoonmega"];
+const newest = ["jynxmega", "electiviremega", "magmortarmega", "decidueyemega", "incineroarmega", "primarinamega", "granbullmega", "mightyenamega", "stoutlandmega", "victreebelmega", "dodriomega", "lanturnmega", "obstagoonmega", "slowkinggalarmega", "dusknoirmega", "galvantulamega"];
 const tier1mega = ["corviknightmega", "dhelmisemega", "empoleonmega", "mudsdalemega", "starmiemega"];
 const tier1 = ["blissey", "cinderace", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "nidoqueen", "rillaboom", "slowbro", "tapufini", "toxapex"];
 const tier2mega = ["dragalgemega", "hydreigonmega", "latiasmega", "lopunnymega", "mawilemega", "medichammega", "raichumega", "reuniclusmega", "scizormega", "talonflamemega", "toxtricitylowkeymega", "vikavoltmega", "walreinmega"];
@@ -40,8 +40,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		console.log('init m4a');
 		for (const id in this.dataCache.Pokedex) {
-			let debug = false;
-			if (id === 'sawsbucksummer') debug = true;
 			const pokemon = this.dataCache.Pokedex[id];
 			if (pokemon.movepoolAdditions) {
 				for (const move of pokemon.movepoolAdditions) {
@@ -49,7 +47,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (this.modData('FormatsData', id)) {
-				if (debug) console.log(id + ' - setting tier info');
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
 				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
@@ -113,7 +110,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
-			return null;
+			return "Slowking-Galar-Mega";
 		}
 		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") {
 			return "Gourgeist-Small-Mega";
