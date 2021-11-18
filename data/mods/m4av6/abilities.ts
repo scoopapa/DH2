@@ -1715,12 +1715,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		inherit: true,
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralizing Gas');
-			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
-				if (target.hasAbility(target.getAbility()) && target.getAbility().name !== 'Neutralizing Gas') {
+				if (target.getAbility() && target.getAbility().name !== 'Neutralizing Gas') {
 					this.singleEvent('End', target.getAbility(), target.abilityData, target);
 				}
 			}
+			pokemon.abilityData.ending = false;
 		},
 	},
 	everlastingwinter: {
