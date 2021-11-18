@@ -9,6 +9,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 			if(set.happiness === undefined) set.happiness = 255; //undefined = default = 255
 			if(set.happiness >= 180) { //Mega Evolution requirement
 				set.megaEvolvable = true;
+				console.log(set);
 			}
 			if(set.happiness > 160){
 				set.happiness = 160;

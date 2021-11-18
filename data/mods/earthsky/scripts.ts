@@ -950,6 +950,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+				console.log(pokemon.set);
 				if(!pokemon.set.megaEvolvable) return null;
 				//Additional check for required move
 				if (altForme?.isMega && altForme?.requiredMove) {
