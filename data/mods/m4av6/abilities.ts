@@ -2760,4 +2760,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: -74,
 	},
+	agitate: {
+		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
+		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
+		onAnyBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			if (!target || !source || target === source || source !== this.effectData.target) return; // doesn't work on itself
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
+				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+			}
+		},
+		name: "Agitate",
+		rating: 3,
+		num: -75,
+	},
 };
