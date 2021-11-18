@@ -2028,7 +2028,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			blizzard: ["3L1"],
 			dive: ["3L1"],
 			drillpeck: ["3L1"],
-			encore: ["3L1"],
+			//encore: ["3L1"],
 			endure: ["3L1"],
 			facade: ["3L1"],
 			featherdance: ["3L1"],
