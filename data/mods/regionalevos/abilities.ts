@@ -3717,23 +3717,7 @@ dragonscales: {
 		rating: 2,
 		num: 243,
 	},
-	aerodynamic: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Flying') {
-				this.debug('Steelworker boost');
-				return this.chainModify(1.5);
-			}
-		},
-		melty: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
-				this.debug('Steelworker boost');
-				return this.chainModify(1.5);
-			}
-		},
-	electrician: {
+	steelworker: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Steel') {
@@ -3748,7 +3732,11 @@ dragonscales: {
 				return this.chainModify(1.5);
 			}
 		},
-		steelworker: {
+		name: "Steelworker",
+		rating: 3.5,
+		num: 200,
+	},
+	electrician: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Electric') {
@@ -3767,7 +3755,7 @@ dragonscales: {
 		rating: 3.5,
 		num: 200,
 	},
-malevolence: {
+	malevolence: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dark') {
@@ -3783,6 +3771,44 @@ malevolence: {
 			}
 		},
 		name: "Malevolence",
+		rating: 3.5,
+		num: 200,
+	},
+	aerodynamic: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Aerodynamic",
+		rating: 3.5,
+		num: 200,
+	},
+	melty: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Melty",
 		rating: 3.5,
 		num: 200,
 	},
