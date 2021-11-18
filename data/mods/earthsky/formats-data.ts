@@ -129,7 +129,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ES",
 	},
 	elpine: {
-		tier: "ES",
+		tier: "LC",
 	},
 	freezelk: {
 		tier: "ES",
@@ -326,8 +326,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ES",
 	},
 	//Other
-	darmanitanrage: {
+	victreebell: {
 		tier: "OU",
+	},
+	victreebel: {
+		tier: "Illegal",
+	},
+	darmanitanrage: {
+		tier: "Illegal",
 	},
 	lycanroctwilight: {
 		tier: "OU",
