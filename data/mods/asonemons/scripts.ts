@@ -1,5 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	isGrounded(negateImmunity = false) {
+	pokemon: {
+		isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 		if ('smackdown' in this.volatiles) return true;
@@ -12,7 +13,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if ('telekinesis' in this.volatiles) return false;
 		if ('float' in this.volatiles) return false;
 		return item !== 'airballoon';
-	},
+		},
+	},	
 	init(){
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
 			const fusionEntry = this.dataCache.Pokedex[id];
