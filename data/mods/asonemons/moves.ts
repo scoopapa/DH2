@@ -109,7 +109,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         target: "normal",
         type: "Normal",
         contestType: "Tough",
-    },
+   },
 	shellstack: {
 		accuracy: 100,
 		basePower: 60,
@@ -389,7 +389,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		isNonstandard: "Past",
-		name: "Pursuit",
+		name: "Extend Neck",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -442,4 +442,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Clever",
 	},
+	pungiblow: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Pungi Blow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	beamup: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Beam Up",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness: function (typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 };
+
