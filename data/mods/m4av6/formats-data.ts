@@ -166,7 +166,7 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	diancie: { tier: "Niche", doublesTier: "Banned", randomBattleMoves: ["reflect", "lightscreen", "stealthrock", "diamondstorm", "moonblast", "hiddenpowerfire"] },
 	dianciemega: { tier: "Heat", doublesTier: "Banned", randomBattleMoves: ["calmmind", "moonblast", "earthpower", "hiddenpowerfire", "diamondstorm"] },
 	diggersby: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["earthquake", "return", "wildcharge", "uturn", "swordsdance", "quickattack", "knockoff", "agility"] },
-	ditto: { tier: "Niche", doublesTier: "Unranked", randomBattleMoves: ["transform] },
+	ditto: { tier: "Niche", doublesTier: "Unranked", randomBattleMoves: ["transform"] },
 	dodrio: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["bravebird", "return", "swordsdance", "roost", "quickattack", "knockoff", "jumpkick"] },
 	dodriomega: { tier: "Newest", doublesTier: "Unranked" },
 	donphan: { tier: "Heat", doublesTier: "Unranked", randomBattleMoves: ["stealthrock", "rapidspin", "iceshard", "earthquake", "knockoff", "stoneedge"] },
