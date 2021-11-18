@@ -243,4 +243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	isGrounded(negateImmunity = false) {
+		if ('float' in this.volatiles) return false;
+	}
 };
