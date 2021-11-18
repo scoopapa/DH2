@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon) {
 			let boosted = true;
 			for (const target of this.getAllActive()) {
-				if (target === pokemon || target.hasAbility('sturdymold')) continue; //PLACEHOLDER
+				if (target === pokemon) continue; //PLACEHOLDER
 				if (this.queue.willMove(target)) {
 					boosted = false;
 					break;
@@ -3556,7 +3556,7 @@ lifedrain: {
 		},
 	},
 	"nocturnalflash": {
-		shortDesc: "Attacks have 1.5x power and a 30% chance to Poison if it moves last.",
+		shortDesc: "Attacks have 1.3x power and a 30% chance to Poison if it moves last.",
 		id: "nocturnalflash",
 		name: "Nocturnal Flash",
 		onBasePower(basePower, pokemon) {
