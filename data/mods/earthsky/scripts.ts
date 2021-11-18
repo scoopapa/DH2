@@ -1524,7 +1524,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const newNameMoves = [
 			"bunkerdown","warriorssoul","lunarray","psychicfang","tantrum","strangesmoke","solarimpact",
 		];
-		const noUniversalTMs = [
+		const noUniversalTMs = [ //Only Gen 5+ since it's the earliest to lose a universal TM
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
 		];
 		/* Wide-spread changes */
@@ -1666,7 +1666,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 				if(!moveDropped) this.modData('Learnsets', pokemonID).learnset[moveID] = moveMeans;
-				else{
+				else {
 					moveDropped = false;
 				}
 			}
@@ -2486,6 +2486,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Jynx
 		this.modData("Learnsets", "jynx").learnset.teeterdance = ["8D"];
 		this.modData("Learnsets", "jynx").learnset.amnesia = ["8M"];
+		this.modData("Learnsets", "jynx").learnset.daydream = ["8L1"];
 		this.modData("Learnsets", "jynx").learnset.flash = ["8M"];
 		this.modData("Learnsets", "jynx").learnset.hex = ["8M"];
 		this.modData("Learnsets", "jynx").learnset.nightmare = ["8M"];
@@ -2762,13 +2763,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'igglybuff').learnset.toxic;
 		// Togepi
 		this.modData("Learnsets", "togepi").learnset.softboiled = ["8D"];
+		this.modData("Learnsets", "togepi").learnset.daydream = ["8L1"];
 		this.modData("Learnsets", "togepi").learnset.flash = ["8M"];
 		this.modData("Learnsets", "togepi").learnset.naturalgift = ["8M"];
+		delete this.modData('Learnsets', 'togepi').learnset.growl;
 		delete this.modData('Learnsets', 'togepi').learnset.toxic;
 		// Togetic
 		this.modData("Learnsets", "togetic").learnset.softboiled = ["8D"];
+		this.modData("Learnsets", "togetic").learnset.daydream = ["8L1"];
 		this.modData("Learnsets", "togetic").learnset.flash = ["8M"];
 		this.modData("Learnsets", "togetic").learnset.naturalgift = ["8M"];
+		delete this.modData('Learnsets', 'togetic').learnset.growl;
 		delete this.modData('Learnsets', 'togetic').learnset.toxic;
 		// Natu
 		this.modData("Learnsets", "natu").learnset.cosmicpower = ["8D"];
@@ -3135,6 +3140,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'hitmontop').learnset.toxic;
 		// Smoochum
 		this.modData("Learnsets", "smoochum").learnset.lovelykiss = ["8D"];
+		this.modData("Learnsets", "smoochum").learnset.confide = ["8E"];
+		this.modData("Learnsets", "smoochum").learnset.daydream = ["8L1"];
 		this.modData("Learnsets", "smoochum").learnset.amnesia = ["8M"];
 		this.modData("Learnsets", "smoochum").learnset.hex = ["8M"];
 		this.modData("Learnsets", "smoochum").learnset.nightmare = ["8M"];
@@ -3375,17 +3382,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'pelipper').learnset.toxic;
 		// Ralts
 		this.modData("Learnsets", "ralts").learnset.sing = ["8D"];
-		this.modData("Learnsets", "ralts").learnset.confide = ["8E"];
+		this.modData("Learnsets", "ralts").learnset.confide = ["8L1"];
+		this.modData("Learnsets", "ralts").learnset.confusion = ["8L1"];
+		this.modData("Learnsets", "ralts").learnset.daydream = ["8L4"];
 		this.modData("Learnsets", "ralts").learnset.flash = ["8M"];
 		this.modData("Learnsets", "ralts").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'ralts').learnset.toxic;
 		// Kirlia
 		this.modData("Learnsets", "kirlia").learnset.sing = ["8D"];
+		this.modData("Learnsets", "kirlia").learnset.confide = ["8L1"];
+		this.modData("Learnsets", "kirlia").learnset.confusion = ["8L1"];
+		this.modData("Learnsets", "kirlia").learnset.daydream = ["8L4"];
 		this.modData("Learnsets", "kirlia").learnset.flash = ["8M"];
 		this.modData("Learnsets", "kirlia").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'kirlia').learnset.toxic;
 		// Gardevoir
 		this.modData("Learnsets", "gardevoir").learnset.sing = ["8D"];
+		this.modData("Learnsets", "gardevoir").learnset.confide = ["8L1"];
+		this.modData("Learnsets", "gardevoir").learnset.confusion = ["8L1"];
+		this.modData("Learnsets", "gardevoir").learnset.daydream = ["8L4"];
 		this.modData("Learnsets", "gardevoir").learnset.flash = ["8M"];
 		this.modData("Learnsets", "gardevoir").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'gardevoir').learnset.toxic;
@@ -4265,8 +4280,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'magmortar').learnset.toxic;
 		// Togekiss
 		this.modData("Learnsets", "togekiss").learnset.softboiled = ["8D"];
+		this.modData("Learnsets", "togekiss").learnset.daydream = ["8L1"];
 		this.modData("Learnsets", "togekiss").learnset.flash = ["8M"];
 		this.modData("Learnsets", "togekiss").learnset.naturalgift = ["8M"];
+		delete this.modData('Learnsets', 'togekiss').learnset.growl;
 		delete this.modData('Learnsets', 'togekiss').learnset.toxic;
 		// Yanmega
 		this.modData("Learnsets", "yanmega").learnset.fellswoop = ["8D"];
@@ -4311,6 +4328,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'porygonz').learnset.toxic;
 		// Gallade
 		this.modData("Learnsets", "gallade").learnset.sacredsword = ["8D"];
+		this.modData("Learnsets", "gallade").learnset.confide = ["8L1"];
+		this.modData("Learnsets", "gallade").learnset.confusion = ["8L1"];
+		this.modData("Learnsets", "gallade").learnset.daydream = ["8L4"];
 		this.modData("Learnsets", "gallade").learnset.flash = ["8M"];
 		this.modData("Learnsets", "gallade").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'gallade').learnset.toxic;
@@ -4649,6 +4669,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'simipour').learnset.toxic;
 		// Munna
 		this.modData("Learnsets", "munna").learnset.aromaticmist = ["8D"];
+		this.modData("Learnsets", "munna").learnset.daydream = ["8E"];
 		delete this.modData('Learnsets', 'munna').learnset.toxic;
 		// Musharna
 		this.modData("Learnsets", "musharna").learnset.strangesmoke = ["8D"];
