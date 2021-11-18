@@ -707,7 +707,7 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	tyrantrummega: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["stealthrock", "dragondance", "dragonclaw", "earthquake", "superpower", "outrage", "headsmash"] },
 	umbreon: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["wish", "protect", "healbell", "toxic", "foulplay"] },
 	unfezant: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["return", "pluck", "hypnosis", "tailwind", "uturn", "roost", "nightslash"] },
-	unown: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["hiddenpowerpsychic] },
+	unown: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["hiddenpowerpsychic"] },
 	ursaring: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["swordsdance", "facade", "closecombat", "crunch", "protect"] },
 	urshifurapidstrike: { tier: "OU", doublesTier: "B" },
 	uxie: { tier: "UU", doublesTier: "Unranked", randomBattleMoves: ["stealthrock", "thunderwave", "psychic", "uturn", "healbell", "knockoff", "yawn"] },
