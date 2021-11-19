@@ -2908,6 +2908,44 @@ fieryboost: {
 		type: "Dark",
 		contestType: "Tough",
 	},
+	sawtooth: {
+		num: 242,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Saw Tooth",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
+	chompdown: {
+		num: 242,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Chomp Down",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
 	crushclaw: {
 		num: 306,
 		accuracy: 95,
@@ -4900,6 +4938,25 @@ fieryboost: {
 		type: "Fire",
 		contestType: "Cute",
 	},
+	thunderclap: {
+		num: 680,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Thunderclap",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cute",
+	},
 	firepledge: {
 		num: 519,
 		accuracy: 100,
@@ -5045,6 +5102,27 @@ fieryboost: {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+	bitingchill: {
+		num: 755,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Biting Chill",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
 	},
 	fissure: {
 		num: 90,
@@ -12832,6 +12910,42 @@ poisondart: {
 		type: "Poison",
 		contestType: "Clever",
 	},
+	thundertail: {
+		num: 342,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Thunder Tail",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	comettail: {
+		num: 342,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Comet Tail",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+	},
 	pollenpuff: {
 		num: 676,
 		accuracy: 100,
@@ -13300,6 +13414,28 @@ poisondart: {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+		contestType: "Clever",
+	},
+	fisheousbite: {
+		num: 706,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Fisheous Bite",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
 		contestType: "Clever",
 	},
 	psychicterrain: {
@@ -16402,6 +16538,22 @@ poisondart: {
 		type: "Ghost",
 		contestType: "Cool",
 	},
+	dastardlydeed: {
+		num: 712,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Dastardly Deed",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		stealsBoosts: true,
+		// Boost stealing implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
 	speedswap: {
 		num: 683,
 		accuracy: true,
@@ -19203,6 +19355,23 @@ steelspikes: {
 		},
 		target: "any",
 		type: "Water",
+		contestType: "Beautiful",
+	},
+	empulse: {
+		num: 352,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "EM Pulse",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "any",
+		type: "Electric",
 		contestType: "Beautiful",
 	},
 	watershuriken: {
