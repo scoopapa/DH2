@@ -88,8 +88,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	pokemon: {
-    ignoringItem() {
-        return !!((this.battle.gen >= 5 && !this.isActive) ||
+		ignoringItem() {
+			return !!((this.battle.gen >= 5 && !this.isActive) ||
             (this.hasAbility(['klutz', 'gorillatactics']) && !this.getItem().ignoreKlutz) ||
             this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
 		}
