@@ -397,4 +397,50 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Magnezone)",
 		shortDesc: "The combination of Syncronize and Analytic.",
 	},
+	asoneabsol: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark') {
+				this.boost({atk: 1});
+			}
+		},
+		name: "As One (Absol)",
+		shortDesc: "The combination of Prankster and Justified.",
+	},
+	asoneabsol: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark') {
+				this.boost({atk: 1});
+			}
+		},
+		name: "As One (Absol)",
+		shortDesc: "The combination of Prankster and Justified.",
+	},
+	asonesalazzle: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		},
+		name: "As One (Salazzle)",
+		shortDesc: "The combination of Merciless and Corrosion.",
+	},
 };
