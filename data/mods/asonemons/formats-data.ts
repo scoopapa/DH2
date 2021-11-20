@@ -59,4 +59,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	sableyedoom: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+    mareaniemagma: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
