@@ -898,4 +898,29 @@ export const Scripts: ModdedBattleScriptsData = {
 	calcRecoilDamage(damageDealt, move) {
 		return this.clampIntRange(Math.floor(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 	},
+	
+	/*pokemon: {
+		copyVolatileFrom(pokemon: Pokemon) {
+			this.clearVolatile();
+			this.boosts = pokemon.boosts;
+			for (const i in pokemon.volatiles) {
+				if (this.battle.dex.getEffectByID(i as ID).noCopy) continue;
+				// shallow clones
+				this.volatiles[i] = {...pokemon.volatiles[i]};
+				if (this.volatiles[i].linkedPokemon) {
+					delete pokemon.volatiles[i].linkedPokemon;
+					delete pokemon.volatiles[i].linkedStatus;
+					for (const linkedPoke of this.volatiles[i].linkedPokemon) {
+						const linkedPokeLinks = linkedPoke.volatiles[this.volatiles[i].linkedStatus].linkedPokemon;
+						linkedPokeLinks[linkedPokeLinks.indexOf(pokemon)] = this;
+					}
+				}
+			}
+			pokemon.clearVolatile();
+			for (const i in this.volatiles) {
+				const volatile = this.getVolatile(i) as Condition;
+				this.battle.singleEvent('Copy', volatile, this.volatiles[i], this);
+			}
+		}
+	},*/
 };
