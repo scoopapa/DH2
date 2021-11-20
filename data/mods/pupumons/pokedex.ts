@@ -1,4 +1,20 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	/*moncub: {
+		num: 1,
+		name: "Moncub",
+		types: ["Grass"],
+		baseStats: {hp: 60, atk: 51, def: 51, spa: 51, spd: 57, spe: 40},
+		abilities: {0: "Overgrow", H: "Natural Cure"},
+		weightkg: 7,
+	},
+	rabbear: {
+		num: 1,
+		name: "Rabbear",
+		types: ["Grass"],
+		baseStats: {hp: 80, atk: 60, def: 73, spa: 60, spd: 82, spe: 50},
+		abilities: {0: "Overgrow", H: "Natural Cure"},
+		weightkg: 16,
+	},*/
 	grizzeal: {
 		num: 1,
 		name: "Grizzeal",
@@ -194,7 +210,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 23,
 		name: "Dragutus",
 		types: ["Dragon"],
-		baseStats: {hp: 90, atk: 70, def: 70, spa: 70, spd: 70, spe: 60},
+		baseStats: {hp: 80, atk: 70, def: 80, spa: 70, spd: 80, spe: 60},
 		abilities: {0: "Regenerator"},
 		evos: ["Dragulonimbus", "Dragulare", "Dragulanche"],
 		weightkg: 120,
