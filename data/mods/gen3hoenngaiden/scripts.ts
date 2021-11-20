@@ -899,10 +899,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		return this.clampIntRange(Math.floor(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 	},
 	
-	/*pokemon: {
+	pokemon: {
 		copyVolatileFrom(pokemon: Pokemon) {
 			this.clearVolatile();
-			this.boosts = pokemon.boosts;
+			this.boosts !== pokemon.boosts;
 			for (const i in pokemon.volatiles) {
 				if (this.battle.dex.getEffectByID(i as ID).noCopy) continue;
 				// shallow clones
@@ -922,5 +922,5 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.singleEvent('Copy', volatile, this.volatiles[i], this);
 			}
 		}
-	},*/
+	},
 };
