@@ -29,9 +29,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-immune', this);
 				}
 				return false;
+				}
 			}
-		}
-    }
+   	}
 	},	
 	init(){
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
