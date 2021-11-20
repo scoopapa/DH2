@@ -14,6 +14,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if ('float' in this.volatiles) return false;
 		return item !== 'airballoon';
 		},
+		setStatus(
+		status: string | Condition,
+		source: Pokemon | null = null,
+		sourceEffect: Effect | null = null,
+		ignoreImmunities = false
+	) {
+    if (!ignoreImmunities && status.id &&
+				!(source?.hasAbility('asonesalazzle') && ['tox', 'psn'].includes(status.id))) {
+			// the game currently never ignores immunities
+			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				this.battle.debug('immune to status');
+				if ((sourceEffect as Move)?.status) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+		}
+    }
 	},	
 	init(){
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
