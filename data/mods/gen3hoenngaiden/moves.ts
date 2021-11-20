@@ -56,6 +56,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		selfSwitch: true,
+		switchCopyFlag: false,
 		secondary: null,
 		target: "self",
 		type: "Normal",
