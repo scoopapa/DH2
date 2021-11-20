@@ -988,7 +988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Galar",
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 45, atk: 95, def: 70, spa: 30, spd: 70, spe: 60},
-		abilities: {0: "Intimidate", 1: "Guts", H: "Justified"},
+		abilities: {0: "Intimidate", 1: "Defiant", H: "Justified"},
 	},
 	bisharpgalar: {
 		num: 1120,
@@ -1381,14 +1381,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Ransei",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 250, atk: 35, def: 35, spa: 35, spd: 75, spe: 20},
-		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Magic Guard"},
+		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Natural Cure"},
 	},
 	sensey: {
 		num: 1166,
 		name: "Sensey",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 255, atk: 10, def: 40, spa: 105, spd: 105, spe: 25},
-		abilities: {0: "Prankster", 1: "Thick Fat", H: "Unaware"},
+		abilities: {0: "Prankster", 1: "Thick Fat", H: "Oblivious"},
 	},
 	leditanium: {
 		num: 1167,

@@ -1502,6 +1502,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Tough",
 	},
+	forgingpounds: {
+		num: 198,
+		accuracy: 90,
+		basePower: 25,
+		category: "Physical",
+		name: "Forging Pounds",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+	},
 	boomburst: {
 		num: 586,
 		accuracy: 100,
@@ -1862,6 +1879,23 @@ fieryboost: {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
+		bullethell: {
+		num: 331,
+		accuracy: 100,
+		basePower: 25,
+		category: "Special",
+		name: "Bullet Hell",
+		pp: 30,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
 	burningjealousy: {
 		num: 807,
 		accuracy: 100,
@@ -2082,6 +2116,27 @@ fieryboost: {
 			self: {
 				boosts: {
 					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+		thunderclop: {
+		num: 451,
+		accuracy: 85,
+		basePower: 110,
+		category: "Physical",
+		name: "Thunderclop",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			self: {
+				boosts: {
+					spe: 1,
 				},
 			},
 		},
@@ -2851,6 +2906,44 @@ fieryboost: {
 		},
 		target: "normal",
 		type: "Dark",
+		contestType: "Tough",
+	},
+	sawtooth: {
+		num: 242,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Saw Tooth",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
+	chompdown: {
+		num: 242,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Chomp Down",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
 		contestType: "Tough",
 	},
 	crushclaw: {
@@ -4845,6 +4938,25 @@ fieryboost: {
 		type: "Fire",
 		contestType: "Cute",
 	},
+	thunderclap: {
+		num: 680,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Thunderclap",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cute",
+	},
 	firepledge: {
 		num: 519,
 		accuracy: 100,
@@ -4990,6 +5102,27 @@ fieryboost: {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+	bitingchill: {
+		num: 755,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Biting Chill",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
 	},
 	fissure: {
 		num: 90,
@@ -6052,6 +6185,21 @@ fieryboost: {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
+		contestType: "Clever",
+	},
+	datadrain: {
+		num: 202,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Data Drain",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
 		contestType: "Clever",
 	},
 	gigaimpact: {
@@ -8348,6 +8496,24 @@ fieryboost: {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		contestType: "Cool",
+	},
+	icebergrush: {
+		num: 136,
+		accuracy: 90,
+		basePower: 130,
+		category: "Physical",
+		name: "Iceberg Rush",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('Iceberg Rush'));
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	holdback: {
@@ -11393,6 +11559,26 @@ titanbeam: {
 		target: "allAdjacent",
 		type: "Fairy",
 	},
+	firebomb: {
+		num: 802,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Fire Bomb",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		onBasePower(basePower, source) {
+			if (this.field.isWeather('desolateland') && source.isGrounded()) {
+				this.debug('desolateland boost');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Fire",
+	},
 	mistyterrain: {
 		num: 581,
 		accuracy: true,
@@ -12724,6 +12910,42 @@ poisondart: {
 		type: "Poison",
 		contestType: "Clever",
 	},
+	thundertail: {
+		num: 342,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Thunder Tail",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	comettail: {
+		num: 342,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Comet Tail",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+	},
 	pollenpuff: {
 		num: 676,
 		accuracy: 100,
@@ -13194,6 +13416,28 @@ poisondart: {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	fisheousbite: {
+		num: 706,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Fisheous Bite",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
 	psychicterrain: {
 		num: 678,
 		accuracy: true,
@@ -13500,6 +13744,24 @@ poisondart: {
 		},
 		target: "normal",
 		type: "Fire",
+	},
+	dazzlingdinger: {
+		num: 780,
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		name: "Dazzling Dinger",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, bullet: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
 	},
 	quash: {
 		num: 511,
@@ -16274,6 +16536,22 @@ poisondart: {
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
+		contestType: "Cool",
+	},
+	dastardlydeed: {
+		num: 712,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Dastardly Deed",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		stealsBoosts: true,
+		// Boost stealing implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Dark",
 		contestType: "Cool",
 	},
 	speedswap: {
@@ -19077,6 +19355,23 @@ steelspikes: {
 		},
 		target: "any",
 		type: "Water",
+		contestType: "Beautiful",
+	},
+	empulse: {
+		num: 352,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "EM Pulse",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "any",
+		type: "Electric",
 		contestType: "Beautiful",
 	},
 	watershuriken: {

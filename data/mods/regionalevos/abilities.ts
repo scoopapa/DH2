@@ -1793,7 +1793,7 @@ dragonscales: {
 		thagomizer: {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.name === 'Aqua Tail' || move.name === 'Dragon Tail' || move.name === 'Poison Tail' || move.name === 'Iron Tail') {
+			if (move.name === 'Aqua Tail' || move.name === 'Dragon Tail' || move.name === 'Poison Tail' || move.name === 'Iron Tail' || move.name === 'Thunder Tail' || move.name === 'Comet Tail') {
 				this.debug('Thagomizer boost');
 				return this.chainModify([0x1333, 0x1000]);
 			}
@@ -2449,10 +2449,10 @@ dragonscales: {
 	deadlyaccuracy: {
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
-			if (move && move.category ==== 'Physical' && (source === this.effectData.target || target === this.effectData.target)) return 0;
+			if (move.category === 'Physical' && (source === this.effectData.target || target === this.effectData.target)) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && move.category ==== 'Physical' && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move.category === 'Physical' && (source === this.effectData.target || target === this.effectData.target)) {
 				return true;
 			}
 			return accuracy;
