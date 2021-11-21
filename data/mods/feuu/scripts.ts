@@ -41,7 +41,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERU', 'Uncoded', 'FENFE', 'FELC', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Uncoded', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -53,6 +53,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
+/*
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
 			return "Silvino-Bug-Mega";
 		}
@@ -104,7 +105,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Water") {
 			return "Silvino-Water-Mega";
 		}
-		
+	*/
 		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
 			return "Absable-Mega-Y"; 
 		}
