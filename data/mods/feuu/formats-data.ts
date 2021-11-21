@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 77,
 	},
 	tapulop: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["moonblast", "uturn", "focusblast", "switcheroo"],
 		randomBattleLevel: 77,
@@ -150,7 +150,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 77,
 	},
 	tapulopmega: {
-		tier: "FERU",
+		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["fakeout", "uturn", "closecombat", "tripleaxel"],
 		randomBattleLevel: 77,
