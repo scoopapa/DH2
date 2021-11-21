@@ -414,7 +414,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Strikados-Galar",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 90, atk: 112, def: 80, spa: 87, spd: 80, spe: 121},
-		abilities: {0: "Chivalry"},
+		abilities: {0: "Herbivore"},
 		weightkg: 68.6,
 	},
 	hooporant: {
