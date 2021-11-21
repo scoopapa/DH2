@@ -484,7 +484,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage',
 					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
-					'magicmissile', 'ecopy', 'lemegeton', 'modeshift',
+					'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -3429,6 +3429,42 @@ lifedrain: {
 		name: "Idiot Savant",
 		shortDesc: "Own Tempo + Download",
 	},
+	rebootsystem: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		isPermanent: true,
+		name: "Reboot System",
+		shortDesc: "RKS System + Regenerator",
+	},
+	gracefulhealing: {
+    onAfterMove(target, source, move){
+        if (move.secondaries) this.heal(target.baseMaxhp / 8);
+    },
+    name: "Graceful Healing",
+    shortDesc: "Restores 12.5% max HP when using a move with secondary effects.",
+	},
+	herbivore: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 2})) {
+					this.add('-immune', target, '[from] ability: Herbivore');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 2}, this.effectData.target);
+			}
+		},
+    name: "Herbivore",
+    shortDesc: "This Pokemon's Attack is raised 2 stage if hit by a Grass move; Grass immunity.",
+	},
+
+
 
 
 // LC Only Abilities
