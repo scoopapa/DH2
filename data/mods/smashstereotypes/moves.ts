@@ -627,7 +627,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit: function(pokemon) {
 			if (this.field.isWeather(['desolateland', 'sunnyday'])) {
 				return this.heal(this.modify(pokemon.maxhp, 0.667));
-			else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
 				return this.heal(this.modify(pokemon.maxhp, 0.25));
 			} else {
 				return this.heal(this.modify(pokemon.maxhp, 0.5));
