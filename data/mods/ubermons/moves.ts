@@ -299,13 +299,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePowerPriority: 22,
-		onBasePower(basePower, source, move) {
+		onBasePower(basePower, source, target, move) {
 			let guillotine = null;
-			for (const pokemon of source.side.foe.active) {
-				let statDrop: BoostName;
-				for (statDrop in pokemon.boosts) {
-					if (pokemon.boosts[statDrop] < 0) guillotine = true;
-				}
+			let statDrop: BoostName;
+			for (statDrop in target.boosts) {
+				if (target.boosts[statDrop] < 0) guillotine = true;
 			}
 			if (guillotine) {
 				this.debug('Guillotine boost');
