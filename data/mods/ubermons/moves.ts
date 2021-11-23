@@ -299,7 +299,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePowerPriority: 22,
-		onBasePower(basePower, attacker, defender, move) {
+		onBasePower(basePower, source, move) {
 			let guillotine = null;
 			for (const pokemon of source.side.foe.active) {
 				let statDrop: BoostName;
