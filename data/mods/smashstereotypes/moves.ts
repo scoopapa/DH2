@@ -433,4 +433,448 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	crunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 85;
+			}
+		},
+	},
+	thunderfang: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 85;
+			}
+		},
+	},
+	firefang: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 85;
+			}
+		},
+	},
+	wildcharge: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 100;
+			}
+		},
+	},
+	doublekick: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 50;
+			}
+		},
+	},
+	dragonragesylve: {
+		num: 82,
+		accuracy: 100,
+		basePower: 0,
+		damage: 'level',
+		category: "Special",
+		shortDesc: "Deals fixed damage equal to the user's level",
+		id: "dragonragesylve",
+		isViable: true,
+		name: "Dragon Rage (Sylve)",
+		pp: 20,
+		priority: 0,
+		flags: {
+			protect: 1,
+			mirror: 1
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMovePower: 100,
+		contestType: "Cool",
+	},
+	flamewheelsylve: {
+		num: 228,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the flame wheel succeeds
+			if (target.beingCalledBack) {
+				this.debug('Flame Wheel damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Power doubles if a foe is switching out.",
+		id: "flamewheelsylve",
+		isViable: true,
+		name: "Flame Wheel (Sylve)",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('flamewheelsylve', pokemon);
+				const data = side.getSideConditionData('flamewheelsylve');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('flamewheelsylve');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Flame Wheel start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Flame Wheel');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Flame Wheel user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('flamewheelsylve', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMovePower: 100,
+		contestType: "Clever",
+	},
+	incineratesylve: {
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
+		id: "incineratesylve",
+		isViable: true,
+		name: "Incinerate (Sylve)",
+		pp: 20,
+		priority: 0,
+		flags: {
+			protect: 1,
+			mirror: 1
+		},
+		onBasePowerPriority: 4,
+		onBasePower: function(basePower, source, target, move) {
+			let item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, source, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onHit: function(target, source) {
+			let item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
+				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Incinerate', '[of] ' + source);
+				if (this.singleEvent('Eat', item, null, source, null, null)) {
+					this.runEvent('EatItem', source, null, null, item);
+				}
+				if (item.onEat) source.ateBerry = true;
+			}
+		},
+		onAfterHit: function(target, source) {
+			if (source.hp) {
+				let item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Incinerate', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMovePower: 120,
+	},
+	morningsun: {
+		num: 234,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Morning Sun",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.pp = 10;
+			}
+		},
+		onHit: function(pokemon) {
+			if (this.field.isWeather(['desolateland', 'sunnyday'])) {
+				return this.heal(this.modify(pokemon.maxhp, 0.667));
+			else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
+				return this.heal(this.modify(pokemon.maxhp, 0.25));
+			} else {
+				return this.heal(this.modify(pokemon.maxhp, 0.5));
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	mudslapsylve: {
+		num: 98,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Usually goes first.",
+		id: "mudslapsylve",
+		isViable: true,
+		name: "Mud Slap (Sylve)",
+		pp: 30,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		zMovePower: 100,
+		contestType: "Cool",
+	},
+	teleport: {
+		num: 100,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Teleport",
+		pp: 20,
+		priority: -6,
+		flags: {},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.basePower = 70;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (source.species.id === 'arcanine') {
+				return priority 0;
+			}
+		},
+		selfSwitch: true,
+		onTryHit: true,
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
+	},
+	stormstrike: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Power doubles and type varies in each weather.",
+		id: "stormstrike",
+		name: "Storm Strike",
+		pp: 10,
+		priority: 0,
+		flags: {
+			bullet: 1,
+			protect: 1,
+			mirror: 1
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+				move.type = 'Ice';
+				break;
+			case 'aircurrent':
+				move.type = 'Flying';
+				break;
+			case 'shadowsky':
+				move.type = 'Ghost';
+				break;					
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+				move.basePower *= 2;
+				break;
+			case 'aircurrent':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
+				move.basePower *= 2;
+				break;					
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Weather Ball", target);
+			this.add('-anim', source, "Knock Off", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMovePower: 160,
+		contestType: "Beautiful",
+	},
+	/*peekaboo: {
+		num: 712,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(130);
+		},
+		category: "Special",
+		name: "Peek-a-Boo",
+		shortDesc: "Deals a random amount of damage and forces user out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		/*onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},
+		self: {
+			forceSwitch: true,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},*/
+	planetarycrash: {
+		num: 1002,
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+		name: "Planetary Crash",
+		shortDesc: "User takes 50% of max HP if it misses. Phys if Atk > Sp. Atk",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('Planetary Crash'));
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", target);
+			this.add('-anim', source, "Head Smash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	terraforming: {
+		num: 1015,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Terraforming",
+		shortDesc: "Fails if there is no weather active. Ends the weather.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit() {
+			if (this.field.isWeather('')) return false;
+		},
+		onHit() {
+			this.field.clearWeather();
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rototiller", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+	aerostrike: {
+		num: 369,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "User switches out after damaging the target.",
+		name: "Aerostrike",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aeroblast", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cute",
+	},
+	sweetmelody: {
+		num: 10001,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "The target is freed from Infestation.",
+		name: "Sweet Melody",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			dustproof: true,
+			chance: 100,
+			onHit(target) {
+				if (target.volatiles['infestation']) target.removeVolatile('infestation');
+			},
+		},
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Tough",
+	},
 };

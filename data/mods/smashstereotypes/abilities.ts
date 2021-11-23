@@ -111,4 +111,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Teaching Tech",
 		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
 	},
+	justified: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark' && source.species.id !== 'arcanine') {
+				this.boost({atk: 1});
+			}
+		},
+		onFoeTrapPokemon (pokemon, source) {
+			if (move.type === 'Dark' && source.species.id === 'arcanine') {
+			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon (pokemon, source) {
+			if (move.type === 'Dark' && source.species.id === 'arcanine') {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Justified",
+		shortDesc: "If Arcanine: Prevents adjacent Dark-type foes from choosing to switch.",
+		rating: 2.5,
+		num: 154,
+	},
+	shadowtag: {
+		onFoeSwitchOut(source, target) {
+			for (const target of source.side.foe.active) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Shadow Tag",
+		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
+		rating: 5,
+		num: 23,
+	},
 };
