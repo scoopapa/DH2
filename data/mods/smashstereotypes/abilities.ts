@@ -126,9 +126,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onFoeMaybeTrapPokemon (pokemon, source) {
 			if (move.type === 'Dark' && source.species.id === 'arcanine') {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
-				pokemon.maybeTrapped = true;
+				if (!source) source = this.effectData.target;
+				if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+					pokemon.maybeTrapped = true;
+				}
 			}
 		},
 		name: "Justified",
