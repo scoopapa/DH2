@@ -353,6 +353,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		num: 25,
 		types: ["Fire", "Normal"],
+		abilities: {0: "Intimidate", 1: "Flash Fire", H: "Justified (Sylve)"},
 	},
 	frosmoth: {
 		num: 26,
