@@ -1527,7 +1527,7 @@ export const Formats: FormatList = [
 			//Items
 			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y',
 			//Moves
-			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
+			'Baton Pass',
 		],
 		teambuilderFormat: 'OU',
 	},
