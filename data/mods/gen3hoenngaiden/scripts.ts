@@ -318,7 +318,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.modData('Learnsets', 'eevee').learnset.growth = ['3L1'];
 
-		this.modData('Learnsets', 'mamoswine').learnset.superpower = ['3L1'];
+		//this.modData('Learnsets', 'mamoswine').learnset.superpower = ['3L1'];
 		//this.modData('Learnsets', 'mamoswine').learnset.knockoff = ['3L1'];
 		
 		this.modData('Learnsets', 'roserade').learnset.hyperbeam = ['3L1'];
