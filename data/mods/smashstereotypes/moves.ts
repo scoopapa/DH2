@@ -673,7 +673,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyPriority(priority, source, target, move) {
 			if (source.species.id === 'arcanine') {
-				return priority 0;
+				return priority + 0;
 			}
 		},
 		selfSwitch: true,
