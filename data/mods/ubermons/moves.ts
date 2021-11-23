@@ -307,7 +307,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			if (guillotine) {
 				this.debug('Guillotine boost');
-				return this.chainModify([0x14CD, 0x1000]);
+				return this.chainModify(2);
 			}
 		},
 		secondary: null,
