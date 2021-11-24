@@ -648,4 +648,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Silvino-Water",
 		itemUser: ["Silvino-Water"],
 	},
+	fairymemory: {
+		name: "Fairy Memory",
+		onMemory: 'Fairy',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fairy",
+		itemUser: ["Silvino-Fairy"],
+	},
 };
