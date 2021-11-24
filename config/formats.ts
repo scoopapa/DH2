@@ -921,9 +921,9 @@ export const Formats: FormatList = [
 			'Tapu Lop', 'Absable', 'Cofazor', 'Lurodactyl', 'Wishirupti', 'Hypnakart', 'Talonsyl', 'Paracoal', 'Avarupt', 'Pherogonga', 
 			'Hawlazzle', 'Glakiss', 'Glasnow', 'Dusking', 'Strikados-Galar',
 			
-			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fighting',
-			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
-			'Silvino-Poison', 'Silvino-Psychic', 'Silvino-Rock', 'Silvino-Water', 'Silvino', 'Silvino-Mega',			
+			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
+			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
+			'Silvino-Poison', 'Silvino-Psychic', 'Silvino-Rock', 'Silvino-Steel', 'Silvino-Water', 'Silvino', 'Silvino-Mega',			
 			'Litleesect-Douse', 'Litleesect-Shock', 'Litleesect-Burn', 'Litleesect-Chill',
 			'Genebro-Galar-Douse', 'Genebro-Galar-Shock', 'Genebro-Galar-Burn', 'Genebro-Galar-Chill',
 			
