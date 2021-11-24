@@ -50,6 +50,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryMove(pokemon) {
             if (pokemon.positiveBoosts()) {
 				this.add('-fail', pokemon);
+				this.hint("Baton Pass can't pass Stat Boosts.");
                 return null;
             }
         },
