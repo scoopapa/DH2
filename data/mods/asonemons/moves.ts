@@ -468,5 +468,69 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	darkfractals: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Dark Fractals",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'darkfractals',
+				source: source,
+				moveData: {
+					id: 'darkfractals',
+					name: "Dark Fractals",
+					accuracy: 100,
+					basePower: 100,
+					category: "Physical",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, 'move: Dark Fractals');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	sulfuricacid: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Sulfuric Acid",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			dustproof: true,
+			chance: 100,
+			onHit(target) {
+				if (target.status === 'brn') target.cureStatus();
+				if (target.status === 'par') target.cureStatus();
+				if (target.status === 'frz') target.cureStatus();
+			},
+		},
+		target: "allAdjacent",
+		type: "Fire",
+		contestType: "Tough",
+	},
 };
 
