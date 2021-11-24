@@ -641,7 +641,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Roselia",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 50, atk: 90, def: 80, spa: 90, spd: 120, spe: 70},
-		abilities: {0: "Overcoat", 1: "Poison Point"},
+		abilities: {0: "Cloud Nine", 1: "Poison Point"},
 		heightm: 0.3,
 		weightkg: 2,
 		prevo: "Budew",

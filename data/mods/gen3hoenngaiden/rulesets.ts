@@ -17,4 +17,18 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', `https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season-slate-8-concept-voting.3681339/`);
 		}
 	}
+	batonpassboostclause: {
+        effectType: 'Rule',
+        name: 'Baton Pass Boost Clause',
+        desc: 'A Pokémon cannot use the move Baton Pass when it has Stat Boosts.',
+        onTryMove(attacker, defender, move) {
+            if (move.id === 'batonpass' && attacker.boosts[''] > 0) {
+                this.add('hint', 'The Pokémon tried to use Baton Pass, but Baton Pass Boost Clause activated!');
+                return null;
+            }
+        },
+        onBegin() {
+            this.add('rule', 'Baton Pass Boost Clause: Baton Pass fails at Stat Boosts.');
+        }
+    }
 };
