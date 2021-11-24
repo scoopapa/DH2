@@ -3209,7 +3209,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             }
         },
 		name: "Tiger Pit",
-		shortDesc: "Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
+		shortDesc: "(Bugged) Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
 	},	
 	vengefulshift: {
 		onResidualOrder: 5,
