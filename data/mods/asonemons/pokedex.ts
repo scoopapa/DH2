@@ -134,4 +134,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Magnezone)"},
 		weightkg: 214.5,
 	},
+	sableyedoom: {
+		fusion: ['Sableye', 'Absol'],
+		num: 16,
+		name: "Sableye-Doom",
+		types: ["Dark"],
+		baseStats: {hp: 65, atk: 140, def: 100, spa: 75, spd: 85, spe: 76},
+		abilities: {0: "As One (Absol)"},
+		weightkg: 58,
+	},
+    mareaniemagma: {
+		fusion: ['Mareanie', 'Salazzle'],
+		num: 17,
+		name: "Mareanie-Magma",
+		types: ["Merciless", "Corrosion"],
+		baseStats: {hp: 68, atk: 64, def: 80, spa: 111, spd: 80, spe: 127},
+		abilities: {0: "As One (Salazzle)"},
+		weightkg: 30.2,
+	},
 };
