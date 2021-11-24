@@ -1046,7 +1046,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	trapeino: {
-		tier: "FERU",
+		tier: "Bugged",
 		doublesTier: "DUU",
 		randomBattleMoves: ["earthquake", "crunch", "firstimpression", "quickattack"],
 		randomBattleLevel: 79,
@@ -1064,7 +1064,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	goodevoir: {
-		tier: "Uncoded",
+		tier: "Bugged",
 		doublesTier: "DUU",
 		randomBattleMoves: ["moonblast", "dracometeor", "trick", "mysticalfire"],
 		randomBattleLevel: 79,
