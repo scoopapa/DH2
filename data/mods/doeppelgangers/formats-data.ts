@@ -1155,6 +1155,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	heatran: {
 		tier: "OU",
 	},
+	heatrananti: {
+		tier: "OU",
+		isModded: true,
+	},
 	regigigas: {
 		tier: "(PU)",
 	},

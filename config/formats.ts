@@ -960,8 +960,8 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'Smeargle + Baton Pass', 'Past'],
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'Past'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
@@ -1533,7 +1533,7 @@ export const Formats: FormatList = [
 			//Items
 			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y',
 			//Moves
-			'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
+			'Baton Pass',
 		],
 		teambuilderFormat: 'OU',
 	},
@@ -1971,8 +1971,8 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', '3 Baton Pass Clause', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL', 'Snow Warning', 'Smeargle + Ingrain', 'Smeargle + Baton Pass', 'Past'],
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'OU', 'UUBL', 'Snow Warning', 'Past'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',

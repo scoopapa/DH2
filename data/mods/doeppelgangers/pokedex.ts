@@ -131,6 +131,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 34,
 	},
+	heatran: {
+		inherit: true,
+		otherFormes: ["Heatran-Anti"],
+		formeOrder: ["Heatran", "Heatran-Anti"],
+	},
+	heatrananti: {
+		num: 485,
+		name: "Heatran-Anti",
+		baseSpecies: "Heatran",
+		forme: "Anti",
+		types: ["Ground"],
+		baseStats: {hp: 69, atk: 140, def: 80, spa: 76, spd: 135, spe: 100},
+		abilities: {0: "Flash Fire"},
+		heightm: 1.7,
+		weightkg: 430,
+	},
 	ferrothorn: {
 		inherit: true,
 		otherFormes: ["Ferrothorn-Anti"],

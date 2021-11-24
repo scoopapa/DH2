@@ -94,4 +94,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ringoando: {
 		tier: "SSS",
 	},
+	arcanine: {
+		tier: "SSS",
+	},
+	frosmoth: {
+		tier: "SSS",
+	},
+	frosmothmega: {
+		tier: "SSS",
+	},
+	lunatoneapple: {
+		tier: "SSS",
+	},
+	bastiodactyl: {
+		tier: "SSS",
+	},
+	gengar: {
+		tier: "SSS",
+	},
+	gengarmega: {
+		tier: "SSS",
+	},
+	ribombeeprimarina: {
+		tier: "SSS",
+	},
 };
