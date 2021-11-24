@@ -21,8 +21,9 @@ export const Formats: {[k: string]: FormatData} = {
         effectType: 'Rule',
         name: 'Baton Pass Boost Clause',
         desc: 'A Pokémon cannot use the move Baton Pass when it has Stat Boosts.',
-        onTryMove(attacker, defender, move) {
-            if (move.id === 'batonpass' && attacker.boosts[''] > 0) {
+        onTryMove(pokemon, move) {
+            if (move.id === 'batonpass' && pokemon.positiveBoosts()) {
+				this.add('-fail', pokemon);
                 this.add('hint', 'The Pokémon tried to use Baton Pass, but Baton Pass Boost Clause activated!');
                 return null;
             }
