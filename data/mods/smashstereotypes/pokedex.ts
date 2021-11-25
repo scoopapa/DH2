@@ -416,4 +416,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.2,
 		weightkg: 0.5,
 	},
+	beetilient: {
+		num: 31,
+		name: "Beetilient",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: 75, atk: 110, def: 135, spa: 40, spd: 75, spe: 75},
+		abilities: {0: "Shell Armor", 1: "Stamina", H: "Mirror Armor"},
+		weightkg: 65.4,
+	},
+	cadbunny: {
+		num: 32,
+		name: "Cadbunny",
+		types: ["Normal", "Dark"],
+		baseStats: {hp: 90, atk: 50, def: 90, spa: 110, spd: 90, spe: 90},
+		abilities: {0: "Pickup", H: "Regenerator"},
+		//weightkg: 104.25,
+	},
+	peccarious: {
+		num: 33,
+		name: "Peccarious",
+		types: ["Ground", "Grass"],
+		baseStats: {hp: 80, atk: 135, def: 94, spa: 50, spd: 86, spe: 40},
+		abilities: {0: "Reckless", 1: "Vigilante", H: "Grass Pelt"},
+		weightkg: 25,
+	},
 };

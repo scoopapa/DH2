@@ -118,4 +118,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ribombeeprimarina: {
 		tier: "SSS",
 	},
+	beetilient: {
+		tier: "SSS",
+	},
+	cadbunny: {
+		tier: "SSS",
+	},
+	peccarious: {
+		tier: "SSS",
+	},
 };
