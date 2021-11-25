@@ -894,11 +894,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		slotCondition: 'flashhandoff',
 		condition: {
-			duration: 2,
+			duration: 1,
 			onResidualOrder: 7,
 			onEnd(source, target) {
 				if (!source.fainted) {
-					source.addVolatile('lockon', target);
+					//source.addVolatile('lockon', target);
+					const volatile = source.addVolatile('lockon');
 				}
 			},
 		},
