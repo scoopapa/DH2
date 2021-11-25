@@ -763,20 +763,29 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			return (this.random(1, 130) * pokemon.level) / 100;
+			return this.random(130);
 		},
 		category: "Special",
 		name: "Peek-a-Boo",
-		shortDesc: "Deals a random amount of damage and user switches out.",
+		shortDesc: "Deals a random amount of damage and forces user out.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},
+		self: {
+			forceSwitch: true,
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mean Look", target);
 			this.add('-anim', source, "Poltergeist", target);
 		},
-		selfSwitch: true,
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
