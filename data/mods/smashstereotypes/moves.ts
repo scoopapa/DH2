@@ -893,12 +893,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		slotCondition: 'flashhandoff',
-		condition: { 
-			onSwap(source) {
-				if (!source.fainted) {
-					source.side.addVolatile('lockon');
-					source.side.removeSlotCondition(source, 'flashhandoff');
-				}
+		condition: {
+			duration: 2,
+			onSourceInvulnerabilityPriority: 1,
+			onSourceInvulnerability(target, source, move) {
+				if (move && source === this.effectData.target && target === this.effectData.source) return 0;
+			},
+			onSourceAccuracy(accuracy, target, source, move) {
+				if (move && source === this.effectData.target && target === this.effectData.source) return true;
 			},
 		},
 		onPrepareHit: function(target, source, move) {
