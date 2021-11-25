@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	// inherit: 'm4av6',
+	inherit: 'm4av6',
 	
 	battle: {
 		megaCap: 1,

@@ -92,6 +92,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 76,
 	},
+	hardcourt: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectData.switchingIn) return;
+			this.add('-ability', pokemon, 'Hard Court');
+			this.effectData.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Hard Court",
+		rating: 2,
+		num: 76,
+	},
 	analytic: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
@@ -1065,6 +1080,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 166,
 	},
+	friendlyheat: {
+		onAllyBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Fire')) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Friendly Heat');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Fire') && status.id === 'yawn') {
+				this.debug('Friendly Heat blocking yawn');
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Friendly Heat', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		name: "Friendly Heat",
+		rating: 0,
+		num: 166,
+	},
 	fluffy: {
 		onSourceModifyDamage(damage, source, target, move) {
 			let mod = 1;
@@ -1413,6 +1466,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 5,
 		num: 37,
 	},
+	awakenedpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			return this.chainModify(2);
+		},
+		name: "Awakened Power",
+		rating: 5,
+		num: 37,
+	},
 	hungerswitch: {
 		onResidual(pokemon) {
 			if (pokemon.species.baseSpecies !== 'Morpeko' || pokemon.transformed) return;
@@ -1728,6 +1790,18 @@ dragonscales: {
 		rating: 3,
 		num: 89,
 	},
+		thagomizer: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Aqua Tail' || move.name === 'Dragon Tail' || move.name === 'Poison Tail' || move.name === 'Iron Tail' || move.name === 'Thunder Tail' || move.name === 'Comet Tail') {
+				this.debug('Thagomizer boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Thagomizer",
+		rating: 3,
+		num: 89,
+	},
 	justified: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Dark') {
@@ -1828,6 +1902,17 @@ dragonscales: {
 			}
 		},
 		name: "Lightning Rod",
+		rating: 3,
+		num: 31,
+	},
+	highground: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.add('-immune', target, '[from] ability: High Ground');
+				return null;
+			}
+		},
+		name: "High Ground",
 		rating: 3,
 		num: 31,
 	},
@@ -2157,6 +2242,19 @@ dragonscales: {
 		rating: 3,
 		num: 78,
 	},
+		warmup: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Warm Up');
+				}
+				return null;
+			}
+		},
+		name: "Warm Up",
+		rating: 3,
+		num: 78,
+	},
 	moxie: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -2347,6 +2445,22 @@ dragonscales: {
 		rating: 4,
 		num: 99,
 	},
+/*
+	deadlyaccuracy: {
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move.category === 'Physical' && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Deadly Accuracy",
+		rating: 4,
+	},
+*/
 	normalize: {
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
@@ -3193,6 +3307,30 @@ dragonscales: {
 		rating: 2,
 		num: 251,
 	},
+		floorcleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Floor Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Floor Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+		},
+		name: "Floor Cleaner",
+		rating: 2,
+		num: 251,
+	},
 	serenegrace: {
 		onModifyMovePriority: -2,
 		onModifyMove(move) {
@@ -3598,7 +3736,26 @@ dragonscales: {
 		rating: 3.5,
 		num: 200,
 	},
-malevolence: {
+	electrician: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Electrician",
+		rating: 3.5,
+		num: 200,
+	},
+	malevolence: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dark') {
@@ -3614,6 +3771,44 @@ malevolence: {
 			}
 		},
 		name: "Malevolence",
+		rating: 3.5,
+		num: 200,
+	},
+	aerodynamic: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Aerodynamic",
+		rating: 3.5,
+		num: 200,
+	},
+	melty: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Melty",
 		rating: 3.5,
 		num: 200,
 	},
@@ -4231,6 +4426,16 @@ malevolence: {
 			}
 		},
 		name: "Water Compaction",
+		rating: 1.5,
+		num: 195,
+	},
+		junkarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fighting') {
+				this.boost({def: 2});
+			}
+		},
+		name: "Junk Armor",
 		rating: 1.5,
 		num: 195,
 	},

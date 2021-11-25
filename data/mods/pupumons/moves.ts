@@ -825,7 +825,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user.HP < target.HP, +1 Atk and SpAtk, and vice versa.",
 		pp: 20,
 		priority: 0,
-		flags: {mirror: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1},
 		onTryMove(attacker, defender, move) {
 			if (defender.hp < attacker.hp) {
 				this.boost({atk: -1}, attacker, attacker, move);
@@ -852,7 +852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		drain: [1, 2],
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
 	},

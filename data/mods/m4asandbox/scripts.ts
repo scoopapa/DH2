@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	// inherit: 'm4av6',
+	inherit: 'm4av6',
 	init() {
 		const newMoves = (mon: string, moves: string[]) => {
 			for (const move of moves) {
