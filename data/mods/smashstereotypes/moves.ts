@@ -899,7 +899,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onEnd(source) {
 				for (const pokemon of source.side.active) {
 					if (!pokemon.fainted) {
-						source.addVolatile('lockon');
+						pokemon.addVolatile('lockon');
 					}
 				}
 			},
