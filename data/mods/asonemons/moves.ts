@@ -523,9 +523,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			dustproof: true,
 			chance: 100,
 			onHit(target) {
-				if (target.status === 'brn') target.cureStatus();
-				if (target.status === 'par') target.cureStatus();
-				if (target.status === 'frz') target.cureStatus();
+				if (target.status === 'brn') { target.cureStatus();
+				} else if (target.status === 'par') { target.cureStatus();
+				} else if (target.status === 'frz') target.cureStatus();
 			},
 		},
 		target: "allAdjacent",
