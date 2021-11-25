@@ -894,10 +894,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		slotCondition: 'flashhandoff',
 		condition: { 
-			onSwap(target) {
-				if (!target.fainted) {
-					target.addVolatile('lockon');
-					target.side.removeSlotCondition(target, 'flashhandoff');
+			onSwap(source) {
+				if (!source.fainted) {
+					source.side.addVolatile('lockon');
+					source.side.removeSlotCondition(source, 'flashhandoff');
 				}
 			},
 		},
