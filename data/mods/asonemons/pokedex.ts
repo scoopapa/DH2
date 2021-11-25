@@ -147,7 +147,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		fusion: ['Mareanie', 'Salazzle'],
 		num: 17,
 		name: "Mareanie-Magma",
-		types: ["Merciless", "Corrosion"],
+		types: ["Water", "Poison"],
 		baseStats: {hp: 68, atk: 64, def: 80, spa: 111, spd: 80, spe: 127},
 		abilities: {0: "As One (Salazzle)"},
 		weightkg: 30.2,
