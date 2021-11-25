@@ -454,4 +454,210 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 756,
 		desc: "If held by a Galsola, this item allows it to Mega Evolve in battle.",
 	},
+	
+// silvino moment :jokerification:
+	bugmemory: {
+		onMemory: 'Bug',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Bug",
+		itemUser: ["Silvino-Bug"],
+	},
+	darkmemory: {
+		name: "Dark Memory",
+		onMemory: 'Dark',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Dark",
+		itemUser: ["Silvino-Dark"],
+	},
+	dragonmemory: {
+		name: "Dragon Memory",
+		onMemory: 'Dragon',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Dragon",
+		itemUser: ["Silvino-Dragon"],
+	},
+	electricmemory: {
+		name: "Electric Memory",
+		onMemory: 'Electric',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Electric",
+		itemUser: ["Silvino-Electric"],
+	},
+	fightingmemory: {
+		name: "Fighting Memory",
+		onMemory: 'Fighting',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fighting",
+		itemUser: ["Silvino-Fighting"],
+	},
+	firememory: {
+		name: "Fire Memory",
+		onMemory: 'Fire',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fire",
+		itemUser: ["Silvino-Fire"],
+	},
+	flyingmemory: {
+		name: "Flying Memory",
+		onMemory: 'Flying',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Flying",
+		itemUser: ["Silvino-Flying"],
+	},
+	ghostmemory: {
+		name: "Ghost Memory",
+		onMemory: 'Ghost',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ghost",
+		itemUser: ["Silvino-Ghost"],
+	},
+	grassmemory: {
+		name: "Grass Memory",
+		onMemory: 'Grass',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Grass",
+		itemUser: ["Silvino-Grass"],
+	},
+	groundmemory: {
+		name: "Ground Memory",
+		onMemory: 'Ground',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ground",
+		itemUser: ["Silvino-Ground"],
+	},
+	icememory: {
+		name: "Ice Memory",
+		onMemory: 'Ice',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ice",
+		itemUser: ["Silvino-Ice"],
+	},
+	poisonmemory: {
+		name: "Poison Memory",
+		spritenum: 670,
+		onMemory: 'Poison',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Poison",
+		itemUser: ["Silvino-Poison"],
+	},
+	psychicmemory: {
+		name: "Psychic Memory",
+		onMemory: 'Psychic',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Psychic",
+		itemUser: ["Silvino-Psychic"],
+	},
+	rockmemory: {
+		name: "Rock Memory",
+		onMemory: 'Rock',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Rock",
+		itemUser: ["Silvino-Rock"],
+	},
+	steelmemory: {
+		name: "Steel Memory",
+		onMemory: 'Steel',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Steel",
+		itemUser: ["Silvino-Steel"],
+	},
+	watermemory: {
+		name: "Water Memory",
+		onMemory: 'Water',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Water",
+		itemUser: ["Silvino-Water"],
+	},
+	fairymemory: {
+		name: "Fairy Memory",
+		onMemory: 'Fairy',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fairy",
+		itemUser: ["Silvino-Fairy"],
+	},
 };
