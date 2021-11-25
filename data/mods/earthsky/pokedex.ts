@@ -407,7 +407,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Beedive",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 55, atk: 80, def: 100, spa: 40, spd: 70, spe: 80},
-		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propellor Tail"},
+		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
 		heightm: 1.0,
 		weightkg: 20.0,
 		color: "Green",
