@@ -937,7 +937,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		}
 	},
 	lunatone: {learnset: {
-		//peekaboo: ["8L1"],
+		peekaboo: ["8L1"],
 		allyswitch: ["8L1"],
 		calmmind: ["8L1"],
 		cosmicpower: ["8L1"],

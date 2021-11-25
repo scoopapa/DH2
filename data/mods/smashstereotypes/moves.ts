@@ -758,34 +758,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMovePower: 160,
 		contestType: "Beautiful",
 	},
-	/*peekaboo: {
+	peekaboo: {
 		num: 712,
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			return this.random(130);
+			return (this.random(1, 130) * pokemon.level) / 100;
 		},
 		category: "Special",
 		name: "Peek-a-Boo",
-		shortDesc: "Deals a random amount of damage and forces user out.",
+		shortDesc: "Deals a random amount of damage and user switches out.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		/*onTryHit(pokemon, target, move, source) {
-            if (!this.canSwitch(pokemon.side)) {
-                return false;
-            }
-			source.forceSwitch();
-			return;
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mean Look", target);
+			this.add('-anim', source, "Poltergeist", target);
 		},
-		self: {
-			forceSwitch: true,
-		},
+		selfSwitch: true,
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-	},*/
+	},
 	planetarycrash: {
 		num: 1002,
 		accuracy: 80,
