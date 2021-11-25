@@ -892,6 +892,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onSwap(target, source) {
+			source.addVolatile('flashhandoff', target);
+			//this.add('-activate', source, 'move: Lock-On', '[of] ' + target);
+		},
 		slotCondition: 'flashhandoff',
 		condition: {
 			duration: 2,
