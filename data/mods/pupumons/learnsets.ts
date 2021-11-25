@@ -1964,7 +1964,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		toxic: ["8L1"],
 		weatherball: ["8L1"],
 		willowisp: ["8L1"],
-	}
+	},},
 	dragulonimbus: {learnset: {
 		//peekaboo: ["8L1"],
 		ancientpower: ["8L1"],
@@ -2099,17 +2099,17 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		outrage: ["8L1"],
 		prehistoricfrenzy: ["8L1"],
 		protect: ["8L1"],
-		raindance
+		raindance: ["8L1"],
 		rest: ["8L1"],
 		roar: ["8L1"],
 		rockslide: ["8L1"],
-		roost
+		roost: ["8L1"],
 		safeguard: ["8L1"],
 		scald: ["8L1"],
 		scaleshot: ["8L1"],
 		stoneedge: ["8L1"],
 		substitute: ["8L1"],
-		sunnyday
+		sunnyday: ["8L1"],
 		surf: ["8L1"],
 		thunderbolt: ["8L1"],
 		thunderwave: ["8L1"],
