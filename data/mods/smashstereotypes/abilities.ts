@@ -139,4 +139,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 23,
 	},
+	vigilante: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Vigilante boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Vigilante boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Vigilante",
+		shortDesc: "This Pokemon's Fighting moves deal 1.5x damage.",
+		rating: 3.5,
+	},
 };

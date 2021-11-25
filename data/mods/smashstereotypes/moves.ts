@@ -867,6 +867,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sparkling Aria", target);
+		},
 		secondary: {
 			dustproof: true,
 			chance: 100,
@@ -877,5 +881,60 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
+	},
+	flashhandoff: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "User switches out. The replacement's next move has perfect accuracy.",
+		isViable: true,
+		name: "Flash Handoff",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		slotCondition: 'flashhandoff',
+		condition: { 
+			onSwap(target) {
+				if (!target.fainted) {
+					target.addVolatile('lockon');
+					target.side.removeSlotCondition(target, 'flashhandoff');
+				}
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "U-turn", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Tough",
+	},
+	terracharge: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Deals 33% of the damage dealt in recoil. 10% chance to lower the target's Speed.",
+		isViable: true,
+		name: "Terra Charge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		recoil: [33, 100],
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
 	},
 };
