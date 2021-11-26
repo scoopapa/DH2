@@ -80,7 +80,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Cryosleep",
 		desc: "This move charges on the first turn and heals 1/2 of the user's maximum HP, rounded half up, on the second. Raises the user's Defense by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Raises user's Defense by 1 on turn 1. Heals the user by 50% of its max HP turn 2.",
+		shortDesc: "Raises user's Defense by 2 on turn 1. Heals the user by 50% of its max HP turn 2.",
 		prepare: "[POKEMON] is absorbing power!",
 		pp: 10,
 		priority: 0,
@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.boost({def: 1}, attacker, attacker, move);
+			this.boost({def: 2}, attacker, attacker, move);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -200,7 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mindsurge: {
 		num: 831,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		name: "Mind Surge",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
@@ -619,6 +619,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		name: "Laser Sword",
+		shortDesc: "Last Resort but Steel-type.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -626,7 +627,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
 			let hasLastResort = false; // User must actually have Last Resort for it to succeed
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id === 'lastresort') {
+				if (moveSlot.id === 'lasersword') {
 					hasLastResort = true;
 					continue;
 				}
@@ -727,7 +728,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Heat Stomp",
 		shortDesc: "If a foe is switching out, hits it and burns it.",
 		pp: 20,
@@ -825,7 +825,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user.HP < target.HP, +1 Atk and SpAtk, and vice versa.",
 		pp: 20,
 		priority: 0,
-		flags: {mirror: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1},
 		onTryMove(attacker, defender, move) {
 			if (defender.hp < attacker.hp) {
 				this.boost({atk: -1}, attacker, attacker, move);
@@ -852,7 +852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		drain: [1, 2],
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
 	},
@@ -873,7 +873,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
 		secondary: null,
-		target: "any",
+		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -893,8 +893,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "Ghost",
-		type: "Fire",
+		target: "normal",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 	tetrodotoxin: {
@@ -903,6 +903,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		name: "Tetrodotoxin",
+		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
@@ -984,4 +985,63 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+	/*peekaboo: {
+		num: 712,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(130);
+		},
+		category: "Special",
+		name: "Peek-a-Boo",
+		shortDesc: "Deals a random amount of damage and forces user out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		/*onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},
+		self: {
+			forceSwitch: true,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	readyornot: {
+		num: 712,
+		accuracy: true,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(200);
+		},
+		category: "Special",
+		name: "Ready or Not",
+		shortDesc: "Deals a random amount of damage and omniboosts.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		secondary: null,
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		isZ: "halloweeniumz",
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},*/
 };

@@ -84,4 +84,78 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 265,
 	},
+	teachingtech: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasAbility('sturdymold')) return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.category === 'Status') return;
+			console.log('Teaching Tech: Move BP = ' + move.basePower);
+			const targetAbility = target.getAbility();
+			if (targetAbility.isPermanent || targetAbility.id === 'teachingtech') return;
+			if (move.basePower <= 60) {
+				const oldAbility = target.setAbility('teachingtech', source);
+				if (oldAbility) {
+					this.add('-activate', source, 'ability: Teaching Tech');
+					this.add('-activate', target, 'ability: Teaching Tech');
+				}
+			}
+		},
+		name: "Teaching Tech",
+		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
+	},
+	justifiedsylve: {
+		onFoeTrapPokemon (pokemon) {
+			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon (pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Justified (Sylve)",
+		shortDesc: "Prevents adjacent Dark-type foes from choosing to switch.",
+		rating: 2.5,
+		num: 154,
+	},
+	shadowtag: {
+		onFoeSwitchOut(source, target) {
+			for (const target of source.side.foe.active) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Shadow Tag",
+		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
+		rating: 5,
+		num: 23,
+	},
+	vigilante: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Vigilante boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Vigilante boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Vigilante",
+		shortDesc: "This Pokemon's Fighting moves deal 1.5x damage.",
+		rating: 3.5,
+	},
 };

@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Quick Draw",
-		shortDesc: "User's moves have increased priority in the first turn but are weakend by 0.75x.",
+		shortDesc: "User's moves have increased priority in the first turn.",
 		rating: 2.5,
 		num: 259,
 	},
@@ -99,9 +99,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.baseAbility = 'lightningrod';
 			}
 			if (pokemon.species.id === 'silvallyfairy') {
-				this.add('-ability', pokemon, 'Misty Terrain', '[from] ability: RKS System', '[of] ' + pokemon);
-				pokemon.setAbility('mistyterrain');
-				pokemon.baseAbility = 'mistyterrain';
+				this.add('-ability', pokemon, 'Misty Surge', '[from] ability: RKS System', '[of] ' + pokemon);
+				pokemon.setAbility('mistysurge');
+				pokemon.baseAbility = 'mistysurge';
 			}
 			if (pokemon.species.id === 'silvallyfighting') {
 				this.add('-ability', pokemon, 'Scrappy', '[from] ability: RKS System', '[of] ' + pokemon);
@@ -475,13 +475,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 59,
 	},
 	liquidscales: {
-		name: "Liquid Scales",
-		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.category !== 'Status') {
 				this.heal(target.baseMaxhp / 10);
 			}
 		},
+		name: "Liquid Scales",
+		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		rating: 3,
 		num: 1013,
 	},
@@ -514,5 +514,72 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "If Misty Terrain is active, this Pokemon's Special Defense is multiplied by 1.5.",
 		rating: 0.5,
 		num: 1014,
+	},
+	pulpup: {
+		/*onStart(source) {
+			if (source.hp >= source.maxhp - source.maxhp / 3) {
+				this.useMove('stockpile', source);
+			}
+			else if (source.hp <= source.maxhp / 3) {
+				this.useMove('stockpile', source) * 3;
+			}
+			else if (source.maxhp - source.maxhp / 3 > source.hp > source.maxhp / 3) {
+				this.useMove('stockpile', source) * 2;
+			}
+		},*/
+		name: "Pulp Up",
+		shortDesc: "(Uncoded) On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		rating: 3,
+		num: 1015,
+	},
+	asonearrokuda: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Mold Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		isPermanent: true,
+		name: "As One (Arrokuda)",
+		shortDesc: "Mold Breaker + Swift Swim",
+		rating: 4,
+		num: 1016,
+	},
+	iceface: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Ice Face weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Ice Face stronger');
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Ice Face weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Ice Face stronger');
+				return this.chainModify(2);
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		name: "Ice Face",
+		shortDesc: "Takes 2x damage from Fire and 0.5x damage from Water. Immune to flinch.",
+		rating: 3,
+		num: 248,
 	},
 };

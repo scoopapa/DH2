@@ -97,7 +97,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(Roulettemons Doubles)",
 	},
 	baloon: {
-		randomBattleMoves: ["healorder", "playrough", "toxic", "heartswap", "fierpunch", "superfang", "toxicspikes"],
+		randomBattleMoves: ["healorder", "playrough", "toxic", "heartswap", "firepunch", "superfang", "toxicspikes"],
 		randomBattleLevel: 100,
 		randomDoubleBattleMoves: ["banefulbunker", "playrough", "fakeout", "firepunch", "healorder"],
 		randomDoubleBattleLevel: 100,

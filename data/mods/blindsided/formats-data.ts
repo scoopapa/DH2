@@ -1,242 +1,150 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	vulcaraptor: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	asubakraken: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	baradjur: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	batana: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	boreastra: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	burrodon: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	cachanaut: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	casko: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	dolphena: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	dolphure: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	drasapor: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	elbalfatross: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	faerosion: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	firenra: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	frozalisk: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	gammaroo: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	gloriode: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	headrake: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	idk: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	lunoccyx: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	minocharge: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	neuroboxin: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	nixlean: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	niyang: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
+	},
+	ruinastle: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
 	parakinesis: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	serpaint: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	poultergeist: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	torgeist: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	puremaid: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	regolite: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	rosereve: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	polbearab: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	salava: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	centhorn: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	saltidan: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	donzyxote: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	scorpiost: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	scimicobra: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	spexel: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	folliclawe: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	tactaval: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	afloof: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	wendigoul: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	nimbusteed: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	vesuvenge: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	aerock: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	vipier: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
-	borassa: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	sharm: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	nunopod: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	crypterid: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	abysseil: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	faerenheit: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	spiriteal: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	zoltanka: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	flydra: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	coracrab: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	quadringo: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	teslaple: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	kapagon: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	cyknight: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	dirtoad: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	crystelf: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	rancourgar: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	scalaron: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	dragraceful: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	tantrary: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	modolith: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	snailord: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	arbrella: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	draugelid: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	cinnastar: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	refluse: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	kelven: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	kodokai: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	cindarner: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-		thucotuco: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	sorree: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	gembezzle: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	winterloper: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	agapest: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	volvolpa: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	punduluum: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	wraithful: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	panzarma: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	krachiten: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	cellsius: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	borelem: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	electangle: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	orchile: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	shinodori: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	fluidrake: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	potossum: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
-	},
-	twygdrasill: {
-		tier: "Restrictions",
-		doublesTier: "Restrictions",
+	zawa: {
+		tier: "Blindsided",
+		doublesTier: "Blindsided",
 	},
 };

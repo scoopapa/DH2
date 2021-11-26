@@ -74,6 +74,7 @@ export interface EventMethods {
 	onSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -176,6 +177,7 @@ export interface EventMethods {
 	onAllySetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onAllySetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onAllySetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onAllyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAllySwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -279,6 +281,7 @@ export interface EventMethods {
 	onFoeSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onFoeSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onFoeSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onFoeStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onFoeSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -384,6 +387,7 @@ export interface EventMethods {
 	onSourceSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onSourceSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onSourceSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onSourceStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSourceSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -487,6 +491,7 @@ export interface EventMethods {
 	onAnySetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onAnySetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onAnySetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onAnyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAnySwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -588,7 +593,7 @@ export interface ConditionData extends Partial<Condition>, EventMethods {}
 export type ModdedConditionData = ConditionData | Partial<ConditionData> & {inherit: true};
 
 export class Condition extends BasicEffect implements Readonly<BasicEffect & ConditionData> {
-	readonly effectType: 'Condition' | 'Weather' | 'Status';
+	readonly effectType: 'Condition' | 'Terrain' | 'Weather' | 'Status';
 	readonly counterMax?: number;
 
 	readonly durationCallback?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect | null) => number;
@@ -600,6 +605,6 @@ export class Condition extends BasicEffect implements Readonly<BasicEffect & Con
 	constructor(data: AnyObject, ...moreData: (AnyObject | null)[]) {
 		super(data, ...moreData);
 		data = this;
-		this.effectType = (['Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
+		this.effectType = (['Terrain', 'Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
 	}
 }

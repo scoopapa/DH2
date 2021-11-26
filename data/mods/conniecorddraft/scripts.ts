@@ -40,7 +40,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!pokemon.headless) {
 					pokemon.fainted = true;
 				} else {
-					pokemon.status = '';
+					pokemon.faintQueued = null;
 				}
 				pokemon.illusion = null;
 				pokemon.isActive = false;
@@ -107,6 +107,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					pokemon.status = 'fnt' as ID;
 					pokemon.switchFlag = true;
 				} else if (pokemon.headless) {
+					pokemon.status = '';
 					pokemon.switchFlag = true;
 				}
 			}

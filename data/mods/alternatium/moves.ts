@@ -914,6 +914,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
+		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
 		name: "Relic Song",
 		pp: 10,
 		priority: 0,
@@ -921,8 +922,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyType(move, pokemon) {
 			if (pokemon.species.id !== 'meloetta') return;
 			move.type = 'Psychic';
-			move.basePower = 75;
 			move.ignoreImmunity = {'Psychic': true};
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (pokemon.species.id !== 'meloetta') return;
+			if (type === 'Dark') return 1;
 		},
 		secondary: {
 			chance: 10,
@@ -998,5 +1002,70 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
+	},
+	feast: {
+		num: 1010,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile.",
+		name: "Feast",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		/*onHit(pokemon, atk, spa) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stockpile", target);
+		},*/
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
+	gulpmissle: {
+		num: 1011,
+		accuracy: 100,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.id === 'cramorant' && !target.newlySwitched || !this.queue.willMove(target)) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "If Cramorant: 1.5x power; if Swimmer: Summons rain, when moves last.",
+		name: "Gulp Missle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		self: {
+			onHit(source, target) {
+				if (!source.species.id !== 'cramorantswimmer') return;
+				if (!target.newlySwitched || !this.queue.willMove(target)) {
+					this.field.setWeather('raindance');
+				}
+			},
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	oilslick: {
+		num: 1012,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "User switches out after damaging the target.",
+		name: "Oilslick",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Poison",
 	},
 };

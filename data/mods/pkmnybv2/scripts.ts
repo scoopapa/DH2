@@ -1810,6 +1810,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "runerigus").learnset.shadowpunch = ["8L1"];
 		this.modData("Learnsets", "runerigus").learnset.dizzypunch = ["8L1"];
 		this.modData("Learnsets", "runerigus").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "runerigus").learnset.shadowsneak = ["8L1"];
 		// Milcery
 		this.modData("Learnsets", "milcery").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "milcery").learnset.return = ["8L1"];
