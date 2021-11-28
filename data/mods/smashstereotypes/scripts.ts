@@ -88,6 +88,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'frosmoth').learnset.moonlight = ["8M"];
 		this.modData('Learnsets', 'frosmoth').learnset.thunderbolt = ["8M"];
+		
+		
+		this.modData('Learnsets', 'lunatone').learnset.hiddenpowermiasmons = ["8M"];
+		delete this.modData('Learnsets', 'lunatone').learnset.hiddenpower;
 	},
 	
 	teambuilderConfig: {
