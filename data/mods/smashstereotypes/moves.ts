@@ -1095,7 +1095,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	hypnosis: {
-		inherit: true
+		inherit: true,
 		onSourceModifyAccuracy(accuracy) {
 			if (source.species.id !== 'lunatone') return;
 			return accuracy = 70;
