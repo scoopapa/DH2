@@ -127,4 +127,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	peccarious: {
 		tier: "SSS",
 	},
+	regielekisaboteur: {
+		tier: "SSS",
+	},
+	kyuremblack: {
+		tier: "SSS",
+	},
+	lunatone: {
+		tier: "SSS",
+	},
 };
