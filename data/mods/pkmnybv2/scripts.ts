@@ -571,6 +571,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vibrava").learnset.leechlife = ["8L1"];
 		// Flygon
 		this.modData("Learnsets", "flygon").learnset.leechlife = ["8L1"];
+		// Cacturne
+		this.modData("Learnsets", "cacturne").learnset.lashout = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.throatchop = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.toxicspikes = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.weatherball = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.rockslide = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.ancientpower = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.pursuit = ["8L1"];
 		// Altaria
 		this.modData("Learnsets", "altaria").learnset.cloudcrush = ["8L1"];
 		// Zangoose
