@@ -1565,7 +1565,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				console.log(pokemonID);
 				console.log(baseEight.includes(pokemonID));
 			}
-			let startGen = ((pokemon.num > 807 || baseEight.includes(pokemonID)) ? 8 : 7); //Tags Gen 7 or 8 for level/egg moves
+			let startGen = (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7); //Tags Gen 7 or 8 for level/egg moves
 			const levelString = new RegExp(startGen + 'L[0-9]+');
 			if(learnsetTest) console.log("Starting with Gen " + startGen);
 			for(let moveID in this.data.Moves) { //TODO: change to Dex.moves.all() when DH updates to it

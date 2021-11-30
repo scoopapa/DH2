@@ -2801,6 +2801,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	emergencyexit: {
 		name: "Emergency Exit",
+		isNonstandard: "Past",
 		rating: 1,
 		num: 194,
 	},

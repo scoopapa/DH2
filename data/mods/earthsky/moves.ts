@@ -27,6 +27,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.debug("Aerate removing Veil-based Evasiveness so it can hit");
 				target.removeVolatile('evade');
 			}
+		},
+		onTryHit(target, source, move){
 			target.side.removeSideCondition('mist');
 			target.side.removeSideCondition('auroraveil');
 		},
@@ -4551,6 +4553,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	//For the record, the only reason editing anything other than the field name is necessary is because of Lash Out being used by a new move. If I'm doing one, might as well do them all for consistency.
 	banefulbunker: {
 		name: "Baneful Bunker",
+		isNonstandard: "Past",
 	},
 	warriorssoul: {
 		num: 775,
@@ -4589,6 +4592,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	clangoroussoul: {
 		name: "Clangorous Soul",
+		isNonstandard: "Past",
 	},
 	lunarray: {
 		num: 714,
@@ -4611,6 +4615,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	moongeistbeam: {
 		name: "Moongeist Beam",
+		isNonstandard: "Past",
 	},
 	compensation: {
 		num: 808,
@@ -4664,6 +4669,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	psychicfangs: {
 		name: "Psychic Fangs",
+		isNonstandard: "Past",
 	},
 	tantrum: {
 		num: 707,
@@ -4689,9 +4695,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	stompingtantrum: {
 		name: "Stomping Tantrum",
+		isNonstandard: "Past",
 	},
 	strangesteam: {
 		name: "Strange Steam",
+		isNonstandard: "Past",
 	},
 	solarimpact: {
 		num: 713,
@@ -4714,6 +4722,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	sunsteelstrike: {
 		name: "Sunsteel Strike",
+		isNonstandard: "Past",
 	},
 	
 	/* Move-calling move exception updates */
