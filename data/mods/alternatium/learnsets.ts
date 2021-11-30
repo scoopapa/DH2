@@ -10344,7 +10344,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["8L28", "7T", "7L11", "6T", "6L11"],
 		},
 	},
-	gourgeistsmall: {
+	gourgeistfae: {
 		learnset: {
 			hex: ["8L1"],
 			calmmind: ["8L1"],

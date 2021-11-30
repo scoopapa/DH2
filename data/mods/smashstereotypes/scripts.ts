@@ -72,6 +72,26 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8M"];
 		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8M"];
 		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8M"];
+		
+		
+		this.modData('Learnsets', 'arcanine').learnset.nobleroar = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.hypervoice = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.dragonragesylve = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.flamewheelsylve = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.incineratesylve = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.mudslapsylve = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.stormstrike = ["8M"];
+		delete this.modData('Learnsets', 'arcanine').learnset.mudslap;
+		delete this.modData('Learnsets', 'arcanine').learnset.incinerate;
+		delete this.modData('Learnsets', 'arcanine').learnset.flamewheel;
+		delete this.modData('Learnsets', 'arcanine').learnset.dragonrage;
+		
+		this.modData('Learnsets', 'frosmoth').learnset.moonlight = ["8M"];
+		this.modData('Learnsets', 'frosmoth').learnset.thunderbolt = ["8M"];
+		
+		
+		this.modData('Learnsets', 'lunatone').learnset.hiddenpowermiasmons = ["8M"];
+		delete this.modData('Learnsets', 'lunatone').learnset.hiddenpower;
 	},
 	
 	teambuilderConfig: {

@@ -80,7 +80,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Cryosleep",
 		desc: "This move charges on the first turn and heals 1/2 of the user's maximum HP, rounded half up, on the second. Raises the user's Defense by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Raises user's Defense by 1 on turn 1. Heals the user by 50% of its max HP turn 2.",
+		shortDesc: "Raises user's Defense by 2 on turn 1. Heals the user by 50% of its max HP turn 2.",
 		prepare: "[POKEMON] is absorbing power!",
 		pp: 10,
 		priority: 0,
@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.boost({def: 1}, attacker, attacker, move);
+			this.boost({def: 2}, attacker, attacker, move);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -200,7 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mindsurge: {
 		num: 831,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		name: "Mind Surge",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
@@ -825,7 +825,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user.HP < target.HP, +1 Atk and SpAtk, and vice versa.",
 		pp: 20,
 		priority: 0,
-		flags: {mirror: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1},
 		onTryMove(attacker, defender, move) {
 			if (defender.hp < attacker.hp) {
 				this.boost({atk: -1}, attacker, attacker, move);
@@ -852,7 +852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		drain: [1, 2],
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
 	},
