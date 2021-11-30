@@ -99,7 +99,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								}
 							}
 							//if(!isNatural) console.log("This move is learned through Sketch");
-							if(!isNatural && pokeLearnset.learnset[sketch] == "8D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
+							if(!isNatural && pokeLearnset.learnset['sketch'] == "8D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
 								if(isHidden){
 									problems.push(`${pokemon} can't sketch ${this.dex.getMove(moveID)} because Sketch is its Hidden Move and it already knows a sketched move.`);
 								} else {
