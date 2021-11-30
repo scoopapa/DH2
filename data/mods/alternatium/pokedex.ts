@@ -1228,9 +1228,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 12.5,
 		eggGroups: ["Amorphous"],
 	},
-	gourgeistsmall: {
+	gourgeistfae: {
 		num: 711,
-		name: "Gourgeist-Small",
+		name: "Gourgeist-Fae",
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 90, atk: 80, def: 85, spa: 95, spd: 80, spe: 105},
 		abilities: {0: "Prankster", H: "Magic Guard"},

@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistsmall: {
+	gourgeistfae: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
