@@ -21,23 +21,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onTryMove(source, target, move){
-			console.log(target.volatiles['evade'].source);
+			//console.log(target.volatiles['evade'].source);
 			//console.log(target.volatiles['evade'].effectData.source);
 			if(target.volatiles['evade'] && ['hail','sandstorm','mistyterrain'].includes(target.volatiles['evade'].source)){
 				this.debug("Aerate removing Veil-based Evasiveness so it can hit");
 				target.removeVolatile('evade');
 			}
-		},
-		onHit(target, source, move){
-			const veilAbilities = [
-				'aromaveil', 'flowerveil', 'pastelveil', 'slumberveil', 'sweetveil', 'waterveil', 'sandveil', 'snowcloak', 'mistyshroud'
-			];
-			if(veilAbilities.includes(target.ability)) target.addVolatile('gastroacid');
 			target.side.removeSideCondition('mist');
 			target.side.removeSideCondition('auroraveil');
 		},
-		shortDesc: "Disables Veil Abilities, Aurora Veil, and Mist.",
-		desc: "When this move hits an opponent, if their Ability is Aroma Veil, Flower Veil, Misty Shroud, Pastel Veil, Sand Veil, Slumber Veil, Snow Cloak, Sweet Veil, or Water Veil, it is suppressed until it switches out. The move will also remove Mist and Aurora Veil from their side of the field.",
+		onHit(target, source, move){
+			const veilAbilities = [
+				'aromaveil', 'flowerveil', 'pastelveil', 'slumberveil', 'sweetveil', 'waterveil', 'sandveil', 'snowcloak', 'mistyshroud', 'neutralizinggas'
+			];
+			if(veilAbilities.includes(target.getAbility())) target.addVolatile('gastroacid');
+		},
+		shortDesc: "Disables Veil Abilities, Neutralizing Gas, Aurora Veil, and Mist.",
+		desc: "Before hitting the target, evasiveness granted by Sand Veil, Snow Cloak, and Misty Shroud are dispelled on it, and Aurora Veil and Mist are removed from its side of the field. After hitting the target, the Abilities Aroma Veil, Flower Veil, Misty Shroud, Neutralizing Gas, Pastel Veil, Sand Veil, Slumber Veil, Snow Cloak, Sweet Veil, and Water Veil are suppressed until it switches out.",
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Flying",
@@ -320,7 +320,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	moltenslag: {
 		num: 1011,
 		basePower: 100,
-		accuracy: 100,
+		accuracy: 90,
 		category: "Special",
 		name: "Molten Slag",
 		pp: 10,
@@ -1498,11 +1498,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
 		desc: "Removes the target's item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield, respectively.",
-		shortDesc: "Removes adjacent targets' items.",
+		shortDesc: "Removes target's item.",
 		enditem: "  [POKEMON] had its [ITEM] confiscated!",
 	},
 	explosion: {
@@ -2542,6 +2542,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	mudshot: {
 		inherit: true,
+		power: 50,
 		accuracy: 100,
 		pp: 20,
 	},
@@ -3266,6 +3267,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return null;
 			},
 		},
+	},
+	snipeshot: {
+		inherit: true,
+		target: 'any',
 	},
 	snore: {
 		inherit: true,

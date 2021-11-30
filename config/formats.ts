@@ -2979,6 +2979,14 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Ubers',
 	},
 	{
+		name: "[Gen 8] Earth & Sky CAP",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
+		],
+		ruleset: [ '[Gen 8] Earth & Sky OU', '+CAP',],
+		mod: 'earthsky',
+	},
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [

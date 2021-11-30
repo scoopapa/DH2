@@ -1006,7 +1006,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							//VP moves which return default values because they require information the player can't see
 							case('fling'): //Held item; I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 								if(this.effectData.source === "Glyphic Spell"){
-									const forItem = target.getItem();
+									const item = target.getItem();
 									bp = (item.fling) ? item.fling.basePower : 0;
 								} else {
 									bp = 20;
@@ -1014,17 +1014,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								break;
 							case('naturalgift'): //Held item
 								if(this.effectData.source === "Glyphic Spell"){
-									const forItem = target.getItem();
+									const item = target.getItem();
 									bp = (item.naturalGift) ? item.naturalGift.basePower : 0;
 								} else {
 									bp = 70;
 								}
 								break;
 							case('frustration'): //Happiness
+							case('return'):
 								bp = 102;
-								break;
-							case('return'): //Happiness - accommodates cap
-								bp = 64;
 								break;
 							case('trumpcarp'): //Move's PP
 								bp = 40;
@@ -1043,8 +1041,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							bp *= target.hasType(move.type) ? 1.5 : 1;
 							bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
 							//Type effectiveness
-							bp *= Math.pow(2, this.dex.getEffectiveness(move.type, pokemon));
-							bp *= (move.twoType) ? Math.pow(2, this.dex.getEffectiveness(move.twoType, pokemon)) : 1;
+							bp *= Math.pow(2, this.dex.getEffectiveness(move, pokemon));
 							if (move.multihit){
 								if(Array.isArray(move.multihit)){ //Move has variable hits
 									bp *= move.multihit[1]; //Assumes maximum value
@@ -1083,43 +1080,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					console.log("Forewarn investigating " + move.name);
 					if(!move) continue;
 					let bp = move.basePower;
-					//STAB
-					bp *= target.hasType(move.type) ? 1.5 : 1;
-					bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
-					//Type effectiveness
-					bp *= Math.pow(2, this.dex.getEffectiveness(move.type, pokemon));
-					bp *= (move.twoType) ? Math.pow(2, this.dex.getEffectiveness(move.twoType, pokemon)) : 1;
-					//Non-BP
-					if (move.ohko) bp = 150;
-					else if (['counter', 'metalburst', 'mirrorcoat', 'rebound'].includes(move.id)) bp = 120;
-					else if (move.multihit){
-						if(Array.isArray(move.multihit)){ //Move has variable hits
-							bp *= move.multihit[1]; //Assumes maximum value
-						} else {
-							bp *= move.multihit;
-						}
-					}
-					if (!bp && move.category !== 'Status'){
+					let direct = false; //direct damage moves won't need additional calcs later
+					if (!bp && move.category !== 'Status'){ //Special cases
 						switch(move.id){
 						//Fixed-damage moves: Twice the percentage of max HP the move deals
 						case('dragonrage'):
 						case('sonicboom'):
 							bp = move.damage / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('endeavor'):
 							bp = (target.hp - pokemon.hp) / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('finalgambit'):
 							bp = target.hp / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('natureswrath'):
 						case('superfang'):
 							bp = pokemon.hp / 2 / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('nightshade'):
 						case('psywave'): //Damage variance is ignored
 						case('seismictoss'):
 							bp = target.level / pokemon.maxhp * 200;
+							direct = true;
+							break;
+						case('fissure'): //OHKOs: Would be faster for these moves to check for move.ohko,
+						case('guillotine'): // but the switch is called for everything else anyway
+						case('horndrill'): // and I like the organization of this better
+						case('sheercold'):
+						case('underflame'):
+							bp = 200;
+							direct = true;
 							break;
 						//Variable-power moves
 						case('beatup'): //The number of unfainted/unstatused Pokemon is known, but their Attack might not be so it assumes 10 (the old BP) for simplicity
@@ -1145,7 +1140,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						//VP moves which return default values because they require information the player can't see
 						case('fling'): //Held item; I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 							if(this.effectData.source === "Glyphic Spell"){
-								const forItem = target.getItem();
+								const item = target.getItem();
 								bp = (item.fling) ? item.fling.basePower : 0;
 							} else {
 								bp = 20;
@@ -1153,24 +1148,40 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							break;
 						case('naturalgift'): //Held item
 							if(this.effectData.source === "Glyphic Spell"){
-								const forItem = target.getItem();
+								const item = target.getItem();
 								bp = (item.naturalGift) ? item.naturalGift.basePower : 0;
 							} else {
 								bp = 70;
 							}
 							break;
 						case('frustration'): //Happiness
+						case('return'):
 							bp = 102;
-							break;
-						case('return'): //Happiness - accommodates cap
-							bp = 64;
 							break;
 						case('trumpcarp'): //Move's PP
 							bp = 40;
 							break;
-						default: //Electro Ball, Gyro Ball
+						case('electroball'): //Speed
+						case('gyroball'):
 							bp = 80;
 							break;
+						default: //Counter, Mirror Coat, Metal Burst, Rebound
+							bp = 120;
+							direct = true;
+						}
+					}
+					if(!direct){ //Further calculations
+						//STAB
+						bp *= target.hasType(move.type) ? 1.5 : 1;
+						bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
+						//Type effectiveness
+						bp *= Math.pow(2, this.dex.getEffectiveness(move, pokemon));
+						if (move.multihit){
+							if(Array.isArray(move.multihit)){ //Move has variable hits
+								bp *= move.multihit[1]; //Assumes maximum value
+							} else {
+								bp *= move.multihit;
+							}
 						}
 					}
 					if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
@@ -2809,6 +2820,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Induction",
+		desc: "If an active ally also has this Ability, this Pokemon's Special Attack is multiplied by 1.5.",
+		shortDesc: "If an active ally also has this Ability, this Pokemon's Sp. Atk is 1.5x.",
 		rating: 0,
 		num: 1018,
 	},
