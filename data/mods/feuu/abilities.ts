@@ -3491,9 +3491,7 @@ lifedrain: {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			const boosts: SparseBoostsTable = {};
-			let i: BoostName;
-			if (pokemon.activeTurns && !pokemon.boosts[i] < 0) {
+			if (pokemon.activeTurns && !pokemon.boosts < 0) {
 				this.boost({spe: 1});
 			}
 		},
@@ -3570,14 +3568,12 @@ lifedrain: {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Stablizer boost');
+				this.debug('Stabilizer boost');
 				return this.chainModify(1.5);
 			}
 		},
-		onDamagingHit(basePower, attacker, defender, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			this.debug('Base Power: ' + basePowerAfterMultiplier);
-			if (basePowerAfterMultiplier <= 60) {
+		onDamagingHit(damage, target, source, move, basePower) {
+			if (basePower <= 60) {
 				this.boost({spe: 1});
 			}
 		},
