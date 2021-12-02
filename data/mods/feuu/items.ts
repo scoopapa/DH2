@@ -139,7 +139,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 680,
-		desc: "If held by a Ninjacross, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Ninjacross or Cleracross, this item allows it to Mega Evolve in battle.",
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -453,6 +453,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 756,
 		desc: "If held by a Galsola, this item allows it to Mega Evolve in battle.",
+	},
+	sharpedonite: {
+		name: "Sharpedonite",
+		spritenum: 619,
+		megaStone: "Sharpiskorch-Mega",
+		megaEvolves: "Sharpiskorch",
+		itemUser: ["Sharpiskorch"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 759,
+		desc: "If held by a Sharpiskorch, this item allows it to Mega Evolve in battle.",
 	},
 	
 // silvino moment :jokerification:
