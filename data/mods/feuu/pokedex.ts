@@ -2602,7 +2602,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 104.4,
 	},
 	sharpiskorchmega: {
-		fusion: ['Gallade', 'Corsola'],
+		fusion: ['Sharpedo', 'Centiskorch'],
 		num: 139,
 		name: "Sharpiskorch-Mega",
 		baseSpecies: "Sharpiskorch",
