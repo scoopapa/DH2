@@ -2209,6 +2209,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			encore: ["8M"],
 			endure: ["8M"],
 			endeavor: ["8M"],
+			bulletseed: ["8E"],
+			pinmissile: ["8E"],
 			spikes: ["8E"],
 			pyroball: ["8D"],
 		},
