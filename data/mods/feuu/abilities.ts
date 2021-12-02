@@ -3491,7 +3491,7 @@ lifedrain: {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (pokemon.activeTurns && !pokemon.boosts < 0) {
+			if (!pokemon.boosts < 0 && pokemon.activeTurns) {
 				this.boost({spe: 1});
 			}
 		},
@@ -3573,7 +3573,7 @@ lifedrain: {
 			}
 		},
 		onDamagingHit(damage, target, source, move, basePower) {
-			if (basePower <= 60) {
+			if (move.basePower <= 60) {
 				this.boost({spe: 1});
 			}
 		},
