@@ -3491,12 +3491,12 @@ lifedrain: {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (!pokemon.boosts < 0 && pokemon.activeTurns) {
+			if (pokemon.activeTurns) {
 				this.boost({spe: 1});
 			}
 		},
 		name: "Combustion",
-		shortDesc: "If this Pokemon has no negative stat changes, +1 Speed at the end of the turn",
+		shortDesc: "(Bugged) If this Pokemon has no negative stat changes, +1 Speed at the end of the turn",
 	},
 	scouttyping: {
 		onStart(pokemon) {
