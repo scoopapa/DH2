@@ -2660,7 +2660,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lycansian",
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 85, atk: 104, def: 70, spa: 60, spd: 70, spe: 113},
-		abilities: {0: "Stablizer"},
+		abilities: {0: "Stabilizer"},
 		weightkg: 28.5,
 	},
 	
@@ -2911,7 +2911,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Meowruff",
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 57, atk: 67, def: 45, spa: 35, spd: 45, spe: 75},
-		abilities: {0: "Stablizer"},
+		abilities: {0: "Stabilizer"},
 		weightkg: 6.7,
 		evos: ["Lycansian"],
 		otherFormes: ["Meowruff-Galar"],
