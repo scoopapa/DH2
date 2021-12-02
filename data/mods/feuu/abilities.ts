@@ -3564,7 +3564,7 @@ lifedrain: {
 		name: "Anesthesia",
 		shortDesc: "Aroma Veil + Unaware",
 	},
-	stablizer: {
+	stabilizer: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -3581,11 +3581,9 @@ lifedrain: {
 				this.boost({spe: 1});
 			}
 		},
-		name: "Stablizer",
+		name: "Stabilizer",
 		shortDesc: "Moves with ≤60 BP have 1.5x power. +1 Speed when hit by a move with ≤60 BP.",
 	},
-
-
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
