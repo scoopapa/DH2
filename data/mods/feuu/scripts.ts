@@ -125,6 +125,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
 			return "Audiyem-Mega"; 
 		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
+			return "Cleracross-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
@@ -466,7 +469,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
