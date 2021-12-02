@@ -2908,7 +2908,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	meowruff: {
 		fusion: ['Meowth', 'Rockruff'],
 		num: 1025,
-		name: "Meowruff-Galar",
+		name: "Meowruff",
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 57, atk: 67, def: 45, spa: 35, spd: 45, spe: 75},
 		abilities: {0: "Stablizer"},
