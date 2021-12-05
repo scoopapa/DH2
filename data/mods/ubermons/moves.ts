@@ -338,4 +338,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 	},
+	prismaticlaser: {
+		num: 711,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Super effective against Dark-types. 20% chance to lower target's accuracy.",
+		name: "Prismatic Laser",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Psychic': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 };

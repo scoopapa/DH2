@@ -1528,7 +1528,7 @@ export const Formats: FormatList = [
 			//Pokémon
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai',
 			'Dialga', 'Eternatus', 'Giratina', 'Lunala',
-			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Solgaleo', 'Tornadus-Therian', 
+			'Naganadel', 'Palkia', 'Solgaleo', 'Tornadus-Therian', 
 			'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
