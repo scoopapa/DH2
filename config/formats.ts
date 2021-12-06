@@ -1533,7 +1533,7 @@ export const Formats: FormatList = [
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items
-			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y',
+			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y', 'Ultranecrozium Z',
 			//Moves
 			'Baton Pass',
 		],
