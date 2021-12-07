@@ -244,28 +244,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 	},
 	weedle: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	kakuna: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	beedrill: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "(PU)",
 	},
 	pidgey: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	pidgeotto: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	pidgeot: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "(PU)",
 	},
 	pichu: {
 		tier: "LC",
@@ -840,16 +834,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 	},
 	mareep: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	flaaffy: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	ampharos: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "(PU)",
 	},
 	azurill: {
 		tier: "LC",
@@ -933,12 +924,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	houndour: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	houndoom: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "PU",
 	},
 	miltank: {
 		tier: "(PU)",
@@ -1082,12 +1071,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 	},
 	meditite: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	medicham: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "NU",
 	},
 	electrike: {
 		tier: "LC",
@@ -1117,12 +1104,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 	},
 	numel: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	camerupt: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "(PU)",
 	},
 	torkoal: {
 		tier: "(PU)",
@@ -1185,12 +1170,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	shuppet: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "LC",
 	},
 	banette: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "(PU)",
 	},
 	duskull: {
 		tier: "LC",
