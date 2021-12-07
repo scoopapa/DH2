@@ -1028,7 +1028,7 @@ export const Formats: FormatList = [
 		mod: 'megarevolution',
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Power Construct', 'Moody', 'King\'s Rock', 'Shadow Tag', 'Baton Pass'],
 	},
 	/*
 	{
