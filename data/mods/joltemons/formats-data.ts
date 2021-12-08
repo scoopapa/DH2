@@ -747,3 +747,4 @@ urshifu: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
+};
