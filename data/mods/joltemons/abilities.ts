@@ -25,7 +25,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Rain Dish",
-    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain",
+    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain.",
 		num: 44,
 	},
 	icebody: {
@@ -49,7 +49,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.maxhp / 16);
 		},
 		name: "Ice Body",
-    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Ice",
+    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
 	},
 };
