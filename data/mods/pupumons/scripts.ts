@@ -6,3 +6,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         customTiers: ['Pupumons', 'Pupumons Ubers', 'Pupumons NFE', 'Pupumons LC'],
         customDoublesTiers: ['PupuVGC', 'PupuVGC Restricted'],
     },
+};
