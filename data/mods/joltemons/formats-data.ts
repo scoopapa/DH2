@@ -1,4 +1,12 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+dragapult: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+tornadustherian: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 beedrill: {
 		tier: "UU",
 	   doublesTier: "DOU",
