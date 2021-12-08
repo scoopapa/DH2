@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	toxicthread: {
 		num: 672,
 		accuracy: 90,
@@ -45,28 +45,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
- 	focusblast: {
-		num: 411,
-		accuracy: 70,
-		basePower: 120,
-		category: "Special",
-		name: "Focus Blast",
-		pp: 5,
-		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
-		onModifyMove(move) {
-			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
-		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				spd: -1,
-			},
-		},
-		target: "normal",
-		type: "Fighting",
-		contestType: "Cool",
-	},
  	reconstruct: {
 		accuracy: true,
 		basePower: 0,
@@ -87,7 +65,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
- 		self: {
+		self: {
 			onHit(pokemon) {
 				const boosts: SparseBoostsTable = {};
 				let i: BoostName;
@@ -99,9 +77,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.setBoost(boosts);
 				this.add('-clearnegativeboost', pokemon, '[silent]');
 				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
-	  },
+	    },
+		},
 		secondary: null,
 		target: "self",
 		type: "Steel",
+	},
+ 	focusblast: {
+		num: 411,
+		accuracy: 70,
+		basePower: 120,
+		category: "Special",
+		name: "Focus Blast",
+		pp: 5,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyMove(move, target) {
+			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
 	},
 };
