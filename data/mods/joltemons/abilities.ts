@@ -49,7 +49,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.maxhp / 16);
 		},
 		name: "Ice Body",
-    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain",
+    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Ice",
 		num: 115,
 	},
 };
