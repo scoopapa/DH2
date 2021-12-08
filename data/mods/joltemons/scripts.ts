@@ -1,4 +1,19 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return null;
+		}
+		return item.megaStone;
+	},
+	
 	init: function () {
 /*
 		for (const id in this.dataCache.Pokedex) {
@@ -18,6 +33,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 */
+
 this.modData('Learnsets', 'wigglytuff').learnset.geomancy = ['8L1'];
 this.modData('Learnsets', 'articunogalar').learnset.defog = ['8L1'];
 this.modData('Learnsets', 'zapdosgalar').learnset.defog = ['8L1'];
