@@ -15,6 +15,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	revelationdance: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	smackdown: {
 		num: 479,

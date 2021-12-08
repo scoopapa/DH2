@@ -273,6 +273,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	cicamega: {
+		randomBattleMoves: ["willowisp", "hex", "roost", "toxicspikes", "bugbuzz"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	dragocaulus: {
+		randomBattleMoves: ["dualchop", "aquajet", "flipturn", "rockslide", "dragondance"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	magneboom: {
+		randomBattleMoves: ["doomdesire", "recover", "flashcannon", "boomburst", "healbell", "icebeam", "flamethrower", "voltswitch"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
 	//
 	//
 	//

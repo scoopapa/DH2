@@ -18,12 +18,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Silvino-Mega",
 		megaEvolves: "Silvino",
 		itemUser: ["Silvino"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 757,
-		desc: "If held by a Silvino, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Silvino or Audiyem, this item allows it to Mega Evolve in battle.",
 	},
 	lopunnite: {
 		name: "Lopunnite",
@@ -104,10 +101,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Pincurchitar-Mega",
 		megaEvolves: "Pincurchitar",
 		itemUser: ["Pincurchitar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 669,
 		desc: "If held by a Pincurchitar or Goatitar, this item allows it to Mega Evolve in battle.",
 	},
@@ -130,10 +124,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Sableior-Mega",
 		megaEvolves: "Sableior",
 		itemUser: ["Sableior"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 754,
 		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
 	},
@@ -148,7 +139,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 680,
-		desc: "If held by a Ninjacross, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Ninjacross or Cleracross, this item allows it to Mega Evolve in battle.",
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -182,12 +173,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Kokovoir-Mega",
 		megaEvolves: "Kokovoir",
 		itemUser: ["Kokovoir"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 657,
-		desc: "If held by a Kokovoir, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Kokovoir or Goodevoir, this item allows it to Mega Evolve in battle.",
 	},
 	scizorite: {
 		name: "Scizorite",
@@ -382,5 +370,307 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 752,
 		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+	},
+	mawilite: {
+		name: "Mawilite",
+		spritenum: 598,
+		megaStone: "Duramaw-Mega",
+		megaEvolves: "Duramaw",
+		itemUser: ["Duramaw"],
+		onTakeItem: false,
+		num: 681,
+		desc: "If held by a Duramaw, this item allows it to Mega Evolve in battle.",
+	},
+	burndrive: {
+		name: "Burn Drive",
+		spritenum: 54,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Fire',
+		forcedForme: ["Litleesect-Burn", "Genebro-Galar-Burn"],
+		itemUser: ["Litleesect-Burn", "Genebro-Galar-Burn"],
+		num: 118,
+		gen: 5,
+	},
+	chilldrive: {
+		name: "Chill Drive",
+		spritenum: 67,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Ice',
+		forcedForme: ["Litleesect-Chill", "Genebro-Galar-Chill"],
+		itemUser: ["Litleesect-Chill", "Genebro-Galar-Chill"],
+		num: 119,
+		gen: 5,
+	},
+	dousedrive: {
+		name: "Douse Drive",
+		spritenum: 103,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Water',
+		forcedForme: ["Litleesect-Douse", "Genebro-Galar-Douse"],
+		itemUser: ["Litleesect-Douse", "Genebro-Galar-Douse"],
+		num: 116,
+		gen: 5,
+	},
+	shockdrive: {
+		name: "Shock Drive",
+		spritenum: 442,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 129 || source.baseSpecies.num === 136) || pokemon.baseSpecies.num === 129 || pokemon.baseSpecies.num === 136) {
+				return false;
+			}
+			return true;
+		},
+		onDrive: 'Electric',
+		forcedForme: ["Litleesect-Shock", "Genebro-Galar-Shock"],
+		itemUser: ["Litleesect-Shock", "Genebro-Galar-Shock"],
+		num: 117,
+		gen: 5,
+	},
+	galladite: {
+		name: "Galladite",
+		spritenum: 616,
+		megaStone: "Galsola-Mega",
+		megaEvolves: "Galsola",
+		itemUser: ["Galsola"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 756,
+		desc: "If held by a Galsola, this item allows it to Mega Evolve in battle.",
+	},
+	sharpedonite: {
+		name: "Sharpedonite",
+		spritenum: 619,
+		megaStone: "Sharpiskorch-Mega",
+		megaEvolves: "Sharpiskorch",
+		itemUser: ["Sharpiskorch"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 759,
+		desc: "If held by a Sharpiskorch, this item allows it to Mega Evolve in battle.",
+	},
+	
+// silvino moment :jokerification:
+	bugmemory: {
+		onMemory: 'Bug',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Bug",
+		itemUser: ["Silvino-Bug"],
+	},
+	darkmemory: {
+		name: "Dark Memory",
+		onMemory: 'Dark',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Dark",
+		itemUser: ["Silvino-Dark"],
+	},
+	dragonmemory: {
+		name: "Dragon Memory",
+		onMemory: 'Dragon',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Dragon",
+		itemUser: ["Silvino-Dragon"],
+	},
+	electricmemory: {
+		name: "Electric Memory",
+		onMemory: 'Electric',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Electric",
+		itemUser: ["Silvino-Electric"],
+	},
+	fightingmemory: {
+		name: "Fighting Memory",
+		onMemory: 'Fighting',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fighting",
+		itemUser: ["Silvino-Fighting"],
+	},
+	firememory: {
+		name: "Fire Memory",
+		onMemory: 'Fire',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fire",
+		itemUser: ["Silvino-Fire"],
+	},
+	flyingmemory: {
+		name: "Flying Memory",
+		onMemory: 'Flying',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Flying",
+		itemUser: ["Silvino-Flying"],
+	},
+	ghostmemory: {
+		name: "Ghost Memory",
+		onMemory: 'Ghost',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ghost",
+		itemUser: ["Silvino-Ghost"],
+	},
+	grassmemory: {
+		name: "Grass Memory",
+		onMemory: 'Grass',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Grass",
+		itemUser: ["Silvino-Grass"],
+	},
+	groundmemory: {
+		name: "Ground Memory",
+		onMemory: 'Ground',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ground",
+		itemUser: ["Silvino-Ground"],
+	},
+	icememory: {
+		name: "Ice Memory",
+		onMemory: 'Ice',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Ice",
+		itemUser: ["Silvino-Ice"],
+	},
+	poisonmemory: {
+		name: "Poison Memory",
+		spritenum: 670,
+		onMemory: 'Poison',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Poison",
+		itemUser: ["Silvino-Poison"],
+	},
+	psychicmemory: {
+		name: "Psychic Memory",
+		onMemory: 'Psychic',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Psychic",
+		itemUser: ["Silvino-Psychic"],
+	},
+	rockmemory: {
+		name: "Rock Memory",
+		onMemory: 'Rock',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Rock",
+		itemUser: ["Silvino-Rock"],
+	},
+	steelmemory: {
+		name: "Steel Memory",
+		onMemory: 'Steel',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Steel",
+		itemUser: ["Silvino-Steel"],
+	},
+	watermemory: {
+		name: "Water Memory",
+		onMemory: 'Water',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Water",
+		itemUser: ["Silvino-Water"],
+	},
+	fairymemory: {
+		name: "Fairy Memory",
+		onMemory: 'Fairy',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 14) || pokemon.baseSpecies.num === 14) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvino-Fairy",
+		itemUser: ["Silvino-Fairy"],
 	},
 };
