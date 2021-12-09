@@ -21,7 +21,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		name: "Rain Dish",
@@ -41,7 +41,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		name: "Ice Body",
