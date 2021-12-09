@@ -25,6 +25,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+    shortDesc: "Replaces the user's Ice-type with Water. 1.5x power when used by Ice-types.",
 		name: "Meltdown",
 		pp: 10,
 		priority: 0,
@@ -33,6 +34,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Scald", target);
 		  this.add('-anim', source, "Acid Armor", target);
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.type === 'Ice') {
+				return this.chainModify(1.5);
+			}
 		},
 		self: {
 			onHit(pokemon) {
@@ -49,6 +55,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+    shortDesc: "Charges turn 1. Heals 50% and resets lowered stats turn 2.",
 		name: "Reconstruct",
 		pp: 10,
 		priority: 0,
@@ -88,6 +95,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
+    shortDesc: "10% chance to lower the foe's SpD. Never misses if the user moves last.",
 		name: "Focus Blast",
 		pp: 5,
 		priority: 0,
@@ -104,5 +112,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+	},
+	aridabsorption: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "(Non-functional placeholder, Currently a Life Dew clone)",
+		name: "Arid Absorption",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shore Up", target);
+		},
+		heal: [1, 4],
+		secondary: null,
+		target: "self",
+		type: "Ground",
 	},
 };
