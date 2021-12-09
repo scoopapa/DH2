@@ -7,6 +7,10 @@ tornadustherian: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
+blaziken: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 beedrill: {
 		tier: "UU",
 	   doublesTier: "DOU",
@@ -36,7 +40,7 @@ venusaurmega: {
 	   doublesTier: "DOU",
 },
 blastoisemega: {
-		tier: "OU",
+		tier: "Uber",
 	   doublesTier: "DUber",
 },
 alakazammega: {
@@ -752,7 +756,7 @@ unown: {
 	   doublesTier: "DOU",
 },
 urshifu: {
-		tier: "OU",
+		tier: "Uber",
 	   doublesTier: "DOU",
 },
 };
