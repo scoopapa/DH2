@@ -15,20 +15,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Comes back to the user when flung.", 
 	},
- 	momentumarmor: {
-		name: "Momentum Armor",
-		fling: {
-			basePower: 80,
-		},
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-		const def = pokemon.getStat('def', false, true);
-      return this.chainModify(pokemon.def / 4, pokemon, pokemon);
-		},
-		num: -1002,
-		gen: 8,
-		desc: "Boosts the user's Attack by 25% of its Defense.", 
-	},
+ momentumarmor: {
+        name: "Momentum Armor",
+        fling: {
+            basePower: 80,
+        },
+        onModifyAtkPriority: 1,
+        onModifyAtk(atk, pokemon) {
+          const def = pokemon.getStat('def', false, true);
+          const atk = pokemon.getStat('atk', false, true);
+          const newAtk = atk + (def / 4);
+          return newAtk;
+        },
+        num: -1002,
+        gen: 8,
+        desc: "Boosts the user's Attack by 25% of its Defense.", 
+    },
  	shellbell: {
 		name: "Shell Bell",
 		spritenum: 438,
