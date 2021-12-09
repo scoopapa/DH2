@@ -23,7 +23,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         onModifyAtkPriority: 1,
         onModifyAtk(atk, pokemon) {
           const def = pokemon.getStat('def', false, true);
-          const atk = pokemon.getStat('atk', false, true);
           const newAtk = atk + (def / 4);
           return newAtk;
         },
