@@ -1,7 +1,7 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	toxicthread: {
 		num: 672,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 0,
 		category: "Status",
     shortDesc: "Badly poisons and lowers the target's Speed by 2",
