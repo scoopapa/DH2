@@ -36,14 +36,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Acid Armor", target);
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (pokemon.type === 'Ice') {
+			if (pokemon.hasType === 'Ice') {
 				return this.chainModify(1.5);
 			}
 		},
 		self: {
 			onHit(pokemon) {
+				if (pokemon.hasType('Water')) { 					
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Meltdown');
+				} else {
 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Ice" ? "Water" : type));
 				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Meltdown');
+				}
 			},
 		},
 		secondary: null,
@@ -92,16 +97,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
  	focusblast: {
 		num: 411,
-		accuracy: 70,
+		accuracy: true,
 		basePower: 120,
 		category: "Special",
-    shortDesc: "10% chance to lower the foe's SpD. Never misses if the user moves last.",
+    shortDesc: "70% Accuracy if the user moves first. 10% chance to lower the foe's SpD.",
 		name: "Focus Blast",
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		onModifyMove(move, target) {
-			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
+			if (this.queue.willMove(target)) move.accuracy = 70;
 		},
 		secondary: {
 			chance: 10,
@@ -117,7 +122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "(Non-functional placeholder, Currently a Life Dew clone)",
+    shortDesc: "(Placeholder, Currently a Life Dew clone)",
 		name: "Arid Absorption",
 		pp: 10,
 		priority: 0,
