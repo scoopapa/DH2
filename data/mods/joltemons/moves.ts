@@ -238,13 +238,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
-			if (item.id) {
+			if (item.id !== 'boomerang') {
 				return this.chainModify(1.5);
 			}
 		},
 		onAfterHit(target, source) {
 			if (source.hp) {
-				const item = target.takeItem() && item.id !=== 'boomerang';
+				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
