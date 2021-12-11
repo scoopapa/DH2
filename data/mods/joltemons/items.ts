@@ -4,13 +4,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 120,
 		},
- 		onTakeItem(pokemon) {
-			if (pokemon.item || !pokemon.lastItem) return false;
-			const item = pokemon.lastItem;
-			pokemon.lastItem = 'Boomerang';
-			this.add('-item', pokemon, this.dex.getItem(item), '[from] item: Boomerang');
-			pokemon.setItem(item);
-		},
 		num: -1001,
 		gen: 8,
 		desc: "Comes back to the user when flung.", 
