@@ -205,7 +205,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
 				}
 			}
-			if (item && !item.id === 'boomerang') source.addVolatile('fling');
+			source.addVolatile('fling');
+			if (item.id === 'boomerang') {
+				source.removeVolatile('fling');
+			}
 		},
 		condition: {
 			onUpdate(pokemon) {
