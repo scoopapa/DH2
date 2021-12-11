@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Acid Armor", target);
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (pokemon.hasType === 'Ice') {
+			if (pokemon.hasType('Ice')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -100,18 +100,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
-    shortDesc: "70% Accuracy if the user moves first. 10% chance to lower the foe's SpD.",
+    shortDesc: "10% chance to lower the foe's SpD. Never misses if the user moves last.",
 		name: "Focus Blast",
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		onModifyMove(move, target) {
-			if (this.queue.willMove(target)) {
-				this.debug('Focus Blast accuracy is NOT boosted');
-				return move.accuracy;
-			}
-			this.debug('Focus Blast accuracy boost');
-			return move.accuracy = true;
+		onModifyMove(move, source, target) {
+			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
 		},
 		secondary: {
 			chance: 10,
