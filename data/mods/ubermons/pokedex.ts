@@ -168,4 +168,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 125},
 	},
+	necrozmaduskmane: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Light Metal"},
+		baseStats: {hp: 97, atk: 127, def: 113, spa: 107, spd: 89, spe: 67},
+	},
+	necrozmadawnwings: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Analytic"},
+		baseStats: {hp: 97, atk: 107, def: 71, spa: 127, spd: 89, spe: 109},
+	},
 };

@@ -106,6 +106,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'silvally').learnset.sheercold = ['8L1'];
 		this.modData('Learnsets', 'frosmoth').learnset.sheercold = ['8L1'];
 		this.modData('Learnsets', 'glaceon').learnset.sheercold = ['8L1'];
+		
+		delete this.modData('Learnsets', 'necrozma').learnset.knockoff;
+		delete this.modData('Learnsets', 'necrozma').learnset.dragondance;
 	},
 	
 	pokemon: {

@@ -287,13 +287,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 140},
 		contestType: "Clever",
 	},
-	eyeofchaos: {
+	eyesofchaos: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		isViable: true,
-		name: "Eye of Chaos",
+		name: "Eyes of Chaos",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1027,6 +1027,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
+		shortDesc: "Type varies on Memory, Plate, Type-Item or Berry.",
 		name: "Hidden Power (Miasmons)",
 		pp: 15,
 		priority: 0,
