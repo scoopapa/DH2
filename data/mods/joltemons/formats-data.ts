@@ -759,4 +759,44 @@ urshifu: {
 		tier: "Uber",
 	   doublesTier: "DOU",
 },
+urshifurapidstrike: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+slowkinggalar: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+slowbrogalar: {
+		tier: "UU",
+	   doublesTier: "DOU",
+},
+slowpokegalar: {
+		tier: "LC",
+	   doublesTier: "DOU",
+},
+kubfu: {
+		tier: "PU",
+	   doublesTier: "DOU",
+},
+glastrier: {
+		tier: "NU",
+	   doublesTier: "DOU",
+},
+spectrier: {
+		tier: "Uber",
+	   doublesTier: "DOU",
+},
+calyrex: {
+		tier: "PU",
+	   doublesTier: "DOU",
+},
+regieleki: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+regidrago: {
+		tier: "RU",
+	   doublesTier: "DOU",
+},
 };
