@@ -118,6 +118,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Cool",
 	},
+/*
 	aridabsorption: {
 		accuracy: true,
 		basePower: 0,
@@ -136,4 +137,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Ground",
 	},
+*/
+	aridabsorption: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Heals by 25% of its max HP +25% for every active Water-type. Active Water-types lose 25% of their max HP.",
+		name: "Arid Absorption",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shore Up", target);
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.baseMaxhp / 4, source, pokemon);
+			}
+			},
+		},
+		onHitField(target, source) {
+			if (target.hasType('Water')) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+	},	
 };
