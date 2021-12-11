@@ -248,6 +248,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
+				if (item.id === 'boomerang') {
+					this.add('-item', target, this.dex.getItem(item), '[from] item: Boomerang');
+					target.setItem(item);				
+				}
 			}
 		},
 		secondary: null,
