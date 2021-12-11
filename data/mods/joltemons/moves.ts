@@ -155,7 +155,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(pokemon, source, move) {
 				this.heal(source.baseMaxhp / 4, source, pokemon);
 			}
-			},
 		},
 		onHitField(target, source) {
 			if (target.hasType('Water')) {
