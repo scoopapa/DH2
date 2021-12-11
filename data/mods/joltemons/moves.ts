@@ -243,8 +243,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onAfterHit(target, source) {
-			if (source.hp && source.item.id !=== 'boomerang') {
-				const item = target.takeItem();
+			if (source.hp) {
+				const item = target.takeItem() && item.id !=== 'boomerang';
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
