@@ -159,6 +159,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHitField(target, source) {
 			if (target.hasType('Water')) {
 				this.damage(target.baseMaxhp / 4, target, source);
+				this.heal(source.baseMaxhp / 4, source, target);
+			}
+			if (source.hasType('Water')) {
+				this.damage(target.baseMaxhp / 4, source, target);
 			}
 		},
 		secondary: null,
