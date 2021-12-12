@@ -428,7 +428,7 @@ alomomola: {
 	   doublesTier: "DOU",
 },
 deoxys: {
-		tier: "OU",
+		tier: "Uber",
 	   doublesTier: "DUber",
 },
 deoxysdefense: {
