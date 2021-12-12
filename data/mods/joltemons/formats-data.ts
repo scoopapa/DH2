@@ -799,4 +799,16 @@ regidrago: {
 		tier: "RU",
 	   doublesTier: "DOU",
 },
+moltresgalar: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+articunogalar: {
+		tier: "UU",
+	   doublesTier: "DOU",
+},
+zapdosgalar: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };
