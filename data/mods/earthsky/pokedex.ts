@@ -2609,6 +2609,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	necturine: {
 		inherit: true,
 		number: -27,
+		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
 	necturna: {
 		inherit: true,
@@ -2649,6 +2650,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	volkritter: {
 		inherit: true,
 		number: -37,
+		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
 	},
 	volkraken: {
 		inherit: true,

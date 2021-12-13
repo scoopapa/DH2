@@ -5104,6 +5104,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "eelektrik").learnset.dive = ["8M"];
 		this.modData("Learnsets", "eelektrik").learnset.eerieimpulse = ["8M"];
 		this.modData("Learnsets", "eelektrik").learnset.flash = ["8M"];
+		this.modData("Learnsets", "eelektrik").learnset.leechlife = ["8M"];
 		this.modData("Learnsets", "eelektrik").learnset.surf = ["8M"];
 		delete this.modData('Learnsets', 'eelektrik').learnset.toxic;
 		// Eelektross
@@ -5112,6 +5113,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "eelektross").learnset.dive = ["8M"];
 		this.modData("Learnsets", "eelektross").learnset.eerieimpulse = ["8M"];
 		this.modData("Learnsets", "eelektross").learnset.flash = ["8M"];
+		this.modData("Learnsets", "eelektross").learnset.leechlife = ["8M"];
 		this.modData("Learnsets", "eelektross").learnset.surf = ["8M"];
 		this.modData("Learnsets", "eelektross").learnset.thunderpunch = ["8M"];
 		delete this.modData('Learnsets', 'eelektross').learnset.toxic;
@@ -5876,6 +5878,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "litten").learnset.flash = ["8M"];
 		this.modData("Learnsets", "litten").learnset.honeclaws = ["8M"];
 		delete this.modData('Learnsets', 'litten').learnset.doublekick;
+		delete this.modData('Learnsets', 'litten').learnset.leechlife;
 		delete this.modData('Learnsets', 'litten').learnset.toxic;
 		// Torracat
 		this.modData("Learnsets", "torracat").learnset.preheat = ["8D"];
@@ -5884,6 +5887,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "torracat").learnset.honeclaws = ["8M"];
 		this.modData("Learnsets", "torracat").learnset.strength = ["8M"];
 		delete this.modData('Learnsets', 'torracat').learnset.doublekick;
+		delete this.modData('Learnsets', 'torracat').learnset.leechlife;
 		delete this.modData('Learnsets', 'torracat').learnset.toxic;
 		// Incineroar
 		this.modData("Learnsets", "incineroar").learnset.heatcrash = ["8D"];
@@ -5894,6 +5898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "incineroar").learnset.rockclimb = ["8M"];
 		this.modData("Learnsets", "incineroar").learnset.strength = ["8M"];
 		delete this.modData('Learnsets', 'incineroar').learnset.doublekick;
+		delete this.modData('Learnsets', 'incineroar').learnset.leechlife;
 		delete this.modData('Learnsets', 'incineroar').learnset.quash;
 		delete this.modData('Learnsets', 'incineroar').learnset.toxic;
 		// Popplio
