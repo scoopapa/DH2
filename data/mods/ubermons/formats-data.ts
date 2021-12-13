@@ -630,4 +630,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zekrom: {
 		tier: "OU",
 	},
+	necrozmaduskmane: {
+		tier: "OU",
+	},
+	necrozmadawnwings: {
+		tier: "OU",
+	},
 };

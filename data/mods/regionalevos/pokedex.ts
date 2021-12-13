@@ -997,14 +997,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Galar",
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 65, atk: 135, def: 100, spa: 50, spd: 70, spe: 70},
-		abilities: {0: "Intimidate", 1: "Guts", H: "Justified"},
+		abilities: {0: "Intimidate", 1: "Defiant", H: "Justified"},
 	},
 	chivalot: {
 		num: 1121,
 		name: "Chivalot",
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 75, atk: 145, def: 105, spa: 60, spd: 70, spe: 90},
-		abilities: {0: "Intimidate", 1: "Guts", H: "Justified"},
+		abilities: {0: "Intimidate", 1: "Defiant", H: "Justified"},
 	},
 	teddiursagalar: {
 		num: 1122,

@@ -475,7 +475,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	unown: {
     	inherit: true,
 		baseStats: {hp: 48, atk: 48, def: 48, spa: 144, spd: 48, spe: 48},
-		abilities: {0: "Levitate"},
+		abilities: {0: "Protean"},
 	},
 	girafarig: {
     	inherit: true,

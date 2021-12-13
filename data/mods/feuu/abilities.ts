@@ -3463,9 +3463,123 @@ lifedrain: {
     name: "Herbivore",
     shortDesc: "This Pokemon's Attack is raised 2 stage if hit by a Grass move; Grass immunity.",
 	},
-
-
-
+	diamondcore: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Diamond Core');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Diamond Core');
+				return null;
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Diamond Core');
+				return target.hp - 1;
+			}
+		},
+		name: "Diamond Core",
+		shortDesc: "Pressure + Sturdy",
+	},
+	combustion: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Combustion",
+		shortDesc: "(Bugged) If this Pokemon has no negative stat changes, +1 Speed at the end of the turn",
+	},
+	scouttyping: {
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Scout Typing', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Scout Typing');
+			}
+		},
+		name: "Scout Typing",
+		shortDesc: "Frisk + Protean",
+	},
+	gutsguard: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.25);
+			}
+		},
+		name: "Guts Guard",
+		shortDesc: "When statused, this Pokemon Attack is boosted 1.5x and it takes 0.75x damage.",
+	},
+	anesthesia: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Anesthesia', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		name: "Anesthesia",
+		shortDesc: "Aroma Veil + Unaware",
+	},
+	stabilizer: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Stabilizer boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move, basePower) {
+			if (move.basePower <= 60) {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Stabilizer",
+		shortDesc: "Moves with ≤60 BP have 1.5x power. +1 Speed when hit by a move with ≤60 BP.",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit

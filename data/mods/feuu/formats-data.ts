@@ -1225,6 +1225,56 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["earthpower", "dazzlinggleam", "nuzzle", "stealthrock"],
 		randomBattleLevel: 79,
 	},
+	deodonattack: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["psychoboost", "flashcannon", "fireblast", "earthpower"],
+		randomBattleLevel: 79,
+	},
+	sharpiskorch: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["liquidation", "flareblitz", "earthquake", "protect"],
+		randomBattleLevel: 79,
+	},
+	sharpiskorchmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["liquidation", "firefang", "earthquake", "protect"],
+		randomBattleLevel: 79,
+		requiredItem: "Sharpedonite",
+	},
+	gourninja: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["poltergeist", "powerwhip", "spikes", "uturn"],
+		randomBattleLevel: 79,
+	},
+	cleracross: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["playrough", "spikes", "softboiled", "teleport"],
+		randomBattleLevel: 79,
+	},
+	cleracrossmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["playrough", "closecombat", "rockblast", "swordsdance"],
+		randomBattleLevel: 79,
+		requiredItem: "Heracronite",
+	},
+	aromarel: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["wish", "protect", "moonblast", "toxic"],
+		randomBattleLevel: 79,
+	},
+	lycansian: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["accelerock", "doubleedge", "closecombat", "uturn"],
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -1680,6 +1730,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	tynapole: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	meowruff: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	spritdoof: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	froakaboo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	carvipede: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},

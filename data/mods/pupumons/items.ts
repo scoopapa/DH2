@@ -284,4 +284,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 325,
 		gen: 4,
 	},
+	meteorite: {
+		name: "Meteorite",
+		spritenum: 193,
+		fling: {
+			basePower: 60,
+		},
+		num: 284,
+		gen: 4,
+	},
 };
