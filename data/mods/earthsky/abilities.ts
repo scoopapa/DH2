@@ -1004,7 +1004,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							case('wringout'):
 								bp = move.basePowerCallback(target, pokemon);
 							//VP moves which return default values because they require information the player can't see
-							case('fling'): //Held item; I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
+							case('fling'): //Held item. I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 								if(this.effectData.source === "Glyphic Spell"){
 									const item = target.getItem();
 									bp = (item.fling) ? item.fling.basePower : 0;
@@ -1031,7 +1031,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							case('gyroball'):
 								bp = 80;
 								break;
-							default: //Counter, Mirror Coat, Metal Burst, Rebound
+							//Counter, Mirror Coat, Metal Burst, Rebound are damage reflectors, use default value from original Forewarn
+							default:
 								bp = 120;
 								direct = true;
 							}
@@ -1165,7 +1166,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						case('gyroball'):
 							bp = 80;
 							break;
-						default: //Counter, Mirror Coat, Metal Burst, Rebound
+						//Counter, Mirror Coat, Metal Burst, Rebound are damage reflectors, use default value from original Forewarn
+						default:
 							bp = 120;
 							direct = true;
 						}
@@ -1539,6 +1541,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Power Aura",
 		rating: 1,
 		num: 249,
+		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.3.",
 		start: "  [POKEMON] is radiating a power aura!",
 	},
 	receiver: {
@@ -2792,6 +2795,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Escape Plan",
 		rating: 1,
 		num: 1017,
+		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
+		shortDesc: "This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
 	},
 	wimpout: {
 		name: "Wimp Out",
@@ -2862,6 +2867,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Majesty",
 		rating: 2.5,
 		num: 214,
+		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
+		shortDesc: "While this Pokemon is active, allies are protected from opposing priority moves.",
 	},
 	queenlymajesty: {
 		name: "Queenly Majesty",
@@ -2907,6 +2914,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		rating: 3,
 		num: -3,
+		desc: "On switch-in, this Pokemon blocks certain status moves and instead uses the move against the original user.",
+		shortDesc: "On switch-in, blocks certain status moves and bounces them back to the user.",
 	},
 	rebound: {
 		name: "Rebound",
