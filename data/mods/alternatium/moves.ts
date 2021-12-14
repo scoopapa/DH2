@@ -923,6 +923,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dark') return 1;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Relic Song", target);
+		},
 		secondary: {
 			chance: 10,
 			status: 'slp',
