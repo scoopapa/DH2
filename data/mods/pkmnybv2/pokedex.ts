@@ -1941,7 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9015,
 		name: "Frospherous",
 		types: ["Normal", "Ice"],
-		baseStats: {hp: 90, atk: 40, def: 61, spa: 121, spd: 57, spe: 91},
+		baseStats: {hp: 70, atk: 60, def: 71, spa: 111, spd: 57, spe: 91},
 		abilities: {0: "Cheek Pouch", 1: "Lightning Rod", H: "Battle Armor"},
 		weightkg: 50,
 	},
