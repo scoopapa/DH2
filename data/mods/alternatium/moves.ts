@@ -919,13 +919,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onModifyType(move, pokemon) {
-			if (pokemon.species.id !== 'meloetta') return;
+		onModifyType(move, source) {
+			if (source.species.id !== 'meloetta') return;
 			move.type = 'Psychic';
 			move.ignoreImmunity = {'Psychic': true};
 		},
-		onEffectiveness(typeMod, pokemon, type) {
-			if (pokemon.species.id !== 'meloetta') return;
+		onEffectiveness(typeMod, source, type) {
+			if (source.species.id !== 'meloetta') return;
 			if (type === 'Dark') return 1;
 		},
 		secondary: {
@@ -1082,5 +1082,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
+	},
+	aurawheel: {
+		num: 783,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		shortDesc: "Raises the user's Speed by 1.",
+		name: "Aura Wheel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
 	},
 };
