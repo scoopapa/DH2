@@ -924,7 +924,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			move.type = 'Psychic';
 			move.ignoreImmunity = {'Psychic': true};
 		},
-		onEffectiveness(typeMod, target, type) {
+		onEffectiveness(typeMod, pokemon, type) {
 			if (pokemon.species.id !== 'meloetta') return;
 			if (type === 'Dark') return 1;
 		},
@@ -1067,5 +1067,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Poison",
+	},
+	lightblast: {
+		num: 1013,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		name: "Light Blast",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
 	},
 };

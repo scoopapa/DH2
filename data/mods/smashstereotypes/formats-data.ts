@@ -136,4 +136,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lunatone: {
 		tier: "SSS",
 	},
+	miemie: {
+		tier: "SSS",
+	},
+	shadowing: {
+		tier: "SSS",
+	},
+	ludicolo: {
+		tier: "SSS",
+	},
 };
