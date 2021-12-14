@@ -924,7 +924,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			move.type = 'Psychic';
 			move.ignoreImmunity = {'Psychic': true};
 		},
-		onEffectiveness(typeMod, source, type) {
+		onEffectiveness(typeMod, source, target, type) {
 			if (source.species.id !== 'meloetta') return;
 			if (type === 'Dark') return 1;
 		},
