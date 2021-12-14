@@ -6591,7 +6591,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			quickattack: ["8L1"],
 			raindance: ["8L1"],
 			recycle: ["8L1"],
-			relicsong: ["8L1"],
+			relicsongmeloetta: ["8L1"],
 			rest: ["8L1"],
 			retaliate: ["8L1"],
 			return: ["8L1"],

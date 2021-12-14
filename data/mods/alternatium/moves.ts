@@ -909,32 +909,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
-	relicsong: {
+	relicsongmeloetta: {
 		num: 547,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
-		name: "Relic Song",
+		shortDesc: "10% chance to sleep. Hits Dark-types super effectively.",
+		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onModifyType(move, source) {
-			if (source.species.id !== 'meloetta') return;
-			move.type = 'Psychic';
-			move.ignoreImmunity = {'Psychic': true};
-		},
-		onEffectiveness(typeMod, source, target, type) {
-			if (source.species.id === 'meloetta') {
-				if (type === 'Dark') return 1;
-			}
+		ignoreImmunity: {'Psychic': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
 		},
 		secondary: {
 			chance: 10,
 			status: 'slp',
 		},
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Psychic",
 		contestType: "Beautiful",
 	},
 	rockyslash: {
