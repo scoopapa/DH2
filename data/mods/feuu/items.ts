@@ -467,6 +467,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 759,
 		desc: "If held by a Sharpiskorch, this item allows it to Mega Evolve in battle.",
 	},
+	aggronite: {
+		name: "Aggronite",
+		spritenum: 578,
+		megaStone: "Emolggron-Mega",
+		megaEvolves: "Emolggron",
+		itemUser: ["Emolggron"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 667,
+		desc: "If held by a Emolggron, this item allows it to Mega Evolve in battle.",
+	},
 	
 // silvino moment :jokerification:
 	bugmemory: {
