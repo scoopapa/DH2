@@ -259,7 +259,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {mirror: 1, authentic: 1},
 		breaksProtect: true,
 		onTry(pokemon) {
-			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Monferpa-Unbound') {
+			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Monferpa-Unbound' || pokemon.species.name === 'Hoopagigas-Unbound') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Hoopa Unbound can use this move.");
