@@ -2715,7 +2715,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nashifu: {
 		fusion: ['Natu', 'Urshifu'],
 		num: 148,
-		name: "Hoopagigas-Unbound",
+		name: "Nashifu",
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 70, atk: 90, def: 75, spa: 70, spd: 70, spe: 98},
 		abilities: {0: "Unseen Magic"},
