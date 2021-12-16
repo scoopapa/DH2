@@ -102,30 +102,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
-/*
-	moody: {
-      shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(length, target, source, effect) {
-			if (target.activeTurns) {
-            let statName = 'atk';
-            let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
-            let s: StatNameExceptHP;
-            for (s in target.storedStats) {
-                if (target.storedStats[s] < worstStat) {
-                    statName = s;
-                    worstStat = target.storedStats[s];
-                }
-            }
-            this.boost({[statName]: 1}, target);
-			}
-		},
-		name: "Moody",
-		rating: 3,
-		num: 141,
-	},
-*/
 	moody: {
       shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
 		onSourceAfterFaint(length, target, source, effect) {
