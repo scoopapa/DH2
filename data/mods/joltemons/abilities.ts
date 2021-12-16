@@ -103,19 +103,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
-	libero: {
-      shortDesc: "Non-STAB moves have 1.2x power.",
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (!move.hasType(attacker.getTypes())) {
-				this.debug('Libero boost');
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		name: "Libero",
-		rating: 4.5,
-		num: 236,
-	},
 	moody: {
       shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
 		onResidualOrder: 26,
