@@ -156,5 +156,11 @@ this.modData('Learnsets', 'wormadamsandy').learnset.reconstruct = ['8L1'];
 this.modData('Learnsets', 'zamazenta').learnset.reconstruct = ['8L1'];
 this.modData('Learnsets', 'reuniclus').learnset.reconstruct = ['8L1'];
 this.modData('Learnsets', 'porygon').learnset.reconstruct = ['8L1'];
+delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
+this.modData('Learnsets', 'meganium').learnset.wish = ['8L1'];
+this.modData('Learnsets', 'meganium').learnset.weatherball = ['8L1'];
+this.modData('Learnsets', 'meganium').learnset.bodypress = ['8L1'];
+this.modData('Learnsets', 'ampharos').learnset.dracometeor = ['8L1'];
+this.modData('Learnsets', 'ampharos').learnset.slackoff = ['8L1'];
 	},
 };
