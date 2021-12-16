@@ -107,6 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(length, target, source, effect) {
+			if (target.activeTurns) {
             let statName = 'atk';
             let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
             let s: StatNameExceptHP;
@@ -117,6 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
                 }
             }
             this.boost({[statName]: 1}, target);
+			}
 		},
 		name: "Moody",
 		rating: 3,
