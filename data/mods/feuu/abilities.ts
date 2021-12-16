@@ -3580,6 +3580,196 @@ lifedrain: {
 		name: "Stabilizer",
 		shortDesc: "Moves with ≤60 BP have 1.5x power. +1 Speed when hit by a move with ≤60 BP.",
 	},
+	headtohead: {
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.target !== 'self' && (move.recoil || move.hasCrashDamage)) {
+				this.add('-immune', target, '[from] ability: Head-To-Head');
+				return null;
+			}
+		},
+		name: "Head-To-Head",
+		shortDesc: "This Pokemon is immune to recoil and recoil moves.",
+	},
+	clearlyfloating: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Clearly Floating');
+				return null;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Clearly Floating", "[of] " + target);
+			}
+		},
+		name: "Clearly Floating",
+		shortDesc: "Clear Body + Levitate",
+	},
+	slowmage: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.item) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.item) {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Slow Mage",
+		shortDesc: "If this Pokemon is holding an item, its Attack and Speed are halved.",
+	},
+	unseenmagic: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		onModifyMove(move) {
+			if (move.flags['contact']) delete move.flags['protect'];
+		},
+		name: "Unseen Magic",
+		shortDesc: "Magic Bounce + Unseen Fist",
+	},
+	gulprock: {
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramotricitygulping', 'cramotricitygorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramotricitygulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('cramotricity', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulprock') &&
+				source.species.name === 'Cramotricity' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramotricitygorging' : 'cramotricitygulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Surf' || move.name === 'Dive') {
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.name === 'Surf' || move.name === 'Dive') {
+				this.debug('Gulp Rock weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isPermanent: true,
+		name: "Gulp Rock",
+		shortDesc: "Gulp Missile + Surf & Dive deal 1.3x and this Pokemon takes 50% damage from Surf and Dive.",
+	},
+	flyingraijin: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Flying Raijin');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Flying Raijin');
+				}
+				return this.effectData.target;
+			}
+		},
+		name: "Flying Raijin",
+		shortDesc: "Infiltrator + Lightning Rod",
+	},
+	zenmode: {
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan-Prime' || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (pokemon.species.baseSpecies === 'Darmanitan-Prime' && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanprimezen') pokemon.formeChange('Darmanitan-Prime-Zen');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		isPermanent: true,
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
+	},
+
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -4334,6 +4524,34 @@ lifedrain: {
 		},
 		name: "Poison Control",
 		shortDesc: "Technician + Immunity",
+	},
+	clearlyhustling: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
+		name: "Clearly Hustling",
+		shortDesc: "Clear Body + Hustle",
 	},
 };
  

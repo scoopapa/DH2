@@ -1275,6 +1275,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["accelerock", "doubleedge", "closecombat", "uturn"],
 		randomBattleLevel: 79,
 	},
+	landowakalola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	emolggron: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	emolggronmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Aggronite",
+	},
+	metagon: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	hoopagigasunbound: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	nashifu: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	cramotricity: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	raibat: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	darmanitanprime: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -1749,6 +1795,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	pibat: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	darumakaprime: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	beldino: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -1766,6 +1824,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	palpitrik: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	pikabat: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},

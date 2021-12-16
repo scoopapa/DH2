@@ -33,6 +33,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
 		this.modData('Learnsets', 'tyranetteeternal').learnset.lightofruin = ['7L1'];
 		this.modData('Learnsets', 'monferpaunbound').learnset.hyperspacefury = ['7L1'];
+		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
@@ -279,6 +280,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Etativel');
 						} else if (this.hasAbility('lighthearted')) {
 							this.battle.add('-immune', this, '[from] ability: Lighthearted');
+						} else if (this.hasAbility('clearlyfloating')) {
+							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
