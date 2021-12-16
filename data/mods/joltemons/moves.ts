@@ -255,7 +255,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
  		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Swords Dance", target);
+		  this.add('-anim', source, "Swords Dance", source);
 		  this.add('-anim', source, "Wild Charge", target);
 		},
 		self: {
