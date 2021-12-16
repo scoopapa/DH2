@@ -99,4 +99,40 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Chilling Neigh", H: "Ice Body"},
 	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Unburden"},
+	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Flame Body"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Water Absorb"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Refrigerate"},
+	},
+	rotomfan: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Speed Boost"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Grassy Surge"},
+	},
+	ampharos: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Plus", H: "Mold Breaker"},
+	},
+	ampharosmega: {
+		inherit: true,
+		abilities: {0: "Fluffy"},
+	},
+	meganium: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Flower Veil"},
+	},
 };
