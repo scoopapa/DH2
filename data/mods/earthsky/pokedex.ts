@@ -1781,11 +1781,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	finneon: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Storm Drain", H: "Dazzling"},
+		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
 	lumineon: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Storm Drain", H: "Dazzling"},
+		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
 	tangrowth: {
 		inherit: true,
