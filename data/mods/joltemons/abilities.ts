@@ -102,26 +102,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
-	moody: {
+    moody: {
       shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
+        onResidualOrder: 26,
+        onResidualSubOrder: 1,
+        onResidual(pokemon) {
+            if (pokemon.activeTurns) {
             let statName = 'atk';
             let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
             let s: StatNameExceptHP;
-            for (s in target.storedStats) {
-                if (target.storedStats[s] < worstStat) {
+            for (s in pokemon.storedStats) {
+                if (pokemon.storedStats[s] < worstStat) {
                     statName = s;
-                    worstStat = target.storedStats[s];
+                    worstStat = pokemon.storedStats[s];
                 }
             }
-            this.boost({[statName]: 1}, target);
-			}
-		},
-		name: "Moody",
-		rating: 3,
-		num: 141,
-	},
+            this.boost({[statName]: 1}, pokemon);
+            }
+        },
+        name: "Moody",
+        rating: 3,
+        num: 141,
+    },
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
 			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
