@@ -909,31 +909,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
-	relicsong: {
+	relicsongmeloetta: {
 		num: 547,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
-		name: "Relic Song",
+		shortDesc: "10% chance to sleep. Hits Dark-types super effectively.",
+		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onModifyType(move, pokemon) {
-			if (pokemon.species.id !== 'meloetta') return;
-			move.type = 'Psychic';
-			move.ignoreImmunity = {'Psychic': true};
-		},
+		ignoreImmunity: {'Psychic': true},
 		onEffectiveness(typeMod, target, type) {
-			if (pokemon.species.id !== 'meloetta') return;
 			if (type === 'Dark') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Relic Song", target);
 		},
 		secondary: {
 			chance: 10,
 			status: 'slp',
 		},
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Psychic",
 		contestType: "Beautiful",
 	},
 	rockyslash: {
@@ -1067,5 +1066,41 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Poison",
+	},
+	lightblast: {
+		num: 1013,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		name: "Light Blast",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+	},
+	aurawheel: {
+		num: 783,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		shortDesc: "Raises the user's Speed by 1.",
+		name: "Aura Wheel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
 	},
 };

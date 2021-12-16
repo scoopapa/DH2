@@ -582,4 +582,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 248,
 	},
+	washup: {
+		onStart(source) {
+			this.field.addPseudoWeather('watersport');
+		},
+		name: "Wash Up",
+		shortDesc: "On switch-in, this Pokemon summons the Water Sport effect.",
+		rating: 2,
+		num: 1017,
+	},
 };
