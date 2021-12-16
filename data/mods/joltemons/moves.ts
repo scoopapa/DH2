@@ -170,6 +170,105 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Ground",
 	},	
+	rototiller: {
+		num: 563,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Raises Atk/Def of grounded Grass types by 1, sets Grassy Terrain.",
+		isViable: true,
+		name: "Rototiller",
+		pp: 10,
+		priority: 0,
+		flags: {distance: 1, nonsky: 1},
+		onHitField(target, source) {
+			this.field.setTerrain('grassyterrain');
+			const targets: Pokemon[] = [];
+			let anyAirborne = false;
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.runImmunity('Ground')) {
+					this.add('-immune', pokemon);
+					anyAirborne = true;
+					continue;
+				}
+				if (pokemon.hasType('Grass')) {
+					// This move affects every grounded Grass-type Pokemon in play.
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length && !anyAirborne) return false; // Fails when there are no grounded Grass types or airborne Pokemon
+			for (const pokemon of targets) {
+				this.boost({atk: 1, def: 1}, pokemon, source);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+		zMove: {boost: {atk: 1}},
+		contestType: "Tough",
+	},
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	counterspell: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+    shortDesc: "Uses target's SpA stat in damage calculation. Fails if the target switches out or moves last.",
+		name: "Counterspell",
+		pp: 15,
+		priority: -1,
+		flags: {protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Psybeam", target);
+		},
+		onTryHit(target, source, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) return false;
+		},
+		useTargetOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
+	lightninglance: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+    shortDesc: "Lowers the user's Attack and Sp. Def by 1.",
+		name: "Lightning Lance",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Swords Dance", target);
+		  this.add('-anim', source, "Wild Charge", target);
+		},
+		self: {
+			boosts: {
+				atk: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
