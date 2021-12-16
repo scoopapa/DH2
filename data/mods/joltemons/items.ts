@@ -39,4 +39,35 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		desc: "The holder heals 12.5% of their max HP upon successfully damaging a Pokemon with an attack.", 
 	},
+	honey: {
+		name: "Honey",
+		fling: {
+			basePower: 30,
+		},
+		num: -1003,
+		gen: 4,
+    shortDesc: "Pokemon with the ability Honey Gather or Sweet Veil heal 12.5% when holding this item.",
+	},
+	eviolith: {
+		name: "Eviolith",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+     num: -1004,
+     gen: 8,
+     desc: "If holder's species can evolve, its Atk and Sp. Atk are 1.5x.",
+	},
 };
