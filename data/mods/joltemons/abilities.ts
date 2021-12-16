@@ -94,7 +94,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       shortDesc: "Non-STAB moves have 1.2x power.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
-			if (!move.type(attacker.getTypes())) {
+			if (!move.type === 'attacker.getTypes()') {
 				this.debug('Libero boost');
 				return this.chainModify([0x1333, 0x1000]);
 			}
