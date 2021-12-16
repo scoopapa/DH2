@@ -107,18 +107,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in source.storedStats) {
-					if (source.storedStats[s] < bestStat) {
-						statName = s;
-						bestStat = source.storedStats[s];
-					}
-				}
-				this.boost({[statName]: length}, source);
-			}
+            let statName = 'atk';
+            let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+            let s: StatNameExceptHP;
+            for (s in target.storedStats) {
+                if (target.storedStats[s] < worstStat) {
+                    statName = s;
+                    worstStat = target.storedStats[s];
+                }
+            }
+            this.boost({[statName]: 1}, target);
 		},
 		name: "Moody",
 		rating: 3,
