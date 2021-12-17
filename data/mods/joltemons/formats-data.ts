@@ -44,7 +44,7 @@ blastoisemega: {
 	   doublesTier: "DUber",
 },
 alakazammega: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 gengarmega: {
@@ -744,7 +744,7 @@ darmanitangalar: {
 	   doublesTier: "DOU",
 },
 cinderace: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 dracovish: {
