@@ -1527,8 +1527,8 @@ export const Formats: FormatList = [
 		banlist: [
 			//Pokémon
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Lunala',
-			'Naganadel', 'Palkia', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 
-			'Zamazenta', 'Zygarde-Base', 'Rayquaza-Mega',
+			'Naganadel', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 
+			'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items
