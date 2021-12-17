@@ -362,4 +362,64 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	roaroftime: {
+		num: 459,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback: function (pokemon, target, move) {
+			if (this.field.pseudoWeather.trickroom || this.field.pseudoWeather.wonderroom || this.field.pseudoWeather.gravity || this.field.pseudoWeather.magicroom) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "2x power if a Room or Gravity is active.",
+		name: "Roar of Time",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	spacialrend: {
+		num: 460,
+		accuracy: 95,
+		basePower: 110,
+		category: "Special",
+		shortDesc: "Starts Gravity.",
+		name: "Spacial Rend",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	shadowforce: {
+		num: 467,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback: function (pokemon, target, move) {
+			if (target.volatiles['protect'] || target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] || target.volatiles['spikyshield']) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Breaks Protect. 2x damage if used against Protect.",
+		name: "Shadow Force",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		breaksProtect: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
 };

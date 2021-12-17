@@ -109,6 +109,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'necrozma').learnset.knockoff;
 		delete this.modData('Learnsets', 'necrozma').learnset.dragondance;
+		
+		delete this.modData('Learnsets', 'dialga').learnset.icebeam;
+		delete this.modData('Learnsets', 'dialga').learnset.blizzard;
+		this.modData('Learnsets', 'dialga').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'dialga').learnset.magicroom = ['8L1'];
+		this.modData('Learnsets', 'dialga').learnset.wonderroom = ['8L1'];
+		
+		this.modData('Learnsets', 'palkia').learnset.aquajet = ['8L1'];
+		this.modData('Learnsets', 'palkia').learnset.flipturn = ['8L1'];
+		
+		this.modData('Learnsets', 'giratina').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'giratina').learnset.fireblast = ['8L1'];
 	},
 	
 	pokemon: {
