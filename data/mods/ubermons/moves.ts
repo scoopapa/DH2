@@ -404,7 +404,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 467,
 		accuracy: 100,
 		basePower: 85,
-		basePowerCallback: function (target, move) {
+		basePowerCallback: function (pokemon, target, move) {
 			if (target.volatiles['protect'] || target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] || target.volatiles['spikyshield']) {
 				return move.basePower * 2;
 			}
