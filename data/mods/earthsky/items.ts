@@ -433,6 +433,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Holder and allies' Grass-type moves have 1.1x power.",
 	},
+	sachet: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fairy' || (move.twoType && move.twoType === 'Fairy')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		desc: "Holder and allies' Fairy-type moves have 1.1x power. Evolves Spritzee into Aromatisse when traded.",
+		shortDesc: "Holder and allies' Fairy-type moves have 1.1x power.",
+	},
 	seaincense: {
 		name: "Sea Incense",
 		spritenum: 430,
@@ -516,6 +530,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		desc: "Prevents holder and allies from receiving burns.",
+	},
+	whippeddream: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		desc: "Holder's Fairy-type attacks have 1.2x power. Evolves Swirlix into Slurpuff when traded.",
+		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
 	wiseglasses: {
 		name: "Wise Glasses",
@@ -1836,12 +1864,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		spritenum: 590,
-	},
-	sachet: {
-		inherit: true,
-		fling: {
-			basePower: 20,
-		},
 	},
 	smoothrock: {
 		inherit: true,
