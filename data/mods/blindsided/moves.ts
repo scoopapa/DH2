@@ -445,7 +445,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				atk: -2,
 			},
 		},
-		shortDesc: "Lowers the user's Attack by one.",
+		shortDesc: "Lowers the user's Attack by two.",
 		onPrepareHit: function(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Rock Slide", target);
