@@ -1238,7 +1238,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Morpeko-Marsh",
 		types: ["Grass", "Dark"],
 		baseStats: {hp: 80, atk: 100, def: 95, spa: 50, spd: 115, spe: 110},
-		abilities: {0: "Strong Jaw", 1: "Wash Up"},
+		abilities: {0: "Strong Jaw", H: "Wash Up"},
 		heightm: 0.3,
 		weightkg: 3,
 		eggGroups: ["Field", "Fairy"],
