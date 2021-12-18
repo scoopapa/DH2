@@ -571,6 +571,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vibrava").learnset.leechlife = ["8L1"];
 		// Flygon
 		this.modData("Learnsets", "flygon").learnset.leechlife = ["8L1"];
+		// Cacturne
+		this.modData("Learnsets", "cacturne").learnset.lashout = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.throatchop = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.toxicspikes = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.weatherball = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.rockslide = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.ancientpower = ["8L1"];
+		this.modData("Learnsets", "cacturne").learnset.pursuit = ["8L1"];
 		// Altaria
 		this.modData("Learnsets", "altaria").learnset.cloudcrush = ["8L1"];
 		// Zangoose
@@ -1810,6 +1819,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "runerigus").learnset.shadowpunch = ["8L1"];
 		this.modData("Learnsets", "runerigus").learnset.dizzypunch = ["8L1"];
 		this.modData("Learnsets", "runerigus").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "runerigus").learnset.shadowsneak = ["8L1"];
 		// Milcery
 		this.modData("Learnsets", "milcery").learnset.hiddenpower = ["8L1"];
 		this.modData("Learnsets", "milcery").learnset.return = ["8L1"];

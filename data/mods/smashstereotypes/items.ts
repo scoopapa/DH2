@@ -148,4 +148,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
         shortDesc: "If held by Ringo Ando with Thunderbolt, she can use Permutation.",
     },
+	frosmothite: {
+		name: "Frosmothite",
+		spritenum: 605,
+		megaStone: "Frosmoth-Mega",
+		megaEvolves: "Frosmoth",
+		itemUser: ["Frosmoth"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10001,
+		shortDesc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
+	},
 };

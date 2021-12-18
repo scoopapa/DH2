@@ -209,6 +209,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
+	//Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
+	dunipede: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	nightmaleon: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	palisage: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
+	
+	
+	
 	//LC Slate 1
 	sproutsel: {
 		tier: "ST LC",
@@ -218,6 +235,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST LC",
 		doublesTier: "ST LC",
 	},	
+	
+	
+	
 	//NFE Slate 1
 	mestela: {
 		tier: "ST NFE",

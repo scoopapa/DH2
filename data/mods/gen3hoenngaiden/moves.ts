@@ -45,6 +45,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Hits two to five times. Has a 3/8 chance to hit two or three times, and a 1/8 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 	},
+	batonpass: {
+		inherit: true,
+		onTryMove(pokemon) {
+            if (pokemon.positiveBoosts()) {
+				this.add('-fail', pokemon);
+				this.hint("Baton Pass can't pass Stat Boosts.");
+                return null;
+            }
+        },
+	},
 	beatup: {
 		inherit: true,
 		basePower: 10,

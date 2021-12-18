@@ -254,4 +254,43 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 211,
 		gen: 4,
 	},
+	warhorn: {
+		name: "War Horn",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 323,
+		gen: 4,
+	},
+	meltcore: {
+		name: "Melt Core",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 324,
+		gen: 4,
+	},
+	corrodedwaste: {
+		name: "Corroded Waste",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 325,
+		gen: 4,
+	},
+	meteorite: {
+		name: "Meteorite",
+		spritenum: 193,
+		fling: {
+			basePower: 60,
+		},
+		num: 284,
+		gen: 4,
+	},
 };

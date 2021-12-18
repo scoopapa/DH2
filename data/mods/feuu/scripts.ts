@@ -33,6 +33,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
 		this.modData('Learnsets', 'tyranetteeternal').learnset.lightofruin = ['7L1'];
 		this.modData('Learnsets', 'monferpaunbound').learnset.hyperspacefury = ['7L1'];
+		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
@@ -41,7 +42,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERU', 'Uncoded', 'FENFE', 'FELC', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -53,6 +54,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
+/*
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
 			return "Silvino-Bug-Mega";
 		}
@@ -104,7 +106,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Water") {
 			return "Silvino-Water-Mega";
 		}
-		
+	*/
 		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
 			return "Absable-Mega-Y"; 
 		}
@@ -123,6 +125,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
 			return "Audiyem-Mega"; 
+		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
+			return "Cleracross-Mega"; 
 		}
 		
 		return item.megaStone;
@@ -275,6 +280,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Etativel');
 						} else if (this.hasAbility('lighthearted')) {
 							this.battle.add('-immune', this, '[from] ability: Lighthearted');
+						} else if (this.hasAbility('clearlyfloating')) {
+							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -465,7 +472,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}

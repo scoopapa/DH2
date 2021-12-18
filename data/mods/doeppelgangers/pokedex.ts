@@ -1,12 +1,12 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	clefable: {
 		inherit: true,
-		otherFormes: ["Anti-Clefable"],
-		formeOrder: ["Clefable", "Anti-Clefable"],
+		otherFormes: ["Clefable-Anti"],
+		formeOrder: ["Clefable", "Clefable-Anti"],
 	},
-	anticlefable: {
+	clefableanti: {
 		num: 36,
-		name: "Anti-Clefable",
+		name: "Clefable-Anti",
 		baseSpecies: "Clefable",
 		forme: "Anti",
 		types: ["Steel"],
@@ -18,12 +18,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ninetales: {
 		inherit: true,
-		otherFormes: ["Ninetales-Alola", "Anti-Ninetales-Alola"],
-		formeOrder: ["Ninetales", "Ninetales-Alola", "Anti-Ninetales-Alola"],
+		otherFormes: ["Ninetales-Alola", "Ninetales-Alola-Anti"],
+		formeOrder: ["Ninetales", "Ninetales-Alola", "Ninetales-Alola-Anti"],
 	},
-	antininetalesalola: {
+	ninetalesalolaanti: {
 		num: 38,
-		name: "Anti-Ninetales-Alola",
+		name: "Ninetales-Alola-Anti",
 		baseSpecies: "Ninetales-Alola",
 		forme: "Anti",
 		types: ["Ice", "Poison"],
@@ -35,13 +35,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dragonite: {
 		inherit: true,
-		otherFormes: ["Anti-Dragonite"],
-		formeOrder: ["Dragonite", "Anti-Dragonite"],
+		otherFormes: ["Dragonite-Anti"],
+		formeOrder: ["Dragonite", "Dragonite-Anti"],
 	},
-	antidragonite: {
+	dragoniteanti: {
 		num: 149,
-		name: "Dragonite",
-		baseSpecies: "Anti-Dragonite",
+		name: "Dragonite-Anti",
+		baseSpecies: "Dragonite",
 		forme: "Anti",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 90, atk: 129, def: 125, spa: 101, spd: 85, spe: 70},
@@ -51,12 +51,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	slowking: {
 		inherit: true,
-		otherFormes: ["Anti-Slowking", "Slowking-Galar"],
-		formeOrder: ["Slowking", "Anti-Slowking", "Slowking-Galar"],
+		otherFormes: ["Slowking-Anti", "Slowking-Galar"],
+		formeOrder: ["Slowking", "Slowking-Anti", "Slowking-Galar"],
 	},
-	antislowking: {
+	slowkinganti: {
 		num: 199,
-		name: "Anti-Slowking",
+		name: "Slowking-Anti",
 		baseSpecies: "Slowking",
 		forme: "Anti",
 		types: ["Psychic", "Dark"],
@@ -67,12 +67,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	blissey: {
 		inherit: true,
-		otherFormes: ["Anti-Blissey"],
-		formeOrder: ["Blissey", "Anti-Blissey"],
+		otherFormes: ["Blissey-Anti"],
+		formeOrder: ["Blissey", "Blissey-Anti"],
 	},
-	antiblissey: {
+	blisseyanti: {
 		num: 242,
-		name: "Anti-Blissey",
+		name: "Blissey-Anti",
 		baseSpecies: "Blissey",
 		forme: "Anti",
 		types: ["Ghost", "Electric"],
@@ -84,12 +84,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	swampert: {
 		inherit: true,		
-		otherFormes: ["Anti-Swampert"],
-		formeOrder: ["Swampert", "Anti-Swampert"],
+		otherFormes: ["Swampert-Anti"],
+		formeOrder: ["Swampert", "Swampert-Anti"],
 	},
-	antiswampert: {
+	swampertanti: {
 		num: 260,
-		name: "Anti-Swampert",
+		name: "Swampert-Anti",
 		baseSpecies: "Swampert",
 		forme: "Anti",
 		types: ["Grass", "Fairy"],
@@ -101,12 +101,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	garchomp: {
 		inherit: true,
-		otherFormes: ["Anti-Garchomp"],
-		formeOrder: ["Garchomp", "Anti-Garchomp"],
+		otherFormes: ["Garchomp-Anti"],
+		formeOrder: ["Garchomp", "Garchomp-Anti"],
 	},
-	antigarchomp: {
+	garchompanti: {
 		num: 445,
-		name: "Anti-Garchomp",
+		name: "Garchomp-Anti",
 		baseSpecies: "Garchomp",
 		forme: "Anti",
 		types: ["Fairy", "Fighting"],
@@ -115,14 +115,46 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.9,
 		weightkg: 95,
 	},
+	weavile: {
+		inherit: true,
+		otherFormes: ["Weavile-Anti"],
+		formeOrder: ["Weavile", "Weavile-Anti"],
+	},
+	weavileanti: {
+		num: 461,
+		name: "Weavile-Anti",
+		baseSpecies: "Weavile",
+		forme: "Anti",
+		types: ["Fairy", "Fire"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 45, spd: 100, spe: 45},
+		abilities: {0: "Weak Armor", H: "Magician"},
+		heightm: 1.1,
+		weightkg: 34,
+	},
+	heatran: {
+		inherit: true,
+		otherFormes: ["Heatran-Anti"],
+		formeOrder: ["Heatran", "Heatran-Anti"],
+	},
+	heatrananti: {
+		num: 485,
+		name: "Heatran-Anti",
+		baseSpecies: "Heatran",
+		forme: "Anti",
+		types: ["Ground"],
+		baseStats: {hp: 69, atk: 140, def: 80, spa: 76, spd: 135, spe: 100},
+		abilities: {0: "Flash Fire"},
+		heightm: 1.7,
+		weightkg: 430,
+	},
 	ferrothorn: {
 		inherit: true,
-		otherFormes: ["Anti-Ferrothorn"],
-		formeOrder: ["Ferrothorn", "Anti-Ferrothorn"],
+		otherFormes: ["Ferrothorn-Anti"],
+		formeOrder: ["Ferrothorn", "Ferrothorn-Anti"],
 	},
-	antiferrothorn: {
+	ferrothornanti: {
 		num: 598,
-		name: "Anti-Ferrothorn",
+		name: "Ferrothorn-Anti",
 		baseSpecies: "Ferrothorn",
 		forme: "Anti",
 		types: ["Grass", "Fire"],
@@ -134,12 +166,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	landorus: {
 		inherit: true,
 		baseForme: "Incarnate",
-		otherFormes: ["Landorus-Therian", "Anti-Landorus-Therian"],
-		formeOrder: ["Landorus", "Landorus-Therian", "Anti-Landorus-Therian"],
+		otherFormes: ["Landorus-Therian", "Landorus-Therian-Anti"],
+		formeOrder: ["Landorus", "Landorus-Therian", "Landorus-Therian-Anti"],
 	},
-	antilandorustherian: {
+	landorustheriananti: {
 		num: 645,
-		name: "Anti-Landorus-Therian",
+		name: "Landorus-Therian-Anti",
 		baseSpecies: "Landorus-Therian",
 		forme: "Anti",
 		types: ["Steel", "Flying"],
@@ -151,12 +183,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	kyurem: {
 		inherit: true,
-		otherFormes: ["Anti-Kyurem", "Kyurem-Black", "Kyurem-White"],
-		formeOrder: ["Kyurem", "Anti-Kyurem", "Kyurem-White", "Kyurem-Black"],
+		otherFormes: ["Kyurem-Anti", "Kyurem-Black", "Kyurem-White"],
+		formeOrder: ["Kyurem", "Kyurem-Anti", "Kyurem-White", "Kyurem-Black"],
 	},
-	antikyurem: {
+	kyuremanti: {
 		num: 646,
-		name: "Anti-Kyurem",
+		name: "Kyurem-Anti",
 		baseSpecies: "Kyurem",
 		forme: "Anti",
 		types: ["Bug", "Steel"],
@@ -168,12 +200,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	toxapex: {
 		inherit: true,
-		otherFormes: ["Anti-Toxapex"],
-		formeOrder: ["Toxapex", "Anti-Toxapex"],
+		otherFormes: ["Toxapex-Anti"],
+		formeOrder: ["Toxapex", "Toxapex-Anti"],
 	},
-	antitoxapex: {
+	toxapexanti: {
 		num: 748,
-		name: "Anti-Toxapex",
+		name: "Toxapex-Anti",
 		baseSpecies: "Toxapex",
 		forme: "Anti",
 		types: ["Poison", "Ground"],
@@ -184,13 +216,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	tapukoko: {
 		inherit: true,
-		otherFormes: ["Anti-Tapu Koko"],
-		formeOrder: ["Tapu Koko", "Anti-Tapu Koko"],
+		otherFormes: ["Tapu Koko-Anti"],
+		formeOrder: ["Tapu Koko", "Tapu Koko-Anti"],
 	},
-	antitapukoko: {
+	tapukokoanti: {
 		num: 785,
-		name: "Tapu Koko",
-		baseSpecies: "Anti-Tapu Koko",
+		name: "Tapu Koko-Anti",
+		baseSpecies: "Tapu Koko",
 		forme: "Anti",
 		types: ["Ground", "Fire"],
 		gender: "N",
@@ -199,14 +231,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 20.5,
 	},
+	tapufini: {
+		inherit: true,
+		otherFormes: ["Tapu Fini-Anti"],
+		formeOrder: ["Tapu Fini", "Tapu Fini-Anti"],
+	},
+	tapufinianti: {
+		num: 788,
+		name: "Tapu Fini-Anti",
+		baseSpecies: "Tapu Fini",
+		forme: "Anti",
+		types: ["Flying", "Poison"],
+		gender: "N",
+		baseStats: {hp: 80, atk: 70, def: 85, spa: 100, spd: 115, spe: 110},
+		abilities: {0: "Competitive", H: "Liquid Ooze"},
+		heightm: 1.3,
+		weightkg: 21.2,
+	},
 	kartana: {
 		inherit: true,
-		otherFormes: ["Anti-Kartana"],
-		formeOrder: ["Kartana", "Anti-Kartana"],
+		otherFormes: ["Kartana-Anti"],
+		formeOrder: ["Kartana", "Kartana-Anti"],
 	},
-	antikartana: {
+	kartanaanti: {
 		num: 798,
-		name: "Anti-Kartana",
+		name: "Kartana-Anti",
 		baseSpecies: "Kartana",
 		forme: "Anti",
 		types: ["Grass", "Fighting"],
@@ -218,12 +267,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	arctozolt: {
 		inherit: true,
-		otherFormes: ["Anti-Arctozolt"],
-		formeOrder: ["Arctozolt", "Anti-Arctozolt"],
+		otherFormes: ["Arctozolt-Anti"],
+		formeOrder: ["Arctozolt", "Arctozolt-Anti"],
 	},
-	antiarctozolt: {
+	arctozoltanti: {
 		num: 881,
-		name: "Anti-Arctozolt",
+		name: "Arctozolt-Anti",
 		baseSpecies: "Arctozolt",
 		forme: "Anti",
 		types: ["Ground", "Steel"],
