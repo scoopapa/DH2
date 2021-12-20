@@ -2591,6 +2591,16 @@ export const Formats: FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 8] Branched Potential Random Battle",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/branched-potential-v2-aircraft-slate-yanmega-magnezone-dragapult.3688252/">Branched Potential on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/135ZGOSBMqzI9Ff-iVhtQzAwy80nORF2Qrv8iJU583NE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'branchedpotential',
+		team: 'random',
+		ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+	},
+	{
 		name: "[Gen 8] Fusion Evolution UU Random Battle",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Fusion Evolution Under Used on Smogon Forums</a>`,
