@@ -291,6 +291,48 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	hasttral: {
+		randomBattleMoves: ["zenheadbutt", "shadowclaw", "nuzzle", "shadowsneak", "healingwish"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	dragabyss: {
+		randomBattleMoves: ["dragondance", "tripleaxel", "freezedry", "dragonrush", "earthquake"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	karriminal: {
+		randomBattleMoves: ["swordsdance", "knockoff", "ironhead", "suckerpunch", "closecombat"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	karrineel: {
+		randomBattleMoves: ["swordsdance", "scaleshot", "xscissor", "ironhead", "closecombat"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	chrienmor: {
+		randomBattleMoves: ["swordsdance", "thunderfang", "icefang", "explosion", "partingshot", "lastresort"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	ledanagan: {
+		randomBattleMoves: ["dragondance", "xscissor", "gunkshot", "uturn", "flamethrower"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
+	melchor: {
+		randomBattleMoves: ["psyshock", "lusterpurge", "scald", "hydropump", "futuresight", "teleport", "steelbeam", "morningsun", "flashcannon", "focusblast"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
 	//
 	//
 	//
