@@ -490,6 +490,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magneboom').learnset.electroweb;
 		delete this.modData('Learnsets', 'magneboom').learnset.thunder;
 
+		this.modData('Learnsets', 'dragabyss').learnset.tripleaxel = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.iciclecrash = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.freezedry = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.dazzlinggleam = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.liquidation = ['8L1'];
+		delete this.modData('Learnsets', 'dragabyss').learnset.roost;
+		delete this.modData('Learnsets', 'dragabyss').learnset.airslash;
+		delete this.modData('Learnsets', 'dragabyss').learnset.brickbreak;
+		delete this.modData('Learnsets', 'dragabyss').learnset.rocktomb;
+		delete this.modData('Learnsets', 'dragabyss').learnset.steelwing;
+		delete this.modData('Learnsets', 'dragabyss').learnset.dualwingbeat;
+		delete this.modData('Learnsets', 'dragabyss').learnset.healbell;
+		delete this.modData('Learnsets', 'dragabyss').learnset.zapcannon;
+		delete this.modData('Learnsets', 'dragabyss').learnset.horndrill;
+
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...

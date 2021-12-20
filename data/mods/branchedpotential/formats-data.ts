@@ -291,6 +291,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	dragabyss: {
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	}
 	//
 	//
 	//

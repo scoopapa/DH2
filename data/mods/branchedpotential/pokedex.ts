@@ -639,4 +639,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate", 1: "Analytic", H: "Regenerator"},
 		weightkg: 155,
 	},
+	dragabyss: {
+		inheritMoves: ['Dragonite'],
+		num: -136,
+		name: "Dragabyss",
+		types: ["Dragon", "Ice"],
+		baseStats: {hp: 95, atk: 115, def: 85, spa: 125, spd: 80, spe: 104},
+		abilities: {0: "Illuminate", H: "No Guard"},
+		weightkg: 94,
+	},
 };
