@@ -177,7 +177,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isModded: true,
 	},
 	thermalge: {
-		randomBattleMoves: ["sludgewave", "flamethrower", "sleeppowder", "sludgebomb", "substitute"],
+		randomBattleMoves: ["sludgewave", "flamethrower", "calmmind", "sludgebomb", "substitute"],
 		tier: "OU",
 		doublesTier: "OU",
 		isModded: true,
