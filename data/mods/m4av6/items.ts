@@ -1765,4 +1765,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Galvantula, this item allows it to Mega Evolve in battle.",
 	},
+	articunite: {
+		name: "Articunite",
+		spritenum: 578,
+		megaStone: "Articuno-Mega",
+		megaEvolves: "Articuno",
+		itemUser: ["Articuno"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1115,
+		gen: 8,
+		desc: "If held by an Articuno, this item allows it to Mega Evolve in battle.",
+	},
+	virizionite: {
+		name: "Virizionite",
+		spritenum: 578,
+		megaStone: "Virizion-Mega",
+		megaEvolves: "Virizion",
+		itemUser: ["Virizion"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1116,
+		gen: 8,
+		desc: "If held by a Virizion, this item allows it to Mega Evolve in battle.",
+	},
+	guzzlordite: {
+		name: "Guzzlordite",
+		spritenum: 578,
+		megaStone: "Guzzlord-Mega",
+		megaEvolves: "Guzzlord",
+		itemUser: ["Guzzlord"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1117,
+		gen: 8,
+		desc: "If held by a Guzzlord, this item allows it to Mega Evolve in battle.",
+	},
 };
