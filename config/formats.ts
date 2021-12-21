@@ -614,7 +614,6 @@ export const Formats: FormatList = [
          'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',
          'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 
 			'Alakazite', 'Blastoisinite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite',
-			'Chrienmor + Bug Memory', 'Chrienmor + Dark Memory', 'Chrienmor + Dragon Memory', 'Chrienmor + Electric Memory', 'Chrienmor + Fairy Memory', 'Chrienmor + Fighting Memory', 'Chrienmor + Fire Memory', 'Chrienmor + Flying Memory', 'Chrienmor + Ghost Memory', 'Chrienmor + Grass Memory', 'Chrienmor + Ground Memory', 'Chrienmor + Ice Memory', 'Chrienmor + Poison Memory', 'Chrienmor + Psychic Memory', 'Chrienmor + Rock Memory', 'Chrienmor + Steel Memory', 'Chrienmor + Water Memory'
 		],
 	},
 	{
