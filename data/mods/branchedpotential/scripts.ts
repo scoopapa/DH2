@@ -543,6 +543,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'melchor').learnset.teleport = ['8L1'];
 		this.modData('Learnsets', 'melchor').learnset.steelbeam = ['8L1'];
 		this.modData('Learnsets', 'melchor').learnset.focusblast = ['8L1'];
+		delete this.modData('Learnsets', 'melchor').learnset.doubleironbash;
 
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
