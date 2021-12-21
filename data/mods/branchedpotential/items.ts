@@ -125,4 +125,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Auranubis, this item allows it to Mega Evolve in battle.",
 	},
+	bugmemory: {
+		name: "Bug Memory",
+		spritenum: 673,
+		onMemory: 'Bug',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === -140) || pokemon.baseSpecies.num === -140) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Chrienmor-Bug",
+		itemUser: ["Chrienmor-Bug"],
+		num: 909,
+		gen: 7,
+	},
 };
