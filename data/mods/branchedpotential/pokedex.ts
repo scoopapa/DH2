@@ -690,7 +690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		],
 	},
 	chrienmorbug: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Bug",
 		baseSpecies: "Chrienmor",
@@ -703,7 +703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmordark: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Dark",
 		baseSpecies: "Chrienmor",
@@ -716,7 +716,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmordragon: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Dragon",
 		baseSpecies: "Chrienmor",
@@ -729,7 +729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorelectric: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Electric",
 		baseSpecies: "Chrienmor",
@@ -742,7 +742,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfairy: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Fairy",
 		baseSpecies: "Chrienmor",
@@ -755,7 +755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfighting: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Fighting",
 		baseSpecies: "Chrienmor",
@@ -768,7 +768,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfire: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Fire",
 		baseSpecies: "Chrienmor",
@@ -781,7 +781,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorflying: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Flying",
 		baseSpecies: "Chrienmor",
@@ -794,7 +794,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorghost: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Ghost",
 		baseSpecies: "Chrienmor",
@@ -807,7 +807,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorgrass: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Grass",
 		baseSpecies: "Chrienmor",
@@ -820,7 +820,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorground: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Ground",
 		baseSpecies: "Chrienmor",
@@ -833,7 +833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorice: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Ice",
 		baseSpecies: "Chrienmor",
@@ -846,7 +846,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorpoison: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Poison",
 		baseSpecies: "Chrienmor",
@@ -859,7 +859,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorpsychic: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Psychic",
 		baseSpecies: "Chrienmor",
@@ -872,7 +872,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorrock: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Rock",
 		baseSpecies: "Chrienmor",
@@ -885,7 +885,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorsteel: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Steel",
 		baseSpecies: "Chrienmor",
@@ -898,7 +898,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorwater: {
-		inheritMoves: ['Silvally'],
+		inheritMoves: ['Chrienmor'],
 		num: -140,
 		name: "Chrienmor-Water",
 		baseSpecies: "Chrienmor",
