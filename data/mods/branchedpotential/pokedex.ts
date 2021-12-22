@@ -654,7 +654,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dragabyss",
 		types: ["Dragon", "Ice"],
 		baseStats: {hp: 91, atk: 115, def: 85, spa: 125, spd: 80, spe: 104},
-		abilities: {0: "Illuminate", 1: "No Guard"},
+		abilities: {0: "Illuminate", H: "No Guard"},
 		weightkg: 210,
 	},
 	karriminal: {
@@ -672,7 +672,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Karrineel",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 70, atk: 110, def: 85, spa: 69, spd: 90, spe: 106},
-		abilities: {0: "Swarm", 1: "Weak Armor", H: "Steel Worker"},
+		abilities: {0: "Swarm", 1: "Weak Armor", H: "Steelworker"},
 		weightkg: 100,
 	},
 	chrienmor: {
