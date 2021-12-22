@@ -57,6 +57,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 3, level: 10, gender: "M", moves: ["absorb", "growth", "poisonsting", "sleeppowder"], pokeball: "pokeball"},
 			{generation: 3, level: 22, moves: ["spikes", "magicalleaf", "leechseed", "grasswhistle"]},
 		],
+		eventOnly: true,
 	},
 	snover: {
 		learnset: {
