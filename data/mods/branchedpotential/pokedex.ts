@@ -928,4 +928,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Holy Conduit"},
 		weightkg: 150,
 	},
+	meltan: {
+		num: 808,
+		name: "Meltan",
+		types: ["Steel"],
+		gender: "N",
+		baseStats: {hp: 46, atk: 65, def: 65, spa: 55, spd: 35, spe: 34},
+		abilities: {0: "Magnet Pull"},
+		heightm: 0.2,
+		weightkg: 8,
+		color: "Gray",
+		evos: ['Melchor'],
+		eggGroups: ["Undiscovered"],
+	},
 };
