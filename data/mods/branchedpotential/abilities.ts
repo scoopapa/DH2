@@ -384,7 +384,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Steel') {
+			if (move.type === 'Psychic') {
 				this.debug('Holy Conduit boost');
 				return this.chainModify(1.5);
 			}
