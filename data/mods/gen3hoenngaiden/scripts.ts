@@ -3,7 +3,14 @@ import type {Dex} from '../sim/dex';
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen3',
+	inherit: 'gen4',
+	gen: 3,
+	init() {
+		for (const i in this.data.Pokedex) {
+			delete this.data.Pokedex[i].abilities['H'];
+		}
+	},
+	
 	init: function () {
 		for (const id in this.dataCache.Pokedex) {
 			let unbanlist = this.dataCache.Formats['gen3hoenngaiden'].unbanlist;
