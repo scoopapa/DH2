@@ -160,6 +160,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			newSpecies.name = newSpecies.name + '-' + newSpecies.types[0];
 			return newSpecies;
 		}
+		if (item.name === "Articunite" && pokemon.baseSpecies.name === "Articuno-Galar") {
+			return null;
+		}
 		if (pokemon.baseSpecies.name === "Pichu") {
 			return null;
 		}
