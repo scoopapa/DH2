@@ -64,7 +64,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'hitmonlee').learnset.submission = ['3L1'];
 		
-		this.modData('Learnsets', 'roselia').learnset.sleeppowder = ['3L1'];
+		//this.modData('Learnsets', 'roselia').learnset.sleeppowder = ['3L1'];
 		this.modData('Learnsets', 'roselia').learnset.extrasensory = ['3L1'];
 		//this.modData('Learnsets', 'roselia').learnset.recover = ['3L1'];
 		
