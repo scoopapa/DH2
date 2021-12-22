@@ -4644,12 +4644,12 @@ corsolagalar: {
 			return: ["3L1"],
 			secretpower: ["3L1"],
 			shadowball: ["3L1"],
-			sleeppowder: ["3L1"],
+			sleeppowder: ["3S0"],
 			sleeptalk: ["3L1"],
 			sludgebomb: ["3L1"],
 			snore: ["3L1"],
 			solarbeam: ["3L1"],
-			spikes: ["3L1"],
+			spikes: ["3S1"],
 			stunspore: ["3L1"],
 			substitute: ["3L1"],
 			sunnyday: ["3L1"],
@@ -4662,6 +4662,11 @@ corsolagalar: {
 			watersport: ["3L1"],
 			weatherball: ["3L1"],
 		},
+		eventData: [
+			{generation: 3, level: 1, gender: "M", moves: ["sleeppowder"], pokeball: "pokeball"},
+			{generation: 3, level: 1, moves: ["spikes"]},
+		],
+		eventOnly: true,
 	},
 	chingling: {
 		learnset: {
