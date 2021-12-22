@@ -2972,7 +2972,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			lockon: ["3L1"],
 			protect: ["3L1"],
 			raindance: ["3L1"],
-			//rapidspin: ["3L1"],
+			rapidspin: ["3L1"],
 			reflect: ["3L1"],
 			rest: ["3L1"],
 			screech: ["3L1"],
