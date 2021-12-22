@@ -389,6 +389,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		desc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic-type attack.",
 		name: "Holy Conduit",
 		rating: 3.5,
 		num: -118,
