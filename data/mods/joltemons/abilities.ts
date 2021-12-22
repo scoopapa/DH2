@@ -31,10 +31,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isWeather('hail')) return;
 			this.heal(pokemon.maxhp / 16);
 		},
-		onTerrain(pokemon) {
-			if (!this.field.isTerrain('grassyterrain')) return;
-			this.heal(pokemon.maxhp / 16);
-		},
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
