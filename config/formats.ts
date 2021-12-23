@@ -1574,7 +1574,7 @@ export const Formats: FormatList = [
 		section: "Pet Mods Bonus Formats",
 		column: 3,
 	},
-	/*{
+	{
 		name: "[Gen 8] Alternatium Doubles",
 		desc: `<b>Restrictions</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
 		threads: [
@@ -1600,7 +1600,7 @@ export const Formats: FormatList = [
 					'Cramorant-Gorging', 'Eiscue', 'Eiscue-Noice', 'Mimikyu', 'Mimikyu-Sparkstone', 'Morpeko-Marsh', 'Morvilant',
 		],
 		onValidateTeam(team, format) {
-			//*@type {{[k: string]: true}} 
+			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
@@ -1610,7 +1610,7 @@ export const Formats: FormatList = [
 				speciesTable[template.id] = true;
 			}
 		},
-	},*/
+	},
 	{
 		name: "[Gen 8] CCAPM 2021 Galar Dex",
 		desc: `<b>Community Create-a-Pet Mod 2021</b>: Redoing Typing: The Mod, where 2 new types were created alongside numerous moves, items, and abilities.`,
