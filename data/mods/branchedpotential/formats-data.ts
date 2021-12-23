@@ -292,10 +292,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       isModded: true,
 	},
 	dragabyss: {
-		tier: "OU",
+		randomBattleMoves: ["dracometeor", "blizzard", "freezedry", "flipturn", "dazzlinggleam"],
+      tier: "OU",
 		doublesTier: "OU",
-		isModded: true,
-	}
+      isModded: true,
+	},
 	//
 	//
 	//
