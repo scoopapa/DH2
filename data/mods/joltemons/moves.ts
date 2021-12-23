@@ -255,8 +255,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
  		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Thunderbolt", source);
-		  this.add('-anim', source, "Smart Strike", target);
+		  this.add('-anim', source, "Charge", target);
+		  this.add('-anim', source, "Sacred Sword", target);
 		},
 		self: {
 			boosts: {
@@ -341,12 +341,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'deafened',
 		condition: {
 			onStart(target) {
-				this.add('-start', target, 'move: Deafening Shriek');
+				this.add('-start', target, 'Deafening Shriek', '[silent]');
 			},
 			onTryHit(target, source, move) {
 				if (move.target !== 'self' && move.flags['sound']) {
 					this.add('-immune', target, '[from] move: Deafening Shriek');
-					return null;
 				}
 			},
 		},
