@@ -162,4 +162,94 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 195,
 	},
+	ironfist: {
+		shortDesc: "This Pokemon's punch attacks have 1.25x power and don't make contact. Sucker Punch is not boosted.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Iron Fist boost');
+				return this.chainModify([0x1400, 0x1000]);
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['punch']) {
+				delete move.flags['contact'];
+			}
+		},
+		name: "Iron Fist",
+		rating: 3,
+		num: 89,
+	},
+	overclock: {
+		shortDesc: "This Pokemon's moves that lower its stats have 1.3x power.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Draco Meteor' || move.name === 'Fleur Cannon' || move.name === 'Leaf Storm' || move.name === 'Overheat' || move.name === 'Psycho Boost' || move.name === 'Superpower' || move.name === 'Lightning Lance' || move.name === 'Clanging Scales' || move.name === 'Close Combat' || move.name === 'Dragon Ascent' || move.name === 'Hyperspace Fury' || move.name === 'Scale Shot' || move.name === 'V-Create' || move.name === 'Hammer Arm' || move.name === 'Ice Hammer') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Overclock",
+	},
+	pricklycoat: {
+		shortDesc: "This Pokemon sets a layer of Spikes when hit by a contact move, or Toxic Spikes if it's a Poison-type or hit by a Poison-type move.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && (move.type === 'Poison' || target.hasType('Poison'))) {
+				source.side.foe.addSideCondition('toxicspikes');
+			} else {
+				if (move.flags['contact']) {
+					source.side.foe.addSideCondition('spikes');
+				}
+			}
+		},
+		name: "Prickly Coat",
+	},
+	sandveil: {
+		desc: "If Sandstorm is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Sandstorm.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyDef(def, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.25);
+			}
+		},
+		onModifySpD(spd, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.25);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		id: "sandveil",
+		name: "Sand Veil",
+		rating: 3,
+		num: 146,
+	},
+	snowcloak: {
+		desc: "If Hail is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Hail.",
+		shortDesc: "If Hail is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Hail.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyDef(def, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(1.25);
+			}
+		},
+		onModifySpD(spd, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(1.25);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		id: "snowcloak",
+		name: "Snow Cloak",
+		rating: 3,
+		num: 81,
+	},
 };
