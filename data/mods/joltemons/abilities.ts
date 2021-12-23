@@ -252,6 +252,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 81,
 	},
+	powerofalchemy: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onAllyFaint(target) {
+			if (!this.effectData.target.hp) return;
+			const ability = target.getAbility();
+			const additionalBannedAbilities = [
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+			];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
+		},
+		name: "Power of Alchemy",
+		rating: 0,
+		num: 223,
+	},
+	powerofalchemymukalola: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('poisontouch'),
+			});
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Power of Alchemy (Muk-Alola)",
+		rating: 0,
+	},
 	oblivious: {
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['attract']) {
@@ -302,4 +340,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 165,
 	},
+	
 };
