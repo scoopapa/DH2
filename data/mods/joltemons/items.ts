@@ -99,10 +99,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
 				if (!pokemon.species.name.includes('Galar')) {
 					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-					this.field.setTerrain('psychicterrain');
+					let oldAbility = pokemon.setAbility('psychicsurge', pokemon, 'psychicsurge', true);
 				} else {
 					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-					this.field.setWeather('hail');
+					let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
 				}
 			}
 		},
