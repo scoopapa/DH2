@@ -126,10 +126,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	graduationscale: {
 		name: "Graduation Scale",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
+		onSwitchIn(pokemon, target) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Wishiwashi') {
 				pokemon.formeChange('Wishiwashi-School');
-				let oldAbility = pokemon.setAbility('intimidate', pokemon, true);
+				this.boost({atk: -1}, target, pokemon, null, true)
 			}
 		},
 		onBasePower(basePower, user, target, move) {
