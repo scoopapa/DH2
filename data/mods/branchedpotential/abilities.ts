@@ -118,7 +118,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.field.setTerrain('psychicterrain');
 			}
 		},
-		desc: "When this Pokemon is hit, Psychic Terrain begins",
+		desc: "When this Pokemon is hit, Psychic Terrain begins.",
 		name: "Party Popper",
 		rating: 2,
 		num: 245,
@@ -128,9 +128,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setWeather('silkrain');
 		},
-		desc: "On switch-in, this Pokemon summons Silk Rain",
+		desc: "On switch-in, this Pokemon summons Silk Rain.",
 		name: "Silk Spinner",
 		rating: 4,
 		num: 45,
+	},
+
+	prism: {
+		isPermanent: true,
+		onTryHit(target, source, move) {
+			let type: string | undefined = 'Normal';
+			type = target.getItem().onMemory;
+			if (target !== source && move.type === type) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Prism');
+				}
+				return null;
+			}
+		},
+		desc: "If this Pokemon is a Chrienmor, its typing changes to match its held memory; immunity to moves of the same typing.",
+		name: "Prism",
+		rating: 3.5,
+		num: 11,
 	},
 };

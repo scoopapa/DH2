@@ -517,6 +517,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'popaconda').learnset.earthquake;
 		delete this.modData('Learnsets', 'popaconda').learnset.highhorsepower;
 		
+		this.modData('Learnsets', 'chrienmor').learnset.thrash = ['8L1'];
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...
 		//Construct Mega Evolution learnsets, for those horrible clowns that for SOME REASON select Megas in the teambuilder
