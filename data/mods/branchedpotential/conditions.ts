@@ -1,5 +1,5 @@
 export const Conditions: {[k: string]: ConditionData} = {
-	silkspin: {
+	silkrain: {
 		name: 'SilkRain',
 		effectType: 'Weather',
 		duration: 5,
