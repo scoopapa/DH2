@@ -907,4 +907,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 100.5,
 		requiredItem: "Water Memory",
 		changesFrom: "Chrienmor",
+	},
 };
