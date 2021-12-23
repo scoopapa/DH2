@@ -290,7 +290,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
     shortDesc: "Prevents the target from using status moves for 1 turn.",
 		name: "Trash Talk",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
  		onPrepareHit: function(target, source, move) {
@@ -334,11 +334,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	deafeningshriek: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 130,
 		category: "Special",
     shortDesc: "Target becomes immune to sound moves after being hit.",
 		name: "Deafening Shriek",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
  		onPrepareHit: function(target, source, move) {
