@@ -338,22 +338,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Hyper Voice", target);
 		  this.add('-anim', source, "Boomburst", target);
 		},
-		volatileStatus: 'deafened',
+		sideCondition: 'deafened',
 		condition: {
-			onStart(target) {
-				this.add('-start', target, 'Deafening Shriek', '[silent]');
+			onStart(target, source) {
+				this.add('-start', source, 'Deafening Shriek');
 			},
+			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (move.target !== 'self' && move.flags['sound']) {
-					this.add('-immune', target, '[from] move: Deafening Shriek');
-					return null;
-				}
-			},
-		},
-		secondary: {
-			chance: 100,
-			onHit(target) {
-				target.addVolatile('deafened');
+				if (['self'].includes(move.target) || !move.flags['sound']) return;
+				this.add('-activate', target, 'move: Deafening Shriek');
+				return this.NOT_FAIL;
 			},
 		},
 		target: "normal",
