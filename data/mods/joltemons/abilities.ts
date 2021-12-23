@@ -290,6 +290,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 0,
 	},
+	
+// Edited by proxy
 	oblivious: {
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['attract']) {
@@ -341,4 +343,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 165,
 	},
 	
+	/*
+// The other Power of Alchemies
+		powerofalchemyweezing: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('poisontouch'),
+			});
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Power of Alchemy (Weezing)",
+		rating: 0,
+	}, */
 };
