@@ -348,6 +348,7 @@ this.modData("Learnsets", "samurott").learnset.lightninglance = ["8L1"];
 this.modData("Learnsets", "muk").learnset.recover = ["8L1"];
 this.modData("Learnsets", "mukalola").learnset.recover = ["8L1"];
 this.modData("Learnsets", "mukalola").learnset.toxicspikes = ["8L1"];
+delete this.modData('Learnsets', 'grimeralola').learnset.knockoff;
 delete this.modData('Learnsets', 'mukalola').learnset.knockoff;
 this.modData("Learnsets", "mismagius").learnset.moonblast = ["8L1"];
 this.modData("Learnsets", "mismagius").learnset.partingshot = ["8L1"];
