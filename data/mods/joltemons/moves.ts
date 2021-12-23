@@ -338,7 +338,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Hyper Voice", target);
 		  this.add('-anim', source, "Boomburst", target);
 		},
-		sideCondition: 'deafened',
+		sideCondition: 'deafeningshriek',
 		condition: {
 			onStart(target, source) {
 				this.add('-start', source, 'Deafening Shriek');
