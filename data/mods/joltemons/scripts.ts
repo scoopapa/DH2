@@ -15,12 +15,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 
 	pokemon: {
-		hasAbility(ability) {
-			if (this.ignoringAbility()) return false;
-			if (Array.isArray('powerofalchemy')) return ability.some(powerofalchemy => this.hasAbility(ability));
-			ability = toID('powerofalchemy');
-			return this.ability === ability || !!this.volatiles['ability' + ability];
-		},
+        hasAbility(ability) {
+            if (this.ignoringAbility()) return false;
+            if (this.ability === 'powerofalchemy'){
+                return this.species.abilities.some(checkAbility => toID(checkAbility) === ability || !!this.volatiles['ability' + toID(checkAbility)]);
+            }
+            ability = toID(ability);
+            return this.ability === ability || !!this.volatiles['ability' + ability];
+        },
 		transformInto(pokemon, effect) {
 			let template = pokemon.template;
 			if (pokemon.fainted || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5)) {
