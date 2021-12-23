@@ -308,10 +308,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       isModded: true,
 	},
 	chrienmor: {
-		randomBattleMoves: ["thrash"],
+		randomBattleMoves: ["thrash", "defog", "explosion", "multiattack"],
 		tier: "OU",
 		doublesTier: "OU",
-		isModded: true,
+      isModded: true,
 	},
 	//
 	//

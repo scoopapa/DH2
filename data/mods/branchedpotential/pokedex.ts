@@ -678,11 +678,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -138,
 		name: "Chrienmor",
 		types: ["Normal"],
-		gender: "N",
 		baseStats: {hp: 102, atk: 102, def: 102, spa: 102, spd: 60, spe: 95},
 		abilities: {0: "Prism"},
 		weightkg: 100.5,
-		prevo: "Type: Null",
 		otherFormes: ["Chrienmor-Bug", "Chrienmor-Dark", "Chrienmor-Dragon", "Chrienmor-Electric", "Chrienmor-Fairy", "Chrienmor-Fighting", "Chrienmor-Fire", "Chrienmor-Flying", "Chrienmor-Ghost", "Chrienmor-Grass", "Chrienmor-Ground", "Chrienmor-Ice", "Chrienmor-Poison", "Chrienmor-Psychic", "Chrienmor-Rock", "Chrienmor-Steel", "Chrienmor-Water"],
 		formeOrder: [
 			"Chrienmor", "Chrienmor-Fighting", "Chrienmor-Flying", "Chrienmor-Poison", "Chrienmor-Ground", "Chrienmor-Rock", "Chrienmor-Bug", "Chrienmor-Ghost", "Chrienmor-Steel",

@@ -149,6 +149,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Chrienmor, its typing changes to match its held memory; immunity to moves of the same typing.",
 		name: "Prism",
 		rating: 3.5,
-		num: 11,
+		num: 225,
 	},
 };

@@ -141,7 +141,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 673,
 		onMemory: 'Bug',
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === -138) || pokemon.baseSpecies.num === 773) {
+			if ((source && source.baseSpecies.num === -138) || pokemon.baseSpecies.num === -138) {
 				return false;
 			}
 			return true;
