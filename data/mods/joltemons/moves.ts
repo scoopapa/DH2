@@ -302,9 +302,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
-				}
 				this.add('-singleturn', target, 'move: Trash Talk');
 			},
 			onResidualOrder: 12,
@@ -338,16 +335,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Hyper Voice", target);
 		  this.add('-anim', source, "Boomburst", target);
 		},
-		sideCondition: 'deafeningshriek',
+		volatileStatus: 'deafeningshriek',
 		condition: {
-			onStart(target, source) {
-				this.add('-start', source, 'Deafening Shriek');
+			onStart(target) {
+				this.add('-start', target, 'move: Deafening Shriek');
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (['self'].includes(move.target) || !move.flags['sound']) return;
-				this.add('-activate', target, 'move: Deafening Shriek');
-				return this.NOT_FAIL;
+				if (move.target !== 'self' && move.flags['sound']) {
+					this.add('-immune', target, '[from] move: Deafening Shriek');
+					return null;
+				}
 			},
 		},
 		target: "normal",
