@@ -70,4 +70,151 @@ export const Items: {[itemid: string]: ModdedItemData} = {
      gen: 8,
      desc: "If holder's species can evolve, its Atk and Sp. Atk are 1.5x.",
 	},
+	reliccharm: {
+		name: "Relic Charm",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1005,
+		gen: 8,
+		desc: "If held by Meloetta: Pirouette Forme on entry, 1.2x power Fighting-type attacks.",
+	},
+	chillpill: {
+		name: "Chill Pill",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+					this.field.setWeather('sunnyday');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+					this.field.setTerrain('psychicterrain');
+				}
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && (user.species.id === 'darmanitanzen') && (move.type === 'Psychic')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Darmanitan') return false;
+			return true;
+		},
+		itemUser: ["Darmanitan"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain (Unova) or Hail (Galar) on entry, 1.2x power Psychic-type (Unova) or Fire (Galar) attacks.",
+	},
+	graduationscale: {
+		name: "Graduation Scale",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Wishiwashi') {
+				pokemon.formeChange('Wishiwashi-School');
+				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
+				}
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
+			return true;
+		},
+		itemUser: ["Wishiwashi"],
+		num: -1007,
+		gen: 8,
+		desc: "If held by Wishiwashi: School Forme on entry, Can't enter Solo Forme, 1.2x power Water-type attacks. Foe: -1 Atk on switch-in.",
+	},
+	blunderpolicy: {
+		name: "Blunder Policy",
+		spritenum: 716,
+		fling: {
+			basePower: 80,
+		},
+		// Item activation located in scripts.js
+		num: 1121,
+		gen: 8,
+		desc: "+2 Speed if the holder's move fails. Single use.",
+	},
+	lightball: {
+		name: "Light Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 30,
+			status: 'par',
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Raichu-Alola' || pokemon.baseSpecies.baseSpecies === 'Togedemaru' || pokemon.baseSpecies.baseSpecies === 'Morpeko' || pokemon.baseSpecies.baseSpecies === 'Morpeko-Hangry') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Dedenne' || pokemon.baseSpecies.baseSpecies === 'Togedemaru' || pokemon.baseSpecies.baseSpecies === 'Pachirisu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Raichu-Alola' || pokemon.baseSpecies.baseSpecies === 'Plusle' || pokemon.baseSpecies.baseSpecies === 'Dedenne') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Plusle' || pokemon.baseSpecies.baseSpecies === 'Minun' || pokemon.baseSpecies.baseSpecies === 'Pachirisu' || pokemon.baseSpecies.baseSpecies === 'Morpeko' || pokemon.baseSpecies.baseSpecies === 'Morpeko-Hangry') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Minun' || pokemon.baseSpecies.baseSpecies === 'Emolga') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Pikachu", "Raichu", "Plusle", "Minun", "Emolga", "Morpeko", "Dedenne", "Togedemaru"],
+		num: 236,
+		gen: 2,
+		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are doubled.",
+	},
+	soulblade: {
+		name: "Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Physical' || move.category === 'Special') {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		gen: 8,
+		desc: "(Non-functional placeholder) The holder's moves deal 1.1x damage + .2x for every KO it has.",
+	},
 };
