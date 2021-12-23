@@ -129,7 +129,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Wishiwashi') {
 				pokemon.formeChange('Wishiwashi-School');
-				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+				let oldAbility = pokemon.setAbility('intimidate', pokemon, true);
 			}
 		},
 		onBasePower(basePower, user, target, move) {
