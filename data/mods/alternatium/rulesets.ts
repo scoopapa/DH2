@@ -4,7 +4,15 @@ export const Formats: {[k: string]: FormatData} = {
 
 	// Rulesets
 	///////////////////////////////////////////////////////////////////
-
+	standarddoubles: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Doubles',
+		desc: "The standard ruleset for all official Smogon doubles tiers",
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+		],
+	},
+	
 	teampreview: {
 		effectType: 'Rule',
 		name: 'Team Preview',
