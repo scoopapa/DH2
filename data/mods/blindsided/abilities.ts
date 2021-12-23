@@ -467,4 +467,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 218,
 	},
+    persistent: {
+		name: "Persistent",
+		rating: 3,
+		num: -4,
+	},
 };
+

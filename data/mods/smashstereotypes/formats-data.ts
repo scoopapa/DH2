@@ -94,4 +94,55 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ringoando: {
 		tier: "SSS",
 	},
+	arcanine: {
+		tier: "SSS",
+	},
+	frosmoth: {
+		tier: "SSS",
+	},
+	frosmothmega: {
+		tier: "SSS",
+	},
+	lunatoneapple: {
+		tier: "SSS",
+	},
+	bastiodactyl: {
+		tier: "SSS",
+	},
+	gengar: {
+		tier: "SSS",
+	},
+	gengarmega: {
+		tier: "SSS",
+	},
+	ribombeeprimarina: {
+		tier: "SSS",
+	},
+	beetilient: {
+		tier: "SSS",
+	},
+	cadbunny: {
+		tier: "SSS",
+	},
+	peccarious: {
+		tier: "SSS",
+	},
+	regielekisaboteur: {
+		tier: "SSS",
+	},
+	kyuremblack: {
+		tier: "SSS",
+	},
+	lunatone: {
+		tier: "SSS",
+	},
+	miemie: {
+		tier: "SSS",
+	},
+	shadowing: {
+		tier: "SSS",
+	},
+	ludicolo: {
+		tier: "SSS",
+	},
 };

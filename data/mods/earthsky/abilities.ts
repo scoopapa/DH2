@@ -1004,9 +1004,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							case('wringout'):
 								bp = move.basePowerCallback(target, pokemon);
 							//VP moves which return default values because they require information the player can't see
-							case('fling'): //Held item; I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
+							case('fling'): //Held item. I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 								if(this.effectData.source === "Glyphic Spell"){
-									const forItem = target.getItem();
+									const item = target.getItem();
 									bp = (item.fling) ? item.fling.basePower : 0;
 								} else {
 									bp = 20;
@@ -1014,17 +1014,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								break;
 							case('naturalgift'): //Held item
 								if(this.effectData.source === "Glyphic Spell"){
-									const forItem = target.getItem();
+									const item = target.getItem();
 									bp = (item.naturalGift) ? item.naturalGift.basePower : 0;
 								} else {
 									bp = 70;
 								}
 								break;
 							case('frustration'): //Happiness
+							case('return'):
 								bp = 102;
-								break;
-							case('return'): //Happiness - accommodates cap
-								bp = 64;
 								break;
 							case('trumpcarp'): //Move's PP
 								bp = 40;
@@ -1033,7 +1031,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							case('gyroball'):
 								bp = 80;
 								break;
-							default: //Counter, Mirror Coat, Metal Burst, Rebound
+							//Counter, Mirror Coat, Metal Burst, Rebound are damage reflectors, use default value from original Forewarn
+							default:
 								bp = 120;
 								direct = true;
 							}
@@ -1043,8 +1042,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							bp *= target.hasType(move.type) ? 1.5 : 1;
 							bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
 							//Type effectiveness
-							bp *= Math.pow(2, this.dex.getEffectiveness(move.type, pokemon));
-							bp *= (move.twoType) ? Math.pow(2, this.dex.getEffectiveness(move.twoType, pokemon)) : 1;
+							bp *= Math.pow(2, this.dex.getEffectiveness(move, pokemon));
 							if (move.multihit){
 								if(Array.isArray(move.multihit)){ //Move has variable hits
 									bp *= move.multihit[1]; //Assumes maximum value
@@ -1083,43 +1081,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					console.log("Forewarn investigating " + move.name);
 					if(!move) continue;
 					let bp = move.basePower;
-					//STAB
-					bp *= target.hasType(move.type) ? 1.5 : 1;
-					bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
-					//Type effectiveness
-					bp *= Math.pow(2, this.dex.getEffectiveness(move.type, pokemon));
-					bp *= (move.twoType) ? Math.pow(2, this.dex.getEffectiveness(move.twoType, pokemon)) : 1;
-					//Non-BP
-					if (move.ohko) bp = 150;
-					else if (['counter', 'metalburst', 'mirrorcoat', 'rebound'].includes(move.id)) bp = 120;
-					else if (move.multihit){
-						if(Array.isArray(move.multihit)){ //Move has variable hits
-							bp *= move.multihit[1]; //Assumes maximum value
-						} else {
-							bp *= move.multihit;
-						}
-					}
-					if (!bp && move.category !== 'Status'){
+					let direct = false; //direct damage moves won't need additional calcs later
+					if (!bp && move.category !== 'Status'){ //Special cases
 						switch(move.id){
 						//Fixed-damage moves: Twice the percentage of max HP the move deals
 						case('dragonrage'):
 						case('sonicboom'):
 							bp = move.damage / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('endeavor'):
 							bp = (target.hp - pokemon.hp) / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('finalgambit'):
 							bp = target.hp / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('natureswrath'):
 						case('superfang'):
 							bp = pokemon.hp / 2 / pokemon.maxhp * 200;
+							direct = true;
 							break;
 						case('nightshade'):
 						case('psywave'): //Damage variance is ignored
 						case('seismictoss'):
 							bp = target.level / pokemon.maxhp * 200;
+							direct = true;
+							break;
+						case('fissure'): //OHKOs: Would be faster for these moves to check for move.ohko,
+						case('guillotine'): // but the switch is called for everything else anyway
+						case('horndrill'): // and I like the organization of this better
+						case('sheercold'):
+						case('underflame'):
+							bp = 200;
+							direct = true;
 							break;
 						//Variable-power moves
 						case('beatup'): //The number of unfainted/unstatused Pokemon is known, but their Attack might not be so it assumes 10 (the old BP) for simplicity
@@ -1145,7 +1141,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						//VP moves which return default values because they require information the player can't see
 						case('fling'): //Held item; I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 							if(this.effectData.source === "Glyphic Spell"){
-								const forItem = target.getItem();
+								const item = target.getItem();
 								bp = (item.fling) ? item.fling.basePower : 0;
 							} else {
 								bp = 20;
@@ -1153,24 +1149,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							break;
 						case('naturalgift'): //Held item
 							if(this.effectData.source === "Glyphic Spell"){
-								const forItem = target.getItem();
+								const item = target.getItem();
 								bp = (item.naturalGift) ? item.naturalGift.basePower : 0;
 							} else {
 								bp = 70;
 							}
 							break;
 						case('frustration'): //Happiness
+						case('return'):
 							bp = 102;
-							break;
-						case('return'): //Happiness - accommodates cap
-							bp = 64;
 							break;
 						case('trumpcarp'): //Move's PP
 							bp = 40;
 							break;
-						default: //Electro Ball, Gyro Ball
+						case('electroball'): //Speed
+						case('gyroball'):
 							bp = 80;
 							break;
+						//Counter, Mirror Coat, Metal Burst, Rebound are damage reflectors, use default value from original Forewarn
+						default:
+							bp = 120;
+							direct = true;
+						}
+					}
+					if(!direct){ //Further calculations
+						//STAB
+						bp *= target.hasType(move.type) ? 1.5 : 1;
+						bp *= (move.twoType) ? (target.hasType(move.twoType) ? 1.5 : 1) : 1;
+						//Type effectiveness
+						bp *= Math.pow(2, this.dex.getEffectiveness(move, pokemon));
+						if (move.multihit){
+							if(Array.isArray(move.multihit)){ //Move has variable hits
+								bp *= move.multihit[1]; //Assumes maximum value
+							} else {
+								bp *= move.multihit;
+							}
 						}
 					}
 					if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
@@ -1528,6 +1541,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Power Aura",
 		rating: 1,
 		num: 249,
+		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.3.",
 		start: "  [POKEMON] is radiating a power aura!",
 	},
 	receiver: {
@@ -2781,6 +2795,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Escape Plan",
 		rating: 1,
 		num: 1017,
+		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
+		shortDesc: "This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
 	},
 	wimpout: {
 		name: "Wimp Out",
@@ -2790,6 +2806,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	emergencyexit: {
 		name: "Emergency Exit",
+		isNonstandard: "Past",
 		rating: 1,
 		num: 194,
 	},
@@ -2809,6 +2826,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Induction",
+		desc: "If an active ally also has this Ability, this Pokemon's Special Attack is multiplied by 1.5.",
+		shortDesc: "If an active ally also has this Ability, this Pokemon's Sp. Atk is 1.5x.",
 		rating: 0,
 		num: 1018,
 	},
@@ -2848,6 +2867,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Majesty",
 		rating: 2.5,
 		num: 214,
+		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
+		shortDesc: "While this Pokemon is active, allies are protected from opposing priority moves.",
 	},
 	queenlymajesty: {
 		name: "Queenly Majesty",
@@ -2893,6 +2914,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		rating: 3,
 		num: -3,
+		desc: "On switch-in, this Pokemon blocks certain status moves and instead uses the move against the original user.",
+		shortDesc: "On switch-in, blocks certain status moves and bounces them back to the user.",
 	},
 	rebound: {
 		name: "Rebound",

@@ -489,6 +489,61 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magneboom').learnset.electroball;
 		delete this.modData('Learnsets', 'magneboom').learnset.electroweb;
 		delete this.modData('Learnsets', 'magneboom').learnset.thunder;
+		
+		this.modData('Learnsets', 'hasttral').learnset.powerwhip = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.pursuit = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.shadowsneak = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.shadowclaw = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.phantomforce = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.magicpowder = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.trickortreat = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.zenheadbutt = ['8L1'];
+		this.modData('Learnsets', 'hasttral').learnset.psychocut = ['8L1'];
+		
+		this.modData('Learnsets', 'dragabyss').learnset.tripleaxel = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.iciclecrash = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.freezedry = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.dazzlinggleam = ['8L1'];
+		this.modData('Learnsets', 'dragabyss').learnset.liquidation = ['8L1'];
+		delete this.modData('Learnsets', 'dragabyss').learnset.roost;
+		delete this.modData('Learnsets', 'dragabyss').learnset.airslash;
+		delete this.modData('Learnsets', 'dragabyss').learnset.brickbreak;
+		delete this.modData('Learnsets', 'dragabyss').learnset.rocktomb;
+		delete this.modData('Learnsets', 'dragabyss').learnset.steelwing;
+		delete this.modData('Learnsets', 'dragabyss').learnset.dualwingbeat;
+		delete this.modData('Learnsets', 'dragabyss').learnset.healbell;
+		delete this.modData('Learnsets', 'dragabyss').learnset.zapcannon;
+		delete this.modData('Learnsets', 'dragabyss').learnset.horndrill;
+		
+		this.modData('Learnsets', 'karriminal').learnset.suckerpunch = ['8L1'];
+		
+		this.modData('Learnsets', 'karrineel').learnset.dragonclaw = ['8L1'];
+		this.modData('Learnsets', 'karrineel').learnset.outrage = ['8L1'];
+		this.modData('Learnsets', 'karrineel').learnset.scaleshot = ['8L1'];
+		this.modData('Learnsets', 'karrineel').learnset.dragonpulse = ['8L1'];
+		this.modData('Learnsets', 'karrineel').learnset.dracometeor = ['8L1'];
+		delete this.modData('Learnsets', 'karrineel').learnset.razorshell;
+		delete this.modData('Learnsets', 'karrineel').learnset.focusblast;
+		
+		this.modData('Learnsets', 'chrienmor').learnset.thrash = ['8L1'];
+		this.modData('Learnsets', 'chrienmor').learnset.echoedvoice = ['8L1'];
+		this.modData('Learnsets', 'chrienmor').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'chrienmor').learnset.stompingtantrum = ['8L1'];
+		
+		this.modData('Learnsets', 'melchor').learnset.scald = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.liquidation = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.hydropump = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.psychic = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.lusterpurge = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.psyshock = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.futuresight = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.morningsun = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.steelbeam = ['8L1'];
+		this.modData('Learnsets', 'melchor').learnset.focusblast = ['8L1'];
+		delete this.modData('Learnsets', 'melchor').learnset.doubleironbash;
 
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
