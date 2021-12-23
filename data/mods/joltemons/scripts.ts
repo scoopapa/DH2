@@ -18,7 +18,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		hasAbility(ability) {
 			if (this.ignoringAbility()) return false;
 			if (Array.isArray('powerofalchemy')) return ability.some(powerofalchemy => this.hasAbility(ability));
-			ability = toID(ability);
+			ability = toID('powerofalchemy');
 			return this.ability === ability || !!this.volatiles['ability' + ability];
 		},
 		transformInto(pokemon, effect) {
