@@ -112,4 +112,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 210,
 	},
+	partypopper: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.getTerrain().id !== 'psychicterrain') {
+				this.field.setTerrain('psychicterrain');
+			}
+		},
+		desc: "When this Pokemon is hit, Psychic Terrain begins",
+		name: "Party Popper",
+		rating: 2,
+		num: 245,
+	},
 };

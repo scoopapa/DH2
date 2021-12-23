@@ -506,6 +506,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'dragabyss').learnset.zapcannon;
 		delete this.modData('Learnsets', 'dragabyss').learnset.horndrill;
 
+		this.modData('Learnsets', 'popaconda').learnset.spikes = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.fireblast = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.explosion = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.firespin = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.expandingforce = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.psychic = ['8L1'];
+		this.modData('Learnsets', 'popaconda').learnset.psyshock = ['8L1'];
+		delete this.modData('Learnsets', 'popaconda').learnset.earthquake;
+		delete this.modData('Learnsets', 'popaconda').learnset.highhorsepower;
 		
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...

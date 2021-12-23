@@ -297,6 +297,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	sandaconda: {
+		randomBattleMoves: ["coil", "earthquake", "glare", "stealthrock", "stoneedge", "rest"],
+		tier: "NFE",
+	},
+	popaconda: {
+		randomBattleMoves: ["spikes", "stealthrock", "glare", "flamethrower", "expandingforce"],
+      tier: "OU",
+		doublesTier: "OU",
+      isModded: true,
+	},
 	//
 	//
 	//
