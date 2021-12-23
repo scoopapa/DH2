@@ -305,7 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target.activeTurns && !this.queue.willMove(target)) {
 					this.effectData.duration++;
 				}
-				this.add('-start', target, 'move: Trash Talk');
+				this.add('-singleturn', target, 'move: Trash Talk');
 			},
 			onResidualOrder: 12,
 			onEnd(target) {
