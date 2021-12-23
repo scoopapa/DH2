@@ -123,4 +123,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 245,
 	},
+
+	silkspinner: {
+		onStart(source) {
+			this.field.setWeather('silkrain');
+		},
+		desc: "On switch-in, this Pokemon summons Silk Rain",
+		name: "Silk Spinner",
+		rating: 4,
+		num: 45,
+	},
 };

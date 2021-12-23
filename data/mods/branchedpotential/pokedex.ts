@@ -669,7 +669,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Popaconda",
 		types: ['fire', 'psychic'],
 		baseStats: {hp: 91, atk: 80, def: 71, spa: 115, spd: 87, spe: 105},
-		abilities: {0: "Party Popper", 1: "Shed Skin", H: "Oblivious"},
+		abilities: {0: "Party Popper", 1: "Shed Skin", H: "Silk Spinner"},
 		weightkg: 40,
 	},
 };

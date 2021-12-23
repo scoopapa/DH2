@@ -125,4 +125,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Auranubis, this item allows it to Mega Evolve in battle.",
 	},
+
+	webbedrock: {
+		name: "Webbed Rock",
+		spritenum: 88,
+		fling: {
+			basePower: 60,
+		},
+		num: -1010,
+		gen: 8,
+	},
 };
