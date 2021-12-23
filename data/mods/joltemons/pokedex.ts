@@ -287,4 +287,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Water Compaction", H: "Sand Veil"},
 	},
+	muk: {
+		inherit: true,
+		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Touch"},
+	},
+	mukalola: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Regenerator", H: "Power of Alchemy"},
+	},
+	mismagius: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Levitate", H: "Corrosion"},
+	},
+	samurott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
+	dewott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
+	oshawott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
 };
