@@ -20,6 +20,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Raticate",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution", // generic flavor where not specified
+		creator: "ausma",
 	},
 
 	noctowl: {
@@ -36,6 +37,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Noctowl",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Bolivia",
 	},
 
 	heatmor: {
@@ -54,6 +56,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Heatmor",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
 	},
 
 	carnivine: {
@@ -71,6 +74,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Carnivine",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
 	},
 
 	cryogonal: {
@@ -88,6 +92,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cryogonal",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Magmajudis",
 	},
 
 	swablu: {
@@ -107,6 +112,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Swablu",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Albatross",
 	},
 
 	mienfoo: {
@@ -126,7 +132,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		prevo: "Mienfoo",
 		evoLevel: 50,
-		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
 	},
 
 	sandaconda: {
@@ -145,6 +151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sandaconda",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
 	},
 
 	kadabra: {
@@ -165,6 +172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Kadabra",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
 	},
 
 	ariados: {
@@ -182,6 +190,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ariados",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
 	},
 
 	wormadamtrash: {
@@ -199,6 +208,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wormadam-Trash",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Magmajudis",
 	},
 
 	mismagius: {
@@ -217,6 +227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mismagius",
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
+		creator: "KeroseneZanchu",
 	},
 
 	druddigon: {
@@ -235,6 +246,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Druddigon",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
 	},
 
 	inkay: {
@@ -255,6 +267,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
 
 		evos: ["Malamar-Variant"],
+		creator: "Violettes",
 	},
 	malamar: {
 		inherit: true,
@@ -276,6 +289,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: ["Inkay-Variant"],
 		evoLevel: 30,
 		evoCondition: "with the console turned upside-down",
+		creator: "Violettes",
 	},
 
 	scrafty: {
@@ -293,5 +307,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Scrafty",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
+		creator: "Magmajudis",
 	},
 };
