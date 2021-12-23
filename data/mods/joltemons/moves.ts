@@ -311,14 +311,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEnd(target) {
 				this.add('-end', target, 'move: Trash Talk');
 			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
-					if (move.category === 'Status' && move.id !== 'mefirst') {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
 				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
