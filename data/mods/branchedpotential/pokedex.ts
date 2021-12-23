@@ -689,7 +689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	chrienmorbug: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Bug",
 		baseSpecies: "Chrienmor",
 		forme: "Bug",
@@ -704,7 +704,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	chrienmordark: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Dark",
 		baseSpecies: "Chrienmor",
 		forme: "Dark",
@@ -718,7 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmordragon: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Dragon",
 		baseSpecies: "Chrienmor",
 		forme: "Dragon",
@@ -734,7 +734,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorelectric: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Electric",
 		baseSpecies: "Chrienmore",
 		forme: "Electric",
@@ -750,7 +750,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfairy: {
-		num: 773,
+		num: -138,
 		name: "Chriemor-Fairy",
 		baseSpecies: "Chrienmor",
 		forme: "Fairy",
@@ -766,7 +766,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfighting: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Fighting",
 		baseSpecies: "Chrienmor",
 		forme: "Fighting",
@@ -782,7 +782,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorfire: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Fire",
 		baseSpecies: "Chrienmor",
 		forme: "Fire",
@@ -798,7 +798,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmore",
 	},
 	chrienmorflying: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Flying",
 		baseSpecies: "Chrienmore",
 		forme: "Flying",
@@ -814,7 +814,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmore",
 	},
 	chrienmorghost: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Ghost",
 		baseSpecies: "Chrienmor",
 		forme: "Ghost",
@@ -830,7 +830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorgrass: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Grass",
 		baseSpecies: "Chrienmor",
 		forme: "Grass",
@@ -846,7 +846,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorground: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Ground",
 		baseSpecies: "Chrienmor",
 		forme: "Ground",
@@ -862,7 +862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorice: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Ice",
 		baseSpecies: "Chrienmor",
 		forme: "Ice",
@@ -878,7 +878,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorpoison: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Poison",
 		baseSpecies: "Chrienmor",
 		forme: "Poison",
@@ -894,7 +894,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorpsychic: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Psychic",
 		baseSpecies: "Chrienmor",
 		forme: "Psychic",
@@ -910,7 +910,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorrock: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Rock",
 		baseSpecies: "Chrienmor",
 		forme: "Rock",
@@ -926,7 +926,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	Chrienmorsteel: {
-		num: 773,
+		num: -138,
 		name: "Chrienmor-Steel",
 		baseSpecies: "Chrienmor",
 		forme: "Steel",
@@ -942,7 +942,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorwater: {
-		num: 773,
+		num: ,
 		name: "Chrienmor-Water",
 		baseSpecies: "Chrienmor",
 		forme: "Water",
