@@ -942,7 +942,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Chrienmor",
 	},
 	chrienmorwater: {
-		num: ,
+		num: -138,
 		name: "Chrienmor-Water",
 		baseSpecies: "Chrienmor",
 		forme: "Water",
