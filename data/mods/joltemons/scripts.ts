@@ -17,10 +17,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	pokemon: {
         hasAbility(ability) {
             if (this.ignoringAbility()) return false;
+            ability = toID(ability);
             if (this.ability === 'powerofalchemy'){
                 return this.species.abilities.some(checkAbility => toID(checkAbility) === ability || !!this.volatiles['ability' + toID(checkAbility)]);
             }
-            ability = toID(ability);
             return this.ability === ability || !!this.volatiles['ability' + ability];
         },
 		transformInto(pokemon, effect) {
