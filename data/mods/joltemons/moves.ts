@@ -346,10 +346,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onTryHit(target, source, move) {
 				if (move.target !== 'self' && move.flags['sound']) {
 					this.add('-immune', target, '[from] move: Deafening Shriek');
+					return null;
 				}
 			},
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('deafened');
+			},
+		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
