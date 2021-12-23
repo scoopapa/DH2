@@ -123,31 +123,35 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain (Unova) or Hail (Galar) on entry, 1.2x power Psychic-type (Unova) or Fire (Galar) attacks.",
 	},
-	graduationscale: {
+	"graduationscale": {
+		id: "graduationscale",
 		name: "Graduation Scale",
-		spritenum: 390,
-		onSwitchIn(pokemon, target) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Wishiwashi') {
-				pokemon.formeChange('Wishiwashi-School');
+		onStart: function(pokemon) {
+			this.add('-item', pokemon, 'Graduation Scale');
+			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
+				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
+				pokemon.formeChange("Wishiwashi-School");
 				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
 				}
 			}
 		},
-		onBasePower(basePower, user, target, move) {
-			if (move && move.type === 'Water') {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onTakeItem(item, source) {
+		onTakeItem: function(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
 			return true;
 		},
-		itemUser: ["Wishiwashi"],
-		num: -1007,
-		gen: 8,
-		desc: "If held by Wishiwashi: School Forme on entry, Can't enter Solo Forme, 1.2x power Water-type attacks. Foe: -1 Atk on switch-in.",
+		fling: {
+			basePower: 20,
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function(basePower, user, target, move) {
+			if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		gen: 7,
+		desc: "If holder is a Wishiwashi, it becomes School Form. It's ability becomes Intimidate. Water moves are boosted by 1.2x",
 	},
 	blunderpolicy: {
 		name: "Blunder Policy",
