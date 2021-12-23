@@ -195,10 +195,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && (move.type === 'Poison' || target.hasType('Poison'))) {
-				source.side.foe.addSideCondition('toxicspikes');
+				target.side.foe.addSideCondition('toxicspikes');
 			} else {
 				if (move.flags['contact']) {
-					source.side.foe.addSideCondition('spikes');
+					target.side.foe.addSideCondition('spikes');
 				}
 			}
 		},
