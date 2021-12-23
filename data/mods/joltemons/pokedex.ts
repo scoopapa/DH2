@@ -293,7 +293,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mukalola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Regenerator", H: "Power of Alchemy"},
+		abilities: {0: "Poison Touch", 1: "Regenerator", H: "Power of Alchemy (Muk-Alola)"},
 	},
 	mismagius: {
 		inherit: true,
