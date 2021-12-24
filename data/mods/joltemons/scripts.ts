@@ -13,6 +13,218 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
+	pokemon: {
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!(type in this.battle.dex.data.TypeChart)) {
+				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+
+			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+			let isGrounded;
+			if (type === 'Ground') {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						if (this.hasAbility('powerofalchemyweezing')) {
+							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Weezing)');
+						} else if (this.hasAbility('powerofalchemymismagius')) {
+							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Mismagius)');
+						} else {
+							this.battle.add('-immune', this, '[from] ability: Levitate');
+						}
+					}
+					return false;
+				}
+			}
+			if (!negateResult) return true;
+			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+				if (message) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+			return true;
+		},
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if (
+				(this.hasAbility('levitate') ||
+				this.hasAbility('powerofalchemyweezing') ||
+				this.hasAbility('powerofalchemymismagius')) &&
+				!this.battle.suppressingAttackEvents()
+			) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+        ignoringAbility() {
+            // Check if any active pokemon have the ability Neutralizing Gas
+            let neutralizinggas = false;
+            let powerofalchemyweezing = false;
+            for (const pokemon of this.battle.getAllActive()) {
+                // can't use hasAbility because it would lead to infinite recursion
+                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('powerofalchemyweezing' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+                    neutralizinggas = true;
+                    powerofalchemyweezing = true;
+                    break;
+                }
+            }
+
+            return !!(
+                (this.battle.gen >= 5 && !this.isActive) ||
+                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (powerofalchemyweezing && this.ability !== ('powerofalchemyweezing' as ID)) ) &&
+                !this.getAbility().isPermanent
+                )
+            );
+        },
+		setStatus(
+        status: string | Condition,
+        source: Pokemon | null = null,
+        sourceEffect: Effect | null = null,
+        ignoreImmunities = false
+    ) {
+			  if (!this.hp) return false;
+			  status = this.battle.dex.getEffect(status);
+			  if (this.battle.event) {
+					if (!source) source = this.battle.event.source;
+					if (!sourceEffect) sourceEffect = this.battle.effect;
+			  }
+			  if (!source) source = this;
+
+			  if (this.status === status.id) {
+					if ((sourceEffect as Move)?.status === this.status) {
+						 this.battle.add('-fail', this, this.status);
+					} else if ((sourceEffect as Move)?.status) {
+						 this.battle.add('-fail', source);
+						 this.battle.attrLastMove('[still]');
+					}
+					return false;
+			  }
+			  if (!ignoreImmunities && status.id &&
+						 !(source?.hasAbility(['corrosion', 'powerofalchemymismagius']) && ['tox', 'psn'].includes(status.id))) {
+					// the game currently never ignores immunities
+					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+						 this.battle.debug('immune to status');
+						 if ((sourceEffect as Move)?.status) {
+							  this.battle.add('-immune', this);
+						 }
+						 return false;
+					}
+			  }
+			  const prevStatus = this.status;
+			  const prevStatusData = this.statusData;
+			  if (status.id) {
+					const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+					if (!result) {
+						 this.battle.debug('set status [' + status.id + '] interrupted');
+						 return result;
+					}
+			  }
+			  this.status = status.id;
+			  this.statusData = {id: status.id, target: this};
+			  if (source) this.statusData.source = source;
+			  if (status.duration) this.statusData.duration = status.duration;
+			  if (status.durationCallback) {
+					this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			  }
+
+			  if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+					this.battle.debug('status start [' + status.id + '] interrupted');
+					// cancel the setstatus
+					this.status = prevStatus;
+					this.statusData = prevStatusData;
+					return false;
+			  }
+			  if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+					return false;
+			  }
+			  return true;
+        }
+    },
+/*
+	pokemon: {
+        hasAbility(ability) {
+            if (this.ignoringAbility()) return false;
+            ability = toID(ability);
+            return this.ability === ability || !!this.volatiles['ability' + ability];
+            if(this.ability === 'powerofalchemy'){
+                return this.species.abilities.some(checkAbility => toID(checkAbility) === ability || !!this.volatiles['ability' + toID(checkAbility)]);
+            }
+        },
+		transformInto(pokemon, effect) {
+			let template = pokemon.template;
+			if (pokemon.fainted || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5)) {
+				return false;
+			}
+			if (!template.abilities || (pokemon && pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5)) {
+				return false;
+			}
+			if (!this.formeChange(template, null)) {
+				return false;
+			}
+			this.transformed = true;
+
+			this.types = pokemon.types;
+			this.addedType = pokemon.addedType;
+			this.knownType = this.side === pokemon.side && pokemon.knownType;
+
+			for (let statName in this.stats) {
+				this.stats[statName] = pokemon.stats[statName];
+			}
+			this.moveSlots = [];
+			this.set.ivs = (this.battle.gen >= 5 ? this.set.ivs : pokemon.set.ivs);
+			this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
+			this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
+			for (let i = 0; i < pokemon.moveSlots.length; i++) {
+				let moveData = pokemon.moveSlots[i];
+				let moveName = moveData.move;
+				if (moveData.id === 'hiddenpower') {
+					moveName = 'Hidden Power ' + this.hpType;
+				}
+				this.moveSlots.push({
+					move: moveName,
+					id: moveData.id,
+					pp: moveData.maxpp === 1 ? 1 : 5,
+					maxpp: this.battle.gen >= 5 ? (moveData.maxpp === 1 ? 1 : 5) : moveData.maxpp,
+					target: moveData.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				});
+			}
+			for (let j in pokemon.boosts) {
+				// @ts-ignore
+				this.boosts[j] = pokemon.boosts[j];
+			}
+			if (effect) {
+				this.battle.add('-transform', this, pokemon, '[from] ' + effect.fullname);
+			} else {
+				this.battle.add('-transform', this, pokemon);
+			}
+			this.setAbility(pokemon.ability, this, true);
+			if (this.innates) {
+				for (let innate of this.innates) {
+					this.removeVolatile('ability' + innate);
+				}
+			}
+			if (pokemon.innates) {
+				for (let innate of pokemon.innates) {
+					this.addVolatile('ability' + innate, this);
+				}
+			}
+			return true;
+		},
+	},
+*/
 	
 	init: function () {
 /*
@@ -337,5 +549,94 @@ this.modData('Learnsets', 'lugia').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'arceus').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'solgaleo').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'lunala').learnset.counterspell = ['8L1'];
+this.modData("Learnsets", "oshawott").learnset.secretsword = ["8L1"];
+this.modData("Learnsets", "oshawott").learnset.firstimpression = ["8L1"];
+this.modData("Learnsets", "oshawott").learnset.tripleaxel = ["8L1"];
+this.modData("Learnsets", "dewott").learnset.brickbreak = ["8L1"];
+this.modData("Learnsets", "dewott").learnset.closecombat = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.shellsmash = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.drillrun = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.lightninglance = ["8L1"];
+this.modData("Learnsets", "muk").learnset.recover = ["8L1"];
+this.modData("Learnsets", "mukalola").learnset.recover = ["8L1"];
+this.modData("Learnsets", "mukalola").learnset.toxicspikes = ["8L1"];
+delete this.modData('Learnsets', 'grimeralola').learnset.knockoff;
+delete this.modData('Learnsets', 'mukalola').learnset.knockoff;
+this.modData("Learnsets", "mismagius").learnset.moonblast = ["8L1"];
+this.modData("Learnsets", "mismagius").learnset.partingshot = ["8L1"];
+this.modData("Learnsets", "mismagius").learnset.toxicspikes = ["8L1"];
+this.modData("Learnsets", "mismagius").learnset.venoshock = ["8L1"];
+this.modData('Learnsets', 'mismagius').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'primarina').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'froslass').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'chatot').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'cursola').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'exploud').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'gourgeist').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'drifblim').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'guzzlord').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'banette').learnset.deafeningshriek = ['8L1'];
+this.modData('Learnsets', 'ludicolo').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'politoed').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'alomomola').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'luvdisc').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'florges').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'xerneas').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'empoleon').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'phione').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'indeedee').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'indeedeef').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'comfey').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'eldegoss').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'seel').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'meganium').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'wailmer').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'panpour').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'misdreavus').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'hoopa').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'morelull').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'munna').learnset.lifedew = ['8L1'];
+this.modData('Learnsets', 'litten').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zigzagoongalar').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'silvally').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'pancham').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'chatot').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'morpeko').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'persianalola').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'thievul').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'trubbish').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'articunogalar').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'toxtricity').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'muk').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'toxtricitylowkey').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'muk').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'mukalola').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'weezing').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'crobat').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'toxicroak').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'scrafty').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'simisage').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'salandit').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'yveltal').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'sneasel').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'hoopa').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zweilous').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'krookodile').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'cacturne').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'houndoom').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zoroark').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'slowkinggalar').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'gastly').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'liepard').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'malamar').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'vullaby').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zarude').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'seviper').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zangoose').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'gulpin').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'skuntank').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'rattataalola').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'bruxish').learnset.trashtalk = ['8L1'];
+
 	},
 };

@@ -17,7 +17,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sandslashalola: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Ice Body", H: "Slush Rush"},
+		abilities: {0: "Snow Cloak", 1: "Prickly Coat", H: "Slush Rush"},
 	},
 	ninetalesalola: {
 		inherit: true,
@@ -169,7 +169,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	alcremie: {
 		inherit: true,
-		abilities: {0: "Sweet Veil", 1: "Sticky Hold", H: "Aroma Veil"},
+		abilities: {0: "Sweet Veil", 1: "Sticky Hold", H: "Power of Alchemy (Alcremie)"},
 	},
 	milcery: {
 		inherit: true,
@@ -265,7 +265,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cacturne: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Water Compaction", H: "Water Absorb"},
+		abilities: {0: "Sand Veil", 1: "Water Compaction", H: "Prickly Coat"},
 	},
 	lileep: {
 		inherit: true,
@@ -286,5 +286,228 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	donphan: {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Water Compaction", H: "Sand Veil"},
+	},
+	muk: {
+		inherit: true,
+		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Touch"},
+	},
+	mukalola: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Regenerator", H: "Power of Alchemy (Muk-Alola)"},
+	},
+	mismagius: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Levitate", 1: "Power of Alchemy (Mismagius)", H: "Corrosion"},
+	},
+	samurott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
+	dewott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
+	oshawott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "No Guard"},
+	},
+	buzzwole: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Iron Fist"},
+	},
+	metagross: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Iron Fist", H: "Light Metal"},
+	},
+	poliwrath: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Iron Fist", H: "Swift Swim"},
+	},
+	toxicroak: {
+		inherit: true,
+		abilities: {0: "Iron Fist", 1: "Dry Skin", H: "Poison Touch"},
+	},
+	lucariomega: {
+		inherit: true,
+		abilities: {0: "Iron Fist"},
+	},
+	zebstrika: {
+		inherit: true,
+		abilities: {0: "Overclock", 1: "Motor Drive", H: "Sap Sipper"},
+	},
+	manectric: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Overclock"},
+	},
+	celebi: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Overclock"},
+	},
+	braviary: {
+		inherit: true,
+		abilities: {0: "Overclock", 1: "Sheer Force", H: "Defiant"},
+	},
+	haxorus: {
+		inherit: true,
+		abilities: {0: "Overclock", 1: "Mold Breaker", H: "Unnerve"},
+	},
+	duraludon: {
+		inherit: true,
+		abilities: {0: "Light Metal", 1: "Heavy Metal", H: "Overclock"},
+	},
+	hydreigon: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Overclock"},
+	},
+	gallademega: {
+		inherit: true,
+		abilities: {0: "Overclock"},
+	},
+	exeggutoralola: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Overclock", H: "Harvest"},
+	},
+	infernape: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Overclock"},
+	},
+	blazikenmega: {
+		inherit: true,
+		abilities: {0: "Overclock"},
+	},
+	magearna: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Overclock"},
+	},
+	magearnaoriginal: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Overclock"},
+	},
+	dialga: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Overclock", H: "Telepathy"},
+	},
+	slowbromega: {
+		inherit: true,
+		abilities: {0: "Prickly Coat"},
+	},
+	omastar: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Prickly Coat", H: "Weak Armor"},
+	},
+	corsolagalar: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Prickly Coat", H: "Cursed Body"},
+	},
+	cursola: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Prickly Coat", H: "Perish Body"},
+	},
+	corsola: {
+		inherit: true,
+		abilities: {0: "Prickly Coat", 1: "Natural Cure", H: "Regenerator"},
+	},
+	qwilfish: {
+		inherit: true,
+		abilities: {0: "Prickly Coat", 1: "Swift Swim", H: "Intimidate"},
+	},
+	roselia: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Prickly Coat", H: "Leaf Guard"},
+	},
+	roserade: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Prickly Coat", H: "Technician"},
+	},
+	maractus: {
+		inherit: true,
+		abilities: {0: "Prickly Coat", 1: "Chlorophyll", H: "Storm Drain"},
+	},
+	chesnaught: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Prickly Coat"},
+	},
+	sandslash: {
+		inherit: true,
+		abilities: {0: "Sand Veil", 1: "Prickly Coat", H: "Sand Rush"},
+	},
+	pincurchin: {
+		inherit: true,
+		abilities: {0: "Lightning Rod", 1: "Prickly Coat", H: "Electric Surge"},
+	},
+	jolteon: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", H: "Prickly Coat"},
+	},
+	toxapex: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Prickly Coat", H: "Regenerator"},
+	},
+	poipole: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Prickly Coat"},
+	},
+	naganadel: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Prickly Coat"},
+	},
+	bastiodon: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Sand Veil", H: "Soundproof"},
+	},
+	regirock: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Sand Veil", H: "Sturdy"},
+	},
+	vibrava: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Sand Veil"},
+	},
+	flygon: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Sand Veil"},
+	},
+	sandile: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Veil"},
+	},
+	krokorok: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Veil"},
+	},
+	krookodile: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Veil"},
+	},
+	weezing: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Power of Alchemy (Weezing)"},
+	},
+	weezinggalar: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Power of Alchemy (Weezing)"},
+	},
+	slowkinggalar: {
+		inherit: true,
+		abilities: {0: "Curious Medicine", 1: "Power of Alchemy (Slowking-Galar)", H: "Regenerator"},
+	},
+	ditto: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Power of Alchemy (Ditto)", H: "Imposter"},
+	},
+	vanillite: {
+		inherit: true,
+		abilities: {0: "Ice Body", 1: "Snow Cloak", H: "Power of Alchemy (Vanillite)"},
+	},
+	vanillish: {
+		inherit: true,
+		abilities: {0: "Ice Body", 1: "Snow Cloak", H: "Power of Alchemy (Vanillite)"},
+	},
+	vanilluxe: {
+		inherit: true,
+		abilities: {0: "Ice Body", 1: "Snow Warning", H: "Power of Alchemy (Vanilluxe)"},
 	},
 };
