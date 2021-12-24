@@ -13,6 +13,143 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
+	pokemon: {
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!(type in this.battle.dex.data.TypeChart)) {
+				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+
+			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+			let isGrounded;
+			if (type === 'Ground') {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						if (this.hasAbility('powerofalchemyweezing')) {
+							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Weezing)');
+						} else if (this.hasAbility('powerofalchemymismagius')) {
+							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Mismagius)');
+						} else {
+							this.battle.add('-immune', this, '[from] ability: Levitate');
+						}
+					}
+					return false;
+				}
+			}
+			if (!negateResult) return true;
+			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+				if (message) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+			return true;
+		},
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if (
+				(this.hasAbility('levitate') ||
+				this.hasAbility('powerofalchemyweezing') ||
+				this.hasAbility('powerofalchemymismagius')) &&
+				!this.battle.suppressingAttackEvents()
+			) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+        ignoringAbility() {
+            // Check if any active pokemon have the ability Neutralizing Gas
+            let neutralizinggas = false;
+            let powerofalchemyweezing = false;
+            for (const pokemon of this.battle.getAllActive()) {
+                // can't use hasAbility because it would lead to infinite recursion
+                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('powerofalchemyweezing' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+                    neutralizinggas = true;
+                    powerofalchemyweezing = true;
+                    break;
+                }
+            }
+
+            return !!(
+                (this.battle.gen >= 5 && !this.isActive) ||
+                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (powerofalchemyweezing && this.ability !== ('powerofalchemyweezing' as ID)) ) &&
+                !this.getAbility().isPermanent
+                )
+            );
+        },
+		setStatus(
+        status: string | Condition,
+        source: Pokemon | null = null,
+        sourceEffect: Effect | null = null,
+        ignoreImmunities = false
+    ) {
+			  if (!this.hp) return false;
+			  status = this.battle.dex.getEffect(status);
+			  if (this.battle.event) {
+					if (!source) source = this.battle.event.source;
+					if (!sourceEffect) sourceEffect = this.battle.effect;
+			  }
+			  if (!source) source = this;
+
+			  if (this.status === status.id) {
+					if ((sourceEffect as Move)?.status === this.status) {
+						 this.battle.add('-fail', this, this.status);
+					} else if ((sourceEffect as Move)?.status) {
+						 this.battle.add('-fail', source);
+						 this.battle.attrLastMove('[still]');
+					}
+					return false;
+			  }
+			  if (!ignoreImmunities && status.id &&
+						 !(source?.hasAbility(['corrosion', 'powerofalchemymismagius']) && ['tox', 'psn'].includes(status.id))) {
+					// the game currently never ignores immunities
+					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+						 this.battle.debug('immune to status');
+						 if ((sourceEffect as Move)?.status) {
+							  this.battle.add('-immune', this);
+						 }
+						 return false;
+					}
+			  }
+			  const prevStatus = this.status;
+			  const prevStatusData = this.statusData;
+			  if (status.id) {
+					const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+					if (!result) {
+						 this.battle.debug('set status [' + status.id + '] interrupted');
+						 return result;
+					}
+			  }
+			  this.status = status.id;
+			  this.statusData = {id: status.id, target: this};
+			  if (source) this.statusData.source = source;
+			  if (status.duration) this.statusData.duration = status.duration;
+			  if (status.durationCallback) {
+					this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			  }
+
+			  if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+					this.battle.debug('status start [' + status.id + '] interrupted');
+					// cancel the setstatus
+					this.status = prevStatus;
+					this.statusData = prevStatusData;
+					return false;
+			  }
+			  if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+					return false;
+			  }
+			  return true;
+        }
+    },
 /*
 	pokemon: {
         hasAbility(ability) {
