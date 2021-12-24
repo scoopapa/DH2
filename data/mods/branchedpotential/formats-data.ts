@@ -291,12 +291,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
-	chrienmor: {
-		randomBattleMoves: ["swordsdance", "thunderfang", "icefang", "explosion", "partingshot", "lastresort"],
-      tier: "OU",
-		doublesTier: "OU",
-      isModded: true,
-	},
 	//
 	//
 	//

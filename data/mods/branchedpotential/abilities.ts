@@ -112,21 +112,4 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 210,
 	},
-	prism: {
-		isPermanent: true,
-		onTryHit(target, source, move) {
-			let type: string | undefined = 'Normal';
-			type = target.getItem().onMemory;
-			if (target !== source && move.type === type) {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Prism');
-				}
-				return null;
-			}
-		},
-		desc: "If this Pokemon is a Chrienmor, its typing changes to match its held memory; immunity to moves of the same typing.",
-		name: "Prism",
-		rating: 3.5,
-		num: 225,
-	},
 };
