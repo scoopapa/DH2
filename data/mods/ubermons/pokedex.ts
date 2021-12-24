@@ -195,6 +195,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	giratinaorigin: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Infiltrator"},
-		baseStats: {hp: 100, atk: 115, def: 65, spa: 115, spd: 65, spe: 100},
+		baseStats: {hp: 100, atk: 115, def: 70, spa: 115, spd: 70, spe: 100},
 	},
 };

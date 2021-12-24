@@ -1,6 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	clefable: {
 		inherit: true,
+		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Cute Charm"},
 	},
 	clefairy: {
@@ -1875,10 +1876,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 90, spd: 80, spe: 70},
-	},
-	clefable: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 	},
 	chimecho: {
 		inherit: true,
