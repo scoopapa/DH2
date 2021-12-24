@@ -3899,7 +3899,7 @@ lifedrain: {
 			}
 		},
 		name: "Ultra Presto",
-		shortDesc: "This Pokemon's Attack is raised by 1 stage if it KOes another Pokemon or falls below 1/3 of its max HP.",
+		shortDesc: "Magician + Beast Boost",
 	},
 
 // LC Only Abilities
