@@ -66,6 +66,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {charge: 1, heal: 1},
  		heal: [1, 2],
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('reconstruct');
+		},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -76,6 +79,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Reconstruct');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.category === 'Special' || move.category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('reconstruct');
 		},
 		self: {
 			onHit(pokemon) {
@@ -224,7 +241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	counterspell: {
 		accuracy: 100,
-		basePower: 100,
+		basePower: 110,
 		category: "Special",
     shortDesc: "Uses target's SpA stat in damage calculation. Fails if the target switches out or moves last.",
 		name: "Counterspell",
@@ -234,9 +251,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Psybeam", target);
-		},
-		onTryHit(target, source, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) return false;
 		},
 		useTargetOffensive: true,
 		secondary: null,
