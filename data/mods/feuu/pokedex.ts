@@ -3824,7 +3824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 29.2,
 		evos: ["Krookogatr"],
 	},
-	Ivycat: {
+	ivycat: {
 		fusion: ['Ivysaur', 'Torracat'],
 		num: 1082,
 		name: "Ivycat",
