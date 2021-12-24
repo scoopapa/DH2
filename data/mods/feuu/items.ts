@@ -5,10 +5,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Chomplim-Mega",
 		megaEvolves: "Chomplim",
 		itemUser: ["Chomplim"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 683,
 		desc: "If held by a Chomplim or Rhychomp, this item allows it to Mega Evolve in battle.",
 	},
@@ -134,10 +131,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Ninjacross-Mega",
 		megaEvolves: "Ninjacross",
 		itemUser: ["Ninjacross"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 680,
 		desc: "If held by a Ninjacross or Cleracross, this item allows it to Mega Evolve in battle.",
 	},
