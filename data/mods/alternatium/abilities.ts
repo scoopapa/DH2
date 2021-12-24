@@ -591,4 +591,65 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 1017,
 	},
+	darkaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Dark Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify(1.33);
+		},
+		isUnbreakable: true,
+		name: "Dark Aura",
+		rating: 3,
+		num: 186,
+	},
+	fairyaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Fairy Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify(1.33);
+		},
+		isUnbreakable: true,
+		name: "Fairy Aura",
+		rating: 3,
+		num: 187,
+	},
+	aurabreak: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Aura Break');
+		},
+		name: "Aura Break",
+		shortDesc: "This Pokemon ignores the effects certain Abilities of other Pokemon have on their moves.",
+		rating: 2.5,
+		num: 188,
+	},
+	powerconstruct: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Power Construct boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Power Construct boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Power Construct",
+		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Dragon attacks.",
+		rating: 2,
+		num: 211,
+	},
 };
