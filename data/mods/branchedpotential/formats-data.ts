@@ -340,7 +340,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       isModded: true,
 	},
 	chrienmorelectric: {
-		randomBattleMoves: ["swordsdance", "thunderfang", "icefang", "explosion", "partingshot", "multiattack"],
+		randomBattleMoves: ["swordsdance", "icefang", "explosion", "partingshot", "multiattack"],
       tier: "OU",
 		doublesTier: "OU",
       isModded: true,
@@ -388,7 +388,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       isModded: true,
 	},
 	chrienmorice: {
-		randomBattleMoves: ["swordsdance", "thunderfang", "icefang", "explosion", "partingshot", "multiattack"],
+		randomBattleMoves: ["swordsdance", "thunderfang", "explosion", "partingshot", "multiattack"],
       tier: "OU",
 		doublesTier: "OU",
       isModded: true,
