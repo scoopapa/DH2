@@ -129,7 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.addVolatile('reconstruct');
+			attacker.addVolatile('reconstruct');
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
