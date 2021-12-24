@@ -90,6 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
+		},
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('reconstruct');
 		},
