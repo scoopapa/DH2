@@ -121,7 +121,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     shortDesc: "Charges turn 1. Heals 50% and resets lowered stats turn 2.",
 		name: "Reconstruct",
 		pp: 10,
-		priority: 0,
+		priority: 5,
 		flags: {charge: 1, heal: 1},
  		heal: [1, 2],
 		onTryMove(attacker, defender, move) {
