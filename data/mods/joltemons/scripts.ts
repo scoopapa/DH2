@@ -13,7 +13,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
-
+/*
 	pokemon: {
         hasAbility(ability) {
             if (this.ignoringAbility()) return false;
@@ -87,6 +87,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 	},
+*/
 	
 	init: function () {
 /*
