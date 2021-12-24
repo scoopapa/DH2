@@ -56,6 +56,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+/*
  	reconstruct: {
 		accuracy: true,
 		basePower: 0,
@@ -93,6 +94,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('reconstruct');
+		},
+		self: {
+			onHit(pokemon) {
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+	    },
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
+*/
+ 	reconstruct: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Charges turn 1. Heals 50% and resets lowered stats turn 2.",
+		name: "Reconstruct",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, heal: 1},
+ 		heal: [1, 2],
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 		self: {
 			onHit(pokemon) {
