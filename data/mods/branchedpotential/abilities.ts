@@ -117,6 +117,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			let type: string | undefined = 'Normal';
 			type = target.getItem().onMemory;
+			if (!type) {
+				type = 'Normal';
+			}
 			if (target !== source && move.type === type) {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Prism');
