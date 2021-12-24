@@ -687,7 +687,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, source, target) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return
+				if (pokemon.hasAbility('aurabreak')) return;
 				let boosted = true;
 				for (const target of this.getAllActive()) {
 					if (target === source) continue;
