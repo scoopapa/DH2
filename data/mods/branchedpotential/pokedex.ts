@@ -635,7 +635,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -135,
 		name: "Magneboom",
 		types: ["Normal", "Steel"],
-		gender: “N”,
+		gender: "N",
 		baseStats: {hp: 130, atk: 60, def: 100, spa: 90, spd: 120, spe: 35},
 		abilities: {0: "Levitate", 1: "Analytic", H: "Regenerator"},
 		weightkg: 155,
