@@ -1007,7 +1007,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile.",
+		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile amount.",
 		name: "Feast",
 		pp: 10,
 		priority: 0,
