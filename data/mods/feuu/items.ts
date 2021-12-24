@@ -500,6 +500,54 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 671,
 		desc: "If held by a Pingar, this item allows it to Mega Evolve in battle.",
 	},
+	stick: {
+		name: "Stick",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'fetchey') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 259,
+		gen: 2,
+		desc: "If held by Fetchey: +2 crit ratio.",
+	},
+	leek: {
+		name: "Leek",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["fetchey"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 259,
+		gen: 8,
+		desc: "If held by Fetchey: +2 crit ratio.",
+	},
+	luckypunch: {
+		name: "Lucky Punch",
+		spritenum: 261,
+		fling: {
+			basePower: 40,
+		},
+		onModifyCritRatio(critRatio, user) {
+			if (user.baseSpecies.name === 'Fetchey') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 256,
+		gen: 2,
+		desc: "If held by Fetchey: +2 crit ratio.",
+	},
 	
 // silvino moment :jokerification:
 	bugmemory: {
