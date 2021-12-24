@@ -229,7 +229,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	watercycle: {
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (defender.volatiles['partiallytrapped']) {
 					return this.chainModify(1.3);
 				}
@@ -254,7 +254,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	packleader: {
 		onModifyAtk(atk, source, target, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (target.newlySwitched || this.queue.willMove(target)) {
 					this.debug('Pack Leader boost');
 					return this.chainModify(1.3);
@@ -342,7 +342,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	lifegem: {
 		onModifyDamage(damage, source, target, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				return this.chainModify(1.3);
 			}
 		},
@@ -394,7 +394,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
 					if (!move.auraBooster) move.auraBooster = this.effectData.target;
 					if (move.auraBooster !== this.effectData.target) return;
@@ -610,7 +610,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
 				if (!move.auraBooster) move.auraBooster = this.effectData.target;
 				if (move.auraBooster !== this.effectData.target) return;
@@ -629,7 +629,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
 				if (!move.auraBooster) move.auraBooster = this.effectData.target;
 				if (move.auraBooster !== this.effectData.target) return;
@@ -653,7 +653,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	adaptability: {
 		onModifyMove(move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				move.stab = 2;
 			}
 		},
@@ -675,7 +675,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.aerilateBoosted) return this.chainModify([0x1333, 0x1000]);
 			}
 		},
@@ -710,7 +710,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (attacker.status === 'brn' && move.category === 'Special') {
 					return this.chainModify(1.5);
 				}
@@ -734,7 +734,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
 			}
 		},
@@ -746,7 +746,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon, source) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (source.status) {
 					return this.chainModify(1.5);
 				}
@@ -761,14 +761,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				return this.modify(atk, 1.5);
 			}
 		},
 		onSourceModifyAccuracyPriority: 7,
 		onSourceModifyAccuracy(accuracy, target, source, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.category === 'Physical' && typeof accuracy === 'number') {
 					return accuracy * 0.8;
 				}
@@ -782,7 +782,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.flags['punch']) {
 					this.debug('Iron Fist boost');
 					return this.chainModify([0x1333, 0x1000]);
@@ -807,7 +807,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
 			}
 		},
@@ -819,7 +819,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (!move || !move.flags['contact'] || move.target === 'self') return;
 				if (!move.secondaries) {
 					move.secondaries = [];
@@ -839,7 +839,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.flags['sound']) {
 					this.debug('Punk Rock boost');
 					return this.chainModify([0x14CD, 0x1000]);
@@ -870,7 +870,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
 			}
 		},
@@ -883,7 +883,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
 				for (const pokemon of this.getAllActive()) {
-					pokemon.hasAbility('aurabreak') return;
+					if (pokemon.hasAbility('aurabreak')) return;
 					if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 						this.debug('Sand Force boost');
 						return this.chainModify([0x14CD, 0x1000]);
@@ -912,7 +912,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
@@ -924,7 +924,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 					return this.chainModify(1.5);
 				}
@@ -944,7 +944,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Steel') {
 					this.debug('Steelworker boost');
 					return this.chainModify(1.5);
@@ -954,7 +954,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Steel') {
 					this.debug('Steelworker boost');
 					return this.chainModify(1.5);
@@ -969,7 +969,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.flags['bite']) {
 					return this.chainModify(1.5);
 				}
@@ -985,7 +985,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (basePowerAfterMultiplier <= 60) {
 					this.debug('Technician boost');
 					return this.chainModify(1.5);
@@ -1000,7 +1000,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.flags['contact']) {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
@@ -1014,7 +1014,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Electric') {
 					this.debug('Transistor boost');
 					return this.chainModify(1.5);
@@ -1024,7 +1024,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move, pokemon) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Electric') {
 					this.debug('Transistor boost');
 					return this.chainModify(1.5);
@@ -1050,7 +1050,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyAtk(atk, attacker, defender, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Water') {
 					return this.chainModify(2);
 				}
@@ -1058,7 +1058,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifySpA(atk, attacker, defender, move) {
 			for (const pokemon of this.getAllActive()) {
-				pokemon.hasAbility('aurabreak') return;
+				if (pokemon.hasAbility('aurabreak')) return;
 				if (move.type === 'Water') {
 					return this.chainModify(2);
 				}
