@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 683,
-		desc: "If held by a Chomplim, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Chomplim or Rhychomp, this item allows it to Mega Evolve in battle.",
 	},
 	audinite: {
 		name: "Audinite",
@@ -479,6 +479,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 667,
 		desc: "If held by a Emolggron, this item allows it to Mega Evolve in battle.",
+	},
+	venusaurite: {
+		name: "Venusaurite",
+		spritenum: 608,
+		megaStone: "Venuroar-Mega",
+		megaEvolves: "Venuroar",
+		itemUser: ["Venuroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 659,
+		desc: "If held by a Venuroar, this item allows it to Mega Evolve in battle.",
+	},
+	pinsirite: {
+		name: "Pinsirite",
+		spritenum: 602,
+		megaStone: "Pingar-Mega",
+		megaEvolves: "Pingar",
+		itemUser: ["Pingar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 671,
+		desc: "If held by a Pingar, this item allows it to Mega Evolve in battle.",
 	},
 	
 // silvino moment :jokerification:
