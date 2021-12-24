@@ -112,28 +112,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 210,
 	},
-	partypopper: {
-		onDamagingHit(damage, target, source, move) {
-			if (this.field.getTerrain().id !== 'psychicterrain') {
-				this.field.setTerrain('psychicterrain');
-			}
-		},
-		desc: "When this Pokemon is hit, Psychic Terrain begins.",
-		name: "Party Popper",
-		rating: 2,
-		num: 245,
-	},
-
-	silkspinner: {
-		onStart(source) {
-			this.field.setWeather('silkrain');
-		},
-		desc: "On switch-in, this Pokemon summons Silk Rain.",
-		name: "Silk Spinner",
-		rating: 4,
-		num: 45,
-	},
-
 	prism: {
 		isPermanent: true,
 		onTryHit(target, source, move) {

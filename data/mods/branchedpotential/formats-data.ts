@@ -291,25 +291,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
-	dragabyss: {
-		randomBattleMoves: ["dracometeor", "blizzard", "freezedry", "flipturn", "dazzlinggleam"],
-      tier: "OU",
-		doublesTier: "OU",
-      isModded: true,
-	},
-	sandaconda: {
-		randomBattleMoves: ["coil", "earthquake", "glare", "stealthrock", "stoneedge", "rest"],
-		tier: "NFE",
-	},
-	popaconda: {
-		randomBattleMoves: ["spikes", "stealthrock", "glare", "flamethrower", "expandingforce"],
-      tier: "OU",
-		doublesTier: "OU",
-      isModded: true,
-	},
 	chrienmor: {
-		randomBattleMoves: ["thrash", "defog", "explosion", "multiattack"],
-		tier: "OU",
+		randomBattleMoves: ["swordsdance", "thunderfang", "icefang", "explosion", "partingshot", "lastresort"],
+      tier: "OU",
 		doublesTier: "OU",
       isModded: true,
 	},
