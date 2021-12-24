@@ -129,23 +129,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			attacker.addVolatile('reconstruct');
+			this.boost({def: 2, spd: 2}, attacker, attacker, move);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
-		},
-		condition: {
-			duration: 2,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Reconstruct');
-			},
-			onSourceModifyDamage(damage, source, target, move) {
-				if (move.category === 'Special' || move.category === 'Physical') {
-					return this.chainModify(0.5);
-				}
-			},
 		},
 		self: {
 			onHit(pokemon) {
@@ -159,6 +148,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.setBoost(boosts);
 				this.add('-clearnegativeboost', pokemon, '[silent]');
 				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+				this.boost({def: -2, spd: -2}, pokemon);
+
 	    },
 		},
 		secondary: null,
