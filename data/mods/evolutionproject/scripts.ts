@@ -22,21 +22,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let copyMoves = newMon.copyData;
 			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
-			if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
-			for (let name of copyMoves) {
-				const learnset = this.dataCache.Learnsets[this.toID(name)].learnset; // get the learnset of each pokemon in the list
-				for (const moveid in learnset) {
-					this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+			if (copyMoves) {
+				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
+				for (const name of copyMoves) {
+					console.log(name);
+					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset; // get the learnset of each Pokémon in the list
+					for (const moveid in learnset) {
+						this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+					}
 				}
-			}
-			if (newMon.movepoolAdditions) {
-				for (const move of newMon.movepoolAdditions) {
-					this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+				if (newMon.movepoolAdditions) {
+					for (const move of newMon.movepoolAdditions) {
+						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+					}
 				}
-			}
-			if (newMon.movepoolDeletions) {
-				for (const move of newMon.movepoolDeletions) {
-					delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
+				if (newMon.movepoolDeletions) {
+					for (const move of newMon.movepoolDeletions) {
+						delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
+					}
 				}
 			}
 		}
