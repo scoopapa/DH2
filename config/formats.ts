@@ -2903,7 +2903,6 @@ export const Formats: FormatList = [
 		},
 		mod: 'evolutionproject',
 		searchShow: false,
-		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] Evolution Project VGC",
@@ -2933,7 +2932,6 @@ export const Formats: FormatList = [
 		},
 		mod: 'evolutionproject',
 		searchShow: false,
-		challengeShow: false,
 	},
 	{
 		name: "[Gen 5] Prism",
