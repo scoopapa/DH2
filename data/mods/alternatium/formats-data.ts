@@ -339,18 +339,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*zygarde: {
+	zygardewyrm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygarde10: {
+	zygardecanid: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygardecomplete: {
+	zygardegoliath: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	lycanday: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
