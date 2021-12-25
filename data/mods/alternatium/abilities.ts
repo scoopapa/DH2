@@ -530,13 +530,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	pulpup: {
 		onStart(pokemon, layers) {
 			if (pokemon.hp >= pokemon.maxhp - pokemon.maxhp / 3) {
-				pokemon.volatiles['stockpile'].layers = 1;
+				this.effectData.layers = 1;
+				this.effectData.def = 0;
+				this.effectData.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			}
 			else if (pokemon.hp <= pokemon.maxhp / 3) {
-				pokemon.volatiles['stockpile'].layers = 3;
+				this.effectData.layers = 3;
+				this.effectData.def = 2;
+				this.effectData.spd = 2;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: 3, spd: 3}, target, target);
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			}
 			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
-				pokemon.volatiles['stockpile'].layers = 2;
+				this.effectData.layers = 2;
+				this.effectData.def = 1;
+				this.effectData.spd = 1;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: 2, spd: 2}, target, target);
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			}
 		},
 		name: "Pulp Up",
