@@ -2810,7 +2810,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon's blade-based and slashing moves have power doubled against a target whose HP is full.",
 		shortDesc: "Slashing moves: doubled damage if the target has full HP.",
 		onModifyMove(critRatio, source, target, move) {
-			if (bladeMoves.includes(move.id) && move.basePower && target.hp = target.maxhp) {
+			if (bladeMoves.includes(move.id) && move.basePower && target.hp === target.maxhp) {
 				move.basePower *= 2;
 			}
 		},
