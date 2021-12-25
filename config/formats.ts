@@ -2931,6 +2931,59 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] Evolution Project",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Alakazam', 'Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const item = this.dex.getItem(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
+		},
+		mod: 'evolutionproject',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] Evolution Project VGC",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+		],
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['Standard GBU', 'VGC Timer', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const item = this.dex.getItem(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
+		},
+		mod: 'evolutionproject',
+		searchShow: false,
+	},
+	{
 		name: "[Gen 5] Prism",
 		desc: "Under Construction",
 		mod: 'prism',
