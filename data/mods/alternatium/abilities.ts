@@ -549,16 +549,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (curDef !== pokemon.boosts.def) this.effectData.def--;
 				if (curSpD !== pokemon.boosts.spd) this.effectData.spd--;
 			}
-			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
-				this.effectData.layers = 2;
-				this.effectData.def = 1;
-				this.effectData.spd = 1;
-				this.add('-start', pokemon, 'stockpile' + this.effectData.layers);
-				const [curDef, curSpD] = [pokemon.boosts.def, pokemon.boosts.spd];
-				this.boost({def: 2, spd: 2}, pokemon, pokemon);
-				if (curDef !== pokemon.boosts.def) this.effectData.def--;
-				if (curSpD !== pokemon.boosts.spd) this.effectData.spd--;
-			}
+			this.effectData.layers = 2;
+			this.effectData.def = 1;
+			this.effectData.spd = 1;
+			this.add('-start', pokemon, 'stockpile' + this.effectData.layers);
+			const [curDef, curSpD] = [pokemon.boosts.def, pokemon.boosts.spd];
+			this.boost({def: 2, spd: 2}, pokemon, pokemon);
+			if (curDef !== pokemon.boosts.def) this.effectData.def--;
+			if (curSpD !== pokemon.boosts.spd) this.effectData.spd--;
 		},
 		name: "Pulp Up",
 		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
