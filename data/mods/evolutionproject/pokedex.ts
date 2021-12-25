@@ -193,6 +193,23 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "BlueRay",
 	},
 
+	ledian: {
+		inherit: true,
+		evos: ["Lediluck"],
+	},
+	lediluck: {
+		name: "Lediluck",
+		copyData: "Ledian",
+
+		baseStats: {hp: 65, atk: 85, def: 60, spa: 65, spd: 120, spe: 105},
+		abilities: {0: "Swarm", 1: "Super Luck", H: "Iron Fist"},
+
+		prevo: "Ledian",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
 	wormadamtrash: {
 		inherit: true,
 		evos: ["Balleringue"],
@@ -221,7 +238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 66, atk: 66, def: 66, spa: 114, spd: 113, spe: 107},
-		abilities: {0: "Gluttony", 1: "Corrosion"},
+		abilities: {0: "Levitate", 1: "Corrosion", H: "Gluttony"}, // this started as a typo but has been adopted as canon
 		movepoolAdditions: ["poisongas", "toxicspikes", "venoshock"],
 
 		prevo: "Mismagius",
