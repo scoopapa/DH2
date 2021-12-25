@@ -14,6 +14,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Chansey", "Lediluck"],
 		num: 256,
 		gen: 2,
-		isNonstandard: "Null",
 	},
 };
