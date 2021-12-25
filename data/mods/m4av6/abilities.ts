@@ -2793,12 +2793,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (this.effectData.veiled) {
 				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
 				pokemon.side.addSideCondition('auroraveil');
 			}
 		},
 		onFaint(pokemon) {
 			if (this.effectData.veiled) {
 				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
 				pokemon.side.addSideCondition('auroraveil');
 			}
 		},
