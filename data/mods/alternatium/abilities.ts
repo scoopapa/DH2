@@ -528,14 +528,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1014,
 	},
 	pulpup: {
-		onStart(source, layers) {
-			if (source.hp >= source.maxhp - source.maxhp / 3) {
+		onStart(pokemon, layers) {
+			if (pokemon.hp >= pokemon.maxhp - pokemon.maxhp / 3) {
 				pokemon.volatiles['stockpile'].layers = 1;
 			}
-			else if (source.hp <= source.maxhp / 3) {
+			else if (pokemon.hp <= pokemon.maxhp / 3) {
 				pokemon.volatiles['stockpile'].layers = 3;
 			}
-			else if (source.maxhp - source.maxhp / 3 > source.hp > source.maxhp / 3) {
+			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
 				pokemon.volatiles['stockpile'].layers = 2;
 			}
 		},
