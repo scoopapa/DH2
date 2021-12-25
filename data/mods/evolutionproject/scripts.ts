@@ -24,12 +24,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
 			if (copyMoves) {
 				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
-				for (const name of copyMoves) {
-					console.log(name);
-					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset; // get the learnset of each Pokémon in the list
-					for (const moveid in learnset) {
-						this.modData('Learnsets', id).learnset[moveid] = ['8M'];
-					}
+				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
+				for (const moveid in learnset) {
+					this.modData('Learnsets', id).learnset[moveid] = ['8M'];
 				}
 				if (newMon.movepoolAdditions) {
 					for (const move of newMon.movepoolAdditions) {
