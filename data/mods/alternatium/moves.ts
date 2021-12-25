@@ -1012,9 +1012,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		onTryHit(pokemon) {
-			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
-		},
+		/*onTry(pokemon) {
+			if (!pokemon.volatiles['stockpile']) {
+				return false;
+			}
+		},*/
 		onHit(pokemon, atk, spa, layers) {
 			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
 			if (pokemon.volatiles['stockpile'].layers = 1) {
@@ -1026,6 +1028,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			else if (pokemon.volatiles['stockpile'].layers = 3) {
 				this.boost(atk: 3, spa: 3)
 			}
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('stockpile');
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
