@@ -2892,7 +2892,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (template.tier !== 'Evo!' || template.tier !== 'Evo NFE') {
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
 			}
@@ -2922,7 +2922,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (template.tier !== 'Evo!' || template.tier !== 'Evo NFE') {
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
 			}
