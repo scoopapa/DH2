@@ -872,6 +872,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 17,
 		eggGroups: ["Bug"],
+		otherFormes: null,
+		cosmeticFormes: null,
+		formeOrder: null,
 	},
 	vivillonfancy: {
 		num: 666,
@@ -882,6 +885,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 17,
 		eggGroups: ["Bug"],
+		baseSpecies: null,
+		forme: null,
+		changesFrom: null,
 	},
 	vivilloncombat: {
 		num: 666,
@@ -892,6 +898,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 17,
 		eggGroups: ["Bug"],
+		baseSpecies: null,
+		forme: null,
+		changesFrom: null,
 	},
 	aegishield: {
 		num: 681,
@@ -1361,6 +1370,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Mold Breaker", H: "Stalwart"},
 		heightm: 2.8,
 		weightkg: 355,
+		requiredItem: null,
 	},
 	zamazenta: {
 		num: 889,
@@ -1381,6 +1391,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Bulletproof", H: "Stalwart"},
 		heightm: 2.9,
 		weightkg: 785,
+		requiredItem: null,
 	},
 	eternatus: {
 		num: 890,
