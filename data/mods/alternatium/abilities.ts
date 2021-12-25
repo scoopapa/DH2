@@ -528,7 +528,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1014,
 	},
 	pulpup: {
-		onStart(pokemon) {
+		/*onStart(pokemon) {
 			if (pokemon.hp >= pokemon.maxhp - pokemon.maxhp / 3) {
 				pokemon.addVolatiles['stockpile'].layers = 1;
 			}
@@ -538,9 +538,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
 				pokemon.addVolatiles['stockpile'].layers = 2;
 			}
-		},
+		},*/
 		name: "Pulp Up",
-		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		shortDesc: "(Uncoded) On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
 		rating: 3,
 		num: 1015,
 	},
