@@ -946,7 +946,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Melchor",
 		types: ["Steel", "Water"],
 		gender: "N",
-		baseStats: {hp: 85, atk: 94, def: 108, spa: 132, spd: 108, spe: 74},
+		baseStats: {hp: 85, atk: 93, def: 108, spa: 132, spd: 108, spe: 74},
 		abilities: {0: "Holy Conduit"},
 		weightkg: 150,
 	},
