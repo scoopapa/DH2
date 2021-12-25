@@ -99,12 +99,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gardevoir: { tier: "Evo!" },
 	gallade: { tier: "Evo!" },
 
+	joltik: { tier: "Evo (NFE)" },
+	galvantula: { tier: "Evo!" },
+
 	spinarak: { tier: "Evo (NFE)" },
 	ariados: { tier: "Evo (NFE)" }, // evolves into Dolorak
 	dolorak: { tier: "Evo!" },
 
-	joltik: { tier: "Evo (NFE)" },
-	galvantula: { tier: "Evo!" },
+	ledyba: { tier: "Evo (NFE)" },
+	ledian: { tier: "Evo (NFE)" }, // evolves into Lediluck
+	lediluck: { tier: "Evo!" },
 
 	burmy: { tier: "Evo (NFE)" },
 	wormadam: { tier: "Evo!" },
