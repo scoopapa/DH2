@@ -11,7 +11,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', target, "Poison Fang", source);
+			this.add('-anim', source, "Poison Fang", target);
 		},
 		secondary: {
 			chance: 100,
