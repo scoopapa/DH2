@@ -1007,19 +1007,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile amount.",
+		shortDesc: "Boost Atk. and Sp. Atk. depending on Stockpile amount.",
 		name: "Feast",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		/*onHit(pokemon, atk, spa) {
+		onTryHit(pokemon) {
 			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
-			return this.boost(atk: 1, spa: 1) * pokemon.volatiles['stockpile'].layers;
+		},
+		onHit(pokemon, atk, spa, layers) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			if (pokemon.volatiles['stockpile'].layers = 1) {
+				this.boost(atk: 1, spa: 1)
+			}
+			else if (pokemon.volatiles['stockpile'].layers = 2) {
+				this.boost(atk: 2, spa: 2)
+			}
+			else if (pokemon.volatiles['stockpile'].layers = 3) {
+				this.boost(atk: 3, spa: 3)
+			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stockpile", target);
-		},*/
+		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
