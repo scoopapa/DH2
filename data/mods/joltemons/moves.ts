@@ -113,7 +113,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Steel",
 	},
-*/
  	reconstruct: {
 		accuracy: true,
 		basePower: 0,
@@ -152,6 +151,67 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Steel",
+	},
+*/
+	reconstruct: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Charges turn 1. Heals 50% and resets lowered stats turn 2.",
+		name: "Reconstruct",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, heal: 1},
+		volatileStatus: 'reconstruct',
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Recover", target);
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['reconstruct']) return true;
+		},
+		condition: {
+			duration: 2,
+			onLockMove: 'reconstruct',
+			onStart(pokemon) {
+				this.effectData.totalDamage = 0;
+				this.add('-start', pokemon, 'move: Reconstruct');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.category === 'Special' || move.category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+			onBeforeMove(pokemon, target, move) {
+				if (this.effectData.duration === 1) {
+					this.add('-end', pokemon, 'move: Reconstruct');
+					const moveData: Partial<ActiveMove> = {
+						id: 'reconstruct' as ID,
+						name: "Reconstruct",
+						accuracy: true,
+						category: "Status",
+						priority: 1,
+						flags: {charge: 1, heal: 1},
+						heal: [1, 2],
+						effectType: 'Move',
+						type: 'Steel',
+					};
+					this.tryMoveHit(target, pokemon, moveData as ActiveMove);
+					return false;
+				}
+				this.add('-activate', pokemon, 'move: Reconstruct');
+			},
+			onMoveAborted(pokemon) {
+				pokemon.removeVolatile('reconstruct');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Reconstruct', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		contestType: "Tough",
 	},
  	focusblast: {
 		num: 411,
