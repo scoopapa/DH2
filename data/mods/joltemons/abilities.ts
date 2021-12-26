@@ -336,7 +336,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
-			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
@@ -346,6 +345,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					delete target.volatiles['slowstart'];
 					this.add('-end', target, 'Slow Start', '[silent]');
 				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Levitate');
+				return null;
 			}
 		},
 		onEnd(source) {
