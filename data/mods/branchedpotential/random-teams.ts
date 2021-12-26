@@ -1689,7 +1689,7 @@ export class RandomTeams {
 	
 				// Adjust rate for species with multiple sets
 				switch (species.baseSpecies) {
-				case 'Arceus': case 'Silvally':
+				case 'Arceus': case 'Silvally': case 'Chrienmor':
 					if (this.randomChance(8, 9)) continue;
 					break;
 				case 'Aegislash': case 'Basculin': case 'Gourgeist': case 'Meloetta':
