@@ -549,7 +549,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
-			if (item.id !== 'boomerang') {
+			if (item.id && item.id !== 'boomerang') {
 				return this.chainModify(1.5);
 			}
 		},
