@@ -3769,7 +3769,138 @@ lifedrain: {
 		rating: 0,
 		num: 161,
 	},
+	exoskeleton: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-activate', pokemon, 'ability: Exoskeleton');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Exoskeleton');
+			}
+			return false;
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Exoskeleton');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "Exoskeleton",
+		shortDesc: "Mold Breaker + Immunity",
+	},
+	bulletpecks: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet'] || move.name === 'Crunch' || move.name === 'Crush Claw' || move.name === 'Fire Lash' || move.name === 'Grav Apple' || move.name === 'Iron Tail' || move.name === 'Leer' || move.name === 'Liquidation' || move.name === 'Octolock' || move.name === 'Razor Shell' || move.name === 'Rock Smash' || move.name === 'Screech' || move.name === 'Secret Power' || move.name === 'Shadow Bone' || move.name === 'Tail Whip' || move.name === 'Thunderous Kick' || move.name === 'Tickle') {
+				this.add('-immune', pokemon, '[from] ability: Bulletpecks');
+				return null;
+			}
+		},
+		name: "Bulletpecks",
+		shortDesc: "This Pokemon is immune to ballistic moves and moves that lower Defense.",
+	},
+	floatguise: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' &&
+				['mimikyu', 'mimikyutotem', 'rotokyu'].includes(target.species.id) && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Float Guise');
+				this.effectData.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (!['mimikyu', 'rotokyu'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
 
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (!['mimikyu', 'rotokyu'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (['mimikyu', 'rotokyu'].includes(pokemon.species.id) && this.effectData.busted) {
+				const speciesid = pokemon.species.id === 'rotokyu' ? 'Rotokyu-Busted' : 'Mimikyu-Busted';
+				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				this.add('-immune', target, '[from] ability: Float Guise');
+				return null;
+			}
+		},
+		name: "Float Guise",
+		shortDesc: "Disguise + Levitate",
+	},
+	ragingrapids: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
+				this.boost({atk: 1});
+			}
+		},
+		name: "Raging Rapids",
+		shortDesc: "This Pokemon's Attack is raised by 1 stage if it KOes another Pokemon or falls below 1/3 of its max HP.",
+	},
+	ultrapresto: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Ultra Presto', '[of] ' + target);
+			}
+		},
+		name: "Ultra Presto",
+		shortDesc: "Magician + Beast Boost",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit

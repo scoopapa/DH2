@@ -87,6 +87,7 @@ Main's SSL deploy script from Let's Encrypt looks like:
  * @type {false | string[]}.
  */
 exports.proxyip = false;
+exports.isTrustedProxyIp = ip => ["::1", "127.0.0.1"].includes(ip);
 
 /**
  * Various debug options

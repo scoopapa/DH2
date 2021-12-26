@@ -599,4 +599,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1029,
 	},
+
+	dryice: {
+		shortDesc: "Burns the target when landing a critical hit.",
+		onSourceHit(target, source, move) {
+			if (!target.hp) return;
+			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
+				target.trySetStatus('brn', source);
+			}
+		},
+		name: "Dry Ice",
+		rating: 4,
+		num: -1030,
+	},
 };

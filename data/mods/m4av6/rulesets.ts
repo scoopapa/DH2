@@ -217,7 +217,17 @@ export const Formats: {[k: string]: FormatData} = {
 					species = this.dex.getSpecies("Mimikyu-Busted-Mega");
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
-				if (!typeTable.length) return [`Your team must share a type.`];
+				if (item.id === "rksmegamemory" && species.baseSpecies === "Silvally") {
+					let silvally = 'Silvally';
+					if (set.hpType) {
+						silvally = 'Silvally-' + set.hpType;
+					} else {
+						silvally = 'Silvally-' + this.dex.getHiddenPower(set.ivs).type;
+					}
+					species = this.dex.getSpecies(silvally);
+					typeTable = typeTable.filter(type => species.types.includes(type));
+					if (!typeTable.length) return [`Your team must share a type.`];
+				}
 			}
 		},
 	},

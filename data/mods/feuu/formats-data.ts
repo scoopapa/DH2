@@ -1052,7 +1052,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	rhybite: {
-		tier: "FERU",
+		tier: "FENFE",
 		doublesTier: "DUU",
 		randomBattleMoves: ["stealthrock", "highhorsepower", "dragonclaw", "stoneedge"],
 		randomBattleLevel: 79,
@@ -1317,6 +1317,64 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	darmanitanprime: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rhychomp: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rhychompmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Garchompite",
+	},
+	zarapex: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pingar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pingarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Pinsirite",
+	},
+	kommotot: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rotokyu: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	krookogatr: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	venuroar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	venuroarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Venusaurite",
+	},
+	klefilego: {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleLevel: 79,

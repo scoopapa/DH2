@@ -56,6 +56,64 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+/*
+ 	reconstruct: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "(Bugged) Charges turn 1. Heals 50% and resets lowered stats turn 2.",
+		name: "Reconstruct",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, heal: 1},
+ 		heal: [1, 2],
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('reconstruct');
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Reconstruct');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.category === 'Special' || move.category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+			onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('reconstruct');
+		},
+		self: {
+			onHit(pokemon) {
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+	    },
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
+*/
  	reconstruct: {
 		accuracy: true,
 		basePower: 0,
@@ -224,7 +282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	counterspell: {
 		accuracy: 100,
-		basePower: 100,
+		basePower: 110,
 		category: "Special",
     shortDesc: "Uses target's SpA stat in damage calculation. Fails if the target switches out or moves last.",
 		name: "Counterspell",
@@ -234,9 +292,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Psybeam", target);
-		},
-		onTryHit(target, source, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) return false;
 		},
 		useTargetOffensive: true,
 		secondary: null,
@@ -255,8 +310,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
  		onPrepareHit: function(target, source, move) {
 		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Swords Dance", source);
-		  this.add('-anim', source, "Wild Charge", target);
+		  this.add('-anim', source, "Charge", target);
+		  this.add('-anim', source, "Sacred Sword", target);
 		},
 		self: {
 			boosts: {
@@ -267,6 +322,89 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		contestType: "Cool",
+	},
+	lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Heals the user by 50% of its max HP.",
+		name: "Life Dew",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, authentic: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "allies",
+		type: "Water",
+	},
+	trashtalk: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "Prevents the target from using status moves for 1 turn.",
+		name: "Trash Talk",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Confide", target);
+		  this.add('-anim', source, "Gunk Shot", target);
+		},
+		volatileStatus: 'trashtalk',
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Trash Talk');
+			},
+			onResidualOrder: 12,
+			onEnd(target) {
+				this.add('-end', target, 'move: Trash Talk');
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Trash Talk', move);
+					return false;
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	deafeningshriek: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+    shortDesc: "Target becomes immune to sound moves after being hit.",
+		name: "Deafening Shriek",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Hyper Voice", target);
+		  this.add('-anim', source, "Boomburst", target);
+		},
+		volatileStatus: 'deafeningshriek',
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Deafening Shriek');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (move.target !== 'self' && move.flags['sound']) {
+					this.add('-immune', target, '[from] move: Deafening Shriek');
+					return null;
+				}
+			},
+		},
+		target: "normal",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 	

@@ -129,6 +129,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
 			return "Cleracross-Mega"; 
 		}
+		if (item.name === "Garchompite" && pokemon.baseSpecies.name === "Rhychomp") {
+			return "Rhychomp-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
@@ -282,6 +285,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Lighthearted');
 						} else if (this.hasAbility('clearlyfloating')) {
 							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
+						} else if (this.hasAbility('floatguise')) {
+							this.battle.add('-immune', this, '[from] ability: Float Guise');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
