@@ -27,42 +27,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	chariumz: {
-		name: "Charium Z",
-		spritenum: 656,
-		onTakeItem: false,
-		zMove: "Baleful Blaze",
-		zMoveFrom: "Flamethrower",
-		itemUser: ["Charizard"],
-		num: -454,
-	},
 	exploudite: {
 		name: "Exploudite",
 		megaStone: "Exploud-Mega",
 		megaEvolves: "Exploud",
 		itemUser: ["Exploud"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,			
-	},
-	obstagoonite: {
-		name: "Obstagoonite",
-		megaStone: "Obstagoon-Mega",
-		megaEvolves: "Obstagoon",
-		itemUser: ["Obstagoon"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -690,			
-	},
-	dodrionite: {
-		name: "Dodrionite",
-		megaStone: "Dodrio-Mega",
-		megaEvolves: "Dodrio",
-		itemUser: ["Dodrio"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;

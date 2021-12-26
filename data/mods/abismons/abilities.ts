@@ -4697,25 +4697,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -6038,
 	},
-	echo: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.id === 'assist' || move.id === 'copycat' || move.id === 'mirror move' || move.id === 'metronome' || move.id === 'mimic' || move.id === 'mefirst' || move.id === 'sleep talk' || move.id === 'naturepower' ) {
-				this.debug('EchoBoost');
-				return this.chainModify(2);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.id === 'assist' || move.id === 'copycat' || move.id === 'mirror move' || move.id === 'metronome' || move.id === 'mimic' || move.id === 'mefirst' || move.id === 'sleep talk' || move.id === 'naturepower' ) {
-				this.debug('EchoBoost');
-				return this.chainModify(2);
-			}
-		},
-		name: "Echo",
-		rating: 3.5,
-		num: 263,
-	},
 	threshold: {
 		onStart(pokemon) {
 			this.boost({def: 2}, pokemon);
