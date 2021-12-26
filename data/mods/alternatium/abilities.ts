@@ -528,15 +528,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1014,
 	},
 	pulpup: {
-		/*onStart(source) {
-			if (source.hp >= source.maxhp - source.maxhp / 3) {
-				this.useMove('stockpile', source);
+		/*onStart(pokemon) {
+			if (pokemon.hp >= pokemon.maxhp - pokemon.maxhp / 3) {
+				pokemon.addVolatiles['stockpile'].layers = 1;
 			}
-			else if (source.hp <= source.maxhp / 3) {
-				this.useMove('stockpile', source) * 3;
+			else if (pokemon.hp <= pokemon.maxhp / 3) {
+				pokemon.addVolatiles['stockpile'].layers = 3;
 			}
-			else if (source.maxhp - source.maxhp / 3 > source.hp > source.maxhp / 3) {
-				this.useMove('stockpile', source) * 2;
+			else if (pokemon.maxhp - pokemon.maxhp / 3 > pokemon.hp > pokemon.maxhp / 3) {
+				pokemon.addVolatiles['stockpile'].layers = 2;
 			}
 		},*/
 		name: "Pulp Up",
