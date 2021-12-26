@@ -909,31 +909,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
-	relicsong: {
+	relicsongmeloetta: {
 		num: 547,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. If Meloetta: Psychic-type + Hits Dark-types super effectively.",
-		name: "Relic Song",
+		shortDesc: "10% chance to sleep. Hits Dark-types super effectively.",
+		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onModifyType(move, pokemon) {
-			if (pokemon.species.id !== 'meloetta') return;
-			move.type = 'Psychic';
-			move.ignoreImmunity = {'Psychic': true};
-		},
+		ignoreImmunity: {'Psychic': true},
 		onEffectiveness(typeMod, target, type) {
-			if (pokemon.species.id !== 'meloetta') return;
 			if (type === 'Dark') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Relic Song", target);
 		},
 		secondary: {
 			chance: 10,
 			status: 'slp',
 		},
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Psychic",
 		contestType: "Beautiful",
 	},
 	rockyslash: {
@@ -1008,7 +1007,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile.",
+		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile amount.",
 		name: "Feast",
 		pp: 10,
 		priority: 0,
@@ -1067,5 +1066,100 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Poison",
+	},
+	lightblast: {
+		num: 1013,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		name: "Light Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		useSourceDefensiveAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+	},
+	aurawheel: {
+		num: 783,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		shortDesc: "Raises the user's Speed by 1.",
+		name: "Aura Wheel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	thousandarrows: {
+		num: 614,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes. First hit neutral on Flying.",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		multihit: [3, 6],
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		volatileStatus: 'smackdown',
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	thousandwaves: {
+		num: 463,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		name: "Thousand Waves",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	landswrath: {
+		num: 616,
+		accuracy: 95,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "User recovers 25% of the damage dealt.",
+		name: "Land's Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Beautiful",
 	},
 };

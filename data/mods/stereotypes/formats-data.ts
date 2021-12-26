@@ -223,7 +223,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "ST",
 	},
 	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
-	
+	volcarupt: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	muabboa: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	witchwach: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
 	
 	
 	//LC Slate 1

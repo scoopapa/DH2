@@ -445,7 +445,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				atk: -2,
 			},
 		},
-		shortDesc: "Lowers the user's Attack by one.",
+		shortDesc: "Lowers the user's Attack by two.",
 		onPrepareHit: function(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Rock Slide", target);
@@ -722,13 +722,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let result = false;
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('waterabsorb')) {
+					result = true;
 					if (pokemon.hp === pokemon.maxHP) {
 						this.add('-immune', pokemon, '[from] ability: Water Absorb');
 					} else {
-						this.add('-ability', pokemon, 'Water Absorb');
-						this.heal(this.modify(pokemon.baseMaxhp, 0.75));
+						pokemon.heal(this.modify(pokemon.baseMaxhp, 0.75));
+						this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Water Absorb');
 					}
 				} else if (pokemon.hasAbility('stormdrain')) {
+					result = true;
 					if (pokemon.boosts.spa >= 6) {
 						this.add('-immune', pokemon, '[from] ability: Storm Drain');
 					} else {

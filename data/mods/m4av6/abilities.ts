@@ -1398,31 +1398,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -37,
 	},
 	summerdays: {
-		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
-		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe >= Sp. Atk.",
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same and it does not lose any HP.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn.",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) &&
-				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (target.getStat('spa', false, true) > target.getStat('spe', false, true)) {
-				if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-					this.damage(target.baseMaxhp / 8, target, target);
-				}
-			}
-		},
-		onModifySpe(spe, pokemon) {
-			if ((pokemon.getStat('spe', false, true) >= pokemon.getStat('spa', false, true)) &&
-				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(2);
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
 		name: "Summer Days",
-		rating: 4,
+		rating: 2,
 		num: -38,
 	},
 	autumnleaves: {
@@ -2787,5 +2778,46 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Agitate",
 		rating: 3,
 		num: -75,
+	},
+	snowflake: {
+		desc: "After this Pokémon takes damage from a Rock-type move, including Stealth Rock, it also sets up Aurora Veil regardless of the current weather. It can still set an Aurora Veil even if the damage knocks it out.",
+		shortDesc: "Sets up Aurora Veil after taking Rock damage, Stealth Rock - even if it faints.",
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && ((effect.effectType === 'Move' && effect.type === 'Rock') || (effect.id === 'stealthrock'))
+			) {
+				this.effectData.veiled = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (this.effectData.veiled) {
+				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
+				pokemon.side.addSideCondition('auroraveil');
+			}
+		},
+		onFaint(pokemon) {
+			if (this.effectData.veiled) {
+				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
+				pokemon.side.addSideCondition('auroraveil');
+			}
+		},
+		name: "Snowflake",
+		rating: 3.5,
+		num: -76,
+	},
+	lethality: {
+		desc: "This Pokémon's blade-based and slashing moves have power doubled against a target whose HP is full.",
+		shortDesc: "Slashing moves: doubled damage if the target has full HP.",
+		onModifyMove(critRatio, source, target, move) {
+			if (bladeMoves.includes(move.id) && move.basePower && target.hp === target.maxhp) {
+				move.basePower *= 2;
+			}
+		},
+		name: "Lethality",
+		rating: 3.5,
+		num: -77,
 	},
 };

@@ -5,12 +5,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Chomplim-Mega",
 		megaEvolves: "Chomplim",
 		itemUser: ["Chomplim"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 683,
-		desc: "If held by a Chomplim, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Chomplim or Rhychomp, this item allows it to Mega Evolve in battle.",
 	},
 	audinite: {
 		name: "Audinite",
@@ -134,12 +131,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Ninjacross-Mega",
 		megaEvolves: "Ninjacross",
 		itemUser: ["Ninjacross"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 680,
-		desc: "If held by a Ninjacross, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Ninjacross or Cleracross, this item allows it to Mega Evolve in battle.",
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -453,6 +447,106 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 756,
 		desc: "If held by a Galsola, this item allows it to Mega Evolve in battle.",
+	},
+	sharpedonite: {
+		name: "Sharpedonite",
+		spritenum: 619,
+		megaStone: "Sharpiskorch-Mega",
+		megaEvolves: "Sharpiskorch",
+		itemUser: ["Sharpiskorch"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 759,
+		desc: "If held by a Sharpiskorch, this item allows it to Mega Evolve in battle.",
+	},
+	aggronite: {
+		name: "Aggronite",
+		spritenum: 578,
+		megaStone: "Emolggron-Mega",
+		megaEvolves: "Emolggron",
+		itemUser: ["Emolggron"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 667,
+		desc: "If held by a Emolggron, this item allows it to Mega Evolve in battle.",
+	},
+	venusaurite: {
+		name: "Venusaurite",
+		spritenum: 608,
+		megaStone: "Venuroar-Mega",
+		megaEvolves: "Venuroar",
+		itemUser: ["Venuroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 659,
+		desc: "If held by a Venuroar, this item allows it to Mega Evolve in battle.",
+	},
+	pinsirite: {
+		name: "Pinsirite",
+		spritenum: 602,
+		megaStone: "Pingar-Mega",
+		megaEvolves: "Pingar",
+		itemUser: ["Pingar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 671,
+		desc: "If held by a Pingar, this item allows it to Mega Evolve in battle.",
+	},
+	stick: {
+		name: "Stick",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'fetchey') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 259,
+		gen: 2,
+		desc: "If held by Fetchey: +2 crit ratio.",
+	},
+	leek: {
+		name: "Leek",
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		onModifyCritRatio(critRatio, user) {
+			if (["fetchey"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 259,
+		gen: 8,
+		desc: "If held by Fetchey: +2 crit ratio.",
+	},
+	luckypunch: {
+		name: "Lucky Punch",
+		spritenum: 261,
+		fling: {
+			basePower: 40,
+		},
+		onModifyCritRatio(critRatio, user) {
+			if (user.baseSpecies.name === 'Fetchey') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Fetchey"],
+		num: 256,
+		gen: 2,
+		desc: "If held by Fetchey: +2 crit ratio.",
 	},
 	
 // silvino moment :jokerification:

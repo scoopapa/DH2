@@ -503,7 +503,30 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 426,
 	},
 	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
-	
+	volcarupt: {
+		num: 1051,
+		name: "Volcarupt",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 120, atk: 115, def: 71, spa: 100, spd: 89, spe: 40},
+		abilities: {0: "Sand Rush", 1: "Heatproof", H: "Regenerator"},
+		weightkg: 517,
+	},
+	muabboa: {
+		num: 1052,
+		name: "Muab\u2019Boa",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 75, atk: 110, def: 75, spa: 65, spd: 85, spe: 120},
+		abilities: {0: "Inner focus", 1: "Anticipation", H: "Sand Rush"},
+		//weightkg: Weight,
+	},
+	witchwach: {
+		num: 1053,
+		name: "Witchwach",
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 105, atk: 100, def: 85, spa: 100, spd: 95, spe: 70},
+		abilities: {0: "Telepathy", 1: "Light Metal", H: "Magician"},
+		weightkg: 71,
+	},
 	/*
 	template: {
 		num: 1000,

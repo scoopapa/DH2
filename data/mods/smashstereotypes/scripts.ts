@@ -69,25 +69,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 		
 		
-		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8M"];
-		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8M"];
-		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8M"];
+		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8L1"];
+		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8L1"];
+		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8L1"];
 		
 		
-		this.modData('Learnsets', 'arcanine').learnset.nobleroar = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.hypervoice = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.dragonragesylve = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.flamewheelsylve = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.incineratesylve = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.mudslapsylve = ["8M"];
-		this.modData('Learnsets', 'arcanine').learnset.stormstrike = ["8M"];
+		this.modData('Learnsets', 'arcanine').learnset.nobleroar = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.hypervoice = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.dragonragesylve = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.flamewheelsylve = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.incineratesylve = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.mudslapsylve = ["8L1"];
+		this.modData('Learnsets', 'arcanine').learnset.stormstrike = ["8L1"];
 		delete this.modData('Learnsets', 'arcanine').learnset.mudslap;
 		delete this.modData('Learnsets', 'arcanine').learnset.incinerate;
 		delete this.modData('Learnsets', 'arcanine').learnset.flamewheel;
 		delete this.modData('Learnsets', 'arcanine').learnset.dragonrage;
 		
-		this.modData('Learnsets', 'frosmoth').learnset.moonlight = ["8M"];
-		this.modData('Learnsets', 'frosmoth').learnset.thunderbolt = ["8M"];
+		this.modData('Learnsets', 'frosmoth').learnset.moonlight = ["8L1"];
+		this.modData('Learnsets', 'frosmoth').learnset.thunderbolt = ["8L1"];
+		
+		
+		this.modData('Learnsets', 'ludicolo').learnset.recover = ["8L1"];
+		this.modData('Learnsets', 'ludicolo').learnset.rapidspin = ["8L1"];
+		delete this.modData('Learnsets', 'ludicolo').learnset.leechseed;
+		delete this.modData('Learnsets', 'ludicolo').learnset.hydropump;
 	},
 	
 	teambuilderConfig: {

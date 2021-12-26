@@ -227,9 +227,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1002,
 	},
 	watercycle: {
-		onBasePower(basePower, attacker, defender, move) {
-			if (defender.volatiles['partiallytrapped']) {
-				return this.chainModify(1.3);
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (defender.volatiles['partiallytrapped']) {
+					return this.chainModify(1.3);
+				}
 			}
 		},
 		name: "Water Cycle",
@@ -249,10 +252,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyAtk(atk, source, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Pack Leader boost');
-				return this.chainModify(1.3);
+		onModifyAtk(atk, source, target, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					this.debug('Pack Leader boost');
+					return this.chainModify(1.3);
+				}
 			}
 		},
 		name: "Pack Leader",
@@ -334,8 +340,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -2,
 	},
 	lifegem: {
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify(1.3);
+		onModifyDamage(damage, source, target, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				return this.chainModify(1.3);
+			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
@@ -377,22 +386,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
 		rating: 3,
 		num: 1009,
-   },
-   shadowworld: {
+	},
+	shadowworld: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Shadow World');
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
-			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
-				if (!move.auraBooster) move.auraBooster = this.effectData.target;
-				if (move.auraBooster !== this.effectData.target) return;
-				return this.chainModify(1.2);
-			}
-			else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
-				if (!move.auraBooster) move.auraBooster = this.effectData.target;
-				if (move.auraBooster !== this.effectData.target) return;
-				return this.chainModify(0.8);
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
+					if (!move.auraBooster) move.auraBooster = this.effectData.target;
+					if (move.auraBooster !== this.effectData.target) return;
+					return this.chainModify(1.2);
+				}
+				else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
+					if (!move.auraBooster) move.auraBooster = this.effectData.target;
+					if (move.auraBooster !== this.effectData.target) return;
+					return this.chainModify(0.8);
+				}
 			}
 		},
 		isUnbreakable: true,
@@ -581,5 +593,512 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Takes 2x damage from Fire and 0.5x damage from Water. Immune to flinch.",
 		rating: 3,
 		num: 248,
+	},
+	washup: {
+		onStart(source) {
+			this.field.addPseudoWeather('watersport');
+		},
+		name: "Wash Up",
+		shortDesc: "On switch-in, this Pokemon summons the Water Sport effect.",
+		rating: 2,
+		num: 1017,
+	},
+	darkaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Dark Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(1.33);
+			}
+		},
+		isUnbreakable: true,
+		name: "Dark Aura",
+		rating: 3,
+		num: 186,
+	},
+	fairyaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Fairy Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
+				return this.chainModify(1.33);
+			}
+		},
+		isUnbreakable: true,
+		name: "Fairy Aura",
+		rating: 3,
+		num: 187,
+	},
+	aurabreak: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Aura Break');
+		},
+		name: "Aura Break",
+		shortDesc: "This Pokemon ignores the effects certain Abilities of other Pokemon have on their moves.",
+		rating: 2.5,
+		num: 188,
+	},
+	adaptability: {
+		onModifyMove(move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				move.stab = 2;
+			}
+		},
+		name: "Adaptability",
+		rating: 4,
+		num: 91,
+	},
+	aerilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Flying';
+				move.aerilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.aerilateBoosted) return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Aerilate",
+		rating: 4,
+		num: 185,
+	},
+	analytic: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, source, target) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				let boosted = true;
+				for (const target of this.getAllActive()) {
+					if (target === source) continue;
+					if (this.queue.willMove(target)) {
+						boosted = false;
+						break;
+					}
+				}
+				if (boosted) {
+					this.debug('Analytic boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		name: "Analytic",
+		rating: 2.5,
+		num: 148,
+	},
+	flareboost: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (attacker.status === 'brn' && move.category === 'Special') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Flare Boost",
+		rating: 2,
+		num: 138,
+	},
+	galvanize: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Galvanize",
+		rating: 4,
+		num: 206,
+	},
+	guts: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon, source) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (source.status) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Guts",
+		rating: 3,
+		num: 62,
+	},
+	hustle: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				return this.modify(atk, 1.5);
+			}
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.category === 'Physical' && typeof accuracy === 'number') {
+					return accuracy * 0.8;
+				}
+			}
+		},
+		name: "Hustle",
+		rating: 3.5,
+		num: 55,
+	},
+	ironfist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.flags['punch']) {
+					this.debug('Iron Fist boost');
+					return this.chainModify([0x1333, 0x1000]);
+				}
+			}
+		},
+		name: "Iron Fist",
+		rating: 3,
+		num: 89,
+	},
+	pixilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Fairy';
+				move.pixilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Pixilate",
+		rating: 4,
+		num: 182,
+	},
+	poisontouch: {
+		// upokecenter says this is implemented as an added secondary effect
+		onModifyMove(move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (!move || !move.flags['contact'] || move.target === 'self') return;
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				move.secondaries.push({
+					chance: 30,
+					status: 'psn',
+					ability: this.dex.getAbility('poisontouch'),
+				});
+			}
+		},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	punkrock: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.flags['sound']) {
+					this.debug('Punk Rock boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound']) {
+				this.debug('Punk Rock weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Punk Rock",
+		rating: 3.5,
+		num: 244,
+	},
+	refrigerate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ice';
+				move.refrigerateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Refrigerate",
+		rating: 4,
+		num: 174,
+	},
+	sandforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('aurabreak')) return;
+					if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+						this.debug('Sand Force boost');
+						return this.chainModify([0x14CD, 0x1000]);
+					}
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Force",
+		rating: 2,
+		num: 159,
+	},
+	sheerforce: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Sheer Force",
+		rating: 3.5,
+		num: 125,
+	},
+	solarpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Solar Power",
+		rating: 2,
+		num: 94,
+	},
+	steelworker: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Steel') {
+					this.debug('Steelworker boost');
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Steel') {
+					this.debug('Steelworker boost');
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Steelworker",
+		rating: 3.5,
+		num: 200,
+	},
+	strongjaw: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.flags['bite']) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Strong Jaw",
+		rating: 3,
+		num: 173,
+	},
+	technician: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (basePowerAfterMultiplier <= 60) {
+					this.debug('Technician boost');
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Technician",
+		rating: 3.5,
+		num: 101,
+	},
+	toughclaws: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.flags['contact']) {
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		name: "Tough Claws",
+		rating: 3.5,
+		num: 181,
+	},
+	transistor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Electric') {
+					this.debug('Transistor boost');
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move, pokemon) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Electric') {
+					this.debug('Transistor boost');
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
+	},
+	waterbubble: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Water') {
+					return this.chainModify(2);
+				}
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('aurabreak')) return;
+				if (move.type === 'Water') {
+					return this.chainModify(2);
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Bubble');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Bubble');
+			}
+			return false;
+		},
+		name: "Water Bubble",
+		rating: 4.5,
+		num: 199,
+	},
+	powerconstruct: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Power Construct boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Power Construct boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Power Construct",
+		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Dragon attacks.",
+		rating: 2,
+		num: 211,
 	},
 };

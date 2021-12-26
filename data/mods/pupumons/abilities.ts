@@ -105,7 +105,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1003,
 	},
 	invader: {
-		onStart(pokemon) {
+		onStart(source) {
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;
@@ -115,16 +115,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					bestStat = source.storedStats[s];
 				}
 			}
-			this.boost({[statName]: length}, source);
+			this.boost({[statName]: 1}, source);
 		},
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) { //should stay if vacuum weather is active
-			if (pokemon.activeTurns) {
+			if (['vacuum'].includes(pokemon.effectiveWeather())) {
+				return;
+			}
+			if (pokemon.activeTurns === 1) {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
-				this.boost({s: -1});
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = pokemon.storedStats[s];
+					}
+				}
+				this.boost({[statName]: -1}, pokemon);
 			}
 		},
 		name: "Invader",
@@ -157,5 +166,66 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 3,
 		shortDesc: "-1 speed at the end of every turn.",
+	},
+	darkgiant: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.hp === attacker.maxhp) {
+				this.debug('Dark Giant boost');
+				return this.chainModify(1.5);
+			} else if (attacker.hp > attacker.maxhp * (3/4)) {
+				this.debug('Dark Giant boost');
+				return this.chainModify(1.25);
+			} else if (attacker.hp > attacker.maxhp / 2) {
+				this.debug('Dark Giant boost');
+				return this.chainModify(1.1);
+			} else if (attacker.hp > attacker.maxhp / 4) {
+				this.debug('Dark Giant boost');
+				return;
+			}
+			return this.chainModify(0.75);
+		},
+		name: "Dark Giant",
+		rating: 3,
+		num: 3,
+		shortDesc: "More powerful with higher current HP; weaker with lower HP.",
+	},
+	putrid: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.status || defender.hasAbility('comatose')) {
+				this.debug('Putrid boost');
+				return this.chainModify(1.5);
+			}
+			return move.basePower;
+		},
+		name: "Putrid",
+		rating: 4,
+		num: 110,
+		shortDesc: "Deals 1.5x damage to statused opponents.",
+	},
+	arrogant: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Arrogant boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Arrogant",
+		rating: 4,
+		num: 110,
+		shortDesc: "Deals 1.3x damage to opponents of the same type.",
+	},
+	pretentious: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.getTypes) {
+				this.debug('Arrogant boost');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Pretentious",
+		rating: 4,
+		num: 110,
+		shortDesc: "Takes 0.75x damage from opponents of the same type.",
 	},
 };

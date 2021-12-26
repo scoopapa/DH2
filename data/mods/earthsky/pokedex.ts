@@ -528,7 +528,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.9,
 		weightkg: 66.6,
 		prevo: "Trigenee",
-		evoLevel: 23,
+		evoLevel: 27,
 		evos: ["Hektillion"],
 		eggGroups: ["Human-Like"],
 	},
@@ -541,7 +541,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.9,
 		weightkg: 133.9,
 		prevo: "Hexyon",
-		evoLevel: 39,
+		evoLevel: 54,
 		eggGroups: ["Human-Like"],
 	},
 	termill: {
@@ -1781,11 +1781,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	finneon: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Storm Drain", H: "Dazzling"},
+		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
 	lumineon: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Storm Drain", H: "Dazzling"},
+		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
 	tangrowth: {
 		inherit: true,
@@ -2012,6 +2012,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Competitive"},
 	},
+	greninja: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Protean"},
+	},
 	spritzee: {
 		inherit: true,
 		abilities: {0: "Healer", 1: "Aroma Veil", H: "Misty Surge"},
@@ -2069,6 +2073,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate", H: "Galvanize"},
 		evoType: "levelExtra",
 		evoCondition: "near a special magnetic field",
+	},
+	rockruff: {
+		num: 744,
+		name: "Rockruff",
+		types: ["Rock"],
+		baseStats: {hp: 45, atk: 65, def: 40, spa: 30, spd: 40, spe: 60},
+		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "Steadfast"},
+		heightm: 0.5,
+		weightkg: 9.2,
+		color: "Brown",
+		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Twilight"],
+		eggGroups: ["Field"],
 	},
 	lycanroctwilight: {
 		num: 745,
@@ -2491,6 +2507,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 	},
+	klink: { //hardcoding Induction because I don't want to add a check to the algo that only affects these three
+		inherit: true,
+		abilities: {0: "Induction", H: "Clear Body"},
+	},
+	klang: { 
+		inherit: true,
+		abilities: {0: "Induction", H: "Clear Body"},
+	},
+	klinklang: { 
+		inherit: true,
+		abilities: {0: "Induction", H: "Clear Body"},
+	},
 	xerneas: {
 		num: 716,
 		name: "Xerneas",
@@ -2515,5 +2543,225 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 893,
 		isNonstandard: "Past",
+	},
+	//CAP
+	syclant: {
+		inherit: true,
+		abilities: {0: "Compound Eyes", 1: "Limber", H: "Ice Body"},
+	},
+	revenankh: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Air Lock", H: "Soul Drain"},
+	},
+	nohface: { //Everything here and below is renumbering because some cowards wanted to put finalized prevos at the end
+		inherit: true,
+		number: -14,
+	},
+	kitsunoh: {
+		inherit: true,
+		number: -15,
+	},
+	monohm: {
+		inherit: true,
+		number: -16,
+	},
+	duohm: {
+		inherit: true,
+		number: -17,
+	},
+	cyclohm: {
+		inherit: true,
+		number: -18,
+	},
+	dorsoil: {
+		inherit: true,
+		number: -19,
+	},
+	colossoil: {
+		inherit: true,
+		number: -20,
+		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
+	},
+	protowatt: {
+		inherit: true,
+		number: -21,
+	},
+	krilowatt: {
+		inherit: true,
+		number: -22,
+	},
+	voodoll: {
+		inherit: true,
+		number: -23,
+	},
+	voodoom: {
+		inherit: true,
+		number: -24,
+	},
+	scratchet: {
+		inherit: true,
+		number: -25,
+	},
+	tomohawk: {
+		inherit: true,
+		number: -26,
+	},
+	necturine: {
+		inherit: true,
+		number: -27,
+		abilities: {0: "Forewarn", H: "Telepathy"},
+	},
+	necturna: {
+		inherit: true,
+		number: -28,
+	},
+	mollux: {
+		inherit: true,
+		number: -29,
+	},
+	cupra: {
+		inherit: true,
+		number: -30,
+	},
+	argalis: {
+		inherit: true,
+		number: -31,
+	},
+	aurumoth: {
+		inherit: true,
+		number: -32,
+	},
+	brattler: {
+		inherit: true,
+		number: -33,
+	},
+	malaconda: {
+		inherit: true,
+		number: -34,
+	},
+	cawdet: {
+		inherit: true,
+		number: -35,
+	},
+	cawmodore: {
+		inherit: true,
+		number: -36,
+	},
+	volkritter: {
+		inherit: true,
+		number: -37,
+		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
+	},
+	volkraken: {
+		inherit: true,
+		number: -38,
+	},
+	snugglow: {
+		inherit: true,
+		number: -39,
+	},
+	plasmanta: {
+		inherit: true,
+		number: -40,
+	},
+	floatoy: {
+		inherit: true,
+		number: -41,
+	},
+	caimanoe: {
+		inherit: true,
+		number: -42,
+	},
+	naviathan: {
+		inherit: true,
+		number: -43,
+	},
+	crucibelle: {
+		inherit: true,
+		number: -44,
+	},
+	pluffle: {
+		inherit: true,
+		number: -45,
+	},
+	kerfluffle: {
+		inherit: true,
+		number: -46,
+	},
+	pajantom: {
+		inherit: true,
+		number: -47,
+	},
+	mumbao: {
+		inherit: true,
+		number: -48,
+	},
+	jumbao: {
+		inherit: true,
+		number: -49,
+	},
+	fawnifer: {
+		inherit: true,
+		number: -50,
+	},
+	electrelk: {
+		inherit: true,
+		number: -51,
+	},
+	caribolt: {
+		inherit: true,
+		number: -52,
+	},
+	smogecko: {
+		inherit: true,
+		number: -53,
+	},
+	smoguana: {
+		inherit: true,
+		number: -54,
+	},
+	smokomodo: {
+		inherit: true,
+		number: -55,
+	},
+	swirlpool: {
+		inherit: true,
+		number: -56,
+	},
+	coribalis: {
+		inherit: true,
+		number: -57,
+	},
+	snaelstrom: {
+		inherit: true,
+		number: -58,
+	},
+	justyke: {
+		inherit: true,
+		number: -59,
+	},
+	equilibra: {
+		inherit: true,
+		number: -60,
+	},
+	solotl: {
+		inherit: true,
+		number: -61,
+	},
+	astrolotl: {
+		inherit: true,
+		number: -62,
+	},
+	miasmite: {
+		inherit: true,
+		number: -63,
+	},
+	miasmaw: {
+		inherit: true,
+		number: -64,
+	},
+	chromera: {
+		inherit: true,
+		number: -65,
 	},
 };

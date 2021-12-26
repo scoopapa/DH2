@@ -285,6 +285,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 86, def: 74, spa: 82, spd: 78, spe: 120},
 		abilities: {0: "Magma Armor", 1: "Anger Point", H: "Revolution"},
 		weightkg: 50,
+		gender: "N",
 	},
 	vipier: {
 		num: 38,

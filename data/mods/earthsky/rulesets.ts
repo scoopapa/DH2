@@ -12,11 +12,11 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 		desc: "Only allows Pok&eacute;mon native to the Egelas Region (Earth/Sky)",
 		onValidateSet(set, format) {
 			const egelasDex = [
-				"caeleaf,sprop,graecust,iguava,chucklava,helmuana,newtiny,ruggeft,claymander,palrat,spectrat,shinx,luxio,luxray,stunky,skuntank,fanfowl,plumifowl,pealated,hoothootegelas,noctowlegelas,toybot,aibot,utilitron,utilitronboat,utilitroncoptor,trubbish,garbodor,faerunee,caterpie,metapod,butterfree,budew,roselia,roserade,sothodil,sosphodel,gulpin,swalot,montura,twintura,silvurah,burrorm,burryrm,scarabouch,deerling,sawsbuck,azurill,marill,azumarill,ballooffalo,slowpoke,slowbro,slowking,magikarp,gyarados,tigrissle,beedive,basculin,basculinbluestriped,pikeral,pikeralbluestriped,feebas,milotic,slakoth,vigoroth,slaking,bounsweet,steenee,tsareena,lithoshroom,litholich,geodude,graveler,golem,sableye,mawile,rugblin,runogre,growlithe,arcanine,houndour,houndoom,joroo,jaquol,thylone,axew,fraxure,haxorus,fletchling,fletchinder,talonflame,blitzle,zebstrika,falinks,cufant,copperajah,phanpy,donphan,teddiursa,ursaring,trigenee,hexyon,hektillion,termill,terrazor,heracross,pinsir,rockruff,lycanroc,lycanrocmidnight,lycanroctwilight,elpine,freezelk,moorfrost,snover,abomasnow,swinub,piloswine,mamoswine,vanillite,vanillish,vanilluxe,smoochum,jynx,zubat,golbat,crobat,noibat,noivern,dunsparce,drampa,minior,prominoid,cryogonal,riolu,lucario,zorua,zoroark,igglybuff,jigglypuff,wigglytuff,delibirdegelas,tynamo,eelektrikegelas,eelektrossegelas,elekid,electabuzz,electivire,milcery,alcremie,inkay,malamar,croagunk,toxicroak,farfetchd,kendono,deino,zweilous,hydreigon,joltik,galvantula,lemurod,sandygast,palossand,crabrawler,crabominable,exeggcute,exeggutoralola,tropius,wingull,pelipper,antarctross,shellder,cloyster,finneon,lumineon,gobellos,dragobellos,plecuum,vorplec,pyukumuku,pincurchin,lioxin,frillish,jellicent,scrunge,dhelmise,cuttlelass,dreadnautilus,kravokalypse,cuboneegelas,marowakalola,duskull,dusclops,dusknoir,ralts,kirlia,gardevoir,gallade,elgyem,beheeyem,unown,sigilyph,roggenrola,boldore,gigalith,carbink,stegrowth,stegrove,angkol,macedon,taurosegelas,miltankegelas,durantegelas,heatmoregelas,ponytaegelas,rapidashegelas,mienfoo,mienshao,ascelyte,paraiagon,absol,helioptile,heliolisk,silicobra,sandaconda,obelith,pyramyth,magby,magmar,magmortar,torkoal,turtonator,moroth,keelmora,yamask,cofagrigus,bronzor,bronzong,honedge,doublade,aegislash,druddigon,deceuceus,fervintill,selervis,helyrion,daedestus,apherove,poleboar,pallatinel,jurotera,oceides,hatar,zuros,norphaval"
+				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot-Egelas","Noctowl-Egelas","Toybot","Aibot","Utilitron","Utilitron-Boat","Utilitron-Coptor","Trubbish","Garbodor","Faerunee","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Gulpin","Swalot","Montura","Twintura","Silvurah","Burrorm","Burryrm","Scarabouch","Deerling","Sawsbuck","Azurill","Marill","Azumarill","Ballooffalo","Slowpoke","Slowbro","Slowking","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Basculin-Blue-Striped","Pikeral","Pikeral-Blue-Striped","Feebas","Milotic","Slakoth","Vigoroth","Slaking","Bounsweet","Steenee","Tsareena","Lithoshroom","Litholich","Geodude","Graveler","Golem","Sableye","Mawile","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Axew","Fraxure","Haxorus","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Lycanroc-Midnight","Lycanroc-Twilight","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird-Egelas","Tynamo","Eelektrik-Egelas","Eelektross-Egelas","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor-Alola","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone-Egelas","Marowak-Alola","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Roggenrola","Boldore","Gigalith","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros-Egelas","Miltank-Egelas","Durant-Egelas","Heatmor-Egelas","Ponyta-Egelas","Rapidash-Egelas","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval"
 			];
 			const species = this.dex.getSpecies(set.species || set.name);
 			if (!egelasDex.includes(species.baseSpecies)) {
-				return [species.baseSpecies + " is not in the Egelan Pok&eacute;dex."];
+				return [species.baseSpecies + " is not in the Egelan Pokedex."];
 			}
 		},
 	},
@@ -46,22 +46,29 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								isHidden = true;
 							}
 						} else if(pokeLearnsMove === undefined){
-							//console.log("This move is not learned by this stage or form");
-							//if(pokemon.changesFrom) console.log("Base form is " + pokemon.changesFrom + " and its accessibility to " + moveID + " is " + this.dex.getLearnsetData(this.dex.getSpecies(pokemon.changesFrom).id).learnset[moveID]);
-							if(pokemon.changesFrom && pokemon.name !== pokemon.changesFrom && this.dex.getLearnsetData(this.dex.getSpecies(pokemon.changesFrom).id).learnset[moveID] == "8D"){ //This move is base forme's Hidden Move
-								if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-									problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
-								} else {
-									if(isHidden){
-										problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+							let isNatural = false; //whether it's learned through Sketch
+							//console.log("This move is not naturally learned by this stage or form");
+							if(pokemon.changesFrom && pokemon.name !== pokemon.changesFrom){ //There is a base forme
+								let baseLearns = this.dex.getLearnsetData(this.dex.getSpecies(pokemon.changesFrom).id).learnset[moveID];
+								//if(pokemon.changesFrom) console.log("Base form is " + pokemon.changesFrom + " and its accessibility to " + moveID + " is " + baseLearns);
+								if(baseLearns) isNatural = true;
+								if(baseLearns == "8D"){ //This move is base forme's Hidden Move
+									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
+										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
 									} else {
-										isHidden = true;
+										if(isHidden){
+											problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+										} else {
+											isHidden = true;
+										}
 									}
 								}
 							}
 							if(prevo){
-								//console.log("Prevo is " + prevo.name + " and its accessibility to " + moveID + " is " + this.dex.getLearnsetData(prevo.id).learnset[moveID]);
-								if(this.dex.getLearnsetData(prevo.id).learnset[moveID] == "8D") {//This move is prevo's Hidden Move
+								let prevoLearns = this.dex.getLearnsetData(prevo.id).learnset[moveID];
+								//console.log("Prevo is " + prevo.name + " and its accessibility to " + moveID + " is " + prevoLearns);
+								if(prevoLearns) isNatural = true;
+								if(prevoLearns == "8D"){//This move is prevo's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
 										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
@@ -74,9 +81,11 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								} else if (this.dex.getLearnsetData(prevo.id).learnset[moveID] === undefined){ //The prevo can't learn it either, therefore...
 									const first = (prevo.prevo) ? this.dex.getSpecies(prevo.prevo) : undefined; //there must be a first stage
 									if(first){
-										//console.log("First stage is " + first.name + " and its accessibility to " + moveID + " is " + this.dex.getLearnsetData(first.id).learnset[moveID]);
-										if(this.dex.getLearnsetData(first.id).learnset[moveID] == "8D") {//This move is first stage's Hidden Move
-											if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
+										let firstLearns = this.dex.getLearnsetData(first.id).learnset[moveID];
+										//console.log("First stage is " + first.name + " and its accessibility to " + moveID + " is " + firstLearns);
+										if(firstLearns) isNatural = true;
+										if(firstLearns == "8D") {//This move is first stage's Hidden Move
+											if(pokemon.exclusiveHidden || prevo.exclusiveHidden) { //and the Pokemon can't learn it
 												problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${first}'s exclusive Hidden Move.`);
 											} else {
 												if(isHidden){
@@ -87,6 +96,14 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 											}
 										}
 									}
+								}
+							}
+							//if(!isNatural) console.log("This move is learned through Sketch");
+							if(!isNatural && pokeLearnset.learnset['sketch'] == "8D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
+								if(isHidden){
+									problems.push(`${pokemon} can't sketch ${this.dex.getMove(moveID)} because Sketch is its Hidden Move and it already knows a sketched move.`);
+								} else {
+									isHidden = true;
 								}
 							}
 						}
@@ -175,7 +192,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 						//console.log(family);
 						//Then we make sure none of them are in this team and know a Hidden Move
 						for(const poke of learnedHiddenTable){
-							if(poke.baseSpecies === pokemon.baseSpecies) //normally useless with Species Clause, but maybe my meta will get popular enough that it will have spinoffs
+							if(poke.baseSpecies === pokemon.baseSpecies) //normally useless with Species Clause, but I turned it off during testing and maybe Custom Battles will exist or something
 								problems.push(`No more than one ${pokemon.baseSpecies} can know its Hidden Move.`);
 							else if(family.includes(poke.name))
 								problems.push(`${poke.name} and ${pokemon.name} cannot both know their Hidden Moves because they are in the same family.`);

@@ -391,4 +391,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Pupumons",
 		doublesTier: "PupuVGC",
 	},
+	sophisturn: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
+	trestoobee: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
+	uractal: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
+	venusmog: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
+	plutrapeze: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
+	mercureign: {
+		tier: "Pupumons",
+		doublesTier: "PupuVGC",
+	},
 };

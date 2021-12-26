@@ -599,14 +599,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 1,
 		flags: {},
 		weather: 'vacuum',
-		onTry(pokemon, target) {
-			if (pokemon.activeMoveActions > 1) {
-				this.add('-fail', pokemon);
-				this.attrLastMove('[still]');
-				this.hint("Vacuum only works on your first turn out.");
-				return null;
-			}
-		},
 		secondary: null,
 		target: "all",
 		type: "Ghost",
@@ -640,56 +632,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cute",
 	},
-	/*cyberbuster: {
-		num: 1017,
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		name: "Cyber Buster",
-		shortDesc: "In Vacuum, doubles stat boosts.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (['vacuum'].includes(pokemon.effectiveWeather())) {
-				onHit(target, source) {
-					let i: BoostName;
-					for (i in source.boosts) {
-						source.boosts[i] = 2 * source.boosts[i];
-					}
-					this.add('-copyboost', source, target, '[from] move: Cyber Buster');
-				},
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Flying",
-	},
-	wormhole: {
-		num: 1018,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Worm Hole",
-		shortDesc: "In Vacuum, doubles stat boosts.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (['vacuum'].includes(pokemon.effectiveWeather())) {
-				onHit(target, source) {
-					let i: BoostName;
-					for (i in source.boosts) {
-						source.boosts[i] = 2 * source.boosts[i];
-					}
-					this.add('-copyboost', source, target, '[from] move: Worm Hole');
-				},
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
-	},*/
 	quickstep: {
 		num: 1019,
 		accuracy: 100,
@@ -980,6 +922,132 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	akashicbuster: {
+		num: 1017,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Akashic Buster",
+		shortDesc: "Doubles as a Fire-type move.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	laplacetransform: {
+		num: 468,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Laplace Transform",
+		shortDesc: "Raises SpA and Accuracy by 1 stage. Z-move: Speed +1.",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
+	wormhole: {
+		num: 1018,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Worm Hole",
+		shortDesc: "In Vacuum, doubles stat boosts.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			if (['vacuum'].includes(source.effectiveWeather())) {
+				let i: BoostName;
+				for (i in source.boosts) {
+					source.boosts[i] = 2 * source.boosts[i];
+				}
+				this.add('-copyboost', source, target, '[from] move: Worm Hole');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	coldwave: {
+		num: 1018,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Cold Wave",
+		shortDesc: "Reduces opponent's SpDef by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	consume: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Consume",
+		shortDesc: "Removes hazards. Fails if max HP. Heals 25% if hazards were removed.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(target, source) {
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+		},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Consume', '[of] ' + pokemon);
+				this.heal(pokemon.maxhp / 4, pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Consume', '[of] ' + pokemon);
+					this.heal(pokemon.maxhp / 4, pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Consume', '[of] ' + pokemon);
+				this.heal(pokemon.maxhp / 4, pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Consume', '[of] ' + pokemon);
+					this.heal(pokemon.maxhp / 4, pokemon);
+				}
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dark",

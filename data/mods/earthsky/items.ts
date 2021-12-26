@@ -198,6 +198,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Protects from a priority move. When Flung, -2 accuracy.",
 		block: '#damp',
 	},
+	dragonscale: {
+		inherit: true,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			return this.chainModify([0x1199, 0x1000]);
+		},
+		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
+		shortDesc: "Holder Defense is multiplied by 1.1x.",
+	},
+	electirizer: {
+		inherit: true,
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric' || (move.twoType && move.twoType === 'Electric')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
+		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
+	},
 	flameorb: {
 		inherit: true,
 		fling: {
@@ -283,6 +303,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power. When Flung, counts as a projectile move.",
 		shortDesc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power.",
 	},
+	magmarizer: {
+		inherit: true,
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		desc: "Holder and allies' Fire-type moves have 1.1x power. Evolves Magmar into Magmortar when traded.",
+		shortDesc: "Holder and allies' Fire-type moves have 1.1x power.",
+	},
 	metalpowder: {
 		name: "Metal Powder",
 		fling: {
@@ -295,6 +326,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "When Flung, increases the target's Defense and Sp. Def stats by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Def and Sp. Def. Counts as a powder move.",
+	},
+	muscleband: {
+		name: "Muscle Band",
+		spritenum: 297,
+		fling: {
+			basePower: 10,
+		},
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify([0x1199, 0x1000]);
+		},
+		num: 266,
+		gen: 4,
+		desc: "Holder's Attack is multiplied by 1.1x.",
 	},
 	oddincense: {
 		name: "Odd Incense",
@@ -312,6 +357,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
 	},
+	prismscale: {
+		inherit: true,
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify([0x1199, 0x1000]);
+		},
+		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Feebas into Milotic when traded.",
+		shortDesc: "Holder Special Defense is multiplied by 1.1x.",
+	},
+	protector: {
+		inherit: true,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		desc: "This Pokemon does not take recoil damage besides Struggle and crash damage. Evolves Rhydon into Rhyperior when traded.",
+		shortDesc: "This Pokemon does not take recoil damage besides Struggle/crash damage.",
+	},
 	quickpowder: {
 		name: "Quick Powder",
 		spritenum: 374,
@@ -324,6 +389,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "When Flung, increases the target's Speed by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Speed. Counts as a powder move.",
+	},
+	reapercloth: {
+		inherit: true,
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		desc: "Holder and allies' Ghost-type moves have 1.1x power. Evolves Dusclops into Dusknoir when traded.",
+		shortDesc: "Holder and allies' Ghost-type moves have 1.1x power.",
 	},
 	rockincense: {
 		name: "Rock Incense",
@@ -357,6 +433,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Holder and allies' Grass-type moves have 1.1x power.",
 	},
+	sachet: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fairy' || (move.twoType && move.twoType === 'Fairy')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		desc: "Holder and allies' Fairy-type moves have 1.1x power. Evolves Spritzee into Aromatisse when traded.",
+		shortDesc: "Holder and allies' Fairy-type moves have 1.1x power.",
+	},
 	seaincense: {
 		name: "Sea Incense",
 		spritenum: 430,
@@ -385,7 +475,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			flags: {powder: 1},
 			volatileStatus: 'powder',
 		},
-		desc: "When Flung, applies Powder to the target. Fails if target is immune to powder.",
+		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
+		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
 	},
 	starfberry: {
 		inherit: true,
@@ -439,6 +530,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		desc: "Prevents holder and allies from receiving burns.",
+	},
+	whippeddream: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		desc: "Holder's Fairy-type attacks have 1.2x power. Evolves Swirlix into Slurpuff when traded.",
+		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
+	},
+	wiseglasses: {
+		name: "Wise Glasses",
+		spritenum: 539,
+		fling: {
+			basePower: 10,
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify([0x1199, 0x1000]);
+		},
+		num: 267,
+		gen: 4,
+		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
 	},
 	aguavberry: {
 		inherit: true,
@@ -649,6 +768,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
+		desc: "Holder's Dragon-type attacks have 1.2x power. Evolves Gobellos into Dragobellos when traded.",
+		shortDesc: "Holder's Dragon-type attacks have 1.2x power.",
 	},
 	dragongem: {
 		inherit: true,
@@ -838,6 +959,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
+		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix, Scyther into Scizor, and Plecuum into Vorplec when traded.",
 	},
 	mindplate: {
 		inherit: true,
@@ -896,6 +1018,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
+		desc: "Holder's Poison-type attacks have 1.2x power. Evolves Monutra into Twintura when held and leveled up.",
+		shortDesc: "Holder's Dragon-type attacks have 1.2x power.",
 	},
 	poisongem: {
 		inherit: true,
@@ -1740,12 +1864,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		spritenum: 590,
-	},
-	sachet: {
-		inherit: true,
-		fling: {
-			basePower: 20,
-		},
 	},
 	smoothrock: {
 		inherit: true,

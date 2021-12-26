@@ -794,7 +794,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			icebeam: ["8L1"],
 			chillout: ["8L1"],
-			earthpower: ["8L1"],
 			hypervoice: ["8L1"],
 			thunderbolt: ["8L1"],
 			hail: ["8L1"],

@@ -53,12 +53,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'Vacuum',
 		effectType: 'Weather',
 		duration: 5,
-		/*durationCallback(source, effect) {
-			if (source?.hasItem('heatrock')) {
+		durationCallback(source, effect) {
+			if (source?.hasItem('meteorite')) {
 				return 8;
 			}
 			return 5;
-		},*/
+		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Ghost') {

@@ -1052,7 +1052,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	rhybite: {
-		tier: "FERU",
+		tier: "FENFE",
 		doublesTier: "DUU",
 		randomBattleMoves: ["stealthrock", "highhorsepower", "dragonclaw", "stoneedge"],
 		randomBattleLevel: 79,
@@ -1223,6 +1223,160 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["earthpower", "dazzlinggleam", "nuzzle", "stealthrock"],
+		randomBattleLevel: 79,
+	},
+	deodonattack: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["psychoboost", "flashcannon", "fireblast", "earthpower"],
+		randomBattleLevel: 79,
+	},
+	sharpiskorch: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["liquidation", "flareblitz", "earthquake", "protect"],
+		randomBattleLevel: 79,
+	},
+	sharpiskorchmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["liquidation", "firefang", "earthquake", "protect"],
+		randomBattleLevel: 79,
+		requiredItem: "Sharpedonite",
+	},
+	gourninja: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["poltergeist", "powerwhip", "spikes", "uturn"],
+		randomBattleLevel: 79,
+	},
+	cleracross: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["playrough", "spikes", "softboiled", "teleport"],
+		randomBattleLevel: 79,
+	},
+	cleracrossmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["playrough", "closecombat", "rockblast", "swordsdance"],
+		randomBattleLevel: 79,
+		requiredItem: "Heracronite",
+	},
+	aromarel: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["wish", "protect", "moonblast", "toxic"],
+		randomBattleLevel: 79,
+	},
+	lycansian: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["accelerock", "doubleedge", "closecombat", "uturn"],
+		randomBattleLevel: 79,
+	},
+	landowakalola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	emolggron: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	emolggronmega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Aggronite",
+	},
+	metagon: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	hoopagigasunbound: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	nashifu: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	cramotricity: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	raibat: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	darmanitanprime: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rhychomp: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rhychompmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Garchompite",
+	},
+	zarapex: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pingar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pingarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Pinsirite",
+	},
+	kommotot: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rotokyu: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	krookogatr: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	venuroar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	venuroarmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Venusaurite",
+	},
+	klefilego: {
+		tier: "FERU",
+		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
 	
@@ -1683,6 +1837,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	meowruff: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	spritdoof: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	froakaboo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	carvipede: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	pibat: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	darumakaprime: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	beldino: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -1700,6 +1882,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	palpitrik: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	pikabat: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},

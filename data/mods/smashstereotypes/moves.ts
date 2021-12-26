@@ -287,13 +287,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 140},
 		contestType: "Clever",
 	},
-	eyeofchaos: {
+	eyesofchaos: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		isViable: true,
-		name: "Eye of Chaos",
+		name: "Eyes of Chaos",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -489,6 +489,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			protect: 1,
 			mirror: 1
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Rage", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
@@ -559,6 +563,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Wheel", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -604,6 +612,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-enditem', target, item.name, '[from] move: Incinerate', '[of] ' + source);
 				}
 			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Incinerate", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -651,6 +663,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 30,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mud Slap", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ground",
@@ -944,5 +960,166 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cool",
+	},
+	thundercage: {
+		inherit: true,
+		category: "Physical",
+		flags: {protect: 1, mirror: 1, contact: 1},
+	},
+	freezeshock: {
+		num: 553,
+		accuracy: 90,
+		basePower: 85,
+		category: "Physical",
+		name: "Freeze Shock",
+		shortDesc: "30% chance to paralyze the target.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	fusionbolt: {
+		num: 559,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "If a Pokémon in the user's party has Fusion Flare; 1.3x power & 20% chance to burn.",
+		name: "Fusion Bolt",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, move) {
+			for (const ally of pokemon.side.pokemon) {
+				if (!ally || ally.fainted) continue;
+				for (const moveSlot of ally.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.id === 'fusionflare') continue;
+					this.debug('double power');
+					return this.chainModify(1.3);
+				}
+			}
+		},
+		secondary: {
+			chance: 20,
+			onHit(target, pokemon, move) {
+				for (const ally of pokemon.side.pokemon) {
+					if (!ally || ally.fainted) continue;
+					for (const moveSlot of ally.moveSlots) {
+						const move = this.dex.getMove(moveSlot.move);
+						if (move.id === 'fusionflare') continue;
+						target.trySetStatus('brn');
+					}
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	hiddenpowermiasmons: {
+		num: 237,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		shortDesc: "Type varies on Memory, Plate, Type-Item or Berry.",
+		name: "Hidden Power (Miasmons)",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			if (['insectplate', 'bugmemory', 'silverpowder', 'figyberry', 'comnberry', 'tangaberry', 'enigmaberry'].includes(item.id)) {
+				move.type = 'Bug';
+			}
+			else if (['dreadplate', 'darkmemory', 'blackglasses', 'iapapaberry', 'spelonberry', 'colburberry', 'rowapberry', 'marangaberry'].includes(item.id)) {
+				move.type = 'Dark';
+			}
+			else if (['dracoplate', 'dragonmemory', 'dragonfang', 'aguavberry', 'nomelberry', 'habanberry', 'jaboocaberry'].includes(item.id)) {
+				move.type = 'Dragon';
+			}
+			else if (['zapplate', 'electricmemory', 'magnet', 'pechaberry', 'wepearberry', 'belueberry', 'wacanberry'].includes(item.id)) {
+				move.type = 'Electric';
+			}
+			else if (['pixieplate', 'fairymemory', 'roseliberry', 'keeberry'].includes(item.id)) {
+				move.type = 'Fairy';
+			}
+			else if (['flameplate', 'firememory', 'charcoal', 'cheriberry', 'blukberry', 'watmelberry', 'occaberry'].includes(item.id)) {
+				move.type = 'Fire';
+			}
+			else if (['fistplate', 'fightingmemory', 'blackbelt', 'leppaberry', 'kelpsyberry', 'chopleberry', 'salacberry'].includes(item.id)) {
+				move.type = 'Fighting';
+			}
+			else if (['skyplate', 'flyingmemory', 'sharpbeak', 'lumberry', 'grepaberry', 'cobaberry', 'lansatberry'].includes(item.id)) {
+				move.type = 'Flying';
+			}
+			else if (['spookyplate', 'ghostmemory', 'spelltag', 'magoberry', 'rabutaberry', 'kasibberry', 'custapberry'].includes(item.id)) {
+				move.type = 'Ghost';
+			}
+			else if (['meadowplate', 'grassmemory', 'miracleseed', 'rawstberry', 'pinapberry', 'rindoberry', 'liechiberry'].includes(item.id)) {
+				move.type = 'Grass';
+			}
+			else if (['earthplate', 'groundmemory', 'softsand', 'persimberry', 'hondewberry', 'shucaberry', 'apicotberry'].includes(item.id)) {
+				move.type = 'Ground';
+			}
+			else if (['icicleplate', 'icememory', 'nevermeltice', 'aspearberry', 'pomegberry', 'yacheberry', 'ganlonberry'].includes(item.id)) {
+				move.type = 'Ice';
+			}
+			else if (['toxicplate', 'poisonmemory', 'poisonbarb', 'oranberry', 'qualotberry', 'kebiaberry', 'petayaberry'].includes(item.id)) {
+				move.type = 'Poison';
+			}
+			else if (['mindplate', 'psychicmemory', 'twistedspoon', 'sitrusberry', 'tamatoberry', 'payapaberry', 'starfberry'].includes(item.id)) {
+				move.type = 'Psychic';
+			}
+			else if (['stoneplate', 'rockmemory', 'hardstone', 'wikiberry', 'magostberry', 'chartiberry', 'micleberry'].includes(item.id)) {
+				move.type = 'Rock';
+			}
+			else if (['ironplate', 'steelmemory', 'metalcoat', 'razzberry', 'pamtreberry', 'babiriberry'].includes(item.id)) {
+				move.type = 'Steel';
+			}
+			else if (['splashplate', 'watermemory', 'mysticwater', 'chestoberry', 'nanabberry', 'durinberry', 'passhoberry'].includes(item.id)) {
+				move.type = 'Water';
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Power", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	hypnosis: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'lunatone') return;
+			return accuracy = 70;
+		},
+	},
+	return: {
+		inherit: true,
+		basePowerCallback(pokemon) {
+			if (pokemon.species.id === 'lunatone') return;
+			return Math.floor((pokemon.happiness * 10) / 25) || 1;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'lunatone') {
+				move.basePower = 90;
+			}
+		},
+	},
+	stompingtantrum: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'lunatone') {
+				move.basePower = 80;
+			}
+		},
 	},
 };
