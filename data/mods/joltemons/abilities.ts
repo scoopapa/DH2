@@ -195,9 +195,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && (move.type === 'Poison' || target.hasType('Poison'))) {
+				this.add('-ability', target, 'Prickly Coat');
 				target.side.foe.addSideCondition('toxicspikes');
 			} else {
 				if (move.flags['contact']) {
+					this.add('-ability', target, 'Prickly Coat');
 					target.side.foe.addSideCondition('spikes');
 				}
 			}
@@ -335,7 +337,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		powerofalchemyweezing: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
 		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'Power of Alchemy');
+			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
