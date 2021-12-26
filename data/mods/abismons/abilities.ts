@@ -4697,6 +4697,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -6038,
 	},
+	threshold: {
+		onStart(pokemon) {
+			this.boost({def: 2}, pokemon);
+			this.boost({spd: 2}, pokemon);
+		},
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: -1});
+			this.boost({spd: -1});
+		},
+		name: "Threshold",
+		rating: 3.5,
+		num: 235,
+	},
 	// CAP
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
