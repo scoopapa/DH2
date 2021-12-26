@@ -113,7 +113,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Steel",
 	},
-*/
  	reconstruct: {
 		accuracy: true,
 		basePower: 0,
@@ -152,6 +151,81 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Steel",
+	},
+*/
+	reconstruct: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Charges turn 1. Heals 50% and resets lowered stats turn 2.",
+		name: "Reconstruct",
+		pp: 10,
+		priority: 5,
+		flags: {charge: 1, heal: 1},
+		volatileStatus: 'reconstruct',
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Recover", target);
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['reconstruct']) return true;
+		},
+		condition: {
+			duration: 2,
+			onLockMove: 'reconstruct',
+			onStart(pokemon) {
+				this.effectData.totalDamage = 0;
+				this.add('-start', pokemon, 'move: Reconstruct');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.category === 'Special' || move.category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+			onBeforeMove(pokemon, target, move) {
+				if (this.effectData.duration === 1) {
+					this.add('-end', pokemon, 'move: Reconstruct');
+					const moveData: Partial<ActiveMove> = {
+						id: 'reconstruct' as ID,
+						name: "Reconstruct",
+						accuracy: true,
+						category: "Status",
+						priority: 0,
+						flags: {charge: 1, heal: 1},
+						heal: [1, 2],
+						effectType: 'Move',
+						type: 'Steel',
+					};
+					this.tryMoveHit(target, pokemon, moveData as ActiveMove);
+					return false;
+				}
+				this.add('-activate', pokemon, 'move: Reconstruct');
+			},
+			onMoveAborted(pokemon) {
+				pokemon.removeVolatile('reconstruct');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Reconstruct', '[silent]');
+			},
+		},
+		self: {
+			onHit(pokemon) {
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+	    },
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		contestType: "Tough",
 	},
  	focusblast: {
 		num: 411,
@@ -475,7 +549,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
-			if (item.id !== 'boomerang') {
+			if (item.id && item.id !== 'boomerang') {
 				return this.chainModify(1.5);
 			}
 		},

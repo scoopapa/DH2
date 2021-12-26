@@ -1865,6 +1865,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	totosand: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	bulbalit: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -1889,6 +1897,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-
+	krokocroco: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	ivycat: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
 
 }; 

@@ -811,4 +811,24 @@ zapdosgalar: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
+meloettapirouette: {
+		tier: "UU",
+	   doublesTier: "DOU",
+		requiredItem: "Relic Charm",
+},
+darmanitanzen: {
+		tier: "RU",
+	   doublesTier: "DOU",
+		requiredItem: "Chill Pill",
+},
+darmanitangalarzen: {
+		tier: "Uber",
+	   doublesTier: "DOU",
+		requiredItem: "Chill Pill",
+},
+wishiwashischool: {
+		tier: "(PU)",
+	   doublesTier: "DOU",
+		requiredItem: "Graduation Scale",
+},
 };
