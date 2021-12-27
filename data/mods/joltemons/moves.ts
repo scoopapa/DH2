@@ -358,7 +358,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
-    shortDesc: "Uses target's SpA stat in damage calculation. Fails if the target switches out or moves last.",
+    shortDesc: "Uses target's SpA stat in damage calculation. -1 priority.",
 		name: "Counterspell",
 		pp: 15,
 		priority: -1,
