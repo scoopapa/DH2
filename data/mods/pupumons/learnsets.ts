@@ -3772,6 +3772,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		phantomforce: ["8L1"],
 		shadowsneak: ["8L1"],
 		uturn: ["8L1"],
+		attackorder: ["8L1"],
 		shadowclaw: ["8L1"],
 		quiverdance: ["8L1"],
 		fellstinger: ["8L1"],
