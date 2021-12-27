@@ -136,6 +136,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'jynx').learnset.sinterstorm = ['7T'];
 		this.modData('Learnsets', 'lapras').learnset.sinterstorm = ['7T'];
 		this.modData('Learnsets', 'snoxin').learnset.sinterstorm = ['7T'];
+		this.modData('Learnsets', 'vanillite').learnset.sinterstorm = ['7T'];
 		
 		this.modData('Learnsets', 'drilbur').learnset.excavation = ['7T'];
 		this.modData('Learnsets', 'shieldon').learnset.excavation = ['7T'];
@@ -229,6 +230,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'blacephalon').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'gastly').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'snorunt').learnset.hauntingdance = ['7T'];
+
 		this.modData('Learnsets', 'marowakalola').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'oricorio').learnset.hauntingdance = ['7T'];
 		this.modData('Learnsets', 'rowlet').learnset.hauntingdance = ['7T'];
@@ -308,6 +310,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'nidoranf').learnset.poisondrain = ['7T'];
 		this.modData('Learnsets', 'venipede').learnset.poisondrain = ['7T'];
 		this.modData('Learnsets', 'bellsprout').learnset.poisondrain = ['7T'];
+		this.modData('Learnsets', 'gastly').learnset.poisondrain = ['7T'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);

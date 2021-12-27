@@ -166,6 +166,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	zekrom: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 120},
+		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 125},
 	},
 };

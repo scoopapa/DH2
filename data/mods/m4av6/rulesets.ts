@@ -73,6 +73,7 @@ export const Formats: {[k: string]: FormatData} = {
 			} else {
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
+			if (species.creator) this.hint(`${species.name} was submitted by ${species.creator}!`);
 		},
 	},
 	standardm4a: {
@@ -80,15 +81,55 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Standard M4A',
 		desc: 'The universal banlist used by most standard Megas for All formats.',
 		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blazikenite', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'AG', 'Uber',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-			'Butterfrite', 'Cinderite', 'Rillaboomite',
 		],
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.getSpecies(set.species);
+			let item = this.dex.getItem(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
+				tierSpecies = this.dex.getSpecies(item.megaStone);
+			} else if (item.id === 'lycanite' && species.id === 'lycanrocmidnight') {
+				tierSpecies = this.dex.getSpecies('Lycanroc-Midnight-Mega');
+			} else if (item.id === 'lycanite' && species.id === 'lycanrocdusk') {
+				tierSpecies = this.dex.getSpecies('Lycanroc-Dusk-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsmall') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Small-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistlarge') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Large-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsuper') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Super-Mega');
+			} else if (item.id === 'reginite' && species.id === 'regice') {
+				tierSpecies = this.dex.getSpecies('Regice-Mega');
+			} else if (item.id === 'reginite' && species.id === 'registeel') {
+				tierSpecies = this.dex.getSpecies('Registeel-Mega');
+			} else if (item.id === 'meowsticite' && species.id === 'meowsticf') {
+				tierSpecies = this.dex.getSpecies('Meowstic-F-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbucksummer') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Summer-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckautumn') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Autumn-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckwinter') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Winter-Mega');
+			} else if (item.id === 'toxtricitite' && species.id === 'toxtricitylowkey') {
+				tierSpecies = this.dex.getSpecies('Toxtricity-Low-Key-Mega');
+			} else if (item.id === 'redorb' && species.id === 'groudon') {
+				tierSpecies = this.dex.getSpecies('Groudon-Primal');
+			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
+				tierSpecies = this.dex.getSpecies('Kyogre-Primal');
+			}
+			let problem = this.checkSpecies(set, species, tierSpecies, setHas);
+			if (problem) problems.push(problem);
+
+			return problems;
+		},
 	},
 	standardm4amonothreat: {
 		effectType: 'ValidatorRule',

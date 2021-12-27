@@ -16,5 +16,5 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', `You can find our thread and metagame resources here:`);
 			this.add('-message', `https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season-slate-8-concept-voting.3681339/`);
 		}
-	}
+	},
 };

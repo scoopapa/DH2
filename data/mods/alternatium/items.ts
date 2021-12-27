@@ -54,12 +54,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Attack is boosted by 1.3x.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -70,14 +71,23 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpA(spa, pokemon) {
+		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
+			}
+		},
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy, pokemon) {
+			if (pokemon.species.id === 'genesectpassword') {
+				if (typeof accuracy !== 'number') return;
+				this.debug('chilldrive - enhancing accuracy');
+				return accuracy * 1.25;
 			}
 		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Speed and Accuracy is boosted by 1.25x.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -126,17 +136,18 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDef(def, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 		},
 		onModifySpD(spd, pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Defenses are boosted by 1.25x.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -358,8 +369,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
-			if (source.baseSpecies.name === 'Giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
+			if (source.species.id === 'giratina' && (move.type === 'Dragon' || move.type === 'Ghost') && source.useItem()) {
 				source.addVolatile('gem');
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.species.id === 'giratinashadow' && (move.type === 'Ghost' || move.type === 'Dragon')) {
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		itemUser: ["Giratina"],
@@ -681,14 +698,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpe(spe, pokemon) {
+		onStart(pokemon) {
 			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.5);
+				this.useMove('charge', pokemon);
 			}
 		},
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
+		shortDesc: "If Genesect-Password: Activates Charge upon entry.",
 	},
 	snorliumz: {
 		name: "Snorlium Z",
@@ -820,7 +838,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Grass' && pokemon.species.id === 'farfetchd') {
+			if (move.type === 'Grass' && user.species.id === 'farfetchd') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},

@@ -77,7 +77,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	diamondbeam: {
 		num: 829,
 		accuracy: 100,
-		basePower: 140,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "Hits two turns after being used.",
 		name: "Diamond Beam",
@@ -94,7 +94,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					id: 'diamondbeam',
 					name: "Diamond Beam",
 					accuracy: 100,
-					basePower: 140,
+					basePower: 90,
 					category: "Special",
 					priority: 0,
 					flags: {},

@@ -1,4 +1,34 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	deino: {
+		tier: "LC",
+	},
+	deinokilirthy: {
+		tier: "LC",
+	},
+	zweilous: {
+		tier: "NFE",
+	},
+	zweilouskilirthy: {
+		tier: "NFE",
+	},
+	hydreigon: {
+		tier: "UU",
+	},
+	hydreigonkilirthy: {
+		tier: "OU",
+	},
+	koffing: {
+		tier: "LC",
+	},
+	weezing: {
+		tier: "PU",
+	},
+	weezinggalar: {
+		tier: "RU",
+	},
+	weezingkilirthy: {
+		tier: "OU",
+	},
 	blissey: {
 		tier: "OU",
 	},
@@ -573,6 +603,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	calyrexshadow: {
 		tier: "Uber",
+	},
+	trubbish: {
+		tier: "LC",
+	},
+	trubbishkilirthy: {
+		tier: "LC",
+	},
+	garbodor: {
+		tier: "NU",
+	},
+	garbodorkilirthy: {
+		tier: "OU",
+	},
+	goomy: {
+		tier: "LC",
+	},
+	goomykilirthy: {
+		tier: "LC",
+	},
+	sliggoo: {
+		tier: "NFE",
+	},
+	sliggookilirthy: {
+		tier: "NFE",
+	},
+	goodra: {
+		tier: "NU",
+	},
+	goodrakilirthy: {
+		tier: "OU",
 	},
 	lyseed: {
 		tier: "LC",

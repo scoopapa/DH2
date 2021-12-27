@@ -58,4 +58,82 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chillytemega: {
 		tier: "SSS Uber",
 	},
+	magroach: {
+		tier: "SSS",
+	},
+	exploudmeow: {
+		tier: "SSS",
+	},
+	garbodor: {
+		tier: "SSS",
+	},
+	garbodorgmax: {
+		tier: "SSS",
+	},
+	grimmsnarlalola: {
+		tier: "SSS",
+	},
+	peasmaker: {
+		tier: "SSS",
+	},
+	peasmakermega: {
+		tier: "SSS",
+	},
+	cofazor: {
+		tier: "SSS",
+	},
+	cofazormega: {
+		tier: "SSS",
+	},
+	corsola: {
+		tier: "SSS",
+	},
+	algalisk: {
+		tier: "SSS",
+	},
+	ringoando: {
+		tier: "SSS",
+	},
+	arcanine: {
+		tier: "SSS",
+	},
+	frosmoth: {
+		tier: "SSS",
+	},
+	frosmothmega: {
+		tier: "SSS",
+	},
+	lunatoneapple: {
+		tier: "SSS",
+	},
+	bastiodactyl: {
+		tier: "SSS",
+	},
+	gengar: {
+		tier: "SSS",
+	},
+	gengarmega: {
+		tier: "SSS",
+	},
+	ribombeeprimarina: {
+		tier: "SSS",
+	},
+	beetilient: {
+		tier: "SSS",
+	},
+	cadbunny: {
+		tier: "SSS",
+	},
+	peccarious: {
+		tier: "SSS",
+	},
+	regielekisaboteur: {
+		tier: "SSS",
+	},
+	kyuremblack: {
+		tier: "SSS",
+	},
+	lunatone: {
+		tier: "SSS",
+	},
 };

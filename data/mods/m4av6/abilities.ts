@@ -1711,6 +1711,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -48,
 	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			for (const target of this.getAllActive()) {
+				if (target.getAbility() && target.getAbility().name !== 'Neutralizing Gas') {
+					this.singleEvent('End', target.getAbility(), target.abilityData, target);
+				}
+			}
+			pokemon.abilityData.ending = false;
+		},
+	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
 		shortDesc: "On switch-in, hail begins until this Ability is not active in battle.",
@@ -2668,5 +2680,112 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Electroplating",
 		rating: 4,
 		num: -70,
+	},
+	comedian: {
+		desc: "This Pokémon is immune to Fairy-type moves. When hit by a Fairy-type move, it raises its Attack and its adjacent allies' Attack by 1 stage each.",
+		shortDesc: "Fairy immunity; user's Attack and allies' Attack are both raised 1 stage if user is hit by a Fairy move.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+				if (!activated) {
+					this.add('-immune', target, '[from] ability: Comedian');
+					this.add('-message', `${target.name} is howling with laughter!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+			}
+		},
+		name: "Comedian",
+		rating: 3,
+		num: -71,
+	},
+	pacifyingpelt: {
+		desc: "This Pokémon is immune to Fighting-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Fighting-type move.",
+		shortDesc: "This Pokémon heals 1/4 of its max HP when hit by Fighting moves; Fighting immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fighting') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Pacifying Pelt');
+				}
+				return null;
+			}
+		},
+		name: "Pacifying Pelt",
+		rating: 4,
+		num: -72,
+	},
+	alluring: {
+		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Alluring');
+			this.add('-message', `Pokémon opposing ${pokemon.name} can't pivot out of battle!`);
+		},
+		onAnyModifyMove(move, pokemon) {
+			if (pokemon.side === this.effectData.target.side) return;
+			if (move.selfSwitch && !move.ignoreAbility) delete move.selfSwitch;
+		},
+		name: "Alluring",
+		rating: 4,
+		num: -73,
+	},
+	rebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Rebel",
+		rating: 2.5,
+		num: -74,
+	},
+	agitate: {
+		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
+		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
+		onAnyBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			if (!target || !source || target === source || source !== this.effectData.target) return; // doesn't work on itself
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
+				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+			}
+		},
+		name: "Agitate",
+		rating: 3,
+		num: -75,
 	},
 };

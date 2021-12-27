@@ -41,7 +41,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERU', 'Uncoded', 'Silvino', 'FEUUber'],
+        customTiers: ['FEUU', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -53,6 +53,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
+/*
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
 			return "Silvino-Bug-Mega";
 		}
@@ -104,7 +105,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Water") {
 			return "Silvino-Water-Mega";
 		}
-		
+	*/
 		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
 			return "Absable-Mega-Y"; 
 		}
@@ -113,9 +114,138 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Goatitar-Mega"; 
 		}
 		
+		if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Duramaw") {
+			return "Duramaw-Mega"; 
+		}
+	
+		if (item.name === "Gardevoirite" && pokemon.baseSpecies.name === "Goodevoir") {
+			return "Goodevoir-Mega"; 
+		}
+		
+		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
+			return "Audiyem-Mega"; 
+		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
+			return "Cleracross-Mega"; 
+		}
+		
 		return item.megaStone;
 	},
 	
+	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
+		pokemon.activeMoveActions++;
+		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+		let baseMove = this.dex.getActiveMove(moveOrMoveName);
+		const pranksterBoosted = baseMove.pranksterBoosted;
+		if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+			const changedMove = this.runEvent('OverrideAction', pokemon, target, baseMove);
+			if (changedMove && changedMove !== true) {
+				baseMove = this.dex.getActiveMove(changedMove);
+				if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+				target = this.getRandomTarget(pokemon, baseMove);
+			}
+		}
+		let move = baseMove;
+		if (zMove) {
+			move = this.getActiveZMove(baseMove, pokemon);
+		} else if (maxMove) {
+			move = this.getActiveMaxMove(baseMove, pokemon);
+		}
+
+		move.isExternal = externalMove;
+
+		this.setActiveMove(move, pokemon, target);
+
+		/* if (pokemon.moveThisTurn) {
+			// THIS IS PURELY A SANITY CHECK
+			// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
+			// USE this.queue.cancelMove INSTEAD
+			this.debug('' + pokemon.id + ' INCONSISTENT STATE, ALREADY MOVED: ' + pokemon.moveThisTurn);
+			this.clearActiveMove(true);
+			return;
+		} */
+		const willTryMove = this.runEvent('BeforeMove', pokemon, target, move);
+		if (!willTryMove) {
+			this.runEvent('MoveAborted', pokemon, target, move);
+			this.clearActiveMove(true);
+			// The event 'BeforeMove' could have returned false or null
+			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+			pokemon.moveThisTurnResult = willTryMove;
+			return;
+		}
+		if (move.beforeMoveCallback) {
+			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
+				this.clearActiveMove(true);
+				pokemon.moveThisTurnResult = false;
+				return;
+			}
+		}
+		pokemon.lastDamage = 0;
+		let lockedMove;
+		if (!externalMove) {
+			lockedMove = this.runEvent('LockMove', pokemon);
+			if (lockedMove === true) lockedMove = false;
+			if (!lockedMove) {
+				if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+					this.add('cant', pokemon, 'nopp', move);
+					const gameConsole = [
+						null, 'Game Boy', 'Game Boy Color', 'Game Boy Advance', 'DS', 'DS', '3DS', '3DS',
+					][this.gen] || 'Switch';
+					this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
+					this.clearActiveMove(true);
+					pokemon.moveThisTurnResult = false;
+					return;
+				}
+			} else {
+				sourceEffect = this.dex.getEffect('lockedmove');
+			}
+			pokemon.moveUsed(move, targetLoc);
+		}
+
+		// Dancer Petal Dance hack
+		// TODO: implement properly
+		const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+
+		if (zMove) {
+			if (pokemon.illusion) {
+				this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			}
+			this.add('-zpower', pokemon);
+			pokemon.side.zMoveUsed = true;
+		}
+		const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
+		this.lastSuccessfulMoveThisTurn = moveDidSomething ? this.activeMove && this.activeMove.id : null;
+		if (this.activeMove) move = this.activeMove;
+		this.singleEvent('AfterMove', move, null, pokemon, target, move);
+		this.runEvent('AfterMove', pokemon, target, move);
+
+		// Dancer's activation order is completely different from any other event, so it's handled separately
+		if (moveDidSomething && !move.isExternal) {
+			const dancers = [];
+			for (const currentPoke of this.getAllActive()) {
+				if (pokemon === currentPoke) continue;
+				if (!currentPoke.isSemiInvulnerable() && (move.flags['dance'] && currentPoke.hasAbility('dancer')) || (move.category === 'Status' && currentPoke.hasAbility('parroting'))) {
+					dancers.push(currentPoke);
+				}
+			}
+			// Dancer activates in order of lowest speed stat to highest
+			// Note that the speed stat used is after any volatile replacements like Speed Swap,
+			// but before any multipliers like Agility or Choice Scarf
+			// Ties go to whichever Pokemon has had the ability for the least amount of time
+			dancers.sort(
+				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			);
+			for (const dancer of dancers) {
+				if (this.faintMessages()) break;
+				if (dancer.fainted) continue;
+				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility(dancer.ability), undefined, true);
+			}
+		}
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+	},
+
 	pokemon: {
 		//Included for abilities that make the user non-grounded:
 		//Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
@@ -147,6 +277,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Sticky Float');
 						} else if (this.hasAbility('etativel')) {
 							this.battle.add('-immune', this, '[from] ability: Etativel');
+						} else if (this.hasAbility('lighthearted')) {
+							this.battle.add('-immune', this, '[from] ability: Lighthearted');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -207,6 +339,72 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
                 !this.getAbility().isPermanent
                 )
             );
+        },
+		
+		setStatus(
+        status: string | Condition,
+        source: Pokemon | null = null,
+        sourceEffect: Effect | null = null,
+        ignoreImmunities = false
+    ) {
+			  if (!this.hp) return false;
+			  status = this.battle.dex.getEffect(status);
+			  if (this.battle.event) {
+					if (!source) source = this.battle.event.source;
+					if (!sourceEffect) sourceEffect = this.battle.effect;
+			  }
+			  if (!source) source = this;
+
+			  if (this.status === status.id) {
+					if ((sourceEffect as Move)?.status === this.status) {
+						 this.battle.add('-fail', this, this.status);
+					} else if ((sourceEffect as Move)?.status) {
+						 this.battle.add('-fail', source);
+						 this.battle.attrLastMove('[still]');
+					}
+					return false;
+			  }
+
+			  if (!ignoreImmunities && status.id &&
+						 !(source?.hasAbility(['corrosion', 'toxicplay']) && ['tox', 'psn'].includes(status.id))) {
+					// the game currently never ignores immunities
+					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+						 this.battle.debug('immune to status');
+						 if ((sourceEffect as Move)?.status) {
+							  this.battle.add('-immune', this);
+						 }
+						 return false;
+					}
+			  }
+			  const prevStatus = this.status;
+			  const prevStatusData = this.statusData;
+			  if (status.id) {
+					const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+					if (!result) {
+						 this.battle.debug('set status [' + status.id + '] interrupted');
+						 return result;
+					}
+			  }
+
+			  this.status = status.id;
+			  this.statusData = {id: status.id, target: this};
+			  if (source) this.statusData.source = source;
+			  if (status.duration) this.statusData.duration = status.duration;
+			  if (status.durationCallback) {
+					this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			  }
+
+			  if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+					this.battle.debug('status start [' + status.id + '] interrupted');
+					// cancel the setstatus
+					this.status = prevStatus;
+					this.statusData = prevStatusData;
+					return false;
+			  }
+			  if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+					return false;
+			  }
+			  return true;
         }
     },
 	
@@ -271,7 +469,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -445,7 +643,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
@@ -460,7 +658,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull')))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
@@ -646,7 +844,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
 				this.add('-immune', target);
 				hitResults[i] = false;
-			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes')) &&
+			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes') || pokemon.hasAbility('lighthearted')) &&
 				targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
 				this.debug('natural prankster immunity');
 				if (!target.illusion) this.hint("Since gen 7, Dark is immune to Prankster moves.");
@@ -658,71 +856,52 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return hitResults;
 	},
-    pokemon: {
-        setStatus(
-        status: string | Condition,
-        source: Pokemon | null = null,
-        sourceEffect: Effect | null = null,
-        ignoreImmunities = false
-    ) {
-        if (!this.hp) return false;
-        status = this.battle.dex.getEffect(status);
-        if (this.battle.event) {
-            if (!source) source = this.battle.event.source;
-            if (!sourceEffect) sourceEffect = this.battle.effect;
-        }
-        if (!source) source = this;
+	hitStepStealBoosts(targets, pokemon, move) {
+		const target = targets[0]; // hardcoded
+		if (move.stealsBoosts) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostName;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
 
-        if (this.status === status.id) {
-            if ((sourceEffect as Move)?.status === this.status) {
-                this.battle.add('-fail', this, this.status);
-            } else if ((sourceEffect as Move)?.status) {
-                this.battle.add('-fail', source);
-                this.battle.attrLastMove('[still]');
-            }
-            return false;
-        }
-
-        if (!ignoreImmunities && status.id &&
-                !(source?.hasAbility(['corrosion', 'toxicplay']) && ['tox', 'psn'].includes(status.id))) {
-            // the game currently never ignores immunities
-            if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
-                this.battle.debug('immune to status');
-                if ((sourceEffect as Move)?.status) {
-                    this.battle.add('-immune', this);
-                }
-                return false;
-            }
-        }
-        const prevStatus = this.status;
-        const prevStatusData = this.statusData;
-        if (status.id) {
-            const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
-            if (!result) {
-                this.battle.debug('set status [' + status.id + '] interrupted');
-                return result;
-            }
-        }
-
-        this.status = status.id;
-        this.statusData = {id: status.id, target: this};
-        if (source) this.statusData.source = source;
-        if (status.duration) this.statusData.duration = status.duration;
-        if (status.durationCallback) {
-            this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
-        }
-
-        if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
-            this.battle.debug('status start [' + status.id + '] interrupted');
-            // cancel the setstatus
-            this.status = prevStatus;
-            this.statusData = prevStatusData;
-            return false;
-        }
-        if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
-            return false;
-        }
-        return true;
-        }
-    },
+				let statName2: BoostName;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.addMove('-anim', pokemon, "Spectral Thief", target);
+			}
+		}
+		// this DEFINITELY should fucking not have worked first try. I am so mad. 
+		if (pokemon.ability === 'faustianpact' && move.flags['contact']) {
+			let swapped = false; 
+			const targetAbility = target.getAbility();
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (!targetAbility.isPermanent || !additionalBannedAbilities.includes(targetAbility) || !pokemon.volatiles['dynamax']) {
+				swapped = true; 
+			} 
+			if (swapped) {
+				this.attrLastMove('[still]'); //Will it work without this line...?
+				target.setAbility('faustianpact', pokemon);
+				pokemon.setAbility(targetAbility);
+				this.add('-activate', pokemon, 'ability: Faustian Pact');
+				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
+				this.add('-activate', pokemon, 'ability: ' + targetAbility.name);
+				this.add('-activate', target, 'ability: Faustian Pact');
+				this.addMove('-anim', pokemon, move.name, target);
+			}
+			
+		}
+		return undefined;
+	},
 }; 

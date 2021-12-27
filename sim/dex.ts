@@ -249,7 +249,18 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// Edit for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(this.currentMod === 'earthsky'){
+			if(typeof source !== 'string'){
+				if(source.twoType){
+					return this.getImmunity(source.type, target) && this.getImmunity(source.twoType, target);
+				} else {
+					sourceType = source.type;
+				}
+			} else sourceType = source;
+		} else sourceType = typeof source !== 'string' ? source.type : source;
+		// End edit
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		if (Array.isArray(targetTyping)) {
@@ -267,7 +278,18 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// Edit for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(this.currentMod === 'earthsky'){
+			if(typeof source !== 'string'){
+				if(source.twoType){
+					return this.getEffectiveness(source.type, target) + this.getEffectiveness(source.twoType, target);
+				} else {
+					sourceType = source.type;
+				}
+			} else sourceType = source;
+		} else sourceType = typeof source !== 'string' ? source.type : source;
+		// End edit
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		let totalTypeMod = 0;

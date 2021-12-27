@@ -1005,12 +1005,16 @@ export class TeamValidator {
 				from: 'Gen 7 Let\'s Go! HOME transfer',
 			};
 		} else if (source.charAt(1) === 'D') {
-			eventData = {
-				generation: 5,
-				level: 10,
-				from: 'Gen 5 Dream World',
-				isHidden: !!this.dex.mod('gen5').getSpecies(species.id).abilities['H'],
-			};
+			if(this.dex.currentMod === 'earthsky' && source === '8D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+				return; //Limiting Hidden Moves is done in a separate rule
+			} else {
+				eventData = {
+					generation: 5,
+					level: 10,
+					from: 'Gen 5 Dream World',
+					isHidden: !!this.dex.mod('gen5').getSpecies(species.id).abilities['H'],
+				};
+			}
 		} else if (source.charAt(1) === 'E') {
 			if (this.findEggMoveFathers(source, species, setSources)) {
 				return undefined;
@@ -1834,6 +1838,10 @@ export class TeamValidator {
 		 * (This is everything except in Gen 1 Tradeback)
 		 */
 		const noFutureGen = !ruleTable.has('allowtradeback');
+		/**
+		 * The format allows Sketch to copy moves in Gen 8
+		 */
+		const canSketchGen8Moves = ruleTable.has('sketchgen8moves');
 
 		let tradebackEligible = false;
 		while (species?.name && !alreadyChecked[species.id]) {
@@ -1871,7 +1879,7 @@ export class TeamValidator {
 				if (moveid === 'sketch' || !lset || species.id === 'smeargle') {
 					// The logic behind this comes from the idea that a Pokemon that learns Sketch
 					// should be able to Sketch any move before transferring into Generation 8.
-					if (move.noSketch || move.isZ || move.isMax || (move.gen > 7 && !this.format.id.includes('nationaldex'))) {
+					if (move.noSketch || move.isZ || move.isMax || (move.gen > 7 && !canSketchGen8Moves)) {
 						return {type: 'invalid'};
 					}
 					lset = lsetData.learnset['sketch'];
@@ -1980,9 +1988,13 @@ export class TeamValidator {
 						}
 						moveSources.add(learned + ' ' + species.id);
 					} else if (learned.charAt(1) === 'D') {
-						// DW moves:
-						//   only if that was the source
-						moveSources.add(learned + species.id);
+						if(this.dex.currentMod === 'earthsky' && learned === '8D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+							return null;
+						} else {
+							// DW moves:
+							//   only if that was the source
+							moveSources.add(learned + species.id);
+						}
 					} else if (learned.charAt(1) === 'V' && this.minSourceGen < learnedGen) {
 						// Virtual Console or Let's Go transfer moves:
 						//   only if that was the source
