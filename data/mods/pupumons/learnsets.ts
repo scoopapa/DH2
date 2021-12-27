@@ -3741,7 +3741,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		poisonjab: ["8L1"],
 		tetrodotoxin: ["8L1"],
 		sludgewave: ["8L1"],
-		acidpray: ["8L1"],
+		acidspray: ["8L1"],
 		sludgebomb: ["8L1"],
 		afteryou: ["8L1"],
 		leechseed: ["8L1"],
