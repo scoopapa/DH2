@@ -273,6 +273,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
+	persistent: {
+		isNonstandard: null,
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
 	fullmetalbody: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
