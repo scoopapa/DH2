@@ -648,4 +648,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	giratinaorigin: {
 		tier: "OU",
 	},
+	solgaleo: {
+		tier: "OU",
+	},
+	lunala: {
+		tier: "OU",
+	},
 };

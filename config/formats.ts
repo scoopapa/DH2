@@ -1546,9 +1546,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Lunala',
-			'Naganadel', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 
-			'Zygarde-Base', 'Rayquaza-Mega',
+			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items

@@ -121,6 +121,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'giratina').learnset.flamethrower = ['8L1'];
 		this.modData('Learnsets', 'giratina').learnset.fireblast = ['8L1'];
+		
+		this.modData('Learnsets', 'solgaleo').learnset.firelash = ['8L1'];
+		
+		this.modData('Learnsets', 'lunala').learnset.spiritbreak = ['8L1'];
 	},
 	
 	pokemon: {
