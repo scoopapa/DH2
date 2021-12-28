@@ -206,7 +206,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	lunala: {
 		inherit: true,
 		types: ["Fairy", "Ghost"],
-		baseStats: {hp: 137, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
+		baseStats: {hp: 110, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
 		abilities: {0: "Shadow Shield", H: "Illuminate"},
 	},
 };
