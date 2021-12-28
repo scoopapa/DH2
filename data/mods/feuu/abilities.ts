@@ -2922,9 +2922,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
                 pokemon.cureStatus();
             }
         },
+		  onSourceAfterFaint(length, target, source, effect) {
+			  if (effect && effect.effectType === 'Move') {
+				  let statName = 'atk';
+				  let bestStat = 0;
+				  let s: StatNameExceptHP;
+				  for (s in source.storedStats) {
+					  if (source.storedStats[s] > bestStat) {
+						  statName = s;
+						  bestStat = source.storedStats[s];
+					  }
+				  }
+				  this.boost({[statName]: length}, source);
+			  }
+		  },
         name: "Electrolytes",
         rating: 4,
-		  shortDesc: "When this Pokemon is statused by an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
+		  shortDesc: "When this Pokemon is statused by or KOes an opponent, the status is cured at the end of the turn and this Pokemon gains +1 to their highest non-HP stat.",
     },
 	workability: {
 		onModifyMove(move) {
