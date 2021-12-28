@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	blissey: {
+	/*blissey: {
 		tier: "OU",
 	},
 	chansey: {
@@ -521,7 +521,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	deoxysdefense: {
 		tier: "(UU)",
-	},
+	},*/
 	shayminsky: {
 		tier: "OU",
 	},
