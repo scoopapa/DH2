@@ -1295,6 +1295,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex OU",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Kangaskhanite', 'Medichamite'],
@@ -2536,6 +2537,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex Uber",
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
@@ -2558,6 +2560,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex UU",
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
@@ -2573,6 +2576,29 @@ export const Formats: FormatList = [
 		},
 	},
 	*/
+	{
+		name: "[Gen 8] Random Dex LC",
+		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
+		],
+		mod: 'randomdex',
+		teambuilderFormat: "RDex LC",
+		maxLevel: 5,
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RDex LC'];
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( !allowedTiers.includes(template.tier) ) {
+					return [set.species + ' is not useable in Random Dex.'];
+				}
+			}
+		},
+	},
 	{
 		name: "[Gen 8] Stereotypes LC",
 		mod: "stereotypes",
