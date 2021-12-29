@@ -2585,7 +2585,7 @@ export const Formats: FormatList = [
 		mod: 'randomdex',
 		teambuilderFormat: "RDex LC",
 		maxLevel: 5,
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Little Cup', 'Dynamax Clause'],
 		banlist: ['Corsola-Galar', 'Meditite', 'Moody', 'Shadow Tag', 'Baton Pass', 
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
