@@ -2575,7 +2575,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	*/
 	{
 		name: "[Gen 8] Random Dex LC",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
@@ -2597,7 +2596,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
+	},*/
 	{
 		name: "[Gen 8] Stereotypes LC",
 		mod: "stereotypes",
