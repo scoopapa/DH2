@@ -279,6 +279,71 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 0,
 	},
+	merciless: {
+		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox', 'brn', 'frz', 'slp', 'par'].includes(target.status)) return 5;
+		},
+		name: "Merciless",
+		rating: 1.5,
+		num: 196,
+	},
+	pastelveil: {
+		shortDesc: "This Pokemon and its allies cannot be poisoned. Poison-type moves have 0.5x power against this Pokemon and its allies. On switch-in, cures poisoned allies.",
+		onStart(pokemon) {
+			for (const ally of pokemon.allies()) {
+				if (['psn', 'tox'].includes(ally.status)) {
+					this.add('-activate', pokemon, 'ability: Pastel Veil');
+					ally.cureStatus();
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onAllySwitchIn(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', this.effectData.target, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Pastel Veil');
+			}
+			return false;
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
+			}
+			return false;
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Pastel Veil weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Pastel Veil weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Pastel Veil",
+		rating: 2,
+		num: 257,
+	},
+
 	
 // Edited by proxy
 	oblivious: {
