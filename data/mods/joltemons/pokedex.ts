@@ -521,7 +521,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	centiskorch: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Intimidate", H: "Sticky hold"},
+		abilities: {0: "Flash Fire", 1: "Intimidate", H: "Sticky Hold"},
 	},
 	houndoom: {
 		inherit: true,
