@@ -371,7 +371,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onSwitchIn(length, pokemon) {
-			if (pokemon.side.getSideCondition('stealthrock') && this.effectData.switchingIn) {
+			if (pokemon.getSideCondition('stealthrock') && this.effectData.switchingIn) {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
