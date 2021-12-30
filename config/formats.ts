@@ -2586,8 +2586,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: "RDex LC",
 		maxLevel: 5,
 		ruleset: ['Standard', 'Little Cup', 'Dynamax Clause'],
-		banlist: ['Corsola-Galar', 'Meditite', 'Moody', 'Shadow Tag', 'Baton Pass', 
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
+		banlist: ['Moody', 'Shadow Tag', 'Baton Pass', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['RDex LC'];
