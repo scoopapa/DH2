@@ -133,6 +133,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	meganium: {
 		inherit: true,
+		types: ["Grass", "Fairy"],
 		abilities: {0: "Overgrow", H: "Flower Veil"},
 	},
 	garbodor: {
@@ -509,5 +510,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	vanilluxe: {
 		inherit: true,
 		abilities: {0: "Ice Body", 1: "Snow Warning", H: "Power of Alchemy (Vanilluxe)"},
+	},
+	typhlosion: {
+		inherit: true,
+		types: ["Fire", "Ground"],
+	},
+	feraligatr: {
+		inherit: true,
+		types: ["Water", "Dark"],
+	},
+	centiskorch: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Intimidate", H: "Sticky hold"},
+	},
+	houndoom: {
+		inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+	},
+	houndoommega: {
+		inherit: true,
+		abilities: {0: "Sheer Force"},
+	},
+	blacephalon: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Regenerator"},
 	},
 };
