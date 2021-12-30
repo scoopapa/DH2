@@ -270,6 +270,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.field.setWeather('desolateland');
 			}
 		},
+		onEnd(pokemon) {
+			this.field.clearWeather();
+		},
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Grass') {
 				return this.chainModify([0x1333, 0x1000]);
