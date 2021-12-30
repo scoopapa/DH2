@@ -370,8 +370,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onSwitchIn(length, pokemon) {
-			if (pokemon.getSideCondition('stealthrock') && this.effectData.switchingIn) {
+		onSwitchIn(length, pokemon, effect) {
+			if (effect.id === 'stealthrock') {
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
@@ -382,6 +382,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					}
 				}
 				this.boost({[statName]: length}, pokemon);
+				pokemon.useItem();
 			}
 		},
 		gen: 8,
