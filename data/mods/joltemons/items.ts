@@ -320,7 +320,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			atk: 1,
 			spe: 1,
-			acc: 1,
+			accuracy: 1,
 		},
 		num: 546,
 		gen: 5,
@@ -369,21 +369,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 297,
 		fling: {
 			basePower: 60,
-		},
-		onSwitchIn(length, pokemon, effect) {
-			if (effect.id === 'stealthrock') {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in pokemon.storedStats) {
-					if (pokemon.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = pokemon.storedStats[s];
-					}
-				}
-				this.boost({[statName]: length}, pokemon);
-				pokemon.useItem();
-			}
 		},
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
