@@ -318,7 +318,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Private Wi-Fi",
-		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
+		shortDesc: "Secondary type changes to the Drive it is holding. When active Pokemon share a type, all have their highest stat boosted.",
 		rating: 0,
 		num: 1006,
 	},

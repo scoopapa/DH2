@@ -197,4 +197,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Infiltrator"},
 		baseStats: {hp: 100, atk: 115, def: 70, spa: 115, spd: 70, spe: 100},
 	},
+	solgaleo: {
+		inherit: true,
+		types: ["Psychic", "Fire"],
+		baseStats: {hp: 110, atk: 121, def: 90, spa: 67, spd: 79, spe: 103},
+		abilities: {0: "Full Metal Body", H: "Illuminate"},
+	},
+	lunala: {
+		inherit: true,
+		types: ["Fairy", "Ghost"],
+		baseStats: {hp: 110, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
+		abilities: {0: "Shadow Shield", H: "Illuminate"},
+	},
 };

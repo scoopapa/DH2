@@ -273,4 +273,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
+	persistent: {
+		isNonstandard: null,
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
+	fullmetalbody: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Full Metal Body boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Full Metal Body boost');
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Full Metal Body weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Full Metal Body weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Full Metal Body');
+			}
+			return false;
+		},
+		isUnbreakable: true,
+		name: "Full Metal Body",
+		shortDesc: "2x with Steel moves. 0.5x damage from Poison moves. Immunity to Poisoning.",
+		rating: 4.5,
+		num: 230,
+	},
+	shadowshield: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp && move.type === 'Dark' || move.type === 'Ghost') {
+				this.debug('Shadow Shield weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isUnbreakable: true,
+		name: "Shadow Shield",
+		shortDesc: "If this Pokemon is at full HP, damage taken from Dark and Ghost attacks are halved.",
+		rating: 3,
+		num: 231,
+	},
 };

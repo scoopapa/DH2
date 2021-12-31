@@ -219,7 +219,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	mukoilslick: {
-		num: 1046,
+		num: 89,
 		name: "Muk-Oilslick",
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 105, atk: 115, def: 80, spa: 65, spd: 100, spe: 65},
@@ -385,7 +385,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	kyogreprimal: {
-		num: 382,
+		num: 1001,
 		name: "Kyogre-Primal",
 		types: ["Water", "Grass"],
 		gender: "N",
@@ -412,7 +412,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	groudonprimal: {
-		num: 383,
+		num: 1002,
 		name: "Groudon-Primal",
 		types: ["Fire", "Rock"],
 		gender: "N",
@@ -754,7 +754,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	landorusbengal: {
-		num: 1056,
+		num: 645,
 		name: "Landorus-Bengal",
 		types: ["Ground", "Flying"],
 		gender: "M",
@@ -864,7 +864,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	vivillonspirit: {
-		num: 666,
+		num: 1003,
 		name: "Vivillon-Spirit",
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 80, atk: 125, def: 95, spa: 55, spd: 80, spe: 105},
@@ -890,7 +890,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		changesFrom: null,
 	},
 	vivilloncombat: {
-		num: 666,
+		num: 1004,
 		name: "Vivillon-Combat",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 100, atk: 55, def: 90, spa: 95, spd: 110, spe: 90},
@@ -913,7 +913,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Mineral"],
 	},
 	aegislash: {
-		num: 1031,
+		num: 681,
 		name: "Aegislash",
 		types: ["Ghost", "Fighting"],
 		baseStats: {hp: 60, atk: 140, def: 50, spa: 90, spd: 50, spe: 110},

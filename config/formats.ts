@@ -1295,6 +1295,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex OU",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Kangaskhanite', 'Medichamite'],
@@ -1537,18 +1538,16 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Ubermons",	
 		mod: 'ubermons',
-    desc: [
-      "<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
-      ],
-    threads: [
-      `&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
-      ], 
+		desc: [
+			"<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		], 
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Lunala',
-			'Naganadel', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 
-			'Zygarde-Base', 'Rayquaza-Mega',
+			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zygarde-Base', 'Rayquaza-Mega',
 			//Abilities
 			'Moody', 'Power Construct',
 			//Items
@@ -2538,6 +2537,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex Uber",
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
@@ -2560,6 +2560,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
 		],
 		mod: 'randomdex',
+		teambuilderFormat: "RDex UU",
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
@@ -2574,7 +2575,28 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	*/
+	{
+		name: "[Gen 8] Random Dex LC",
+		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/random-dex.3690182/">Thread in Pet Mods</a>`,
+		],
+		mod: 'randomdex',
+		teambuilderFormat: "RDex LC",
+		maxLevel: 5,
+		ruleset: ['Standard', 'Little Cup', 'Dynamax Clause'],
+		banlist: ['Moody', 'Shadow Tag', 'Baton Pass', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RDex LC'];
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( !allowedTiers.includes(template.tier) ) {
+					return [set.species + ' is not useable in Random Dex.'];
+				}
+			}
+		},
+	},*/
 	{
 		name: "[Gen 8] Stereotypes LC",
 		mod: "stereotypes",
