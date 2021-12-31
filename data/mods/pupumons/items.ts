@@ -286,6 +286,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	meteorite: {
 		name: "Meteorite",
+		shortDesc: "Vacuum becomes 8 turns instead of 5.",
 		spritenum: 193,
 		fling: {
 			basePower: 60,

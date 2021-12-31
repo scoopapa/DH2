@@ -103,6 +103,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Foreign Gas",
 		rating: 4,
 		num: 1003,
+		shortDesc: "Sets vacuum."
 	},
 	invader: {
 		onStart(source) {
@@ -139,6 +140,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Invader",
 		rating: 4,
 		num: 1004,
+		shortDesc: "+1 to highest stat on first turn.",
+		desc: "+1 to highest stat on switch-in, stat boost disappears after first turn unless Vacuum is active."
 	},
 	glitterbomber: {
 		onAfterMove(source, target, move) {
@@ -206,7 +209,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	arrogant: {
 		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
+			if (target.hasType(source.getTypes())) {
 				this.debug('Arrogant boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -218,8 +221,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	pretentious: {
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.getTypes) {
-				this.debug('Arrogant boost');
+			if (target.hasType(source.getTypes())) {
+				this.debug('Pretentious boost');
 				return this.chainModify(0.75);
 			}
 		},
