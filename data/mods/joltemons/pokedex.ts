@@ -57,7 +57,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	jellicent: {
 		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Sticky Hold", H: "Rain Dish"},
+		abilities: {0: "Water Absorb", 1: "Merciless", H: "Rain Dish"},
 	},
 	cryogonal: {
 		inherit: true,
@@ -321,7 +321,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	metagross: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Iron Fist", H: "Light Metal"},
+		abilities: {0: "Clear Body", 1: "Iron Fist", H: "Neuroforce"},
+	},
+	metang: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Iron Fist", H: "Neuroforce"},
+	},
+	metagrossmega: {
+		inherit: true,
+		abilities: {0: "Neuroforce"},
 	},
 	poliwrath: {
 		inherit: true,
@@ -534,5 +542,105 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	blacephalon: {
 		inherit: true,
 		abilities: {0: "Beast Boost", H: "Regenerator"},
+	},
+	chandelure: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Merciless", H: "Infiltrator"},
+	},
+	salazzle: {
+		inherit: true,
+		abilities: {0: "Corrosion", 1: "Merciless", H: "Oblivious"},
+	},
+	drapion: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Merciless"},
+	},
+	trevenant: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Merciless", H: "Harvest"},
+	},
+	skuntank: {
+		inherit: true,
+		abilities: {0: "Stench", 1: "Aftermath", H: "Merciless"},
+	},
+	seviper: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Merciless", H: "Infiltrator"},
+	},
+	honchkrow: {
+		inherit: true,
+		abilities: {0: "Neuroforce", 1: "Merciless", H: "Moxie"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Merciless", H: "Sniper"},
+	},
+	smeargle: {
+		inherit: true,
+		abilities: {0: "Pastel Veil", 1: "Technician", H: "Moody"},
+	},
+	florges: {
+		inherit: true,
+		abilities: {0: "Flower Veil", 1: "Pastel Veil", H: "Symbiosis"},
+	},
+	sylveon: {
+		inherit: true,
+		abilities: {0: "Pastel Veil", H: "Pixilate"},
+	},
+	vivillon: {
+		inherit: true,
+		abilities: {0: "Pastel Veil", 1: "Compound Eyes", H: "Friend Guard"},
+	},
+	bruxish: {
+		inherit: true,
+		abilities: {0: "Dazzling", 1: "Strong Jaw", H: "Pastel Veil"},
+	},
+	milotic: {
+		inherit: true,
+		abilities: {0: "Marvel Scale", 1: "Competitive", H: "Pastel Veil"},
+	},
+	kecleon: {
+		inherit: true,
+		abilities: {0: "Color Change", 1: "Pastel Veil", H: "Protean"},
+	},
+	aromatisse: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Pastel Veil", H: "Aroma Veil"},
+	},
+	lilligant: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Pastel Veil", H: "Leaf Guard"},
+	},
+	calyrex: {
+		inherit: true,
+		abilities: {0: "Unnerve", H: "Neuroforce"},
+	},
+	uxie: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Neuroforce"},
+	},
+	necrozma: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Neuroforce"},
+	},
+	lapras: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Neuroforce", H: "Hydration"},
+	},
+	psyduck: {
+		inherit: true,
+		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
+	},
+	golduck: {
+		inherit: true,
+		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
+	},
+	nihilego: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Neuroforce"},
+	},
+	chatot: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Tangled Feet", H: "Neuroforce"},
 	},
 };
