@@ -370,6 +370,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
+		onSwitchIn(pokemon) {
+			 if (pokemon.side.getSideCondition('stealthrock') && !pokemon.ignoringItem()) {
+				  pokemon.useItem();
+				  let statName = 'atk';
+				  let bestStat = 0;
+				  let s: StatNameExceptHP;
+				  for (s in pokemon.storedStats) {
+						if (pokemon.storedStats[s] > bestStat) {
+							 statName = s;
+							 bestStat = pokemon.storedStats[s];
+						}
+				  }
+				  this.boost({[statName]: 1}, pokemon);
+			 }
+		},
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
 	},
