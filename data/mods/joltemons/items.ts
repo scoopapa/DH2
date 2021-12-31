@@ -270,7 +270,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.field.setWeather('desolateland');
 			}
 		},
-		onSwitchOut(pokemon) {
+		onEnd(pokemon) {
 			this.field.clearWeather();
 		},
 		onBasePower(basePower, user, target, move) {
