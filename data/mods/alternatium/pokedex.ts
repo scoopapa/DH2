@@ -385,7 +385,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	kyogreprimal: {
-		num: 1001,
+		num: 382,
 		name: "Kyogre-Primal",
 		types: ["Water", "Grass"],
 		gender: "N",
@@ -412,7 +412,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	groudonprimal: {
-		num: 1002,
+		num: 383,
 		name: "Groudon-Primal",
 		types: ["Fire", "Rock"],
 		gender: "N",
@@ -864,7 +864,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	vivillonspirit: {
-		num: 1003,
+		num: 666,
 		name: "Vivillon-Spirit",
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 80, atk: 125, def: 95, spa: 55, spd: 80, spe: 105},
@@ -890,7 +890,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		changesFrom: null,
 	},
 	vivilloncombat: {
-		num: 1004,
+		num: 666,
 		name: "Vivillon-Combat",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 100, atk: 55, def: 90, spa: 95, spd: 110, spe: 90},
