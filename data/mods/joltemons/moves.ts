@@ -274,7 +274,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "Heals by 25% of its max HP +25% for every active Water-type. Active Water-types lose 25% of their max HP.",
+    shortDesc: "Heals by 33% of its max HP +33% and +1 Atk for every active Water-type. Active Water-types lose 33% of their max HP.",
 		name: "Arid Absorption",
 		pp: 10,
 		priority: 0,
@@ -285,17 +285,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(pokemon, source, move) {
-				this.heal(source.baseMaxhp / 4, source, pokemon);
+				this.heal(source.baseMaxhp / 3, source, pokemon);
 			}
 		},
 		onHitField(target, source) {
 			if (target.hasType('Water')) {
-				this.heal(source.baseMaxhp / 4, source, target);
-				this.damage(target.baseMaxhp / 4, target, source);
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
+				this.damage(target.baseMaxhp / 3, target, source);
 			}
 			if (source.hasType('Water')) {
-				this.heal(source.baseMaxhp / 4, source, target);
-				this.damage(source.baseMaxhp / 4, source, target);
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.damage(source.baseMaxhp / 3, source, target);
 			}
 		},
 		secondary: null,
@@ -481,6 +482,110 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cool",
 	},
+	enchantedpunch: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		defensiveCategory: "Special",
+    shortDesc: "Damages target based on Sp. Def, not Defense.",
+		name: "Enchanted Punch",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, punch: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Meteor Mash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	electroball: {
+		num: 486,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Electro Ball",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		useSourceSpeedAsOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+		shortDesc: "Uses user's Spe stat as SpA in damage calculation.",
+	},
+	firepunch: {
+		num: 7,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Fire Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	icepunch: {
+		num: 8,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Ice Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	thunderpunch: {
+		num: 9,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Thunder Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	skyuppercut: {
+		num: 327,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Hits Flying-types super effectively. Can hit Pokemon using Bounce, Fly, or Sky Drop.",
+		name: "Sky Uppercut",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Flying') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
@@ -569,5 +674,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (
+					pokemon.hasItem('heavydutyboots') || pokemon.hasItem('coalengine')
+				) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
 	},
 };

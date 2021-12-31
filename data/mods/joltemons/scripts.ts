@@ -150,6 +150,155 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  return true;
         }
     },
+	getDamage(
+		pokemon: Pokemon, target: Pokemon, move: string | number | ActiveMove,
+		suppressMessages = false
+	): number | undefined | null | false { // modified for Electro Ball
+		if (typeof move === 'string') move = this.dex.getActiveMove(move);
+
+		if (typeof move === 'number') {
+			const basePower = move;
+			move = new Dex.Move({
+				basePower,
+				type: '???',
+				category: 'Physical',
+				willCrit: false,
+			}) as ActiveMove;
+			move.hit = 0;
+		}
+
+		if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
+			if (!target.runImmunity(move.type, !suppressMessages)) {
+				return false;
+			}
+		}
+
+		if (move.ohko) return target.maxhp;
+		if (move.damageCallback) return move.damageCallback.call(this, pokemon, target);
+		if (move.damage === 'level') {
+			return pokemon.level;
+		} else if (move.damage) {
+			return move.damage;
+		}
+
+		const category = this.getCategory(move);
+		const defensiveCategory = move.defensiveCategory || category;
+
+		let basePower: number | false | null = move.basePower;
+		if (move.basePowerCallback) {
+			basePower = move.basePowerCallback.call(this, pokemon, target, move);
+		}
+		if (!basePower) return basePower === 0 ? undefined : basePower;
+		basePower = this.clampIntRange(basePower, 1);
+
+		let critMult;
+		let critRatio = this.runEvent('ModifyCritRatio', pokemon, target, move, move.critRatio || 0);
+		if (this.gen <= 5) {
+			critRatio = this.clampIntRange(critRatio, 0, 5);
+			critMult = [0, 16, 8, 4, 3, 2];
+		} else {
+			critRatio = this.clampIntRange(critRatio, 0, 4);
+			if (this.gen === 6) {
+				critMult = [0, 16, 8, 2, 1];
+			} else {
+				critMult = [0, 24, 8, 2, 1];
+			}
+		}
+
+		const moveHit = target.getMoveHitData(move);
+		moveHit.crit = move.willCrit || false;
+		if (move.willCrit === undefined) {
+			if (critRatio) {
+				moveHit.crit = this.randomChance(1, critMult[critRatio]);
+			}
+		}
+
+		if (moveHit.crit) {
+			moveHit.crit = this.runEvent('CriticalHit', target, null, move);
+		}
+
+		// happens after crit calculation
+		basePower = this.runEvent('BasePower', pokemon, target, move, basePower, true);
+
+		if (!basePower) return 0;
+		basePower = this.clampIntRange(basePower, 1);
+
+		const level = pokemon.level;
+
+		const attacker = pokemon;
+		const defender = target;
+		let attackStat: StatNameExceptHP = category === 'Physical' ? 'atk' : 'spa';
+		const defenseStat: StatNameExceptHP = defensiveCategory === 'Physical' ? 'def' : 'spd';
+		const speedStat: StatNameExceptHP = 'spe';
+		if (move.useSourceDefensiveAsOffensive) {
+			attackStat = defenseStat;
+			// Body press really wants to use the def stat,
+			// so it switches stats to compensate for Wonder Room.
+			// Of course, the game thus miscalculates the boosts...
+			if ('wonderroom' in this.field.pseudoWeather) {
+				if (attackStat === 'def') {
+					attackStat = 'spd';
+				} else if (attackStat === 'spd') {
+					attackStat = 'def';
+				}
+				if (attacker.boosts['def'] || attacker.boosts['spd']) {
+					this.hint("Body Press uses Sp. Def boosts when Wonder Room is active.");
+				}
+			}
+		}
+		if (move.useSourceSpeedAsOffensive) attackStat = speedStat;
+
+		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
+		let attack;
+		let defense;
+
+		let atkBoosts = move.useTargetOffensive ? defender.boosts[attackStat] : attacker.boosts[attackStat];
+		let defBoosts = defender.boosts[defenseStat];
+
+		let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
+		let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
+
+		if (moveHit.crit) {
+			ignoreNegativeOffensive = true;
+			ignorePositiveDefensive = true;
+		}
+		const ignoreOffensive = !!(move.ignoreOffensive || (ignoreNegativeOffensive && atkBoosts < 0));
+		const ignoreDefensive = !!(move.ignoreDefensive || (ignorePositiveDefensive && defBoosts > 0));
+
+		if (ignoreOffensive) {
+			this.debug('Negating (sp)atk boost/penalty.');
+			atkBoosts = 0;
+		}
+		if (ignoreDefensive) {
+			this.debug('Negating (sp)def boost/penalty.');
+			defBoosts = 0;
+		}
+
+		if (move.useTargetOffensive) {
+			attack = defender.calculateStat(attackStat, atkBoosts);
+		} else {
+			attack = attacker.calculateStat(attackStat, atkBoosts);
+		}
+
+		attackStat = (category === 'Physical' ? 'atk' : 'spa');
+		defense = defender.calculateStat(defenseStat, defBoosts);
+
+		// Apply Stat Modifiers
+		attack = this.runEvent('Modify' + statTable[attackStat], attacker, defender, move, attack);
+		defense = this.runEvent('Modify' + statTable[defenseStat], defender, attacker, move, defense);
+
+		if (this.gen <= 4 && ['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def') {
+			defense = this.clampIntRange(Math.floor(defense / 2), 1);
+		}
+
+		const tr = this.trunc;
+
+		// int(int(int(2 * L / 5 + 2) * A * P / D) / 50);
+		const baseDamage = tr(tr(tr(tr(2 * level / 5 + 2) * basePower * attack) / defense) / 50);
+
+		// Calculate damage modifiers separately (order differs between generations)
+		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
+	},
 /*
 	pokemon: {
         hasAbility(ability) {
@@ -549,14 +698,11 @@ this.modData('Learnsets', 'lugia').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'arceus').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'solgaleo').learnset.counterspell = ['8L1'];
 this.modData('Learnsets', 'lunala').learnset.counterspell = ['8L1'];
-this.modData("Learnsets", "oshawott").learnset.secretsword = ["8L1"];
 this.modData("Learnsets", "oshawott").learnset.firstimpression = ["8L1"];
-this.modData("Learnsets", "oshawott").learnset.tripleaxel = ["8L1"];
 this.modData("Learnsets", "dewott").learnset.brickbreak = ["8L1"];
 this.modData("Learnsets", "dewott").learnset.closecombat = ["8L1"];
 this.modData("Learnsets", "samurott").learnset.shellsmash = ["8L1"];
 this.modData("Learnsets", "samurott").learnset.drillrun = ["8L1"];
-this.modData("Learnsets", "samurott").learnset.lightninglance = ["8L1"];
 this.modData("Learnsets", "muk").learnset.recover = ["8L1"];
 this.modData("Learnsets", "mukalola").learnset.recover = ["8L1"];
 this.modData("Learnsets", "mukalola").learnset.toxicspikes = ["8L1"];
@@ -637,6 +783,136 @@ this.modData('Learnsets', 'gulpin').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'skuntank').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'rattataalola').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'bruxish').learnset.trashtalk = ['8L1'];
-
+this.modData("Learnsets", "meganium").learnset.playrough = ["8L1"];
+this.modData("Learnsets", "meganium").learnset.moonblast = ["8L1"];
+this.modData("Learnsets", "meganium").learnset.drainingkiss = ["8L1"];
+this.modData("Learnsets", "meganium").learnset.superpower = ["8L1"];
+this.modData("Learnsets", "meganium").learnset.dazzlinggleam = ["8L1"];
+this.modData("Learnsets", "typhlosion").learnset.earthpower = ["8L1"];
+this.modData("Learnsets", "typhlosion").learnset.meteorbeam = ["8L1"];
+this.modData("Learnsets", "typhlosion").learnset.scorchingsands = ["8L1"];
+this.modData("Learnsets", "typhlosion").learnset.stealthrock = ["8L1"];
+this.modData("Learnsets", "feraligatr").learnset.suckerpunch = ["8L1"];
+this.modData("Learnsets", "feraligatr").learnset.pursuit = ["8L1"];
+this.modData("Learnsets", "feraligatr").learnset.scaleshot = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.scaleshot = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.recover = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.suckerpunch = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.uturn = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.earthquake = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.toxic = ["8L1"];
+this.modData("Learnsets", "centiskorch").learnset.rapidspin = ["8L1"];
+this.modData("Learnsets", "houndoom").learnset.fierywrath = ["8L1"];
+this.modData("Learnsets", "blacephalon").learnset.pyroball = ["8L1"];
+this.modData("Learnsets", "blacephalon").learnset.headbutt = ["8L1"];
+this.modData("Learnsets", "blacephalon").learnset.poltergeist = ["8L1"];
+this.modData("Learnsets", "blacephalon").learnset.headcharge = ["8L1"];
+this.modData('Learnsets', 'tapukoko').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'tapulele').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'tapufini').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'tapubulu').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'clefairy').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'wigglytuff').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'hatterene').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'grimmsnarl').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'mrmime').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'golett').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'ledian').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'hitmonchan').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'trevenant').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'haunter').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'shroomish').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'infernape').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'meditite').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'slurpuff').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'shiinotic').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'aromatisse').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'regigigas').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'ralts').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'whimsicott').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'mawile').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'azumarill').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'granbull').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'dusclops').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'jirachi').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'reuniclus').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'audino').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'marshadow').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'hoopa').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'meloetta').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'sableye').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'mesprit').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'uxie').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'azelf').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'delphox').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'celebi').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'victini').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'mew').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'mewtwo').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'abra').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'diancie').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'wooper').learnset.enchantedpunch = ['8L1'];
+this.modData('Learnsets', 'golemalola').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'klinklang').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'jumpluff').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'raikou').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'eelektrik').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'blacephalon').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'zebstrika').learnset.electroball = ['8L1'];
+this.modData('Learnsets', 'diggersby').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'dusknoir').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'grapploct').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'machamp').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'sawk').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'throh').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'lurantis').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'metagross').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'pignite').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'aipom').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'golurk').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'ledian').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'regigigas').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'poliwhirl').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'primeape').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'hawlucha').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'toxicroak').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'eelektross').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'mienshao').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'thundurus').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'tornadus').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'medicham').learnset.skyuppercut = ['8L1'];
+this.modData('Learnsets', 'hariyama').learnset.skyuppercut = ['8L1'];
+delete this.modData('Learnsets', 'lopunny').learnset.skyuppercut;
+delete this.modData('Learnsets', 'buneary').learnset.skyuppercut;
+delete this.modData('Learnsets', 'tapukoko').learnset.electroball;
+delete this.modData('Learnsets', 'regieleki').learnset.electroball;
+this.modData('Learnsets', 'slurpuff').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'greedent').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'komala').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'indeedee').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'indeedeef').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'darmanitan').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'beartic').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'mienfoo').learnset.thunderpunch = ['8L1'];
+this.modData('Learnsets', 'slurpuff').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'greedent').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'komala').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'indeedee').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'indeedeef').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'cherrim').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'mienfoo').learnset.firepunch = ['8L1'];
+this.modData('Learnsets', 'slurpuff').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'greedent').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'komala').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'indeedee').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'indeedeef').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'barbaracle').learnset.icepunch = ['8L1'];
+this.modData('Learnsets', 'mienfoo').learnset.icepunch = ['8L1'];
 	},
 };

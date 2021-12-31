@@ -259,4 +259,136 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 219,
 		gen: 3,
 	},
+	morningblossom: {
+		name: "Morning Blossom",
+		spritenum: 297,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Cherrim') {
+				this.field.setWeather('desolateland');
+			}
+		},
+		onSwitchOut(pokemon) {
+			this.field.clearWeather();
+		},
+		onFaint(pokemon) {
+			this.field.clearWeather();
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Cherrim') return false;
+			return true;
+		},
+		itemUser: ["Cherrim"],
+		gen: 8,
+		desc: "If held by Cherrim: Desolate Land on entry, 1.2x power Grass-type attacks.",
+	},
+	absorbbulb: {
+		name: "Absorb Bulb",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Water') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			def: 1,
+			spa: 1,
+			spd: 1,
+		},
+		num: 545,
+		gen: 5,
+		desc: "Raises holder's Def, SpA, & SpD by 1 stage if hit by a Water-type attack. Single use.",
+	},
+	cellbattery: {
+		name: "Cell Battery",
+		spritenum: 60,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Electric') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+			spe: 1,
+			accuracy: 1,
+		},
+		num: 546,
+		gen: 5,
+		desc: "Raises holder's Atk, Spe, & Acc by 1 stage if hit by an Electric-type attack. Single use.",
+	},
+	luminousmoss: {
+		name: "Luminous Moss",
+		spritenum: 595,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Grass') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			spa: 2,
+			spd: 2,
+		},
+		num: 648,
+		gen: 6,
+		desc: "Raises holder's SpA & SpD by 2 stages if hit by a Grass-type attack. Single use.",
+	},
+	snowball: {
+		name: "Snowball",
+		spritenum: 606,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 2,
+			def: 2,
+		},
+		num: 649,
+		gen: 6,
+		desc: "Raises holder's Atk & Def by 2 stages if hit by an Ice-type attack. Single use.",
+	},
+	coalengine: {
+		name: "Coal Engine",
+		spritenum: 297,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			 if (pokemon.side.getSideCondition('stealthrock') && !pokemon.ignoringItem()) {
+				  pokemon.useItem();
+				  let statName = 'atk';
+				  let bestStat = 0;
+				  let s: StatNameExceptHP;
+				  for (s in pokemon.storedStats) {
+						if (pokemon.storedStats[s] > bestStat) {
+							 statName = s;
+							 bestStat = pokemon.storedStats[s];
+						}
+				  }
+				  this.boost({[statName]: 1}, pokemon);
+			 }
+		},
+		gen: 8,
+		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
+	},
 };
