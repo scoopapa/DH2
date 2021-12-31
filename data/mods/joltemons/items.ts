@@ -373,7 +373,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onSwitchIn(pokemon) {
+		onStart(pokemon) {
 			 if (pokemon.side.getSideCondition('stealthrock') && !pokemon.ignoringItem()) {
 				  pokemon.useItem();
 				  let statName = 'atk';
