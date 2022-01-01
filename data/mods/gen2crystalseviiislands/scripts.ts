@@ -1,7 +1,3 @@
-import type {Dex} from '../sim/dex';
-
-const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
-
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen3',
 	gen: 2,
