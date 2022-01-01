@@ -678,7 +678,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 2] Crystal: Sevii Islands",
 		desc: ["<b>Crystal: Sevii Islands</b>- A Gen 2 pet mod that aims to create new Pokemon, items, and moves for the GSC OU Metagame."],
-		mod: 'gen3crystalseviiislands',
+		mod: 'gen2crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
 		teambuilderFormat: 'OU',
