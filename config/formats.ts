@@ -681,7 +681,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Past'],
+		banlist: ['Uber'],
 		teambuilderFormat: 'OU',
 	},
 	{
