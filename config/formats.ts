@@ -677,10 +677,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 2] Crystal: Sevii Islands",
-		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
-		],
+		desc: ["<b>Crystal: Sevii Islands</b>- A Gen 2 pet mod that aims to create new Pokemon, items, and moves for the GSC OU Metagame."],
 
 		mod: 'gen3crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
