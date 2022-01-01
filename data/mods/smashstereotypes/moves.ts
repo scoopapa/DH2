@@ -1425,9 +1425,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'shedinja') {
-				move.basePower = 90;
-				move.ignoreEvasion: true;
-				move.ignoreDefensive: true;
+				move.basePower = 90,
+				move.ignoreEvasion: true,
+				move.ignoreDefensive: true,
 			}
 		},
 	},
