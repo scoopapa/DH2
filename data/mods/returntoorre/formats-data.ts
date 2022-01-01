@@ -8,11 +8,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RTO",
 		doublesTier: "DOU",
 	},
-	aron: {
+	lairon: {
 		tier: "RTO NFE",
 		doublesTier: "DOU",
 	},
-	lairon: {
+	aron: {
 		tier: "RTO NFE",
 		doublesTier: "DOU",
 	},
