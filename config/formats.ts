@@ -681,7 +681,6 @@ export const Formats: FormatList = [
 		mod: 'gen2crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
-		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 7] DLCmons",
