@@ -1336,6 +1336,28 @@ export const Formats: FormatList = [
 		mod: 'regionalevos',
   	},
 	{
+		name: "[Gen 8] Return to Orre",
+		desc: `<b>Random Dex</b>: A micrometagame project consisting of the 158 Pokemon found in the Orre Region.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/return-to-orre-slate-1-a-dire-situation.3695530/">Thread in Pet Mods</a>`,
+		],
+		mod: 'returntoorre',
+		teambuilderFormat: "RTO",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RTO', 'RTO NFE'];
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( !allowedTiers.includes(template.tier) ) {
+					return [set.species + ' is not found in Orre.'];
+				}
+			}
+		},
+	},
+	{
       name: "[Gen 1] Rose Red / Iris Blue",
         desc: `<b>[Gen 1] Rose Red/Iris Blue</b>: A balance mod for Gen 1 that aims to make every fully-evolved Pokémon a viable pick.`,
         threads: [
