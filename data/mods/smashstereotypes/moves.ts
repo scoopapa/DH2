@@ -219,9 +219,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id === 'mytheon') {
 				move.basePower = 90;
 			}
+			if (source.species.id === 'shedinja') {
+				move.basePower = 80;
+			}
 		},
 		onSourceModifyAccuracy(accuracy) {
-			if (source.species.id !== 'mytheon') return;
+			if (source.species.id !== 'mytheon' || source.species.id !== 'shedinja') return;
 			return accuracy = 100;
 		},
 		secondaries: [
@@ -1121,5 +1124,332 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.basePower = 80;
 			}
 		},
+	},
+	aurasphere: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 90;
+			}
+		},
+	},
+	dreameatercfm: {
+		num: 138,
+		accuracy: 100,
+		basePower: 75,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) return move.basePower * 1.5;
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		name: "Dream Eater (CFM)",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {basePower: 140},
+		contestType: "Clever",
+	},
+	drillruncfm: {
+		num: 529,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "10% chance to lower the target's Defence by 1.",
+		name: "Drill Run (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, antiair: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	furyswipes: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'shedinja') return;
+			return accuracy + 15;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 25;
+			}
+		},
+	},
+	gustcfm: {
+		num: 16,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		shortDesc: "Usually goes first.",
+		cfmDesc: "Priority: +1",
+		name: "Gust (CFM)",
+		pp: 35,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	leechlife: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 75;
+			}
+		},
+	},
+	mudslapcfm: {
+		num: 189,
+		accuracy: 100,
+		basePower: 20,
+		category: "Special",
+		name: "Mud-Slap (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, antiair: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cute",
+	},
+	nightslash: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'shedinja') return;
+			return accuracy - 5;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 100;
+			}
+		},
+	},
+	phantomforcecfm: {
+		num: 566,
+		accuracy: true,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "Breaks through Substitutes. Never misses",
+		name: "Phantom Force (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, mirror: 1, protect: 1, authentic: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 140},
+		contestType: "Cool",
+	},
+	protect: {
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.type = 'Psychic';
+			}
+		},
+	},
+	restcfm: {
+		num: 156,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Sleeps for 2 turns to recover HP; Comatose: heal 50%.",
+		name: "Rest (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onTry(source, target, move) {
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+			if (source.status === 'slp') return false;
+			if (source.hasAbility(['insomnia', 'vitalspirit'])) {
+				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
+				return null;
+			}
+			if (source.hasAbility('comatose'))
+				move.heal = [1, 2];
+		},
+		onHit(target, source, move) {
+			if (!target.hasAbility('comatose')) {
+				if (!target.setStatus('slp', source, move)) return false;
+				const timer = target.hasAbility('earlybird') ? 1 : 3;
+				target.statusState.time = timer;
+				this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	sandattackcfm: {
+		num: 28,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Sand Attack (CFM)",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		boosts: {
+			accuracy: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		zMove: {boost: {evasion: 1}},
+		contestType: "Cute",
+	},
+	screech: {
+		onSourceModifyAccuracy(accuracy) {
+			if (source.species.id !== 'shedinja') return;
+			return accuracy + 15;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.pp = 15;
+			}
+		},
+	},
+	shadowball: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 90;
+				move.pp = 10;
+			}
+		},
+	},
+	shadowclawcfm: {
+		num: 421,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "20% chance to lower foe's defense.",
+		name: "Shadow Claw (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 160},
+		contestType: "Cool",
+	},
+	slashcfm: {
+		num: 163,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Type varies based on the user's primary type.",
+		name: "Slash (CFM)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 175},
+		contestType: "Cool",
+	},
+	sleeptalkcfm: {
+		num: 214,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sleep Talk (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		sleepUsable: true,
+		onTry(source) {
+			return source.status === 'slp' || source.hasAbility('comatose');
+		},
+		onHit(pokemon) {
+			const noSleepTalk = [
+				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'rest', 'shelltrap', 'sketch', 'skyattack', 'sleeptalk', 'uproar',
+			];
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				if (!moveid) continue;
+				const move = this.dex.moves.get(moveid);
+				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+					continue;
+				}
+				moves.push(moveid);
+			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
+			}
+			this.actions.useMove(randomMove, pokemon);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'crit2'},
+		contestType: "Cute",
+	},
+	xscissor: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'shedinja') {
+				move.basePower = 90;
+				move.ignoreEvasion: true,
+				move.ignoreDefensive: true,
+			}
+		},
+	},
+	solarbeamcfm: {
+		num: 76,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Base power is halved if weather is not harsh sunlight.",
+		name: "Solar Beam (CFM)",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (!this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
 	},
 };

@@ -94,6 +94,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'ludicolo').learnset.rapidspin = ["8L1"];
 		delete this.modData('Learnsets', 'ludicolo').learnset.leechseed;
 		delete this.modData('Learnsets', 'ludicolo').learnset.hydropump;
+		
+		this.modData('Learnsets', 'stunfisk').learnset.shoreup = ['8L1'];
+		this.modData('Learnsets', 'stunfisk').learnset.voltswitch = ['8L1'];
 	},
 	
 	teambuilderConfig: {
@@ -101,5 +104,53 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
         customTiers: ['SSS', 'SSS Uber'],
+	},
+	
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Galladite" && pokemon.baseSpecies.name === "Gallade-Kalos") {
+			return "Gallade-Kalos-Mega";
+		}
+		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+			return null;
+		}
+		return item.megaStone;
+	},
+	runMegaEvo(pokemon) {
+		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+		if (!speciesid) return false;
+		const side = pokemon.side;
+
+		// Pokémon affected by Sky Drop cannot mega evolve. Enforce it here for now.
+		for (const foeActive of side.foe.active) {
+			if (foeActive.volatiles['skydrop'] && foeActive.volatiles['skydrop'].source === pokemon) {
+				return false;
+			}
+		}
+
+		if (pokemon.illusion) {
+			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+		} // only part that's changed
+		pokemon.formeChange(speciesid, pokemon.getItem(), true);
+
+		// Limit one mega evolution
+		const wasMega = pokemon.canMegaEvo;
+		for (const ally of side.pokemon) {
+			if (wasMega) {
+				ally.canMegaEvo = null;
+			} else {
+				ally.canUltraBurst = null;
+			}
+		}
+
+		this.runEvent('AfterMega', pokemon);
+		return true;
 	},
 };

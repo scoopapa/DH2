@@ -145,4 +145,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ludicolo: {
 		tier: "SSS",
 	},
+	shototodoroki: {
+		tier: "SSS",
+	},
+	cinnastar: {
+		tier: "SSS",
+	},
+	shedinja: {
+		tier: "SSS",
+	},
+	galladekalos: {
+		tier: "SSS",
+	},
+	galladekalosmega: {
+		tier: "SSS",
+	},
+	stunfisk: {
+		tier: "SSS",
+	},
+	kommotot: {
+		tier: "SSS",
+	},
 };
