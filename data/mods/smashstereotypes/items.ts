@@ -161,4 +161,59 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 10001,
 		shortDesc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
 	},
+	unoreversecard: {
+		name: "Uno Reverse Card",
+		spritenum: 608,
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp) return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'item: Uno Reverse Card');
+				return false;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'knockoff') {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] item: Uno Reverse Card', '[of] ' + source);
+				}
+			}
+		},
+		num: 1124,
+		gen: 8,
+		shortDesc: "This item cannot be lost. Removed opponent's item if that's intended.",
+	},
+	coffee: {
+		onUpdate(pokemon) {
+			if (pokemon.useItem()) {
+				if (pokemon.volatiles['mustrecharge']) {
+					pokemon.removeVolatile('mustrecharge');
+				}
+			}
+		},
+		name: "Coffee",
+		spritenum: 358,
+		fling: {
+			basePower: 10,
+		},
+		num: 271,
+		gen: 4,
+		shortDesc: "Holder's moves don't need to recharge. Single use.",
+	},
+	boazanianmetal:  {
+		name: "Boazanian Metal",
+		shortDesc: "If held by an Ultranaut, changes its forme to V.",
+		spritenum: 699,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 22) || pokemon.baseSpecies.num === 22) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Ultranaut-V",
+		itemUser: ["Ultranaut-V"],
+		num: 1104,
+		gen: 8,
+	},
 };

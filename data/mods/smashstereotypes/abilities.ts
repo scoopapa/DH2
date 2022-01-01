@@ -241,4 +241,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
 	},
+	wonderguard: {
+		onDamage(damage, target, source, effect) {
+			if (effect && ['stealthrock', 'spikes', 'hail', 'sandstorm', 'lifeorb'].includes(effect.id)) {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Guard immunity: ' + move.id);
+			if (target.runEffectiveness(move) <= 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Guard');
+				}
+				return null;
+			}
+		},
+		name: "Wonder Guard",
+		shortDesc: "This Pokemon can only be damaged by supereffective moves and status effects.",
+		rating: 5,
+		num: 25,
+	},
+	bulletpecks: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet'] || move.name === 'Crunch' || move.name === 'Crush Claw' || move.name === 'Fire Lash' || move.name === 'Grav Apple' || move.name === 'Iron Tail' || move.name === 'Leer' || move.name === 'Liquidation' || move.name === 'Octolock' || move.name === 'Razor Shell' || move.name === 'Rock Smash' || move.name === 'Screech' || move.name === 'Secret Power' || move.name === 'Shadow Bone' || move.name === 'Tail Whip' || move.name === 'Thunderous Kick' || move.name === 'Tickle') {
+				this.add('-immune', pokemon, '[from] ability: Bulletpecks');
+				return null;
+			}
+		},
+		name: "Bulletpecks",
+		shortDesc: "This Pokemon is immune to ballistic moves and moves that lower Defense.",
+	},
 };

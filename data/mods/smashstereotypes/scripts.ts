@@ -94,6 +94,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'ludicolo').learnset.rapidspin = ["8L1"];
 		delete this.modData('Learnsets', 'ludicolo').learnset.leechseed;
 		delete this.modData('Learnsets', 'ludicolo').learnset.hydropump;
+		
+		this.modData('Learnsets', 'stunfisk').learnset.shoreup = ['8L1'];
+		this.modData('Learnsets', 'stunfisk').learnset.voltswitch = ['8L1'];
 	},
 	
 	teambuilderConfig: {
