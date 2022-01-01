@@ -154,10 +154,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shedinja: {
 		tier: "SSS",
 	},
-	ultranaut: {
+	galladekalos: {
 		tier: "SSS",
 	},
-	ultranautv: {
+	galladekalosmega: {
 		tier: "SSS",
 	},
 	stunfisk: {

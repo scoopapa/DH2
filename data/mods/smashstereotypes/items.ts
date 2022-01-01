@@ -201,19 +201,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		shortDesc: "Holder's moves don't need to recharge. Single use.",
 	},
-	boazanianmetal:  {
-		name: "Boazanian Metal",
-		shortDesc: "If held by an Ultranaut, changes its forme to V.",
-		spritenum: 699,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 22) || pokemon.baseSpecies.num === 22) {
-				return false;
-			}
+	galladite: {
+		name: "Galladite",
+		spritenum: 616,
+		megaStone: "Gallade-Mega",
+		megaEvolves: "Gallade",
+		itemUser: ["Gallade"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		forcedForme: "Ultranaut-V",
-		itemUser: ["Ultranaut-V"],
-		num: 1104,
-		gen: 8,
+		num: 756,
+		gen: 6,
+		shortDesc: "If held by a Gallade-Kalos, this item allows it to Mega Evolve in battle.",
 	},
 };

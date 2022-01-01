@@ -1452,31 +1452,4 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	lasersword: {
-		num: 1017,
-		accuracy: 100,
-		basePower: 140,
-		category: "Physical",
-		name: "Laser Sword",
-		shortDesc: "Fails unless each known move has been used.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onTry(pokemon, target) {
-			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
-			let hasLastResort = false; // User must actually have Last Resort for it to succeed
-			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id === 'lasersword') {
-					hasLastResort = true;
-					continue;
-				}
-				if (!moveSlot.used) return false;
-			}
-			return hasLastResort;
-		},
-		secondary: null,
-		target: "normal",
-		type: "Steel",
-		contestType: "Cute",
-	},
 };
