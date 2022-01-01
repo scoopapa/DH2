@@ -57,7 +57,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	jellicent: {
 		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Merciless", H: "Rain Dish"},
+		abilities: {0: "Water Absorb", 1: "Sticky Hold", H: "Merciless"},
 	},
 	cryogonal: {
 		inherit: true,
