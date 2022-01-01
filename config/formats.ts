@@ -1348,7 +1348,7 @@ export const Formats: FormatList = [
 		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['RTO', 'RTO LC'];
+			let allowedTiers = ['RTO', 'RTO NFE'];
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
 				if ( !allowedTiers.includes(template.tier) ) {
