@@ -1421,6 +1421,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'crit2'},
 		contestType: "Cute",
 	},
+/*
 	xscissor: {
 		inherit: true,
 		onModifyMove(move, source, target) {
@@ -1431,6 +1432,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+*/
 	solarbeamcfm: {
 		num: 76,
 		accuracy: 100,
