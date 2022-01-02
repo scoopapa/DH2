@@ -1,6 +1,5 @@
 export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Bug: {
-		inherit: true,
 		damageTaken: {
 			confusion: 3,
          Bug: 0,
@@ -26,7 +25,6 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 		HPdvs: {atk: 13, def: 13},
 	},
 	Fairy: {
-		inherit: true,
 		damageTaken: {
 			Bug: 1,
 			Dark: 2,
