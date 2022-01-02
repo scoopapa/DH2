@@ -676,6 +676,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 2] Crystal: Sevii Islands",
+		desc: ["<b>Crystal: Sevii Islands</b>- A Gen 2 pet mod that aims to create new Pokemon, items, and moves for the GSC OU Metagame."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/crystal-sevii-islands.3695569/">Crystal: Sevii Islands on Smogon Forums</a>`,
+		      ],
+		mod: 'gen2crystalseviiislands',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 7] DLCmons",
 		desc: [
 			"<b>[Gen 7] DLCmons</b>: This Pet Mod aims to add an aditional (set of) island(s) to the Alola region. This will include new abilities, moves, items, regional variants and new Pokemon.",
@@ -3166,6 +3176,14 @@ export const Formats: FormatList = [
 		mod: "gpt2mons", 
 		teambuilderFormat: "OU", 	
 	},
+	{    
+       name: "[Gen 8] JosMons",
+       desc: 'A meta created by JosJet focused on making balance changes to the NatDex OU meta. Ex. Bug-type Buff.',
+       mod: "josmons",
+       teambuilderFormat: 'OU',
+       ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+       banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace', 'Magearna', 'Darmanitan-Galar', 'Dracovish', 'Dragapult', 'Metagross-Mega', 'Tornadus-Therian', 'Urshifu'],
+    },
 	{
 		name: "[Gen 8] Journey to Kilirthy",
 		desc: '<b>Journey to Kilirthy</b>: A solomod, where Fakemons are added as if it was a new game.',
