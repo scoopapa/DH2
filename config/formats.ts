@@ -3154,6 +3154,14 @@ export const Formats: FormatList = [
 		mod: "gpt2mons", 
 		teambuilderFormat: "OU", 	
 	},
+	{    
+       name: "[Gen 8] JosMons",
+       desc: 'A meta created by JosJet focused on making balance changes to the NatDex OU meta. Ex. Bug-type Buff.',
+       mod: "josmons",
+       teambuilderFormat: 'OU',
+       ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+       banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace', 'Magearna', 'Darmanitan-Galar', 'Dracovish', 'Dragapult', 'Mega-Metagross', 'Tornadus-Therian', 'Urshifu'],
+    },
 	{
 		name: "[Gen 8] Journey to Kilirthy",
 		desc: '<b>Journey to Kilirthy</b>: A solomod, where Fakemons are added as if it was a new game.',
