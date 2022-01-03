@@ -922,10 +922,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-miss', pokemon);
 				return null;
 			}
-			else {
-			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
-			}
 		},
 	},
 	sweetscent: {
