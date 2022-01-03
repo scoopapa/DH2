@@ -923,7 +923,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-miss', pokemon);
 				return null;
 			}
-			if (target.volatiles['substitute']) return false;
+			if (target.volatiles['substitute']) delete move.volatileStatus;;
 		},
 	},
 	sweetscent: {
