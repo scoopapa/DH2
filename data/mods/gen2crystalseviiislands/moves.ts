@@ -921,9 +921,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
 				this.add('-miss', pokemon);
 				return null;
-			} else {
-				if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
 			}
+		},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
 		},
 	},
 	sweetscent: {
