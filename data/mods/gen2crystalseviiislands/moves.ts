@@ -866,7 +866,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (move.category === 'Status') {
 					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
-					if (move.id === 'swagger' || 'spikes') {
+					if (move.id === 'swagger') {
 						// this is safe, move is a copy
 						delete move.volatileStatus;
 					}
