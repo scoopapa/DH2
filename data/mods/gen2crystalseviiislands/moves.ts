@@ -813,7 +813,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
-		target: "foeSide",
 	},
 	spite: {
 		inherit: true,
@@ -867,7 +866,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (move.category === 'Status') {
 					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
-					if (move.id === 'swagger') {
+					if (move.id === 'swagger' || 'spikes') {
 						// this is safe, move is a copy
 						delete move.volatileStatus;
 					}
