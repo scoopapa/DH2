@@ -923,10 +923,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onHit(pokemon, source, move) {
+		onHit(target, source, move) {
 			let success = false;
-			for (const pokemon of source.side.pokemon) {
-				if (pokemon.volatiles['substitute'] && !move.infiltrates))) {
+			for (const target of source.side.pokemon) {
+				if (target.volatiles['substitute'] && !move.infiltrates))) {
 					continue;
 				}
 			return success;
