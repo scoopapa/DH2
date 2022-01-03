@@ -923,7 +923,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onHit(target, source, move) {
+		onHit(target, pokemon, move) {
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
 		},
