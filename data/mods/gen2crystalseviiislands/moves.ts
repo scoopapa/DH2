@@ -797,7 +797,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
 		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
-		effect: {
+		condition: {
 			// this is a side condition
 			onSideStart(side) {
 				if (!this.effectState.layers || this.effectState.layers === 0) {
@@ -840,7 +840,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	substitute: {
 		inherit: true,
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
 				this.effectState.hp = Math.floor(target.maxhp / 4);
