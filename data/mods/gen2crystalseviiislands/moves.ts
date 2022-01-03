@@ -799,10 +799,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
 		effect: {
 			// this is a side condition
-			onStart(side) {
-				if (!this.effectData.layers || this.effectData.layers === 0) {
+			onSideStart(side) {
+				if (!this.effectState.layers || this.effectState.layers === 0) {
 					this.add('-sidestart', side, 'Spikes');
-					this.effectData.layers = 1;
+					this.effectState.layers = 1;
 				} else {
 					return false;
 				}
@@ -810,7 +810,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.runImmunity('Ground')) return;
 				const damageAmounts = [0, 3];
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -843,7 +843,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryPrimaryHitPriority: -1,
@@ -879,7 +879,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 					return;
 				}
-				let damage = this.getDamage(source, target, move);
+				let damage = this.actions.getDamage(source, target, move);
 				if (!damage) {
 					return null;
 				}
