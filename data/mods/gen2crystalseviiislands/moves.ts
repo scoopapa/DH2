@@ -917,11 +917,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	swagger: {
 		inherit: true,
 		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
-		flags: {authentic: 1},
 		onTryHit(target, pokemon) {
 			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
 				this.add('-miss', pokemon);
 				return null;
+			} else {
+				if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
 			}
 		},
 	},
