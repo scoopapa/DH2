@@ -923,10 +923,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-miss', pokemon);
 				return null;
 			}
-			else {
-				if (target.volatiles['substitute']) return false;
-			}
 		},
+		onHit(target){
+			if (target.volatiles['substitute']) return false;
+		}
 	},
 	sweetscent: {
 		inherit: true,
