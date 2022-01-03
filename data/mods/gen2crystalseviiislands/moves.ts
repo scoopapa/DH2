@@ -840,10 +840,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	substitute: {
 		inherit: true,
-		condition: {
+		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectState.hp = Math.floor(target.maxhp / 4);
+				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryPrimaryHitPriority: -1,
@@ -879,7 +879,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 					return;
 				}
-				let damage = this.actions.getDamage(source, target, move);
+				let damage = this.getDamage(source, target, move);
 				if (!damage) {
 					return null;
 				}
