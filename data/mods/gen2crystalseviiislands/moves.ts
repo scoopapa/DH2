@@ -925,9 +925,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			let success = false;
-			for (const target of source.side.pokemon) {
-				if (target.volatiles['substitute'] && !move.infiltrates))) {
-					continue;
+			for (const pokemon of source.side.foe.active) {
+				if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({atk: 2});
 				}
 			return success;
 		},
