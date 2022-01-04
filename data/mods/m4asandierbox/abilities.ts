@@ -847,8 +847,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         desc: "This Pokemon heals for 1/4 of its max health upon lowering an enemy's stats.",
 		shortDesc: "Heal 1/4 on foe stat drop.",
 		onAnyAfterEachBoost(boost, target, source) {
-            this.hint(source.name);
-			this.hint(target.name);
 			if (!source || source === target || source !== this.effectData.target) return;
 			let statsLowered = false;
             let i: BoostName;
@@ -965,5 +963,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         name: "Infatigable",
         rating: 4,
         num: -6045,
+    },
+	shortcircuit: {
+        desc: "When this Pokémon uses a Electric-type attack, damage is calculated using the user's Speed stat. Other effects that modify the Speed stats are used as normal, including stat stage changes.",
+        shortDesc: "Electric-type attacks use Speed stat in damage calculation.",
+        onModifyMove(move, attacker) {
+            if (move.type === 'Electric') {
+                (move as any).useSourceSpeedAsOffensive = true;
+            }
+        },
+		name: "Short Circuit",
+        rating: 3.5,
+        num: -6046,
     },
 };
