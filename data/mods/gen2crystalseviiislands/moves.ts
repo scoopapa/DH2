@@ -916,7 +916,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	swagger: {
 		inherit: true,
-		flags: {authentic: 1},
+		flags: {protect: 1, mirror: 1, authentic: 1, mystery: 1},
 		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
 		onTryHit(target, pokemon, move) {
 			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
