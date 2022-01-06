@@ -16,7 +16,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meowth: { tier: "Evo (NFE)" },
 	meowthalola: { tier: "Evo (NFE)" },
 	meowthgalar: { tier: "Evo (NFE)" },
-	persian: { tier: "Evo! (NFE)" }, // evolves into Carnelion
+	persian: { tier: "Evo (NFE)" }, // evolves into Carnelion
 	persianalola: { tier: "Evo!" },
 	perrserker: { tier: "Evo!" },
 	carnelion: { tier: "Evo!" },
@@ -69,7 +69,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cherrimsunshine: { tier: "Evo!" },
 
 	gossifleur: { tier: "Evo (NFE)" },
-	eldegoss: { tier: "Evo" },
+	eldegoss: { tier: "Evo!" },
 
 	bounsweet: { tier: "Evo (NFE)" },
 	steenee: { tier: "Evo (NFE)" },
