@@ -1528,6 +1528,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
 		];
 		/* Wide-spread changes */
+		const esrules = this.getRuleTable(this.getFormat('earthskyou'));
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
 			const learnsetTest = false;//["solrock"].includes(pokemonID);
@@ -1547,7 +1548,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
-						this.modData('FormatsData', pokemonID).tier = this.format.isBannedSpecies(pokemon) ? "Uber" : "OU";
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
 					}
 				}
 				console.log(this.modData('FormatsData', pokemonID));
