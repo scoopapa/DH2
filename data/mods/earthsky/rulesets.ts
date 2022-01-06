@@ -5,6 +5,21 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 		desc: 'The standard ruleset for all Earth & Sky tiers',
 		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Gen 8 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
 			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
+		onValidateSet(set, format) { //Re-calculate Hidden Power
+			if(!set.hpType){
+				const hpTypes = [
+					'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
+					'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
+				];
+				let hpTypeX = 0;
+				let i = 1;
+				for (const s in stats) {
+					hpTypeX += i * (ivs[s] % 2);
+					i *= 2;
+				}
+				set.hpType = hpTypes[min(15,tr(hpTypeX * 16 / 63))],
+			}
+		},
 	},
 	egelaspokedex: {
 		effectType: 'ValidatorRule',

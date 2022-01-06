@@ -1900,6 +1900,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			frustration: ["8M"],
 			solarbeam: ["8M"],
 			endure: ["8M"],
+			magicalleaf: ["8E"],
+			yawn: ["8E"],
 			tropkick: ["8D"],
 		},
 	},
