@@ -3,10 +3,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
 	//So we have to bypass it manually here.
 	teambuilderConfig: {
-        // for micrometas to only show custom tiers
-        excludeStandardTiers: true,
-        // only to specify the order of custom tiers
-        customTiers: ['Alternatium', 'Uncoded'],
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['Alternatium', 'Uncoded'],
+		customDoublesTiers: ['Alternatium', 'Uncoded'],
 	},
 	
 	modifyDamage(
