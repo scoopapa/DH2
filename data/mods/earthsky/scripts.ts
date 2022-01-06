@@ -1529,7 +1529,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		];
 		/* Wide-spread changes */
 		const esrules = this.getRuleTable(this.getFormat('gen8earthskyou'));
-		console.log(esrules.banlist);
+		console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
 			const learnsetTest = false;//["solrock"].includes(pokemonID);
@@ -1550,10 +1550,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
-						console.log(pokemon.name + "'s tier update");
-						console.log("Banned: " + esrules.isBannedSpecies(pokemonID));
-						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemonID) ? "Uber" : "OU";
-						console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
+						//console.log(pokemon.name + "'s tier update");
+						//console.log("Banned: " + esrules.isBannedSpecies(pokemon));
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
+						//console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
 					}
 				}
 			}
