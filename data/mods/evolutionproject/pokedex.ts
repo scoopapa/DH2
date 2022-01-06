@@ -311,7 +311,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
 		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
 
-		prevo: ["Inkay-Alola"],
+		prevo: "Inkay-Alola",
 		evoLevel: 30,
 		evoCondition: "with the console turned upside-down",
 		creator: "Violet",
@@ -487,7 +487,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["belch", "sludgebomb", "stuffcheeks"],
 		movepoolDeletions: ["aromatherapy", "bellydrum", "cottonguard", "dazzlinggleam", "drainingkiss", "fairywind", "mistyexplosion", "playrough"],
 
-		prevo: ["Swirlix-Variant"],
+		prevo: "Swirlix-Variant",
 		evoType: "trade",
 		evoItem: "Black Sludge",
 		creator: "abismal",
@@ -534,6 +534,296 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		creator: "abismal",
+	},
+
+	venipede: {
+		inherit: true,
+		otherFormes: ["Venipede-Variant"],
+		formeOrder: ["Venipede", "Venipede-Variant"],
+	},
+	venipedevariant: {
+		name: "Venipede-Variant",
+		baseSpecies: "Venipede",
+		forme: "Variant",
+		copyData: "Venipede",
+
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 50, atk: 45, def: 39, spa: 45, spd: 24, spe: 57},
+		abilities: {0: "Poison Heal", 1: "Swarm", H: "Quick Feet"},
+		movepoolAdditions: ["earthpower", "gigadrain", "scorchingsands", "stealthrock"],
+		movepoolDeletions: ["toxicspikes"],
+
+		evos: ["Whirlipede-Variant"],
+		creator: "BlueRay",
+	},
+	whirlipede: {
+		inherit: true,
+		otherFormes: ["Whirlipede-Variant"],
+		formeOrder: ["Whirlipede", "Whirlipede-Variant"],
+	},
+	whirlipedevariant: {
+		name: "Whirlipede-Variant",
+		baseSpecies: "Whirlipede",
+		forme: "Variant",
+		copyData: "Whirlipede",
+
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 60, atk: 55, def: 79, spa: 55, spd: 64, spe: 47},
+		abilities: {0: "Poison Heal", 1: "Swarm", H: "Quick Feet"},
+		movepoolAdditions: ["earthpower", "gigadrain", "scorchingsands", "stealthrock"],
+		movepoolDeletions: ["toxicspikes"],
+
+		prevo: "Venipede-Variant",
+		evoLevel: 22,
+		evos: ["Scolipede-Variant"],
+		creator: "BlueRay",
+	},
+	scolipede: {
+		inherit: true,
+		otherFormes: ["Scolipede-Variant"],
+		formeOrder: ["Scolipede", "Scolipede-Variant"],
+	},
+	scolipedevariant: {
+		name: "Scolipede-Variant",
+		baseSpecies: "Scolipede",
+		forme: "Variant",
+		copyData: "Scolipede",
+
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 100, atk: 100, def: 49, spa: 85, spd: 39, spe: 112},
+		abilities: {0: "Poison Heal", 1: "Swarm", H: "Quick Feet"},
+		movepoolAdditions: ["earthpower", "gigadrain", "scorchingsands", "stealthrock"],
+		movepoolDeletions: ["toxicspikes"],
+
+		prevo: "Whirlipede-Variant",
+		evoLevel: 30,
+		creator: "BlueRay",
+	},
+
+	staryu: {
+		inherit: true,
+		otherFormes: ["Staryu-Variant"],
+		formeOrder: ["Staryu", "Staryu-Variant"],
+	},
+	staryuvariant: {
+		name: "Staryu-Variant",
+		baseSpecies: "Staryu",
+		forme: "Variant",
+		copyData: "Staryu",
+
+		types: ["Rock"],
+		abilities: {0: "Dazzling", 1: "Natural Cure", H: "Analytic"},
+		movepoolAdditions: ["earthpower", "muddywater", "rockpolish", "sandstorm", "scorchingsands", "stealthrock"],
+
+		evos: ["Starmie-Variant"],
+		creator: "BlueRay",
+	},
+	starmie: {
+		inherit: true,
+		otherFormes: ["Starmie-Variant"],
+		formeOrder: ["Starmie", "Starmie-Variant"],
+	},
+	starmievariant: {
+		name: "Starmie-Variant",
+		baseSpecies: "Starmie",
+		forme: "Variant",
+		copyData: "Starmie",
+
+		types: ["Rock"],
+		abilities: {0: "Dazzling", 1: "Natural Cure", H: "Analytic"},
+		movepoolAdditions: ["earthpower", "muddywater", "rockpolish", "sandstorm", "scorchingsands", "stealthrock"],
+
+		prevo: "Staryu-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution", // use generic flavor where not specified
+		creator: "BlueRay",
+	},
+
+	carkol: {
+		inherit: true,
+		evos: ["Coalossal", "Stokomotive"],
+	},
+	stokomotive: {
+		name: "Stokomotive",
+		copyData: "Coalossal", // evolves from Carkol but has more in common with Coalossal
+
+		baseStats: {hp: 80, atk: 100, def: 70, spa: 100, spd: 48, spe: 112},
+		movepoolAdditions: ["autotomize", "healbell"],
+		movepoolDeletions: ["megakick", "megapunch"],
+
+		prevo: "Carkol",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
+	roggenrola: {
+		inherit: true,
+		otherFormes: ["Roggenrola-Kalos"],
+		formeOrder: ["Roggenrola", "Roggenrola-Kalos"],
+	},
+	roggenrolakalos: {
+		name: "Roggenrola-Kalos",
+		baseSpecies: "Roggenrola",
+		forme: "Kalos",
+		copyData: "Roggenrola",
+
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 55, atk: 25, def: 85, spa: 75, spd: 25, spe: 15},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
+		movepoolAdditions: ["chargebeam", "risingvoltage", "sunnyday", "thunderbolt", "thunderwave"],
+
+		evos: ["Boldore-Kalos"],
+		creator: "Violet",
+	},
+	boldore: {
+		inherit: true,
+		otherFormes: ["Boldore-Kalos"],
+		formeOrder: ["Boldore", "Boldore-Kalos"],
+	},
+	boldorekalos: {
+		name: "Boldore-Kalos",
+		baseSpecies: "Boldore",
+		forme: "Kalos",
+		copyData: "Boldore",
+
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 70, atk: 50, def: 105, spa: 105, spd: 40, spe: 20},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
+		movepoolAdditions: ["chargebeam", "risingvoltage", "sunnyday", "thunderbolt", "thunderwave"],
+
+		prevo: "Roggenrola-Kalos",
+		evoLevel: 25,
+		evos: ["Gigalith-Kalos"],
+		creator: "Violet",
+	},
+	gigalithkalos: {
+		name: "Gigalith-Kalos",
+		baseSpecies: "Gigalith",
+		forme: "Kalos",
+		copyData: "Gigalith",
+
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 85, atk: 60, def: 130, spa: 135, spd: 80, spe: 25},
+		abilities: {0: "Sturdy", 1: "Drought", H: "Solar Power"},
+		movepoolAdditions: ["chargebeam", "risingvoltage", "sunnyday", "thunderbolt", "thunderwave"],
+
+		prevo: "Boldore-Kalos",
+		evoType: "trade",
+		creator: "Violet",
+	},
+
+	rockruff: {
+		inherit: true,
+		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
+	},
+	lycanroc: {
+		inherit: true,
+		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
+		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
+	},
+	lycanrocarctaran: {
+		name: "Lycanroc-Arctaran",
+		baseSpecies: "Lycanroc",
+		forme: "Arctaran",
+		copyData: "Lycanroc",
+
+		types: ["Rock", "Ice"],
+		baseStats: {hp: 95, atk: 70, def: 80, spa: 55, spd: 120, spe: 67},
+		abilities: {0: "Fur Coat", 1: "Tough Claws", H: "Sand Rush"},
+		movepoolAdditions: [
+			"accelerock", "assurance", "blizzard", "brickbreak", "bulkup", "closecombat", "counter", "drillrun", "gigaimpact", "icebeam", "icywind", "psychicfangs",
+			"quickguard", "revenge", "reversal", "rockblast", "sandstorm", "shoreup", "tripleaxel", "workup"
+		],
+
+		prevo: "Rockruff",
+		evoLevel: 25,
+		evoCondition: "Evolves at level 45 unless the season is spring",
+		creator: "KeroseneZanchu",
+	},
+
+	solrock: {
+		inherit: true,
+		evos: ["Eclipseroid"],
+	},
+	lunatone: {
+		inherit: true,
+		evos: ["Eclipseroid"],
+	},
+	eclipseroid: {
+		name: "Eclipseroid",
+		copyData: "Solrock",
+
+		types: ["Rock", "Ghost"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 70},
+		movepoolAdditions: ["recover"],
+		// going to hard-code its movepool a little
+
+		prevo: ["Solrock", "Lunatone"], // no idea if this will work
+		evoType: "other",
+		evoCondition: "A mysterious Pokémon that can evolve from either Solrock or Lunatone...",
+		creator: "ausma",
+	},
+
+	dusclops: {
+		inherit: true,
+		evos: ["Dusknoir", "Dusglow"],
+	},
+	dusglow: {
+		name: "Dusglow",
+		copyData: "Dusknoir", // evolves from Dusclops but has more in common with Dusknoir
+
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 45, atk: 85, def: 105, spa: 115, spd: 105, spe: 70},
+		abilities: {0: "Pressure", H: "Wandering Spirit"},
+		copyMoves: "Dusclops",
+		movepoolAdditions: ["dazzlinggleam", "drainingkiss"],
+
+		prevo: "Dusclops",
+		evoType: "useItem",
+		evoItem: "Dawn Stone",
+		creator: "Violet",
+	},
+
+	slugma: {
+		inherit: true,
+		otherFormes: ["Slugma-Galar"],
+		formeOrder: ["Slugma", "Slugma-Galar"],
+	},
+	slugmagalar: {
+		name: "Slugma-Galar",
+		baseSpecies: "Slugma",
+		forme: "Galar",
+		copyData: "Slugma",
+
+		types: ["Steel"],
+		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Gooey"},
+		movepoolAdditions: ["flashcannon", "scorchingsands", "sludgebomb", "steelbeam", "toxicspikes", "venoshock"],
+		movepoolDeletions: ["ancientpower", "fireblast", "flameburst", "flamethrower", "flameburst", "inferno", "lavaplume", "overheat", "shellsmash", "stoneedge"],
+
+		evos: ["Magcargo-Galar"],
+		creator: "quagsi",
+	},
+	malamar: {
+		inherit: true,
+		otherFormes: ["Magcargo-Galar"],
+		formeOrder: ["Malamar", "Magcargo-Galar"],
+	},
+	malamaralola: {
+		name: "Magcargo-Galar",
+		baseSpecies: "Magcargo",
+		forme: "Galar",
+		copyData: "Magcargo",
+
+		types: ["Steel", "Poison"],
+		baseStats: {hp: 60, atk: 50, def: 60, spa: 90, spd: 60, spe: 110},
+		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Gooey"},
+		movepoolAdditions: ["flashcannon", "scorchingsands", "sludgebomb", "steelbeam", "toxicspikes", "venoshock"],
+		movepoolDeletions: ["ancientpower", "fireblast", "flameburst", "flamethrower", "flameburst", "inferno", "lavaplume", "overheat", "shellsmash", "stoneedge"],
+
+		prevo: "Slugma-Galar",
+		evoLevel: 38,
+		creator: "quagsi",
 	},
 
 };
