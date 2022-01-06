@@ -183,7 +183,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lycanroc: { tier: "Evo!" },
 	lycanrocmidnight: { tier: "Evo!" },
 	lycanrocdusk: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
-	lycanrocarctaran: { tier: "Evo!" },
+	lycanrocarctara: { tier: "Evo!" },
 
 	solrock: { tier: "Evo (NFE)" }, // evolves into Eclipseroid
 	lunatone: { tier: "Evo (NFE)" }, // also evolves into Eclipseroid!
