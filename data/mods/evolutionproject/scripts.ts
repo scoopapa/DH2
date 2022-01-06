@@ -38,7 +38,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
 					}
 				}
+				// hard-coding a bit for Eclipseroid specifically (may rework if we get more fusions later but kinda doubt)
+				if (newMon.name === 'Eclipseroid') {
+					for (const moveid in this.dataCache.Learnsets[this.toID("Lunatone")].learnset) {
+						this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+					}
+				}
 			}
 		}
 	},
+	runSwitch(pokemon) { // modified for Hoard
+		this.runEvent('Swap', pokemon);
+		this.runEvent('SwitchIn', pokemon);
+		if (this.gen <= 2 && !pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.turn) {
+			this.runEvent('AfterSwitchInSelf', pokemon);
+		}
+		if (!pokemon.hp) return false;
+		pokemon.isStarted = true;
+		if (!pokemon.fainted) {
+			this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+			pokemon.abilityOrder = this.abilityOrder++;
+			this.singleEvent('Start', pokemon.getItem(), pokemon.itemData, pokemon);
+		}
+		if (this.gen === 4) {
+			for (const foeActive of pokemon.side.foe.active) {
+				foeActive.removeVolatile('substitutebroken');
+			}
+		}
+		if (!pokemon.m.originalItem) pokemon.m.originalItem = pokemon.item;
+		pokemon.draggedIn = null;
+		return true;
+	}
 };

@@ -797,6 +797,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
 		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
+		flags: {authentic: 1},
 		effect: {
 			// this is a side condition
 			onStart(side) {
@@ -915,12 +916,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	swagger: {
 		inherit: true,
+		flags: {protect: 1, mirror: 1, authentic: 1, mystery: 1},
 		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
-		onTryHit(target, pokemon) {
+		onTryHit(target, pokemon, move) {
 			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
 				this.add('-miss', pokemon);
 				return null;
 			}
+			if (target.volatiles['substitute']) delete move.volatileStatus;
 		},
 	},
 	sweetscent: {

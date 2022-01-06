@@ -257,7 +257,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Electrode-Mega"],
 		formeOrder: ["Electrode", "Electrode-Mega"],
-		movepoolAdditions: ["mindblown"],
+		movepoolAdditions: ["camouflage", "mindblown"],
 	},
 	electrodemega: {
 		num: 101,
@@ -769,7 +769,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Regice-Mega"],
 		formeOrder: ["Regice", "Regice-Mega"],
-		movepoolAdditions: ["teleport"],
+		movepoolAdditions: ["lifedew", "meteorbeam", "teleport"],
 	},
 	regicemega: {
 		num: 378,
@@ -1440,9 +1440,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Cinccino-Mega",
 		baseSpecies: "Cinccino",
 		forme: "Mega",
-		types: ["Normal"],
+		types: ["Normal", "Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
-		baseStats: {hp: 75, atk: 140, def: 75, spa: 65, spd: 75, spe: 140},
+		baseStats: {hp: 75, atk: 95, def: 80, spa: 65, spd: 140, spe: 115},
 		abilities: {0: "Long Whip"},
 		heightm: 0.5,
 		weightkg: 7.5,
@@ -1630,7 +1630,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Eelektross-Mega"],
 		formeOrder: ["Eelektross", "Eelektross-Mega"],
-		movepoolAdditions: ["recover", "scald"],
+		movepoolAdditions: ["gunkshot", "recover", "scald"],
 	},
 	eelektrossmega: {
 		num: 604,
