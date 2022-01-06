@@ -38,6 +38,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
 					}
 				}
+				// hard-coding a bit for Eclipseroid specifically (may rework if we get more fusions later but kinda doubt)
+				if (newMon.name === 'Eclipseroid') {
+					for (const moveid in this.dataCache.Learnsets[this.toID("Lunatone")].learnset) {
+						this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+					}
+				}
 			}
 		}
 	},
