@@ -1529,6 +1529,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		];
 		/* Wide-spread changes */
 		const esrules = this.getRuleTable(this.getFormat('gen8earthskyou'));
+		console.log(esrules.banlist);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
 			const learnsetTest = false;//["solrock"].includes(pokemonID);
@@ -1548,10 +1549,13 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
+						console.log(pokemon.name + "'s tier update");
+						console.log("Banned: " + esrules.isBanned(pokemonID));
+						console.log("Species banned: " + esrules.isBannedSpecies(pokemon));
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
+						console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
 					}
 				}
-				//console.log(this.modData('FormatsData', pokemonID));
 			}
 			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
 			if(pokemon.battleOnly || ["Egelas", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) || 
@@ -1710,7 +1714,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		for(let itemID in this.data.Items) { //marks all items as current gen, except Z-Crystals
 			const item = this.modData('Items', itemID);
-			if(item.isNonstandard === "Past" && !item.zMove) delete item.isNonstandard;
+			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
 		}
 		for(const itemID of deletedItems) { //then drops removed items as past-gen so they can't be used
 			const item = this.modData('Items', itemID);
