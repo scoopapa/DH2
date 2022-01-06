@@ -802,6 +802,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 65, atk: 103, def: 122, spa: 58, spd: 75, spe: 108},
 		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		copyMoves: "Gourgeist", // it doesn't like copying from other Gourgeist forms
 		movepoolAdditions: ["naturalgift", "weatherball"],
 
 		prevo: "Gourgeist-Small",
@@ -817,6 +818,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 85, atk: 101, def: 122, spa: 76, spd: 75, spe: 72},
 		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		copyMoves: "Gourgeist", // it doesn't like copying from other Gourgeist forms
 		movepoolAdditions: ["naturalgift", "weatherball"],
 
 		prevo: "Gourgeist-Large",
@@ -832,6 +834,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 95, atk: 100, def: 122, spa: 85, spd: 75, spe: 54},
 		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		copyMoves: "Gourgeist", // it doesn't like copying from other Gourgeist forms
 		movepoolAdditions: ["naturalgift", "weatherball"],
 
 		prevo: "Gourgeist-Super",
