@@ -65,7 +65,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				foeActive.removeVolatile('substitutebroken');
 			}
 		}
-		if (pokemon.m.originalItem) pokemon.m.originalItem = pokemon.item;
+		if (!pokemon.m.originalItem) pokemon.m.originalItem = pokemon.item;
 		pokemon.draggedIn = null;
 		return true;
 	}
