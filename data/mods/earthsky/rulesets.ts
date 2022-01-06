@@ -11,10 +11,11 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 					'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
 					'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
 				];
+				const stats = {hp: 31, atk: 31, def: 31, spe: 31, spa: 31, spd: 31};
 				let hpTypeX = 0;
 				let i = 1;
 				for (const s in stats) {
-					hpTypeX += i * (ivs[s] % 2);
+					hpTypeX += i * (set.ivs[s] % 2);
 					i *= 2;
 				}
 				set.hpType = hpTypes[min(15,tr(hpTypeX * 16 / 63))];
