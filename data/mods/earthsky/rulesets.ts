@@ -17,7 +17,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 					hpTypeX += i * (ivs[s] % 2);
 					i *= 2;
 				}
-				set.hpType = hpTypes[min(15,tr(hpTypeX * 16 / 63))],
+				set.hpType = hpTypes[min(15,tr(hpTypeX * 16 / 63))];
 			}
 		},
 	},
