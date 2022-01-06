@@ -765,6 +765,81 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "ausma",
 	},
 
+	gourgeist: {
+		inherit: true,
+		evos: ["Jackourd"],
+	},
+	gourgeistsmall: {
+		inherit: true,
+		evos: ["Jackourd-Small"],
+	},
+	gourgeistlarge: {
+		inherit: true,
+		evos: ["Jackourd-Large"],
+	},
+	gourgeistsuper: {
+		inherit: true,
+		evos: ["Jackourd-Super"],
+	},
+	jackourd: {
+		name: "Jackourd",
+		copyData: "Gourgeist",
+
+		baseStats: {hp: 75, atk: 102, def: 122, spa: 67, spd: 75, spe: 90},
+		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		movepoolAdditions: ["naturalgift", "weatherball"],
+
+		prevo: "Gourgeist",
+		evoType: "levelHold",
+		evoItem: "Razor Claw",
+		creator: "KeroseneZanchu",
+	},
+	jackourdsmall: {
+		name: "Jackourd-Small",
+		baseSpecies: "Jackourd",
+		forme: "Small",
+		copyData: "Gourgeist-Small",
+
+		baseStats: {hp: 65, atk: 103, def: 122, spa: 58, spd: 75, spe: 108},
+		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		movepoolAdditions: ["naturalgift", "weatherball"],
+
+		prevo: "Gourgeist-Small",
+		evoType: "levelHold",
+		evoItem: "Razor Claw",
+		creator: "KeroseneZanchu",
+	},
+	jackourdlarge: {
+		name: "Jackourd-Large",
+		baseSpecies: "Jackourd",
+		forme: "Large",
+		copyData: "Gourgeist-Large",
+
+		baseStats: {hp: 85, atk: 101, def: 122, spa: 76, spd: 75, spe: 72},
+		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		movepoolAdditions: ["naturalgift", "weatherball"],
+
+		prevo: "Gourgeist-Large",
+		evoType: "levelHold",
+		evoItem: "Razor Claw",
+		creator: "KeroseneZanchu",
+	},
+	jackourdsuper: {
+		name: "Jackourd-Super",
+		baseSpecies: "Jackourd",
+		forme: "Super",
+		copyData: "Gourgeist-Super",
+
+		baseStats: {hp: 95, atk: 100, def: 122, spa: 85, spd: 75, spe: 54},
+		abilities: {0: "Pickup", 1: "Harvest", H: "Hoard"},
+		movepoolAdditions: ["naturalgift", "weatherball"],
+
+		prevo: "Gourgeist-Super",
+		evoType: "levelHold",
+		evoItem: "Razor Claw",
+		creator: "KeroseneZanchu",
+	},
+
 	dusclops: {
 		inherit: true,
 		evos: ["Dusknoir", "Dusglow"],
