@@ -1545,12 +1545,13 @@ export const Scripts: ModdedBattleScriptsData = {
 					//console.log(pokemon.name + " restoration");
 					delete this.modData('FormatsData', pokemonID).isNonstandard;
 				}
-				if(!pokemon.battleOnly){ //Standardize tiers for all Pokemon that have their own tiering data
+				if(this.modData('FormatsData', pokemonID).isNonstandard) continue; //All other non-standard Pokemon are to remain unusable
+				if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
 						console.log(pokemon.name + "'s tier update");
-						console.log("Banned: " + esrules.isBanned(pokemonID));
+						console.log("Banned: " + esrules.isBanned(pokemon));
 						console.log("Species banned: " + esrules.isBannedSpecies(pokemon));
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
 						console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
