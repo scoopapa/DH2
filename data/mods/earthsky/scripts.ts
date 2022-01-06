@@ -1551,9 +1551,8 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
 						console.log(pokemon.name + "'s tier update");
-						console.log("Banned: " + esrules.isBanned(pokemon));
-						console.log("Species banned: " + esrules.isBannedSpecies(pokemon));
-						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
+						console.log("Banned: " + esrules.isBannedSpecies(pokemonID));
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemonID) ? "Uber" : "OU";
 						console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
 					}
 				}
