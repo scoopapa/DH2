@@ -312,7 +312,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		effectiveTerrain(target?: Pokemon | Side | Battle) {
 			if (this.suppressingTerrain()){
-				console.log("Terrain is suppressed");
+				//console.log("Terrain is suppressed");
 				return '';
 			}
 			if (this.battle.event && !target) target = this.battle.event.target;
@@ -1551,7 +1551,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
 					}
 				}
-				console.log(this.modData('FormatsData', pokemonID));
+				//console.log(this.modData('FormatsData', pokemonID));
 			}
 			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
 			if(pokemon.battleOnly || ["Egelas", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) || 
