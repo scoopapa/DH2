@@ -391,4 +391,62 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
 	},
+	tartapple: {
+		name: "Tart Apple",
+		spritenum: 712,
+		fling: {
+			basePower: 20,
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Flapple') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && target.baseSpecies.baseSpecies === 'Flapple') {
+				return accuracy * 1.5;
+			}
+		},
+		itemUser: ["Flapple"],
+		num: 1117,
+		gen: 8,
+		desc: "If the holder is Flapple: 1.5x Speed and Accuracy.",
+	},
+	sweetapple: {
+		name: "Sweet Apple",
+		spritenum: 711,
+		fling: {
+			basePower: 20,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name === 'Appletun') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Sweet Apple weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Sweet Apple weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'tox' || effect.id === 'psn')) {
+				return damage / 2;
+			}
+		},
+		num: 1116,
+		gen: 8,
+		desc: "If the holder is Appletun: Heals 12.5% HP every turn and takes 50% damage from Poison moves and poison status.",
+	},
 };
