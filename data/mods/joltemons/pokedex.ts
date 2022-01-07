@@ -186,7 +186,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mesprit: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Moody"},
+		types: ["Psychic", "Fairy"],
+		abilities: {0: "Levitate", 1: "Moody", H: "Prankster"},
+	},
+	azelf: {
+		inherit: true,
+		types: ["Psychic", "Fighting"],
+		abilities: {0: "Levitate", 1: "Competitive", H: "Moxie"},
 	},
 	dartrix: {
 		inherit: true,
@@ -617,7 +623,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	uxie: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Neuroforce"},
+		types: ["Psychic", "Steel"],
+		abilities: {0: "Levitate", 1: "Neuroforce", H: "Filter"},
 	},
 	necrozma: {
 		inherit: true,
@@ -642,5 +649,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	chatot: {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Tangled Feet", H: "Neuroforce"},
+	},
+	wishiwashischool: {
+		inherit: true,
+		types: ["Water", "Dragon"],
 	},
 };
