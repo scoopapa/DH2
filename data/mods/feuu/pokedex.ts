@@ -3824,7 +3824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1084,
 		name: "Vullarogue",
 		types: ["Fighting", "Dark"],
-		baseStats: {hp: 55, atk: 76, def: 42, spa: 45, spd: 50, spe: 57},
+		baseStats: {hp: 52, atk: 60, def: 65, spa: 40, spd: 58, spe: 47},
 		abilities: {0: "Courageous"},
 		weightkg: 15,
 		evos: ["Manditop"],
