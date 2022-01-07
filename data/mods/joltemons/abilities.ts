@@ -343,7 +343,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 257,
 	},
-
+	gravitas: {
+		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+		onStart(source) {
+			this.field.addPseudoWeather('gravity', source, source.ability);
+		},
+		name: "Gravitas",
+		rating: 4,
+	},
+	buzzoff: {
+		shortDesc: "This Pokemon switches out after using a Bug-type move.",
+		onModifyMove(move) {
+			if (move.type === 'Bug') {
+			move.selfSwitch = true;
+			}
+		},
+		name: "Buzz Off",
+		rating: 2.5,
+	},
 	
 // Edited by proxy
 	oblivious: {
