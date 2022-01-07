@@ -449,4 +449,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If the holder is Appletun: Heals 12.5% HP every turn and takes 50% damage from Poison moves and poison status.",
 	},
+	protector: {
+		name: "Protector",
+		spritenum: 367,
+		fling: {
+			basePower: 100,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Protector neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		num: 321,
+		gen: 4,
+		desc: "Super effective attacks deal 3/4 damage to the holder.",
+	},
 };
