@@ -586,6 +586,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Cool",
 	},
+	crushclaw: {
+		num: 306,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+    shortDesc: "Hits twice. Lowers the target's Def after each hit.",
+		isViable: true,
+		name: "Crush Claw",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+    },
+		target: "normal",
+		type: "Dark",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
