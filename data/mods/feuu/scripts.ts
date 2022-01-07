@@ -482,7 +482,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
