@@ -290,6 +290,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
 						} else if (this.hasAbility('floatguise')) {
 							this.battle.add('-immune', this, '[from] ability: Float Guise');
+						} else if (this.hasAbility('aerialbreak')) {
+							this.battle.add('-immune', this, '[from] ability: Aerial Break');						
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
