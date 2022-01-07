@@ -353,6 +353,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	buzzoff: {
 		shortDesc: "This Pokemon switches out after using a Bug-type move.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Buzz Off');
+		},
 		onModifyMove(move) {
 			if (move.type === 'Bug') {
 			move.selfSwitch = true;
