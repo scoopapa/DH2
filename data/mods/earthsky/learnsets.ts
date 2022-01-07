@@ -48,6 +48,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			worryseed: ["8M"],
 			endure: ["8M"],
 			endeavor: ["8M"],
+			leechseed: ["8E"],
+			worryseed: ["8E"],
 			grasspledge: ["8T"],
 			curse: ["8D"],
 		},

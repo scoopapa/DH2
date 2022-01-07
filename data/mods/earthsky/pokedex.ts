@@ -395,7 +395,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 25, atk: 40, def: 40, spa: 25, spd: 25, spe: 60},
-		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propellor Tail"},
+		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
 		heightm: 0.6,
 		weightkg: 4.4,
 		color: "Gray",
