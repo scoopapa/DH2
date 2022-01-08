@@ -615,7 +615,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	lilligant: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Pastel Veil", H: "Leaf Guard"},
+		abilities: {0: "Chlorophyll", 1: "Own Tempo", H: "Pastel Veil"},
 	},
 	calyrex: {
 		inherit: true,
