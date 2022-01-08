@@ -395,7 +395,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 25, atk: 40, def: 40, spa: 25, spd: 25, spe: 60},
-		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propellor Tail"},
+		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
 		heightm: 0.6,
 		weightkg: 4.4,
 		color: "Gray",
@@ -513,7 +513,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Trigenee",
 		types: ["Fighting"],
 		baseStats: {hp: 53, atk: 73, def: 23, spa: 43, spd: 43, spe: 33},
-		abilities: {0: "Skill Link", H: "Pickpocket"},
+		abilities: {0: "Skill Link", H: "Long Reach"},
 		heightm: 1.3,
 		weightkg: 33.3,
 		evos: ["Hexyon"],
@@ -524,7 +524,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Hexyon",
 		types: ["Fighting"],
 		baseStats: {hp: 66, atk: 106, def: 46, spa: 76, spd: 66, spe: 46},
-		abilities: {0: "Skill Link", H: "Pickpocket"},
+		abilities: {0: "Skill Link", H: "Long Reach"},
 		heightm: 1.9,
 		weightkg: 66.6,
 		prevo: "Trigenee",
@@ -537,7 +537,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Hektillion",
 		types: ["Fighting"],
 		baseStats: {hp: 79, atk: 149, def: 69, spa: 99, spd: 79, spe: 69},
-		abilities: {0: "Skill Link", H: "Pickpocket"},
+		abilities: {0: "Skill Link", H: "Long Reach"},
 		heightm: 2.9,
 		weightkg: 133.9,
 		prevo: "Hexyon",
@@ -1975,7 +1975,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ferroseed: {
 		inherit: true,
-		abilities: {0: "Iron Barbs", H: "Anticipation"},
+		abilities: {0: "Iron Barbs", H: "Heavy Metal"},
+	},
+	ferrothorn: {
+		inherit: true,
+		abilities: {0: "Iron Barbs", H: "Heavy Metal"},
 	},
 	tynamo: {
 		inherit: true,
@@ -2055,6 +2059,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	goodra: {
 		inherit: true,
 		abilities: {0: "Liquid Ooze", 1: "Hydration", H: "Gooey"},
+	},
+	pumpkaboosmall: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	pumpkaboo: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	pumpkaboolarge: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	pumpkaboosuper: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	gourgeistsmall: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	gourgeist: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	gourgeistlarge: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	gourgeistsuper: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
 	},
 	volcanion: {
 		inherit: true,

@@ -5,6 +5,22 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 		desc: 'The standard ruleset for all Earth & Sky tiers',
 		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Gen 8 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
 			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
+		onValidateSet(set, format) { //Re-calculate Hidden Power
+			if(!set.hpType){
+				const hpTypes = [
+					'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
+					'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
+				];
+				const stats = {hp: 31, atk: 31, def: 31, spe: 31, spa: 31, spd: 31};
+				let hpTypeX = 0;
+				let i = 1;
+				for (const s in stats) {
+					hpTypeX += i * (set.ivs[s] % 2);
+					i *= 2;
+				}
+				set.hpType = hpTypes[Math.min(15,this.dex.trunc(hpTypeX * 16 / 63))];
+			}
+		},
 	},
 	egelaspokedex: {
 		effectType: 'ValidatorRule',
@@ -15,7 +31,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot-Egelas","Noctowl-Egelas","Toybot","Aibot","Utilitron","Utilitron-Boat","Utilitron-Coptor","Trubbish","Garbodor","Faerunee","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Gulpin","Swalot","Montura","Twintura","Silvurah","Burrorm","Burryrm","Scarabouch","Deerling","Sawsbuck","Azurill","Marill","Azumarill","Ballooffalo","Slowpoke","Slowbro","Slowking","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Basculin-Blue-Striped","Pikeral","Pikeral-Blue-Striped","Feebas","Milotic","Slakoth","Vigoroth","Slaking","Bounsweet","Steenee","Tsareena","Lithoshroom","Litholich","Geodude","Graveler","Golem","Sableye","Mawile","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Axew","Fraxure","Haxorus","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Lycanroc-Midnight","Lycanroc-Twilight","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird-Egelas","Tynamo","Eelektrik-Egelas","Eelektross-Egelas","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor-Alola","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone-Egelas","Marowak-Alola","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Roggenrola","Boldore","Gigalith","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros-Egelas","Miltank-Egelas","Durant-Egelas","Heatmor-Egelas","Ponyta-Egelas","Rapidash-Egelas","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval"
 			];
 			const species = this.dex.getSpecies(set.species || set.name);
-			if (!egelasDex.includes(species.baseSpecies)) {
+			if (!egelasDex.includes(species)) {
 				return [species.baseSpecies + " is not in the Egelan Pokedex."];
 			}
 		},

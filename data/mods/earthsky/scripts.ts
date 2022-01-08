@@ -312,7 +312,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		effectiveTerrain(target?: Pokemon | Side | Battle) {
 			if (this.suppressingTerrain()){
-				console.log("Terrain is suppressed");
+				//console.log("Terrain is suppressed");
 				return '';
 			}
 			if (this.battle.event && !target) target = this.battle.event.target;
@@ -944,7 +944,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 		},
-		canMegaEvo(pokemon) { //Magic Room suppression, friendship req, Mega-Ray change
+		canMegaEvo(pokemon) { //Magic Room suppression, Mega-Ray change
 			if('magicroom' in this.field.pseudoWeather) return null;
 			const species = pokemon.baseSpecies;
 			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
@@ -997,7 +997,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.runEvent('AfterMega', pokemon);
 			return true;
 		},
-		useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) { //Sheer Force post-secondary change
+		useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) { //Curse, Sheer Force post-secondary change
 			if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
 			if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
 
@@ -1043,13 +1043,13 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Target changed in ModifyMove, so we must adjust it here
 				// Adjust before the next event so the correct target is passed to the
 				// event
-				target = pokemon.side.foe.active.length - 1 - pokemon.position; //Direct opposite foe
+				target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position]; //Direct opposite foe
 			}
 			move = this.runEvent('ModifyType', pokemon, target, move, move);
 			move = this.runEvent('ModifyMove', pokemon, target, move, move);
 			if (baseTarget !== move.target) {
 				// Adjust again
-				target = pokemon.side.foe.active.length - 1 - pokemon.position;
+				target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			}
 			if (!move || pokemon.fainted) {
 				return false;
@@ -1495,7 +1495,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'pikachubelle', 'pikachucosplay', 'pikachulibre', 'pikachuphd', 'pikachupopstar', 'pikachurockstar', 'pikachustarter', "slowpokegalar", "slowbrogalar", 'eeveestarter', "articunogalar", "zapdosgalar", "moltresgalar", 'pichuspikyeared', "slowkinggalar", "darmanitangalarzen", "greninjaash", 'floetteeternal', 'lycanrocdusk', 'eternatuseternamax', "kubfu", "urshifu", "urshifurapidstrike", "zarudedada", "regieleki", "regidrago", "calyrex", "glastrier", "spectrier", "calyrexshadow", "calyrexice",
 		];
 		const baseEight = [ //Pokemon using their Gen VIII learnsets as a base
-			"charmander", "charmeleon", "charizard", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
+			"charmander", "charmeleon", "charizard", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
 		];
 		const deletedItems = [
 			"luckypunch", "throatspray", "utilityumbrella",
@@ -1528,6 +1528,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
 		];
 		/* Wide-spread changes */
+		const esrules = this.getRuleTable(this.getFormat('gen8earthskyou'));
+		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
 			const learnsetTest = false;//["solrock"].includes(pokemonID);
@@ -1538,14 +1540,21 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.isNonstandard = "Past";
 				if(this.data.FormatsData[pokemonID]) this.data.FormatsData[pokemonID].tier = "Illegal";
 				continue;
-			} else if(this.data.FormatsData[pokemonID] && this.data.FormatsData[pokemonID].isNonstandard === "Past") {
-				//console.log(pokemon.name + " restoration");
-				//console.log(this.modData('FormatsData', pokemonID));
-				delete this.modData('FormatsData', pokemonID).isNonstandard;
-				if(!pokemon.battleOnly){ //Restore tier, but in-battle forms don't have their own tier
-					if(pokemon.evos){
+			} else if(this.data.FormatsData[pokemonID]) {
+				if(this.data.FormatsData[pokemonID].isNonstandard === "Past"){
+					//console.log(pokemon.name + " restoration");
+					delete this.modData('FormatsData', pokemonID).isNonstandard;
+				}
+				if(this.modData('FormatsData', pokemonID).isNonstandard) continue; //All other non-standard Pokemon are to remain unusable
+				if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
+					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
-					} else this.modData('FormatsData', pokemonID).tier = "OU";
+					} else {
+						//console.log(pokemon.name + "'s tier update");
+						//console.log("Banned: " + esrules.isBannedSpecies(pokemon));
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
+						//console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
+					}
 				}
 			}
 			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
@@ -1705,7 +1714,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		for(let itemID in this.data.Items) { //marks all items as current gen, except Z-Crystals
 			const item = this.modData('Items', itemID);
-			if(item.isNonstandard === "Past" && !item.zMove) delete item.isNonstandard;
+			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
 		}
 		for(const itemID of deletedItems) { //then drops removed items as past-gen so they can't be used
 			const item = this.modData('Items', itemID);
@@ -1796,25 +1805,36 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Rattata
 		this.modData("Learnsets", "rattata").learnset.odorsleuth = ["8D"];
 		this.modData("Learnsets", "rattata").learnset.chipaway = ["8M"];
-		this.modData("Learnsets", "rattata").learnset.cut = ["8L1"];
-		delete this.modData('Learnsets', 'rattata').learnset.tackle;
+		this.modData("Learnsets", "rattata").learnset.cut = ["8L25"];
+		this.modData("Learnsets", "rattata").learnset.suckerpunch = ["8L28"];
+		this.modData("Learnsets", "rattata").learnset.superfang = ["8L31"];
+		this.modData("Learnsets", "rattata").learnset.doubleedge = ["8L34"];
+		this.modData("Learnsets", "rattata").learnset.endeavor = ["8L37"];
 		// Rattata Alola
 		this.modData("Learnsets", "rattataalola").learnset.odorsleuth = ["8D"];
 		this.modData("Learnsets", "rattataalola").learnset.chipaway = ["8M"];
-		this.modData("Learnsets", "rattataalola").learnset.cut = ["8L1"];
+		this.modData("Learnsets", "rattataalola").learnset.cut = ["8L25"];
+		this.modData("Learnsets", "rattataalola").learnset.suckerpunch = ["8L28"];
+		this.modData("Learnsets", "rattataalola").learnset.superfang = ["8L31"];
+		this.modData("Learnsets", "rattataalola").learnset.doubleedge = ["8L34"];
+		this.modData("Learnsets", "rattataalola").learnset.endeavor = ["8L37"];
 		this.modData("Learnsets", "rattataalola").learnset.stuffcheeks = ["8E"];
-		delete this.modData('Learnsets', 'rattataalola').learnset.tackle;
 		// Raticate
 		this.modData("Learnsets", "raticate").learnset.odorsleuth = ["8D"];
 		this.modData("Learnsets", "raticate").learnset.chipaway = ["8M"];
-		this.modData("Learnsets", "raticate").learnset.cut = ["8L1"];
-		delete this.modData('Learnsets', 'raticate').learnset.tackle;
+		this.modData("Learnsets", "raticate").learnset.cut = ["8L25"];
+		this.modData("Learnsets", "raticate").learnset.suckerpunch = ["8L28"];
+		this.modData("Learnsets", "raticate").learnset.superfang = ["8L31"];
+		this.modData("Learnsets", "raticate").learnset.doubleedge = ["8L34"];
+		this.modData("Learnsets", "raticate").learnset.endeavor = ["8L37"];
 		// Raticate Alola
 		this.modData("Learnsets", "raticatealola").learnset.odorsleuth = ["8D"];
 		this.modData("Learnsets", "raticatealola").learnset.chipaway = ["8M"];
-		this.modData("Learnsets", "raticatealola").learnset.cut = ["8L1"];
-		this.modData("Learnsets", "raticatealola").learnset.stuffcheeks = ["8E"];
-		delete this.modData('Learnsets', 'raticatealola').learnset.tackle;
+		this.modData("Learnsets", "raticatealola").learnset.cut = ["8L25"];
+		this.modData("Learnsets", "raticatealola").learnset.suckerpunch = ["8L28"];
+		this.modData("Learnsets", "raticatealola").learnset.superfang = ["8L31"];
+		this.modData("Learnsets", "raticatealola").learnset.doubleedge = ["8L34"];
+		this.modData("Learnsets", "raticatealola").learnset.endeavor = ["8L37"];
 		// Spearow
 		this.modData("Learnsets", "spearow").learnset.smartstrike = ["8D"];
 		this.modData("Learnsets", "spearow").learnset.chipaway = ["8M"];
@@ -3183,7 +3203,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Entei
 		this.modData("Learnsets", "entei").learnset.napalm = ["8D"];
 		this.modData("Learnsets", "entei").learnset.flash = ["8M"];
-		delete this.modData('Learnsets', 'entei').learnset.eruption;
 		delete this.modData('Learnsets', 'entei').learnset.sacredfire;
 		delete this.modData('Learnsets', 'entei').learnset.toxic;
 		// Suicune
@@ -3229,6 +3248,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'hooh').learnset.toxic;
 		// Celebi
 		this.modData("Learnsets", "celebi").learnset.forestscurse = ["8D"];
+		this.modData("Learnsets", "celebi").learnset.teleport = ["8L9"];
+		this.modData("Learnsets", "celebi").learnset.magicalleaf = ["8L17"];
+		this.modData("Learnsets", "celebi").learnset.ancientpower = ["8L25"];
+		this.modData("Learnsets", "celebi").learnset.lifedew = ["8L33"];
+		this.modData("Learnsets", "celebi").learnset.batonpass = ["8L41"];
+		this.modData("Learnsets", "celebi").learnset.naturalgift = ["8L49"];
+		this.modData("Learnsets", "celebi").learnset.healblock = ["8L57"];
+		this.modData("Learnsets", "celebi").learnset.futuresight = ["8L65"];
+		this.modData("Learnsets", "celebi").learnset.healingwish = ["8L73"];
+		this.modData("Learnsets", "celebi").learnset.leafstorm = ["8L81"];
+		this.modData("Learnsets", "celebi").learnset.perishsong = ["8L89"];
+		this.modData("Learnsets", "celebi").learnset.safeguard = ["8M"];
 		this.modData("Learnsets", "celebi").learnset.flash = ["8M"];
 		this.modData("Learnsets", "celebi").learnset.nightmare = ["8M"];
 		this.modData("Learnsets", "celebi").learnset.stasis = ["8T"];
@@ -3620,7 +3651,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'vibrava').learnset.toxic;
 		// Flygon
 		this.modData("Learnsets", "flygon").learnset.silverwind = ["8D"];
-		this.modData("Learnsets", "flygon").learnset.fellswoop = ["8L53"];
+		this.modData("Learnsets", "flygon").learnset.dragonrush = ["8L0"];
+		this.modData("Learnsets", "flygon").learnset.dragonclaw = ["8L1", "8M"];
+		this.modData("Learnsets", "flygon").learnset.fellswoop = ["8L47"];
+		this.modData("Learnsets", "flygon").learnset.boomburst = ["8L53"];
 		delete this.modData('Learnsets', 'flygon').learnset.toxic;
 		// Cacnea
 		this.modData("Learnsets", "cacnea").learnset.mimic = ["8D"];
