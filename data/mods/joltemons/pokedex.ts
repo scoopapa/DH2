@@ -557,9 +557,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Corrosion", 1: "Merciless", H: "Oblivious"},
 	},
+	skorupi: {
+		inherit: true,
+		abilities: {0: "Buzz Off", 1: "Sniper", H: "Keen Eye"},
+	},
 	drapion: {
 		inherit: true,
-		abilities: {0: "Battle Armor", 1: "Sniper", H: "Merciless"},
+		abilities: {0: "Buzz Off", 1: "Sniper", H: "Merciless"},
 	},
 	trevenant: {
 		inherit: true,
@@ -653,5 +657,105 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	wishiwashischool: {
 		inherit: true,
 		types: ["Water", "Dragon"],
+	},
+	paras: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Buzz Off"},
+	},
+	parasect: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Buzz Off"},
+	},
+	spinarak: {
+		inherit: true,
+		abilities: {0: "Buzz Off", 1: "Insomnia", H: "Sniper"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Buzz Off", 1: "Merciless", H: "Sniper"},
+	},
+	combee: {
+		inherit: true,
+		abilities: {0: "Honey Gather", 1: "Buzz Off", H: "Hustle"},
+	},
+	vespiquen: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Buzz Off", H: "Unnerve"},
+	},
+	sewaddle: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Buzz Off"},
+	},
+	swadloon: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Buzz Off"},
+	},
+	leavanny: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Buzz Off"},
+	},
+	joltik: {
+		inherit: true,
+		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Buzz Off"},
+	},
+	galvantula: {
+		inherit: true,
+		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Buzz Off"},
+	},
+	pheromosa: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Buzz Off"},
+	},
+	vikavolt: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Buzz Off"},
+	},
+	starmie: {
+		inherit: true,
+		abilities: {0: "Gravitas", 1: "Natural Cure", H: "Analytic"},
+	},
+	forretress: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Gravitas", H: "Overcoat"},
+	},
+	steelixmega: {
+		inherit: true,
+		abilities: {0: "Gravitas"},
+	},
+	baltoy: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Gravitas", H: "Water Compaction"},
+	},
+	claydol: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Gravitas", H: "Water Compaction"},
+	},
+	torterra: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Gravitas"},
+	},
+	cresselia: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Gravitas"},
+	},
+	giratina: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Gravitas", H: "Telepathy"},
+	},
+	elgyem: {
+		inherit: true,
+		abilities: {0: "Gravitas", 1: "Synchronize", H: "Analytic"},
+	},
+	beheeyem: {
+		inherit: true,
+		abilities: {0: "Gravitas", 1: "Synchronize", H: "Analytic"},
+	},
+	orbeetle: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Frisk", H: "Gravitas"},
+	},
+	stonjourner: {
+		inherit: true,
+		abilities: {0: "Power Spot", H: "Gravitas"},
 	},
 };
