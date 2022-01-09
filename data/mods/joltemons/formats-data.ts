@@ -831,4 +831,8 @@ wishiwashischool: {
 	   doublesTier: "DOU",
 		requiredItem: "Graduation Scale",
 },
+lycanrocdusk: {
+		tier: "UU",
+	   doublesTier: "DOU",
+},
 };

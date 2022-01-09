@@ -174,31 +174,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Raichu-Alola' || pokemon.baseSpecies.baseSpecies === 'Togedemaru' || pokemon.baseSpecies.baseSpecies === 'Morpeko' || pokemon.baseSpecies.baseSpecies === 'Morpeko-Hangry') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Dedenne' || pokemon.baseSpecies.baseSpecies === 'Togedemaru' || pokemon.baseSpecies.baseSpecies === 'Pachirisu') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Raichu-Alola' || pokemon.baseSpecies.baseSpecies === 'Plusle' || pokemon.baseSpecies.baseSpecies === 'Dedenne') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Plusle' || pokemon.baseSpecies.baseSpecies === 'Minun' || pokemon.baseSpecies.baseSpecies === 'Pachirisu' || pokemon.baseSpecies.baseSpecies === 'Morpeko' || pokemon.baseSpecies.baseSpecies === 'Morpeko-Hangry') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpePriority: 1,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Minun' || pokemon.baseSpecies.baseSpecies === 'Emolga') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		itemUser: ["Pikachu", "Raichu", "Plusle", "Minun", "Emolga", "Morpeko", "Dedenne", "Togedemaru"],
@@ -390,5 +390,405 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
+	},
+	tartapple: {
+		name: "Tart Apple",
+		spritenum: 712,
+		fling: {
+			basePower: 20,
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Flapple') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && target.baseSpecies.baseSpecies === 'Flapple') {
+				return accuracy * 1.5;
+			}
+		},
+		itemUser: ["Flapple"],
+		num: 1117,
+		gen: 8,
+		desc: "If the holder is Flapple: 1.5x Speed and Accuracy.",
+	},
+	sweetapple: {
+		name: "Sweet Apple",
+		spritenum: 711,
+		fling: {
+			basePower: 20,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name === 'Appletun') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Sweet Apple weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Sweet Apple weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'tox' || effect.id === 'psn')) {
+				return damage / 2;
+			}
+		},
+		num: 1116,
+		gen: 8,
+		desc: "If the holder is Appletun: Heals 12.5% HP every turn and takes 50% damage from Poison moves and poison status.",
+	},
+	protector: {
+		name: "Protector",
+		spritenum: 367,
+		fling: {
+			basePower: 100,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Protector neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		num: 321,
+		gen: 4,
+		desc: "Super effective attacks deal 3/4 damage to the holder.",
+	},
+	
+// making things harder for myself by not learning how to code script.ts part 2
+		aguavberry: {
+		name: "Aguav Berry",
+		spritenum: 5,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Dragon",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * 0.33);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 162,
+		gen: 3,
+	},
+	apicotberry: {
+		name: "Apicot Berry",
+		spritenum: 10,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Ground",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spd: 1});
+		},
+		num: 205,
+		gen: 3,
+	},
+	custapberry: {
+		name: "Custap Berry",
+		spritenum: 86,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Ghost",
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			if (
+				priority <= 0 &&
+				(pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola'))))
+			) {
+				if (pokemon.eatItem()) {
+					this.add('-activate', pokemon, 'item: Custap Berry', '[consumed]');
+					return 0.1;
+				}
+			}
+		},
+		onEat() { },
+		num: 210,
+		gen: 4,
+	},
+	figyberry: {
+		name: "Figy Berry",
+		spritenum: 140,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Bug",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * 0.33);
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 159,
+		gen: 3,
+	},
+	ganlonberry: {
+		name: "Ganlon Berry",
+		spritenum: 158,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Ice",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			this.boost({def: 1});
+		},
+		num: 202,
+		gen: 3,
+	},
+	iapapaberry: {
+		name: "Iapapa Berry",
+		spritenum: 217,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Dark",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * 0.33);
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 163,
+		gen: 3,
+	},
+	lansatberry: {
+		name: "Lansat Berry",
+		spritenum: 238,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Flying",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.addVolatile('focusenergy');
+		},
+		num: 206,
+		gen: 3,
+	},
+	liechiberry: {
+		name: "Liechi Berry",
+		spritenum: 248,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Grass",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			this.boost({atk: 1});
+		},
+		num: 201,
+		gen: 3,
+	},
+	magoberry: {
+		name: "Mago Berry",
+		spritenum: 274,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ghost",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * 0.33);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 161,
+		gen: 3,
+	},
+	micleberry: {
+		name: "Micle Berry",
+		spritenum: 290,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Rock",
+		},
+		onResidual(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.addVolatile('micleberry');
+		},
+		condition: {
+			duration: 2,
+			onSourceModifyAccuracyPriority: 3,
+			onSourceModifyAccuracy(accuracy, target, source) {
+				this.add('-enditem', source, 'Micle Berry');
+				source.removeVolatile('micleberry');
+				if (typeof accuracy === 'number') {
+					return accuracy * 1.2;
+				}
+			},
+		},
+		num: 209,
+		gen: 4,
+	},
+	petayaberry: {
+		name: "Petaya Berry",
+		spritenum: 335,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Poison",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spa: 1});
+		},
+		num: 204,
+		gen: 3,
+	},
+	salacberry: {
+		name: "Salac Berry",
+		spritenum: 426,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fighting",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spe: 1});
+		},
+		num: 203,
+		gen: 3,
+	},
+	starfberry: {
+		name: "Starf Berry",
+		spritenum: 472,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Psychic",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			const stats: BoostName[] = [];
+			let stat: BoostName;
+			for (stat in pokemon.boosts) {
+				if (stat !== 'accuracy' && stat !== 'evasion' && pokemon.boosts[stat] < 6) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				const randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				boost[randomStat] = 2;
+				this.boost(boost);
+			}
+		},
+		num: 207,
+		gen: 3,
+	},
+	wikiberry: {
+		name: "Wiki Berry",
+		spritenum: 538,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Rock",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && (pokemon.hasAbility('gluttony') || pokemon.hasAbility('powerofalchemymukalola')))) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * 0.33);
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 160,
+		gen: 3,
 	},
 };
