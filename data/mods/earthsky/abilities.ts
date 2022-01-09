@@ -250,7 +250,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('mustrecharge');
 				this.debug('tireless - remove recharge');
 				this.add('-activate', pokemon, 'ability: Tireless');
-				this.add('-end', pokemon, 'mustrecharge');
 			}
 		},
 		onBeforeMovePriority: 11,
@@ -261,7 +260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Tireless",
-		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that requires a turn recharging, it does not need to recharge.",
+		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
 		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
 		activate: "  [POKEMON] became energized immediately!",
 		rating: 2,

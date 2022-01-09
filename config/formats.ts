@@ -3129,7 +3129,6 @@ export const Formats: FormatList = [
     },
 	{
 		name: "[Gen 8] Earth & Sky OU",
-		desc: "The metagame based on Pokemon Earth & Sky, a set of theoretical games created by En Passant.",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
 		],
@@ -3145,15 +3144,6 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] Earth & Sky Triples",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
-		],
-		gameType: 'triples',
-		ruleset: [ 'Earth & Sky'],
-		mod: 'earthsky',
-	},
-	/*{
 		name: "[Gen 8] Earth & Sky Egelas Dex",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
@@ -3161,7 +3151,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: [ '[Gen 8] Earth & Sky OU', 'Egelas Pokedex',],
 		mod: 'earthsky',
-	},*/
+	},
 	{
 		name: "[Gen 8] Earth & Sky Ubers",
 		threads: [
