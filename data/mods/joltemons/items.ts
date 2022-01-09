@@ -403,7 +403,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onStart(pokemon) {
-			this.boost({accuracy: 2});
+			if (pokemon.baseSpecies.baseSpecies === 'Flapple') {
+				this.boost({accuracy: 2});
+			}
 		},
 		itemUser: ["Flapple"],
 		num: 1117,
