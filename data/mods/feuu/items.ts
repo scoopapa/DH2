@@ -216,12 +216,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Vullacham-Mega",
 		megaEvolves: "Vullacham",
 		itemUser: ["Vullacham"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 665,
-		desc: "If held by a Vullacham, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Vullacham or Shellicham, this item allows it to Mega Evolve in battle.",
 	},
 	glalitite: {
 		name: "Glalitite",

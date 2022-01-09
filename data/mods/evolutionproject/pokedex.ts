@@ -715,17 +715,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	rockruff: {
 		inherit: true,
-		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
+		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctara"],
 	},
 	lycanroc: {
 		inherit: true,
-		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
-		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctaran"],
+		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctara"],
+		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk", "Lycanroc-Arctara"],
 	},
-	lycanrocarctaran: {
-		name: "Lycanroc-Arctaran",
+	lycanrocarctara: {
+		name: "Lycanroc-Arctara",
 		baseSpecies: "Lycanroc",
-		forme: "Arctaran",
+		forme: "Arctara",
 		copyData: "Lycanroc",
 
 		types: ["Rock", "Ice"],
@@ -758,6 +758,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 70},
 		movepoolAdditions: ["recover"],
 		// going to hard-code its movepool a little
+		weightkg: 322,
+		color: "Purple",
 
 		prevo: ["Solrock", "Lunatone"], // no idea if this will work
 		evoType: "other",
@@ -882,12 +884,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Magcargo-Galar"],
 		creator: "quagsi",
 	},
-	malamar: {
+	magcargo: {
 		inherit: true,
 		otherFormes: ["Magcargo-Galar"],
-		formeOrder: ["Malamar", "Magcargo-Galar"],
+		formeOrder: ["Magcargo", "Magcargo-Galar"],
 	},
-	malamaralola: {
+	magcargogalar: {
 		name: "Magcargo-Galar",
 		baseSpecies: "Magcargo",
 		forme: "Galar",

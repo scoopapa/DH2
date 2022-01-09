@@ -1379,6 +1379,38 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	mienpa: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	vikadrill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	manditop: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	shellicham: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	shellichammega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		randomBattleMoves: ["highjumpkick", "fakeout", "thunderpunch", "icepunch"],
+		requiredItem: "Medichamite",
+	},
+	mrbasc: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -1870,6 +1902,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	bulbalit: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	vullarogue: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	grubbur: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
