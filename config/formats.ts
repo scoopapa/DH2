@@ -1228,14 +1228,14 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
-	// {
-		// name: "[Gen 8] OU Theorymon",
-		// desc: [
-		   // "<b>OU Theorymon</b>: A Sword and Shield OU metagame where low-ranked Pokemon are improved to become more viable.",
-		// ],
-		// threads: [
-			// `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymon on Smogon Forums</a>`,
-		// ],
+	{
+		name: "[Gen 8] OU Theorymon",
+		desc: [
+		   "<b>OU Theorymon</b>: A Sword and Shield OU metagame where low-ranked Pokemon are improved to become more viable.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymon on Smogon Forums</a>`,
+		],
 		
 		// mod: 'gen8outheorymon',
       // ruleset: ['Standard', 'Dynamax Clause'],
