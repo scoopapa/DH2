@@ -17,7 +17,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sandslashalola: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Prickly Coat", H: "Slush Rush"},
+		abilities: {0: "Ice Body", 1: "Prickly Coat", H: "Slush Rush"},
 	},
 	ninetalesalola: {
 		inherit: true,
@@ -300,7 +300,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mukalola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Regenerator", H: "Power of Alchemy (Muk-Alola)"},
+		abilities: {0: "Poison Touch", 1: "Gluttony", H: "Power of Alchemy (Muk-Alola)"},
 	},
 	mismagius: {
 		inherit: true,
