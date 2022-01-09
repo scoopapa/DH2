@@ -13,7 +13,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	//readonly Pokemon = Pokemon;
 	/* sim edits */
 	pokemon: {
-		getMoves(lockedMove?: string | null, restrictData?: boolean): {
+		getMoves(lockedMove?: string | null, restrictData?: boolean): { //Spit Up target, Tactician targeting
 			move: string, id: string, disabled?: string | boolean, disabledSource?: string,
 			target?: string, pp?: number, maxpp?: number,
 		}[] {
@@ -61,8 +61,18 @@ export const Scripts: ModdedBattleScriptsData = {
 						target = 'allAdjacentFoes';
 					}
 				}
-				if(this.tacticianBoosted && target === 'normal'){
-					target = 'any';
+				if(this.tacticianBoosted){
+					switch(target){
+						case 'normal':
+							target = 'any';
+							break;
+						case 'adjacentAlly':
+							target = 'anyAlly';
+							break;
+						case 'adjacentAllyOrSelf':
+							target = 'anyAllyOrSelf';
+							break;
+					}
 				}
 				let disabled = moveSlot.disabled;
 				if (this.volatiles['dynamax']) {
@@ -354,6 +364,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				return (canTargetAny || isAdjacent) && isFoe;
 			case 'any':
 				return !isSelf;
+			case 'anyAlly': //Tactician-exclusive
+				return !isFoe && !isSelf;
+			case 'anyAllyOrSelf': //Tactician-exclusive
+				return !isFoe;
 			}
 			return false;
 		},
@@ -1551,8 +1565,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
-						console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
-						console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
+						//console.log(pokemon.name + "'s tier: " + this.modData('FormatsData', pokemonID).tier);
 					}
 				}
 			}
