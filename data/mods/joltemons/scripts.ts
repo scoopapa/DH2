@@ -1015,5 +1015,6 @@ this.modData('Learnsets', 'inkay').learnset.flipturn = ['8L1'];
 this.modData('Learnsets', 'bruxish').learnset.flipturn = ['8L1'];
 this.modData('Learnsets', 'golisopod').learnset.flipturn = ['8L1'];
 this.modData('Learnsets', 'grapploct').learnset.flipturn = ['8L1'];
+this.modData('Learnsets', 'meganium').learnset.highhorsepower = ['8L1'];
 	},
 };
