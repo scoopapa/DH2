@@ -273,9 +273,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ability: this.dex.getAbility('poisontouch'),
 			});
 		},
-		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
-		},
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 0,
 	},
