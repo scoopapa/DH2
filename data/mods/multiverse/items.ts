@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ItemData} = {
-	cottoncoat: {
+	/*cottoncoat: {
 		name: "Cotton Coat",
 		spritenum: 1,
 		onBasePowerPriority: 15,
@@ -16,5 +16,5 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If held by a Venomoth, Bug-type attacks will do 2x damage. Single use.",
 		num: -1,
 		gen: 8,
-	},
+	},*/
 };
