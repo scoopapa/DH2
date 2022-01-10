@@ -1155,6 +1155,29 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Multiverse",
+		desc: [
+			"<b>Multiverse</b>: A Pet Mod where Pokemon are balanced around a niche they have in a metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/multiverse-submissions-generation-one.3695526/">Multiverse on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1z4aeAAeQR_HkWKA0Q81gWIz-jQfBMTnSDzBx9E6lcH8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'MV') {
+					return [set.species + ' is not usable in Multiverse.'];
+				}
+			}
+		},
+		mod: 'multiverse',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+	},
+	{
 		name: "[Gen 8] National Dex Balanced Hackmons v3",
 		desc: `<b>More Balanced Hackmons</b>: A National Dex mod of Balanced Hackmons with new pokemon, moves, and abilities, as well as some additional bans.`,
 		threads: [
