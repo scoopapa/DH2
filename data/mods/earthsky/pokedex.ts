@@ -1950,8 +1950,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Darmanitan-Galar",
 	},
 	darmanitangalarzen: {
-		name: "Darmanitan-Galar-Zen",
-		isNonstandard: "Past",
 	},
 	minccino: {
 		inherit: true,
@@ -2138,6 +2136,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoCondition: "at dawn or dusk",
 		eggGroups: ["Field"],
 	},
+	lycanrocdusk: {
+	},
 	mareanie: {
 		inherit: true,
 		abilities: {0: "Merciless", 1: "Poison Point", H: "Regenerator"},
@@ -2282,7 +2282,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 92, atk: 110, def: 145, spa: 80, spd: 145, spe: 108},
 	},
 	zarude: {
-		num: 891,
 		name: "Zarude",
 		types: ["Dark", "Grass"],
 		gender: "N",
@@ -2572,12 +2571,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	kubfu: {
 		inherit: true,
-		num: 892,
 		isNonstandard: "Past",
 	},
 	urshifu: {
 		inherit: true,
-		num: 893,
 		isNonstandard: "Past",
 	},
 	//CAP

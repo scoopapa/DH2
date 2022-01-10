@@ -1492,7 +1492,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		/* Removed/renamed accessibility and other init stuff */
 		const unavailablePokemon = [
-			'pikachubelle', 'pikachucosplay', 'pikachulibre', 'pikachuphd', 'pikachupopstar', 'pikachurockstar', 'pikachustarter', "slowpokegalar", "slowbrogalar", 'eeveestarter', "articunogalar", "zapdosgalar", "moltresgalar", 'pichuspikyeared', "slowkinggalar", "darmanitangalarzen", "greninjaash", 'floetteeternal', 'lycanrocdusk', 'eternatuseternamax', "kubfu", "urshifu", "urshifurapidstrike", "zarudedada", "regieleki", "regidrago", "calyrex", "glastrier", "spectrier", "calyrexshadow", "calyrexice",
+			"pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar", "pikachustarter", "slowpokegalar", "slowbrogalar", "victreebel", "eeveestarter", "articunogalar", "zapdosgalar", "moltresgalar", "pichuspikyeared", "slowkinggalar", "darmanitangalarzen", "floetteeternal", "lycanrocdusk", "eternatuseternamax", "kubfu", "urshifu", "urshifurapidstrike", "zarudedada", "regieleki", "regidrago", "calyrex", "glastrier", "spectrier", "calyrexshadow", "calyrexice",
 		];
 		const baseEight = [ //Pokemon using their Gen VIII learnsets as a base
 			"charmander", "charmeleon", "charizard", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
@@ -1550,10 +1550,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
-						//console.log(pokemon.name + "'s tier update");
-						//console.log("Banned: " + esrules.isBannedSpecies(pokemon));
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
-						//console.log("Final tiering: " + this.modData('FormatsData', pokemonID).tier);
+						//console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
+						//console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
 					}
 				}
 			}

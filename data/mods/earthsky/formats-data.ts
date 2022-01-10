@@ -280,7 +280,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ES",
 	},
 	tynamoschool: {
-		tier: "LC",
+		tier: "Illegal",
 	},
 	eelektrikegelas: {
 		tier: "NFE",
@@ -328,9 +328,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	//Other
 	victreebell: {
 		tier: "OU",
-	},
-	victreebel: {
-		tier: "Illegal",
 	},
 	darmanitanrage: {
 		tier: "Illegal",
