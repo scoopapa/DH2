@@ -403,8 +403,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onSourceModifyAccuracyPriority: 4,
-		onSourceModifyAccuracy(accuracy) {
-			if (typeof accuracy === 'number') {
+		onSourceModifyAccuracy(accuracy, pokemon) {
+			if (typeof accuracy === 'number' && pokemon.baseSpecies.baseSpecies === 'Flapple') {
 				return accuracy * 1.5;
 			}
 		},
