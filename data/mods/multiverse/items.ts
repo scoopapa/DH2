@@ -6,7 +6,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePower(basePower, user, target, move) {
 			if (user.species.id === 'venomoth' && move.type === 'Bug') {
 				return this.chainModify(2);
-				user.useItem();
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.species.id === 'venomoth' && move.type === 'Bug') {
+				source.useItem();
 			}
 		},
 		shortDesc: "If held by a Venomoth, Bug-type attacks will do 2x damage. Single use.",
