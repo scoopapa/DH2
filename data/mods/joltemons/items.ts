@@ -402,16 +402,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onSourceModifyAccuracyPriority: 4,
-		onSourceModifyAccuracy(accuracy, pokemon) {
-			if (typeof accuracy === 'number' && pokemon.baseSpecies.baseSpecies === 'Flapple') {
-				return accuracy * 1.5;
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Flapple') {
+				this.boost({accuracy: 2});
 			}
 		},
 		itemUser: ["Flapple"],
 		num: 1117,
 		gen: 8,
-		desc: "If the holder is Flapple: 1.5x Speed and Accuracy.",
+		desc: "If the holder is Flapple: 1.5x Speed and +2 Accuracy.",
 	},
 	sweetapple: {
 		name: "Sweet Apple",
