@@ -7,7 +7,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			conversion2: ["2L1"],
 			defensecurl: ["2M"],
 			destinybond: ["2L36"],
-			doubleteam: ["2M", "1M"],
+			doubleteam: ["2M"],
 			dynamicpunch: ["2M"],
 			earthquake: ["2M", "1M"],
 			frustration: ["2M"],
