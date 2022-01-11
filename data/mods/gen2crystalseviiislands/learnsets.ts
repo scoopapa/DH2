@@ -28,7 +28,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			return: ["2M"],
 			sandstorm: ["2M", "2L36"],
 			shadowball: ["2M"],
-			sharpen: ["2S0"],
+			sharpen: ["2L24", "1L1"],
 			spite: ["2E"],
 			substitute: ["2S0"],
 			swift: ["2E"],
