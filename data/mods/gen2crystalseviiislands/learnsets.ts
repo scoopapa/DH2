@@ -1,4 +1,98 @@
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+	horatekku: {
+		learnset: {
+			attract: ["2M"],
+			bide: ["1M"],
+			curse: ["2M"],
+			conversion2: ["2L1"],
+			defensecurl: ["2M"],
+			destinybond: ["2L36"],
+			doubleteam: ["2M", "1M"],
+			dynamicpunch: ["2M"],
+			earthquake: ["2M", "1M"],
+			frustration: ["2M"],
+			firepunch: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M", "1M"],
+			icepunch: ["2M"],
+			megapunch: ["1M"],
+			metalclaw: ["2E"],
+			metronome: ["2E"],
+			mimic: ["2E"],
+			nightmare: ["2M"],
+			nightshade: ["2L21", "1L1"],
+			protect: ["2M"],
+			psychup: ["2M"],
+			psywave: ["2E", "1M"],
+			raindance: ["2M"],
+			return: ["2M"],
+			sandstorm: ["2M", "2L36"],
+			shadowball: ["2M"],
+			sharpen: ["2S0"],
+			spite: ["2E"],
+			substitute: ["2S0"],
+			swift: ["2E"],
+			tackle: ["2L1", "2S0"],
+			takedown: ["2L15"],
+			teleport: ["1M"],
+			thief: ["2M"],
+			thunderwave: ["2L8"],
+			toxic: ["1M"],
+		},
+	},
+	aroofaondo: {
+		learnset: {
+			agility: ["2L47", "1L47", "1L44"],
+			amnesia: ["2L8", "1L1"],
+			bite: ["2E"],
+			blizzard: ["2M", "1M"],
+			crunch: ["2S0"],
+			curse: ["2M"],
+			dig: ["2M", "1M"],
+			doubleteam: ["2M", "1M"],
+			ember: ["2L7", "1L9"],
+			endure: ["2M"],
+			flash: ["2M", "1M"],
+			fireblast: ["2M", "2L49"],
+			firespin: ["2L37", "1L42"],
+			flamethrower: ["2T", "2L37"],
+			hiddenpower: ["2M"],
+			headbutt: ["2M"],
+			icebeam: ["2T", "1M"],
+			icywind: ["2M"],
+			irontail: ["2M"],
+			leer: ["2L1", "1L1"],
+			mist: ["2E"],
+			pursuit: ["2L9"],
+			powdersnow: ["2L13"],
+			protect: ["2M"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			roar: ["2M"],
+			sandstorm: ["2M"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			solarbeam: ["1M"],
+			substitute: ["1M"],
+			sunnyday: ["2M"],
+			swagger: ["2M"],
+			toxic: ["2M", "1M"],
+		},
+	},
+//
+//
+//
+//
+//
+//
+// Original GSC Pokémon after this point
+//
+//
+//
+//
+//
+//
 	missingno: {
 		learnset: {
 			blizzard: ["1M"],
