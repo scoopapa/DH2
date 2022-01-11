@@ -11,7 +11,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	//
 	//
 	//
-	// Vanilla Pokemon after this point
+	// Vanilla Pokémon after this point
 	//
 	//
 	//
