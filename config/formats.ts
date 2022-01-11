@@ -683,7 +683,7 @@ export const Formats: FormatList = [
 		      ],
 		mod: 'gen2crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Past'],
+		banlist: ['Uber'],
 		unbanlist: [
 			'Horatekku','Aroofaondo'
 		],
