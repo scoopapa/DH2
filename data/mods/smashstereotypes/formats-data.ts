@@ -166,4 +166,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kommotot: {
 		tier: "SSS",
 	},
+	toxily: {
+		tier: "SSS",
+	},
+	corundell: {
+		tier: "SSS",
+	},
+	crazefly: {
+		tier: "SSS",
+	},
 };
