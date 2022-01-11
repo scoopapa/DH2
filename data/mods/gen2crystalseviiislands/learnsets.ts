@@ -1,4 +1,100 @@
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+	horatekku: {
+		learnset: {
+			attract: ["2M"],
+			bide: ["2L1"],
+			curse: ["2M"],
+			conversion2: ["2L1"],
+			defensecurl: ["2M"],
+			destinybond: ["2L36"],
+			doubleteam: ["2M"],
+			dynamicpunch: ["2M"],
+			earthquake: ["2M"],
+			frustration: ["2M"],
+			firepunch: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M", "1M"],
+			icepunch: ["2M"],
+			megapunch: ["2L1"],
+			metalclaw: ["2L1"],
+			metronome: ["2L1"],
+			mimic: ["2L1"],
+			nightmare: ["2M"],
+			nightshade: ["2L21"],
+			protect: ["2M"],
+			psychup: ["2M"],
+			psywave: ["2L1"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			sandstorm: ["2M", "2L36"],
+			shadowball: ["2M"],
+			sharpen: ["2L24"],
+			sleeptalk: ["2M"],
+			spite: ["2L1"],
+			substitute: ["2L1"],
+			swift: ["2L1"],
+			tackle: ["2L1"],
+			takedown: ["2L15"],
+			teleport: ["2L1"],
+			thief: ["2M"],
+			thunderwave: ["2L8"],
+			toxic: ["2L1"],
+		},
+	},
+	aroofaondo: {
+		learnset: {
+			agility: ["2L47"],
+			amnesia: ["2L8"],
+			bite: ["2L1"],
+			blizzard: ["2M"],
+			crunch: ["2L1"],
+			curse: ["2M"],
+			dig: ["2M"],
+			doubleteam: ["2M"],
+			ember: ["2L7"],
+			endure: ["2M"],
+			flash: ["2M"],
+			fireblast: ["2M", "2L49"],
+			firespin: ["2L37"],
+			flamethrower: ["2L1"],
+			hiddenpower: ["2M"],
+			headbutt: ["2M"],
+			icebeam: ["2L1"],
+			icywind: ["2M"],
+			irontail: ["2M"],
+			leer: ["2L1"],
+			mist: ["2L1"],
+			pursuit: ["2L9"],
+			powdersnow: ["2L13"],
+			protect: ["2M"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			roar: ["2M"],
+			sandstorm: ["2M"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			solarbeam: ["2L1"],
+			substitute: ["2L1"],
+			sunnyday: ["2M"],
+			swagger: ["2M"],
+			toxic: ["2M"],
+		},
+	},
+//
+//
+//
+//
+//
+//
+// Original GSC Pokémon after this point
+//
+//
+//
+//
+//
+//
 	missingno: {
 		learnset: {
 			blizzard: ["1M"],

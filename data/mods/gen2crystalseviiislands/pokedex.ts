@@ -1,4 +1,35 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	horatekku: {
+		num: 252,
+		name: "Horatekku",
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 60, spd: 70, spe: 60},
+		abilities: {0: "No Ability"},
+		heightm: 0.2,
+		weightkg: 0.5,
+	},
+	aroofaondo: {
+		num: 253,
+		name: "Aroofaondo",
+		types: ["Fire", "Ice"],
+		baseStats: {hp: 60, atk: 70, def: 70, spa: 100, spd: 80, spe: 100},
+		abilities: {0: "No Ability"},
+		heightm: 0.5,
+		weightkg: 12.1,
+	},
+	//
+	//
+	//
+	//
+	//
+	//
+	// Original GSC after this point
+	//
+	//
+	//
+	//
+	//
+	//
 	bulbasaur: {
 		num: 1,
 		name: "Bulbasaur",
