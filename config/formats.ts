@@ -687,6 +687,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			'Horatekku','Aroofaondo'
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 7] DLCmons",
