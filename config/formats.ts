@@ -684,6 +684,9 @@ export const Formats: FormatList = [
 		mod: 'gen2crystalseviiislands',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
+		unbanlist: [
+			'Horatekku','Aroofaondo'
+		],
 	},
 	{
 		name: "[Gen 7] DLCmons",
