@@ -773,7 +773,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	recover: {
 		inherit: true,
-		pp: 20,
+		pp: 10,
 	},
 	reflect: {
 		inherit: true,

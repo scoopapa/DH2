@@ -20,15 +20,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'PrimordialSea', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -53,19 +53,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onImmunity(type, pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
 			if (type === 'frz') return false;
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'DesolateLand', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},

@@ -332,8 +332,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium",
 	},
 	gourgeistpulpy: {
-		tier: "Uncoded",
-		doublesTier: "Uncoded",
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
 	},
 	supergeist: {
 		tier: "Alternatium",

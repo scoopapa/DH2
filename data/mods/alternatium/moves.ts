@@ -28,278 +28,40 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 
 export const Moves: {[moveid: string]: MoveData} = {
 	baddybad: {
-		num: 737,
-		accuracy: 95,
-		basePower: 80,
-		category: "Special",
-		isNonstandard: null,
-		name: "Baddy Bad",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1},
-		self: {
-			sideCondition: 'reflect',
-		},
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	bouncybubble: {
-		num: 733,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		isNonstandard: null,
-		name: "Bouncy Bubble",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, heal: 1},
-		drain: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	buzzybuzz: {
-		num: 734,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		isNonstandard: null,
-		name: "Buzzy Buzz",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1},
-		secondary: {
-			chance: 100,
-			status: 'par',
-		},
-		target: "normal",
-		type: "Electric",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	freezyfrost: {
-		num: 739,
-		accuracy: 90,
-		basePower: 100,
-		category: "Special",
-		isNonstandard: null,
-		name: "Freezy Frost",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1},
-		onHit() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				pokemon.clearBoosts();
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ice",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	glitzyglow: {
-		num: 736,
-		accuracy: 95,
-		basePower: 80,
-		category: "Special",
-		isNonstandard: null,
-		name: "Glitzy Glow",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1},
-		self: {
-			sideCondition: 'lightscreen',
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	sappyseed: {
-		num: 738,
-		accuracy: 90,
-		basePower: 100,
-		category: "Physical",
-		isNonstandard: null,
-		name: "Sappy Seed",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1},
-		onHit(target, source) {
-			if (target.hasType('Grass')) return null;
-			target.addVolatile('leechseed', source);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	sizzlyslide: {
-		num: 735,
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		isNonstandard: null,
-		name: "Sizzly Slide",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, defrost: 1},
-		secondary: {
-			chance: 100,
-			status: 'brn',
-		},
-		target: "normal",
-		type: "Fire",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	sparklyswirl: {
-		num: 740,
-		accuracy: 85,
-		basePower: 120,
-		category: "Special",
-		isNonstandard: null,
-		name: "Sparkly Swirl",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1},
-		self: {
-			onHit(pokemon, source, move) {
-				this.add('-activate', source, 'move: Aromatherapy');
-				for (const ally of source.side.pokemon) {
-					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
-						continue;
-					}
-					ally.cureStatus();
-				}
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	veeveevolley: {
-		num: 741,
-		accuracy: true,
-		basePower: 0,
-		basePowerCallback(pokemon) {
-			return Math.floor((pokemon.happiness * 10) / 25) || 1;
-		},
-		category: "Physical",
-		isNonstandard: null,
-		name: "Veevee Volley",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Cute",
-	},
-	spikes: {
-		num: 191,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		sideCondition: 'spikes',
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
-			},
-			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
-				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Ground",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
-	},
-	stealthrock: {
-		num: 446,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Stealth Rock",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1},
-		sideCondition: 'stealthrock',
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Rock",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
-	},
-	toxicspikes: {
-		num: 390,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Toxic Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		sideCondition: 'toxicspikes',
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers = 1;
-			},
-			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasType('Poison')) {
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('powercore')) {
-					return;
-				} else if (this.effectData.layers >= 2) {
-					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
-				} else {
-					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-				}
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Poison",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	behemothbash: {
 		num: 782,
@@ -321,7 +83,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onDamagingHit(damage, target, source, move) {
 				if (move.flags['contact']) {
-					this.boost({atk: -2}, source, target, null, true);
+					this.boost({atk: -2}, source, target, undefined, true);
 					this.add('-activate', target, 'move: Behemoth Bash');
 				}
 			},
@@ -329,7 +91,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('behemothbash');
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Steel",
 	},
@@ -344,51 +106,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		critRatio: 2,
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Steel",
 	},
 	eeriespell: {
-		num: 826,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Eerie Spell",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		secondary: {
-			chance: 100,
-			onHit(target) {
-				if (!target.hp) return;
-				const move = target.lastMove;
-				if (!move || move.isZ || move.isMax) return;
-
-				const ppDeducted = target.deductPP(move.id, 3);
-				if (!ppDeducted) return;
-
-				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
-			},
-		},
-		target: "normal",
+		inherit: true,
 		type: "Dark",
 	},
 	floatyfall: {
-		num: 731,
-		accuracy: 95,
-		basePower: 90,
-		category: "Physical",
-		isNonstandard: null,
-		name: "Floaty Fall",
-		pp: 15,
-		priority: 0,
-		flags: {contact: 1, protect: 1, gravity: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
-		},
-		target: "normal",
-		type: "Flying",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	multiattack: {
 		num: 718,
@@ -405,27 +133,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			move.type = type;
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Normal",
 	},
 	pikapapow: {
-		num: 732,
-		accuracy: true,
-		basePower: 0,
-		basePowerCallback(pokemon) {
-			return Math.floor((pokemon.happiness * 10) / 25) || 1;
-		},
-		category: "Special",
-		isNonstandard: null,
-		name: "Pika Papow",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1},
-		secondary: null,
-		target: "normal",
-		type: "Electric",
-		contestType: "Cute",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	shellsidearm: {
 		num: 801,
@@ -438,7 +152,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, source, target) {
-			if (target.getStat('def', false, true) >= target.getStat('spd', false, true)) move.defensiveCategory = 'Special';
+			if (target && target.getStat('def', false, true) <= target.getStat('spd', false, true)) {
+				// hack because move.defensiveCategory seems to have been removed.
+				move.category = 'Physical';
+				move.basePower = move.basePower * (source.getStat('spa', false, true) / source.getStat('atk', false, true));
+			}
 		},
 		secondary: {
 			chance: 20,
@@ -448,37 +166,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 	},
 	splishysplash: {
-		num: 730,
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		isNonstandard: null,
-		name: "Splishy Splash",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1},
-		secondary: {
-			chance: 30,
-			status: 'par',
-		},
-		target: "allAdjacentFoes",
-		type: "Water",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	zippyzap: {
-		num: 729,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		isNonstandard: null,
-		name: "Zippy Zap",
-		shortDesc: "Nearly always goes first. Always crits.",
-		pp: 15,
-		priority: 2,
-		flags: {contact: 1, protect: 1},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Electric",
+		inherit: true,
+		isNonstandard: undefined,
 	},
 	bodypress: {
 		num: 776,
@@ -489,13 +182,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		useSourceDefensiveAsOffensive: true,
+		overrideOffensiveStat: 'def',
 		onBasePower(basePower, source) {
-			if (source.item === 'lightball' && source.species.id === 'pikachulibre'){
+			if (source.item === 'lightball' && source.species.id === 'pikachulibre') {
 				return this.chainModify(2);
 			}
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Fighting",
 	},
@@ -510,9 +203,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
 			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+			move.type = this.runEvent('Drive', pokemon, undefined, move, 'Normal');
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
@@ -535,7 +228,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			move.type = type;
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
@@ -553,7 +246,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
@@ -590,7 +283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Max Overgrowth", target);
 		},
@@ -631,23 +324,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
-			onResidual(targetSide) {
-				for (const pokemon of targetSide.active) {
+			onResidual(target) {
+				for (const pokemon of target.side.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 			},
-			onEnd(targetSide) {
+			onSideEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 				this.add('-sideend', targetSide, 'Desolate Magma');
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magma Storm", target);
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
@@ -673,12 +366,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Glacial Lance", target);
 		},
 		volatileStatus: 'partiallytrapped',
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
@@ -693,13 +386,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
-		onBasePower(basePower, source, target) {
+		onBasePower(basePower, source, target, move) {
 			if (target.volatiles['protect']) {
 				return this.chainModify(2);
-				delete move.flags['protect'];
 			}
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -737,57 +429,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}
 				}
 			},
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
 	},
 	snarl: {
-		num: 555,
-		accuracy: 95,
-		basePower: 55,
+		inherit: true,
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.species.name === 'Linoone-Punk') {
 				return move.basePower + 25;
 			}
 			return move.basePower;
 		},
-		category: "Special",
-		shortDesc: "Lowers the foe(s) Sp. Atk by 1. If Linoone-Punk: 80 BP.",
-		name: "Snarl",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				spa: -1,
-			},
-		},
-		target: "allAdjacentFoes",
-		type: "Dark",
-		contestType: "Tough",
 	},
 	weatherball: {
-		num: 311,
-		accuracy: 100,
-		basePower: 50,
-		category: "Special",
 		shortDesc: "If Catastroform, doubles in Power and changes typing when holding a Weather Rock.",
-		name: "Weather Ball",
-		pp: 10,
-		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
+		inherit: true,
 		onModifyType(move, pokemon) {
 			if (pokemon.species.id !== 'catastroform') {
 				switch (pokemon.effectiveWeather()) {
@@ -806,8 +474,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.type = 'Ice';
 					break;
 				}
-			}
-			else if (pokemon.species.id === 'catastroform') {
+			} else if (pokemon.species.id === 'catastroform') {
 				if (pokemon.hasItem('heatrock')) {
 					move.type = 'Fire';
 				}
@@ -840,8 +507,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.basePower *= 2;
 					break;
 				}
-			}
-			else if (pokemon.species.id === 'catastroform') {
+			} else if (pokemon.species.id === 'catastroform') {
 				if (pokemon.hasItem('heatrock')) {
 					move.basePower *= 2;
 				}
@@ -856,7 +522,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Normal",
 		zMove: {basePower: 160},
@@ -874,11 +540,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Heal Order", target);
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "self",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
@@ -895,7 +561,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 4],
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Head Smash", target);
 		},
@@ -923,7 +589,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dark') return 1;
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Relic Song", target);
 		},
@@ -940,7 +606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 20 * pokemon.positiveBoosts('atk');
+			return move.basePower + 20 * pokemon.boosts['atk'];
 		},
 		category: "Physical",
 		shortDesc: "+ 20 power for each of the user's Attack boosts.",
@@ -948,11 +614,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sacred Sword", target);
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Rock",
 	},
@@ -971,11 +637,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.field.clearWeather();
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Whirlpool", target);
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Water",
 	},
@@ -994,49 +660,87 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.field.clearWeather();
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Scald", target);
 		},
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Fire",
+	},
+	stockpile: {
+		inherit: true,
+		volatileStatus: 'stockpile',
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				let layers = 1;
+				if (this.effectState.sourceEffect && this.effectState.sourceEffect.name === "Pulp Up") {
+					if (target.hp / target.maxhp <= 0.667) {
+						layers = 2;
+					}
+					if (target.hp / target.maxhp <= 0.334) {
+						layers = 3;
+					}
+				}
+				this.effectState.layers = layers;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: layers, spd: layers}, target, target);
+				for (let i = 0; i < layers; i++) {
+					if (curDef !== target.boosts.def) this.effectState.def--;
+					if (curSpD !== target.boosts.spd) this.effectState.spd--;
+				}
+			},
+			onRestart(target) {
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const curDef = target.boosts.def;
+				const curSpD = target.boosts.spd;
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onEnd(target) {
+				if (this.effectState.def || this.effectState.spd) {
+					const boosts: SparseBoostsTable = {};
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					this.boost(boosts, target, target);
+				}
+				this.add('-end', target, 'Stockpile');
+			},
+		},
 	},
 	feast: {
 		num: 1010,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "(Uncoded) Boost Atk. and Sp. Atk. depending on Stockpile amount.",
+		shortDesc: "Boost Atk. and Sp. Atk. depending on Stockpile amount.",
 		name: "Feast",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		/*onTry(pokemon) {
-			if (!pokemon.volatiles['stockpile']) {
-				return false;
-			}
-		},
-		onHit(pokemon, atk, spa, layers) {
-			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
-			if (pokemon.volatiles['stockpile'].layers = 1) {
-				this.boost(atk: 1, spa: 1)
-			}
-			else if (pokemon.volatiles['stockpile'].layers = 2) {
-				this.boost(atk: 2, spa: 2)
-			}
-			else if (pokemon.volatiles['stockpile'].layers = 3) {
-				this.boost(atk: 3, spa: 3)
-			}
+		onTry(source) {
+			return !!source.volatiles['stockpile'];
 		},
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('stockpile');
 		},
-		onPrepareHit: function(target, source, move) {
+		onHit(pokemon) {
+			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			const layers = pokemon.volatiles['stockpile'].layers;
+			this.boost({atk: layers, spa: layers});
+		},
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stockpile", target);
-		},*/
-		secondary: null,
+		},
+		secondary: undefined,
 		target: "self",
 		type: "Normal",
 	},
@@ -1056,10 +760,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		secondary: null,
+		secondary: undefined,
 		self: {
 			onHit(source, target) {
-				if (!source.species.id !== 'cramorantswimmer') return;
+				if (source.species.id !== 'cramorantswimmer') return;
 				if (!target.newlySwitched || !this.queue.willMove(target)) {
 					this.field.setWeather('raindance');
 				}
@@ -1079,7 +783,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		selfSwitch: true,
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Poison",
 	},
@@ -1093,8 +797,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		useSourceDefensiveAsOffensive: true,
-		secondary: null,
+		overrideOffensiveStat: "spd",
+		secondary: undefined,
 		target: "normal",
 		type: "Fairy",
 	},
@@ -1140,7 +844,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'smackdown',
 		ignoreImmunity: {'Ground': true},
-		secondary: null,
+		secondary: undefined,
 		target: "allAdjacentFoes",
 		type: "Ground",
 		zMove: {basePower: 180},
@@ -1157,7 +861,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
-		secondary: null,
+		secondary: undefined,
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
@@ -1173,7 +877,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1, heal: 1},
 		drain: [1, 2],
-		secondary: null,
+		secondary: undefined,
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Beautiful",

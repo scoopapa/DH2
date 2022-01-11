@@ -788,4 +788,80 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 259,
 		gen: 2,
 	},
+	occaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	passhoberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wacanberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rindoberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	yacheberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	chopleberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kebiaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shucaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cobaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	payapaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tangaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	chartiberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kasibberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	habanberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	colburberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	babiriberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	chilanberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	custapberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	airballoon: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
