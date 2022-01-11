@@ -9,7 +9,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			destinybond: ["2L36"],
 			doubleteam: ["2M"],
 			dynamicpunch: ["2M"],
-			earthquake: ["2M", "1M"],
+			earthquake: ["2M"],
 			frustration: ["2M"],
 			firepunch: ["2M"],
 			hiddenpower: ["2M"],
