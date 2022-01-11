@@ -1,4 +1,23 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	horatekku: {
+		tier: "OU",
+	},
+	Aroofaondo: {
+		tier: "OU",
+	},
+	//
+	//
+	//
+	//
+	//
+	//
+	// Vanilla Pokemon after this point
+	//
+	//
+	//
+	//
+	//
+	//
 	bulbasaur: {
 		tier: "LC",
 	},
