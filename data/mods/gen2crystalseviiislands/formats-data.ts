@@ -11,7 +11,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	//
 	//
 	//
-	// Vanilla Pokémon after this point
+	// Original GSC Pokémon after this point
 	//
 	//
 	//
