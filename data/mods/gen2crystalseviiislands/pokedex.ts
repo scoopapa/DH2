@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-	horateku: {
+	horatekku: {
 		num: 252,
 		name: "Horatekku",
 		types: ["Steel", "Ghost"],
