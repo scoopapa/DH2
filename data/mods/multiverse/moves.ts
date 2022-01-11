@@ -47,23 +47,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 	},
 	flameburst: {
-		num: -2,
+		num: 481,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Special",
-		shortDesc: "No additional effect.",
+		isNonstandard: null,
 		name: "Flame Burst",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			if (target.side.active.length === 1) {
+				return;
+			}
+			for (const ally of target.side.active) {
+				if (ally && this.isAdjacent(target, ally)) {
+					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (target.side.active.length === 1) {
+				return;
+			}
+			for (const ally of target.side.active) {
+				if (ally && this.isAdjacent(target, ally)) {
+					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
+				}
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
+		contestType: "Beautiful",
 	},
 	thunderburst: {
-		num: -3,
+		num: -2,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Special",
 		shortDesc: "No additional effect.",
 		name: "Thunder Burst",
@@ -75,9 +96,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	leafburst: {
-		num: -4,
+		num: -3,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Special",
 		shortDesc: "No additional effect.",
 		name: "Leaf Burst",
