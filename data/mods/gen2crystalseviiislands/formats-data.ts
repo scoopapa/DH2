@@ -1,8 +1,10 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	horatekku: {
+		isNonstandard: null,
 		tier: "OU",
 	},
 	aroofaondo: {
+		isNonstandard: null,
 		tier: "OU",
 	},
 	//
