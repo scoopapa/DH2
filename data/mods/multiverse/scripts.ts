@@ -10,9 +10,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'clefable').learnset.moonblast;
 		delete this.modData('Learnsets', 'clefable').learnset.teleport;
+		delete this.modData('Learnsets', 'clefairy').learnset.moonblast;
+		delete this.modData('Learnsets', 'clefairy').learnset.teleport;
 		
 		this.modData('Learnsets', 'victreebel').learnset.flytrap = ['8L1'];
 		delete this.modData('Learnsets', 'victreebel').learnset.strengthsap;
+		delete this.modData('Learnsets', 'weepinbell').learnset.strengthsap;
+		delete this.modData('Learnsets', 'bellsprout').learnset.strengthsap;
 		
 		this.modData('Learnsets', 'golem').learnset.swordsdance = ['8L1'];
 		
@@ -21,6 +25,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'omastar').learnset.thunderburst = ['8L1'];
 		this.modData('Learnsets', 'omastar').learnset.leafburst = ['8L1'];
 		delete this.modData('Learnsets', 'omastar').learnset.shellsmash;
+		delete this.modData('Learnsets', 'omanyte').learnset.shellsmash;
 		
 		this.modData('Learnsets', 'articuno').learnset.focusblast = ['8L1'];
 		this.modData('Learnsets', 'articuno').learnset.calmmind = ['8L1'];
