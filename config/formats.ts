@@ -1264,7 +1264,7 @@ export const Formats: FormatList = [
 		],
 		
 		mod: 'outheorymons',
-      ruleset: ['Standard', 'Dynamax Clause'],
+      ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'], 
 	},
 	{
