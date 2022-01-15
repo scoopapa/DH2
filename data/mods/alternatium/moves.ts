@@ -273,33 +273,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	primordialnature: {
+	primordialfrost: {
 		num: 1001,
 		accuracy: 90,
 		basePower: 160,
 		category: "Special",
-		shortDesc: "The user cannot move on the next turn. Summons Grassy Terrain.",
-		name: "Primordial Nature",
+		shortDesc: "The user cannot move on the next turn. Summons Mist.",
+		name: "Primordial Frost",
 		pp: 10,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
+		sideCondition: 'mist',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Max Overgrowth", target);
+			this.add('-anim', source, "Max Hailstorm", target);
 		},
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
-		secondary: {
-			chance: 100,
-			self: {
-				onHit() {
-					this.field.setTerrain('grassyterrain');
-				},
-			},
-		},
+		secondary: true,
 		target: "normal",
-		type: "Grass",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	desolatemagma: {
