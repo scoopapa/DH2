@@ -431,7 +431,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	soullink: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact'] && source.hasType('Ghost') && !source.addType('Ghost')) {
+			if (move.flags['contact'] && !source.hasType('Ghost') && !source.addType('Ghost')) {
 				this.add('-start', source, 'typeadd', 'Ghost', '[from] ability: Soul Link');
 			}
 		},
