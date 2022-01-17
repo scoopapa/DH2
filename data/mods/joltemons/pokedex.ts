@@ -525,9 +525,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Ice Body", 1: "Snow Warning", H: "Power of Alchemy (Vanilluxe)"},
 	},
+	cyndaquil: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Magma Armor"},
+	},
+	quilava: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Magma Armor"},
+	},
 	typhlosion: {
 		inherit: true,
 		types: ["Fire", "Ground"],
+		abilities: {0: "Blaze", H: "Magma Armor"},
 	},
 	feraligatr: {
 		inherit: true,
