@@ -497,8 +497,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
-			if ((!pokemon.status === 'slp' || !pokemon.hasAbility('comatose'))) return;
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
 			this.heal(pokemon.baseMaxhp / 8);
+			}
 		},
 /*
 		onStart(pokemon) {
