@@ -835,4 +835,8 @@ lycanrocdusk: {
 		tier: "UU",
 	   doublesTier: "DOU",
 },
+zarudedada: {
+		tier: "RU",
+	   doublesTier: "DOU",
+},
 };
