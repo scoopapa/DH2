@@ -429,12 +429,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Flying/Bug-type moves against this Pokemon deal damage with a halved attacking stat. Can't be statused or flinched by others in Sun.",
 	},
 	soullink: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Soul Link');
+			this.add('-message', `Opponents that make contact will become a part-Ghost-type!`);
+		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && !source.hasType('Ghost') && !source.addType('Ghost')) {
 				this.add('-start', source, 'typeadd', 'Ghost', '[from] ability: Soul Link');
-				this.add('-ability', target, 'Soul Link');
-				this.add('-message', `${source.name} is now a Ghost-type!`);
 			}
 		},
 		name: "Soul Link",
