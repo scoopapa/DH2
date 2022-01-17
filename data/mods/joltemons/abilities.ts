@@ -430,10 +430,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 
 	soullink: {
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Soul Link');
-			this.add('-message', `Opponents that make contact will become a part-Ghost-type!`);
-		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && !source.hasType('Ghost') && source.addType('Ghost')) {
