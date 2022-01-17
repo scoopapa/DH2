@@ -736,7 +736,7 @@ metagrossmega: {
 	   doublesTier: "DOU",
 },
 shayminsky: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 darmanitangalar: {
@@ -833,10 +833,6 @@ wishiwashischool: {
 },
 lycanrocdusk: {
 		tier: "UU",
-	   doublesTier: "DOU",
-},
-shayminsky: {
-		tier: "OU",
 	   doublesTier: "DOU",
 },
 };
