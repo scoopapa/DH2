@@ -609,6 +609,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 100},
 		contestType: "Cool",
 	},
+	poisondart: {
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+    shortDesc: "Usually goes first. 10% chance to poison foe.",
+		isViable: true,
+		name: "Poison Dart",
+		pp: 10,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Poison Sting", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	acidicfists: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Acidic Fists",
+		pp: 10,
+		priority: 0,
+		flags: {punch: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Poison')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
