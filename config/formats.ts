@@ -3476,7 +3476,7 @@ export const Formats: FormatList = [
 		mod: 'the331typechart',
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem'],
 	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
