@@ -372,7 +372,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (type === ('frz' || 'hail')) return false;
+			if (type === ('hail')) return false;
+			if (type === ('frz')) return false;
 		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
