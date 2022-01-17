@@ -635,10 +635,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
+    shortDesc: "Destroys screens, unless the target is immune.",
+		isViable: true,
 		name: "Acidic Fists",
 		pp: 10,
 		priority: 0,
 		flags: {punch: 1, contact: 1, protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Poison Jab", target);
+		  this.add('-anim', source, "Corrosive Gas", target);
+		},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			if (pokemon.runImmunity('Poison')) {
