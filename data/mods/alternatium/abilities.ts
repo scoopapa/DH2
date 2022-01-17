@@ -332,7 +332,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1007,
 	},
 	powercore: {
-		// Hazard Immunity implemented in moves.js
 		onBoost(boost, target, source, effect) {
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
@@ -342,14 +341,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.hint("Power Core prevents stat changes for the user.");
 			}
 		},
-		onDamage(damage, target, source, effect) {
-			const hazards = ['stealthrock', 'spikes', 'toxicspikes'];
-			if (effect && hazards.includes(effect.id)) {
-				return false;
-			}
-		},
 		name: "Power Core",
-		shortDesc: "Immunity to hazards and any kind of stat changes.",
+		shortDesc: "This Pokemon's stats cannot be changed.",
 		rating: 3,
 		num: 1008,
 	},
