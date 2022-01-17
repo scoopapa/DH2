@@ -19,5 +19,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 */
 this.modData('Learnsets', 'aurorus').learnset.powergem = ['8L1'];
+this.modData('Learnsets', 'silvally').learnset.extremespeed = ['8L1'];
+this.modData('Learnsets', 'silvally').learnset.earthquake = ['8L1'];
+this.modData('Learnsets', 'silvally').learnset.nastyplot = ['8L1'];
 	},
 };
