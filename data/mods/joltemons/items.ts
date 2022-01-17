@@ -539,16 +539,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (this.field.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Ghost')) {
 				this.heal(pokemon.baseMaxhp / 16);
-			} else {
-				this.damage(pokemon.baseMaxhp / 8);
-			}
+			} 
 		},
 		onTerrain(pokemon) {
 			if (!this.field.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Ghost')) {
 				this.heal(pokemon.baseMaxhp / 16);
-			} else {
-				this.damage(pokemon.baseMaxhp / 8);
 			}
 		},
 		onDisableMove: function(pokemon) {
