@@ -635,7 +635,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-    shortDesc: "Destroys screens, unless the target is immune.",
+    shortDesc: "Destroys screens, unless the target is immune. 10% poison chance.",
 		isViable: true,
 		name: "Acidic Fists",
 		pp: 10,
