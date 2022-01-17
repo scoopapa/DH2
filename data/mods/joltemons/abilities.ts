@@ -428,7 +428,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 102,
 		shortDesc: "Flying/Bug-type moves against this Pokemon deal damage with a halved attacking stat. Can't be statused or flinched by others in Sun.",
 	},
-/*
+
 	soullink: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Soul Link');
@@ -443,7 +443,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Soul Link",
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
 	},
-*/
+/*
 	soullink: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Soul Link');
@@ -458,6 +458,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Soul Link",
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
 	},
+*/
 	wanderingspirit: {
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onStart(pokemon) {
