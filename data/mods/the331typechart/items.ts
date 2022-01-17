@@ -19,7 +19,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Bug",
 		num: 909,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Bug type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Bug type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"darkmemory": {
 		id: "darkmemory",
@@ -41,7 +41,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Dark",
 		num: 919,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Dark type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Dark type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"dragonmemory": {
 		id: "dragonmemory",
@@ -63,7 +63,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Dragon",
 		num: 918,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Dragon type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Dragon type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"electricmemory": {
 		id: "electricmemory",
@@ -85,7 +85,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Electric",
 		num: 915,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Electric type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Electric type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"fairymemory": {
 		id: "fairymemory",
@@ -107,7 +107,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Fairy",
 		num: 920,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Fairy type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Fairy type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"fightingmemory": {
 		id: "fightingmemory",
@@ -129,7 +129,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Fighting",
 		num: 904,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Fighting type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Fighting type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"firememory": {
 		id: "firememory",
@@ -151,7 +151,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Fire",
 		num: 912,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Fire type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Fire type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"flyingmemory": {
 		id: "flyingmemory",
@@ -173,7 +173,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Flying",
 		num: 905,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Flying type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Flying type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"ghostmemory": {
 		id: "ghostmemory",
@@ -195,7 +195,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Ghost",
 		num: 910,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Ghost type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Ghost type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"grassmemory": {
 		id: "grassmemory",
@@ -217,7 +217,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Grass",
 		num: 914,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Grass type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Grass type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"groundmemory": {
 		id: "groundmemory",
@@ -239,7 +239,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Ground",
 		num: 907,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Ground type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Ground type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"icememory": {
 		id: "icememory",
@@ -261,7 +261,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Ice",
 		num: 917,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Ice type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Ice type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"poisonmemory": {
 		id: "poisonmemory",
@@ -283,7 +283,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Poison",
 		num: 906,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Poison type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Poison type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"psychicmemory": {
 		id: "psychicmemory",
@@ -305,7 +305,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Psychic",
 		num: 916,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Psychic type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Psychic type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"rockmemory": {
 		id: "rockmemory",
@@ -327,7 +327,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Rock",
 		num: 908,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Rock type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Rock type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"steelmemory": {
 		id: "steelmemory",
@@ -349,7 +349,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Steel",
 		num: 911,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Steel type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Steel type. Holder's attacks of this memory's type have 1.2x power.",
 	},
 	"watermemory": {
 		id: "watermemory",
@@ -371,6 +371,90 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Silvally-Water",
 		num: 913,
 		gen: 7,
-		desc: "Holder's Multi-Attack is Water type. Holder's attacks of this plate's type have 1.2x power.",
+		desc: "Holder's Multi-Attack is Water type. Holder's attacks of this memory's type have 1.2x power.",
+	},
+	burndrive: {
+		name: "Burn Drive",
+		spritenum: 54,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+				return false;
+			}
+			return true;
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function (basePower, user, target, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDrive: 'Fire',
+		forcedForme: "Genesect-Burn",
+		itemUser: ["Genesect-Burn"],
+		num: 118,
+		gen: 5,
+	},
+	chilldrive: {
+		name: "Chill Drive",
+		spritenum: 67,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+				return false;
+			}
+			return true;
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function (basePower, user, target, move) {
+			if (move.type === 'Ice') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDrive: 'Ice',
+		forcedForme: "Genesect-Chill",
+		itemUser: ["Genesect-Chill"],
+		num: 119,
+		gen: 5,
+	},
+	dousedrive: {
+		name: "Douse Drive",
+		spritenum: 103,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+				return false;
+			}
+			return true;
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function (basePower, user, target, move) {
+			if (move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDrive: 'Water',
+		forcedForme: "Genesect-Douse",
+		itemUser: ["Genesect-Douse"],
+		num: 116,
+		gen: 5,
+	},
+	shockdrive: {
+		name: "Shock Drive",
+		spritenum: 442,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+				return false;
+			}
+			return true;
+		},
+		onBasePowerPriority: 6,
+		onBasePower: function (basePower, user, target, move) {
+			if (move.type === 'Electric') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onDrive: 'Electric',
+		forcedForme: "Genesect-Shock",
+		itemUser: ["Genesect-Shock"],
+		num: 117,
+		gen: 5,
 	},
 };
