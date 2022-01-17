@@ -13,7 +13,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	magmortar: {
 		inherit: true,
-		abilities: {0: "Flame Body", H: "Neutralizing Gas"},
+		abilities: {0: "Flame Body", 1: "Magma Armor", H: "Neutralizing Gas"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Magma Armor", H: "Vital Spirit"},
+	},
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Magma Armor", H: "Vital Spirit"},
 	},
 	sandslashalola: {
 		inherit: true,
@@ -41,7 +49,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	froslass: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Ice Body", H: "Cursed Body"},
+		abilities: {0: "Soul Link", 1: "Ice Body", H: "Cursed Body"},
 	},
 	watchog: {
 		inherit: true,
@@ -65,19 +73,19 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	gourgeist: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Light Power"},
+		abilities: {0: "Soul Link", 1: "Frisk", H: "Light Power"},
 	},
 	gourgeistsmall: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Light Power"},
+		abilities: {0: "Soul Link", 1: "Frisk", H: "Light Power"},
 	},
 	gourgeistlarge: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Light Power"},
+		abilities: {0: "Soul Link", 1: "Frisk", H: "Light Power"},
 	},
 	gourgeistsuper: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Light Power"},
+		abilities: {0: "Soul Link", 1: "Frisk", H: "Light Power"},
 	},
 	crabominable: {
 		inherit: true,
@@ -99,9 +107,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Chilling Neigh", H: "Ice Body"},
 	},
+	spectrier: {
+		inherit: true,
+		abilities: {0: "Grim Neigh", H: "Wandering Spirit"},
+	},
 	rotom: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Unburden"},
+		abilities: {0: "Levitate", 1: "Wandering Spirit", H: "Unburden"},
 	},
 	rotomheat: {
 		inherit: true,
@@ -232,7 +244,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	jumpluff: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Libero", H: "Infiltrator"},
+		abilities: {0: "Leaf Guard", 1: "Libero", H: "Infiltrator"},
 	},
 	lucario: {
 		inherit: true,
@@ -272,7 +284,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cacturne: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Water Compaction", H: "Prickly Coat"},
+		abilities: {0: "Wandering Spirit", 1: "Water Compaction", H: "Prickly Coat"},
 	},
 	lileep: {
 		inherit: true,
@@ -576,7 +588,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	trevenant: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Merciless", H: "Harvest"},
+		abilities: {0: "Leaf Guard", 1: "Merciless", H: "Harvest"},
 	},
 	skuntank: {
 		inherit: true,
@@ -701,7 +713,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	leavanny: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Buzz Off"},
+		abilities: {0: "Swarm", 1: "Leaf Guard", H: "Buzz Off"},
 	},
 	joltik: {
 		inherit: true,
@@ -766,5 +778,133 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	stonjourner: {
 		inherit: true,
 		abilities: {0: "Power Spot", H: "Gravitas"},
+	},
+	rhyhorn: {
+		inherit: true,
+		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Magma Armor"},
+	},
+	rhydon: {
+		inherit: true,
+		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Magma Armor"},
+	},
+	rhyperior: {
+		inherit: true,
+		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Magma Armor"},
+	},
+	diglettalola: {
+		inherit: true,
+		abilities: {0: "Magma Armor", 1: "Tangling Hair", H: "Sand Force"},
+	},
+	dugtrioalola: {
+		inherit: true,
+		abilities: {0: "Magma Armor", 1: "Tangling Hair", H: "Sand Force"},
+	},
+	turtonator: {
+		inherit: true,
+		abilities: {0: "Shell Armor", H: "Magma Armor"},
+	},
+	entei: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Magma Armor",  H: "Inner Focus"},
+	},
+	torkoal: {
+		inherit: true,
+		abilities: {0: "White Smoke", 1: "Drought", H: "Magma Armor"},
+	},
+	crustle: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Magma Armor", H: "Weak Armor"},
+	},
+	archeops: {
+		inherit: true,
+		abilities: {0: "Defeatist", H: "Early Bird"},
+	},
+	celesteela: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Flare Boost"},
+	},
+	zarude: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Leaf Guard"},
+	},
+	zarudedada: {
+		inherit: true,
+		abilities: {0: "Parental Bond", H: "Leaf Guard"},
+	},
+	shiftry: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Pickpocket"},
+	},
+	appletun: {
+		inherit: true,
+		abilities: {0: "Ripen", 1: "Leaf Guard", H: "Thick Fat"},
+	},
+	tropius: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Harvest"},
+	},
+	exeggutor: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Harvest"},
+	},
+	virizion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Leaf Guard"},
+	},
+	shayminsky: {
+		inherit: true,
+		abilities: {0: "Leaf Guard"},
+	},
+	victreebel: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Gluttony"},
+	},
+	sirfetchd: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Leaf Guard", H: "Scrappy"},
+	},
+	banette: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Soul Link", H: "Cursed Body"},
+	},
+	spiritomb: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Soul Link", H: "Wandering Spirit"},
+	},
+	hoopa: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Wandering Spirit"},
+	},
+	hoopaunbound: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Soul Link"},
+	},
+	honedge: {
+		inherit: true,
+		abilities: {0: "No Guard", H: "Soul Link"},
+	},
+	doublade: {
+		inherit: true,
+		abilities: {0: "No Guard", H: "Soul Link"},
+	},
+	dusknoir: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Soul Link", H: "Frisk"},
+	},
+	gardevoir: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Trace", H: "Soul Link"},
+	},
+	marowakalola: {
+		inherit: true,
+		abilities: {0: "Soul Link", 1: "Lightning Rod", H: "Rock Head"},
+	},
+	marowak: {
+		inherit: true,
+		abilities: {0: "Wandering Spirit", 1: "Lightning Rod", H: "Battle Armor"},
+	},
+	cofagrigus: {
+		inherit: true,
+		abilities: {0: "Mummy", H: "Wandering Spirit"},
 	},
 };
