@@ -835,4 +835,8 @@ lycanrocdusk: {
 		tier: "UU",
 	   doublesTier: "DOU",
 },
+shayminsky: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };
