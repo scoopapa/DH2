@@ -697,6 +697,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Gigalith-Kalos"],
 		creator: "Violet",
 	},
+	gigalith: {
+		inherit: true,
+		otherFormes: ["Gigalith-Kalos"],
+		formeOrder: ["Gigalith", "Gigalith-Kalos"],
+	},
 	gigalithkalos: {
 		name: "Gigalith-Kalos",
 		baseSpecies: "Gigalith",
@@ -904,6 +909,457 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Slugma-Galar",
 		evoLevel: 38,
 		creator: "quagsi",
+	},
+
+// SLATE 3
+
+	mantyke: {
+		inherit: true,
+		otherFormes: ["Mantyke-Variant"],
+		formeOrder: ["Mantyke", "Mantyke-Variant"],
+	},
+	mantykevariant: {
+		name: "Mantyke-Variant",
+		baseSpecies: "Mantyke",
+		forme: "Variant",
+		copyData: "Mantyke",
+
+		types: ["Fire"],
+		baseStats: {hp: 45, atk: 20, def: 50, spa: 50, spd: 120, spe: 60},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		evos: ["Mantine-Variant"],
+		creator: "Violet",
+	},
+	mantine: {
+		inherit: true,
+		otherFormes: ["Mantine-Variant"],
+		formeOrder: ["Mantine", "Mantine-Galar"],
+	},
+	mantinevariant: {
+		name: "Mantine-Variant",
+		baseSpecies: "Mantine",
+		forme: "Variant",
+		copyData: "Mantine",
+
+		types: ["Fire"],
+		baseStats: {hp: 85, atk: 40, def: 70, spa: 70, spd: 140, spe: 80},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		prevo: "Mantyke-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	lotad: {
+		inherit: true,
+		otherFormes: ["Lotad-Ultra"],
+		formeOrder: ["Lotad", "Lotad-Ultra"],
+	},
+	lotadultra: {
+		name: "Lotad-Ultra",
+		baseSpecies: "Lotad",
+		forme: "Ultra",
+		copyData: "Lotad",
+
+		evos: ["Lombre-Ultra"],
+		creator: "Violet",
+	},
+	lombre: {
+		inherit: true,
+		otherFormes: ["Lombre-Ultra"],
+		formeOrder: ["Lombre", "Lombre-Ultra"],
+	},
+	lombreultra: {
+		name: "Lombre-Ultra",
+		baseSpecies: "Lombre",
+		forme: "Ultra",
+		copyData: "Lombre",
+
+		prevo: "Lotad-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Ludicolo-Ultra"],
+		creator: "Violet",
+	},
+	ludicolo: {
+		inherit: true,
+		otherFormes: ["Ludicolo-Ultra"],
+		formeOrder: ["Ludicolo", "Ludicolo-Ultra"],
+	},
+	ludicoloultra: {
+		name: "Ludicolo-Ultra",
+		baseSpecies: "Ludicolo",
+		forme: "Ultra",
+		copyData: "Ludicolo",
+
+		prevo: "Lombre-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	drifloon: {
+		inherit: true,
+		evos: ["Driflblim", "Driflblim-Variant"],
+	},
+	drifblim: {
+		inherit: true,
+		otherFormes: ["Drifblim-Variant"],
+		formeOrder: ["Drifblim", "Drifblim-Variant"],
+	},
+	drifblimvariant: {
+		name: "Drifblim-Variant",
+		baseSpecies: "Drifblim",
+		forme: "Variant",
+		copyData: "Drifblim",
+
+		prevo: "Drifloon",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
+	golduck: {
+		inherit: true,
+		evos: ["Bafflack"],
+	},
+	bafflack: {
+		name: "Bafflack",
+		copyData: "Golduck",
+
+		prevo: "Golduck",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "KeroseneZanchu",
+	},
+
+	goomy: {
+		inherit: true,
+		otherFormes: ["Goomy-Arctara"],
+		formeOrder: ["Goomy", "Goomy-Arctara"],
+	},
+	goomyarctara: {
+		name: "Goomy-Arctara",
+		baseSpecies: "Goomy",
+		forme: "Arctara",
+		copyData: "Goomy",
+
+		evos: ["Sliggoo-Arctara"],
+		creator: "ausma",
+	},
+	sliggoo: {
+		inherit: true,
+		otherFormes: ["Sliggoo-Arctara"],
+		formeOrder: ["Sliggoo", "Sliggoo-Arctara"],
+	},
+	sliggooarctara: {
+		name: "Sliggoo-Arctara",
+		baseSpecies: "Sliggoo",
+		forme: "Arctara",
+		copyData: "Sliggoo",
+
+		prevo: "Goomy-Arctara",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Goodra-Arctara"],
+		creator: "ausma",
+	},
+	goodra: {
+		inherit: true,
+		otherFormes: ["Goodra-Arctara"],
+		formeOrder: ["Goodra", "Goodra-Arctara"],
+	},
+	goodraarctara: {
+		name: "Goodra-Arctara",
+		baseSpecies: "Goodra",
+		forme: "Arctara",
+		copyData: "Goodra",
+
+		prevo: "Sliggoo-Arctara",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	electrode: {
+		inherit: true,
+		evos: ["Ballistic"],
+	},
+	ballistic: {
+		name: "Ballistic",
+		copyData: "Electrode",
+
+		prevo: "Electrode",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	trevenant: {
+		inherit: true,
+		evos: ["Freedling"],
+	},
+	freedling: {
+		name: "Freedling",
+		copyData: "Trevenant",
+
+		prevo: "Trevenant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	smoochum: {
+		inherit: true,
+		evos: ["Jynx", "Jynx-Variant"],
+	},
+	jynx: {
+		inherit: true,
+		otherFormes: ["Jynx-Variant"],
+		formeOrder: ["Jynx", "Jynx-Variant"],
+	},
+	jynxvariant: {
+		name: "Jynx-Variant",
+		baseSpecies: "Jynx",
+		forme: "Variant",
+		copyData: "Jynx",
+
+		prevo: "Smoochum",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	noibat: {
+		inherit: true,
+		evos: ["Noivern", "Noivern-Variant"],
+	},
+	noivern: {
+		inherit: true,
+		otherFormes: ["Noivern-Variant"],
+		formeOrder: ["Noivern", "Noivern-Variant"],
+	},
+	noivernvariant: {
+		name: "Noivern-Variant",
+		baseSpecies: "Noivern",
+		forme: "Variant",
+		copyData: "Noivern",
+
+		prevo: "Noibat",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	drilbur: {
+		inherit: true,
+		otherFormes: ["Drilbur-Hisui"],
+		formeOrder: ["Drilbur", "Drilbur-Hisui"],
+	},
+	drilburhisui: {
+		name: "Drilbur-Hisui",
+		baseSpecies: "Drilbur",
+		forme: "Hisui",
+		copyData: "Drilbur",
+
+		evos: ["Excadrill-Hisui"],
+		creator: "ausma",
+	},
+	excadrill: {
+		inherit: true,
+		otherFormes: ["Excadrill-Hisui"],
+		formeOrder: ["Excadrill", "Excadrill-Hisui"],
+	},
+	excadrillhisui: {
+		name: "Excadrill-Hisui",
+		baseSpecies: "Excadrill",
+		forme: "Hisui",
+		copyData: "Excadrill",
+
+		prevo: "Drilbur-Hisui",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	fearow: {
+		inherit: true,
+		evos: ["Endurow"],
+	},
+	endurow: {
+		name: "Endurow",
+		copyData: "Fearow",
+
+		prevo: "Fearow",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	wailmer: {
+		inherit: true,
+		otherFormes: ["Wailmer-Ultra"],
+		formeOrder: ["Wailmer", "Wailmer-Ultra"],
+	},
+	wailmerultra: {
+		name: "Wailmer-Ultra",
+		baseSpecies: "Wailmer",
+		forme: "Ultra",
+		copyData: "Wailmer",
+
+		evos: ["Wailord-Ultra"],
+		creator: "abismal",
+	},
+	wailord: {
+		inherit: true,
+		otherFormes: ["Wailord-Ultra"],
+		formeOrder: ["Wailord", "Wailord-Ultra"],
+	},
+	wailordultra: {
+		name: "Wailord-Ultra",
+		baseSpecies: "Wailord",
+		forme: "Ultra",
+		copyData: "Wailord",
+
+		prevo: "Wailmer-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	hypno: {
+		inherit: true,
+		evos: ["Mezmir"],
+	},
+	mezmir: {
+		name: "Mezmir",
+		copyData: "Hypno",
+
+		prevo: "Hypno",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	spewpa: {
+		inherit: true,
+		evos: ["Vivillon", "Coconfetti"],
+	},
+	coconfetti: {
+		name: "Coconfetti",
+		copyData: "Vivillon",
+
+		prevo: "Spewpa",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	accelgor: {
+		inherit: true,
+		evos: ["Velocinobi"],
+	},
+	velocinobi: {
+		name: "Velocinobi",
+		copyData: "Accelgor",
+
+		prevo: "Accelgor",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	vespiquen: {
+		inherit: true,
+		evos: ["Oonabee"],
+	},
+	oonabee: {
+		name: "Oonabee",
+		copyData: "Vespiquen",
+
+		prevo: "Vespiquen",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	karrablast: {
+		inherit: true,
+		evos: ["Escavalier", "Escavalier-Variant"],
+	},
+	escavalier: {
+		inherit: true,
+		otherFormes: ["Escavalier-Variant"],
+		formeOrder: ["Escavalier", "Escavalier-Variant"],
+	},
+	escavaliervariant: {
+		name: "Escavalier-Variant",
+		baseSpecies: "Escavalier",
+		forme: "Variant",
+		copyData: "Escavalier",
+
+		prevo: "Karrablast",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	curski: {
+		name: "Curski",
+		copyData: "Spiritomb", // does not grant Eviolite access (compare Melmetal)
+
+		creator: "KeroseneZanchu",
+	},
+
+	sinistea: {
+		inherit: true,
+		otherFormes: ["Sinistea-Dark-Roast"],
+		formeOrder: ["Sinistea", "Sinistea-Dark-Roast"],
+	},
+	sinisteadarkroast: {
+		name: "Sinistea-Dark-Roast",
+		baseSpecies: "Sinistea",
+		forme: "Dark-Roast",
+		copyData: "Sinistea",
+
+		evos: ["Polteageist-Cold-Brew"],
+		creator: "Hematite",
+	},
+	polteageist: {
+		inherit: true,
+		otherFormes: ["Polteageist-Cold-Brew"],
+		formeOrder: ["Polteageist", "Polteageist-Cold-Brew"],
+	},
+	polteageistcoldbrew: {
+		name: "Polteageist-Cold-Brew",
+		baseSpecies: "Polteageist",
+		forme: "Cold-Brew",
+		copyData: "Polteageist",
+
+		prevo: "Sinistea-Dark-Roast",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	granbull: {
+		inherit: true,
+		evos: ["Constabull"],
+	},
+	constabull: {
+		name: "Constabull",
+		copyData: "Granbull",
+
+		prevo: "Granbull",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
 	},
 
 };
