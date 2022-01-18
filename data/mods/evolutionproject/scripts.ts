@@ -167,7 +167,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (move.mindBlownRecoil) { // this section is modified for Emergency Exit
 				if (pokemon.hp > pokemon.maxhp / 2) {
 					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
-					if (pokemon.hp <= pokemon.maxhp / 2) pokemon.m.goingToEmergencyExit = true; // I'm pretty sure the actual Emergency Exit happens later, so I'm storing it
+					pokemon.m.goingToEmergencyExit = true; // I'm pretty sure the actual Emergency Exit happens later, so I'm storing it
 				} else {
 					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
 				}
@@ -178,6 +178,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				hit++; // report the correct number of hits for multihit moves
 				break;
 			}
+			this.eachEvent('Update');
 		}
 		// hit is 1 higher than the actual hit count
 		if (hit === 1) return damage.fill(false);
@@ -188,6 +189,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		if (move.recoil && move.totalDamage) {
 			this.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
+		}
+
+		for (const pokemon of this.getAllActive()) { // this section was added for Emergency Exit; it should be about the right spot for it to happen
+			if (pokemon.m.goingToEmergencyExit) {
+				pokemon.m.goingToEmergencyExit = null;
+				if (pokemon.hp <= pokemon.maxhp / 2) this.runEvent('EmergencyExit', pokemon);
+				// this waits for after some updates in case of stuff like Sitrus Berries, but it's before a move failing should cancel the effect
+			}
 		}
 
 		if (move.struggleRecoil) {
@@ -216,13 +225,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.eachEvent('Update');
 
 		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
-
-		for (const pokemon of this.getAllActive()) { // this section was added for Emergency Exit; it should be about the right spot for it to happen
-			if (pokemon.m.goingToEmergencyExit) {
-				pokemon.m.goingToEmergencyExit = null;
-				this.runEvent('EmergencyExit', pokemon);
-			}
-		}
 
 		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
 			for (const [i, d] of damage.entries()) {
