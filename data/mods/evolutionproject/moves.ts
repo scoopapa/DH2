@@ -25,4 +25,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Clever",
 	},
+	baddybad: { // Gen VII Baddy Bad for Curski
+		accuracy: 100,
+		basePower: 90,
+		isNonstandard: null,
+	},
 };
