@@ -253,6 +253,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
+		isPermanent: true,
 		name: "Power of Alchemy",
 		rating: 0,
 		num: 223,
@@ -273,6 +274,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ability: this.dex.getAbility('poisontouch'),
 			});
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 0,
 	},
@@ -362,6 +364,142 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Buzz Off",
 		rating: 2.5,
 	},
+	magmaarmor: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Magma Armor');
+				pokemon.cureStatus();
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === ('hail')) return false;
+			if (type === ('frz')) return false;
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Water') {
+				this.debug('Magma Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Water') {
+				this.debug('Magma Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Magma Armor",
+		rating: 1,
+		num: 40,
+		shortDesc: "Water/Ice-type moves against this Pokemon deal damage with a halved attacking stat. Hail & Freeze immunity.",
+	},
+	leafguard: {
+		onSetStatus(status, target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Leaf Guard');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if ((status.id === 'yawn' || status.id === 'flinch') && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] ability: Leaf Guard');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying' || move.type === 'Bug') {
+				this.debug('Leaf Guard weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Flying' || move.type === 'Bug') {
+				this.debug('Leaf Guard weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Leaf Guard",
+		rating: 0.5,
+		num: 102,
+		shortDesc: "Flying/Bug-type moves against this Pokemon deal damage with a halved attacking stat. Can't be statused or flinched by others in Sun.",
+	},
+
+	soullink: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && !source.hasType('Ghost') && source.addType('Ghost')) {
+				this.add('-start', source, 'typeadd', 'Ghost', '[from] ability: Soul Link');
+			}
+		},
+		name: "Soul Link",
+		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
+	},
+/*
+	soullink: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Soul Link');
+			this.add('-message', `Opponents that make contact will become a part-Ghost-type!`);
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && !source.hasType('Ghost') && !source.addType('Ghost')) {
+           	this.useMove("Trick-or-Treat", target);
+			}
+		},
+		name: "Soul Link",
+		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
+	},
+*/
+	wanderingspirit: {
+		shortDesc: "On switch-in, swaps ability with the opponent.",
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if ((pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			))
+			|| pokemon.species.id !== 'spiritomb' && pokemon.species.id !== 'spectrier' && pokemon.species.id !== 'yamaskgalar' && pokemon.species.id !== 'runerigus' && pokemon.species.id !== 'cofagrigus' && pokemon.species.id !== 'cacturne' && pokemon.species.id !== 'hoopa' && pokemon.species.id !== 'marowak' && pokemon.species.id !== 'rotom') {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			if (!this.effectData.switchingIn) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				target.setAbility('wanderingspirit', pokemon);
+				pokemon.setAbility(ability);
+				
+				this.add('-activate', pokemon, 'ability: Wandering Spirit');
+				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
+				this.add('-activate', pokemon, 'ability: ' + ability.name);
+				this.add('-activate', target, 'ability: Wandering Spirit');
+				return;
+			}
+		},
+		name: "Wandering Spirit",
+		rating: 2.5,
+		num: 254,
+	},
 	
 // Edited by proxy
 	oblivious: {
@@ -414,6 +552,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 165,
 	},
+	trace: {
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'wanderingspirit',
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+				pokemon.setAbility(ability);
+				return;
+			}
+		},
+		name: "Trace",
+		rating: 2.5,
+		num: 36,
+	},
+
 	
 
 // The other Power of Alchemies
@@ -447,6 +619,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Weezing)",
 		rating: 0,
 	}, 
@@ -498,6 +671,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Alcremie)",
 		rating: 0,
 	}, 
@@ -506,6 +680,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Mismagius)",
 		rating: 0,
 	},
@@ -525,6 +700,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Slowking-Galar)",
 		rating: 0,
 	},
@@ -558,6 +734,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.effectData.switchingIn = false;
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Ditto)",
 		rating: 0,
 	},
@@ -590,6 +767,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Vanillite)",
 		rating: 0,
 	},
@@ -612,6 +790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
+		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",
 		rating: 0,
 	},

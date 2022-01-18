@@ -464,6 +464,100 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Super effective attacks deal 3/4 damage to the holder.",
 	},
+	powerherb: {
+		onChargeMove(pokemon, target, move) {
+			if (pokemon.useItem()) {
+				this.debug('power herb - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		onUpdate (pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+				pokemon.useItem();
+			}
+		},
+		name: "Power Herb",
+		spritenum: 358,
+		fling: {
+			basePower: 10,
+		},
+		num: 271,
+		gen: 4,
+		desc: "Holder's two-turn moves and recharge complete in one turn (except Sky Drop). Single use.",
+	},
+	pillow: {
+		name: "Pillow",
+		spritenum: 242,
+		fling: {
+			basePower: 10,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+			this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+/*
+		onStart(pokemon) {
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+				pokemon.addVolatile('pillow');
+			}
+		},
+		condition: {
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if ((!pokemon.hasItem('pillow') || !pokemon.status === 'slp' || !pokemon.hasAbility('comatose'))) {
+					pokemon.removeVolatile('pillow');
+					return;
+				}
+				if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+           		this.useMove("Sleep Talk", pokemon);
+				}
+			},
+		},
+*/
+		fling: {
+			basePower: 10,
+			status: 'slp',
+		},
+		gen: 8,
+		desc: "Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
+	},
+	reapercloth: {
+		name: "Reaper Cloth",
+		spritenum: 385,
+		fling: {
+			basePower: 100,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Ghost')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			} 
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Ghost')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		onDisableMove: function(pokemon) {
+			if (!pokemon.hasType('Ghost') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		onTakeItem(item, source) {
+			if (source.hasType('Ghost')) return false;
+			return true;
+		},
+		num: 325,
+		gen: 4,
+		desc: "Each turn, if holder is a Ghost type, restores 1/16 max HP; is Tormented if not.",
+	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
 		aguavberry: {
