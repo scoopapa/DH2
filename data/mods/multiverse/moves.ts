@@ -127,6 +127,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pursuit", target);
+		},
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
 				if (side === pokemon.side) continue;
@@ -192,6 +196,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acrobatics", target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Flying",
