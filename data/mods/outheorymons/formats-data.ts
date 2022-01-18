@@ -2053,7 +2053,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["hurricane", "hydropump", "protect", "roost", "tailwind", "wideguard"],
 		randomDoubleBattleLevel: 83,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	ralts: {
