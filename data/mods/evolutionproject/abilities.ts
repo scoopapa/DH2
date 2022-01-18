@@ -41,6 +41,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
 				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 			},
+			onSwitchOut(pokemon) { // it seems like volatiles may not run onEnd on their own the way Abilities do
+				pokemon.removeVolatile('chainlink');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('chainlink');
+			},
 			onEnd(pokemon) {
 				for (const ally of pokemon.allies()) { // revert Chain Link user's type first
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
