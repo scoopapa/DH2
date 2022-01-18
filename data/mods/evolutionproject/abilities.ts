@@ -61,12 +61,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -2,
 	},
-	wildfire: {
+	lavaflow: {
 		shortDesc: "The Pokémon draws Fire moves to itself to raise Speed by 1; Fire immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.boost({spe: 1})) {
-					this.add('-immune', target, '[from] ability: Wildfire');
+					this.add('-immune', target, '[from] ability: Lava Flow');
 				}
 				return null;
 			}
@@ -77,12 +77,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
 				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Wildfire');
+					this.add('-activate', this.effectData.target, 'ability: Lava Flow');
 				}
 				return this.effectData.target;
 			}
 		},
-		name: "Wildfire",
+		name: "Lava Flow",
 		rating: 3,
 		num: -3,
 	},
