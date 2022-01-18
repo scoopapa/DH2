@@ -13,6 +13,53 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1,
 	},
+	chainlink: {
+		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
+		onUpdate(pokemon) {
+			if (!pokemon.hasType('Steel')) {
+				for (const ally of pokemon.allies()) {
+					if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely that would be awful
+					if (ally.hasType('Steel') && pokemon.addType('Steel')) {
+						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
+						ally.addVolatile('chainlink');
+						this.add('-message', `${pokemon.name} stole its partner's armor!`);
+					}
+				}
+			}
+		},
+		onEnd(pokemon) {
+			for (const ally of pokemon.allies()) {
+				if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely that would be awful
+				if (ally.hasVolatile('chainlink')) ally.removeVolatile('chainlink');
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-message', `${pokemon.name} returned its partner's armor!`);
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+			onEnd(pokemon) {
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				for (const ally of pokemon.allies()) {
+					if (ally.hasVolatile('chainlink')) return; // first make sure no other Pokémon's armor is being borrowed (?)
+				}
+				for (const ally of pokemon.allies()) {
+					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
+						ally types = pokemon.baseSpecies.types;
+						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
+						this.add('-message', `${ally.name} returned its partner's armor!`);
+					}
+				}
+			},
+		},
+		name: "Chain Link",
+		rating: 3,
+		num: -2,
+	},
 	wildfire: {
 		shortDesc: "The Pokémon draws Fire moves to itself to raise Speed by 1; Fire immunity.",
 		onTryHit(target, source, move) {
@@ -36,7 +83,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Wildfire",
 		rating: 3,
-		num: -2,
+		num: -3,
 	},
 	centrifuge: {
 		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
@@ -61,6 +108,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Centrifuge",
 		rating: 3,
-		num: -3,
+		num: -4,
 	},
 };
