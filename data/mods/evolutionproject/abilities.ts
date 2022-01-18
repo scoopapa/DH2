@@ -21,19 +21,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				for (const ally of pokemon.allies()) {
 					if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
 					if (ally.hasType('Steel') && pokemon.addType('Steel')) {
+						this.add('-ability', pokemon, 'Chain Link');
+						this.add('-message', `${pokemon.name} stole its partner's armor!`);
 						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
 						ally.addVolatile('chainlink');
-						this.add('-message', `${pokemon.name} stole its partner's armor!`);
 					}
 				}
 			}
 		},
 		onEnd(pokemon) {
+			if (!pokemon.hasType('Steel')) return;
+			// doesn't happen twice if the ally has already returned the armor
 			for (const ally of pokemon.allies()) {
 				if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
 				if (ally.volatiles['chainlink']) ally.removeVolatile('chainlink');
 				const types = pokemon.baseSpecies.types;
 				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-ability', pokemon, 'Chain Link');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 				this.add('-message', `${pokemon.name} returned its partner's armor!`);
 			}
 		},
@@ -45,13 +50,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				const types = pokemon.baseSpecies.types;
 				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/')); // always return your own types to normal
+				// then see if an ally needs to have its type reverted, too
 				for (const ally of pokemon.allies()) {
 					if (ally.volatiles['chainlink']) return; // first make sure no other Pokémon's armor is being borrowed (?)
 				}
 				for (const ally of pokemon.allies()) {
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
+					// doesn't happen twice if the ally has already returned the armor
 						const types = pokemon.baseSpecies.types;
 						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
+						this.add('-ability', ally, 'Chain Link');
+						this.add('-start', ally, 'typechange', ally.types.join('/'));
 						this.add('-message', `${ally.name} returned its partner's armor!`);
 					}
 				}
