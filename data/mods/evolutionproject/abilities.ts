@@ -49,7 +49,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.add('-ability', ally, 'Chain Link');
 						this.add('-message', `${ally.name} returned its partner's armor!`);
 						this.add('-start', ally, 'typechange', ally.types.join('/'));
-						let types = pokemon.baseSpecies.types;
+						types = pokemon.baseSpecies.types;
 						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
 						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 					}
