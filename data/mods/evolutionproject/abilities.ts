@@ -49,7 +49,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				for (const ally of pokemon.allies()) {
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
-						ally types = pokemon.baseSpecies.types;
+						const types = pokemon.baseSpecies.types;
 						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
 						this.add('-message', `${ally.name} returned its partner's armor!`);
 					}
