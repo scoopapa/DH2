@@ -16,9 +16,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	chainlink: {
 		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
 		onUpdate(pokemon) {
+			if (!pokemon.isStarted) return; // should activate *after* Data Mod
 			if (!pokemon.hasType('Steel')) {
 				for (const ally of pokemon.allies()) {
-					if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely that would be awful
+					if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
 					if (ally.hasType('Steel') && pokemon.addType('Steel')) {
 						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
 						ally.addVolatile('chainlink');
@@ -29,8 +30,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			for (const ally of pokemon.allies()) {
-				if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely that would be awful
-				if (ally.hasVolatile('chainlink')) ally.removeVolatile('chainlink');
+				if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
+				if (ally.volatiles['chainlink']) ally.removeVolatile('chainlink');
 				const types = pokemon.baseSpecies.types;
 				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
 				this.add('-message', `${pokemon.name} returned its partner's armor!`);
@@ -45,7 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const types = pokemon.baseSpecies.types;
 				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
 				for (const ally of pokemon.allies()) {
-					if (ally.hasVolatile('chainlink')) return; // first make sure no other Pokémon's armor is being borrowed (?)
+					if (ally.volatiles['chainlink']) return; // first make sure no other Pokémon's armor is being borrowed (?)
 				}
 				for (const ally of pokemon.allies()) {
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
