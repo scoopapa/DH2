@@ -33,13 +33,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.hasType('Steel')) return;
 			// doesn't happen twice if the ally has already returned the armor
 			for (const ally of pokemon.allies()) {
-				if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
-				if (ally.volatiles['chainlink']) ally.removeVolatile('chainlink');
-				const types = pokemon.baseSpecies.types;
-				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
-				this.add('-ability', pokemon, 'Chain Link');
-				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
-				this.add('-message', `${pokemon.name} returned its partner's armor!`);
+				ally.removeVolatile('chainlink');
 			}
 		},
 		condition: {
@@ -48,21 +42,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 			},
 			onEnd(pokemon) {
-				const types = pokemon.baseSpecies.types;
-				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
-				this.add('-start', pokemon, 'typechange', pokemon.types.join('/')); // always return your own types to normal
-				// then see if an ally needs to have its type reverted, too
-				for (const ally of pokemon.allies()) {
-					if (ally.volatiles['chainlink']) return; // first make sure no other Pokémon's armor is being borrowed (?)
-				}
-				for (const ally of pokemon.allies()) {
+				for (const ally of pokemon.allies()) { // revert Chain Link user's type first
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
-					// doesn't happen twice if the ally has already returned the armor
-						const types = pokemon.baseSpecies.types;
+						let types = ally.baseSpecies.types;
 						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
 						this.add('-ability', ally, 'Chain Link');
-						this.add('-start', ally, 'typechange', ally.types.join('/'));
 						this.add('-message', `${ally.name} returned its partner's armor!`);
+						this.add('-start', ally, 'typechange', ally.types.join('/'));
+						let types = pokemon.baseSpecies.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 					}
 				}
 			},
@@ -86,9 +75,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Lava Flow');
-				}
 				return this.effectData.target;
 			}
 		},
@@ -111,9 +97,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Centrifuge');
-				}
 				return this.effectData.target;
 			}
 		},
