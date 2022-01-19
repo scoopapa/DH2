@@ -3969,7 +3969,7 @@ lifedrain: {
 			this.add('-ability', pokemon, 'Speed Break');
 		},
 		onAnyBoost(boost, target, source, effect) {
-			if (boost.spe < 0) {
+			if (boost.spe) {
       		 boost.spe *= -1;
 			}
 		},
