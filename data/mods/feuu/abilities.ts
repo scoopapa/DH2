@@ -1911,6 +1911,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	toxicplay: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Toxic Play');
+			this.add('-message', `Hawlazzle breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -3803,6 +3804,7 @@ lifedrain: {
 		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
+			this.add('-message', `Pingar breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -3940,6 +3942,10 @@ lifedrain: {
 				return null;
 			}
 		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Aerial Break');
+			this.add('-message', `Vikadrill controls the skies!`);
+		},
 		name: "Aerial Break",
 		shortDesc: "This Pokemon is immune to Ground-type moves and ignores ability-based Ground immunities",
 	},
@@ -3967,6 +3973,7 @@ lifedrain: {
 		name: "Speed Break",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Speed Break');
+			this.add('-message', `Changes to the Speed stat are inverted!`);
 		},
 		onAnyBoost(boost, target, source, effect) {
 			if (boost.spe) {
