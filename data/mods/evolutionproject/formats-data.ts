@@ -18,8 +18,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meowthgalar: { tier: "Evo (NFE)" },
 	persian: { tier: "Evo (NFE)" }, // evolves into Carnelion
 	persianalola: { tier: "Evo!" },
-	perrserker: { tier: "Evo!" },
 	carnelion: { tier: "Evo!" },
+	perrserker: { tier: "Evo!" },
 
 	eevee: { tier: "Evo (NFE)" },
 	vaporeon: { tier: "Evo!" },
@@ -42,11 +42,38 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	growlithe: { tier: "Evo (NFE)" },
 	arcanine: { tier: "Evo!" },
 
+	mantyke: { tier: "Evo (NFE)" },
+	mantykevariant: { tier: "Evo (NFE)" },
+	mantine: { tier: "Evo!" },
+	mantinevariant: { tier: "Evo!" },
+
+	lotad: { tier: "Evo (NFE)" },
+	lotadultra: { tier: "Evo (NFE)" },
+	lombre: { tier: "Evo (NFE)" },
+	lombreultra: { tier: "Evo (NFE)" },
+	ludicolo: { tier: "Evo!" },
+	ludicoloultra: { tier: "Evo!" },
+
+	drifloon: { tier: "Evo (NFE)" },
+	drifblim: { tier: "Evo!" },
+	drifblimvariant: { tier: "Evo!" },
+
 	heatmor: { tier: "Evo (NFE)" }, // evolves into Gourmant
 	gourmant: { tier: "Evo!" },
 
 	feebas: { tier: "Evo (NFE)" },
 	milotic: { tier: "Evo!" },
+
+	psyduck: { tier: "Evo (NFE)" },
+	golduck: { tier: "Evo (NFE)" }, // evolves into Bafflack
+	bafflack: { tier: "Evo!" },
+
+	goomy: { tier: "Evo (NFE)" },
+	goomyarctara: { tier: "Evo (NFE)" },
+	sliggoo: { tier: "Evo (NFE)" },
+	sliggooarctara: { tier: "Evo (NFE)" },
+	goodra: { tier: "Evo!" },
+	goodraarctara: { tier: "Evo!" },
 
 	tentacool: { tier: "Evo (NFE)" },
 	tentacruel: { tier: "Evo!" },
@@ -54,6 +81,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	barboach: { tier: "Evo (NFE)" },
 	whiscash: { tier: "Evo (NFE)" }, // evolves into Whiscazu
 	whiscazu: { tier: "Evo!" },
+
+	voltorb: { tier: "Evo (NFE)" },
+	electrode: { tier: "Evo (NFE)" }, // evolves into Ballistic
+	ballistic: { tier: "Evo!" },
 
 	rotom: { tier: "Evo!" },
 	rotomheat: { tier: "Evo!" },
@@ -74,6 +105,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bounsweet: { tier: "Evo (NFE)" },
 	steenee: { tier: "Evo (NFE)" },
 	tsareena: { tier: "Evo!" },
+
+	phantump: { tier: "Evo (NFE)" },
+	trevenant: { tier: "Evo (NFE)" }, // evolves into Freedling
+	freedling: { tier: "Evo!" },
+
+	smoochum: { tier: "Evo (NFE)" },
+	jynx: { tier: "Evo!" },
+	jynxvariant: { tier: "Evo!" },
 
 	carnivine: { tier: "Evo (NFE)" }, // evolves into Carnivenom
 	carnivenom: { tier: "Evo!" },
@@ -103,6 +142,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mienshao: { tier: "Evo!" },
 	mienshaoyaoguai: { tier: "Evo!" },
 
+	noibat: { tier: "Evo (NFE)" },
+	noivern: { tier: "Evo!" },
+	noivernvariant: { tier: "Evo!" },
+
 	swirlix: { tier: "Evo (NFE)" },
 	swirlixvariant: { tier: "Evo (NFE)" },
 	slurpuff: { tier: "Evo!" },
@@ -117,6 +160,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sandslash: { tier: "Evo!" },
 	sandslashalola: { tier: "Evo!" },
 
+	drilbur: { tier: "Evo (NFE)" },
+	drilburhisui: { tier: "Evo (NFE)" },
+	excadrill: { tier: "Evo!" },
+	excadrillhisui: { tier: "Evo!" },
+
 	silicobra: { tier: "Evo (NFE)" },
 	sandaconda: { tier: "Evo (NFE)" }, // evolves into Coilrig
 	coilrig: { tier: "Evo!" },
@@ -125,8 +173,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	krokorok: { tier: "Evo (NFE)" },
 	krookodile: { tier: "Evo!" },
 
+	spearow: { tier: "Evo (NFE)" },
+	fearow: { tier: "Evo (NFE)" }, // evolves into Endurow
+	endurow: { tier: "Evo!" },
+
 	unown: { tier: "Evo (NFE)" }, // evolves into Nown
 	nown: { tier: "Evo!" },
+
+	wailmer: { tier: "Evo (NFE)" },
+	wailmerultra: { tier: "Evo (NFE)" },
+	wailord: { tier: "Evo!" },
+	wailordultra: { tier: "Evo!" },
+
+	drowzee: { tier: "Evo (NFE)" },
+	hypno: { tier: "Evo (NFE)" }, // evolves into Mezmir
+	mezmir: { tier: "Evo!" },
 
 	abra: { tier: "Evo (NFE)" },
 	kadabra: { tier: "Evo (NFE)" },
@@ -137,6 +198,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kirlia: { tier: "Evo (NFE)" },
 	gardevoir: { tier: "Evo!" },
 	gallade: { tier: "Evo!" },
+
+	scatterbug: { tier: "Evo (NFE)" },
+	spewpa: { tier: "Evo (NFE)" },
+	vivillon: { tier: "Evo!" },
+	vivillonfancy: { tier: "Evo!" },
+	vivillonpokeball: { tier: "Evo!" },
+	coconfetti: { tier: "Evo!" },
 
 	joltik: { tier: "Evo (NFE)" },
 	galvantula: { tier: "Evo!" },
@@ -156,12 +224,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ledian: { tier: "Evo (NFE)" }, // evolves into Lediluck
 	lediluck: { tier: "Evo!" },
 
+	shelmet: { tier: "Evo (NFE)" },
+	accelgor: { tier: "Evo (NFE)" }, // evolves into Velocinobi
+	velocinobi: { tier: "Evo!" },
+
 	burmy: { tier: "Evo (NFE)" },
 	wormadam: { tier: "Evo!" },
 	wormadamsandy: { tier: "Evo!" },
 	wormadamtrash: { tier: "Evo (NFE)" }, // evolves into Balleringue
-	mothim: { tier: "Evo!" },
 	balleringue: { tier: "Evo!" },
+	mothim: { tier: "Evo!" },
+
+	combee: { tier: "Evo (NFE)" }, // RIP male Combee even more than usual
+	vespiquen: { tier: "Evo (NFE)" }, // evolves into Oonabee
+	oonabee: { tier: "Evo!" },
 
 	staryu: { tier: "Evo (NFE)" },
 	starmie: { tier: "Evo!" },
@@ -204,6 +280,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	jackourdlarge: { tier: "Evo!" },
 	jackourdsuper: { tier: "Evo!" },
 
+	karrablast: { tier: "Evo (NFE)" },
+	escavalier: { tier: "Evo!" },
+	escavaliervariant: { tier: "Evo!" },
+
 	misdreavus: { tier: "Evo (NFE)" },
 	mismagius: { tier: "Evo (NFE)" }, // evolves into Alchemissus
 	alchemissus: { tier: "Evo!" },
@@ -216,10 +296,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	druddigon: { tier: "Evo (NFE)" }, // evolves into Rubulwark
 	rubulwark: { tier: "Evo!" },
 
+	spiritomb: { tier: "Evo!" }, // does not evolve into Curski exactly...? I think (it's like Meltan)
+	curski: { tier: "Evo!" }, // or at least that seemed to be the consensus because no one wanted Eviolite Spiritomb
+	// it was going to be a flavorfully unconventional "line" either way!
+	// and hey, it even has a signature LGPE move!!
+
 	inkay: { tier: "Evo (NFE)" },
 	inkayalola: { tier: "Evo (NFE)" },
 	malamar: { tier: "Evo!" },
 	malamaralola: { tier: "Evo!" },
+
+	sinistea: { tier: "Evo (NFE)" },
+	sinisteadarkroast: { tier: "Evo (NFE)" },
+	polteageist: { tier: "Evo!" },
+	polteageistcoldbrew: { tier: "Evo!" },
 
 	scraggy: { tier: "Evo (NFE)" },
 	scrafty: { tier: "Evo (NFE)" }, // evolves into Scrafiti
@@ -238,5 +328,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	spritzee: { tier: "Evo (NFE)" },
 	aromatisse: { tier: "Evo!" },
+
+	snubbull: { tier: "Evo (NFE)" },
+	granbull: { tier: "Evo (NFE)" }, // evolves into Constabull
+	constabull: { tier: "Evo!" },
 
 };
