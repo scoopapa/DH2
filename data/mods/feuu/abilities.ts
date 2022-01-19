@@ -3992,7 +3992,7 @@ lifedrain: {
 						this.add('-ability', this.effectData.target, 'Creepy', 'boost');
 						activated = true;
 					}
-					if (target.volatiles['substitute']) {
+					if ((target.volatiles['substitute'] || target.hasType('Dark'))) {
 						this.add('-immune', target);
 					} else {
 						this.boost({atk: -1}, target, this.effectData.target, null, true);
