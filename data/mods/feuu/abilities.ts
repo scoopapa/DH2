@@ -3980,18 +3980,12 @@ lifedrain: {
 				return priority + 1;
 			}
 		},
-		onModifyMove(move) {
-			if (!move.category === 'Status') return;
-			if (!move.secondaries) {
-				move.secondaries = [];
+		onAfterMove(target, source, move) {
+			if (!move || !source) return;
+			if (move.category === 'Status') {
+				this.add('-ability', this.effectData.target, 'Creepy');
+				this.boost({atk: -1}, this.effectData.target);
 			}
-			move.secondaries.push({
-				chance: 100,
-				boosts: {
-					atk: -1,
-				},
-				ability: this.dex.getAbility('creepy'),
-			});
 		},
 		name: "Creepy",
 		shortDesc: "This Pokemon's Status moves have priority raised by 1 and lower the foe's Attack by 1, but Dark types are immune.",
