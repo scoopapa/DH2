@@ -3963,6 +3963,57 @@ lifedrain: {
 		name: "Frozen Dish",
 		shortDesc: "This Pokemon's STAB bonus is 2x instead of 1.5x. Heals 1/16 of its max HP when using a STAB move.",
 	},
+	speedbreak: {
+		name: "Speed Break",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Speed Break');
+		},
+		onAnyBoost(boost, target, source, effect) {
+      		 boost.spe *= -1;
+		},
+		shortDesc: "While this Pokemon is active, Speed is lowered when boosted and vice versa for all Pokemon.",
+	},
+	creepy: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onModifyMove(move) {
+			if (!move.category === 'Status') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				boosts: {
+					atk: -1,
+				},
+				ability: this.dex.getAbility('Creepy'),
+			});
+		},
+		name: "Creepy",
+		shortDesc: "This Pokemon's Status moves have priority raised by 1 and lower the foe's Attack by 1, but Dark types are immune.",
+	},
+	toxiclook: {
+		name: "Toxic Look",
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Toxic Look boost');
+				return this.chainModify(2);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		shortDesc: "Tinted Lens + Poison Point",
+	},
+
 
 
 // LC Only Abilities
