@@ -23,4 +23,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	mew: {
 		tier: "MV",
 	},
+	noctowl: {
+		tier: "MV",
+	},
+	crobat: {
+		tier: "MV",
+	},
+	jumpluff: {
+		tier: "MV",
+	},
+	murkrow: {
+		tier: "MV",
+	},
+	forretress: {
+		tier: "MV",
+	},
+	houndoom: {
+		tier: "MV",
+	},
+	magby: {
+		tier: "MV",
+	},
+	entei: {
+		tier: "MV",
+	},
 };

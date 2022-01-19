@@ -33,5 +33,16 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	
+	smartprankster: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.smartpranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		name: "Smart Prankster",
+		shortDesc: "This Pokemon's non-damaging moves have their priority increased by 1.",
+		rating: 4,
+		num: 158,
+	},
 };

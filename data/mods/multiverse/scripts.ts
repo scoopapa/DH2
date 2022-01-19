@@ -36,6 +36,28 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'mew').learnset.spikes;
 		delete this.modData('Learnsets', 'mew').learnset.swordsdance;
 		delete this.modData('Learnsets', 'mew').learnset.trick;
+		
+		
+		//Generation 2
+		this.modData('Learnsets', 'noctowl').learnset.flashcannon = ['8L1'];
+		this.modData('Learnsets', 'noctowl').learnset.steelbeam = ['8L1'];
+		this.modData('Learnsets', 'noctowl').learnset.metalsound = ['8L1'];
+		
+		this.modData('Learnsets', 'jumpluff').learnset.defog = ['8L1'];
+		this.modData('Learnsets', 'jumpluff').learnset.heavyflip = ['8L1'];
+		
+		this.modData('Learnsets', 'murkrow').learnset.leafburst = ['8L1'];
+		this.modData('Learnsets', 'murkrow').learnset.workup = ['8L1'];
+		delete this.modData('Learnsets', 'murkrow').learnset.defog;
+		
+		this.modData('Learnsets', 'houndoom').learnset.huntdown = ['8L1'];
+		delete this.modData('Learnsets', 'houndoom').learnset.nastyplot;
+		
+		this.modData('Learnsets', 'magby').learnset.drainpunch = ['8L1'];
+		
+		this.modData('Learnsets', 'entei').learnset.leafburst = ['8L1'];
+		delete this.modData('Learnsets', 'entei').learnset.ironhead;
+		delete this.modData('Learnsets', 'entei').learnset.stompingtantrum;
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
