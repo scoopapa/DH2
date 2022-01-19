@@ -3984,7 +3984,7 @@ lifedrain: {
 			if (!move || !source) return;
 			if (move.category === 'Status') {
 				this.add('-ability', this.effectData.target, 'Creepy');
-				this.boost({atk: -1}, this.effectData.target);
+				this.boost({atk: -1}, this.effectData.target.side.foe);
 			}
 		},
 		name: "Creepy",
