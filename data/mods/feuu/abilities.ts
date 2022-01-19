@@ -3984,8 +3984,8 @@ lifedrain: {
 			if (move.category !== 'Status') {
 				return;
 			}
-			this.add('-ability', target, 'Creepy');
-			this.boost({atk: -1}, target, source, null, true);
+			this.add('-ability', source, 'Creepy');
+			this.boost({atk: -1}, source, source, null, true);
 		},
 		name: "Creepy",
 		shortDesc: "This Pokemon's Status moves have priority raised by 1 and lower the foe's Attack by 1, but Dark types are immune.",
