@@ -3983,8 +3983,19 @@ lifedrain: {
 		onAfterMove(target, source, move) {
 			if (!move || !source) return;
 			if (move.category === 'Status') {
-				this.add('-ability', this.effectData.target, 'Creepy');
-				this.boost({atk: -1}, this.effectData.target.side.foe);
+				let activated = false;
+				for (const target of this.effectData.target.side.foe.active) {
+					if (!target || !this.isAdjacent(target, this.effectData.target)) continue;
+					if (!activated) {
+						this.add('-ability', this.effectData.target, 'Creepy', 'boost');
+						activated = true;
+					}
+					if (target.volatiles['substitute']) {
+						this.add('-immune', target);
+					} else {
+						this.boost({atk: -1}, target, this.effectData.target, null, true);
+					}
+				}
 			}
 		},
 		name: "Creepy",
