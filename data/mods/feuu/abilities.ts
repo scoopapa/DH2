@@ -3969,7 +3969,9 @@ lifedrain: {
 			this.add('-ability', pokemon, 'Speed Break');
 		},
 		onAnyBoost(boost, target, source, effect) {
+			if (boost.spe < 0) {
       		 boost.spe *= -1;
+			}
 		},
 		shortDesc: "While this Pokemon is active, Speed is lowered when boosted and vice versa for all Pokemon.",
 	},
