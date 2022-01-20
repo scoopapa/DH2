@@ -3809,20 +3809,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 5.6,
 		evos: ["Ivycat"],
 	},
-/*
-	grubbur: {
-		fusion: ['Grubbin', 'Drillbur'],
-		num: 1083,
-		name: "Grubbur",
-		types: ["Bug", "Ground"],
-		baseStats: {hp: 55, atk: 76, def: 42, spa: 45, spd: 50, spe: 57},
-		abilities: {0: "Swarm Rush"},
-		weightkg: 6.5,
-		evos: ["Vikadrill"],
-	},
 	vullarogue: {
 		fusion: ['Vullaby', 'Tyrogue'],
-		num: 1084,
+		num: 1083,
 		name: "Vullarogue",
 		types: ["Fighting", "Dark"],
 		baseStats: {hp: 52, atk: 60, def: 65, spa: 40, spd: 58, spe: 47},
@@ -3830,7 +3819,36 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 15,
 		evos: ["Manditop"],
 	},
-*/
+	grubbur: {
+		fusion: ['Grubbin', 'Drillbur'],
+		num: 1084,
+		name: "Grubbur",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 55, atk: 76, def: 42, spa: 45, spd: 50, spe: 57},
+		abilities: {0: "Swarm Rush"},
+		weightkg: 6.5,
+		evos: ["Vikadrill"],
+	},
+	purrlithe: {
+		fusion: ['Vullaby', 'Tyrogue'],
+		num: 1083,
+		name: "Purrlithe",
+		types: ["Fighting", "Dark"],
+		baseStats: {hp: 52, atk: 60, def: 65, spa: 40, spd: 58, spe: 47},
+		abilities: {0: "Courageous"},
+		weightkg: 15,
+		evos: ["Manditop"],
+	},
+	venorina: {
+		fusion: ['Grubbin', 'Drillbur'],
+		num: 1084,
+		name: "Venorina",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 55, atk: 76, def: 42, spa: 45, spd: 50, spe: 57},
+		abilities: {0: "Swarm Rush"},
+		weightkg: 6.5,
+		evos: ["Vikadrill"],
+	},
 	
 // NFE
 	corveotto: {
