@@ -52,6 +52,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'houndoom').learnset.huntdown = ['8L1'];
 		delete this.modData('Learnsets', 'houndoom').learnset.nastyplot;
+		delete this.modData('Learnsets', 'houndour').learnset.nastyplot;
 		
 		this.modData('Learnsets', 'magby').learnset.drainpunch = ['8L1'];
 		
