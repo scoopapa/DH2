@@ -1932,7 +1932,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
-	venorina: {
+	venoranfemale: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
