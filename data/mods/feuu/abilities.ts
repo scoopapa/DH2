@@ -581,7 +581,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Doggy\'s Maw');
 			}
@@ -1789,7 +1789,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
@@ -1911,6 +1911,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	toxicplay: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Toxic Play');
+			this.add('-message', `Hawlazzle breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -2150,7 +2151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
@@ -2834,7 +2835,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			});
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Anatidaephobia');
 			}
@@ -3427,7 +3428,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Idiot Savant');
 			}
@@ -3803,6 +3804,7 @@ lifedrain: {
 		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
+			this.add('-message', `Pingar breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -3940,6 +3942,10 @@ lifedrain: {
 				return null;
 			}
 		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Aerial Break');
+			this.add('-message', `Vikadrill controls the skies!`);
+		},
 		name: "Aerial Break",
 		shortDesc: "This Pokemon is immune to Ground-type moves and ignores ability-based Ground immunities",
 	},
@@ -3963,6 +3969,65 @@ lifedrain: {
 		name: "Frozen Dish",
 		shortDesc: "This Pokemon's STAB bonus is 2x instead of 1.5x. Heals 1/16 of its max HP when using a STAB move.",
 	},
+	speedbreak: {
+		name: "Speed Break",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Speed Break');
+			this.add('-message', `Changes to the Speed stat are inverted!`);
+		},
+		onAnyBoost(boost, target, source, effect) {
+			if (boost.spe) {
+      		 boost.spe *= -1;
+			}
+		},
+		shortDesc: "While this Pokemon is active, Speed is lowered when boosted and vice versa for all Pokemon.",
+	},
+	creepy: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onAfterMove(target, source, move) {
+			if (!move || !source) return;
+			if (move.category === 'Status') {
+				let activated = false;
+				for (const target of this.effectData.target.side.foe.active) {
+					if (!target || !this.isAdjacent(target, this.effectData.target)) continue;
+					if (!activated) {
+						this.add('-ability', this.effectData.target, 'Creepy', 'boost');
+						activated = true;
+					}
+					if ((target.volatiles['substitute'] || target.hasType('Dark'))) {
+						this.add('-immune', target);
+					} else {
+						this.boost({atk: -1}, target, this.effectData.target, null, true);
+					}
+				}
+			}
+		},
+		name: "Creepy",
+		shortDesc: "This Pokemon's Status moves have priority raised by 1 and lower the foe's Attack by 1, but Dark types are immune.",
+	},
+	toxiclook: {
+		name: "Toxic Look",
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Toxic Look boost');
+				return this.chainModify(2);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		shortDesc: "Tinted Lens + Poison Point",
+	},
+
 
 
 // LC Only Abilities
@@ -4217,7 +4282,7 @@ lifedrain: {
 	},	
 	noproprioception: {
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: No Proprioception');
 			}
@@ -4288,7 +4353,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Rough Time');
 			}
@@ -4457,7 +4522,7 @@ lifedrain: {
 	},	
 	insidejob: {
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inside Job');
 			}
@@ -4660,7 +4725,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Cursed Duck');
 			}
