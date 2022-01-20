@@ -3866,10 +3866,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 14.55,
 		evos: ["Arcalie"],
 	},
-	venoranfemale: {
+	venoranf: {
 		fusion: ['Nidoran-F', 'Venonat'],
 		num: 1086,
-		name: "Venoran-Female",
+		name: "Venoran-F",
 		types: ["Poison", "Bug"],
 		baseStats: {hp: 67, atk: 70, def: 51, spa: 50, spd: 47, spe: 43},
 		abilities: {0: "Toxic Look"},
