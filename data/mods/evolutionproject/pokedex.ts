@@ -697,6 +697,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Gigalith-Kalos"],
 		creator: "Violet",
 	},
+	gigalith: {
+		inherit: true,
+		otherFormes: ["Gigalith-Kalos"],
+		formeOrder: ["Gigalith", "Gigalith-Kalos"],
+	},
 	gigalithkalos: {
 		name: "Gigalith-Kalos",
 		baseSpecies: "Gigalith",
@@ -904,6 +909,596 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Slugma-Galar",
 		evoLevel: 38,
 		creator: "quagsi",
+	},
+
+// SLATE 3
+
+	mantyke: {
+		inherit: true,
+		otherFormes: ["Mantyke-Variant"],
+		formeOrder: ["Mantyke", "Mantyke-Variant"],
+	},
+	mantykevariant: {
+		name: "Mantyke-Variant",
+		baseSpecies: "Mantyke",
+		forme: "Variant",
+		copyData: "Mantyke",
+
+		types: ["Fire"],
+		baseStats: {hp: 45, atk: 20, def: 50, spa: 50, spd: 120, spe: 60},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		evos: ["Mantine-Variant"],
+		creator: "Violet",
+	},
+	mantine: {
+		inherit: true,
+		otherFormes: ["Mantine-Variant"],
+		formeOrder: ["Mantine", "Mantine-Galar"],
+	},
+	mantinevariant: {
+		name: "Mantine-Variant",
+		baseSpecies: "Mantine",
+		forme: "Variant",
+		copyData: "Mantine",
+
+		types: ["Fire"],
+		baseStats: {hp: 85, atk: 40, def: 70, spa: 70, spd: 140, spe: 80},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		prevo: "Mantyke-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	lotad: {
+		inherit: true,
+		otherFormes: ["Lotad-Ultra"],
+		formeOrder: ["Lotad", "Lotad-Ultra"],
+	},
+	lotadultra: {
+		name: "Lotad-Ultra",
+		baseSpecies: "Lotad",
+		forme: "Ultra",
+		copyData: "Lotad",
+
+		types: ["Fire", "Grass"],
+		baseStats: {hp: 41, atk: 31, def: 19, spa: 53, spd: 47, spe: 29},
+		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
+
+		evos: ["Lombre-Ultra"],
+		creator: "Violet",
+	},
+	lombre: {
+		inherit: true,
+		otherFormes: ["Lombre-Ultra"],
+		formeOrder: ["Lombre", "Lombre-Ultra"],
+	},
+	lombreultra: {
+		name: "Lombre-Ultra",
+		baseSpecies: "Lombre",
+		forme: "Ultra",
+		copyData: "Lombre",
+
+		types: ["Fire", "Grass"],
+		baseStats: {hp: 59, atk: 47, def: 41, spa: 73, spd: 67, spe: 53},
+		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
+
+		prevo: "Lotad-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Ludicolo-Ultra"],
+		creator: "Violet",
+	},
+	ludicolo: {
+		inherit: true,
+		otherFormes: ["Ludicolo-Ultra"],
+		formeOrder: ["Ludicolo", "Ludicolo-Ultra"],
+	},
+	ludicoloultra: {
+		name: "Ludicolo-Ultra",
+		baseSpecies: "Ludicolo",
+		forme: "Ultra",
+		copyData: "Ludicolo",
+
+		types: ["Fire", "Grass"],
+		baseStats: {hp: 79, atk: 71, def: 53, spa: 107, spd: 97, spe: 73},
+		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "fierydance", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
+
+		prevo: "Lombre-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	drifloon: {
+		inherit: true,
+		evos: ["Driflblim", "Driflblim-Variant"],
+	},
+	drifblim: {
+		inherit: true,
+		otherFormes: ["Drifblim-Variant"],
+		formeOrder: ["Drifblim", "Drifblim-Variant"],
+	},
+	drifblimvariant: {
+		name: "Drifblim-Variant",
+		baseSpecies: "Drifblim",
+		forme: "Variant",
+		copyData: "Drifblim",
+
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 140, atk: 70, def: 24, spa: 84, spd: 74, spe: 106},
+		abilities: {0: "Emergency Exit"},
+		movepoolAdditions: ["fireblast", "flamecharge", "flamethrower", "heatwave", "lightscreen", "mindblown", "overheat", "solarbeam"],
+		movepoolDeletions: ["phantomforce"],
+
+		prevo: "Drifloon",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
+	golduck: {
+		inherit: true,
+		evos: ["Bafflack"],
+	},
+	bafflack: {
+		name: "Bafflack",
+		copyData: "Golduck",
+
+		baseStats: {hp: 80, atk: 69, def: 18, spa: 135, spd: 110, spe: 105},
+		abilities: {0: "Psychic Surge", 1: "Cloud Nine", H: "Pure Power"},
+		movepoolAdditions: ["aurasphere", "expandingforce"],
+
+		prevo: "Golduck",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "KeroseneZanchu",
+	},
+
+	goomy: {
+		inherit: true,
+		otherFormes: ["Goomy-Arctara"],
+		formeOrder: ["Goomy", "Goomy-Arctara"],
+	},
+	goomyarctara: {
+		name: "Goomy-Arctara",
+		baseSpecies: "Goomy",
+		forme: "Arctara",
+		copyData: "Goomy",
+
+		types: ["Water", "Ice"],
+		baseStats: {hp: 25, atk: 55, def: 35, spa: 55, spd: 75, spe: 55},
+		abilities: {0: "Stamina", 1: "Hydration", H: "Water Absorb"},
+		movepoolAdditions: ["iciclecrash", "painsplit"],
+		movepoolDeletions: ["dracometeor", "fireblast", "firepunch", "flamethrower", "incinerate", "shockwave", "thunder", "thunderbolt", "thunderpunch"],
+
+		evos: ["Sliggoo-Arctara"],
+		creator: "ausma",
+	},
+	sliggoo: {
+		inherit: true,
+		otherFormes: ["Sliggoo-Arctara"],
+		formeOrder: ["Sliggoo", "Sliggoo-Arctara"],
+	},
+	sliggooarctara: {
+		name: "Sliggoo-Arctara",
+		baseSpecies: "Sliggoo",
+		forme: "Arctara",
+		copyData: "Sliggoo",
+
+		types: ["Water", "Ice"],
+		baseStats: {hp: 37, atk: 83, def: 53, spa: 83, spd: 113, spe: 83},
+		abilities: {0: "Stamina", 1: "Hydration", H: "Water Absorb"},
+		movepoolAdditions: ["iciclecrash", "painsplit"],
+		movepoolDeletions: ["dracometeor", "fireblast", "firepunch", "flamethrower", "incinerate", "shockwave", "thunder", "thunderbolt", "thunderpunch"],
+
+		prevo: "Goomy-Arctara",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Goodra-Arctara"],
+		creator: "ausma",
+	},
+	goodra: {
+		inherit: true,
+		otherFormes: ["Goodra-Arctara"],
+		formeOrder: ["Goodra", "Goodra-Arctara"],
+	},
+	goodraarctara: {
+		name: "Goodra-Arctara",
+		baseSpecies: "Goodra",
+		forme: "Arctara",
+		copyData: "Goodra",
+
+		types: ["Water", "Ice"],
+		baseStats: {hp: 50, atk: 110, def: 70, spa: 110, spd: 150, spe: 110},
+		abilities: {0: "Stamina", 1: "Hydration", H: "Water Absorb"},
+		movepoolAdditions: ["iciclecrash", "painsplit"],
+		movepoolDeletions: ["dracometeor", "fireblast", "firepunch", "flamethrower", "incinerate", "shockwave", "thunder", "thunderbolt", "thunderpunch"],
+
+		prevo: "Sliggoo-Arctara",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	electrode: {
+		inherit: true,
+		evos: ["Ballistic"],
+	},
+	ballistic: {
+		name: "Ballistic",
+		copyData: "Electrode",
+
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 70, atk: 110, def: 10, spa: 90, spd: 110, spe: 150},
+		abilities: {0: "Soundproof", 1: "Reckless", H: "Aftermath"},
+		movepoolAdditions: ["endeavor"],
+
+		prevo: "Electrode",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	trevenant: {
+		inherit: true,
+		evos: ["Freedling"],
+	},
+	freedling: {
+		name: "Freedling",
+		copyData: "Trevenant",
+
+		types: ["Grass"],
+		baseStats: {hp: 90, atk: 110, def: 106, spa: 65, spd: 92, spe: 73},
+		abilities: {0: "Natural Cure", 1: "Sticky Hold", H: "Gooey"},
+		movepoolAdditions: ["synthesis", "spikes"],
+
+		prevo: "Trevenant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	smoochum: {
+		inherit: true,
+		evos: ["Jynx", "Jynx-Variant"],
+	},
+	jynx: {
+		inherit: true,
+		otherFormes: ["Jynx-Variant"],
+		formeOrder: ["Jynx", "Jynx-Variant"],
+	},
+	jynxvariant: {
+		name: "Jynx-Variant",
+		baseSpecies: "Jynx",
+		forme: "Variant",
+		copyData: "Jynx",
+
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 65, atk: 50, def: 95, spa: 115, spd: 35, spe: 95},
+		abilities: {0: "Dancer", 1: "Flame Body", H: "Flash Fire"},
+		movepoolAdditions: ["fierydance", "gigadrain", "morningsun"],
+
+		prevo: "Smoochum",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	noibat: {
+		inherit: true,
+		evos: ["Noivern", "Noivern-Variant"],
+	},
+	noivern: {
+		inherit: true,
+		otherFormes: ["Noivern-Variant"],
+		formeOrder: ["Noivern", "Noivern-Variant"],
+	},
+	noivernvariant: {
+		name: "Noivern-Variant",
+		baseSpecies: "Noivern",
+		forme: "Variant",
+		copyData: "Noivern",
+
+		types: ["Fighting", "Dragon"],
+		baseStats: {hp: 95, atk: 70, def: 80, spa: 97, spd: 80, spe: 113},
+		abilities: {0: "Levitate"},
+		movepoolAdditions: ["aurasphere", "bulldoze", "rocktomb", "vacuumwave"],
+		movepoolDeletions: ["boomburst", "dragondance"],
+
+		prevo: "Noibat",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	drilbur: {
+		inherit: true,
+		otherFormes: ["Drilbur-Hisui"],
+		formeOrder: ["Drilbur", "Drilbur-Hisui"],
+	},
+	drilburhisui: {
+		name: "Drilbur-Hisui",
+		baseSpecies: "Drilbur",
+		forme: "Hisui",
+		copyData: "Drilbur",
+
+		types: ["Ground", "Normal"],
+		abilities: {0: "Centrifuge", 1: "Sand Force", H: "Technician"},
+		movepoolAdditions: ["feint", "knockoff"],
+		movepoolDeletions: ["honeclaws", "irondefense", "ironhead", "metalclaw", "metalsound", "rockslide", "steelbeam", "swordsdance"],
+
+		evos: ["Excadrill-Hisui"],
+		creator: "ausma",
+	},
+	excadrill: {
+		inherit: true,
+		otherFormes: ["Excadrill-Hisui"],
+		formeOrder: ["Excadrill", "Excadrill-Hisui"],
+	},
+	excadrillhisui: {
+		name: "Excadrill-Hisui",
+		baseSpecies: "Excadrill",
+		forme: "Hisui",
+		copyData: "Excadrill",
+
+		types: ["Ground", "Normal"],
+		abilities: {0: "Centrifuge", 1: "Sand Force", H: "Technician"},
+		movepoolAdditions: ["feint", "knockoff"],
+		movepoolDeletions: ["honeclaws", "irondefense", "ironhead", "metalclaw", "metalsound", "rockslide", "steelbeam", "swordsdance"],
+
+		prevo: "Drilbur-Hisui",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	fearow: {
+		inherit: true,
+		evos: ["Endurow"],
+	},
+	endurow: {
+		name: "Endurow",
+		copyData: "Fearow",
+
+		types: ["Flying"],
+		baseStats: {hp: 82, atk: 110, def: 65, spa: 61, spd: 61, spe: 118},
+		abilities: {0: "Stamina", H: "Sniper"},
+		movepoolAdditions: ["acrobatics", "bravebird", "superpower"],
+
+		prevo: "Fearow",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	wailmer: {
+		inherit: true,
+		otherFormes: ["Wailmer-Ultra"],
+		formeOrder: ["Wailmer", "Wailmer-Ultra"],
+	},
+	wailmerultra: {
+		name: "Wailmer-Ultra",
+		baseSpecies: "Wailmer",
+		forme: "Ultra",
+		copyData: "Wailmer",
+
+		types: ["Psychic"],
+		baseStats: {hp: 131, atk: 71, def: 31, spa: 71, spd: 37, spe: 59},
+		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
+		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "storedpower", "trickroom", "wish"],
+		movepoolDeletions: ["bodypress", "soak", "waterfall", "waterspout"],
+
+		evos: ["Wailord-Ultra"],
+		creator: "abismal",
+	},
+	wailord: {
+		inherit: true,
+		otherFormes: ["Wailord-Ultra"],
+		formeOrder: ["Wailord", "Wailord-Ultra"],
+	},
+	wailordultra: {
+		name: "Wailord-Ultra",
+		baseSpecies: "Wailord",
+		forme: "Ultra",
+		copyData: "Wailord",
+
+		types: ["Psychic"],
+		baseStats: {hp: 173, atk: 89, def: 43, spa: 89, spd: 47, spe: 59},
+		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
+		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "overheat", "storedpower", "trickroom", "wish"],
+		movepoolDeletions: ["bodypress", "liquidation", "soak", "waterfall", "waterspout"],
+
+		prevo: "Wailmer-Ultra",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	hypno: {
+		inherit: true,
+		evos: ["Mezmir"],
+	},
+	mezmir: {
+		name: "Mezmir",
+		copyData: "Hypno",
+
+		types: ["Psychic", "Fighting"],
+		baseStats: {hp: 90, atk: 103, def: 70, spa: 73, spd: 115, spe: 77},
+		abilities: {0: "Comatose", 1: "Forewarn", H: "Inner Focus"},
+
+		prevo: "Hypno",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	spewpa: {
+		inherit: true,
+		evos: ["Vivillon", "Coconfetti"],
+	},
+	coconfetti: {
+		name: "Coconfetti",
+		copyData: "Vivillon",
+
+		types: ["Bug"],
+		baseStats: {hp: 80, atk: 70, def: 90, spa: 27, spd: 35, spe: 109},
+		abilities: {0: "Fluffy", H: "Friend Guard"},
+		movepoolAdditions: ["bodypress", "cottonguard", "cottonspore", "leechlife", "recover", "reflect"],
+		movepoolDeletions: ["acrobatics", "aerialace", "gust", "hurricane", "lightscreen", "quiverdance", "roost", "tailwind"],
+
+		prevo: "Spewpa",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	accelgor: {
+		inherit: true,
+		evos: ["Velocinobi"],
+	},
+	velocinobi: {
+		name: "Velocinobi",
+		copyData: "Accelgor",
+
+		types: ["Bug", "Ghost"],
+		baseStats: {hp: 80, atk: 95, def: 20, spa: 105, spd: 90, spe: 145},
+		abilities: {0: "Shed Skin", 1: "Technician", H: "Unburden"},
+		movepoolAdditions: ["hex", "lunge", "shadowball", "strengthsap"],
+
+		prevo: "Accelgor",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	vespiquen: {
+		inherit: true,
+		evos: ["Oonabee"],
+	},
+	oonabee: {
+		name: "Oonabee",
+		copyData: "Vespiquen",
+
+		types: ["Bug", "Fairy"],
+		baseStats: {hp: 85, atk: 80, def: 110, spa: 100, spd: 110, spe: 60},
+		abilities: {0: "Pressure", 1: "Flash Fire", H: "Flare Boost"},
+		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "heatwave", "psychoshift"],
+
+		prevo: "Vespiquen",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	karrablast: {
+		inherit: true,
+		evos: ["Escavalier", "Escavalier-Variant"],
+	},
+	escavalier: {
+		inherit: true,
+		otherFormes: ["Escavalier-Variant"],
+		formeOrder: ["Escavalier", "Escavalier-Variant"],
+	},
+	escavaliervariant: {
+		name: "Escavalier-Variant",
+		baseSpecies: "Escavalier",
+		forme: "Variant",
+		copyData: "Escavalier",
+
+		types: ["Ghost"],
+		abilities: {0: "Shed Skin", 1: "Chain Link", H: "Overcoat"},
+		movepoolAdditions: ["phantomforce", "willowisp"],
+
+		prevo: "Karrablast",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	curski: {
+		name: "Curski",
+		copyData: "Spiritomb", // does not grant Eviolite access (compare Melmetal)
+
+		types: ["Dark"],
+		baseStats: {hp: 50, atk: 117, def: 108, spa: 92, spd: 108, spe: 35},
+		abilities: {0: "Dark Aura", H: "Infiltrator"},
+		movepoolAdditions: ["assurance", "baddybad", "punishment"],
+
+		creator: "KeroseneZanchu",
+	},
+
+	sinistea: {
+		inherit: true,
+		otherFormes: ["Sinistea-Dark-Roast"],
+		formeOrder: ["Sinistea", "Sinistea-Dark-Roast"],
+	},
+	sinisteadarkroast: {
+		name: "Sinistea-Dark-Roast",
+		baseSpecies: "Sinistea",
+		forme: "Dark-Roast",
+		copyData: "Sinistea",
+
+		types: ["Dark"],
+		baseStats: {hp: 50, atk: 45, def: 35, spa: 54, spd: 74, spe: 50},
+		abilities: {0: "Bulletproof", H: "Insomnia"},
+		movepoolAdditions: ["blizzard", "encore", "frostbreath", "frustration", "hail", "hiddenpower", "icebeam", "icywind", "raindance", "return", "snatch", "taunt", "toxic"],
+		movepoolDeletions: ["hex", "shellsmash"],
+
+		evos: ["Polteageist-Cold-Brew"],
+		creator: "Hematite",
+	},
+	polteageist: {
+		inherit: true,
+		otherFormes: ["Polteageist-Cold-Brew"],
+		formeOrder: ["Polteageist", "Polteageist-Cold-Brew"],
+	},
+	polteageistcoldbrew: {
+		name: "Polteageist-Cold-Brew",
+		baseSpecies: "Polteageist",
+		forme: "Cold-Brew",
+		copyData: "Polteageist",
+
+		types: ["Dark", "Ice"],
+		baseStats: {hp: 80, atk: 65, def: 45, spa: 114, spd: 134, spe: 70},
+		abilities: {0: "Bulletproof", H: "Insomnia"},
+		movepoolAdditions: ["blizzard", "encore", "frostbreath", "frustration", "hail", "hiddenpower", "icebeam", "icywind", "raindance", "return", "snatch", "taunt", "toxic"],
+		movepoolDeletions: ["hex", "shellsmash"],
+
+		prevo: "Sinistea-Dark-Roast",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	granbull: {
+		inherit: true,
+		evos: ["Constabull"],
+	},
+	constabull: {
+		name: "Constabull",
+		copyData: "Granbull",
+
+		baseStats: {hp: 93, atk: 130, def: 110, spa: 80, spd: 80, spe: 32},
+		abilities: {0: "Intimidate", 1: "Early Bird", H: "Iron Barbs"},
+		movepoolAdditions: ["coaching", "smackdown"],
+
+		prevo: "Granbull",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
 	},
 
 };

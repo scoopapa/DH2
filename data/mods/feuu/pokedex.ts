@@ -2971,6 +2971,33 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Frozen Dish"},
 		weightkg: 38.1,
 	},	
+	yangarde: {
+		fusion: ['Yanmega', 'Zygarde'],
+		num: 165,
+		name: "Yangarde",
+		types: ["Dragon", "Bug"],
+		baseStats: {hp: 97, atk: 101, def: 109, spa: 98, spd: 75, spe: 95},
+		abilities: {0: "Speed Break"},
+		weightkg: 178.3,
+	},	
+	arcalie: {
+		fusion: ['Arcanine', 'Liepard'],
+		num: 166,
+		name: "Arcalie",
+		types: ["Dark", "Fire"],
+		baseStats: {hp: 87, atk: 109, def: 75, spa: 104, spd: 75, spe: 110},
+		abilities: {0: "Creepy"},
+		weightkg: 96.3,
+	},	
+	venoqueen: {
+		fusion: ['Nidoqueen', 'Venomoth'],
+		num: 167,
+		name: "Venoqueen",
+		types: ["Ground", "Bug"],
+		baseStats: {hp: 90, atk: 97, def: 73, spa: 92, spd: 80, spe: 83},
+		abilities: {0: "Toxic Look"},
+		weightkg: 36.3,
+	},	
 
 // LC
 	woopopotas: {

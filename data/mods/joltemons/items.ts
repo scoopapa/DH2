@@ -525,7 +525,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			status: 'slp',
 		},
 		gen: 8,
-		desc: "Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
+		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
 	},
 	reapercloth: {
 		name: "Reaper Cloth",

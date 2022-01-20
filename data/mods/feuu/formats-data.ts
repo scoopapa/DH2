@@ -1411,6 +1411,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	arcalie: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	venoqueen: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	yangarde: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
