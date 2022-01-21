@@ -1,4 +1,5 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
+/*
 	//Status conditions slightly tweaked to exclude Therapeutic
 	brn: {
 		name: 'brn',
@@ -128,5 +129,5 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 	},
 	
-
+*/
 };
