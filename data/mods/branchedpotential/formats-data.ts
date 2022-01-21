@@ -435,6 +435,42 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
+	wizmagius: {
+		randomBattleMoves: ["thunderbolt", "voltswitch", "shadowball", "dazzlinggleam", "willowisp", "taunt", "nastyplot"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
+	miswitchus: {
+		randomBattleMoves: ["thunderbolt", "sludgebomb", "shadowball", "dazzlinggleam", "willowisp", "taunt", "recover", "nastyplot"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
+	suidreem: {
+		randomBattleMoves: ["spore", "strengthsap", "moonblast", "substitute", "leechseed", "mysticalfire"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
+	perishroom: {
+		randomBattleMoves: ["spore", "strengthsap", "moonblast", "substitute", "leechseed", "nastyplot", "hex"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
+	suidreem: {
+		randomBattleMoves: ["spore", "strengthsap", "moonblast", "substitute", "leechseed", "mysticalfire"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
+	primorhythm: {
+		randomBattleMoves: ["hydropump", "thunderbolt", "scald", "psychic", "hiddenpowerfire"],
+		tier: "OU",
+		doublesTier: "OU",
+		isModded: true,
+	},
 	//
 	//
 	//

@@ -545,7 +545,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'melchor').learnset.focusblast = ['8L1'];
 		delete this.modData('Learnsets', 'melchor').learnset.doubleironbash;
 
-		
+		this.modData('Learnsets', 'wizmagius').learnset.voltswitch = ['8L1'];
+
+		this.modData('Learnsets', 'miswitchus').learnset.sludgebomb = ['8L1'];
+		this.modData('Learnsets', 'miswitchus').learnset.sludgewave = ['8L1'];
+		this.modData('Learnsets', 'miswitchus').learnset.recover = ['8L1'];
+
+		this.modData('Learnsets', 'suidreem').learnset.mysticalfire = ['8L1'];
+
+		this.modData('Learnsets', 'perishroom').learnset.shadowclaw = ['8L1'];
+		this.modData('Learnsets', 'perishroom').learnset.hex = ['8L1'];
+		this.modData('Learnsets', 'perishroom').learnset.shadowball = ['8L1'];
+		this.modData('Learnsets', 'perishroom').learnset.nastyplot = ['8L1'];
+
+		this.modData('Learnsets', 'primorhythm').learnset.thunder = ['8L1'];
+		this.modData('Learnsets', 'primorhythm').learnset.thunderbolt = ['8L1'];
+		this.modData('Learnsets', 'primorhythm').learnset.electricterrain = ['8L1'];
+		this.modData('Learnsets', 'primorrhythm').learnset.thunderwave = ['8L1'];
+		this.modData('Learnsets', 'primorhythm').learnset.electroweb = ['8L1'];
+		this.modData('Learnsets', 'primorhythm').learnset.discharge = ['8L1'];
+		delete this.modData('Learnsets', 'primorhythm').learnset.drainingkiss;
+		delete this.modData('Learnsets', 'primorhythm').learnset.dazzlinggleam;
+		delete this.modData('Learnsets', 'primorhythm').learnset.moonblast;
+		delete this.modData('Learnsets', 'primorhythm').learnset.mistyterrain;
+		delete this.modData('Learnsets', 'primorhythm').learnset.mistyexplosion;
+		delete this.modData('Learnsets', 'primorhythm').learnset.icywind;
+
 		//This mmmmmmight not be necessary, but I can't tell how this is gonna turn out in the client while testing
 		//so I figure better safe than sorry...
 		//Construct Mega Evolution learnsets, for those horrible clowns that for SOME REASON select Megas in the teambuilder

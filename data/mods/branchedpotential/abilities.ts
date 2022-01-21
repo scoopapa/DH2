@@ -152,4 +152,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -118,
 	},
+
+	potionmaster: {
+
+		onModifyMove(move) {
+			if (!move || move.category !== "Special" || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('poisontouch'),
+			});
+		},
+
+		desc: "This Pokemon's special attacks have a 30% chance to poison their target",
+		name: "Potion Master",
+		rating: 2,
+		num: -119
+	},
 };
