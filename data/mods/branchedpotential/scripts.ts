@@ -561,7 +561,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'primorhythm').learnset.thunder = ['8L1'];
 		this.modData('Learnsets', 'primorhythm').learnset.thunderbolt = ['8L1'];
 		this.modData('Learnsets', 'primorhythm').learnset.electricterrain = ['8L1'];
-		this.modData('Learnsets', 'primorrhythm').learnset.thunderwave = ['8L1'];
+		this.modData('Learnsets', 'primorhythm').learnset.thunderwave = ['8L1'];
 		this.modData('Learnsets', 'primorhythm').learnset.electroweb = ['8L1'];
 		this.modData('Learnsets', 'primorhythm').learnset.discharge = ['8L1'];
 		delete this.modData('Learnsets', 'primorhythm').learnset.drainingkiss;
