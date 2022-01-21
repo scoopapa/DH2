@@ -319,7 +319,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
 			onResidual(target) {
-				for (const pokemon of target.side.active) {
+				for (const pokemon of targetSide.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 			},
