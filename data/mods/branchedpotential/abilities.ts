@@ -163,11 +163,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('poisontouch'),
+				ability: this.dex.getAbility('potionmaster'),
 			});
 		},
 
-		desc: "This Pokemon's special attacks have a 30% chance to poison their target",
+		desc: "This Pokemon's special attacks have a 30% chance to poison",
 		name: "Potion Master",
 		rating: 2,
 		num: -119
