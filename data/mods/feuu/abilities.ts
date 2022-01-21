@@ -630,32 +630,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	therapeutic: {
 		id: "therapeutic",
 		name: "Therapeutic",
-		shortDesc: "Unburden + Poison Heal. Upon losing its item, this Pokemon poisons itself.",
+		shortDesc: "Poison Heal effects. Upon losing its item, this Pokemon poisons itself.",
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'psn' || effect.id === 'tox') {
 				this.heal(target.baseMaxhp / 8);
 				return false;
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
-			pokemon.addVolatile('unburden');
-			pokemon.trySetStatus('psn', pokemon);
-		},
-		onTakeItem(item, pokemon) {
-			pokemon.addVolatile('unburden');
-			pokemon.trySetStatus('psn', pokemon);
-		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('unburden');
-		},
-		condition: {
-			onModifySpe(spe, pokemon) {
-				if (!pokemon.item) {
-					return this.chainModify(2);
-				}
-			},
 		},
 	},
 	solarpanel: {
