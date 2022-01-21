@@ -638,6 +638,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectData.target) return;
+			pokemon.trySetStatus('psn', pokemon);
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.trySetStatus('psn', pokemon);
+		},
 	},
 	solarpanel: {
 		id: "solarpanel",
