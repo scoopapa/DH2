@@ -275,4 +275,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Bulletpecks",
 		shortDesc: "This Pokemon is immune to ballistic moves and moves that lower Defense.",
 	},
+	ignorant: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (move.category !== 'Status' && !move.ignoreImmunity) {
+				move.ignoreImmunity = true;
+			}
+		},
+		name: "Ignorant",
+		shortDesc: "This Pokemon's attacking moves ignore type immunities.",
+	},
 };

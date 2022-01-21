@@ -343,7 +343,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	moltenslag: {
 		num: 1012,
-		basePower: 100,
+		basePower: 80,
 		accuracy: 90,
 		category: "Special",
 		name: "Molten Slag",

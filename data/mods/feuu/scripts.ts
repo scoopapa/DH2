@@ -132,6 +132,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Garchompite" && pokemon.baseSpecies.name === "Rhychomp") {
 			return "Rhychomp-Mega"; 
 		}
+		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Shellicham") {
+			return "Shellicham-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
@@ -287,6 +290,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
 						} else if (this.hasAbility('floatguise')) {
 							this.battle.add('-immune', this, '[from] ability: Float Guise');
+						} else if (this.hasAbility('aerialbreak')) {
+							this.battle.add('-immune', this, '[from] ability: Aerial Break');						
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -477,7 +482,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -852,7 +857,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
 				this.add('-immune', target);
 				hitResults[i] = false;
-			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes') || pokemon.hasAbility('lighthearted')) &&
+			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('creepy')) &&
 				targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
 				this.debug('natural prankster immunity');
 				if (!target.illusion) this.hint("Since gen 7, Dark is immune to Prankster moves.");

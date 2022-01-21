@@ -161,12 +161,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	drednaw: {
 		tier: "RDex OU",
 		doublesTier: "RDex DOU",
-	},
+	},*/
 	druddigon: {
 		tier: "RDex OU",
 		doublesTier: "RDex DOU",
 	},
-	diglett: {
+	/*diglett: {
 		tier: "RDex LC",
 		doublesTier: "RDex LC",
 	},
@@ -641,7 +641,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	applin: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	articuno: {
 		tier: "RDex OU",
@@ -653,7 +653,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	amaura: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	basculin: {
 		tier: "RDex OU",
@@ -669,7 +669,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	cubchoo: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	bisharp: {
 		tier: "RDex OU",
@@ -677,7 +677,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pawniard: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	calyrex: {
 		tier: "RDex OU",
@@ -693,7 +693,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	numel: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	celesteela: {
 		tier: "RDex OU",
@@ -705,7 +705,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	shellder: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	crawdaunt: {
 		tier: "RDex OU",
@@ -713,7 +713,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	corphish: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	cursola: {
 		tier: "RDex OU",
@@ -721,7 +721,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	corsolagalar: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	dedenne: {
 		tier: "RDex OU",
@@ -737,11 +737,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	eelektrik: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	tynamo: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	espeon: {
 		tier: "RDex OU",
@@ -749,7 +749,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	eevee: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	flapple: {
 		tier: "RDex OU",
@@ -765,11 +765,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	vibrava: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	trapinch: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	galvantula: {
 		tier: "RDex OU",
@@ -777,7 +777,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	joltik: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	girafarig: {
 		tier: "RDex OU",
@@ -793,11 +793,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	sliggoo: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	goomy: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	gourgeist: {
 		tier: "RDex OU",
@@ -817,19 +817,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pumpkaboo: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	pumpkaboosmall: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	pumpkaboosuper: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	pumpkaboolarge: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	grimmsnarl: {
 		tier: "RDex OU",
@@ -837,11 +837,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	morgrem: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	impidimp: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	guzzlord: {
 		tier: "RDex OU",
@@ -853,7 +853,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	helioptile: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	hitmonchan: {
 		tier: "RDex OU",
@@ -869,7 +869,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tyrogue: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	incineroar: {
 		tier: "RDex OU",
@@ -877,11 +877,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	torracat: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	litten: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	indeedee: {
 		tier: "RDex OU",
@@ -901,11 +901,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	kangaskhanmega: {
 		tier: "RDex Uber",
-		doublesTier: "RDex Uber",
+		doublesTier: "RDex DUber",
 	},
 	kartana: {
 		tier: "RDex Uber",
-		doublesTier: "RDex Uber",
+		doublesTier: "RDex DUber",
 	},
 	kommoo: {
 		tier: "RDex OU",
@@ -913,15 +913,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	jangmoo: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	hakamoo: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	kyurem: {
 		tier: "RDex Uber",
-		doublesTier: "RDex Uber",
+		doublesTier: "RDex DUber",
 	},
 	lanturn: {
 		tier: "RDex OU",
@@ -929,7 +929,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	chinchou: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	leafeon: {
 		tier: "RDex OU",
@@ -941,11 +941,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	swadloon: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	sewaddle: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	ludicolo: {
 		tier: "RDex OU",
@@ -953,11 +953,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	lombre: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	lotad: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	lunatone: {
 		tier: "RDex OU",
@@ -973,11 +973,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	machoke: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	machop: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	mandibuzz: {
 		tier: "RDex OU",
@@ -985,7 +985,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	vullaby: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	medicham: {
 		tier: "RDex OU",
@@ -993,11 +993,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	medichammega: {
 		tier: "RDex Uber",
-		doublesTier: "RDex Uber",
+		doublesTier: "RDex DUber",
 	},
 	meditite: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	nihilego: {
 		tier: "RDex OU",
@@ -1009,7 +1009,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	sandygast: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	pidgeotmega: {
 		tier: "RDex OU",
@@ -1021,11 +1021,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pidgeotto: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	pidgey: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	probopass: {
 		tier: "RDex OU",
@@ -1033,7 +1033,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	nosepass: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	pyroar: {
 		tier: "RDex OU",
@@ -1041,7 +1041,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	litleo: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	sawk: {
 		tier: "RDex OU",
@@ -1057,11 +1057,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	grovyle: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	treecko: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	scolipede: {
 		tier: "RDex OU",
@@ -1069,11 +1069,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	whirlipede: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	venipede: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	shiftry: {
 		tier: "RDex OU",
@@ -1081,11 +1081,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	nuzleaf: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	seedot: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	simisage: {
 		tier: "RDex OU",
@@ -1093,7 +1093,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pansage: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	slowbro: {
 		tier: "RDex OU",
@@ -1109,7 +1109,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	slowpoke: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	sylveon: {
 		tier: "RDex OU",
@@ -1125,11 +1125,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	quilava: {
 		tier: "RDex NFE",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex NFE",
 	},
 	cyndaquil: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	umbreon: {
 		tier: "RDex OU",
@@ -1141,7 +1141,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	teddiursa: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	vaporeon: {
 		tier: "RDex OU",
@@ -1153,7 +1153,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	barboach: {
 		tier: "RDex LC",
-		doublesTier: "RDex DOU",
+		doublesTier: "RDex LC",
 	},
 	wishiwashi: {
 		tier: "RDex OU",
@@ -1165,6 +1165,74 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	blitzle: {
 		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	dewpider: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	araquanid: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	arrokuda: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	barraskewda: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	rufflet: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	braviary: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	exeggcute: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	exeggutor: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	necrozma: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	solosis: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	duosion: {
+		tier: "RDex NFE",
+		doublesTier: "RDex NFE",
+	},
+	reuniclus: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	cranidos: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	rampardos: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	skarmory: {
+		tier: "RDex OU",
+		doublesTier: "RDex DOU",
+	},
+	koffing: {
+		tier: "RDex LC",
+		doublesTier: "RDex LC",
+	},
+	weezinggalar: {
+		tier: "RDex OU",
 		doublesTier: "RDex DOU",
 	},
 };
