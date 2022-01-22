@@ -204,7 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Pikachu", "Raichu", "Plusle", "Minun", "Emolga", "Morpeko", "Dedenne", "Togedemaru"],
 		num: 236,
 		gen: 2,
-		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are doubled.",
+		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are boosted 1.5x.",
 	},
 	soulblade: {
 		name: "Soul Blade",
