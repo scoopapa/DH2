@@ -352,18 +352,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	buzzoff: {
-		shortDesc: "This Pokemon switches out after using a Bug-type move.",
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Buzz Off');
-		},
-		onModifyMove(move) {
+	  shortDesc: "This Pokemon switches out after using a Bug-type move.",
+	  onModifyMove(move, pokemon) {
 			if (move.type === 'Bug') {
-			move.selfSwitch = true;
+			  this.add('-ability', pokemon, 'Buzz Off');
+			  move.selfSwitch = true;
 			}
-		},
-		name: "Buzz Off",
-		rating: 2.5,
-	},
+	  },
+	  name: "Buzz Off",
+	  rating: 2.5,
+    },
 	magmaarmor: {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
