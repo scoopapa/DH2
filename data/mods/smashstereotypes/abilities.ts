@@ -285,4 +285,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Ignorant",
 		shortDesc: "This Pokemon's attacking moves ignore type immunities.",
 	},
+	executioner: {
+		desc: "When this Pokémon's target has 1/2 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using an attack.",
+		shortDesc: "This Pokémon's attacking stat is 1.5x when its target has 1/2 or less HP.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (defender.hp <= defender.maxhp / 2) {
+				this.debug('Executioner boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (defender.hp <= defender.maxhp / 2) {
+				this.debug('Executioner boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Executioner",
+		rating: 4,
+		num: -13,
+	},
+	toxicboost: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Toxic Boost",
+		shortDesc: "If Pokemon is poisoned, physical attacks have 1.3x power. Immunity to Poison status.",
+		rating: 2.5,
+		num: 137,
+	},
 };
