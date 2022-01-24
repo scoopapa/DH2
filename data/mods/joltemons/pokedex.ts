@@ -66,7 +66,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	jellicent: {
 		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Sticky Hold", H: "Merciless"},
+		abilities: {0: "Hydration", 1: "Sticky Hold", H: "Merciless"},
 	},
 	cryogonal: {
 		inherit: true,
@@ -191,7 +191,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mantine: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Sticky Hold"},
+		abilities: {0: "Swift Swim", 1: "Hydration", H: "Sticky Hold"},
 	},
 	melmetal: {
 		inherit: true,
@@ -687,7 +687,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	parasect: {
 		inherit: true,
-		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Buzz Off"},
+		abilities: {0: "Effect Spore", 1: "Hydration", H: "Buzz Off"},
 	},
 	spinarak: {
 		inherit: true,
@@ -703,7 +703,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	vespiquen: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Buzz Off", H: "Unnerve"},
+		abilities: {0: "Parental Bond", 1: "Buzz Off", H: "Honey Gather"},
 	},
 	sewaddle: {
 		inherit: true,
@@ -715,7 +715,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	leavanny: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Leaf Guard", H: "Buzz Off"},
+		abilities: {0: "Parental Bond", 1: "Leaf Guard", H: "Buzz Off"},
 	},
 	joltik: {
 		inherit: true,
@@ -935,5 +935,73 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Ground"],
 		abilities: {0: "Adaptability"},
+	},
+	heracross: {
+		inherit: true,
+		abilities: {0: "Honey Gather", 1: "Guts", H: "Moxie"},
+	},
+	beautifly: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Honey Gather", H: "Rivalry"},
+	},
+	dustox: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Honey Gather", H: "Compound Eyes"},
+	},
+	cherubi: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", H: "Honey Gather"},
+	},
+	snorlax: {
+		inherit: true,
+		abilities: {0: "Honey Gather", 1: "Thick Fat", H: "Gluttony"},
+	},
+	ursaring: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Quick Feet", H: "Honey Gather"},
+	},
+	surskit: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Honey Gather", H: "Rain Dish"},
+	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Honey Gather", H: "Unnerve"},
+	},
+	burmy: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Honey Gather", H: "Overcoat"},
+	},
+	wormadam: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	wormadamsandy: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	wormadamtrash: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	mothim: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Honey Gather", H: "Tinted Lens"},
+	},
+	armaldo: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Hydration", H: "Swift Swim"},
+	},
+	armaldo: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Hydration", H: "Swift Swim"},
+	},
+	politoed: {
+		inherit: true,
+		abilities: {0: "Hydration", 1: "Damp", H: "Drizzle"},
+	},
+	kangaskhan: {
+		inherit: true,
+		abilities: {0: "Early Bird", 1: "Scrappy", H: "Parental Bond"},
 	},
 };
