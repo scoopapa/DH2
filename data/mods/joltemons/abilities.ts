@@ -516,6 +516,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Hydration');
+				this.add('-message', `Hydration activated!`);
 				pokemon.cureStatus();
 			}
 		},
