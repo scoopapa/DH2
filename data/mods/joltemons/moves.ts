@@ -707,7 +707,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	bonemerang: {
 		num: 155,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
     shortDesc: "First hit has +1 priority, second hit has -1 priority.",
