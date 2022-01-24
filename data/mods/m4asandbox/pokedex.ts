@@ -116,7 +116,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Growlithe",
 		forme: "Hisui",
 		copyData: "Growlithe",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Fire", "Rock"],
 		heightm: 0.8,
 		weightkg: 22.7,
@@ -132,7 +131,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Arcanine",
 		forme: "Hisui",
 		copyData: "Arcanine",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Fire", "Rock"],
 		heightm: 2.0,
 		weightkg: 168,
@@ -150,7 +148,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Voltorb",
 		forme: "Hisui",
 		copyData: "Voltorb",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Electric", "Grass"],
 		heightm: 0.5,
 		weightkg: 13,
@@ -166,7 +163,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Electrode",
 		forme: "Hisui",
 		copyData: "Electrode",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Electric", "Grass"],
 		heightm: 1.2,
 		weightkg: 71,
@@ -191,8 +187,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Typhlosion",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 73, atk: 84, def: 78, spa: 119, spd: 85, spe: 95},
-		copyMoves: "Quilava",
-		movepoolAdditions: ["infernalparade"], // fill in later
 		heightm: 1.6,
 		weightkg: 69.8,
 		prevo: "Quilava",
@@ -208,7 +202,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Qwilfish",
 		forme: "Hisui",
 		copyData: "Qwilfish",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Dark", "Poison"],
 		heightm: 0.5,
 		weightkg: 3.9,
@@ -218,7 +211,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 904,
 		name: "Overqwil",
 		copyData: "Qwilfish",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Dark", "Poison"],
 		baseStats: {hp: 85, atk: 115, def: 95, spa: 65, spd: 65, spe: 85},
 		heightm: 2.5,
@@ -238,7 +230,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Sneasel",
 		forme: "Hisui",
 		copyData: "Sneasel",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Dark", "Poison"],
 		abilities: {0: "Inner Focus", 1: "Keen Eye", H: "Poison Touch"},
 		heightm: 0.9,
@@ -248,7 +239,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	sneasler: {
 		name: "Sneasler",
 		copyData: "Sneasel",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Poison", "Fighting"],
 		abilities: {0: "Pressure", H: "Poison Touch"},
 		baseStats: {hp: 80, atk: 130, def: 60, spa: 40, spd: 80, spe: 120},
@@ -318,8 +308,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Samurott",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 90, atk: 108, def: 80, spa: 100, spd: 65, spe: 85},
-		copyMoves: "Dewott",
-		movepoolAdditions: ["ceaselessedge"], // fill in later
 		heightm: 1.5,
 		weightkg: 58.2,
 		prevo: "Dewott",
@@ -342,8 +330,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fighting"],
 		abilities: {0: "Chlorophyll", 1: "Hustle", H: "Leaf Guard"},
 		baseStats: {hp: 70, atk: 105, def: 75, spa: 50, spd: 75, spe: 105},
-		copyMoves: "Petilil",
-		movepoolAdditions: ["victorydance"], // fill in later
 		heightm: 1.2,
 		weightkg: 19.2,
 		prevo: "Petilil",
@@ -361,7 +347,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "White-Striped",
 		copyData: "Basculin",
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Mold Breaker"},
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		heightm: 1.0,
 		weightkg: 18,
 		evos: ["Basculegion", "Basculegion-F"],
@@ -370,7 +355,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 902,
 		name: "Basculegion",
 		copyData: "Basculin",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		baseForme: "M",
 		gender: "M",
 		types: ["Water", "Ghost"],
@@ -390,7 +374,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Basculegion",
 		forme: "F",
 		copyData: "Basculin",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		gender: "F",
 		types: ["Water", "Ghost"],
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Mold Breaker"},
@@ -411,7 +394,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Zorua",
 		forme: "Hisui",
 		copyData: "Zorua",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 35, atk: 60, def: 40, spa: 85, spd: 40, spe: 70},
 		heightm: 0.7,
@@ -428,7 +410,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Zoroark",
 		forme: "Hisui",
 		copyData: "Zoroark",
-		// does not have copyMoves because the entire line is new (needs a learnsets.ts entry)
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 55, atk: 100, def: 60, spa: 125, spd: 60, spe: 110},
 		heightm: 1.6,
@@ -452,8 +433,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Braviary",
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 110, atk: 83, def: 70, spa: 112, spd: 70, spe: 65},
-		copyMoves: "Rufflet",
-		movepoolAdditions: ["esperwing"], // fill in later
 		heightm: 1.7,
 		weightkg: 43.4,
 		prevo: "Rufflet",
@@ -476,8 +455,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Steel"],
 		abilities: {0: "Sap Sipper", 1: "Overcoat", H: "Gooey"},
 		baseStats: {hp: 58, atk: 75, def: 83, spa: 83, spd: 113, spe: 40},
-		copyMoves: "Goomy",
-		movepoolAdditions: ["steelbeam"], // fill in later
 		heightm: 0.7,
 		weightkg: 68.5,
 		prevo: "Goomy",
@@ -497,8 +474,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Steel"],
 		abilities: {0: "Sap Sipper", 1: "Overcoat", H: "Gooey"},
 		baseStats: {hp: 80, atk: 100, def: 100, spa: 110, spd: 150, spe: 60},
-		copyMoves: "Goomy",
-		movepoolAdditions: ["steelbeam"], // fill in later
 		heightm: 1.7,
 		weightkg: 334.1,
 		prevo: "Sliggoo-Hisui",
@@ -521,8 +496,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Rock"],
 		abilities: {0: "Strong Jaw", 1: "Ice Body", H: "Sturdy"},
 		baseStats: {hp: 95, atk: 127, def: 184, spa: 34, spd: 36, spe: 38},
-		copyMoves: "Bergmite",
-		movepoolAdditions: ["mountaingale"], // fill in later
 		heightm: 1.4,
 		weightkg: 262,
 		prevo: "Bergmite",
@@ -544,8 +517,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Decidueye",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 88, atk: 112, def: 80, spa: 95, spd: 95, spe: 60},
-		copyMoves: "Dartrix",
-		movepoolAdditions: ["triplearrows"], // fill in later
 		heightm: 1.6,
 		weightkg: 37,
 		prevo: "Dartrix",
@@ -561,8 +532,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Stantler",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 103, atk: 105, def: 72, spa: 105, spd: 75, spe: 65},
-		copyMoves: "Stantler",
-		movepoolAdditions: ["psyshieldbash"], // fill in later
 		heightm: 1.8,
 		weightkg: 95.1,
 		prevo: "Stantler",
@@ -580,8 +549,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Rock"],
 		abilities: {0: "Swarm", 1: "Sheer Force", H: "Steadfast"},
 		baseStats: {hp: 70, atk: 135, def: 95, spa: 45, spd: 70, spe: 85},
-		copyMoves: "Scyther",
-		movepoolAdditions: ["stoneaxe"], // fill in later
 		heightm: 1.8,
 		weightkg: 89,
 		prevo: "Scyther",
@@ -599,8 +566,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Normal"],
 		abilities: {0: "Guts", 1: "Bulletproof", H: "Unnerve"},
 		baseStats: {hp: 130, atk: 140, def: 105, spa: 45, spd: 80, spe: 50},
-		copyMoves: "Ursaring",
-		movepoolAdditions: ["headlongrush"], // fill in later
 		heightm: 2.4,
 		weightkg: 290,
 		prevo: "Ursaring",
