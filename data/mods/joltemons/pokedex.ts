@@ -13,6 +13,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	magmortar: {
 		inherit: true,
+		types: ["Fire", "Fighting"],
 		abilities: {0: "Flame Body", 1: "Magma Armor", H: "Neutralizing Gas"},
 	},
 	magmar: {
@@ -256,7 +257,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	electivire: {
 		inherit: true,
-		abilities: {0: "Motor Drive", H: "Libero"},
+		types: ["Electric", "Dark"],
+		abilities: {0: "Motor Drive", 1: "Libero", H: "Iron Fist"},
 	},
 	eevee: {
 		inherit: true,
@@ -757,7 +759,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cresselia: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Gravitas"},
+		types: ["Fairy"],
+		abilities: {0: "Levitate", 1: "Cloud Nine", H: "Gravitas"},
 	},
 	giratina: {
 		inherit: true,
@@ -887,8 +890,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "No Guard", H: "Soul Link"},
 	},
+	dusclops: {
+		inherit: true,
+		types: ["Ghost", "Fighting"],
+		abilities: {0: "Pressure", 1: "Soul Link", H: "Frisk"},
+	},
 	dusknoir: {
 		inherit: true,
+		types: ["Ghost", "Fighting"],
 		abilities: {0: "Pressure", 1: "Soul Link", H: "Frisk"},
 	},
 	gardevoir: {
@@ -906,5 +915,25 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	cofagrigus: {
 		inherit: true,
 		abilities: {0: "Mummy", H: "Wandering Spirit"},
+	},
+	goodra: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		abilities: {0: "Sticky Hold", 1: "Hydration", H: "Gooey"},
+	},
+	sliggoo: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		abilities: {0: "Sticky Hold", 1: "Hydration", H: "Gooey"},
+	},
+	dodrio: {
+		inherit: true,
+		types: ["Ground", "Flying"],
+		abilities: {0: "Analytic", 1: "Early Bird", H: "Moody"},
+	},
+	beedrillmega: {
+		inherit: true,
+		types: ["Bug", "Ground"],
+		abilities: {0: "Adaptability"},
 	},
 };
