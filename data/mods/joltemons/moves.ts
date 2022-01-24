@@ -721,7 +721,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 1,
 				move: 'bonemerang',
-				source: source,
+				source: target,
 				moveData: {
 					id: 'bonemerang',
 					name: "Bonemerang",
