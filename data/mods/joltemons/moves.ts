@@ -25,7 +25,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-    shortDesc: "Replaces the user's Ice-type with Water. 1.5x power when used by Ice-types.",
+    shortDesc: "Replaces the user's Ice-type with Water. 1.5x power when used by Ice-types. Soaks foe.",
 		name: "Meltdown",
 		pp: 10,
 		priority: 0,
@@ -39,6 +39,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.hasType('Ice') && !pokemon.hasType('Water')) {
 				return this.chainModify(1.5);
 			}
+		},
+		onHit(target) {
+			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Water');
 		},
 		self: {
 			onHit(pokemon) {
@@ -616,7 +625,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     shortDesc: "Usually goes first. 10% chance to poison foe.",
 		isViable: true,
 		name: "Poison Dart",
-		pp: 10,
+		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
  		onPrepareHit: function(target, source, move) {
@@ -662,7 +671,152 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Cool",
 	},
-
+	mudspike: {
+		num: 398,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "10% poison chance, 30% if the user is a Poison-type",
+		isViable: true,
+		name: "Mud Spike",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Muddy Water", target);
+		  this.add('-anim', source, "Corrosive Gas", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (!pokemon.hasType('Poison')) return;
+			move.secondaries = [];
+			if (pokemon.hasType('Poison')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'psn',
+				});
+			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	bonemerang: {
+		num: 155,
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+    shortDesc: "First hit has +1 priority, second hit has -1 priority.",
+		isViable: true,
+		name: "Bonemerang",
+		pp: 10,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		onHit(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove') && source.hp) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 1,
+				move: 'bonemerang',
+				source: source,
+				moveData: {
+					id: 'bonemerang',
+					name: "Bonemerang",
+					accuracy: true,
+					basePower: 50,
+					category: "Physical",
+					priority: -1,
+					flags: {protect: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Ground',
+				},
+			});
+			this.add('-start', source, 'move: Bonemerang');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+	},
+	explosion: {
+		num: 153,
+		accuracy: 100,
+		basePower: 500,
+		category: "Physical",
+		isViable: true,
+		name: "Explosion",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	selfdestruct: {
+		num: 120,
+		accuracy: 100,
+		basePower: 340,
+		category: "Physical",
+		name: "Self-Destruct",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	mistyexplosion: {
+		num: 802,
+		accuracy: 100,
+		basePower: 260,
+		category: "Special",
+		name: "Misty Explosion",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
+				this.debug('misty terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Fairy",
+	},
+	rashpowder: {
+		accuracy: 75,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Burns the target.",
+		isViable: true,
+		name: "Rash Powder",
+		pp: 30,
+		priority: 0,
+		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Spore", target);
+		},
+		status: 'brn',
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
