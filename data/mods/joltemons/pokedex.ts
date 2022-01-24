@@ -893,12 +893,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	dusclops: {
 		inherit: true,
 		types: ["Ghost", "Fighting"],
-		abilities: {0: "Pressure", 1: "Soul Link", H: "Frisk"},
+		abilities: {0: "Pressure", 1: "Soul Link", H: "Iron Fist"},
 	},
 	dusknoir: {
 		inherit: true,
 		types: ["Ghost", "Fighting"],
-		abilities: {0: "Pressure", 1: "Soul Link", H: "Frisk"},
+		abilities: {0: "Pressure", 1: "Soul Link", H: "Iron Fist"},
 	},
 	gardevoir: {
 		inherit: true,
