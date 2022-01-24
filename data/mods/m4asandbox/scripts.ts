@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'm4auu', // actually better for the teambuilder
+	inherit: 'm4av6',
 	init() {
 		// some slight changes around here to account for Legends: Arceus, which I am meant to be adding to the sandbox as convenient presets of sorts (:
 		// first adding new moves to old Pokémon
