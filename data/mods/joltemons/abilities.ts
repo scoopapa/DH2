@@ -504,6 +504,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
+			if (pokemon.hasItem('honey')) {
+					this.heal(pokemon.baseMaxhp / 8);
+			}
 			if (pokemon.hp && !pokemon.item) {
 				pokemon.setItem(pokemon.lastItem);
 				pokemon.lastItem = 'honey';
