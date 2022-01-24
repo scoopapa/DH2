@@ -513,7 +513,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					bestStat = pokemon.storedStats[s];
 				}
 			}
-			move.self = {boosts: {bestStat: 1}};
+			if (bestStat === 'spe') move.self = {boosts: {spe: 1}};
+			else if (bestStat === 'spd') move.self = {boosts: {spd: 1}};
+			else if (bestStat === 'spa') move.self = {boosts: {spa: 1}};
+			else if (bestStat === 'def') move.self = {boosts: {def: 1}};
+			else move.self = {boosts: {atk: 1}};
 		},
 		target: "normal",
 		type: "Psychic",
