@@ -498,6 +498,73 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 254,
 	},
+	honeygather: {
+		name: "Honey Gather",
+		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey. Knock Off doesn't get boosted against Pokemon with this ability.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(pokemon.lastItem);
+				pokemon.lastItem = 'honey';
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.name === 'Knock Off') {
+				this.debug('Honey Gather weaken');
+				return this.chainModify(0.67);
+			}
+		},
+		rating: 0,
+		num: 118,
+	},
+	hydration: {
+		shortDesc: "This Pokemon has its status cured at the end of each turn if Rain Dance is active or it gets hit by a Water move; Water immunity.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				pokemon.cureStatus();
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!target.cureStatus()) {
+					this.add('-immune', target, '[from] ability: Hydration');
+				}
+				return null;
+			}
+		},
+		name: "Hydration",
+		rating: 1.5,
+		num: 93,
+	},
+	parentalbond: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage', 'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst'].includes(move.id)) return;
+			if (!move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
+		},
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Parental Bond",
+		rating: 4.5,
+		num: 184,
+	},
 	
 // Edited by proxy
 	oblivious: {
