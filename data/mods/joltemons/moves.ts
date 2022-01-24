@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Acid Armor", target);
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (pokemon.hasType('Ice') && !pokemon.hasType('Water')) {
+			if (pokemon.hasType('Ice')) {
 				return this.chainModify(1.5);
 			}
 		},
