@@ -522,7 +522,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 */
 		fling: {
 			basePower: 10,
-			status: 'slp',
 		},
 		gen: 8,
 		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
@@ -557,6 +556,28 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 325,
 		gen: 4,
 		desc: "Each turn, if holder is a Ghost type, restores 1/16 max HP; is Tormented if not.",
+	},
+	chilipepper: {
+		name: "Chili Pepper",
+		spritenum: 13,
+		fling: {
+			basePower: 10,
+			status: 'brn',
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Chili Pepper');
+			}
+			return false;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.cureStatus();
+				pokemon.useItem();
+			}
+		},
+		desc: "The holder is immune to burns. Thaws the user and is consumed if the holder is frozen",
 	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
@@ -884,4 +905,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 160,
 		gen: 3,
 	},
+
 };
