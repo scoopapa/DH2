@@ -573,11 +573,61 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'item: Chili Pepper');
 				pokemon.cureStatus();
 				pokemon.useItem();
 			}
 		},
-		desc: "The holder is immune to burns. Thaws the user and is consumed if the holder is frozen",
+		desc: "The holder is immune to burns. Thaws the user and is consumed if the holder is frozen.",
+	},
+	widelens: {
+		name: "Wide Lens",
+		spritenum: 537,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy === 'number') {
+				return accuracy * 1.2;
+			}
+		},
+		num: 265,
+		gen: 4,
+		desc: "The accuracy of attacks by the holder is 1.2x.",
+	},
+	zoomlens: {
+		name: "Zoom Lens",
+		spritenum: 574,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && (!this.queue.willMove(target) || target.newlySwitched)) {
+				this.debug('Zoom Lens boosting accuracy');
+				return accuracy * 1.5;
+			}
+		},
+		num: 276,
+		gen: 4,
+		desc: "The accuracy of attacks by the holder is 1.5x if it moves lasts or the foe switches.",
+	},
+	whippeddream: {
+		name: "Whipped Dream",
+		spritenum: 692,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		num: 646,
+		gen: 6,
+		desc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
