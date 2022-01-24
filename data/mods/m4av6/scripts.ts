@@ -61,7 +61,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (notier.includes(id)) this.modData('FormatsData', id).tier = ""; // special exception for Wishiwashi, Falinks, et cetera
 				else if (heat.includes(id) || canonmega.includes(id)) this.modData('FormatsData', id).tier = "Underrated"; // special exception for Yanmega
 				else if (id.endsWith('mega')) this.modData('FormatsData', id).tier = "Undecided"; // guaranteeing M4A Megas that haven't been tiered appear in their own place
-				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "Rarely Seen"; // default (untiered)
+				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "Underrated"; // default (untiered)
 				if (id === 'crucibellemega') this.modData('FormatsData', id).tier = "CAP"; // hard-coding for things that don't exist
 				// truetier (this is for UU purposes but doesn't currently function)
 				if (ag.includes(id)) this.modData('FormatsData', id).truetier = "AG";
