@@ -503,13 +503,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Shattered Psyche", target);
 		},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					atk: 1,
-				},
-			},
+		onModifyMove(move, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let s: StatNameExceptHP;
+			for (s in pokemon.storedStats) {
+				if (pokemon.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = pokemon.storedStats[s];
+				}
+			}
+			move.self = {boosts: {bestStat: 1}};
 		},
 		target: "normal",
 		type: "Psychic",
