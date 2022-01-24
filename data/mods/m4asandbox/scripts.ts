@@ -107,20 +107,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
 			if (!newMon.color && copyData.color) newMon.color = copyData.color;
 			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
-
-			if (newMon.copyMoves) let copyMoves = newMon.copyMoves;
-			if (copyMoves) {
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
-				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
-				for (const moveid in learnset) {
-					this.modData('Learnsets', id).learnset[moveid] = ['8M'];
-				}
-				if (newMon.movepoolAdditions) {
-					for (const move of newMon.movepoolAdditions) {
-						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
-					}
-				}
-			}
 		}
 	},
 };
