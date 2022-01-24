@@ -40,19 +40,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
 	},
-	honeygather: {
-      shortDesc: "This Pokemon heals 1/8 of its max HP if it's holding Honey.",
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (pokemon.hasItem('honey')) {
-					this.heal(pokemon.baseMaxhp / 8);
-			}
-		},
-		name: "Honey Gather",
-		rating: 2,
-		num: 118,
-	},
 	sweetveil: {
 		name: "Sweet Veil",
       shortDesc: "This Pokemon and its allies can't fall asleep. This Pokemon heals 1/8 of its max HP if it's holding Honey.",
@@ -504,13 +491,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem('honey');
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
+			}
 			if (pokemon.hasItem('honey')) {
 					this.heal(pokemon.baseMaxhp / 8);
-			}
-			if (pokemon.hp && !pokemon.item) {
-				pokemon.setItem(pokemon.lastItem);
-				pokemon.lastItem = 'honey';
-				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
