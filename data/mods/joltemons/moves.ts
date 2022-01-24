@@ -717,8 +717,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		onHit(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove') && source.hp) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+			if (!source.side.addSlotCondition(target, 'futuremove') && source.hp) return false;
+			Object.assign(source.side.slotConditions[target.position]['futuremove'], {
 				duration: 1,
 				move: 'bonemerang',
 				source: target,
