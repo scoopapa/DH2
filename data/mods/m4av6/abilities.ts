@@ -2833,7 +2833,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const dazzlingHolder = this.effectData.target;
 			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, "ability: Queen's Gambit", move, '[of] ' + target);
+				this.add('cant', target, "ability: Queen's Gambit", move, '[of] ' + dazzlingHolder);
 				this.effectData.target.addVolatile('queensgambit');
 				return false;
 			}
