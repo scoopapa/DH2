@@ -817,6 +817,78 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
+	payback: {
+		num: 371,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			if (this.queue.willMove(target)) {
+				this.debug('Payback NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Payback damage boost');
+			return move.basePower * 2;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the user moves last or the foe switches.",
+		isViable: true,
+		name: "Payback",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	revenge: {
+		num: 279,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			if (this.queue.willMove(target)) {
+				this.debug('Revenge NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Revenge damage boost');
+			return move.basePower * 2;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the user moves last or the foe switches.",
+		isViable: true,
+		name: "Revenge",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	avalanche: {
+		num: 419,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			if (this.queue.willMove(target)) {
+				this.debug('Avalanche NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Avalanche damage boost');
+			return move.basePower * 2;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the user moves last or the foe switches.",
+		isViable: true,
+		name: "Avalanche",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
