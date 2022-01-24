@@ -674,7 +674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mudspike: {
 		num: 398,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Physical",
     shortDesc: "10% poison chance, 30% if the user is a Poison-type",
 		isViable: true,
