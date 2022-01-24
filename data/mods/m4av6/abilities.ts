@@ -2820,4 +2820,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -77,
 	},
+	queensgambit: {
+		desc: "If this Pokémon switched in on the same turn, priority moves from opposing Pokémon targeted at itself or at allies are prevented from having an effect. If this Ability is activated, its own first move then has increased priority.",
+		shortDesc: "Only while switching in, protects the team from priority; gains +1 priority on its next move if it does.",
+		onFoeTryMove(target, source, move) {
+			if (this.effectData.target.activeTurns) return;
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectData.target;
+			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, "ability: Queen's Gambit", move, '[of] ' + target);
+				this.effectData.target.addVolatile('queensgambit');
+				return false;
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} is ready to strike back!`);
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				return priority + 1;
+			},
+		},
+		name: "Queen's Gambit",
+		rating: 2,
+		num: -78,
+	},
 };
