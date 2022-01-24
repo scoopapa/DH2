@@ -42,7 +42,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lilliganthisui: { tier: "Special" },
 	basculinwhitestriped: { tier: "Underrated" },
 	basculegion: { tier: "Special" },
-	basculegionfemale: { tier: "Special" },
+	basculegionf: { tier: "Special" },
 	zoruahisui: { tier: "Underrated" },
 	zoroarkhisui: { tier: "Special" },
 	braviaryhisui: { tier: "Special" },
