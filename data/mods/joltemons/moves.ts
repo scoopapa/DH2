@@ -710,7 +710,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-    shortDesc: "First hit has +1 priority, second hit has -1 priority.",
+    shortDesc: "(Bugged) First hit has +1 priority, second hit has -1 priority.",
 		isViable: true,
 		name: "Bonemerang",
 		pp: 10,
