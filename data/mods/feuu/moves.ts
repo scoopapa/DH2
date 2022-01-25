@@ -90,6 +90,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (target.hasType('Flying')) return 0;
 			}
 		},
+		onModifyMove(move, source, target) {
+			if (target.hasAbility('magneticwaves') || target.hasAbility('leviflame') 
+					|| target.hasAbility('levitability') || target.hasAbility('stickyfloat') 
+					|| target.hasAbility('etativel') || target.hasAbility('lighthearted') 
+					|| target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') 
+					|| target.hasAbility('aerialbreak')) {
+				move.ignoreAbility = true;
+			}
+		},
 		volatileStatus: 'smackdown',
 		ignoreImmunity: {'Ground': true},
 		secondary: null,
