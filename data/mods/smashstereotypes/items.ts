@@ -215,4 +215,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		shortDesc: "If held by a Gallade-Kalos, this item allows it to Mega Evolve in battle.",
 	},
+	bisharpite: {
+		name: "Bisharpite",
+		spritenum: 578,
+		megaStone: "Bisharp-Mega",
+		megaEvolves: "Bisharp",
+		itemUser: ["Bisharp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1030,
+		gen: 8,
+		desc: "If held by a Bisharp, this item allows it to Mega Evolve in battle.",
+	},
 };

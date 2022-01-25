@@ -175,4 +175,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crazefly: {
 		tier: "SSS",
 	},
+	bisharp: {
+		tier: "SSS",
+	},
+	bisharpmega: {
+		tier: "SSS",
+	},
+	undangoose: {
+		tier: "SSS",
+	},
+	boreastra: {
+		tier: "SSS",
+	},
 };

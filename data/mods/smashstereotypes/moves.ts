@@ -1454,4 +1454,68 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Cool",
 	},
+	clobbertackle: {
+		num: -1,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Clobber Tackle NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Clobber Tackle damage boost');
+			return move.basePower * 1.5;
+		},
+		category: "Physical",
+		shortDesc: "1.5x power if user moves after the target.",
+		name: "Clobber Tackle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		target: "normal",
+		type: "Rock",
+	},
+	flicker: {
+		num: -1007,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Flicker",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfSwitch: true,
+		onPrepareHit: function(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Moonblast", target);
+        },
+		secondary: null,
+		shortDesc: "The user switches out after using the move.",
+		target: "normal",
+		type: "Fairy",
+	},
+	borealshine: {
+		num: -1002,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Boreal Shine",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Aurora Veil", target);
+        },
+		target: "self",
+		shortDesc: "Raises the user's Atk, Def and Spe.",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 };
