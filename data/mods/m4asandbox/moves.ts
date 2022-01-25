@@ -426,13 +426,29 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.species.name === 'Enamorus-Therian') {
 				move.secondary.chance = 30;
-				move.secondary = {boosts: {atk: -1, def: -1, spa: -1, spd: -1, spe: -1}};
+				delete move.secondary.self;
 			} else {
-				move.secondary.chance = 10;
-				move.secondary.self = {boosts: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}};
+				delete move.secondary.boosts;
 			}
 		},
 		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
+			self: {
+				boosts: {
+					atk: 1,
+					def: 1,
+					spa: 1,
+					spd: 1,
+					spe: 1,
+				},
+			},
 		},
 		target: "normal",
 		type: "Fairy",
