@@ -1807,4 +1807,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Guzzlord, this item allows it to Mega Evolve in battle.",
 	},
+	lickilickite: {
+		name: "Lickilickite",
+		spritenum: 578,
+		megaStone: "Lickilicky-Mega",
+		megaEvolves: "Lickilicky",
+		itemUser: ["Lickilicky"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1118,
+		gen: 8,
+		desc: "If held by a Lickilicky, this item allows it to Mega Evolve in battle.",
+	},
+	tsareenite: {
+		name: "Tsareenite",
+		spritenum: 578,
+		megaStone: "Tsareena-Mega",
+		megaEvolves: "Tsareena",
+		itemUser: ["Tsareena"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1119,
+		gen: 8,
+		desc: "If held by a Tsareena, this item allows it to Mega Evolve in battle.",
+	},
+	grapplite: {
+		name: "Grapplite",
+		spritenum: 578,
+		megaStone: "Grapploct-Mega",
+		megaEvolves: "Grapploct",
+		itemUser: ["Grapploct"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1120,
+		gen: 8,
+		desc: "If held by a Grapploct, this item allows it to Mega Evolve in battle.",
+	},
 };
