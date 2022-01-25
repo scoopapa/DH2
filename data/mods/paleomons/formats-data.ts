@@ -7,13 +7,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	*/
 
+	kabutoancient: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	kabutopsancient: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
 	lileepancient: {
 		tier: "Paleomons LC",
 		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 
-	cradily: {
+	cradilyancient: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
