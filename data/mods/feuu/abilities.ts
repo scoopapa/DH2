@@ -3610,7 +3610,7 @@ lifedrain: {
 	},
 	clearlyfloating: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak')) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
 				this.add('-immune', target, '[from] ability: Clearly Floating');
 				return null;
 			}
