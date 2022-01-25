@@ -1398,6 +1398,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	necrozma: {
 		tier: "MT OU",
 	},
+	zeraora: {
+		tier: "MT OU",
+	},
 	meltan: {
 		tier: "MT OU",
 	},
