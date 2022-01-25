@@ -810,6 +810,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Magma Armor",  H: "Inner Focus"},
 	},
+	suicune: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Hydration",  H: "Inner Focus"},
+	},
 	torkoal: {
 		inherit: true,
 		abilities: {0: "White Smoke", 1: "Drought", H: "Magma Armor"},
