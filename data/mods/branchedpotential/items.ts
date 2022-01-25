@@ -380,4 +380,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 913,
 		gen: 7,
 	},
+	primorhythiumz: {
+		name: "Primorhythium Z",
+		spritenum: 655,
+		onTakeItem: false,
+		zMove: "Freestyle Tsunami",
+		zMoveFrom: "Scald",
+		itemUser: ["Primorhythm"],
+		num: 803,
+		gen: 7,
+		isNonstandard: "Past",
+	},
 };
