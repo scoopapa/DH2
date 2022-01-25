@@ -143,7 +143,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
-		name: "Stone Axe",
+		name: "Ceaseless Edge",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -424,32 +424,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return null;
 		},
 		onModifyMove(move, pokemon) {
+			move.secondaries = [];
 			if (pokemon.species.name === 'Enamorus-Therian') {
-				move.secondary.chance = 30;
-				delete move.secondary.self;
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						atk: -1,
+						def: -1,
+						spa: -1,
+						spd: -1,
+						spe: -1,
+					},
+				});
 			} else {
-				delete move.secondary.boosts;
+				move.secondaries.push({
+					chance: 10,
+					self: {
+						boosts: {
+							atk: 1,
+							def: 1,
+							spa: 1,
+							spd: 1,
+							spe: 1,
+						},
+					},
+				});
 			}
 		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
-				spd: -1,
-				spe: -1,
-			},
-			self: {
-				boosts: {
-					atk: 1,
-					def: 1,
-					spa: 1,
-					spd: 1,
-					spe: 1,
-				},
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
