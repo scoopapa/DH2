@@ -38,6 +38,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					pokemon.hasType('Flying') || pokemon.hasAbility('levitate') 
 					|| pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('leviflame') 
 					|| pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') 
+					|| pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') 
+					|| pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') 
+					|| pokemon.hasAbility('aerialbreak')
 				) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
 					this.field.getPseudoWeather('gravity')) applies = false;
@@ -69,6 +72,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+	},
+	thousandarrows: {
+		num: 614,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		volatileStatus: 'smackdown',
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
 	},
 	mistyterrain: {
 		num: 581,
