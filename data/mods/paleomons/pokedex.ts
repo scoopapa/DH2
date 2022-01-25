@@ -25,7 +25,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Kabuto",
 		forme: "Ancient",
 		types: ["Water", "Fairy"],
-		baseStats: {hp: 55, atk: 70, def: 110, spa:8 0, spd: 85, spe: 20},
+		baseStats: {hp: 55, atk: 70, def: 110, spa: 80, spd: 85, spe: 20},
 		abilities: {0: "Swift Swim", 1:"Battle Armor", H: "Marvel Scale"},
 		weightkg: 100,
 	},
