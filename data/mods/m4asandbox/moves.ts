@@ -423,32 +423,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-fail', pokemon, 'move: Springtide Storm');
 			return null;
 		},
-		onModifyType(move, pokemon) {
+		onModifyMove(move, pokemon) {
 			if (pokemon.species.name === 'Enamorus-Therian') {
 				move.secondary.chance = 30;
-				delete move.secondary.self;
+				move.secondary = {boosts: {atk: -1, def: -1, spa: -1, spd: -1, spe: -1}};
 			} else {
-				delete move.secondary.boosts;
+				move.secondary.chance = 10;
+				move.secondary.self = {boosts: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}};
 			}
 		},
 		secondary: {
-			chance: 10,
-			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
-				spd: -1,
-				spe: -1,
-			},
-			self: {
-				boosts: {
-					atk: 1,
-					def: 1,
-					spa: 1,
-					spd: 1,
-					spe: 1,
-				},
-			},
 		},
 		target: "normal",
 		type: "Fairy",
