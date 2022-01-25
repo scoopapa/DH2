@@ -839,4 +839,8 @@ zarudedada: {
 		tier: "RU",
 	   doublesTier: "DOU",
 },
+kangaskhanmega: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };
