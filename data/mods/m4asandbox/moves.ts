@@ -415,8 +415,31 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fairy Wind", target);
 		},
+		onTry(pokemon) {
+			if (pokemon.species.baseSpecies === 'Enamorus') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Enamorus or Enamorus-Therian can use this move.");
+			this.add('-fail', pokemon, 'move: Springtide Storm');
+			return null;
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Enamorus-Therian') {
+				move.secondary.chance = 30;
+				delete move.secondary.self;
+			} else {
+				delete move.secondary.boosts;
+			}
+		},
 		secondary: {
 			chance: 10,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
 			self: {
 				boosts: {
 					atk: 1,
