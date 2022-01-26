@@ -1024,7 +1024,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			acidspray: ["8L1"],
 			acidarmor: ["8L1"],
 			gunkshot: ["8L1"],
-			poisonjab: ["8L1"]
+			poisonjab: ["8L1"],
 			sludgebomb: ["8L1"],
 			//tarpit: ["8L1"],
 			tarshort: ["8L1"],
