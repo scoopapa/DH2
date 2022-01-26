@@ -3306,7 +3306,10 @@ export const Formats: FormatList = [
 			'Red Orb', 'Rusted Sword', 'Rusted Shield', 'Zen Mode', 'Pinsirite', 'Ampharosite', 'Sceptilite', 'Lopunnite', 'Audinite',
 			
 			//Abilities
-			'Shadow Tag', 'Baton Pass',
+			'Moody', 'Shadow Tag', 
+			
+			//Moves
+			'Baton Pass',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
