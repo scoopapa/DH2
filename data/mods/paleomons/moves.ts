@@ -1,0 +1,37 @@
+export const Moves: {[k: string]: ModdedMoveData} = {
+	terrorsoar: {
+		num: -100,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Terror Soar",
+		shortDesc: "30% chance to make the target flinch.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",	
+	},
+
+	venomdrain: {
+		num: -101,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Venom Drain",
+		shortDesc: "User recovers 50% of damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+};

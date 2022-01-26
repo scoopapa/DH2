@@ -162,4 +162,59 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 100,
 	},
 	
+	torkoal: {
+		inherit: true,
+		otherFormes: ["Torkoal-Pottery"],
+		formeOrder: ["Torkoal", "Torkoal-Pottery"],
+	},
+
+	torkoalpottery: {
+		num: -108,
+		name: "Torkoal-Pottery",
+		baseSpecies: "Torkoal",
+		forme: "Pottery",
+		types: ["Fire", "Ground"],
+		baseStats: {hp: 70, atk: 65, def: 140, spa: 95, spd: 70, spe: 30},
+		abilities: {0: "White Smoke", 1: "Water Compation", H: "Oblivious"},
+		weightkg: 100,
+	},
+
+	relicanth: {
+		inherit: true,
+		otherFormes: ["Relicanth-Ancient"],
+		formeOrder: ["Relicant", "Relicanth-Ancient"],
+	},
+
+	relicanthancient: {
+		num: -109,
+		name: "Relicanth-Ancient",
+		baseSpecies: "Relicanth",
+		forme: "Ancient",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 85, atk: 60, def: 80, spa: 85, spd: 75, spe: 100},
+		abilities: {0: "Water Bubble", H: "Rock Head"},
+		weightkg: 100,
+	},
+
+	pilsoswine: {
+		inherit: true,
+		evos: ["Mamoswine", "Mamoswine-Ancient"]
+	},
+
+	mamoswine: {
+		inherit: true,
+		otherFormes: ["Mamoswine-Ancient"],
+		formeOrder: ["Mamoswine", "Mamoswine-Ancient"],
+	}
+
+	mamoswineancient: {
+		num: -110,
+		name: "Mamoswine-Ancient",
+		baseSpecies: "Mamoswine",
+		forme: "Ancient",
+		types: ["Ice", "Poison"],
+		baseStats: {hp: 110, atk: 110, def: 80, spa: 0, spd: 70, spe: 80},
+		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
+		weightkg: 100,
+	},
 };
