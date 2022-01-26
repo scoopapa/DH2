@@ -35,7 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("ralts", ["icebeam"]);
 		newMoves("gardevoir", ["aurasphere", "recover"]);
 		newMoves("nosepass", ["powershift"]);
-		newMoves("whiscash", ["airslash"]);
+		newMoves("whiscash", ["aerialace"]);
 		newMoves("duskull", ["leechlife"]);
 		newMoves("spheal", ["babydolleyes"]);
 		newMoves("torterra", ["headlongrush", "sleeppowder"]);

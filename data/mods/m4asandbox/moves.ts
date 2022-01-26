@@ -143,7 +143,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
-		name: "Stone Axe",
+		name: "Ceaseless Edge",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -415,18 +415,43 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fairy Wind", target);
 		},
-		secondary: {
-			chance: 10,
-			self: {
-				boosts: {
-					atk: 1,
-					def: 1,
-					spa: 1,
-					spd: 1,
-					spe: 1,
-				},
-			},
+		onTry(pokemon) {
+			if (pokemon.species.baseSpecies === 'Enamorus') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Enamorus or Enamorus-Therian can use this move.");
+			this.add('-fail', pokemon, 'move: Springtide Storm');
+			return null;
 		},
+		onModifyMove(move, pokemon) {
+			move.secondaries = [];
+			if (pokemon.species.name === 'Enamorus-Therian') {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						atk: -1,
+						def: -1,
+						spa: -1,
+						spd: -1,
+						spe: -1,
+					},
+				});
+			} else {
+				move.secondaries.push({
+					chance: 10,
+					self: {
+						boosts: {
+							atk: 1,
+							def: 1,
+							spa: 1,
+							spd: 1,
+							spe: 1,
+						},
+					},
+				});
+			}
+		},
+		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
@@ -498,7 +523,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Mystical Power",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Shattered Psyche", target);
