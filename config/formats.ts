@@ -3280,7 +3280,7 @@ export const Formats: FormatList = [
 		ruleset: ['[Gen 8] MonoTyped Uber'],
 		banlist: [			
 			//Uber Pokemon
-			'Mewtwo', 'Kyogre', 'Groudon', 'Deoxys', 'Darkrai', 'Arceus', 'Darmanitan-Galar', 'Xerneas', 'Cinderace', 'Zacian', 'Zamazenta', 'Spectrier',
+			'Arceus', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys', 'Groudon', 'Kyogre', 'Mewtwo', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta', 
 			
 			//Items
 			'Blastoisinite', 'Kangaskhanite',
