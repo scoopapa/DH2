@@ -3270,7 +3270,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "[Gen 8] MonoTyped",
+		name: "[Gen 8] MonoTyped OU",
 		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
@@ -3286,10 +3286,10 @@ export const Formats: FormatList = [
 			'Kangaskhan-Mega', 'Kyogre', 'Mewtwo', 'Mewtwo-Mega-Y', 'Spectrier', 'Xerneas', 'Zamazenta', 
 			
 			//Items
-			'Blastoisinite', 'Kangaskhanite',
+			'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
 			
 			//Abilities
-			'Arena Trap',
+			'Arena Trap', 'Sand Veil', 'Snow Cloak', 
 		],
 	},
 	{
