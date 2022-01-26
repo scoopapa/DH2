@@ -67,6 +67,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Tar Pit');
 				}
+
+				if (source.isGrounded() && !source.isSemiInvulnerable()) {
+					if (source.hasItem('heavydutyboots')) return;
+					source.addVolatile("Powder");
+					this.add('-message', "Pokemon are being Powder'd!");
+				}
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 3,
@@ -74,9 +80,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.eachEvent('Terrain');
 			},
 			onTerrain(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
 				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					if (pokemon.hasItem('heavydutyboots')) return;
 					pokemon.addVolatile("Powder");
+					this.add('-message', "Pokemon are being Powder'd!");
 				}
 			},
 			onEnd() {

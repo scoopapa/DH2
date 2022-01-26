@@ -175,7 +175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Pottery",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 70, atk: 65, def: 140, spa: 95, spd: 70, spe: 30},
-		abilities: {0: "White Smoke", 1: "Water Compation", H: "Oblivious"},
+		abilities: {0: "White Smoke", 1: "Water Compaction", H: "Oblivious"},
 		weightkg: 100,
 	},
 
