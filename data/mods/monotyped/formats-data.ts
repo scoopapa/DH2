@@ -567,7 +567,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT LC",
 	},
 	manectric: {
-		tier: "MT OU",
+		tier: "MT UU",
 	},
 	manectricmega: {
 		tier: "MT OU",
@@ -663,7 +663,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT UU",
 	},
 	absol: {
-		tier: "MT OU",
+		tier: "MT UU",
 	},
 	absolmega: {
 		tier: "MT OU",
@@ -672,7 +672,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT LC",
 	},
 	glalie: {
-		tier: "MT OU",
+		tier: "MT UU",
 	},
 	glaliemega: {
 		tier: "MT OU",
