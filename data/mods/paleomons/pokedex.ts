@@ -27,7 +27,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 55, atk: 70, def: 110, spa: 80, spd: 85, spe: 20},
 		abilities: {0: "Swift Swim", 1:"Battle Armor", H: "Marvel Scale"},
-		weightkg: 100,
+		weightkg: 11.5,
 	},
 
 	kabutops: {
@@ -44,7 +44,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 75, atk: 115, def: 75, spa: 95, spd: 75, spe: 90},
 		abilities: {0: "Swift Swim", 1:"Battle Armor", H: "Poison Heal"},
-		weightkg: 100,
+		weightkg: 40.5,
 	},
 
 	omanyte: {
@@ -61,7 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 45, atk: 80, def: 70, spa: 30, spd: 40, spe: 50},
 		abilities: {0: "Swift Swim", H: "Torrent"},
-		weightkg: 100,
+		weightkg: 7.5,
 	},
 
 	omastar: {
@@ -78,7 +78,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Poison"],
 		baseStats: {hp: 85, atk: 105, def: 95, spa: 55, spd: 75, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Shell Armor", H: "Bloodsuck"},
-		weightkg: 100,
+		weightkg: 35,
 	},
 
 	aerodactyl: {
@@ -95,7 +95,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Flying"],
 		baseStats: {hp: 80, atk: 105, def: 70, spa: 60, spd: 80, spe: 130},
 		abilities: {0: "Sheer Force", 1: "Pressure", H: "Rough Skin"},
-		weightkg: 100,
+		weightkg: 59,
 	},
 
 	anorith: {
@@ -110,7 +110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug"],
 		baseStats: {hp: 60, atk: 100, def: 50, spa: 40, spd: 80, spe: 50},
 		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Weak Armor"},
-		weightkg: 100,
+		weightkg: 12.5,
 	},
 
 	armaldo: {
@@ -125,7 +125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 100, spa: 70, spd: 80, spe: 75},
 		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Carboniferous"},
-		weightkg: 100,
+		weightkg: 68.2,
 	},
 
 	lileep: {
@@ -142,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass"],
 		baseStats: {hp: 66, atk: 41, def: 77, spa: 61, spd: 87, spe: 23},
 		abilities: {0: "Suction Cups", H: "Storm Drain"},
-		weightkg: 100,
+		weightkg: 23.8,
 	},
 
 	cradily: {
@@ -157,9 +157,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Cradily",
 		forme: "Ancient",
 		types: ["Grass"],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 90, spe: 60},
 		abilities: {0: "Regenerator"},
-		weightkg: 100,
+		weightkg: 60,
 	},
 	
 	torkoal: {
@@ -176,7 +176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 70, atk: 65, def: 140, spa: 95, spd: 70, spe: 30},
 		abilities: {0: "White Smoke", 1: "Water Compaction", H: "Oblivious"},
-		weightkg: 100,
+		weightkg: 80/4,
 	},
 
 	relicanth: {
@@ -193,7 +193,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 85, atk: 60, def: 80, spa: 85, spd: 75, spe: 100},
 		abilities: {0: "Water Bubble", H: "Rock Head"},
-		weightkg: 100,
+		weightkg: 23.4,
 	},
 
 	pilsoswine: {
@@ -215,6 +215,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Poison"],
 		baseStats: {hp: 110, atk: 110, def: 80, spa: 70, spd: 80, spe: 80},
 		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
-		weightkg: 100,
+		weightkg: 291,
 	},
 };

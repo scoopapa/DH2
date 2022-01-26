@@ -140,11 +140,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 	acidarmor: {
 		inherit: true,
+		boosts: {},
 		desc: "Raises the user's Defense by 2 stages. If the terrain is Tar Pit, the user's Defense is instead increased by 3 stages.",
 		shortDesc: "Raises the user's Defense by 2.",
 		onHit(target) {
 			if(this.field.isTerrain('tarpit')) {
-				if (target.isGrounded() && !target.isSemiInvulnerable() &&!target.hasItem('heavydutyboots')) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.hasItem('heavydutyboots')) {
 					this.boost({def: 3}, target);
 				}
 			}

@@ -11,6 +11,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 		name: "Bloodsuck",
 		shortDesc: "User's draining moves deal 1.3x damage.",
+		desc: "The user's draining moves have their power multiplied by 1.3x.",
 		rating: 3,
 		num: -100,
 	},
@@ -23,8 +24,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			};
 		},
 
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fairy') {
+				return this.chainModify(0.5);
+			}
+		},
+
 		name: "Carboniferous",
-		shortDesc: "User's Bug moves deal super effective damage against Fairy-types; Fairy moves deal halved damage.",
+		shortDesc: "User's Bug moves are super effective against Fairy-types; Fairy moves deal halved damage.",
+		desc: "The user's Bug-type moves deal super effective damage against Fairy-types. Fairy-type moves targeting the user deal halved damage.",
 		rating: 3,
 		num: -101,
 	},
@@ -39,6 +48,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -102,
 	},
+	
+	//
+	//
+	//
+	//
+	// Vanilla abilities start here
+	//
+	//
+	//
+	//
 
 	mimicry: {
 		inherit: true,
