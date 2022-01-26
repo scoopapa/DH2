@@ -214,7 +214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Ancient",
 		types: ["Ice", "Poison"],
 		baseStats: {hp: 110, atk: 110, def: 80, spa: 70, spd: 80, spe: 80},
-		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
+		abilities: {0: "Oblivious", 1: "Mimicry" /*"Poison Touch"*/, H: "Oozing Tar"},
 		weightkg: 100,
 	},
 };

@@ -86,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onTryMove(pokemon, target, move) {
 				if (move.type === 'Fire') {
 					if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasItem('heavydutyboots')) {
-						this.add('-activate', pokemon, 'move: Powder');
+						this.add('-message', "When the flame touched the sticky tar on the Pokemon, it combusted!");
 						this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
 						return false;
 					}
@@ -106,28 +106,119 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 
 	acidarmor: {
-		num: 151,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Acid Armor",
-		pp: 20,
-		priority: 0,
-		flags: {snatch: 1},
-
+		inherit: true,
 		onHit(target) {
-			if(this.field.isTerrain('tarpit') && !target.hasItem('heavydutyboots')) {
-				this.boost({def: 3}, target);
+			if(this.field.isTerrain('tarpit')) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() &&!target.hasItem('heavydutyboots')) {
+					this.boost({def: 3}, target);
+				}
 			}
 			else {
 				this.boost({def: 2}, target);
 			}
 		},
-
-		secondary: null,
-		target: "self",
-		type: "Poison",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Tough",
 	},
+
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			} else if (this.field.isTerrain('tarpit')) {
+				move = 'sludgebomb';
+			}
+			this.useMove(move, pokemon, target);
+			return null;
+		},
+	},
+
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			} else if (this.field.isTerrain('tarpit')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'psn',
+				});
+			}
+		}
+	},
+
+	terrainpulse: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			case 'tarpit':
+				move.type = 'Poison';
+				break;
+			}
+		},
+	},
+
+	camoflage: {
+		inherit: true,
+		onHit(target) {
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			} else if (this.field.isTerrain('tarpit')) {
+				newType= 'Poison';
+			}
+
+			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
+			this.add('-start', target, 'typechange', newType);
+		},
+	}
 };

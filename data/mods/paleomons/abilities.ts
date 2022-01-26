@@ -29,4 +29,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -101,
 	},
 
+	mimicry: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				let newType;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				}
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+			},
+		},
+	},
 };
