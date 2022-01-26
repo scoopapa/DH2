@@ -936,7 +936,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			ember: ["8L1"],
 			fireblast: ["8L1"],
 			flareblitz: ["8L1"],
-			//scorchedpebbles: ["8L1"],
+			scorchedpebbles: ["8L1"],
 
 			amnesia: ["8M", "7E", "6E", "5E", "4E", "3E"],
 			ancientpower: ["8L10", "7L21", "6L1", "5L43", "4T", "4L43", "3L43"],

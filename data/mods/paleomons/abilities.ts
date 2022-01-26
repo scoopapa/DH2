@@ -30,7 +30,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	oozingtar: {
-
 		onStart(source) {
 			this.field.setTerrain('tarpit');
 		},

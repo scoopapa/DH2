@@ -53,6 +53,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
+
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
 				if (attacker.hasItem('heavydutyboots')) return;
@@ -61,6 +62,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
 			},
+
 			onStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Tar Pit', '[from] ability: ' + effect, '[of] ' + source);
@@ -68,20 +70,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-fieldstart', 'move: Tar Pit');
 				}
 			},
-			/*
-			onResidualOrder: 5,
-			onResidualSubOrder: 3,
-			onResidual() {
-				this.eachEvent('Terrain');
-			},
-			onTerrain(pokemon) {
-				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
-					if (pokemon.hasItem('heavydutyboots')) return;
-					pokemon.addVolatile("Powder");
-					this.add('-message', "Pokemon are being Powder'd!");
-				}
-			},
-			*/
 
 			onTryMove(pokemon, target, move) {
 				if (move.type === 'Fire') {
@@ -104,6 +92,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 	},
+
+	scorchedpebbles: {
+		num: -103,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Scorched Pebbles",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'scorchedpebbles',
+		condition: {
+			onStart(side) {
+				this.add('-message', "Scorched pebbles now litter the field!");
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasType('Flying') || pokemon.hasType('Fire') ) return;
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots')) return;
+				this.add('-message' + pokemon + " was burned by the scorched pebbles!");
+				pokemon.addVolatile('tarshot');
+				},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Fire",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+
+	//
+	//
+	//
+	//
+	// Vanilla moves start here
+	//
+	//
+	//
+	//
 
 	acidarmor: {
 		inherit: true,
@@ -220,5 +247,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
 		},
-	}
+	},
 };
