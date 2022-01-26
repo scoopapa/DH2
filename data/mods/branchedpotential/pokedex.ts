@@ -988,7 +988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -145,
 		name: "Suidreem",
 		types: ["Grass", "Fairy"],
-		baseStats: {hp: 90, atk: 60, def: 80, spa: 110, spd: 115, spe: 110},
+		baseStats: {hp: 90, atk: 60, def: 80, spa: 110, spd: 115, spe: 45},
 		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Comatose"},
 		weightkg: 60.5,
 	},
