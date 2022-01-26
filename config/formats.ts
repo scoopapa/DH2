@@ -1271,7 +1271,7 @@ export const Formats: FormatList = [
 	},
 
 	{
-		name: "Gen 8 Paleomons",
+		name: "[Gen 8] Gen 8 Paleomons",
 		desc: [
 			"<b>Paleomons</b>: A Sword and Shield metagame that aims to create a micrometa full of ancient Pokemon."
 		],

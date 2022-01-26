@@ -127,4 +127,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Carboniferous"},
 		weightkg: 100,
 	},
+
+	lileep: {
+		inherit: true,
+		otherFormes: ["Lileep-Ancient"],
+		formeOrder: ["Lileep", "Lileep-Ancient"],
+	},
+
+	lileepancient: {
+		num: -106,
+		name: "Lileep-Ancient",
+		baseSpecies: "Lileep",
+		forme: "Ancient",
+		types: ["Grass"],
+		baseStats: {hp: 66, atk: 41, def: 77, spa: 61, spd: 87, spe: 23},
+		abilities: {0: "Suction Cups", H: "Storm Drain"},
+		weightkg: 100,
+	},
+
+	cradily: {
+		inherit: true,
+		otherFormes: ["Cradily-Ancient"],
+		formeOrder: ["Cradily", "Cradily-Ancient"],
+	},
+
+	cradilyancient: {
+		num: -107,
+		name: "Cradily-Ancient",
+		baseSpecies: "Cradily",
+		forme: "Ancient",
+		types: ["Grass"],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: "Regenerator"},
+		weightkg: 100,
+	},
+	
 };

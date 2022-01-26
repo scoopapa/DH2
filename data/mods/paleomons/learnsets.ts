@@ -203,7 +203,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			withdraw: ["8L1", "8V", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 		},
 	},
-	kabuto: {
+	kabutoancient: {
 		learnset: {
 			recover: ["8L1"],
 			drainingkiss: ["8L1"],
@@ -299,7 +299,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 1, level: 30},
 		],
 	},
-	kabutops: {
+	kabutopsancient: {
 		learnset: {
 			recover: ["8L1"],
 			drainingkiss: ["8L1"],
@@ -410,7 +410,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["8M", "8V", "7M", "6M", "5M", "4M"],
 		},
 	},
-	aerodactyl: {
+	aerodactylancient: {
 		learnset: {
 			//terrorsoar: ["8L1"],
 
@@ -523,7 +523,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		],
 	},
 
-	lileep: {
+	lileepancient: {
 		learnset: {
 			acid: ["8L4", "7L5", "6L5", "5L8", "5D", "5S0", "4L8", "3L15"],
 			amnesia: ["8M", "8L28", "7L36", "6L29", "5L29", "4L29", "3L36"],
@@ -600,7 +600,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 5, level: 15, gender: "M", moves: ["recover", "rockslide", "constrict", "acid"], pokeball: "cherishball"},
 		],
 	},
-	cradily: {
+	cradilyancient: {
 		learnset: {
 			acid: ["8L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			amnesia: ["8M", "8L28", "7L36", "6L29", "5L29", "4L29", "3L36"],
@@ -683,7 +683,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wringout: ["7L1", "6L1", "5L76", "4L76"],
 		},
 	},
-	anorith: {
+	anorithancient: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			ancientpower: ["8L16", "7L21", "6L21", "5L31", "4T", "4L31", "3L37"],
@@ -756,7 +756,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 5, level: 15, gender: "M", moves: ["harden", "mudsport", "watergun", "crosspoison"], pokeball: "cherishball"},
 		],
 	},
-	armaldo: {
+	armaldoancient: {
 		learnset: {
 			closecombat: ["8L1"],
 			uturn: ["8L1"],
