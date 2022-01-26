@@ -263,9 +263,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	staryu: {
 		tier: "MT LC",
 	},
-	starmie: {
-		tier: "MT OU",
-	},
 	elekid: {
 		tier: "MT LC",
 	},
@@ -1305,9 +1302,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lurantis: {
 		tier: "MT OU",
 	},
-	morelull: {
-		tier: "MT LC",
-	},
 	bounsweet: {
 		tier: "MT LC",
 	},
@@ -1402,7 +1396,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT OU",
 	},
 	meltan: {
-		tier: "MT OU",
+		tier: "MT LC",
 	},
 	melmetal: {
 		tier: "MT OU",
