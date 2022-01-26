@@ -15,4 +15,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -100,
 	},
 
+	carboniferous: {
+		onModifyMovePriority: -5,
+		onModifyMove(move, target) {
+			if (move.type === "Bug" /*&& target.hasType("Fairy")*/) {
+				(move as any).carboniferousBoosted = true;
+			};
+		},
+
+		name: "Carboniferous",
+		shortDesc: "User's Bug moves deal super effective damage against Fairy-types; Fairy moves deal halved damage.",
+		rating: 3,
+		num: -101,
+	},
+
 };
