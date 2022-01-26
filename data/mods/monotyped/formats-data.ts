@@ -75,7 +75,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT LC",
 	},
 	vulpixalola: {
-		tier: "MT NFE",
+		tier: "MT LC",
 	},
 	ninetales: {
 		tier: "MT OU",
@@ -405,7 +405,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT OU",
 	},
 	aipom: {
-		tier: "MT LC",
+		tier: "MT NFE",
 	},
 	ambipom: {
 		tier: "MT UU",
@@ -417,7 +417,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT UU",
 	},
 	misdreavus: {
-		tier: "MT LC",
+		tier: "MT NFE",
 	},
 	mismagius: {
 		tier: "MT UU",
@@ -510,7 +510,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT UU",
 	},
 	zigzagoon: {
-		tier: "MT LC",
+		tier: "MT NFE",
 	},
 	linoone: {
 		tier: "MT OU",
@@ -1052,7 +1052,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT OU",
 	},
 	gothita: {
-		tier: "MT NFE",
+		tier: "MT LC",
 	},
 	gothorita: {
 		tier: "MT NFE",
@@ -1525,7 +1525,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT Uber",
 	},
 	kubfu: {
-		tier: "MT NFE",
+		tier: "MT LC",
 	},
 	regieleki: {
 		tier: "MT OU",
