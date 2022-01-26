@@ -117,7 +117,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Flying') || pokemon.hasType('Fire') ) return;
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				this.add('-message' + pokemon.name + " was burned by the scorched pebbles!");
+				this.add('-message', `${pokemon.name} was burned by the scorched pebbles!`);
 				pokemon.addVolatile('tarshot');
 				},
 		},
