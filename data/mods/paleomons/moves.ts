@@ -201,7 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 
-	camoflage: {
+	camouflage: {
 		inherit: true,
 		onHit(target) {
 			let newType = 'Normal';

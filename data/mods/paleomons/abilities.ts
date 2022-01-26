@@ -29,6 +29,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -101,
 	},
 
+	oozingtar: {
+
+		onStart(source) {
+			this.field.setTerrain('tarpit');
+		},
+
+		name: "Oozing Tar",
+		shortDesc: "Automatically sets Tar Pit.",
+		rating: 4,
+		num: -102,
+	},
+
 	mimicry: {
 		inherit: true,
 		condition: {
