@@ -705,7 +705,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT Uber",
 	},
 	kyogreprimal: {
-		tier: "MT Uber",
+		tier: "MT AG",
 	},
 	groudon: {
 		tier: "MT Uber",
@@ -1519,7 +1519,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MT OU",
 	},
 	zacian: {
-		tier: "MT Uber",
+		tier: "MT AG",
 	},
 	zamazenta: {
 		tier: "MT Uber",

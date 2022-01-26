@@ -3283,7 +3283,7 @@ export const Formats: FormatList = [
 			'Arceus-Base', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 'Arceus-Fire', 'Arceus-Flying', 
 			'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 'Arceus-Rock', 'Arceus-Steel', 'Arceus-Water', 
 			'Blastoise-Mega', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed', 'Groudon', 
-			'Kangaskhan-Mega', 'Kyogre', 'Kyogre-Primal', 'Mewtwo', 'Mewtwo-Mega-Y', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta', 
+			'Kangaskhan-Mega', 'Kyogre', 'Mewtwo', 'Mewtwo-Mega-Y', 'Spectrier', 'Xerneas', 'Zamazenta', 
 			
 			//Items
 			'Blastoisinite', 'Kangaskhanite',
@@ -3305,11 +3305,17 @@ export const Formats: FormatList = [
 			//Bans because of non Monotypes
 			'Red Orb', 'Rusted Sword', 'Rusted Shield', 'Zen Mode', 'Pinsirite', 'Ampharosite', 'Sceptilite', 'Lopunnite', 'Audinite',
 			
+			//AG Pokemon
+			'Kyogre-Primal', 'Zacian',
+			
 			//Abilities
 			'Moody', 'Shadow Tag', 
 			
 			//Moves
 			'Baton Pass',
+			
+			//Items
+			'Blue Orb',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
