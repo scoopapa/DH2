@@ -67,13 +67,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Tar Pit');
 				}
-
-				if (source.isGrounded() && !source.isSemiInvulnerable()) {
-					if (source.hasItem('heavydutyboots')) return;
-					source.addVolatile("Powder");
-					this.add('-message', "Pokemon are being Powder'd!");
-				}
 			},
+			/*
 			onResidualOrder: 5,
 			onResidualSubOrder: 3,
 			onResidual() {
@@ -86,6 +81,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-message', "Pokemon are being Powder'd!");
 				}
 			},
+			*/
+
+			onTryMove(pokemon, target, move) {
+				if (move.type === 'Fire') {
+					if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasItem('heavydutyboots')) {
+						this.add('-activate', pokemon, 'move: Powder');
+						this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
+						return false;
+					}
+				}
+			},
+
 			onEnd() {
 				if (!this.effectData.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Tar Pit');
@@ -107,13 +114,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		boosts: {
-			def: 2,
-		},
 
 		onHit(target) {
 			if(this.field.isTerrain('tarpit') && !target.hasItem('heavydutyboots')) {
 				this.boost({def: 3}, target);
+			}
+			else {
+				this.boost({def: 2}, target);
 			}
 		},
 
