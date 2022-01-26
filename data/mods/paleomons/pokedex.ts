@@ -205,7 +205,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Mamoswine-Ancient"],
 		formeOrder: ["Mamoswine", "Mamoswine-Ancient"],
-	}
+	},
 
 	mamoswineancient: {
 		num: -110,
