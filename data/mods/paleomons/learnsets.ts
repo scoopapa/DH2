@@ -841,7 +841,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 
-	torkoalancient: {
+	torkoalpottery: {
 		learnset: {
 			scald: ["8L1"],
 			flipturn: ["8L1"],
@@ -1026,8 +1026,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gunkshot: ["8L1"],
 			poisonjab: ["8L1"],
 			sludgebomb: ["8L1"],
-			//tarpit: ["8L1"],
-			tarshort: ["8L1"],
+			tarpit: ["8L1"],
+			tarshot: ["8L1"],
 
 			amnesia: ["8M", "8L37"],
 			ancientpower: ["8L1", "7L1", "6L1", "5L1", "4T", "4L1"],

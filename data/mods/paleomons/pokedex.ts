@@ -213,7 +213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Mamoswine",
 		forme: "Ancient",
 		types: ["Ice", "Poison"],
-		baseStats: {hp: 110, atk: 110, def: 80, spa: 0, spd: 70, spe: 80},
+		baseStats: {hp: 110, atk: 110, def: 80, spa: 70, spd: 80, spe: 80},
 		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
 		weightkg: 100,
 	},

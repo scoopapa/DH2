@@ -34,4 +34,86 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
+
+	tarpit: {
+		num: -102,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Tarpit",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		terrain: 'tarpit',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.hasItem('heavydutyboots')) return;
+				if (move.type === 'Poison' && attacker.isGrounded()) {
+					this.debug('tar pit boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Tar Pit', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Tar Pit');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 3,
+			onResidual() {
+				this.eachEvent('Terrain');
+			},
+			onTerrain(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					pokemon.addVolatile("Powder");
+				}
+			},
+			onEnd() {
+				if (!this.effectData.duration) this.eachEvent('Terrain');
+				this.add('-fieldend', 'move: Tar Pit');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+
+	acidarmor: {
+		num: 151,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Acid Armor",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			def: 2,
+		},
+
+		onHit(target) {
+			if(this.field.isTerrain('tarpit') && !target.hasItem('heavydutyboots')) {
+				this.boost({def: 3}, target);
+			}
+		},
+
+		secondary: null,
+		target: "self",
+		type: "Poison",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Tough",
+	},
 };
