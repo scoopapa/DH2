@@ -77,6 +77,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				case 'psychicterrain':
 					newType = 'Psychic';
 					break;
+				case 'tarpit':
+					newType: 'Poison';
+					break;
 				}
 				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
 				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
