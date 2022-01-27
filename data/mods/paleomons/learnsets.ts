@@ -1029,10 +1029,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tarpit: ["8L1"],
 			tarshot: ["8L1"],
 
-			naturepower: ["8L1"],
-			terrainpulse: ["8L1"],
-			camouflage: ["8L1"],
-
 			amnesia: ["8M", "8L37"],
 			ancientpower: ["8L1", "7L1", "6L1", "5L1", "4T", "4L1"],
 			attract: ["8M", "7M", "6M", "5M", "4M"],
