@@ -3296,7 +3296,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
 			/*Pokemon*/'AG', 
-			/*Items*/'Blue Orb', 'Rusted Sword', 'Rusted Shield',
+			/*Items*/'Rusted Sword', 'Rusted Shield',
 			/*Abilities*/'Moody', 'Shadow Tag', 'Zen Mode', 
 			/*Moves*/'Baton Pass',
 			

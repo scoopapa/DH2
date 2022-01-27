@@ -1367,7 +1367,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	kyogreprimal: {
-		tier: "AG",
+		tier: "Uber",
 	},
 	groudon: {
 		tier: "Uber",
