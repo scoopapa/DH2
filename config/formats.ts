@@ -3279,7 +3279,7 @@ export const Formats: FormatList = [
 		mod: 'monotyped',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [			
-			/*Pokemon*/'Uber', 'AG',
+			/*Pokemon*/'Uber', 'AG', 'Illegal', 
 			/*Items*/'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
 			/*Abilities*/'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Zen Mode',
 		],
@@ -3295,7 +3295,7 @@ export const Formats: FormatList = [
 		mod: 'monotyped',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-			/*Pokemon*/'AG',
+			/*Pokemon*/'AG', 'Illegal', 
 			/*Items*/'Blue Orb', 'Rusted Sword', 'Rusted Shield',
 			/*Abilities*/'Moody', 'Shadow Tag', 'Zen Mode', 
 			/*Moves*/'Baton Pass',
@@ -3313,7 +3313,7 @@ export const Formats: FormatList = [
 		mod: 'monotyped',
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
-			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 
+			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 'Illegal', 
 			/*Abilities*/'Chlorophyll', 'Moody', 
 			/*Moves*/'Baton Pass', 'Sticky Web',
 		],
