@@ -47,4 +47,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	entei: {
 		tier: "MV",
 	},
+	breloom: {
+		tier: "MV",
+	},
+	hariyama: {
+		tier: "MV",
+	},
+	sableye: {
+		tier: "MV",
+	},
+	mawile: {
+		tier: "MV",
+	},
+	manectric: {
+		tier: "MV",
+	},
+	flygon: {
+		tier: "MV",
+	},
+	salamence: {
+		tier: "MV",
+	},
+	regice: {
+		tier: "MV",
+	},
 };

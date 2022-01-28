@@ -1,20 +1,18 @@
 export const Items: {[itemid: string]: ItemData} = {
-	/*cottoncoat: {
-		name: "Cotton Coat",
+	mawilelite: {
+		name: "Mawile-Lite",
 		spritenum: 1,
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.species.id === 'venomoth' && move.type === 'Bug') {
-				return this.chainModify(2);
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mawile') {
+				this.boost({atk: 2});
 			}
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (source.species.id === 'venomoth' && move.type === 'Bug') {
-				source.useItem();
-			}
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
+			return true;
 		},
-		shortDesc: "If held by a Venomoth, Bug-type attacks will do 2x damage. Single use.",
 		num: -1,
 		gen: 8,
-	},*/
+		shortDesc: "When held by Mawile, +2 Attack upon Entry. Can't be Knocked Off.",
+	},
 };

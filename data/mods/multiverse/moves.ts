@@ -27,6 +27,15 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	return: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	refresh: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	
 	flytrap: {
 		num: -1,
 		accuracy: 75,
@@ -203,5 +212,39 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "any",
 		type: "Flying",
+	},
+	lowswept: {
+		num: -6,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
+		name: "Low Swept",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	overcharge: {
+		num: -7,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		shortDesc: "Hits adjacent Pokemon. The user faints.",
+		name: "Overcharge",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Electric",
 	},
 };
