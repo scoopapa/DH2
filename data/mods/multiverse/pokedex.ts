@@ -91,7 +91,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	hariyama: {
 		inherit: true,
-		baseStats: {hp: 144, atk: 120, def: 80, spa: 40, spd: 80, spe: 40},
+		baseStats: {hp: 140, atk: 120, def: 80, spa: 40, spd: 80, spe: 40},
 		abilities: {0: "Thick Fat", H: "Guts"},
 	},
 	sableye: {
@@ -101,7 +101,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mawile: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
+		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
 		abilities: {0: "Intimidate"},
 	},
 	manectric: {
