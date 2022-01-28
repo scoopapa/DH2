@@ -1269,6 +1269,30 @@ export const Formats: FormatList = [
       ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'], 
 	},
+
+	{
+		name: "[Gen 8] Paleomons",
+		desc: [
+			"<b>Paleomons</b>: A Sword and Shield metagame that aims to create a micrometa full of ancient Pokemon."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-3-non-dino-stars-dimetrodon-dodo-sea-scorpion-submission-phase.3695565/">Paleomons on Smogon Forums`,
+		],
+
+		mod: 'paleomons',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Paleomons' && template.tier !== 'Paleomons NFE' && template.tier !== 'Paleomons LC') {
+					return [set.species + ' is not legal in the Paleomons format.'];
+				}
+			}
+		},
+	},
+
 	{
 		name: "[Gen 8] Perfect Galar",
 		desc: ["The goal of <b>Perfect Galar</b> is to make a Sword and Shield OU metagame where every single fully evolved Pokemon in the Galar Pokedex has a unique, valuable niche. Also, Dynamax has been rebalanced!",
