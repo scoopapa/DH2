@@ -3,5 +3,6 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'thundurus').learnset.spikes = ['8L1'];
     this.modData('Learnsets', 'starmie').learnset.mysticalfire = ['8L1'];
 	 this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
+	 this.modData('Learnsets', 'mudsdale').learnset.shoreup = ['8L1'];
    },
 };
