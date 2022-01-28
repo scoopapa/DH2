@@ -223,6 +223,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Low Sweep", target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -242,6 +246,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Explosion", target);
+		},
 		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
