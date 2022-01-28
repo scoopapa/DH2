@@ -115,7 +115,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	vulpixalola: {
-		tier: "LC",
+		tier: "NFE",
 	},
 	ninetales: {
 		tier: "OU",
@@ -1958,7 +1958,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	gothita: {
-		tier: "LC",
+		tier: "NFE",
 	},
 	gothorita: {
 		tier: "NFE",
@@ -2686,10 +2686,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	silvally: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallybug: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallydark: {
 		tier: "OU",
@@ -2698,46 +2698,46 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	silvallyelectric: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyfairy: {
 		tier: "OU",
 	},
 	silvallyfighting: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyfire: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyflying: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyghost: {
 		tier: "OU",
 	},
 	silvallygrass: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyground: {
 		tier: "OU",
 	},
 	silvallyice: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallypoison: {
 		tier: "OU",
 	},
 	silvallypsychic: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallyrock: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallysteel: {
-		tier: "OU",
+		tier: "UU",
 	},
 	silvallywater: {
-		tier: "OU",
+		tier: "UU",
 	},
 	komala: {
 		tier: "UU",
