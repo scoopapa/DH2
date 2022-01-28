@@ -84,4 +84,44 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 115, def: 100, spa: 100, spd: 80, spe: 85},
 	},
+	breloom: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 130, def: 80, spa: 60, spd: 60, spe: 70},
+		abilities: {0: "Poison Heal", H: "Technician"},
+	},
+	hariyama: {
+		inherit: true,
+		baseStats: {hp: 140, atk: 120, def: 80, spa: 40, spd: 80, spe: 40},
+		abilities: {0: "Thick Fat", H: "Guts"},
+	},
+	sableye: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 85, def: 105, spa: 85, spd: 105, spe: 20},
+		abilities: {0: "Keen Eye", H: "Magic Bounce"},
+	},
+	mawile: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
+		abilities: {0: "Intimidate"},
+	},
+	manectric: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 75, def: 100, spa: 105, spd: 80, spe: 125},
+		abilities: {0: "Intimidate"},
+	},
+	flygon: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 115, def: 90, spa: 100, spd: 80, spe: 100},
+	},
+	salamence: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 100, def: 135, spa: 80, spd: 80, spe: 110},
+		abilities: {0: "Aerilate"},
+	},
+	regice: {
+		inherit: true,
+		types: ["Ice", "Electric"],
+		baseStats: {hp: 90, atk: 50, def: 100, spa: 100, spd: 200, spe: 50},
+		abilities: {0: "Clear Body", H: "Filter"},
+	},
 };

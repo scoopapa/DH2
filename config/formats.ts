@@ -3270,24 +3270,20 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "[Gen 8] MonoTyped",
+		name: "[Gen 8] MonoTyped OU",
 		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped Uber'],
+		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [			
-			//Uber Pokemon
-			'Arceus', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys', 'Groudon', 'Kyogre', 'Mewtwo', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta', 
-			
-			//Items
-			'Blastoisinite', 'Kangaskhanite',
-			
-			//Abilities
-			'Arena Trap',
+			/*Pokemon*/'Uber', 'AG', 
+			/*Items*/'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
+			/*Abilities*/'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Zen Mode',
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] MonoTyped Uber",
@@ -3299,22 +3295,29 @@ export const Formats: FormatList = [
 		mod: 'monotyped',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-			//Bans because of non Monotypes
-			'Red Orb', 'Rusted Sword', 'Rusted Shield', 'Zen Mode', 'Pinsirite', 'Ampharosite', 'Sceptilite', 'Lopunnite', 'Audinite',
+			/*Pokemon*/'AG', 
+			/*Items*/'Rusted Sword', 'Rusted Shield',
+			/*Abilities*/'Moody', 'Shadow Tag', 'Zen Mode', 
+			/*Moves*/'Baton Pass',
 			
-			//Abilities
-			'Shadow Tag', 'Baton Pass',
 		],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['MT Uber', 'MT OU', 'MT UU', 'MT NFE', 'MT LC'];
-			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
-				if ( !allowedTiers.includes(template.tier) ) {
-					return [set.species + ' is not useable in MonoTyped.'];
-				}
-			}
-		},
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 8] MonoTyped LC",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
+		banlist: [
+			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 
+			/*Abilities*/'Chlorophyll', 'Moody', 
+			/*Moves*/'Baton Pass', 'Sticky Web',
+		],
+		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] PKMN YB OU",
