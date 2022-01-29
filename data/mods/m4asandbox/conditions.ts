@@ -7,7 +7,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-status', target, 'frz');
 				this.hint(`${this.effectData.target.name} is frostbitten! It can still use moves, but its special moves will be half as strong.`);
 				this.hint(`Like a burn, frostbite will damage the afflicted Pokémon at the end of each turn.`);
-				this.effectData.duration = 3;
 				this.effectData.frostbite = true;
 			}
 			else if (sourceEffect && sourceEffect.effectType === 'Ability') {
