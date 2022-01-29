@@ -1636,7 +1636,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	arceus: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	arceusbug: {
 		tier: "Uber",
@@ -2486,7 +2486,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	xerneas: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	yveltal: {
 		tier: "Illegal",
