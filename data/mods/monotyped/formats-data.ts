@@ -236,7 +236,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	alakazammega: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	machop: {
 		tier: "LC",
@@ -1627,7 +1627,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	manaphy: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	darkrai: {
 		tier: "Uber",
@@ -2073,7 +2073,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	haxorus: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	cubchoo: {
 		tier: "LC",
@@ -2877,7 +2877,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	melmetal: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	grookey: {
 		tier: "LC",
@@ -2886,7 +2886,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	rillaboom: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	scorbunny: {
 		tier: "LC",

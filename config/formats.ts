@@ -3280,7 +3280,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [			
 			/*Pokemon*/'Uber', 'AG', 
-			/*Items*/'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
+			/*Items*/'Alakazite', 'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
 			/*Abilities*/'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Zen Mode',
 		],
 		teambuilderFormat: 'OU',
@@ -3311,6 +3311,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'monotyped',
+		maxLevel: 5,
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 
