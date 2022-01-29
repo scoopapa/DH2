@@ -653,8 +653,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Moonlight", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && pokemon.volatiles['lunarblessing']) return false;
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+			if (['', 'slp'].includes(pokemon.status) && pokemon.volatiles['lunarblessing']) return false;
+			if (['', 'slp'].includes(pokemon.status)) return;
 			pokemon.cureStatus();
 		},
 		volatileStatus: 'lunarblessing',
@@ -688,7 +688,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tail Glow", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+			if (['', 'slp'].includes(pokemon.status)) return;
 			pokemon.cureStatus();
 		},
 		boosts: {
