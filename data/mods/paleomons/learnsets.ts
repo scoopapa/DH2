@@ -175,7 +175,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			scald: ["8M", "8V", "7M", "6M", "5M"],
 			secretpower: ["6M", "4M", "3M"],
 			seismictoss: ["8V", "7V", "3T"],
-			shellsmash: ["8L63", "8V", "7L67", "6L67", "5L67"],
+			//shellsmash: ["8L63", "8V", "7L67", "6L67", "5L67"],
 			skullbash: ["7V"],
 			sleeptalk: ["8M", "7M", "7V", "6M", "5T", "4M", "3T"],
 			smackdown: ["7M", "6M", "5M"],
@@ -600,6 +600,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	cradilyancient: {
 		learnset: {
+			recover: ["8L1"],
+
 			acid: ["8L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			amnesia: ["8M", "8L28", "7L36", "6L29", "5L29", "4L29", "3L36"],
 			ancientpower: ["8L16", "7L17", "6L17", "5L36", "4T", "4L36", "3L48"],
@@ -1057,12 +1059,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			headbutt: ["4T"],
 			heavyslam: ["8M"],
 			hiddenpower: ["7M", "6M", "5M", "4M"],
-			highhorsepower: ["8M"],
+			//highhorsepower: ["8M"],
 			hyperbeam: ["8M", "7M", "6M", "5M", "4M"],
 			icebeam: ["8M", "7M", "6M", "5M", "4M"],
 			icefang: ["8M", "8L1", "7L24", "6L24", "5L28", "5S0", "4L28"],
 			iceshard: ["8L15"],
-			iciclecrash: ["6S1"],
+			iciclecrash: ["8L1"],
 			iciclespear: ["8M", "6S1"],
 			icywind: ["8M", "8L30", "7T", "6T", "5T", "4T"],
 			ironhead: ["8M", "7T", "6T", "5T", "4T"],
