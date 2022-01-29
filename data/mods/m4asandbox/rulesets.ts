@@ -421,7 +421,7 @@ export const Formats: {[k: string]: FormatData} = {
 			if (status.id === 'frz') {
 				if (sourceEffect && sourceEffect.effectType === 'Move' && sourceEffect.id === 'bittermalice') return; // please work
 				for (const pokemon of target.side.pokemon) {
-					if (pokemon.status === 'frz' && !pokemon.status.frostbite) {
+					if (pokemon.status === 'frz' && !pokemon.statusData.frostbite) {
 						this.add('-message', 'Freeze Clause activated.');
 						return false;
 					}
