@@ -112,6 +112,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigadrain: ["8L1"],
 			superpower: ["8L1"],
 			venomdrain: ["8L1"],
+			haze: ["8L1"],
 
 			ancientpower: ["8L30", "7L37", "7V", "6L37", "5L37", "4T", "4L37", "3L55"],
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
