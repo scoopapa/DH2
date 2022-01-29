@@ -95,6 +95,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Generation 3
 		this.modData('Learnsets', 'breloom').learnset.lowswept = ['8L1'];
 		delete this.modData('Learnsets', 'breloom').learnset.spore;
+		delete this.modData('Learnsets', 'shroomish').learnset.spore;
 		
 		this.modData('Learnsets', 'hariyama').learnset.ironhead = ['8L1'];
 		this.modData('Learnsets', 'hariyama').learnset.drainpunch = ['8L1'];
@@ -102,6 +103,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mawile').learnset.naturesmadness = ['8L1'];
 		
 		delete this.modData('Learnsets', 'flygon').learnset.defog;
+		delete this.modData('Learnsets', 'vibrava').learnset.defog;
 		
 		this.modData('Learnsets', 'regice').learnset.overcharge = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.flameburst = ['8L1'];
