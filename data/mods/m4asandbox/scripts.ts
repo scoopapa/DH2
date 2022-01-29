@@ -177,7 +177,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 
-		if (pokemon.status === 'frz' && pokemon.status.frostbite && move.category === 'Special') { // the only changed section
+		if (pokemon.status === 'frz' && pokemon.status.effectData.frostbite && move.category === 'Special') { // the only changed section
 			baseDamage = this.modify(baseDamage, 0.5);
 		}
 
