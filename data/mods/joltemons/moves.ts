@@ -305,6 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			if (source.hasType('Water')) {
 				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
 				this.damage(source.baseMaxhp / 3, source, target);
 			}
 		},
