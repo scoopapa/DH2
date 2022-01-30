@@ -285,6 +285,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Cherrim') return false;
 			return true;
 		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['embargo']) {
+				this.add('-activate', pokemon, 'item: Morning Blossom');
+				pokemon.removeVolatile('embargo');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'embargo') {
+				this.add('-immune', pokemon, '[from] item: Morning Blossom');
+				return null;
+			}
+		},
 		itemUser: ["Cherrim"],
 		gen: 8,
 		desc: "If held by Cherrim: Desolate Land on entry, 1.2x power Grass-type attacks.",
