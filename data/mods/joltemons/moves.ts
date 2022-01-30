@@ -920,7 +920,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
-				if (!target || target.fainted || target.hp <= 0) {
+				if (!target || target.fainted || target.hp <= 0 || target.hasType('Normal') || target.hasType('Ghost')) {
 					this.debug('Nothing to curse');
 					return;
 				}
