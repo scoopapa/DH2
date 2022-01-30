@@ -121,7 +121,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Darmanitan"],
 		num: -1006,
 		gen: 8,
-		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain (Unova) or Hail (Galar) on entry, 1.2x power Psychic-type (Unova) or Fire (Galar) attacks.",
+		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain on entry, 1.2x power Psychic-type attacks.",
+	},
+	chillpillg: {
+		name: "Chill Pill G",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
+				if (pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+					let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+				}
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Darmanitan') return false;
+			return true;
+		},
+		itemUser: ["Darmanitan-Galar"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Darmanitan: Zen Mode and Hail on entry, 1.2x power Fire-type attacks.",
 	},
 	"graduationscale": {
 		id: "graduationscale",
