@@ -475,7 +475,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	unown: {
     	inherit: true,
 		baseStats: {hp: 48, atk: 48, def: 48, spa: 144, spd: 48, spe: 48},
-		abilities: {0: "Levitate"},
+		abilities: {0: "Protean"},
 	},
 	girafarig: {
     	inherit: true,
@@ -1941,7 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9015,
 		name: "Frospherous",
 		types: ["Normal", "Ice"],
-		baseStats: {hp: 90, atk: 40, def: 61, spa: 121, spd: 57, spe: 91},
+		baseStats: {hp: 70, atk: 60, def: 71, spa: 111, spd: 57, spe: 91},
 		abilities: {0: "Cheek Pouch", 1: "Lightning Rod", H: "Battle Armor"},
 		weightkg: 50,
 	},
@@ -2235,5 +2235,34 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 50, def: 175, spa: 50, spd: 175, spe: 50},
 		abilities: {0: "Atom Smasher"},
 		weightkg: 200,
+	},
+	thermodo: {
+		num: 9052,
+		name: "Thermodo",
+		types: ["Fire", "Ice"],
+		baseStats: {hp: 73, atk: 99, def: 73, spa: 109, spd: 73, spe: 100},
+		abilities: {0: "Flame Body", 1: "Ice Body", H: "Mold Breaker"},
+		weightkg: 100,
+	},
+	sompuer: {
+		num: 9053,
+		name: "Sompuer",
+		types: ["Fairy"],
+		baseStats: {hp: 70, atk: 55, def: 80, spa: 80, spd: 85, spe: 80},
+		abilities: {0: "Comatose"},
+		weightkg: 9,
+		evos: ["Darkrai", "Cresselia"],
+	},
+	darkrai: {
+    	inherit: true,
+		prevo: "Sompuer",
+		evoType: "levelFriendship",
+		evoCondition: "during the night",
+	},
+	cresselia: {
+    	inherit: true,
+		prevo: "Sompuer",
+		evoType: "levelFriendship",
+		evoCondition: "during the day",
 	},
 };

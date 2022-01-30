@@ -630,4 +630,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zekrom: {
 		tier: "OU",
 	},
+	necrozmaduskmane: {
+		tier: "OU",
+	},
+	necrozmadawnwings: {
+		tier: "OU",
+	},
+	dialga: {
+		tier: "OU",
+	},
+	palkia: {
+		tier: "OU",
+	},
+	giratina: {
+		tier: "OU",
+	},
+	giratinaorigin: {
+		tier: "OU",
+	},
+	solgaleo: {
+		tier: "OU",
+	},
+	lunala: {
+		tier: "OU",
+	},
 };

@@ -85,90 +85,64 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Meltan, this item allows it to Mega Evolve in battle.",
 	},
-/*
-	mossysandwich: {
-		name: "Mossy Sandwich",
+	stoutlanditeu: {
+		name: "Stoutlandite-U",
 		spritenum: 578,
-		megaStone: "Toxtricity-Mega",
-		megaEvolves: "Toxtricity",
-		itemUser: ["Toxtricity"],
+		megaStone: "Stoutland-Mega-U",
+		megaEvolves: "Stoutland",
+		itemUser: ["Stoutland"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -5000,
+		num: -5004,
 		gen: 8,
-		desc: "Mossy Sandwich's stone for the submission sandbox.",
+		desc: "If held by a Stoutland, this item allows it to Mega Evolve differently in battle...!",
 	},
-	ausma: {
-		name: "Ausma",
-		spritenum: 578,
-		megaStone: "Hawlucha-Mega-Ausma",
-		megaEvolves: "Hawlucha",
-		itemUser: ["Hawlucha"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+	adamantorb: {
+		name: "Adamant Orb",
+		spritenum: 4,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 483 && (move.type === 'Steel' || move.type === 'Dragon')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 483) || pokemon.baseSpecies.num === 483) {
+				return false;
+			}
 			return true;
 		},
-		num: -5000,
-		gen: 8,
-		desc: "Ausma's stone for the submission sandbox.",
+		forcedForme: "Dialga-Origin",
+		itemUser: ["Dialga-Origin"],
+		num: 135,
+		gen: 4,
 	},
-	bitbitio: {
-		name: "BitBitio",
-		spritenum: 578,
-		megaStone: "Toxtricity-Mega",
-		megaEvolves: "Toxtricity",
-		itemUser: ["Toxtricity"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+	lustrousorb: {
+		name: "Lustrous Orb",
+		spritenum: 265,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 484 && (move.type === 'Water' || move.type === 'Dragon')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 484) || pokemon.baseSpecies.num === 484) {
+				return false;
+			}
 			return true;
 		},
-		num: -5000,
-		gen: 8,
-		desc: "BitBitio's stone for the submission sandbox.",
+		forcedForme: "Palkia-Origin",
+		itemUser: ["Palkia-Origin"],
+		num: 136,
+		gen: 4,
 	},
-	magmajudis: {
-		name: "Magmajudis",
-		spritenum: 578,
-		megaStone: "Hawlucha-Mega-Magmajudis",
-		megaEvolves: "Hawlucha",
-		itemUser: ["Hawlucha"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5000,
-		gen: 8,
-		desc: "Magmajudis's stone for the submission sandbox.",
-	},
-	blueray: {
-		name: "BlueRay",
-		spritenum: 578,
-		megaStone: "Hawlucha-Mega-BlueRay",
-		megaEvolves: "Hawlucha",
-		itemUser: ["Hawlucha"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5000,
-		gen: 8,
-		desc: "BlueRay's stone for the submission sandbox.",
-	},
-	inkbug: {
-		name: "inkbug",
-		spritenum: 578,
-		megaStone: "Wishiwashi-Mega",
-		megaEvolves: "Wishiwashi",
-		itemUser: ["Wishiwashi"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5000,
-		gen: 8,
-		desc: "inkbug's stone for the submission sandbox.",
-	},
-*/
 };

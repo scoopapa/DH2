@@ -1,167 +1,126 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
     maskoth: {
         tier: "NSLC",
-        
     },
     warloth: {
         tier: "NSNFE",
-        
     },
     hoobloom: {
         tier: "NSOU",
-        
     },
     hizzle: {
         tier: "NSLC",
-        
     },
     sizzard: {
         tier: "NSNFE",
-        
     },
     quetsmoke: {
         tier: "NSOU",
-        
     },
     raincub: {
         tier: "NSLC",
-        
     },
     drizzli: {
         tier: "NSNFE",
-        
     },
     griztrom: {
         tier: "NSOU",
-        
     },
     snugrub: {
         tier: "NSLC",
-        
     },
     cocotton: {
         tier: "NSNFE",
-        
     },
     loomoth: {
         tier: "NSOU",
-        
     },
     nincada: {
         tier: "NSLC",
-        
     },
     ninjask: {
         tier: "NSOU",
-        
     },
     shedinja: {
         tier: "NSOU",
-        
     },
     hoothoot: {
         tier: "NSLC",
-        
     },
     noctowl: {
         tier: "NSOU",
-        
     },
     bunnelby: {
         tier: "NSLC",
-        
     },
     diggersby: {
         tier: "NSOU",
-        
     },
     rascoon: {
         tier: "NSLC",
-        
     },
     knuckoon: {
         tier: "NSOU",
-        
     },
     fruski: {
         tier: "NSLC",
-        
     },
     wolfrost: {
         tier: "NSOU",
-        
     },
     hoppip: {
         tier: "NSLC",
-        
     },
     skiploom: {
         tier: "NSNFE",
-        
     },
     jumpluff: {
         tier: "NSOU",
-        
     },
     pichu: {
         tier: "NSLC",
-        
     },
     pikachu: {
         tier: "NSNFE",
-        
     },
     raichu: {
         tier: "NSOU",
-        
     },
     raichualola: {
         tier: "NSOU",
-        
     },
     raichubelzet: {
         tier: "NSOU",
-        
     },
     dunsparce: {
         tier: "NSOU",
-        
     },
     snubbull: {
         tier: "NSLC",
-        
     },
     granbull: {
         tier: "NSOU",
-        
     },
     zubat: {
         tier: "NSLC",
-        
     },
     golbat: {
         tier: "NSNFE",
-        
     },
     crobat: {
         tier: "NSOU",
-        
     },
     meauwm: {
         tier: "NSLC",
-        
     },
     nirvanya: {
         tier: "NSNFE",
-        
     },
     meditiger: {
         tier: "NSOU",
-        
     },
     cleffa: {
         tier: "NSLC",
-        
     },
     clefairy: {
         tier: "NSNFE",

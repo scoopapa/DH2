@@ -39,14 +39,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*raichu: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	raichualola: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	sandslashlustrous: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -71,30 +63,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*persian: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	persianalola: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	golem: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	golemalola: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	rapidash: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	rapidashgalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	slowbro: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -135,14 +103,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*marowak: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	marowakalola: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	weezing: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -151,38 +111,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*mrmime: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	mrmimegalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	articuno: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	articunogalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	zapdos: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	zapdosgalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	moltres: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	moltresgalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	corsola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -259,14 +187,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*cherrim: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	cherrimsunshine: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	rotom: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -299,22 +219,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*shaymin: {
+	shaymin: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
 	shayminsky: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*basculin: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	basculinbluestriped: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	darmanitan: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -331,14 +243,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*stunfisk: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	stunfiskgalar: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	tornadus: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -363,18 +267,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*kyurem: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	kyuremblack: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	kyuremwhite: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	keldeo: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -423,14 +315,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*meowstic: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	meowsticf: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	aegishield: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -439,63 +323,39 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*gourgeist: {
+	gourgeist: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistsmall: {
+	gourgeistfae: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistlarge: {
+	gourgeistpulpy: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	gourgeistsuper: {
+	supergeist: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygarde: {
+	zygardewyrm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygarde10: {
+	zygardecanid: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	zygardecomplete: {
+	zygardegoliath: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	hoopa: {
+	lycanday: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	hoopaunbound: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	oricorio: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	oricoriopompom: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	oricoriopau: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	oricoriosensu: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	lycanroc: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	lycanrocmidnight: {
+	lycanrocspectre: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -503,14 +363,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	wishiwashi: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	wishiwashischool: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	silvally: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -583,47 +435,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*minior: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	miniormeteor: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
 	mimikyu: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	necrozma: {
+	mimikyusparkstone: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	necrozmaduskmane: {
+	cramorant: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	necrozmadawnwings: {
+	cramorantswimmer: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	necrozmaultra: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	magearna: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	magearnaoriginal: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	toxtricity: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	toxtricitylowkey: {
+	cramorantgorging: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
@@ -631,14 +459,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	indeedee: {
+	eiscuenoice: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	indeedeef: {
+	morpekomarsh: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},*/
+	},
+	morvilant: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
 	zacian: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -655,42 +487,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	/*urshifu: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	urshifurapidstrike: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	urshifugmax: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	urshifurapidstrikegmax: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	zarude: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	zarudedada: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	calyrex: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	calyrexice: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},
-	calyrexshadow: {
-		tier: "Alternatium",
-		doublesTier: "Alternatium",
-	},*/
 	eternatus: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

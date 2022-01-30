@@ -1398,31 +1398,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -37,
 	},
 	summerdays: {
-		desc: "If its Special Attack is greater than its Speed, including stat stage changes, this Pokémon's Ability is Solar Power. If its Speed is greater than or equal to its Special Attack, including stat stage changes, this Pokémon's Ability is Chlorophyll.",
-		shortDesc: "Solar Power if user's Sp. Atk > Spe. Chlorophyll if user's Spe >= Sp. Atk.",
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same and it does not lose any HP.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn.",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if ((pokemon.getStat('spa', false, true) > pokemon.getStat('spe', false, true)) &&
-				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (target.getStat('spa', false, true) > target.getStat('spe', false, true)) {
-				if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-					this.damage(target.baseMaxhp / 8, target, target);
-				}
-			}
-		},
-		onModifySpe(spe, pokemon) {
-			if ((pokemon.getStat('spe', false, true) >= pokemon.getStat('spa', false, true)) &&
-				['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(2);
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
 		name: "Summer Days",
-		rating: 4,
+		rating: 2,
 		num: -38,
 	},
 	autumnleaves: {
@@ -1710,6 +1701,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		rating: 3.5,
 		num: -48,
+	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			for (const target of this.getAllActive()) {
+				if (target.getAbility() && target.getAbility().name !== 'Neutralizing Gas') {
+					this.singleEvent('End', target.getAbility(), target.abilityData, target);
+				}
+			}
+			pokemon.abilityData.ending = false;
+		},
 	},
 	everlastingwinter: {
 		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea.",
@@ -2668,5 +2671,184 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Electroplating",
 		rating: 4,
 		num: -70,
+	},
+	comedian: {
+		desc: "This Pokémon is immune to Fairy-type moves. When hit by a Fairy-type move, it raises its Attack and its adjacent allies' Attack by 1 stage each.",
+		shortDesc: "Fairy immunity; user's Attack and allies' Attack are both raised 1 stage if user is hit by a Fairy move.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+				if (!activated) {
+					this.add('-immune', target, '[from] ability: Comedian');
+					this.add('-message', `${target.name} is howling with laughter!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Fairy') {
+				let activated = false;
+				for (const ally of target.side.active) {
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!activated) {
+						this.add('-ability', target, 'Comedian', 'boost');
+						this.add('-message', `${target.name} is howling with laughter!`);
+						activated = true;
+					}
+					this.boost({atk: 1}, ally, target, null, true);
+				}
+			}
+		},
+		name: "Comedian",
+		rating: 3,
+		num: -71,
+	},
+	pacifyingpelt: {
+		desc: "This Pokémon is immune to Fighting-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Fighting-type move.",
+		shortDesc: "This Pokémon heals 1/4 of its max HP when hit by Fighting moves; Fighting immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fighting') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Pacifying Pelt');
+				}
+				return null;
+			}
+		},
+		name: "Pacifying Pelt",
+		rating: 4,
+		num: -72,
+	},
+	alluring: {
+		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Alluring');
+			this.add('-message', `Pokémon opposing ${pokemon.name} can't pivot out of battle!`);
+		},
+		onAnyModifyMove(move, pokemon) {
+			if (pokemon.side === this.effectData.target.side) return;
+			if (move.selfSwitch && !move.ignoreAbility) delete move.selfSwitch;
+		},
+		name: "Alluring",
+		rating: 4,
+		num: -73,
+	},
+	rebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Rebel",
+		rating: 2.5,
+		num: -74,
+	},
+	agitate: {
+		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
+		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
+		onAnyBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			if (!target || !source || target === source || source !== this.effectData.target) return; // doesn't work on itself
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
+				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+			}
+		},
+		name: "Agitate",
+		rating: 3,
+		num: -75,
+	},
+	snowflake: {
+		desc: "After this Pokémon takes damage from a Rock-type move, including Stealth Rock, it also sets up Aurora Veil regardless of the current weather. It can still set an Aurora Veil even if the damage knocks it out.",
+		shortDesc: "Sets up Aurora Veil after taking Rock damage, Stealth Rock - even if it faints.",
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && ((effect.effectType === 'Move' && effect.type === 'Rock') || (effect.id === 'stealthrock'))
+			) {
+				this.effectData.veiled = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (this.effectData.veiled) {
+				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
+				pokemon.side.addSideCondition('auroraveil');
+			}
+		},
+		onFaint(pokemon) {
+			if (this.effectData.veiled) {
+				this.effectData.veiled = null;
+				this.add('-ability', pokemon, 'Snowflake');
+				pokemon.side.addSideCondition('auroraveil');
+			}
+		},
+		name: "Snowflake",
+		rating: 3.5,
+		num: -76,
+	},
+	lethality: {
+		desc: "This Pokémon's blade-based and slashing moves have power doubled against a target whose HP is full.",
+		shortDesc: "Slashing moves: doubled damage if the target has full HP.",
+		onModifyMove(critRatio, source, target, move) {
+			if (bladeMoves.includes(move.id) && move.basePower && target.hp === target.maxhp) {
+				move.basePower *= 2;
+			}
+		},
+		name: "Lethality",
+		rating: 3.5,
+		num: -77,
+	},
+	queensgambit: {
+		desc: "If this Pokémon switched in on the same turn, priority moves from opposing Pokémon targeted at itself or at allies are prevented from having an effect. If this Ability is activated, its own first move then has increased priority.",
+		shortDesc: "Only while switching in, protects the team from priority; gains +1 priority on its next move if it does.",
+		onFoeTryMove(target, source, move) {
+			if (this.effectData.target.activeTurns) return;
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectData.target;
+			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', target, "ability: Queen's Gambit", move, '[of] ' + dazzlingHolder);
+				this.effectData.target.addVolatile('queensgambit');
+				return false;
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} is ready to strike back!`);
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				return priority + 1;
+			},
+		},
+		name: "Queen's Gambit",
+		rating: 2,
+		num: -78,
 	},
 };

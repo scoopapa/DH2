@@ -112,4 +112,64 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 210,
 	},
+		prism: {
+		isPermanent: true,
+		onTryHit(target, source, move) {
+			let type: string | undefined = 'Normal';
+			type = target.getItem().onMemory;
+			if (!type) {
+				type = 'Normal';
+			}
+			if (target !== source && move.type === type) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Prism');
+				}
+				return null;
+			}
+		},
+		desc: "If this Pokemon is a Chrienmor, its typing changes to match its held memory; immunity to moves of the same typing.",
+		name: "Prism",
+		rating: 3.5,
+		num: -100,
+	},
+	holyconduit: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Holy Conduit boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Holy Conduit boost');
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic-type attack.",
+		name: "Holy Conduit",
+		rating: 3.5,
+		num: -118,
+	},
+
+	potionmaster: {
+
+		onModifyMove(move) {
+			if (!move || move.category !== "Special" || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('potionmaster'),
+			});
+		},
+
+		desc: "This Pokemon's special attacks have a 30% chance to poison",
+		name: "Potion Master",
+		rating: 2,
+		num: -119
+	},
 };

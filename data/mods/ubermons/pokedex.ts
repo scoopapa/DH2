@@ -166,6 +166,47 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	zekrom: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 120},
+		baseStats: {hp: 90, atk: 105, def: 90, spa: 80, spd: 80, spe: 125},
+	},
+	necrozmaduskmane: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Light Metal"},
+		baseStats: {hp: 97, atk: 127, def: 113, spa: 107, spd: 89, spe: 67},
+	},
+	necrozmadawnwings: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Analytic"},
+		baseStats: {hp: 97, atk: 107, def: 71, spa: 127, spd: 89, spe: 109},
+	},
+	dialga: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Persistent", H: "Telepathy"},
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 130, spd: 80, spe: 80},
+	},
+	palkia: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 95, def: 80, spa: 120, spd: 85, spe: 105},
+	},
+	giratina: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Persistent"},
+		baseStats: {hp: 100, atk: 90, def: 100, spa: 90, spd: 100, spe: 90},
+	},
+	giratinaorigin: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Infiltrator"},
+		baseStats: {hp: 100, atk: 115, def: 70, spa: 115, spd: 70, spe: 100},
+	},
+	solgaleo: {
+		inherit: true,
+		types: ["Psychic", "Fire"],
+		baseStats: {hp: 110, atk: 121, def: 90, spa: 67, spd: 79, spe: 103},
+		abilities: {0: "Full Metal Body", H: "Illuminate"},
+	},
+	lunala: {
+		inherit: true,
+		types: ["Fairy", "Ghost"],
+		baseStats: {hp: 110, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
+		abilities: {0: "Shadow Shield", H: "Illuminate"},
 	},
 };

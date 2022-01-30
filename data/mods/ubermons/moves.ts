@@ -37,124 +37,41 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {},
-		onTryHit(target, pokemon) {
-			let move = 'technoblastnormal';
+		onModifyMove(move, pokemon) {
 			if (pokemon.hasItem('burndrive')) {
-				move = 'technoblastburn';
+				move.basePower *= 1.5;
+				move.type = 'Fire';
 			} else if (pokemon.hasItem('chilldrive')) {
-				move = 'technoblastchill';
+				move.basePower *= 1.5;
+				move.type = 'Ice';
 			} else if (pokemon.hasItem('dousedrive')) {
-				move = 'technoblastdouse';
+				move.basePower *= 1.5;
+				move.type = 'Water';
 			} else if (pokemon.hasItem('shockdrive')) {
-				move = 'technoblastshock';
+				move.basePower *= 1.5;
+				move.type = 'Electric';
 			}
-			this.useMove(move, pokemon, target);
-			return null;
 		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
+		secondary: {
+			chance: 30,
+			onHit(target, pokemon, move) {
+				if (pokemon.hasItem('burndrive')) {
+					this.boost({atk: -1}, target);
+				}
+				else if (pokemon.hasItem('chilldrive')) {
+					this.boost({spa: -1}, target);
+				}
+				else if (pokemon.hasItem('dousedrive')) {
+					this.boost({spd: -1}, target);
+				}
+				else if (pokemon.hasItem('shockdrive')) {
+					this.boost({spe: -1}, target);
+				}
+			}
 		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-	},
-	technoblastnormal: {
-		num: 546,
-		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Steel",
-	},
-	technoblastburn: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			atk: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Fire",
-	},
-	technoblastchill: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spa: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Ice",
-	},
-	technoblastdouse: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spd: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Water",
-	},
-	technoblastshock: {
-		num: 546,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Techno Blast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		boosts: {
-			spe: -1,
-		},
-		secondary: null,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		target: "normal",
-		type: "Electric",
 	},
 	freezeshock: {
 		num: 553,
@@ -321,5 +238,217 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	fissure: {
+		num: 90,
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2.",
+		name: "Fissure",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+	},
+	horndrill: {
+		num: 32,
+		accuracy: 90,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Lowers target's Def if the move is resisted.",
+		name: "Horn Drill",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.boost({def: -1}, target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+	},
+	guillotine: {
+		num: 12,
+		accuracy: 90,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "2x damage when the target has stat drops.",
+		name: "Guillotine",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePowerPriority: 22,
+		onBasePower(basePower, source, target, move) {
+			let guillotine = null;
+			let statDrop: BoostName;
+			for (statDrop in target.boosts) {
+				if (target.boosts[statDrop] < 0) guillotine = true;
+			}
+			if (guillotine) {
+				this.debug('Guillotine boost');
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+	},
+	sheercold: {
+		num: 329,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		shortDesc: "1.5x power in Hail.",
+		name: "Sheer Cold",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (['hail'].includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+	},
+	prismaticlaser: {
+		num: 711,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Super effective against Dark-types. 20% chance to lower target's accuracy.",
+		name: "Prismatic Laser",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Psychic': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	roaroftime: {
+		num: 459,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback: function (pokemon, target, move) {
+			if (this.field.pseudoWeather.trickroom || this.field.pseudoWeather.wonderroom || this.field.pseudoWeather.gravity || this.field.pseudoWeather.magicroom) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "2x power if a Room or Gravity is active.",
+		name: "Roar of Time",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	spacialrend: {
+		num: 460,
+		accuracy: 95,
+		basePower: 110,
+		category: "Special",
+		shortDesc: "Starts Gravity.",
+		name: "Spacial Rend",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			pseudoWeather: 'gravity',
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	shadowforce: {
+		num: 467,
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback: function (pokemon, target, move) {
+			if (target.volatiles['protect'] || target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] || target.volatiles['spikyshield']) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Breaks Protect. 2x damage if used against Protect.",
+		name: "Shadow Force",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	sunsteelstrike: {
+		num: 713,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Sunsteel Strike",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		ignoreAbility: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	moongeistbeam: {
+		num: 714,
+		accuracy: 95,
+		basePower: 85,
+		category: "Special",
+		name: "Moongeist Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreAbility: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
 	},
 };

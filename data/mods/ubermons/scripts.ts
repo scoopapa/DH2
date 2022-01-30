@@ -85,11 +85,51 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
 		
 		this.modData('Learnsets', 'zekrom').learnset.knockoff = ['8L1'];
+		
+		this.modData('Learnsets', 'swampert').learnset.fissure = ['8L1'];
+		this.modData('Learnsets', 'metagross').learnset.fissure = ['8L1'];
+		this.modData('Learnsets', 'garchomp').learnset.fissure = ['8L1'];
+		this.modData('Learnsets', 'zekrom').learnset.fissure = ['8L1'];
+		this.modData('Learnsets', 'dracozolt').learnset.fissure = ['8L1'];
+		this.modData('Learnsets', 'dracovish').learnset.fissure = ['8L1'];
+		
+		this.modData('Learnsets', 'aegislash').learnset.horndrill = ['8L1'];
+		this.modData('Learnsets', 'bisharp').learnset.horndrill = ['8L1'];
+		
+		this.modData('Learnsets', 'obstagoon').learnset.guillotine = ['8L1'];
+		this.modData('Learnsets', 'tauros').learnset.guillotine = ['8L1'];
+		
+		this.modData('Learnsets', 'darmanitangalar').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'ninetalesalola').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'arctozolt').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'arctovish').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'silvally').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.sheercold = ['8L1'];
+		this.modData('Learnsets', 'glaceon').learnset.sheercold = ['8L1'];
+		
+		delete this.modData('Learnsets', 'necrozma').learnset.knockoff;
+		delete this.modData('Learnsets', 'necrozma').learnset.dragondance;
+		
+		delete this.modData('Learnsets', 'dialga').learnset.icebeam;
+		delete this.modData('Learnsets', 'dialga').learnset.blizzard;
+		this.modData('Learnsets', 'dialga').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'dialga').learnset.magicroom = ['8L1'];
+		this.modData('Learnsets', 'dialga').learnset.wonderroom = ['8L1'];
+		
+		this.modData('Learnsets', 'palkia').learnset.aquajet = ['8L1'];
+		this.modData('Learnsets', 'palkia').learnset.flipturn = ['8L1'];
+		
+		this.modData('Learnsets', 'giratina').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'giratina').learnset.fireblast = ['8L1'];
+		
+		this.modData('Learnsets', 'solgaleo').learnset.firelash = ['8L1'];
+		
+		this.modData('Learnsets', 'lunala').learnset.spiritbreak = ['8L1'];
 	},
 	
 	pokemon: {
-    ignoringItem() {
-        return !!((this.battle.gen >= 5 && !this.isActive) ||
+		ignoringItem() {
+			return !!((this.battle.gen >= 5 && !this.isActive) ||
             (this.hasAbility(['klutz', 'gorillatactics']) && !this.getItem().ignoreKlutz) ||
             this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
 		}

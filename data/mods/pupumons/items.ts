@@ -120,9 +120,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1010,
 		gen: 7,
 	},
-	/*nest: {
+	/*halloweeniumz: {
+		name: "Halloweenium Z",
+		desc: "If holder has Peek-a-Boo, can use Z-move.",
+		spritenum: 642,
+		onTakeItem: false,
+		zMove: "Ready or Not",
+		zMoveFrom: "Peek-a-Boo",
+		num: 1011,
+		gen: 7,
+	},*/
+	nest: {
 		name: "Nest",
-		desc: If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.
+		desc: "If held by Coowoo, gives +1 Atk, Def, and SpDef, but makes it grounded.",
+		shortDesc: "+1 Atk, Def, SpDef for Coowoo - grounded.",
 		spritenum: 491,
 		fling: {
 			basePower: 90,
@@ -149,6 +160,138 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 258,
 		gen: 8,
 	},
-	futuristicmetal: {
-		name: "Futuristic Metal",*/
+	boazanianmetal:  {
+		name: "Boazanian Metal",
+		shortDesc: "If held by an Ultranaut, changes its forme to V.",
+		spritenum: 699,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 22) || pokemon.baseSpecies.num === 22) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Ultranaut-V",
+		itemUser: ["Ultranaut-V"],
+		num: 1104,
+		gen: 8,
+	},
+	luxurycard: {
+		name: "Luxury Card",
+		shortDesc: "If holder survives a hit, attacker is Taunted (single use).",
+		spritenum: 387,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
+				if (target.useItem(source)) {
+					if (!source.volatiles['taunt']) {
+						source.addVolatile('taunt');
+					}
+				}
+			}
+		},
+		num: 542,
+		gen: 5,
+	},
+	blankcard: {
+		name: "Blank Card",
+		shortDesc: "If holder survives a hit, Hazes (single use).",
+		spritenum: 387,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
+				if (target.useItem(source)) {
+					this.add('-clearallboost');
+					for (const pokemon of this.getAllActive()) {
+						pokemon.clearBoosts();
+					}
+				}
+			}
+		},
+		num: 542,
+		gen: 5,
+	},
+	hardhat: {
+		name: "Hard Hat",
+		shortDesc: "User takes no recoil.",
+		spritenum: 417,
+		fling: {
+			basePower: 60,
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		num: 540,
+		gen: 5,
+	},
+	campfire: {
+		name: "Campfire",
+		shortDesc: "Heals 25% HP after using a status move (single use).",
+		spritenum: 307,
+		onAnyTryMove(target, source, move, pokemon) {
+			if (move.category === 'Status' && source.useItem()) {
+				this.heal(source.baseMaxhp / 4);
+			}
+		},
+		num: 564,
+		gen: 5,
+	},
+	tarpack: {
+		name: "Tar Pack",
+		shortDesc: "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",
+		spritenum: 230,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		num: 211,
+		gen: 4,
+	},
+	warhorn: {
+		name: "War Horn",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 323,
+		gen: 4,
+	},
+	meltcore: {
+		name: "Melt Core",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 324,
+		gen: 4,
+	},
+	corrodedwaste: {
+		name: "Corroded Waste",
+		shortDesc: "Flavor item.",
+		spritenum: 272,
+		fling: {
+			basePower: 120,
+		},
+		num: 325,
+		gen: 4,
+	},
+	meteorite: {
+		name: "Meteorite",
+		shortDesc: "Vacuum becomes 8 turns instead of 5.",
+		spritenum: 193,
+		fling: {
+			basePower: 60,
+		},
+		num: 284,
+		gen: 4,
+	},
 };

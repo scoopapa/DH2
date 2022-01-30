@@ -693,11 +693,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const pokemon = this.effectData.target;
 			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
 				pokemon.heal(damage);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
-		name: "Draining Effect",
+		name: "Residrain",
 		rating: 4,
 		num: -6032,
+	},
+	residrainhalf: {
+		desc: "Every time another Pokémon is damaged indirectly, this Pokémon's HP is restored by half of the same amount.",
+		shortDesc: "Heals from half of the indirect damage dealt to others.",
+		onAnyDamage(damage, target, source, effect) {
+			const pokemon = this.effectData.target;
+			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
+				pokemon.heal(damage / 2);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+		name: "Residrain (Half)",
+		rating: 4,
+		num: -6033,
 	},
 	overflow: {
 		desc: "When this Pokemon uses a Fire-type move, it receives a 50% damage boost, but loses the Fire type and this boost for 2 turns.",
@@ -719,7 +734,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Overflow",
 		rating: 4,
-		num: -6033,
+		num: -6034,
 	},
 	lasttoxin: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -735,7 +750,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Last Toxin",
 		rating: 4,
-		num: -6034,
+		num: -6035,
 	},
 	junkprocessor: {
 		desc: "Every time this Pokemon's stats are lowered, heals 20% of its max HP.",
@@ -755,7 +770,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Junk Processor",
 		rating: 4,
-		num: -6035,
+		num: -6036,
 	},
 	danceofthorns: {
 		desc: "If this pokemon has it’s stats lowered, it sets a layer of toxic spikes on the opponent’s side of the field.",
@@ -775,7 +790,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Dance of Thorns",
 		rating: 4,
-		num: -6036,
+		num: -6037,
 	},
 	boobytrap: {
 		desc: "This Pokémon is immune to all entry hazards. If it lands on any type of entry hazard, it uses Tar Shot on all active enemy Pokemon.",
@@ -804,9 +819,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		hazardImmune: true,
 		name: "Booby Trap",
 		rating: 4,
-		num: -6037,
+		num: -6038,
 	},
 	wonderseal: {
+		desc: "All super effective and not very effective moves used on this Pokemon or by this Pokemon fail.",
+		shortDesc: "All non-neutrally effective moves used on or by this Pokemon fail.",
 		onAnyTryHit(target, source, move) {
 			const pokemon = this.effectData.target;
 			if (source !== pokemon && target !== pokemon) return;
@@ -824,6 +841,139 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Wonder Seal",
 		rating: 4,
-		num: -6038,
+		num: -6039,
 	},
+	powerplant: {
+        desc: "This Pokemon heals for 1/4 of its max health upon lowering an enemy's stats.",
+		shortDesc: "Heal 1/4 on foe stat drop.",
+		onAnyAfterEachBoost(boost, target, source) {
+			if (!source || source === target || source !== this.effectData.target) return;
+			let statsLowered = false;
+            let i: BoostName;
+            for (i in boost) {
+               if (boost[i]! < 0) {
+                   statsLowered = true;
+            	}
+           	if (statsLowered) {
+                this.add('-ability', source, 'Power Plant');
+                this.heal(source.baseMaxhp / 4, source);
+            	}
+			}
+        },
+        name: "Power Plant",
+        rating: 4,
+        num: -6040,
+    },
+	climaticchange: {
+        desc: "Upon using a Water, Fire, or Ice move, this Pokemon changes to that type and sets the corresponding weather.",
+		shortDesc: "Changes type and weather when using Water/Fire/Ice moves.",
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type) {
+				switch (type) {
+					case "Water":
+						this.field.setWeather('raindance');	
+						if (!source.setType(type)) return;
+						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+						break;
+					case "Fire":
+						this.field.setWeather('sunnyday');	
+						if (!source.setType(type)) return;
+						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+						break;
+					case "Ice":
+						this.field.setWeather('hail');	
+						if (!source.setType(type)) return;
+						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+						break;
+					
+				}
+			}
+		},
+        name: "Climatic Change",
+        rating: 4,
+        num: -6041,
+    },
+	soulguard: {
+        desc: "This Pokemon is immune to types it resists.",
+		shortDesc: "Resistances become immunities.",
+		onTryHit(target, source, move) {
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Soul Guard immunity: ' + move.id);
+			if (target.runEffectiveness(move) < 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Soul Guard');
+				}
+				return null;
+			}
+		},
+        name: "Soul Guard",
+        rating: 4,
+        num: -6042,
+    },
+	evaporate: {
+        desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
+		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.add('-immune', target, '[from] ability: Evaporate');
+				return null;
+			}
+		},
+		onAnyPrepareHit(source, target, move){
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type && type === 'Water') {
+				this.add('-clearallboost');
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				}
+			}
+		},
+        name: "Evaporate",
+        rating: 4,
+        num: -6043,
+    },
+	scavenger: {
+        desc: "This Pokemon's Dark-type moves have +1 priority",
+		shortDesc: "+1 Priority to Dark moves.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Dark') return priority + 1;
+		},
+        name: "Scavenger",
+        rating: 4,
+        num: -6044,
+    },
+	infatigable: {
+        desc: "If this Pokemon's recharge moves faint an opposing Pokemon, the user doesn't have to recharge.",
+		shortDesc: "Recharge moves don't recharge if the opponent faints.",
+		onAfterMove(source, target, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === source) continue;
+				if (!pokemon.hp) {
+					source.removeVolatile('mustrecharge');
+					return;
+				}
+			}
+		},
+        name: "Infatigable",
+        rating: 4,
+        num: -6045,
+    },
+	shortcircuit: {
+        desc: "When this Pokémon uses a Electric-type attack, damage is calculated using the user's Speed stat. Other effects that modify the Speed stats are used as normal, including stat stage changes.",
+        shortDesc: "Electric-type attacks use Speed stat in damage calculation.",
+        onModifyMove(move, attacker) {
+            if (move.type === 'Electric') {
+                (move as any).useSourceSpeedAsOffensive = true;
+            }
+        },
+		name: "Short Circuit",
+        rating: 3.5,
+        num: -6046,
+    },
 };

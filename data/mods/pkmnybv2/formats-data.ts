@@ -216,6 +216,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "YB",
 		doublesTier: "DYB",
 	},
+	sompuer: {
+		tier: "YB",
+		doublesTier: "DYB",
+	},
+	thermodo: {
+		tier: "YB",
+		doublesTier: "DYB",
+	},
 	
 // New Megas
 	butterfreemega: {

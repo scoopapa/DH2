@@ -9,6 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 76.5,
         color: "Yellow",
         eggGroups: ["Mineral", "Amorphous"],
+		  prevo: null,
     },
     nihilego: {
         num: 793,
@@ -32,6 +33,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 30,
         color: "Yellow",
         eggGroups: ["Field", "Fairy"],
+	  	  prevo: null,
     },
 	flygon: {
         num: 330,
@@ -43,6 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 82,
         color: "Green",
         eggGroups: ["Bug"],
+		  prevo: null,
     },
 	meganium: {
         num: 154,
@@ -80,6 +83,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 550,
         color: "Blue",
         eggGroups: ["Mineral"],
+		  prevo: null,
     },
 	metagrossmega: {
 		num: 531,
@@ -102,6 +106,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 132.5,
         color: "Purple",
         eggGroups: ["Water 3"],
+		  prevo: null,
     },
     flaaffy: {
         num: 180,
@@ -149,6 +154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 1.8,
         color: "Purple",
         eggGroups: ["Undiscovered"],
+		  evos: null,
     },
     celesteela: {
         num: 797,
@@ -175,6 +181,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 105,
         color: "Black",
         eggGroups: ["Field"],
+		  prevo: null,
     },
     rhydon: {
         num: 112,
@@ -211,6 +218,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 136,
         color: "White",
         eggGroups: ["Field", "Human-Like"],
+		  prevo: null,
     },
     trapinch: {
         num: 328,
@@ -234,6 +242,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 12,
         color: "Yellow",
         eggGroups: ["Bug"],
+		  prevo: null,
     },
 	swampert: {
 		num: 260,
@@ -242,6 +251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 85, spa: 70, spd: 75, spe: 60},
 		abilities: {0: "Torrent", H: "Poison Heal"},
 		weightkg: 81.9,
+		prevo: null,
 	},
 	swampertmega: {
 		num: 260,
@@ -280,6 +290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 100, def: 70, spa: 85, spd: 40, spe: 95},
 		abilities: {0: "Unnerve", 1: "Water Veil", H: "Moxie"},
 		weightkg: 88.8,
+		prevo: null,
 	},
 	sharpedomega: {
 		num: 319,
@@ -313,6 +324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 22.5,
         color: "Blue",
         eggGroups: ["Water 2"],
+		  prevo: null,
     },
 	toucannon: {
         num: 733,
@@ -324,6 +336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 26,
         color: "Black",
         eggGroups: ["Flying"],
+		  prevo: null,
     },
 	mew: {
         num: 151,
@@ -344,6 +357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 82, spa: 118, spd: 70, spe: 65},
 		abilities: {0: "Sand Rush", 1: "Sand Veil", H: "Desert Coat"},
 		weightkg: 77.4,
+		prevo: null,
 	},
 	trevenant: {
 		num: 709,
@@ -352,6 +366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 102, def: 73, spa: 64, spd: 81, spe: 60},
 		abilities: {0: "Natural Cure", 1: "Harvest", H: "Long Reach"},
 		weightkg: 71,
+		prevo: null,
 	},	
 	gardevoir: {
 		num: 282,
@@ -403,6 +418,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 130, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Overcoat", H: "Regenerator"},
 		weightkg: 125.8,
+		prevo: null,
 	},
 	unown: {
 		num: 201,
@@ -434,6 +450,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 45,
         color: "Blue",
         eggGroups: ["Bug"],
+		  prevo: null,
     },
     xurkitree: {
         num: 796,
@@ -469,6 +486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 60.5,
         color: "Pink",
         eggGroups: ["Field"],
+		  prevo: null,
     },
     lycanrocmidnight: {
         num: 745,
@@ -483,6 +501,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 25,
         color: "Red",
         eggGroups: ["Field"],
+		  prevo: null,
     },
 	kommoo: {
 		num: 784,
@@ -494,5 +513,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 78.2,
 		color: "Gray",
 		eggGroups: ["Dragon"],
+		prevo: null,
 	},
 };

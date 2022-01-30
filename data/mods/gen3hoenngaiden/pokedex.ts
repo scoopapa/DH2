@@ -1,6 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	clefable: {
 		inherit: true,
+		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Cute Charm"},
 	},
 	clefairy: {
@@ -384,7 +385,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Mr. Mime",
 		types: ["Psychic"],
 		baseStats: {hp: 40, atk: 45, def: 65, spa: 100, spd: 120, spe: 90},
-		abilities: {0: "Limber", 1: "Analytic"},
+		abilities: {0: "Soundproof", 1: "Analytic"},
 		heightm: 1.3,
 		weightkg: 54.5,
 		prevo: "Mime Jr.",
@@ -641,7 +642,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Roselia",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 50, atk: 90, def: 80, spa: 90, spd: 120, spe: 70},
-		abilities: {0: "Overcoat", 1: "Poison Point"},
+		abilities: {0: "Cloud Nine", 1: "Poison Point"},
 		heightm: 0.3,
 		weightkg: 2,
 		prevo: "Budew",
@@ -1426,7 +1427,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 845,
 		name: "Cramorant",
 		types: ["Flying", "Water"],
-		baseStats: {hp: 80, atk: 55, def: 75, spa: 85, spd: 135, spe: 85},
+		baseStats: {hp: 70, atk: 85, def: 55, spa: 85, spd: 95, spe: 85},
 		abilities: {0: "Gulp Missile"},
 		heightm: 0.8,
 		weightkg: 18,
@@ -1441,7 +1442,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Cramorant",
 		forme: "Gulping",
 		types: ["Flying", "Water"],
-		baseStats: {hp: 80, atk: 55, def: 75, spa: 85, spd: 135, spe: 85},
+		baseStats: {hp: 70, atk: 85, def: 55, spa: 85, spd: 95, spe: 85},
 		abilities: {0: "Gulp Missile"},
 		heightm: 0.8,
 		weightkg: 18,
@@ -1456,7 +1457,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Cramorant",
 		forme: "Gorging",
 		types: ["Flying", "Water"],
-		baseStats: {hp: 80, atk: 55, def: 75, spa: 85, spd: 135, spe: 85},
+		baseStats: {hp: 70, atk: 85, def: 55, spa: 85, spd: 95, spe: 85},
 		abilities: {0: "Gulp Missile"},
 		heightm: 0.8,
 		weightkg: 18,
@@ -1539,7 +1540,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Mime Jr.",
 		types: ["Psychic"],
 		baseStats: {hp: 20, atk: 25, def: 45, spa: 70, spd: 90, spe: 60},
-		abilities: {0: "Limber", 1: "Analytic"},
+		abilities: {0: "Soundproof", 1: "Analytic"},
 		heightm: 0.6,
 		weightkg: 13,
 		color: "Pink",
@@ -1875,10 +1876,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 90, spd: 80, spe: 70},
-	},
-	clefable: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 	},
 	chimecho: {
 		inherit: true,

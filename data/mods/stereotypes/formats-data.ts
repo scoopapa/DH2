@@ -196,6 +196,47 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
+	//Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
+	puffoon: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	outunk: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	lillipond: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	//Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
+	dunipede: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	nightmaleon: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	palisage: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
+	volcarupt: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	muabboa: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	witchwach: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	
+	
 	//LC Slate 1
 	sproutsel: {
 		tier: "ST LC",
@@ -205,6 +246,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST LC",
 		doublesTier: "ST LC",
 	},	
+	
+	
+	
 	//NFE Slate 1
 	mestela: {
 		tier: "ST NFE",

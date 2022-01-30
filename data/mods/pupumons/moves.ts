@@ -80,7 +80,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Cryosleep",
 		desc: "This move charges on the first turn and heals 1/2 of the user's maximum HP, rounded half up, on the second. Raises the user's Defense by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Raises user's Defense by 1 on turn 1. Heals the user by 50% of its max HP turn 2.",
+		shortDesc: "Raises user's Defense by 2 on turn 1. Heals the user by 50% of its max HP turn 2.",
 		prepare: "[POKEMON] is absorbing power!",
 		pp: 10,
 		priority: 0,
@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.boost({def: 1}, attacker, attacker, move);
+			this.boost({def: 2}, attacker, attacker, move);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -200,7 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mindsurge: {
 		num: 831,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		name: "Mind Surge",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
@@ -594,19 +594,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Vacuum",
-		shortDesc: "For 5 turns, the vacuum of space powers Ghost and Flying moves.",
+		shortDesc: "For 5 turns, space powers Ghost/Flying moves.",
+		desc: "For 5 turns, the vacuum of space powers Ghost and Flying-type moves, and weakens Ground and Rock-type moves.",
 		pp: 5,
 		priority: 1,
 		flags: {},
 		weather: 'vacuum',
-		onTry(pokemon, target) {
-			if (pokemon.activeMoveActions > 1) {
-				this.add('-fail', pokemon);
-				this.attrLastMove('[still]');
-				this.hint("Vacuum only works on your first turn out.");
-				return null;
-			}
-		},
 		secondary: null,
 		target: "all",
 		type: "Ghost",
@@ -619,6 +612,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		name: "Laser Sword",
+		shortDesc: "Last Resort but Steel-type.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -626,7 +620,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
 			let hasLastResort = false; // User must actually have Last Resort for it to succeed
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id === 'lastresort') {
+				if (moveSlot.id === 'lasersword') {
 					hasLastResort = true;
 					continue;
 				}
@@ -639,56 +633,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cute",
 	},
-	/*cyberbuster: {
-		num: 1017,
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		name: "Cyber Buster",
-		shortDesc: "In Vacuum, doubles stat boosts.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (['vacuum'].includes(pokemon.effectiveWeather())) {
-				onHit(target, source) {
-					let i: BoostName;
-					for (i in source.boosts) {
-						source.boosts[i] = 2 * source.boosts[i];
-					}
-					this.add('-copyboost', source, target, '[from] move: Cyber Buster');
-				},
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Flying",
-	},
-	wormhole: {
-		num: 1018,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Worm Hole",
-		shortDesc: "In Vacuum, doubles stat boosts.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (['vacuum'].includes(pokemon.effectiveWeather())) {
-				onHit(target, source) {
-					let i: BoostName;
-					for (i in source.boosts) {
-						source.boosts[i] = 2 * source.boosts[i];
-					}
-					this.add('-copyboost', source, target, '[from] move: Worm Hole');
-				},
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
-	},*/
 	quickstep: {
 		num: 1019,
 		accuracy: 100,
@@ -727,7 +671,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Heat Stomp",
 		shortDesc: "If a foe is switching out, hits it and burns it.",
 		pp: 20,
@@ -825,7 +768,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user.HP < target.HP, +1 Atk and SpAtk, and vice versa.",
 		pp: 20,
 		priority: 0,
-		flags: {mirror: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1},
 		onTryMove(attacker, defender, move) {
 			if (defender.hp < attacker.hp) {
 				this.boost({atk: -1}, attacker, attacker, move);
@@ -852,7 +795,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		drain: [1, 2],
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
 	},
@@ -873,7 +816,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
 		secondary: null,
-		target: "any",
+		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -893,8 +836,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "Ghost",
-		type: "Fire",
+		target: "normal",
+		type: "Ghost",
 		contestType: "Cool",
 	},
 	tetrodotoxin: {
@@ -903,6 +846,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		name: "Tetrodotoxin",
+		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
@@ -984,4 +928,189 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+	akashicbuster: {
+		num: 1017,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Akashic Buster",
+		shortDesc: "Doubles as a Fire-type move.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	laplacetransform: {
+		num: 468,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Laplace Transform",
+		shortDesc: "Raises SpA and Accuracy by 1 stage. Z-move: Speed +1.",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
+	wormhole: {
+		num: 1018,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Worm Hole",
+		shortDesc: "In Vacuum, doubles stat boosts.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			if (['vacuum'].includes(source.effectiveWeather())) {
+				let i: BoostName;
+				for (i in source.boosts) {
+					source.boosts[i] = 2 * source.boosts[i];
+				}
+				this.add('-copyboost', source, target, '[from] move: Worm Hole');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	coldwave: {
+		num: 1018,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Cold Wave",
+		shortDesc: "Reduces opponent's SpDef by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	consume: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Consume",
+		shortDesc: "Removes hazards. Fails if max HP. Heals 25% if hazards were removed.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(target, source) {
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+		},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Consume', '[of] ' + pokemon);
+				this.heal(pokemon.maxhp / 4, pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Consume', '[of] ' + pokemon);
+					this.heal(pokemon.maxhp / 4, pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Consume', '[of] ' + pokemon);
+				this.heal(pokemon.maxhp / 4, pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Consume', '[of] ' + pokemon);
+					this.heal(pokemon.maxhp / 4, pokemon);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	/*peekaboo: {
+		num: 712,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(130);
+		},
+		category: "Special",
+		name: "Peek-a-Boo",
+		shortDesc: "Deals a random amount of damage and forces user out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		/*onTryHit(pokemon, target, move, source) {
+            if (!this.canSwitch(pokemon.side)) {
+                return false;
+            }
+			source.forceSwitch();
+			return;
+		},
+		self: {
+			forceSwitch: true,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	readyornot: {
+		num: 712,
+		accuracy: true,
+		basePower: 0,
+		damageCallback(pokemon) {
+			return this.random(200);
+		},
+		category: "Special",
+		name: "Ready or Not",
+		shortDesc: "Deals a random amount of damage and omniboosts.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 2, source, source);
+		},
+		secondary: null,
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		isZ: "halloweeniumz",
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},*/
 };

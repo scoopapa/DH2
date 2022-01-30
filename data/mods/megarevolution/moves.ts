@@ -41,6 +41,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ground') return 1;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+		},
 		secondary: {
 			chance: 10,
 			status: 'par',
@@ -69,7 +73,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 					continue;
 				}
 				if (ally.cureStatus()) success = true;
-			}},
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
 		target: "allyTeam",
 		type: "Water",
 		contestType: "Clever",
@@ -77,7 +86,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	diamondbeam: {
 		num: 829,
 		accuracy: 100,
-		basePower: 140,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "Hits two turns after being used.",
 		name: "Diamond Beam",
@@ -94,7 +103,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					id: 'diamondbeam',
 					name: "Diamond Beam",
 					accuracy: 100,
-					basePower: 140,
+					basePower: 90,
 					category: "Special",
 					priority: 0,
 					flags: {},
@@ -105,6 +114,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			});
 			this.add('-start', source, 'Diamond Beam');
 			return null;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Doom Desire", target);
 		},
 		secondary: null,
 		target: "normal",
