@@ -740,7 +740,11 @@ shayminsky: {
 	   doublesTier: "DOU",
 },
 darmanitangalar: {
-		tier: "Uber",
+		tier: "OU",
+	   doublesTier: "DOU",
+},
+darmanitangalarzen: {
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 cinderace: {
