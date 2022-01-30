@@ -1371,6 +1371,8 @@ this.modData('Learnsets', 'toxtricitylowkey').learnset.technoblast = ['8L1'];
 this.modData('Learnsets', 'magmortar').learnset.technoblast = ['8L1'];
 delete this.modData('Learnsets', 'scyther').learnset.curse;
 delete this.modData('Learnsets', 'scizor').learnset.curse;
+this.modData('Learnsets', 'scyther').learnset.bulkup = ['8L1'];
+this.modData('Learnsets', 'scizor').learnset.bulkup = ['8L1'];
 this.modData('Learnsets', 'mimikyu').learnset.curse = ['8L1'];
 this.modData('Learnsets', 'aegislash').learnset.curse = ['8L1'];
 this.modData('Learnsets', 'spectrier').learnset.curse = ['8L1'];
