@@ -898,7 +898,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Curse",
 		pp: 10,
 		priority: 0,
-		flags: {authentic: 1},
+		flags: {},
 		volatileStatus: 'curse',
 		onModifyMove(move, source, target) {
 			if (!source.hasType('Ghost')) {
