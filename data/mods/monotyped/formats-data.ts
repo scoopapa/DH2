@@ -1700,7 +1700,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	serperior: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	tepig: {
 		tier: "LC",
