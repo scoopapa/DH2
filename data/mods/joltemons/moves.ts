@@ -880,7 +880,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			onHit(target, source, move) {
 				if (target.status) {
-					return !!target.addVolatile('throatchop');
+					return !!target.addVolatile('taunt');
 				}
 				return false;
 			},
