@@ -58,7 +58,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	simipour: {
 		inherit: true,
-		abilities: {0: "Gluttony", 1: "Rain Dish", H: "Torrent"},
+		abilities: {0: "Gorilla Tactics", 1: "Rain Dish", H: "Torrent"},
+	},
+	simisear: {
+		inherit: true,
+		abilities: {0: "Gorilla Tactics", H: "Blaze"},
+	},
+	simisage: {
+		inherit: true,
+		abilities: {0: "Gorilla Tactics", H: "Overgrow"},
 	},
 	gigalith: {
 		inherit: true,
@@ -509,7 +517,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	krookodile: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Veil"},
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Concussion"},
 	},
 	weezing: {
 		inherit: true,
@@ -550,7 +558,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	typhlosion: {
 		inherit: true,
 		types: ["Fire", "Ground"],
-		abilities: {0: "Blaze", H: "Magma Armor"},
+		abilities: {0: "Blaze", H: "Neuroforce"},
 	},
 	feraligatr: {
 		inherit: true,
@@ -923,7 +931,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	goodra: {
 		inherit: true,
 		types: ["Dragon", "Poison"],
-		abilities: {0: "Sticky Hold", 1: "Hydration", H: "Gooey"},
+		abilities: {0: "Sticky Hold", 1: "Neuroforce", H: "Gooey"},
 	},
 	sliggoo: {
 		inherit: true,
@@ -1007,5 +1015,98 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	kangaskhan: {
 		inherit: true,
 		abilities: {0: "Early Bird", 1: "Scrappy", H: "Parental Bond"},
+	},
+	eelektross: {
+		inherit: true,
+		types: ["Electric", "Poison"],
+		abilities: {0: "Levitate", 1: "Neuroforce", H: "Swift Swim"},
+	},
+	audinomega: {
+		inherit: true,
+		abilities: {0: "Fairy Aura"},
+	},
+	guzzlord: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Honey Gather"},
+	},
+	breloom: {
+		inherit: true,
+		abilities: {0: "Toxic Boost", 1: "Technician", H: "Poison Heal"},
+	},
+	hariyama: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Toxic Boost", H: "Sheer Force"},
+	},
+	gligar: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Sand Veil", H: "Toxic Boost"},
+	},
+	seismitoad: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Toxic Boost", H: "Water Absorb"},
+	},
+	heliolisk: {
+		inherit: true,
+		abilities: {0: "Dry Skin", 1: "Flare Boost", H: "Solar Power"},
+	},
+	sunflora: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Flare Boost"},
+	},
+	darmanitan: {
+		inherit: true,
+		abilities: {0: "Sheer Force", 1: "Gorilla Tactics", H: "Zen Mode"},
+	},
+	darmanitanzen: {
+		inherit: true,
+		abilities: {0: "Sheer Force", 1: "Gorilla Tactics", H: "Zen Mode"},
+	},
+	primeape: {
+		inherit: true,
+		abilities: {0: "Vital Spirit", 1: "Gorilla Tactics", H: "Defiant"},
+	},
+	oranguru: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Gorilla Tactics", H: "Symbiosis"},
+	},
+	bewear: {
+		inherit: true,
+		abilities: {0: "Fluffy", 1: "Concussion", H: "Unnerve"},
+	},
+	terrakion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Concussion"},
+	},
+	pangoro: {
+		inherit: true,
+		abilities: {0: "Iron Fist", 1: "Concussion", H: "Scrappy"},
+	},
+	scrafty: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Moxie", H: "Concussion"},
+	},
+	eternatus: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Concussion"},
+	},
+	swoobat: {
+		inherit: true,
+		abilities: {0: "Concussion", 1: "Klutz", H: "Simple"},
+	},
+	druddigon: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Sheer Force", H: "Concussion"},
+	},
+	victini: {
+		inherit: true,
+		abilities: {0: "Victory Star", H: "Neuroforce"},
+	},
+	garchompmega: {
+		inherit: true,
+		abilities: {0: "Neuroforce"},
+	},
+	raikou: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Neuroforce", H: "Inner Focus"},
 	},
 };
