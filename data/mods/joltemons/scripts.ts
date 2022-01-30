@@ -803,7 +803,6 @@ this.modData("Learnsets", "centiskorch").learnset.uturn = ["8L1"];
 this.modData("Learnsets", "centiskorch").learnset.earthquake = ["8L1"];
 this.modData("Learnsets", "centiskorch").learnset.toxic = ["8L1"];
 this.modData("Learnsets", "centiskorch").learnset.rapidspin = ["8L1"];
-this.modData("Learnsets", "houndoom").learnset.fierywrath = ["8L1"];
 this.modData("Learnsets", "blacephalon").learnset.pyroball = ["8L1"];
 this.modData("Learnsets", "blacephalon").learnset.headbutt = ["8L1"];
 this.modData("Learnsets", "blacephalon").learnset.poltergeist = ["8L1"];
