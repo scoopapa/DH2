@@ -640,8 +640,120 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 36,
 	},
-
-	
+	concussion: {
+		id: "concussion",
+		name: "Concussion",
+		shortDesc: "While this Pokemon is active, the opponents' held items have no effect.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Concussion');
+				}
+				activated = true;
+				if (!pokemon.volatiles['embargo']) {
+					pokemon.addVolatile('embargo');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['embargo']) {
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('embargo');
+			}
+		},
+		rating: 4,
+	},
+	gorillatactics: {
+		name: "Gorilla Tactics",
+		shortDesc: "While this Pokemon is active, the opponents' held items have no effect.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Concussion');
+				}
+				activated = true;
+				if (!pokemon.volatiles['embargo']) {
+					pokemon.addVolatile('embargo');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['embargo']) {
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('embargo');
+			}
+		},
+		rating: 4,
+		num: 255,
+	},
+	toxicboost: {
+		shortDesc: "1.5x Attack and Defense while poisoned; Immune to poison status damage.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				return false;
+			 }
+		},
+		name: "Toxic Boost",
+		rating: 2.5,
+		num: 137,
+	},
+	flareboost: {
+		shortDesc: "1.5x SpA and SpD while burn; Immune to burn damage.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'brn' && move.category === 'Special') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				return false;
+			 }
+		},
+		name: "Flare Boost",
+		rating: 2,
+		num: 138,
+	},
 
 // The other Power of Alchemies
 		powerofalchemyweezing: {
