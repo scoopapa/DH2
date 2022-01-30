@@ -126,11 +126,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	chillpillg: {
 		name: "Chill Pill G",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
-				if (pokemon.species.name.includes('Galar')) {
-					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-					let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+		onStart: function(pokemon) {
+			this.add('-item', pokemon, 'Chill Pill');
+			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
+				this.add('-formechange', pokemon, 'Darmanitan-Galar-Zen', '[msg]');
+				pokemon.formeChange("Darmanitan-Galar-Zen");
+				let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Snow Warning', oldAbility, '[of] ' + pokemon);
 				}
 			}
 		},
