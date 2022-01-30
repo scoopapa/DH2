@@ -889,6 +889,107 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	technoblast: {
+		num: 546,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+    shortDesc: "Type varies based on the held Drive. 1.2x power when holding a Drive.",
+		name: "Techno Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasItem('burndrive') || pokemon.hasItem('dousedrive') || pokemon.hasItem('chilldrive') || pokemon.hasItem('shockdrive')) {
+				move.basePower *= 1.2;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	aggravate: {
+		num: 675,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "If the target is statused, applies Taunt.",
+		name: "Aggravate",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Power Trip", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target.status) {
+					return !!target.addVolatile('throatchop');
+				}
+				return false;
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	curse: {
+		num: 174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Curse",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		volatileStatus: 'curse',
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!source.hasType('Ghost')) {
+				delete move.volatileStatus;
+				move.self = {boosts: {spe: -1, atk: 2, def: 1}};
+			} else if (move.volatileStatus && target.volatiles['curse']) {
+				return false;
+			}
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Curse');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to curse');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return (!target.hasType('Normal') || !target.hasType('Ghost'));
+		},
+		secondary: null,
+		target: "randomNormal",
+		nonGhostTarget: "self",
+		type: "Ghost",
+		zMove: {effect: 'curse'},
+		contestType: "Tough",
+	},
 	
 // stuff that needs to be edited because of other stuff
 	fling: {
