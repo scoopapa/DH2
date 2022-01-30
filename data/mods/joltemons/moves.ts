@@ -909,7 +909,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!source.hasType('Ghost')) {
 				delete move.volatileStatus;
 				move.self = {boosts: {spe: -1, atk: 2, def: 1}};
-			} else if (move.volatileStatus && target.volatiles['curse']) {
+			} else if (move.volatileStatus && target.volatiles['curse'] && (target.hasType('Normal') || target.hasType('Ghost'))) {
 				return false;
 			}
 		},
@@ -920,7 +920,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
-				if (!target || target.fainted || target.hp <= 0 || target.hasType('Normal') || target.hasType('Ghost')) {
+				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to curse');
 					return;
 				}
