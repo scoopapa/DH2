@@ -651,7 +651,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', source, 'Concussion');
 				}
 				activated = true;
-				if (!pokemon.volatiles['embargo']) {
+				if (!pokemon.volatiles['embargo'] && !pokemon.hasItem('morningblossom')) {
 					pokemon.addVolatile('embargo');
 				}
 			}
@@ -660,7 +660,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
-				if (!target.volatiles['embargo']) {
+				if (!target.volatiles['embargo'] && !target.hasItem('morningblossom')) {
 					target.addVolatile('embargo');
 				}
 			}
