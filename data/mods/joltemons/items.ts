@@ -629,6 +629,40 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		desc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
+	ironball: {
+		name: "Iron Ball",
+		spritenum: 224,
+		fling: {
+			basePower: 130,
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (target.volatiles['ingrain'] || target.volatiles['smackdown'] || this.field.getPseudoWeather('gravity')) return;
+			if (move.type === 'Ground' && target.hasType('Flying')) return 0;
+		},
+		// airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded
+		num: 278,
+		gen: 4,
+		desc: "Holder's use of Gravity lasts 8 turns instead of 5. Grounds holder.",
+	},
+	cursedbelt: {
+		name: "Cursed Belt",
+		spritenum: 13,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.category === 'Status') {
+				target.addVolatile('disable');
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['disable']) {
+				return this.chainModify([0x14CC, 0x1000]);
+			}
+		},
+		desc: "When the holder uses a status move, it is disabled. Moves deal 1.3x damage when a move is disabled.",
+	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
 		aguavberry: {
