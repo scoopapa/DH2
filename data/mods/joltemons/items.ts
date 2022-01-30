@@ -468,7 +468,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod > 0) {
+			if (target.getMoveHitData(move).typeMod > 0 && !target.hasAbility('solidrock') && !target.hasAbility('filter')) {
 				this.debug('Protector neutralize');
 				return this.chainModify(0.75);
 			}
