@@ -864,9 +864,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	aggravate: {
-		num: 675,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 70,
 		category: "Physical",
     shortDesc: "If the target is statused, applies Taunt.",
 		name: "Aggravate",
