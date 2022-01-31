@@ -86,7 +86,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	breloom: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 130, def: 80, spa: 60, spd: 60, spe: 70},
+		baseStats: {hp: 105, atk: 130, def: 80, spa: 60, spd: 70, spe: 70},
 		abilities: {0: "Poison Heal", H: "Technician"},
 	},
 	hariyama: {

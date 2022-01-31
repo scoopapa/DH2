@@ -3,38 +3,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		/*Template:
 		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
-		//Undexited Removal
-		delete this.modData('Learnsets', 'venusaur').learnset.return;
-		delete this.modData('Learnsets', 'clefable').learnset.return;
-		delete this.modData('Learnsets', 'venomoth').learnset.return;
-		delete this.modData('Learnsets', 'victreebel').learnset.return;
-		delete this.modData('Learnsets', 'golem').learnset.return;
-		delete this.modData('Learnsets', 'omastar').learnset.return;
-		delete this.modData('Learnsets', 'articuno').learnset.return;
-		delete this.modData('Learnsets', 'mew').learnset.return;
-		delete this.modData('Learnsets', 'noctowl').learnset.return;
-		delete this.modData('Learnsets', 'crobat').learnset.return;
-		delete this.modData('Learnsets', 'jumpluff').learnset.return;
-		delete this.modData('Learnsets', 'murkrow').learnset.return;
-		delete this.modData('Learnsets', 'forretress').learnset.return;
-		delete this.modData('Learnsets', 'houndoom').learnset.return;
-		delete this.modData('Learnsets', 'magby').learnset.return;
-		delete this.modData('Learnsets', 'entei').learnset.return;
-		delete this.modData('Learnsets', 'breloom').learnset.return;
-		delete this.modData('Learnsets', 'hariyama').learnset.return;
-		delete this.modData('Learnsets', 'sableye').learnset.return;
-		delete this.modData('Learnsets', 'mawile').learnset.return;
-		delete this.modData('Learnsets', 'manectric').learnset.return;
-		delete this.modData('Learnsets', 'flygon').learnset.return;
-		delete this.modData('Learnsets', 'regice').learnset.return;
-		
-		delete this.modData('Learnsets', 'venomoth').learnset.refresh;
-		delete this.modData('Learnsets', 'forretress').learnset.refresh;
-		delete this.modData('Learnsets', 'breloom').learnset.refresh;
-		delete this.modData('Learnsets', 'hariyama').learnset.refresh;
-		delete this.modData('Learnsets', 'manectric').learnset.refresh;
-		
-		
 		//Generation 1
 		this.modData('Learnsets', 'venusaur').learnset.mysticalfire = ['8L1'];
 		this.modData('Learnsets', 'venusaur').learnset.slackoff = ['8L1'];
@@ -95,6 +63,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Generation 3
 		this.modData('Learnsets', 'breloom').learnset.lowswept = ['8L1'];
 		delete this.modData('Learnsets', 'breloom').learnset.spore;
+		delete this.modData('Learnsets', 'shroomish').learnset.spore;
 		
 		this.modData('Learnsets', 'hariyama').learnset.ironhead = ['8L1'];
 		this.modData('Learnsets', 'hariyama').learnset.drainpunch = ['8L1'];
@@ -102,6 +71,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mawile').learnset.naturesmadness = ['8L1'];
 		
 		delete this.modData('Learnsets', 'flygon').learnset.defog;
+		delete this.modData('Learnsets', 'vibrava').learnset.defog;
 		
 		this.modData('Learnsets', 'regice').learnset.overcharge = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.flameburst = ['8L1'];
