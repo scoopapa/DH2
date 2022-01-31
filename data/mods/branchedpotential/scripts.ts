@@ -545,7 +545,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'melchor').learnset.focusblast = ['8L1'];
 		delete this.modData('Learnsets', 'melchor').learnset.doubleironbash;
 
-		this.modData('Learnsets', 'wizmagius').learnset.voltswitch = ['8L1'];
+		this.modData('Learnsets', 'wizmagis').learnset.voltswitch = ['8L1'];
 
 		this.modData('Learnsets', 'miswitchus').learnset.sludgebomb = ['8L1'];
 		this.modData('Learnsets', 'miswitchus').learnset.sludgewave = ['8L1'];
