@@ -152,7 +152,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Night Slash", target);
 		},
 		critRatio: 2,
-		sideCondition: 'stealthrock',
+		sideCondition: 'spikes',
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Dark",
@@ -212,7 +212,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	bittermalice: {
-		shortDesc: "Power doubles if the target has a status ailment; 10% chance to freeze.",
+		shortDesc: "Power doubles if the target has a status ailment; 30% chance of frostbite.",
 		num: -1009,
 		accuracy: 100,
 		basePower: 60,
@@ -230,7 +230,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Snarl", target);
 		},
 		secondary: {
-			chance: 10,
+			chance: 30, // not real freeze!
 			status: 'frz',
 		},
 		target: "normal",
@@ -653,8 +653,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Moonlight", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && pokemon.volatiles['lunarblessing']) return false;
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite && pokemon.volatiles['lunarblessing']) return false;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
 			pokemon.cureStatus();
 		},
 		volatileStatus: 'lunarblessing',
@@ -688,7 +688,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tail Glow", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
 			pokemon.cureStatus();
 		},
 		boosts: {
@@ -700,5 +700,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
+	},
+	refresh: {
+		inherit: true,
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
+			pokemon.cureStatus();
+		},
 	},
 };
