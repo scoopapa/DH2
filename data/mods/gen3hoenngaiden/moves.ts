@@ -1581,4 +1581,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 	},
+	circlethrow: {
+		num: 509,
+		accuracy: 90,
+		basePower: 60,
+		category: "Physical",
+		name: "Circle Throw",
+		pp: 10,
+		priority: -6,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		forceSwitch: true,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 };

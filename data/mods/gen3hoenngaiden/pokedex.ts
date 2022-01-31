@@ -49,7 +49,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	persian: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Limber"},
+		abilities: {0: "Stakeout", 1: "Limber"},
 		otherFormes: ["Persian-Alola"],
 		formeOrder: ["Persian", "Persian-Alola"],
 	},
@@ -105,6 +105,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	scyther: {
 		inherit: true,
 		abilities: {0: "Swarm"},
+		evos: ["Kleavor", "Scizor"],
+	},
+	kleavor: {
+		num: 900,
+		name: "Kleavor",
+		types: ["Bug", "Rock"],
+		baseStats: {hp: 70, atk: 135, def: 95, spa: 45, spd: 70, spe: 85},
+		abilities: {0: "Swarm"},
+		heightm: 1.8,
+		weightkg: 89,
+		prevo: "Scyther",
 	},
 	smeargle: {
 		inherit: true,
@@ -117,6 +128,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	ursaring: {
 		inherit: true,
 		abilities: {0: "Guts"},
+		evos: ["Ursaluna"],
+	},
+	ursaluna: {
+		num: 900,
+		name: "Ursaluna",
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 130, atk: 140, def: 105, spa: 45, spd: 80, spe: 50},
+		abilities: {0: "Guts"},
+		heightm: 2.4,
+		weightkg: 290,
+		prevo: "Ursaring",
 	},
 	teddiursa: {
 		inherit: true,
@@ -124,7 +146,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	absol: {
 		inherit: true,
-		abilities: {0: "Pressure"},
+		abilities: {0: "Pressure", "Fur Coat"},
 	},
 	banette: {
 		inherit: true,
@@ -222,10 +244,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Vital Spirit"},
 	},
-	stantler: {
-		inherit: true,
-		abilities: {0: "Intimidate"},
-	},
 	walrein: {
 		inherit: true,
 		abilities: {0: "Thick Fat"},
@@ -240,7 +258,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	delcatty: {
 		inherit: true,
-		abilities: {0: "Cute Charm"},
+		abilities: {0: "Cute Charm", "Fur Coat"},
 	},
 	skitty: {
 		inherit: true,
@@ -248,7 +266,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dewgong: {
 		inherit: true,
-		abilities: {0: "Thick Fat"},
+		abilities: {0: "Thick Fat", "Fur Coat"},
 	},
 	seel: {
 		inherit: true,
@@ -724,7 +742,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Mawile",
 		types: ["Steel"],
 		baseStats: {hp: 60, atk: 95, def: 110, spa: 75, spd: 97, spe: 30},
-		abilities: {0: "Hyper Cutter", 1: "Intimidate"},
+		abilities: {0: "Stakeout", 1: "Intimidate"},
 		heightm: 0.6,
 		weightkg: 11.5,
 		eggGroups: ["Field", "Fairy"],
@@ -1221,7 +1239,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Crabominable",
 		types: ["Fighting", "Ice"],
 		baseStats: {hp: 100, atk: 132, def: 87, spa: 62, spd: 85, spe: 43},
-		abilities: {0: "Overcoat", 1: "Ice Body"},
+		abilities: {0: "Fur Coat", 1: "Ice Body"},
 		heightm: 1.7,
 		weightkg: 180,
 		prevo: "Crabrawler",
@@ -1845,6 +1863,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 71.2,
 		color: "Brown",
 		eggGroups: ["Field"],
+		evos: ["Wyrdeer"],
+	},
+	wyrdeer: {
+		num: 899,
+		name: "Wyrdeer",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 108, atk: 110, def: 77, spa: 110, spd: 80, spe: 70},
+		abilities: {0: "Intimidate", 1: "Insomnia"},
+		heightm: 1.8,
+		weightkg: 95.1,
+		prevo: "Stantler",
 	},
 	alakazam: {
 		inherit: true,
@@ -1852,6 +1881,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ariados: {
 		inherit: true,
+		abilities: {0: "Stakeout", 1: "Swarm"},
 		baseStats: {hp: 70, atk: 90, def: 70, spa: 60, spd: 70, spe: 40},
 	},
 	azumarill: {
@@ -1953,7 +1983,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Perrserker",
 		types: ["Steel"],
 		baseStats: {hp: 70, atk: 110, def: 100, spa: 50, spd: 60, spe: 50},
-		abilities: {0: "Pickup", 1: "Limber"},
+		abilities: {0: "Stakeout", 1: "Limber"},
 		heightm: 0.8,
 		weightkg: 28,
 		color: "Brown",
@@ -2112,6 +2142,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	qwilfish: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 95, def: 85, spa: 55, spd: 55, spe: 85},
+		abilities: {0: "Poison Point", 1: "Stakeout"},
+		otherFormes: ["Qwilfish-Hisui"],
+		formeOrder: ["Qwilfish", "Qwilfish-Hisui"],
+	},
+	qwilfishhisui: {
+		num: 211,
+		name: "Qwilfish-Hisui",
+		baseSpecies: "Qwilfish",
+		forme: "Hisui",
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 65, atk: 95, def: 85, spa: 55, spd: 55, spe: 85},
+		abilities: {0: "Poison Point", 1: "Intimidate"},
+		heightm: 0.5,
+		weightkg: 3.9,
+		evos: ["Overqwil"],
+	},
+	overqwil: {
+		num: 904,
+		name: "Overqwil",
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 85, atk: 115, def: 95, spa: 65, spd: 65, spe: 85},
+		abilities: {0: "Poison Point", 1: "Intimidate"},
+		heightm: 2.5,
+		weightkg: 60.5,
+		prevo: "Qwilfish-Hisui",
 	},
 	solrock: {
 		inherit: true,
@@ -2125,6 +2180,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	wigglytuff: {
 		inherit: true,
 		baseStats: {hp: 140, atk: 70, def: 45, spa: 85, spd: 50, spe: 45},
+		abilities: {0: "Cute Charm", 1: "Fur Coat"},
 	},
 	aggron: {
 		inherit: true,
@@ -2275,6 +2331,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	sneasel: {
 		inherit: true,
 		evos: ["Weavile"],
+		otherFormes: ["Sneasel-Hisui"],
+		formeOrder: ["Sneasel", "Sneasel-Hisui"],
 	},
 	weavile: {
 		num: 461,
@@ -2289,6 +2347,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoType: "levelHold",
 		evoItem: "Razor Claw",
 		eggGroups: ["Field"],
+	},
+	sneaselhisui: {
+		num: 215,
+		name: "Sneasel-Hisui",
+		baseSpecies: "Sneasel",
+		forme: "Hisui",
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 55, atk: 95, def: 55, spa: 35, spd: 75, spe: 115},
+		abilities: {0: "Inner Focus", 1: "Keen Eye"},
+		heightm: 0.9,
+		weightkg: 27,
+		evos: ["Sneasler"],
+	},
+	sneasler: {
+		num: 903,
+		name: "Sneasler",
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 80, atk: 130, def: 60, spa: 40, spd: 80, spe: 120},
+		abilities: {0: "Pressure"},
+		heightm: 1.3,
+		weightkg: 43,
+		prevo: "Sneasel-Hisui",
 	},
 	lickitung: {
 		inherit: true,
@@ -2530,7 +2610,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Alola",
 		types: ["Dark", "Normal"],
 		baseStats: {hp: 75, atk: 71, def: 70, spa: 40, spd: 80, spe: 77},
-		abilities: {0: "Run Away", 1: "Guts"},
+		abilities: {0: "Fur Coat", 1: "Guts"},
 		heightm: 0.7,
 		weightkg: 25.5,
 		color: "Black",
@@ -2619,6 +2699,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	ninetales: {
 		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Fur Coat"},
 		otherFormes: ["Ninetales-Alola"],
 		formeOrder: ["Ninetales", "Ninetales-Alola"],
 	},
@@ -2630,7 +2711,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ice"],
 		genderRatio: {M: 0.25, F: 0.75},
 		baseStats: {hp: 73, atk: 67, def: 75, spa: 81, spd: 100, spe: 109},
-		abilities: {0: "Ice Body"},
+		abilities: {0: "Ice Body", 1: "Fur Coat"},
 		heightm: 1.1,
 		weightkg: 19.9,
 		color: "Blue",
@@ -2670,7 +2751,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Alola",
 		types: ["Ground", "Steel"],
 		baseStats: {hp: 35, atk: 80, def: 60, spa: 50, spd: 70, spe: 110},
-		abilities: {0: "Sand Veil", 1: "Arena Trap"},
+		abilities: {0: "Stakeout", 1: "Arena Trap"},
 		heightm: 0.7,
 		weightkg: 66.6,
 		color: "Brown",
@@ -2699,7 +2780,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Alola",
 		types: ["Dark"],
 		baseStats: {hp: 65, atk: 60, def: 60, spa: 75, spd: 65, spe: 115},
-		abilities: {0: "Pickup", 1: "Limber"},
+		abilities: {0: "Fur Coat", 1: "Limber"},
 		heightm: 1.1,
 		weightkg: 33,
 		color: "Blue",
@@ -3131,5 +3212,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 20.5,
 		color: "Green",
 		eggGroups: ["Water 1", "Amorphous"],
+	},
+	cacturne: {
+		inherit: true,
+		abilities: {0: "Sand Veil", 1: "Stakeout"},
+	},
+	seviper: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Stakeout"},
+	},
+	furret: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Fur Coat"},
 	},
 };
