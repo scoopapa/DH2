@@ -731,7 +731,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 137,
 	},
 	flareboost: {
-		shortDesc: "1.5x SpA and SpD while burn; Immune to burn damage.",
+		shortDesc: "1.5x SpA and SpD while burned; Immune to burn damage.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.status === 'brn' && move.category === 'Special') {
