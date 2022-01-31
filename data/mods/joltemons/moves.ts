@@ -305,6 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			if (source.hasType('Water')) {
 				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
 				this.damage(source.baseMaxhp / 3, source, target);
 			}
 		},
@@ -745,57 +746,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Tough",
 	},
-	explosion: {
-		num: 153,
-		accuracy: 100,
-		basePower: 500,
-		category: "Physical",
-		isViable: true,
-		name: "Explosion",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		selfdestruct: "always",
-		secondary: null,
-		target: "allAdjacent",
-		type: "Normal",
-		contestType: "Beautiful",
-	},
-	selfdestruct: {
-		num: 120,
-		accuracy: 100,
-		basePower: 340,
-		category: "Physical",
-		name: "Self-Destruct",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		selfdestruct: "always",
-		secondary: null,
-		target: "allAdjacent",
-		type: "Normal",
-		contestType: "Beautiful",
-	},
-	mistyexplosion: {
-		num: 802,
-		accuracy: 100,
-		basePower: 260,
-		category: "Special",
-		name: "Misty Explosion",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		selfdestruct: "always",
-		onBasePower(basePower, source) {
-			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
-				this.debug('misty terrain boost');
-				return this.chainModify(1.5);
-			}
-		},
-		secondary: null,
-		target: "allAdjacent",
-		type: "Fairy",
-	},
 	rashpowder: {
 		accuracy: 75,
 		basePower: 0,
@@ -888,6 +838,107 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+	},
+	technoblast: {
+		num: 546,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+    shortDesc: "Type varies based on the held Drive. 1.2x power when holding a Drive.",
+		name: "Techno Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasItem('burndrive') || pokemon.hasItem('dousedrive') || pokemon.hasItem('chilldrive') || pokemon.hasItem('shockdrive')) {
+				move.basePower *= 1.2;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	aggravate: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+    shortDesc: "If the target is statused, applies Taunt.",
+		name: "Aggravate",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Power Trip", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target.status) {
+					return !!target.addVolatile('taunt');
+				}
+				return false;
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	curse: {
+		num: 174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "Curses if Ghost, else -1 Spe, +2 Atk, +1 Def.",
+		name: "Curse",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'curse',
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!source.hasType('Ghost')) {
+				delete move.volatileStatus;
+				move.self = {boosts: {spe: -1, atk: 2, def: 1}};
+			} else if (move.volatileStatus && target.volatiles['curse'] || (target.hasType('Normal') || target.hasType('Ghost') || target.volatiles['protect'] || target.volatiles['spikyshield'] || target.volatiles['banefulbunker'])) {
+				return false;
+			}
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Curse');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to curse');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return (!target.hasType('Normal') || !target.hasType('Ghost'));
+		},
+		secondary: null,
+		target: "randomNormal",
+		nonGhostTarget: "self",
+		type: "Ghost",
+		zMove: {effect: 'curse'},
+		contestType: "Tough",
 	},
 	
 // stuff that needs to be edited because of other stuff
@@ -993,5 +1044,142 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
+	},
+	gravity: {
+		num: 356,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Gravity",
+		pp: 5,
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'gravity',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				else if (source && source.hasItem('ironball')) {
+					return 8;
+				}
+				return 5;
+			},
+			onStart() {
+				this.add('-fieldstart', 'move: Gravity');
+				for (const pokemon of this.getAllActive()) {
+					let applies = false;
+					if (pokemon.removeVolatile('bounce') || pokemon.removeVolatile('fly')) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['skydrop']) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+
+						if (pokemon.volatiles['skydrop'].source) {
+							this.add('-end', pokemon.volatiles['twoturnmove'].source, 'Sky Drop', '[interrupt]');
+						}
+						pokemon.removeVolatile('skydrop');
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['magnetrise']) {
+						applies = true;
+						delete pokemon.volatiles['magnetrise'];
+					}
+					if (pokemon.volatiles['telekinesis']) {
+						applies = true;
+						delete pokemon.volatiles['telekinesis'];
+					}
+					if (applies) this.add('-activate', pokemon, 'move: Gravity');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return accuracy * 5 / 3;
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.id).flags['gravity']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['gravity']) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd() {
+				this.add('-fieldend', 'move: Gravity');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('curse')) {
+				this.add('-end', pokemon, 'Curse', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			if (pokemon.hp && pokemon.removeVolatile('curse')) {
+				this.add('-end', pokemon, 'Curse', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
 	},
 };
