@@ -128,7 +128,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 390,
 		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Chill Pill');
-			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
+			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan' && pokemon.species.name.includes('Galar')) {
 				this.add('-formechange', pokemon, 'Darmanitan-Galar-Zen', '[msg]');
 				pokemon.formeChange("Darmanitan-Galar-Zen");
 				let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
