@@ -985,7 +985,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
-			'Stakeout', 'Fur Coat'
+			'Stakeout', 'Fur Coat',
 			
 			//Pokémon
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
@@ -2113,7 +2113,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
-			'Stakeout', 'Fur Coat'
+			'Stakeout', 'Fur Coat',
 			
 			//Pokémon
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
@@ -2152,7 +2152,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
-			'Stakeout', 'Fur Coat'
+			'Stakeout', 'Fur Coat',
 			
 			//Pokémon
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
