@@ -131,7 +131,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Ursaluna"],
 	},
 	ursaluna: {
-		num: 900,
+		num: 901,
 		name: "Ursaluna",
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 130, atk: 140, def: 105, spa: 45, spd: 80, spe: 50},
