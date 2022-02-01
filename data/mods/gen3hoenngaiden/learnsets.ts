@@ -5398,12 +5398,12 @@ corsolagalar: {
 			return: ["3L1"],
 		},
 	},
-	kleavor {
+	kleavor: {
 		learnset: {
 			return: ["3L1"],
 		},
 	},
-	ursaluna {
+	ursaluna: {
 		learnset: {
 			return: ["3L1"],
 		},
