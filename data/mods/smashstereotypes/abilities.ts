@@ -318,4 +318,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 137,
 	},
+	lowflight: {
+		name: "Low Flight",
+		shortDesc: "User takes half damage when switching in or at full HP.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns) {
+				this.debug('Low Flight weaken');
+				return this.chainModify(0.5);
+			}
+			else if (target.hp >= target.maxhp) {
+				this.debug('Low Flight weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		rating: 0,
+		num: 123009,
+	},
+	mythicalpresence: {
+		shortDesc: "Lowers adjacent opponents' Special Attack on entry.", // this happened twice independently haha
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Mythical Presence",
+		rating: 4,
+		num: -1013,
+	},
 };

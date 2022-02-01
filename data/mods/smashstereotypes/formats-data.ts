@@ -187,4 +187,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	boreastra: {
 		tier: "SSS",
 	},
+	matsuru: {
+		tier: "SSS",
+	},
+	dolphena: {
+		tier: "SSS",
+	},
+	typhlosion: {
+		tier: "SSS",
+	},
 };
