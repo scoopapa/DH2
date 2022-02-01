@@ -146,7 +146,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	absol: {
 		inherit: true,
-		abilities: {0: "Pressure", "Fur Coat"},
+		abilities: {0: "Pressure", 1: "Fur Coat"},
 	},
 	banette: {
 		inherit: true,
@@ -258,7 +258,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	delcatty: {
 		inherit: true,
-		abilities: {0: "Cute Charm", "Fur Coat"},
+		abilities: {0: "Cute Charm", 1: "Fur Coat"},
 	},
 	skitty: {
 		inherit: true,
@@ -266,7 +266,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dewgong: {
 		inherit: true,
-		abilities: {0: "Thick Fat", "Fur Coat"},
+		abilities: {0: "Thick Fat", 1: "Fur Coat"},
 	},
 	seel: {
 		inherit: true,
