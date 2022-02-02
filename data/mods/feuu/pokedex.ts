@@ -3847,7 +3847,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Manditop"],
 	},
 	grubbur: {
-		fusion: ['Grubbin', 'Drillbur'],
+		fusion: ['Grubbin', 'Drilbur'],
 		num: 1084,
 		name: "Grubbur",
 		types: ["Bug", "Ground"],
