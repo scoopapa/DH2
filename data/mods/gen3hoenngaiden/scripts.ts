@@ -541,6 +541,29 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'magby').learnset.faintattack = ['3L1'];
 		this.modData('Learnsets', 'miltank').learnset.megakick = ['3L1'];
 		this.modData('Learnsets', 'larvitar').learnset.rage = ['3L1'];
+		
+		//Circle Throw
+		this.modData('Learnsets', 'nidoqueen').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'poliwrath').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'kangaskhan').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'azumarill').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'heracross').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'hitmontop').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'exploud').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'hariyama').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'mawile').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'spinda').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'kecleon').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'dusclops').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'toxicroak').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'chesnaught').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'crabominable').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'grimmsnarl').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'nidoking').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'granbull').learnset.circlethrow = ['3L1'];
+		this.modData('Learnsets', 'machamp').learnset.circlethrow = ['3L1'];
+		
+		this.modData('Learnsets', 'kleavor').learnset.rockslide = ['3L1'];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {

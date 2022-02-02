@@ -2095,4 +2095,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	wyrdeer: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	kleavor: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	ursaluna: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	sneaselhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	sneasler: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	qwilfishhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	overqwil: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };

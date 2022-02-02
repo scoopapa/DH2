@@ -111,6 +111,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id !== 'heatmor') return;
 			return accuracy + 15;
 		},
+		onModifyMove(move, source, target) {
+			if (source.species.id !== 'typhlosion') return;
+			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
+		},
 	},
 	adaptableattack: {
 		accuracy: 100,
@@ -1517,5 +1521,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Raises the user's Atk, Def and Spe.",
 		type: "Ice",
 		contestType: "Beautiful",
+	},
+	maelstrom: {
+		num: -1012,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Maelstrom",
+		pp: 10,
+		priority: -6,
+		flags: {mirror: 1},
+		forceSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+		shortDesc: "Forces the target to switch to a random ally.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Whirlpool", target);
+		},
+	},
+	thunderpunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'typhlosion') {
+				move.basePower = 85;
+			}
+		},
+	},
+	firepunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'typhlosion') {
+				move.basePower = 85;
+			}
+		},
 	},
 };

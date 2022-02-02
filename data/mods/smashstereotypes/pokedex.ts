@@ -639,4 +639,26 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Illuminate", 1: "Levitate", H: "Victory Star"},
 		weightkg: 0.1,
 	},
+	matsuru: {
+		num: 52,
+		name: "Matsuru",
+		types: ["Flying", "Ghost"],
+		baseStats: {hp: 70, atk: 55, def: 81, spa: 111, spd: 65, spe: 106},
+		abilities: {0: "Intimidate", 1: "Big Pecks", H: "Serene Grace", S: "Low Flight"},
+		weightkg: 24.5,
+		eggGroups: ["Flying"],
+	},
+	dolphena: {
+		num: 53,
+		name: "Dolphena",
+		types: ["Water", "Dragon"],
+		baseStats: {hp: 79, atk: 60, def: 95, spa: 125, spd: 100, spe: 81},
+		abilities: {0: "Hydration", H: "Mythical Presence"},
+	},
+	typhlosion: {
+		inherit: true,
+		num: 54,
+		types: ["Fire", "Ground"],
+		abilities: {0: "Blaze", H: "Neuroforce"},
+	},
 };

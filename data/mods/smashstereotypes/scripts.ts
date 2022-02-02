@@ -97,6 +97,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'stunfisk').learnset.shoreup = ['8L1'];
 		this.modData('Learnsets', 'stunfisk').learnset.voltswitch = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'typhlosion').learnset.earthpower = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.scorchingsands = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.stealthrock = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.selfdestruct = ['8L1'];
 	},
 	
 	teambuilderConfig: {
