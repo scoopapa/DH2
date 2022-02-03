@@ -928,9 +928,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
-				if (damage) {
-					this.heal(damage, target, pokemon);
-				}
 			},
 		},
 		onTryImmunity(target) {
