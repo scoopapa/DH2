@@ -76,6 +76,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'regice').learnset.overcharge = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.flameburst = ['8L1'];
 		delete this.modData('Learnsets', 'regice').learnset.rockpolish;
+		
+		
+		//Generation 4
+		this.modData('Learnsets', 'munchlax').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'munchlax').learnset.bodypress = ['8L1'];
+		delete this.modData('Learnsets', 'munchlax').learnset.recycle;
+		
+		delete this.modData('Learnsets', 'froslass').learnset.thunder;
+		delete this.modData('Learnsets', 'froslass').learnset.thunderbolt;
+		
+		delete this.modData('Learnsets', 'mesprit').learnset.calmmind;
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers

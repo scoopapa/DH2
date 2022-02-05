@@ -15,4 +15,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 8,
 		shortDesc: "When held by Mawile, +2 Attack upon Entry. Can't be Knocked Off.",
 	},
+	earthplate: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
