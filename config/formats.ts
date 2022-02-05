@@ -1196,7 +1196,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'multiverse',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard', '!Species Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
 	{
