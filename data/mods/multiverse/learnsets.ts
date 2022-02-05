@@ -138,4 +138,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["8L1"],
 		},
 	},
+	arceusground: {
+		learnset: {
+		},
+	},
 };
