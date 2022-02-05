@@ -1186,9 +1186,9 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				/*if (speciesTable[template.name]) {
+				if (speciesTable[template.name]) {
 					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom formes). ", "You have more than one " + template.baseSpecies + "."];
-				}*/
+				}
 				speciesTable[template.name] = true;
 				if (template.tier !== 'MV') {
 					return [set.species + ' is not usable in Multiverse.'];
