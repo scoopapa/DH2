@@ -963,10 +963,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ['Melchor'],
 		eggGroups: ["Undiscovered"],
 	},
-	wizmagius: {
+	wizmagis: {
 		inheritMoves: ['Mismagius'],
 		num: -143,
-		name: "Wizmagius",
+		name: "Wizmagis",
 		types: ["Ghost", "Electric"],
 		gender: "M",
 		baseStats: {hp: 70, atk: 66, def: 70, spa: 110, spd: 105, spe: 109},
@@ -988,7 +988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -145,
 		name: "Suidreem",
 		types: ["Grass", "Fairy"],
-		baseStats: {hp: 90, atk: 60, def: 80, spa: 110, spd: 115, spe: 110},
+		baseStats: {hp: 90, atk: 60, def: 80, spa: 110, spd: 115, spe: 45},
 		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Comatose"},
 		weightkg: 60.5,
 	},

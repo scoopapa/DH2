@@ -407,4 +407,26 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 	},
+	freezeclausemod: { // modded because frostbite isn't real freeze
+		effectType: 'Rule',
+		name: 'Freeze Clause Mod',
+		desc: "Prevents players from freezing more than one of their opponent's Pok&eacute;mon at a time",
+		onBegin() {
+			this.add('rule', 'Freeze Clause Mod: Limit one foe frozen');
+		},
+		onSetStatus(status, target, source, sourceEffect) {
+			if (source && source.side === target.side) {
+				return;
+			}
+			if (status.id === 'frz') {
+				if (sourceEffect && sourceEffect.effectType === 'Move' && sourceEffect.id === 'bittermalice') return; // please work
+				for (const pokemon of target.side.pokemon) {
+					if (pokemon.status === 'frz' && !pokemon.statusData.frostbite) {
+						this.add('-message', 'Freeze Clause activated.');
+						return false;
+					}
+				}
+			}
+		},
+	},
 };
