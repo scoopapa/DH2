@@ -3836,7 +3836,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 5.6,
 		evos: ["Ivycat"],
 	},
-/*
 	vullarogue: {
 		fusion: ['Vullaby', 'Tyrogue'],
 		num: 1083,
@@ -3848,7 +3847,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Manditop"],
 	},
 	grubbur: {
-		fusion: ['Grubbin', 'Drillbur'],
+		fusion: ['Grubbin', 'Drilbur'],
 		num: 1084,
 		name: "Grubbur",
 		types: ["Bug", "Ground"],
@@ -3877,7 +3876,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 18.5,
 		evos: ["Venoqueen"],
 	},
-*/
+
 	
 // NFE
 	corveotto: {
