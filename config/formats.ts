@@ -1197,7 +1197,7 @@ export const Formats: FormatList = [
 		},
 		mod: 'multiverse',
 		ruleset: ['Standard', '!Species Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Snow Cloak', 'Bright Powder', 'Lax Incense'],
 	},
 	{
 		name: "[Gen 8] National Dex Balanced Hackmons v3",
