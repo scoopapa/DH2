@@ -559,7 +559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onAnyFaintPriority: 1,
 		onAnyFaint(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
+			this.heal(pokemon.baseMaxhp / 3);
 		},
 		name: "Scavenge",
 		rating: 3.5,
