@@ -652,7 +652,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
 				if (!pokemon.useItem) return;
 				pokemon.ability = target.item;
-				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} copied the ${this.dex.getItem(pokemon.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} copied the item belonging to ${target.illusion ? target.illusion.name : target.name}!`);
 				return;
 			}
 		},
