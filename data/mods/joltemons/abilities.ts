@@ -568,11 +568,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Moves used against this Pokemon don't receive STAB.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.hasType(move.type)) {
-				this.debug('Unusual weaken');
+				this.debug('Unimpressed weaken');
 				return this.chainModify(0.67);
 			}
-			else if (source.hasType(move.type) && (source.hasAbility('adaptability'))) {
-				this.debug('Unusual weaken');
+			if (source.hasType(move.type) && (source.hasAbility('adaptability'))) {
+				this.debug('Unimpressed weaken');
 				return this.chainModify(0.5);
 			}
 		},
