@@ -986,15 +986,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	wormadam: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+		abilities: {0: "Simple", 1: "Honey Gather", H: "Overcoat"},
 	},
 	wormadamsandy: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+		abilities: {0: "Fur Coat", 1: "Honey Gather", H: "Overcoat"},
 	},
 	wormadamtrash: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+		abilities: {0: "Thick Fat", 1: "Honey Gather", H: "Overcoat"},
 	},
 	mothim: {
 		inherit: true,
@@ -1108,5 +1108,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	raikou: {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Neuroforce", H: "Inner Focus"},
+	},
+	banettemega: {
+		inherit: true,
+		types: ["Ghost", "Steel"],
+		abilities: {0: "Wandering Spirit"},
+	},
+	silvally: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	typenull: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Pressure", H: "Power of Alchemy (Type: Null)"},
+	},
+	gyaradosmega: {
+		inherit: true,
+		abilities: {0: "Rain Dish"},
 	},
 };
