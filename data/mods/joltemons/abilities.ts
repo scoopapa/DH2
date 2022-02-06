@@ -1008,4 +1008,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Power of Alchemy (Vanilluxe)",
 		rating: 0,
 	},
+	powerofalchemytypenull: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onCriticalHit: false,
+		isPermanent: true,
+		name: "Power of Alchemy (Type Null)",
+		rating: 0,
+	},
+	powerofalchemysilvally: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			let totaldef = 0;
+			let totalspd = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({spa: 1});
+			} else if (totalspd) {
+				this.boost({atk: 1});
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Silvally)",
+		rating: 0,
+	},
 };
