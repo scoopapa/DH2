@@ -248,6 +248,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -113,
 		name: "Ghoulipinch",
 		types: ["Water", "Ghost"],
+		evos: ["Ghoulpion"],
 		baseStats: {hp: 50, atk: 40, def: 80, spa: 35, spd: 55, spe: 70},
 		abilities: {0: "Corrosive Pinchers", 1: "Cursed Body", H: "Swift Swim"},
 		weightkg: 0.1,
