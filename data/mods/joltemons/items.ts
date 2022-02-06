@@ -705,6 +705,63 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "When the holder uses a status move, it is disabled. Moves deal 1.3x damage when a move is disabled.",
 	},
+	utilityumbrella: {
+		name: "Utility Umbrella",
+		spritenum: 718,
+		fling: {
+			basePower: 60,
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail') return false;
+		},
+		onWeather(target, source, effect) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+				this.heal(target.baseMaxhp / 12);
+			}
+		},
+		// Other effects implemented in statuses.js, moves.js, and abilities.js
+		num: 1123,
+		gen: 8,
+		desc: "The holder ignores rain- and sun-based effects & weather damage. Heals 1/12 of its max HP in weather.",
+	},
+	nightlightball: {
+		name: "Nightlight Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 90,
+			status: 'brn',
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Nightlight Ball');
+			this.add('-message', `Mimikyu's Nightlight Ball has a sinister shine!`);
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && target.baseSpecies.baseSpecies === 'Mimikyu') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] item: Nightlight Ball');
+				}
+				return null;
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Mimikyu') return false;
+			return true;
+		},
+		itemUser: ["Mimikyu"],
+		desc: "If held by Mimikyu: 1.3x Atk and Def, Heals 1/4 of its max HP when hit by Electric moves.",
+	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
 		aguavberry: {
