@@ -106,11 +106,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	polteageist: {
 		inherit: true,
-		abilities: {0: "Weak Armor", 1: "Rain Dish", H: "Cursed Body"},
+		abilities: {0: "Weak Armor", 1: "Rain Dish", H: "Counterfeit"},
 	},
 	polteageistantique: {
 		inherit: true,
-		abilities: {0: "Weak Armor", 1: "Rain Dish", H: "Cursed Body"},
+		abilities: {0: "Weak Armor", 1: "Rain Dish", H: "Unimpressed"},
 	},
 	glastrier: {
 		inherit: true,
@@ -126,23 +126,23 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	rotomheat: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Flame Body"},
+		abilities: {0: "Levitate", 1: "Counterfeit", H: "Flame Body"},
 	},
 	rotomwash: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Water Absorb"},
+		abilities: {0: "Levitate", 1: "Counterfeit", H: "Water Absorb"},
 	},
 	rotomfrost: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Refrigerate"},
+		abilities: {0: "Levitate", 1: "Counterfeit", H: "Refrigerate"},
 	},
 	rotomfan: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Speed Boost"},
+		abilities: {0: "Levitate", 1: "Counterfeit", H: "Speed Boost"},
 	},
 	rotommow: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Grassy Surge"},
+		abilities: {0: "Levitate", 1: "Counterfeit", H: "Grassy Surge"},
 	},
 	ampharos: {
 		inherit: true,
@@ -245,7 +245,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	electrode: {
 		inherit: true,
-		abilities: {0: "Libero", 1: "Static", H: "Aftermath"},
+		abilities: {0: "Libero", 1: "Counterfeit", H: "Aftermath"},
 	},
 	dubwool: {
 		inherit: true,
@@ -322,7 +322,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mukalola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Gluttony", H: "Power of Alchemy (Muk-Alola)"},
+		abilities: {0: "Poison Touch", 1: "Scavenge", H: "Power of Alchemy (Muk-Alola)"},
 	},
 	mismagius: {
 		inherit: true,
@@ -570,7 +570,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	houndoom: {
 		inherit: true,
-		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+		abilities: {0: "Scavenge", 1: "Flash Fire", H: "Solar Power"},
 	},
 	houndoommega: {
 		inherit: true,
@@ -610,7 +610,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	honchkrow: {
 		inherit: true,
-		abilities: {0: "Neuroforce", 1: "Merciless", H: "Moxie"},
+		abilities: {0: "Counterfeit", 1: "Merciless", H: "Moxie"},
 	},
 	ariados: {
 		inherit: true,
@@ -646,7 +646,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	aromatisse: {
 		inherit: true,
-		abilities: {0: "Healer", 1: "Pastel Veil", H: "Aroma Veil"},
+		abilities: {0: "Unimpressed", 1: "Pastel Veil", H: "Aroma Veil"},
 	},
 	lilligant: {
 		inherit: true,
@@ -1112,7 +1112,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	banettemega: {
 		inherit: true,
 		types: ["Ghost", "Steel"],
-		abilities: {0: "Wandering Spirit"},
+		abilities: {0: "Counterfeit"},
 	},
 	silvally: {
 		inherit: true,
@@ -1126,6 +1126,123 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rain Dish"},
 	},
+	amoonguss: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Counterfeit", H: "Regenerator"},
+	},
+	klefki: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Counterfeit", H: "Magician"},
+	},
+	liepard: {
+		inherit: true,
+		abilities: {0: "Counterfeit", 1: "Unburden", H: "Prankster"},
+	},
+	stunfiskgalar: {
+		inherit: true,
+		abilities: {0: "Mimicry", H: "Counterfeit"},
+	},
+	sudowoodo: {
+		inherit: true,
+		abilities: {0: "Counterfeit", 1: "Rock Head", H: "Rattled"},
+	},
+	grimmsnarl: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Counterfeit", H: "Pickpocket"},
+	},
+	absol: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Super Luck", H: "Justified"},
+	},
+	luxray: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Intimidate", H: "Guts"},
+	},
+	mandibuzz: {
+		inherit: true,
+		abilities: {0: "Big Pecks", 1: "Overcoat", H: "Scavenge"},
+	},
+	mightyena: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Quick Feet", H: "Scavenge"},
+	},
+	noivern: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Scavenge"},
+	},
+	purugly: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Unimpressed", H: "Defiant"},
+	},
+	raticate: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Guts", H: "Hustle"},
+	},
+	raticatealola: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Hustle", H: "Thick Fat"},
+	},
+	staraptor: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Scavenge", H: "Reckless"},
+	},
+	remoraid: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Sniper", H: "Moody"},
+	},
+	octillery: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Sniper", H: "Moody"},
+	},
+	weavile: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Scavenge", H: "Pickpocket"},
+	},
+	linoone: {
+		inherit: true,
+		abilities: {0: "Scavenge", 1: "Gluttony", H: "Quick Feet"},
+	},
+	whiscash: {
+		inherit: true,
+		abilities: {0: "Unimpressed", 1: "Anticipation", H: "Hydration"},
+	},
+	vileplume: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Unimpressed", H: "Effect Spore"},
+	},
+	empoleon: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Unimpressed"},
+	},
+	espurr: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Infiltrator", H: "Unimpressed"},
+	},
+	tsareena: {
+		inherit: true,
+		abilities: {0: "Leaf Guard", 1: "Queenly Majesty", H: "Unimpressed"},
+	},
+	wailord: {
+		inherit: true,
+		abilities: {0: "Water Veil", 1: "Unimpressed", H: "Pressure"},
+	},
+	mudsdale: {
+		inherit: true,
+		abilities: {0: "Unimpressed", 1: "Stamina", H: "Inner Focus"},
+	},
+	cobalion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Unimpressed"},
+	},
+	lickilicky: {
+		inherit: true,
+		abilities: {0: "Unimpressed", 1: "Oblivious", H: "Cloud Nine"},
+	},
+	musharna: {
+		inherit: true,
+		abilities: {0: "Forewarn", 1: "Synchronize", H: "Unimpressed"},
+	},
+
 	
 // silvally moment
 	silvallybug: {
