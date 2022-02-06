@@ -13,9 +13,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'clefairy').learnset.teleport;
 		
 		this.modData('Learnsets', 'victreebel').learnset.flytrap = ['8L1'];
-		delete this.modData('Learnsets', 'victreebel').learnset.strengthsap;
+		this.modData('Learnsets', 'victreebel').learnset.taunt = ['8L1'];
+		/*delete this.modData('Learnsets', 'victreebel').learnset.strengthsap;
 		delete this.modData('Learnsets', 'weepinbell').learnset.strengthsap;
-		delete this.modData('Learnsets', 'bellsprout').learnset.strengthsap;
+		delete this.modData('Learnsets', 'bellsprout').learnset.strengthsap;*/
 		
 		this.modData('Learnsets', 'golem').learnset.swordsdance = ['8L1'];
 		
