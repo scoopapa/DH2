@@ -559,7 +559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect) {
-				this.add('-activate', source, 'ability: Ultra Health'); 
+				this.add('-activate', source, 'ability: Scavenge'); 
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
