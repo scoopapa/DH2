@@ -46,8 +46,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 158,
 	},
 	intimidate: {
-		onStart(pokemon, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile' && source.item === 'mawilelite') return false;
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mawile' && pokemon.item === 'mawilelite') return false;
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !this.isAdjacent(target, pokemon)) continue;
