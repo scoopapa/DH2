@@ -15,7 +15,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.maxhp / 16);
 		},
 		onWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
 				this.heal(target.baseMaxhp / 8);
 			}
