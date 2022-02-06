@@ -260,6 +260,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ability: this.dex.getAbility('poisontouch'),
 			});
 		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
+		},
 		isPermanent: true,
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 0,
@@ -555,7 +561,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 184,
 	},
 	scavenge: {
-		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
+		shortDesc: "(Bugged) This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'ability: Scavenge'); 
