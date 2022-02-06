@@ -764,6 +764,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
+// lol scavenge
+/*
 		aguavberry: {
 		name: "Aguav Berry",
 		spritenum: 5,
@@ -1088,5 +1090,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 160,
 		gen: 3,
 	},
-
+*/
 };
