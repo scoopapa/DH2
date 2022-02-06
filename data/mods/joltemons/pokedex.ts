@@ -1126,4 +1126,74 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rain Dish"},
 	},
+	
+// silvally moment
+	silvallybug: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallydark: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallydragon: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyelectric: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyfairy: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyfighting: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyfire: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyflying: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyghost: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallygrass: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyground: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyice: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallypoison: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallypsychic: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallyrock: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallysteel: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
+	silvallywater: {
+		inherit: true,
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},
+	},
 };
