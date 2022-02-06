@@ -586,6 +586,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Unimpressed",
 		rating: 3.5,
 	},
+/*
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -609,7 +610,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
-	
+*/ 
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && !foeActive.item
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const item = target.getItem();
+				const additionalBannedItems = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+				];
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, item) || additionalBannedItems.includes(target.item)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, item, '[from] ability: Counterfeit', '[of] ' + target);
+				pokemon.setAbility(item);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+
 // Edited by proxy
 	oblivious: {
 		onUpdate(pokemon) {
