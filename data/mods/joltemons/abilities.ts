@@ -555,6 +555,53 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
+	scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
+		onAnyFaintPriority: 1,
+		onAnyFaint(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Scavenge",
+		rating: 3.5,
+	},
+	unimpressed: {
+		shortDesc: "Moves used against this Pokemon don't receive STAB.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.hasType(move.type)) {
+				this.debug('Unusual weaken');
+				return this.chainModify(0.67);
+			}
+			else if (source.hasType(move.type) && (source.hasAbility('adaptability'))) {
+				this.debug('Unusual weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Unimpressed",
+		rating: 3.5,
+	},
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			pokemon.addVolatile('counterfeit');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+				) continue;
+				break;
+			}
+			if (!pokemon.side.pokemon[i]) return;
+			if (pokemon === pokemon.side.pokemon[i]) return;
+			const counterfeit = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Counterfeit');
+			pokemon.item = counterfeit.item;
+			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.getItem(counterfeit.item).name} belonging to ${counterfeit.name}!`);
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
 	
 // Edited by proxy
 	oblivious: {
