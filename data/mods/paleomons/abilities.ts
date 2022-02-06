@@ -66,7 +66,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -103,
 	},
 
-	corrosivepinchers: {
+	corrosivepincers: {
 		onSourceModifyAtkPriority: 5,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Poison') {
@@ -91,18 +91,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				this.add('-message', `${pokemon.name}'s Corrosive Pinchers made it immune to being poisoned!`);
+				this.add('-message', `${pokemon.name}'s Corrosive Pincers made it immune to being poisoned!`);
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'psn' && status.id !== 'tox') return;
 			if ((effect as Move)?.status) {
-				this.add('-message', `${target.name}'s Corrosive Pinchers made it immune to being poisoned!`);
+				this.add('-message', `${target.name}'s Corrosive Pincers made it immune to being poisoned!`);
 			}
 			return false;
 		},
-		name: "Corrosive Pinchers",
+		name: "Corrosive Pincers",
 		rating: 4.5,
 		num: -104,
 	},

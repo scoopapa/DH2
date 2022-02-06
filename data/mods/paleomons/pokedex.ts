@@ -250,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ghost"],
 		evos: ["Ghoulpion"],
 		baseStats: {hp: 50, atk: 40, def: 80, spa: 35, spd: 55, spe: 70},
-		abilities: {0: "Corrosive Pinchers", 1: "Cursed Body", H: "Swift Swim"},
+		abilities: {0: "Corrosive Pincers", 1: "Cursed Body", H: "Swift Swim"},
 		weightkg: 0.1,
 	},
 
@@ -259,7 +259,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ghoulpion",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 70, atk: 90, def: 110, spa: 65, spd: 75, spe: 80},
-		abilities: {0: "Corrosive Pinchers", 1: "Cursed Body", H: "Swift Swim"},
+		abilities: {0: "Corrosive Pincers", 1: "Cursed Body", H: "Swift Swim"},
 		weightkg: 0.2,
 	},
 };
