@@ -610,7 +610,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
-*/ 
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -638,6 +637,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				this.add('-ability', pokemon, item, '[from] ability: Counterfeit', '[of] ' + target);
 				pokemon.setAbility(item);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+*/
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
+				if (!pokemon.useItem) return;
+				pokemon.ability = target.item;
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} copied the ${this.dex.getItem(pokemon.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
 				return;
 			}
 		},
