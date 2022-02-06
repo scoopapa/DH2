@@ -1,5 +1,4 @@
-	export const Conditions: {[k: string]: ConditionData} = {
-
+export const Conditions: {[k: string]: ConditionData} = {
   silvally: {
 		name: 'Silvally',
 		onTypePriority: 1,
