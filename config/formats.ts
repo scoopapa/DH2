@@ -1186,14 +1186,18 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if ( template.tier !== 'MV') {
+				if (speciesTable[template.name]) {
+					return ["You are limited to one of each Pokémon by Species Clause (except for different Rotom formes). ", "You have more than one " + template.baseSpecies + "."];
+				}
+				speciesTable[template.name] = true;
+				if (template.tier !== 'MV') {
 					return [set.species + ' is not usable in Multiverse.'];
 				}
 			}
 		},
 		mod: 'multiverse',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		ruleset: ['Standard', '!Species Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Snow Cloak', 'Bright Powder', 'Lax Incense'],
 	},
 	{
 		name: "[Gen 8] National Dex Balanced Hackmons v3",

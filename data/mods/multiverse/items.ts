@@ -3,9 +3,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Mawile-Lite",
 		spritenum: 1,
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Mawile') {
-				this.boost({atk: 2});
-			}
+			this.add('-ability', pokemon, 'Huge Power', '[from] ability: Intimidate', '[of] ' + pokemon);
+			pokemon.setAbility('hugepower');
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
@@ -13,6 +12,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -1,
 		gen: 8,
-		shortDesc: "When held by Mawile, +2 Attack upon Entry. Can't be Knocked Off.",
+		shortDesc: "When held by Mawile, Changes Intimidate to Huge Power.",
+	},
+	earthplate: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

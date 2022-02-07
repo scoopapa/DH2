@@ -45,4 +45,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 158,
 	},
+	intimidate: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mawile' && pokemon.item === 'mawilelite') return false;
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		inherit: true,
+	},
 };

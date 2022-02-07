@@ -27,7 +27,11 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
-	return: {
+	flameburst: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	judgment: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -35,6 +39,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	return: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	
 	
 	flytrap: {
 		num: -1,
@@ -54,41 +63,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-	},
-	flameburst: {
-		num: 481,
-		accuracy: 100,
-		basePower: 70,
-		category: "Special",
-		isNonstandard: null,
-		name: "Flame Burst",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onHit(target, source, move) {
-			if (target.side.active.length === 1) {
-				return;
-			}
-			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
-					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
-				}
-			}
-		},
-		onAfterSubDamage(damage, target, source, move) {
-			if (target.side.active.length === 1) {
-				return;
-			}
-			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
-					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
-				}
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		contestType: "Beautiful",
 	},
 	thunderburst: {
 		num: -2,
@@ -254,5 +228,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Electric",
+	},
+	sharpleaves: {
+		num: -8,
+		accuracy: 95,
+		basePower: 55,
+		category: "Physical",
+		shortDesc: "Always results in a critical hit.",
+		name: "Sharp Leaves",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Razor Leaf", target);
+		},
+		willCrit: true,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
 	},
 };

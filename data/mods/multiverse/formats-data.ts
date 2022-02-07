@@ -71,4 +71,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	regice: {
 		tier: "MV",
 	},
+	munchlax: {
+		tier: "MV",
+	},
+	rhyperior: {
+		tier: "MV",
+	},
+	mamoswine: {
+		tier: "MV",
+	},
+	froslass: {
+		tier: "MV",
+	},
+	rotomheat: {
+		tier: "MV",
+	},
+	rotommow: {
+		tier: "MV",
+	},
+	mesprit: {
+		tier: "MV",
+	},
+	arceusground: {
+		tier: "MV",
+	},
 };

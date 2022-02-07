@@ -13,9 +13,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'clefairy').learnset.teleport;
 		
 		this.modData('Learnsets', 'victreebel').learnset.flytrap = ['8L1'];
-		delete this.modData('Learnsets', 'victreebel').learnset.strengthsap;
-		delete this.modData('Learnsets', 'weepinbell').learnset.strengthsap;
-		delete this.modData('Learnsets', 'bellsprout').learnset.strengthsap;
+		this.modData('Learnsets', 'victreebel').learnset.taunt = ['8L1'];
+		this.modData('Learnsets', 'victreebel').learnset.darkpulse = ['8L1'];
+		this.modData('Learnsets', 'victreebel').learnset.sharpleaves = ['8L1'];
 		
 		this.modData('Learnsets', 'golem').learnset.swordsdance = ['8L1'];
 		
@@ -76,6 +76,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'regice').learnset.overcharge = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.flameburst = ['8L1'];
 		delete this.modData('Learnsets', 'regice').learnset.rockpolish;
+		
+		
+		//Generation 4
+		this.modData('Learnsets', 'munchlax').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'munchlax').learnset.bodypress = ['8L1'];
+		delete this.modData('Learnsets', 'munchlax').learnset.recycle;
+		
+		delete this.modData('Learnsets', 'froslass').learnset.thunder;
+		delete this.modData('Learnsets', 'froslass').learnset.thunderbolt;
+		
+		delete this.modData('Learnsets', 'mesprit').learnset.calmmind;
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
