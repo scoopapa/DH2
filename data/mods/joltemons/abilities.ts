@@ -193,19 +193,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prickly Coat",
 	},
 	sandveil: {
-		desc: "If Sandstorm is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Sandstorm.",
+		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD are boosted 1.5x; immunity to Sandstorm.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
-			}
-		},
 		onModifySpD(spd, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
+				return this.chainModify(1.5);
 			}
 		},
 		id: "sandveil",
@@ -214,19 +209,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 146,
 	},
 	snowcloak: {
-		desc: "If Hail is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Hail.",
+		desc: "If Hail is active, this Pokemon's Ice, Water, and Fairy-type moves deal 1.3x damage. This Pokemon takes no damage from Hail.",
+		shortDesc: "This Pokemon's Ice/Water/Fairy attacks do 1.3x in Hail; immunity to Hail.",
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyDef(def, pokemon) {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
+				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
+					this.debug('Snow Cloak boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
 			}
 		},
 		id: "snowcloak",
