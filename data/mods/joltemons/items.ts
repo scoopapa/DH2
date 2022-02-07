@@ -240,21 +240,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are boosted 1.5x.",
 	},
+/*
 	soulblade: {
 		name: "Soul Blade",
 		spritenum: 297,
 		fling: {
 			basePower: 100,
 		},
-		onBasePowerPriority: 16,
-		onBasePower(basePower, user, target, move) {
-			if (move.category === 'Physical' || move.category === 'Special') {
+		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x1199, 0x1000]);
-			}
 		},
 		gen: 8,
 		desc: "(Non-functional placeholder) The holder's moves deal 1.1x damage + .2x for every KO it has.",
 	},
+*/
 	mentalherb: {
 		name: "Mental Herb",
 		spritenum: 285,
@@ -1097,4 +1096,45 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 	},
 */
+// soul blades
+	soulblade: {
+		name: "Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x1199, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl2');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.1x damage + .2x for every KO it has.",
+	},
+	soulbladelvl2: {
+		name: "Soul Blade Lvl. 2",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x14CC, 0x1000]);
+		},
+		/*
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl2');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		*/
+		gen: 8,
+		desc: "The holder's moves deal 1.3x damage + .2x for every KO it has.",
+	},
 };
