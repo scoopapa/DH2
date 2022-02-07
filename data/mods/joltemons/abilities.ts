@@ -643,7 +643,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
-*/
+
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -658,6 +658,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Counterfeit",
 		rating: 3.5,
+	},
+*/
+	counterfeit: {
+		shortDesc: "(Non-functional placeholder) On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Counterfeit', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		name: "Counterfeit",
+		rating: 1.5,
 	},
 
 // Edited by proxy
