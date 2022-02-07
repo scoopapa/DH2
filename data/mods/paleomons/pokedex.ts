@@ -225,4 +225,41 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
 		weightkg: 291,
 	},
+
+	dodrumb: {
+		num: -111,
+		name: "Dodrumb",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 84, atk: 74, def: 104, spa: 74, spd: 54, spe: 64},
+		abilities: {0: "Unaware", 1: "Own Tempo", H: "Simple"},
+		weightkg: 19,
+	},
+
+	blossobite: {
+		num: -112,
+		name: "Blossobite",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 81, atk: 113, def: 100, spa: 70, spd: 60, spe: 71},
+		abilities: {0: "Chlorophyll", 1: "Lightning Rod", H: "Underbrush Tactics"},
+		weightkg: 223,
+	},
+
+	ghoulipinch: {
+		num: -113,
+		name: "Ghoulipinch",
+		types: ["Water", "Ghost"],
+		evos: ["Ghoulpion"],
+		baseStats: {hp: 50, atk: 40, def: 80, spa: 35, spd: 55, spe: 70},
+		abilities: {0: "Corrosive Pincers", 1: "Cursed Body", H: "Swift Swim"},
+		weightkg: 0.1,
+	},
+
+	ghoulpion: {
+		num: -114,
+		name: "Ghoulpion",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 70, atk: 90, def: 110, spa: 65, spd: 75, spe: 80},
+		abilities: {0: "Corrosive Pincers", 1: "Cursed Body", H: "Swift Swim"},
+		weightkg: 0.2,
+	},
 };
