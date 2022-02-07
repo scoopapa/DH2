@@ -13,10 +13,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
-	getAbility(name) {
-		let item = this.getItem(name);
-		return item.exists ? item : Object.getPrototypeOf(this).getAbility.call(this, name);
-	},
 	pokemon: {
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
@@ -303,31 +299,36 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Calculate damage modifiers separately (order differs between generations)
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
 	},
+		getAbility() {
+			const item = this.battle.dex.getItem(this.ability);
+			return item.exists ? item as Effect as Ability : this.battle.dex.getAbility(this.ability);
+		},
 		hasItem(item) {
 			if (this.ignoringItem()) return false;
 			if (!Array.isArray(item)) {
-				item = toID(item);
+				item = this.battle.toID(item);
 				return item === this.item || item === this.ability;
 			}
-			item = item.map(toID);
+			item = item.map(this.battle.toID);
 			return item.includes(this.item) || item.includes(this.ability);
 		},
 		eatItem() {
 			if (!this.hp || !this.isActive) return false;
-			let source = this.battle.event.target;
-			let item = this.battle.effect;
+			const source = this.battle.event.target;
+			const item = this.battle.effect;
 			if (this.battle.runEvent('UseItem', this, null, null, item) && this.battle.runEvent('TryEatItem', this, null, null, item)) {
 				this.battle.add('-enditem', this, item, '[eat]');
 
 				this.battle.singleEvent('Eat', item, this.itemData, this, source, item);
 				this.battle.runEvent('EatItem', this, null, null, item);
 
-				this.lastItem = this.item;
 				if (this.item === item.id) {
+					this.lastItem = this.item;
 					this.item = '';
 					this.itemData = {id: '', target: this};
 				}
 				if (this.ability === item.id) {
+					this.lastItem = this.ability;
 					this.baseAbility = this.ability = '';
 					this.abilityData = {id: '', target: this};
 				}
@@ -339,7 +340,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		},
 		useItem(unused, source) {
-			let item = this.battle.effect;
+			const item = this.battle.effect as Item;
 			if ((!this.hp && !item.isGem) || !this.isActive) return false;
 			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
 			if (this.battle.runEvent('UseItem', this, null, null, item)) {
@@ -356,12 +357,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				this.battle.singleEvent('Use', item, this.itemData, this, source, item);
 
-				this.lastItem = this.item;
 				if (this.item === item.id) {
+					this.lastItem = this.item;
 					this.item = '';
 					this.itemData = {id: '', target: this};
 				}
 				if (this.ability === item.id) {
+					this.lastItem = this.ability;
 					this.baseAbility = this.ability = '';
 					this.abilityData = {id: '', target: this};
 				}
@@ -371,15 +373,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return false;
 		},
-		setAbility(ability, source, effect, noForce) {
-			if (this.battle.getItem(this.ability).exists) return false;
-			return Object.getPrototypeOf(this).setAbility.call(this, ability, source, effect, noForce);
+		setAbility(ability, source, isFromFormeChange) {
+			if (this.battle.dex.getItem(this.ability).exists) return false;
+			return Object.getPrototypeOf(this).setAbility.call(this, ability, source, isFromFormeChange);
 		},
 		takeDual(source) {
 			if (!this.isActive) return false;
 			if (!this.ability) return false;
 			if (!source) source = this;
-			let dual = this.getAbility();
+			const dual = this.getAbility() as any as Item;
 			if (dual.effectType !== 'Item') return false;
 			if (this.battle.runEvent('TakeItem', this, source, null, dual)) {
 				this.baseAbility = this.ability = '';
