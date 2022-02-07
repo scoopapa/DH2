@@ -731,6 +731,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					category: "Physical",
 					priority: -1,
 					flags: {protect: 1},
+					onTryHit(target, source) {
+						if (source.fainted || !source.isActive) return false;
+					},
 					ignoreImmunity: false,
 					effectType: 'Move',
 					isFutureMove: true,
@@ -866,7 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	aggravate: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
     shortDesc: "If the target is statused, applies Taunt.",
 		isViable: true,
@@ -939,6 +942,109 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
+	},
+	octazooka: {
+		num: 190,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Evasion by 1.",
+		isViable: true,
+		name: "Octazooka",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+	signalbeam: {
+		num: 324,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Speed by 1.",
+		isViable: true,
+		name: "Signal Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	aurorabeam: {
+		num: 62,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Attack by 1.",
+		isViable: true,
+		name: "Aurora Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	venoshock: {
+		num: 474,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+    shortDesc: "Power doubles if the target has a status ailment.",
+		isViable: true,
+		name: "Venoshock",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
+	},
+	attackorder: {
+		num: 454,
+		accuracy: 100,
+		basePower: 75,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the target has a status ailment.",
+		isViable: true,
+		name: "Attack Order",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Clever",
 	},
 	
 // stuff that needs to be edited because of other stuff

@@ -299,6 +299,98 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Calculate damage modifiers separately (order differs between generations)
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
 	},
+		getAbility() {
+			const item = this.battle.dex.getItem(this.ability);
+			return item.exists ? item as Effect as Ability : this.battle.dex.getAbility(this.ability);
+		},
+		hasItem(item) {
+			if (this.ignoringItem()) return false;
+			if (!Array.isArray(item)) {
+				item = this.battle.toID(item);
+				return item === this.item || item === this.ability;
+			}
+			item = item.map(this.battle.toID);
+			return item.includes(this.item) || item.includes(this.ability);
+		},
+		eatItem() {
+			if (!this.hp || !this.isActive) return false;
+			const source = this.battle.event.target;
+			const item = this.battle.effect;
+			if (this.battle.runEvent('UseItem', this, null, null, item) && this.battle.runEvent('TryEatItem', this, null, null, item)) {
+				this.battle.add('-enditem', this, item, '[eat]');
+
+				this.battle.singleEvent('Eat', item, this.itemData, this, source, item);
+				this.battle.runEvent('EatItem', this, null, null, item);
+
+				if (this.item === item.id) {
+					this.lastItem = this.item;
+					this.item = '';
+					this.itemData = {id: '', target: this};
+				}
+				if (this.ability === item.id) {
+					this.lastItem = this.ability;
+					this.baseAbility = this.ability = '';
+					this.abilityData = {id: '', target: this};
+				}
+				this.usedItemThisTurn = true;
+				this.ateBerry = true;
+				this.battle.runEvent('AfterUseItem', this, null, null, item);
+				return true;
+			}
+			return false;
+		},
+		useItem(unused, source) {
+			const item = this.battle.effect as Item;
+			if ((!this.hp && !item.isGem) || !this.isActive) return false;
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (this.battle.runEvent('UseItem', this, null, null, item)) {
+				switch (item.id) {
+				case 'redcard':
+					this.battle.add('-enditem', this, item, '[of] ' + source);
+					break;
+				default:
+					if (!item.isGem) {
+						this.battle.add('-enditem', this, item);
+					}
+					break;
+				}
+
+				this.battle.singleEvent('Use', item, this.itemData, this, source, item);
+
+				if (this.item === item.id) {
+					this.lastItem = this.item;
+					this.item = '';
+					this.itemData = {id: '', target: this};
+				}
+				if (this.ability === item.id) {
+					this.lastItem = this.ability;
+					this.baseAbility = this.ability = '';
+					this.abilityData = {id: '', target: this};
+				}
+				this.usedItemThisTurn = true;
+				this.battle.runEvent('AfterUseItem', this, null, null, item);
+				return true;
+			}
+			return false;
+		},
+		setAbility(ability, source, isFromFormeChange) {
+			if (this.battle.dex.getItem(this.ability).exists) return false;
+			return Object.getPrototypeOf(this).setAbility.call(this, ability, source, isFromFormeChange);
+		},
+		takeDual(source) {
+			if (!this.isActive) return false;
+			if (!this.ability) return false;
+			if (!source) source = this;
+			const dual = this.getAbility() as any as Item;
+			if (dual.effectType !== 'Item') return false;
+			if (this.battle.runEvent('TakeItem', this, source, null, dual)) {
+				this.baseAbility = this.ability = '';
+				this.abilityData = {id: '', target: this};
+				return dual;
+			}
+			return false;
+		},
+
 /*
 	pokemon: {
         hasAbility(ability) {
@@ -1418,5 +1510,75 @@ this.modData("Learnsets", "guzzlord").learnset.glare = ["8L1"];
 this.modData("Learnsets", "guzzlord").learnset.nastyplot = ["8L1"];
 this.modData("Learnsets", "guzzlord").learnset.partingshot = ["8L1"];
 this.modData("Learnsets", "guzzlord").learnset.slackoff = ["8L1"];
+this.modData("Learnsets", "banette").learnset.poltergeist = ["8L1"];
+this.modData("Learnsets", "banette").learnset.metalclaw = ["8L1"];
+this.modData("Learnsets", "banette").learnset.bulletpunch = ["8L1"];
+this.modData("Learnsets", "banette").learnset.ironhead = ["8L1"];
+this.modData("Learnsets", "banette").learnset.smartstrike = ["8L1"];
+this.modData("Learnsets", "banette").learnset.swordsdance = ["8L1"];
+this.modData("Learnsets", "banette").learnset.shiftgear = ["8L1"];
+this.modData("Learnsets", "banette").learnset.irondefense = ["8L1"];
+this.modData("Learnsets", "banette").learnset.superpower = ["8L1"];
+this.modData("Learnsets", "gyarados").learnset.lifedew = ["8L1"];
+this.modData("Learnsets", "gyarados").learnset.pursuit = ["8L1"];
+this.modData("Learnsets", "gyarados").learnset.rapidspin = ["8L1"];
+this.modData("Learnsets", "typenull").learnset.wildcharge = ["8L1"];
+this.modData("Learnsets", "typenull").learnset.superpower = ["8L1"];
+this.modData("Learnsets", "silvally").learnset.wildcharge = ["8L1"];
+this.modData("Learnsets", "silvally").learnset.superpower = ["8L1"];
+this.modData("Learnsets", "silvally").learnset.earthquake = ["8L1"];
+this.modData("Learnsets", "silvally").learnset.blazekick = ["8L1"];
+this.modData("Learnsets", "wormadam").learnset.recover = ["8L1"];
+this.modData("Learnsets", "wormadam").learnset.thunderbolt = ["8L1"];
+this.modData("Learnsets", "wormadam").learnset.earthpower = ["8L1"];
+this.modData("Learnsets", "wormadam").learnset.uturn = ["8L1"];
+this.modData("Learnsets", "wormadamsandy").learnset.recover = ["8L1"];
+this.modData("Learnsets", "wormadamsandy").learnset.spikes = ["8L1"];
+this.modData("Learnsets", "wormadamsandy").learnset.stickyweb = ["8L1"];
+this.modData("Learnsets", "wormadamsandy").learnset.uturn = ["8L1"];
+this.modData("Learnsets", "wormadamtrash").learnset.spikes = ["8L1"];
+this.modData("Learnsets", "wormadamtrash").learnset.thunderbolt = ["8L1"];
+this.modData("Learnsets", "wormadamtrash").learnset.earthpower = ["8L1"];
+this.modData("Learnsets", "wormadamtrash").learnset.uturn = ["8L1"];
+this.modData('Learnsets', 'clauncher').learnset.octazooka = ['8L1'];
+this.modData('Learnsets', 'inteleon').learnset.octazooka = ['8L1'];
+this.modData('Learnsets', 'inkay').learnset.octazooka = ['8L1'];
+this.modData('Learnsets', 'mantine').learnset.octazooka = ['8L1'];
+this.modData('Learnsets', 'inteleon').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'toxtricity').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'dottler').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'hatenna').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'pincurchin').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'boltund').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'ponytagalar').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'slowpokegalar').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'frosmoth').learnset.signalbeam = ['8L1'];
+this.modData('Learnsets', 'raikou').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'jolteon').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'keldeo').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'chinchou').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'beheeyem').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'staryu').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'glaceon').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'empoleon').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'nosepass').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'articuno').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'lugia').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'lapras').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'regice').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'jynx').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'gigalith').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'xurkitree').learnset.aurorabeam = ['8L1'];
+this.modData('Learnsets', 'palossand').learnset.hex = ['8L1'];
+this.modData('Learnsets', 'hatterene').learnset.hex = ['8L1'];
+this.modData('Learnsets', 'delphox').learnset.hex = ['8L1'];
+this.modData('Learnsets', 'seadra').learnset.venoshock = ['8L1'];
+this.modData('Learnsets', 'shiinotic').learnset.venoshock = ['8L1'];
+this.modData('Learnsets', 'umbreon').learnset.venoshock = ['8L1'];
+this.modData('Learnsets', 'sandshrew').learnset.venoshock = ['8L1'];
+this.modData('Learnsets', 'falinks').learnset.attackorder = ['8L1'];
+this.modData('Learnsets', 'honchkrow').learnset.attackorder = ['8L1'];
+this.modData('Learnsets', 'bisharp').learnset.attackorder = ['8L1'];
+this.modData('Learnsets', 'cramorant').learnset.attackorder = ['8L1'];
 	},
 };

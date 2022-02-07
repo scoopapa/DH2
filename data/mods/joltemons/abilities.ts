@@ -15,7 +15,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.maxhp / 16);
 		},
 		onWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -194,19 +193,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prickly Coat",
 	},
 	sandveil: {
-		desc: "If Sandstorm is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Sandstorm.",
+		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD are boosted 1.5x; immunity to Sandstorm.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
-			}
-		},
 		onModifySpD(spd, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
+				return this.chainModify(1.5);
 			}
 		},
 		id: "sandveil",
@@ -215,19 +209,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 146,
 	},
 	snowcloak: {
-		desc: "If Hail is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Hail.",
+		desc: "If Hail is active, this Pokemon's Ice, Water, and Fairy-type moves deal 1.3x damage. This Pokemon takes no damage from Hail.",
+		shortDesc: "This Pokemon's Ice/Water/Fairy attacks do 1.3x in Hail; immunity to Hail.",
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyDef(def, pokemon) {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
+				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
+					this.debug('Snow Cloak boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
 			}
 		},
 		id: "snowcloak",
@@ -260,6 +253,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				status: 'psn',
 				ability: this.dex.getAbility('poisontouch'),
 			});
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Muk-Alola)",
@@ -555,7 +554,121 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-	
+	scavenge: {
+		shortDesc: "(Bugged) This Pokemon's heals 33% of its HP when another Pokemon faints.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
+		},
+		name: "Scavenge",
+		rating: 3.5,
+	},
+	unimpressed: {
+		shortDesc: "Moves used against this Pokemon don't receive STAB.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.hasType(move.type) && (!source.hasAbility('adaptability'))) {
+				this.debug('Unimpressed weaken');
+				return this.chainModify(0.67);
+			}
+			if (source.hasType(move.type) && (source.hasAbility('adaptability'))) {
+				this.debug('Unimpressed weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Unimpressed",
+		rating: 3.5,
+	},
+/*
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			pokemon.addVolatile('counterfeit');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+				) continue;
+				break;
+			}
+			if (!pokemon.side.pokemon[i]) return;
+			if (pokemon === pokemon.side.pokemon[i]) return;
+			const counterfeit = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Counterfeit');
+			pokemon.item = counterfeit.item;
+			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.getItem(counterfeit.item).name} belonging to ${counterfeit.name}!`);
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && !foeActive.item
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const item = target.getItem();
+				const additionalBannedItems = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+				];
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, item) || additionalBannedItems.includes(target.item)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, item, '[from] ability: Counterfeit', '[of] ' + target);
+				pokemon.setAbility(item);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
+				if (!pokemon.useItem) return;
+				pokemon.ability = target.item;
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.getItem(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+*/
+	counterfeit: {
+		shortDesc: "(Non-functional placeholder) On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Counterfeit', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Counterfeit",
+		rating: 1.5,
+	},
+
 // Edited by proxy
 	oblivious: {
 		onUpdate(pokemon) {
@@ -959,6 +1072,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",
+		rating: 0,
+	},
+	powerofalchemytypenull: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onCriticalHit: false,
+		isPermanent: true,
+		name: "Power of Alchemy (Type: Null)",
+		rating: 0,
+	},
+	powerofalchemysilvally: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			let totaldef = 0;
+			let totalspd = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({spa: 1});
+			} else if (totalspd) {
+				this.boost({atk: 1});
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Silvally)",
 		rating: 0,
 	},
 };

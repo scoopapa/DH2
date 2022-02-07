@@ -187,6 +187,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 80,
 		},
+		onUpdate(pokemon) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.boost({spe: 2});
+				pokemon.useItem();
+			}
+		},
 		// Item activation located in scripts.js
 		num: 1121,
 		gen: 8,
@@ -234,21 +240,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are boosted 1.5x.",
 	},
+/*
 	soulblade: {
 		name: "Soul Blade",
 		spritenum: 297,
 		fling: {
 			basePower: 100,
 		},
-		onBasePowerPriority: 16,
-		onBasePower(basePower, user, target, move) {
-			if (move.category === 'Physical' || move.category === 'Special') {
+		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x1199, 0x1000]);
-			}
 		},
 		gen: 8,
 		desc: "(Non-functional placeholder) The holder's moves deal 1.1x damage + .2x for every KO it has.",
 	},
+*/
 	mentalherb: {
 		name: "Mental Herb",
 		spritenum: 285,
@@ -705,8 +710,67 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "When the holder uses a status move, it is disabled. Moves deal 1.3x damage when a move is disabled.",
 	},
+	utilityumbrella: {
+		name: "Utility Umbrella",
+		spritenum: 718,
+		fling: {
+			basePower: 60,
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail') return false;
+		},
+		onWeather(target, source, effect) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+				this.heal(target.baseMaxhp / 12);
+			}
+		},
+		// Other effects implemented in statuses.js, moves.js, and abilities.js
+		num: 1123,
+		gen: 8,
+		desc: "The holder ignores rain- and sun-based effects & weather damage. Heals 1/12 of its max HP in weather.",
+	},
+	nightlightball: {
+		name: "Nightlight Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 90,
+			status: 'brn',
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Nightlight Ball');
+			this.add('-message', `Mimikyu's Nightlight Ball has a sinister shine!`);
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && target.baseSpecies.baseSpecies === 'Mimikyu') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] item: Nightlight Ball');
+				}
+				return null;
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Mimikyu') return false;
+			return true;
+		},
+		itemUser: ["Mimikyu"],
+		desc: "If held by Mimikyu: 1.3x Atk and Def, Heals 1/4 of its max HP when hit by Electric moves.",
+	},
 	
 // making things harder for myself by not learning how to code script.ts part 2
+// lol scavenge
+/*
 		aguavberry: {
 		name: "Aguav Berry",
 		spritenum: 5,
@@ -1031,5 +1095,113 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 160,
 		gen: 3,
 	},
-
+*/
+// soul blades
+	soulblade: {
+		name: "Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x1199, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl2');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.1x damage + .2x for every KO it has.",
+	},
+	soulbladelvl2: {
+		name: "Soul Blade Lvl. 2",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x14CC, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl3');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.3x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl3: {
+		name: "Soul Blade Lvl. 3",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.5);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl4');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.5x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl4: {
+		name: "Soul Blade Lvl. 4",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.7);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl5');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.7x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl5: {
+		name: "Soul Blade Lvl. 5",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.9);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('ultrasoulblade');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.9x damage + .2x for every additional KO it has.",
+	},
+	ultrasoulblade: {
+		name: "Ultra Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(2.1);
+		},
+		gen: 8,
+		desc: "Strongest Soul Blade. The holder's moves deal 2.1x damage.",
+	},
 };
