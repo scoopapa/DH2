@@ -1093,7 +1093,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onCriticalHit: false,
 		isPermanent: true,
-		name: "Power of Alchemy (Type Null)",
+		name: "Power of Alchemy (Type: Null)",
 		rating: 0,
 	},
 	powerofalchemysilvally: {
