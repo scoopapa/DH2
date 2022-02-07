@@ -731,6 +731,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					category: "Physical",
 					priority: -1,
 					flags: {protect: 1},
+					onTryHit(target, source) {
+						if (target.fainted) return false;
+					},
 					ignoreImmunity: false,
 					effectType: 'Move',
 					isFutureMove: true,
