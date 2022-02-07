@@ -1182,7 +1182,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDamage(damage, source, target, move) {
 				return this.chainModify(1.9);
 		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('ultrasoulblade');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
 		gen: 8,
-		desc: "Strongest Soul Blade. The holder's moves deal 1.9x damage.",
+		desc: "The holder's moves deal 1.9x damage + .2x for every additional KO it has.",
+	},
+	ultrasoulblade: {
+		name: "Ultra Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(2.1);
+		},
+		gen: 8,
+		desc: "Strongest Soul Blade. The holder's moves deal 2.1x damage.",
 	},
 };
