@@ -187,12 +187,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 80,
 		},
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.moveLastTurnResult === false) return move.basePower * 2;
-			return move.basePower;
-		},
 		onUpdate(pokemon) {
-			if (pokemon.moveLastTurnResult === false) {
+			if (pokemon.moveThisTurnResult === false) {
 				this.boost({spe: 2});
 				pokemon.useItem();
 			}
