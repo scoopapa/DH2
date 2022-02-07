@@ -869,7 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	aggravate: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
     shortDesc: "If the target is statused, applies Taunt.",
 		isViable: true,
