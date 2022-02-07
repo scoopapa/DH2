@@ -1125,16 +1125,64 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x14CC, 0x1000]);
 		},
-		/*
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'item: Soul Blade'); 
-				source.setItem('soulbladelvl2');
+				source.setItem('soulbladelvl3');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
 		},
-		*/
 		gen: 8,
-		desc: "The holder's moves deal 1.3x damage + .2x for every KO it has.",
+		desc: "The holder's moves deal 1.3x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl3: {
+		name: "Soul Blade Lvl. 3",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.5);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl4');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.5x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl4: {
+		name: "Soul Blade Lvl. 4",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.7);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl5');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.7x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl5: {
+		name: "Soul Blade Lvl. 5",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.9);
+		},
+		gen: 8,
+		desc: "Strongest Soul Blade. The holder's moves deal 1.9x damage.",
 	},
 };
