@@ -670,6 +670,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		isPermanent: true,
 		name: "Counterfeit",
 		rating: 1.5,
 	},
