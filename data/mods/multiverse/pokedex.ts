@@ -16,7 +16,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	victreebel: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 105, def: 65, spa: 100, spd: 100, spe: 70},
+		types: ["Grass", "Dark"],
+		baseStats: {hp: 80, atk: 95, def: 65, spa: 100, spd: 100, spe: 70},
 		abilities: {0: "Sniper", H: "Gluttony"},
 	},
 	golem: {

@@ -229,4 +229,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Electric",
 	},
+	sharpleaves: {
+		num: -8,
+		accuracy: 95,
+		basePower: 55,
+		category: "Physical",
+		shortDesc: "Always results in a critical hit.",
+		name: "Sharp Leaves",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Razor Leaf", target);
+		},
+		willCrit: true,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
+	},
 };
