@@ -732,7 +732,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					priority: -1,
 					flags: {protect: 1},
 					onTryHit(target, source) {
-						if (source.fainted) return false;
+						if (source.fainted || !source.isActive) return false;
 					},
 					ignoreImmunity: false,
 					effectType: 'Move',
