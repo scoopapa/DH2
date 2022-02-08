@@ -488,7 +488,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage',
 					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
-					'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem',
+					'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem', 'concussion',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
