@@ -194,7 +194,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	sandveil: {
 		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's SpD are boosted 1.5x; immunity to Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD is boosted 1.5x; immunity to Sandstorm.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
@@ -210,7 +210,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	snowcloak: {
 		desc: "If Hail is active, this Pokemon's Ice, Water, and Fairy-type moves deal 1.3x damage. This Pokemon takes no damage from Hail.",
-		shortDesc: "This Pokemon's Ice/Water/Fairy attacks do 1.3x in Hail; immunity to Hail.",
+		shortDesc: "This Pokemon's Ice/Water/Fairy attacks deal 1.3x damage in Hail; immunity to Hail.",
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
