@@ -1177,7 +1177,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			growth: ["8L1"],
 			jawlock: ["8L1"],
 			lightscreen: ["8L1"],
-			risingsurge: ["8L1"],
+			risingvoltage: ["8L1"],
 			screech: ["8L1"],
 			seedbomb: ["8L1"],
 			skittersmack: ["8L1"],
