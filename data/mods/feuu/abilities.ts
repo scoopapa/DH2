@@ -4020,7 +4020,107 @@ lifedrain: {
 		},
 		shortDesc: "Tinted Lens + Poison Point",
 	},
-
+	ultraimpulse: { 
+		shortDesc: "(Placeholder) If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
+		name: "Ultra Impulse",
+		onSetStatus(status, target, source, effect) { 
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (status.id === 'slp' || status.id === 'brn' || status.id === 'frz' || status.id === 'tox' || status.id === 'psn' || status.id === 'par') {
+				this.boost({[statName]: 1}, this.effectData.target);
+			}
+		},
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(status, target, source, effect) {
+			if (!this.effectData.switchingIn) return;
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (status.id === 'slp' || status.id === 'brn' || status.id === 'frz' || status.id === 'tox' || status.id === 'psn' || status.id === 'par') {
+				this.boost({[statName]: 1}, this.effectData.target);
+			}
+		},
+	}, 
+	demagnetize: {
+		name: "Demagnetize",
+		onBeforeMove(attacker, defender, move) {
+			if (defender.hasType('Steel')) { 					
+			defender.setType(defender.getTypes(true).map(type => type === "Steel" ? "???" : type));
+			this.add('-start', defender, 'typechange', defender.types.join('/'), '[from] ability: Demagnetize');
+			}
+		},
+		onAfterMove(target, source, move) {
+			if (!target.hasType('???') && target.addType('Steel')) {
+				this.add('-start', target, 'typeadd', 'Steel', '[from] ability: Demagnetize');
+			}
+		},
+		shortDesc: "This Pokemon ignores the opponent's Steel-typing when attacking",
+	},
+	everywitchway: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Every Witch Way", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		name: "Every Witch Way",
+		shortDesc: "Magic Guard + Keen Eye",
+	},
+	sheerluck: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce || move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend') return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "Sheer Luck",
+		shortDesc: "(Bugged) Sheer Force + Moves with an increased critical hit ratio deal 1.3x damage but can't critically hit.",
+	},
+	bigpower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.5);
+		},
+		name: "Big Power",
+		shortDesc: "This Pokemon's Attack is boosted 1.5x",
+	},
 
 
 // LC Only Abilities
@@ -4849,6 +4949,23 @@ lifedrain: {
 		},
 		name: "Courageous",
 		shortDesc: "Big Pecks + Guts",
+	},
+	superhustle: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		name: "Super Hustle",
+		shortDesc: "Hustle + Super Luck",
 	},
 };
  
