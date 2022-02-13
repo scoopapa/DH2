@@ -671,7 +671,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	afterMoveSecondaryEvent(targets, pokemon, move) {
 		// console.log(`${targets}, ${pokemon}, ${move}`)
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck')))) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck'))) && !(pokemon.hasAbility('sheerluck') && (move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend'))) {
 			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
 		}
