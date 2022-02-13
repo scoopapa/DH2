@@ -4021,9 +4021,10 @@ lifedrain: {
 		shortDesc: "Tinted Lens + Poison Point",
 	},
 	ultraimpulse: { 
-		shortDesc: "(Placeholder) If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
+		shortDesc: "If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
 		name: "Ultra Impulse",
-		onSetStatus(status, target, source, effect) { 
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
 			let statName = 'atk';
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
@@ -4034,15 +4035,12 @@ lifedrain: {
 					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
-			if (status.id === 'slp' || status.id === 'brn' || status.id === 'frz' || status.id === 'tox' || status.id === 'psn' || status.id === 'par') {
-				this.boost({[statName]: 1}, this.effectData.target);
+			if (pokemon.status && statName === 'atk') {
+				return this.chainModify(1.5);
 			}
 		},
-		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
-		},
-		onStart(status, target, source, effect) {
-			if (!this.effectData.switchingIn) return;
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
 			let statName = 'atk';
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
@@ -4053,8 +4051,55 @@ lifedrain: {
 					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
-			if (status.id === 'slp' || status.id === 'brn' || status.id === 'frz' || status.id === 'tox' || status.id === 'psn' || status.id === 'par') {
-				this.boost({[statName]: 1}, this.effectData.target);
+			if (pokemon.status && statName === 'def') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spa') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spd') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spe') {
+				return this.chainModify(1.5);
 			}
 		},
 	}, 
@@ -4062,14 +4107,27 @@ lifedrain: {
 		name: "Demagnetize",
 		onBeforeMove(attacker, defender, move) {
 			if (defender.hasType('Steel')) { 					
-			defender.setType(defender.getTypes(true).map(type => type === "Steel" ? "???" : type));
-			this.add('-start', defender, 'typechange', defender.types.join('/'), '[from] ability: Demagnetize');
+				defender.addVolatile('demagnetize');
 			}
 		},
-		onAfterMove(target, source, move) {
-			if (!target.hasType('???') && target.addType('Steel')) {
-				this.add('-start', target, 'typeadd', 'Steel', '[from] ability: Demagnetize');
-			}
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+			onSwitchOut(pokemon) {
+				pokemon.removeVolatile('demagnetize');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('demagnetize');
+			},
+			onEnd(pokemon) {
+					let types = pokemon.baseSpecies.types;
+					types = pokemon.baseSpecies.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
 		},
 		shortDesc: "This Pokemon ignores the opponent's Steel-typing when attacking",
 	},
@@ -4105,6 +4163,11 @@ lifedrain: {
 				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
 				move.hasSheerForce = true;
 			}
+			/*
+			if (move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend') {
+				willCrit = false
+			}
+			*/
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
