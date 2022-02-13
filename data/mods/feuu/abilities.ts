@@ -4110,6 +4110,9 @@ lifedrain: {
 				defender.addVolatile('demagnetize');
 			}
 		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
@@ -4129,7 +4132,7 @@ lifedrain: {
 					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 			},
 		},
-		shortDesc: "This Pokemon ignores the opponent's Steel-typing when attacking",
+		shortDesc: "This Pokemon ignores the opponent's Steel-typing, Substitute, and screens when attacking",
 	},
 	everywitchway: {
 		onDamage(damage, target, source, effect) {
