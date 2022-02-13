@@ -4163,11 +4163,9 @@ lifedrain: {
 				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
 				move.hasSheerForce = true;
 			}
-			/*
 			if (move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend') {
-				willCrit = false
+				move.willCrit = false
 			}
-			*/
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
