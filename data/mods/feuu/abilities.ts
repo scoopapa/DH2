@@ -4163,16 +4163,17 @@ lifedrain: {
 				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
 				move.hasSheerForce = true;
 			}
-			if (move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend') {
+			if (move.critRatio > 1) {
 				move.willCrit = false
+				move.hasSheerForce = true
 			}
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.hasSheerForce || move.name === 'Aeroblast' || move.name === 'Air Cutter' || move.name === 'Attack Order' || move.name === 'Blaze Kick' || move.name === 'Crabhammer' || move.name === 'Cross Chop' || move.name === 'Cross Poison' || move.name === 'Drill Run' || move.name === 'Karate Chop' || move.name === 'Leaf Blade' || move.name === 'Night Slash' || move.name === 'Poison Tail' || move.name === 'Psycho Cut' || move.name === 'Razor Leaf' || move.name === 'Razor Wind' || move.name === 'Shadow Claw' || move.name === 'Razor Wind' || move.name === 'Sky Attack' || move.name === 'Slash' || move.name === 'Snipe Shot' || move.name === 'Stone Edge' || move.name === 'Spacial Rend') return this.chainModify([0x14CD, 0x1000]);
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
 		},
 		name: "Sheer Luck",
-		shortDesc: "(Bugged) Sheer Force + Moves with an increased critical hit ratio deal 1.3x damage but can't critically hit.",
+		shortDesc: "Sheer Force + Moves with an increased critical hit ratio deal 1.3x damage but can't critically hit.",
 	},
 	bigpower: {
 		onModifyAtkPriority: 5,
