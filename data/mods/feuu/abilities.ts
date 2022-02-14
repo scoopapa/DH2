@@ -4020,7 +4020,172 @@ lifedrain: {
 		},
 		shortDesc: "Tinted Lens + Poison Point",
 	},
-
+	ultraimpulse: { 
+		shortDesc: "If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
+		name: "Ultra Impulse",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'atk') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'def') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spa') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spd') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spe') {
+				return this.chainModify(1.5);
+			}
+		},
+	}, 
+	demagnetize: {
+		name: "Demagnetize",
+		onBeforeMove(attacker, defender, move) {
+			if (defender.hasType('Steel')) { 					
+				defender.addVolatile('demagnetize');
+			}
+		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+			onSwitchOut(pokemon) {
+				pokemon.removeVolatile('demagnetize');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('demagnetize');
+			},
+			onEnd(pokemon) {
+					let types = pokemon.baseSpecies.types;
+					types = pokemon.baseSpecies.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+		},
+		shortDesc: "This Pokemon ignores the opponent's Steel-typing, Substitute, and screens when attacking",
+	},
+	everywitchway: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Every Witch Way", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		name: "Every Witch Way",
+		shortDesc: "Magic Guard + Keen Eye",
+	},
+	sheerluck: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+			if (move.critRatio > 1) {
+				move.willCrit = false
+				move.hasSheerForce = true
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "Sheer Luck",
+		shortDesc: "Sheer Force + Moves with an increased critical hit ratio deal 1.3x damage but can't critically hit.",
+	},
+	bigpower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.5);
+		},
+		name: "Big Power",
+		shortDesc: "This Pokemon's Attack is boosted 1.5x",
+	},
 
 
 // LC Only Abilities
@@ -4849,6 +5014,23 @@ lifedrain: {
 		},
 		name: "Courageous",
 		shortDesc: "Big Pecks + Guts",
+	},
+	superhustle: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		name: "Super Hustle",
+		shortDesc: "Hustle + Super Luck",
 	},
 };
  

@@ -69,6 +69,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 		
 		
+		this.modData("Learnsets", "exploudmeow").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.taunt = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.hypnosis = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.thunderbolt = ["8L1"];
+		
+		
 		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8L1"];
 		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8L1"];
 		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8L1"];
@@ -104,6 +111,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'typhlosion').learnset.scorchingsands = ['8L1'];
 		this.modData('Learnsets', 'typhlosion').learnset.stealthrock = ['8L1'];
 		this.modData('Learnsets', 'typhlosion').learnset.selfdestruct = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'hydreigon').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'hydreigon').learnset.dragonhammer = ['8L1'];
+		
+		delete this.modData('Learnsets', 'froslass').learnset.thunder;
+		delete this.modData('Learnsets', 'froslass').learnset.thunderbolt;
+		
+		this.modData("Learnsets", "vespiquenterra").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.rockpolish = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.stoneedge = ["8L1"];
 	},
 	
 	teambuilderConfig: {
