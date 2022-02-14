@@ -7571,6 +7571,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'voodoll').learnset.toxic;
 		// Voodoom
 		this.modData("Learnsets", "voodoom").learnset.spiritbreak = ["8D"];
+		this.modData("Learnsets", "voodoom").learnset.suckerpunch = ["8L1"];
 		this.modData("Learnsets", "voodoom").learnset.brutalswing = ["8M"];
 		this.modData("Learnsets", "voodoom").learnset.poltergeist = ["8M"];
 		delete this.modData('Learnsets', 'voodoom').learnset.toxic;
@@ -7638,16 +7639,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Brattler
 		this.modData("Learnsets", "brattler").learnset.spikyshield = ["8D"];
 		this.modData("Learnsets", "brattler").learnset.powertrip = ["8L52"]; //Will update when Brattler itself is
+		this.modData("Learnsets", "brattler").learnset.coil = ["8E"];
 		this.modData("Learnsets", "brattler").learnset.compensation = ["8M"];
 		this.modData("Learnsets", "brattler").learnset.nastyplot = ["8M"];
-		delete this.modData('Learnsets', 'brattler').learnset.toxic;
 		// Malaconda
-		this.modData("Learnsets", "malaconda").learnset.spikyshield = ["8D"];
+		this.modData("Learnsets", "malaconda").learnset.rejuvenate = ["8D"];
 		this.modData("Learnsets", "malaconda").learnset.powertrip = ["8L52"];
 		this.modData("Learnsets", "malaconda").learnset.breakingswipe = ["8M"];
 		this.modData("Learnsets", "malaconda").learnset.compensation = ["8M"];
 		this.modData("Learnsets", "malaconda").learnset.nastyplot = ["8M"];
-		delete this.modData('Learnsets', 'malaconda').learnset.toxic;
 		// Cawdet
 		this.modData("Learnsets", "cawdet").learnset.throatchop = ["8D"];
 		this.modData("Learnsets", "cawdet").learnset.whirlpool = ["8M"];
@@ -7828,5 +7828,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chromera").learnset.signalbeam = ["8M"];
 		this.modData("Learnsets", "chromera").learnset.strength = ["8M"];
 		delete this.modData('Learnsets', 'chromera').learnset.decorate;
+		//Venomicon
+		this.modData("Learnsets", "venomicon").learnset.jawlock = ["8D"];
+		this.modData("Learnsets", "venomicon").learnset.curse = ["8L50"];
+		this.modData("Learnsets", "venomicon").learnset.fellswoop = ["8L55"];
+		this.modData("Learnsets", "venomicon").learnset.hurricane = ["8M"];
+		delete this.modData('Learnsets', 'venomicon').learnset.coil;
 	},
 };

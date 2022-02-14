@@ -2582,11 +2582,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Limber", H: "Ice Body"},
 	},
+	pyroak: {
+		inherit: true,
+		abilities: {0: "Rock Head", 1: "Battle Armor", H: "White Smoke"},
+	},
 	revenankh: {
 		inherit: true,
 		abilities: {0: "Shed Skin", 1: "Air Lock", H: "Soul Drain"},
 	},
-	nohface: { //Everything here and below is renumbering because some cowards wanted to put finalized prevos at the end
+	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,
 	},
@@ -2609,13 +2613,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dorsoil: {
 		inherit: true,
 		number: -19,
-	},
+	},*/
 	colossoil: {
 		inherit: true,
-		number: -20,
+		//number: -20,
 		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
 	},
-	protowatt: {
+	/*protowatt: {
 		inherit: true,
 		number: -21,
 	},
@@ -2638,13 +2642,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tomohawk: {
 		inherit: true,
 		number: -26,
-	},
+	},*/
 	necturine: {
 		inherit: true,
-		number: -27,
+		//number: -27,
 		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
-	necturna: {
+	/*necturna: {
 		inherit: true,
 		number: -28,
 	},
@@ -2679,13 +2683,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cawmodore: {
 		inherit: true,
 		number: -36,
-	},
+	},*/
 	volkritter: {
 		inherit: true,
-		number: -37,
+		//number: -37,
 		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
 	},
-	volkraken: {
+	/*volkraken: {
 		inherit: true,
 		number: -38,
 	},
@@ -2796,5 +2800,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	chromera: {
 		inherit: true,
 		number: -65,
-	},
+	},*/
 };

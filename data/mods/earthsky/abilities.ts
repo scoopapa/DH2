@@ -1658,6 +1658,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, if this Pokemon is a Wishiwashi or Tynamo that is level 20 or above and has more than 1/4 of its maximum HP left, it changes to School Form. If it is in School Form and its HP drops to 1/4 of its maximum HP or less, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to School Form.",
 		shortDesc: "If user is Wishiwashi/Tynamo, changes to School Form if it has > 1/4 max HP, else Solo Form.",
 	},
+	//Sheer Force changes made in scripts.ts as edits to useMoveInner and hitStepMoveHitLoop.
 	shieldsdown: {
 		onStart(pokemon) {
 			if (!['Minior','Prominoid'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed) return;
