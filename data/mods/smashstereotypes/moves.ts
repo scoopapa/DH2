@@ -1262,6 +1262,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	protect: {
+		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'shedinja') {
 				move.type = 'Psychic';
@@ -1324,6 +1325,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	screech: {
+		inherit: true,
 		onSourceModifyAccuracy(accuracy) {
 			if (source.species.id !== 'shedinja') return;
 			return accuracy + 15;
@@ -1425,18 +1427,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'crit2'},
 		contestType: "Cute",
 	},
-/*
 	xscissor: {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'shedinja') {
-				move.basePower = 90,
-				move.ignoreEvasion: true,
-				move.ignoreDefensive: true,
+				move.basePower = 90;
+				move.ignoreEvasion = true;
+				move.ignoreDefensive = true;
 			}
 		},
 	},
-*/
 	solarbeamcfm: {
 		num: 76,
 		accuracy: 100,
