@@ -545,6 +545,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "If held by Fetchey: +2 crit ratio.",
 	},
+	alakazite: {
+		name: "Alakazite",
+		spritenum: 579,
+		megaStone: "Alakannon-Mega",
+		megaEvolves: "Alakannon",
+		itemUser: ["Alakannon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 679,
+		desc: "If held by an Alakannon, this item allows it to Mega Evolve in battle.",
+	},
 	
 // silvino moment :jokerification:
 	bugmemory: {

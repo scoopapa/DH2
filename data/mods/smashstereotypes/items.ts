@@ -227,6 +227,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1030,
 		gen: 8,
-		desc: "If held by a Bisharp, this item allows it to Mega Evolve in battle.",
+		shortDesc: "If held by a Bisharp, this item allows it to Mega Evolve in battle.",
+	},
+	hpbanana: {
+		name: "HP Banana",
+		spritenum: 22,
+		fling: {
+			basePower: 30,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if (this.runEvent('TryHeal', pokemon) && pokemon.useItem()) {
+					this.heal(100);
+				}
+			}
+		},
+		num: -1,
+		gen: 8,
+		shortDesc: "Restores 100 HP when at 1/2 max HP or less. Single use.",
 	},
 };

@@ -1426,6 +1426,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	xurkirat: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	golneton: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	alakannon: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	alakannonmega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		requiredItem: "Alakazite",
+	},
+	kingfezant: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	googersby: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -1936,6 +1967,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	abripek: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	nidovem: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	gooby: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	zubnemite: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -1965,6 +2012,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	ivycat: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	kadabeak: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	tranquorino: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},

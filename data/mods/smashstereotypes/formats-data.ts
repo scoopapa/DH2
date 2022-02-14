@@ -196,4 +196,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typhlosion: {
 		tier: "SSS",
 	},
+	hydreigon: {
+		tier: "SSS",
+	},
+	froslass: {
+		tier: "SSS",
+	},
+	vespiquenterra: {
+		tier: "SSS",
+	},
 };
