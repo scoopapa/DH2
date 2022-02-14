@@ -390,12 +390,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						for (const foe of pokemon.side.foe.active) {
 							let success = false;
 							let i: BoostName;
-							for (i in target.boosts) {
-								if (target.boosts[i] === 0) continue;
-								target.boosts[i] = -target.boosts[i];
+							for (i in foe.boosts) {
+								if (foe.boosts[i] === 0) continue;
+								foe.boosts[i] = -foe.boosts[i];
 								success = true;
 							}
-							if(success) this.add('-invertboost', target, '[from] move: Topsy-Turvy');
+							if(success) this.add('-invertboost', foe, '[from] move: Topsy-Turvy');
 						}
 						break;
 					case 'J': //Join: Split all stats
@@ -494,7 +494,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.add('-ability', pokemon, 'Glyphic Spell');
 						oppositeFoe.forceSwitchFlag = true;
 						break;
-					case 'W': //Weird; Psychic Surge
+					case 'W': //Weird: Psychic Surge
 						this.field.setTerrain('psychicterrain');
 						break;
 					case 'X': //X-Out: Destiny Bond
@@ -653,14 +653,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (source && target === source){
-				if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'I'){ //Invert: Contrary
-					let i: BoostName;
-					for (i in boost) {
-						boost[i]! *= -1;
-					}
+			if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'I'){ //Invert: Contrary
+				let i: BoostName;
+				for (i in boost) {
+					boost[i]! *= -1;
 				}
-			} else {
+			}
+			if (source && target !== source){
 				if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'U'){ //Undo: Ignores Sticky Web before clearing
 					if (effect && ['stickyweb'].includes(effect.id)) {
 						return null;
