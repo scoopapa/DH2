@@ -385,11 +385,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.heal(pokemon.baseMaxhp, pokemon);
 						pokemon.cureStatus();
 						break;
-					case 'I': //Ignore: Haze
+					case 'I': //Invert: Topsy-Turvy
 						this.add('-ability', pokemon, 'Glyphic Spell');
 						for (const foe of pokemon.side.foe.active) {
-							foe.clearBoosts();
-							this.add('-clearboost', foe);
+							let success = false;
+							let i: BoostName;
+							for (i in target.boosts) {
+								if (target.boosts[i] === 0) continue;
+								target.boosts[i] = -target.boosts[i];
+								success = true;
+							}
+							if(success) this.add('-invertboost', target, '[from] move: Topsy-Turvy');
 						}
 						break;
 					case 'J': //Join: Split all stats
@@ -441,6 +447,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							target.addVolatile('encore');
 						}
 						break;
+					case 'M': //Mirror: Wonder Room
+						this.field.addPseudoWeather('wonderroom');
+						break;
 					case 'O': //Observe: Frisk, Forewarn
 						pokemon.addVolatile('forewarn', "Glyphic Spell");
 						for (const target of pokemon.side.foe.active) {
@@ -491,6 +500,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'X': //X-Out: Destiny Bond
 						this.add('-ability', pokemon, 'Glyphic Spell');
 						pokemon.addVolatile('destinybond');
+						pokemon.volatiles['destinybond'].duration = 0;
 						break;
 					case 'Y': //Yield: Quashes foes
 						if (pokemon.side.active.length < 2) return; // fails in singles
@@ -596,9 +606,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyModifyBoost(boosts, pokemon) {
-			//Ignore: Unaware
+			//Negate: Unaware
 			const unawareUser = this.effectData.target;
-			if(unawareUser.species.baseSpecies === 'Unown' && unawareUser.abilityData.unownType === 'I'){ 
+			if(unawareUser.species.baseSpecies === 'Unown' && unawareUser.abilityData.unownType === 'N'){ 
 				if (unawareUser === pokemon) return;
 				if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 					boosts['def'] = 0;
@@ -643,10 +653,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'U'){ //Undo: Ignores Sticky Web before clearing
-				if (effect && ['stickyweb'].includes(effect.id)) {
-					return null;
+			if (source && target === source){
+				if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'I'){ //Invert: Contrary
+					let i: BoostName;
+					for (i in boost) {
+						boost[i]! *= -1;
+					}
+				}
+			} else {
+				if(target.species.baseSpecies === 'Unown' && target.abilityData.unownType === 'U'){ //Undo: Ignores Sticky Web before clearing
+					if (effect && ['stickyweb'].includes(effect.id)) {
+						return null;
+					}
 				}
 			}
 		},
@@ -708,12 +726,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		F - Fear:		Lowers the Attack, Sp. Attack, and Speed of all foes by two stages. The opposing team wil also be unable to eat Berries while Unown is in battle.
 		G - Grow:		Unown's Attack, Defense, Sp. Attack, Sp. Defense, and Speed are raised one stage. Every time Unown scores a KO, all of them raise again.
 		H - Heal:		Fully restores Unown's HP and cures its status conditions.
-		I - Ignore:		All foes' stat changes are reset to 0, and further stat changes are ignored in damage calculations involving Unown.
+		I - Invert:		All foes' stat changes are inverted, and stat changes made to Unown will have the opposite effect.
 		J - Join:		The non-HP stats of Unown and its direct opponent are added up and then split evenly between them.
 		K - Klepto:		Steals the item of its direct opponent, then removes all remaining foes' items.
 		L - Loop:		All foes are inflicted with an Encore.
-		M - Mirror:		Grants Unown the effects of Magic Bounce.
-		N - Negate:		Grants Unown the effects of Neutralizing Gas.
+		M - Mirror:		Summons Wonder Room for five turns. Grants Unown the effects of Magic Bounce.
+		N - Negate:		Grants Unown the effects of Neutralizing Gas and Unaware.
 		O - Observe:	Reveals all foes' held items and each of their strongest moves. If the Pokemon uses its identified move on Unown, Unown will become Evasive to it.
 		P - Power:		Raises Unown's Sp. Attack to +6.
 		Q - Quicken:	Raises Unown's Speed to +6.
@@ -723,11 +741,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		U - Undo:		Clears all weather effects, terrains, entry hazards, and screens.
 		V - Vanish:		Forces Unown's direct opponent to switch out, ignoring substitutes.
 		W - Weird:		Summons Psychic Terrain for five turns.
-		X - X-Out:		If Unown faints from an attack this turn, the attacker also faints.
+		X - X-Out:		If Unown faints from an attack, the attacker also faints.
 		Y - Yield:		All opponents are forced to move after everyone else this turn.
 		Z - Zero-G:		Applies floating status to all Pokémon for five turns.
 		? - ?????:		Randomly uses one of the other letters' effects each time.
-		! - !!!!!:		Unown primes itself. If it takes damage, or at the end of the turn if it doesn't, it uses Explosion with a 100% chance to score a critical hit.
+		! - !!!!!:		Unown primes itself. If it takes damage, or at the end of the turn if it doesn't, it uses Explosion, ignoring immunities to the move and always scoring critical hits.
 		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if hacked onto another Pokemon.`,
 		shortDesc: "Has a special effect depending on Unown's letter.",
 		fitem: "  [POKEMON] observed [TARGET]'s [ITEM]!",
