@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: [""],
 		formeOrder: [""],
-	}
+	},
 
 	name: {
 		num: -x,
@@ -308,7 +308,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Cranidos-Cretaceous"],
 		formeOrder: ["Cranidos", "Cranidos-Cretaceous"],
-	}
+	},
 
 	cranidoscretaceous: {
 		num: -117,
@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Rampardos-Cretaceous"],
 		formeOrder: ["Rampardos", "Rampardos-Cretaceous"],
-	}
+	},
 
 	rampardoscretaceous: {
 		num: -118,
@@ -343,7 +343,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Archen-Ancient"],
 		formeOrder: ["Archen", "Archen-Ancient"],
-	}
+	},
 
 	archenancient: {
 		num: -119,
@@ -361,7 +361,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Archeops-Ancient"],
 		formeOrder: ["Archeops", "Archeops-Ancient"],
-	}
+	},
 
 	archeopsancient: {
 		num: -120,
@@ -378,7 +378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Tirtouga-Leatherback"],
 		formeOrder: ["Tirtouga", "Tirtouga-Leatherback"],
-	}
+	},
 
 	tirtougaleatherback: {
 		num: -121,
@@ -395,7 +395,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Carracosta-Leatherback"],
 		formeOrder: ["Carracosta", "Carracosta-Leatherback"],
-	}
+	},
 
 	carracostaleatherback: {
 		num: -122,
@@ -412,7 +412,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Tyrunt-Apex"],
 		formeOrder: ["Tyrunt", "Tyrunt-Apex"],
-	}
+	},
 
 	tyruntapex: {
 		num: -123,
@@ -429,7 +429,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Tyrantrum-Apex"],
 		formeOrder: ["Tyrantrum", "Tyrantrum-Apex"],
-	}
+	},
 
 	tyrantrumapex: {
 		num: -124,
@@ -446,7 +446,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Amaura-Regnant"],
 		formeOrder: ["Amaura", "Amaura-Regnant"],
-	}
+	},
 
 	amauraregnant: {
 		num: -125,
@@ -463,7 +463,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Aurorus-Regnant"],
 		formeOrder: ["Aurorus", "Aurorus-Regnant"],
-	}
+	},
 
 	aurorusregnant: {
 		num: -126,
