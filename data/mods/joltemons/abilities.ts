@@ -701,8 +701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	vaporcontrol: {
 		onUpdate(pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				this.add('-activate', pokemon, 'ability: Vapor Control');
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) && !pokemon.side.getSideCondition('mist')) {
            	this.useMove("Mist", pokemon);
 			}
 		},
