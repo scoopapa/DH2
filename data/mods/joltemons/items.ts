@@ -738,7 +738,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Nightlight Ball');
-			this.add('-message', `Mimikyu's Nightlight Ball has a sinister shine!`);
+			this.add('-message', `Mimikyu's Nightlight Ball has a sinister sheen!`);
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
@@ -767,6 +767,68 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Mimikyu"],
 		desc: "If held by Mimikyu: 1.3x Atk and Def, Heals 1/4 of its max HP when hit by Electric moves.",
 	},
+	seawaterbead: {
+		name: "Seawater Bead",
+		spritenum: 251,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Phione') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Phione') {
+				return this.chainModify(1.5);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Phione') return false;
+			return true;
+		},
+		itemUser: ["Phione"],
+		desc: "If held by Phione: 1.5x Defense & Special Defense.",
+	},
+	sacredropes: {
+		name: "Sacred Ropes",
+		spritenum: 251,
+		fling: {
+			basePower: 130,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Sacred Ropes');
+			this.add('-message', `Regigigas is adorned with continent-towing ropes!`);
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.baseSpecies === 'Regigigas') {
+					let oldAbility = pokemon.setAbility('thickfat', pokemon, 'thickfat', true);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Fighting' || move.type === 'Rock') && defender.baseSpecies.baseSpecies === 'Regigigas') {
+				this.debug('Sacred Ropes weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Fighting' || move.type === 'Rock') && defender.baseSpecies.baseSpecies === 'Regigigas') {
+				this.debug('Sacred Ropes weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Regigigas') return false;
+			return true;
+		},
+		itemUser: ["Regigigas"],
+		desc: "If held by Regigigas: Ability becomes Thick Fat, takes 0.75x damage from Fighting and Rock moves.",
+	},
+
 	
 // making things harder for myself by not learning how to code script.ts part 2
 // lol scavenge
