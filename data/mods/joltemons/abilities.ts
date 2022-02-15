@@ -1169,10 +1169,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				this.add('-message', `Hydration activated!`);
+				pokemon.cureStatus();
+			}
+		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!target.cureStatus() && !this.heal(target.baseMaxhp / 4)) {
+				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Power of Alchemy (Vaporeon)');
+					target.cureStatus();
 				}
 				return null;
 			}
