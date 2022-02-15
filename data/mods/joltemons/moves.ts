@@ -931,6 +931,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
 			},
 		},
 		onTryImmunity(target) {
@@ -1045,6 +1048,213 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Clever",
+	},
+	smother: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+    shortDesc: "The target must move last next turn.",
+		isViable: true,
+		name: "Smother",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Wrap", target);
+		},
+		onHit(target, source) {
+			target.addVolatile('smother', source);
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'Smother', '[silent]');
+			},
+			onFractionalPriority: -0.1,
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Smother', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
+	fierydance: {
+		num: 552,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Fiery Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	snowmanjazz: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Snowman Jazz",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Ice Beam", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	moonlitwaltz: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Moonlit Waltz",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Dark Pulse", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	petaldance: {
+		num: 80,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Petal Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	skysoiree: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Sky Soiree",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Gust", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
+	shadowpunch: {
+		num: 325,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "Ignores burn, screens, and Substitute.",
+		isViable: true,
+		name: "Shadow Punch",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, punch: 1},
+		infiltrates: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	bouncybubble: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	buzzybuzz: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sizzlyslide: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	glitzyglow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	baddybad: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	freezyfrost: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sappyseed: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sparklyswirl: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	
 // stuff that needs to be edited because of other stuff
