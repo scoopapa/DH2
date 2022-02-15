@@ -1328,7 +1328,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	kartana: {
 		inherit: true,
-		abilities: {0: "Beast Boost", H: "Rivalry"},
+		abilities: {0: "Beast Boost", H: "Leaf Guard"},
 	},
 	salamence: {
 		inherit: true,
