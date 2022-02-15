@@ -281,6 +281,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shieldon-Overgrown",
 		baseSpecies: "Shieldon",
 		forme: "Overgrown",
+		evos: ["Bastiodon-Overgrown"]
 		types: ["Steel", "Grass"],
 		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 		abilities: {0: ""},
@@ -315,6 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cranidos-Cretaceous",
 		baseSpecies: "Cranidos",
 		forme: "Cretaceous",
+		evos: ["Rampardos-Cretaceous"],
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 77, atk: 95, def: 43, spa: 34, spd: 42, spe: 55},
 		abilities: {0: "Rock Head", H: "Mold Breaker"},
@@ -350,6 +352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Archen-Ancient",
 		baseSpecies: "Archen",
 		forme: "Ancient",
+		evos: ["Archeops-Ancient"]
 		types: [""],
 		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 		abilities: {0: ""},
@@ -419,6 +422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tyrunt-Apex",
 		baseSpecies: "Tyrunt",
 		forme: "Apex",
+		evos: ["Tyrantrum-Apex"],
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 58, atk: 89, def: 75, spa: 50, spd: 45, spe: 50},
 		abilities: {0: "Anger Point", H: "Iron Barbs"},
@@ -450,9 +454,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	amauraregnant: {
 		num: -125,
-		name: "Amaaura-Regnant",
+		name: "Amaura-Regnant",
 		baseSpecies: "Amaura",
 		forme: "Regnant",
+		evos: ["Aurorus-Regnant"],
 		types: ["Ice"],
 		baseStats: {hp: 70, atk: 37, def: 45, spa: 70, spd: 67, spe: 58},
 		abilities: {0: "Snow Warning", H: "Refrigerate"},
@@ -472,7 +477,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Regnant",
 		types: ["Fairy", "Ice"],
 		baseStats: {hp: 90, atk: 77, def: 85, spa: 109, spd: 90, spe: 88},
-		abilities: {0: "Snow Warning", H:" Refrigerate"},
+		abilities: {0: "Snow Warning", H:"Refrigerate"},
 		weightkg: 225,
 	},
 };

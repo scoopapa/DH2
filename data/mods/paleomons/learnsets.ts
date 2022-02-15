@@ -1248,7 +1248,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 	bastiodonovergrown: {
 		learnset: {
-			//mossysurpise: ["8L1"]
+			mossysurpise: ["8L1"],
+			leechseed: ["8L1"],
 
 			aerialace: ["7M", "6M", "5M"],
 			assurance: ["8M"],
@@ -1938,7 +1939,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			dazzlinggleam: ["8L1"],
 			moonlight: ["8L1"],
-			//howlingaurora: ["8L1"],
+			howlingaurora: ["8L1"],
 
 			ancientpower: ["8L8", "7L26", "6L26"],
 			aquatail: ["7T", "6T"],
@@ -2030,7 +2031,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dazzlinggleam: ["8L1"],
 			moonlight: ["8L1"],
 			mistyterrain: ["8L1"],
-			//howlingaurora: ["8L1"],
+			howlingaurora: ["8L1"],
 
 			ancientpower: ["8L1", "7L26", "6L26"],
 			aquatail: ["7T", "6T"],

@@ -105,8 +105,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	/*
 	shieldon: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 	*/
@@ -118,8 +118,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	cranidoscretaceous: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 
@@ -130,9 +130,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	/*
-	archen: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+	archenancient: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 	*/
@@ -144,8 +144,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	tirtougaleatherback: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 
@@ -156,8 +156,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	tyruntapex: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 
@@ -168,8 +168,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	amauraregnant: {
-		tier: "Paleomons",
-		doublesTier: "Paleomons",
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
 		isModded: true,
 	},
 
