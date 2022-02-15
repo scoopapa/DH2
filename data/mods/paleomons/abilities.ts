@@ -103,6 +103,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return false;
 		},
 		name: "Corrosive Pincers",
+		desc: "This Pokemon's attacking stat is doubled while using a Poison-type attack. If a Pokemon uses a Poison-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poison; Poison power against it is halved.",
 		rating: 4.5,
 		num: -104,
 	},

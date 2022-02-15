@@ -1,4 +1,22 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	/*
+	name: {
+		num: -x,
+		accuracy: ,
+		basePower: ,
+		category: "",
+		name: "",
+		desc: "",
+		shortDesc: "",
+		pp: ,
+		priority: ,
+		flags: {},
+		secondary: {},
+		target: "",
+		type: "",
+	},
+	*/
+
 	terrorsoar: {
 		num: -100,
 		accuracy: 100,
@@ -126,6 +144,71 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
+	},
+
+	mossysurpise: {
+		num: -104,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Mossy Surpise",
+		desc: "Has a 30% chance to lower the target's Speed by 2 stages.",
+		shortDesc: "30% chance to lower the target's Speed by 2.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -2,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+	},
+
+	howlingaurora: {
+		num: -105,
+		accuracy: 100,
+		basePower: 45,
+		basePowerCallback() {
+			if (this.field.pseudoWeather.howlingaurora) {
+				return 40 * this.field.pseudoWeather.howlingaurora.multiplier;
+			}
+			return 40;
+		},
+		category: "Special",
+		name: "Howling Aurora",
+		desc: "For every consecutive turn that this move is used by at least one Pokemon, this move's power is multiplied by the number of turns to pass, but not more than 5.",
+		shortDesc: "Power increases when used on consecutive turns.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onTry() {
+			this.field.addPseudoWeather('howlingaurora');
+		},
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectData.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectData.duration !== 2) {
+					this.effectData.duration = 2;
+					if (this.effectData.multiplier < 5) {
+						this.effectData.multiplier++;
+					}
+				}
+			},
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+			}
+		},
+		target: "normal",
+		type: "Ice",
 	},
 
 	//
