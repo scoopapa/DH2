@@ -705,7 +705,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyDamage(damage, source, target, move) {
 			if (source.volatiles['disable']) {
-				return this.chainModify([0x14CC, 0x1000]);
+				return this.chainModify(1.2);
 			}
 		},
 		desc: "When the holder uses a status move, it is disabled. Moves deal 1.3x damage when a move is disabled.",
