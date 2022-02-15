@@ -1181,8 +1181,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					target.cureStatus();
+				if (!this.heal(target.baseMaxhp / 4) || !target.cureStatus()) {
 					this.add('-immune', target, '[from] ability: Power of Alchemy (Vaporeon)');
 				}
 				return null;
