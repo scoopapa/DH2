@@ -100,7 +100,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);
 			}
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && !attacker.hasAbility('vaporcontrol')) {
 				this.debug('Sunny Day water suppress');
 				return this.chainModify(0.5);
 			}
