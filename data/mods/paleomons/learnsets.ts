@@ -1764,6 +1764,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 	tyruntapex: {
 		learnset: {
+			bodypress: ["8L1"],
 			flashcannon: ["8L1"],
 			heavyslam: ["8L1"],
 			swordsdance: ["8L1"],
@@ -1850,6 +1851,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	tyrantrumapex: {
 		learnset: {
+			bodypress: ["8L1"],
 			flashcannon: ["8L1"],
 			heavyslam: ["8L1"],
 			swordsdance: ["8L1"],
