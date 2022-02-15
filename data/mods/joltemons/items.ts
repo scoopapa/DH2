@@ -805,6 +805,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.baseSpecies === 'Regigigas') {
 					let oldAbility = pokemon.setAbility('thickfat', pokemon, 'thickfat', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Thick Fat', oldAbility, '[of] ' + pokemon);
+				}
 			}
 		},
 		onSourceModifyAtkPriority: 6,
