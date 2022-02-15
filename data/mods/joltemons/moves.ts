@@ -1232,34 +1232,66 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	bouncybubble: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Bubble", target);
+		},
 	},
 	buzzybuzz: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Discharge", target);
+		},
 	},
 	sizzlyslide: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Flame Charge", target);
+		},
 	},
 	glitzyglow: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Psychic", target);
+		},
 	},
 	baddybad: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Photon Geyser", target);
+		},
 	},
 	freezyfrost: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Blizzard", target);
+		},
 	},
 	sappyseed: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Horn Leech", target);
+		},
 	},
 	sparklyswirl: {
 		inherit: true,
 		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Dazzling Gleam", target);
+		},
 	},
 	
 // stuff that needs to be edited because of other stuff
