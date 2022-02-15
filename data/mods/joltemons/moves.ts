@@ -1218,6 +1218,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, punch: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
 		infiltrates: true,
 		secondary: null,
 		target: "normal",
