@@ -1354,26 +1354,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Randommons",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3656899/">National Dex Metagame Discussion</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3658849/">National Dex Sample Teams</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3659038/">National Dex Viability Rankings</a>`,
-		],
-
-		mod: 'random',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
-		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
-			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
-			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
-			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
-			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
-		],
-		teambuilderFormat: "Rand",
-	},
-	{
 		name: "[Gen 8] Random Dex",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
 		threads: [
@@ -1719,17 +1699,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
-		name: "[Gen 8] CCAPM 2021 Galar Dex",
-		desc: `<b>Community Create-a-Pet Mod 2021</b>: Redoing Typing: The Mod, where 2 new types were created alongside numerous moves, items, and abilities.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/community-create-a-pet-mod-2021.3693263/">CCAPM 2021 on Smogon Forums</a>`,
-      `&bullet; <a href="https://docs.google.com/spreadsheets/d/1YfSmgK0CSPYT5FiRdJR1vFGLvxoQCRKjJbmejL1niQw/edit?usp=sharing>Spreadsheet</a>`,
-		],
-		mod: 'ccapm2021',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
-  },
   {
 		name: "[Gen 8] Bench Abilities",
 		desc: [
@@ -1881,6 +1850,17 @@ export const Formats: FormatList = [
 			'Wendigoul', 'Vesuvenge', 'Vipier', 'Zawa'
 		],
 	},
+	{
+		name: "[Gen 8] CCAPM 2021 Galar Dex",
+		desc: `<b>Community Create-a-Pet Mod 2021</b>: Redoing Typing: The Mod, where 2 new types were created alongside numerous moves, items, and abilities.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/community-create-a-pet-mod-2021.3693263/">CCAPM 2021 on Smogon Forums</a>`,
+      `&bullet; <a href="https://docs.google.com/spreadsheets/d/1YfSmgK0CSPYT5FiRdJR1vFGLvxoQCRKjJbmejL1niQw/edit?usp=sharing>Spreadsheet</a>`,
+		],
+		mod: 'ccapm2021',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+  },
 	{
 		name: "[Gen 8] Clean Slate Tier Shift",
 		desc: `Clean slate but we forgot to clean the slate between slates.`,
@@ -3520,6 +3500,26 @@ export const Formats: FormatList = [
 		ruleset: ['Little Cup', 'Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
 		banlist: ['All Pokemon'],
 		unbanlist: ['Moncub', 'Elephire', 'Hippothesis', 'Dwole', 'Ducket', 'Calistone', 'Dungee', 'Seedlim', 'Goblone', 'Doduo-Apple', 'Hoothoot-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Stunky-Apple', 'Croagunk-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Anjawoof', 'Threador', 'Goldov'],
+	},
+	{
+		name: "[Gen 8] Randommons",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3656899/">National Dex Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3658849/">National Dex Sample Teams</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3659038/">National Dex Viability Rankings</a>`,
+		],
+
+		mod: 'random',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+		],
+		teambuilderFormat: "Rand",
 	},
 	{
 		name: "[Gen 8] The 3-3-1 Typechart",
