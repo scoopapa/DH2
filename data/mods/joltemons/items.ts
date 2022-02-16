@@ -708,7 +708,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.2);
 			}
 		},
-		desc: "When the holder uses a status move, it is disabled. Moves deal 1.3x damage when a move is disabled.",
+		desc: "When the holder uses a status move, it is disabled. Moves deal 1.2x damage while a move is disabled.",
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
