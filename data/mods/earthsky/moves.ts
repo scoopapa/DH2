@@ -947,7 +947,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	aquatail: {
 		inherit: true,
-		basePower: 100,
 		flags: {bludg: 1, contact: 1, protect: 1, mirror: 1},
 	},
 	aromaticmist: {
@@ -1442,6 +1441,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, bullet: 1, mirror: 1, distance: 1},
 	},
+	dragonrush: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to flinch.",
+	},
 	dragontail: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, bludg: 1},
@@ -1501,6 +1509,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used.",
 		shortDesc: "Power doubles with each hit, up to 160.",
+	},
+	eggbomb: {
+		inherit: true,
+		accuracy: 85,
 	},
 	electroweb: {
 		inherit: true,
@@ -3197,6 +3209,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	skyuppercut: {
 		inherit: true,
+		basePower: 75,
+		accuracy: 100,
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Flying') return 1;
 		},
@@ -3206,7 +3220,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	slam: {
 		inherit: true,
 		basePower: 90,
-		accuracy: 85,
+		accuracy: 90,
 		flags: {contact: 1, protect: 1, mirror: 1, bludg: 1},
 	},
 	smackdown: {

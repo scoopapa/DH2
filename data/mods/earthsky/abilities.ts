@@ -386,7 +386,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						pokemon.cureStatus();
 						break;
 					case 'I': //Invert: Topsy-Turvy
-						this.add('-ability', pokemon, 'Glyphic Spell');
+						activated = false;
 						for (const foe of pokemon.side.foe.active) {
 							let success = false;
 							let i: BoostName;
@@ -395,7 +395,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								foe.boosts[i] = -foe.boosts[i];
 								success = true;
 							}
-							if(success) this.add('-invertboost', foe, '[from] move: Topsy-Turvy');
+							if(success){
+								if(!activated){
+									this.add('-ability', pokemon, 'Glyphic Spell');
+									activated = true;
+								}
+								this.add('-invertboost', foe, '[from] move: Topsy-Turvy');
+							}
 						}
 						break;
 					case 'J': //Join: Split all stats
@@ -477,7 +483,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						break;
 					case 'U': //Undo: Clears hazards, screens, weather, and terrain
 						const removeEffects = [
-							'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+							'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
 						];
 						for (const condition of removeEffects) {
 							if (pokemon.side.removeSideCondition(condition)) {
