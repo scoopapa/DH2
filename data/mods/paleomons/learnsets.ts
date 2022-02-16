@@ -2035,6 +2035,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			mistyterrain: ["8L1"],
 			howlingaurora: ["8L1"],
 
+			auroraveil: ["8L1"],
+
 			ancientpower: ["8L1", "7L26", "6L26"],
 			aquatail: ["7T", "6T"],
 			attract: ["8M", "7M", "6M"],
