@@ -50,7 +50,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	froslass: {
 		inherit: true,
-		abilities: {0: "Soul Link", 1: "Ice Body", H: "Cursed Body"},
+		abilities: {0: "Soul Link", 1: "Ice Body", H: "Merciless"},
 	},
 	watchog: {
 		inherit: true,
@@ -62,11 +62,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	simisear: {
 		inherit: true,
-		abilities: {0: "Gorilla Tactics", H: "Blaze"},
+		abilities: {0: "Gorilla Tactics", 1: "Optimistic", H: "Blaze"},
 	},
 	simisage: {
 		inherit: true,
-		abilities: {0: "Gorilla Tactics", H: "Overgrow"},
+		abilities: {0: "Gorilla Tactics", 1: "Rivalry", H: "Overgrow"},
 	},
 	gigalith: {
 		inherit: true,
@@ -78,7 +78,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cryogonal: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Ice Body"},
+		abilities: {0: "Levitate", 1: "Vapor Control", H: "Ice Body"},
 	},
 	gourgeist: {
 		inherit: true,
@@ -187,7 +187,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	umbreon: {
 		inherit: true,
-		abilities: {0: "Synchronize", H: "Sticky Hold"},
+		abilities: {0: "Corrosion", 1: "Merciless", H: "Power of Alchemy (Umbreon)"},
 	},
 	alcremie: {
 		inherit: true,
@@ -257,7 +257,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Libero", 1: "Inner Focus", H: "Justified"},
+		abilities: {0: "Libero", 1: "Inner Focus", H: "Rivalry"},
 	},
 	wigglytuff: {
 		inherit: true,
@@ -385,11 +385,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	braviary: {
 		inherit: true,
-		abilities: {0: "Overclock", 1: "Sheer Force", H: "Defiant"},
+		abilities: {0: "Optimistic", 1: "Sheer Force", H: "Defiant"},
 	},
 	haxorus: {
 		inherit: true,
-		abilities: {0: "Overclock", 1: "Mold Breaker", H: "Unnerve"},
+		abilities: {0: "Overclock", 1: "Mold Breaker", H: "Rivalry"},
 	},
 	duraludon: {
 		inherit: true,
@@ -405,7 +405,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	exeggutoralola: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Overclock", H: "Harvest"},
+		abilities: {0: "Frisk", 1: "Optimistic", H: "Harvest"},
 	},
 	infernape: {
 		inherit: true,
@@ -477,7 +477,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	jolteon: {
 		inherit: true,
-		abilities: {0: "Volt Absorb", H: "Prickly Coat"},
+		abilities: {0: "Volt Absorb", 1: "Prickly Coat", H: "Power of Alchemy (Jolteon)"},
 	},
 	toxapex: {
 		inherit: true,
@@ -602,11 +602,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	skuntank: {
 		inherit: true,
-		abilities: {0: "Stench", 1: "Aftermath", H: "Merciless"},
+		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Merciless"},
 	},
 	seviper: {
 		inherit: true,
-		abilities: {0: "Shed Skin", 1: "Merciless", H: "Infiltrator"},
+		abilities: {0: "Rivalry", 1: "Merciless", H: "Infiltrator"},
+	},
+	zangoose: {
+		inherit: true,
+		abilities: {0: "Rivalry", 1: "Immunity", H: "Toxic Boost"},
 	},
 	honchkrow: {
 		inherit: true,
@@ -626,7 +630,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sylveon: {
 		inherit: true,
-		abilities: {0: "Pastel Veil", H: "Pixilate"},
+		abilities: {0: "Natural Cure", 1: "Pixilate", H: "Power of Alchemy (Sylveon)"},
 	},
 	vivillon: {
 		inherit: true,
@@ -650,7 +654,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	lilligant: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Own Tempo", H: "Pastel Veil"},
+		abilities: {0: "Chlorophyll", 1: "Optimistic", H: "Pastel Veil"},
 	},
 	calyrex: {
 		inherit: true,
@@ -675,7 +679,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	golduck: {
 		inherit: true,
-		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
+		abilities: {0: "Neuroforce", 1: "Vapor Control", H: "Swift Swim"},
 	},
 	nihilego: {
 		inherit: true,
@@ -812,7 +816,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	turtonator: {
 		inherit: true,
-		abilities: {0: "Shell Armor", H: "Magma Armor"},
+		abilities: {0: "Shell Armor", 1: "Optimistic", H: "Magma Armor"},
 	},
 	entei: {
 		inherit: true,
@@ -848,7 +852,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	shiftry: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Pickpocket"},
+		abilities: {0: "Chlorophyll", 1: "Leaf Guard", H: "Optimistic"},
 	},
 	appletun: {
 		inherit: true,
@@ -896,11 +900,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	honedge: {
 		inherit: true,
-		abilities: {0: "No Guard", H: "Soul Link"},
+		abilities: {0: "No Guard", 1: "Rivalry", H: "Soul Link"},
 	},
 	doublade: {
 		inherit: true,
-		abilities: {0: "No Guard", H: "Soul Link"},
+		abilities: {0: "No Guard", 1: "Rivalry", H: "Soul Link"},
 	},
 	dusclops: {
 		inherit: true,
@@ -1051,7 +1055,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sunflora: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Flare Boost"},
+		abilities: {0: "Chlorophyll", 1: "Optimistic", H: "Flare Boost"},
 	},
 	darmanitan: {
 		inherit: true,
@@ -1194,9 +1198,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Scavenge", 1: "Sniper", H: "Moody"},
 	},
+	sneasel: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Keen Eye", H: "Snow Cloak"},
+	},
 	weavile: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Scavenge", H: "Pickpocket"},
+		abilities: {0: "Pressure", 1: "Scavenge", H: "Snow Cloak"},
 	},
 	linoone: {
 		inherit: true,
@@ -1242,8 +1250,143 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Forewarn", 1: "Synchronize", H: "Unimpressed"},
 	},
+	vaporeon: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Hydration", H: "Power of Alchemy (Vaporeon)"},
+	},
+	flareon: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Fluffy", H: "Power of Alchemy (Flareon)"},
+	},
+	espeon: {
+		inherit: true,
+		abilities: {0: "Analytic", 1: "Magic Bounce", H: "Power of Alchemy (Espeon)"},
+	},
+	leafeon: {
+		inherit: true,
+		abilities: {0: "Leaf Guard", 1: "Chlorophyll", H: "Power of Alchemy (Leafeon)"},
+	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Snow Cloak", 1: "Snow Warning", H: "Power of Alchemy (Glaceon)"},
+	},
+	keldeo: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Vapor Control"},
+	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Vapor Control"},
+	},
+	gastrodon: {
+		inherit: true,
+		abilities: {0: "Sticky Hold", 1: "Storm Drain", H: "Vapor Control"},
+	},
+	swanna: {
+		inherit: true,
+		abilities: {0: "Vapor Control", 1: "Big Pecks", H: "Hydration"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", H: "Vapor Control"},
+	},
+	walrein: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Vapor Control"},
+	},
+	floatzel: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Vapor Control", H: "Water Veil"},
+	},
+	cloyster: {
+		inherit: true,
+		abilities: {0: "Vapor Control", 1: "Skill Link", H: "Overcoat"},
+	},
+	pyroar: {
+		inherit: true,
+		abilities: {0: "Rivalry", 1: "Optimistic", H: "Moxie"},
+	},
+	crobat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Optimistic", H: "Infiltrator"},
+	},
+	noivern: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Optimistic"},
+	},
+	meloetta: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Optimistic"},
+	},
+	meloettapirouette: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Optimistic"},
+	},
+	sceptilemega: {
+		inherit: true,
+		abilities: {0: "Optimistic"},
+	},
+	kartana: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Light Power"},
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Rivalry", H: "Moxie"},
+	},
+	girafarig: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Rivalry", H: "Sap Sipper"},
+	},
+	fearow: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Rivalry", H: "Sniper"},
+	},
+	tauros: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Rivalry", H: "Sheer Force"},
+	},
+	basculin: {
+		inherit: true,
+		abilities: {0: "Reckless", 1: "Adaptability", H: "Rivalry"},
+	},
+	basculinbluestriped: {
+		inherit: true,
+		abilities: {0: "Rock Head", 1: "Adaptability", H: "Rivalry"},
+	},
+	arctovish: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Snow Cloak", H: "Slush Rush"},
+	},
+	darmanitangalar: {
+		inherit: true,
+		abilities: {0: "Gorilla Tactics", 1: "Snow Cloak", H: "Zen Mode"},
+	},
+	darmanitangalarzen: {
+		inherit: true,
+		abilities: {0: "Gorilla Tactics", 1: "Snow Cloak", H: "Zen Mode"},
+	},
+	xurkitree: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Counterfeit"},
+	},
+	stakataka: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Sand Veil"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Sand Veil"},
+	},
+	carbink: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Sturdy", H: "Sand Veil"},
+	},
+	carbink: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Sand Veil", H: "Contrary"},
+	},
 
-	
 // silvally moment
 	silvallybug: {
 		inherit: true,
