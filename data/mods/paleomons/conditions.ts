@@ -1,6 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {	
-	tarpit: {
-		name: "Tar Pit",
+	tarterrain: {
+		name: "Tar Terrain",
 		effectType: 'Terrain',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -13,19 +13,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.hasItem('heavydutyboots')) return;
 			if (move.type === 'Poison' && attacker.isGrounded()) {
-				this.debug('tar pit boost');
+				this.debug('tar terrain boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-fieldstart', 'move: Tar Pit', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-fieldstart', 'move: Tar Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				this.add('-message', "The battlefield became coated in tar!");
-				this.hint(`Tar Pit increases the power of Poison-type moves by 1.3x and applies Powder to all Pokemon on the field.`);
+				this.hint(`Tar Terrain increases the power of Poison-type moves by 1.3x and applies Powder to all Pokemon on the field.`);
 				this.hint(`Doesn't affect grounded Pokemon nor Pokemon holding Heavy-Duty Boots.`);
 			} else {
-				this.add('-fieldstart', 'move: Tar Pit');
+				this.add('-fieldstart', 'move: Tar Terrain');
 			}
 		},
 
@@ -42,7 +42,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd() {
-			this.add('-fieldend', 'move: Tar Pit');
+			this.add('-fieldend', 'move: Tar Terrain');
 		},
 	},
 };
