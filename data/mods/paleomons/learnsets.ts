@@ -1029,7 +1029,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gunkshot: ["8L1"],
 			poisonjab: ["8L1"],
 			sludgebomb: ["8L1"],
-			tarpit: ["8L1"],
+			//tarpit: ["8L1"],		temporarily removed while Tar Pit is still bugged
 			tarshot: ["8L1"],
 
 			amnesia: ["8M", "8L37"],
