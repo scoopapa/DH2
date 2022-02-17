@@ -1312,7 +1312,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	noivern: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Infiltrator", H: "Optimistic"},
+		abilities: {0: "Frisk", 1: "Optimistic", H: "Scavenge"},
 	},
 	meloetta: {
 		inherit: true,
