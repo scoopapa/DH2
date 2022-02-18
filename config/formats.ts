@@ -3501,6 +3501,7 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon'],
 		unbanlist: ['Moncub', 'Elephire', 'Hippothesis', 'Dwole', 'Ducket', 'Calistone', 'Dungee', 'Seedlim', 'Goblone', 'Doduo-Apple', 'Hoothoot-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Stunky-Apple', 'Croagunk-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Anjawoof', 'Threador', 'Goldov'],
 	},
+/*
 	{
 		name: "[Gen 8] Randommons",
 		threads: [
@@ -3521,6 +3522,7 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: "Rand",
 	},
+*/
 	{
 		name: "[Gen 8] The 3-3-1 Typechart",
 		desc: [
