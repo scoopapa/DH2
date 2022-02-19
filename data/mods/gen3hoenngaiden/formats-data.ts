@@ -2130,4 +2130,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	voltorbhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	electrodehisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	growlithehisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	arcaninehisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
 };
