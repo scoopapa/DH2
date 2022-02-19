@@ -238,6 +238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Petilil",
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
+		inheritMoves: ['Petilil'],
 	},
 	basculin: {
 		inherit: true,
@@ -409,6 +410,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 262,
 		prevo: "Bergmite",
 		evoLevel: 37,
+		inheritMoves: ['Bergmite'],
 	},
 	dartrix: {
 		inherit: true,
