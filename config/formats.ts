@@ -3537,6 +3537,24 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem'],
 	},
+	{    
+        name: "[Gen 8] Under The Weather",
+        desc: 'Only pokemon with abilities affected by weather are allowed.',
+        mod: "undertheweather",
+        teambuilderFormat: 'OU',
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Z-Move Clause'],
+        banlist: ['Groudon', 'Kyogre', 'Rayquaza', 'Dracovish', 'Dracozolt', 'Arctozolt', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Charizard-Mega-Y', 'Charizard-Mega-X', 'Abomasnow-Mega', 'Tyranitar-Mega'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Sun' && template.tier !== 'Rain' && template.tier !== 'Sand' && template.tier !== 'Hail' && template.tier !== 'NFE') {
+					return [set.species + ' is not legal in the Under The Weather format.'];
+				}
+			}
+		},
+    },
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
 
