@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-
+/*
 	torkoal: { tier: "Sun" },
 	
 	vulpix: { tier: "NFE" },
@@ -262,8 +262,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	amaura: { tier "NFE" },
 	aurorus: { tier "Hail" },
 	
-	vulpix-alola: { tier "NFE" },
-	ninetales-alola: { tier "Hail" },
+	vulpixalola: { tier "NFE" },
+	ninetalesalola: { tier "Hail" },
 	
 	vanillite: { tier "NFE" },
 	vanillish: { tier "NFE" },
@@ -308,3 +308,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	eiscue: { tier "Hail" },
 	
 	castform: { tier "NFE" },
+	*/
