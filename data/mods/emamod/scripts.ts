@@ -418,10 +418,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData('Learnsets', 'spinarak').learnset.bugbuzz = ['8L1'];
 		
-		this.modData('Learnsets', 'togebi').learnset.tackle = ['8L1'];
-		this.modData('Learnsets', 'togebi').learnset.calmmind = ['8L1'];
-		this.modData('Learnsets', 'togebi').learnset.moonblast = ['8L1'];
-		this.modData('Learnsets', 'togebi').learnset.babydolleyes = ['8L1'];
+		this.modData('Learnsets', 'togepi').learnset.tackle = ['8L1'];
+		this.modData('Learnsets', 'togepi').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'togepi').learnset.moonblast = ['8L1'];
+		this.modData('Learnsets', 'togepi').learnset.babydolleyes = ['8L1'];
 		this.modData('Learnsets', 'togetic').learnset.airslash = ['8L1'];
 		
 		this.modData('Learnsets', 'bonsly').learnset.defense = ['8L1'];
