@@ -825,4 +825,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'giratina').learnset.rockclimb = ['8L1'];
 		this.modData('Learnsets', 'darkrai').learnset.rockclimb = ['8L1'];
 		this.modData('Learnsets', 'arceus').learnset.rockclimb = ['8L1'];
+	},
 };
