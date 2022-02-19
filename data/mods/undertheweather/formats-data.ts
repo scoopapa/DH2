@@ -309,4 +309,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	castform: { tier "NFE" },
 	*/
-},
+};
