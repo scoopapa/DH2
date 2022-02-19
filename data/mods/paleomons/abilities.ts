@@ -40,11 +40,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	oozingtar: {
 		onStart(source) {
-			this.field.setTerrain('tarpit');
+			this.field.setTerrain('tarterrain');
 		},
 
 		name: "Oozing Tar",
-		shortDesc: "Automatically sets Tar Pit.",
+		shortDesc: "Automatically sets Tar Terrain.",
 		rating: 4,
 		num: -102,
 	},
