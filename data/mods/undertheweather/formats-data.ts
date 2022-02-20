@@ -313,5 +313,5 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	eiscue: { tier: "Hail" },
 
-	castform: { tier "NFE" },
+	castform: { tier: "NFE" },
 };
