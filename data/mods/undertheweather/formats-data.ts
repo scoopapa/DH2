@@ -296,7 +296,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	glalie: { tier: "Hail" },
 	
-	mrmime-galar: { tier: "NFE" },
+	mrmimegalar: { tier: "NFE" },
 	mrrime: { tier: "Hail" },
 	
 	regice: { tier: "Hail" },
