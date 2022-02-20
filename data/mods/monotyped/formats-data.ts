@@ -1452,7 +1452,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	cherubi: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	cherrim: {
 		tier: "UU",
