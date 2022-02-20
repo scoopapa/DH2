@@ -3561,7 +3561,6 @@ export const Formats: FormatList = [
         name: "[Gen 8] Under The Weather",
         desc: 'Only pokemon with abilities affected by weather are allowed.',
         mod: "undertheweather",
-        teambuilderFormat: 'OU',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Z-Move Clause'],
         banlist: ['Groudon', 'Kyogre', 'Rayquaza', 'Dracovish', 'Dracozolt', 'Arctozolt', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Charizard-Mega-Y', 'Charizard-Mega-X', 'Abomasnow-Mega', 'Tyranitar-Mega'],
 		onValidateTeam(team, format) {
