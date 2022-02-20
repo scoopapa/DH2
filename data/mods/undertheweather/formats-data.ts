@@ -224,6 +224,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	diglett: { tier "NFE" },
 	dugtrio: { tier "Sand" },
+	diglettalola: {tier: 'NFE'},
+	dugtrioalola: {tier: 'Sand'},
 	
 	shellos: { tier "NFE" },
 	gastrodon: { tier "Sand" },
@@ -262,8 +264,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	amaura: { tier "NFE" },
 	aurorus: { tier "Hail" },
 	
-	vulpix-alola: { tier "NFE" },
-	ninetales-alola: { tier "Hail" },
+	vulpixalola: { tier "NFE" },
+	ninetalesalola: { tier "Hail" },
 	
 	vanillite: { tier "NFE" },
 	vanillish: { tier "NFE" },
@@ -284,8 +286,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	piloswine: { tier "NFE" },
 	mamoswine: { tier "Hail" },
 	
-	sandshrew-alola: { tier "NFE" },
-	sandslash-alola: { tier "Hail" },
+	sandshrewalola: { tier "NFE" },
+	sandslashalola: { tier "Hail" },
 	
 	arctovish: { tier "Hail" },
 	
@@ -308,3 +310,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	eiscue: { tier "Hail" },
 	
 	castform: { tier "NFE" },
+};
