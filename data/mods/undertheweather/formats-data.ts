@@ -224,8 +224,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	diglett: { tier: "NFE" },
 	dugtrio: { tier: "Sand" },
-	diglettalola: {tier:: 'NFE'},
-	dugtrioalola: {tier:: 'Sand'},
+	diglettalola: {tier: 'NFE'},
+	dugtrioalola: {tier: 'Sand'},
 	
 	shellos: { tier: "NFE" },
 	gastrodon: { tier: "Sand" },
