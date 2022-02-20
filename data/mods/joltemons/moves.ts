@@ -731,6 +731,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					category: "Physical",
 					priority: -1,
 					flags: {protect: 1},
+					onTryHit(target, source) {
+						if (source.fainted || !source.isActive) return false;
+					},
 					ignoreImmunity: false,
 					effectType: 'Move',
 					isFutureMove: true,
@@ -866,7 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	aggravate: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
     shortDesc: "If the target is statused, applies Taunt.",
 		isViable: true,
@@ -928,6 +931,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
 			},
 		},
 		onTryImmunity(target) {
@@ -939,6 +945,353 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
+	},
+	octazooka: {
+		num: 190,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Evasion by 1.",
+		isViable: true,
+		name: "Octazooka",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+	signalbeam: {
+		num: 324,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Speed by 1.",
+		isViable: true,
+		name: "Signal Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	aurorabeam: {
+		num: 62,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+    shortDesc: "100% chance to lower the target's Attack by 1.",
+		isViable: true,
+		name: "Aurora Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	venoshock: {
+		num: 474,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+    shortDesc: "Power doubles if the target has a status ailment.",
+		isViable: true,
+		name: "Venoshock",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
+	},
+	attackorder: {
+		num: 454,
+		accuracy: 100,
+		basePower: 75,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+    shortDesc: "Power doubles if the target has a status ailment.",
+		isViable: true,
+		name: "Attack Order",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	smother: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+    shortDesc: "The target must move last next turn.",
+		isViable: true,
+		name: "Smother",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Wrap", target);
+		},
+		onHit(target, source) {
+			target.addVolatile('smother', source);
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'Smother', '[silent]');
+			},
+			onFractionalPriority: -0.1,
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Smother', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
+	fierydance: {
+		num: 552,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Fiery Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	snowmanjazz: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Snowman Jazz",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Ice Beam", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	moonlitwaltz: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Moonlit Waltz",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Dark Pulse", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	petaldance: {
+		num: 80,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Petal Dance",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	skysoiree: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+		isViable: true,
+		name: "Sky Soiree",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Quiver Dance", target);
+		  this.add('-anim', source, "Gust", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
+	shadowpunch: {
+		num: 325,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+    shortDesc: "Ignores burn, screens, and Substitute.",
+		isViable: true,
+		name: "Shadow Punch",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, punch: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
+		infiltrates: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	bouncybubble: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Bubble", target);
+		},
+	},
+	buzzybuzz: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Discharge", target);
+		},
+	},
+	sizzlyslide: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Flame Charge", target);
+		},
+	},
+	glitzyglow: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Psychic", target);
+		},
+	},
+	baddybad: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Photon Geyser", target);
+		},
+	},
+	freezyfrost: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Blizzard", target);
+		},
+	},
+	sappyseed: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Horn Leech", target);
+		},
+	},
+	sparklyswirl: {
+		inherit: true,
+		isNonstandard: null,
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Dazzling Gleam", target);
+		},
 	},
 	
 // stuff that needs to be edited because of other stuff

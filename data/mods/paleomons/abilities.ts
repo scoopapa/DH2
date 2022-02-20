@@ -40,13 +40,73 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	oozingtar: {
 		onStart(source) {
-			this.field.setTerrain('tarpit');
+			this.field.setTerrain('tarterrain');
 		},
 
 		name: "Oozing Tar",
-		shortDesc: "Automatically sets Tar Pit.",
+		shortDesc: "Automatically sets Tar Terrain.",
 		rating: 4,
 		num: -102,
+	},
+
+	underbrushtactics: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Dark' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Grass';
+			}
+		},
+		name: "Underbrush Tactics",
+		desc: "This Pokemon's Dark-type moves become Grass-type moves. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Dark-type moves become Grass-type.",
+		rating: 4,
+		num: -103,
+	},
+
+	corrosivepincers: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-message', `${pokemon.name}'s Corrosive Pincers made it immune to being poisoned!`);
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if ((effect as Move)?.status) {
+				this.add('-message', `${target.name}'s Corrosive Pincers made it immune to being poisoned!`);
+			}
+			return false;
+		},
+		name: "Corrosive Pincers",
+		desc: "This Pokemon's attacking stat is doubled while using a Poison-type attack. If a Pokemon uses a Poison-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poison; Poison power against it is halved.",
+		rating: 4.5,
+		num: -104,
 	},
 	
 	//

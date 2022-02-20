@@ -394,7 +394,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -528,
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 25, atk: 40, def: 40, spa: 25, spd: 25, spe: 60},
+		baseStats: {hp: 25, atk: 40, def: 40, spa: 30, spd: 25, spe: 60},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
 		heightm: 0.6,
 		weightkg: 4.4,
@@ -406,13 +406,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -529,
 		name: "Beedive",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 55, atk: 80, def: 100, spa: 40, spd: 70, spe: 80},
+		baseStats: {hp: 55, atk: 75, def: 80, spa: 65, spd: 70, spe: 80},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
 		heightm: 1.0,
 		weightkg: 20.0,
 		color: "Green",
 		prevo: "Tigrissle",
-		evoLevel: 25,
+		evoLevel: 22,
 		eggGroups: ["Bug", "Water 3"],
 	},
 	lithoshroom: {
@@ -898,7 +898,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Pikeral",
 		//forme: "Red-Striped",
 		types: ["Water", "Fighting"],
-		baseStats: {hp: 70, atk: 112, def: 75, spa: 90, spd: 65, spe: 108},
+		baseStats: {hp: 70, atk: 112, def: 75, spa: 100, spd: 65, spe: 108},
 		abilities: {0: "Reckless", 1: "Adaptability", H: "Mold Breaker"},
 		heightm: 1.5,
 		weightkg: 38.5,
@@ -916,7 +916,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Pikeral",
 		forme: "Blue-Striped",
 		types: ["Water", "Steel"],
-		baseStats: {hp: 70, atk: 112, def: 75, spa: 90, spd: 65, spe: 108},
+		baseStats: {hp: 70, atk: 112, def: 75, spa: 100, spd: 65, spe: 108},
 		abilities: {0: "Rock Head", 1: "Adaptability", H: "Mold Breaker"},
 		heightm: 1.5,
 		weightkg: 38.5,
@@ -2582,11 +2582,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Limber", H: "Ice Body"},
 	},
+	pyroak: {
+		inherit: true,
+		abilities: {0: "Rock Head", 1: "Battle Armor", H: "White Smoke"},
+	},
 	revenankh: {
 		inherit: true,
 		abilities: {0: "Shed Skin", 1: "Air Lock", H: "Soul Drain"},
 	},
-	nohface: { //Everything here and below is renumbering because some cowards wanted to put finalized prevos at the end
+	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,
 	},
@@ -2609,13 +2613,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dorsoil: {
 		inherit: true,
 		number: -19,
-	},
+	},*/
 	colossoil: {
 		inherit: true,
-		number: -20,
+		//number: -20,
 		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
 	},
-	protowatt: {
+	/*protowatt: {
 		inherit: true,
 		number: -21,
 	},
@@ -2638,13 +2642,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tomohawk: {
 		inherit: true,
 		number: -26,
-	},
+	},*/
 	necturine: {
 		inherit: true,
-		number: -27,
+		//number: -27,
 		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
-	necturna: {
+	/*necturna: {
 		inherit: true,
 		number: -28,
 	},
@@ -2679,13 +2683,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cawmodore: {
 		inherit: true,
 		number: -36,
-	},
+	},*/
 	volkritter: {
 		inherit: true,
-		number: -37,
+		//number: -37,
 		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
 	},
-	volkraken: {
+	/*volkraken: {
 		inherit: true,
 		number: -38,
 	},
@@ -2796,5 +2800,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	chromera: {
 		inherit: true,
 		number: -65,
-	},
+	},*/
 };
