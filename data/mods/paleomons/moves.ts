@@ -55,58 +55,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 
-	tarpit: {
+	tarpit: { //currently bugged!! ! ):
 		num: -102,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Tarpit",
+		name: "Tar Pit",
 		desc: "For 5 turns, the terrain becomes a Tar Pit. During the effect, the power of Poison-type attacks used by grounded Pokemon is multiplied by 1.3 and all Pokemon are under the effects of Powder. Camouflage transforms the user into a Poison type, Nature Power becomes Sludge Bomb, and Secret Power has a 30% chance to cause poison. Fails if the current terrain is Tar Pit.",
 		shortDesc: "5 turns. Grounded: +Poison power, +Powder.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
-		terrain: 'tarpit',
+		onHitField(source) {
+			if (this.field.isTerrain('')) return;
+			else {
+				for (const terrain of this.field.terrain) {
+					this.field.clearTerrain();
+				}
+			}
+			this.field.setTerrain('tarpit');
+		},
 		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasItem('terrainextender')) {
-					return 8;
+			onUpdate() {
+				if (!this.field.isTerrain('tarpit')) {
+					const setTerrain = this.field.getTerrain();
+					this.field.clearTerrain();
+					this.field.setTerrain(setTerrain);
 				}
-				return 5;
-			},
-
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				if (attacker.hasItem('heavydutyboots')) return;
-				if (move.type === 'Poison' && attacker.isGrounded()) {
-					this.debug('tar pit boost');
-					return this.chainModify([0x14CD, 0x1000]);
-				}
-			},
-
-			onStart(battle, source, effect) {
-				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Tar Pit', '[from] ability: ' + effect, '[of] ' + source);
-				} else {
-					this.add('-fieldstart', 'move: Tar Pit');
-				}
-			},
-
-			onTryMove(pokemon, target, move) {
-				if (move.type === 'Fire') {
-					if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasItem('heavydutyboots')) {
-						this.add('-message', "When the flame touched the sticky tar on the Pokemon, it combusted!");
-						this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
-						return false;
-					}
-				}
-			},
-
-			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
-				this.add('-fieldend', 'move: Tar Pit');
-			},
+			}
 		},
 		secondary: null,
 		target: "all",

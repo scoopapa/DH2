@@ -3,10 +3,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
       inherit: true,
       baseStats: {hp: 60, atk: 75, def: 85, spa: 115, spd: 85, spe: 115},
    },
+	gyarados: {
+      inherit: true,
+      baseStats: {hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 91},
+   },
 	raikou: {
       inherit: true,
       abilities: {0: "Pressure", 1: "Competitive", H: "Inner Focus"},
-   },
+	},
+	latias: {
+		inherit: true,
+		types: ["Dragon", "Fairy"],
+	},
+	scolipede: {
+		inherit: true,
+		types: ["Bug", "Ground"],
+	}, 
+	haxorus: {
+		inherit: true,
+		types: ["Dragon", "Steel"],
+	}, 
 	golisopod: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 110, spe: 40},

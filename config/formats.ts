@@ -3230,6 +3230,26 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Ubers',
 	},
 	{
+		name: "[Gen 8] Ema Mod",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9065303">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQZ39z8ud7QYaf1R5TIz9Ad967U4bmhABy-CGYNK-LpXjjKw_RHVAFi-5etInNdaCR9Gudv2JWpPPL2/pubhtml">Spreadsheet</a>`,
+		],
+		mod: 'emamod',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai',
+			'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dialga-Origin', 'Dracovish', 'Dragapult', 
+			'Eternatus','Genesect', 'Gengar-Mega', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 
+			'Kyurem-Black','Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagross-Mega', 
+			'Mewtwo','Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra', 'Palkia', 'Palkia-Origin', 'Pheromosa', 
+			'Rayquaza', 'Reshiram','Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 
+			'Yveltal', 'Zacian','Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete', 'Arena Trap', 
+			'Moody','Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Bright Powder', 'King\'s Rock', 'Lax Incense', 'Razor Fang',
+			'Quick Claw', 'Baton Pass',
+		],
+	},
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [
