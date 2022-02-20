@@ -3365,7 +3365,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 
-			/*Abilities*/'Chlorophyll', 'Moody', 
+			/*Abilities*/'Moody', 
 			/*Moves*/'Baton Pass', 'Sticky Web',
 		],
 		teambuilderFormat: 'LC',
