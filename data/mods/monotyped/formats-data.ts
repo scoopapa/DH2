@@ -1387,7 +1387,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	deoxysdefense: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	deoxysspeed: {
 		tier: "Uber",
