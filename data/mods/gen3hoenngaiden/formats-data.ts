@@ -2133,7 +2133,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	voltorbhisui: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "LC",
 	},
 	electrodehisui: {
 		isNonstandard: null,
@@ -2143,7 +2143,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	growlithehisui: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "LC",
 	},
 	arcaninehisui: {
 		isNonstandard: null,
