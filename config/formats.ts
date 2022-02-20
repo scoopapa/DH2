@@ -3253,7 +3253,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'emamod',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
-		unbanlist: ['Deoxys-Defense', 'Landmaldo-Therian', 'Zygarde-10%'],
+		unbanlist: ['Deoxys-Defense', 'Landorus-Therian', 'Zygarde-10%'],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 
 			'Arceus-Fire', 'Arceus-Flying', 'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 
