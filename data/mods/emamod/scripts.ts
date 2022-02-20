@@ -424,7 +424,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'togepi').learnset.babydolleyes = ['8L1'];
 		this.modData('Learnsets', 'togetic').learnset.airslash = ['8L1'];
 		
-		this.modData('Learnsets', 'bonsly').learnset.defense = ['8L1'];
+		this.modData('Learnsets', 'bonsly').learnset.irondefense = ['8L1'];
 		this.modData('Learnsets', 'bonsly').learnset.headsmash = ['8L1'];
 		this.modData('Learnsets', 'sudowoodo').learnset.tackle = ['8L1'];
 		
