@@ -558,7 +558,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	latiasmega: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	latiosmega: {
 		tier: "UUBL",
@@ -677,6 +677,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	purugly: {
 		tier: "(PU)",
 	},
+	garchompmega: {
+		tier: "OU",
+	},
 	lucariomega: {
 		tier: "Uber",
 	},
@@ -702,7 +705,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 	},
 	manaphy: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	darkrai: {
 		tier: "Uber",
@@ -1042,4 +1045,78 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	
 	//NatDex Tiering
+	//OU
+	chansey: {
+		tier: "OU",
+	},
+	weavile: {
+		tier: "OU",
+	},
+	
+	//UUBL
+	gyarados: {
+		tier: "UUBL",
+	},
+	hawlucha: {
+		tier: "UUBL",
+	},
+	hydreigon: {
+		tier: "UUBL",
+	},
+	jirachi: {
+		tier: "UUBL",
+	},
+	mew: {
+		tier: "UUBL",
+	},
+	slowkinggalar: {
+		tier: "UUBL",
+	},
+	thundurus: {
+		tier: "UUBL",
+	},
+	thundurustherian: {
+		tier: "UUBL",
+	},
+	xurkitree: {
+		tier: "UUBL",
+	},
+	zapdosgalar: {
+		tier: "UUBL",
+	},
+	
+	//UU
+	alakazam: {
+		tier: "UU",
+	},
+	bisharp: {
+		tier: "UU",
+	},
+	blaziken: {
+		tier: "UU",
+	},
+	dracozolt: {
+		tier: "UU",
+	},
+	mandibuzz: {
+		tier: "UU",
+	},
+	melmetal: {
+		tier: "UU",
+	},
+	nidoking: {
+		tier: "UU",
+	},
+	skarmory: {
+		tier: "UU",
+	},
+	slowking: {
+		tier: "UU",
+	},
+	swampert: {
+		tier: "UU",
+	},
+	zeraora: {
+		tier: "UU",
+	},
 };
