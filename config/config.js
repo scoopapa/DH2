@@ -286,22 +286,22 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = false;
+exports.chatmodchat = +;
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | string}
  */
-exports.battlemodchat = false;
+exports.battlemodchat = +;
 /**
  * pm modchat - minimum group for PMing other users, challenging other users
  * @type {false | string}
  */
-exports.pmmodchat = false;
+exports.pmmodchat = +;
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}
  */
-exports.laddermodchat = false;
+exports.laddermodchat = +;
 
 /**
  * forced timer - force the timer on for all battles
@@ -641,6 +641,7 @@ exports.grouplist = [
 		alts: 'ipself',
 		broadcast: true,
 		showmedia: true,
+		tournaments: true,
 	},
 	{
 		symbol: 'whitelist',
