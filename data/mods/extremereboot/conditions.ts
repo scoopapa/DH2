@@ -1,7 +1,7 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	frz: {
 		name: 'frz',
-		start: "  [Pokemon] was chilled!"
+		start: "  [Pokemon] was chilled!",
 		alreadyStarted: "  [POKEMON] is already chilled!",
 		end: "  [POKEMON] warmed up!",
 		endFromItem: "  [POKEMON]'s [ITEM] warmed it up!",
@@ -21,7 +21,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	brn: {
 		name: 'brn',
-		start: "  [Pokemon] was sunburned!"
+		start: "  [Pokemon] was sunburned!",
 		alreadyStarted: "  [POKEMON] is already sunburned!",
 		end: "  [POKEMON] warmed up!",
 		endFromItem: "  [POKEMON]'s [ITEM] healed it's sunburn!",
@@ -43,7 +43,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	crs: {
 		name: 'crs',
-		start: "  [Pokemon] was cursed!"
+		start: "  [Pokemon] was cursed!",
 		alreadyStarted: "  [POKEMON] is already cursed!",
 		damage: "  [POKEMON] is afflicted by the curse!",
 		end: "  [POKEMON]'s curse was lifted!",
@@ -71,7 +71,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	fer: {
 		name: 'fer',
-		start: "  [Pokemon] was consumed by fear!"
+		start: "  [Pokemon] was consumed by fear!",
 		alreadyStarted: "  [POKEMON] is already afraid!",
 		end: "  [POKEMON] pulled it together!",
 		activate: "  [POKEMON] is shaking in fear!",

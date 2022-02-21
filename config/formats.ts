@@ -360,7 +360,7 @@ export const Formats: FormatList = [
 		ruleset: ['Dynamax Clause', 'Sleep Clause Mod',],
 		banlist: ['All Pokemon'],
 		unbanlist: [
-			
+			'Extreme Ribbit'
 		],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
