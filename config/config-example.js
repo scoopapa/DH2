@@ -87,6 +87,7 @@ Main's SSL deploy script from Let's Encrypt looks like:
  * @type {false | string[]}.
  */
 exports.proxyip = false;
+exports.isTrustedProxyIp = ip => ["::1", "127.0.0.1"].includes(ip);
 
 /**
  * Various debug options
@@ -171,7 +172,7 @@ Y929lRybWEiKUr+4Yw2O1W0CAwEAAQ==
  */
 exports.routes = {
 	root: 'pokemonshowdown.com',
-	client: 'play.pokemonshowdown.com',
+	client: 'dragonheaven.herokuapp.com',
 	dex: 'dex.pokemonshowdown.com',
 	replays: 'replay.pokemonshowdown.com',
 };
@@ -297,22 +298,22 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = false;
+exports.chatmodchat = '+';
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | AuthLevel}
  */
-exports.battlemodchat = false;
+exports.battlemodchat = '+';
 /**
  * PM modchat - minimum group for sending private messages or challenges to other users
  * @type {false | AuthLevel}
  */
-exports.pmmodchat = false;
+exports.pmmodchat = '+';
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}
  */
-exports.laddermodchat = false;
+exports.laddermodchat = '+';
 
 /**
  * forced timer - force the timer on for all battles
@@ -664,7 +665,7 @@ exports.grouplist = [
 		declare: true,
 		bypassafktimer: true,
 		gamemanagement: true,
-
+		broadcast: true,
 		ip: false,
 		globalban: false,
 		lock: false,
@@ -677,7 +678,7 @@ exports.grouplist = [
 		name: "Player",
 		inherit: '+',
 		battleonly: true,
-
+		broadcast: true,
 		roomvoice: true,
 		modchat: true,
 		editprivacy: true,
@@ -690,7 +691,7 @@ exports.grouplist = [
 		id: "voice",
 		name: "Voice",
 		inherit: ' ',
-
+		broadcast: true,
 		altsself: true,
 		makegroupchat: true,
 		joinbattle: true,
