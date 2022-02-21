@@ -1,6 +1,12 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	frz: {
 		name: 'frz',
+		start: "  [Pokemon] was chilled!"
+		alreadyStarted: "  [POKEMON] is already chilled!",
+		end: "  [POKEMON] warmed up!",
+		endFromItem: "  [POKEMON]'s [ITEM] warmed it up!",
+		endFromMove: "  [POKEMON]'s [MOVE] warmed it up!",
+		cant: "[POKEMON] is chilled!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -15,6 +21,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	brn: {
 		name: 'brn',
+		start: "  [Pokemon] was sunburned!"
+		alreadyStarted: "  [POKEMON] is already sunburned!",
+		end: "  [POKEMON] warmed up!",
+		endFromItem: "  [POKEMON]'s [ITEM] healed it's sunburn!",
+		endFromMove: "  [POKEMON]'s [MOVE] healed it's sunburn!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -32,6 +43,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	crs: {
 		name: 'crs',
+		start: "  [Pokemon] was cursed!"
+		alreadyStarted: "  [POKEMON] is already cursed!",
+		damage: "  [POKEMON] is afflicted by the curse!",
+		end: "  [POKEMON]'s curse was lifted!",
+		endFromItem: "  [POKEMON]'s [ITEM] lifted the curse!",
+		endFromMove: "  [POKEMON]'s [MOVE] lifted the curse!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			this.effectData.stage = 0;
@@ -54,6 +71,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	fer: {
 		name: 'fer',
+		start: "  [Pokemon] was consumed by fear!"
+		alreadyStarted: "  [POKEMON] is already afraid!",
+		end: "  [POKEMON] pulled it together!",
+		activate: "  [POKEMON] is shaking in fear!",
+		endFromItem: "  [POKEMON]'s [ITEM] soothed its fear!",
+		endFromMove: "  [POKEMON]'s [MOVE] soothed its fear!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			this.effectData.stage = 0;

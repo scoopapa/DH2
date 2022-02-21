@@ -18,6 +18,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	Summer: {
 		damageTaken: {
+			brn: 3,
 			Spring: 2,
 			Summer: 0,
 			Autumn: 1,
@@ -52,6 +53,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	Winter: {
 		damageTaken: {
+			frz: 3,
 			Spring: 1,
 			Summer: 1,
 			Autumn: 2,
@@ -69,6 +71,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	Night: {
 		damageTaken: {
+			slp: 3,
 			Spring: 0,
 			Summer: 1,
 			Autumn: 0,
@@ -171,6 +174,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	Folklore: {
 		damageTaken: {
+			crs: 3,
 			Spring: 0,
 			Summer: 0,
 			Autumn: 0,
@@ -188,6 +192,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	Manmade: {
 		damageTaken: {
+			psn: 3,
 			Spring: 0,
 			Summer: 0,
 			Autumn: 0,
