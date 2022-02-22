@@ -3183,6 +3183,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen2doubles',
+		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Celebi', 'Ho-Oh', 'Lugia', 'Mew', 'Mewtwo', 'Snorlax'],
 	},
