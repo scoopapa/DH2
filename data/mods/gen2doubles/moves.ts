@@ -10,10 +10,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	acid: {
 		inherit: true,
 		shortDesc: "10% chance to lower the target's Defense by 1.",
+		category: "Physical",
 	},
 	aeroblast: {
 		inherit: true,
 		critRatio: 3,
+		category: "Special",
+	},
+	ancientpower: {
+		inherit: true,
+		category: "Physical",
 	},
 	attract: {
 		inherit: true,
@@ -125,6 +131,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	bite: {
+		inherit: true,
+		category: "Special",
+	},
 	blizzard: {
 		inherit: true,
 		shortDesc: "10% chance to freeze the target.",
@@ -132,6 +142,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	bubble: {
 		inherit: true,
 		shortDesc: "10% chance to lower the target's Speed by 1.",
+	},
+	clamp: {
+		inherit: true,
+		category: "Special",
 	},
 	conversion2: {
 		inherit: true,
@@ -159,10 +173,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	crabhammer: {
 		inherit: true,
 		critRatio: 3,
+		category: "Special",
 	},
 	crosschop: {
 		inherit: true,
 		critRatio: 3,
+	},
+	crunch: {
+		inherit: true,
+		category: "Special",
 	},
 	curse: {
 		inherit: true,
@@ -291,6 +310,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user faints after using this move. The target's Defense is halved during damage calculation.",
 		noSketch: true,
 	},
+	feintattack: {
+		inherit: true,
+		category: "Special",
+	},
+	firepunch: {
+		inherit: true,
+		category: "Special",
+	},
 	fissure: {
 		inherit: true,
 		desc: "Deals 65535 damage to the target. This attack's accuracy out of 256 is equal to the lesser of (2 * (user's level - target's level) + 76) and 255, before applying accuracy and evasiveness modifiers. Fails if the target is at a higher level. Can hit a target using Dig.",
@@ -300,6 +327,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The power of this move is 20 if X is 33 to 48, 40 if X is 17 to 32, 80 if X is 10 to 16, 100 if X is 5 to 9, 150 if X is 2 to 4, and 200 if X is 0 or 1, where X is equal to (user's current HP * 48 / user's maximum HP), rounded down. This move does not apply damage variance and cannot be a critical hit.",
 		noDamageVariance: true,
 		willCrit: false,
+	},
+	flamewheel: {
+		inherit: true,
+		category: "Special",
 	},
 	fly: {
 		inherit: true,
@@ -364,6 +395,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Power doubles if the target is using Fly.",
 		shortDesc: "Power doubles during Fly.",
+		category: "Physical",
 	},
 	healbell: {
 		inherit: true,
@@ -390,6 +422,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	horndrill: {
 		inherit: true,
 		desc: "Deals 65535 damage to the target. This attack's accuracy out of 256 is equal to the lesser of (2 * (user's level - target's level) + 76) and 255, before applying accuracy and evasiveness modifiers. Fails if the target is at a higher level.",
+	},
+	icepunch: {
+		inherit: true,
+		category: "Special",
 	},
 	icywind: {
 		inherit: true,
@@ -593,6 +629,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.removeVolatile('lockedmove');
 			}
 		},
+		category: "Special",
 	},
 	petaldance: {
 		inherit: true,
@@ -644,6 +681,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "If the target switches out this turn, this move hits it before it leaves the field with doubled power and the user's turn is over.",
 		shortDesc: "Power doubles if the foe is switching out.",
+		category: "Special",
 	},
 	rage: {
 		inherit: true,
@@ -658,6 +696,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "High critical hit ratio.",
 		critRatio: 3,
+		category: "Physical",
 	},
 	razorwind: {
 		inherit: true,
@@ -668,6 +707,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
+		category: "Physical",
 	},
 	reflect: {
 		inherit: true,
@@ -727,6 +767,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "30% chance to flinch the target.",
 	},
+	sacredfire: {
+		inherit: true,
+		category: "Special",
+	},
 	safeguard: {
 		inherit: true,
 		desc: "For 5 turns, the user and its party members cannot have major status conditions or confusion inflicted on them by other Pokemon. During the effect, Outrage, Thrash, and Petal Dance do not confuse the user. Fails if the effect is already active on the user's side.",
@@ -739,6 +783,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "The user faints after using this move. The target's Defense is halved during damage calculation.",
 		noSketch: true,
+	},
+	shadowball: {
+		inherit: true,
+		category: "Physical",
 	},
 	sketch: {
 		inherit: true,
@@ -788,6 +836,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		noSketch: true,
 	},
+	sludge: {
+		inherit: true,
+		category: "Physical",
+	},
+	sludgebomb: {
+		inherit: true,
+		category: "Physical",
+	},
+	smog: {
+		inherit: true,
+		category: "Physical",
+	},
 	solarbeam: {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. Damage is halved if the weather is Rain Dance. If the weather is Sunny Day, the move completes in one turn.",
@@ -796,6 +856,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		// Rain weakening done directly in the damage formula
 		onBasePower() {},
+	},
+	spark: {
+		inherit: true,
+		category: "Special",
 	},
 	spikes: {
 		inherit: true,
@@ -934,6 +998,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	swift: {
 		inherit: true,
 		shortDesc: "This move does not check accuracy.",
+		category: "Physical",
 	},
 	synthesis: {
 		inherit: true,
@@ -977,6 +1042,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-item', source, yourItem, '[from] move: Thief', '[of] ' + target);
 			},
 		},
+		category: "Special",
 	},
 	thrash: {
 		inherit: true,
@@ -993,6 +1059,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	thunder: {
 		inherit: true,
 		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Fly. If the weather is Rain Dance, this move does not check accuracy. If the weather is Sunny Day, this move's accuracy is 50%.",
+	},
+	thunderpunch: {
+		inherit: true,
+		category: "Special",
 	},
 	toxic: {
 		inherit: true,
@@ -1035,6 +1105,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Has a 20% chance to flinch the target. Power doubles if the target is using Fly.",
 		shortDesc: "20% chance to flinch the target.",
+	},
+	vinewhip: {
+		inherit: true,
+		category: "Special",
+	},
+	waterfall: {
+		inherit: true,
+		category: "Special",
 	},
 	whirlwind: {
 		inherit: true,
