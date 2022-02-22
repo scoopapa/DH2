@@ -1558,4 +1558,91 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	solventshot: {
+		num: -1030,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "10% chance to toxic. Super effective on Steel.",
+		name: "Solvent Shot",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Poison': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		contestType: "Beautiful",
+	},
+	shortcircuit: {
+		num: -1035,
+		accuracy: 90,
+		basePower: 130,
+		category: "Physical",
+		shortDesc: "Lowers the user's Atk by 2.",
+		name: "Short Circuit",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bolt Strike", target);
+		},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	springtidestorm: {
+		shortDesc: "10% chance to lower all target's stats.",
+		num: -1005,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		name: "Springtide Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fairy Wind", target);
+		},
+		onTry(pokemon) {
+			if (pokemon.species.baseSpecies === 'Enamorus-Therian') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Enamorus-Therian can use this move.");
+			this.add('-fail', pokemon, 'move: Springtide Storm');
+			return null;
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 };

@@ -205,4 +205,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vespiquenterra: {
 		tier: "SSS",
 	},
+	miloticalola: {
+		tier: "SSS",
+	},
+	enamorustherian: {
+		tier: "SSS",
+	},
+	grapploct: {
+		tier: "SSS",
+	},
 };

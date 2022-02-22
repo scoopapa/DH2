@@ -124,6 +124,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vespiquenterra").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "vespiquenterra").learnset.rockpolish = ["8L1"];
 		this.modData("Learnsets", "vespiquenterra").learnset.stoneedge = ["8L1"];
+
+		
+		this.modData("Learnsets", "grapploct").learnset.aquajet = ["8L1"];
+		this.modData("Learnsets", "grapploct").learnset.toxic = ["8L1"];
 	},
 	
 	teambuilderConfig: {
