@@ -1,15 +1,37 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	// Not Fully Implemented
+	// Coded
 	absorptive: {
 		num: 1001,
 		name: "Absorptive",
 		desc: "Draining moves restore 1.5x more HP than normal",
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.5);
+			}
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	acrid: {
 		num: 1002,
 		name: "Acrid",
-		desc: "Lowers an opponent's speed in switch-in (along the lines of Intimidate)",
+		desc: "Lowers an opponent's speed in switch-in",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Acrid', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['decoy']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
 	},
 	// Not Fully Implemented
 	alchemy: {
@@ -29,11 +51,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Almsgiver",
 		desc: "Upon switching out, if the incoming ally is not holding an item, they will recieve a copy of this Pokémon's item.",
 	},
-	// Not Fully Implemented
+	// Coded
 	amplify: {
 		num: 1006,
 		name: "Amplify",
 		desc: "Increases power of pulse and sound moves by 1.3x.",
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound'] || moves.flags['pulse']) {
+				this.debug('Amplify boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
 	},
 	// Not Fully Implemented
 	arbiter: {
@@ -41,17 +70,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Arbiter",
 		desc: "Extends the duration of Rules Rewrite by 2 turns when used by this pokemon.",
 	},
-	// Not Fully Implemented
+	// Coded
 	ataraxia: {
 		num: 1008,
 		name: "Ataraxia",
 		desc: "Immune to moves' secondary effects",
+		onModifySecondaries(secondaries) {
+			this.debug('Ataraxia prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
 	},
-	// Not Fully Implemented
-	berserker: {
+	// Coded
+	berserk: {
 		num: 1009,
 		name: "Berserker",
 		desc: "This pokemon's attack is raised by 1 if it falls below 50% HP.",
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({atk: 1});
+			}
+		},
 	},
 	// Not Fully Implemented
 	bigbellied: {
@@ -59,11 +101,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Big Bellied",
 		desc: "If rice feild is active when this pokemon switches in, it instatnly get's the healing without waiting for a countdown. Immune to rice feild damage.",
 	},
-	// Not Fully Implemented
+	// Coded
 	bingchilling: {
 		num: 1011,
 		name: "Bing Chilling",
 		desc: "This Pokémon's Typless moves become Winter-type and gain a 1.2x. power boost. Existing Winter-type moves also get the power boost.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			// const noModifyType = [
+			
+			// ];
+			if (move.type === 'Typeless' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Winter';
+				move.bingChillingBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.bingChillingBoosted || move.type === "Winter") return this.chainModify([0x1333, 0x1000]);
+		},
 	},
 	// Not Fully Implemented
 	bipolar: {
@@ -131,17 +187,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Climatic Change",
 		desc: "Every Season type attack became the next one.(Spring become summer,summer become autumn,autumn become winter and winter become spring)",
 	},
-	// Not Fully Implemented
+	// Coded
 	contagious: {
 		num: 1023,
 		name: "Contagious",
 		desc: "Contact moves used against this pokemon have a 25% chance to poison the one who made contact.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(1, 4)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	contrary: {
 		num: 1024,
 		name: "Contrary",
-		desc: "No Changes",
+		desc: "Inverts stat boosts",
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				boost[i]! *= -1;
+			}
+		},
 	},
 	// Not Fully Implemented
 	conversion: {
@@ -227,11 +297,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Jack-o'",
 		desc: "This Pokemon is immune to the effects of Pumpkin Field. If Pumpkin Field is set on the field, the power of this Pokemon's physical and special attacks is multiplied by 1.3.",
 	},
-	// Not Fully Implemented
+	// Coded
 	lesspell: {
 		num: 1039,
 		name: "Lesspell",
 		desc: "Lowers opposing Pokemon Special Attack by 1 stage when switching in.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Acrid', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['decoy']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
 	},
 	// Not Fully Implemented
 	linger: {
@@ -274,6 +359,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1046,
 		name: "Nocturnal",
 		desc: "Immune to Night-type moves, raises Spe by  1 if hit by one",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Night') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Sap Sipper');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Night') {
+				this.boost({spe: 1}, this.effectData.target);
+			}
+		},
 	},
 	// Not Fully Implemented
 	nonbeliever: {
@@ -304,12 +404,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1051,
 		name: "Rainbringer",
 		desc: "Sets weather to Rain for the next 5 turns. Spring and Sea deals 1.3x damage.",
+		onStart(source) {
+			this.field.setWeather('rainyseason');
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	reality: {
 		num: 1052,
 		name: "Reality",
 		desc: "Immune to Folklore-type, boosts its Attack by 1 stage if hit by Folklore-type moves.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Folklore') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Sap Sipper');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Folklore') {
+				this.boost({atk: 1}, this.effectData.target);
+			}
+		},
 	},
 	// Not Fully Implemented
 	reaper: {
@@ -317,11 +435,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Reaper",
 		desc: "This Pokemon's Autumn-type moves do 1.2x damage and restore the user 50% of the damage dealt.",
 	},
-	// Not Fully Implemented
+	// Coded
 	regenerator: {
 		num: 1054,
 		name: "Regenerator",
 		desc: "This pokemon has 1/4 of its max hp, rounded down, restored when it switches out",
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 4);
+		},
 	},
 	// Not Fully Implemented
 	rigormortis: {
@@ -364,6 +485,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1061,
 		name: "Snowbringer",
 		desc: "Sets weather to Snow for the next 5 turns. Winter deals 1.5x damage, Summer deals 0.5x",
+		onStart(source) {
+			this.field.setWeather('snowfall');
+		},
 	},
 	// Not Fully Implemented
 	spectralshifter: {
@@ -401,11 +525,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sub Rosa",
 		desc: "This Pokemon is unharmed by Rose Field. This Pokemon restores 1/8 of its maximum HP, rounded down, if any Pokemon (including itself) switches into Rose Field.",
 	},
-	// Not Fully Implemented
+	// Coded
 	sunbringer: {
 		num: 1068,
 		name: "Sunbringer",
 		desc: "Sets weather to Sun for the next 5 turns. Summer deals 1.5x damage, Winter deals 0.5x",
+		onStart(source) {
+			this.field.setWeather('highnoon');
+		},
 	},
 	// Not Fully Implemented
 	supersapience: {

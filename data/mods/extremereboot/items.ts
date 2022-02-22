@@ -36,6 +36,18 @@ export const Items: {[itemid: string]: ItemData} = {
 	cursedorb: {
 		name: "Cursed Orb",
 		num: 1003,
+		onStart(pkmn){
+			if (!pkmn.m.cursedOrbHolder){
+				pkmn.m.cursedOrbHolder = "protected";
+			}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.m.cursedOrbHolder !== "protected"){
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
 		desc: "Does nothing. If this item is disturbed or passed on to a different holder, said holder will lose 1/8th of their max HP per turn.",
 		gen: 8,
 	},
@@ -43,6 +55,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Emblematic Scarf",
 		num: 1004,
 		desc: "Holder's Speed is 1.5x, but it can only select moves that match the holder's primary type (including status moves).",
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.getMove(moveSlot.id);
+				if (!pokemon.hasType(move.type)) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
 		gen: 8,
 	},
 	enigmaticshield: {
@@ -61,7 +84,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1006,
 		desc: "The holder's moves have 1.3x power, but it loses 1/10 of its max HP after successfully damaging an opponent with a move. Instead restores 1/16 max HP if the holder is an Autumn type.",
 		onModifyDamage(damage, source, target, move) {
-			if (!(pokemon.hasType("Autumn"))) return this.chainModify([0x14CC, 0x1000]);
+			if (!(source.hasType("Autumn"))) return this.chainModify([0x14CC, 0x1000]);
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (pokemon.hasType("Autumn")) return;
@@ -139,6 +162,19 @@ export const Items: {[itemid: string]: ItemData} = {
 	powerstone: {
 		name: "Power Stone",
 		desc: "Boosts the power of the first move in the user's moveset by 1.3x. All of its other moves deal 0.9x damage.",
+		onModifyDamage(damage, source, target, move) {
+			let firstSlot = true;
+			for (const moveSlot of source.moveSlots) {
+				if (moveSlot.id === move.id) {
+					if (firstSlot) {
+						return this.chainModify(1.3);
+					} else {
+						return this.chainModify(0.9);
+					}
+				}
+				firstSlot = false;
+			}
+		},	
 		num: 1012,
 		gen: 8,
 	},
