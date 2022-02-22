@@ -301,7 +301,7 @@ exports.pmmodchat = '+',
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}
  */
-exports.laddermodchat = '+',
+exports.laddermodchat = false,
 
 /**
  * forced timer - force the timer on for all battles
