@@ -145,11 +145,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Blind Rage",
 		desc: "Hustle",
 	},
-	// Not Fully Implemented
+	// Coded
 	blossom: {
 		num: 1016,
 		name: "Blossom",
 		desc: "The first time this pokemon uses a damaging Spring move, its attacking stats will be multiplied by 1.5x when using his next Spring moves.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== "Spring") return;
+			if (target !== source && move.category !== 'Status') {
+				source.addVolatile("blossom");
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Blossom');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Spring' && attacker.hasAbility('blossom')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Spring' && attacker.hasAbility('blossom')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Blossom', '[silent]');
+			},
+		},
 	},
 	// Not Fully Implemented
 	burningrage: {
@@ -242,6 +269,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1029,
 		name: "Decay",
 		desc: "The first time this pokemon uses a damaging Autumn move, its attacking stats will be multiplied by 1.5x when using his next Autumn moves.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== "Autumn") return;
+			if (target !== source && move.category !== 'Status') {
+				source.addVolatile("decay");
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Decay');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Autumn' && attacker.hasAbility('decay')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Autumn' && attacker.hasAbility('decay')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Decay', '[silent]');
+			},
+		},
 	},
 	// Not Fully Implemented
 	equivalentexchange: {
@@ -318,11 +372,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	linger: {
 		num: 1040,
 		name: "Linger",
 		desc: "The first time this pokemon uses a damaging Winter move, its attacking stats will be multiplied by 1.5x when using his next Winter moves.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== "Winter") return;
+			if (target !== source && move.category !== 'Status') {
+				source.addVolatile("linger");
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Linger');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Winter' && attacker.hasAbility('linger')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Winter' && attacker.hasAbility('linger')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Linger', '[silent]');
+			},
+		},
 	},
 	// Not Fully Implemented
 	megatonburst: {
@@ -468,11 +549,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Shatter",
 		desc: "This pokemon's attacks are guaranteed to be critical hits if the opponent is statused.",
 	},
-	// Not Fully Implemented
+	// Coded
 	shine: {
 		num: 1059,
 		name: "Shine",
 		desc: "The first time this pokemon uses a damaging Summer move, its attacking stats will be multiplied by 1.5x when using his next Summer moves.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== "Summer") return;
+			if (target !== source && move.category !== 'Status') {
+				source.addVolatile("shine");
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Shine');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Summer' && attacker.hasAbility('shine')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Summer' && attacker.hasAbility('shine')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Shine', '[silent]');
+			},
+		},
 	},
 	// Not Fully Implemented
 	smite: {
