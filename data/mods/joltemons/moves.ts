@@ -414,12 +414,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "Heals the user by 50% of its max HP.",
+    shortDesc: "Heals the user by 50% of its max HP; 66% in Rain.",
 		name: "Life Dew",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, authentic: 1},
-		heal: [1, 2],
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather('raindance')) {
+				factor = 0.667;
+			}
+			return !!this.heal(this.modify(pokemon.maxhp, factor));
+		},
 		secondary: null,
 		target: "allies",
 		type: "Water",
