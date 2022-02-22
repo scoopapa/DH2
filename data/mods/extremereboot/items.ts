@@ -61,7 +61,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.getMove(moveSlot.id);
-				if (!pokemon.hasType(move.type)) {
+				if (pokemon.getTypes()[0] !== move.type) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -71,7 +71,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	enigmaticshield: {
 		name: "Enigmatic Shield",
 		num: 1005,
-		desc: "Reduces damage taken from Supereffective attakcs by 25%.",
+		desc: "Reduces damage taken from Supereffective attacks by 25%.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				return this.chainModify(0.75);
@@ -87,7 +87,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (!(source.hasType("Autumn"))) return this.chainModify([0x14CC, 0x1000]);
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (pokemon.hasType("Autumn")) return;
+			if (source.hasType("Autumn")) return;
 			if (source && source !== target && move && move.category !== 'Status') {
 				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('fellscythe'));
 			}

@@ -357,7 +357,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'extremereboot',
-		ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Team Preview', 'Data Mod'],
+		ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Team Preview', 'Data Mod', 'Cancel Mod'],
 		banlist: ['All Pokemon'],
 		unbanlist: [
 			'Extreme Ribbit'

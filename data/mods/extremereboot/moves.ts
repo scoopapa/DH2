@@ -2350,6 +2350,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {recharge: 1, protect: 1, mirror: 1},
 		self: {
 			volatileStatus: 'mustrecharge',
+			boosts: {
+				spa: -2,
+			}
 		},
 		target: "normal",
 		secondary: null,
