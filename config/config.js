@@ -286,7 +286,7 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = '+',
+exports.chatmodchat = false,
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | string}
@@ -296,7 +296,7 @@ exports.battlemodchat = false,
  * pm modchat - minimum group for PMing other users, challenging other users
  * @type {false | string}
  */
-exports.pmmodchat = '+',
+exports.pmmodchat = false,
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}

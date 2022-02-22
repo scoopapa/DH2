@@ -252,7 +252,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "Gain +4 Attack. If the user is active at the end of the next turn, they faint (a la Perish Song reaching 0).",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Coded and Tested
@@ -375,7 +375,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "The user restores 1/2 of its maximum HP, rounded half down. If the user has Sunburn, it is cured.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -2522,7 +2522,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spa: 1,
 			def: 1,
 		},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -2794,7 +2794,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spd: 1,
 			def: 1,
 		},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -2808,7 +2808,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "Heals the user for 75% of it's health, but lowers a stage in every stat (excl. acc/evasion)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Coded
@@ -2840,7 +2840,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spd: 1,
 		},
 		priority: 0,
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -2854,7 +2854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "The user has 1/16 of its maximum HP restored at the end of each turn, but it is prevented from switching out. The message 'X went under repair!' will be displayed when this move activates.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -2868,7 +2868,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "Heals the user by 25%, resets the user's negative stat changes to 0, and clears any of the user's status conditions.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented

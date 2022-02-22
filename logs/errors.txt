@@ -4140,3 +4140,87 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
     at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"170","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"102","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+

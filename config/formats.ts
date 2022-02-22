@@ -357,14 +357,24 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'extremereboot',
-		ruleset: ['Dynamax Clause', 'Sleep Clause Mod',],
+		ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Team Preview', 'Data Mod'],
 		banlist: ['All Pokemon'],
 		unbanlist: [
 			'Extreme Ribbit'
 		],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		onBegin() {
+			this.add('rule', 'Camomons Mod: Pok\u00e9mon have their types set to match their first two moves.');
 		},
+		onModifySpeciesPriority: 2,
+		onModifySpecies(species, target, source, effect) {
+			if (!target) return; // Chat command
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.getMove(move.id).type))];
+			return {...species, types: types};
+		},
+		// onSwitchIn(pokemon) {
+			// this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+		// },
 	},
 	// {
 		// name: "[Gen 8] EXTREME ROULETTEMONS",
