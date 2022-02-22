@@ -126,7 +126,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	wigglytuff: {
-		randomSets: [
 		doublesTier: "DNU",
 	},
 	zubat: {
@@ -484,7 +483,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DBL",
 	},
 	snorlax: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	articuno: {
 		doublesTier: "DBL",
@@ -505,10 +504,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DBL",
 	},
 	mewtwo: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	mew: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	chikorita: {
 		doublesTier: "LC",
@@ -553,7 +552,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	ledian: {
-		randomSets: [
 		doublesTier: "DNU",
 	},
 	spinarak: {
@@ -745,12 +743,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	lugia: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	hooh: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	celebi: {
-		tier: "Uber",
+		doublesTier: "DUber",
 	},
 };
