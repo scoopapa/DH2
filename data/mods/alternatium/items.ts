@@ -74,16 +74,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Douse Drive",
 		spritenum: 103,
 		onTakeItem(item, pokemon, source) {
-			if (source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
 				return false;
 			}
 			return true;
 		},
 		onAfterMove(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
-				if (move.category !== 'Status') {
-					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
-				}
+				if (move.category === 'Status') return;
+				this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 			}
 		},
 		onDrive: 'Water',
