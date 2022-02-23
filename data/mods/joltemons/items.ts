@@ -95,7 +95,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	chillpill: {
 		name: "Chill Pill",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
+		onStart(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
 				if (!pokemon.species.name.includes('Galar')) {
 					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
