@@ -154,7 +154,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	"graduationscale": {
 		id: "graduationscale",
 		name: "Graduation Scale",
-		onSwitchIn: function(pokemon) {
+		onStart: function(pokemon) {
 			this.add('-item', pokemon, 'Graduation Scale');
 			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
