@@ -22,8 +22,8 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onModifyMove(move, pokemon) {
-			if ((pokemon.species.id !== 'genesect') || (pokemon.species.id !== 'genesectdouse') || || (pokemon.species.id !== 'genesectmolten') 
-			|| (pokemon.species.id !== 'genesectfreezer') || (pokemon.species.id !== 'genesecttypedelta')) return;
+			if (pokemon.species.id !== 'genesect' || pokemon.species.id !== 'genesectdouse' || || pokemon.species.id !== 'genesectmolten'
+			|| pokemon.species.id !== 'genesectfreezer' || pokemon.species.id !== 'genesecttypedelta') return;
 			if (move.type = 'Fire') {
 				move.drain = [1, 3];
 			}
@@ -45,8 +45,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBeforeMove(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
-			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
-			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (source.species.id !== 'genesect' || source.species.id !== 'genesectdouse' || || source.species.id !== 'genesectmolten'
+			|| source.species.id !== 'genesectfreezer' || source.species.id !== 'genesecttypedelta') return;
 			if (move && (move.category !== 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
 				this.boost({def: 1});
 				source.useItem();
@@ -73,14 +73,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Douse Drive",
 		spritenum: 103,
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
+			if (source && source.baseSpecies.num === 649) || pokemon.baseSpecies.num === 649) {
 				return false;
 			}
 			return true;
 		},
 		onAfterMove(target, source, move) {
-			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
-			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if ((source.species.id !== 'genesect' || source.species.id !== 'genesectdouse' || || source.species.id !== 'genesectmolten'
+			|| source.species.id !== 'genesectfreezer' || source.species.id !== 'genesecttypedelta') return;
 			if (move.category !== 'Status') {
 				this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 			}
@@ -334,15 +334,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onModifyDamage(damage, source, target, move) {
-			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
-			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (source.species.id !== 'genesect' || source.species.id !== 'genesectdouse' || || source.species.id !== 'genesectmolten'
+			|| source.species.id !== 'genesectfreezer' || source.species.id !== 'genesecttypedelta') return;
 			if (move.category === 'Physical') {
 				return this.chainModify(1.4);
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
-			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
-			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (source.species.id !== 'genesect' || source.species.id !== 'genesectdouse' || || source.species.id !== 'genesectmolten'
+			|| source.species.id !== 'genesectfreezer' || source.species.id !== 'genesecttypedelta') return;
 			if (source && source !== target && move && move.category !== 'Status') {
 				this.damage(source.baseMaxhp / 8, source, source, this.dex.getItem('shockdrive'));
 			}
