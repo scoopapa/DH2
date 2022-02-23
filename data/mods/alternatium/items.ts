@@ -45,11 +45,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		/*onBoost(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) return;
 			if (source && source.baseSpecies.num === 649) {
-				if (move && (move.category !== 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-					this.boost({def: 1});
-					source.useItem();
-				}
+				this.boost({def: 1});
+				source.useItem();
 			}
 		},*/
 		onDrive: 'Ice',
@@ -79,10 +78,10 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onAfterMoveSecondary(target, source, move) {
-			if (source && source.baseSpecies.num === 649) {
+		onAfterMoveSecondary(target, pokemon, move) {
+			if (pokemon && pokemon.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
-					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
+					this.heal(pokemon.baseMaxhp / 10/*, pokemon, pokemon, this.dex.getItem('dousedrive')*/);
 				}
 			}
 		},
