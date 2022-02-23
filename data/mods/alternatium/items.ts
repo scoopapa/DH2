@@ -84,7 +84,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (pokemon.baseSpecies.num !== 649) return;
 			if (move.category !== 'Status') {
-				this.heal(pokemon.baseMaxhp / 8, pokemon);
+				this.heal(pokemon.baseMaxhp / 10, pokemon);
 			}
 		},
 		onDrive: 'Water',
