@@ -80,11 +80,11 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onAfterMoveSecondarySelf(target, pokemon, move) {
-			if (pokemon && pokemon.baseSpecies.num === 649) {
-				if (move.category !== 'Status') {
-					this.heal(pokemon.baseMaxhp / 10, pokemon);
-				}
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.baseSpecies.num !== 649) return;
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 8, pokemon);
 			}
 		},
 		onDrive: 'Water',
