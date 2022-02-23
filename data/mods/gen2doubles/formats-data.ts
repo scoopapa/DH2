@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	snorlax: {
+	/*snorlax: {
 		tier: "Uber",
-	},
+	},*/
 };
