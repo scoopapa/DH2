@@ -2050,7 +2050,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Intimidate", 1: "Flash Fire"},
 		heightm: 0.8,
 		weightkg: 22.7,
-		prevo: "Growlithe-Hisui",
+		evos: ["Arcanine-Hisui"],
 	},
 	arcanine: {
 		inherit: true,
