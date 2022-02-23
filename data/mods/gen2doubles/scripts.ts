@@ -3,7 +3,7 @@
  */
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen3',
+	inherit: 'gen2',
 	gen: 2,
 	// BattlePokemon scripts.
 	pokemon: {
