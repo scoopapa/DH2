@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onBoost(source, target) {
+		/*onBoost(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (source && source.baseSpecies.num === 649) {
@@ -51,11 +51,11 @@ export const Items: {[itemid: string]: ItemData} = {
 					source.useItem();
 				}
 			}
-		},
+		},*/
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
-		shortDesc: "Raises Def right before the opponent uses any attacking move. One time use.",
+		shortDesc: "(Bugged) Raises Def right before the opponent uses any attacking move. One time use.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -79,17 +79,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onAfterMove(target, source, move) {
+		/*onAfterMove(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
 					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 				}
 			}
-		},
+		},*/
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "User regains 10% HP when it uses an attacking move.",
+		shortDesc: "(Bugged) User regains 10% HP when it uses an attacking move.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
