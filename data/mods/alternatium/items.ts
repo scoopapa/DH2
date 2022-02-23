@@ -42,15 +42,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		/*onBoost(source, target) {
+		onBoost(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) return;
 			if (source && source.baseSpecies.num === 649) {
-				this.boost({def: 1});
 				source.useItem();
 			}
-		},*/
+		},
+		boosts: {
+			def: 1,
+		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
@@ -78,10 +80,10 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onAfterMoveSecondarySelf(target, source, move) {
-			if (source && source.baseSpecies.num === 649) {
+		onAfterMoveSecondarySelf(target, pokemon, move) {
+			if (pokemon && pokemon.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
-					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
+					this.heal(pokemon.baseMaxhp / 10, pokemon);
 				}
 			}
 		},
