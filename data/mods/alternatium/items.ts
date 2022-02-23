@@ -78,17 +78,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onAfterMoveSecondary(target, pokemon, move) {
-			if (pokemon && pokemon.baseSpecies.num === 649) {
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (source && source.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
-					this.heal(pokemon.baseMaxhp / 10/*, pokemon, pokemon, this.dex.getItem('dousedrive')*/);
+					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 				}
 			}
 		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "(Bugged) User regains 10% HP when it uses an attacking move.",
+		shortDesc: "User regains 10% HP when it uses an attacking move.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
