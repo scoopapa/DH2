@@ -79,7 +79,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onResidual(target, source, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
 					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
