@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onBeforeMove(attacker, defender) {
+		/*onBeforeMove(attacker, defender) {
 			const action = this.queue.willMove(attacker);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || attacker.volatiles['mustrecharge']) return;
@@ -52,7 +52,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		boosts: {
 			def: 1,
-		},
+		},*/
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
