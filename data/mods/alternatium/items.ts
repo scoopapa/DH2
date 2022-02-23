@@ -21,15 +21,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.3);
+		onModifyMove(move, pokemon) {
+			if ((pokemon.species.id !== 'genesect') || (pokemon.species.id !== 'genesectdouse') || || (pokemon.species.id !== 'genesectmolten') 
+			|| (pokemon.species.id !== 'genesectfreezer') || (pokemon.species.id !== 'genesecttypedelta')) return;
+			if (move.type = 'Fire') {
+				move.drain = [1, 3];
 			}
 		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Attack is boosted by 1.3x.",
+		shortDesc: "User is immune to hazards except for Sticky Web. Fire moves User recover 33% of the damage dealt.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -40,23 +42,19 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpe(spe, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
+		onBeforeMove(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
+			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (move && (move.category !== 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				this.boost({def: 1});
+				source.useItem();
 			}
-		},
-		onSourceModifyAccuracyPriority: 9,
-		onSourceModifyAccuracy(accuracy, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				if (typeof accuracy !== 'number') return;
-				this.debug('chilldrive - enhancing accuracy');
-				return accuracy * 1.25;
-			}
-		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Speed and Accuracy is boosted by 1.25x.",
+		shortDesc: "Raises Def right before the opponent uses any attacking move. One time use.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -80,20 +78,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifyDef(def, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
+		onAfterMove(target, source, move) {
+			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
+			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (move.category !== 'Status') {
+				this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 			}
 		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Defenses are boosted by 1.25x.",
+		shortDesc: "User regains 10% HP when it uses an attacking move.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -338,17 +333,24 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onStart(pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				this.add('-activate', pokemon, 'move: Charge');
-				pokemon.addVolatile('charge');
-				this.boost({spd: 1});
+		onModifyDamage(damage, source, target, move) {
+			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
+			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (move.category === 'Physical') {
+				return this.chainModify(1.4);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if ((source.species.id !== 'genesect') || (source.species.id !== 'genesectdouse') || || (source.species.id !== 'genesectmolten') 
+			|| (source.species.id !== 'genesectfreezer') || (source.species.id !== 'genesecttypedelta')) return;
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.damage(source.baseMaxhp / 8, source, source, this.dex.getItem('shockdrive'));
 			}
 		},
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Activates Charge upon entry.",
+		shortDesc: "User's physical attacks deal 40% increased damage, but it loses 12.5% of its max HP each turn it uses one",
 	},
 	steelmemory: {
 		name: "Steel Memory",
