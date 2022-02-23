@@ -79,13 +79,13 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		/*onAfterMove(target, source, move) {
+		onResidual(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (move.category !== 'Status') {
 					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
 				}
 			}
-		},*/
+		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
