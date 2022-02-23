@@ -10,7 +10,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Inflicts Fear on the target.(Sound)",
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		status: 'slp',
+		status: 'fer',
 		target: "normal",
 		secondary: null,
 	},
@@ -457,7 +457,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+			if (['highnoon'].includes(attacker.effectiveWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -727,6 +727,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 0,
 			onSwitchIn(pokemon) {
 				if (pokemon.hasType("Winter") || pokemon.hasType("Storm")) return;
+				if (pokemon.hasAbility("fluffyfloat")) return;
 				this.boost({evasion: -2}, pokemon, this.effectData.source, this.dex.getActiveMove('cottonfield'));
 				this.damage(pokemon.maxhp / 16);
 			},
@@ -2572,6 +2573,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 0,
 			onSwitchIn(pokemon) {
 				if (pokemon.hasType("Folklore") || pokemon.hasType("Night")) return;
+				if (pokemon.hasAbility("jacko")) return;
 				this.damage(pokemon.maxhp / 16);
 			},
 			onSetStatus(status, target, source, effect) {
@@ -2596,6 +2598,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							pokemon.m.lastField = "pumpkinfield";
 							pokemon.m.fieldTurns = 0;
 						}
+						if (pokemon.hasAbility("jacko")) continue;
 						pokemon.m.fieldTurns++;
 						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
 						if (pokemon.m.fieldTurns === 3) {
@@ -2931,6 +2934,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 0,
 			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility("bigbellied")) {
+					if (pokemon.hasType("Serenity") || pokemon.hasType("Sea")) pokemon.heal(pokemon.baseMaxhp / 2);
+					else pokemon.heal(pokemon.baseMaxhp / 4);
+					return;
+				}
 				this.damage(pokemon.maxhp / 16);
 			},
 			onSetStatus(status, target, source, effect) {
@@ -2955,6 +2963,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							pokemon.m.lastField = "ricefield";
 							pokemon.m.fieldTurns = 0;
 						}
+						if (pokemon.hasAbility("bigbellied")) continue;
 						pokemon.m.fieldTurns++;
 						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
 						if (pokemon.m.fieldTurns === 3) {
@@ -3029,9 +3038,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		terrain: 'rosefield',
 		condition: {
 			duration: 0,
-			onSwitchIn(pokemon) {
-				if (pokemon.hasType("Spring") || pokemon.hasType("Sky")) return;
-				this.damage(pokemon.maxhp / 8);
+			onSwitchIn(source) {
+				if (source.hasType("Spring") || source.hasType("Sky")) return;
+				for (const side of this.sides) {
+					for (const pokemon of side.active) {
+						if (pokemon.hasAbility("subrosa")) pokemon.heal(pokemon.maxhp / 8);
+					}
+				}
+				if (source.hasAbility("subrosa")) return;
+				this.damage(source.maxhp / 8);
 			},
 			onStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {

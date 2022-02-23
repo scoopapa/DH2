@@ -98,7 +98,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 					bestStat = source.storedStats[s];
 				}
 			}
-			this.boost({[statName]: -1}, source);
+			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, source);
+			else this.boost({[statName]: -1}, source);
 		},
 	},
 	highnoon: {

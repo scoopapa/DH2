@@ -95,8 +95,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
-	bigbellied: {
+	// Coded
+	bigbellied: { // implemented in Rice Field
 		num: 1010,
 		name: "Big Bellied",
 		desc: "If rice feild is active when this pokemon switches in, it instatnly get's the healing without waiting for a countdown. Immune to rice feild damage.",
@@ -314,18 +314,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1032,
 		name: "Fluffy Float",
 		desc: "If Cotton Field is active, this Pokemon's Defense and Speed are boosted by x1.5. This Pokemon takes no damage from Cotton Field.",
+		onModifyDef(pokemon) {
+			if (this.field.isTerrain('cottonfield')) return this.chainModify(1.5);
+		},
+		onModifySpe(pokemon) {
+			if (this.field.isTerrain('cottonfield')) return this.chainModify(1.5);
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	glide: {
 		num: 1033,
 		name: "Glide",
 		desc: "This pokemon has it's speed raised by 1 when a Pokemon on the feild uses a sky move.",
+		onHit(target, source, move) {
+			if (move.type !== "Sky") return;
+			for (const side of this.sides) {
+				for (const pokemon of side.active) {
+					if (!pokemon.hasAbility("Glide")) continue;
+					if (!pokemon.m.glideBoost || pokemon.m.glideBoost !== this.turn) {
+						pokemon.m.glideBoost = this.turn;
+						this.boost({spe:1});
+					}
+				}
+			}
+		}
 	},
-	// Not Fully Implemented
+	// Coded
 	hotfeet: {
 		num: 1034,
 		name: "Hot Feet",
 		desc: "If this Pokemon is sunburned, its Speed is multiplied by 2",
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	// Not Fully Implemented
 	ignorance: {
@@ -345,11 +368,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Internet Rage",
 		desc: "This Pokemon's Manmade-type moves become Storm-type, and Storm-type moves become Manmade-type.",
 	},
-	// Not Fully Implemented
+	// Coded
 	jacko: {
 		num: 1038,
 		name: "Jack-o'",
 		desc: "This Pokemon is immune to the effects of Pumpkin Field. If Pumpkin Field is set on the field, the power of this Pokemon's physical and special attacks is multiplied by 1.3.",
+		onModifyDamage(damage, source, target, move) {
+			if (this.field.isTerrain("pumpkinfield")) return this.chainModify([0x14CC, 0x1000]);
+		},
 	},
 	// Coded
 	lesspell: {
@@ -435,7 +461,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Necromancer",
 		desc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Folklore-type attack.",
 	},
-	// Not Fully Implemented
+	// Coded
 	nocturnal: {
 		num: 1046,
 		name: "Nocturnal",
@@ -462,11 +488,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Non-Believer",
 		desc: "This Pokemon is immune to Folklore-type moves (yes i'm planning to give this another effect like flash fire and -absorb clones)",
 	},
-	// Not Fully Implemented
+	// Coded
 	petalbody: {
 		num: 1048,
 		name: "Petal Body",
 		desc: "If Rose Field is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('rosefield')) this.heal(target.baseMaxhp / 8);
+		}
 	},
 	// Not Fully Implemented
 	prudentplow: {
@@ -498,7 +529,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Folklore') {
 				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] ability: Sap Sipper');
+					this.add('-immune', target, '[from] ability: Reality');
 				}
 				return null;
 			}
@@ -615,19 +646,45 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stone Skin",
 		desc: "User takes 25% less damage from contact moves.",
 	},
-	// Not Fully Implemented
+	// Coded
 	stormwatch: {
 		num: 1065,
 		name: "Storm Watch",
 		desc: "Immunity to Storm, being targeted by a Storm move will boost both defenses by 1 stage.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Storm') {
+				if (!this.boost({def: 1, spd: 1})) {
+					this.add('-immune', target, '[from] ability: Storm Watch');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Storm') {
+				this.boost({def: 1, spd: 1}, this.effectData.target);
+			}
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	strategicretreat: {
 		num: 1066,
 		name: "Strategic Retreat",
 		desc: "emergency exit but activates in 25% of max HP and heals 25% of max HP on switch",
+		onUpdate(pokemon){
+			if (pokemon.hp >= pokemon.maxhp / 4) return;
+			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			pokemon.switchFlag = true;
+			this.add('-activate', target, 'ability: Strategic Retreat');
+		}
 	},
-	// Not Fully Implemented
+	// Coded
 	subrosa: {
 		num: 1067,
 		name: "Sub Rosa",
@@ -678,11 +735,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Tropical Spirit",
 		desc: "This Pokemon's attacks are critical hits if the target is sunburnt. Winter-type moves against this Pokemon deal half damage.",
 	},
-	// Not Fully Implemented
+	// Coded
 	unstable: {
 		num: 1075,
 		name: "Unstable",
 		desc: "The pokemon is immune to serenity move.But the fear status is doubled if applied on the pokemon with the ability.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Storm') {
+				this.add('-immune', target, '[from] ability: Storm Watch');
+				return null;
+			}
+		},
 	},
 	// Not Fully Implemented
 	wavecrasher: {
@@ -690,10 +754,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wave Crasher",
 		desc: "After another Pokemon uses a Sea-type move, the user uses the same move. Sea-type moves against this Pokemon deal half damage. Other Pokemon cannot force the user to switch out.",
 	},
-	// Not Fully Implemented
+	// Coded
 	wintercoat: {
 		num: 1077,
 		name: "Winter Coat",
 		desc: "This Pokemon is immune to Winter-type moves and is immune to chill. Gaining this Ability while under chill cures it.",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-activate', pokemon, 'ability: Immunity');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'frz') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Winter Coat');
+			}
+			return false;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Winter') {
+				this.add('-immune', target, '[from] ability: Storm Watch');
+				return null;
+			}
+		},
 	},
 };
