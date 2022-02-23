@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onBeforeMove(source, target) {
+		onBoost(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (source && source.baseSpecies.num === 649) {
@@ -81,8 +81,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onAfterMove(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
-				if (move.category === 'Status') return;
-				this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
+				if (move.category !== 'Status') {
+					this.heal(source.baseMaxhp / 10, source, source, this.dex.getItem('dousedrive'));
+				}
 			}
 		},
 		onDrive: 'Water',
@@ -334,9 +335,10 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (source && source.baseSpecies.num === 649) return;
-			if (move.category === 'Physical') {
-				return this.chainModify(1.4);
+			if (source && source.baseSpecies.num === 649) {
+				if (move.category === 'Physical') {
+					return this.chainModify(1.4);
+				}
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
