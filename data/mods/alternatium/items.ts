@@ -31,7 +31,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
-		shortDesc: "User is immune to hazards except for Sticky Web. Fire moves User recover 33% of the damage dealt.",
+		shortDesc: "Holder is immune to hazards, except Sticky Web. Fire moves recover 1/3 of the damage dealt.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -56,7 +56,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
-		shortDesc: "(Bugged) Raises Def right before the opponent uses any attacking move. One time use.",
+		shortDesc: "(Bugged) Raises Defense before the opponent is attacking the holder. Single Use.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -90,7 +90,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "User regains 10% HP when it uses an attacking move.",
+		shortDesc: "After an attack, holder recovers 1/10 of its maximum HP.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -352,7 +352,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
-		shortDesc: "User's physical attacks deal 40% increased damage, but it loses 12.5% of its max HP each turn it uses one",
+		shortDesc: "Holder's physical attacks do 1.4x damage, and it loses 1/8 its max HP after the attack.",
 	},
 	steelmemory: {
 		name: "Steel Memory",
