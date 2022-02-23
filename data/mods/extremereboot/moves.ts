@@ -195,17 +195,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	beachball: {
 		name: "Beach Ball",
 		accuracy: 90,
 		basePower: 30,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (pokemon.volatiles['rollout'] && pokemon.volatiles['rollout'].hitCount) {
+				bp *= Math.pow(2, pokemon.volatiles['rollout'].hitCount);
+			}
+			if (pokemon.status !== 'slp') pokemon.addVolatile('rollout');
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			this.debug("Rollout bp: " + bp);
+			return bp;
+		},
 		category: "Physical",
 		pp: 10,
 		type: "Summer",
-		// shortDesc: "Power doubles with each hit. Repeats for 5 turns. Contact.",
+		shortDesc: "Power doubles with each hit. Repeats for 5 turns. Contact.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		condition: {
+			duration: 2,
+			onLockMove: 'rollout',
+			onStart() {
+				this.effectData.hitCount = 1;
+			},
+			onRestart() {
+				this.effectData.hitCount++;
+				if (this.effectData.hitCount < 5) {
+					this.effectData.duration = 2;
+				}
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['rollout'];
+				}
+			},
+		},
 		target: "normal",
 		secondary: null,
 	},
@@ -1288,7 +1319,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	firecracker: {
 		name: "Firecracker",
 		accuracy: 100,
@@ -1296,11 +1327,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Summer",
-		// shortDesc: "User takes 1/3 Recoil, 10% Chance to lower the target's Defense",
+		shortDesc: "User takes 1/3 Recoil, 10% Chance to lower the target's Defense",
 		priority: 0,
+		recoil: [1,3],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			boost: {
+				def: -1,
+			},
+			chance: 10,
+		},
 	},
 	// Not Fully Implemented
 	flakerake: {
@@ -1316,7 +1353,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	floralbreeze: {
 		name: "Floral Breeze",
 		accuracy: true,
@@ -1326,9 +1363,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Spring",
 		// shortDesc: "At the end of the next turn, the Pokemon at the user's position heals 1/2 of the user's maximum HP, rounded down.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {snatch: 1, heal: 1},
+		slotCondition: 'Wish',
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				this.effectData.hp = source.maxhp / 2;
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Floral Breeze', '[wisher] ' + this.effectData.source.name);
+				}
+			},
+		},
 		secondary: null,
+		target: "self",
 	},
 	// Not Fully Implemented
 	freezeover: {
@@ -1342,9 +1393,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			boost: {
+				spe: -1,
+			},
+			chance: 100,
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	frostblast: {
 		name: "Frost Blast",
 		accuracy: 100,
@@ -1352,27 +1408,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Winter",
-		// shortDesc: "10% to afflict chill on the target.",
+		shortDesc: "10% to afflict chill on the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			status: 'frz',
+			chance: 10,
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	frostbite: {
 		name: "Frostbite",
 		accuracy: 100,
 		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'frz') return move.basePower * 2;
+			return move.basePower;
+		},
 		category: "Physical",
 		pp: 10,
 		type: "Winter",
-		// shortDesc: "Doubles BP if the Opponent is Chilled. (Bite, Contact)",
+		shortDesc: "Doubles BP if the Opponent is Chilled. (Bite, Contact)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	frostyfingers: {
 		name: "Frosty Fingers",
 		accuracy: true,
@@ -1380,13 +1443,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 15,
 		type: "Winter",
-		// shortDesc: "Raises SpD and Atk by 1.",
+		shortDesc: "Raises SpD and Atk by 1.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		boost: {
+			atk: 1,
+			spd: 1
+		}
 	},
-	// Not Fully Implemented
+	// Coded
 	gentlebreeze: {
 		name: "Gentle Breeze",
 		accuracy: true,
@@ -1394,7 +1461,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 20,
 		type: "Sky",
-		// shortDesc: "N/A (Non-contact)",
+		shortDesc: "N/A (Non-contact)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -1414,7 +1481,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	getserious: {
 		name: "Get Serious",
 		accuracy: true,
@@ -1422,11 +1489,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Typeless",
-		// shortDesc: "Raises the user's crit ratio by +2.",
+		shortDesc: "Raises the user's crit ratio by +2.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {snatch: 1},
+		volatileStatus: 'focusenergy',
+		condition: {
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-start', target, 'move: Focus Energy', '[zeffect]');
+				} else if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', target, 'move: Focus Energy', '[silent]');
+				} else {
+					this.add('-start', target, 'move: Focus Energy');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 2;
+			},
+		},
 		secondary: null,
+		target: "self",
 	},
 	// Not Fully Implemented
 	ghostlyhowl: {
@@ -1466,7 +1548,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		// shortDesc: "Bite move. High crit ratio",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, bite: 1},
+		critRatio: 2,
 		target: "normal",
 		secondary: null,
 	},
@@ -1575,7 +1658,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	harvest: {
 		name: "Harvest",
 		accuracy: 100,
@@ -1585,7 +1668,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Autumn",
 		// shortDesc: "If this move succeeds, a message appears in the chat which says 'You get harvested.'",
 		onHit(pokemon) {
-			this.add('-message', 'You get [meme redacted]');
+			this.add('-message', 'You get harvested');
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -3438,8 +3521,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "Raises the user's Sp. Attack stat by 2.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		boosts: {
+			spa: 2,
+		},
 		secondary: null,
+		target: "self",
 	},
 	// Not Fully Implemented
 	solarflare: {
@@ -3454,6 +3540,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
 	},
 	// Not Fully Implemented
 	solidify: {
@@ -3803,10 +3894,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 5,
 		type: "Summer",
-		// shortDesc: "Gives the target a sunburn.",
+		shortDesc: "Gives the target a sunburn.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		status: 'brn',
 		secondary: null,
 	},
 	// Coded
@@ -3884,7 +3976,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	sunstroke: {
 		name: "Sunstroke",
 		accuracy: 100,
@@ -3892,11 +3984,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Summer",
-		// shortDesc: "Has a 25% chance to Sunburn the target.",
+		shortDesc: "Has a 25% chance to Sunburn the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			status: 'brn',
+			chance: 25,
+		},
 	},
 	// Not Fully Implemented
 	supercharge: {
@@ -3920,11 +4015,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Summer",
-		// shortDesc: "Deals damage to the Pokémon next to the target for 1/16 of their max HP. If there are no Pokémon next to the target, 10% chance to sunburn instead",
+		shortDesc: "Deals damage to the Pokémon next to the target for 1/16 of their max HP. If there are no Pokémon next to the target, 10% chance to sunburn instead",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
 	},
 	// Not Fully Implemented
 	swiftstrike: {
