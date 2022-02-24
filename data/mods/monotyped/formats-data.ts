@@ -82,6 +82,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pikachupartner: {
 		tier: "UU",
 	},
+	pikachuworld: {
+		tier: "UU",
+	},
 	raichu: {
 		tier: "UU",
 	},
@@ -2838,7 +2841,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	xurkitree: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	celesteela: {
 		tier: "Illegal",
