@@ -660,8 +660,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		//MOD: Spread damage. Putting it here because it happens before weather in Gen III.
 		if (move.spreadHit && move.target === 'allAdjacentFoes') {
 			const spreadModifier = move.spreadModifier || 0.5;
-			this.battle.debug('Spread modifier: ' + spreadModifier);
-			damage = this.battle.modify(damage, spreadModifier);
+			this.debug('Spread modifier: ' + spreadModifier);
+			damage = this.modify(damage, spreadModifier);
 		}
 
 		// Weather modifiers
