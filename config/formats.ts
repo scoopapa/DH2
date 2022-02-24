@@ -3497,7 +3497,7 @@ export const Formats: FormatList = [
 		column: 4,
 	},*/
 	{
-		name: "[Gen 3] Ubers",
+		name: "[Gen 3] Ubers Custom Game",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/8286280/">ADV Ubers</a>`,
 		],
@@ -3509,7 +3509,7 @@ export const Formats: FormatList = [
 		banlist: ['Wobbuffet + Leftovers'],
 	},
 	{
-		name: "[Gen 3] UU",
+		name: "[Gen 3] UU Custom Game",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3585923/">ADV UU Metagame Discussion</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3548578/">ADV UU Viability Rankings</a>`,
@@ -3523,7 +3523,7 @@ export const Formats: FormatList = [
 		unbanlist: ['Scyther'],
 	},
 	{
-		name: "[Gen 3] 1v1",
+		name: "[Gen 3] 1v1 Custom Game",
 		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/8031456/">ADV 1v1</a>`,
@@ -3562,7 +3562,7 @@ export const Formats: FormatList = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
-		name: "[Gen 2] Ubers",
+		name: "[Gen 2] Ubers Custom Game",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/8286282/">GSC Ubers</a>`,
 		],
@@ -3573,7 +3573,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 	},
 	{
-		name: "[Gen 2] UU",
+		name: "[Gen 2] UU Custom Game",
 		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/3576710/">GSC UU</a>`],
 
 		mod: 'gen2',
@@ -3583,7 +3583,7 @@ export const Formats: FormatList = [
 		banlist: ['OU', 'UUBL'],
 	},
 	{
-		name: "[Gen 2] NU",
+		name: "[Gen 2] NU Custom Game",
 		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/3642565/">GSC NU</a>`],
 
 		mod: 'gen2',
@@ -3605,7 +3605,7 @@ export const Formats: FormatList = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
-		name: "[Gen 1] UU",
+		name: "[Gen 1] UU Custom Game",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3573896/">RBY UU Metagame Discussion</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3647713/">RBY UU Viability Rankings</a>`,
@@ -3618,7 +3618,7 @@ export const Formats: FormatList = [
 		banlist: ['OU', 'UUBL'],
 	},
 	{
-		name: "[Gen 1] OU (Tradeback)",
+		name: "[Gen 1] OU (Tradeback) Custom Game",
 		desc: `RBY OU with movepool additions from the Time Capsule.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/articles/rby-tradebacks-ou">RBY Tradebacks OU</a>`,
@@ -3634,7 +3634,7 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 1] Stadium OU",
+		name: "[Gen 1] Stadium OU Custom Game",
 
 		mod: 'stadium',
 		searchShow: false,
