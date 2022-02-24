@@ -475,7 +475,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	lightscreen: {
 		inherit: true,
-		desc: "For 5 turns, the user and its party members have their Special Defense doubled. Critical hits ignore this effect. Fails if the effect is already active on the user's side.",
+		desc: "For 5 turns, the user and its party members have their Special Defense doubled, or 1.5x if there are multiple active Pokemon on the user's side. Critical hits ignore this effect. Fails if the effect is already active on the user's side.",
 		shortDesc: "For 5 turns, the user's party has doubled Sp. Def.",
 		effect: {
 			duration: 5,

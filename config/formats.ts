@@ -3489,6 +3489,174 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['DUber', 'Power Construct', 'Eevium Z', 'Dark Void'],
 	},
+	// Past Generations
+	///////////////////////////////////////////////////////////////////
+
+	/*{
+		section: "Past Generations",
+		column: 4,
+	},*/
+	{
+		name: "[Gen 3] Ubers Custom Game",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/posts/8286280/">ADV Ubers</a>`,
+		],
+
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Standard'],
+		banlist: ['Wobbuffet + Leftovers'],
+	},
+	{
+		name: "[Gen 3] UU Custom Game",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3585923/">ADV UU Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3548578/">ADV UU Viability Rankings</a>`,
+		],
+
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Standard', 'NFE Clause'],
+		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain'],
+		unbanlist: ['Scyther'],
+	},
+	{
+		name: "[Gen 3] 1v1 Custom Game",
+		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/posts/8031456/">ADV 1v1</a>`,
+		],
+
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		teamLength: {
+			validate: [1, 3],
+			battle: 1,
+		},
+		ruleset: ['[Gen 3] OU', 'Accuracy Moves Clause', 'Sleep Moves Clause', 'Team Preview'],
+		banlist: ['Slaking', 'Snorlax', 'Suicune', 'Destiny Bond', 'Explosion', 'Ingrain', 'Perish Song', 'Self-Destruct'],
+	},
+	{
+		name: "[Gen 3] Custom Game",
+
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		debug: true,
+		maxLevel: 9999,
+		battle: {trunc: Math.trunc},
+		defaultLevel: 100,
+		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 3] Doubles Custom Game",
+
+		mod: 'gen3',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		debug: true,
+		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 2] Ubers Custom Game",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/posts/8286282/">GSC Ubers</a>`,
+		],
+
+		mod: 'gen2',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Standard'],
+	},
+	{
+		name: "[Gen 2] UU Custom Game",
+		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/3576710/">GSC UU</a>`],
+
+		mod: 'gen2',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['[Gen 2] OU'],
+		banlist: ['OU', 'UUBL'],
+	},
+	{
+		name: "[Gen 2] NU Custom Game",
+		threads: [`&bullet; <a href="https://www.smogon.com/forums/threads/3642565/">GSC NU</a>`],
+
+		mod: 'gen2',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['[Gen 2] UU'],
+		banlist: ['UU', 'NUBL'],
+	},
+	{
+		name: "[Gen 2] Custom Game",
+
+		mod: 'gen2',
+		searchShow: false,
+		challengeShow: false,
+		debug: true,
+		maxLevel: 9999,
+		battle: {trunc: Math.trunc},
+		defaultLevel: 100,
+		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 1] UU Custom Game",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3573896/">RBY UU Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3647713/">RBY UU Viability Rankings</a>`,
+		],
+
+		mod: 'gen1',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['[Gen 1] OU'],
+		banlist: ['OU', 'UUBL'],
+	},
+	{
+		name: "[Gen 1] OU (Tradeback) Custom Game",
+		desc: `RBY OU with movepool additions from the Time Capsule.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/articles/rby-tradebacks-ou">RBY Tradebacks OU</a>`,
+		],
+
+		mod: 'gen1',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Obtainable', 'Allow Tradeback', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause', 'HP Percentage Mod', 'Cancel Mod'],
+		banlist: ['Uber',
+			'Nidoking + Fury Attack + Thrash', 'Exeggutor + Poison Powder + Stomp', 'Exeggutor + Sleep Powder + Stomp',
+			'Exeggutor + Stun Spore + Stomp', 'Jolteon + Focus Energy + Thunder Shock', 'Flareon + Focus Energy + Ember',
+		],
+	},
+	{
+		name: "[Gen 1] Stadium OU Custom Game",
+
+		mod: 'stadium',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Standard', 'Team Preview', '!Sleep Clause Mod', 'Stadium Sleep Clause'],
+		banlist: ['Uber',
+			'Nidoking + Fury Attack + Thrash', 'Exeggutor + Poison Powder + Stomp', 'Exeggutor + Sleep Powder + Stomp',
+			'Exeggutor + Stun Spore + Stomp', 'Jolteon + Focus Energy + Thunder Shock', 'Flareon + Focus Energy + Ember',
+		],
+	},
+	{
+		name: "[Gen 1] Custom Game",
+
+		mod: 'gen1',
+		searchShow: false,
+		challengeShow: false,
+		debug: true,
+		maxLevel: 9999,
+		battle: {trunc: Math.trunc},
+		defaultLevel: 100,
+		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
+	},
 	{
 		section: "Super Secret Tour Formats",
 		column: 4,
