@@ -3379,3 +3379,848 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (domain.js:470:12)
     at finish (internal/child_process.js:895:14)
     at processTicksAndRejections (internal/process/task_queues.js:77:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+ReferenceError: source is not defined
+    at Battle.onDisableMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:63:5)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.nextTurn (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:1450:10)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2775:8)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1172:9)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[6331,11607,64078,16568]}
+>player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||cursedorb|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"adfasdfasvdasdv","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>p1 move cherryblossom
+>p2 switch 2
+  log = 
+|t:|1645505584
+|player|p1|scoopapa|2|
+|player|p2|adfasdfasvdasdv|101|
+|teamsize|p1|1
+|teamsize|p2|5
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645505584
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645505590
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Cherry Blossom|p2a: Extreme Ribbit
+|
+|upkeep
+
+
+TypeError: type is not iterable
+    at Pokemon.hasType (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1313:26)
+    at Battle.onDisableMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:63:17)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.nextTurn (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:1450:10)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2775:8)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[45144,44977,11724,1663]}
+>player p1 {"name":"scoopapa","avatar":"102","team":"Extreme Ribbit||cursedorb|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"asdasdvdv","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>p1 move cherryblossom
+>p2 switch 2
+  log = 
+|t:|1645505736
+|player|p1|scoopapa|102|
+|player|p2|asdasdvdv|265|
+|teamsize|p1|1
+|teamsize|p2|5
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645505736
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645505742
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Cherry Blossom|p2a: Extreme Ribbit
+|
+|upkeep
+
+
+ReferenceError: pokemon is not defined
+    at Battle.onModifyDamage (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:167:35)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.modifyDamage (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2270:21)
+    at Battle.getDamage (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2200:15)
+    at Battle.getSpreadDamage (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:875:27)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:807:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+
+Additional information:
+  chunk = >p1 move 1
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[32191,7021,507,41581]}
+>player p1 {"name":"scoopapa","avatar":"266","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"bsdfgsdfb","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+>p1 move growthpower
+>p2 move dormantpower
+  log = 
+|t:|1645513324
+|player|p1|scoopapa|266|
+|player|p2|bsdfgsdfb|265|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645513324
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645513330
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645513337
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|3
+|
+|t:|1645513412
+|move|p1a: Extreme Ribbit|Growth Power|p2a: Extreme Ribbit
+|-damage|p2a: Extreme Ribbit|186/304
+|move|p2a: Extreme Ribbit|Dormant Power|p1a: Extreme Ribbit
+
+
+TypeError: Cannot set properties of undefined (setting 'turn')
+    at Battle.onStart (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2256:28)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Field.setTerrain (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\field.js:148:20)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:976:29)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.tryMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:601:15)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:262:18)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[16718,48863,50316,46560]}
+>player p1 {"name":"scoopapa","avatar":"170","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sadvasdvasdf","avatar":"169","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645514497
+|player|p1|scoopapa|170|
+|player|p2|sadvasdvasdf|169|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645514498
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645514505
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645514509
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+
+
+TypeError: Cannot set properties of undefined (setting 'turn')
+    at Battle.onStart (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2256:28)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Field.setTerrain (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\field.js:148:20)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:976:29)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.tryMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:601:15)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:262:18)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[60116,55274,25604,52934]}
+>player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"gfndfgndfng","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516300
+|player|p1|scoopapa|101|
+|player|p2|gfndfgndfng|265|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516300
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516303
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645516312
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2257:20)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[10320,33543,44605,645]}
+>player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"adasdavd","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 move rocketjump
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516672
+|player|p1|scoopapa|101|
+|player|p2|adasdavd|101|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516673
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516677
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Rocket Jump|p1a: Extreme Ribbit
+|-damage|p1a: Extreme Ribbit|248/304
+|
+|upkeep
+|turn|2
+|
+|t:|1645516684
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea|p1a: Extreme Ribbit
+|-heal|p1a: Extreme Ribbit|304/304
+|
+|upkeep
+|turn|3
+|
+|t:|1645516695
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2261:19)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[47433,9148,43475,5694]}
+>player p1 {"name":"scoopapa","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sdfsdbsdfb","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516872
+|player|p1|scoopapa|265|
+|player|p2|sdfsdbsdfb|101|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516872
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516894
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645516899
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2262:20)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[32682,28814,39017,42835]}
+>player p1 {"name":"scoopapa","avatar":"102","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"fsdgsdfbsdfb","avatar":"1","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645517146
+|player|p1|scoopapa|102|
+|player|p2|fsdgsdfbsdfb|1|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645517146
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645517149
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645517152
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'sides')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2261:36)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[16209,48132,21891,58664]}
+>player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sdfasvsdv","avatar":"266","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645517794
+|player|p1|scoopapa|2|
+|player|p2|sdfasvsdv|266|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645517795
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645517798
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645517801
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Process sockets.js 36536 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"170","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"102","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+

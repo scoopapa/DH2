@@ -4,7 +4,8 @@
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC Uber" | "LC";
 	export type Other = "Unreleased" | "Illegal" | "ES Uber" | "ES OU" | "ES NFE" | "ES LC" | "CAP" | "CAP NFE" | "CAP LC";
 };*/
-import type {Pokemon} from '../../../sim/pokemon';
+import {Pokemon} from '../../../sim/pokemon';
+import {Battle} from '../../../sim/battle';
 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
@@ -530,7 +531,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		/*singleEvent( //Can't be edited here, this documents what it has been changed to
+		singleEvent( //Can't be edited here, this documents what it has been changed to
 			eventid: string, effect: Effect, effectData: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
 			sourceEffect?: Effect | string | null, relayVar?: any
@@ -610,8 +611,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.event = parentEvent;
 
 			return returnVal === undefined ? relayVar : returnVal;
-		},*/
-		/*runEvent( //Same here
+		},
+		runEvent( //Same here
 			eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
 			sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
 		) {
@@ -786,7 +787,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.event = parentEvent;
 
 			return Array.isArray(target) ? targetRelayVars : relayVar;
-		},*/
+		},
 		residualEvent(eventid: string, relayVar?: any) { //Stasis
 			let stasisMons: Pokemon[] = [];
 			const callbackName = `on${eventid}`;

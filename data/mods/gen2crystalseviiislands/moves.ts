@@ -110,8 +110,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 						type: 'Psychic',
 						target: "all",
 					},
-				},
-			});
+				});
+			};
 			this.add('-start', source, 'Black Hole');
 			this.add('-start', target, 'Black Hole');
 			return null;
