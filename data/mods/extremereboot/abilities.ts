@@ -748,11 +748,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	wavecrasher: {
 		num: 1076,
 		name: "Wave Crasher",
 		desc: "After another Pokemon uses a Sea-type move, the user uses the same move. Sea-type moves against this Pokemon deal half damage. Other Pokemon cannot force the user to switch out.",
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Sea') {
+				return this.chainModify(0.5);
+			}
+		},
+		onDragOutPriority: 1,
+		onDragOut(pokemon) {
+			this.add('-activate', pokemon, 'ability: Suction Cups');
+			return null;
+		},
 	},
 	// Coded
 	wintercoat: {
