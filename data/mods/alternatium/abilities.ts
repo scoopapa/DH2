@@ -245,7 +245,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1005,
 	},
-	privatewifi: {
+	/*privatewifi: {
 		onStart(source) {
 			if (source.hasItem('burndrive')) {
 				source.types[1] = 'Fire';
@@ -296,7 +296,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,
 		num: 1006,
-	},
+	},*/
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
@@ -414,53 +414,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1012,
 	},
 	forecast: {
-		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
-		},
-		onStart(pokemon) {
-			if (this.effectState.switchingIn) {
-				if (this.field.isWeather('raindance')) {
-					this.field.clearWeather();
-					this.field.setWeather('raindance');
-				}
-				if (this.field.isWeather('sunnyday')) {
-					this.field.clearWeather();
-					this.field.setWeather('sunnyday');
-				}
-				if (this.field.isWeather('sandstorm')) {
-					this.field.clearWeather();
-					this.field.setWeather('sandstorm');
-				}
-				if (this.field.isWeather('hail')) {
-					this.field.clearWeather();
-					this.field.setWeather('hail');
-				}
-			}
-		},
-		onUpdate(pokemon) {
-			if (pokemon.species.id !== 'catastroform') return;
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Fire';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Water';
-				break;
-			case 'hail':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Ice';
-				break;
-			case 'sandstorm':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Rock';
-				break;
-			default:
-				if (pokemon.species.id === 'catastroform') return;
-				break;
+		onBasePowerPriority: 9,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Water') {
+				this.debug('forecast boost');
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Forecast",
-		shortDesc: "Upon Entry, resets any regular weather. Gets secondary typing matching weather.",
+		shortDesc: "Ice-, Fire-, and Water-type moves deal 1.5x damage.",
 		rating: 2,
 		num: 59,
 	},
