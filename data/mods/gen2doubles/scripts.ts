@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					(statName === 'def' && this.side.sideConditions['reflect']) ||
 					(statName === 'spd' && this.side.sideConditions['lightscreen'])
 				) {
-					stat *= (this.side.active.length > 1) ? 1.5 : 2;
+					stat *= (this.side.active.filter(active => active && !active.fainted).length > 1) ? 1.5 : 2;
 				}
 			}
 
