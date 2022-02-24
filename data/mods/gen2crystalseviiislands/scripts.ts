@@ -1,6 +1,6 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
-	gen: 2
+	gen: 2,
 	
 	init: function () {
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
