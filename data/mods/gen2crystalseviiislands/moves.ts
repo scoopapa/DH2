@@ -91,7 +91,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			});*/
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
+				duration: 4,
 				move: 'blackhole',
 				source: source,
 				moveData: {
