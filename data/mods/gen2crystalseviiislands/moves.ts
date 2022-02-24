@@ -39,6 +39,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		priority: 0,
 		flags: {},
+		ignoreImmunity: true,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -89,24 +90,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: '???',
 				}
 			});*/
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 4,
-				move: 'blackhole',
-				source: source,
-				moveData: {
-					id: 'blackhole',
-					name: "Black Hole",
-					accuracy: 100,
-					basePower: 200,
-					category: "Dark",
-					priority: 0,
-					flags: {},
-					ignoreImmunity: false,
-					effectType: 'Move',
-					isFutureMove: true,
-					type: 'Psychic',
-					target: "all",
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.side.addSlotCondition(pokemon, 'futuremove')) return false;
+				Object.assign(pokemon.side.slotConditions[pokemon.position]['futuremove'], {
+					duration: 4,
+					move: 'blackhole',
+					source: source,
+					moveData: {
+						id: 'blackhole',
+						name: "Black Hole",
+						accuracy: 100,
+						basePower: 200,
+						category: "Dark",
+						priority: 0,
+						flags: {},
+						ignoreImmunity: false,
+						effectType: 'Move',
+						isFutureMove: true,
+						type: 'Psychic',
+						target: "all",
+					},
 				},
 			});
 			this.add('-start', source, 'Black Hole');
