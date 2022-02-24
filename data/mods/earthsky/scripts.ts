@@ -5,6 +5,7 @@
 	export type Other = "Unreleased" | "Illegal" | "ES Uber" | "ES OU" | "ES NFE" | "ES LC" | "CAP" | "CAP NFE" | "CAP LC";
 };*/
 import {Pokemon} from '../../../sim/pokemon';
+import {Battle} from '../../../sim/battle';
 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
