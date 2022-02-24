@@ -33,7 +33,7 @@ export const Items: {[itemid: string]: ItemData} = {
         name: "Sandstone",
         spritenum: 187,
         onStart(target) {
-            if (target.species.id === 'sandslash' || target.species.id === 'sandshrew') {) {
+            if (target.species.id === 'sandslash' || target.species.id === 'sandshrew') {
                 this.add("-activate", target, "item: Sandstone");
                 this.field.setWeather('sandstorm');
             }
