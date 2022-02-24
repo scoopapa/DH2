@@ -28,70 +28,70 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	blackhole: {
-        num: -2,
-        accuracy: 100,
-        basePower: 200,
-        category: "Special",
+		num: -2,
+		accuracy: 100,
+		basePower: 200,
+		category: "Special",
 		shortDesc: "All active Pokemon take damage with halved Sp. Def in 3 turns.",
-        name: "Black Hole",
-        pp: 5,
-        type: "Dark",
-        target: "all",
-        priority: 0,
-        flags: {},
-        isFutureMove: true,
+		name: "Black Hole",
+		pp: 5,
+		type: "Dark",
+		target: "all",
+		priority: 0,
+		flags: {},
+		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
-        onTry(source, target) {
-            if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-            const moveData = {
-                name: "Black Hole",
-                basePower: 200,
-                category: "Physical",
-                flags: {},
-                willCrit: false,
-                type: '???',
-            } as unknown as ActiveMove;
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			const moveData = {
+				name: "Black Hole",
+				basePower: 200,
+				category: "Physical",
+				flags: {},
+				willCrit: false,
+				type: '???',
+			} as unknown as ActiveMove;
 			const damage = this.getDamage(source, target, moveData, true);
-            Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-                duration: 3,
-                move: 'blackhole',
-                source: source,
-                moveData: {
-                    id: 'blackhole',
-                    name: "Black Hole",
-                    accuracy: 100,
-                    basePower: 0,
-                    damage: damage,
-                    category: "Physical",
-                    flags: {},
-                    effectType: 'Move',
-                    isFutureMove: true,
-                    type: '???',
-                }
-            })
-            Object.assign(source.side.slotConditions[source.position]['futuremove'], {
-                duration: 3,
-                move: 'blackhole',
-                source: source,
-                moveData: {
-                    id: 'blackhole',
-                    name: "Black Hole",
-                    accuracy: 100,
-                    basePower: 0,
-                    damage: damage,
-                    category: "Physical",
-                    flags: {},
-                    effectType: 'Move',
-                    isFutureMove: true,
-                    type: '???',
-                }
-            });
-            this.add('-start', source, 'Black Hole');
-            this.add('-start', target, 'Black Hole');
-            return null;
-        }        
-    },
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'blackhole',
+				source: source,
+				moveData: {
+					id: 'blackhole',
+					name: "Black Hole",
+					accuracy: 100,
+					basePower: 0,
+					damage: damage,
+					category: "Physical",
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: '???',
+				}
+			})
+			Object.assign(source.side.slotConditions[source.position]['futuremove'], {
+				duration: 3,
+				move: 'blackhole',
+				source: source,
+				moveData: {
+					id: 'blackhole',
+					name: "Black Hole",
+					accuracy: 100,
+					basePower: 0,
+					damage: damage,
+					category: "Physical",
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: '???',
+				}
+			});
+			this.add('-start', source, 'Black Hole');
+			this.add('-start', target, 'Black Hole');
+			return null;
+		}        
+	},
 };
