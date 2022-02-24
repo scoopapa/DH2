@@ -45,7 +45,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
 		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			/*if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			const moveData = {
 				name: "Black Hole",
 				basePower: 200,
@@ -88,6 +88,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 					isFutureMove: true,
 					type: '???',
 				}
+			});*/
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'blackhole',
+				source: source,
+				moveData: {
+					id: 'blackhole',
+					name: "Black Hole",
+					accuracy: 100,
+					basePower: 200,
+					category: "Dark",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Psychic',
+					target: "all",
+				},
 			});
 			this.add('-start', source, 'Black Hole');
 			this.add('-start', target, 'Black Hole');
