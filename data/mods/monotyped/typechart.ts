@@ -20,8 +20,6 @@ export const TypeChart: {[k: string]: TypeData} = {
 			Steel: 0,
 			Water: 0,
 		},
-		HPivs: {atk: 30, def: 30, spd: 30},
-		HPdvs: {atk: 13, def: 13},
 	},
 	Fairy: {
 		damageTaken: {
@@ -69,17 +67,17 @@ export const TypeChart: {[k: string]: TypeData} = {
 			Water: 2,
 		},
 	},
-	Psychic: {
+	Normal: {
 		damageTaken: {
-			Bug: 1,
-			Dark: 1,
+			Bug: 0,
+			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
 			Fairy: 0,
-			Fighting: 2,
+			Fighting: 1,
 			Fire: 0,
 			Flying: 0,
-			Ghost: 1,
+			Ghost: 3,
 			Grass: 0,
 			Ground: 0,
 			Ice: 0,

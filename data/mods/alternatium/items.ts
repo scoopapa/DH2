@@ -21,15 +21,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.3);
+		onModifyMove(move, source) {
+			if (source && source.baseSpecies.num === 649) {
+				if (move.type = 'Fire') {
+					move.drain = [1, 3];
+				}
 			}
 		},
 		onDrive: 'Fire',
 		num: 118,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Attack is boosted by 1.3x.",
+		shortDesc: "Holder is immune to hazards, except Sticky Web. Fire moves recover 1/3 of the damage dealt.",
 	},
 	chilldrive: {
 		name: "Chill Drive",
@@ -40,23 +42,21 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifySpe(spe, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
+		/*onBeforeMove(attacker, defender) {
+			const action = this.queue.willMove(attacker);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || attacker.volatiles['mustrecharge']) return;
+			if (defender && defender.baseSpecies.num === 649) {
+				defender.useItem();
 			}
 		},
-		onSourceModifyAccuracyPriority: 9,
-		onSourceModifyAccuracy(accuracy, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				if (typeof accuracy !== 'number') return;
-				this.debug('chilldrive - enhancing accuracy');
-				return accuracy * 1.25;
-			}
-		},
+		boosts: {
+			def: 1,
+		},*/
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Speed and Accuracy is boosted by 1.25x.",
+		shortDesc: "(Bugged) Raises Defense before the opponent is attacking the holder. Single Use.",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -80,20 +80,17 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onModifyDef(def, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				return this.chainModify(1.25);
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.baseSpecies.num !== 649) return;
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 10, pokemon);
 			}
 		},
 		onDrive: 'Water',
 		num: 116,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Defenses are boosted by 1.25x.",
+		shortDesc: "After an attack, holder recovers 1/10 of its maximum HP.",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -338,17 +335,24 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onStart(pokemon) {
-			if (pokemon.species.id === 'genesectpassword') {
-				this.add('-activate', pokemon, 'move: Charge');
-				pokemon.addVolatile('charge');
-				this.boost({spd: 1});
+		onModifyDamage(damage, source, target, move) {
+			if (source && source.baseSpecies.num === 649) {
+				if (move.category === 'Physical') {
+					return this.chainModify(1.4);
+				}
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source.baseSpecies.num === 649) {
+				if (source && source !== target && move && move.category !== 'Status') {
+					this.damage(source.baseMaxhp / 8, source, source, this.dex.getItem('shockdrive'));
+				}
 			}
 		},
 		onDrive: 'Electric',
 		num: 117,
 		gen: 5,
-		shortDesc: "If Genesect-Password: Activates Charge upon entry.",
+		shortDesc: "Holder's physical attacks do 1.4x damage, and it loses 1/8 its max HP after the attack.",
 	},
 	steelmemory: {
 		name: "Steel Memory",

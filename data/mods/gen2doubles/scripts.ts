@@ -3,7 +3,7 @@
  */
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen3',
+	inherit: 'gen2',
 	gen: 2,
 	// BattlePokemon scripts.
 	pokemon: {
@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					(statName === 'def' && this.side.sideConditions['reflect']) ||
 					(statName === 'spd' && this.side.sideConditions['lightscreen'])
 				) {
-					stat *= 2;
+					stat *= (this.side.active.filter(active => active && !active.fainted).length > 1) ? 1.5 : 2;
 				}
 			}
 
@@ -656,6 +656,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		damage = Math.floor(damage / defense);
 		damage = this.clampIntRange(Math.floor(damage / 50), 1, 997);
 		damage += 2;
+		
+		//MOD: Spread damage. Putting it here because it happens before weather in Gen III.
+		if (move.spreadHit && move.target === 'allAdjacentFoes') {
+			const spreadModifier = move.spreadModifier || 0.5;
+			this.debug('Spread modifier: ' + spreadModifier);
+			damage = this.modify(damage, spreadModifier);
+		}
 
 		// Weather modifiers
 		if ((this.field.isWeather('raindance') && type === 'Water') || (this.field.isWeather('sunnyday') && type === 'Fire')) {
