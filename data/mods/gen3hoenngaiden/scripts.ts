@@ -3,7 +3,7 @@ import type {Dex} from '../sim/dex';
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen4',
+	inherit: 'gen3',
 	gen: 3,
 	init() {
 		for (const i in this.data.Pokedex) {
