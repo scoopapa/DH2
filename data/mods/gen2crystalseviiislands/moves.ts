@@ -32,7 +32,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 200,
 		category: "Special",
-		shortDesc: "All active Pokemon take damage with halved Sp. Def in 3 turns.",
+		shortDesc: "(Bugged) All active Pokemon take damage with halved Sp. Def in 3 turns.",
 		name: "Black Hole",
 		pp: 5,
 		type: "Dark",
