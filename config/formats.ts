@@ -3492,10 +3492,10 @@ export const Formats: FormatList = [
 	// Past Generations
 	///////////////////////////////////////////////////////////////////
 
-	{
+	/*{
 		section: "Past Generations",
 		column: 4,
-	},
+	},*/
 	{
 		name: "[Gen 3] Ubers",
 		threads: [
@@ -3556,7 +3556,8 @@ export const Formats: FormatList = [
 
 		mod: 'gen3',
 		gameType: 'doubles',
-		//searchShow: false,
+		searchShow: false,
+		challengeShow: false,
 		debug: true,
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 	},
