@@ -465,11 +465,6 @@ export class Battle {
 			this.debug(eventid + ' handler suppressed by Air Lock');
 			return relayVar;
 		}
-		/*if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
-			eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
-			this.debug(eventid + ' handler suppressed by Midnight');
-			return relayVar;
-		}*/
 
 		// @ts-ignore - dynamic lookup
 		const callback = effect[`on${eventid}`];
@@ -735,11 +730,6 @@ export class Battle {
 				this.debug(eventid + ' handler suppressed by Air Lock');
 				continue;
 			}
-			/*if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
-				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
-				this.debug(eventid + ' handler suppressed by Midnight');
-				continue;
-			}*/
 			let returnVal;
 			if (typeof handler.callback === 'function') {
 				const parentEffect = this.effect;
