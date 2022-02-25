@@ -185,4 +185,60 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		changesFrom: null,
 	},
+	stoutland: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 120, def: 90, spa: 45, spd: 90, spe: 80},
+	},
+	musharna: {
+		inherit: true,
+		types: ["Psychic", "Fairy"],
+		abilities: {0: "Forewarn", 1: "Magic Bounce", H: "Telepathy"},
+	},
+	whimsicott: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 67, def: 85, spa: 97, spd: 75, spe: 116},
+		abilities: {0: "Prankster", 1: "Infiltrator", H: "Chlorophyll"},
+	},
+	eelektross: {
+		inherit: true,
+		types: ["Electric", "Poison"],
+		baseStats: {hp: 95, atk: 115, def: 80, spa: 115, spd: 80, spe: 50},
+	},
+	hydreigon: {
+		inherit: true,
+	},
+	landorus: {
+		inherit: true,
+		baseStats: {hp: 89, atk: 105, def: 80, spa: 85, spd: 80, spe: 101},
+	},
+	keldeo: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 90, spa: 120, spd: 90, spe: 100},
+		abilities: {0: "Rattled"},
+	},
+	keldeoresolute: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 90, spa: 120, spd: 90, spe: 100},
+		abilities: {0: "Rattled"},
+	},
+	genesect: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectdouse: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectshock: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectburn: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectchill: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
 };
