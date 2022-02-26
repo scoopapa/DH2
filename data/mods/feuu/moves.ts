@@ -475,4 +475,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
+	poisonfang: {
+		num: 305,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Poison Fang",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.hasAbility('gnawrly')) {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
 };
