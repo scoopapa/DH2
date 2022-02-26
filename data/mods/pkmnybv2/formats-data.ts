@@ -341,7 +341,7 @@ alakazammega: {
 	   doublesTier: "DOU",
 },
 gengarmega: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 lucariomega: {
