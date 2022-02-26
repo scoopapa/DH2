@@ -705,7 +705,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Smite",
 		desc: "Moves' power is boosted by 1.3x if the target is below half health",
 	},
-	// Not Fully Implemented
+	// Coded
 	snowbringer: {
 		num: 1061,
 		name: "Snowbringer",
@@ -753,22 +753,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Coded
+	// Coded and Tested
 	strategicretreat: {
 		num: 1066,
 		name: "Strategic Retreat",
 		desc: "emergency exit but activates in 25% of max HP and heals 25% of max HP on switch",
 		onUpdate(pokemon){
-			if (pokemon.hp >= pokemon.maxhp / 4) return;
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
-			for (const side of this.sides) {
-				for (const active of side.active) {
-					active.switchFlag = false;
-				}
+			if (pokemon.hp >= pokemon.maxhp / 4) {
+				pokemon.m.SRActive = true;
 			}
-			pokemon.switchFlag = true;
-			this.add('-activate', target, 'ability: Strategic Retreat');
-		}
+			if (pokemon.hp < pokemon.maxhp / 4 && pokemon.m.SRActive) {
+				if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+				pokemon.m.SRActive = false;
+				this.add('-activate', pokemon, 'ability: Strategic Retreat');
+				pokemon.switchFlag = true;
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp < pokemon.maxhp / 4) pokemon.heal(pokemon.baseMaxhp / 4);
+		},
 	},
 	// Coded
 	subrosa: {

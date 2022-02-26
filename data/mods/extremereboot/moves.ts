@@ -3626,7 +3626,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	skysplit: {
 		name: "Sky Split",
 		accuracy: 80,
@@ -3634,7 +3634,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Sky",
-		// shortDesc: "Non-Contact. Clears any weathers, if applicable.",
+		shortDesc: "Non-Contact. Clears any weathers, if applicable.",
+		onHit(target, source, move) {
+			this.field.clearWeather();
+		}
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -3664,7 +3667,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		// shortDesc: "Hits 5 times. Each hit has a 40% chance to lower the opponent's stats - First hit lowers Atk, Second hit lowers Def, Third hit lowers Sp Atk, Fourth hit lowers Sp Def and Fifth hit lowers Speed.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -3678,7 +3681,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Winter",
 		// shortDesc: "10% chance to inflict Chill. 20% chance to lower Spe 1 stage",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -4079,7 +4082,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 	},
 	// Not Fully Implemented
-	strikingtide: {
+	strikingtide: { 
 		name: "Striking Tide",
 		accuracy: 100,
 		basePower: 50,
@@ -4106,21 +4109,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
-	summerdaze: {
+	// Coded
+	summerdaze: { // Chance of missing 3: .1%, The accuracy is 99.9% so if the move hits, you got at least 1 hit.
+	// Given that, the chance of missing the other 2 is 1%. The chance of missing 1 is 18%. The chance of getting all 3 hits is 81%. 
 		name: "Summer Daze",
-		accuracy: 90,
+		accuracy: 99.9, // 90% per hit
 		basePower: 50,
 		category: "Special",
 		pp: 5,
 		type: "Summer",
-		// shortDesc: "Hits 3 times. This move checks accuracy for each hit, and the attack only ends once all 3 hits are checked. After each hit, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		onPrepareHit: {
+			
+		}
+		shortDesc: "Hits 3 times. This move checks accuracy for each hit, and the attack only ends once all 3 hits are checked. After each hit, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		priority: 0,
+		recoil: [1, 4];
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		multihit: 3,
+		onPrepareHit(source, target, move) {
+			const r = this.random(100);
+			if (r === 1) {
+				move.multihit = 1;
+			} else if (r <= 18) {
+				move.multihit = 2;
+			}
+		}
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	summersword: {
 		name: "Summer Sword",
 		accuracy: 50,
@@ -4128,11 +4145,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Summer",
-		// shortDesc: "100% to Sunburn the target.",
+		shortDesc: "100% to Sunburn the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
 	},
 	// Coded
 	sunkiss: {
@@ -4241,7 +4261,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 25,
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	supercharge: {
 		name: "Supercharge",
 		accuracy: true,
@@ -4253,9 +4273,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Not Fully Implemented (works for singles)
 	swelter: {
 		name: "Swelter",
 		accuracy: 100,
