@@ -291,7 +291,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						} else if (this.hasAbility('floatguise')) {
 							this.battle.add('-immune', this, '[from] ability: Float Guise');
 						} else if (this.hasAbility('aerialbreak')) {
-							this.battle.add('-immune', this, '[from] ability: Aerial Break');						
+							this.battle.add('-immune', this, '[from] ability: Aerial Break');
+						} else if (this.hasAbility('levimetal')) {
+							this.battle.add('-immune', this, '[from] ability: Levimetal');
+						} else if (this.hasAbility('hoverboard')) {
+							this.battle.add('-immune', this, '[from] ability: Hoverboard');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
