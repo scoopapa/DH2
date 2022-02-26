@@ -1425,13 +1425,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('shelltrap');
 		},
-		onTryMove(pokemon) {
-			if (!pokemon.volatiles['shelltrap'] || !pokemon.volatiles['shelltrap'].gotHit) {
-				this.attrLastMove('[still]');
-				this.add('cant', pokemon, 'Shell Trap', 'Shell Trap');
-				return null;
-			}
-		},
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
