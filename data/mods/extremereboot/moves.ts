@@ -4120,10 +4120,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Summer",
 		onPrepareHit: {
 			
-		}
+		},
 		shortDesc: "Hits 3 times. This move checks accuracy for each hit, and the attack only ends once all 3 hits are checked. After each hit, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		priority: 0,
-		recoil: [1, 4];
+		recoil: [1, 4],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		multihit: 3,
@@ -4134,7 +4134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (r <= 18) {
 				move.multihit = 2;
 			}
-		}
+		},
 		secondary: null,
 	},
 	// Coded
