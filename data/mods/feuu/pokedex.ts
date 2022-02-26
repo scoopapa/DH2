@@ -3094,13 +3094,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48.3,
 	},	
 	tyrantricitylowkey: {
-		fusion: ['Bisharp', 'Froslass'],
+		fusion: ['Tyrantrum', 'Toxtricity-Low-Key'],
 		num: 177,
 		name: "Tyrantricity-Low-Key",
 		types: ["Dragon", "Poison"],
 		baseStats: {hp: 80, atk: 110, def: 95, spa: 95, spd: 65, spe: 85},
 		abilities: {0: "Gnawrly"},
-		weightkg: 48.3,
+		weightkg: 155,
 	},	
 
 // LC
