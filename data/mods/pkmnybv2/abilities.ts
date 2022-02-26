@@ -762,6 +762,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 23,
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
 	},
+/*
 	nostalgiatrip: {
       shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves become Normal-type.",
 		onStart(pokemon) {
@@ -789,6 +790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Nostalgia Trip",
 		rating: 4,
 	},
+*/
 	maximumpotential: {
       shortDesc: "This Pokemon is immune to the same moves Dynamax Pokemon are immune to.",
 		onTryHit(pokemon, target, move) {
