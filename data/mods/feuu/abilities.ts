@@ -4293,7 +4293,7 @@ lifedrain: {
 			}
 		},
 		name: "Gnawrly",
-		shortDesc: "(Bugged) Technician + Strong Jaw, in that order.",
+		shortDesc: "Technician + Strong Jaw, in that order.",
 	},
 
 
