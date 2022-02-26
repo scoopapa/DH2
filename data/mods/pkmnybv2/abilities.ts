@@ -764,6 +764,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	nostalgiatrip: {
       shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves become Normal-type.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Nostalgia Trip');
+			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
+		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Fairy' && !(move.isZ && move.category !== 'Status')) {
