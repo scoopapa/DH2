@@ -631,6 +631,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grumpig: {
     	inherit: true,
+		abilities: {0: "Thick Fat", 1: "Magician", H: "Gluttony"},
 		baseStats: {hp: 80, atk: 90, def: 65, spa: 90, spd: 110, spe: 80},
 	},
 	spinda: {
@@ -711,6 +712,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kecleon: {
     	inherit: true,
+		types: ["Normal", "Ghost"],
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 70, spd: 120, spe: 40},
 	},
 	shuppet: {
@@ -1265,6 +1267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	heatmor: {
     	inherit: true,
+		types: ["Fire", "Steel"],
 		baseStats: {hp: 85, atk: 117, def: 66, spa: 95, spd: 66, spe: 75},
 	},
 	durant: {
@@ -1832,6 +1835,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		baseStats: {hp: 90, atk: 55, def: 65, spa: 115, spd: 85, spe: 80},
 		abilities: {0: "Levitate", H: "Unburden"},
+	},
+	gengarmega: {
+    	inherit: true,
+		baseStats: {hp: 60, atk: 80, def: 95, spa: 150, spd: 95, spe: 120},
+	},
+	stunfiskgalar: {
+    	inherit: true,
+		abilities: {0: "Mimicry", 1: "Strong Jaw", H: "Steely Spirit"},
+	},
+	marshadow: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 	},
 
 	// New Mons
