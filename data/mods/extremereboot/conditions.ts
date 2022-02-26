@@ -92,16 +92,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;
-			for (s in source.storedStats) {
+			for (s in pokemon.storedStats) {
 				if (s === 'def' || s === 'spd') continue;
-				let realStat = source.storedStats[s] * (1 + (boosts[s] / 2));
+				let realStat = pokemon.storedStats[s] * (1 + (boosts[s] / 2));
 				if (realStat > bestStat) {
 					statName = s;
 					bestStat = realStat;
 				}
 			}
-			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, source);
-			else this.boost({[statName]: -1}, source);
+			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, pokemon);
+			else this.boost({[statName]: -1}, pokemon);
 		},
 		
 	},
