@@ -3637,7 +3637,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Non-Contact. Clears any weathers, if applicable.",
 		onHit(target, source, move) {
 			this.field.clearWeather();
-		}
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
