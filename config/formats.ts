@@ -3855,7 +3855,11 @@ export const Formats: FormatList = [
 			this.battle.megaCap = 6;
 		},
 	},
-	// Other Formats
+	{
+		section: "Non-Pet Mod Bonus Formats",
+		column: 4,
+	},
+	// Littlest Cup
 	///////////////////////////////////////////////////////////////////
 	{
 		name: "[Gen 8] Littlest Cup",
