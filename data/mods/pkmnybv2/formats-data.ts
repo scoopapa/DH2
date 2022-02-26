@@ -1060,5 +1060,8 @@ urshifu: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
-	
+marshadow: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };
