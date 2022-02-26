@@ -841,6 +841,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 		baseSpecies: null,
 		changesFrom: null,
+		requiredItem: null,
 	},
 	genesecttypedelta: {
 		num: 649,

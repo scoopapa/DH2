@@ -2943,7 +2943,8 @@ export const Formats: FormatList = [
 		mod: 'gen2doubles',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
-		banlist: ['Ho-Oh', 'Lugia', 'Mew', 'Mewtwo'],
+		banlist: ['Celebi', 'Ho-Oh', 'Lugia', 'Mew', 'Mewtwo', 'Snorlax'],
+		teambuilderFormat: "OU",
 	},
 	{
         name: "[Gen 8] Duomod",
