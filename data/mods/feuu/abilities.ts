@@ -3194,7 +3194,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             if (!this.isAdjacent(pokemon, this.effectData.target)) return;
             if (pokemon.isGrounded() || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
             !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
-            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating')) {
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal')) {
                 pokemon.tryTrap(true);
             }
         },
@@ -3203,7 +3203,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             if (!source || !this.isAdjacent(pokemon, source)) return;
             if (pokemon.isGrounded(!pokemon.knownType) || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
             !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
-            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating')) { // Negate immunity if the type is unknown
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal')) { // Negate immunity if the type is unknown
                 pokemon.maybeTrapped = true;
             }
         },
@@ -3211,7 +3211,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onSourceModifyAccuracy(accuracy, target, source, move) {
             if (!target.isGrounded() || target.hasAbility('feelnopain') || target.hasAbility('magneticwaves') || 
             target.hasAbility('stickyfloat') || target.hasAbility('etativel') || target.hasAbility('lighthearted') || 
-            target.hasAbility('leviflame') || target.hasAbility('levitability') || target.hasAbility('feelsomepain') || target.hasAbility('aerialbreak') || target.hasAbility('floatguise') || target.hasAbility('clearlyfloating')) {
+            target.hasAbility('leviflame') || target.hasAbility('levitability') || target.hasAbility('feelsomepain') || target.hasAbility('aerialbreak') || target.hasAbility('floatguise') || target.hasAbility('clearlyfloating') || target.hasAbility('hoverboard') || target.hasAbility('levimetal')) {
                 return accuracy * 0.8;
             }
         },
@@ -4184,7 +4184,116 @@ lifedrain: {
 			return this.chainModify(1.5);
 		},
 		name: "Big Power",
-		shortDesc: "This Pokemon's Attack is boosted 1.5x",
+		shortDesc: "This Pokemon's Attack is boosted 1.5x.",
+	},
+	levimetal: {
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+				this.add('-immune', target, '[from] ability: Levimetal');
+				return null;
+			}
+		},
+		name: "Levimetal",
+		shortDesc: "Light Metal + Levitate",
+	},
+	waterbender: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Waterbender boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Waterbender boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Waterbender",
+		shortDesc: "This Pokemon's Water-type moves deal 1.5x damage.",
+	},
+	hoverboard: {
+		onModifySpe(spe) {
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+				this.add('-immune', target, '[from] ability: Hoverboard');
+				return null;
+			}
+		},
+		name: "Hoverboard",
+		shortDesc: "Levitate + Surge Surfer",
+	},
+	feverbreaker: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Fever Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Fever Breaker');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Fever Breaker');
+			}
+			return false;
+		},
+		name: "Fever Breaker",
+		shortDesc: "Mold Breaker + Water Veil",
+	},
+	spitefulwishcraft: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Spiteful Wishcraft only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Spiteful Wishcraft');
+				this.boost({atk: 2}, target, target, null, true);
+				source.addVolatile('disable', this.effectData.target);
+			}
+		},
+		name: "Spiteful Wishcraft",
+		shortDesc: "If this Pokemon has a stat lowered, it gains +2 Attack and disables the foe's last move",
+	},
+	gnawrly: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Gnawrly",
+		shortDesc: "Technician + Strong Jaw, in that order.",
 	},
 
 
