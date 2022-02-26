@@ -561,6 +561,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "grumpig").learnset.slackoff = ["8L1"];
 		this.modData("Learnsets", "grumpig").learnset.workup = ["8L1"];
 		this.modData("Learnsets", "grumpig").learnset.meditate = ["8L1"];
+		this.modData("Learnsets", "grumpig").learnset.meteorbeam = ["8L1"];
 		// Spinda
 		this.modData("Learnsets", "spinda").learnset.overheat = ["8L1"];
 		this.modData("Learnsets", "spinda").learnset.slackoff = ["8L1"];
@@ -615,6 +616,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "castform").learnset.rocktomb = ["8L1"];
 		// Kecleon
 		this.modData("Learnsets", "kecleon").learnset.dizzypunch = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.firstimpression = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.machpunch = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.gyroball = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.poltergeist = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.hammerarm = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.gunkshot = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.terrainpulse = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.skittersmack = ["8L1"];
+		this.modData("Learnsets", "kecleon").learnset.submission = ["8L1"];
 		// Banette
 		this.modData("Learnsets", "banette").learnset.copycat = ["8L1"];
 		this.modData("Learnsets", "banette").learnset.revenge = ["8L1"];
@@ -1172,6 +1185,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "stunfiskgalar").learnset.washaway = ["8L1"];
 		this.modData("Learnsets", "stunfiskgalar").learnset.ironhead = ["8L1"];
 		this.modData("Learnsets", "stunfiskgalar").learnset.irontail = ["8L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.thunderfang = ["8L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.psychicfangs = ["8L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.stalagbite = ["8L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.superfang = ["8L1"];
 		// Mienshao
 		this.modData("Learnsets", "mienshao").learnset.playrough = ["8L1"];
 		this.modData("Learnsets", "mienshao").learnset.heartbeat = ["8L1"];
@@ -1190,6 +1207,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "heatmor").learnset.strengthsap = ["8L1"];
 		this.modData("Learnsets", "heatmor").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "heatmor").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "heatmor").learnset.ironhead = ["8L1"];
+		this.modData("Learnsets", "heatmor").learnset.steelbeam = ["8L1"];
+		this.modData("Learnsets", "heatmor").learnset.flashcannon = ["8L1"];
 		// Zweilous
 		this.modData("Learnsets", "zweilous").learnset.chipaway = ["8L1"];
 		// Hydreigon
