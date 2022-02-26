@@ -1823,6 +1823,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		types: ["Bug", "Fairy"],
 	},
+	solrock: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 115, def: 85, spa: 55, spd: 65, spe: 80},
+		abilities: {0: "Levitate", H: "Cloud Nine"},
+	},
+	lunatone: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 55, def: 65, spa: 115, spd: 85, spe: 80},
+		abilities: {0: "Levitate", H: "Unburden"},
+	},
 
 	// New Mons
 	synthinobi: {
