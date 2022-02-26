@@ -1209,6 +1209,324 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	submission: {
+		num: 66,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Submission",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 4],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	agilestance: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "The user's next moves has +1 priority but deals 3/4 damage.",
+		isViable: true,
+		name: "Agile Stance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Agility", target);
+		},
+		volatileStatus: 'agilestance',
+		condition: {
+			duration: 2,
+			onStart(pokemon, source, effect) {
+				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', pokemon, 'move: Agile Stance', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'move: Agile Stance');
+				}
+			},
+			onRestart(pokemon) {
+				this.effectData.duration = 2;
+				this.add('-start', pokemon, 'move: Agile Stance');
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+					return priority + 1;
+			},
+			onBasePowerPriority: 21,
+			onBasePower(basePower, pokemon, target, move) {
+				return this.chainModify(0.75);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Agile Stance', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	powerstance: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    shortDesc: "The user's next moves has 2.5x power but has -1 priority.",
+		isViable: true,
+		name: "Power Stance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Bulk Up", target);
+		},
+		volatileStatus: 'powerstance',
+		condition: {
+			duration: 2,
+			onStart(pokemon, source, effect) {
+				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', pokemon, 'move: Power Stance', '[silent]');
+				} else {
+					this.add('-start', pokemon, 'move: Power Stance');
+				}
+			},
+			onRestart(pokemon) {
+				this.effectData.duration = 2;
+				this.add('-start', pokemon, 'move: Power Stance');
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+					return priority - 1;
+			},
+			onBasePowerPriority: 21,
+			onBasePower(basePower, pokemon, target, move) {
+				return this.chainModify(2.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Power Stance', '[silent]');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	absentmind: {
+		accuracy: 100,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+    shortDesc: "Deals double damage if the user has no item.",
+		isViable: true,
+		name: "Absent Mind",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Calm Mind", target);
+		  this.add('-anim', source, "Psybeam", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	solarblade: {
+		num: 669,
+		accuracy: 90,
+		basePower: 125,
+		category: "Physical",
+    shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2. Attacks immediately under sun.",
+		isViable: true,
+		name: "Solar Blade",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (['raindance', 'primordialsea', 'sandstorm', 'hail'].includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	meteorbeam: {
+		num: 800,
+		accuracy: 90,
+		basePower: 125,
+		category: "Special",
+    shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2. Attacks immediately under sand.",
+		name: "Meteor Beam",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (['sandstorm'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	shelltrap: {
+		num: 704,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+    shortDesc: "Burns on contact with the user before it moves.",
+		isViable: true,
+		name: "Shell Trap",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, bullet: 1},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('shelltrap');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Shell Trap');
+			},
+			onHit(pokemon, source, move) {
+				if (move.flags['contact']) {
+					source.trySetStatus('brn', pokemon);
+				}
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('shelltrap');
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	scaledown: {
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			let power = 20 + 20 * target.positiveBoosts();
+			if (power > 200) power = 200;
+			return power;
+		},
+		category: "Special",
+    shortDesc: "20 power + 20 for each of the target's stat boosts. Resets all of the target's stat stages to 0.",
+		isViable: true,
+		name: "Scale Down",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Scale Shot", target);
+		},
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	snaptrap: {
+		num: 779,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snap Trap",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onTryHit(target, pokemon) {
+			let move = 'anchorshot';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'zingzap';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'seedbomb';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'playrough';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychicfangs';
+			}
+			this.useMove(move, pokemon, target);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('saltcube')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+
                                     
 // Z-Moves 
 	cobblestonecarnage: {
