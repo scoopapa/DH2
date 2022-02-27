@@ -18,13 +18,32 @@ export const Items: {[itemid: string]: ItemData} = {
 	hellfirelantern: {
 		name: "Hellfire Lantern",
 		spritenum: 61,
-		onHit(source, target, move) {
+		onModifyMovePriority: -1,
+		onModifyMove(move, target) {
+			if (target.species.id === 'houndoom' || target.species.id === 'houndour' && move.type === 'Fire') {
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.status === 'brn') return;
+				}
+				move.secondaries.push({
+					chance: 100,
+					status: 'brn',
+				});
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (target.species.id === 'houndoom' || target.species.id === 'houndour' && move.type === 'Fire') {
+				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
+				target.eatItem();
+			}
+		},
+		/*onHit(source, target, move) {
 			if (target.species.id === 'houndoom' || target.species.id === 'houndour' && move.type === 'Fire') {
 				source.trySetStatus('brn', target, move);
 				target.useItem();
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
-		},
+		},*/
 		num: 1002,
 		gen: 2,
 		shortDesc: "If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
