@@ -518,7 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corsolagalar: {
     	inherit: true,
-		abilities: {0: "Weak Armor", 1: "Cursed Body", H: "Perish Body"},
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Perish Body"},
 	},
 	remoraid: {
     	inherit: true,
@@ -722,6 +722,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	banette: {
     	inherit: true,
 		types: ["Ghost", "Normal"],
+		abilities: {0: "Shadow Tag", 1: "Frisk", H: "Cursed Body"},
 	},
 	banettemega: {
     	inherit: true,
@@ -964,6 +965,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 100, atk: 125, def: 52, spa: 105, spd: 52, spe: 91},
+		abilities: {0: "Shadow Tag", 1: "Super Luck", H: "Moxie"},
 	},
 	chingling: {
     	inherit: true,
@@ -1445,7 +1447,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hoopaunbound: {
     	inherit: true,
-		abilities: {0: "Magician", H: "Cursed Body"},
+		abilities: {0: "Magician", H: "Shadow Tag"},
 	},
 	volcanion: {
     	inherit: true,
@@ -1699,7 +1701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cursola: {
     	inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 95, spa: 145, spd: 120, spe: 30},
-		abilities: {0: "Weak Armor", 1: "Cursed Body", H: "Perish Body"},
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Perish Body"},
 	},
 	sirfetchd: {
     	inherit: true,
@@ -1847,6 +1849,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	marshadow: {
     	inherit: true,
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+	},
+	runerigus: {
+    	inherit: true,
+		abilities: {0: "Wandering Spirit", H: "Shadow Tag"},
+	},
+	cofagrigus: {
+    	inherit: true,
+		abilities: {0: "Mummy", H: "Shadow Tag"},
 	},
 
 	// New Mons
@@ -1999,7 +2009,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Photyrant",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 50},
-		abilities: {0: "Cursed Body", 1: "Sheer Force", H: "Aftermath"},
+		abilities: {0: "Shadow Tag", 1: "Sheer Force", H: "Aftermath"},
 		weightkg: 100,
 	},
 	ghoulgoyle: {
