@@ -19,8 +19,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Hellfire Lantern",
 		spritenum: 61,
 		onModifyMovePriority: -1,
-		onModifyMove(move, target) {
-			if (target.species.id === 'houndoom' || target.species.id === 'houndour' && move.type === 'Fire') {
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.id === 'houndoom' || pokemon.species.id === 'houndour' && move.type === 'Fire') {
 				if (!move.secondaries) move.secondaries = [];
 				for (const secondary of move.secondaries) {
 					if (secondary.status === 'brn') return;
