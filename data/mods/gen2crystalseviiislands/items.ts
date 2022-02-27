@@ -18,11 +18,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	hellfirelantern: {
         name: "Hellfire Lantern",
         spritenum: 61,
-        onAfterMove(target, source, move) {
-            if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-                target.trySetStatus('brn', source);
-                source.useItem();
-                this.add('-activate', source, 'item: Hellfire Lantern', '[consumed]');
+        onAfterMove(target, pokemon, move) {
+            if (pokemon.species.id === 'houndoom' || pokemon.species.id === 'houndour' && move.type === 'Fire') {
+                source.trySetStatus('brn', pokemon, move);
+                pokemon.useItem();
+                this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
             }
         },
         num: 1002,
