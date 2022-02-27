@@ -37,7 +37,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1002,
 		gen: 2,
-		shortDesc: "If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
+		shortDesc: "(Bugged) If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
     },
 	sandstone: {
 		name: "Sandstone",
