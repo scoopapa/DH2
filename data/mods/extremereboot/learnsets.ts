@@ -1,5 +1,5 @@
 export const Learnsets = {
-		extremeribbit: {
+	extremeribbit: {
 		learnset: {
 			"25recorders": ["8L1"],
 			abyssalslash: ["8L1"],
@@ -115,7 +115,7 @@ export const Learnsets = {
 			ironbash: ["8L1"],
 			itemjack: ["8L1"],
 			jumpscare: ["8L1"],
-			kanchō: ["8L1"],
+			kancho: ["8L1"],
 			leavesdown: ["8L1"],
 			lingeringspirit: ["8L1"],
 			luauleap: ["8L1"],

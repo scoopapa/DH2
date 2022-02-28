@@ -98,7 +98,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	},
-	hitStepAccuracy(targets, pokemon, move) { // for Sun Kiss and Cold Stare
+	hitStepAccuracy(targets, pokemon, move) { // for Sun Kiss, Incantation and Cold Stare
 		const hitResults = [];
 		for (const [i, target] of targets.entries()) {
 			this.activeTarget = target;
@@ -130,7 +130,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
 			if (move.alwaysHit ||
 				(move.id === 'sunkiss' && pokemon.hasType('Summer')) || // Extreme Reboot code
-				(move.id === 'coldstare' && pokemon.hasType('Winter'))) 
+				(move.id === 'coldstare' && pokemon.hasType('Winter')) ||
+				(move.id === 'incantation' && pokemon.hasType('Folklore'))) 
 			{
 				accuracy = true; // bypasses ohko accuracy modifiers
 			} else {
