@@ -1465,29 +1465,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 	},
 	// Coded
-	flowerfang: {
-		name: "Flower Fang",
-		accuracy: 100,
-		basePower: 75,
-		category: "Special",
-		pp: 15,
-		type: "Spring",
-		shortDesc: "30% Poison Chance. 1/4 HP Drain. 1/2 HP Drain vs. Poisoned.",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
-		onPrepareHit(source, target, move) {
-			if (target.status === 'psn') move.drain = [1,2];
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Poison Fang", target);
-		},
-		drain: [1,4],
-		target: "normal",
-		secondary: {
-			status: 'psn',
-			chance: 100,
-		},
-	},
-	// Coded
 	freezeover: {
 		name: "Freeze Over",
 		accuracy: 100,
@@ -2465,29 +2442,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Coded
-	monsoon: {
-		accuracy: 70,
-		basePower: 110,
-		category: "Special",
-		name: "Monsoon",
-		pp: 5,
-		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Water Spout", target);
-		},
-		secondary: {
-			chance: 30,
-			onHit(gaming) {
-				this.field.setWeather('rainyseason');
-			}
-		},
-		target: "normal",
-		type: "Sea",
-		contestType: "Cool",
-	},
 	mononokedance: {
 		name: "Mononoke Dance",
 		accuracy: 100,
@@ -2500,43 +2454,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-	},
-	// Coded
-	energysiphon: {
-		accuracy: 100,
-		basePower: 50,
-		category: "Special",
-		name: "Energy Siphon",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1, contact: 1},
-		drain: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Autumn",
-		volatileStatus: 'energysiphon',
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Fell Stinger", target);
-		},
-		condition: {
-			onStart(target) {
-				this.add('-start', target, 'move: Energy Siphon');
-			},
-			duration: 3,
-			onResidualOrder: 8,
-			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to leech into');
-					return;
-				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
-				if (damage) {
-					this.heal(damage / 2, target, pokemon);
-				}
-			},
-		},
 	},
 	// Coded
 	moonbeam: {
@@ -3773,40 +3690,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-	},
-	sneeze: {
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		name: "Sneeze",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gust", target);
-		},
-		onHit(target, source, move) {
-			if (source.side.sideConditions['rubbles']){
-				let allySideRubbles = source.side.sideConditions['rubbles'];
-				if (allySideRubbles.layers > 0) {
-					allySideRubbles.layers = allySideRubbles.layers - 1;
-					if (allySideRubbles.layers === 0) {
-						side.foe.removeSideCondition('rubbles');
-						this.add('-sideend', side.foe, 'rubbles');
-					} else {
-						let str = ' layers of Rubbles are left on ';
-						if (allySideRubbles.layers === 1) str = ' layer of Rubbles is left on ';
-						this.add('-message', allySideRubbles.layers + str + side.foe.active[0].name + "'s side!");
-					}
-				}
-			}
-			this.field.clearTerrain();
-		},
-		secondary: null,
-		target: "normal",
-		type: "Storm",
-		contestType: "Tough",
 	},
 	// Coded
 	snowkick: {
