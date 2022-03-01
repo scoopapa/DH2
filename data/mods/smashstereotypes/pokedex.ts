@@ -686,7 +686,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Bug", "Ground"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 80, def: 102, spa: 80, spd: 102, spe: 67},
-		abilities: {0: "Pressure", H: " Poison Heal"},
+		abilities: {0: "Pressure", H: "Poison Heal"},
 		height: 1.2,
 		weightkg: 38.5,
 		prevo: "combee",
