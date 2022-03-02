@@ -122,12 +122,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	mossysurpise: {
+	mossysurprise: {
 		num: -104,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Mossy Surpise",
+		name: "Mossy Surprise",
 		desc: "Has a 30% chance to lower the target's Speed by 2 stages.",
 		shortDesc: "30% chance to lower the target's Speed by 2.",
 		pp: 10,

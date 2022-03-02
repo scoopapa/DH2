@@ -1449,7 +1449,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 	bastiodonovergrown: {
 		learnset: {
-			mossysurpise: ["8L1"],
+			mossysurprise: ["8L1"],
 
 			leechseed: ["8L1"],
 			acidspray: ["8L1"],
