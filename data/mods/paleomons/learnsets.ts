@@ -1266,7 +1266,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			icebeam: ["8M", "7M", "6M", "5M", "4M"],
 			icefang: ["8M", "8L1", "7L24", "6L24", "5L28", "5S0", "4L28"],
 			iceshard: ["8L15"],
-			iciclecrash: ["8L1"],
+			//iciclecrash: ["8L1"],
 			iciclespear: ["8M", "6S1"],
 			icywind: ["8M", "8L30", "7T", "6T", "5T", "4T"],
 			ironhead: ["8M", "7T", "6T", "5T", "4T"],
