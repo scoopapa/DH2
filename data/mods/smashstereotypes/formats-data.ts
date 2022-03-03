@@ -214,4 +214,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	grapploct: {
 		tier: "SSS",
 	},
+	highpriest: {
+		tier: "SSS",
+	},
+	firerock: {
+		tier: "SSS",
+	},
+	jungape: {
+		tier: "SSS",
+	},
 };
