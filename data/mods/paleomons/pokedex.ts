@@ -210,9 +210,40 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 23.4,
 	},
 
-	pilsoswine: {
+	swinub: {
 		inherit: true,
-		evos: ["Mamoswine", "Mamoswine-Ancient"]
+		otherFormes: ["Swinub-Ancient"],
+		formeOrder: ["Swinub", "Swinub-Ancient"],
+	},
+
+	swinubancient: {
+		num: -110,
+		name: "Swinub-Ancient",
+		baseSpecies: "Swinub",
+		forme: "Ancient",
+		types: ["Ice"],
+		evos: ["Swinub-Ancient"],
+		baseStats: {hp: 50, atk: 30, def: 40, spa: 30, spd: 50, spe: 50},
+		abilities: {0: "Oblivious", 1: "Snow Cloak", H: "Adaptability"},
+		weightkg: 6.5,
+	},
+
+	piloswine: {
+		inherit: true,
+		otherFormes: ["Piloswine-Ancient"],
+		formeOrder: ["Piloswine", "Piloswine-Ancient"],
+	},
+
+	piloswineancient: {
+		num: -111,
+		name: "Piloswine-Ancient",
+		baseSpecies: "Piloswine",
+		forme: "Ancient",
+		types: ["Ice", "Poison"],
+		evos: ["Mamoswine-Ancient"],
+		baseStats: {hp: 100, atk: 80, def: 80, spa: 60, spd: 80, spe: 50},
+		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
+		weightkg: 55.8,
 	},
 
 	mamoswine: {
@@ -222,7 +253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	mamoswineancient: {
-		num: -110,
+		num: -112,
 		name: "Mamoswine-Ancient",
 		baseSpecies: "Mamoswine",
 		forme: "Ancient",
@@ -233,7 +264,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	dodrumb: {
-		num: -111,
+		num: -113,
 		name: "Dodrumb",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 84, atk: 74, def: 104, spa: 74, spd: 54, spe: 64},
@@ -242,7 +273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	blossobite: {
-		num: -112,
+		num: -114,
 		name: "Blossobite",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 81, atk: 113, def: 100, spa: 70, spd: 60, spe: 71},
@@ -251,7 +282,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	ghoulipinch: {
-		num: -113,
+		num: -115,
 		name: "Ghoulipinch",
 		types: ["Water", "Ghost"],
 		evos: ["Ghoulpion"],
@@ -261,7 +292,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	ghoulpion: {
-		num: -114,
+		num: -116,
 		name: "Ghoulpion",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 70, atk: 90, def: 110, spa: 65, spd: 75, spe: 80},
@@ -269,24 +300,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 0.2,
 	},
 
-	/*
+	
 	shieldon: {
 		inherit: true,
 		otherFormes: ["Shieldon-Overgrown"],
 		formeOrder: ["Shieldon", "Shieldon-Overgrown"]
-	}
+	},
 
 	shieldonovergrown: {
-		num: -115,
+		num: -117,
 		name: "Shieldon-Overgrown",
 		baseSpecies: "Shieldon",
 		forme: "Overgrown",
-		evos: ["Bastiodon-Overgrown"]
+		evos: ["Bastiodon-Overgrown"],
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
+		baseStats: {hp: 56, atk: 46, def: 77, spa: 67, spd: 97, spe: 30},
+		abilities: {0: "Bulletproof", 1: "Leaf Guard", H: "Grassy Surge"},
 		weightkg: 57,
-	*/
+	},
 
 	bastiodon: {
 		inherit: true,
@@ -295,7 +326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	bastiodonovergrown: {
-		num: -116,
+		num: -118,
 		name: "Bastiodon-Overgrown",
 		baseSpecies: "Bastiodon",
 		forme: "Overgrown",
@@ -312,7 +343,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	cranidoscretaceous: {
-		num: -117,
+		num: -119,
 		name: "Cranidos-Cretaceous",
 		baseSpecies: "Cranidos",
 		forme: "Cretaceous",
@@ -330,7 +361,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	rampardoscretaceous: {
-		num: -118,
+		num: -120,
 		name: "Rampardos-Cretaceous",
 		baseSpecies: "Rampardos",
 		forme: "Cretaceous",
@@ -340,7 +371,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 102.5,
 	},
 
-	/*
+	
 	archen: {
 		inherit: true,
 		otherFormes: ["Archen-Ancient"],
@@ -348,17 +379,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	archenancient: {
-		num: -119,
+		num: -121,
 		name: "Archen-Ancient",
 		baseSpecies: "Archen",
 		forme: "Ancient",
-		evos: ["Archeops-Ancient"]
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		weightkg: ,
+		evos: ["Archeops-Ancient"],
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 60, atk: 60, def: 70, spa: 68, spd: 65, spe: 90},
+		abilities: {0: "Natural Cure"},
+		weightkg: 9.5,
 	},
-	*/
+	
 
 	archeops: {
 		inherit: true,
@@ -367,7 +398,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	archeopsancient: {
-		num: -120,
+		num: -122,
 		name: "Archeops-Ancient",
 		baseSpecies: "Archeops",
 		forme: "Ancient",
@@ -384,7 +415,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	tirtougaleatherback: {
-		num: -121,
+		num: -123,
 		name: "Tirtouga-Leatherback",
 		baseSpecies: "Tirtouga",
 		forme: "Leatherback",
@@ -401,7 +432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	carracostaleatherback: {
-		num: -122,
+		num: -124,
 		name: "Carracosta-Leatherback",
 		baseSpecies: "Carracosta",
 		forme: "Leatherback",
@@ -418,7 +449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	tyruntapex: {
-		num: -123,
+		num: -125,
 		name: "Tyrunt-Apex",
 		baseSpecies: "Tyrunt",
 		forme: "Apex",
@@ -436,7 +467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	tyrantrumapex: {
-		num: -124,
+		num: -126,
 		name: "Tyrantrum-Apex",
 		baseSpecies: "Tyrantrum",
 		forme: "Apex",
@@ -453,7 +484,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	amauraregnant: {
-		num: -125,
+		num: -127,
 		name: "Amaura-Regnant",
 		baseSpecies: "Amaura",
 		forme: "Regnant",
@@ -471,7 +502,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	aurorusregnant: {
-		num: -126,
+		num: -128,
 		name: "Aurorus-Regnant",
 		baseSpecies: "Aurorus",
 		forme: "Regnant",
@@ -479,5 +510,126 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 77, def: 85, spa: 109, spd: 90, spe: 88},
 		abilities: {0: "Snow Warning", H:"Refrigerate"},
 		weightkg: 225,
+	},
+
+	/*
+	shellos: {
+		inherit: true,
+		otherFormes: ["Shellos-Entity"],
+		formeOrder: ["Shellos", "Shellos-East", "Shellos-Entity"],
+	},
+	*/
+
+	shellosentity: {
+		num: -129,
+		name: "Shellos-Entity",
+		//baseSpecies: "Shellos",
+		//baseForme: "Entity",
+		evos: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
+		types: ["Poison"],
+		baseStats: {hp: 70, atk: 50, def: 60, spa: 50, spd: 60, spe: 40},
+		abilities: {0: "Gooey", H: "Poison Point"},
+		weightkg: 6.3,
+	},
+
+	/*
+	gastrodon: {
+		inherit: true,
+		otherFormes: ["Gastrodon-Entity"],
+		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
+	},
+	*/
+
+	gastrodonentity: {
+		num: -130,
+		name: "Gastrodon-Entity",
+		//baseSpecies: "Gastrodon",
+		//baseForme: "Entity",
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 120, atk: 95, def: 60, spa: 100, spd: 50, spe: 50},
+		abilities: {0: "Gooey", H: "Damp"},
+		weightkg: 29.9,
+		otherFormes: ["Gastrodon-Entity-East"],
+		formeOrder: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
+	},
+
+	gastrodonentityeast: {
+		num: -130,
+		name: "Gastrodon-Entity-East",
+		baseSpecies: "Gastrodon-Entity",
+		forme: "Entity-East",
+		types: ["Poison", "Psychic"],
+		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
+		abilities: {0: "Gooey", H: "Neuroforce"},
+		weightkg: 29.9,
+	},
+
+	yanma: {
+		inherit: true,
+		otherFormes: ["Yanma-Ancient"],
+		formeOrder: ["Yanma", "Yanma-Ancient"],
+	},
+
+	yanmaancient: {
+		num: -131,
+		name: "Yanma-Ancient",
+		baseSpecies: "Yanma",
+		forme: "Ancient",
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 60, atk: 80, def: 55, spa: 80, spd: 55, spe: 60},
+		abilities: {0: "Compound Eyes", H: "Chaser"},
+		weightkg: 38,
+	},
+
+	yanmega: {
+		inherit: true,
+		otherFormes: ["Yanmega-Ancient"],
+		formeOrder: ["Yanmega", "Yanmega-Ancient"],
+	},
+
+	yanmegaancient: {
+		num: -132,
+		name: "Yanmega-Ancient",
+		baseSpecies: "Yanmega",
+		forme: "Ancient",
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 85, atk: 110, def: 70, spa: 110, spd: 70, spe: 70},
+		abilities: {0: "Strong Jaw", H: "Chaser"},
+		weightkg: 51.5,
+	},
+
+	tangela: {
+		inherit: true,
+		otherFormes: ["Tangela-Ancient"],
+		formeOrder: ["Tangela", "Tangela-Ancient"],
+	},
+
+	tangelaancient: {
+		num: -133,
+		name: "Tangela-Ancient",
+		baseSpecies: "Tangela",
+		forme: "Ancient",
+		evos: ["Tangrowth-Ancient"],
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 65, atk: 55, def: 40, spa: 100, spd: 115, spe: 60},
+		abilities: {0: "Mold Breaker", 1: "Grass Pelt", H: "Absorption"},
+		weightkg: 35,
+	},
+
+	tangrowth: {
+		inherit: true,
+		otherFormes: ["Tangrowth-Ancient"],
+		formeOrder: ["Tangrowth", "Tangrowth-Ancient"],
+	},
+
+	tangrowthancient: {
+		num: -134,
+		name: "Tangrowth-Ancient",
+		baseSpecies: "Tangrowth",
+		forme: "Ancient",
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 100, atk: 100, def: 50, spa: 110, spd: 125, spe: 50},
+		abilities: {0: "Mold Breaker", 1: "Grass Pelt", H: "Absorption"},
+		weightkg: 128.6,
 	},
 };
