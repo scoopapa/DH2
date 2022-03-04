@@ -2937,16 +2937,19 @@ export const Formats: FormatList = [
         banlist: [],
 	},
 	{
-		name: "[Gen 2] GSC Doubles",
+		name: "[Gen 8] Baby Boom",
+		desc: '<b>Baby Boom</b>: A Solomod where only Baby Pokemon are allowed and are balanced around each other.',
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9069509">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1QrZKlNrqKiRcprYtvyIPveR0vMp0dpM1X60zeo6N5xU/edit#gid=999775779">Spreadsheet</a>`,
 		],
-
-		mod: 'gen2doubles',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Swagger Clause'],
-		banlist: ['Celebi', 'Ho-Oh', 'Lugia', 'Mew', 'Mewtwo', 'Snorlax'],
-		teambuilderFormat: "OU",
+		mod: 'babyboom',
+		maxLevel: 5,
+		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
+		banlist: ['All Pokemon', 'Baton Pass',],
+		unbanlist: ['Pichu', 'Cleffa', 'Jigglypuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 
+					'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Mantyke', 'Riolu', 'Toxel', 'Armorick', 'Crawscor', 'Dreddon',
+		],
 	},
 	{
         name: "[Gen 8] Duomod",
@@ -3038,6 +3041,18 @@ export const Formats: FormatList = [
 		challengeShow: false,
 		mod: "gpt2mons", 
 		teambuilderFormat: "OU", 	
+	},
+	{
+		name: "[Gen 2] GSC Doubles",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Uber'],
+		teambuilderFormat: "OU",
 	},
 	{    
        name: "[Gen 8] JosMons",

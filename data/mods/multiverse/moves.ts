@@ -331,7 +331,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Has a 33% chance to either burn, badly poison, or paralyze the target.",
+		shortDesc: "Inflicts either burn, badly poison, or paralyze to the target.",
 		name: "Abstract Dreams",
 		pp: 20,
 		priority: 0,
@@ -341,7 +341,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Hypnosis", target);
 		},
 		secondary: {
-			chance: 33,
+			chance: 100,
 			onHit(target, source) {
 				const result = this.random(3);
 				if (result === 0) {
