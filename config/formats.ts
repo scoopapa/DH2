@@ -3050,7 +3050,6 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber'],
-		teambuilderFormat: "OU",
 	},
 	{    
        name: "[Gen 8] JosMons",
