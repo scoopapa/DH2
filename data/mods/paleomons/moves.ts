@@ -122,12 +122,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-	mossysurpise: {
+	mossysurprise: {
 		num: -104,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Mossy Surpise",
+		name: "Mossy Surprise",
 		desc: "Has a 30% chance to lower the target's Speed by 2 stages.",
 		shortDesc: "30% chance to lower the target's Speed by 2.",
 		pp: 10,
@@ -187,6 +187,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 
+	jawforce: {
+		num: -105,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Jaw Force",
+		desc: "Priority increases by 1 if the user is at or under 1/4th of its maximum HP.",
+		shortDesc: "User at 1/4 HP: +1 priority",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, bite: 1},
+		secondary: {},
+		onModifyPriority(priority, pokemon, move) {
+			if(pokemon.hp <= pokemon.maxhp / 4) {
+				return priority +1;
+			}
+		},
+		target: "normal",
+		type: "Dragon",
+	},
+
 	//
 	//
 	//
@@ -203,7 +224,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Raises the user's Defense by 2 stages. If the terrain is Tar Pit, the user's Defense is instead increased by 3 stages.",
 		shortDesc: "Raises the user's Defense by 2.",
 		onHit(target) {
-			if(this.field.isTerrain('tarpit')) {
+			if(this.field.isTerrain('tarterrain')) {
 				if (target.isGrounded() && !target.isSemiInvulnerable() && !target.hasItem('heavydutyboots')) {
 					this.boost({def: 3}, target);
 				}
@@ -226,7 +247,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move = 'moonblast';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				move = 'psychic';
-			} else if (this.field.isTerrain('tarpit')) {
+			} else if (this.field.isTerrain('tarterrain')) {
 				move = 'sludgebomb';
 			}
 			this.useMove(move, pokemon, target);
@@ -263,7 +284,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						spe: -1,
 					},
 				});
-			} else if (this.field.isTerrain('tarpit')) {
+			} else if (this.field.isTerrain('tarterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
@@ -289,7 +310,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			case 'psychicterrain':
 				move.type = 'Psychic';
 				break;
-			case 'tarpit':
+			case 'tarterrain':
 				move.type = 'Poison';
 				break;
 			}
@@ -308,7 +329,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				newType = 'Psychic';
-			} else if (this.field.isTerrain('tarpit')) {
+			} else if (this.field.isTerrain('tarterrain')) {
 				newType= 'Poison';
 			}
 

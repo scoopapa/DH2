@@ -104,9 +104,43 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Corrosive Pincers",
 		desc: "This Pokemon's attacking stat is doubled while using a Poison-type attack. If a Pokemon uses a Poison-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
-		shortDesc: "This Pokemon's Poison power is 2x; it can't be poison; Poison power against it is halved.",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
 		rating: 4.5,
 		num: -104,
+	},
+
+	chaser: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (/* target.newlySwitched || */ this.queue.willMove(target)) {
+					return basePower * 1.3;
+				}
+				return basePower;
+			}
+		},
+		name: "Chaser",
+		desc: "The power of this Pokemon's move is multiplied by 1.3 if it is the first to move in a turn. Does not affect Doom Desire and Future Sight.",
+		shortDesc: "This Pokemon's attacks have 1.3x power if it is the first to move in a turn.",
+	},
+
+	absorption: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!this.effectData.switchingIn || this.field.isTerrain('')) {
+				return;
+			}
+			this.add('-message', `Absorption Activation!`);
+			this.field.clearTerrain();
+			this.heal((pokemon.baseMaxhp / 8), pokemon);
+		},
+
+		name: "Absorption",
+		desc: "If there is an active terrain, the terrain ends and the user is healed by 12% of its maximum HP",
+		shortDesc: "If there is a terrain active, ends the terrain and heals the user by 12% of its max HP",
 	},
 	
 	//
@@ -137,8 +171,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				case 'psychicterrain':
 					newType = 'Psychic';
 					break;
-				case 'tarpit':
-					newType: 'Poison';
+				case 'tarterrain':
+					newType = 'Psychic';
 					break;
 				}
 				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;

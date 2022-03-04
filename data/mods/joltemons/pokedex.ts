@@ -731,11 +731,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	joltik: {
 		inherit: true,
-		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Buzz Off"},
+		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Swarm"},
 	},
 	galvantula: {
 		inherit: true,
-		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Buzz Off"},
+		abilities: {0: "Compound Eyes", 1: "Unnerve", H: "Swarm"},
 	},
 	pheromosa: {
 		inherit: true,
@@ -743,7 +743,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	vikavolt: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Buzz Off"},
+		abilities: {0: "Levitate", H: "Scavenge"},
 	},
 	starmie: {
 		inherit: true,
