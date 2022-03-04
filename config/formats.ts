@@ -2945,7 +2945,7 @@ export const Formats: FormatList = [
 		maxLevel: 5,
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: ['All Pokemon', 'Baton Pass',],
-		unbanlist: ['Pichu', 'Cleffa', 'Jigglypuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 
+		unbanlist: ['Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 
 					'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Mantyke', 'Riolu', 'Toxel', 'Armorick', 'Crawscor', 'Dreddon',
 		],
 	},
