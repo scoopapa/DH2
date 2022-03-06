@@ -539,6 +539,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	swampert: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	alakazam: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
 	terrakion: {
 		tier: "OU",
 		doublesTier: "DOU",
