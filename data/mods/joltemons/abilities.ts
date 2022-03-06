@@ -230,8 +230,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	powerofalchemy: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
-		onPreStart(pokemon) {
+		/*onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
+		},*/
+		onStart(pokemon) {
+			const ability = this.toID(pokemon.species.abilities['']);
+			this.add('-ability', pokemon, 'Power of Alchemy');
+			pokemon.setAbility(ability);
 		},
 		isPermanent: true,
 		name: "Power of Alchemy",
