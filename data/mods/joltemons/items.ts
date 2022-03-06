@@ -610,12 +610,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 */
-		fling: {
+		/*fling: {
 			basePower: 10,
 		},
 		gen: 8,
 		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
-	},
+	},*/
 	reapercloth: {
 		name: "Reaper Cloth",
 		spritenum: 385,
