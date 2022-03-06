@@ -26,7 +26,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onChargeMove(pokemon, target, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Greninja' && move.id === 'Dig') {
+			if (target.baseSpecies.baseSpecies === 'Greninja' && move.id === 'Dig') {
 				if (pokemon.useItem()) {
 					this.debug('smoke bomb - remove charge turn for ' + move.id);
 					this.attrLastMove('[still]');
@@ -35,9 +35,9 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 		},
-		onModifyMove(move, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Greninja' && move.id === 'Dig') {
-				move.basePower + 20;
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'greninja' && move.id === 'Dig') {
+				move.basePower = 100;
 			}
 		},
 		num: -2,

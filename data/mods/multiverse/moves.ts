@@ -351,6 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
+		shortDesc: "Has 33% recoil.",
 		name: "Sbsolute Impact",
 		pp: 15,
 		priority: 0,
