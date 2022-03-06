@@ -1,14 +1,23 @@
 export const Moves: {[moveid: string]: MoveData} = {
 	dig: {
 		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.species.id === 'greninja' && attacker.hasItem('smokebomb') && move.id === 'dig') return;
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'greninja') return;
 			if (source.hasItem('smokebomb')) {
 				move.basePower = 100;
 				delete move.flags['charge'];
-				this.attrLastMove('[still]');
-				this.addMove('-anim', source, move.name, target);
-				return false; // skip charge turn
 				source.useItem();
 			}
 		},
