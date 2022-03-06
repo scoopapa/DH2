@@ -320,6 +320,7 @@ export class ModdedDex {
 			id = 'nidoranm' as ID;
 		}
 		let species: any = this.speciesCache.get(id);
+		console.log(species);
 		if (species) return species;
 		if (this.data.Aliases.hasOwnProperty(id)) {
 			if (this.data.FormatsData.hasOwnProperty(id)) {
