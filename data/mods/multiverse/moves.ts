@@ -303,7 +303,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Inflicts either burn, badly poison, or paralyze to the target.",
+		shortDesc: "Either burns, badly poisons, or paralyzes the target.",
 		name: "Abstract Dreams",
 		pp: 20,
 		priority: 0,
