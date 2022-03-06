@@ -720,7 +720,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	slowbromega: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	urshifurapidstrike: {
