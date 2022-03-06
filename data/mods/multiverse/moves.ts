@@ -7,7 +7,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.basePower = 100;
 				delete move.flags['charge'];
 				this.attrLastMove('[still]');
-				this.addMove('-anim', pokemon, move.name, target);
+				this.addMove('-anim', source, move.name, target);
 				return false; // skip charge turn
 				source.useItem();
 			}
