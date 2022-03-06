@@ -2,7 +2,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	dig: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.species.id === 'greninja' && move.id === 'dig') return;
+			if (attacker.species.id === 'greninja' && attacker.hasItem('smokebomb') && move.id === 'dig') return;
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
