@@ -26,7 +26,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onModifyMove(move, source, target) {
-			if (move.id !== 'Dig'} return:
+			if (move.id !== 'Dig') return:
 			if (source.species.id === 'greninja') {
 				move.basePower = 100;
 				delete move.flags['charge'];
