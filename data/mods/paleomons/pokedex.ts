@@ -512,10 +512,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 225,
 	},
 
-	/*
+	
 	shellos: {
 		inherit: true,
-		otherFormes: ["Shellos-Entity"],
+		cosmeticFormes: ["Shellos-Entity"],
 		formeOrder: ["Shellos", "Shellos-East", "Shellos-Entity"],
 	},
 	
@@ -523,8 +523,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	shellosentity: {
 		num: -129,
 		name: "Shellos-Entity",
-		//baseSpecies: "Shellos",
-		//baseForme: "Entity",
+		baseSpecies: "Shellos",
+		baseForme: "Entity",
 		evos: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
 		types: ["Poison"],
 		baseStats: {hp: 70, atk: 50, def: 60, spa: 50, spd: 60, spe: 40},
@@ -532,10 +532,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 6.3,
 	},
 
-	/*
+	
 	gastrodon: {
 		inherit: true,
-		otherFormes: ["Gastrodon-Entity"],
+		cosmeticFormes: ["Gastrodon-Entity"],
 		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
 	},
 	
@@ -543,8 +543,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gastrodonentity: {
 		num: -130,
 		name: "Gastrodon-Entity",
-		//baseSpecies: "Gastrodon",
-		//baseForme: "Entity",
+		baseSpecies: "Gastrodon",
+		baseForme: "Entity",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 120, atk: 95, def: 60, spa: 100, spd: 50, spe: 50},
 		abilities: {0: "Gooey", H: "Damp"},
@@ -556,14 +556,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gastrodonentityeast: {
 		num: -130,
 		name: "Gastrodon-Entity-East",
-		baseSpecies: "Gastrodon-Entity",
+		baseSpecies: "Gastrodon",
 		forme: "Entity-East",
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
 	},
-	*/
+	
 
 	yanma: {
 		inherit: true,
