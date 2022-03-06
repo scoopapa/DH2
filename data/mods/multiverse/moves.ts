@@ -1,4 +1,16 @@
 export const Moves: {[moveid: string]: MoveData} = {
+	dig: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id !== 'greninja') return;
+			if (source.hasItem('smokebomb')) {
+				move.basePower = 100;
+				delete move.flags['charge'];
+				this.attrLastMove('[still]');
+				this.addMove('-anim', source, move.name, target);
+			}
+		},
+	},
 	flameburst: {
 		inherit: true,
 		isNonstandard: null,

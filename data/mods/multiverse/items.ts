@@ -25,22 +25,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Greninja') return false;
 			return true;
 		},
-		onModifyMove(move, source, target) {
+		/*onChargeMove (pokemon, target, move) {
 			if (move.id !== 'Dig') return;
-			if (source.species.id === 'greninja') {
-				move.basePower = 100;
-				delete move.flags['charge'];
-			}
-		},
-		onChargeMove (pokemon, target, move) {
-			if (pokemon.species.id !== 'greninja') return;
-			if (pokemon.useItem() && move.id === 'Dig') {
+			if (pokemon.useItem()) {
 				this.debug('smoke bomb - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', pokemon, move.name, target);
 				return false; // skip charge turn
 			}
-		},
+		},*/
 		num: -2,
 		gen: 8,
 		shortDesc: "When held by Greninja, Dig: +20 BP & 1 turn. Single Use.",
