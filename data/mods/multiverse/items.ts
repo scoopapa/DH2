@@ -30,11 +30,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (source.species.id === 'greninja') {
 				move.basePower = 100;
 				delete move.flags['charge'];
+				move.smokebomb = true;
 			}
 		},
 		onChargeMove (pokemon, target, move) {
-			if (pokemon.useItem()) {
+			if (move.smokebomb && pokemon.useItem()) {
 				this.debug('smoke bomb - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
 				return false; // skip charge turn
 			}
 		},
