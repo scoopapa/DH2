@@ -548,6 +548,49 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon) {
+			const noSleepTalk = [
+				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+			];
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				if (!moveid) continue;
+				const move = this.dex.getMove(moveid);
+				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+					continue;
+				}
+				moves.push(moveid);
+			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
+			}
+			this.useMove(randomMove, pokemon);
+		},
+		fling: {
+			basePower: 10,
+		},
+		gen: 8,
+		desc: "Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
+	},
+/*		
+	pillow: {
+		name: "Pillow",
+		spritenum: 242,
+		fling: {
+			basePower: 10,
+			status: 'slp',
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+			this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
 /*
 		onStart(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
