@@ -234,8 +234,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},*/
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Power of Alchemy');
-			pokemon.setAbility = pokemon.species.abilities['0', '1', 'H', 'S'];
+			for (const i in this.data.Pokedex) {
+				this.add('-ability', pokemon, 'Power of Alchemy');
+				pokemon.setAbility = this.data.Pokedex[i].abilities['0', '1', 'H'];
+			}
 		},
 		isPermanent: true,
 		name: "Power of Alchemy",
