@@ -18,4 +18,24 @@ export const Items: {[itemid: string]: ItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	smokebomb: {
+		name: "Smoke Bomb",
+		spritenum: 1,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Greninja') return false;
+			return true;
+		},
+		/*onChargeMove (pokemon, target, move) {
+			if (move.id !== 'Dig') return;
+			if (pokemon.useItem()) {
+				this.debug('smoke bomb - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},*/
+		num: -2,
+		gen: 8,
+		shortDesc: "When held by Greninja, Dig: +20 BP & 1 turn. Single Use.",
+	},
 };

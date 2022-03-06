@@ -134,4 +134,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	genesectchill: {
 		tier: "MV",
 	},
+	chesnaught: {
+		tier: "MV",
+	},
+	delphox: {
+		tier: "MV",
+	},
+	greninja: {
+		tier: "MV",
+	},
+	gogoat: {
+		tier: "MV",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	tyrantrum: {
+		tier: "MV",
+	},
+	sliggoo: {
+		tier: "MV",
+	},
+	avalugg: {
+		tier: "MV",
+	},
 };

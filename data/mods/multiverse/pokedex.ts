@@ -241,4 +241,52 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
 	},
+	chesnaught: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 107, def: 122, spa: 74, spd: 75, spe: 74},
+		abilities: {0: "Rough Skin", H: "Bulletproof"},
+	},
+	delphox: {
+		inherit: true,
+		baseStats: {hp: 79, atk: 64, def: 72, spa: 114, spd: 110, spe: 104},
+		abilities: {0: "Blaze", H: "Magician"},
+	},
+	greninja: {
+		inherit: true,
+		baseStats: {hp: 72, atk: 90, def: 67, spa: 90, spd: 71, spe: 120},
+		abilities: {0: "Torrent", H: "Protean"},
+		otherFormes: null,
+		formeOrder: null,
+	},
+	greninjaash: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	gogoat: {
+		inherit: true,
+		baseStats: {hp: 123, atk: 100, def: 81, spa: 97, spd: 62, spe: 68},
+		abilities: {0: "Sap Sipper", H: "Grass Pelt"},
+	},
+	dragalge: {
+		inherit: true,
+		abilities: {0: "Regenerator", H: "Adaptability"},
+	},
+	tyrantrum: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 121, def: 119, spa: 69, spd: 69, spe: 71},
+	},
+	sliggoo: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 90, def: 83, spa: 98, spd: 133, spe: 67},
+		evos: null,
+	},
+	avalugg: {
+		inherit: true,
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 117, def: 184, spa: 44, spd: 76, spe: 28},
+		abilities: {0: "Technician", H: "Sturdy"},
+	},
 };
