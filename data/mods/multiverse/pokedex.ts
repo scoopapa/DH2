@@ -280,6 +280,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	sliggoo: {
 		inherit: true,
+		types: ["Dragon", "Water"],
 		baseStats: {hp: 78, atk: 90, def: 83, spa: 98, spd: 133, spe: 67},
 		evos: null,
 	},
