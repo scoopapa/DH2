@@ -25,18 +25,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Greninja') return false;
 			return true;
 		},
-		onChargeMove(pokemon, target, move) {
-			if (pokemon.useItem() && pokemon.species.id === 'greninja' && move.id === 'Dig') {
-				this.debug('smoke bomb - remove charge turn for ' + move.id);
-				this.attrLastMove('[still]');
-				this.addMove('-anim', pokemon, move.name, target);
-				return false; // skip charge turn
-			}
-		},
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'greninja' && move.id === 'Dig') {
 				move.basePower = 100;
+				delete move.flags['charge'];
 			}
+		},
+		onChargeMove (pokemon, target, move) {
+			this.debug('smoke bomb - remove charge turn for ' + move.id);
+			return false; // skip charge turn
 		},
 		num: -2,
 		gen: 8,
