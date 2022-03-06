@@ -518,7 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		otherFormes: ["Shellos-Entity"],
 		formeOrder: ["Shellos", "Shellos-East", "Shellos-Entity"],
 	},
-	*/
+	
 
 	shellosentity: {
 		num: -129,
@@ -538,7 +538,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		otherFormes: ["Gastrodon-Entity"],
 		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
 	},
-	*/
+	
 
 	gastrodonentity: {
 		num: -130,
@@ -563,6 +563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
 	},
+	*/
 
 	yanma: {
 		inherit: true,
