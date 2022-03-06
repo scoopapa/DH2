@@ -233,24 +233,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		/*onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},*/
-		onBegin() {
-			for (const pokemon of this.getAllPokemon()) {
-				if (pokemon.ability === this.toID(pokemon.species.abilities['S'])) {
-					continue;
-				}
-				pokemon.m.innates = Object.keys(pokemon.species.abilities)
-					.filter(key => key !== 'S' && (key !== 'H' || !pokemon.species.unreleasedHidden))
-					.map(key => this.toID(pokemon.species.abilities[key as "0" | "1" | "H" | "S"]))
-					.filter(ability => ability !== pokemon.ability);
-			}
-		},
-		onSwitchInPriority: 2,
-		onSwitchIn(pokemon) {
-			if (pokemon.m.innates) {
-				for (const innate of pokemon.m.innates) {
-					pokemon.addVolatile("ability:" + innate, pokemon);
-				}
-			}
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+			this.setAbility(pokemon.getAbility(), pokemon.abilityData, pokemon);
 		},
 		isPermanent: true,
 		name: "Power of Alchemy",
