@@ -533,7 +533,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 271,
 		gen: 4,
 		desc: "Holder's two-turn moves and recharge complete in one turn (except Sky Drop). Single use.",
-	},	
+	},
 	pillow: {
 		name: "Pillow",
 		spritenum: 242,
