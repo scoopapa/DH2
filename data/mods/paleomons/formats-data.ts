@@ -187,7 +187,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	/*
 	shellosentity: {
 		tier: "Paleomons LC",
 		doublesTier: "Paleomons LC",
@@ -205,7 +204,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Paleomons",
 		isModded: true,
 	},
-	*/
 
 	yanmaancient: {
 		tier: "Paleomons LC",

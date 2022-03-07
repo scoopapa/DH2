@@ -521,7 +521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	
 
 	shellosentity: {
-		num: -129,
+		num: 422,
 		name: "Shellos-Entity",
 		baseSpecies: "Shellos",
 		baseForme: "Entity",
@@ -541,7 +541,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	
 
 	gastrodonentity: {
-		num: -130,
+		num: 423,
 		name: "Gastrodon-Entity",
 		baseSpecies: "Gastrodon",
 		baseForme: "Entity",
@@ -553,7 +553,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	gastrodonentityeast: {
-		num: -130,
+		num: 423,
 		name: "Gastrodon-Entity-East",
 		baseSpecies: "Gastrodon",
 		forme: "Entity-East",
