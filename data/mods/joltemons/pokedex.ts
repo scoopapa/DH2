@@ -1120,7 +1120,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	silvally: {
 		inherit: true,
-		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy"},
+		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy" (Silvally)},
 	},
 	typenull: {
 		inherit: true,
