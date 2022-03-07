@@ -687,6 +687,18 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onModifySpecies(species, target, source, effect) {
+			if (this.entityStats) {
+				let stats = this.entityStats[ species.id ];
+				if (stats) {
+					return Object.assign({}, species, 
+						{baseStats: stats.baseStats},
+						{abilities: stats.abilities},
+						{types: stats.types},
+					);
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 8] PokeClasses",
