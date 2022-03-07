@@ -936,6 +936,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	blaziken: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	uxie: {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
