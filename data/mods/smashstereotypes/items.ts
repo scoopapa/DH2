@@ -246,4 +246,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		shortDesc: "Restores 100 HP when at 1/2 max HP or less. Single use.",
 	},
+	hatterenite: {
+		name: "Hatterenite",
+		spritenum: 583,
+		megaStone: "Hatterene-Gmax",
+		megaEvolves: "Hatterene",
+		itemUser: ["Hatterene"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10000,
+		gen: 8,
+		desc: "If held by a Hatterene, this item allows it to Mega Evolve in battle.",
+	},
 };
