@@ -515,7 +515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	shellos: {
 		inherit: true,
-		cosmeticFormes: ["Shellos-East", "Shellos-Entity", "Shellos-Entity-East"],
+		otherFormes: ["Shellos-Entity", "Shellos-Entity-East"],
 		formeOrder: ["Shellos", "Shellos-East", "Shellos-Entity"],
 	},
 	
@@ -535,7 +535,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	
 	gastrodon: {
 		inherit: true,
-		cosmeticFormes: ["Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
+		otherFormes: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
 		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
 	},
 	
@@ -561,6 +561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
+		prevo: "Shellos-Entity",
 	},
 	
 
