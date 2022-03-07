@@ -698,6 +698,23 @@ export const Formats: FormatList = [
 					);
 				}
 			}
+			/*
+			if (!species.baseStats) return;
+			const boosts: {[tier: string]: number} = {
+				csm: 25,
+				cs1: 20,
+			};
+			*/
+			const tier = this.toID(species.tier) || 'ou';
+			if (!(tier in boosts)) return;
+			const pokemon: Species = this.dex.deepClone(species);
+			const boost = boosts[tier];
+			let statName: StatName;
+			for (statName in pokemon.baseStats) {
+				if (statName === 'hp') continue;
+				pokemon.baseStats[statName] = Utils.clampIntRange(pokemon.baseStats[statName] + boost, 1, 255);
+			}
+			return pokemon;
 		},
 	},
 	{
