@@ -756,7 +756,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	raichualola: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	ribombee: {
@@ -884,7 +884,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	pachirisu: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	porygonz: {
