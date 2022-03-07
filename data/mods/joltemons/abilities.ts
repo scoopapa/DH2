@@ -558,7 +558,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyFaintPriority: 1,
 		onAnyFaint(source, target, effect) {
 			this.add('-activate', target, 'ability: Scavenge'); 
-			this.heal(target.baseMaxhp / 3, source, target, effect);
+			this.heal(target.baseMaxhp / 3, target, source, effect);
 		},
 		name: "Scavenge",
 		rating: 3.5,
