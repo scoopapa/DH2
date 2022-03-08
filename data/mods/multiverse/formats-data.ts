@@ -95,4 +95,67 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	arceusground: {
 		tier: "MV",
 	},
+	stoutland: {
+		tier: "MV",
+	},
+	musharna: {
+		tier: "MV",
+	},
+	whimsicott: {
+		tier: "MV",
+	},
+	eelektross: {
+		tier: "MV",
+	},
+	hydreigon: {
+		tier: "MV",
+	},
+	landorus: {
+		tier: "MV",
+	},
+	keldeo: {
+		tier: "MV",
+	},
+	keldeoresolute: {
+		tier: "MV",
+	},
+	genesect: {
+		tier: "MV",
+	},
+	genesectdouse: {
+		tier: "MV",
+	},
+	genesectshock: {
+		tier: "MV",
+	},
+	genesectburn: {
+		tier: "MV",
+	},
+	genesectchill: {
+		tier: "MV",
+	},
+	chesnaught: {
+		tier: "MV",
+	},
+	delphox: {
+		tier: "MV",
+	},
+	greninja: {
+		tier: "MV",
+	},
+	gogoat: {
+		tier: "MV",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	tyrantrum: {
+		tier: "MV",
+	},
+	sliggoo: {
+		tier: "MV",
+	},
+	avalugg: {
+		tier: "MV",
+	},
 };

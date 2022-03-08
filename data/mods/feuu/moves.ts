@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') 
 					|| pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') 
 					|| pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') 
-					|| pokemon.hasAbility('aerialbreak')
+					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')
 				) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
 					this.field.getPseudoWeather('gravity')) applies = false;
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| target.hasAbility('levitability') || target.hasAbility('stickyfloat') 
 					|| target.hasAbility('etativel') || target.hasAbility('lighthearted') 
 					|| target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') 
-					|| target.hasAbility('aerialbreak')) {
+					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard')) {
 				move.ignoreAbility = true;
 			}
 		},
@@ -338,7 +338,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -373,7 +373,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -410,7 +410,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -474,5 +474,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+	},
+	poisonfang: {
+		num: 305,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Poison Fang",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.hasAbility('gnawrly')) {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
 	},
 };

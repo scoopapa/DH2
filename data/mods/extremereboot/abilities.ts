@@ -33,11 +33,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	alchemy: {
 		num: 1003,
 		name: "Alchemy",
 		desc: "When this pokemon attacks a Poisoned pokemon, it does a random effect from the list. (Replaces Poison with Fear, Curse, or Sleep; Inflicts the target with the Taunt, Torment, or Encore effect; Choosing 2 stats and lowering or raising each one by 1.)",
+		onHit(target, source, move) {
+			if (target.status !== 'psn') return;
+			const r = this.random(3);
+			if (r === 1) {
+				r = this.random(3);
+				console.log(r);
+				const statuses = ['psn', 'fer', 'crs'];
+				target.setStatus(statuses[r - 1]);
+			} else if (r === 2) {
+				r = this.random(3);
+				console.log(r);
+				const volatiles = ['taunt', 'torment', 'encore'];
+				target.addVolatile( volatiles[ r - 1]);
+			} else {
+				r = this.random(5);
+				console.log(r);
+				const stats = ['atk', 'def', 'spa', 'spd', 'spe'];
+				const stat1 = stats[r-1];
+				stats.splice(r-1);
+				r = this.random(4);
+				const stat2 = stats[r-1];
+				const boosts = [1,-1];
+				const toBoost = {};
+				toBoost[stat1] = boosts[this.random(2) - 1];
+				toBoost[stat2] = boosts[this.random(2) - 1];
+				this.boost(toBoost, target, source, move);
+			}				
+		}
 	},
 	// Not Fully Implemented
 	allseeingeye: {
@@ -246,17 +274,54 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Conversion",
 		desc: "This pokemon's typeless moves change to match its primary type and deal 1.2x damage.",
 	},
-	// Not Fully Implemented
+	// Coded
 	counterswirl: {
 		num: 1026,
 		name: "Counterswirl",
 		desc: "This Pokemon is immune to Storm attacks, and if it were to be hit by one, the attacker loses 1/8 of their max health.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				this.damage(source.maxhp/8, source, target, move);
+				return null;
+			}
+		},
 	},
 	// Not Fully Implemented
 	courageous: {
 		num: 1027,
 		name: "Courageous",
 		desc: "This Pokemon is immume to fear, and its Atk and SpA cannot be lowered by other Pokemon. Gaining this Ability while under fear cures it.",
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if ((boost.atk && boost.atk < 0) || (boost.spa && boost.spa < 0)) {
+				if (boost.atk) {
+					delete boost.atk;
+					if (!(effect as ActiveMove).secondaries) {
+						this.add("-fail", target, "unboost", "Attack", "[from] ability: Courageous", "[of] " + target);
+					}
+				}
+				if (boost.spa) {
+					delete boost.spa;
+					if (!(effect as ActiveMove).secondaries) {
+						this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Courageous", "[of] " + target);
+					}
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'fer' || pokemon.status === 'fer') {
+				this.add('-activate', pokemon, 'ability: Immunity');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'fer' && status.id !== 'fer') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Immunity');
+			}
+			return false;
+		},
 	},
 	// Not Fully Implemented
 	dataupgrade: {
@@ -326,7 +391,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1033,
 		name: "Glide",
 		desc: "This pokemon has it's speed raised by 1 when a Pokemon on the feild uses a sky move.",
-		onHit(target, source, move) {
+		onAnyHit(target, source, move) {
 			if (move.type !== "Sky") return;
 			for (const side of this.sides) {
 				for (const pokemon of side.active) {
@@ -499,11 +564,32 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (this.field.isTerrain('rosefield')) this.heal(target.baseMaxhp / 8);
 		}
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	prudentplow: {
 		num: 1049,
 		name: "Prudent Plow",
 		desc: "This Pokemon's Autumn-type moves become two-hit moves, including Status moves. The second hit has its damage/HP recovery quartered. Does not affect moves that are already multi-hit.",
+		onPrepareHit(source, target, move) {
+			if (move.selfdestruct || move.multihit) return;
+			if (['beachball', 'boulder'].includes(move.id)) return;
+			if (!move.flags['charge'] && !move.spreadHit) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'parentalbond' && move.hit > 1) {
+				return this.chainModify(0.25);
+			}
+		},
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const move = this.activeMove;
+			if (effect.id !== 'drain' && move && move.multihitType === 'parentalbond' && move.hit === 2) {
+				return this.chainModify(0.25);
+			}
+		},
 	},
 	// Not Fully Implemented
 	ragingsea: {
@@ -619,7 +705,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Smite",
 		desc: "Moves' power is boosted by 1.3x if the target is below half health",
 	},
-	// Not Fully Implemented
+	// Coded
 	snowbringer: {
 		num: 1061,
 		name: "Snowbringer",
@@ -667,22 +753,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Coded
+	// Coded and Tested
 	strategicretreat: {
 		num: 1066,
 		name: "Strategic Retreat",
 		desc: "emergency exit but activates in 25% of max HP and heals 25% of max HP on switch",
 		onUpdate(pokemon){
-			if (pokemon.hp >= pokemon.maxhp / 4) return;
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
-			for (const side of this.sides) {
-				for (const active of side.active) {
-					active.switchFlag = false;
-				}
+			if (pokemon.hp >= pokemon.maxhp / 4) {
+				pokemon.m.SRActive = true;
 			}
-			pokemon.switchFlag = true;
-			this.add('-activate', target, 'ability: Strategic Retreat');
-		}
+			if (pokemon.hp < pokemon.maxhp / 4 && pokemon.m.SRActive) {
+				if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+				pokemon.m.SRActive = false;
+				this.add('-activate', pokemon, 'ability: Strategic Retreat');
+				pokemon.switchFlag = true;
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp < pokemon.maxhp / 4) pokemon.heal(pokemon.baseMaxhp / 4);
+		},
 	},
 	// Coded
 	subrosa: {

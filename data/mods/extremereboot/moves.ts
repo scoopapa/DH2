@@ -181,7 +181,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	barefruit: {
 		name: "Bare Fruit",
 		accuracy: 100,
@@ -189,11 +189,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Spring",
-		// shortDesc: "Plants a seed which growths after two turns and boosts users Attack and Special Attack by one stage.",
+		shortDesc: "Plants a seed which growths after two turns and boosts users Attack and Special Attack by one stage.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!source.side.addSlotCondition(source, 'futuremove')) return false;
+			Object.assign(source.side.slotConditions[source.position]['futuremove'], {
+				duration: 3,
+				move: 'songoftime',
+				source: source,
+				moveData: {
+					id: 'barefruit',
+					name: "Bare Fruit",
+					accuracy: true,
+					category: "Status",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: true,
+					boosts: {
+						atk: 1,
+						spa: 1,
+					},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Normal',
+				},
+			});
+			this.add('-start', source, 'move: Song of Time');
+			return null;
+		},
 		secondary: null,
+		target: "self",
 	},
 	// Coded
 	beachball: {
@@ -202,14 +230,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 30,
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
-			if (pokemon.volatiles['rollout'] && pokemon.volatiles['rollout'].hitCount) {
-				bp *= Math.pow(2, pokemon.volatiles['rollout'].hitCount);
+			if (pokemon.volatiles['beachball'] && pokemon.volatiles['beachball'].hitCount) {
+				bp *= Math.pow(2, pokemon.volatiles['beachball'].hitCount);
 			}
-			if (pokemon.status !== 'slp') pokemon.addVolatile('rollout');
-			if (pokemon.volatiles['defensecurl']) {
-				bp *= 2;
-			}
-			this.debug("Rollout bp: " + bp);
+			if (pokemon.status !== 'slp') pokemon.addVolatile('beachball');
+			// if (pokemon.volatiles['defensecurl']) {
+				// bp *= 2;
+			// }
 			return bp;
 		},
 		category: "Physical",
@@ -272,7 +299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	blasphemy: {
 		name: "Blasphemy",
 		accuracy: true,
@@ -395,7 +422,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	borealis: {
 		name: "Borealis",
 		accuracy: true,
@@ -403,8 +430,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Sky",
-		// shortDesc: "The user restores 1/2 of its maximum HP, rounded half down. If the user has Sunburn, it is cured.",
+		shortDesc: "The user restores 1/2 of its maximum HP, rounded half down. If the user has Sunburn, it is cured.",
 		priority: 0,
+		onHit(target, source, move){
+			if (source.status === 'brn') source.cureStatus();
+		},
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
@@ -423,21 +453,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	boulder: {
 		name: "Boulder",
 		accuracy: 90,
 		basePower: 30,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (pokemon.volatiles['boulder'] && pokemon.volatiles['boulder'].hitCount) {
+				bp *= Math.pow(2, pokemon.volatiles['boulder'].hitCount);
+			}
+			if (pokemon.status !== 'slp') pokemon.addVolatile('boulder');
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			this.debug("Rollout bp: " + bp);
+			return bp;
+		},
 		category: "Physical",
 		pp: 20,
 		type: "Earth",
-		// shortDesc: "Works like Rollout",
+		shortDesc: "Works like Rollout",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {contact: 1, protect: 1, mirror: 1},
+		condition: {
+			duration: 2,
+			onLockMove: 'boulder',
+			onStart() {
+				this.effectData.hitCount = 1;
+			},
+			onRestart() {
+				this.effectData.hitCount++;
+				if (this.effectData.hitCount < 5) {
+					this.effectData.duration = 2;
+				}
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['boulder'];
+				}
+			},
+		},
 		secondary: null,
+		target: "normal",
 	},
-	// Not Fully Implemented
+	// Coded
 	bramblewhip: {
 		name: "Bramble Whip",
 		accuracy: 85,
@@ -445,7 +506,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Earth",
-		// shortDesc: "Traps the target for 4-5 turns and deals 1/8th residual damage. Deals 1/6th under rose field.",
+		shortDesc: "Traps the target for 4-5 turns and deals 1/8th residual damage. Deals 1/6th under rose field.",
+		volatileStatus: 'partiallytrapped',
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -564,7 +626,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	cherryblossom: {
 		name: "Cherry Blossom",
 		accuracy: true,
@@ -572,10 +634,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Spring",
-		// shortDesc: "Heals the user by 50% of its max HP. Resets the user's lowered stat changes.",
+		shortDesc: "Heals the user by 50% of its max HP. Resets the user's lowered stat changes.",
+		onHit(target, source, move){
+			let b: BoostName;
+			for (b in source.boosts) {
+				if (source.boosts[b] < 0) source.boosts[b] = 0;
+			}
+		},
 		priority: 0,
+		heal: [1,2],
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -633,10 +702,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Storm",
-		// shortDesc: "20% chance to inflict fear, hits two opponents, sound.",
+		shortDesc: "20% chance to inflict fear, hits two opponents, sound.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
-		target: "normal",
+		target: "allAdjacentFoes",
 		secondary: {
 			chance: 20,
 			status: "fer",
@@ -657,7 +726,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	coldstare: {
 		name: "Cold Stare",
 		accuracy: 90,
@@ -665,11 +734,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Winter",
-		// shortDesc: "Inflicts chill on the target. Has 101% acc if used by a Winter-type.",
+		shortDesc: "Inflicts chill on the target. Has 101% acc if used by a Winter-type.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		status: 'frz',
 	},
 	// Coded
 	conifercrash: {
@@ -897,11 +967,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Traps the target until the end of the next turn.",
 		priority: 0,
 		flags: {mirror: 1, authentic: 1},
-		pseudoWeather: 'fairylock',
+		pseudoWeather: 'dawneve',
 		condition: {
 			duration: 2,
 			onStart(target) {
-				this.add('-fieldactivate', 'move: Fairy Lock');
+				this.add('-fieldactivate', 'move: Dawn Eve');
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
@@ -1137,7 +1207,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	earthbump: {
 		name: "Earth Bump",
 		accuracy: true,
@@ -1145,13 +1215,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 40,
 		type: "Earth",
-		// shortDesc: "Has +1 Priority. Upon using the move the message 'But nothing happened.' is displayed",
-		priority: 0,
+		shortDesc: "Has +1 Priority. Upon using the move the message 'But nothing happened.' is displayed",
+		priority: 1,
+		onTryHit(target, source) {
+			this.add('-nothing');
+		},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	earthquake: {
 		name: "Earthquake",
 		accuracy: 100,
@@ -1159,10 +1232,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Earth",
-		// shortDesc: "Hits all adjacent targets.",
+		shortDesc: "Hits all adjacent targets.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "allAdjacentFoes",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -1291,7 +1364,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	fallback: {
 		name: "Fall Back",
 		accuracy: 100,
@@ -1299,13 +1372,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Autumn",
-		// shortDesc: "Lower's the opponent's defense one stage. User switches out after the move completes.",
+		shortDesc: "Lower's the opponent's defense one stage. User switches out after the move completes.",
 		priority: 0,
+		selfSwitch: true,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			boosts: {
+				def: -1,
+			}
+		},
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	fallharvest: {
 		name: "Fall Harvest",
 		accuracy: true,
@@ -1313,10 +1391,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Autumn",
-		// shortDesc: "Heals the user for 1/2 max HP",
+		shortDesc: "Heals the user for 1/2 max HP",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		onHit(target, source, move) {
+			if (target === source){
+				this.heal(target.maxhp / 2, target, source, move);
+			}
+		},
+		flags: {protect: 1, mirror: 1, heal: 1},
+		target: "self",
 		secondary: null,
 	},
 	// Coded
@@ -1381,7 +1464,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 	},
-	// Not Fully Implemented
+	// Coded
 	freezeover: {
 		name: "Freeze Over",
 		accuracy: 100,
@@ -1510,7 +1593,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 	},
-	// Not Fully Implemented
+	// Coded
 	ghostlyhowl: {
 		name: "Ghostly Howl",
 		accuracy: 100,
@@ -1518,7 +1601,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Folklore",
-		// shortDesc: "No secondary effect.",
+		shortDesc: "No secondary effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -1538,7 +1621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	gloomfangs: {
 		name: "Gloom Fangs",
 		accuracy: 100,
@@ -1546,7 +1629,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Night",
-		// shortDesc: "Bite move. High crit ratio",
+		shortDesc: "Bite move. High crit ratio",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bite: 1},
 		critRatio: 2,
@@ -1563,7 +1646,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Earth",
 		// shortDesc: "Hits 2-5 times. Lowers SpDef. by 1 and raises Spe. by 1. (CONTACT)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -1577,7 +1660,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		// shortDesc: "Inflicts damage equal to the user's level.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -1604,8 +1687,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Typeless",
-		// shortDesc: "The user is protected from most opposing moves. Fails if used in succession.",
-		priority: 0,
+		shortDesc: "The user is protected from most opposing moves. Fails if used in succession.",
+		priority: 4,
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'guardup',
@@ -1666,7 +1749,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 35,
 		type: "Autumn",
-		// shortDesc: "If this move succeeds, a message appears in the chat which says 'You get harvested.'",
+		shortDesc: "If this move succeeds, a message appears in the chat which says 'You get harvested.'",
 		onHit(pokemon) {
 			this.add('-message', 'You get harvested');
 		},
@@ -1733,7 +1816,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Traps the target for 5 turns, and deals 1/8 of their max hp every turn.",
 		volatileStatus: 'partiallytrapped',
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -1824,7 +1907,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Typeless",
 		shortDesc: "Hit.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -1885,7 +1968,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	hotshower: {
 		name: "Hot Shower",
 		accuracy: true,
@@ -1893,10 +1976,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Serenity",
-		// shortDesc: "User has their status cured and their lowered stat stages reset.",
+		shortDesc: "User has their status cured and their lowered stat stages reset.",
+		onHit(target, source, move) {
+			let b: BoostName;
+			for (b in source.boosts) {
+				if (source.boosts[b] < 0) source.boosts[b] = 0;
+			}
+			source.cureStatus();
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -1998,7 +2088,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Winter",
 		shortDesc: "100% chance to inflict Chill. (Contact)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: {
 			chance: 100,
@@ -2053,7 +2143,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 	},
-	// Not Fully Implemented
+	// Coded
 	ironbash: {
 		name: "Iron Bash",
 		accuracy: 100,
@@ -2061,13 +2151,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Man Made",
-		// shortDesc: "If it faints a pokemon, raises Def by 1 stage",
+		shortDesc: "If it faints a pokemon, raises Def by 1 stage",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 3}, pokemon, pokemon, move);
+		},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	itemjack: {
 		name: "Item Jack",
 		accuracy: 100,
@@ -2075,13 +2168,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 20,
 		type: "Typeless",
-		// shortDesc: "Removes the opponent's item. (CONTACT)",
+		shortDesc: "Removes the opponent's item. (CONTACT)",
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Item Jack', '[of] ' + source);
+				}
+			}
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	jumpscare: {
 		name: "Jumpscare",
 		accuracy: 100,
@@ -2089,14 +2190,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 5,
 		type: "Folklore",
-		// shortDesc: "Target is deafened after hit and becomes immune to Sound moves. (Sound)",
+		shortDesc: "Target is deafened after hit and becomes immune to Sound moves. (Sound)",
+		volatileStatus: "Deafened",
+		condition: {
+			onTryHit(target, source, move) {
+			if (move.target !== 'self' && move.flags['sound']) {
+				this.add('-immune', target);
+				return null;
+			}
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (move.flags['sound']) {
+					this.add('-immune', this.effectData.target);
+				}
+			},
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		target: "normal",
 		secondary: null,
 	},
 	// Coded
-	kanchō: {
+	kancho: {
 		name: "Kanchō",
 		accuracy: 100,
 		basePower: 30,
@@ -2105,7 +2220,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "Has a 20% chance to lower the target's Def by 1 stage.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: {
 			chance: 20,
@@ -2125,7 +2240,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Autumn",
-		// shortDesc: "Does 20 damage on first hit, 40 on second, 60 on third. Contact.",
+		shortDesc: "Does 20 damage on first hit, 40 on second, 60 on third. Contact.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		multihit: 3,
@@ -2143,11 +2258,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		// shortDesc: "Contact. Target is Tormented (same as vanilla) when successful",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	luauleap: {
 		name: "Luau Leap",
 		accuracy: 100,
@@ -2155,9 +2270,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Summer",
-		// shortDesc: "If it faints a pokemon, raises Attack by 1 stage",
+		shortDesc: "If it faints a pokemon, raises Attack by 1 stage",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 1}, pokemon, pokemon, move);
+		},
 		target: "normal",
 		secondary: null,
 	},
@@ -2203,7 +2321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	lurkerlash: {
 		name: "Lurker Lash",
 		accuracy: 100,
@@ -2211,10 +2329,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Night",
-		// shortDesc: "If opponent was switching in, lowers their Defense and Special Defense by one stage.",
+		shortDesc: "If opponent was switching in, lowers their Defense and Special Defense by one stage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		onHit(target, source, move) {
+			if (!target.activeTurns) {
+				this.boost({def: -1, spd: -1});
+			}
+		},
 		secondary: null,
 	},
 	// Coded
@@ -2319,7 +2442,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
 	mononokedance: {
 		name: "Mononoke Dance",
 		accuracy: 100,
@@ -2358,11 +2480,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		// shortDesc: "Suppresses the target's ability until they switch out. [Contact]",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	narcoticpulse: {
 		name: "Narcotic Pulse",
 		accuracy: 100,
@@ -2370,9 +2492,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Night",
-		// shortDesc: "If the user moved before the target, then the target's higher attacking stat drops one stage. (Pulse)",
+		shortDesc: "If the user moved before the target, then the target's higher attacking stat drops one stage. (Pulse)",
+		onHit(target, source, move){
+			const boosts = source.boosts;
+			let statName = 'atk';
+			const realAtk = source.storedStats['atk'] * (1 + (boosts['atk'] / 2));
+			const realSpA = source.storedStats['spa'] * (1 + (boosts['spa'] / 2));
+			if (realSpA > realAtk) statName = 'spa';
+			this.boost({[statName]: -1}, source);
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -2499,7 +2629,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Serenity",
 		// shortDesc: "Turn 1, charges and +1 Atk / Def. Turn 2, deals damage.",
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1},
+		flags: {charge: 1, protect: 1, mirror: 1, contact: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -2626,7 +2756,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	pricklybush: {
 		name: "Prickly Bush",
 		accuracy: true,
@@ -2634,10 +2764,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Spring",
-		// shortDesc: "The user's team takes halved damage for 5 turns. Only works in 'Rose Field'. (Aurora Veil clone) (Screen)",
+		shortDesc: "The user's team takes halved damage for 5 turns. Only works in 'Rose Field'. (Aurora Veil clone) (Screen)",
+		flags: {snatch: 1},
+		sideCondition: 'pricklybush',
+		onTryHitSide() {
+			if (!this.field.isTerrain('rosefield')) return false;
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('trickyhourglass')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Prickly Bush weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Prickly Bush');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Prickly Bush');
+			},
+		},
+		secondary: null,
+		target: "allySide",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
 		secondary: null,
 	},
 	// Coded and Tested
@@ -2721,7 +2883,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Serenity",
-		// shortDesc: "If user is Storm-type, changes Storm to Serenity before executing this move.",
+		shortDesc: "If user is Storm-type, changes Storm to Serenity before executing this move.",
+		onPrepareHit(target, source, move) {
+			if (move.hasBounced || !source.hasType("Storm")) return;
+			if (!source.setType("Serenity")) return;
+			this.add('-start', source, 'typechange', type, '[from] move: Purification');
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -2784,7 +2951,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	rampage: {
 		name: "Rampage",
 		accuracy: 100,
@@ -2792,11 +2959,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Storm",
-		// shortDesc: "User is locked into this move for 2-3 turns, then is inflicted with sleep afterwards. Makes contact.",
+		shortDesc: "User is locked into this move for 2-3 turns, then is inflicted with sleep afterwards. Makes contact.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
 		secondary: null,
+		target: "randomNormal",
 	},
 	// Not Fully Implemented
 	randomrepurpose: {
@@ -3107,7 +3282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Coded
+	// Coded and Tested
 	rosefield: {
 		name: "Rose Field",
 		accuracy: true,
@@ -3146,7 +3321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	rubbles: {
 		name: "Rubbles",
 		accuracy: true,
@@ -3154,11 +3329,58 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Earth",
-		// shortDesc: "Spikes. Using the move also removes one layer of rubbles on your side.",
+		shortDesc: "Spikes. Using the move also removes one layer of rubbles on your side.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'rubbles',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'Rubbles');
+				this.effectData.layers = 1;
+				if (side.foe.sideConditions['rubbles']){
+					let allySideRubbles = side.foe.sideConditions['rubbles'];
+					if (allySideRubbles.layers > 0) {
+						allySideRubbles.layers = allySideRubbles.layers - 1;
+						if (allySideRubbles.layers === 0) {
+							side.foe.removeSideCondition('rubbles');
+							this.add('-sideend', side.foe, 'rubbles');
+						} else {
+							let str = ' layers of Rubbles are left on ';
+							if (allySideRubbles.layers === 1) str = ' layer of Rubbles is left on ';
+							this.add('-message', allySideRubbles.layers + str + side.foe.active[0].name + "'s side!");
+						}
+					}
+				}
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 3) return false;
+				this.effectData.layers++;
+				this.add('-message', this.effectData.layers + ' layers of Rubbles were laid!');
+				if (side.foe.sideConditions['rubbles']){
+					let allySideRubbles = side.foe.sideConditions['rubbles'];
+					if (allySideRubbles.layers > 0) {
+						allySideRubbles.layers = allySideRubbles.layers - 1;
+						if (allySideRubbles.layers === 0) {
+							side.foe.removeSideCondition('rubbles');
+							this.add('-sideend', side.foe, 'rubbles');
+						} else {
+							let str = ' layers of Rubbles are left on ';
+							if (allySideRubbles.layers === 1) str = ' layer of Rubbles is left on ';
+							this.add('-message', allySideRubbles.layers + str + side.foe.active[0].name + "'s side!");
+						}
+					}
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+			},
+		},
 		secondary: null,
+		target: "foeSide",
 	},
 	// Not Fully Implemented
 	rulesrewrite: {
@@ -3342,7 +3564,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	shroomfumes: {
 		name: "Shroom Fumes",
 		accuracy: 80,
@@ -3350,13 +3572,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Autumn",
-		// shortDesc: "20% chance to Poison. 20% chance to Curse.",
+		shortDesc: "20% chance to Poison. 20% chance to Curse.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondaries: [
+			{
+				chance: 20,
+				status: 'psn',
+			}, {
+				chance: 20,
+				status: 'crs',
+			},
+		],
 	},
-	// Not Fully Implemented
+	// Coded
 	shroomspores: {
 		name: "Shroom Spores",
 		accuracy: true,
@@ -3364,9 +3594,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Autumn",
-		// shortDesc: "Puts the target to sleep after 1 turn. (Yawn clone)",
+		shortDesc: "Puts the target to sleep after 1 turn. (Yawn clone)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, powder: 1},
+		volatileStatus: 'shroomspores',
+		onTryHit(target) {
+			if (target.status || !target.runStatusImmunity('slp')) {
+				return false;
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			duration: 2,
+			onStart(target, source) {
+				this.add('-start', target, 'move: Shroom Spores', '[of] ' + source);
+			},
+			onResidualOrder: 19,
+			onEnd(target) {
+				this.add('-end', target, 'move: Shroom Spores', '[silent]');
+				target.trySetStatus('slp', this.effectData.source);
+			},
+		},
 		target: "normal",
 		secondary: null,
 	},
@@ -3398,7 +3646,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	skysplit: {
 		name: "Sky Split",
 		accuracy: 80,
@@ -3406,7 +3654,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Sky",
-		// shortDesc: "Non-Contact. Clears any weathers, if applicable.",
+		shortDesc: "Non-Contact. Clears any weathers, if applicable.",
+		onHit(target, source, move) {
+			this.field.clearWeather();
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -3436,11 +3687,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		// shortDesc: "Hits 5 times. Each hit has a 40% chance to lower the opponent's stats - First hit lowers Atk, Second hit lowers Def, Third hit lowers Sp Atk, Fourth hit lowers Sp Def and Fifth hit lowers Speed.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	snowkick: {
 		name: "Snow Kick",
 		accuracy: 85,
@@ -3448,11 +3699,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Winter",
-		// shortDesc: "10% chance to inflict Chill. 20% chance to lower Spe 1 stage",
+		shortDesc: "10% chance to inflict Chill. 20% chance to lower Spe 1 stage",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
-		secondary: null,
+		secondaries: [
+			{
+				chance: 20,
+				boost: {
+					spe: -1,
+				},
+			}, {
+				chance: 10,
+				status: 'frz',
+			},
+		],
 	},
 	// Not Fully Implemented
 	snowshuriken: {
@@ -3496,7 +3757,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	soil: {
 		name: "Soil",
 		accuracy: 100,
@@ -3504,13 +3765,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 15,
 		type: "Earth",
-		// shortDesc: "Adds Earth to the target's types.",
+		shortDesc: "Adds Earth to the target's types.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onHit(target) {
+			if (target.hasType('Earth')) return false;
+			if (!target.addType('Earth')) return false;
+			this.add('-start', target, 'typeadd', 'Earth', '[from] move: Forest\'s Curse');
+		},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	solarboost: {
 		name: "Solar Boost",
 		accuracy: true,
@@ -3518,7 +3784,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Summer",
-		// shortDesc: "Raises the user's Sp. Attack stat by 2.",
+		shortDesc: "Raises the user's Sp. Attack stat by 2.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		boosts: {
@@ -3527,7 +3793,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 	},
-	// Not Fully Implemented
+	// Coded
 	solarflare: {
 		name: "Solar Flare",
 		accuracy: 90,
@@ -3535,7 +3801,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Summer",
-		// shortDesc: "Lowers user's Special Attack by 2 stages.",
+		shortDesc: "Lowers user's Special Attack by 2 stages.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -3546,7 +3812,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	solidify: {
 		name: "Solidify",
 		accuracy: true,
@@ -3554,11 +3820,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Earth",
-		// shortDesc: "Raises user's Attack, Defense, and Special Defense by 1 stage.",
+		shortDesc: "Raises user's Attack, Defense, and Special Defense by 1 stage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		self: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spd: 1,
+			},
+		},
 	},
 	// Not Fully Implemented
 	soothingstrike: {
@@ -3659,7 +3932,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	springforward: {
 		name: "Spring Forward",
 		accuracy: 100,
@@ -3668,7 +3941,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		type: "Spring",
 		// shortDesc: "+1 Priority. Restores health to the user equal to 1/2 of the damage dealt. (Contact)",
-		priority: 0,
+		priority: 1,
+		drain: [1,2],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -3771,7 +4045,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	stonehammer: {
 		name: "Stone Hammer",
 		accuracy: 85,
@@ -3779,13 +4053,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Earth",
-		// shortDesc: "No additional effect.",
+		shortDesc: "No additional effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	stonewall: {
 		name: "Stone Wall",
 		accuracy: 100,
@@ -3793,13 +4067,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Earth",
-		// shortDesc: "Has a 100% chance to raise the user's Defense by 1.",
+		shortDesc: "Has a 100% chance to raise the user's Defense by 1.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			self: {
+				boosts: {
+					def: 1,
+				}
+			},
+		}
 	},
-	// Not Fully Implemented
+	// Coded
 	stormblitz: {
 		name: "Storm Blitz",
 		accuracy: 100,
@@ -3807,9 +4087,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Storm",
-		// shortDesc: "Deals 1/3 damage dealt as recoil to the user(Contact)",
+		shortDesc: "Deals 1/3 damage dealt as recoil to the user(Contact)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		recoil: [1,3],
 		target: "normal",
 		secondary: null,
 	},
@@ -3831,7 +4112,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 	},
 	// Not Fully Implemented
-	strikingtide: {
+	strikingtide: { 
 		name: "Striking Tide",
 		accuracy: 100,
 		basePower: 50,
@@ -3858,21 +4139,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
-	summerdaze: {
+	// Coded
+	summerdaze: { // Chance of missing 3: .1%, The accuracy is 99.9% so if the move hits, you got at least 1 hit.
+	// Given that, the chance of missing the other 2 is 1%. The chance of missing 1 is 18%. The chance of getting all 3 hits is 81%. 
 		name: "Summer Daze",
-		accuracy: 90,
+		accuracy: 99.9, // 90% per hit
 		basePower: 50,
 		category: "Special",
 		pp: 5,
 		type: "Summer",
-		// shortDesc: "Hits 3 times. This move checks accuracy for each hit, and the attack only ends once all 3 hits are checked. After each hit, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		onPrepareHit: {
+			
+		},
+		shortDesc: "Hits 3 times. This move checks accuracy for each hit, and the attack only ends once all 3 hits are checked. After each hit, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		priority: 0,
+		recoil: [1, 4],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		multihit: 3,
+		onPrepareHit(source, target, move) {
+			const r = this.random(100);
+			if (r === 1) {
+				move.multihit = 1;
+			} else if (r <= 18) {
+				move.multihit = 2;
+			}
+		},
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	summersword: {
 		name: "Summer Sword",
 		accuracy: 50,
@@ -3880,13 +4175,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Summer",
-		// shortDesc: "100% to Sunburn the target.",
+		shortDesc: "100% to Sunburn the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	sunkiss: {
 		name: "Sun Kiss",
 		accuracy: 85,
@@ -3993,7 +4291,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 25,
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	supercharge: {
 		name: "Supercharge",
 		accuracy: true,
@@ -4004,10 +4302,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// shortDesc: "Raises the user's SpA and Spe by 1 stage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Not Fully Implemented (works for singles)
 	swelter: {
 		name: "Swelter",
 		accuracy: 100,
@@ -4066,7 +4368,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	tailwind: {
 		name: "Tailwind",
 		accuracy: true,
@@ -4074,11 +4376,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 40,
 		type: "Sky",
-		// shortDesc: "User gains +1 Speed. Opponent loses -1 Speed.",
+		shortDesc: "User gains +1 Speed. Opponent loses -1 Speed.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		boosts: {spe: -1,},
+		self: {boosts: {spe: 1,}}
 	},
 	// Not Fully Implemented
 	takecover: {
@@ -4192,7 +4496,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	terraform: {
 		name: "Terraform",
 		accuracy: true,
@@ -4200,10 +4504,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 15,
 		type: "Earth",
-		// shortDesc: "Heals the user by 2/3 of its max HP. Lowers the user's higher defensive stat by 1 stage (factors in stat changes).",
+		shortDesc: "Heals the user by 2/3 of its max HP. Lowers the user's higher defensive stat by 1 stage (factors in stat changes).",
 		priority: 0,
+		heal: [2, 3],
+		onHit(target, source, move){
+			const boosts = source.boosts;
+			let statName = 'def';
+			const realDef = source.storedStats['def'] * (1 + (boosts['def'] / 2));
+			const realSpD = source.storedStats['spd'] * (1 + (boosts['spd'] / 2));
+			if (realSpD > realDef) statName = 'spd';
+			this.boost({[statName]: -1}, source);
+		},
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -4220,7 +4533,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	thundercloud: {
 		name: "Thunder Cloud",
 		accuracy: 100,
@@ -4228,13 +4541,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 30,
 		type: "Storm",
-		// shortDesc: "10% chance to inflict Fear. (SOUND)",
+		shortDesc: "10% chance to inflict Fear. (SOUND)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 10,
+			status: 'fer',
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	thunderclap: {
 		name: "Thunderclap",
 		accuracy: 100,
@@ -4242,11 +4558,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Sky",
-		// shortDesc: "Has a 30% chance to apply fear on the target.",
+		shortDesc: "Has a 30% chance to apply fear on the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 30,
+			status: 'fer',
+		},
 	},
 	// Not Fully Implemented
 	timebomb: {
@@ -4262,7 +4581,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	toxiccloud: {
 		name: "Toxic Cloud",
 		accuracy: 100,
@@ -4270,13 +4589,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 40,
 		type: "Sky",
-		// shortDesc: "Poisons the target.",
+		shortDesc: "Poisons the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
+		status: 'psn',
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	toxictentacles: {
 		name: "Toxic Tentacles",
 		accuracy: 100,
@@ -4284,25 +4604,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Sea",
-		// shortDesc: "40% Poison chance; 100% if target has a lowered stat.",
+		shortDesc: "40% Poison chance; 100% if target has a lowered stat.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		onPrepareHit(target, pokemon, move) {
+			let negativeBoosts = false;
+			for (const stat of ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion']) {
+				if ( target.boosts[ stat ] < 0 ) {
+					negativeBoosts = true;
+				}
+			}
+			if ( negativeBoosts === true) {
+                move.secondary.chance = 100;
+            }
+		},
+		secondary: {
+			chance: 40,
+			status: 'psn'
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	tragicflower: {
 		name: "Tragic Flower",
 		accuracy: 100,
 		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'psn') return move.basePower * 2;
+			return move.basePower;
+		},
 		category: "Special",
 		pp: 10,
 		type: "Spring",
-		// shortDesc: "30% chances to poison the target. Deals 2x damage against poisoned target.",
+		shortDesc: "30% chances to poison the target. Deals 2x damage against poisoned target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
 	},
 	// Not Fully Implemented
 	turbulence: {
@@ -4416,7 +4757,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	uproot: {
 		name: "Uproot",
 		accuracy: true,
@@ -4424,9 +4765,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 15,
 		type: "Sky",
-		// shortDesc: "Removes fields and hazards from both sides of the field.",
+		shortDesc: "Removes fields and hazards from both sides of the field.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			if (source.side.removeSideCondition('rubbles')) {
+				this.add('-sideend', source.side, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+				success = true;
+			}
+			this.field.clearTerrain();
+			return success;
+		},
 		target: "normal",
 		secondary: null,
 	},
@@ -4472,7 +4823,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	washaway: {
 		name: "Wash Away",
 		accuracy: 90,
@@ -4480,13 +4831,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 10,
 		type: "Sea",
-		// shortDesc: "Forces the target to switch into a random ally.",
-		priority: 0,
+		shortDesc: "Forces the target to switch into a random ally.",
+		priority: -6,
+		forceSwitch: true,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	wavesplash: {
 		name: "Wave Splash",
 		accuracy: 100,
@@ -4494,11 +4846,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Sea",
-		// shortDesc: "Has a 30% chance to lower the target's SpA by 1.",
+		shortDesc: "Has a 30% chance to lower the target's SpA by 1.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		secondary: null,
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
 	},
 	// Not Fully Implemented
 	whirlpool: {
@@ -4524,11 +4881,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Storm",
 		// shortDesc: "Not affected by 'on-contact' effects. (Contact) (Punch)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, punch: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded and Tested
 	wilt: {
 		name: "Wilt",
 		accuracy: 100,
@@ -4536,13 +4893,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Autumn",
-		// shortDesc: "Lowers the target's Attack and Special Attack one stage; restores 12.5% of the user's max health for each stat lowered in this way.",
+		shortDesc: "Lowers the target's Attack and Special Attack one stage; restores 12.5% of the user's max health for each stat lowered in this way.",
+		onHit(target, source, move) {
+			let healCount = 0;
+			if (this.boost({atk: -1}, target, source, move)) healCount++;
+			if (this.boost({spa: -1}, target, source, move)) healCount++;
+			if (healCount) this.heal((source.maxhp / 8) * healCount, source, source, move);
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	winddrift: {
 		name: "Wind Drift",
 		accuracy: 75,
@@ -4550,27 +4913,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Sky",
-		// shortDesc: "No additional effect. (PULSE)",
+		shortDesc: "No additional effect. (PULSE)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	wintergale: {
 		name: "Winter Gale",
 		accuracy: 100,
 		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'frz') return move.basePower * 2;
+			return move.basePower;
+		},
 		category: "Special",
 		pp: 10,
 		type: "Winter",
-		// shortDesc: "Deals 2x damage against Chiled targets.",
+		shortDesc: "Deals 2x damage against Chiled targets.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	witheringbreeze: {
 		name: "Withering Breeze",
 		accuracy: true,
@@ -4578,11 +4945,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Autumn",
-		// shortDesc: "At the end of the next turn, the Pokemon at the user's position heals 1/2 of the opposing Pokemon in the battlefield's current HP, rounded down.",
+		shortDesc: "At the end of the next turn, the Pokemon at the user's position heals 1/2 of the opposing Pokemon in the battlefield's current HP, rounded down.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		flags: {snatch: 1, heal: 1},
+		slotCondition: 'Withering Breeze',
+		condition: {
+			duration: 2,
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					let source = target.side.foe.active[0];
+					const damage = this.heal(source.hp / 2, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Withering Breeze', '[wisher] ' + this.effectData.source.name);
+				}
+			},
+		},
 		secondary: null,
+		target: "self",
 	},
 	// Coded
 	zenpower: {

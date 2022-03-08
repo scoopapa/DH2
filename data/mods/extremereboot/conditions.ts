@@ -88,18 +88,53 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
+			const boosts = pokemon.boosts;
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;
-			for (s in source.storedStats) {
+			for (s in pokemon.storedStats) {
 				if (s === 'def' || s === 'spd') continue;
-				if (source.storedStats[s] > bestStat) {
+				let realStat = pokemon.storedStats[s] * (1 + (boosts[s] / 2));
+				if (realStat > bestStat) {
 					statName = s;
-					bestStat = source.storedStats[s];
+					bestStat = realStat;
 				}
 			}
-			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, source);
-			else this.boost({[statName]: -1}, source);
+			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, pokemon);
+			else this.boost({[statName]: -1}, pokemon);
+		},
+		
+	},
+	slp: {
+		name: 'slp',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			// 1-3 turns
+			this.effectData.startTime = 3;
+			this.effectData.time = this.effectData.startTime;
+		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasAbility('earlybird')) {
+				pokemon.statusData.time--;
+			}
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
+				pokemon.cureStatus();
+				return;
+			}
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
 		},
 	},
 	highnoon: {

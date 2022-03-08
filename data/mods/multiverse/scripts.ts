@@ -87,6 +87,49 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'froslass').learnset.thunderbolt;
 		
 		delete this.modData('Learnsets', 'mesprit').learnset.calmmind;
+		
+		
+		//Generation 5
+		this.modData('Learnsets', 'stoutland').learnset.bringsticks = ['8L1'];
+		
+		this.modData('Learnsets', 'musharna').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'musharna').learnset.abstractdreams = ['8L1'];
+		
+		this.modData('Learnsets', 'whimsicott').learnset.growth = ['8L1'];
+		this.modData('Learnsets', 'whimsicott').learnset.thunderwave = ['8L1'];
+		this.modData('Learnsets', 'whimsicott').learnset.leafstorm = ['8L1'];
+		
+		this.modData('Learnsets', 'eelektross').learnset.gunkshot = ['8L1'];
+		this.modData('Learnsets', 'eelektross').learnset.painsplit = ['8L1'];
+		this.modData('Learnsets', 'eelektross').learnset.sludgebomb = ['8L1'];
+		this.modData('Learnsets', 'eelektross').learnset.sludgewave = ['8L1'];
+		
+		this.modData('Learnsets', 'hydreigon').learnset.sludgebomb = ['8L1'];
+		delete this.modData('Learnsets', 'hydreigon').learnset.nastyplot;
+		delete this.modData('Learnsets', 'zweilous').learnset.nastyplot;
+		delete this.modData('Learnsets', 'deino').learnset.nastyplot;
+		
+		this.modData('Learnsets', 'landorus').learnset.chillburst = ['8L1'];
+		
+		
+		//Generation 6
+		this.modData('Learnsets', 'chesnaught').learnset.slackoff = ['8L1'];
+		
+		this.modData('Learnsets', 'delphox').learnset.uturn = ['8L1'];
+		this.modData('Learnsets', 'delphox').learnset.meteorbeam = ['8L1'];
+		
+		delete this.modData('Learnsets', 'frogadier').learnset.gunkshot;
+		delete this.modData('Learnsets', 'greninja').learnset.gunkshot;
+		
+		this.modData('Learnsets', 'gogoat').learnset.powerwhip = ['8L1'];
+		
+		this.modData('Learnsets', 'tyrantrum').learnset.absoluteimpact = ['8L1'];
+		
+		this.modData('Learnsets', 'sliggoo').learnset.recover = ['8L1'];
+		this.modData('Learnsets', 'sliggoo').learnset.earthquake = ['8L1'];
+		this.modData('Learnsets', 'sliggoo').learnset.liquidation = ['8L1'];
+		this.modData('Learnsets', 'sliggoo').learnset.surf = ['8L1'];
+		this.modData('Learnsets', 'sliggoo').learnset.bodypress = ['8L1'];
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers

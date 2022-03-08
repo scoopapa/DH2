@@ -1,6 +1,6 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extremeribbit: {
-		num: 1001,
+		num: 1000,
 		name: "Extreme Ribbit",
 		types: ["Spring"],
 		gender: "N",

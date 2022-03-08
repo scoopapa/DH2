@@ -18,4 +18,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	smokebomb: {
+		name: "Smoke Bomb",
+		spritenum: 1,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Greninja') return false;
+			return true;
+		},
+		num: -2,
+		gen: 8,
+		shortDesc: "When held by Greninja, Dig: +20 BP & 1 turn. Single Use.",
+	},
 };

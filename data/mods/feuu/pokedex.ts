@@ -2720,9 +2720,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Metang', 'Hydreigon'],
 		num: 146,
 		name: "Metagon",
-		types: ["Dragon", "Steel"],
-		baseStats: {hp: 80, atk: 95, def: 95, spa: 95, spd: 95, spe: 80},
-		abilities: {0: "Clearly Floating"},
+		types: ["Dark", "Steel"],
+		baseStats: {hp: 80, atk: 90, def: 95, spa: 95, spd: 95, spe: 85},
+		abilities: {0: "Levimetal"},
 		weightkg: 181.5,
 	},
 	hoopagigasunbound: {
@@ -3056,6 +3056,51 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 87, atk: 78, def: 73, spa: 100, spd: 113, spe: 79},
 		abilities: {0: "Big Power"},
 		weightkg: 96.5,
+	},	
+	dhelarina: {
+		fusion: ['Dhelmise', 'Primarina'],
+		num: 173,
+		name: "Dhelarina",
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 75, atk: 110, def: 90, spa: 110, spd: 105, spe: 50},
+		abilities: {0: "Waterbender"},
+		weightkg: 127,
+	},	
+	flychualola: {
+		fusion: ['Raichu-Alola', 'Flygon'],
+		num: 174,
+		name: "Flychu-Alola",
+		types: ["Electric", "Dragon"],
+		baseStats: {hp: 70, atk: 92, def: 80, spa: 100, spd: 87, spe: 113},
+		abilities: {0: "Hoverboard"},
+		weightkg: 51.5,
+	},	
+	haxel: {
+		fusion: ['Haxorus', 'Floatzel'],
+		num: 175,
+		name: "Haxel",
+		types: ["Dragon", "Water"],
+		baseStats: {hp: 80, atk: 130, def: 75, spa: 75, spd: 60, spe: 106},
+		abilities: {0: "Fever Breaker"},
+		weightkg: 69.5,
+	},	
+	frossharp: {
+		fusion: ['Bisharp', 'Froslass'],
+		num: 176,
+		name: "Frossharp",
+		types: ["Dark", "Ghost"],
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 70, spd: 85, spe: 90},
+		abilities: {0: "Spiteful Wishcraft"},
+		weightkg: 48.3,
+	},	
+	tyrantricitylowkey: {
+		fusion: ['Tyrantrum', 'Toxtricity-Low-Key'],
+		num: 177,
+		name: "Tyrantricity-Low-Key",
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 80, atk: 110, def: 95, spa: 95, spd: 65, spe: 85},
+		abilities: {0: "Gnawrly"},
+		weightkg: 155,
 	},	
 
 // LC
@@ -3849,8 +3894,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Beldum', 'Deino'],
 		num: 1078,
 		name: "Beldino",
-		types: ["Dragon", "Steel"],
-		baseStats: {hp: 50, atk: 65, def: 65, spa: 45, spd: 65, spe: 40},
+		types: ["Dark", "Steel"],
+		baseStats: {hp: 50, atk: 60, def: 65, spa: 45, spd: 65, spe: 45},
 		abilities: {0: "Clearly Hustling"},
 		weightkg: 56.3,
 		evos: ["Metagon"],
@@ -3975,8 +4020,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 3.9,
 		evos: ["Googersby"],
 	},
-
-
 	
 // NFE
 	corveotto: {
