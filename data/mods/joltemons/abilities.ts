@@ -554,7 +554,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-  scavenge: {
+	scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
+		onAnyFaintPriority: 1,
+		onAnyFaint() {
+			for (const target of this.effectData.target) {
+				this.heal(target.baseMaxhp / 3);
+			}
+		},
+		name: "Scavenge",
+		rating: 3.5,
+	},
+  /*scavenge: {
 		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -564,7 +575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Scavenge",
 		rating: 3.5,
-	},
+	},*/
 	unimpressed: {
 		shortDesc: "Moves used against this Pokemon don't receive STAB.",
 		onSourceModifyDamage(damage, source, target, move) {
