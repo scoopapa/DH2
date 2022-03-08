@@ -668,7 +668,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	serperior: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	skarmory: {
