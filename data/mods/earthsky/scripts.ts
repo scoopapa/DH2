@@ -2348,7 +2348,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'exeggutoralola').learnset.toxic;
 		// Cubone
 		this.modData("Learnsets", "cubone").learnset.memento = ["8D"];
-		this.modData("Learnsets", "cubone").learnset.leer = ["8L33"];
+		this.modData("Learnsets", "cubone").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "cubone").learnset.swing = ["8L13"];
 		delete this.modData('Learnsets', 'cubone').learnset.tailwhip;
 		delete this.modData('Learnsets', 'cubone').learnset.toxic;
@@ -2359,7 +2359,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'marowak').learnset.tailwhip;
 		delete this.modData('Learnsets', 'marowak').learnset.toxic;
 		// Marowak Tropical
-		this.modData("Learnsets", "marowakalola").learnset.mysticalfire = ["8D"];
+		this.modData("Learnsets", "marowakalola").learnset.fierydance = ["8D"];
 		this.modData("Learnsets", "marowakalola").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "marowakalola").learnset.swing = ["8L13"];
 		this.modData("Learnsets", "marowakalola").learnset.flash = ["8M"];

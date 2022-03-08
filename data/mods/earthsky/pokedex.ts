@@ -222,6 +222,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -517,
 		name: "Utilitron",
 		types: ["Steel", "Electric"],
+		baseForme: "Ground",
 		gender: "N",
 		baseStats: {hp: 60, atk: 80, def: 120, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Motor Drive", H: "Download"},
@@ -1469,15 +1470,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	geodude: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	graveler: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	golem: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	ponytagalar: {
 		inherit: true,
@@ -1733,19 +1734,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	shieldon: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+		abilities: {0: "Filter", 1: "Stalwart", H: "Soundproof"},
 	},
 	bastiodon: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+		abilities: {0: "Filter", 1: "Stalwart", H: "Soundproof"},
 	},
 	buizel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propellor Tail"},
+		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
 	},
 	floatzel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propellor Tail"},
+		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
 	},
 	shellos: {
 		inherit: true,
@@ -2042,6 +2043,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Corrosion"},
 	},
+	tyrunt: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", H: "Anger Point"},
+	},
 	tyrantrum: {
 		inherit: true,
 		abilities: {0: "Strong Jaw", H: "Majesty"},
@@ -2089,6 +2094,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gourgeistsuper: {
 		inherit: true,
 		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Sturdy"},
+		unreleasedHidden: true,
 	},
 	volcanion: {
 		inherit: true,

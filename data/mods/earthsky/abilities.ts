@@ -951,6 +951,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 2.",
 		shortDesc: "While this Pokemon is burned, its special attacks have x2 power.",
 	},
+	flowerveil: {
+		onAllySetStatus(status, target, source, effect) {
+			if (this.field.effectiveTerrain(this.effectData.target) === 'grassyterrain' && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Flower Veil');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (this.field.effectiveTerrain(this.effectData.target) === 'grassyterrain' && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		name: "Flower Veil",
+		desc: "If Grassy Terrain is active and affecting this Pokemon, itself and its allies cannot gain a non-volatile status condition or the Yawn condition, and Rest will fail for any of them.",
+		shortDesc: "If Grassy Terrain is active, this Pokemon and its allies cannot be statused.",
+		rating: 0.5,
+		num: 166,
+	},
 	forewarn: {
 		inherit: true,
 		onStart(pokemon){
@@ -1351,7 +1376,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	//Klutz preventing Speed drops from training items implementd in items.ts on the items themselves.
+	//Klutz preventing Speed drops from training items implemented in items.ts on the items themselves.
+	leafguard: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (!['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || (source && target === source)) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+			}
+		},
+		desc: "If Sunny Day is active, this Pokemon cannot gain a non-volatile status condition or have its stats lowered by an opponent.",
+		shortDesc: "If Sunny Day is active, this Pokemon cannot be statused or have stats lowered.",
+		rating: 1.5,
+	},
 	lightmetal: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
