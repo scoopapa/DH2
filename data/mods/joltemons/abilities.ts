@@ -559,7 +559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source) {
 			if (target === this.effectData.target || target.side !== source.side) return;
-			this.heal(this.effectData.target.baseMaxhp / 3, this.effectData.target);
+			this.heal(source.baseMaxhp / 3, this.effectData.target);
 		},
 		name: "Scavenge",
 		rating: 3.5,
