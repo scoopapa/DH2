@@ -223,4 +223,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	jungape: {
 		tier: "SSS",
 	},
+	dinodily: {
+		tier: "SSS",
+	},
+	hatterene: {
+		tier: "SSS",
+	},
+	hatterenegmax: {
+		tier: "SSS",
+	},
+	primeape: {
+		tier: "SSS",
+	},
 };

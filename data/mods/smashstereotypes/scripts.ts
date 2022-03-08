@@ -128,6 +128,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData("Learnsets", "grapploct").learnset.aquajet = ["8L1"];
 		this.modData("Learnsets", "grapploct").learnset.toxic = ["8L1"];
+		
+		
+		this.modData("Learnsets", "hatterene").learnset.gravity = ["8L1"];
+		this.modData("Learnsets", "hatterene").learnset.moonblast = ["8L1"];
+		
+		this.modData("Learnsets", "primeape").learnset.bellydrum = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.bonemerangpgp = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.doublekick = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.drainpunch = ["8L1"];
+		this.modData('Learnsets', 'primeape').learnset.machpunch = ["8L1"];
+		this.modData('Learnsets', 'primeape').learnset.strengthpgp = ["8L1"];
+		delete this.modData('Learnsets', 'primeape').learnset.foresight;
+		delete this.modData('Learnsets', 'primeape').learnset.strength;
 	},
 	
 	teambuilderConfig: {

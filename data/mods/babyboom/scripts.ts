@@ -5,6 +5,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
 		
 		this.modData('Learnsets', 'cleffa').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'cleffa').learnset.moonblast = ['8L1'];
 		
 		this.modData('Learnsets', 'igglybuff').learnset.acrobatics = ['8L1'];
 		this.modData('Learnsets', 'igglybuff').learnset.gust = ['8L1'];
@@ -12,15 +13,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'igglybuff').learnset.airslash = ['8L1'];
 		this.modData('Learnsets', 'igglybuff').learnset.aircutter = ['8L1'];
 		this.modData('Learnsets', 'igglybuff').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'igglybuff').learnset.moonblast = ['8L1'];
 		
 		this.modData('Learnsets', 'tyrogue').learnset.thunderpunch = ['8L1'];
 		
 		delete this.modData('Learnsets', 'magby').learnset.bellydrum;
 		
-		this.modData('Learnsets', 'azumarill').learnset.playrough = ['8L1'];
-		delete this.modData('Learnsets', 'azumarill').learnset.aquajet;
+		this.modData('Learnsets', 'azurill').learnset.playrough = ['8L1'];
+		delete this.modData('Learnsets', 'azurill').learnset.aquajet;
 		
 		this.modData('Learnsets', 'budew').learnset.toxicspikes = ['8L1'];
+		this.modData('Learnsets', 'budew').learnset.stickyweb = ['8L1'];
 		
 		this.modData('Learnsets', 'bonsly').learnset.stoneedge = ['8L1'];
 		
@@ -28,6 +31,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'happiny').learnset.stealthrock = ['8L1'];
 		
 		this.modData('Learnsets', 'mantyke').learnset.defog = ['8L1'];
+		this.modData('Learnsets', 'mantyke').learnset.roost = ['8L1'];
 		this.modData('Learnsets', 'mantyke').learnset.flipturn = ['8L1'];
 		
 		this.modData("Learnsets", "toxel").learnset.acid = ["8L1"];
