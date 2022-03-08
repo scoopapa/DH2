@@ -456,7 +456,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'M': //Mirror: Wonder Room
 						this.field.addPseudoWeather('wonderroom');
 						break;
-					case 'O': //Observe: Frisk, Forewarn
+					case 'O': //Observe: Frisk, Forewarn, Miracle Eye
 						pokemon.addVolatile('forewarn', "Glyphic Spell");
 						for (const target of pokemon.side.foe.active) {
 							if (!target || target.fainted) continue;
@@ -464,6 +464,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.add('-fitem', target, target.getItem().name, '[from] Glyphic Spell', '[of] ' + pokemon, '[identify]');
 							}
 						}
+						pokemon.addVolatile('miracleeye');
 						break;
 					case 'P': //Power: Sp. Attack to +6
 						this.boost({spa: 12}, pokemon);
@@ -737,7 +738,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		L - Loop:		All foes are inflicted with an Encore.
 		M - Mirror:		Summons Wonder Room for five turns. Grants Unown the effects of Magic Bounce.
 		N - Negate:		Grants Unown the effects of Neutralizing Gas and Unaware.
-		O - Observe:	Reveals all foes' held items and each of their strongest moves. If the Pokemon uses its identified move on Unown, Unown will become Evasive to it.
+		O - Observe:	Reveals all foes' held items and each of their strongest moves. If the Pokemon uses its identified move on Unown, Unown will become Evasive to it. Grants Unown the effects of Miracle Eye.
 		P - Power:		Raises Unown's Sp. Attack to +6.
 		Q - Quicken:	Raises Unown's Speed to +6.
 		R - Reverse:	Summons Trick Room for five turns.
@@ -751,7 +752,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		Z - Zero-G:		Applies floating status to all Pokémon for five turns.
 		? - ?????:		Randomly uses one of the other letters' effects each time.
 		! - !!!!!:		Unown primes itself. If it takes damage, or at the end of the turn if it doesn't, it uses Explosion, ignoring immunities to the move and always scoring critical hits.
-		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if hacked onto another Pokemon.`,
+		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if acquired through Transform/Imposter or if hacked onto another Pokemon.`,
 		shortDesc: "Has a special effect depending on Unown's letter.",
 		fitem: "  [POKEMON] observed [TARGET]'s [ITEM]!",
 		fmove: "  [TARGET]'s [MOVE] was observed!",
@@ -987,11 +988,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.warnMoves = {};
 				for (let i = 0; i < pokemon.side.foe.active.length; i++) {
 					const target = pokemon.side.foe.active[i];
-					console.log("Forewarn investigating " + target.name);
+					//console.log("Forewarn investigating " + target.name);
 					let warnBp = 1;
 					for (const moveSlot of target.moveSlots) { //Todo: Make this into a function so it's not called both here and in onFoeSwitchIn
 						const move = this.dex.getMove(moveSlot.move);
-						console.log("Forewarn investigating " + move.name);
+						//console.log("Forewarn investigating " + move.name);
 						if(!move) continue;
 						let bp = move.basePower;
 						let direct = false; //direct damage moves won't need additional calcs later
@@ -1100,14 +1101,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							}
 						}
 						if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
-						console.log(move.name + "'s base power is " + bp);
+						//console.log(move.name + "'s base power is " + bp);
 						if(bp >= warnBp){
 							if(bp === warnBp && warnPokeMove){ //Multiple equally valid choices, use both
 								warnPokeMove.push([target.fullname, move.id]);
-								console.log("Adding to Forewarn list. " + warnPokeMove);
+								//console.log("Adding to Forewarn list. " + warnPokeMove);
 							} else {
 								warnPokeMove = [[target.fullname, move.id]];
-								console.log("Overriding Forewarn list. " + warnPokeMove);
+								//console.log("Overriding Forewarn list. " + warnPokeMove);
 							}
 							warnBp = bp;
 						}
@@ -1116,17 +1117,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					const newWarning = this.sample(warnPokeMove);
 					this.effectData.warnMoves[newWarning[0]] = newWarning[1];
 					this.add('-activate', pokemon, `ability: $(this.effectData.source)`, newWarning[0].name, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
-					console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
+					//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 				}
 			},
 			onFoeSwitchIn(target){
 				let warnPokeMove: ([String, String][]) = undefined;
 				const pokemon = this.effectData.target;
-				console.log("Forewarn investigating " + target.name);
+				//console.log("Forewarn investigating " + target.name);
 				let warnBp = 1;
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
-					console.log("Forewarn investigating " + move.name);
+					//console.log("Forewarn investigating " + move.name);
 					if(!move) continue;
 					let bp = move.basePower;
 					let direct = false; //direct damage moves won't need additional calcs later
@@ -1235,14 +1236,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 					}
 					if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
-					console.log(move.name + "'s base power is " + bp);
+					//console.log(move.name + "'s base power is " + bp);
 					if(bp >= warnBp){
 						if(bp === warnBp && warnPokeMove){ //Multiple equally valid choices, use both
 							warnPokeMove.push([target.fullname, move.id]);
-							console.log("Adding to Forewarn list. " + warnPokeMove);
+							//console.log("Adding to Forewarn list. " + warnPokeMove);
 						} else {
 							warnPokeMove = [[target.fullname, move.id]];
-							console.log("Overriding Forewarn list. " + warnPokeMove);
+							//console.log("Overriding Forewarn list. " + warnPokeMove);
 						}
 						warnBp = bp;
 					}
@@ -1251,15 +1252,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const newWarning = this.sample(warnPokeMove);
 				this.effectData.warnMoves[newWarning[0]] = newWarning[1];
 				this.add('-activate', pokemon, `ability: $(this.effectData.source)`, newWarning[0].name, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
-				console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
+				//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 			},
 			onFoeSwitchOut(target){
 				if(this.effectData.warnMoves[target.fullname]) delete this.effectData.warnMoves[target.fullname];
 			},
 			onAccuracy(accuracy, target, source, move) {
-				console.log(this.effectData.warnMoves);
+				//console.log(this.effectData.warnMoves);
 				if (target === source || typeof(accuracy) !== 'number' || move.ignoreEvasion) return;
-				console.log("Attack by [" + source.fullname + ", " + move.id + "]");
+				//console.log("Attack by [" + source.fullname + ", " + move.id + "]");
 				//console.log(move);
 				//console.log(source);
 				if (this.effectData.warnMoves[source.fullname] === move.id){

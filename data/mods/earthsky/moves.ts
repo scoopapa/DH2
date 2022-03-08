@@ -733,7 +733,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onStart(pokemon){
 				this.effectData.affectedStatuses = ['confuse','disable','electrify','encore','imprison','laserfocus','leechseed','magnetrise','minimize','nightmare','partiallytrapped','perishsong','powertrick','risingchorus','strongpartialtrap','taunt','telekinesis','throatchop','torment','yawn'], //Volatiles with timers to freeze
-				this.effectData.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','miracleeye','mindreader','obstruct','odorsleuth','powder','preheat','protect','ragepowder','rebound','slipaway','snatch','spikyshield','spotlight','substitute','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
+				this.effectData.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','evade','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','minimize','miracleeye','mindreader','obstruct','odorsleuth','playdead','powder','preheat','protect','ragepowder','rebound','slipaway','snatch','spikyshield','spotlight','substitute','tangledfeet','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
 				this.add('-start', pokemon, 'move: Stasis');
 			},
 			onBoost(boost, pokemon) {
@@ -772,7 +772,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: `For the next three turns, the target's stats cannot be raised or lowered. If the target is frozen or asleep, the duration timers will pause, as will the duration timers of many of its volatile status conditions. Any statuses that can be affected also cannot be added, changed, or removed through any means other than switching. Affected volatile statuses are:
 		Confusion, Disable, Electrify, Encore, Imprison, Laser Focus, Leech Seed, Magnet Rise, Minimize, Nightmare, Partial Trapping, Perish Song, Power Trick, Rising Chorus, Taunt, Telekinesis, Throat Chop, Torment, Yawn
 		Additionally, the following volatile statuses cannot be added to the target:
-		Aqua Ring, Attraction, Bunker Down, Charge, Curse, Destiny Bond, Double Team, Endure, Flash Fire, Focus Energy, Follow Me, Foresight, Grudge, Ingrain, Magic Coat, Miracle Eye, King's Shield, Lock-On, Miracle Eye, Mind Reader, Obstruct, Odor Sleuth, Powder, Preheat, Protect, Rage Powder, Rebound, Slip Away, Snatch, Spiky Shield, Spotlight, Substitute, Tar Shot
+		Aqua Ring, Attraction, Bunker Down, Charge, Curse, Destiny Bond, Endure, Evasiveness, Flash Fire, Focus Energy, Follow Me, Foresight, Grudge, Ingrain, Magic Coat, Miracle Eye, King's Shield, Lock-On, Miracle Eye, Mind Reader, Obstruct, Odor Sleuth, Play Dead, Powder, Preheat, Protect, Rage Powder, Rebound, Slip Away, Snatch, Spiky Shield, Spotlight, Substitute, Tar Shot
 		If possible, these statuses will still fade on their own.`,
 		target: "normal",
 		type: "Psychic",
