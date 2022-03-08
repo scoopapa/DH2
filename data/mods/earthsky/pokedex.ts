@@ -222,7 +222,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -517,
 		name: "Utilitron",
 		types: ["Steel", "Electric"],
-		baseForme: "Ground",
+		baseForme: "Default",
 		gender: "N",
 		baseStats: {hp: 60, atk: 80, def: 120, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Motor Drive", H: "Download"},
@@ -247,6 +247,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 240,
 		color: "Gray",
 		requiredMove: "Surf",
+		changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	utilitroncopter: {
@@ -261,6 +262,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 240,
 		color: "Gray",
 		requiredMove: "Fly",
+		changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	faerunee: {

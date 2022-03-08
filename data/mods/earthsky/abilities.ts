@@ -1390,7 +1390,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
-				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+				this.add("-fail", target, "unboost", "[from] ability: Leaf Guard", "[of] " + target);
 			}
 		},
 		desc: "If Sunny Day is active, this Pokemon cannot gain a non-volatile status condition or have its stats lowered by an opponent.",
