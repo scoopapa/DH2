@@ -1391,7 +1391,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	kyogreprimal: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	groudon: {
 		tier: "Uber",
@@ -1408,7 +1408,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	deoxysattack: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	deoxysdefense: {
 		tier: "OU",
