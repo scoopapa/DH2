@@ -525,7 +525,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shellos-Entity",
 		baseSpecies: "Shellos",
 		baseForme: "Entity",
-		evos: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
+		evos: ["Gastrodon-Entity"],
 		types: ["Poison"],
 		baseStats: {hp: 70, atk: 50, def: 60, spa: 50, spd: 60, spe: 40},
 		abilities: {0: "Gooey", H: "Poison Point"},
@@ -561,7 +561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
-		prevo: "Shellos-Entity",
+		//prevo: "Shellos-Entity",
 	},
 	
 
