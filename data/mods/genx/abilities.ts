@@ -355,4 +355,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tree-Topper",
 		rating: 0.1,
 	},
+	//Loria Region
+	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
 };
