@@ -1645,4 +1645,72 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
+	dualchop: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'primeape') {
+				move.basePower = 50;
+			}
+		},
+	},
+	bonemerangpgp: {
+		num: 155,
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Hits 2 times in one turn. Hits airbone Pokemon.",
+		name: "Bonemerang (PGP)",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bonemerang", target);
+		},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+	},
+	strengthpgp: {
+		num: 70,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Super effective on Fighting. Removes Spikes and Toxic Spikes",
+		name: "Strength (PGP)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Strength", target);
+		},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+				}
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fighting') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
 };

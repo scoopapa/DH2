@@ -554,8 +554,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-	scavenge: {
-		shortDesc: "(Bugged) This Pokemon's heals 33% of its HP when another Pokemon faints.",
+  scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'ability: Scavenge'); 

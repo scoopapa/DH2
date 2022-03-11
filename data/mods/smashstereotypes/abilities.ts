@@ -355,4 +355,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1013,
 	},
+	kalibersfury: {
+		shortDesc: "Any attacks with 60 bp or less get a +1 to priority.",
+		onModifyPriority: function(priority, pokemon, target, move, basePower) {
+			if (move.category !== "Status" && move.basePower <= 60)
+			return priority + 1;
+		},
+		id: "kalibersfury",
+		name: "Kaliber's Fury"
+	},
+	persistent: {
+		isNonstandard: null,
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
 };

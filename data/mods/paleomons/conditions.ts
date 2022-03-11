@@ -16,6 +16,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.debug('tar terrain boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
+			if (move.type === 'Fire' && attacker.isGrounded()) {
+				this.debug('tar terrain debug');
+				return this.chainModify(0.5);
+			}
 		},
 
 		onStart(battle, source, effect) {
@@ -34,7 +38,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasItem('heavydutyboots')) {
 					this.add('-message', "When the flame touched the sticky tar on the Pokemon, it combusted!");
 					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
-					return false;
 				}
 			}
 		},

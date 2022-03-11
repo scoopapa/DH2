@@ -1949,6 +1949,25 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: 'Uber',
 	},
+	{
+		name: "[Gen 8] JolteMons UU",
+		desc: [
+			"<b>JolteMons</b>: A sequel to SylveMons where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/joltemons-slate-1-distribution-phase.3694234/">Thread on the Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">Spreadsheet</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/joltemons-playtesting-phase-uu.3694234/post-9143011">Banlist</a>`,
+		],
+		mod: 'joltemons',	
+		teambuilderFormat: 'UU',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		unbanlist: ['Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar'],
+		banlist: ['OU', 'UUBL', 'Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucarionite', 'Lugia', 'Lunala', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
+					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Decidium Z', 'Kommonium Z',
+					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade',
+					'Chill Pill G', 'Lopunnite', 'Scizorite', 'Gyaradosite', 'Charizardite Y', 'Pinsirite', 'Heracronite', 'Aerodactylite', 'Alakazite', 'Galladite', 'Gardevoirite', 'Medichamite', 'Diancite', 'Mawilite', 'Beedrillite', 'Swampertite', 'Latiasite', 'Latiosite', 'Tyranitarite', 'Venusaurite', 'Graduation Scale'],
+	},
 	/*
 	{
 		name: "[Gen 8] M4A Doubles",
@@ -2937,16 +2956,19 @@ export const Formats: FormatList = [
         banlist: [],
 	},
 	{
-		name: "[Gen 2] GSC Doubles",
+		name: "[Gen 8] Baby Boom",
+		desc: '<b>Baby Boom</b>: A Solomod where only Baby Pokemon are allowed and are balanced around each other.',
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9069509">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1QrZKlNrqKiRcprYtvyIPveR0vMp0dpM1X60zeo6N5xU/edit#gid=999775779">Spreadsheet</a>`,
 		],
-
-		mod: 'gen2doubles',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Swagger Clause'],
-		banlist: ['Celebi', 'Ho-Oh', 'Lugia', 'Mew', 'Mewtwo', 'Snorlax'],
-		teambuilderFormat: "OU",
+		mod: 'babyboom',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['All Pokemon', 'Baton Pass'],
+		unbanlist: ['Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 
+					'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Mantyke', 'Riolu', 'Toxel', 'Armorick', 'Crawscor', 'Dreddon',
+					'Sneaz',
+		],
 	},
 	{
         name: "[Gen 8] Duomod",
@@ -3038,6 +3060,17 @@ export const Formats: FormatList = [
 		challengeShow: false,
 		mod: "gpt2mons", 
 		teambuilderFormat: "OU", 	
+	},
+	{
+		name: "[Gen 2] GSC Doubles",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Uber'],
 	},
 	{    
        name: "[Gen 8] JosMons",
