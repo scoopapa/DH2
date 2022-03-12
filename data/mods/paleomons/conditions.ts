@@ -11,7 +11,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('heavydutyboots')) return;
+			if (attacker.hasItem('heavydutyboots') || attacker.hasAbility('thunderstruck') || defender.hasAbility('thunderstruck')) return;
 			if (move.type === 'Poison' && attacker.isGrounded()) {
 				this.debug('tar terrain boost');
 				return this.chainModify([0x14CD, 0x1000]);
@@ -34,6 +34,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 
 		onTryMove(pokemon, target, move) {
+			if (pokemon.hasAbility('thunderstruck')) return;
 			if (move.type === 'Fire') {
 				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasItem('heavydutyboots')) {
 					this.add('-message', "When the flame touched the sticky tar on the Pokemon, it combusted!");
