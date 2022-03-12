@@ -34,7 +34,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
 		},*/
-		onModifyMove(move) {
+		onModifyMove(target, move) {
 			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
 			if (!move || !move.type !== 'Fire' || move.target === 'self') return;
 			if (!move.secondaries) {
