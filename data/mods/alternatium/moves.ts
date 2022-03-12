@@ -767,7 +767,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			noCopy: true,
 			onStart(target) {
 				let layers = 1;
-				if (this.effectState.sourceEffect && this.effectState.sourceEffect.name === "Pulp Up") {
+				if (target.hasAbility('pulpup') {
 					if (target.hp / target.maxhp <= 0.667) {
 						layers = 2;
 					}
