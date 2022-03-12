@@ -767,7 +767,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			noCopy: true,
 			onStart(target) {
 				let layers = 1;
-				if (this.effectState.sourceEffect && this.effectState.sourceEffect.name === "Pulp Up") {
+				if (this.effectData.effectData && this.effectData.sourceEffect.name === "Pulp Up") {
 					if (target.hp / target.maxhp <= 0.667) {
 						layers = 2;
 					}
@@ -775,32 +775,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 						layers = 3;
 					}
 				}
-				this.effectState.layers = layers;
-				this.effectState.def = 0;
-				this.effectState.spd = 0;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				this.effectData.layers = layers;
+				this.effectData.def = 0;
+				this.effectData.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: layers, spd: layers}, target, target);
 				for (let i = 0; i < layers; i++) {
-					if (curDef !== target.boosts.def) this.effectState.def--;
-					if (curSpD !== target.boosts.spd) this.effectState.spd--;
+					if (curDef !== target.boosts.def) this.effectData.def--;
+					if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				}
 			},
 			onRestart(target) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				if (this.effectData.layers >= 3) return false;
+				this.effectData.layers++;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const curDef = target.boosts.def;
 				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectState.def--;
-				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			},
 			onEnd(target) {
-				if (this.effectState.def || this.effectState.spd) {
+				if (this.effectData.def || this.effectData.spd) {
 					const boosts: SparseBoostsTable = {};
-					if (this.effectState.def) boosts.def = this.effectState.def;
-					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					if (this.effectData.def) boosts.def = this.effectData.def;
+					if (this.effectData.spd) boosts.spd = this.effectData.spd;
 					this.boost(boosts, target, target);
 				}
 				this.add('-end', target, 'Stockpile');
