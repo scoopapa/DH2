@@ -36,7 +36,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},*/
 		onModifyMove(pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Houndoom' && pokemon.baseSpecies.baseSpecies !== 'Houndour') return;
+			if (pokemon.species.name !== 'Houndoom' && pokemon.species.name !== Houndour') return;
 			if (!move || !move.type !== 'Fire' || move.target === 'self') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
