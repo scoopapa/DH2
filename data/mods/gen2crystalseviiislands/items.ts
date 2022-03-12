@@ -29,7 +29,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},*/
 		onAfterMoveSecondary(source, target, move) {
 			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
-			if (move.type === 'Fire' && target.useItem()) {
+			if (move.type === 'Fire') {
 				source.trySetStatus('brn', target);
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
