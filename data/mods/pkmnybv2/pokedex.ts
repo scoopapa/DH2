@@ -173,13 +173,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	drowzee: {
     	inherit: true,
 		types: ["Psychic", "Dark"],
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Mental Health"},
+		abilities: {0: "Insomnia", 1: "Nostalgia Trip", H: "Mental Health"},
 	},
 	hypno: {
     	inherit: true,
 		types: ["Psychic", "Dark"],
 		baseStats: {hp: 85, atk: 83, def: 70, spa: 83, spd: 125, spe: 67},
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Mental Health"},
+		abilities: {0: "Insomnia", 1: "Nostalgia Trip", H: "Mental Health"},
 	},
 	kingler: {
     	inherit: true,
@@ -1858,6 +1858,51 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		abilities: {0: "Mummy", H: "Shadow Tag"},
 	},
+	tyranitar: {
+    	inherit: true,
+		abilities: {0: "Sand Stream", H: "Nostalgia Trip"},
+	},
+	houndour: {
+    	inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+	},
+	houndoom: {
+    	inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+	},
+	houndoommega: {
+    	inherit: true,
+		abilities: {0: "Nostalgia Trip"},
+	},
+	cacturne: {
+    	inherit: true,
+		abilities: {0: "Sand Veil", 1: "Nostalgia Trip", H: "Water Absorb"},
+	},
+	kingdra: {
+    	inherit: true,
+		abilities: {0: "Swift Swim", 1: "Sniper", H: "Nostalgia Trip"},
+	},
+	donphan: {
+    	inherit: true,
+		abilities: {0: "Sturdy", 1: "Nostalgia Trip", H: "Sand Veil"},
+	},
+	crobat: {
+    	inherit: true,
+		abilities: {0: "Inner Focus", 1: "Nostalgia Trip", H: "Infiltrator"},
+	},
+	aerodactyl: {
+    	inherit: true,
+		abilities: {0: "Rock Head", 1: "Pressure", H: "Nostalgia Trip"},
+	},
+	mantine: {
+    	inherit: true,
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Nostalgia Trip"},
+	},
+	celebi: {
+    	inherit: true,
+		abilities: {0: "Natural Cure", H: "Nostalgia Trip"},
+	},
+
 
 	// New Mons
 	synthinobi: {
