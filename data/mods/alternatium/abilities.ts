@@ -441,7 +441,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.addVolatile('stockpile');
 		},
 		name: "Pulp Up",
-		shortDesc: "(Bugged) On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
 		rating: 3,
 		num: 1015,
 	},
