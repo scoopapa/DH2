@@ -27,7 +27,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 		},*/
-		onHit(source, target, move) {
+		onAfterMoveSecondary(source, target, move) {
 			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
 			if (move.type === 'Fire' && target.useItem()) {
 				source.trySetStatus('brn', target);
