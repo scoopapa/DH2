@@ -11,6 +11,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false; // skip charge turn
 			}
 		},
+		itemUser: ["Dodrio", "Doduo"],
 		num: 1001,
 		gen: 2,
 		shortDesc: "If held by Doduo or Dodrio, causes its 2-turn moves to be executed in one turn.",
@@ -35,7 +36,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},*/
 		onModifyMove(pokemon, move) {
-			if (pokemon.baseSpecies.name !== 'Houndoom' && pokemon.baseSpecies.name !== 'Houndour') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Houndoom' && pokemon.baseSpecies.baseSpecies !== 'Houndour') return;
 			if (!move || !move.type !== 'Fire' || move.target === 'self') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
@@ -45,6 +46,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				status: 'brn',
 			});
 		},
+		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
 		gen: 2,
 		shortDesc: "(Bugged) If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
@@ -58,6 +60,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.field.setWeather('sandstorm');
 			}
 		},
+		itemUser: ["Sandslash", "Sandshrew"],
 		num: 1003,
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
