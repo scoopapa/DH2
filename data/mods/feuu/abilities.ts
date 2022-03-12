@@ -3194,7 +3194,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             if (!this.isAdjacent(pokemon, this.effectData.target)) return;
             if (pokemon.isGrounded() || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
             !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
-            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal')) {
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal') || !pokemon.hasAbility('levistatic')) {
                 pokemon.tryTrap(true);
             }
         },
@@ -3203,7 +3203,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             if (!source || !this.isAdjacent(pokemon, source)) return;
             if (pokemon.isGrounded(!pokemon.knownType) || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
             !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
-            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal')) { // Negate immunity if the type is unknown
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal') || !pokemon.hasAbility('levistatic')) { // Negate immunity if the type is unknown
                 pokemon.maybeTrapped = true;
             }
         },
@@ -3211,7 +3211,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onSourceModifyAccuracy(accuracy, target, source, move) {
             if (!target.isGrounded() || target.hasAbility('feelnopain') || target.hasAbility('magneticwaves') || 
             target.hasAbility('stickyfloat') || target.hasAbility('etativel') || target.hasAbility('lighthearted') || 
-            target.hasAbility('leviflame') || target.hasAbility('levitability') || target.hasAbility('feelsomepain') || target.hasAbility('aerialbreak') || target.hasAbility('floatguise') || target.hasAbility('clearlyfloating') || target.hasAbility('hoverboard') || target.hasAbility('levimetal')) {
+            target.hasAbility('leviflame') || target.hasAbility('levitability') || target.hasAbility('feelsomepain') || target.hasAbility('aerialbreak') || target.hasAbility('floatguise') || target.hasAbility('clearlyfloating') || target.hasAbility('hoverboard') || target.hasAbility('levimetal') || target.hasAbility('levistatic')) {
                 return accuracy * 0.8;
             }
         },
@@ -5051,20 +5051,9 @@ lifedrain: {
 		name: "Poison Control",
 		shortDesc: "Technician + Immunity",
 	},
-	clearlyhustling: {
-		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
-			}
+	alluminiumbody: {
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
@@ -5076,8 +5065,8 @@ lifedrain: {
 				return accuracy * 0.8;
 			}
 		},
-		name: "Clearly Hustling",
-		shortDesc: "Clear Body + Hustle",
+		name: "Alluminium Body",
+		shortDesc: "Light Metal + Hustle",
 	},
 	swarmrush: {
 		onModifySpe(spe, pokemon) {
@@ -5140,6 +5129,83 @@ lifedrain: {
 		},
 		name: "Super Hustle",
 		shortDesc: "Hustle + Super Luck",
+	},
+	levistatic: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+				this.add('-immune', target, '[from] ability: Levistatic');
+				return null;
+			}
+		},
+		name: "Levistatic",
+		shortDesc: "Levitate + Static",
+	},
+	polarattraction: {
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.status === 'par' && this.isAdjacent(pokemon, this.effectData.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.status === 'par') {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Polar Attraction",
+		shortDesc: "Traps paralyzed opponents.",
+	},
+	flawedjaw: {
+		onTryMove(pokemon, target, move) {
+			if (move.flags['bite']) {
+				this.attrLastMove('[still]');
+				this.add('-fail', pokemon);
+				return null;
+			}
+		},
+		name: "Flawed Jaw",
+		shortDesc: "This pokémon cannot use Biting moves.",
+	},
+	subvergent: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Subvergent only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			let stats: BoostName[] = [];
+			const boost: SparseBoostsTable = {};
+			let statPlus: BoostName;
+			for (statPlus in pokemon.boosts) {
+				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+				if (pokemon.boosts[statPlus] < 6) {
+					stats.push(statPlus);
+				}
+			}
+			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+			if (statsLowered) {
+				this.add('-ability', target, 'Subvergent');
+				this.boost({atk: 2, randomStat: 2}, target, target, null, true);
+			}
+		},
+		name: "Subvergent",
+		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
 	},
 };
  

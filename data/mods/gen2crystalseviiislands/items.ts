@@ -11,6 +11,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false; // skip charge turn
 			}
 		},
+		itemUser: ["Dodrio", "Doduo"],
 		num: 1001,
 		gen: 2,
 		shortDesc: "If held by Doduo or Dodrio, causes its 2-turn moves to be executed in one turn.",
@@ -27,14 +28,27 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 		},*/
-		onHit(source, move) {
-			if (source.species.id !== 'houndoom' || source.species.id !== 'houndour' && move.type !== 'Fire') return;
-			for (const pokemon of source.side.foe.active) {
-				pokemon.trySetStatus('brn', source);
-				source.useItem();
-				this.add('-activate', source, 'item: Hellfire Lantern', '[consumed]');
+		onAfterMoveSecondary(target, source, move) {
+			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
+			if (move.type === 'Fire') {
+				target.useItem();
+				source.trySetStatus('brn', target);
+				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
 		},
+		/*onModifyMove(pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
+				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				move.secondaries.push({
+					chance: 100,
+					status: 'brn',
+				});
+			}
+		},*/
+		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
 		gen: 2,
 		shortDesc: "(Bugged) If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
@@ -48,6 +62,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.field.setWeather('sandstorm');
 			}
 		},
+		itemUser: ["Sandslash", "Sandshrew"],
 		num: 1003,
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",

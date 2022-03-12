@@ -2008,6 +2008,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	pinchu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	buixew: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	pawnrunt: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},	
+	tyrunxel: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2048,5 +2064,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-
+	vibrachu: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
 }; 
