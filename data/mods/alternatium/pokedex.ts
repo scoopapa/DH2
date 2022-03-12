@@ -1321,8 +1321,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Water 1", "Flying"],
 		baseSpecies: null,
 		forme: null,
-		requiredAbility: null,
-		battleOnly: null,
 	},
 	eiscue: {
 		num: 875,
