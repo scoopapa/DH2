@@ -5190,7 +5190,6 @@ lifedrain: {
 				}
 			}
 			let stats: BoostName[] = [];
-			const boost: SparseBoostsTable = {};
 			let statPlus: BoostName;
 			for (statPlus in target.boosts) {
 				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
