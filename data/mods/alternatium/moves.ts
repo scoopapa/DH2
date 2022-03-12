@@ -766,17 +766,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(target) {
-				//const pulpuplayers = this.effectState.layers;
-				if (target.hasAbility('pulpup')) {
+				let layers = 1;
+				if (this.effectState.sourceEffect && this.effectState.sourceEffect.name === "Pulp Up") {
 					if (target.hp / target.maxhp <= 0.667) {
-						this.effectState.layers = 2;
+						layers = 2;
 					}
 					if (target.hp / target.maxhp <= 0.334) {
-						this.effectState.layers = 3;
+						layers = 3;
 					}
-					this.effectState.layers = 1;
 				}
-				this.effectState.layers = 1;
+				this.effectState.layers = layers;
 				this.effectState.def = 0;
 				this.effectState.spd = 0;
 				this.add('-start', target, 'stockpile' + this.effectState.layers);
