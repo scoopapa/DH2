@@ -36,15 +36,16 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},*/
 		onModifyMove(pokemon, move) {
-			if (pokemon.species.name !== 'Houndoom' && pokemon.species.name !== 'Houndour') return;
-			if (!move || !move.type !== 'Fire' || move.target === 'self') return;
-			if (!move.secondaries) {
-				move.secondaries = [];
+			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
+				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				move.secondaries.push({
+					chance: 100,
+					status: 'brn',
+				});
 			}
-			move.secondaries.push({
-				chance: 100,
-				status: 'brn',
-			});
 		},
 		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
