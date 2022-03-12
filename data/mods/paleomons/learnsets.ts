@@ -2502,6 +2502,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 
+	/*
 	shellosentity: {
 		learnset: {
 			sludgebomb: ["8L1"],
@@ -2770,6 +2771,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 4, level: 20},
 		],
 	},
+	*/
 
 	yanmaancient: {
 		learnset: {
