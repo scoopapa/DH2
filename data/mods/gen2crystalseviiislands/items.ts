@@ -27,12 +27,23 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 		},*/
-		onAfterMoveSecondary(source, target, move) {
+		/*onAfterMoveSecondary(source, target, move) {
 			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
 			if (move.type === 'Fire') {
 				source.trySetStatus('brn', target);
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
+		},*/
+		onModifyMove(move) {
+			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
+			if (!move || !move.type !== 'Fire' || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 100,
+				status: 'brn',
+			});
 		},
 		num: 1002,
 		gen: 2,
