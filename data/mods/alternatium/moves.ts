@@ -775,7 +775,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						layers = 3;
 					}
 				}
-				this.effectState.layers = layers;
+				this.effectState.layers = 1;
 				this.effectState.def = 0;
 				this.effectState.spd = 0;
 				this.add('-start', target, 'stockpile' + this.effectState.layers);
