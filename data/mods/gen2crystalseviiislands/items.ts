@@ -28,7 +28,8 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},*/
 		onHit(source, move) {
-			if (source.species.id !== 'houndoom' || source.species.id !== 'houndour' && move.type !== 'Fire') return;
+			if (source.species.id !== 'houndoom' && source.species.id !== 'houndour') return;
+			if (move.type !== 'Fire') return;
 			for (const pokemon of source.side.foe.active) {
 				pokemon.trySetStatus('brn', source);
 				source.useItem();
