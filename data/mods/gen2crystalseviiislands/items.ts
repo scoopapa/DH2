@@ -28,14 +28,15 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 		},*/
-		/*onAfterMoveSecondary(source, target, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
 			if (move.type === 'Fire') {
+				target.useItem();
 				source.trySetStatus('brn', target);
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
-		},*/
-		onModifyMove(pokemon, move) {
+		},
+		/*onModifyMove(pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
 				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
 				if (!move.secondaries) {
@@ -46,7 +47,7 @@ export const Items: {[itemid: string]: ItemData} = {
 					status: 'brn',
 				});
 			}
-		},
+		},*/
 		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
 		gen: 2,
