@@ -766,15 +766,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(target) {
-				const pulpuplayers = this.effectState.layers;
+				//const pulpuplayers = this.effectState.layers;
 				if (target.hasAbility('pulpup')) {
 					if (target.hp / target.maxhp <= 0.667) {
-						pulpuplayers = 2;
+						this.effectState.layers = 2;
 					}
 					if (target.hp / target.maxhp <= 0.334) {
-						pulpuplayers = 3;
+						this.effectState.layers = 3;
 					}
-					pulpuplayers = 1;
+					this.effectState.layers = 1;
 				}
 				this.effectState.layers = 1;
 				this.effectState.def = 0;
