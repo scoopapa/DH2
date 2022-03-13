@@ -18,6 +18,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		id: "athletics",
 		name: "Athletics",
 	},
+	"restoration": {
+		num: 10003,
+		id: "restoration",
+		name: "Restoration",
+	},
 	//--------------------------------modified moves-------------------------------------------
 	reflect: {
 		inherit: true,

@@ -158,4 +158,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 37,
 	},
+	barbarian: {
+		shortDesc: "",
+		onModifyAtkPriority: 5,
+		onModifyAtk(stat) {
+			return this.chainModify(1.4);
+		},
+		onModifyDef(stat) {
+			return this.chainModify(0.85);
+		},
+		onModifySpD(stat) {
+			return this.chainModify(0.85);
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Barbarian');
+			}
+		},
+		onModifyMove(move) {
+			if (move.type === 'Fighting' && move.category == 'Physical') return move.critRatio + 1;
+		},
+        onBasePower(basePower, pokemon, target, move) {
+            if (move.flags['contact'] && (target.hasType('Dragon') || target.species.eggGroups.includes('Monster'))) return basePower * 2;
+        },
+		onSourceModifyDamage(damage, source, target, move) {
+			if ((move.type === 'Fighting' && move.category === 'Physical') || move.id === 'foulplay') return this.chainModify(2);
+		},
+		name: "barbarian",
+	},
 };

@@ -734,8 +734,8 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		pokeClasses: ['warrior','mage','thief'],
-		pokeSkills: ['blade','destruction','athletics'],
+		pokeClasses: ['warrior','mage','thief','barbarian'],
+		pokeSkills: ['blade','destruction','athletics','restoration'],
 		onSwitchInPriority: 2,
 		onSwitchIn(pokemon) {
 			if ( pokemon.pokeClass ) pokemon.addVolatile('ability:' + pokemon.pokeClass, pokemon);
