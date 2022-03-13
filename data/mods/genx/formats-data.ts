@@ -408,7 +408,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	calaguaca-revered: {
+	calaguacarevered: {
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
@@ -416,7 +416,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	poruvia-revered: {
+	poruviarevered: {
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
@@ -424,7 +424,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	mudaracan-revered: {
+	mudaracanrevered: {
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
