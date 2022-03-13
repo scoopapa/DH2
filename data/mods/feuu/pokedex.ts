@@ -4168,7 +4168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Vibrachu",
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 42, atk: 62, def: 60, spa: 63, spd: 55, spe: 88},
-		abilities: {0: "Static Float"},
+		abilities: {0: "Levistatic"},
 		weightkg: 10.65,
 		evos: ["Flychu-Alola"],
 	},
