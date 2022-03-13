@@ -527,7 +527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Amaura-Regnant",
 	},
 
-	
+	/*
 	shellos: {
 		inherit: true,
 		otherFormes: ["Shellos-Entity", "Shellos-Entity-East"],
@@ -578,6 +578,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 29.9,
 		//prevo: "Shellos-Entity",
 	},
+	*/
 	
 
 	yanma: {
