@@ -400,6 +400,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	flowiaiancient: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	//Loria Region
+	calaguaca: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	calaguaca-revered: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	poruvia: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	poruvia-revered: {
+		tier: "Uber",
+		doublesTier: "DUber",
+	},
+	mudaracan: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mudaracan-revered: {
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
