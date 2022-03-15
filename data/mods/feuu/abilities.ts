@@ -5189,22 +5189,20 @@ lifedrain: {
 					statsLowered = true;
 				}
 			}
-			
-			let stats: BoostName[] = [];
-			const boost: SparseBoostsTable = {};
-			let statPlus: BoostName;
-			for (statPlus in pokemon.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (pokemon.boosts[statPlus] < 6) {
-					stats.push(statPlus);
-				}
-			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[atk, randomStat] = 2;
-			
 			if (statsLowered) {
 				this.add('-ability', target, 'Subvergent');
-				this.boost({boost}, target, target, null, true);
+				this.boost({atk: 2}, target, target, null, true);
+				let stats: BoostName[] = [];
+				const boost: SparseBoostsTable = {};
+				let statPlus: BoostName;
+				for (statPlus in pokemon.boosts) {
+					if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+					if (pokemon.boosts[statPlus] < 6) {
+						stats.push(statPlus);
+					}
+				}
+				let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+				if (randomStat) boost[randomStat] = 2;
 			}
 		},
 		name: "Subvergent",
