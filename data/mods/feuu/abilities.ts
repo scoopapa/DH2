@@ -5207,7 +5207,7 @@ lifedrain: {
 			}
 		},
 		name: "Subvergent",
-		shortDesc: "(Bugged) Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
+		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
 	},
 };
  
