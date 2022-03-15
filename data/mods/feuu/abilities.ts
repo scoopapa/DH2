@@ -5197,10 +5197,10 @@ lifedrain: {
 					stats.push(statPlus);
 				}
 			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+			//let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
 			if (statsLowered) {
 				this.add('-ability', target, 'Subvergent');
-				this.boost({atk: 2, [randomStat]: 2}, target, target, null, true);
+				this.boost({atk: 2, [statPlus]: 2}, target, target, null, true);
 			}
 		},
 		name: "Subvergent",
