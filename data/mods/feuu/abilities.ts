@@ -5193,7 +5193,7 @@ lifedrain: {
 				this.add('-ability', target, 'Subvergent');
 				this.boost({atk: 2}, target, target, null, true);
 				let stats: BoostName[] = [];
-				const boost: SparseBoostsTable = {};
+				let boost: SparseBoostsTable = {};
 				let statPlus: BoostName;
 				for (statPlus in target.boosts) {
 					if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
@@ -5203,10 +5203,11 @@ lifedrain: {
 				}
 				let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
 				if (randomStat) boost[randomStat] = 2;
+				this.boost(boost);
 			}
 		},
 		name: "Subvergent",
-		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
+		shortDesc: "(Bugged) Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
 	},
 };
  
