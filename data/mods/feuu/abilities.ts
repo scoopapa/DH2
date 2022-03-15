@@ -5189,6 +5189,11 @@ lifedrain: {
 					statsLowered = true;
 				}
 			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Subvergent');
+				this.boost({atk: 2}, target, target, null, true);
+			}
+			
 			let stats: BoostName[] = [];
 			let statPlus: BoostName;
 			for (statPlus in target.boosts) {
@@ -5198,11 +5203,7 @@ lifedrain: {
 				}
 			}
 			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-			if (statsLowered) {
-				this.add('-ability', target, 'Subvergent');
-				this.boost({atk: 2}, target, target, null, true);
-				boost[randomStat] = 2;
-			}
+			if (randomStat) boost[randomStat] = 2;
 		},
 		name: "Subvergent",
 		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
