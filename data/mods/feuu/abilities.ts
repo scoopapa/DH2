@@ -1314,7 +1314,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (move.category !== 'Status' || target === source)) {
+			if ((source && target === source) || move.category !== 'Status')) {
 				return;
 			}
 			this.add('-ability', target, 'Dark Humour');
@@ -3955,7 +3955,7 @@ lifedrain: {
 	charybdis: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
-			return this.chainModify(2);
+			return this.chainModify(1.5);
 		},
 		name: "Charybdis",
 		shortDesc: "This Pokemon's Special Attack is doubled.",
