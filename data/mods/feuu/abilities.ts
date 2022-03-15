@@ -1314,9 +1314,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if ((source && target === source) || move.category !== 'Status')) {
-				return;
-			}
+			if ((source && target === source) || move.category !== 'Status')) return;
 			this.add('-ability', target, 'Dark Humour');
 			this.boost({atk: 1}, target, target, null, true);
 		},
