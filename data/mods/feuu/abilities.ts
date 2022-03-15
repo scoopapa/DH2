@@ -581,7 +581,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Doggy\'s Maw');
 			}
@@ -1314,7 +1314,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (move.category !== 'Status') {
+			if (move.category !== 'Status' || target === source)) {
 				return;
 			}
 			this.add('-ability', target, 'Dark Humour');
@@ -1777,7 +1777,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
@@ -2139,7 +2139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
@@ -2823,7 +2823,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			});
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Anatidaephobia');
 			}
@@ -3416,7 +3416,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Idiot Savant');
 			}
@@ -3866,9 +3866,19 @@ lifedrain: {
 		shortDesc: "Disguise + Levitate",
 	},
 	ragingrapids: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: length}, source);
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Raging Rapids', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
 			}
 		},
 		onAfterMoveSecondary(target, source, move) {
@@ -3877,11 +3887,11 @@ lifedrain: {
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
-				this.boost({atk: 1});
+				this.boost({atk: -1}, source, target, null, true);
 			}
 		},
 		name: "Raging Rapids",
-		shortDesc: "This Pokemon's Attack is raised by 1 stage if it KOes another Pokemon or falls below 1/3 of its max HP.",
+		shortDesc: "Lowers the foe's Attack by 1 on switch-in and when this Pokemon falls under 1/3 max HP.",
 	},
 	ultrapresto: {
 		onSourceAfterFaint(length, target, source, effect) {
