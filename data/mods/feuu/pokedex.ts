@@ -4035,7 +4035,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1092,
 		name: "Buixew",
 		types: ["Dragon", "Water"],
-		baseStats: {hp: 50, atk: 79, def: 50, spa: 48, spd: 35, spe: 71},
+		baseStats: {hp: 50, atk: 80, def: 50, spa: 48, spd: 35, spe: 71},
 		abilities: {0: "Fever Breaker"},
 		weightkg: 23.75,
 		evos: ["Haxel"],
