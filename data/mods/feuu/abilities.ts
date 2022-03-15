@@ -5189,15 +5189,7 @@ lifedrain: {
 					statsLowered = true;
 				}
 			}
-			if (statsLowered) {
-				this.add('-ability', target, 'Subvergent');
-				this.boost({atk: 2}, target, target, null, true);
-			}
-		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (!statsLowered) return;
+			
 			let stats: BoostName[] = [];
 			const boost: SparseBoostsTable = {};
 			let statPlus: BoostName;
@@ -5209,8 +5201,11 @@ lifedrain: {
 			}
 			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
 			if (randomStat) boost[randomStat] = 2;
-
-			this.boost(boost);
+			
+			if (statsLowered) {
+				this.add('-ability', target, 'Subvergent');
+				this.boost({atk: 2, boost}, target, target, null, true);
+			}
 		},
 		name: "Subvergent",
 		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
