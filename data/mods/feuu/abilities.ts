@@ -5195,9 +5195,9 @@ lifedrain: {
 				let stats: BoostName[] = [];
 				const boost: SparseBoostsTable = {};
 				let statPlus: BoostName;
-				for (statPlus in pokemon.boosts) {
+				for (statPlus in target.boosts) {
 					if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-					if (pokemon.boosts[statPlus] < 6) {
+					if (target.boosts[statPlus] < 6) {
 						stats.push(statPlus);
 					}
 				}
