@@ -5193,17 +5193,24 @@ lifedrain: {
 				this.add('-ability', target, 'Subvergent');
 				this.boost({atk: 2}, target, target, null, true);
 			}
-			
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (!statsLowered) return;
 			let stats: BoostName[] = [];
+			const boost: SparseBoostsTable = {};
 			let statPlus: BoostName;
-			for (statPlus in target.boosts) {
+			for (statPlus in pokemon.boosts) {
 				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (target.boosts[statPlus] < 6) {
+				if (pokemon.boosts[statPlus] < 6) {
 					stats.push(statPlus);
 				}
 			}
 			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
 			if (randomStat) boost[randomStat] = 2;
+
+			this.boost(boost);
 		},
 		name: "Subvergent",
 		shortDesc: "Raises Atk and a random (non Acc/Eva) stat by 2 when its stats are lowered by an opponent.",
