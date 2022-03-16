@@ -789,6 +789,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 1025,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
+			if(pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
 			if (item && !item.consumable) {
 				this.debug("Swing power increase for held item");
@@ -1129,6 +1130,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Has a 30% chance to paralyze the target. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Hurricane, Smack Down, Thousand Arrows, Thunder, and Twister, which have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
+	},
+	brickbreak: {
+		inherit: true,
+		basePower: 80,
 	},
 	bugbite: {
 		inherit: true,
@@ -1762,6 +1767,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	floralhealing: {
 		inherit: true,
+		pp: 5,
 		target: "adjacentAllyOrSelf",
 		desc: "The target restores 1/2 of its maximum HP, rounded half up. If the terrain is Grassy Terrain, the target instead restores 2/3 of its maximum HP, rounded half down. IF any other terrain is set, the target instead restores 1/4 of its maximum HP, rounded half down.",
 		shortDesc: "Heals user or ally by a terrain-dependent amount.",
@@ -2841,6 +2847,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "If the target is an ally, this move restores 1/4 of its maximum HP, rounded down, instead of dealing damage.",
 		shortDesc: "If the target is an ally, heals 25% of its max HP.",
 	},
+	psychicfang: {
+		num: 706,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Psychic Fang",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cute",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic Fangs", target);
+		},
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
+		shortDesc: "Destroys screens, unless the target is immune.",
+	},
 	punishment: {
 		inherit: true,
 		basePowerCallback(pokemon, target) {
@@ -3100,6 +3134,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	shoreup: {
 		inherit: true,
+		pp: 5,
 		onHit(pokemon) {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
@@ -3392,6 +3427,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate or Limber Abilities. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/5 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully, or if any Pokemon uses Defog or Rototiller successfully.",
+	},
+	spiritbreak: {
+		inherit: true,
+		basePower: 70,
 	},
 	spitup: {
 		inherit: true,
@@ -4701,34 +4740,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "Power doubles if the user had a stat stage lowered this turn.",
 		shortDesc: "2x power if the user had a stat lowered this turn.",
-	},
-	psychicfang: {
-		num: 706,
-		accuracy: 100,
-		basePower: 85,
-		category: "Physical",
-		name: "Psychic Fang",
-		pp: 10,
-		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		onTryHit(pokemon) {
-			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Psychic')) {
-				pokemon.side.removeSideCondition('reflect');
-				pokemon.side.removeSideCondition('lightscreen');
-				pokemon.side.removeSideCondition('auroraveil');
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Cute",
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psychic Fangs", target);
-		},
-		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
-		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 	psychicfangs: {
 		name: "Psychic Fangs",
