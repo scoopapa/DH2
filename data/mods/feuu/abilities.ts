@@ -5189,18 +5189,21 @@ lifedrain: {
 					statsLowered = true;
 				}
 			}
-			let stats: BoostName[] = [];
-			let statPlus: BoostName;
-			for (statPlus in target.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (target.boosts[statPlus] < 6) {
-					stats.push(statPlus);
-				}
-			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
 			if (statsLowered) {
 				this.add('-ability', target, 'Subvergent');
-				this.boost({atk: 2, randomStat: 2}, target, target, null, true);
+				this.boost({atk: 2}, target, target, null, true);
+				let stats: BoostName[] = [];
+				let boost: SparseBoostsTable = {};
+				let statPlus: BoostName;
+				for (statPlus in target.boosts) {
+					if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+					if (target.boosts[statPlus] < 6) {
+						stats.push(statPlus);
+					}
+				}
+				let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
+				if (randomStat) boost[randomStat] = 2;
+				this.boost(boost);
 			}
 		},
 		name: "Subvergent",
