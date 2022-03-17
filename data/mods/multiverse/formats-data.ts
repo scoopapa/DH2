@@ -158,4 +158,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	avalugg: {
 		tier: "MV",
 	},
+	vikavolt: {
+		tier: "MV",
+	},
+	araquanid: {
+		tier: "MV",
+	},
+	silvallyfairy: {
+		tier: "MV",
+	},
+	mimikyu: {
+		tier: "MV",
+	},
+	tapukoko: {
+		tier: "MV",
+	},
+	tapufini: {
+		tier: "MV",
+	},
+	solgaleo: {
+		tier: "MV",
+	},
+	marshadow: {
+		tier: "MV",
+	},
 };

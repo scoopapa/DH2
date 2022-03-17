@@ -335,4 +335,71 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 231,
 	},
+	fairyaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Fairy Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (source.activeMoveActions > 1) return;
+			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+		},
+		isUnbreakable: true,
+		name: "Fairy Aura",
+		shortDesc: "On the first turn, a Fairy move used by any Pokemon has 1.33x power.",
+		rating: 3,
+		num: 187,
+	},
+	darkaura: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Dark Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (source.activeMoveActions > 1) return;
+			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+		},
+		isUnbreakable: true,
+		name: "Dark Aura",
+		shortDesc: "On the first turn, a Dark move used by any Pokemon has 1.33x power.",
+		rating: 3,
+		num: 186,
+	},
+	powerconstruct: {
+		onSourceAfterFaint(length, target, source, effect) {
+			this.add('-activate', source, 'ability: Power Construct');
+			if (source.species.id === 'zygarde10') {
+				source.formeChange('Zygarde', this.effect, true);
+				source.baseMaxhp = Math.floor(Math.floor(
+					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = source.volatiles['dynamax'] ? (2 * source.baseMaxhp) : source.baseMaxhp;
+				source.hp = newMaxHP - (source.maxhp - source.hp);
+				source.maxhp = newMaxHP;
+				this.add('-heal', source, source.getHealth, '[silent]');
+			}
+			else if (source.species.id === 'zygarde') {
+				source.formeChange('Zygarde-Complete', this.effect, true);
+				source.baseMaxhp = Math.floor(Math.floor(
+					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = source.volatiles['dynamax'] ? (2 * source.baseMaxhp) : source.baseMaxhp;
+				source.hp = newMaxHP - (source.maxhp - source.hp);
+				source.maxhp = newMaxHP;
+				this.add('-heal', source, source.getHealth, '[silent]');
+			}
+			else (source.species.id === 'zygardecomplete') return;
+		},
+		isPermanent: true,
+		name: "Power Construct",
+		shortDesc: "Zygarde transformes into its next stage if it attacks and KOes another Pokemon.",
+		rating: 5,
+		num: 211,
+	},
 };

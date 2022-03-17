@@ -290,4 +290,48 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 95, atk: 117, def: 184, spa: 44, spd: 76, spe: 28},
 		abilities: {0: "Technician", H: "Sturdy"},
 	},
+	vikavolt: {
+		inherit: true,
+		baseStats: {hp: 97, atk: 70, def: 90, spa: 140, spd: 75, spe: 53},
+		abilities: {0: "Stubborn"},
+	},
+	araquanid: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 75, def: 100, spa: 50, spd: 132, spe: 56},
+	},
+	silvally: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	silvallyfairy: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 115, def: 95, spa: 100, spd: 95, spe: 95},
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	mimikyu: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 110, def: 80, spa: 50, spd: 105, spe: 96},
+	},
+	tapukoko: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 115, def: 85, spa: 65, spd: 75, spe: 110},
+		abilities: {0: "Electric Surge"},
+	},
+	tapufini: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 75, def: 125, spa: 95, spd: 100, spe: 85},
+		abilities: {0: "Misty Surge"},
+	},
+	solgaleo: {
+		inherit: true,
+		baseStats: {hp: 137, atk: 113, def: 63, spa: 89, spd: 59, spe: 97},
+	},
+	marshadow: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 95, def: 80, spa: 90, spd: 90, spe: 90},
+	},
 };

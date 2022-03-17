@@ -29,4 +29,37 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 8,
 		shortDesc: "When held by Greninja, Dig: +20 BP & 1 turn. Single Use.",
 	},
+	kokoniumz: {
+		name: "Kokonium Z",
+		spritenum: 634,
+		onPlate: 'Electric',
+		zMove: "Gigavolt Havoc",
+		zMoveType: "Electric",
+		itemUser: ["Tapu Koko"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -3,
+		gen: 8,
+		shortDesc: "If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",
+	},
+	solgolumz: {
+		name: "Solgolum Z",
+		spritenum: 685,
+		onTakeItem: false,
+		itemUser: ["Solgaleo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move.id === 'sunsteelstrike') {
+				return this.chainModify(1.25);
+			}
+		},
+		num: -4,
+		gen: 8,
+		shortDesc: "When held by Solgaleo, Sunsteel Strike has 1.25x power. Can't be knocked off.",
+	},
 };
