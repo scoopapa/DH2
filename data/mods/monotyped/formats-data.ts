@@ -408,7 +408,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	marowak: {
-		tier: "RU",
+		tier: "NU",
 	},
 	marowakalola: {
 		tier: "Illegal",
@@ -458,7 +458,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	chansey: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	blissey: {
 		tier: "OU",
@@ -1207,7 +1207,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	zangoose: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	seviper: {
 		tier: "NU",
@@ -1979,7 +1979,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cinccino: {
-		tier: "RU",
+		tier: "NU",
 	},
 	gothita: {
 		tier: "NFE",
@@ -2628,7 +2628,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	mudsdale: {
-		tier: "NU",
+		tier: "RU",
 	},
 	dewpider: {
 		tier: "Illegal",
