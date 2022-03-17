@@ -374,6 +374,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerconstruct: {
 		onSourceAfterFaint(length, target, source, effect) {
 			this.add('-activate', source, 'ability: Power Construct');
+			if (source.species.id === 'zygardecomplete') return;
 			if (source.species.id === 'zygarde10') {
 				source.formeChange('Zygarde', this.effect, true);
 				source.baseMaxhp = Math.floor(Math.floor(
@@ -394,7 +395,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
 			}
-			else (source.species.id === 'zygardecomplete') return;
 		},
 		isPermanent: true,
 		name: "Power Construct",
