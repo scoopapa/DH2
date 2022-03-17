@@ -379,7 +379,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.formeChange('Zygarde', this.effect, true);
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
+				) * source.level / 100 + 10);
 				const newMaxHP = source.volatiles['dynamax'] ? (2 * source.baseMaxhp) : source.baseMaxhp;
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
@@ -389,7 +389,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.formeChange('Zygarde-Complete', this.effect, true);
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
+				) * source.level / 100 + 10);
 				const newMaxHP = source.volatiles['dynamax'] ? (2 * source.baseMaxhp) : source.baseMaxhp;
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
