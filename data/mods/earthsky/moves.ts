@@ -2817,6 +2817,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	powertrip: {
 		inherit: true,
 		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * (1 + pokemon.positiveBoosts());
+		},
 	},
 	present: {
 		num: 217,
@@ -3508,6 +3511,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	storedpower: {
 		inherit: true,
 		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * (1 + pokemon.positiveBoosts());
+		},
 	},
 	strangesmoke: {
 		num: 790,
