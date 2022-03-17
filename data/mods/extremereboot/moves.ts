@@ -4159,9 +4159,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multihit: 3,
 		onPrepareHit(source, target, move) {
 			const r = this.random(100);
-			if (r === 1) {
+			if (r === 0) {
 				move.multihit = 1;
-			} else if (r <= 18) {
+			} else if (r < 18) {
 				move.multihit = 2;
 			}
 		},

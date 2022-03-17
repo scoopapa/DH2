@@ -12,10 +12,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Name",
 		baseSpecies: "",
 		forme: "",
+		evos: [""],
 		types: [""],
 		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
 		abilities: {0: ""},
 		weightkg: ,
+		prevo: "",
 	},
 	*/
 
@@ -26,7 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	kabutoancient: {
-		num: -100,
+		num: -99,
 		name: "Kabuto-Ancient",
 		baseSpecies: "Kabuto",
 		forme: "Ancient",
@@ -44,7 +46,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	kabutopsancient: {
-		num: -101,
+		num: -100,
 		name: "Kabutops-Ancient",
 		baseSpecies: "Kabutops",
 		forme: "Ancient",
@@ -52,6 +54,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 115, def: 75, spa: 95, spd: 75, spe: 90},
 		abilities: {0: "Swift Swim", 1:"Battle Armor", H: "Poison Heal"},
 		weightkg: 40.5,
+		prevo: "Kabuto-Ancient",
 	},
 
 	omanyte: {
@@ -61,7 +64,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	omanyteancient: {
-		num: -102,
+		num: -101,
 		name: "Omanyte-Ancient",
 		baseSpecies: "Omanyte",
 		forme: "Ancient",
@@ -79,7 +82,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	omastarancient: {
-		num: -103,
+		num: -102,
 		name: "Omastar-Ancient",
 		baseSpecies: "Omastar",
 		forme: "Ancient",
@@ -87,6 +90,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 105, def: 95, spa: 55, spd: 75, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Shell Armor", H: "Bloodsuck"},
 		weightkg: 35,
+		prevo: "Omanyte-Ancient",
 	},
 
 	aerodactyl: {
@@ -96,7 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	aerodactylancient: {
-		num: -104,
+		num: -103,
 		name: "Aerodactyl-Ancient",
 		baseSpecies: "Aerodactyl",
 		forme: "Ancient",
@@ -113,7 +117,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	anorithancient: {
-		num: -105,
+		num: -104,
 		name: "Anorith-Ancient",
 		types: ["Bug"],
 		baseSpecies: "Anorith",
@@ -139,6 +143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 125, def: 100, spa: 70, spd: 80, spe: 75},
 		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Carboniferous"},
 		weightkg: 68.2,
+		prevo: "Anorith-Ancient",
 	},
 
 	lileep: {
@@ -174,6 +179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 90, spe: 60},
 		abilities: {0: "Regenerator"},
 		weightkg: 60,
+		prevo: "Lileep-Ancient",
 	},
 	
 	torkoal: {
@@ -222,7 +228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Swinub",
 		forme: "Ancient",
 		types: ["Ice"],
-		evos: ["Swinub-Ancient"],
+		evos: ["Piloswine-Ancient"],
 		baseStats: {hp: 50, atk: 30, def: 40, spa: 30, spd: 50, spe: 50},
 		abilities: {0: "Oblivious", 1: "Snow Cloak", H: "Adaptability"},
 		weightkg: 6.5,
@@ -244,6 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 80, def: 80, spa: 60, spd: 80, spe: 50},
 		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
 		weightkg: 55.8,
+		prevo: "Swinub-Ancient",
 	},
 
 	mamoswine: {
@@ -261,6 +268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 110, def: 80, spa: 70, spd: 80, spe: 80},
 		abilities: {0: "Oblivious", 1: "Poison Touch", H: "Oozing Tar"},
 		weightkg: 291,
+		prevo: "Piloswine-Ancient",
 	},
 
 	dodrumb: {
@@ -298,6 +306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 90, def: 110, spa: 65, spd: 75, spe: 80},
 		abilities: {0: "Corrosive Pincers", 1: "Cursed Body", H: "Swift Swim"},
 		weightkg: 0.2,
+		prevo: "Ghoulipinch",
 	},
 
 	
@@ -334,6 +343,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 70, def: 101, spa: 101, spd: 131, spe: 20},
 		abilities: {0: "Bulletproof", 1: "Leaf Guard", H: "Grassy Surge"},
 		weightkg: 149.5,
+		prevo: "Shieldon-Overgrown",
 	},
 
 	cranios: {
@@ -369,6 +379,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 107, atk: 125, def: 83, spa: 74, spd: 73, spe: 78},
 		abilities: {0: "Rock Head", H: "Mold Breaker"},
 		weightkg: 102.5,
+		prevo: "Cranidos-Cretaceous",
 	},
 
 	
@@ -406,6 +417,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 75, def: 96, spa: 85, spd: 90, spe: 140},
 		abilities: {0: "Regenerator"},
 		weightkg: 32,
+		prevo: "Archen-Ancient",
 	},
 
 	tirtouga: {
@@ -419,6 +431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tirtouga-Leatherback",
 		baseSpecies: "Tirtouga",
 		forme: "Leatherback",
+		evos: ["Carracosta-Leatherback"],
 		types: ["Ground", "Dark"],
 		baseStats: {hp: 54, atk: 78, def: 103, spa: 53, spd: 45, spe: 22},
 		abilities: {0: "Dry Skin", 1: "Sturdy", H: "Sand Rush"},
@@ -440,6 +453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 74, atk: 108, def: 133, spa: 83, spd: 65, spe: 32},
 		abilities: {0: "Dry Skin", 1: "Sturdy", H: "Sand Rush"},
 		weightkg: 81,
+		prevo: "Tirtouga-Leatherback",
 	},
 
 	tyrunt: {
@@ -475,6 +489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 121, def: 110, spa: 74, spd: 65, spe: 74},
 		abilities: {0: "Strong Jaw", H: "Iron Barbs"},
 		weightkg: 270,
+		prevo: "Tyrunt-Apex",
 	},
 
 	amaura: {
@@ -510,59 +525,62 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 77, def: 85, spa: 109, spd: 90, spe: 88},
 		abilities: {0: "Snow Warning", H:"Refrigerate"},
 		weightkg: 225,
+		prevo: "Amaura-Regnant",
 	},
 
 	/*
 	shellos: {
 		inherit: true,
-		otherFormes: ["Shellos-Entity"],
+		otherFormes: ["Shellos-Entity", "Shellos-Entity-East"],
 		formeOrder: ["Shellos", "Shellos-East", "Shellos-Entity"],
 	},
-	*/
+	
 
 	shellosentity: {
-		num: -129,
+		num: 422,
 		name: "Shellos-Entity",
-		//baseSpecies: "Shellos",
-		//baseForme: "Entity",
-		evos: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
+		baseSpecies: "Shellos",
+		baseForme: "Entity",
+		evos: ["Gastrodon-Entity"],
 		types: ["Poison"],
 		baseStats: {hp: 70, atk: 50, def: 60, spa: 50, spd: 60, spe: 40},
 		abilities: {0: "Gooey", H: "Poison Point"},
 		weightkg: 6.3,
 	},
 
-	/*
+	
 	gastrodon: {
 		inherit: true,
-		otherFormes: ["Gastrodon-Entity"],
+		otherFormes: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
 		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity", "Gastrodon-Entity-East"],
 	},
-	*/
+	
 
 	gastrodonentity: {
-		num: -130,
+		num: 423,
 		name: "Gastrodon-Entity",
-		//baseSpecies: "Gastrodon",
-		//baseForme: "Entity",
+		baseSpecies: "Gastrodon",
+		baseForme: "Entity",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 120, atk: 95, def: 60, spa: 100, spd: 50, spe: 50},
 		abilities: {0: "Gooey", H: "Damp"},
 		weightkg: 29.9,
-		otherFormes: ["Gastrodon-Entity-East"],
-		formeOrder: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
+		prevo: "Shellos-Entity",
 	},
 
 	gastrodonentityeast: {
-		num: -130,
+		num: 423,
 		name: "Gastrodon-Entity-East",
-		baseSpecies: "Gastrodon-Entity",
+		baseSpecies: "Gastrodon",
 		forme: "Entity-East",
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
+		//prevo: "Shellos-Entity",
 	},
+	*/
+	
 
 	yanma: {
 		inherit: true,
@@ -575,6 +593,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Yanma-Ancient",
 		baseSpecies: "Yanma",
 		forme: "Ancient",
+		evos: ["Yanmega-Ancient"],
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 60, atk: 80, def: 55, spa: 80, spd: 55, spe: 60},
 		abilities: {0: "Compound Eyes", H: "Chaser"},
@@ -596,6 +615,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 110, def: 70, spa: 110, spd: 70, spe: 70},
 		abilities: {0: "Strong Jaw", H: "Chaser"},
 		weightkg: 51.5,
+		prevo: "Yanma-Ancient",
 	},
 
 	tangela: {
@@ -631,5 +651,66 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 50, spa: 110, spd: 125, spe: 50},
 		abilities: {0: "Mold Breaker", 1: "Grass Pelt", H: "Absorption"},
 		weightkg: 128.6,
+		prevo: "Tangela-Ancient",
+	},
+
+	liluo: {
+		num: -135,
+		name: "Liluo",
+		evos: ["Flaruo"],
+		types: ["Fire"],
+		baseStats: {hp: 60, atk: 72, def: 40, spa: 67, spd: 57, spe: 55},
+		abilities: {0: "Lightning Rod"},
+		weightkg: 10,
+	},
+
+	flaruo: {
+		num: -136,
+		name: "Flaruo",
+		evos: ["Alohwo"],
+		types: ["Fire"],
+		baseStats: {hp: 80, atk: 86, def: 65, spa: 76, spd: 69, spe: 75},
+		abilities: {0: "Lightning Rod"},
+		weightkg: 20,
+		prevo: "Liluo",
+	},
+
+	alohwo: {
+		num: -137,
+		name: "Alohwo",
+		types: ["Fire"],
+		baseStats: {hp: 111, atk: 92, def: 70, spa: 80, spd: 79, spe: 95},
+		abilities: {0: "Thunderstruck"}, //temp
+		weightkg: 30,
+		prevo: "Flaruo",
+	},
+
+	wonkway: {
+		num: -138,
+		name: "Wonkway",
+		evos: ["Ilusinogen"],
+		types: ["Psychic", "Dark"],
+		baseStats: {hp: 73, atk: 59, def: 47, spa: 83, spd: 61, spe: 97},
+		abilities: {0: "Beast Boost"},
+		weightkg: 7.7,
+	},
+
+	illusinogen: {
+		num: -139,
+		name: "Illusinogen",
+		types: ["Psychic", "Dark"],
+		baseStats: {hp: 97, atk: 73, def: 67, spa: 101, spd: 89, spe: 113},
+		abilities: {0: "Beast Boost"},
+		weightkg: 19.7,
+		prevo: "Wonkway",
+	},
+
+	robusteel: {
+		num: -140,
+		name: "Robusteel",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 83, atk: 67, def: 94, spa: 110, spd: 95, spe: 70},
+		abilities: {0: "Mirror Armor", H: "Flare Boost"},
+		weightkg: 100,
 	},
 };

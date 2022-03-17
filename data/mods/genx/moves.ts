@@ -578,4 +578,87 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 	},
+	// Loria Region
+	purification: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Purification",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		onHit(target, source, move){
+			let b: BoostName;
+			for (b in source.boosts) {
+				if (source.boosts[b] < 0) source.boosts[b] = 0;
+			}
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	guardianwind: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Guardian Wind",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		selfSwitch: true,
+		sideCondition: 'guardianwind',
+		condition: {
+			duration: 3,
+			onBoost(boost, target, source, effect) {
+				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if (source && target !== source) {
+					let showMsg = false;
+					let i: BoostName;
+					for (i in boost) {
+						if (boost[i]! < 0) {
+							delete boost[i];
+							showMsg = true;
+						}
+					}
+					if (showMsg && !(effect as ActiveMove).secondaries) {
+						this.add('-activate', target, 'move: Guardian Wind');
+					}
+				}
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.id === 'yawn') return;
+				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if (target !== source) {
+					this.debug('interrupting setStatus');
+					if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Guardian Wind');
+					}
+					return null;
+				}
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if ((status.id === 'confusion' || status.id === 'yawn') && target !== source) {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Guardian Wind');
+					return null;
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'Guardian Wind');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 3,
+			onEnd(side) {
+				this.add('-sideend', side, 'Guardian Wind');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Flying",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
+	},
 };

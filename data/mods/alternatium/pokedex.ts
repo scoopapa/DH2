@@ -1297,6 +1297,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 18,
 		eggGroups: ["Water 1", "Flying"],
+		otherFormes: null,
+		formeOrder: null,
 	},
 	cramorantswimmer: {
 		num: 845,
@@ -1317,6 +1319,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 18,
 		eggGroups: ["Water 1", "Flying"],
+		baseSpecies: null,
+		forme: null,
 	},
 	eiscue: {
 		num: 875,

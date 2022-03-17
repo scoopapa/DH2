@@ -762,7 +762,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 23,
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
 	},
-/*
 	nostalgiatrip: {
       shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves become Normal-type.",
 		onStart(pokemon) {
@@ -775,22 +774,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.type = 'Normal';
 			}
 		},
-		onModifyMove(move) {
-			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
-			let newCategory = '';
-			for (const i in this.data.Movedex) {
-				if (!this.data.Movedex[i]) console.log(i);
-				if (this.data.Movedex[i].category === 'Status') continue;
-				newCategory = specialTypes.includes(this.data.Movedex[i].type) ? 'Special' : 'Physical';
-				if (newCategory !== this.data.Movedex[i].category) {
-					this.modData('Movedex', i).category = newCategory;
-				}
-			}
+		onModifyMovePriority: 8,
+		onModifyMove(move, pokemon) {
+			if ((move.type === 'Fire' || move.type === 'Water' || move.type === 'Grass' || move.type === 'Electric' || move.type === 'Dark' || move.type === 'Psychic' || move.type === 'Dragon')  && move.category === 'Physical') move.category = 'Special';
+			if ((move.type === 'Normal' || move.type === 'Fighting' || move.type === 'Flying' || move.type === 'Ground' || move.type === 'Rock' || move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Poison' || move.type === 'Steel')  && move.category === 'Special') move.category = 'Physical';
 		},
 		name: "Nostalgia Trip",
 		rating: 4,
 	},
-*/
 	maximumpotential: {
       shortDesc: "This Pokemon is immune to the same moves Dynamax Pokemon are immune to.",
 		onTryHit(pokemon, target, move) {

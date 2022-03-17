@@ -15,6 +15,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	togepi: {
 		inherit: true,
+		types: ["Normal"],
+		abilities: {0: "Hustle", 1: "Serene Grace", H: "Unaware"},
 	},
 	tyrogue: {
 		inherit: true,
@@ -49,6 +51,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mimejr: {
 		inherit: true,
+		abilities: {0: "Competitive", 1: "Filter", H: "Technician"},
 	},
 	happiny: {
 		inherit: true,
@@ -87,8 +90,25 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		prevo: "Crawscor",
 	},
-	armorick: {
+	sneaz: {
 		num: -2,
+		name: "Sneaz",
+		types: ["Dark", "Ice"],
+		baseStats: {hp: 40, atk: 65, def: 40, spa: 20, spd: 55, spe: 97},
+		abilities: {0: "Inner Focus", 1: "Keen Eye", H: "Pickpocket"},
+		heightm: 0.6,
+		weightkg: 20,
+		color: "Black",
+		evos: ["Sneasel"],
+		eggGroups: ["Field"],
+		canHatch: true,
+	},
+	sneasel: {
+		inherit: true,
+		prevo: "Sneaz",
+	},
+	armorick: {
+		num: -3,
 		name: "Armorick",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 45, atk: 55, def: 100, spa: 20, spd: 50, spe: 55},
@@ -105,7 +125,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Armorick",
 	},
 	dreddon: {
-		num: -3,
+		num: -4,
 		name: "Dreddon",
 		types: ["Dragon"],
 		baseStats: {hp: 48, atk: 72, def: 54, spa: 36, spd: 54, spe: 29},

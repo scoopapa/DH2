@@ -375,7 +375,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Physical",
 		shortDesc: "Has 33% recoil.",
-		name: "Sbsolute Impact",
+		name: "Absolute Impact",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},

@@ -369,13 +369,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["willowisp", "recover", "knockoff", "thunderwave", "nightshade"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	absablemegax: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["swordsdance", "knockoff", "poltergeist", "closecombat", "suckerpunch"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Absolite",
 	},
 	absablemegay: {
@@ -488,13 +488,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["swordsdance", "iceshard", "iciclecrash", "earthquake", "auroraveil"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	glasnowmega: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["closecombat", "iceshard", "iciclecrash", "earthquake"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Abomasite",
 	},
 	kokovoir: {
@@ -837,13 +837,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["superpower", "leafblade", "earthquake", "stoneedge"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	lurodactylmega: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["superpower", "leafblade", "roost", "stoneedge"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Aerodactylite",
 	},
 
@@ -1394,12 +1394,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
-	shellicham: {
+	shellitite: {
+		tier: "FELC",
+		doublesTier: "DUU",
+	},
+	gastrocham: {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
-	shellichammega: {
+	gastrochammega: {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
@@ -2008,6 +2012,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	pinchu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	buixew: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	pawnrunt: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},	
+	tyrunxel: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2048,5 +2068,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-
+	vibrachu: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
 }; 

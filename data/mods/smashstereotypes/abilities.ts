@@ -364,4 +364,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		id: "kalibersfury",
 		name: "Kaliber's Fury"
 	},
+	persistent: {
+		isNonstandard: null,
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
 };

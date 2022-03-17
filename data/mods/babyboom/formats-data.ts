@@ -59,6 +59,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	crawscor: {
 		tier: "LC",
 	},
+	sneaz: {
+		tier: "LC",
+	},
 	armorick: {
 		tier: "LC",
 	},
