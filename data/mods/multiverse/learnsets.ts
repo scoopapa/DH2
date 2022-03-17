@@ -308,7 +308,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hypervoice: ["8L1"],
 			icebeam: ["8L1"],
 			icefang: ["8L1"],
-			icywind:: ["8L1"],
+			icywind: ["8L1"],
 			imprison: ["8L1"],
 			irondefense: ["8L1"],
 			ironhead: ["8L1"],
