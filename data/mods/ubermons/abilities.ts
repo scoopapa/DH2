@@ -384,6 +384,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
+				this.add('-ability', source, 'Power Construct', '[from] ability: Aura Break', '[of] ' + source);
 				source.setAbility('powerconstruct');
 			}
 			else if (source.species.id === 'zygarde') {
