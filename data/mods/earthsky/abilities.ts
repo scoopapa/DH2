@@ -513,9 +513,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						break;
 					case 'X': //X-Out: Infinite Destiny Bond
 						this.add('-ability', pokemon, 'Glyphic Spell');
-						pokemon.addVolatile('destinybond');
-						delete pokemon.volatiles['destinybond'].onBeforeMove;
-						delete pokemon.volatiles['destinybond'].onMoveAborted;
+						pokemon.addVolatile('destinybond', 'glyphicspell');
 						break;
 					case 'Y': //Yield: Quashes foes
 						if (pokemon.side.active.length < 2) return; // fails in singles
