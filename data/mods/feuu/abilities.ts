@@ -3956,7 +3956,7 @@ lifedrain: {
 			return this.chainModify(1.5);
 		},
 		name: "Charybdis",
-		shortDesc: "This Pokemon's Special Attack is doubled.",
+		shortDesc: "This Pokemon's Special Attack is 1.5x.",
 	},
 	frozendish: {
 		onPrepareHit(source, target, move) {

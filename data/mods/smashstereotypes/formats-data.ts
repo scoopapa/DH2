@@ -235,4 +235,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	primeape: {
 		tier: "SSS",
 	},
+	teslaple: {
+		tier: "SSS",
+	},
+	octapex: {
+		tier: "SSS",
+	},
+	idk: {
+		tier: "SSS",
+	},
 };
