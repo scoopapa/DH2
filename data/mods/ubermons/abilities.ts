@@ -377,6 +377,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (source.species.id === 'zygardecomplete') return;
 			if (source.species.id === 'zygarde10') {
 				source.formeChange('Zygarde', this.effect, true);
+				source.setAbility('powerconstruct');
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
 				) * source.level / 100 + 10);
