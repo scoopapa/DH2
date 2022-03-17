@@ -384,8 +384,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-				const abilities = species.abilities;
-				source.abilities[H];
+				source.setAbility('powerconstruct');
 			}
 			else if (source.species.id === 'zygarde') {
 				source.formeChange('Zygarde-Complete', this.effect, true);
