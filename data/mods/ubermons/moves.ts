@@ -466,7 +466,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
 		onHit(pokemon) {
-			if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate') {
+			if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) {
 				pokemon.addVolatile('smackdown');
 			}
 		},
