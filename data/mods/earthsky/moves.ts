@@ -4064,6 +4064,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if(!this.effectData.source === 'glyphicspell') pokemon.removeVolatile('destinybond');
 			},
 		},
+	}.
 	disable: {
 		inherit: true,
 		condition: {
