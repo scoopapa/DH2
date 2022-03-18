@@ -62,28 +62,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	pikachuoriginal: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachuhoenn: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachusinnoh: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachuunova: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachukalos: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachualola: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachupartner: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	pikachuworld: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	raichu: {
 		tier: "NU",
@@ -566,7 +566,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	ditto: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	eevee: {
 		tier: "LC",
@@ -795,7 +795,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 	},
 	unown: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	wynaut: {
 		tier: "LC",
@@ -975,7 +975,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	mightyena: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	zigzagoon: {
 		tier: "NFE",
@@ -1097,7 +1097,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	delcatty: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	sableye: {
 		tier: "Illegal",
@@ -1129,16 +1129,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	plusle: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	minun: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	volbeat: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	illumise: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	budew: {
 		tier: "Illegal",
@@ -1266,7 +1266,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	castform: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	castformsunny: {
 	},
@@ -1346,7 +1346,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	luvdisc: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	bagon: {
 		tier: "LC",
@@ -1479,7 +1479,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cherrim: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	cherrimsunshine: {
 	},
@@ -1648,7 +1648,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	phione: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	manaphy: {
 		tier: "Uber",
@@ -1742,7 +1742,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	watchog: {
-		tier: "NU",
+		tier: "(PU)",
 	},
 	lillipup: {
 		tier: "LC",
