@@ -32,9 +32,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	kokoniumz: {
 		name: "Kokonium Z",
 		spritenum: 634,
-		onPlate: 'Electric',
 		zMove: "Gigavolt Havoc",
-		zMoveType: "Electric",
+		zMoveFrom: "Wild Charge",
 		itemUser: ["Tapu Koko"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
