@@ -33,7 +33,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Kokonium Z",
 		spritenum: 634,
 		zMove: "Gigavolt Havoc",
-		zMoveFrom: "Wild Charge",
+		zMoveFrom: ["Wild Charge", "Thunder Punch", "Volt Switch", "Thunder Wave", "Charge", "Eerie Impulse", "Electric Terrain", "Electro Ball", "Electroweb", "Shock Wave", "Spark", "Thunder Shock"],
 		itemUser: ["Tapu Koko"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
@@ -41,7 +41,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -3,
 		gen: 8,
-		shortDesc: "If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",
+		shortDesc: "(Bugged) If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",
 	},
 	solgolumz: {
 		name: "Solgolum Z",
