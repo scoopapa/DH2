@@ -32,7 +32,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	kokoniumz: {
 		name: "Kokonium Z",
 		spritenum: 634,
-		zMove: "Gigavolt Havoc",
+		zMove: true,
 		zMoveFrom: ["Wild Charge", "Thunder Punch", "Volt Switch", "Thunder Wave", "Charge", "Eerie Impulse", "Electric Terrain", "Electro Ball", "Electroweb", "Shock Wave", "Spark", "Thunder Shock"],
 		itemUser: ["Tapu Koko"],
 		onTakeItem(item, source) {
