@@ -28,7 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	kabutoancient: {
-		num: -100,
+		num: -99,
 		name: "Kabuto-Ancient",
 		baseSpecies: "Kabuto",
 		forme: "Ancient",
@@ -46,7 +46,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	kabutopsancient: {
-		num: -101,
+		num: -100,
 		name: "Kabutops-Ancient",
 		baseSpecies: "Kabutops",
 		forme: "Ancient",
@@ -64,7 +64,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	omanyteancient: {
-		num: -102,
+		num: -101,
 		name: "Omanyte-Ancient",
 		baseSpecies: "Omanyte",
 		forme: "Ancient",
@@ -82,7 +82,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	omastarancient: {
-		num: -103,
+		num: -102,
 		name: "Omastar-Ancient",
 		baseSpecies: "Omastar",
 		forme: "Ancient",
@@ -100,7 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	aerodactylancient: {
-		num: -104,
+		num: -103,
 		name: "Aerodactyl-Ancient",
 		baseSpecies: "Aerodactyl",
 		forme: "Ancient",
@@ -117,7 +117,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	anorithancient: {
-		num: -105,
+		num: -104,
 		name: "Anorith-Ancient",
 		types: ["Bug"],
 		baseSpecies: "Anorith",
@@ -228,7 +228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Swinub",
 		forme: "Ancient",
 		types: ["Ice"],
-		evos: ["Swinub-Ancient"],
+		evos: ["Piloswine-Ancient"],
 		baseStats: {hp: 50, atk: 30, def: 40, spa: 30, spd: 50, spe: 50},
 		abilities: {0: "Oblivious", 1: "Snow Cloak", H: "Adaptability"},
 		weightkg: 6.5,
@@ -431,6 +431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tirtouga-Leatherback",
 		baseSpecies: "Tirtouga",
 		forme: "Leatherback",
+		evos: ["Carracosta-Leatherback"],
 		types: ["Ground", "Dark"],
 		baseStats: {hp: 54, atk: 78, def: 103, spa: 53, spd: 45, spe: 22},
 		abilities: {0: "Dry Skin", 1: "Sturdy", H: "Sand Rush"},
@@ -650,7 +651,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 50, spa: 110, spd: 125, spe: 50},
 		abilities: {0: "Mold Breaker", 1: "Grass Pelt", H: "Absorption"},
 		weightkg: 128.6,
-		prevo: "Tanglea-Ancient",
+		prevo: "Tangela-Ancient",
 	},
 
 	liluo: {
