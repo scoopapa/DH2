@@ -122,21 +122,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 18.1,
 	},
 
-
 	fortification: {
-		desc: "This Pokemon's Attack and Defense are raised by 1 stage at the end of each full turn it has been on the field.",
-		shortDesc: "This Pokemon's Attack and Defense are raised 1 stage at the end of each full turn on the field.",
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (pokemon.activeTurns) {
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
 				this.boost({atk: 1, def: 1});
 			}
 		},
 		name: "Fortification",
-		rating: 4.5,
-		num: 22.1,
-	},   
+		rating: 2,
+		num: 20121,
+	},
+   
 	birdup: {
 		shortdesc: "The user becomes Bird-type, all 12 types combined.",
 		onStart(pokemon) {
