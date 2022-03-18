@@ -130,6 +130,54 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'sliggoo').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'sliggoo').learnset.surf = ['8L1'];
 		this.modData('Learnsets', 'sliggoo').learnset.bodypress = ['8L1'];
+		
+		
+		//Generation 7
+		this.modData('Learnsets', 'vikavolt').learnset.chillburst = ['8L1'];
+		
+		this.modData('Learnsets', 'araquanid').learnset.uturn = ['8L1'];
+		this.modData('Learnsets', 'araquanid').learnset.aquajet = ['8L1'];
+		this.modData('Learnsets', 'araquanid').learnset.taunt = ['8L1'];
+		
+		this.modData('Learnsets', 'mimikyu').learnset.spiritbreak = ['8L1'];
+		this.modData('Learnsets', 'mimikyu').learnset.spiritshackle = ['8L1'];
+		delete this.modData('Learnsets', 'mimikyu').learnset.bulkup;
+		delete this.modData('Learnsets', 'mimikyu').learnset.swordsdance;
+		
+		this.modData('Learnsets', 'tapukoko').learnset.icefang = ['8L1'];
+		delete this.modData('Learnsets', 'tapukoko').learnset.calmmind;
+		delete this.modData('Learnsets', 'tapukoko').learnset.thunder;
+		delete this.modData('Learnsets', 'tapukoko').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'tapukoko').learnset.dazzlinggleam;
+		delete this.modData('Learnsets', 'tapukoko').learnset.grassknot;
+		delete this.modData('Learnsets', 'tapukoko').learnset.lightscreen;
+		delete this.modData('Learnsets', 'tapukoko').learnset.reflect;
+		
+		this.modData('Learnsets', 'tapufini').learnset.foggymist = ['8L1'];
+		delete this.modData('Learnsets', 'tapufini').learnset.defog;
+		delete this.modData('Learnsets', 'tapufini').learnset.drainingkiss;
+		
+		this.modData('Learnsets', 'solgaleo').learnset.partingshot = ['8L1'];
+		this.modData('Learnsets', 'solgaleo').learnset.icefang = ['8L1'];
+		delete this.modData('Learnsets', 'solgaleo').learnset.morningsun;
+		
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforce = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcebug = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcedark = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcedragon = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforceelectric = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcefighting = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcefire = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforceflying = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforceghost = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcegrass = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforceground = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforceice = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcepoison = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcepsychic = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcerock = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcesteel = ['8L1'];
+		this.modData('Learnsets', 'marshadow').learnset.hiddenforcewater = ['8L1'];
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers

@@ -371,4 +371,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -4,
 	},
+	veteran: {
+		shortDesc: "Sniper + Merciless; If a move crits, it poisons the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move.crit) {
+				this.debug('Sniper boost');
+				source.trySetStatus('psn', target);
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Veteran",
+	},
+	mythicswordsman: {
+		shortDesc: "The Pokémon's contact moves become special.",
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				if (move.category !== 'Special') move.category = 'Special';
+			}
+		},
+		name: "Mythic Swordsman",
+		rating: 3,
+		num: -1012,
+	},
 };

@@ -1,32 +1,3 @@
-/*
-
-List of flags and their descriptions:
-
-authentic: Ignores a target's substitute.
-bite: Power is multiplied by 1.5 when used by a Pokemon with the Strong Jaw Ability.
-bullet: Has no effect on Pokemon with the Bulletproof Ability.
-charge: The user is unable to make a move between turns.
-contact: Makes contact.
-dance: When used by a Pokemon, other Pokemon with the Dancer Ability can attempt to execute the same move.
-defrost: Thaws the user if executed successfully while the user is frozen.
-distance: Can target a Pokemon positioned anywhere in a Triple Battle.
-gravity: Prevented from being executed or selected during Gravity's effect.
-heal: Prevented from being executed or selected during Heal Block's effect.
-mirror: Can be copied by Mirror Move.
-mystery: Unknown effect.
-nonsky: Prevented from being executed or selected in a Sky Battle.
-powder: Has no effect on Grass-type Pokemon, Pokemon with the Overcoat Ability, and Pokemon holding Safety Goggles.
-protect: Blocked by Detect, Protect, Spiky Shield, and if not a Status move, King's Shield.
-pulse: Power is multiplied by 1.5 when used by a Pokemon with the Mega Launcher Ability.
-punch: Power is multiplied by 1.2 when used by a Pokemon with the Iron Fist Ability.
-recharge: If this move is successful, the user must recharge on the following turn and cannot make a move.
-reflectable: Bounced back to the original user by Magic Coat or the Magic Bounce Ability.
-snatch: Can be stolen from the original user and instead used by another Pokemon using Snatch.
-sound: Has no effect on Pokemon with the Soundproof Ability.
-
-*/
-
-
 export const Moves: {[moveid: string]: MoveData} = {
 	technoblast: {
 		num: 546,
@@ -450,5 +421,74 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+	},
+	geomancy: {
+		num: 601,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User loses 33% of its max HP. +1 to all stats.",
+		name: "Geomancy",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, sound: 1, dance: 1},
+		onTryHit(pokemon, target, move) {
+			if (pokemon.hp <= (pokemon.maxhp * 33 / 100) || pokemon.maxhp === 1) {
+				return false;
+			}
+			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
+			delete move.boosts;
+		},
+		onHit(pokemon) {
+			this.directDamage(pokemon.maxhp * 33 / 100);
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	thousandarrows: {
+		num: 614,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "Grounds adjacent foes. Removes the target's Ground immunity.",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onHit(pokemon) {
+			if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) {
+				pokemon.addVolatile('smackdown');
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	landswrath: {
+		num: 616,
+		accuracy: 90,
+		basePower: 110,
+		category: "Physical",
+		name: "Land's Wrath",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 185},
+		contestType: "Beautiful",
 	},
 };
