@@ -2749,7 +2749,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 	},
 	silvallypoison: {
-		tier: "UU",
+		tier: "NU",
 	},
 	silvallypsychic: {
 		tier: "NU",
