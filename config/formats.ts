@@ -2981,9 +2981,9 @@ export const Formats: FormatList = [
         banlist: ['All Pokemon'],
         unbanlist: [
              'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch',
-    ],
+		],
             
-    onSwitchIn(pokemon) {
+		onSwitchIn(pokemon) {
             this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
         },    
     },
