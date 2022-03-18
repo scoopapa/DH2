@@ -41,7 +41,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -3,
 		gen: 8,
-		shortDesc: "(Bugged) If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",
+		shortDesc: "If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",
 	},
 	solgolumz: {
 		name: "Solgolum Z",
