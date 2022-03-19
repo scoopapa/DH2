@@ -6,6 +6,7 @@ export const Scripts: BattleScriptsData = {
 	   this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
 	   this.modData('Learnsets', 'darmanitan').learnset.thunderouskick = ['8L1'];
 	   this.modData('Learnsets', 'zoroark').learnset.moonblast = ['8L1'];
+		this.modData('Learnsets', 'haxorus').learnset.ironhead = ['8L1'];
 	   this.modData('Learnsets', 'thundurus').learnset.spikes = ['8L1'];
 	   this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
 	   this.modData('Learnsets', 'mudsdale').learnset.shoreup = ['8L1'];
