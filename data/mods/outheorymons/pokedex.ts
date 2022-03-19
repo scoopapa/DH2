@@ -19,6 +19,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Ground"],
 	}, 
+	darmanitan: {
+		inherit: true,
+		types: ["Fire", "Fighting"],
+	},
 	haxorus: {
 		inherit: true,
 		types: ["Dragon", "Steel"],
@@ -31,18 +35,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 125, def: 110, spa: 55, spd: 85, spe: 35},
 	}, 
+	salazzle: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 64, def: 60, spa: 121, spd: 60, spe: 117},
+	},
+	dhelmise: {
+		inherit: true,
+		types: ["Ghost", "Steel"],
+	},
+	turtonator: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 78, def: 135, spa: 91, spd: 85, spe: 36},
+	},
 	obstagoon: {
 		inherit: true,
 		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 105},
 	}, 
-	zarude: {
-      inherit: true,
-		baseStats: {hp: 105, atk: 110, def: 105, spa: 80, spd: 95, spe: 105},
-      abilities: {0: "Leaf Guard", H: "Tough Claws"},
-   },
-	zarudedada: {
-      inherit: true,
-		baseStats: {hp: 105, atk: 110, def: 105, spa: 80, spd: 95, spe: 105},
-      abilities: {0: "Leaf Guard", H: "Tough Claws"},
-   },
 };
