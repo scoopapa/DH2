@@ -209,4 +209,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 110, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
 		abilities: {0: "Shadow Shield", H: "Illuminate"},
 	},
+	xerneas: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 104, def: 75, spa: 107, spd: 98, spe: 79},
+	},
+	yveltal: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 98, def: 80, spa: 97, spd: 100, spe: 89},
+	},
+	zygarde: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 120, def: 101, spa: 91, spd: 115, spe: 65},
+	},
+	zygardecomplete: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 130, def: 141, spa: 121, spd: 145, spe: 55},
+	},
 };

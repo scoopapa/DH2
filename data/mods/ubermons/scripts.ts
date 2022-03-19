@@ -125,6 +125,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'solgaleo').learnset.firelash = ['8L1'];
 		
 		this.modData('Learnsets', 'lunala').learnset.spiritbreak = ['8L1'];
+		
+		delete this.modData('Learnsets', 'xerneas').learnset.focusblast;
+		
+		this.modData('Learnsets', 'yveltal').learnset.nastyplot = ['8L1'];
+		
+		delete this.modData('Learnsets', 'zygarde').learnset.coil;
+		delete this.modData('Learnsets', 'zygarde').learnset.dragondance;
+		this.modData('Learnsets', 'zygarde').learnset.calmmind = ['8L1'];
+		this.modData('Learnsets', 'zygarde').learnset.flamethrower = ['8L1'];
+		this.modData('Learnsets', 'zygarde').learnset.sludgebomb = ['8L1'];
 	},
 	
 	pokemon: {

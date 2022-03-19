@@ -363,7 +363,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'D': //Dry: Desolate Land
 						this.field.setWeather('desolateland');
 						break;
-					case 'F': //Fear: Attack/Sp. Attack/Sp. Defense -1 on foes
+					case 'F': //Fear: Attack/Sp. Attack/Speed -2 on foes
 						for (const target of pokemon.side.foe.active) {
 							if (!target) continue;
 							if(!activated){
@@ -404,7 +404,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							}
 						}
 						break;
-					case 'J': //Join: Split all stats
+					case 'J': //Join: Pain Split, split all stats
+						const targetHP = oppositeFoe.getUndynamaxedHP();
+						const averagehp = Math.floor((targetHP + pokemon.hp) / 2) || 1;
+						const targetChange = targetHP - averagehp;
+						oppositeFoe.sethp(oppositeFoe.hp - targetChange);
+						this.add('-sethp', oppositeFoe, oppositeFoe.getHealth, '[from] move: Pain Split', '[silent]');
+						pokemon.sethp(averagehp);
+						this.add('-sethp', pokemon, pokemon.getHealth, '[from] move: Pain Split', '[silent]');
 						const newatk = Math.floor((oppositeFoe.storedStats.atk + pokemon.storedStats.atk) / 2);
 						oppositeFoe.storedStats.atk = newatk;
 						pokemon.storedStats.atk = newatk;
@@ -504,10 +511,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'W': //Weird: Psychic Surge
 						this.field.setTerrain('psychicterrain');
 						break;
-					case 'X': //X-Out: Destiny Bond
+					case 'X': //X-Out: Infinite Destiny Bond
 						this.add('-ability', pokemon, 'Glyphic Spell');
-						pokemon.addVolatile('destinybond');
-						pokemon.volatiles['destinybond'].duration = 0;
+						pokemon.addVolatile('destinybond', 'glyphicspell');
 						break;
 					case 'Y': //Yield: Quashes foes
 						if (pokemon.side.active.length < 2) return; // fails in singles
@@ -733,7 +739,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		G - Grow:		Unown's Attack, Defense, Sp. Attack, Sp. Defense, and Speed are raised one stage. Every time Unown scores a KO, all of them raise again.
 		H - Heal:		Fully restores Unown's HP and cures its status conditions.
 		I - Invert:		All foes' stat changes are inverted, and stat changes made to Unown will have the opposite effect.
-		J - Join:		The non-HP stats of Unown and its direct opponent are added up and then split evenly between them.
+		J - Join:		The HPs and non-HP stats of Unown and its direct opponent are added up and then split evenly between them.
 		K - Klepto:		Steals the item of its direct opponent, then removes all remaining foes' items.
 		L - Loop:		All foes are inflicted with an Encore.
 		M - Mirror:		Summons Wonder Room for five turns. Grants Unown the effects of Magic Bounce.
@@ -1377,7 +1383,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	//Klutz preventing Speed drops from training items implemented in items.ts on the items themselves.
+	klutz: {
+		//Preventing Speed drops from training items implemented in items.ts on the items themselves.
+		desc: "This Pokemon's held item has no effect. This Pokemon cannot use Fling successfully, and Swing will not have its power boosted if an appropriate item is held.",
+		shortDesc: "This Pokemon's held item has no effect. Fling cannot be used.",
+	},
 	leafguard: {
 		inherit: true,
 		onBoost(boost, target, source, effect) {

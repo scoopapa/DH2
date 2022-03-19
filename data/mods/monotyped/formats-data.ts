@@ -47,13 +47,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	raticate: {
-		tier: "RU",
+		tier: "NU",
 	},
 	ekans: {
 		tier: "LC",
 	},
 	arbok: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pichu: {
 		tier: "LC",
@@ -62,31 +62,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	pikachuoriginal: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachuhoenn: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachusinnoh: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachuunova: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachukalos: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachualola: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachupartner: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	pikachuworld: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	raichu: {
-		tier: "RU",
+		tier: "NU",
 	},
 	raichualola: {
 		tier: "Illegal",
@@ -100,7 +100,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	sandslash: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sandslashalola: {
 		tier: "Illegal",
@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	ninetales: {
-		tier: "RU",
+		tier: "NU",
 	},
 	ninetalesalola: {
 		tier: "Illegal",
@@ -185,7 +185,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	bellossom: {
-		tier: "RU",
+		tier: "NU",
 	},
 	diglett: {
 		tier: "LC",
@@ -195,7 +195,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	dugtrio: {
-		tier: "RU",
+		tier: "NU",
 	},
 	dugtrioalola: {
 		tier: "Illegal",
@@ -211,25 +211,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	persian: {
-		tier: "RU",
+		tier: "NU",
 	},
 	persianalola: {
-		tier: "RU",
+		tier: "NU",
 	},
 	perrserker: {
-		tier: "RU",
+		tier: "NU",
 	},
 	psyduck: {
 		tier: "LC",
 	},
 	golduck: {
-		tier: "RU",
+		tier: "NU",
 	},
 	mankey: {
 		tier: "LC",
 	},
 	primeape: {
-		tier: "RU",
+		tier: "NU",
 	},
 	growlithe: {
 		tier: "LC",
@@ -286,7 +286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	rapidash: {
-		tier: "RU",
+		tier: "NU",
 	},
 	rapidashgalar: {
 		tier: "Illegal",
@@ -345,7 +345,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	muk: {
-		tier: "RU",
+		tier: "NU",
 	},
 	shellder: {
 		tier: "LC",
@@ -378,19 +378,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	hypno: {
-		tier: "RU",
+		tier: "NU",
 	},
 	krabby: {
 		tier: "LC",
 	},
 	kingler: {
-		tier: "RU",
+		tier: "NU",
 	},
 	voltorb: {
 		tier: "LC",
 	},
 	electrode: {
-		tier: "RU",
+		tier: "NU",
 	},
 	exeggcute: {
 		tier: "Illegal",
@@ -408,7 +408,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	marowak: {
-		tier: "RU",
+		tier: "NU",
 	},
 	marowakalola: {
 		tier: "Illegal",
@@ -418,19 +418,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	hitmonlee: {
-		tier: "RU",
+		tier: "NU",
 	},
 	hitmonchan: {
-		tier: "RU",
+		tier: "NU",
 	},
 	hitmontop: {
-		tier: "RU",
+		tier: "NU",
 	},
 	lickitung: {
 		tier: "LC",
 	},
 	lickilicky: {
-		tier: "RU",
+		tier: "NU",
 	},
 	koffing: {
 		tier: "LC",
@@ -458,7 +458,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	chansey: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	blissey: {
 		tier: "OU",
@@ -489,7 +489,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	seaking: {
-		tier: "RU",
+		tier: "NU",
 	},
 	staryu: {
 		tier: "LC",
@@ -537,7 +537,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	electivire: {
-		tier: "RU",
+		tier: "NU",
 	},
 	magby: {
 		tier: "LC",
@@ -549,7 +549,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	pinsir: {
-		tier: "RU",
+		tier: "NU",
 	},
 	tauros: {
 		tier: "OU",
@@ -566,31 +566,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	ditto: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	eevee: {
 		tier: "LC",
 	},
 	vaporeon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	jolteon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	flareon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	espeon: {
 		tier: "RU",
 	},
 	umbreon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	leafeon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	glaceon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sylveon: {
 		tier: "UU",
@@ -602,7 +602,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	porygonz: {
-		tier: "RU",
+		tier: "NU",
 	},
 	omanyte: {
 		tier: "Illegal",
@@ -680,7 +680,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	meganium: {
-		tier: "RU",
+		tier: "NU",
 	},
 	cyndaquil: {
 		tier: "LC",
@@ -704,7 +704,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	furret: {
-		tier: "RU",
+		tier: "NU",
 	},
 	hoothoot: {
 		tier: "Illegal",
@@ -748,7 +748,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	ampharos: {
-		tier: "RU",
+		tier: "NU",
 	},
 	azurill: {
 		tier: "Illegal",
@@ -766,19 +766,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	sudowoodo: {
-		tier: "RU",
+		tier: "NU",
 	},
 	aipom: {
 		tier: "NFE",
 	},
 	ambipom: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sunkern: {
 		tier: "LC",
 	},
 	sunflora: {
-		tier: "RU",
+		tier: "NU",
 	},
 	wooper: {
 		tier: "Illegal",
@@ -792,28 +792,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	mismagius: {
-		tier: "RU",
+		tier: "NU",
 	},
 	unown: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	wynaut: {
 		tier: "LC",
 	},
 	wobbuffet: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pineco: {
 		tier: "LC",
 	},
 	dunsparce: {
-		tier: "RU",
+		tier: "NU",
 	},
 	snubbull: {
 		tier: "LC",
 	},
 	granbull: {
-		tier: "RU",
+		tier: "NU",
 	},
 	qwilfish: {
 		tier: "Illegal",
@@ -839,7 +839,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	ursaring: {
-		tier: "RU",
+		tier: "NU",
 	},
 	slugma: {
 		tier: "LC",
@@ -868,13 +868,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	cursola: {
-		tier: "RU",
+		tier: "NU",
 	},
 	remoraid: {
 		tier: "LC",
 	},
 	octillery: {
-		tier: "RU",
+		tier: "NU",
 	},
 	delibird: {
 		tier: "Illegal",
@@ -899,13 +899,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	stantler: {
-		tier: "RU",
+		tier: "NU",
 	},
 	smeargle: {
-		tier: "RU",
+		tier: "NU",
 	},
 	miltank: {
-		tier: "RU",
+		tier: "NU",
 	},
 	raikou: {
 		tier: "UU",
@@ -975,7 +975,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	mightyena: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	zigzagoon: {
 		tier: "NFE",
@@ -985,7 +985,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	linoone: {
-		tier: "RU",
+		tier: "NU",
 	},
 	linoonegalar: {
 		tier: "Illegal",
@@ -1061,7 +1061,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	slaking: {
-		tier: "RU",
+		tier: "NU",
 	},
 	nincada: {
 		tier: "Illegal",
@@ -1097,7 +1097,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	delcatty: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	sableye: {
 		tier: "Illegal",
@@ -1123,22 +1123,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	manectric: {
-		tier: "RU",
+		tier: "NU",
 	},
 	manectricmega: {
 		tier: "OU",
 	},
 	plusle: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	minun: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	volbeat: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	illumise: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	budew: {
 		tier: "Illegal",
@@ -1156,7 +1156,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	swalot: {
-		tier: "RU",
+		tier: "NU",
 	},
 	carvanha: {
 		tier: "Illegal",
@@ -1170,7 +1170,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	wailord: {
-		tier: "RU",
+		tier: "NU",
 	},
 	torkoal: {
 		tier: "RU",
@@ -1179,10 +1179,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	grumpig: {
-		tier: "RU",
+		tier: "NU",
 	},
 	spinda: {
-		tier: "RU",
+		tier: "NU",
 	},
 	trapinch: {
 		tier: "LC",
@@ -1207,10 +1207,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	zangoose: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	seviper: {
-		tier: "RU",
+		tier: "NU",
 	},
 	lunatone: {
 		tier: "Illegal",
@@ -1266,7 +1266,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	castform: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	castformsunny: {
 	},
@@ -1275,13 +1275,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	castformsnowy: {
 	},
 	kecleon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	shuppet: {
 		tier: "LC",
 	},
 	banette: {
-		tier: "RU",
+		tier: "NU",
 	},
 	banettemega: {
 		tier: "UU",
@@ -1293,16 +1293,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	dusknoir: {
-		tier: "RU",
+		tier: "NU",
 	},
 	chingling: {
 		tier: "LC",
 	},
 	chimecho: {
-		tier: "RU",
+		tier: "NU",
 	},
 	absol: {
-		tier: "RU",
+		tier: "NU",
 	},
 	absolmega: {
 		tier: "UU",
@@ -1311,7 +1311,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	glalie: {
-		tier: "RU",
+		tier: "NU",
 	},
 	glaliemega: {
 		tier: "UU",
@@ -1336,17 +1336,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	huntail: {
-		tier: "RU",
+		tier: "NU",
 	},
 	gorebyss: {
-		tier: "RU",
+		tier: "NU",
 	},
 	relicanth: {
 		tier: "Illegal",
 		isNonstandard: "Past",
 	},
 	luvdisc: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	bagon: {
 		tier: "LC",
@@ -1374,7 +1374,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	regice: {
-		tier: "RU",
+		tier: "NU",
 	},
 	registeel: {
 		tier: "OU",
@@ -1438,7 +1438,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	kricketune: {
-		tier: "RU",
+		tier: "NU",
 	},
 	shinx: {
 		tier: "LC",
@@ -1447,13 +1447,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	luxray: {
-		tier: "RU",
+		tier: "NU",
 	},
 	cranidos: {
 		tier: "LC",
 	},
 	rampardos: {
-		tier: "RU",
+		tier: "NU",
 	},
 	burmy: {
 		tier: "LC",
@@ -1467,19 +1467,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	pachirisu: {
-		tier: "RU",
+		tier: "NU",
 	},
 	buizel: {
 		tier: "LC",
 	},
 	floatzel: {
-		tier: "RU",
+		tier: "NU",
 	},
 	cherubi: {
 		tier: "LC",
 	},
 	cherrim: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	cherrimsunshine: {
 	},
@@ -1502,13 +1502,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lopunny: {
-		tier: "RU",
+		tier: "NU",
 	},
 	glameow: {
 		tier: "LC",
 	},
 	purugly: {
-		tier: "RU",
+		tier: "NU",
 	},
 	stunky: {
 		tier: "Illegal",
@@ -1572,13 +1572,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	carnivine: {
-		tier: "RU",
+		tier: "NU",
 	},
 	finneon: {
 		tier: "LC",
 	},
 	lumineon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	snover: {
 		tier: "Illegal",
@@ -1613,13 +1613,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	uxie: {
-		tier: "RU",
+		tier: "NU",
 	},
 	mesprit: {
 		tier: "RU",
 	},
 	azelf: {
-		tier: "UU",
+		tier: "OU",
 	},
 	dialga: {
 		tier: "Illegal",
@@ -1634,7 +1634,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	regigigas: {
-		tier: "RU",
+		tier: "NU",
 	},
 	giratina: {
 		tier: "Illegal",
@@ -1645,10 +1645,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	cresselia: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	phione: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	manaphy: {
 		tier: "Uber",
@@ -1657,7 +1657,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	shaymin: {
-		tier: "RU",
+		tier: "UU",
 	},
 	arceus: {
 		tier: "AG",
@@ -1736,13 +1736,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	samurott: {
-		tier: "RU",
+		tier: "NU",
 	},
 	patrat: {
 		tier: "LC",
 	},
 	watchog: {
-		tier: "RU",
+		tier: "(PU)",
 	},
 	lillipup: {
 		tier: "LC",
@@ -1751,37 +1751,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	stoutland: {
-		tier: "RU",
+		tier: "NU",
 	},
 	purrloin: {
 		tier: "LC",
 	},
 	liepard: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pansage: {
 		tier: "LC",
 	},
 	simisage: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pansear: {
 		tier: "LC",
 	},
 	simisear: {
-		tier: "RU",
+		tier: "NU",
 	},
 	panpour: {
 		tier: "LC",
 	},
 	simipour: {
-		tier: "RU",
+		tier: "NU",
 	},
 	munna: {
 		tier: "LC",
 	},
 	musharna: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pidove: {
 		tier: "Illegal",
@@ -1799,7 +1799,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	zebstrika: {
-		tier: "RU",
+		tier: "NU",
 	},
 	roggenrola: {
 		tier: "LC",
@@ -1849,10 +1849,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	throh: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sawk: {
-		tier: "RU",
+		tier: "NU",
 	},
 	venipede: {
 		tier: "Illegal",
@@ -1878,13 +1878,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lilligant: {
-		tier: "RU",
+		tier: "NU",
 	},
 	basculin: {
-		tier: "RU",
+		tier: "NU",
 	},
 	basculinbluestriped: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sandile: {
 		tier: "Illegal",
@@ -1911,7 +1911,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	maractus: {
-		tier: "RU",
+		tier: "NU",
 	},
 	dwebble: {
 		tier: "Illegal",
@@ -1973,13 +1973,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	zoroark: {
-		tier: "RU",
+		tier: "NU",
 	},
 	minccino: {
 		tier: "LC",
 	},
 	cinccino: {
-		tier: "RU",
+		tier: "NU",
 	},
 	gothita: {
 		tier: "NFE",
@@ -1988,7 +1988,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	gothitelle: {
-		tier: "RU",
+		tier: "NU",
 	},
 	solosis: {
 		tier: "LC",
@@ -2006,7 +2006,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	vanilluxe: {
-		tier: "RU",
+		tier: "NU",
 	},
 	emolga: {
 		tier: "Illegal",
@@ -2061,7 +2061,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	klinklang: {
-		tier: "RU",
+		tier: "NU",
 	},
 	tynamo: {
 		tier: "LC",
@@ -2076,7 +2076,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	beheeyem: {
-		tier: "RU",
+		tier: "NU",
 	},
 	litwick: {
 		tier: "Illegal",
@@ -2103,7 +2103,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	beartic: {
-		tier: "RU",
+		tier: "NU",
 	},
 	cryogonal: {
 		tier: "UU",
@@ -2148,7 +2148,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	bouffalant: {
-		tier: "RU",
+		tier: "NU",
 	},
 	rufflet: {
 		tier: "Illegal",
@@ -2167,7 +2167,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	heatmor: {
-		tier: "RU",
+		tier: "NU",
 	},
 	durant: {
 		tier: "Illegal",
@@ -2331,7 +2331,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	gogoat: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pancham: {
 		tier: "LC",
@@ -2341,16 +2341,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	furfrou: {
-		tier: "RU",
+		tier: "NU",
 	},
 	espurr: {
 		tier: "LC",
 	},
 	meowstic: {
-		tier: "RU",
+		tier: "NU",
 	},
 	meowsticf: {
-		tier: "RU",
+		tier: "NU",
 	},
 	honedge: {
 		tier: "Illegal",
@@ -2368,13 +2368,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	aromatisse: {
-		tier: "RU",
+		tier: "NU",
 	},
 	swirlix: {
 		tier: "NFE",
 	},
 	slurpuff: {
-		tier: "RU",
+		tier: "NU",
 	},
 	inkay: {
 		tier: "Illegal",
@@ -2404,7 +2404,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	clawitzer: {
-		tier: "RU",
+		tier: "NU",
 	},
 	helioptile: {
 		tier: "Illegal",
@@ -2572,7 +2572,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	gumshoos: {
-		tier: "RU",
+		tier: "NU",
 	},
 	grubbin: {
 		tier: "LC",
@@ -2603,16 +2603,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lycanroc: {
-		tier: "RU",
+		tier: "NU",
 	},
 	lycanrocmidnight: {
-		tier: "RU",
+		tier: "NU",
 	},
 	lycanrocdusk: {
 		tier: "OU",
 	},
 	wishiwashi: {
-		tier: "RU",
+		tier: "NU",
 	},
 	wishiwashischool: {
 	},
@@ -2642,7 +2642,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lurantis: {
-		tier: "RU",
+		tier: "NU",
 	},
 	morelull: {
 		tier: "Illegal",
@@ -2678,7 +2678,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	comfey: {
-		tier: "RU",
+		tier: "NU",
 	},
 	oranguru: {
 		tier: "Illegal",
@@ -2704,34 +2704,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	pyukumuku: {
-		tier: "RU",
+		tier: "NU",
 	},
 	typenull: {
 		tier: "NFE",
 	},
 	silvally: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallybug: {
 		tier: "RU",
 	},
 	silvallydark: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallydragon: {
 		tier: "UU",
 	},
 	silvallyelectric: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallyfairy: {
 		tier: "UU",
 	},
 	silvallyfighting: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallyfire: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallyflying: {
 		tier: "RU",
@@ -2740,31 +2740,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	silvallygrass: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallyground: {
 		tier: "RU",
 	},
 	silvallyice: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallypoison: {
-		tier: "OU",
+		tier: "NU",
 	},
 	silvallypsychic: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallyrock: {
-		tier: "RU",
+		tier: "NU",
 	},
 	silvallysteel: {
 		tier: "RU",
 	},
 	silvallywater: {
-		tier: "RU",
+		tier: "NU",
 	},
 	komala: {
-		tier: "RU",
+		tier: "NU",
 	},
 	turtonator: {
 		tier: "Illegal",
@@ -2841,7 +2841,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	xurkitree: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	celesteela: {
 		tier: "Illegal",
@@ -2928,13 +2928,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	inteleon: {
-		tier: "RU",
+		tier: "NU",
 	},
 	skwovet: {
 		tier: "LC",
 	},
 	greedent: {
-		tier: "RU",
+		tier: "NU",
 	},
 	rookidee: {
 		tier: "LC",
@@ -2961,19 +2961,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	thievul: {
-		tier: "RU",
+		tier: "NU",
 	},
 	gossifleur: {
 		tier: "LC",
 	},
 	eldegoss: {
-		tier: "RU",
+		tier: "NU",
 	},
 	wooloo: {
 		tier: "LC",
 	},
 	dubwool: {
-		tier: "RU",
+		tier: "NU",
 	},
 	chewtle: {
 		tier: "Illegal",
@@ -2987,7 +2987,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	boltund: {
-		tier: "RU",
+		tier: "NU",
 	},
 	rolycoly: {
 		tier: "LC",
@@ -3016,7 +3016,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	sandaconda: {
-		tier: "RU",
+		tier: "NU",
 	},
 	cramorant: {
 		tier: "Illegal",
@@ -3052,7 +3052,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	grapploct: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sinistea: {
 		tier: "LC",
@@ -3088,13 +3088,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	alcremie: {
-		tier: "RU",
+		tier: "NU",
 	},
 	falinks: {
-		tier: "RU",
+		tier: "NU",
 	},
 	pincurchin: {
-		tier: "RU",
+		tier: "NU",
 	},
 	snom: {
 		tier: "Illegal",
@@ -3105,10 +3105,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	stonjourner: {
-		tier: "RU",
+		tier: "NU",
 	},
 	eiscue: {
-		tier: "RU",
+		tier: "NU",
 	},
 	indeedee: {
 		tier: "Illegal",
