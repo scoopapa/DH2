@@ -23,6 +23,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fire", "Fighting"],
 	},
+	zoroark: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 60, atk: 105, def: 60, spa: 120, spd: 60, spe: 105},
+	},
 	haxorus: {
 		inherit: true,
 		types: ["Dragon", "Steel"],
@@ -46,6 +51,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	turtonator: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 78, def: 135, spa: 91, spd: 85, spe: 36},
+		abilities: {0: "Shell Armor", H: "Regenerator"},
 	},
 	obstagoon: {
 		inherit: true,
