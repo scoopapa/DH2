@@ -211,7 +211,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	xerneas: {
 		inherit: true,
-		baseStats: {hp: 106, atk: 104, def: 75, spa: 107, spd: 98, spe: 79},
+		baseStats: {hp: 106, atk: 105, def: 75, spa: 107, spd: 98, spe: 79},
 	},
 	yveltal: {
 		inherit: true,
