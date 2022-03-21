@@ -452,7 +452,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
 	thousandarrows: {
