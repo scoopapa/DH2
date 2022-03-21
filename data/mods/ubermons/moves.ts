@@ -460,7 +460,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		shortDesc: "Grounds adjacent foes. Removes the target's Ground immunity.",
+		shortDesc: "Grounds adjacent foes.",
 		name: "Thousand Arrows",
 		pp: 10,
 		priority: 0,
