@@ -132,8 +132,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Garchompite" && pokemon.baseSpecies.name === "Rhychomp") {
 			return "Rhychomp-Mega"; 
 		}
-		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Shellicham") {
-			return "Shellicham-Mega"; 
+		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
+			return "Gastrocham-Mega"; 
 		}
 		
 		return item.megaStone;
