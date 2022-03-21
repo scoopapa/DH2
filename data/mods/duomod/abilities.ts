@@ -19,7 +19,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1.1,
 	},
 	deteriorate: {
-		desc: "This Pokemon loses 1/6th of its max HP each turn.",
 		shortDesc: "This Pokemon loses 1/6th of its max HP each turn.",
    		onResidualOrder: 26,
 		onResidualSubOrder: 1,
@@ -76,6 +75,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	deathscall: {
+		shortdesc: "Traps both Pokemon.",
 		onStart(pokemon) {
 			this.add('-fieldactivate', 'move: Fairy Lock');
 		},
@@ -102,19 +102,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 
 	poweroftwo: {
-		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.5x",
+		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.3x",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-        return this.chainModify(1.5);
+        return this.chainModify(1.3);
 			}
 		},
 		name: "Power of Two",
@@ -123,6 +123,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	fortification: {
+		shortdesc: "User's Atk, Def rise by 1 when hit below 50%.",
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
@@ -138,7 +139,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
    
 	birdup: {
-		shortdesc: "The user becomes Bird-type, all 12 types combined.",
+		shortdesc: "The user becomes Bird-type (''''''all 12 types combined'''''').",
 		onStart(pokemon) {
 			pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "Bird" : type));
 			this.add('-start', pokemon, 'typechange', 'Bird');
@@ -158,7 +159,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3002,
 	},
 	lostmemory: {
-		shortDesc: "On switch, the user learns the used move if it has empty moveslots.",
+		shortDesc: "On switch, the user learns the last used move if it has empty moveslots.",
 		onStart(pokemon) {
 			const move = this.lastMove;
 			if (pokemon.moveSlots.length < 4) {
@@ -174,7 +175,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					used: false,
 					virtual: true,
 				};	
-			this.add('-start', pokemon, 'Lost Memory', move.name);
+			this.add('-start', pokemon, 'Lost Memory', move.name); // this isn't used on anything yet
 			}
 		},
 		name: "Lost Memory",
@@ -221,7 +222,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 100,
 	},	
 	queenofroulette: {
-		shortDesc: "Spins the Roulette Wheel two additional times.",
+		shortDesc: "Activates the Roulette Wheel two additional times.",
 		onResidual (pokemon) {
 			this.useMove("Roulette Spin", pokemon);
 			this.useMove("Roulette Spin", pokemon);
@@ -244,7 +245,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						bestStat = pokemon.storedStats[s];
 					}
 				}
-				this.boost({[statName]: 1}, source);
+				this.boost({[statName]: 1}, pokemon);
 			}
 		},	
 		onAfterMoveSecondary(target, source, move) {
