@@ -75,7 +75,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	deathscall: {
-		shortdesc: "Traps both Pokemon.",
+		shortDesc: "Traps both Pokemon.",
 		onStart(pokemon) {
 			this.add('-fieldactivate', 'move: Fairy Lock');
 		},
@@ -139,7 +139,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
    
 	birdup: {
-		shortdesc: "The user becomes Bird-type (''''''all 12 types combined'''''').",
+		shortDesc: "The user becomes Bird-type (''''''all 12 types combined'''''').",
 		onStart(pokemon) {
 			pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "Bird" : type));
 			this.add('-start', pokemon, 'typechange', 'Bird');
