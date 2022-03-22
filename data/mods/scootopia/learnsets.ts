@@ -1998,7 +1998,7 @@ export const Learnsets = {
 			pollenpuff: ["8L1"],
 			shadowball: ["8L1"],
 			hex: ["8L1"],
-			eyesofchaos: ["8L1"],
+			piercinggaze: ["8L1"],
 			psychic: ["8L1"],
 			darkpulse: ["8L1"],
 			thunderbolt: ["8L1"],
