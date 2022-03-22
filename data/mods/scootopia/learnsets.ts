@@ -1698,7 +1698,7 @@ export const Learnsets = {
 			doubleedge: ["8L1"],
 			bodyslam: ["8L1"],
 			headbutt: ["8L1"],
-			eyesofchaos: ["8L1"],
+			piercinggaze: ["8L1"],
 			darkpulse: ["8L1"],
 			snarl: ["8L1"],
 			sludgebomb: ["8L1"],

@@ -12,7 +12,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dolphena",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 95, atk: 125, def: 80, spa: 74, spd: 75, spe: 85},
-		abilities: {0: "Torrent", H: "Mystical Presence"},
+		abilities: {0: "Torrent", H: "Mythical Presence"},
 		weightkg: 271,
 	},
 	scalaron: {

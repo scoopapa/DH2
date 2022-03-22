@@ -63,6 +63,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 	},
 	awakening: {
+		shortDesc: "Change forms after getting a KO.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') {
 				return;
@@ -79,6 +80,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 210,
 	},
 	firmfooting: {
+		shortDesc: "Immune to Special Flying moves, +1 SpD if hit by one.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Flying' && move.category === "Special") {
 				if (!this.boost({spe: 1})) {
@@ -91,6 +93,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	terrainpower: {
+		shortDesc: "+1 SpA/SpD in Terrain.",
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('')) return;
@@ -106,6 +109,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 179,
 	},
 	wakethedead: {
+		shortDesc: "50% reduction to Ghost damage. Nothing can Sleep.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Wake the Dead');
 			this.add('-message', pokemon.name + " is making a ton of noise!");
@@ -138,6 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	xenospore: {
+		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
 		onUpdate(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Flocura' || pokemon.transformed || !pokemon.hp) return;
