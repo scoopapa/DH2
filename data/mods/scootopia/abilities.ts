@@ -117,7 +117,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.status === 'slp') target.cureStatus();
 			}
-		}
+		},
 		onAnySetStatus(status, pokemon) {
 			if (status.id === 'slp') {
 				if (pokemon === this.effectData.target) {
