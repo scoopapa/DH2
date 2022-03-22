@@ -136,7 +136,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			} else if (source.species.id === "kelven"){
 				this.field.setWeather('hail');
 			}
-		}
+		},
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
