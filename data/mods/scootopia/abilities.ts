@@ -1,7 +1,7 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	metamorphasis: {
+	metamorphosis: {
 		num: 1016,
-		name: "Metamorphasis",
+		name: "Metamorphosis",
 		shortDesc: "50% boost to moves of the same type as the first move used.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
@@ -12,23 +12,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(target) {
-				this.add('-start', target, 'ability: Metamorphasis');
+				this.add('-start', target, 'ability: Metamorphosis');
 				target.m.metaType = target.lastMove.type;
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphasis')) {
+				if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphosis')) {
 					return this.chainModify(1.5);
 				}
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphasis')) {
+				if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphosis')) {
 					return this.chainModify(1.5);
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'ability: Metamorphasis', '[silent]');
+				this.add('-end', target, 'ability: Metamorphosis', '[silent]');
 			},
 		},
 	},
