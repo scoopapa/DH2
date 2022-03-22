@@ -162,7 +162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cyllindrake",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 70, atk: 85, def: 115, spa: 95, spd: 70, spe: 110},
-		abilities: {0: "Soundproof", 1: "Punk Rock", H: "Wake the Dead"},
+		abilities: {0: "Heavy Metal", 1: "Punk Rock", H: "Wake the Dead"},
 		weightkg: 180,
 	},
 	kodokai: {
