@@ -324,7 +324,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		pp: 10,
-		type: "Winter",
+		type: "Ice",
 		shortDesc: "10% chance to inflict Frz. 20% chance to lower Spe 1 stage",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},

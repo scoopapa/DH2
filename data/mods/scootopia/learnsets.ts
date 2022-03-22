@@ -1321,6 +1321,8 @@ export const Learnsets = {
 			hyperbeam: ["8L1"],
 			shiftgear: ["8L1"],
 			toxic: ["8L1"],
+			stealthrock: ["8L1"],
+			Taunt: ["8L1"],
 			morningsun: ["8L1"],
 			irondefense: ["8L1"],
 			roar: ["8L1"],
