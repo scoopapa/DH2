@@ -160,9 +160,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
 				pokemon.formeChange("Wishiwashi-School");
 				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
-				if (oldAbility) {
+				/*if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
-				}
+				}*/
 			}
 		},
 		onTakeItem: function(item, source) {
