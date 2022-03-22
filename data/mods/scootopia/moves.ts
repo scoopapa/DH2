@@ -303,4 +303,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Fairy",
 	},
+	sheercold: {
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Sheer Cold",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		status: 'frz',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {boost: {atk: 1}},
+		contestType: "Beautiful",
+	},
+	reindeerdash: {
+		name: "Reindeer Dash",
+		accuracy: 85,
+		basePower: 100,
+		category: "Physical",
+		pp: 10,
+		type: "Winter",
+		shortDesc: "10% chance to inflict Frz. 20% chance to lower Spe 1 stage",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		target: "normal",
+		secondaries: [
+			{
+				chance: 20,
+				boost: {
+					spe: -1,
+				},
+			}, {
+				chance: 10,
+				status: 'frz',
+			},
+		],
+	},
 };
