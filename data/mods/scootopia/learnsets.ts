@@ -1526,6 +1526,7 @@ export const Learnsets = {
 			mysticalfire: ["8L1"],
 			overheat: ["8L1"],
 			playrough: ["8L1"],
+			temperatureburst: ["8L1"],
 			psychup: ["8L1"],
 			reflect: ["8L1"],
 			skillswap: ["8L1"],
@@ -1583,6 +1584,7 @@ export const Learnsets = {
 			extrasensory: ["8L1"],
 			triattack: ["8L1"],
 			hyperbeam: ["8L1"],
+			temperatureburst: ["8L1"],
 			flipturn: ["8L1"],
 			liquidation: ["8L1"],
 			waterfall: ["8L1"],
@@ -1622,6 +1624,7 @@ export const Learnsets = {
 	},
 	kelven: {
 		learnset: {
+			temperatureburst: ["8L1"],
 			tripleaxel: ["8L1"],
 			iciclecrash: ["8L1"],
 			iceshard: ["8L1"],

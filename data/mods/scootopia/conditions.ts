@@ -39,7 +39,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectData.startTime = 3;
 			const sleepMoves = ["sleeppowder", "spore", "grasswhistle", "darkvoid", "hypnosis"];
 			if (sourceEffect && sourceEffect.effectType === 'Move' ) {
-				console.log(sourceEffect);
 				if (sleepMoves.includes(sourceEffect.id)) this.effectData.startTime = 2;
 			}
 			this.effectData.time = this.effectData.startTime;

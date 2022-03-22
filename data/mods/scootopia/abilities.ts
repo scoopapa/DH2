@@ -84,7 +84,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Immune to Special Flying moves, +1 SpD if hit by one.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Flying' && move.category === "Special") {
-				if (!this.boost({spe: 1})) {
+				if (!this.boost({spd: 1})) {
 					this.add('-immune', target, '[from] ability: Firm Footing');
 				}
 				return null;
@@ -142,7 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wake the Dead",
 		rating: 3,
 	},
-	xenospore: { // the secret way to activate the forme change is to OHKO a pokemon
+	xenospore: { // the secret way to activate the forme change is to get a KO while at max HP
 		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
 		onUpdate(pokemon) {
@@ -150,18 +150,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.species.id === 'flocuranexus') return;
 			let b: BoostName;
 			for (b in pokemon.boosts) {
-				if (pokemon.boosts[b] < 6) return;
+				if (pokemon.boosts[b] === 6) {
+					this.add('-activate', pokemon, 'ability: Xenospore');
+					pokemon.formeChange('Flocura-Nexus', this.effect, true);
+					pokemon.baseMaxhp = Math.floor(Math.floor(
+						2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+					) * pokemon.level / 100 + 10);
+					const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+					pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+					pokemon.maxhp = newMaxHP;
+					this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+					break;
+				}
 			}
-			pokemon.cureStatus();
-			this.add('-activate', pokemon, 'ability: Xenospore');
-			pokemon.formeChange('Flocura-Nexus', this.effect, true);
-			pokemon.baseMaxhp = Math.floor(Math.floor(
-				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-			) * pokemon.level / 100 + 10);
-			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-			pokemon.maxhp = newMaxHP;
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 		isPermanent: true,
 		name: "Xenospore",

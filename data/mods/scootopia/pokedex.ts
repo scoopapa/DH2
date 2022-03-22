@@ -145,8 +145,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1018,
 		name: "Volvolpa",
 		types: ["Normal", "Electric"],
-		baseStats: {hp: 70, atk: 100, def: 65, spa: 65, spd: 97, spe: 133},
-		abilities: {0: "Slush Rush", H: "Strong Jaw"},
+		baseStats: {hp: 70, atk: 100, def: 65, spa: 65, spd: 92, spe: 133},
+		abilities: {0: "Slush Rush", 1: "Volt Absorb", H: "Rattled"},
 		weightkg: 27,
 	},
 	harzodia: {
