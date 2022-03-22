@@ -142,7 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wake the Dead",
 		rating: 3,
 	},
-	xenospore: {
+	xenospore: { // the secret way to activate the forme change is to OHKO a pokemon
 		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
 		onUpdate(pokemon) {

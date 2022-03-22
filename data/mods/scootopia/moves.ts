@@ -341,4 +341,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		],
 	},
+	sleeppowder: {
+		inherit: true,
+		accuracy: 95,
+	},
+	hypnosis: {
+		inherit: true,
+		accuracy: 90,
+	},
+	grasswhistle: {
+		inherit: true,
+		accuracy: 85,
+	},
 };

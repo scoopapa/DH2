@@ -1285,7 +1285,7 @@ export const Learnsets = {
 			crunch: ["8L1"],
 			bite: ["8L1"],
 			payback: ["8L1"],
-			assuruance: ["8L1"],
+			assurance: ["8L1"],
 			firstimpression: ["8L1"],
 			uturn: ["8L1"],
 			wildcharge: ["8L1"],

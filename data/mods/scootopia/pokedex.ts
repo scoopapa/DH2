@@ -113,7 +113,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1014,
 		name: "Brawnkey",
 		types: ["Fighting", "Steel"],
-		baseStats: {hp: 95, atk: 120, def: 105, spa: 95, spd: 90, spe: 50},
+		baseStats: {hp: 95, atk: 105, def: 105, spa: 95, spd: 90, spe: 50},
 		abilities: {0: "Levitate"},
 		weightkg: 85,
 	},
@@ -248,7 +248,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Quadringo",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 75, atk: 130, def: 95, spa: 100, spd: 120, spe: 80},
-		abilities: {0: "Keen Eye", 1: "Oblivious", H: "Swift Swim"},
+		abilities: {0: "Keen Eye", 1: "Pastel Veil", H: "Swift Swim"},
 		weightkg: 156,
 	},
 	corundell: {
