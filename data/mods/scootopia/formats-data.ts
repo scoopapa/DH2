@@ -75,6 +75,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
+	cyllindrake: {
+		tier: "Scoo",
+		doublesTier: "Scoo",
+	},
 	kodokai: {
 		tier: "Scoo",
 		doublesTier: "Scoo",
