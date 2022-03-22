@@ -1559,7 +1559,7 @@ export const Learnsets = {
 			swagger: ["8L1"],
 		},
 	},
-	cellcius: {
+	cellsius: {
 		learnset: {
 			hydropump: ["8L1"],
 			scald: ["8L1"],
