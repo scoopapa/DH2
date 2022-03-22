@@ -2,7 +2,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	metamorphasis: {
 		num: 1016,
 		name: "Metamorphasis",
-		desc: "50% boost to moves of the same type as the first move used.",
+		shortDesc: "50% boost to moves of the same type as the first move used.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
@@ -33,6 +33,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 	},
 	retaliation: {
+		shortDesc: "On opponent making contact: -1 Atk.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
@@ -45,7 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	mythicalpresence: {
 		name: "Mythical Presence",
-		desc: "Lowers opposing Pokemon Special Attack by 1 stage when switching in.",
+		shortDesc: "Lowers opposing Pokemon Special Attack by 1 stage when switching in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
