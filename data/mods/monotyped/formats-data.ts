@@ -470,7 +470,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	kangaskhan: {
-		tier: "RU",
+		tier: "RUBL",
 	},
 	kangaskhanmega: {
 		tier: "Uber",
@@ -602,7 +602,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	porygonz: {
-		tier: "NU",
+		tier: "RU",
 	},
 	omanyte: {
 		tier: "Illegal",
@@ -839,7 +839,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	ursaring: {
-		tier: "NU",
+		tier: "RU",
 	},
 	slugma: {
 		tier: "LC",
@@ -985,7 +985,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	linoone: {
-		tier: "RU",
+		tier: "RUBL",
 	},
 	linoonegalar: {
 		tier: "Illegal",
