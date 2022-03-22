@@ -532,7 +532,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		/*unbanlist: [
+		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
 			'Stakeout', 'Fur Coat',
@@ -556,8 +556,8 @@ export const Formats: FormatList = [
 			
 			//Items
 			'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry',
-		],*/
+			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 'Air Balloon',
+		],
 		banlist: ['Uber', 'Air Balloon'],
 		teambuilderFormat: 'OU',
 	},
@@ -1880,8 +1880,8 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['[Gen 3] Hoenn Gaiden'],
-		/*unbanlist: [
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
 			'Stakeout', 'Fur Coat',
@@ -1905,9 +1905,9 @@ export const Formats: FormatList = [
 			
 			//Items
 			'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry',
-		],*/
-		banlist: ['OU', 'UUBL', 'Snow Warning'],
+			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 'Air Balloon',
+		],
+		banlist: ['OU', 'UUBL', 'Snow Warning', 'Air Balloon'],
 		teambuilderFormat: 'UU',
 	},
 	{
