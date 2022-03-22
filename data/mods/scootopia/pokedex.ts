@@ -77,6 +77,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 70, atk: 75, def: 65, spa: 115, spd: 75, spe: 115},
 		abilities: {0: "Awakening"},
+		otherFormes: ["Soleron-Awakened"],
+		formeOrder: ["Soleron", "Soleron-Awakened"],
 		weightkg: 12,
 	},
 	soleronawakened: {
@@ -87,6 +89,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 70, atk: 105, def: 85, spa: 135, spd: 95, spe: 125},
 		abilities: {0: "Awakening"},
+		requiredAbility: "Awakening",
+		battleOnly: "Soleron",
 		weightkg: 24,
 	},
 	nunopod: {
@@ -175,6 +179,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 60, atk: 65, def: 40, spa: 130, spd: 40, spe: 130},
 		abilities: {0: "Schooling"},
+		otherFormes: ["Jaegorm-Collective"],
+		formeOrder: ["Jaegorm", "Jaegorm-Collective"],
 		weightkg: 10,
 	},
 	jaegormcollective: {
@@ -185,6 +191,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 60, atk: 145, def: 130, spa: 100, spd: 130, spe: 80},
 		abilities: {0: "Schooling"},
+		requiredAbility: "Schooling",
+		battleOnly: "Jaegorm",
 		weightkg: 122,
 	},
 	faerenheit: {
@@ -257,6 +265,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 55, atk: 95, def: 55, spa: 105, spd: 180, spe: 110},
 		abilities: {0: "Xenospore"},
+		otherFormes: ["Flocura-Nexus"],
+		formeOrder: ["Flocura", "Flocura-Nexus"],
 		weightkg: 7.1,
 	},
 	flocuranexus: {
@@ -267,6 +277,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 105, atk: 125, def: 105, spa: 135, spd: 180, spe: 50},
 		abilities: {0: "Xenospore"},
+		requiredAbility: "Xenospore",
+		battleOnly: "Flocura",
 		weightkg: 999,
 	},
 };
