@@ -3223,21 +3223,6 @@ export const Formats: FormatList = [
 		challengeShow: false,
 	},
 	{
-		name: "[Gen 8] MonoTyped ZU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped PU'],
-		banlist: [			
-			/*Pokemon*/'PU',
-		],
-		searchShow: false,
-		challengeShow: false,
-	},
-	{
 		name: "[Gen 8] MonoTyped LC",
 		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
 		threads: [
