@@ -3149,20 +3149,6 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'OU',
 	},
 	{
-		name: "[Gen 8] MonoTyped UU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped OU'],
-		banlist: [			
-			/*Pokemon*/'OU',
-		],
-		teambuilderFormat: 'UU',
-	},
-	{
 		name: "[Gen 8] MonoTyped Uber",
 		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
 		threads: [
@@ -3179,6 +3165,52 @@ export const Formats: FormatList = [
 			
 		],
 		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 8] MonoTyped UU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped OU'],
+		banlist: [			
+			/*Pokemon*/'OU', 'UUBL',
+		],
+		teambuilderFormat: 'UU',
+		searchShow: false,
+		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] MonoTyped RU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped UU'],
+		banlist: [			
+			/*Pokemon*/'UU', 'RUBL',
+		],
+		teambuilderFormat: 'RU',
+		searchShow: false,
+		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] MonoTyped NU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped RU'],
+		banlist: [			
+			/*Pokemon*/'RU', 'NUBL',
+		],
+		teambuilderFormat: 'NU',
 	},
 	{
 		name: "[Gen 8] MonoTyped LC",
