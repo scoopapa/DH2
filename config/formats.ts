@@ -3146,7 +3146,6 @@ export const Formats: FormatList = [
 			/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Zen Mode',
 			/*Moves*/'Baton Pass',
 		],
-		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] MonoTyped Uber",
@@ -3164,7 +3163,6 @@ export const Formats: FormatList = [
 			/*Moves*/'Baton Pass',
 			
 		],
-		teambuilderFormat: 'Uber',
 	},
 	{
 		name: "[Gen 8] MonoTyped UU",
@@ -3178,7 +3176,6 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'OU', 'UUBL',
 		],
-		teambuilderFormat: 'UU',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3194,7 +3191,6 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'UU', 'RUBL',
 		],
-		teambuilderFormat: 'RU',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3210,7 +3206,6 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'RU', 'NUBL',
 		],
-		teambuilderFormat: 'NU',
 	},
 	{
 		name: "[Gen 8] MonoTyped PU",
@@ -3224,7 +3219,6 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'NU', 'PUBL',
 		],
-		teambuilderFormat: 'PU',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3240,7 +3234,6 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'PU',
 		],
-		teambuilderFormat: '(PU)',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3259,7 +3252,6 @@ export const Formats: FormatList = [
 			/*Abilities*/'Moody', 
 			/*Moves*/'Baton Pass', 'Sticky Web',
 		],
-		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] PKMN YB OU",
