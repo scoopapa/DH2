@@ -3143,24 +3143,9 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'Uber', 'AG', 
 			/*Items*/'Alakazite', 'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
-			/*Abilities*/'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Shield', 'Snow Cloak', 'Zen Mode',
+			/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Zen Mode',
 			/*Moves*/'Baton Pass',
 		],
-		teambuilderFormat: 'OU',
-	},
-	{
-		name: "[Gen 8] MonoTyped UU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped OU'],
-		banlist: [			
-			/*Pokemon*/'OU',
-		],
-		teambuilderFormat: 'UU',
 	},
 	{
 		name: "[Gen 8] MonoTyped Uber",
@@ -3178,7 +3163,64 @@ export const Formats: FormatList = [
 			/*Moves*/'Baton Pass',
 			
 		],
-		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 8] MonoTyped UU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped OU'],
+		banlist: [			
+			/*Pokemon*/'OU', 'UUBL',
+		],
+		searchShow: false,
+		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] MonoTyped RU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped UU'],
+		banlist: [			
+			/*Pokemon*/'UU', 'RUBL',
+		],
+		searchShow: false,
+		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] MonoTyped NU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped RU'],
+		banlist: [			
+			/*Pokemon*/'RU', 'NUBL',
+		],
+	},
+	{
+		name: "[Gen 8] MonoTyped PU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped NU'],
+		banlist: [			
+			/*Pokemon*/'NU', 'PUBL',
+		],
+		searchShow: false,
+		challengeShow: false,
 	},
 	{
 		name: "[Gen 8] MonoTyped LC",
@@ -3195,7 +3237,6 @@ export const Formats: FormatList = [
 			/*Abilities*/'Moody', 
 			/*Moves*/'Baton Pass', 'Sticky Web',
 		],
-		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] PKMN YB OU",
