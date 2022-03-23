@@ -831,6 +831,7 @@ export const Learnsets = {
 			selfdestruct: ["8L1"],
 			pound: ["8L1"],
 			spore: ["8L1"],
+			sleeppowder: ["8L1"],
 			synthesis: ["8L1"],
 			stealthrock: ["8L1"],
 			defog: ["8L1"],

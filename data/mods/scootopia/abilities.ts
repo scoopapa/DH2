@@ -6,7 +6,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
-				source.addVolatile("metamorphasis");
+				source.addVolatile("metamorphosis");
 			}
 		},
 		condition: {
@@ -37,7 +37,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
-				this.boost({atk: -1}, target, source);
+				this.boost({atk: -1}, source, target);
 			}
 		},
 		name: "Retaliation",
