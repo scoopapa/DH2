@@ -149,7 +149,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.m.xenosporeHints = {};
 			pokemon.m.xenosporeHints.firstHint = false;
 			pokemon.m.xenosporeHints.secondHint = false;
-		}
+		},
 		onUpdate(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Flocura' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.species.id === 'flocuranexus') return;
