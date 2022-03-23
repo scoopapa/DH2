@@ -3143,7 +3143,7 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'Uber', 'AG', 
 			/*Items*/'Alakazite', 'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
-			/*Abilities*/'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Shield', 'Snow Cloak', 'Zen Mode',
+			/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Zen Mode',
 			/*Moves*/'Baton Pass',
 		],
 		teambuilderFormat: 'OU',
