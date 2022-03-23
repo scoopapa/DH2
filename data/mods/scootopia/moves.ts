@@ -344,7 +344,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	spore: {
 		inherit: true,
 		pp: 5,
-	}
+	},
 	sleeppowder: {
 		inherit: true,
 		pp: 10,
