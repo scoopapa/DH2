@@ -248,7 +248,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	politoed: {
-		tier: "OU",
+		tier: "NU",
 	},
 	abra: {
 		tier: "LC",
@@ -269,7 +269,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	machamp: {
-		tier: "UU",
+		tier: "OU",
 	},
 	tentacool: {
 		tier: "Illegal",
@@ -336,7 +336,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	sirfetchd: {
-		tier: "UU",
+		tier: "OU",
 	},
 	seel: {
 		tier: "LC",
@@ -418,13 +418,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	hitmonlee: {
-		tier: "NU",
+		tier: "RU",
 	},
 	hitmonchan: {
 		tier: "NU",
 	},
 	hitmontop: {
-		tier: "NU",
+		tier: "RU",
 	},
 	lickitung: {
 		tier: "LC",
@@ -1088,7 +1088,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	hariyama: {
-		tier: "RU",
+		tier: "UU",
 	},
 	nosepass: {
 		tier: "LC",
@@ -1835,7 +1835,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	conkeldurr: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	tympole: {
 		tier: "LC",
@@ -1849,7 +1849,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	throh: {
-		tier: "NU",
+		tier: "RU",
 	},
 	sawk: {
 		tier: "NU",
@@ -2685,7 +2685,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 	},
 	passimian: {
-		tier: "RU",
+		tier: "UU",
 	},
 	wimpod: {
 		tier: "Illegal",
@@ -3026,7 +3026,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	barraskewda: {
-		tier: "OU",
+		tier: "UU",
 	},
 	toxel: {
 		tier: "Illegal",
@@ -3201,7 +3201,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	regidrago: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	glastrier: {
 		tier: "RU",
