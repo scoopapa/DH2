@@ -1236,7 +1236,7 @@ export const Learnsets = {
 			laserfocus: ["8L1"],
 			magicroom: ["8L1"],
 			metronome: ["8L1"],
-			mmic: ["8L1"],
+			mimic: ["8L1"],
 			psychicterrain: ["8L1"],
 			psychoshift: ["8L1"],
 			psychup: ["8L1"],

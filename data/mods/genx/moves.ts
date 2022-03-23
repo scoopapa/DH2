@@ -379,7 +379,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-      shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
+		shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
 		isViable: true,
 		name: "Dark Fang",
 		pp: 10,

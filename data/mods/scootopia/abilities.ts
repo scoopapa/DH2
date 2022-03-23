@@ -145,28 +145,80 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	xenospore: { // the secret way to activate the forme change is to get a KO while at max HP
 		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
+		onStart(pokemon) {
+			pokemon.m.xenosporeHints = {};
+			pokemon.m.xenosporeHints.firstHint = false;
+			pokemon.m.xenosporeHints.secondHint = false;
+		}
 		onUpdate(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Flocura' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.species.id === 'flocuranexus') return;
+			let areBoosts = 0;
 			let b: BoostName;
 			for (b in pokemon.boosts) {
-				if (pokemon.boosts[b] === 6) {
-					this.add('-activate', pokemon, 'ability: Xenospore');
-					pokemon.formeChange('Flocura-Nexus', this.effect, true);
-					pokemon.baseMaxhp = Math.floor(Math.floor(
-						2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-					) * pokemon.level / 100 + 10);
-					const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-					pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-					pokemon.maxhp = newMaxHP;
-					this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-					break;
-				}
+				if (pokemon.boosts[b] > areBoosts) areBoosts = pokemon.boosts[b]
+			}
+			if (areBoosts >= 6) {
+				this.add('-activate', pokemon, 'ability: Xenospore');
+				pokemon.formeChange('Flocura-Nexus', this.effect, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				pokemon.m.xenosporeHints.firstHint = true;
+				pokemon.m.xenosporeHints.secondHint = true;
+			} else if (areboosts >= 4) {
+				pokemon.m.xenosporeHints.firstHint = true;
+				pokemon.m.xenosporeHints.secondHint = true;
+				this.add('-activate', pokemon, 'ability: Xenospore');
+				this.add('-message', pokemon.name + " need MORE power!");
+			} else if (areboosts >= 2) {
+				pokemon.m.xenosporeHints.firstHint = true;
+				this.add('-activate', pokemon, 'ability: Xenospore');
+				this.add('-message', pokemon.name + " started to glow!");
 			}
 		},
 		isPermanent: true,
 		name: "Xenospore",
 		rating: 5,
 		num: 211,
+	},
+	schooling: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'Jaegorm') {
+					pokemon.formeChange('Jaegorm-Collective');
+				}
+			} else {
+				if (pokemon.species.id === 'jaegormcollective') {
+					pokemon.formeChange('Jaegorm');
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Jaegorm' ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'Jaegorm') {
+					pokemon.formeChange('Jaegorm-Collective');
+				}
+			} else {
+				if (pokemon.species.id === 'jaegormcollective') {
+					pokemon.formeChange('Jaegorm');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Schooling",
+		shortDesc: "If user is Jaegorm, changes to Collective Form if it has > 1/4 max HP, else Solo Form.",
+		rating: 3,
+		num: 208,
 	},
 };
