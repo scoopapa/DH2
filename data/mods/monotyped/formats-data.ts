@@ -911,7 +911,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	entei: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	suicune: {
 		tier: "OU",
