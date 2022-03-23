@@ -1114,7 +1114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 	},
 	//Temporary Multi-Attack Fix
-	/*multiattack: {
+	multiattack: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -1124,7 +1124,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
+		onModifyType(move, item, pokemon) {
 			switch (item.id) {
 			case 'bugmemory':
 				move.type = 'Bug';
@@ -1180,8 +1180,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(item.id)) move.category = 'Special';
 		},
 		type: "Normal",
-	},*/
-	multiattack: {
+	},
+	/*multiattack: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -1194,7 +1194,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		type: "Normal",
-	},
+	},*/
 	/*multiattackbug: {
 		accuracy: 100,
 		basePower: 120,
