@@ -170,12 +170,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 				pokemon.m.xenosporeHints.firstHint = true;
 				pokemon.m.xenosporeHints.secondHint = true;
-			} else if (areboosts >= 4) {
+			} else if (areBoosts >= 4) {
 				pokemon.m.xenosporeHints.firstHint = true;
 				pokemon.m.xenosporeHints.secondHint = true;
 				this.add('-activate', pokemon, 'ability: Xenospore');
 				this.add('-message', pokemon.name + " need MORE power!");
-			} else if (areboosts >= 2) {
+			} else if (areBoosts >= 2) {
 				pokemon.m.xenosporeHints.firstHint = true;
 				this.add('-activate', pokemon, 'ability: Xenospore');
 				this.add('-message', pokemon.name + " started to glow!");
