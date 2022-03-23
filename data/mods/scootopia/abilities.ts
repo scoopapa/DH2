@@ -146,6 +146,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
 		onStart(pokemon) {
+			console.log("start");
 			pokemon.m.xenosporeHints = {};
 			pokemon.m.xenosporeHints.firstHint = false;
 			pokemon.m.xenosporeHints.secondHint = false;
@@ -170,14 +171,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 				pokemon.m.xenosporeHints.firstHint = true;
 				pokemon.m.xenosporeHints.secondHint = true;
-			} else if (areBoosts >= 4) {
+			} else if (areBoosts >= 4 && !pokemon.m.xenosporeHints.secondHint) {
 				pokemon.m.xenosporeHints.firstHint = true;
 				pokemon.m.xenosporeHints.secondHint = true;
-				this.add('-activate', pokemon, 'ability: Xenospore');
-				this.add('-message', pokemon.name + " need MORE power!");
-			} else if (areBoosts >= 2) {
+				this.add('-message', pokemon.name + " needs MORE power!");
+			} else if (areBoosts >= 2 && !pokemon.m.xenosporeHints.firstHint) {
 				pokemon.m.xenosporeHints.firstHint = true;
-				this.add('-activate', pokemon, 'ability: Xenospore');
 				this.add('-message', pokemon.name + " started to glow!");
 			}
 		},
