@@ -146,7 +146,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Levitate. Also changes form if a certain condition is met.",
 		onResidualOrder: 27,
 		onStart(pokemon) {
-			console.log("start");
 			pokemon.m.xenosporeHints = {};
 			pokemon.m.xenosporeHints.firstHint = false;
 			pokemon.m.xenosporeHints.secondHint = false;
