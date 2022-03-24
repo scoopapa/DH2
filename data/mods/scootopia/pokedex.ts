@@ -158,7 +158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 35,
 	},
 	cyllindrake: {
-		num: 1001,
+		num: 1030,
 		name: "Cyllindrake",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 70, atk: 85, def: 115, spa: 95, spd: 70, spe: 110},
