@@ -362,6 +362,7 @@ export const Learnsets = {
 	},
 	albatrygon: {
 		learnset: {
+			taunt: ["8L1"],
 			bravebird: ["8L1"],
 			acrobatics: ["8L1"],
 			drillpeck: ["8L1"],
@@ -418,6 +419,11 @@ export const Learnsets = {
 	},
 	electangle: {
 		learnset: {
+			ironhead: ["8L1"],
+			mirrorshot: ["8L1"],
+			heavyslam: ["8L1"],
+			flashcannon: ["8L1"],
+			steelbeam: ["8L1"],
 			wildcharge: ["8L1"],
 			zingzap: ["8L1"],
 			powerwhip: ["8L1"],
@@ -659,6 +665,7 @@ export const Learnsets = {
 	soleron: {
 		learnset: {
 			thunderbolt: ["8L1"],
+			risingvoltage: ["8L1"],
 			thunder: ["8L1"],
 			discharge: ["8L1"],
 			voltswitch: ["8L1"],
@@ -1258,6 +1265,7 @@ export const Learnsets = {
 			sleeptalk: ["8L1"],
 			substitute: ["8L1"],
 			swagger: ["8L1"],
+			hypnosis: ["8L1"],
 		},
 	},
 	cyllindrake: {
@@ -1601,6 +1609,8 @@ export const Learnsets = {
 			defog: ["8L1"],
 			healbell: ["8L1"],
 			calmmind: ["8L1"],
+			wish: ["8L1"],
+			healingwish: ["8L1"],
 			haze: ["8L1"],
 			trick: ["8L1"],
 			lifedew: ["8L1"],
@@ -1661,6 +1671,8 @@ export const Learnsets = {
 			sheercold: ["8L1"],
 			auroraveil: ["8L1"],
 			calmmind: ["8L1"],
+			wish: ["8L1"],
+			healingwish: ["8L1"],
 			reflect: ["8L1"],
 			hail: ["8L1"],
 			mistyterrain: ["8L1"],

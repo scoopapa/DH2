@@ -124,7 +124,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	temperatureburst: {
 		accuracy: 100,
-		basePower: 100,
+		basePower: 95,
 		category: "Physical",
 		name: "Temperature Burst",
 		shortDesc: "Sets weather based on the user's type.",
