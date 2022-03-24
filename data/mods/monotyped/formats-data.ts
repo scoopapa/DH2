@@ -464,7 +464,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tangela: {
-		tier: "NFE",
+		tier: "NU",
 	},
 	tangrowth: {
 		tier: "OU",
@@ -772,7 +772,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	ambipom: {
-		tier: "NU",
+		tier: "PU",
 	},
 	sunkern: {
 		tier: "LC",
