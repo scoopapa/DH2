@@ -1547,4 +1547,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
+	gliscor: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
