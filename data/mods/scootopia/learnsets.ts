@@ -359,7 +359,6 @@ export const Learnsets = {
 	},
 	albatrygon: {
 		learnset: {
-			taunt: ["8L1"],
 			bravebird: ["8L1"],
 			acrobatics: ["8L1"],
 			drillpeck: ["8L1"],

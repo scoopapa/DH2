@@ -143,7 +143,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	xenospore: { // the secret way to activate the forme change is to get a KO while at max HP
-		shortDesc: "Levitate. Also changes form if a certain condition is met.",
+		shortDesc: "Levitate. Also changes form if it maxes out a stat.",
 		onResidualOrder: 27,
 		onStart(pokemon) {
 			pokemon.m.xenosporeHints = {};
