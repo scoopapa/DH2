@@ -205,7 +205,6 @@ export const Learnsets = {
 			gigaimpact: ["8L1"],
 			headbutt: ["8L1"],
 			slash: ["8L1"],
-			fakeout: ["8L1"],
 			lastresort: ["8L1"],
 			retaliate: ["8L1"],
 			strength: ["8L1"],
