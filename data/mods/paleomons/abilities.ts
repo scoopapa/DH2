@@ -123,6 +123,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Chaser",
 		desc: "The power of this Pokemon's move is multiplied by 1.3 if it is the first to move in a turn. Does not affect Doom Desire and Future Sight.",
 		shortDesc: "This Pokemon's attacks have 1.3x power if it is the first to move in a turn.",
+		rating: 3,
+		num: -105,
 	},
 
 	absorption: {
@@ -141,6 +143,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Absorption",
 		desc: "If there is an active terrain, the terrain ends and the user is healed by 12% of its maximum HP",
 		shortDesc: "If there is a terrain active, ends the terrain and heals the user by 12% of its max HP",
+		rating: 3,
+		num: -106,
 	},
 
 	thunderstruck: {
@@ -170,6 +174,45 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Thunderstruck",
 		desc: "h",
 		shortDesc: "Simulates the effects of Electric Terrain on the user.",
+		rating: 3,
+		num: -107,
+	},
+	fanglock: {
+		onModifyMove(move) {
+			if (!move || !move.flags['bite'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				volatileStatus: 'fanglock',
+			});
+		},
+		onFoeTrapPokemon(pokemon) {
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (pokemon.volatiles['fanglock']) {
+				pokemon.tryTrap(true);
+			}
+		},
+
+		name: "Fanglock",
+		desc: "This Pokemon's bite-based attacks trap their target.",
+		shortDesc: "This Pokemon's bite-based attacks trap their target.",
+		rating: 3,
+		num: -108,
+	},
+
+	frigidlanding: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'scorchedpebbles')) {
+				return false;
+			}
+		},
+
+		name: "Frigid Landing",
+		desc: "On switch-in, this Pokemon avoids all hazard damage.",
+		shortDesc: "On switch-in, this Pokemon avoids all hazard damage.",
+		rating: 3,
+		num: -109,
 	},
 	
 	//

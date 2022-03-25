@@ -187,7 +187,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	/*
 	shellosentity: {
 		tier: "Paleomons LC",
 		doublesTier: "Paleomons LC",
@@ -205,7 +204,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Paleomons",
 		isModded: true,
 	},
-	*/
 
 	yanmaancient: {
 		tier: "Paleomons LC",
@@ -262,6 +260,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	robusteel: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	velovolt: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	dracosaur: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	vishcaca: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	gorlifross: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	artachoris: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
