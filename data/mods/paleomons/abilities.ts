@@ -193,6 +193,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.tryTrap(true);
 			}
 		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.volatiles['fanglock']) {
+				pokemon.maybeTrapped = true;
+			}
+		},
 
 		name: "Fanglock",
 		desc: "This Pokemon's bite-based attacks trap their target.",
