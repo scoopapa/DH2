@@ -528,7 +528,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Amaura-Regnant",
 	},
 
-	/*
 	shellos: {
 		inherit: true,
 		otherFormes: ["Shellos-Entity", "Shellos-Entity-East"],
@@ -541,7 +540,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shellos-Entity",
 		baseSpecies: "Shellos",
 		baseForme: "Entity",
-		evos: ["Gastrodon-Entity"],
+		evos: ["Gastrodon-Entity", "Gastrodon-Entity-East"],
 		types: ["Poison"],
 		baseStats: {hp: 70, atk: 50, def: 60, spa: 50, spd: 60, spe: 40},
 		abilities: {0: "Gooey", H: "Poison Point"},
@@ -577,9 +576,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
-		//prevo: "Shellos-Entity",
+		prevo: "Shellos-Entity",
 	},
-	*/
 	
 
 	yanma: {
@@ -712,5 +710,52 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 67, def: 94, spa: 110, spd: 95, spe: 70},
 		abilities: {0: "Mirror Armor", H: "Flare Boost"},
 		weightkg: 100,
+	},
+
+	velovolt: {
+		num: -141,
+		name: "Velovolt",
+		types: ["Electric", "Fairy"],
+		baseStats: {hp: 90, atk: 80, def: 70, spa: 90, spd: 90, spe: 105},
+		abilities: {0: "Volt Absorb", H: "Static"},
+		weightkg: 190,
+	},
+
+	dracosaur: {
+		num: -142,
+		name: "Dracosaur",
+		types: ["Dragon", "Ground"],
+		baseStats: {hp: 90, atk: 90, def: 90, spa: 100, spd: 80, spe: 75},
+		abilities: {0: "Hustle", H: "Sand Rush"},
+		weightkg: 215,
+	},
+
+	vishcaca: {
+		num: -143,
+		name: "Vishcaca",
+		types: ["Water"],
+		baseStats: {hp: 85, atk: 110, def: 112, spa: 58, spd: 74, spe: 76},
+		abilities: {0: "Strong Jaw", 1: "Fanglock", H: "Water Absorb"},
+		weightkg: 175,
+	},
+
+	gorlifross: {
+		num: -144,
+		name: "Gorlifross",
+		evos: ["Artachoris"],
+		types: ["Ice", "Flying"],
+		baseStats: {hp: 65, atk: 60, def: 55, spa: 80, spd: 50, spe: 45},
+		abilities: {0: "Slush Rush", 1: "Frigid Landing", H: "Snow Warning"},
+		weightkg: 43,
+	},
+
+	artachoris: {
+		num: -145,
+		name: "Artachoris",
+		types: ["Ice", "Flying"],
+		baseStats: {hp: 90, atk: 110, def: 80, spa: 115, spd: 75, spe: 65},
+		abilities: {0: "Slush Rush", 1: "Frigid Landing", H: "Snow Warning"},
+		weightkg: 150,
+		prevo: "Gorlifross",
 	},
 };
