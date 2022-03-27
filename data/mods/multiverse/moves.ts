@@ -737,4 +737,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	perrserkpaw: {
+		num: -15,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		shortDesc: "User recovers 75% of the damage dealt.",
+		name: "Perrserk Paw",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Claw", target);
+		},
+		drain: [3, 4],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 };
