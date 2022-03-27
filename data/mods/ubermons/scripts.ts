@@ -135,6 +135,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zygarde').learnset.calmmind = ['8L1'];
 		this.modData('Learnsets', 'zygarde').learnset.flamethrower = ['8L1'];
 		this.modData('Learnsets', 'zygarde').learnset.sludgebomb = ['8L1'];
+		
+		this.modData('Learnsets', 'calyrex').learnset.recycle = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.teatime = ['8L1'];
+		this.modData('Learnsets', 'calyrexice').learnset.recycle = ['8L1'];
+		this.modData('Learnsets', 'calyrexice').learnset.teatime = ['8L1'];
+		this.modData('Learnsets', 'calyrexshadow').learnset.recycle = ['8L1'];
+		this.modData('Learnsets', 'calyrexshadow').learnset.teatime = ['8L1'];
+		delete this.modData('Learnsets', 'calyrex').learnset.calmmind;
+		delete this.modData('Learnsets', 'calyrexice').learnset.calmmind;
+		delete this.modData('Learnsets', 'calyrexshadow').learnset.calmmind;
 	},
 	
 	pokemon: {
