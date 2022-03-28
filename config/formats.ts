@@ -379,7 +379,7 @@ export const Formats: FormatList = [
 		// name: "[Gen 8] EXTREME ROULETTEMONS",
 		// desc: `A metagame where the types, moves, abilities, and pokemon are randomized.`,
 		// threads: [
-			// `<a href="https://www.smogon.com/forums/threads/3681345/">EXTREME ROULETTEMONS</a>`,
+			// `<a href="https://www.smogon.com/forums/threads/3681345/">EXTREME</a>`,
 		// ],
 
 		// mod: 'EXTREMEROULETTEMONS',
@@ -3437,6 +3437,19 @@ export const Formats: FormatList = [
 		teambuilderFormat: "Rand",
 	},
 */
+	{
+		name: "[Gen 8] Roulettemons The Solomod",
+		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
+		mod: 'roulettemonsthesolomod',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+			'Spinmadillo', 'Coyoctric', 'Spizelle', 'Fierhog', 'Elatuff', 'Glasyte', 'Bisong', 'Megalo', 'Oysteat', 'Ponymph', 'Hypepion', 'Chickola', 'Skelehawk', 'Catetar', 'Blastquito', 'Hawkward', 'Pandaid', 'Autoad', 'Skelephin', 'Doomossum',
+		],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
 	{
 		name: "[Gen 8] Scootopia",
 		desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
