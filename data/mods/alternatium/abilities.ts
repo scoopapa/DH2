@@ -201,7 +201,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyDamage(source, target, move) {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
 			if (source.newlySwitched || this.queue.willMove(source)) {
 				return this.chainModify(1.3);
 			}
