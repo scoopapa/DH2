@@ -491,4 +491,47 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 185},
 		contestType: "Beautiful",
 	},
+	astralbarrage: {
+		num: 825,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Power doubles if the user has no held item.",
+		name: "Astral Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+	},
+	glaciallance: {
+		num: 824,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Glacial Lance damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Glacial Lance NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Power doubles if user moves before the target.",
+		name: "Glacial Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
 };

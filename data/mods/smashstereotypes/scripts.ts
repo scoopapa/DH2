@@ -141,6 +141,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'primeape').learnset.strengthpgp = ["8L1"];
 		delete this.modData('Learnsets', 'primeape').learnset.foresight;
 		delete this.modData('Learnsets', 'primeape').learnset.strength;
+		
+		
+		this.modData("Learnsets", "mothim").learnset.firelash = ["8L1"];
+		this.modData("Learnsets", "mothim").learnset.zingzap = ["8L1"];
 	},
 	
 	teambuilderConfig: {

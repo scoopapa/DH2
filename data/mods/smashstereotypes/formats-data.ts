@@ -244,4 +244,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	idk: {
 		tier: "SSS",
 	},
+	articlaus: {
+		tier: "SSS",
+	},
+	mothim: {
+		tier: "SSS",
+	},
+	rampardoscretaceous: {
+		tier: "SSS",
+	},
 };

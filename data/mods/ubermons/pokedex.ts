@@ -225,4 +225,19 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 78, atk: 130, def: 141, spa: 121, spd: 145, spe: 55},
 	},
+	calyrex: {
+		inherit: true,
+		types: ["Grass", "Psychic"],
+		abilities: {0: "Harvest"},
+	},
+	calyrexice: {
+		inherit: true,
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 105, atk: 115, def: 120, spa: 115, spd: 120, spe: 55},
+	},
+	calyrexshadow: {
+		inherit: true,
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 105, atk: 110, def: 95, spa: 110, spd: 95, spe: 115},
+	},
 };

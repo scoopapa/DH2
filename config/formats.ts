@@ -888,7 +888,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Zacian', 'Zamazenta', 'Rayquaza-Mega',
+			'Arceus', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Zacian', 'Zamazenta', 'Rayquaza-Mega',
 			//Abilities
 			'Moody',
 			//Items
@@ -3146,6 +3146,7 @@ export const Formats: FormatList = [
 			/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Zen Mode',
 			/*Moves*/'Baton Pass',
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] MonoTyped Uber",
@@ -3163,6 +3164,7 @@ export const Formats: FormatList = [
 			/*Moves*/'Baton Pass',
 			
 		],
+		teambuilderFormat: 'Uber',
 	},
 	{
 		name: "[Gen 8] MonoTyped UU",
@@ -3176,6 +3178,7 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'OU', 'UUBL',
 		],
+		teambuilderFormat: 'UU',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3191,6 +3194,7 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'UU', 'RUBL',
 		],
+		teambuilderFormat: 'RU',
 		searchShow: false,
 		challengeShow: false,
 	},
@@ -3206,6 +3210,7 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'RU', 'NUBL',
 		],
+		teambuilderFormat: 'NU',
 	},
 	{
 		name: "[Gen 8] MonoTyped PU",
@@ -3219,6 +3224,23 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'NU', 'PUBL',
 		],
+		teambuilderFormat: 'PU',
+		searchShow: false,
+		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] MonoTyped ZU",
+		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'monotyped',
+		ruleset: ['[Gen 8] MonoTyped PU'],
+		banlist: [			
+			/*Pokemon*/'PU',
+		],
+		teambuilderFormat: '(PU)',
 		searchShow: false,
 		challengeShow: false,
 	},

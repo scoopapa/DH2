@@ -334,4 +334,44 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 95, def: 80, spa: 90, spd: 90, spe: 90},
 	},
+	cinderace: {
+		inherit: true,
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 85, atk: 104, def: 80, spa: 65, spd: 80, spe: 91},
+		abilities: {0: "Blaze", H: "Tough Claws"},
+	},
+	obstagoon: {
+		inherit: true,
+		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 97},
+	},
+	perrserker: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 115, def: 110, spa: 50, spd: 105, spe: 50},
+	},
+	corsolagalar: {
+		inherit: true,
+		types: ["Ghost", "Normal"],
+		baseStats: {hp: 60, atk: 55, def: 100, spa: 95, spd: 100, spe: 30},
+	},
+	mrrime: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 110, spd: 100, spe: 75},
+		abilities: {0: "Infiltrator", 1: "Screen Cleaner", H: "Refrigerate"},
+	},
+	stonjourner: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 20, spe: 100},
+		abilities: {0: "Power Spot", H: "No Guard"},
+		weightkg: 999.9,
+	},
+	arctozolt: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 55},
+		abilities: {0: "Slush Rush"},
+	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 80, def: 80, spa: 85, spd: 80, spe: 80},
+		abilities: {0: "Contrary"},
+	},
 };
