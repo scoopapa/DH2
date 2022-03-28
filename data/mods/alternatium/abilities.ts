@@ -203,7 +203,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	packleader: {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (source.newlySwitched || this.queue.willMove(source)) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
 				return this.chainModify(1.3);
 			}
 		},
