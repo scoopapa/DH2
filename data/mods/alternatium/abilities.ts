@@ -202,7 +202,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	packleader: {
 		onModifyDamage(source, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
+			if (source.newlySwitched || this.queue.willMove(source)) {
 				return this.chainModify(1.3);
 			}
 		},
