@@ -756,4 +756,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	courtchange: {
+		inherit: true,
+		basePower: 60,
+		category: "Physical",
+		name: "Court Change",
+		pp: 15,
+		flags: {mirror: 1, protect: 1, contact: 1},
+		target: "normal",
+		type: "Fighting",
+	},
 };
