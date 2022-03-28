@@ -201,7 +201,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyAtk(atk, source, target, move) {
+		onModifyDamage(source, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				return this.chainModify(1.3);
 			}
