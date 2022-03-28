@@ -27,7 +27,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'move: Tar Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				this.add('-message', "The battlefield became coated in tar!");
 				this.hint(`Tar Terrain increases the power of Poison-type moves by 1.3x and applies Powder to all Pokemon on the field.`);
-				this.hint(`Doesn't affect grounded Pokemon nor Pokemon holding Heavy-Duty Boots.`);
+				this.hint(`Doesn't affect non-grounded Pokemon nor Pokemon holding Heavy-Duty Boots.`);
 			} else {
 				this.add('-fieldstart', 'move: Tar Terrain');
 			}
@@ -47,6 +47,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualSubOrder: 2,
 		onEnd() {
 			this.add('-fieldend', 'move: Tar Terrain');
+		},
+	},
+
+	fanglock: {
+		name: 'fanglock',
+		onStart(target) {
+			this.add('-activate', target, 'trapped');
 		},
 	},
 };

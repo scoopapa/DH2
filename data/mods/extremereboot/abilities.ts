@@ -452,7 +452,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
-					this.add('-ability', pokemon, 'Acrid', 'boost');
+					this.add('-ability', pokemon, 'Lesspell', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['decoy']) {
