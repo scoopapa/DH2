@@ -30,6 +30,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	jumpkick: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	multiattack: {
 		inherit: true,
 		basePower: 90,
