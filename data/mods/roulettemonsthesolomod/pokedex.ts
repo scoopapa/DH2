@@ -135,7 +135,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
   doomossum: {
     num: 20.5,
     species: "Doomossum",
-    types: ["Ground"],
+    types: ["Ghost"],
     baseStats: {hp: 99, atk: 122, def: 106, spa: 74, spd: 107, spe: 92},
     abilities: {0: "Desolate Land", H: "Illusion"},
   },
