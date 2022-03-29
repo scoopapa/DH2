@@ -149,13 +149,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Black Holes",
 		pp: 5,
 		type: "Dark",
-		target: "self",
 		priority: 0,
 		flags: {},
 		ignoreImmunity: true,
-		onHit: function(target, source, move) {
-			this.attrLastMove('[still]');
+		multihit: 2,
+		onTryHit(target, source, move) {
 			this.add('-anim', source, "Black Hole Eclipse", target);
-		},
+			if (move.hit === 1) {
+				move.target = "normal";
+			}
+			if (move.hit === 2) {
+				move.target = "self";
+		}
 	},
 };
