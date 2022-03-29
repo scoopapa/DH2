@@ -60,8 +60,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 					effectType: 'Move',
 					isFutureMove: true,
 					type: '???',
+				},
 			});
-			},
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
