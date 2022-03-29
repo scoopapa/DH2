@@ -59,7 +59,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Dark",
 		contestType: "Beautiful",
 	},
