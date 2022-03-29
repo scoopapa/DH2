@@ -38,23 +38,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		isFutureMove: true,
 		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				move: 'blackhole',
-				source: source,
-				moveData: {
-					id: 'blackhole',
-					name: "Black Hole",
-					accuracy: 100,
-					basePower: 140,
-					category: "Special",
-					priority: 0,
-					flags: {},
-					effectType: 'Move',
-					isFutureMove: true,
-					type: 'Dark',
-				},
-			});
+			duration: 3,
 			this.add('-start', source, 'Black Holes');
 			return null;
 		},
