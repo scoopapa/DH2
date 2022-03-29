@@ -1753,7 +1753,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	roserade: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "Uber",
+		tier: "OU",
 	},
 	dusknoir: {
 		isNonstandard: null,
