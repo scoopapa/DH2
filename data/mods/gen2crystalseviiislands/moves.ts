@@ -132,7 +132,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {},
 		ignoreImmunity: true,
-		onPrepareHit: function(target, source, move) {
+		onHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
