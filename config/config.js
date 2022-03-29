@@ -169,8 +169,8 @@ Y929lRybWEiKUr+4Yw2O1W0CAwEAAQ==
  *   Don't change this setting - there aren't any other options right now
  */
 exports.routes = {
-	root: 'pokemonshowdown.com',
-	client: 'play.pokemonshowdown.com',
+	root: 'dragonheavenserver.herokuapp.com',
+	client: 'dragonheaven.herokuapp.com',
 	dex: 'dex.pokemonshowdown.com',
 	replays: 'replay.pokemonshowdown.com',
 };
@@ -271,7 +271,7 @@ exports.punishmentautolock = false;
  *   If this is set to `true`, only autoconfirmed users can send links to either chatrooms or other users, except for staff members.
  *   This option can be used if your server has trouble with spammers mass PMing links to users, or trolls sending malicious links.
  */
-exports.restrictLinks = false;
+exports.restrictLinks = true;
 
 /**
  * whitelist - prevent users below a certain group from doing things
@@ -291,12 +291,12 @@ exports.chatmodchat = '+',
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | string}
  */
-exports.battlemodchat = false,
+exports.battlemodchat = '+',
 /**
  * pm modchat - minimum group for PMing other users, challenging other users
  * @type {false | string}
  */
-exports.pmmodchat = false,
+exports.pmmodchat = '+',
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}

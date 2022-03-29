@@ -282,7 +282,6 @@ export class Connection {
 	popup(message: string) {
 		this.send(`|popup|` + message.replace(/\n/g, '||'));
 	}
-
 	joinRoom(room: Room) {
 		if (this.inRooms.has(room.roomid)) return;
 		this.inRooms.add(room.roomid);
@@ -507,6 +506,19 @@ export class User extends Chat.MessageContext {
 		if (this.locked || this.namelocked) {
 			const lockedSymbol = (punishgroups.locked && punishgroups.locked.symbol || '\u203d');
 			return lockedSymbol + this.name;
+		}
+		const idName = toID(this.name);
+		if ((idName.includes("wobb") || idName.includes("w0bb")) ||
+			((idName.includes("wob") || idName.includes("w0b")) &&  (idName.includes("trol") || idName.includes("tr0l") || idName.includes("buf"))) ||
+			(idName.includes("buz") && idName.includes("car")) ||
+			(idName.includes("tkmof") && idName.includes("again"))
+		) {
+			const names = ["12 years old", "Where Are My Parents?", "Moron Troll", "Loser Troll", "Wobbuffet Sucks", "Wasting my Time"];
+			const newName = names[Math.floor(Math.random() * names.length)];
+			this.trackRename = this.name;
+			this.previousIDs.push(this.id);
+			this.namelocked = this.id;
+			this.forceRename( newName );
 		}
 		if (roomid) {
 			const room = Rooms.get(roomid);
