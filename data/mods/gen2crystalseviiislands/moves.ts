@@ -28,9 +28,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	blackhole: {
-		num: -5,
+		num: -2,
 		accuracy: 100,
-		basePower: 140,
+		basePower: 100,
 		category: "Special",
 		name: "Black Hole",
 		pp: 5,
@@ -38,15 +38,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		recoil: [1, 1],
 		isFutureMove: true,
-		duration: 3,
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Black Hole Eclipse", target);
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'blackhole',
+				source: source,
+				moveData: {
+					id: 'blackhole',
+					name: "Black Hole",
+					accuracy: 100,
+					basePower: 200,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: '???',
+				},
+			});
+			this.add('-start', source, 'Black Hole');
+			return null;
 		},
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		contestType: "Beautiful",
 	},
 	/*
 	blackhole: {
