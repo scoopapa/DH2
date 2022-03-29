@@ -837,7 +837,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Bug", "Fire"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 80, spd: 70, spe: 120},
-		abilities: {0: "Swarm ", H: " Tinted Lens"},
+		abilities: {0: "Swarm", H: "Tinted Lens"},
 	},
 	rampardos: {
 		inherit: true,
