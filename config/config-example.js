@@ -298,7 +298,7 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = false;
+exports.chatmodchat = '+';
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | AuthLevel}
@@ -692,6 +692,7 @@ exports.grouplist = [
 		name: "Voice",
 		inherit: ' ',
 		broadcast: true,
+		roomvoice: true,
 		altsself: true,
 		makegroupchat: true,
 		joinbattle: true,
