@@ -19,6 +19,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'murkrow').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'clefable').learnset.blackhole = ['2L1'];
 		
+		this.modData('Learnsets', 'machamp').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'electabuzz').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'magmar').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'golduck').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'primape').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'hitmonchan').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'hitmonlee').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'hitmontop').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'wobuffet').learnset.parry = ['2L1'];
 	},
 	pokemon: {
 	getDamage(pokemon, target, move, suppressMessages) {
