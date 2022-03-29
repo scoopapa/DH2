@@ -36,6 +36,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {},
+		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
