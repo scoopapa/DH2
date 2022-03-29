@@ -28,6 +28,43 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	blackhole: {
+		num: -5,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Doom Desire",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'blackhole',
+				source: source,
+				moveData: {
+					id: 'blackhole',
+					name: "Black Hole",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, 'Black Holes');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	/*
+	blackhole: {
 		num: -2,
 		accuracy: 100,
 		basePower: 200,
@@ -48,7 +85,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Black Holes');
 			this.add('-start', target, 'Black Holes');
 		},
-			/*if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			const moveData = {
 				name: "Black Hole",
 				basePower: 200,
@@ -117,10 +154,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Black Hole');
 			this.add('-start', target, 'Black Hole');
 			return null;
-		}*/        
-	},
+		}       
+	},*/
 	blackholes: {
-		num: -3,
+		num: -4,
 		accuracy: 100,
 		basePower: 200,
 		category: "Special",
@@ -138,7 +175,3 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 };
-
-
-onHit(pokemon, source, move) {
-				this.add('-activate', source, 'move: Aromatherapy');
