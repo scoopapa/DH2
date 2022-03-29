@@ -5,6 +5,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	coyoctric: {
 		tier: "RTS",
 	},
+	spizelle: {
+		tier: "RTS",
+	},
 	fierhog: {
 		tier: "RTS",
 	},
