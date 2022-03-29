@@ -40,8 +40,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isFutureMove: true,
 		duration: 3,
 		onPrepareHit: function(target, source, move) {
-			this.add('-start', source, 'Black Holes');
-			return null;
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
 		secondary: null,
 		target: "normal",
