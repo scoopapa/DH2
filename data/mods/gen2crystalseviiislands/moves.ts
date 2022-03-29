@@ -38,7 +38,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		isFutureMove: true,
 		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			if (!target.side.addSlotCondition(target, source, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'blackhole',
 				source: source,
@@ -59,7 +59,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Dark",
 		contestType: "Beautiful",
 	},
