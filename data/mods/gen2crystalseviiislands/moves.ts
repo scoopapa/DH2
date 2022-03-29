@@ -45,6 +45,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
 		onTry(source, target) {
+			this.add('-start', source, 'Black Holes');
+			this.add('-start', target, 'Black Holes');
+		},
 			/*if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			const moveData = {
 				name: "Black Hole",
@@ -88,7 +91,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					isFutureMove: true,
 					type: '???',
 				}
-			});*/
+			});
 			for (const pokemon of this.getAllActive()) {
 				if (!pokemon.side.addSlotCondition(pokemon, 'futuremove')) return false;
 				Object.assign(pokemon.side.slotConditions[pokemon.position]['futuremove'], {
@@ -114,6 +117,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Black Hole');
 			this.add('-start', target, 'Black Hole');
 			return null;
-		}        
+		}*/        
+	},
+	blackholes: {
+		num: -3,
+		accuracy: 100,
+		basePower: 200,
+		category: "Special",
+		shortDesc: "(Bugged) All active Pokemon take damage with halved Sp. Def in 3 turns.",
+		name: "Black Holes",
+		pp: 5,
+		type: "Dark",
+		target: "all",
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Black Hole Eclipse", target);
+		},
 	},
 };
+
+
+onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
