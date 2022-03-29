@@ -35,7 +35,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Black Hole",
 		pp: 5,
 		priority: 0,
-		flags: {},
+		flags: {authentic: 1},
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
