@@ -36,9 +36,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {},
+		recoil: [1, 1],
 		isFutureMove: true,
-		onTry(source, target) {
-			duration: 3,
+		duration: 3,
+		onPrepareHit: function(target, source, move) {
 			this.add('-start', source, 'Black Holes');
 			return null;
 		},
@@ -140,26 +141,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		}       
 	},*/
-	blackholes: {
-		num: -4,
-		accuracy: 100,
-		basePower: 200,
-		category: "Special",
-		shortDesc: "(Bugged) All active Pokemon take damage with halved Sp. Def in 3 turns.",
-		name: "Black Holes",
-		pp: 5,
-		type: "Dark",
-		priority: 0,
-		flags: {},
-		ignoreImmunity: true,
-		multihit: 2,
-		onTryHit(target, source, move) {
-			this.add('-anim', source, "Black Hole Eclipse", target);
-			if (move.hit === 1) {
-				move.target = "normal";
-			}
-			if (move.hit === 2) {
-				move.target = "self";
-		}
-	},
 };
