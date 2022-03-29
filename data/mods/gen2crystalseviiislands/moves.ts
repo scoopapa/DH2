@@ -32,7 +32,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 140,
 		category: "Special",
-		name: "Doom Desire",
+		name: "Black Hole",
 		pp: 5,
 		priority: 0,
 		flags: {},
