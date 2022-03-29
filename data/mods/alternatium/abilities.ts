@@ -13,14 +13,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powerofalchemy: {
 		onAnyFaint(target) {
-			if (!this.effectState.target.hp) return;
+			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
 			const additionalBannedAbilities = [
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 			];
 			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectState.target.setAbility(ability);
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
@@ -335,12 +335,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(1.2);
 			} else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(0.8);
 			}
 		},
@@ -506,8 +506,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Dark Aura",
@@ -521,8 +521,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Fairy Aura",
