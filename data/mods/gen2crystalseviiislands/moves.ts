@@ -165,7 +165,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Black Holes",
 		pp: 5,
 		type: "Dark",
-		target: "all",
+		target: "self",
 		priority: 0,
 		flags: {},
 		ignoreImmunity: true,
