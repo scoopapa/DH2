@@ -38,11 +38,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {authentic: 1},
 		willCrit: false,
 		isFutureMove: true,
-		condition: {
-				onSwap(target) {
-				if (!target.side.addSlotCondition(target, 'Black Hole')) return false;
-				}
-		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
@@ -61,11 +56,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 					category: "Special",
 					priority: 0,
 					flags: {},
-					recoil: [1, 1],
+					target: "all",
 					effectType: 'Move',
 					isFutureMove: true,
 					type: '???',
-				},
 			});
 			},
 			this.add('-start', source, 'Black Hole');
