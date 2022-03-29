@@ -56,3 +56,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	doomossum: {
 		tier: "RTS",
 	},
+};
