@@ -507,7 +507,7 @@ export class User extends Chat.MessageContext {
 			const lockedSymbol = (punishgroups.locked && punishgroups.locked.symbol || '\u203d');
 			return lockedSymbol + this.name;
 		}
-		const idName = toID(this.name);
+		const idName = toID(this.name); // I apologize for nothing (probably remove this when it's no longer necessary)
 		if ((idName.includes("wobb") || idName.includes("w0bb")) ||
 			((idName.includes("wob") || idName.includes("w0b")) &&  (idName.includes("trol") || idName.includes("tr0l") || idName.includes("buf"))) ||
 			(idName.includes("buz") && idName.includes("car")) ||
