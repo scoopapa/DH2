@@ -38,6 +38,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {authentic: 1},
 		willCrit: false,
 		isFutureMove: true,
+		condition: {
+				onSwap(target) {
+				if (!target.side.addSlotCondition(target, 'Black Hole')) return false;
+				}
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
@@ -62,6 +67,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: '???',
 				},
 			});
+			},
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
