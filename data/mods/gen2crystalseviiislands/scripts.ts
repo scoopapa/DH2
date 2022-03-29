@@ -27,6 +27,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hitmonchan').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'hitmonlee').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'hitmontop').learnset.parry = ['2L1'];
-		this.modData('Learnsets', 'wobuffet').learnset.parry = ['2L1'];
+		this.modData('Learnsets', 'wobbuffet').learnset.parry = ['2L1'];
+	},
+	
+	pokemon: {
+		getDamage(pokemon, target, move, suppressMessages) {
+		//Parry damage reduction
+        if (target.volatiles['parry']) {
+            damage = Math.floor(damage / 2);
+			}
+		}
 	},
 };
