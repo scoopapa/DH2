@@ -40,7 +40,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {},
 		ignoreImmunity: true,
-		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
@@ -101,13 +100,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 						name: "Black Hole",
 						accuracy: 100,
 						basePower: 200,
-						category: "Dark",
+						category: "Special",
 						priority: 0,
 						flags: {},
 						ignoreImmunity: false,
 						effectType: 'Move',
 						isFutureMove: true,
-						type: 'Psychic',
+						type: 'Dark',
 						target: "all",
 					},
 				});
