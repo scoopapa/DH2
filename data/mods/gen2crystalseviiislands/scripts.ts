@@ -19,6 +19,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'murkrow').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'clefable').learnset.blackhole = ['2L1'];
 		
-		this.modData('Learnsets', 'umbreon').learnset.blackholes = ['2L1'];
+	},
+	pokemon: {
+	getDamage(pokemon, target, move, suppressMessages) {
+		//Parry damage reduction
+        if (target.volatiles['parry']) {
+            damage = Math.floor(damage / 2);
+			}
+		}
 	},
 };
