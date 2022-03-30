@@ -48,7 +48,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				duration: 3,
 				move: 'blackhole',
 				source: source,
-				recoil: [1, 2],
 				moveData: {
 					id: 'blackhole',
 					name: "Black Hole",
@@ -63,6 +62,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: '???',
 				},
 			});
+			recoil: [1, 2],
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
