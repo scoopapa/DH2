@@ -160,8 +160,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 			onHit(source, move) {
-			for (const pokemon of source.side.foe.active) {
-					source.trySetStatus('brn', pokemon, move);
+			for (const foe of source.side.foe.active) {
+					source.trySetStatus('brn', foe, move);
 				}
 			},
 			/*onSwitchIn(pokemon) {
