@@ -39,7 +39,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
-			this.damage(target.baseMaxhp / 2);
+			this.damage(self.baseMaxhp / 2);
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
