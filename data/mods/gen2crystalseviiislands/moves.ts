@@ -100,6 +100,8 @@ export const Moves: {[moveid: string]: MoveData} = {
             onHit(pokemon, source, move) {
                 if (move.category !== 'Status') {
                     pokemon.volatiles['parry'].untouched = true;
+						  const ppDeducted = pokemon.deductPP(move, 1);
+                    if (!ppDeducted) return false;
                 }
             },
         },
