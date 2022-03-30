@@ -107,7 +107,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                }
            },
        },
-		 onHit: function(target, source, move) {
+		 onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aerial Ace", target);
 		},
