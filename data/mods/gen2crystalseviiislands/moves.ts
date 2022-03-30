@@ -146,26 +146,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  pp: 10,
 		  priority: 0,
 	  	  flags: {authentic: 1},
-        target: "foeSide",
-		  type: "Fire",
+		  sideCondition: 'sacredcandle',
 		  shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
 		  condition: {
 			// this is a side condition
 			onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
-					this.add('-sidestart', side, 'Sacred Candle');
+					this.add('-sidestart', side, 'move: Sacred Candle');
 					this.effectData.layers = 1;
 				} else {
 					return false;
 				}
 			},
-			onSwitchIn(pokemon, source) {
-				if (!pokemon.runImmunity('Ground')) return;
-				for (const pokemon of source.side.foe.active) {
-					source.trySetStatus('brn', pokemon);
-					}
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
 				},
 			},
+		  target: "foeSide",
+		  type: "Fire",
 		},
 	
 	///////
