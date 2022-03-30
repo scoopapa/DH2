@@ -48,7 +48,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
+				duration: 4,
 				move: 'blackhole',
 				source: source,
 				moveData: {
@@ -121,7 +121,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                 if (!randomMove) return false;
                 this.useMove(randomMove, pokemon);
                 if (randomMove == 'sleeptalk') {
-                    const ppDeducted = pokemon.deductPP(randomMove, 4);
+                    const ppDeducted = pokemon.deductPP(randomMove, 2);
                     if (!ppDeducted) return false;
                 }
                 else {
