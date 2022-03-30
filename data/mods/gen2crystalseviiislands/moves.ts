@@ -39,6 +39,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
+			recoil: [1, 2],
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
@@ -62,7 +63,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: '???',
 				},
 			});
-			recoil: [1, 2],
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
