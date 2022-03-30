@@ -107,8 +107,11 @@ export const Moves: {[moveid: string]: MoveData} = {
                }
            },
        },
-		 onHit(pokemon, target, source) {
-			   this.add('-anim', source, "Aerial Ace", target);
+		 onHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aerial Ace", target);
+		},
+		 onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
                 const moves = [];
