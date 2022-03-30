@@ -36,6 +36,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {authentic: 1},
+		recoil: [1, 2],
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
@@ -56,7 +57,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					category: "Special",
 					priority: 0,
 					flags: {},
-					target: "all",
+					target: "normal",
 					effectType: 'Move',
 					isFutureMove: true,
 					type: '???',
