@@ -42,10 +42,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
-		onTryHit(pokemon, target, move) {
-			if (pokemon.hp <= (pokemon.maxhp * 50 / 100) || pokemon.maxhp === 1) {
-				return false;
-			}
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'Energy', '[of] ' + source);
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 2);
+			},
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
