@@ -88,7 +88,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         beforeMoveCallback(pokemon, move) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
 					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) return false;
+                if (!ppDeducted) 
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
