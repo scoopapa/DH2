@@ -43,6 +43,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.damage(source.baseMaxhp / 2, source);
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
+			this.add('-message', `${source.name} summoned a Black Hole...`);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -88,10 +89,10 @@ export const Moves: {[moveid: string]: MoveData} = {
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
+					 this.add('-message', `${pokemon.name} was unable to parry...`);
 					 const ppDeducted = pokemon.deductPP(move, 1);
                 if (!ppDeducted) return false;
                 return true;
-					 this.add('-message', `${pokemon.name} was unable to parry...`);
             }
         },
         condition: {
