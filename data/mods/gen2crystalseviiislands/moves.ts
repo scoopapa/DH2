@@ -38,8 +38,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {authentic: 1},
 		willCrit: false,
 		isFutureMove: true,
-		onPrepareHit: function(target, source, move) {
-			this.damage(source.baseMaxhp / 2);
+		onPrepareHit: function(pokemon, target, source, move) {
+			this.damage(pokemon.baseMaxhp / 2);
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
