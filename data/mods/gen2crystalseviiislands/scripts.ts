@@ -28,6 +28,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hitmonlee').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'hitmontop').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'wobbuffet').learnset.parry = ['2L1'];
+		
+		this.modData('Learnsets', 'entei').learnset.sacredcandle = ['2L1'];
+		this.modData('Learnsets', 'hooh').learnset.sacredcandle = ['2L1'];
+		this.modData('Learnsets', 'aroofaondo').learnset.sacredcandle = ['2L1'];
+		this.modData('Learnsets', 'esscargoo').learnset.sacredcandle = ['2L1'];
 	},
 	
 	pokemon: {
