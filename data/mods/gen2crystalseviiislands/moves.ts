@@ -84,7 +84,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         volatileStatus: 'parry',
         beforeTurnCallback(pokemon) {
         pokemon.addVolatile('parry');
-		  pokemon.addVolatile('stall');
         },
         beforeMoveCallback(pokemon, move) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
