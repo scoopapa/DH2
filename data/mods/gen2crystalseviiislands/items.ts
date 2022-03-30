@@ -22,7 +22,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onHit(source, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-					source.trySetStatus('brn', pokemon, move);
+					source.trySetStatus('brn', source.side.foe.active, move);
 					pokemon.useItem();
 					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
 				}
@@ -46,6 +46,15 @@ export const Items: {[itemid: string]: ItemData} = {
 					chance: 100,
 					status: 'brn',
 				});
+			}
+		},*/
+		/*onHit(source, move) {
+			for (const pokemon of source.side.foe.active) {
+				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
+					source.trySetStatus('brn', pokemon, move);
+					pokemon.useItem();
+					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
+				}
 			}
 		},*/
 		itemUser: ["Houndoom", "Houndour"],
