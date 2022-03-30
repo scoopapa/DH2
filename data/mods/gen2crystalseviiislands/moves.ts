@@ -149,6 +149,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  sideCondition: 'sacredcandle',
 		  shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
 		  condition: {
+			duration: 5,
 			// this is a side condition
 			onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
