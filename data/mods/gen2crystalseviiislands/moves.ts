@@ -32,6 +32,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
+		shortDesc: "User loses 50% of its max HP. Damages with halved Sp. Def in 3 turns.",
 		name: "Black Hole",
 		pp: 5,
 		priority: 0,
