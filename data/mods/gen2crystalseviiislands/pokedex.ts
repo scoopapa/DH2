@@ -25,6 +25,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1,
 		weightkg: 131,
+		prevo: "Quagsire",
 	},
 	animon: {
 		num: 255,
@@ -34,6 +35,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 0.5,
 		weightkg: 6,
+		prevo: "Ditto",
 	},
 	esscargoo: {
 		num: 256,
@@ -43,6 +45,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1.4,
 		weightkg: 151.1,
+		prevo: "Magcargo",
 	},
 	tunguru: {
 		num: 257,
@@ -52,6 +55,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1.3,
 		weightkg: 90.5,
+		prevo: "Lickitung",
 	},
 	terricks: {
 		num: 258,
