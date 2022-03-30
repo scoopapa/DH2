@@ -139,6 +139,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	
 	spikes: {
 		inherit: true,
+		flags: {authentic: 1},
 		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
 		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
 		condition: {
