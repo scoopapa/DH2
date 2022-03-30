@@ -43,7 +43,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
 		onTry(source, target) {
-			recoil: [1, 2],
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
@@ -66,6 +65,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Dark",
