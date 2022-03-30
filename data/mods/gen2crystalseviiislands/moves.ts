@@ -92,7 +92,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					 const ppDeducted = pokemon.deductPP(move, 1);
                 if (!ppDeducted) 
 					 this.add('-fail', pokemon); 
-					 return false;
                 return true;
             }
         },
