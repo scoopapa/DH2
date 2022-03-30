@@ -163,8 +163,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (!pokemon.isGrounded()) return;
 				   pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
 				}
-		   },
-	},
 			/*onHit(source, move) {
 			for (const foe of source.side.foe.active) {
 					source.trySetStatus('brn', foe, move);
