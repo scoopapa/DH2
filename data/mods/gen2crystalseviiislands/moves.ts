@@ -79,7 +79,9 @@ export const Moves: {[moveid: string]: MoveData} = {
         category: "Status",
         pp: 5,
         priority: -1,
-        flags: {contact: 1, protect: 1, stall: 1},
+        flags: {contact: 1, protect: 1},
+		  stallingMove: true,
+		  
         volatileStatus: 'parry',
         beforeTurnCallback(pokemon) {
         pokemon.addVolatile('parry');
@@ -103,10 +105,14 @@ export const Moves: {[moveid: string]: MoveData} = {
             onHit(pokemon, source, move) {
                 if (move.category !== 'Status') {
                     pokemon.volatiles['parry'].untouched = true;
-                }
-            },
-         },
-		   onHit(pokemon) {
+               }
+           },
+       },
+		 onTryHit(pokemon) {
+			return this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		 },
+		 onHit(pokemon) {
+				pokemon.addVolatile('stall');
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
                 const moves = [];
