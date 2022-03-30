@@ -89,9 +89,9 @@ export const Moves: {[moveid: string]: MoveData} = {
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
+					 this.add('-message', `${pokemon.name} was unable to parry...`);
 					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) 
-					 this.add('-fail', pokemon); 
+                if (!ppDeducted) return false;
                 return true;
             }
         },
@@ -105,23 +105,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                     pokemon.volatiles['parry'].untouched = true;
                 }
             },
-        },
-		  onTryHit(target, source, move) {
-				if (!move.flags['protect']) {
-					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
-					return;
-				}
-				if (move && (move.target === 'self' || move.category === 'Status')) return;
-				this.add('-activate', target, 'move: Parry', move.name);
-				const lockedmove = source.getVolatile('lockedmove');
-				if (lockedmove) {
-					// Outrage counter is reset
-					if (source.volatiles['lockedmove'].duration === 2) {
-						delete source.volatiles['lockedmove'];
-					}
-				}
-				return this.NOT_FAIL;
-			},
+         },
 		   onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
