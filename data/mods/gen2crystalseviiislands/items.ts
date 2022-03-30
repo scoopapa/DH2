@@ -22,7 +22,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onHit(source, target, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-					source.trySetStatus('brn', target, move);
+					target.trySetStatus('brn', target, move);
 					pokemon.useItem();
 					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
 				}
