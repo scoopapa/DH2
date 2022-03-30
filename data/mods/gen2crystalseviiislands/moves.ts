@@ -107,9 +107,6 @@ export const Moves: {[moveid: string]: MoveData} = {
                }
            },
        },
-		 onTryHit(pokemon) {
-			return this.queue.willAct() && this.runEvent('StallMove', pokemon);
-		 },
 		 onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
