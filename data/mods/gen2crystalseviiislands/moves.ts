@@ -79,19 +79,19 @@ export const Moves: {[moveid: string]: MoveData} = {
         category: "Status",
         pp: 5,
         priority: -1,
-        flags: {contact: 1, protect: 1},
+        flags: {contact: 1, protect: 1, stall: 1},
         volatileStatus: 'parry',
         beforeTurnCallback(pokemon) {
         pokemon.addVolatile('parry');
         },
         beforeMoveCallback(pokemon, move) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
+					 const ppDeducted = pokemon.deductPP(move, 1);
+                if (!ppDeducted) return false;
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
 					 this.add('-message', `${pokemon.name} was unable to parry...`);
-					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) return false;
                 return true;
             }
         },
