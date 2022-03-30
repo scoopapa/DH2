@@ -19,10 +19,10 @@ export const Items: {[itemid: string]: ItemData} = {
 	hellfirelantern: {
 		name: "Hellfire Lantern",
 		spritenum: 61,
-		onHit(source, move) {
+		onHit(source, target, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-					source.trySetStatus('brn', source.side.foe.active, move);
+					source.trySetStatus('brn', target, move);
 					pokemon.useItem();
 					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
 				}
