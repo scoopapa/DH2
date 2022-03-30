@@ -138,16 +138,18 @@ export const Moves: {[moveid: string]: MoveData} = {
         contestType: "Cool",
     },
 	sacredcandle: {
-		num: -4,
-      accuracy: true,
-      basePower: 0,
-      category: "Status",
-		name: "Sacred Candle",
-		pp: 10,
-		priority: 0,
-		flags: {authentic: 1},
-		shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
-		condition: {
+		  num: -4,
+        accuracy: true,
+        basePower: 0,
+        category: "Status",
+		  name: "Sacred Candle",
+		  pp: 10,
+		  priority: 0,
+	  	  flags: {authentic: 1},
+        target: "foeSide",
+		  type: "Fire",
+		  shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
+		  condition: {
 			// this is a side condition
 			onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
@@ -165,9 +167,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				},
 			},
 		},
-	   target: "foeSide",
-		type: "Fire",
-	},
 	
 	///////
 	
@@ -192,7 +191,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
-	},
+   },
 	rapidspin: {
 		num: 229,
 		accuracy: 100,
