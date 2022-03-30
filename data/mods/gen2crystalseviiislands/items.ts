@@ -19,6 +19,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	hellfirelantern: {
 		name: "Hellfire Lantern",
 		spritenum: 61,
+		onSourceTryHit(target, source, move) {
+			if (move.type === 'Fire') {
+				source.useItem();
+			}
+		},
 		/*onHit(source, target, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
