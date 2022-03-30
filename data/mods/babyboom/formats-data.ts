@@ -68,4 +68,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dreddon: {
 		tier: "LC",
 	},
+	durone: {
+		tier: "LC",
+	},
+	drifble: {
+		tier: "LC",
+	},
+	tangel: {
+		tier: "LC",
+	},
 };
