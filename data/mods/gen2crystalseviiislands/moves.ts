@@ -159,11 +159,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-			onSwitchIn(pokemon) {
+			onHit(source, move) {
+			for (const pokemon of source.side.foe.active) {
+					source.trySetStatus('brn', pokemon, move);
+				}
+			},
+			/*onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
 				},
-			},
+			},*/
 		  target: "foeSide",
 		  type: "Fire",
 		},
