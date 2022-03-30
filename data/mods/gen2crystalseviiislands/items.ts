@@ -21,8 +21,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 61,
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
+				target.trySetStatus('brn', source);
 				source.useItem();
-				source.trySetStatus('brn', target);
 			}
 		},
 		/*onHit(source, target, move) {
