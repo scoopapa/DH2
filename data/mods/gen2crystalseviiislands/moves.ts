@@ -72,7 +72,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	parry: {
-        num: -100,
+        num: -3,
         accuracy: true,
         basePower: 0,
         category: "Status",
@@ -122,7 +122,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                     if (!ppDeducted) return false;
                 }
                 else {
-                    const ppDeducted = pokemon.deductPP(randomMove, 4);
+                    const ppDeducted = pokemon.deductPP(randomMove, 1);
                     if (!ppDeducted) return false;
                 }
             }
