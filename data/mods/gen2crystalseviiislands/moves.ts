@@ -159,7 +159,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-			onDamagingHit(damage, pokemon, move) {
+			onDamagingHit(damage, pokemon, source, move) {
 					if (!pokemon.isGrounded()) return;
 				   pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
 				}
