@@ -42,6 +42,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
+		onTryHit(pokemon, target, move) {
+			if (pokemon.hp <= (pokemon.maxhp * 50 / 100) || pokemon.maxhp === 1) {
+				return false;
+			}
+		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -65,7 +70,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Black Hole');
 			return null;
 		},
-		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Dark",
