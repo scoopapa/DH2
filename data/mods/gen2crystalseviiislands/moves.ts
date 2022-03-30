@@ -80,7 +80,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         pp: 5,
         priority: -1,
         flags: {contact: 1, protect: 1},
-		  stallingMove: true,
         volatileStatus: 'parry',
         beforeTurnCallback(pokemon) {
         pokemon.addVolatile('parry');
