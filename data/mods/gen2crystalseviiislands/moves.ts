@@ -112,7 +112,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		 },
 		 onHit(pokemon) {
-				pokemon.addVolatile('stall');
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
                 const moves = [];
@@ -135,6 +134,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                     if (!ppDeducted) return false;
                 }
             }
+			 pokemon.addVolatile('stall');
         },
         name: "Parry",
         desc: "Parry",
