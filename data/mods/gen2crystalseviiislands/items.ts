@@ -21,39 +21,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 61,
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
-				source.useItem();
 				target.trySetStatus('brn', source);
+				source.useItem();
 			}
 		},
-		/*onHit(source, target, move) {
-			for (const pokemon of source.side.foe.active) {
-				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-					target.trySetStatus('brn', source, move);
-					pokemon.useItem();
-					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
-				}
-			}
-		},*/
-		/*onAfterMoveSecondary(target, source, move) {
-			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
-			if (move.type === 'Fire') {
-				target.useItem();
-				source.trySetStatus('brn', target);
-				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
-			}
-		},*/
-		/*onModifyMove(pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
-				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				move.secondaries.push({
-					chance: 100,
-					status: 'brn',
-				});
-			}
-		},*/
 		/*onHit(source, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
@@ -66,7 +37,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
 		gen: 2,
-		shortDesc: "(Bugged) If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
+		shortDesc: "If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
     },
 	sandstone: {
 		name: "Sandstone",
