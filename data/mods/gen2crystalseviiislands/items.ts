@@ -36,7 +36,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
 			}
 		},*/
-		onModifyMove(pokemon, move) {
+		/*onModifyMove(pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
 				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
 				if (!move.secondaries) {
@@ -47,7 +47,7 @@ export const Items: {[itemid: string]: ItemData} = {
 					status: 'brn',
 				});
 			}
-		},
+		},*/
 		/*onHit(source, move) {
 			for (const pokemon of source.side.foe.active) {
 				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
