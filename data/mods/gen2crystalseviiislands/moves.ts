@@ -161,6 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!pokemon.runImmunity('Ground')) return;
 				for (const pokemon of source.side.foe.active) {
 					source.trySetStatus('brn', pokemon);
+					}
 				},
 			},
 		},
