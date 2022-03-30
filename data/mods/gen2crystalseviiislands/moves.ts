@@ -107,7 +107,23 @@ export const Moves: {[moveid: string]: MoveData} = {
                 }
             },
         },
-		  onHit(pokemon) {
+		  onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Parry', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		   onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
                 const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
                 const moves = [];
