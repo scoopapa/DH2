@@ -3,6 +3,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 252,
 		name: "Horatekku",
 		types: ["Steel", "Ghost"],
+		gender: "N",
 		baseStats: {hp: 80, atk: 100, def: 100, spa: 60, spd: 70, spe: 60},
 		abilities: {0: "No Ability"},
 		heightm: 0.2,
@@ -31,6 +32,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 255,
 		name: "Animon",
 		types: ["Steel"],
+		gender: "N",
 		baseStats: {hp: 72, atk: 72, def: 48, spa: 72, spd: 48, spe: 72},
 		abilities: {0: "No Ability"},
 		heightm: 0.5,
@@ -61,6 +63,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 258,
 		name: "Terricks",
 		types: ["Rock", "Flying"],
+		gender: "N",
 		baseStats: {hp: 90, atk: 125, def: 160, spa: 90, spd: 50, spe: 65},
 		abilities: {0: "No Ability"},
 		heightm: 3.8,
@@ -2453,7 +2456,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 65.5,
 		color: "Pink",
-		evos: ["Lickilicky"],
+		evos: ["Tunguru"],
 		eggGroups: ["Monster"],
 	},
 	koffing: {
@@ -2869,6 +2872,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 4,
 		color: "Purple",
+		evos: ["Animon"],
 		eggGroups: ["Ditto"],
 	},
 	eevee: {
@@ -3880,6 +3884,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Blue",
 		prevo: "Wooper",
 		evoLevel: 20,
+		evos: ["Exoltol"],
 		eggGroups: ["Water 1", "Field"],
 	},
 	espeon: {
@@ -4252,6 +4257,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Red",
 		prevo: "Slugma",
 		evoLevel: 38,
+		evos: ["Esscargoo"],
 		eggGroups: ["Amorphous"],
 	},
 	swinub: {
