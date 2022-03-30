@@ -22,6 +22,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
 				source.useItem();
+				source.trySetStatus('brn', target);
 			}
 		},
 		/*onHit(source, target, move) {
