@@ -89,8 +89,8 @@ export const Moves: {[moveid: string]: MoveData} = {
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
-					 this.add('-message', `${pokemon.name} was unable to parry...`);
 					 const ppDeducted = pokemon.deductPP(move, 1);
+					 this.add('-message', `${pokemon.name} was unable to parry...`);
                 return true;
             }
         },
