@@ -109,7 +109,7 @@ export const Moves: {[moveid: string]: MoveData} = {
        },
 		 onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Aerial Ace", target);
+			this.add('-anim', source, "Mimic", target);
 		},
 		 onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
