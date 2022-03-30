@@ -39,17 +39,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
+			this.damage(source.baseMaxhp / 2);
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
-		},
-		condition: {
-			onStart(pokemon, source) {
-				this.add('-start', pokemon, 'Energy', '[of] ' + source);
-			},
-			onResidualOrder: 10,
-			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 2);
-			},
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
