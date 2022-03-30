@@ -77,6 +77,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         accuracy: true,
         basePower: 0,
         category: "Status",
+		  shortDesc: "Reduces damage of incoming attacks. Uses one of its other moves.",
         pp: 5,
         priority: -1,
         flags: {contact: 1, protect: 1},
@@ -131,12 +132,40 @@ export const Moves: {[moveid: string]: MoveData} = {
             }
         },
         name: "Parry",
-        desc: "Parry",
         secondary: null,
         target: "self",
         type: "Fighting",
         contestType: "Cool",
     },
+	sacredcandle: {
+		num: -4,
+      accuracy: true,
+      basePower: 0,
+      category: "Status",
+		name: "Sacred Candle",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				if (!this.effectData.layers || this.effectData.layers === 0) {
+					this.add('-sidestart', side, 'Sacred Candle');
+					this.effectData.layers = 1;
+				} else {
+					return false;
+				}
+			},
+			onSwitchIn(pokemon, source) {
+				if (!pokemon.runImmunity('Ground')) return;
+				for (const pokemon of source.side.foe.active) {
+					source.trySetStatus('brn', pokemon);
+			},
+		},
+	   target: "foeSide",
+		type: "Fire",
+	},
 	
 	///////
 	
@@ -162,5 +191,45 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'sacredcandle'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'sacredcandle'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 };
