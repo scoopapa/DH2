@@ -87,12 +87,12 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         beforeMoveCallback(pokemon, move) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
+					 const ppDeducted = pokemon.deductPP(move, 1);
+                if (!ppDeducted) return false;
                 return false;
             }
             else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
 					 this.add('-message', `${pokemon.name} was unable to parry...`);
-					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) return false;
                 return true;
             }
         },
