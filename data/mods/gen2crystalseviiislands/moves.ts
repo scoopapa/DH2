@@ -105,19 +105,17 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 		  onHit(pokemon) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
-                const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'protect', 'detect'];
+                const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
                 const moves = [];
                 for (const moveSlot of pokemon.moveSlots) {
-                    const moveid = moveSlot.id;
-                    if (moveid && !NoParry.includes(moveid) && !this.dex.getMove(moveid).flags['charge']) {
-                        moves.push(moveid);
+                    const move = moveSlot.id;
+                    if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
+                        moves.push(move);
                     }
                 }
                 let randomMove = '';
                 if (moves.length) randomMove = this.sample(moves);
-                if (!randomMove) { 
-						 return false;
-					 }
+                if (!randomMove) return false;
                 this.useMove(randomMove, pokemon);
                 if (randomMove == 'sleeptalk') {
                     const ppDeducted = pokemon.deductPP(randomMove, 4);
