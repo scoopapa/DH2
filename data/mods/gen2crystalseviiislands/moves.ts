@@ -81,10 +81,10 @@ export const Moves: {[moveid: string]: MoveData} = {
         priority: -1,
         flags: {contact: 1, protect: 1},
 		  stallingMove: true,
-		  
         volatileStatus: 'parry',
         beforeTurnCallback(pokemon) {
         pokemon.addVolatile('parry');
+		  pokemon.addVolatile('stall');
         },
         beforeMoveCallback(pokemon, move) {
             if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
@@ -134,7 +134,6 @@ export const Moves: {[moveid: string]: MoveData} = {
                     if (!ppDeducted) return false;
                 }
             }
-			 pokemon.addVolatile('stall');
         },
         name: "Parry",
         desc: "Parry",
