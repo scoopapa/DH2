@@ -3240,7 +3240,7 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'PU',
 		],
-		unbanlist: ['(PU)'],
+		//unbanlist: [''],
 		teambuilderFormat: '(PU)',
 		searchShow: false,
 		challengeShow: false,
