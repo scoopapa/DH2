@@ -152,6 +152,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
+		  onPrepareHit: function(target, source, move) {
+				this.attrLastMove('[still]');
+				this.add('-anim', source, "Flame Burst", target);
+			},
 		  condition: {
 		   duration: 5,
 			// this is a side condition
