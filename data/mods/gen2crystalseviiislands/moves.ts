@@ -154,7 +154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
-				this.add('-anim', source, "Will-O-Wisp", target);
+				this.add('-anim', source, "Beak Blast", target);
 			},
 		  condition: {
 		   duration: 5,
