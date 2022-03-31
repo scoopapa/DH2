@@ -16,8 +16,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			},
             /*damage = Math.floor(damage / 2);
         }*/
-		}
-	}
 },
 
 	
