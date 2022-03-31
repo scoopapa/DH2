@@ -2,15 +2,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
 	
-	/*pokemon: {
-		onSourceModifyDamage(damage, source, target, move) {
-		//Parry damage reduction
-        if (target.volatiles['parry']) {
-            damage = Math.floor(damage / 2);
-			}
-		},
-	},*/
-	
 	init: function () {
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'heracross').learnset.swarmattack = ['2L1'];
