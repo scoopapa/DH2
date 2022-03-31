@@ -77,7 +77,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         accuracy: true,
         basePower: 0,
         category: "Status",
-		  shortDesc: "Reduces damage of incoming attacks. Uses one of its other moves.",
+		  shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
         pp: 5,
         priority: -1,
         flags: {contact: 1, protect: 1},
@@ -152,10 +152,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
-		  onPrepareHit: function(target, source, move) {
-				this.attrLastMove('[still]');
-				this.add('-anim', source, "Ember", source);
-			},
 		  	condition: {
 		   duration: 5,
 			// this is a side condition
@@ -220,6 +216,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
+		shortDesc: "User recovers 50% of direct damage dealt. Damages target for 2-3 turns.",
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -274,6 +271,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
+		shortDesc: "Lasts 3 turns. Active Pokemon cannot fall asleep.",
 		secondary: null,
 		target: "Normal",
 		type: "Normal",
