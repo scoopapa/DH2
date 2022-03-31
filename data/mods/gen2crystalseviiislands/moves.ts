@@ -153,60 +153,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  sideCondition: 'sacredcandle',
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  condition: {
-			duration: 5,
+		   duration: 5,
 			// this is a side condition
-			onStart(side) {
+		   onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
 					this.add('-sidestart', side, 'move: Sacred Candle');
 					this.effectData.layers = 1;
 				} else {
 					return false;
-				}
-			},
+				   }
+			   },
 			onFoeHit(pokemon, source, move) {
 				if (move.category !== 'Status') {
 					source.trySetStatus('brn', pokemon);
 				}
 			},
-		   /*onDamage(damage, source, target, move) {
-				if (!target.isGrounded()) return;
-				source.trySetStatus('brn', target.side.foe.active[0]);
-				},*/
-			/*onHit(pokemon, move) {
-			for (const foe of pokemon.side.foe.active) {
-					pokemon.trySetStatus('brn', foe, move);
-				}
-			},*/
-			/*onDamagingHit(pokemon, source) {
-					if (!pokemon.isGrounded()) return;
-				   source.trySetStatus('brn', pokemon);
-				}*/
-			/*onHit(source, move) {
-			for (const foe of source.side.foe.active) {
-					source.trySetStatus('brn', foe, move);
-				}
-			},*/
-			/*onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
-				},*/
-			  
-			  /*
-			  basePowerCallback(pokemon, target, move) {
-			const damagedByTarget = pokemon.attackedBy.some(
-				p => p.source === target && p.damage > 0 && p.thisTurn
-			);
-			if (damagedByTarget) {
-				this.debug('Boosted for getting hit by ' + target);
-				return move.basePower * 2;
-			}
-			return move.basePower;
 		},
-			  */
-			},
 		  target: "foeSide",
 		  type: "Fire",
-		},
+	},
 	
 	///////
 	
