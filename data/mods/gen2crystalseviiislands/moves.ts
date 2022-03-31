@@ -201,7 +201,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 3,
 			durationCallback(target, source) {
-				return this.random(2, 3);
+				return this.random(1, 3);
 			},
 			onStart(targetSide, source) {
 				this.add('-message', `${source.name} shot petals into the air...`);
