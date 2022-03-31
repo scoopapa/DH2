@@ -292,16 +292,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	
 	///////
-	gigadrain: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
 	spikes: {
 		inherit: true,
 		flags: {authentic: 1},
@@ -480,6 +470,56 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd(target) {
 				this.add('-end', target, 'Substitute');
 			},
+		},
+	},
+	absorb: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
+		},
+	},
+	megadrain: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
+		},
+	},
+	gigadrain: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
+		},
+	},
+	leechlife: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
+		},
+	},
+	leechseed: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
 		},
 	},
 };
