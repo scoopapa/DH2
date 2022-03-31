@@ -180,7 +180,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Flower Mortar",
 		pp: 10,
 		priority: 0,
-		flags: {protect, mirror, heal},
+		/*flags: {protect, mirror, heal},*/
 	   drain: [1, 2],
 		/*self: {
 			onHit(source) {
