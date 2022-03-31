@@ -172,7 +172,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  target: "foeSide",
 		  type: "Fire",
 	},
-	/*
 	flowermortar: {
 		num: -5,
 		accuracy: 90,
@@ -190,9 +189,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		condition: {
 			duration: 3,
-			durationCallback(target, source) {
-				return this.random(1, 3);
-			},
 			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Flower Mortar');
 			},
@@ -213,7 +209,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Grass",
-	},*/
+	},
 	hypeup: {
 		num: -6,
 		accuracy: 100,
