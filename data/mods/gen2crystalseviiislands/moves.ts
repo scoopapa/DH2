@@ -187,7 +187,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
-		/*
 		condition: {
 			duration: 3,
 			durationCallback(target, source) {
@@ -210,9 +209,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
-		*/
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Grass",
 	},
 	hypeup: {
