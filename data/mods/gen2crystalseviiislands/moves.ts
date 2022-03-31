@@ -398,6 +398,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
 				}
 				if (move.id === 'swagger') {
+					this.debug('sub bypass: swagger');
 					return;
 				}
 				if (move.drain) {
@@ -405,7 +406,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.hint("In Gen 2, draining moves always miss against Substitute.");
 					return null;
 				}
-				if (move.category === 'Status' && move.id !== 'swagger') {
+				if (move.category === 'Status'/* && move.id !== 'swagger'*/) {
 					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
 					if (move.id === 'swagger') {
 						// this is safe, move is a copy
