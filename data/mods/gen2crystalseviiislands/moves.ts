@@ -172,6 +172,97 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  target: "foeSide",
 		  type: "Fire",
 	},
+	flowermortar: {
+		num: -5,
+		accuracy: 90,
+		basePower: 70,
+		category: "Special",
+		name: "Flower Mortar",
+		pp: 10,
+		priority: 0,
+		flags: {protect, mirror, heal},
+	   drain: [1, 2],
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('flowermortar');
+			},
+		},
+		condition: {
+			duration: 3,
+			durationCallback(target, source) {
+				return this.random(1, 3);
+			},
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Flower Mortar');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					this.damage(pokemon.baseMaxhp / 16, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+        			this.damage(pokemon.baseMaxhp / 16, pokemon);
+				}
+				this.add('-sideend', targetSide, 'Flower Mortar');
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Grass",
+	},
+	hypeup: {
+		num: -6,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Hype Up",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		self: {
+			volatileStatus: 'hypeup',
+		},
+		onTryHit(target) {
+			for (const [i, allyActive] of target.side.active.entries()) {
+				if (allyActive && allyActive.status === 'slp') allyActive.cureStatus();
+				const foeActive = target.side.foe.active[i];
+				if (foeActive && foeActive.status === 'slp') foeActive.cureStatus();
+			}
+		},
+		condition: {
+			duration: 3,
+			onStart(target) {
+				this.add('-start', target, 'Hype Up');
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['hypeup'];
+				}
+				this.add('-start', target, 'Hype Up', '[upkeep]');
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Hype Up');
+			},
+			onLockMove: 'hypeup',
+			onAnySetStatus(status, pokemon) {
+				if (status.id === 'slp') {
+					if (pokemon === this.effectData.target) {
+						this.add('-fail', pokemon, 'slp', '[from] Hype Up', '[msg]');
+					} else {
+						this.add('-fail', pokemon, 'slp', '[from] Hype Up');
+					}
+					return null;
+				}
+			},
+		},
+		secondary: null,
+		target: "Normal",
+		type: "Normal",
+	},
 	
 	///////
 	
