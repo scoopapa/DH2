@@ -2,6 +2,15 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
 	
+	pokemon: {
+		getDamage(pokemon, target, move, suppressMessages) {
+		//Parry damage reduction
+        if (pokemon.volatiles['parry']) {
+            damage = Math.floor(damage / 2);
+        }
+		}
+	},
+	
 	init: function () {
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'heracross').learnset.swarmattack = ['2L1'];
@@ -49,14 +58,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tunguru').learnset.hypeup = ['2L1'];
 		this.modData('Learnsets', 'snubbull').learnset.hypeup = ['2L1'];
 		this.modData('Learnsets', 'ursaring').learnset.hypeup = ['2L1'];
-	},
-	
-	pokemon: {
-		getDamage(pokemon, target, move, suppressMessages) {
-		//Parry damage reduction
-        if (pokemon.volatiles['parry']) {
-            damage = Math.floor(damage / 2);
-        }
-		}
 	},
 };
