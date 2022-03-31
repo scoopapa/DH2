@@ -1,0 +1,3 @@
+Files in this folder should be 64x64 px. 
+
+If they are not exactly that size they will be stretched oddly in the battle windows. 
