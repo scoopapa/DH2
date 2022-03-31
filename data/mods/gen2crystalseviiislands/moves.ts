@@ -262,9 +262,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onAnySetStatus(status, pokemon) {
 				if (status.id === 'slp') {
 					if (pokemon === this.effectData.target) {
-						this.add('-message', `${pokemon.name} is too hyped to sleep.`);
+						this.add('-message', `${pokemon.name} is too hyped up to sleep.`);
 					} else {
-						this.add('-message', `${pokemon.name} is too hyped to sleep.`);
+						this.add('-message', `${pokemon.name} is too hyped up to sleep.`);
 					}
 					return null;
 				}
