@@ -48,6 +48,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'bellossom').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'meganium').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'sunflora').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'golduck').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'raichu').learnset.flowermortar = ['2L1'];
 		
 		this.modData('Learnsets', 'phanpy').learnset.hypeup = ['2L1'];
