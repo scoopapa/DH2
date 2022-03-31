@@ -109,7 +109,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                     pokemon.volatiles['parry'].untouched = true;
                }
            },
-       },
+       },//
 		 onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mimic", target);
