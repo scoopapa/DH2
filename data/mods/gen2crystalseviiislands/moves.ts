@@ -194,6 +194,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
+		onTryHit(source, target) {
+			if (target.volatiles['substitute']) 
+				this.add('-miss', source);
+				return null;
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Petal Dance", target);
