@@ -53,17 +53,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	
 	pokemon: {
 		getDamage(pokemon, target, move, suppressMessages) {
-			let damage = level * 2;
-				damage = Math.floor(damage / 5);
-				damage += 2;
-				damage *= basePower;
-				damage *= attack;
-				damage = Math.floor(damage / defense);
-				damage = this.clampIntRange(Math.floor(damage / 50), 1, 997);
-				damage += 2;
 		//Parry damage reduction
         if (target.volatiles['parry']) {
-            damage = Math.floor(damage / 2);
+            damage = Math.floor(damage * 2);
         }
 		}
 	},
