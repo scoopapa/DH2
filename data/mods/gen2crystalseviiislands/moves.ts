@@ -154,6 +154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  condition: {
 			duration: 5,
+			target: "normal",
 			// this is a side condition
 			onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
@@ -163,9 +164,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		   onDamage(damage, source, pokemon, move) {
-				if (!pokemon.isGrounded()) return;
-				pokemon.trySetStatus('brn', source.side.foe.active[0]);
+		   onDamage(damage, source, target, move) {
+				if (!target.isGrounded()) return;
+				source.trySetStatus('brn', target.side.foe.active[0]);
 				},
 			/*onHit(pokemon, move) {
 			for (const foe of pokemon.side.foe.active) {
