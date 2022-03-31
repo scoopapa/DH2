@@ -220,7 +220,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         			this.add('-message', `${pokemon.name} was hit by petals!`);
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
-				/*this.add('-sideend', targetSide, 'Flower Mortar');*/
+				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
 		shortDesc: "User recovers 50% of direct damage dealt. Damages target for 2-3 turns.",
@@ -324,7 +324,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const sideConditions = ['spikes', 'sacredcandle', 'flowermortar'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add(/*'-sideend', */pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -338,7 +338,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const sideConditions = ['spikes', 'sacredcandle', 'flowermortar'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add(/*'-sideend', */pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -396,6 +396,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				if (move.id === 'twineedle') {
 					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
+				}
+				if (move.id === 'swagger') {
+					return;
 				}
 				if (move.drain) {
 					this.add('-miss', source);
