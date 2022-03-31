@@ -3,6 +3,18 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 2,
 	
 	init: function () {
+		
+		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
+		let newCategory = '';
+		for (const i in this.data.Moves) {
+			if (!this.data.Moves[i]) console.log(i);
+			if (this.data.Moves[i].category === 'Status') continue;
+			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
+			if (newCategory !== this.data.Moves[i].category) {
+				this.modData('Moves', i).category = newCategory;
+			}
+		}
+		
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'heracross').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'pinsir').learnset.swarmattack = ['2L1'];
