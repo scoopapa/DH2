@@ -180,9 +180,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Flower Mortar",
 		pp: 10,
 		priority: 0,
-		/*flags: {protect, mirror, heal},*/
+		flags: {protect, mirror},
 	   drain: [1, 2],
-		/*self: {
+		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('flowermortar');
 			},
@@ -208,7 +208,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
-		},*/
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
