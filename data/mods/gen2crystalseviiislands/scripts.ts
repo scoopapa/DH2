@@ -57,6 +57,6 @@ export const Scripts: ModdedBattleScriptsData = {
         if (target.volatiles['parry']) {
             damage = Math.floor(pokemon.maxhp / 2);
          }
-		}
+		},
 	},
 };
