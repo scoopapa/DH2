@@ -98,14 +98,9 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         condition: {
             duration: 1,
-			   onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source) {
-					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
-						this.debug('Parry weaken');
-						return this.chainModify(0.5);
-					}
-				}
-			},
+				onSourceModifyDamage(damage, source, target, move) {
+           		 return this.chainModify(0.7);  // replace 0.7 with whatever you want the number to be multiplied by
+       	   },
             onStart(pokemon) {
                 this.add('-message', `${pokemon.name} is attempting to parry!`);
             },
