@@ -163,9 +163,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		   onDamage(damage, source, pokemon, move) {
-				if (!move || move.effectType !== 'Move' || !source) return;
+		   onDamage(damage, source, pokemon, target, move) {
+				const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
 				source.trySetStatus('brn', pokemon.side.foe.active[0]);
+			},
 			},
 			/*onHit(pokemon, move) {
 			for (const foe of pokemon.side.foe.active) {
@@ -185,6 +189,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!pokemon.isGrounded()) return;
 				pokemon.trySetStatus('brn', pokemon.side.foe.active[0]);
 				},*/
+			  
+			  /*
+			  basePowerCallback(pokemon, target, move) {
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('Boosted for getting hit by ' + target);
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+			  */
 			},
 		  target: "foeSide",
 		  type: "Fire",
