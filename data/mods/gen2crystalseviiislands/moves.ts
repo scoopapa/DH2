@@ -154,9 +154,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
-				this.add('-anim', source, "Ember", target);
+				this.add('-anim', source, "Ember", source);
 			},
-		  condition: {
+		  	condition: {
 		   duration: 5,
 			// this is a side condition
 		   onStart(side) {
