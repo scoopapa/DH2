@@ -33,13 +33,29 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hooh').learnset.sacredcandle = ['2L1'];
 		this.modData('Learnsets', 'aroofaondo').learnset.sacredcandle = ['2L1'];
 		this.modData('Learnsets', 'esscargoo').learnset.sacredcandle = ['2L1'];
+		
+		this.modData('Learnsets', 'venusaur').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'vileplume').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'bellossom').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'meganium').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'sunflora').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'raichu').learnset.flowermortar = ['2L1'];
+		this.modData('Learnsets', 'tunguru').learnset.flowermortar = ['2L1'];
+		
+		this.modData('Learnsets', 'phanpy').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'miltank').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'eevee').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'lickitung').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'tunguru').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'snubbull').learnset.hypeup = ['2L1'];
+		this.modData('Learnsets', 'ursaring').learnset.hypeup = ['2L1'];
 	},
 	
 	pokemon: {
 		getDamage(pokemon, target, move, suppressMessages) {
 		//Parry damage reduction
         if (target.volatiles['parry']) {
-            damage = Math.floor(damage / 2);
+            damage = Math.floor(damage / 3);
 			}
 		}
 	},
