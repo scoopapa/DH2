@@ -384,6 +384,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
+			onTry(source, target, move) {
+				if (move.id === 'swagger') return;
+			},
 			onTryPrimaryHitPriority: -1,
 			onTryPrimaryHit(target, source, move) {
 				if (move.stallingMove) {
