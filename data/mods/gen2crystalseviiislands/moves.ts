@@ -166,8 +166,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		   onDamage(damage, source, pokemon, move) {
 				if (!pokemon.isGrounded()) return;
 				pokemon.trySetStatus('brn', source.side.foe.active[0]);
-				}
-			},
+				},
 			/*onHit(pokemon, move) {
 			for (const foe of pokemon.side.foe.active) {
 					pokemon.trySetStatus('brn', foe, move);
