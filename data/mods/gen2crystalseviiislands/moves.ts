@@ -189,6 +189,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		condition: {
 			duration: 3,
+			durationCallback(target, source) {
+				return this.random(1, 3);
+			},
 			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Flower Mortar');
 			},
@@ -196,12 +199,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidualSubOrder: 1.1,
 			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
-					this.damage(pokemon.baseMaxhp / 16, pokemon);
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 			},
 			onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
-        			this.damage(pokemon.baseMaxhp / 16, pokemon);
+        			if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
