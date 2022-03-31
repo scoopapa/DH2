@@ -190,7 +190,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Petal Dance", target);
-			this.add('-message', `${source.name} summoned a Black Hole...`);
 		},
 		condition: {
 			duration: 3,
@@ -198,6 +197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return this.random(2, 3);
 			},
 			onStart(targetSide) {
+				this.add('-message', `Petals scattered on the ground...`);
 				this.add('-sidestart', targetSide, 'Flower Mortar');
 			},
 			onResidualOrder: 5,
@@ -205,11 +205,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
+					this.add('-message', `${pokemon.name} was hurt by petals.`);
 				}
 			},
 			onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
         			this.damage(pokemon.baseMaxhp / 16, pokemon);
+					this.add('-message', `${pokemon.name} was hurt by petals.`);
 				}
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
