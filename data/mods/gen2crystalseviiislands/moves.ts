@@ -194,10 +194,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) 
+		onTryHit(source) {
+			if (source.volatiles['substitute']) 
 				this.add('-miss', source);
-				return null;
+				return;
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
