@@ -182,11 +182,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect, mirror, heal},
 	   drain: [1, 2],
-		self: {
+		/*self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('flowermortar');
 			},
-		},
+		},*/
 		condition: {
 			duration: 3,
 			durationCallback(target, source) {
