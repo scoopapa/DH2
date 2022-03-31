@@ -56,7 +56,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//Parry damage reduction
         if (target.volatiles['parry']) {
             damage = Math.floor(damage / 2);
-			}
+         }
 		}
 	},
 };
