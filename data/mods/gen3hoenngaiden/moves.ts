@@ -1113,6 +1113,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
+/*
 	wish: {
 		inherit: true,
 		flags: {heal: 1},
@@ -1129,6 +1130,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+*/
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
