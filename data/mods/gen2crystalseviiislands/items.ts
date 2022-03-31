@@ -1,7 +1,6 @@
 export const Items: {[itemid: string]: ItemData} = {
 	powerlink: {
 		name: "Power Link",
-		spritenum: 436,
 		onChargeMove(target, move) {
 			if (target.species.id === 'dodrio' || target.species.id === 'doduo') {
 				this.add("-activate", target, "item: Power Link");
@@ -18,7 +17,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	hellfirelantern: {
 		name: "Hellfire Lantern",
-		spritenum: 61,
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
 				target.trySetStatus('brn', source);
@@ -41,7 +39,6 @@ export const Items: {[itemid: string]: ItemData} = {
     },
 	sandstone: {
 		name: "Sandstone",
-		spritenum: 187,
 		onStart(target) {
 			if (target.species.id === 'sandslash' || target.species.id === 'sandshrew') {
 				this.add("-activate", target, "item: Sandstone");
