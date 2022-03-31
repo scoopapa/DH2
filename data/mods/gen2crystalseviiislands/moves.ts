@@ -163,8 +163,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		   onDamage(damage, target, source, move) {
-				if (!move || move.effectType !== 'Move' || !source) return;
+		   onDamage(damage, source, target, move) {
+				if (!move || move.effectType !== 'Move' || !target) return;
 				source.trySetStatus('brn', target);
 			},
 			/*onHit(pokemon, move) {
