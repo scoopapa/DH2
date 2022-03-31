@@ -352,26 +352,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	
 	sleeptalk: {
 		inherit: true,
-		onTry(pokemon) {
-			if (pokemon.hp < pokemon.maxhp) return;
-			this.add('-fail', pokemon);
-			return null;
-		},
-		onHit(target, source, move) {
-			if (target.status !== 'slp') {
-				if (!target.setStatus('slp', source, move)) return;
-			} else {
-				this.add('-status', target, 'slp', '[from] move: Rest');
-			}
-			target.statusState.time = 3;
-			target.statusState.startTime = 3;
-			target.statusState.source = target;
-			this.heal(target.maxhp);
-		},
-		secondary: null,
-	},
-		/*
-		inherit: true,
 		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Bide, Sleep Talk, or any two-turn move.",
 		onHit(pokemon) {
 			const noSleepTalk = [
@@ -396,5 +376,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		noSketch: true,
 	},
-	*/
 };
