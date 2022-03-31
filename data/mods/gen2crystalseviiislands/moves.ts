@@ -384,9 +384,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
-			onTry(source, target, move) {
-				if (move.id === 'swagger') return;
-			},
 			onTryPrimaryHitPriority: -1,
 			onTryPrimaryHit(target, source, move) {
 				if (move.stallingMove) {
@@ -400,16 +397,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (move.id === 'twineedle') {
 					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
 				}
-				/*if (move.id === 'swagger') {
-					this.debug('sub bypass: swagger');
-					return;
-				}*/
 				if (move.drain) {
 					this.add('-miss', source);
 					this.hint("In Gen 2, draining moves always miss against Substitute.");
 					return null;
 				}
-				if (move.category === 'Status'/* && move.id !== 'swagger'*/) {
+				if (move.category === 'Status') {
 					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
 					if (move.id === 'swagger') {
 						// this is safe, move is a copy
@@ -451,6 +444,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd(target) {
 				this.add('-end', target, 'Substitute');
 			},
+		},
+	},
+	swagger: {
+		flags: {authentic: 1},
+		inherit: true,
+		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
+		onTryHit(target, pokemon, move) {
+			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
+				this.add('-miss', pokemon);
+				return null;
+			}
+			if (target.volatiles['substitute']) {
+				delete move.volatileStatus;
+			}
 		},
 	},
 };
