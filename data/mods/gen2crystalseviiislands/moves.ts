@@ -194,7 +194,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
-		onUserTryHit(target, source) {
+		onTryHit(target, source) {
 			if (source.volatiles['substitute']) 
 				this.add('-miss', target);
 				return null;
