@@ -98,6 +98,14 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         condition: {
             duration: 1,
+			   onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.getCategory(move) !== 'Status') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Parry weaken');
+						return this.chainModify(0.5);
+					}
+				}
+			},
             onStart(pokemon) {
                 this.add('-message', `${pokemon.name} is attempting to parry!`);
             },
