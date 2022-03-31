@@ -164,7 +164,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		   onDamage(damage, source, target, move) {
-				if (!move || move.effectType !== 'Move' || !target) return;
+				if (!move || move.effectType !== 'Move' || !source) return;
 				source.trySetStatus('brn', target);
 			},
 			/*onHit(pokemon, move) {
