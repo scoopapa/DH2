@@ -213,56 +213,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Grass",
 	},
-	hypeup: {
-		num: -6,
-		accuracy: 100,
-		basePower: 85,
-		category: "Physical",
-		name: "Hype Up",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		self: {
-			volatileStatus: 'hypeup',
-		},
-		onTryHit(target) {
-			for (const [i, allyActive] of target.side.active.entries()) {
-				if (allyActive && allyActive.status === 'slp') allyActive.cureStatus();
-				const foeActive = target.side.foe.active[i];
-				if (foeActive && foeActive.status === 'slp') foeActive.cureStatus();
-			}
-		},
-		condition: {
-			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'Hype Up');
-			},
-			onResidual(target) {
-				if (target.lastMove && target.lastMove.id === 'struggle') {
-					// don't lock
-					delete target.volatiles['hypeup'];
-				}
-				this.add('-start', target, 'Hype Up', '[upkeep]');
-			},
-			onEnd(target) {
-				this.add('-end', target, 'Hype Up');
-			},
-			onLockMove: 'hypeup',
-			onAnySetStatus(status, pokemon) {
-				if (status.id === 'slp') {
-					if (pokemon === this.effectData.target) {
-						this.add('-fail', pokemon, 'slp', '[from] Hype Up', '[msg]');
-					} else {
-						this.add('-fail', pokemon, 'slp', '[from] Hype Up');
-					}
-					return null;
-				}
-			},
-		},
-		secondary: null,
-		target: "Normal",
-		type: "Normal",
-	},
+	
 	
 	///////
 	
