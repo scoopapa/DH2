@@ -187,6 +187,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Petal Dance", target);
+			this.add('-message', `${source.name} summoned a Black Hole...`);
+		},
 		condition: {
 			duration: 3,
 			durationCallback(target, source) {
