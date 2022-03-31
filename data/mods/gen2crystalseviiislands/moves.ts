@@ -194,8 +194,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
-		onTryHit(source) {
-			if (source.volatiles['substitute']) 
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) 
 				this.add('-miss', source);
 				return null;
 		},
