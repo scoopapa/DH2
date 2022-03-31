@@ -165,7 +165,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		   onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				source.trySetStatus('brn', target);
+				target.trySetStatus('brn', source);
 			},
 			/*onHit(pokemon, move) {
 			for (const foe of pokemon.side.foe.active) {
