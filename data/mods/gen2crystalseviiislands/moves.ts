@@ -151,7 +151,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  priority: 0,
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
-		  shortDesc: "Burns grounded non Fire-type foes on switch-in. Max 1 layer.",
+		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  condition: {
 			duration: 5,
 			// this is a side condition
