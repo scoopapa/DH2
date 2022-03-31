@@ -172,6 +172,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  target: "foeSide",
 		  type: "Fire",
 	},
+	/*
 	flowermortar: {
 		num: -5,
 		accuracy: 90,
@@ -212,7 +213,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Grass",
-	},
+	},*/
 	
 	
 	///////
