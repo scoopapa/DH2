@@ -3,11 +3,11 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 2,
 	
 	pokemon: {
-		getDamage(pokemon, target, move, suppressMessages) {
+		onSourceModifyDamage(damage, source, target, move) {
 		//Parry damage reduction
         if (pokemon.volatiles['parry']) {
             damage = Math.floor(damage / 2);
-        }
+			}
 		},
 	},
 	
