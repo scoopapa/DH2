@@ -232,6 +232,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		self: {
 			volatileStatus: 'hypeup',
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Uproar", target);
+		},
 		onTryHit(target) {
 			for (const [i, allyActive] of target.side.active.entries()) {
 				if (allyActive && allyActive.status === 'slp') allyActive.cureStatus();
