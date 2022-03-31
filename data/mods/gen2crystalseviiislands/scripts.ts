@@ -10,8 +10,6 @@ export const Scripts: ModdedBattleScriptsData = {
         }
 		},
 	},
-},
-
 	
 	init: function () {
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
