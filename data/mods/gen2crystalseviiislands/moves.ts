@@ -197,7 +197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return this.random(2, 3);
 			},
 			onStart(targetSide) {
-				this.add('-message', `Petals scattered on the ground...`);
+				this.add('-message', `Petals were shot from the mortar...`);
 				this.add('-sidestart', targetSide, 'Flower Mortar');
 			},
 			onResidualOrder: 5,
@@ -205,13 +205,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
-					this.add('-message', `${pokemon.name} was hurt by petals.`);
+					this.add('-message', `${pokemon.name} was hit by petals!`);
 				}
 			},
 			onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
         			this.damage(pokemon.baseMaxhp / 16, pokemon);
-					this.add('-message', `${pokemon.name} was hurt by petals.`);
+					this.add('-message', `${pokemon.name} was hit by petals!`);
 				}
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
