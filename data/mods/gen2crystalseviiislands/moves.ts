@@ -194,13 +194,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.side.foe.addSideCondition('flowermortar');
 			},
 		},
-		/*onTryHit(target, source) {
+		onTryHit(target, source) {
 			if (target.volatiles['substitute']) {
 				this.add('-miss', target);
 				return null;
 			} else
 		      return true;
-		},*/
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Petal Dance", target);
@@ -292,7 +292,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	
 	///////
-	
+	gigadrain: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
+				return null;
+			} else
+		      return true;
+		},
+	},
 	spikes: {
 		inherit: true,
 		flags: {authentic: 1},
@@ -461,13 +470,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.runEvent('AfterSubDamage', target, source, move, damage);
 				return this.HIT_SUBSTITUTE;
 			},
-			onTryHit(target, source, move) {
+			/*onTryHit(target, source, move) {
 			if (move.drain) {
 				this.add('-miss', source);
 				return null;
 			} else
 		      return true;
-			},
+			},*/
 			onEnd(target) {
 				this.add('-end', target, 'Substitute');
 			},
