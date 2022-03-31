@@ -44,6 +44,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 91, atk: 90, def: 129, spa: 90, spd: 72, spe: 128},
 	},
+	sylveon: {
+		inherit: true,
+	   types: ["Fairy", "Ground"],
+		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 130, spe: 60},
+	},
 	golisopod: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 110, spe: 40},
