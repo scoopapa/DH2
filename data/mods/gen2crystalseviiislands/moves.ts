@@ -195,9 +195,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		onTryHit(target, source) {
-			if (source.volatiles['substitute']) 
-				this.add('-miss', target);
+			if (target.volatiles['substitute']) {
+				this.add('-miss', source);
 				return null;
+			} else
+		      return;
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
