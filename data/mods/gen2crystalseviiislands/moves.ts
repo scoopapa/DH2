@@ -163,7 +163,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-			onHit(source, pokemon, move) {
+			onFoeHit(source, pokemon, move) {
 				if (move.category !== 'Status') {
 					source.trySetStatus('brn', pokemon);
 				}
