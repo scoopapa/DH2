@@ -163,7 +163,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		   onDamage(damage, source, target, move) {
+		   onDamage(move, target, source, damage) {
 				if (!move || move.effectType !== 'Move' || !source) return;
 				target.trySetStatus('brn', source);
 			},
