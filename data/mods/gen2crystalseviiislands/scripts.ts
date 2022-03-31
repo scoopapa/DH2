@@ -52,7 +52,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	
 	pokemon: {
-		getDamage(pokemon, target, move, suppressMessages) {
+		getDamage(pokemon, target, move, damage, suppressMessages) {
 		//Parry damage reduction
         if (target.volatiles['parry']) {
             damage = Math.floor(pokemon.maxhp / 2);
