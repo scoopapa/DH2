@@ -181,7 +181,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect, mirror, heal},
-	   drain: [1, 2],
+	   /*drain: [1, 2],*/
 		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('flowermortar');
@@ -199,12 +199,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidualSubOrder: 1.1,
 			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
-					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+					this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 			},
 			onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
-        			if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 16, pokemon);
+        			this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
