@@ -411,7 +411,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
 				}
 				if (move.id === 'flowermortar' || move.id === 'gigadrain') {
-					this.add('-miss', source);
+					this.add('-miss', target);
 					this.hint("In Gen 2, draining moves always miss against Substitute.");
 					return null;
 				}
