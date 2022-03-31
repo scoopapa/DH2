@@ -190,14 +190,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, heal: 1},
 	   drain: [1, 2],
 		self: {
-			onTryHit(target, source) {
-			if (source.volatiles['substitute']) 
-				this.add('-miss', target);
-				return null;
-		},
 			onHit(source) {
 				source.side.foe.addSideCondition('flowermortar');
 			},
+		},
+		onUserTryHit(target, source) {
+			if (source.volatiles['substitute']) 
+				this.add('-miss', target);
+				return null;
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
