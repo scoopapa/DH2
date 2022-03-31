@@ -154,7 +154,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
 		  condition: {
 			duration: 5,
-			target: "normal",
 			// this is a side condition
 			onStart(side) {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
