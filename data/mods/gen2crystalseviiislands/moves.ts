@@ -410,8 +410,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (move.id === 'twineedle') {
 					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
 				}
-				if (move.id === 'flowermortar' || move.id === 'gigadrain') {
-					this.add('-miss', pokemon);
+				if (move.drainingMove) {
+					this.add('-miss', source);
 					this.hint("In Gen 2, draining moves always miss against Substitute.");
 					return null;
 				}
