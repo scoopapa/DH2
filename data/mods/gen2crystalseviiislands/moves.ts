@@ -197,7 +197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return this.random(2, 3);
 			},
 			onStart(targetSide, source) {
-				this.add('-message', `${source.name} shot petals in the air...`);
+				this.add('-message', `${source.name} shot petals into the air...`);
 				this.add('-sidestart', targetSide, 'Flower Mortar');
 			},
 			onResidualOrder: 5,
