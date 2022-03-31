@@ -98,9 +98,9 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         condition: {
             duration: 1,
-				onSourceModifyDamage(damage, source, target, move) {
-           		 return this.chainModify(0.7);  // replace 0.7 with whatever you want the number to be multiplied by
-       	   },
+				onSourceBasePower(basePower, target, source, move) {
+                    return this.chainModify(0.7);
+            },
             onStart(pokemon) {
                 this.add('-message', `${pokemon.name} is attempting to parry!`);
             },
