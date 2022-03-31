@@ -195,8 +195,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		onTryHit(target, source) {
-			if (source.volatiles['substitute']) {
-				this.add('-miss', source);
+			if (target.volatiles['substitute']) {
+				this.add('-miss', target);
 				return null;
 			} else
 		      return true;
