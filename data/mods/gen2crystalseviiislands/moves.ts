@@ -163,12 +163,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		   onDamage(damage, pokemon, target, move) {
-				const damagedByTarget = pokemon.attackedBy.some(
-				p => p.source === target && p.damage > 0 && p.thisTurn
-			);
-			if (damagedByTarget) {
-				pokemon.trySetStatus('brn', target.side.foe.active[0]);
+		   onDamage(damage, source, pokemon, move) {
+				if (!pokemon.isGrounded()) return;
+				pokemon.trySetStatus('brn', source.side.foe.active[0]);
 				}
 			},
 			/*onHit(pokemon, move) {
