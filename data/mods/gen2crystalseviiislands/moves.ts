@@ -171,7 +171,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				   }
 			   },
 			onTryMove(pokemon, source, move) {
-			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || move.id !== 'rapidspin') {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.flags['sacred']) {
 			  		pokemon.trySetStatus('brn', source);
 				}
 			},
@@ -322,7 +322,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Rapid Spin",
 		pp: 40,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, sacred: 1},
 		onAfterHit(target, pokemon) {
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
@@ -330,7 +330,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const sideConditions = ['spikes', 'sacredcandle', 'flowermortar'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add(/*'-sideend', */pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
