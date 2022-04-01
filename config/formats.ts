@@ -394,7 +394,7 @@ export const Formats: FormatList = [
 	// },
 	{
 		name: "[Gen 8] Fusion Evolution UU",
-		mod: "feuu",
+		mod: "feuuafd",
 		desc: [
 			`<b>Fusion Evolution Under Used</b>: A micrometa Pet Mod aiming to create more-balanced-than-usual "Pokemon Fusions" with unique abilities.`
 		],
@@ -464,7 +464,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Fusion Evolution RU",
-		mod: "feuu",
+		mod: "feuuafd",
 		desc: [
 			`<b>Fusion Evolution Rarely Used</b>: A micrometa Pet Mod aiming to create even-more-balanced-than-usual "Pokemon Fusions" with unique abilities.`
 		],
@@ -1784,7 +1784,7 @@ export const Formats: FormatList = [
 	},
 	{
         name: "[Gen 8] Fusion Evolution DUU",
-        mod: "feuu",
+        mod: "feuuafd",
         threads: [
             `&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Thread in Pet Mods</a>`
         ],
@@ -1851,7 +1851,7 @@ export const Formats: FormatList = [
     },
 	{
 		name: "[Gen 8] Fusion Evolution LC",
-		mod: "feuu",
+		mod: "feuuafd",
 		maxLevel: 5,
 		desc: [
 			`<b>Fusion Evolution Little Cup</b>: A micrometa Pet Mod including the prevoultions of the balanced fusions featured in Fusion Evolution's Lower Tiers.`
@@ -2723,7 +2723,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Fusion Evolution Under Used on Smogon Forums</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zFk1_DBIoXFFn_7JpvYbVBrW-f1oFFh80Wn0CJNnbVo/edit#gid=0">Spreadsheet</a>`,
 		],
-		mod: 'feuu',
+		mod: 'feuuafd',
 		team: 'random',
 		ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Cancel Mod'],
 	},
