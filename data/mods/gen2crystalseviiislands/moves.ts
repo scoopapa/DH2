@@ -170,7 +170,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			onFoeTryMove(pokemon, source, move) {
+			onTryMove(pokemon, source, move) {
 			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground')) {
 			  		pokemon.trySetStatus('brn', source);
 				}
