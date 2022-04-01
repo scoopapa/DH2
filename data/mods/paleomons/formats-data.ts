@@ -67,7 +67,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	relicanthancient: {
+	relicanthscorched: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
