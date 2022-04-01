@@ -888,6 +888,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: null,
 		cosmeticFormes: null,
 		formeOrder: null,
+		forme: null,
+		baseSpecies: null,
 	},
 	vivillonfancy: {
 		num: 666,
@@ -901,6 +903,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		cosmeticFormes: null,
 		forme: null,
+		formeOrder: null,
 		changesFrom: null,
 	},
 	vivilloncombat: {
@@ -915,6 +918,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		cosmeticFormes: null,
 		forme: null,
+		formeOrder: null,
 		changesFrom: null,
 	},
 	aegishield: {
