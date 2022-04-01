@@ -309,6 +309,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			drainingkiss: ["8L1"],
 			playrough: ["8L1"],
 
+			geomancy: ["8L1"],
+
 			aurorabeam: ["8L1"],
 			flail: ["8L1"],
 			foresight:["8L1"],
@@ -618,6 +620,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			recover: ["8L1"],
 			tickle: ["8L1"],
 
+			geomancy: ["8L1"],
+
 			acid: ["8L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			amnesia: ["8M", "8L28", "7L36", "6L29", "5L29", "4L29", "3L36"],
 			ancientpower: ["8L16", "7L17", "6L17", "5L36", "4T", "4L36", "3L48"],
@@ -871,6 +875,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wish: ["8L1"],
 			scorchedpebbles: ["8L1"],
 
+			mindblown: ["8L1"],
+
 			afteryou: ["7T", "6T", "5T"],
 			amnesia: ["8M", "8L52", "7L40", "6L40", "5L49", "4L49", "3L40"],
 			//ancientpower: ["8E"],
@@ -961,6 +967,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			fireblast: ["8L1"],
 			flareblitz: ["8L1"],
 			scorchedpebbles: ["8L1"],
+
+			geomancy: ["8L1"],
 
 			amnesia: ["8M", "7E", "6E", "5E", "4E", "3E"],
 			ancientpower: ["8L10", "7L21", "6L1", "5L43", "4T", "4L43", "3L43"],
@@ -1130,6 +1138,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sludgebomb: ["8L1"],
 			//tarpit: ["8L1"],
 			tarshot: ["8L1"],
+
+			geomancy: ["8L1"],
 
 			bite: ["8L1"],
 			charm: ["8L1"],
@@ -2238,6 +2248,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			heavyslam: ["8L1"],
 			swordsdance: ["8L1"],
 
+			geomancy: ["8L1"],
+
 			aerialace: ["7M", "6M"],
 			//ancientpower: ["8L1", "7L26", "6L26"],
 			assurance: ["8M"],
@@ -2683,6 +2695,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			psybeam: ["8L1"],
 			confusion: ["8L1"],
 
+			geomancy: ["8L1"],
+
 			acidarmor: ["8L1"],
 			clearsmog: ["8L1"],
 			counter: ["8L1"],
@@ -3039,6 +3053,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			flamethrower: ["8L1"],
 			ember: ["8L1"],
 			willowisp: ["8L1"],
+
+			geomancy: ["8L1"],
 
 			absorb: ["8L1", "7L10", "6L10", "5L8", "4L8"],
 			aerialace: ["7M", "6M", "5M", "4M"],

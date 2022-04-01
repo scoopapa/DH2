@@ -2427,6 +2427,31 @@ export const Formats: FormatList = [
 		banlist: [],
 	},
 	{
+		name: "[Gen 8] PaLCeomons",
+		desc: [
+			"<b>PaLCeomons</b>: A Paleomons bonus format featuring the first forms of Paleomon's fully evolved metagame."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-3-non-dino-stars-dimetrodon-dodo-sea-scorpion-submission-phase.3695565/">Paleomons on Smogon Forums`,
+		],
+
+		mod: 'paleomons',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Paleomons LC') {
+					return [set.species + ' is not legal in the PaLCeomons format.'];
+				}
+			}
+		},
+		defaultLevel: 5,
+		maxLevel: 5,
+		teambuilderFormat: "PaLCeomons",
+	},
+	{
 		name: "[Gen 8] Random Dex Ubers",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
 		threads: [
