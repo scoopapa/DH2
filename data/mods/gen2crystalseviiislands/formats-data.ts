@@ -8,5 +8,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 2,
 		tier: "OU",
-	}
+	},
+	exoltol: {
+		isNonstandard: null,
+		gen: 2,
+		tier: "OU",
+	},
+	animon: {
+		isNonstandard: null,
+		gen: 2,
+		tier: "OU",
+	},
+	esscargoo: {
+		isNonstandard: null,
+		gen: 2,
+		tier: "OU",
+	},
+	tunguru: {
+		isNonstandard: null,
+		gen: 2,
+		tier: "OU",
+	},
+	terricks: {
+		isNonstandard: null,
+		gen: 2,
+		tier: "OU",
+	},
 }
