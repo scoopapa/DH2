@@ -3241,7 +3241,17 @@ export const Formats: FormatList = [
 		banlist: [			
 			/*Pokemon*/'PU',
 		],
-		//unbanlist: [''],
+		unbanlist: [
+			'Ampharos', 'Arbok', 'Banette', 'Beheeyem', 'Bellossom', 'Boltund', 'Bouffalant', 'Carnivine', 'Castform', 'Cherrim', 'Chimecho', 
+			'Cursola', 'Delcatty', 'Ditto', 'Dubwool', 'Dugtrio', 'Dunsparce', 'Electrode', 'Flareon', 'Furfrou', 'Glaceon', 'Glalie', 'Gogoat', 
+			'Golduck', 'Gorebyss', 'Gothitelle', 'Grapploct', 'Greedent', 'Grumpig', 'Gumshoos', 'Heatmor', 'Huntail', 'Illumise', 'Komala', 
+			'Kricketune', 'Lickilicky', 'Liepard', 'Lopunny', 'Lumineon', 'Lurantis', 'Luvdisc', 'Luxray', 'Lycanroc-Midnight', 'Manectric', 
+			'Maractus', 'Mightyena', 'Minun', 'Octillery', 'Pachirisu', 'Persian', 'Phione', 'Pikachu-Alola', 'Pikachu-Hoenn', 'Pikachu-Kalos', 
+			'Pikachu-Original', 'Pikachu-Partner', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-World', 'Pincurchin', 'Plusle', 'Purugly', 
+			'Pyukumuku', 'Rampardos', 'Raticate', 'Regigigas', 'Seaking', 'Seviper', 'Silvally-Bug', 'Silvally-Fighting', 'Silvally-Fire', 
+			'Silvally-Grass', 'Silvally-Ice', 'Silvally-Psychic', 'Silvally-Rock', 'Slaking', 'Smeargle', 'Spinda', 'Stantler', 'Sudowoodo', 
+			'Sunflora', 'Swalot', 'Thievul', 'Unown', 'Volbeat', 'Wailord', 'Watchog', 'Wishiwashi', 'Wobbuffet', 'Zebstrika',
+		],
 		teambuilderFormat: '(PU)',
 		searchShow: false,
 		challengeShow: false,
