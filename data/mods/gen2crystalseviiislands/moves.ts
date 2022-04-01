@@ -170,13 +170,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
+			/*onHit(pokemon, source, move) {
+				if (move.flags['contact']) {
+					source.trySetStatus('brn', pokemon);
+				}
+			},
 			onTry(pokemon, source, move) {
 			  if (move.id('rapidspin')) {
 			  		return false;
 				}
-			},
+			},*/
 			onTryMove(pokemon, source, move) {
-			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.id('rapidspin')) {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.flags['contact']) {
 			  		pokemon.trySetStatus('brn', source);
 				}
 			},
