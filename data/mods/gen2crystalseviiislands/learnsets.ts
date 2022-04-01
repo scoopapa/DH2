@@ -128,7 +128,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	animon: {
 		learnset: {
 			transform: ["2L1", "1L1"],
-			sketch: ["2L1"],
+			sketch: ["2E"],
 		},
 	},
 	esscargoo: {
