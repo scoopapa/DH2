@@ -170,11 +170,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			onFoeHit(pokemon, source, move) {
+			onFoeStart(pokemon, source, move) {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground')) {
+			  		source.trySetStatus('brn', pokemon);
+				}
+			},
+			/*onFoeHit(pokemon, source, move) {
 				if (move.category !== 'Status') {
 					source.trySetStatus('brn', pokemon);
 				}
-			},
+			},*/
 		},
 		  target: "foeSide",
 		  type: "Fire",
