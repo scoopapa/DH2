@@ -170,6 +170,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
+			 onFoeStart(pokemon, source, move) {
+				if (move.flags['contact']) {
+					return false;
+				   }
+			   },
+			  
 			/*onHit(pokemon, source, move) {
 				if (move.flags['contact']) {
 					source.trySetStatus('brn', pokemon);
@@ -181,7 +187,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},*/
 			onTryMove(pokemon, source, move) {
-			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.flags['contact']) {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground')) {
 			  		pokemon.trySetStatus('brn', source);
 				}
 			},
