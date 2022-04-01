@@ -15,6 +15,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', `This is a [Gen 2] OU-based format where we add new Fakemon, items, moves and even lore!`);
 			this.add('-message', `You can find our spreadsheet with all the new additions here:`);
 			this.add('-message', `https://docs.google.com/spreadsheets/d/1QL_789vTzxG8An43itUxPonK9ee7ezxH6GCR9dD_JyQ/edit?usp=sharing`);
+			this.add('-message', `Good luck and have fun with your battle!`);
 		},
 	},
 };
