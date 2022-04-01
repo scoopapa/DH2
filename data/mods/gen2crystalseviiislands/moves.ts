@@ -154,7 +154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  priority: 0,
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
-		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
+		  shortDesc: "For 5 turns, grounded non Fire-types foes are burned before they move. Max 1 layer.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Fire Spin", target);
@@ -171,15 +171,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				   }
 			   },
 			onTryMove(pokemon, source, move) {
-			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground')) {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.id === 'rapidspin') {
 			  		pokemon.trySetStatus('brn', source);
 				}
 			},
-			/*onFoeHit(pokemon, source, move) {
-				if (move.category !== 'Status') {
-					source.trySetStatus('brn', pokemon);
-				}
-			},*/
 		},
 		  target: "foeSide",
 		  type: "Fire",
