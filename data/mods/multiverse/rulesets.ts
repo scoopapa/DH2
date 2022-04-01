@@ -1,5 +1,5 @@
 export const Formats: {[k: string]: FormatData} = {
-	crystalseviiislandsmod: {
+	multiversemod: {
 		effectType: 'Rule',
 		name: 'Multiverse Mod',
 		desc: 'At the start of a battle, gives each player a link to the Multiverse spreasheet so they can use it to get information about the metagame.',
