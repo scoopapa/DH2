@@ -403,7 +403,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		forme: null,
 		requiredItem: null,
-		battleOnly: null,
 	},
 	groudon: {
 		num: 383,
@@ -431,7 +430,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		forme: null,
 		requiredItem: null,
-		battleOnly: null,
 	},
 	deoxyswood: {
 		num: 386,
@@ -1390,7 +1388,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.8,
 		weightkg: 355,
 		requiredItem: null,
-		battleOnly: null,
 	},
 	zamazenta: {
 		num: 889,
@@ -1412,7 +1409,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.9,
 		weightkg: 785,
 		requiredItem: null,
-		battleOnly: null,
 	},
 	eternatus: {
 		num: 890,
