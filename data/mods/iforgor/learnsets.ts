@@ -1,3 +1,4 @@
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	grasselectric: {
 		learnset: {
 			bulletseed: ["8L1"],
@@ -5200,3 +5201,4 @@
 			zenheadbutt: ["8L1"],
 		},
 	},
+};

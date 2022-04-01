@@ -16,10 +16,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
             chance: 40,
             onHit(target, source, move) {
-                if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true))) {
+                if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
                     return !!this.boost({atk: -1}, target, source, move);
                 }
-                if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true))) {
+                if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) {
                     return !!this.boost({spa: -1}, target, source, move);
                 }
                 return false;
@@ -345,11 +345,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		multihit: 3,
-		secondary: null
+		secondary: null,
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-	}
+	},
 	behemothblade: {
 		num: 781,
 		accuracy: 100,

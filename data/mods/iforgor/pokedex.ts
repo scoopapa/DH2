@@ -1,3 +1,4 @@
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	grasselectric: {
 		num: 1,
 		name: "grasselectric",
@@ -710,3 +711,4 @@
 		baseStats: {hp: 113, atk: 127, def: 113, spa: 67, spd: 113, spe: 67},
 		abilities: {0: "Primal Force"},
 	},
+};

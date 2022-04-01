@@ -307,7 +307,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.type === 'Psychic' && move.category === 'Status') {
 				this.heal(target.baseMaxhp / 4);
 			}
-		}
+		},
 		name: "All-Seeing Eye",
 		shortDesc: "This Pokemon's Psychic-type status moves heal it for 1/4 max HP.",
 		num: -1017,
@@ -338,7 +338,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.flags[heal]) {
 				
 			}
-		}
+		},
 		name: "Divine Grace",
 		rating: 3,
 		num: -1020,

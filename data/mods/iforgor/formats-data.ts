@@ -1,3 +1,4 @@
+export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	grasselectric: {
 		tier: "IDK",
 		doublesTier: "IDK2",
@@ -362,3 +363,4 @@
 		tier: "IDK",
 		doublesTier: "IDK2",
 	},
+};
