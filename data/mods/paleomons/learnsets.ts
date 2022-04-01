@@ -3486,6 +3486,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 	velovolt: {
 		learnset: {
+			uturn: ["8L1"],
 			charm: ["8L1"],
 			firefang: ["8L1"],
 			firespin: ["8L1"],
@@ -3541,6 +3542,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 	dracosaur: {
 		learnset: {
+			firefang: ["8L1"],
 			sandstorm: ["8L1"],
 			dragonclaw: ["8L1"],
 			dragontail: ["8L1"],
