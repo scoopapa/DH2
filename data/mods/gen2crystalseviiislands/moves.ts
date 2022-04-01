@@ -170,9 +170,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			onFoeTryMove(source, pokemon, move) {
+			onFoeTryMove(pokemon, source, move) {
 			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground')) {
-			  		source.trySetStatus('brn', pokemon);
+			  		pokemon.trySetStatus('brn', pokemon);
 				}
 			},
 			/*onFoeHit(pokemon, source, move) {
