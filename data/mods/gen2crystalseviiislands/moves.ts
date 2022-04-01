@@ -171,7 +171,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				   }
 			   },
 			onTryMove(pokemon, source, move) {
-			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !move.flags['sacred']) {
+			  if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || !pokemon.move.id('rapidspin')) {
 			  		pokemon.trySetStatus('brn', source);
 				}
 			},
@@ -322,7 +322,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Rapid Spin",
 		pp: 40,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, sacred: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		onAfterHit(target, pokemon) {
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
