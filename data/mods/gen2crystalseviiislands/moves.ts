@@ -174,7 +174,7 @@ export const Moves: {[moveid: string]: MoveData} = {
  			  /*if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || move.id !== 'rapidspin') return;
  			  		pokemon.trySetStatus('brn', source);*/
 				  for (const pokemon of source.side.foe.active) {
-					if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || move.id !== 'rapidspin') {
+					if (pokemon && !pokemon.hasType('Fire') || pokemon && !pokemon.runImmunity('Ground') || pokemon && move.id !== 'rapidspin') {
 						pokemon.trySetStatus('brn', source);
 					}
 			   }
