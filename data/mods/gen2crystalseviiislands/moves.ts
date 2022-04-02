@@ -171,20 +171,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				   }
 			   },
 			  onTryMove(pokemon, source, move) {
- 			  /*if (!pokemon.hasType('Fire') || !pokemon.runImmunity('Ground') || move.id !== 'rapidspin') return;
- 			  		pokemon.trySetStatus('brn', source);*/
-				 /* for (const pokemon of source.side.foe.active) {*/
 					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
 						pokemon.trySetStatus('brn', source);
 					}
  			},
-			/*onTryMove(pokemon, source, move) {
-			  if (pokemon.hasType('Fire') || pokemon.runImmunity('Ground') || move.id === 'rapid spin') {
-				  return;
-			  } else {
-			  		pokemon.trySetStatus('brn', source);
-			  }
-		  },*/
 		  target: "foeSide",
 		  type: "Fire",
 		},
