@@ -27,7 +27,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 131,
 		prevo: "Quagsire",
 	},
-	animon: {
+	animon_: {
 		num: 255,
 		name: "Animon",
 		types: ["Steel"],
