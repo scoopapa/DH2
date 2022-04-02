@@ -128,7 +128,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	animon: {
 		learnset: {
 			transform: ["2L1", "1L1"],
-			sketch: ["2L1"],
+			sketch: ["2E"],
 		},
 	},
 	esscargoo: {
@@ -142,7 +142,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			earthquake: ["2M"],
 			ember: ["2L8", "2L1"],
 			endure: ["2M"],
-			explosion: ["2L"],
+			explosion: ["2L1"],
 			fireblast: ["2M"],
 			flamethrower: ["2T", "2L36"],
 			frustration: ["2M"],
