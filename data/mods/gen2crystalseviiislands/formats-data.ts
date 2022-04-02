@@ -14,7 +14,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 2,
 		tier: "OU",
 	},
-	animon_: {
+	animon: {
 		isNonstandard: null,
 		gen: 2,
 		tier: "OU",
