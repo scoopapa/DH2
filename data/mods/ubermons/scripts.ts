@@ -145,6 +145,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'calyrex').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexice').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexshadow').learnset.calmmind;
+		delete this.modData('Learnsets', 'calyrexshadow').learnset.nastyplot;
 	},
 	
 	pokemon: {
