@@ -3130,7 +3130,7 @@ export const Formats: FormatList = [
 	{    
        name: "i forgor Ubers",
        desc: 'i forgor :skull: (the anaconja solomod)',
-       mod: "iforgorubers",
+       mod: "iforgor",
        teambuilderFormat: 'IDK2',
        ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
        banlist: ['All Pokemon', 'firepsychic', 'iceghost', 'electricnormal', 'firedark', 'dragongroundmega'],
