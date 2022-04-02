@@ -157,7 +157,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  shortDesc: "For 5 turns, grounded non Fire-type foes are burned before they move. Max 1 layer. Rapid Spin is immune.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
-				this.add('-anim', source, 'Fire Spin', target);
+				this.add('-anim', source, "Fire Spin", target);
 			},
 		  condition: {
 		   duration: 5,
