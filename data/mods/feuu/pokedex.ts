@@ -639,9 +639,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 25.5,
 		otherFormes: ["Sableior-Meteor", "Sableior-Mega", "Sableior-Meteor-Mega"],
 		cosmeticFormes: [
-			"Sableior-Red", "Sableior-Orange", "Sableior-Yellow", "Sableior-Green", "Sableior-Blue", "Sableior-Violet",
+			"Sableior-Red", "Sableior-Orange", "Sableior-Yellow", "Sableior-Green", "Sableior-Blue", "Sableior-Violet", "Sableior-Red-Mega", "Sableior-Orange-Mega", "Sableior-Yellow-Mega", "Sableior-Green-Mega", "Sableior-Blue-Mega", "Sableior-Violet-Mega",
 		],
-		formeOrder: ["Sableior", "Sableior-Meteor", "Sableior-Mega", "Sableior-Meteor-Mega"],
+		formeOrder: ["Sableior", "Sableior-Meteor", "Sableior-Mega", "Sableior-Meteor-Mega", "Sableior-Red", "Sableior-Orange", "Sableior-Yellow", "Sableior-Green", "Sableior-Blue", "Sableior-Violet", "Sableior-Red-Mega", "Sableior-Orange-Mega", "Sableior-Yellow-Mega", "Sableior-Green-Mega", "Sableior-Blue-Mega", "Sableior-Violet-Mega",],
 	},
 	sableiormeteor: {
 		fusion: ['Minior', 'Sableye'],
