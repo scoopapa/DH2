@@ -668,7 +668,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'multiverse',
-		ruleset: ['Standard', '!Species Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard', '!Species Clause', 'Dynamax Clause', 'Data Mod', 'Multiverse Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Snow Cloak', 'Bright Powder', 'Lax Incense'],
 	},
 	{
@@ -699,6 +699,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
+			let allowedTiers = ['Paleomons', 'Paleomons NFE', 'Paleomons LC'];
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
 				if (template.tier !== 'Paleomons' && template.tier !== 'Paleomons NFE' && template.tier !== 'Paleomons LC') {
@@ -2427,6 +2428,32 @@ export const Formats: FormatList = [
 		banlist: [],
 	},
 	{
+		name: "[Gen 8] PaLCeomons",
+		desc: [
+			"<b>PaLCeomons</b>: A Paleomons bonus format featuring the first forms of Paleomon's fully evolved metagame."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-3-non-dino-stars-dimetrodon-dodo-sea-scorpion-submission-phase.3695565/">Paleomons on Smogon Forums`,
+		],
+
+		mod: 'paleomons',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['Paleomons LC'];
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Paleomons LC') {
+					return [set.species + ' is not legal in the PaLCeomons format.'];
+				}
+			}
+		},
+		defaultLevel: 5,
+		maxLevel: 5,
+		teambuilderFormat: "PaLCeomons",
+	},
+	{
 		name: "[Gen 8] Random Dex Ubers",
 		desc: `<b>Random Dex</b>: A micrometagame project consisting of 80 randomly-selected fully-evolved Pokemon.`,
 		threads: [
@@ -2982,11 +3009,11 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1QrZKlNrqKiRcprYtvyIPveR0vMp0dpM1X60zeo6N5xU/edit#gid=999775779">Spreadsheet</a>`,
 		],
 		mod: 'babyboom',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['All Pokemon', 'Baton Pass'],
 		unbanlist: ['Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 
 					'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Mantyke', 'Riolu', 'Toxel', 'Armorick', 'Crawscor', 'Dreddon',
-					'Sneaz',
+					'Sneaz', 'Durone', 'Drifble', 'Tangel',
 		],
 	},
 	 {
@@ -3091,6 +3118,24 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber'],
 	},
+	{    
+       name: "i forgor OU",
+       desc: 'i forgor :skull: (the anaconja solomod)',
+       mod: "iforgor",
+       teambuilderFormat: 'IDK',
+       ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+       banlist: ['All Pokemon', 'Aerodactylite'],
+	   unbalist: ['grasselectric', 'firerock', 'waterghost', 'darkpoison', 'normalpsychic', 'fightingflying', 'bugice', 'bugicemega', 'bugpsychic', 'bugpsychicmega', 'grassfairy', 'grassfire', 'normalpoison', 'normalpoisonmega', 'groundfairy', 'groundfairymega', 'bugelectric', 'darkflying', 'fightingice', 'fightingsteel', 'dragon', 'steelflying', 'electricpoison', 'electricpoisonmega', 'ground', 'rockghost', 'fairyflying', 'electricsteel', 'rockgrass', 'fairydragon', 'icepoison', 'icerock', 'normal', 'normalmega', 'normalfairy', 'normalfairymega', 'bugfighting', 'ghostdragon', 'waterground', 'watergroundmega', 'watersteel', 'fireground', 'firenormal', 'grassnormal', 'electric', 'dragonpoison', 'darkfairy', 'darkfairymega', 'poisonpsychic', 'poisonpsychicmega', 'darkrock', 'darkrockmega', 'poisonground', 'poisongroundmega', 'rockpsychic', 'rockfighting', 'water', 'waterelectric', 'dragonsteel', 'psychicfighting', 'bugsteel', 'psychicdragon', 'normalghost', 'darksteel', 'ghostground', 'ghostgroundmega', 'electricflying', 'grasspoison', 'dragonfighting', 'waterice', 'watericemega', 'ghostflying', 'bugdark', 'iceground', 'bugwater', 'bugfire', 'grassice', 'dragonground', 'psychicfairy', 'grassflying', 'firepsychic', 'darkghost', 'waterflying', 'steel', 'rock', 'iceghost', 'electricnormal', 'firedark', 'firefairy', 'fighting'],
+    },
+	{    
+       name: "i forgor Ubers",
+       desc: 'i forgor :skull: (the anaconja solomod)',
+       mod: "iforgor",
+       teambuilderFormat: 'IDK2',
+       ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+       banlist: ['All Pokemon', 'firepsychic', 'iceghost', 'electricnormal', 'firedark', 'dragongroundmega'],
+	   unbalist: ['grasselectric', 'firerock', 'waterghost', 'darkpoison', 'normalpsychic', 'fightingflying', 'bugice', 'bugicemega', 'bugpsychic', 'bugpsychicmega', 'grassfairy', 'grassfire', 'normalpoison', 'normalpoisonmega', 'groundfairy', 'groundfairymega', 'bugelectric', 'darkflying', 'fightingice', 'fightingsteel', 'dragon', 'steelflying', 'electricpoison', 'electricpoisonmega', 'ground', 'rockghost', 'fairyflying', 'electricsteel', 'rockgrass', 'fairydragon', 'icepoison', 'icerock', 'normal', 'normalmega', 'normalfairy', 'normalfairymega', 'bugfighting', 'ghostdragon', 'waterground', 'watergroundmega', 'watersteel', 'fireground', 'firenormal', 'grassnormal', 'electric', 'dragonpoison', 'darkfairy', 'darkfairymega', 'poisonpsychic', 'poisonpsychicmega', 'darkrock', 'darkrockmega', 'poisonground', 'poisongroundmega', 'rockpsychic', 'rockfighting', 'water', 'waterelectric', 'dragonsteel', 'psychicfighting', 'bugsteel', 'psychicdragon', 'normalghost', 'darksteel', 'ghostground', 'ghostgroundmega', 'electricflying', 'grasspoison', 'dragonfighting', 'waterice', 'watericemega', 'ghostflying', 'bugdark', 'iceground', 'bugwater', 'bugfire', 'grassice', 'dragonground', 'psychicfairy', 'grassflying', 'firepsychic', 'darkghost', 'waterflying', 'steel', 'rock', 'iceghost', 'electricnormal', 'firedark', 'firefairy', 'fighting', 'firepsychic', 'iceghost', 'electricnormal', 'firedark', 'dragongroundmega'],
+    },
 	{    
        name: "[Gen 8] JosMons",
        desc: 'A meta created by JosJet focused on making balance changes to the NatDex OU meta. Ex. Bug-type Buff.',
@@ -3240,6 +3285,17 @@ export const Formats: FormatList = [
 		ruleset: ['[Gen 8] MonoTyped PU'],
 		banlist: [			
 			/*Pokemon*/'PU',
+		],
+		unbanlist: [
+			'Ampharos', 'Arbok', 'Banette', 'Beheeyem', 'Bellossom', 'Boltund', 'Bouffalant', 'Carnivine', 'Castform', 'Cherrim', 'Chimecho', 
+			'Cursola', 'Delcatty', 'Ditto', 'Dubwool', 'Dugtrio', 'Dunsparce', 'Electrode', 'Flareon', 'Furfrou', 'Glaceon', 'Glalie', 'Gogoat', 
+			'Golduck', 'Gorebyss', 'Gothitelle', 'Grapploct', 'Greedent', 'Grumpig', 'Gumshoos', 'Heatmor', 'Huntail', 'Illumise', 'Komala', 
+			'Kricketune', 'Lickilicky', 'Liepard', 'Lopunny', 'Lumineon', 'Lurantis', 'Luvdisc', 'Luxray', 'Lycanroc-Midnight', 'Manectric', 
+			'Maractus', 'Mightyena', 'Minun', 'Octillery', 'Pachirisu', 'Persian', 'Phione', 'Pikachu-Alola', 'Pikachu-Hoenn', 'Pikachu-Kalos', 
+			'Pikachu-Original', 'Pikachu-Partner', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-World', 'Pincurchin', 'Plusle', 'Purugly', 
+			'Pyukumuku', 'Rampardos', 'Raticate', 'Regigigas', 'Seaking', 'Seviper', 'Silvally-Bug', 'Silvally-Fighting', 'Silvally-Fire', 
+			'Silvally-Grass', 'Silvally-Ice', 'Silvally-Psychic', 'Silvally-Rock', 'Slaking', 'Smeargle', 'Spinda', 'Stantler', 'Sudowoodo', 
+			'Sunflora', 'Swalot', 'Thievul', 'Unown', 'Volbeat', 'Wailord', 'Watchog', 'Wishiwashi', 'Wobbuffet', 'Zebstrika',
 		],
 		teambuilderFormat: '(PU)',
 		searchShow: false,
@@ -3442,7 +3498,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Roulettemons The Solomod",
 		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
 		mod: 'roulettemonsthesolomod',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause'],
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Data Mod'],
 		banlist: ['All Pokemon'],
 		unbanlist: [
 			'Spinmadillo', 'Coyoctric', 'Spizelle', 'Fierhog', 'Elatuff', 'Glasyte', 'Bisong', 'Megalo', 'Oysteat', 'Ponymph', 'Hypepion', 'Chickola', 'Skelehawk', 'Catetar', 'Blastquito', 'Hawkward', 'Pandaid', 'Autoad', 'Skelephin', 'Doomossum',

@@ -1113,6 +1113,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
+/*
+	wish: {
+		inherit: true,
+		flags: {heal: 1},
+		slotCondition: 'Wish',
+		condition: {
+			duration: 2,
+			onResidualOrder: 7,
+			onEnd(target) {
+				if (!target.fainted) {
+					const source = this.effectState.source;
+					const damage = this.heal(target.baseMaxhp / 2, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + source.name);
+				}
+			},
+		},
+	},
+*/
 	//Temporary Multi-Attack Fix
 	multiattack: {
 		accuracy: 100,
@@ -1177,7 +1195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(item.id)) move.category = 'Special';
+			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(pokemon.item.id)) move.category = 'Special';
 		},
 		type: "Normal",
 	},

@@ -16,6 +16,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'igglybuff').learnset.moonblast = ['8L1'];
 		
 		this.modData('Learnsets', 'tyrogue').learnset.thunderpunch = ['8L1'];
+		this.modData('Learnsets', 'tyrogue').learnset.knockoff = ['8L1'];
 		
 		delete this.modData('Learnsets', 'magby').learnset.bellydrum;
 		
