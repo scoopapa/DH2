@@ -809,7 +809,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-activate', source, 'move: Court Change');
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Fighting",
 	},
 };
