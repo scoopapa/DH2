@@ -154,7 +154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  priority: 0,
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
-		  shortDesc: "For 5 turns, grounded foes are burned after they attack. Max 1 layer.",
+		  shortDesc: "For 5 turns, grounded non Fire-type foes are burned before they move. Max 1 layer. Rapid Spin is immune.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Fire Spin", target);
@@ -170,14 +170,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			onFoeHit(pokemon, source, move) {
-				if (move.category !== 'Status') {
-					source.trySetStatus('brn', pokemon);
-				}
-			},
-		},
+			  onTryMove(pokemon, source, move) {
+					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
+						pokemon.trySetStatus('brn', source);
+					}
+ 			},
 		  target: "foeSide",
 		  type: "Fire",
+		},
 	},
 	flowermortar: {
 		num: -5,
@@ -330,7 +330,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const sideConditions = ['spikes', 'sacredcandle', 'flowermortar'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add(/*'-sideend', */pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -344,7 +344,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const sideConditions = ['spikes', 'sacredcandle', 'flowermortar'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add(/*'-sideend', */pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
