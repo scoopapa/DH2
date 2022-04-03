@@ -762,7 +762,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	courtchange: {
 		inherit: true,
-		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
 		name: "Court Change",
