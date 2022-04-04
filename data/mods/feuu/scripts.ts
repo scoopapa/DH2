@@ -332,7 +332,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
-				this.hasAbility('stickyfloat')) || &&
+				this.hasAbility('stickyfloat')) &&
 				
 				!this.battle.suppressingAttackEvents()
 			) return null;
