@@ -22,6 +22,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const pokemon = this.dataCache.Pokedex[id];
 			if (this.modData('FormatsData', id)) {
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
+				if (this.modData('FormatsData', id).gen = 8) this.modData('FormatsData', id).gen = 2;
 				// singles tiers
 				if (csi.includes(id)) this.modData('FormatsData', id).tier = "C:SI";
 			}
