@@ -4392,6 +4392,7 @@ lifedrain: {
 				return this.chainModify(0.75);
 			}
 		},
+		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 				if (target.getMoveHitData(move).typeMod > 0 && target.hp && !target.item && this.dex.getItem(target.lastItem).isBerry) {
 					target.setItem(target.lastItem);
