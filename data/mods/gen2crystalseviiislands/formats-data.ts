@@ -3,9 +3,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aroofaondo: {},
 	exoltol: {},
 	animon: {},
-	esscargoo: {
-		gen: 2,
-	},
+	esscargoo: {},
 	tunguru: {},
 	terricks: {},
 }
