@@ -166,7 +166,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
 					this.add('-sidestart', side, 'move: Sacred Candle');
 					this.effectData.layers = 1;
-					this.add('-anim', side, "Stealth Rocks", side);
 				} else {
 					return false;
 				   }
@@ -178,7 +177,8 @@ export const Moves: {[moveid: string]: MoveData} = {
  			},
 		  onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
-        			this.add('-message', `${pokemon.name} was ended!`);
+        			this.add('-message', `Sacred Candle burnt out!`);
+					this.add('-sideend', targetSide, 'Sacred Candle');
 				}
 		  },
 		  target: "foeSide",
@@ -233,6 +233,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         			this.add('-message', `${pokemon.name} was hit by petals!`);
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
+				this.add('-message', `Flower Mortar's petals scattered!`);
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
