@@ -201,15 +201,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	relicanth: {
 		inherit: true,
-		otherFormes: ["Relicanth-Ancient"],
-		formeOrder: ["Relicant", "Relicanth-Ancient"],
+		otherFormes: ["Relicanth-Scorched"],
+		formeOrder: ["Relicant", "Relicanth-Scorched"],
 	},
 
-	relicanthancient: {
+	relicanthscorched: {
 		num: -109,
-		name: "Relicanth-Ancient",
+		name: "Relicanth-Scorched",
 		baseSpecies: "Relicanth",
-		forme: "Ancient",
+		forme: "Scorched",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 85, atk: 60, def: 80, spa: 85, spd: 75, spe: 100},
 		abilities: {0: "Water Bubble", H: "Rock Head"},
