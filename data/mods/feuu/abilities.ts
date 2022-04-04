@@ -4352,9 +4352,16 @@ lifedrain: {
 	phoenicoid: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (effect.id === 'psn' || effect.id === 'tox' || effect.id === 'brn' || effect.id === 'par') {
+			if (effect.id === 'psn' || effect.id === 'tox' || effect.id === 'brn') {
 				this.heal(target.baseMaxhp / 8);
 				return false;
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.status === 'par') {
+			this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Phoenicoid",
