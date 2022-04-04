@@ -4394,9 +4394,19 @@ lifedrain: {
 		},
 		onDamagingHit(damage, target, source, move) {
 				if (target.getMoveHitData(move).typeMod > 0 && target.hp && !target.item && this.dex.getItem(target.lastItem).isBerry) {
-					target.setItem(target.lastItem);
+					target.m.savedBerry = target.lastItem
 					target.lastItem = '';
 					this.add('-item', target, target.getItem(), '[from] ability: Percent Yield');
+				}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+				if (pokemon.hp && !pokemon.item && pokemon.m.savedBerry) {
+					pokemon.setItem(pokemon.m.savedBerry);
+					pokemon.lastItem = '';
+					delete pokemon.m.savedBerry;
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Percent Yield');
 				}
 		},
 		isUnbreakable: true,
