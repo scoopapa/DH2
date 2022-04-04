@@ -767,7 +767,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Court Change",
 		pp: 15,
 		flags: {mirror: 1, protect: 1, contact: 1},
-		target: "normal",
+		target: "all",
 		type: "Fighting",
 	},
 };
