@@ -1,3 +1,5 @@
+const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks"];
+
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
@@ -14,6 +16,16 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Moves', i).category = newCategory;
 			}
 		}
+		
+		console.log('init gen2crystalseviiislands');
+		for (const id in this.dataCache.Pokedex) {
+			const pokemon = this.dataCache.Pokedex[id];
+			if (this.modData('FormatsData', id)) {
+				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
+				// singles tiers
+				if (csi.includes(id)) this.modData('FormatsData', id).tier = "C:SI";
+			}
+		};
 		
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'heracross').learnset.swarmattack = ['2L1'];
