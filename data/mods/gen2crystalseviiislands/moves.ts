@@ -166,15 +166,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!this.effectData.layers || this.effectData.layers === 0) {
 					this.add('-sidestart', side, 'move: Sacred Candle');
 					this.effectData.layers = 1;
+					this.add('-anim', side, "Stealth Rocks", side);
 				} else {
 					return false;
 				   }
 			   },
-			  onTryMove(pokemon, source, move) {
+			  onAfterMove(pokemon, source, move) {
 					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
 						pokemon.trySetStatus('brn', source);
 					}
  			},
+		  onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+        			this.add('-message', `${pokemon.name} was ended!`);
+				}
+		  },
 		  target: "foeSide",
 		  type: "Fire",
 		},
