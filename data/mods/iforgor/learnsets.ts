@@ -1,3 +1,4 @@
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	steel: {
 		learnset: {
 			behemothblade: ["8L1"],
@@ -8261,3 +8262,4 @@
 			solarbeam: ["8L1"],
 		},
 	},
+};
