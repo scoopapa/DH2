@@ -340,7 +340,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.flags[heal]) {
 				
 			}
-		}
+		},
 		name: "Divine Grace",
 		rating: 3,
 		num: -1020,
