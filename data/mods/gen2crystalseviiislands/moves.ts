@@ -233,7 +233,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         			this.add('-message', `${pokemon.name} was hit by petals!`);
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
-				this.add('-message', `Flower Mortar's petals scattered!`);
+				this.add('-message', `Flower Mortar's petals scattered away!`);
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
