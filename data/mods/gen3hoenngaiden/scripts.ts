@@ -564,6 +564,34 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'machamp').learnset.circlethrow = ['3L1'];
 		
 		this.modData('Learnsets', 'kleavor').learnset.rockslide = ['3L1'];
+		
+		this.modData("Learnsets", "slowkinggalar").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.doubleteam = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.dreameater = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.focuspunch = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mudsport = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.nightmare = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.return = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "marowakalola").learnset.sing = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.megakick = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.metronome = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.strength = ["3L1"];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
