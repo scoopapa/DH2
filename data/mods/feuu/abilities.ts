@@ -4396,7 +4396,6 @@ lifedrain: {
 				if (target.getMoveHitData(move).typeMod > 0 && target.hp && !target.item && this.dex.getItem(target.lastItem).isBerry) {
 					target.m.savedBerry = target.lastItem
 					target.lastItem = '';
-					this.add('-item', target, target.getItem(), '[from] ability: Percent Yield');
 				}
 		},
 		onResidualOrder: 26,
