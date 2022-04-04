@@ -10,11 +10,13 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'haxorus').learnset.ironhead = ['8L1'];
 		this.modData('Learnsets', 'cobalion').learnset.bodypress = ['8L1'];
 	   this.modData('Learnsets', 'thundurus').learnset.spikes = ['8L1'];
+		this.modData('Learnsets', 'sylveon').learnset.earthpower = ['8L1'];
 	   this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
 	   this.modData('Learnsets', 'mudsdale').learnset.shoreup = ['8L1'];
 	   this.modData('Learnsets', 'salazzle').learnset.earthpower = ['8L1'];
 	   this.modData('Learnsets', 'kommoo').learnset.rapidspin = ['8L1'];
 	   this.modData('Learnsets', 'guzzlord').learnset.slackoff = ['8L1'];
 		this.modData('Learnsets', 'zarude').learnset.swordsdance = ['8L1'];
+		this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1'];
    },
 };
