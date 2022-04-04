@@ -3119,7 +3119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 80,
 	},	
 	rotofable: {
-		fusion: ['Rotom-Heat', 'Clefable'],
+		fusion: ['Rotom', 'Clefable'],
 		num: 180,
 		name: "Rotofable",
 		types: ["Fire", "Fairy"],
@@ -3146,7 +3146,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 38.2,
 	},
 	appletomwash: {
-		fusion: ['Appletun', 'Rotom-Wash'],
+		fusion: ['Appletun', 'Rotom'],
 		num: 183,
 		name: "Appletom-Wash",
 		types: ["Grass", "Electric"],
