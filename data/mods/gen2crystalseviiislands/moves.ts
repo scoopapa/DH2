@@ -170,7 +170,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			  onAfterTryMove(pokemon, source, move) {
+			 onAfterMoveSecondarySelf(pokemon, source, move) {
 					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
 						pokemon.trySetStatus('brn', source);
 					}
