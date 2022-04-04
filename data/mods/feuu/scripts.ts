@@ -332,16 +332,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
-				this.hasAbility('stickyfloat')) || /*
-				this.hasAbility('etativel')) || 
-				this.hasAbility('lighthearted')) || 
-				this.hasAbility('clearlyfloating')) || 
-				this.hasAbility('floatguise')) || 
-				this.hasAbility('aerialbreak')) || 
-				this.hasAbility('levimetal')) || 
-				this.hasAbility('hoverboard')) || 
-				this.hasAbility('levistatic')) || 
-				this.hasAbility('lovelessfloat')) */ &&
+				this.hasAbility('stickyfloat')) || &&
 				
 				!this.battle.suppressingAttackEvents()
 			) return null;
