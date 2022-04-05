@@ -219,7 +219,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		    this.add('-anim', source, "Psywave", target);
 		},
 		onHit(target, source, move) {
-			if (target.volatiles['partiallytrapped/trapped']) {
+			if (target.volatiles['partiallytrapped'] || target.volatiles['trapped']) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
