@@ -41,4 +41,46 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
+	
+	
+	// Vanilla Edits
+	
+	metalpowder: {
+		name: "Metal Powder",
+		spritenum: 287,
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.name === 'Animon') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.name === 'Animon') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Animon"],
+		num: 257,
+		gen: 2,
+		shortDesc: "(Bugged) Not compatible with Animon."
+	},
+	
+	/*metalpowder: {
+		name: "Metal Powder",
+		spritenum: 287,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'animon' || pokemon.species.id === 'ditto') {
+				return this.chainModify(1.5);
+			}	
+		},
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'animon' || pokemon.species.id === 'ditto') {
+				return this.chainModify(1.5);
+			}	
+		},
+		itemUser: ["Animon", "Ditto"],
+		num: 257,
+		gen: 2,
+	},*/
 };
