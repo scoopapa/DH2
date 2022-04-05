@@ -3,6 +3,9 @@ const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tungu
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
+	pokemon: {
+		inherit: true,
+	},
 	
 	init: function () {
 		
