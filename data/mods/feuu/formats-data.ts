@@ -849,7 +849,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 // Slate 19
 	regibee: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["roost", "uturn", "earthquake", "ironhead", "toxicspikes"],
 		randomBattleLevel: 79,
@@ -1486,6 +1486,47 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	champlume: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pyraskewda: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rotofable: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	harisect: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	tapupilo: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	appletomwash: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	phancrozmadawnwings: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	phancrozmaultra: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Depleted Ultranecrozium Z",
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2028,6 +2069,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	oddchop: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	litlokuda: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	makuras: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2069,6 +2122,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	vibrachu: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	chokloom: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},

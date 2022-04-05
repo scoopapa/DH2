@@ -31,9 +31,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
+		this.modData('Learnsets', 'phancrozmadawnwings').learnset.moongeistbeam = ['7L1'];
 		this.modData('Learnsets', 'tyranetteeternal').learnset.lightofruin = ['7L1'];
 		this.modData('Learnsets', 'monferpaunbound').learnset.hyperspacefury = ['7L1'];
 		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
+		this.modData('Learnsets', 'rotofable').learnset.overheat = ['7L1'];
+		this.modData('Learnsets', 'appletomwash').learnset.hydropump = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
@@ -298,6 +301,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Hoverboard');
 						} else if (this.hasAbility('levistatic')) {
 							this.battle.add('-immune', this, '[from] ability: Levistatic');
+						} else if (this.hasAbility('lovelessfloat')) {
+							this.battle.add('-immune', this, '[from] ability: Loveless Float');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -488,7 +493,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse') || pokemon.hasAbility('phoenicoid'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -850,6 +855,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
 			pokemon.getItem().id === 'depletedultranecroziumz') {
 			return "Noze-Ultra";
+		}
+		if (['Phancrozma-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'depletedultranecroziumz') {
+			return "Phancrozma-Ultra";
 		}
 		return null;
 	},
