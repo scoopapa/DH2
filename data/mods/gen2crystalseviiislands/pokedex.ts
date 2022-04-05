@@ -75,8 +75,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	
 	
 	
+	quagsire: {
+		inherit: true,
+		evos: ["Exoltol"],
+	},
 	ditto: {
 		inherit: true,
-		evos: "Animon",
+		evos: ["Animon"],
+	},
+	magcargo: {
+		inherit: true,
+		evos: ["Esscargoo"],
+	},
+	lickitung: {
+		inherit: true,
+		evos: ["Tunguru"],
 	},
 };
