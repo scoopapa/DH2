@@ -1132,7 +1132,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 */
 	//Temporary Multi-Attack Fix
-	multiattack: {
+	/*multiattack: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -1200,8 +1200,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		type: "Normal",
-	},
-	/*multiattack: {
+	},*/
+	multiattack: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -1214,8 +1214,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		type: "Normal",
-	},*/
-	/*multiattackbug: {
+	},
+	multiattackbug: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -1438,7 +1438,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		type: "Water",
-	},*/
+	},
 	icehammer: {
 		num: 665,
 		accuracy: 90,

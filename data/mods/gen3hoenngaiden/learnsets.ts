@@ -592,7 +592,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			triattack: ["3L1"],
 		},
 	},
-	/*silvallybug: {
+	silvallybug: {
 		learnset: {
 			multiattackbug: ["3L1"],
 		},
@@ -671,7 +671,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			multiattackwater: ["3L1"],
 		},
-	},*/
+	},
 	starly: {
 		learnset: {
 			aerialace: ["3L1"],
