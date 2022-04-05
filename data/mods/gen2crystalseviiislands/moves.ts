@@ -170,11 +170,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			  onTryMove(pokemon, source, move) {
+			 onAfterMoveSecondarySelf(pokemon, source, move) {
 					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
 						pokemon.trySetStatus('brn', source);
 					}
  			},
+		  onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+        			this.add('-message', `Sacred Candle burnt out!`);
+					this.add('-sideend', targetSide, 'Sacred Candle');
+				}
+		  },
 		  target: "foeSide",
 		  type: "Fire",
 		},
@@ -227,6 +233,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         			this.add('-message', `${pokemon.name} was hit by petals!`);
 					this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
+				this.add('-message', `Flower Mortar's petals scattered away!`);
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
