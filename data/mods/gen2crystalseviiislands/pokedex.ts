@@ -68,4 +68,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 3.8,
 		weightkg: 140.4,
 	},
+	
+	
+	
+// Vanilla Edits
+	
+	
+	
+	ditto: {
+		inherit: true,
+		evos: "Animon",
+	},
 };
