@@ -47,10 +47,22 @@ export const Items: {[itemid: string]: ItemData} = {
 	
 	
 	metalpowder: {
-		inherit: true,
-		desc: "If held by a Ditto or Animon, its Defense and Sp. Def are 1.5x, even while Transformed.",
+		name: "Metal Powder",
+		spritenum: 287,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+				return this.chainModify(1.5);
+			}	
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+				return this.chainModify(1.5);
+			}	
+		},
 		itemUser: ["Ditto", "Animon"],
-		onModifyDef() {},
-		onModifySpD() {},
+		num: 257,
+		gen: 2,
 	},
 };
