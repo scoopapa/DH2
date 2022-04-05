@@ -50,5 +50,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		inherit: true,
 		desc: "If held by a Ditto or Animon, its Defense and Sp. Def are 1.5x, even while Transformed.",
 		itemUser: ["Ditto", "Animon"],
+		onModifyDef() {},
+		onModifySpD() {},
 	},
 };
