@@ -6,4 +6,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	esscargoo: {},
 	tunguru: {},
 	terricks: {},
+	terricks: {
+		inherit: true,
+	},
 }
