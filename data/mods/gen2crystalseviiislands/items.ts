@@ -51,17 +51,21 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 287,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Animon' && !pokemon.transformed) {
+				return this.chainModify(1.5);
+			}	else if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
 				return this.chainModify(1.5);
 			}	
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
+			if (pokemon.species.name === 'Animon' && !pokemon.transformed) {
+				return this.chainModify(1.5);
+			}	else if (pokemon.species.name === 'Ditto' && !pokemon.transformed) {
 				return this.chainModify(1.5);
 			}	
 		},
-		itemUser: ["Ditto", "Animon"],
+		itemUser: ["Animon", "Ditto"],
 		num: 257,
 		gen: 2,
 	},
