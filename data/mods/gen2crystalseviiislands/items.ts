@@ -45,8 +45,27 @@ export const Items: {[itemid: string]: ItemData} = {
 	
 	// Vanilla Edits
 	
-	
 	metalpowder: {
+		name: "Metal Powder",
+		spritenum: 287,
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.name === 'Animon') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.name === 'Animon') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Animon"],
+		num: 257,
+		gen: 2,
+	},
+	
+	/*metalpowder: {
 		name: "Metal Powder",
 		spritenum: 287,
 		onModifyDef(def, pokemon) {
@@ -62,5 +81,5 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Animon", "Ditto"],
 		num: 257,
 		gen: 2,
-	},
+	},*/
 };
