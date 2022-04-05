@@ -63,6 +63,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Animon"],
 		num: 257,
 		gen: 2,
+		shortDesc: "(Bugged) Not compatible with Animon."
 	},
 	
 	/*metalpowder: {
