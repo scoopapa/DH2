@@ -8,7 +8,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		category: "Physical",
 		name: "Swarm Attack",
-		shortDesc: "Hits 3 times. Each hit can miss, but power rises. 10% to lower Defense.",
+		shortDesc: "Hits 3 times. Power rises per hit. 10% to lower Defense.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -154,7 +154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  priority: 0,
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
-		  shortDesc: "For 5 turns, grounded non Fire-type foes are burned before they move. Max 1 layer. Rapid Spin is immune.",
+		  shortDesc: "For 5 turns, grounded foes are burned after they move. Max 1 layer.",
 		  onPrepareHit: function(target, source, move) {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Fire Spin", target);
@@ -237,7 +237,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sideend', targetSide, 'Flower Mortar');
 			},
 		},
-		shortDesc: "User recovers 50% of direct damage dealt. Damages target for 2-3 turns.",
+		shortDesc: "User recovers 50% of damage dealt. Damages target for 2-3 turns.",
 		secondary: null,
 		target: "normal",
 		type: "Grass",
