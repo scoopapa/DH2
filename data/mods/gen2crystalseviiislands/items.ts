@@ -50,12 +50,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Metal Powder",
 		spritenum: 287,
 		onModifyDef(def, pokemon) {
-			if ((pokemon.species.name === 'Animon') || (pokemon.species.name === 'Ditto')) {
+			if ((pokemon.species.name === 'Animon') && (pokemon.species.name === 'Ditto')) {
 				return this.chainModify(1.5);
 			}	
 		},
 		onModifySpD(spd, pokemon) {
-			if ((pokemon.species.name === 'Animon') || (pokemon.species.name === 'Ditto')) {
+			if ((pokemon.species.name === 'Animon') && (pokemon.species.name === 'Ditto')) {
 				return this.chainModify(1.5);
 			}	
 		},
