@@ -41,4 +41,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
+	
+	
+	// Vanilla Edits
+	
+	
+	metalpowder: {
+		inherit: true,
+		desc: "If held by a Ditto or Animon, its Defense and Sp. Def are 1.5x, even while Transformed.",
+		itemUser: ["Ditto", "Animon"],
+	},
 };
