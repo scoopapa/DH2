@@ -5156,6 +5156,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	normalpsychic: {
 		learnset: {
 			espwave: ["8L1"],
+			whirlpool: ["8L1"],
+			block: ["8L1"],
 			bodyslam: ["8L1"],
 			boomburst: ["8L1"],
 			hypervoice: ["8L1"],

@@ -225,7 +225,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				this.heal(target.baseMaxhp / 10);
+				this.heal(pokemon.baseMaxhp / 10);
 			}
 		},
 		name: "Animus",
@@ -336,11 +336,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	divinegrace: {
 		shortDesc: "This Pokemon's healing moves are boosted 1.5x.",
-		onAfterMove(target, source, move) {
-			if (move.flags[heal]) {
-				
-			}
-		},
 		name: "Divine Grace",
 		rating: 3,
 		num: -1020,

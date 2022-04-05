@@ -5184,3 +5184,661 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
     at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Rule "Evasion Moves Clause" was added by "[Gen 8] i forgor OU" but already exists in "[Gen 8] i forgor OU"
+    at ModdedDex.getRuleTable (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:882:11)
+    at new TeamValidator (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:2110:10)
+    at QueryProcessManager._query (C:\Users\anaco\Documents\GitHub\DH\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:394:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:920:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8iforgorou
+  team = grasselectric|||poisonheal||||||||
+
+
+ReferenceError: target is not defined
+    at Battle.onResidual (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\iforgor\abilities.js:228:15)
+    at Battle.singleEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Battle.residualEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2653:9)
+    at Battle.go (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version 9add9cd70ce1b8e0c7a63c46f3075eee3fc7027d
+>start {"formatid":"gen8iforgorou","seed":[42976,31768,19535,23589]}
+>player p1 {"name":"ZOOMERCIDE","avatar":"265","team":"iceghost||leftovers|mortem|diamonddust,shadowball,recover,thunderbolt|Modest|252,,,252,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"anaconja","avatar":"shelly","team":"electricnormal||lifeorb|animus|thunderreign,closecombat,knockoff,protect|Jolly|,252,,,4,252|||||","rating":0}
+>p1 team 1
+>p2 team 1
+>p1 move diamonddust
+>p2 move knockoff
+  log = 
+|t:|1649096665
+|player|p1|ZOOMERCIDE|265|
+|player|p2|anaconja|shelly|
+|teamsize|p1|1
+|teamsize|p2|1
+|gametype|singles
+|gen|8
+|tier|[Gen 8] i forgor OU
+|rule|OHKO Clause: OHKO moves are banned
+|clearpoke
+|poke|p1|iceghost, M|
+|poke|p2|electricnormal, M|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|teampreview
+|
+|t:|1649096668
+|start
+|switch|p1a: iceghost|iceghost, M|480/480
+|switch|p2a: electricnormal|electricnormal, M|337/337
+|-start|p2a: electricnormal|typechange|Electric/Normal|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">electricnormal</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Normal.png" alt="Normal" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Animus</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>98</span> <span class="col statcol"><em>Atk</em><br>138</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>98</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>138</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: iceghost|typechange|Ice/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">iceghost</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mortem</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>138</span> <span class="col statcol"><em>Atk</em><br>98</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>138</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>98</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1649096675
+|move|p2a: electricnormal|Knock Off|p1a: iceghost
+|-supereffective|p1a: iceghost
+|-damage|p1a: iceghost|171/480
+|-enditem|p1a: iceghost|Leftovers|[from] move: Knock Off|[of] p2a: electricnormal
+|-damage|p2a: electricnormal|304/337|[from] item: Life Orb
+|move|p1a: iceghost|Diamond Dust||[still]
+|-anim|p1a: iceghost|Glacial Lance|p2a: electricnormal
+|-damage|p2a: electricnormal|90/337
+|
+
+
+ReferenceError: pokemon is not defined
+    at Battle.onHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\iforgor\moves.js:19:17)
+    at Battle.singleEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Battle.runMoveEffects (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1002:24)
+    at Battle.spreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.secondaries (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1063:11)
+    at Battle.spreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:831:34)
+    at Battle.hitStepMoveHitLoop (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+
+Additional information:
+  chunk = >p2 move 1
+  inputLog = 
+>version 9add9cd70ce1b8e0c7a63c46f3075eee3fc7027d
+>start {"formatid":"gen8iforgorou","seed":[46025,1352,9684,4998]}
+>player p1 {"name":"ZOOMERCIDE","avatar":"2","team":"iceghost||leftovers|mortem|diamonddust,shadowball,recover,thunderbolt|Modest|252,,,252,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"anaconja","avatar":"shelly","team":"electricnormal||lifeorb|animus|thunderreign,closecombat,knockoff,protect|Jolly|,252,,,4,252|||||","rating":0}
+>p1 team 1
+>p2 team 1
+>p1 move diamonddust
+>p2 move thunderreign
+  log = 
+|t:|1649096812
+|player|p1|ZOOMERCIDE|2|
+|player|p2|anaconja|shelly|
+|teamsize|p1|1
+|teamsize|p2|1
+|gametype|singles
+|gen|8
+|tier|[Gen 8] i forgor OU
+|rule|OHKO Clause: OHKO moves are banned
+|clearpoke
+|poke|p1|iceghost, F|
+|poke|p2|electricnormal, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|teampreview
+|
+|t:|1649096814
+|start
+|switch|p1a: iceghost|iceghost, F|480/480
+|switch|p2a: electricnormal|electricnormal, F|337/337
+|-start|p2a: electricnormal|typechange|Electric/Normal|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">electricnormal</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Normal.png" alt="Normal" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Animus</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>98</span> <span class="col statcol"><em>Atk</em><br>138</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>98</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>138</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: iceghost|typechange|Ice/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">iceghost</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mortem</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>138</span> <span class="col statcol"><em>Atk</em><br>98</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>138</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>98</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1649096818
+|move|p2a: electricnormal|Thunder Reign||[still]
+|-anim|p2a: electricnormal|Plasma Fists|p1a: iceghost
+|-damage|p1a: iceghost|250/480
+|-damage|p2a: electricnormal|304/337|[from] item: Life Orb
+|move|p1a: iceghost|Diamond Dust||[still]
+|-anim|p1a: iceghost|Glacial Lance|p2a: electricnormal
+|-damage|p2a: electricnormal|109/337
+
+
+ReferenceError: heal is not defined
+    at Battle.onAfterMove (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\iforgor\abilities.js:340:19)
+    at Battle.runEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:741:34)
+    at Battle.runMove (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:104:8)
+    at Battle.runAction (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2572:9)
+    at Battle.go (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version 9add9cd70ce1b8e0c7a63c46f3075eee3fc7027d
+>start {"formatid":"gen8iforgorou","seed":[39125,48672,46874,33205]}
+>player p1 {"name":"anaconja","avatar":"shelly","team":"electricnormal||lifeorb|animus|thunderreign,closecombat,knockoff,protect|Jolly|,252,,,4,252|||||]groundfairy||leftovers|lightpower|rampage,earthpower,knockoff,bulkup|Serious|,4,,252,,252|||||]steelflying||rockyhelmet|industrialize|triattack,rapidspin,roost,hurricane|Bold|252,,252,4,,||,0,,,,|||]normalpsychic||leftovers|allseeingeye|octolock,espwave,scald,psyshock|Bold|252,,252,,4,||,0,,,,|||]darkflying||leftovers|insectivore|knockoff,divebomb,roost,uturn|Adamant|248,252,,,8,|||||]darkpoison||blacksludge|stakeout|deathgrip,gunkshot,earthquake,knockoff|Adamant|252,252,,,4,|||||","rating":0}
+>player p2 {"name":"ZOOMERCIDE","avatar":"102","team":"darkghost||choicespecs|mythicswordsman|knockoff,abyssalslash,closecombat,uturn|Timid|,,,252,4,252|||||]firepsychic||leftovers|risingsun|burningpetals,photongeyser,energyball,thunderbolt|Naive|,4,,252,,252||,0,,,,|||]iceghost||leftovers|mortem|diamonddust,shadowball,recover,thunderbolt|Modest|252,,,252,4,||,0,,,,|||]waterflying||leftovers|stormingsurge|acidrain,aeroblast,thunderbolt,uturn|Jolly|,252,4,,,252|||||]poisonground||mewtwonitey|merciless|gunkshot,earthquake,knockoff,glare|Jolly|,252,,,4,252|||||]firefairy||leftovers|divinegrace|lavaplume,moonblast,energyball,junglehealing|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>p1 team 3, 2, 1, 4, 5, 6
+>p2 team 2, 1, 3, 4, 5, 6
+>p1 move triattack
+>p2 move photongeyser
+>p1 move rapidspin
+>p2 move photongeyser
+>p1 move rapidspin
+>p2 move burningpetals
+>p1 switch 4
+>p1 move octolock
+>p2 switch 6
+>p1 move espwave
+>p2 move energyball
+  log = 
+|t:|1649097454
+|player|p1|anaconja|shelly|
+|player|p2|ZOOMERCIDE|102|
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] i forgor OU
+|rule|OHKO Clause: OHKO moves are banned
+|clearpoke
+|poke|p1|electricnormal, F|
+|poke|p1|groundfairy, F|
+|poke|p1|steelflying, M|
+|poke|p1|normalpsychic, M|
+|poke|p1|darkflying, F|
+|poke|p1|darkpoison, M|
+|poke|p2|darkghost, M|
+|poke|p2|firepsychic, M|
+|poke|p2|iceghost, M|
+|poke|p2|waterflying, F|
+|poke|p2|poisonground, M|
+|poke|p2|firefairy, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|teampreview
+|
+|t:|1649097461
+|start
+|switch|p1a: steelflying|steelflying, M|398/398
+|switch|p2a: firepsychic|firepsychic, M|285/285
+|-start|p2a: firepsychic|typechange|Fire/Psychic|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">firepsychic</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Rising Sun</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>72</span> <span class="col statcol"><em>Atk</em><br>128</span> <span class="col statcol"><em>Def</em><br>90</span> <span class="col statcol"><em>SpA</em><br>110</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>95</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: steelflying|typechange|Steel/Flying|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">steelflying</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Flying.png" alt="Flying" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Heavy Metal / Clear Body / Industrialize</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>97</span> <span class="col statcol"><em>Atk</em><br>71</span> <span class="col statcol"><em>Def</em><br>101</span> <span class="col statcol"><em>SpA</em><br>97</span> <span class="col statcol"><em>SpD</em><br>83</span> <span class="col statcol"><em>Spe</em><br>61</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1649097469
+|move|p2a: firepsychic|Photon Geyser|p1a: steelflying
+|-resisted|p1a: steelflying
+|-damage|p1a: steelflying|311/398
+|-ability|p2a: firepsychic|Rising Sun|boost
+|-boost|p2a: firepsychic|atk|1
+|move|p1a: steelflying|Tri Attack|p2a: firepsychic
+|-resisted|p2a: firepsychic
+|-damage|p2a: firepsychic|253/285
+|-resisted|p2a: firepsychic
+|-damage|p2a: firepsychic|220/285
+|-resisted|p2a: firepsychic
+|-damage|p2a: firepsychic|187/285
+|-hitcount|p2a: firepsychic|3
+|
+|-heal|p2a: firepsychic|204/285|[from] item: Leftovers
+|upkeep
+|turn|2
+|
+|t:|1649097487
+|move|p2a: firepsychic|Photon Geyser|p1a: steelflying
+|-resisted|p1a: steelflying
+|-crit|p1a: steelflying
+|-damage|p1a: steelflying|203/398
+|-ability|p2a: firepsychic|Rising Sun|boost
+|-boost|p2a: firepsychic|spa|1
+|move|p1a: steelflying|Rapid Spin|p2a: firepsychic
+|-resisted|p2a: firepsychic
+|-damage|p2a: firepsychic|183/285
+|-boost|p1a: steelflying|spe|1
+|
+|-heal|p2a: firepsychic|200/285|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1649097491
+|move|p2a: firepsychic|Burning Petals||[still]
+|-anim|p2a: firepsychic|Inferno Overdrive|p1a: steelflying
+|-supereffective|p1a: steelflying
+|-damage|p1a: steelflying|0 fnt
+|-ability|p2a: firepsychic|Rising Sun|boost
+|-boost|p2a: firepsychic|atk|1
+|faint|p1a: steelflying
+|
+|-heal|p2a: firepsychic|217/285|[from] item: Leftovers
+|upkeep
+|
+|t:|1649097496
+|switch|p1a: normalpsychic|normalpsychic, M|404/404
+|-start|p1a: normalpsychic|typechange|Normal/Psychic|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">normalpsychic</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Normal.png" alt="Normal" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Pickup / Water Absorb / All-Seeing Eye</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>100</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|turn|4
+|
+|t:|1649097511
+|switch|p2a: firefairy|firefairy, F|341/341
+|-start|p2a: firefairy|typechange|Fire/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">firefairy</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Divine Grace</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>100</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>100</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: normalpsychic|Octolock|p2a: firefairy
+|-start|p2a: firefairy|move: Octolock|[of] p1a: normalpsychic
+|
+|-unboost|p2a: firefairy|def|1
+|-unboost|p2a: firefairy|spd|1
+|upkeep
+|turn|5
+|
+|t:|1649097519
+|move|p2a: firefairy|Energy Ball|p1a: normalpsychic
+|-damage|p1a: normalpsychic|322/404
+
+
+ReferenceError: source is not defined
+    at Battle.onHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\iforgor\moves.js:687:4)
+    at Battle.singleEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Battle.runMoveEffects (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1002:24)
+    at Battle.spreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:100:33)
+    at Battle.runAction (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2572:9)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version 9add9cd70ce1b8e0c7a63c46f3075eee3fc7027d
+>start {"formatid":"gen8iforgorou","seed":[54997,27195,61170,46840]}
+>player p1 {"name":"anaconja","avatar":"shelly","team":"electricnormal||lifeorb|animus|thunderreign,closecombat,knockoff,protect|Jolly|,252,,,4,252|||||]groundfairy||leftovers|lightpower|rampage,earthpower,knockoff,bulkup|Serious|,4,,252,,252|||||]steelflying||rockyhelmet|industrialize|triattack,rapidspin,roost,hurricane|Bold|252,,252,4,,||,0,,,,|||]normalpsychic||leftovers|allseeingeye|octolock,espwave,scald,psyshock|Bold|252,,252,,4,||,0,,,,|||]darkflying||leftovers|insectivore|knockoff,divebomb,roost,uturn|Adamant|248,252,,,8,|||||]darkpoison||blacksludge|stakeout|deathgrip,gunkshot,earthquake,knockoff|Adamant|252,252,,,4,|||||","rating":0}
+>player p2 {"name":"ZOOMERCIDE","avatar":"102","team":"darkghost||choicespecs|mythicswordsman|knockoff,abyssalslash,closecombat,uturn|Timid|,,,252,4,252|||||]firepsychic||leftovers|risingsun|burningpetals,photongeyser,energyball,thunderbolt|Naive|,4,,252,,252||,0,,,,|||]iceghost||leftovers|mortem|diamonddust,shadowball,recover,thunderbolt|Modest|252,,,252,4,||,0,,,,|||]waterflying||leftovers|stormingsurge|acidrain,aeroblast,thunderbolt,uturn|Jolly|,252,4,,,252|||||]poisonground||mewtwonitey|merciless|gunkshot,earthquake,knockoff,glare|Jolly|,252,,,4,252|||||]firefairy||leftovers|divinegrace|lavaplume,moonblast,energyball,junglehealing|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>p1 team 2, 1, 3, 4, 5, 6
+>p2 team 3, 2, 1, 4, 5, 6
+>p1 move earthpower
+>p2 move thunderbolt
+>p1 move rampage
+>p2 move recover
+  log = 
+|t:|1649097630
+|player|p1|anaconja|shelly|
+|player|p2|ZOOMERCIDE|102|
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] i forgor OU
+|rule|OHKO Clause: OHKO moves are banned
+|clearpoke
+|poke|p1|electricnormal, M|
+|poke|p1|groundfairy, M|
+|poke|p1|steelflying, M|
+|poke|p1|normalpsychic, F|
+|poke|p1|darkflying, F|
+|poke|p1|darkpoison, F|
+|poke|p2|darkghost, F|
+|poke|p2|firepsychic, M|
+|poke|p2|iceghost, M|
+|poke|p2|waterflying, F|
+|poke|p2|poisonground, F|
+|poke|p2|firefairy, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|teampreview
+|
+|t:|1649097637
+|start
+|switch|p1a: groundfairy|groundfairy, M|311/311
+|switch|p2a: iceghost|iceghost, M|480/480
+|-start|p1a: groundfairy|typechange|Ground/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">groundfairy</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ground.png" alt="Ground" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Run Away / Sand Rush / Light Power</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>114</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>86</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: iceghost|typechange|Ice/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">iceghost</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mortem</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>138</span> <span class="col statcol"><em>Atk</em><br>98</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>138</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>98</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1649097642
+|move|p1a: groundfairy|Earth Power|p2a: iceghost
+|-damage|p2a: iceghost|321/480
+|move|p2a: iceghost|Thunderbolt|p1a: groundfairy
+|-immune|p1a: groundfairy
+|
+|-heal|p2a: iceghost|351/480|[from] item: Leftovers
+|upkeep
+|turn|2
+|
+|t:|1649097647
+|move|p1a: groundfairy|rampage||[still]
+|-anim|p1a: groundfairy|Thrash|p2a: iceghost
+|-damage|p2a: iceghost|228/480
+|-unboost|p1a: groundfairy|def|1
+|move|p2a: iceghost|Recover|p2a: iceghost
+
+
+ReferenceError: pokemon is not defined
+    at Battle.onHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\iforgor\moves.js:19:58)
+    at Battle.singleEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Battle.runMoveEffects (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1002:24)
+    at Battle.spreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.secondaries (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:1063:11)
+    at Battle.spreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:831:34)
+    at Battle.hitStepMoveHitLoop (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\anaco\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+
+Additional information:
+  chunk = >p2 move 1
+  inputLog = 
+>version 9add9cd70ce1b8e0c7a63c46f3075eee3fc7027d
+>start {"formatid":"gen8iforgorou","seed":[46871,28514,62827,33513]}
+>player p1 {"name":"anaconja","avatar":"shelly","team":"electricnormal||lifeorb|animus|thunderreign,closecombat,knockoff,protect|Jolly|,252,,,4,252|||||]groundfairy||leftovers|lightpower|rampage,earthpower,knockoff,bulkup|Serious|,4,,252,,252|||||]steelflying||rockyhelmet|industrialize|triattack,rapidspin,roost,hurricane|Bold|252,,252,4,,||,0,,,,|||]normalpsychic||leftovers|allseeingeye|octolock,espwave,scald,psyshock|Bold|252,,252,,4,||,0,,,,|||]darkflying||leftovers|insectivore|knockoff,divebomb,roost,uturn|Adamant|248,252,,,8,|||||]darkpoison||blacksludge|stakeout|deathgrip,gunkshot,earthquake,knockoff|Adamant|252,252,,,4,|||||","rating":0}
+>player p2 {"name":"ZOOMERCIDE","avatar":"102","team":"darkghost||choicespecs|mythicswordsman|knockoff,abyssalslash,closecombat,uturn|Timid|,,,252,4,252|||||]firepsychic||leftovers|risingsun|burningpetals,photongeyser,energyball,thunderbolt|Naive|,4,,252,,252||,0,,,,|||]iceghost||leftovers|mortem|diamonddust,shadowball,recover,thunderbolt|Modest|252,,,252,4,||,0,,,,|||]waterflying||leftovers|stormingsurge|acidrain,aeroblast,thunderbolt,uturn|Jolly|,252,4,,,252|||||]poisonground||mewtwonitey|merciless|gunkshot,earthquake,knockoff,glare|Jolly|,252,,,4,252|||||]firefairy||leftovers|divinegrace|lavaplume,moonblast,energyball,junglehealing|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>p1 team 4, 2, 3, 1, 5, 6
+>p2 team 6, 2, 3, 4, 5, 1
+>p1 move octolock
+>p2 move energyball
+>p1 move espwave
+>p2 move energyball
+>p1 move scald
+>p2 move energyball
+>p1 move scald
+>p2 move junglehealing
+>p2 switch 6
+>p1 move scald
+>p2 move abyssalslash
+>p1 switch 6
+>p2 switch 4
+>p1 move deathgrip
+>p2 move acidrain
+>p1 switch 2
+>p2 move acidrain
+>p1 switch 2
+>p1 move deathgrip
+>p2 switch 4
+>p2 switch 5
+>p1 switch 3
+>p2 move glare
+>p1 move triattack
+>p2 move knockoff
+>p1 move triattack
+>p2 move knockoff
+>p2 switch 3
+>p1 move roost
+>p2 move diamonddust
+  log = 
+|t:|1649097799
+|player|p1|anaconja|shelly|
+|player|p2|ZOOMERCIDE|102|
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] i forgor OU
+|rule|OHKO Clause: OHKO moves are banned
+|clearpoke
+|poke|p1|electricnormal, M|
+|poke|p1|groundfairy, M|
+|poke|p1|steelflying, M|
+|poke|p1|normalpsychic, F|
+|poke|p1|darkflying, M|
+|poke|p1|darkpoison, M|
+|poke|p2|darkghost, M|
+|poke|p2|firepsychic, M|
+|poke|p2|iceghost, F|
+|poke|p2|waterflying, M|
+|poke|p2|poisonground, F|
+|poke|p2|firefairy, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|teampreview
+|
+|t:|1649097806
+|start
+|switch|p1a: normalpsychic|normalpsychic, F|404/404
+|switch|p2a: firefairy|firefairy, F|341/341
+|-start|p2a: firefairy|typechange|Fire/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">firefairy</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Divine Grace</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>100</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>100</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: normalpsychic|typechange|Normal/Psychic|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">normalpsychic</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Normal.png" alt="Normal" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Pickup / Water Absorb / All-Seeing Eye</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>100</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1649097809
+|move|p2a: firefairy|Energy Ball|p1a: normalpsychic
+|-damage|p1a: normalpsychic|315/404
+|move|p1a: normalpsychic|Octolock|p2a: firefairy
+|-start|p2a: firefairy|move: Octolock|[of] p1a: normalpsychic
+|
+|-heal|p1a: normalpsychic|340/404|[from] item: Leftovers
+|-unboost|p2a: firefairy|def|1
+|-unboost|p2a: firefairy|spd|1
+|upkeep
+|turn|2
+|
+|t:|1649097816
+|move|p2a: firefairy|Energy Ball|p1a: normalpsychic
+|-damage|p1a: normalpsychic|253/404
+|move|p1a: normalpsychic|espwave||[still]|[still]
+|-anim|p1a: normalpsychic|Psywave|p2a: firefairy
+|-fail|p1a: normalpsychic
+|-heal|p1a: normalpsychic|354/404|[from] ability: All-Seeing Eye|[of] p2a: firefairy
+|
+|-heal|p1a: normalpsychic|379/404|[from] item: Leftovers
+|-unboost|p2a: firefairy|def|1
+|-unboost|p2a: firefairy|spd|1
+|upkeep
+|turn|3
+|
+|t:|1649097831
+|move|p2a: firefairy|Energy Ball|p1a: normalpsychic
+|-damage|p1a: normalpsychic|282/404
+|move|p1a: normalpsychic|Scald|p2a: firefairy
+|-supereffective|p2a: firefairy
+|-damage|p2a: firefairy|83/341
+|
+|-heal|p2a: firefairy|104/341|[from] item: Leftovers
+|-heal|p1a: normalpsychic|307/404|[from] item: Leftovers
+|-unboost|p2a: firefairy|def|1
+|-unboost|p2a: firefairy|spd|1
+|upkeep
+|turn|4
+|
+|t:|1649097837
+|move|p2a: firefairy|Jungle Healing|p2a: firefairy
+|-heal|p2a: firefairy|232/341
+|move|p1a: normalpsychic|Scald|p2a: firefairy
+|-supereffective|p2a: firefairy
+|-damage|p2a: firefairy|0 fnt
+|faint|p2a: firefairy
+|
+|-heal|p1a: normalpsychic|332/404|[from] item: Leftovers
+|upkeep
+|
+|t:|1649097848
+|switch|p2a: darkghost|darkghost, M|321/321
+|-start|p2a: darkghost|typechange|Dark/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">darkghost</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mythic Swordsman</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>90</span> <span class="col statcol"><em>Atk</em><br>72</span> <span class="col statcol"><em>Def</em><br>85</span> <span class="col statcol"><em>SpA</em><br>128</span> <span class="col statcol"><em>SpD</em><br>95</span> <span class="col statcol"><em>Spe</em><br>110</span> </span></li><li style="clear: both"></li></ul>
+|turn|5
+|
+|t:|1649097853
+|move|p2a: darkghost|Abyssal Slash||[still]
+|-anim|p2a: darkghost|Night Slash|p1a: normalpsychic
+|-immune|p1a: normalpsychic
+|move|p1a: normalpsychic|Scald|p2a: darkghost
+|-damage|p2a: darkghost|259/321
+|
+|-heal|p1a: normalpsychic|357/404|[from] item: Leftovers
+|upkeep
+|turn|6
+|
+|t:|1649097869
+|switch|p2a: waterflying|waterflying, M|311/311
+|-start|p2a: waterflying|typechange|Water/Flying|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">waterflying</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Water.png" alt="Water" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Flying.png" alt="Flying" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Storming Surge</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>110</span> <span class="col statcol"><em>Def</em><br>72</span> <span class="col statcol"><em>SpA</em><br>95</span> <span class="col statcol"><em>SpD</em><br>90</span> <span class="col statcol"><em>Spe</em><br>128</span> </span></li><li style="clear: both"></li></ul>
+|switch|p1a: darkpoison|darkpoison, M|604/604
+|-start|p1a: darkpoison|typechange|Dark/Poison|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">darkpoison</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Pickup / Shed Skin / Stakeout</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>200</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>50</span> <span class="col statcol"><em>SpA</em><br>75</span> <span class="col statcol"><em>SpD</em><br>50</span> <span class="col statcol"><em>Spe</em><br>25</span> </span></li><li style="clear: both"></li></ul>
+|
+|upkeep
+|turn|7
+|
+|t:|1649097873
+|move|p2a: waterflying|Acid Rain||[still]
+|-anim|p2a: waterflying|Acid Downpour|p1a: darkpoison
+|-damage|p1a: darkpoison|352/604
+|move|p1a: darkpoison|Death Grip||[still]
+|-anim|p1a: darkpoison|Octolock|p2a: waterflying
+|-damage|p2a: waterflying|134/311
+|-start|p2a: waterflying|Death Grip
+|
+|-heal|p2a: waterflying|153/311|[from] item: Leftovers
+|-heal|p1a: darkpoison|389/604|[from] item: Black Sludge
+|upkeep
+|turn|8
+|
+|t:|1649097890
+|switch|p1a: groundfairy|groundfairy, M|311/311
+|-start|p1a: groundfairy|typechange|Ground/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">groundfairy</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ground.png" alt="Ground" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Run Away / Sand Rush / Light Power</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>114</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>86</span> </span></li><li style="clear: both"></li></ul>
+|move|p2a: waterflying|Acid Rain||[still]
+|-anim|p2a: waterflying|Acid Downpour|p1a: groundfairy
+|-supereffective|p1a: groundfairy
+|-damage|p1a: groundfairy|0 fnt
+|faint|p1a: groundfairy
+|
+|-heal|p2a: waterflying|172/311|[from] item: Leftovers
+|upkeep
+|
+|t:|1649097898
+|switch|p1a: darkpoison|darkpoison, M|389/604
+|-start|p1a: darkpoison|typechange|Dark/Poison|[silent]
+|turn|9
+|
+|t:|1649097903
+|switch|p2a: darkghost|darkghost, M|259/321
+|-start|p2a: darkghost|typechange|Dark/Ghost|[silent]
+|move|p1a: darkpoison|Death Grip||[still]
+|-anim|p1a: darkpoison|Octolock|p2a: darkghost
+|-damage|p2a: darkghost|0 fnt
+|faint|p2a: darkghost
+|
+|-heal|p1a: darkpoison|426/604|[from] item: Black Sludge
+|upkeep
+|
+|t:|1649097907
+|switch|p2a: poisonground|poisonground, F|295/295
+|-start|p2a: poisonground|typechange|Poison/Ground|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">poisonground</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ground.png" alt="Ground" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Shed Skin / Merciless</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>77</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>103</span> </span></li><li style="clear: both"></li></ul>
+|turn|10
+|
+|t:|1649097915
+|switch|p1a: steelflying|steelflying, M|398/398
+|-start|p1a: steelflying|typechange|Steel/Flying|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">steelflying</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Flying.png" alt="Flying" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Heavy Metal / Clear Body / Industrialize</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>97</span> <span class="col statcol"><em>Atk</em><br>71</span> <span class="col statcol"><em>Def</em><br>101</span> <span class="col statcol"><em>SpA</em><br>97</span> <span class="col statcol"><em>SpD</em><br>83</span> <span class="col statcol"><em>Spe</em><br>61</span> </span></li><li style="clear: both"></li></ul>
+|move|p2a: poisonground|Glare|p1a: steelflying
+|-status|p1a: steelflying|par
+|
+|upkeep
+|turn|11
+|
+|t:|1649097923
+|move|p2a: poisonground|Knock Off|p1a: steelflying
+|-damage|p1a: steelflying|330/398 par
+|-damage|p2a: poisonground|246/295|[from] item: Rocky Helmet|[of] p1a: steelflying
+|-enditem|p1a: steelflying|Rocky Helmet|[from] move: Knock Off|[of] p2a: poisonground
+|move|p1a: steelflying|Tri Attack|p2a: poisonground
+|-damage|p2a: poisonground|182/295
+|-damage|p2a: poisonground|115/295
+|-damage|p2a: poisonground|43/295
+|-hitcount|p2a: poisonground|3
+|
+|upkeep
+|turn|12
+|
+|t:|1649097935
+|move|p2a: poisonground|Knock Off|p1a: steelflying
+|-damage|p1a: steelflying|284/398 par
+|move|p1a: steelflying|Tri Attack|p2a: poisonground
+|-damage|p2a: poisonground|0 fnt
+|-hitcount|p2a: poisonground|1
+|faint|p2a: poisonground
+|
+|upkeep
+|
+|t:|1649097941
+|switch|p2a: iceghost|iceghost, F|480/480
+|-start|p2a: iceghost|typechange|Ice/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">iceghost</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mortem</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>138</span> <span class="col statcol"><em>Atk</em><br>98</span> <span class="col statcol"><em>Def</em><br>104</span> <span class="col statcol"><em>SpA</em><br>138</span> <span class="col statcol"><em>SpD</em><br>104</span> <span class="col statcol"><em>Spe</em><br>98</span> </span></li><li style="clear: both"></li></ul>
+|turn|13
+|
+|t:|1649097944
+|move|p2a: iceghost|Diamond Dust||[still]
+|-anim|p2a: iceghost|Glacial Lance|p1a: steelflying
+|-damage|p1a: steelflying|38/398 par
+
