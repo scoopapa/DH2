@@ -51,13 +51,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 287,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Animon' && 'Ditto') {
+			if (pokemon.species.name === 'Animon' || pokemon.species.name === 'Ditto') {
 				return this.chainModify(1.5);
 			}	
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.species.name === 'Animon' && 'Ditto') {
+			if (pokemon.species.name === 'Animon' || pokemon.species.name === 'Ditto') {
 				return this.chainModify(1.5);
 			}	
 		},
