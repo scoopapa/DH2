@@ -57,7 +57,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Bug", "Ice"],
 		baseStats: {hp: 60, atk: 148, def: 90, spa: 80, spd: 80, spe: 142},
 		abilities: {0: "Magic Guard"},
-		requiredItem: ["Pidgeotite"],
+		requiredItem: ["bugiceite"],
 		battleOnly: "bugice",
 	},
 	bugpsychic: {
@@ -76,7 +76,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 82, atk: 70, def: 100, spa: 155, spd: 105, spe: 88},
 		abilities: {0: "Speed Boost"},
-		requiredItem: ["Alakazite"],
+		requiredItem: ["bugpsychicite"],
 		battleOnly: "bugpsychic",
 	},
 	grassfairy: {
@@ -109,7 +109,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 90, atk: 76, def: 100, spa: 130, spd: 130, spe: 49},
 		abilities: {0: "Sheer Force"},
-		requiredItem: ["Venusaurite"],
+		requiredItem: ["normalpoisonite"],
 		battleOnly: "normalpoison",
 	},
 	groundfairy: {
@@ -128,7 +128,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ground", "Fairy"],
 		baseStats: {hp: 85, atk: 144, def: 135, spa: 50, spd: 105, spe: 56},
 		abilities: {0: "Thick Fat"},
-		requiredItem: ["Charizardite X"],
+		requiredItem: ["groundfairyite"],
 		battleOnly: "groundfairy",
 	},
 	bugelectric: {
@@ -189,7 +189,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 120, spa: 120, spd: 120, spe: 35},
 		abilities: {0: "Levitate"},
-		requiredItem: ["Charizardite Y"],
+		requiredItem: ["electricpoisonite"],
 		battleOnly: "electricpoison",
 	},
 	ground: {
@@ -264,7 +264,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 84, atk: 108, def: 120, spa: 52, spd: 124, spe: 52},
 		abilities: {0: "Regenerator"},
-		requiredItem: ["Slowbronite"],
+		requiredItem: ["normalite"],
 		battleOnly: "normal",
 	},
 	normalfairy: {
@@ -283,7 +283,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 124, atk: 68, def: 100, spa: 122, spd: 104, spe: 62},
 		abilities: {0: "Immunity"},
-		requiredItem: ["Gengarite"],
+		requiredItem: ["normalfairyite"],
 		battleOnly: "normalfairy",
 	},
 	bugfighting: {
@@ -316,7 +316,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water", "Ground"],
 		baseStats: {hp: 90, atk: 130, def: 125, spa: 65, spd: 80, spe: 75},
 		abilities: {0: "Strong Jaw"},
-		requiredItem: ["Blastoisinite"],
+		requiredItem: ["watergroundite"],
 		battleOnly: "waterground",
 	},
 	watersteel: {
@@ -377,7 +377,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Steel", "Fairy"],
 		baseStats: {hp: 151, atk: 123, def: 71, spa: 83, spd: 61, spe: 101},
 		abilities: {0: "Industrialize"},
-		requiredItem: ["Pinsirite"],
+		requiredItem: ["darkfairyite"],
 		battleOnly: "darkfairy",
 	},
 	poisonpsychic: {
@@ -396,7 +396,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Poison", "Fairy"],
 		baseStats: {hp: 89, atk: 69, def: 119, spa: 135, spd: 129, spe: 49},
 		abilities: {0: "Serene Grace"},
-		requiredItem: ["Kangaskhanite"],
+		requiredItem: ["poisonpsychicite"],
 		battleOnly: "poisonpsychic",
 	},
 	darkrock: {
@@ -415,7 +415,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 77, atk: 135, def: 125, spa: 85, spd: 85, spe: 103},
 		abilities: {0: "Technician"},
-		requiredItem: ["Mewtwonite X"],
+		requiredItem: ["darkrockite"],
 		battleOnly: "darkrock",
 	},
 	poisonground: {
@@ -434,7 +434,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Poison", "Ground"],
 		baseStats: {hp: 77, atk: 120, def: 95, spa: 120, spd: 95, spe: 103},
 		abilities: {0: "Gravitas"},
-		requiredItem: ["Mewtwonite Y"],
+		requiredItem: ["poisongroundite"],
 		battleOnly: "poisonground",
 	},
 	rockpsychic: {
@@ -523,7 +523,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ghost", "Rock"],
 		baseStats: {hp: 80, atk: 168, def: 130, spa: 55, spd: 130, spe: 12},
 		abilities: {0: "Rock Head"},
-		requiredItem: ["Beedrillite"],
+		requiredItem: ["ghostgroundite"],
 		battleOnly: "ghostground",
 	},
 	electricflying: {
@@ -551,7 +551,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 57,
 		name: "waterice",
 		types: ["Water", "Ice"],
-		baseStats: {hp: 85, atk: 75, def: 80, spa: 109, spd: 50, spe: 111},
+		baseStats: {hp: 85, atk: 75, def: 80, spa: 99, spd: 60, spe: 111},
 		abilities: {0: "Water Veil", 1: "Pixilate", H: "Absolute Zero"},
 		otherFormes: ["waterice-Mega"],
 		formeOrder: ["waterice", "waterice-Mega"],
@@ -561,9 +561,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "waterice-Mega",
 		baseSpecies: "waterice",
 		types: ["Water", "Ice"],
-		baseStats: {hp: 85, atk: 115, def: 80, spa: 129, spd: 90, spe: 111},
+		baseStats: {hp: 85, atk: 115, def: 90, spa: 119, spd: 90, spe: 111},
 		abilities: {0: "Refrigerate"},
-		requiredItem: ["Gyaradosite"],
+		requiredItem: ["watericeite"],
 		battleOnly: "waterice",
 	},
 	ghostflying: {
@@ -624,7 +624,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 120, atk: 105, def: 121, spa: 95, spd: 121, spe: 48},
 		abilities: {0: "Magic Bounce"},
-		requiredItem: ["Aerodactylite"],
+		requiredItem: ["dragongroundite"],
 		battleOnly: "dragonground",
 	},
 	psychicfairy: {
