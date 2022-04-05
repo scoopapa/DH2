@@ -168,7 +168,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	shuckle: {
 		inherit: true,
-		abilities: {0: "Gluttony"},
+		abilities: {0: "Sturdy", 1: "Gluttony"},
 	},
 	hitmontop: {
 		inherit: true,
@@ -221,7 +221,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	pikachu: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
-		abilities: {0: "Static", 1: "Mold Breaker"},
+		abilities: {0: "Static"},
 		evos: ["Raichu", "Raichu-Alola"],
 	},
 	raichu: {
