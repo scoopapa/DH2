@@ -1194,8 +1194,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				break;
 			}
 		},
-		onModifyMove(move, pokemon, item) {
-			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(item.id)) move.category = 'Special';
+		onModifyMove(move, item, pokemon) {
+			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(item.id)) {
+				move.category = 'Special';
+			}
 		},
 		type: "Normal",
 	},
