@@ -5,6 +5,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 2,
 	pokemon: {
 		inherit: true,
+		getStat(statName, unboosted, unmodified, fastReturn) {
+		let stat = this.storedStats[statName];
+		},
 	},
 	
 	init: function () {
