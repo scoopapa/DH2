@@ -48,24 +48,68 @@ export const Items: {[itemid: string]: ItemData} = {
 	metalpowder: {
 		name: "Metal Powder",
 		spritenum: 287,
-		onModifyDefPriority: 1,
-		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Animon') {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpDPriority: 1,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.species.name === 'Animon') {
-				return this.chainModify(1.5);
-			}
-		},
-		itemUser: ["Animon"],
+		onAnyModifyDamage(damage, source, target, move) {
+			if (source.species.id === 'animon' || source.species.id === 'ditto') {
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+						this.debug('Reflect weaken');
+						return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+						this.debug('Light Screen weaken');
+						return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				},
+			},
+		itemUser: ["Animon", "Ditto"],
 		num: 257,
 		gen: 2,
 		shortDesc: "(Bugged) Not compatible with Animon."
 	},
 	
+	
+	/*reflect: {
+		num: 115,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Reflect",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'reflect',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onResidualOrder: 21,
+			onEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},*/
 	/*metalpowder: {
 		name: "Metal Powder",
 		spritenum: 287,
