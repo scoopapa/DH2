@@ -54,7 +54,6 @@ export const Items: {[itemid: string]: ItemData} = {
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
 					}
-					if () {
 						this.debug('Aurora Veil weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
 						return this.chainModify(0.5);
