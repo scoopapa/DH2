@@ -538,27 +538,20 @@ export const Formats: FormatList = [
 			'Sand Veil',
 			
 			//Pokémon
-			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
-			'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
-			'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
-			'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
-			'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
-			'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.', 'Glaceon',
-			'Dracovish', 'Slowpoke-Galar', 'Slowking-Galar', 'Marowak-Alola', 'Marowak-Alola-Totem',
-			'Regieleki', 'Milcery', 'Alcremie',
-			'Mamoswine', 'Roserade', 'Leafeon', 'Dusknoir', 'Slowbro-Galar', 'Mismagius', 'Honchkrow', 'Budew', 'Ambipom', 'Chingling', 'Munchlax', 'Weavile', 'Happiny', 'Lickilicky', 
-			'Tangrowth', 'Magmortar', 'Togekiss', 'Yanmega', 'Porygon-Z', 'Magnezone', 'Gallade', 'Froslass', 'Probopass','Rattata-Alola', 'Raticate-Alola', 'Raichu-Alola', 'Dugtrio-Alola', 
-			'Persian-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 'Perrserker', 'Grimer-Alola', 'Muk-Alola', 'Exeggutor-Alola', 'Farfetchd-Galar', 'Weezing-Galar', 'Zigzagoon-Galar', 
-			'Linoone-Galar', 'Corsola-Galar', 'Cursola', 'Obstagoon', 'Sirfetchd', 'Zapdos-Galar', 'Articuno-Galar', 'Moltres-Galar', 'Vulpix-Alola', 'Ninetales-Alola', 'Sandshrew-Alola', 
-			'Sandslash-Alola', 'Ponyta-Galar', 'Rapidash-Galar', 'Mantyke', 'Bonsly', 'Stunfisk', 'Stunfisk-Galar', 'Regidrago', 'Skrelp', 'Dragalge', 'Sandile', 'Krokorok', 'Krookodile', 
-			'Wimpod', 'Golisopod', 'Impidimp', 'Morgrem', 'Grimmsnarl', 'Pincurchin',
-			
-			//Moves
-			//'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Boomburst', 'Spirit Break', 'Circle Throw',
-			
-			//Items
-			//'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			//'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 
+			//'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
+			//'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 
+			//'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Golett', 'Golurk', 'Geodude-Alola', 'Graveler-Alola', 'Golem-Alola', 'Croagunk', 
+			//'Toxicroak', 'Crabrawler', 'Crabominable', 'Starly', 'Staravia', 'Staraptor', 'Fletchling', 'Fletchinder', 'Talonflame', 'Mawile', 'Stunky', 'Skuntank', 'Sylveon', 'Zarude',
+			//'Zarude-Dada', 'Buneary', 'Lopunny', 'Chespin', 'Quilladin', 'Chesnaught', 'Cramorant', 'Guzzlord',
+			//'Litten', 'Torracat', 'Incineroar', 'Mr. Mime-Galar', 'Mr. Rime', 'Uxie', 'Mime Jr.', 'Glaceon',
+			//'Dracovish', 'Slowpoke-Galar', 'Slowking-Galar', 'Marowak-Alola', 'Marowak-Alola-Totem',
+			//'Regieleki', 'Milcery', 'Alcremie',
+			//'Mamoswine', 'Roserade', 'Leafeon', 'Dusknoir', 'Slowbro-Galar', 'Mismagius', 'Honchkrow', 'Budew', 'Ambipom', 'Chingling', 'Munchlax', 'Weavile', 'Happiny', 'Lickilicky', 
+			//'Tangrowth', 'Magmortar', 'Togekiss', 'Yanmega', 'Porygon-Z', 'Magnezone', 'Gallade', 'Froslass', 'Probopass','Rattata-Alola', 'Raticate-Alola', 'Raichu-Alola', 'Dugtrio-Alola', 
+			//'Persian-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 'Perrserker', 'Grimer-Alola', 'Muk-Alola', 'Exeggutor-Alola', 'Farfetchd-Galar', 'Weezing-Galar', 'Zigzagoon-Galar', 
+			//'Linoone-Galar', 'Corsola-Galar', 'Cursola', 'Obstagoon', 'Sirfetchd', 'Zapdos-Galar', 'Articuno-Galar', 'Moltres-Galar', 'Vulpix-Alola', 'Ninetales-Alola', 'Sandshrew-Alola', 
+			//'Sandslash-Alola', 'Ponyta-Galar', 'Rapidash-Galar', 'Mantyke', 'Bonsly', 'Stunfisk', 'Stunfisk-Galar', 'Regidrago', 'Skrelp', 'Dragalge', 'Sandile', 'Krokorok', 'Krookodile', 
+			//'Wimpod', 'Golisopod', 'Impidimp', 'Morgrem', 'Grimmsnarl', 'Pincurchin',
 		],
 		teambuilderFormat: 'OU',
 	},
@@ -1888,20 +1881,13 @@ export const Formats: FormatList = [
 			'Sand Veil',
 			
 			//Pokémon
-			'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fire', 'Silvally-Grass', 
-			'Silvally-Ice', 'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Water', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 
-			'Staravia', 'Fletchling', 'Fletchinder', 'Stunky', 'Skuntank', 'Sylveon', 'Buneary', 'Chespin', 'Quilladin', 'Litten', 'Torracat', 'Mr. Mime-Galar', 'Mime Jr.', 'Slowpoke-Galar', 
-			'Marowak-Alola', 'Marowak-Alola-Totem', 'Milcery', 'Leafeon', 'Slowbro-Galar', 'Mismagius', 'Honchkrow', 'Budew', 'Ambipom', 'Chingling', 'Munchlax', 'Weavile', 'Happiny', 
-			'Lickilicky', 'Tangrowth', 'Togekiss', 'Yanmega', 'Gallade', 'Probopass','Rattata-Alola', 'Raticate-Alola', 'Persian-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 
-			'Perrserker', 'Grimer-Alola', 'Muk-Alola', 'Exeggutor-Alola', 'Farfetchd-Galar', 'Weezing-Galar', 'Zigzagoon-Galar', 'Linoone-Galar', 'Corsola-Galar', 'Cursola', 'Vulpix-Alola', 
-			'Ninetales-Alola', 'Sandshrew-Alola', 'Sandslash-Alola', 'Ponyta-Galar', 'Rapidash-Galar', 'Mantyke', 'Bonsly', 'Skrelp', 'Sandile', 'Krokorok', 'Wimpod', 'Impidimp', 'Morgrem',
-			
-			//Moves
-			//'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Boomburst', 'Spirit Break', 'Circle Throw',
-			
-			//Items
-			//'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			//'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 
+			//'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fire', 'Silvally-Grass', 
+			//'Silvally-Ice', 'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Water', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 
+			//'Staravia', 'Fletchling', 'Fletchinder', 'Stunky', 'Skuntank', 'Sylveon', 'Buneary', 'Chespin', 'Quilladin', 'Litten', 'Torracat', 'Mr. Mime-Galar', 'Mime Jr.', 'Slowpoke-Galar', 
+			//'Marowak-Alola', 'Marowak-Alola-Totem', 'Milcery', 'Leafeon', 'Slowbro-Galar', 'Mismagius', 'Honchkrow', 'Budew', 'Ambipom', 'Chingling', 'Munchlax', 'Weavile', 'Happiny', 
+			//'Lickilicky', 'Tangrowth', 'Togekiss', 'Yanmega', 'Gallade', 'Probopass','Rattata-Alola', 'Raticate-Alola', 'Persian-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 
+			//'Perrserker', 'Grimer-Alola', 'Muk-Alola', 'Exeggutor-Alola', 'Farfetchd-Galar', 'Weezing-Galar', 'Zigzagoon-Galar', 'Linoone-Galar', 'Corsola-Galar', 'Cursola', 'Vulpix-Alola', 
+			//'Ninetales-Alola', 'Sandshrew-Alola', 'Sandslash-Alola', 'Ponyta-Galar', 'Rapidash-Galar', 'Mantyke', 'Bonsly', 'Skrelp', 'Sandile', 'Krokorok', 'Wimpod', 'Impidimp', 'Morgrem',
 		],
 		teambuilderFormat: 'UU',
 	},
@@ -1921,18 +1907,11 @@ export const Formats: FormatList = [
 			'Sand Veil',
 			
 			//Pokémon
-			'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 'Staravia', 'Fletchling', 
-			'Fletchinder', 'Stunky', 'Buneary', 'Chespin', 'Quilladin', 'Litten', 'Torracat', 'Mr. Mime-Galar', 'Mime Jr.', 'Slowpoke-Galar', 'Marowak-Alola', 'Marowak-Alola-Totem', 
-			'Milcery', 'Budew', 'Chingling', 'Munchlax', 'Happiny', 'Rattata-Alola', 'Raticate-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 'Grimer-Alola', 'Farfetchd-Galar', 
-			'Zigzagoon-Galar', 'Linoone-Galar', 'Corsola-Galar', 'Vulpix-Alola', 'Sandshrew-Alola', 'Ponyta-Galar', 'Mantyke', 'Bonsly', 'Skrelp', 'Sandile', 'Krokorok', 'Wimpod', 
-			'Impidimp', 'Morgrem',
-			
-			//Moves
-			//'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Boomburst', 'Spirit Break', 'Circle Throw',
-			
-			//Items
-			//'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			//'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 
+			//'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 'Staravia', 'Fletchling', 
+			//'Fletchinder', 'Stunky', 'Buneary', 'Chespin', 'Quilladin', 'Litten', 'Torracat', 'Mr. Mime-Galar', 'Mime Jr.', 'Slowpoke-Galar', 'Marowak-Alola', 'Marowak-Alola-Totem', 
+			//'Milcery', 'Budew', 'Chingling', 'Munchlax', 'Happiny', 'Rattata-Alola', 'Raticate-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 'Grimer-Alola', 'Farfetchd-Galar', 
+			//'Zigzagoon-Galar', 'Linoone-Galar', 'Corsola-Galar', 'Vulpix-Alola', 'Sandshrew-Alola', 'Ponyta-Galar', 'Mantyke', 'Bonsly', 'Skrelp', 'Sandile', 'Krokorok', 'Wimpod', 
+			//'Impidimp', 'Morgrem',
 		],
 		teambuilderFormat: 'NU',
 	},
@@ -1964,13 +1943,6 @@ export const Formats: FormatList = [
 			'Linoone-Galar', 'Corsola-Galar', 'Cursola', 'Obstagoon', 'Sirfetchd', 'Zapdos-Galar', 'Articuno-Galar', 'Moltres-Galar', 'Vulpix-Alola', 'Ninetales-Alola', 'Sandshrew-Alola', 
 			'Sandslash-Alola', 'Ponyta-Galar', 'Rapidash-Galar', 'Mantyke', 'Bonsly', 'Stunfisk', 'Stunfisk-Galar', 'Regidrago', 'Skrelp', 'Dragalge', 'Sandile', 'Krokorok', 'Krookodile', 
 			'Wimpod', 'Golisopod', 'Impidimp', 'Morgrem', 'Grimmsnarl', 'Pincurchin',
-			
-			//Moves
-			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Boomburst', 'Spirit Break', 'Circle Throw',
-			
-			//Items
-			'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
-			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 'Air Balloon',
 		],
 		teambuilderFormat: 'Uber',
 	},*/
