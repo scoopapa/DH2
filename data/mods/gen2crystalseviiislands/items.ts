@@ -49,15 +49,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Metal Powder",
 		spritenum: 287,
 		onAnyModifyDamage(damage, source, target, move) {
-			if (target.species.id === 'animon' || target.species.id === 'ditto') {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
-						this.debug('Reflect weaken');
-						return this.chainModify([0xAAC, 0x1000]);
-						return this.chainModify(0.5);
+				if (target !== source && target.side === this.effectData.target) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
 					}
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
-						this.debug('Light Screen weaken');
-						return this.chainModify([0xAAC, 0x1000]);
+					if () {
+						this.debug('Aurora Veil weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
 						return this.chainModify(0.5);
 					}
 				}
