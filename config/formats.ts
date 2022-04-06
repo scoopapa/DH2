@@ -535,8 +535,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 		unbanlist: [
 			//Abilities
-			/*'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
-			'Neutralizing Gas', 'Stakeout', 'Fur Coat', 'Gluttony',*/
+			'Sand Veil',
 			
 			//Pokémon
 			'Snover', 'Abomasnow', 'Gliscor', 'Frillish', 'Jellicent', 'Tynamo', 'Eelektrik', 'Eelektross', 'Cryogonal', 'Type: Null', 'Silvally', 'Silvally-Bug', 'Silvally-Dark',
@@ -1886,8 +1885,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL'],
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
-			'Neutralizing Gas', 'Stakeout', 'Fur Coat', 'Gluttony',
+			'Sand Veil',
 			
 			//Pokémon
 			'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fire', 'Silvally-Grass', 
@@ -1920,8 +1918,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'NUBL'],
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
-			'Neutralizing Gas', 'Stakeout', 'Fur Coat', 'Gluttony',
+			'Sand Veil',
 			
 			//Pokémon
 			'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 'Staravia', 'Fletchling', 
