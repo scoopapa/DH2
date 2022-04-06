@@ -3152,7 +3152,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 183,
 		name: "Appletom-Wash",
 		types: ["Grass", "Electric"],
-		baseStats: {hp: 80, atk: 75, def: 89, spa: 105, spd: 95, spe: 75},
+		baseStats: {hp: 80, atk: 75, def: 95, spa: 105, spd: 95, spe: 75},
 		abilities: {0: "Fatful Float"},
 		weightkg: 6.7,
 	},
