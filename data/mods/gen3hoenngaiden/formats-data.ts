@@ -1,4 +1,8 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	urshifu: {
+		tier: "OU",
+	},
+	
 	bulbasaur: {
 		tier: "LC",
 	},
