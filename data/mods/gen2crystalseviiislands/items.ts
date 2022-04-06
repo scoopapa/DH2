@@ -60,7 +60,7 @@ export const Items: {[itemid: string]: ItemData} = {
 						return this.chainModify([0xAAC, 0x1000]);
 						return this.chainModify(0.5);
 					}
-				},
+				}
 			},
 		itemUser: ["Animon", "Ditto"],
 		num: 257,
