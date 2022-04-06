@@ -739,7 +739,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	misdreavus: {
 		randomBattleMoves: ["calmmind", "hiddenpowerice", "meanlook", "perishsong", "protect", "substitute", "thunderbolt"],
-		tier: "UU",
+		tier: "NU",
 	},
 	unown: {
 		randomBattleMoves: ["hiddenpowerpsychic"],
@@ -780,7 +780,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	qwilfish: {
 		randomBattleMoves: ["destinybond", "hydropump", "selfdestruct", "shadowball", "sludgebomb", "spikes", "swordsdance"],
-		tier: "UU",
+		tier: "NU",
 	},
 	shuckle: {
 		randomBattleMoves: ["encore", "protect", "rest", "sleeptalk", "toxic", "wrap"],
@@ -792,7 +792,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sneasel: {
 		randomBattleMoves: ["brickbreak", "doubleedge", "hiddenpowerflying", "shadowball", "substitute", "swordsdance"],
-		tier: "UU",
+		tier: "NU",
 	},
 	teddiursa: {
 		tier: "LC",
