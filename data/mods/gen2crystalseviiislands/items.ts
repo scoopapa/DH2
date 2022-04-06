@@ -49,7 +49,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Metal Powder",
 		spritenum: 287,
 		onAnyModifyDamage(damage, source, target, move) {
-			if (source.species.id === 'animon' || source.species.id === 'ditto') {
+			if (target.species.id === 'animon' || target.species.id === 'ditto') {
 				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
 						this.debug('Reflect weaken');
 						return this.chainModify([0xAAC, 0x1000]);
