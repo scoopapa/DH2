@@ -1,9 +1,4 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-	urshifu: {
-		inherit: true,
-		gen: 3,
-	},
-	
 	clefable: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},

@@ -535,7 +535,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 		unbanlist: [
 			//Abilities
-			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
+			'Sand Veil', 'Snow Warning', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
 			'Neutralizing Gas', 'Stakeout', 'Fur Coat', 'Gluttony',
 			
 			//Pokémon
