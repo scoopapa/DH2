@@ -1881,7 +1881,7 @@ export const Formats: FormatList = [
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
 		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL', 'Snow Warning'],
+		banlist: ['Uber', 'OU', 'UUBL'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 'Neutralizing Gas',
