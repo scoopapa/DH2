@@ -1908,6 +1908,38 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'UU',
 	},
 	{
+		name: "[Gen 3] Hoenn Gaiden NU",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		searchShow: false,
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'NUBL'],
+		unbanlist: [
+			//Abilities
+			'Sand Veil', 'Snow Warning', 'RKS System', 'Ice Body', 'Magic Guard', 'Galvanize', 'Overcoat', 'Desolate Land', 'Mold Breaker', 'Gulp Missile', 'Analytic', 'Protean', 
+			'Neutralizing Gas', 'Stakeout', 'Fur Coat', 'Gluttony',
+			
+			//Pokémon
+			'Snover', 'Frillish', 'Tynamo', 'Eelektrik', 'Type: Null', 'Golett', 'Geodude-Alola', 'Graveler-Alola', 'Croagunk', 'Crabrawler', 'Starly', 'Staravia', 'Fletchling', 
+			'Fletchinder', 'Stunky', 'Buneary', 'Chespin', 'Quilladin', 'Litten', 'Torracat', 'Mr. Mime-Galar', 'Mime Jr.', 'Slowpoke-Galar', 'Marowak-Alola', 'Marowak-Alola-Totem', 
+			'Milcery', 'Budew', 'Chingling', 'Munchlax', 'Happiny', 'Rattata-Alola', 'Raticate-Alola', 'Diglett-Alola', 'Meowth-Alola', 'Meowth-Galar', 'Grimer-Alola', 'Farfetchd-Galar', 
+			'Zigzagoon-Galar', 'Linoone-Galar', 'Corsola-Galar', 'Vulpix-Alola', 'Sandshrew-Alola', 'Ponyta-Galar', 'Mantyke', 'Bonsly', 'Skrelp', 'Sandile', 'Krokorok', 'Wimpod', 
+			'Impidimp', 'Morgrem',
+			
+			//Moves
+			'Multi-Attack', 'Ice Hammer', 'Acrobatics', 'Lunge', 'Foul Play', 'Spiky Shield', 'Sucker Punch', 'Jungle Healing', 'Ice Shard', 'Body Press', 'Boomburst', 'Spirit Break', 'Circle Throw',
+			
+			//Items
+			'Expert Belt', 'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry', 'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry', 'Tanga Berry', 
+			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 
+		],
+		teambuilderFormat: 'NU',
+	},
+	/*{
 		name: "[Gen 3] Hoenn Gaiden Uber",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
@@ -1945,7 +1977,7 @@ export const Formats: FormatList = [
 			'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry', 'Babiri Berry', 'Chilan Berry', 'Custap Berry', 'Air Balloon',
 		],
 		teambuilderFormat: 'Uber',
-	},
+	},*/
 	{
 		name: "[Gen 8] JolteMons UU",
 		desc: [
