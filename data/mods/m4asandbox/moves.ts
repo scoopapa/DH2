@@ -1,4 +1,60 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
+	// MnM4A Meloetta
+	relicsong: {
+		num: 547,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Relic Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		onHit(target, pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Meloetta' && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				const meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
+				if (pokemon.species.isMega) {
+					const species = this.doGetMixedSpecies('Meloetta' + meloettaForme, pokemon.species.deltas);
+					if (pokemon.getItem().name === 'RKS Megamemory') {
+						let silvallyType = pokemon.hpType || 'Dark';
+						if (species.types[1] === silvallyType) {
+							species.types = [silvallyType];
+						} else if (!species.types[1] && species.types[0] !== silvallyType) {
+							// single-typed Pokémon can still have a primary type as their secondary type
+							species.types = [species.types[0], silvallyType];
+						} else {
+							species.types = [silvallyType, species.types[1]];
+						}
+					}
+					pokemon.formeChange(species, this.effect, false, '[msg]');
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+					const abilities = species.abilities;
+					const baseStats = species.baseStats;
+					const type = species.types[0];
+					if (species.types[1]) {
+						const type2 = species.types[1];
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+					} else {
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+					}
+				} else {
+					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
+				}
+			}
+		},
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
 	// moves from Legends: Arceus
 	ragingfury: {
 		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
@@ -159,7 +215,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	victorydance: {
-		shortDesc: "Raises the user's Attack and Defense by 1.",
+		shortDesc: "Raises the user's Attack by 2 and Defense by 1.",
 		num: -1007,
 		accuracy: true,
 		basePower: 0,
@@ -167,13 +223,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Victory Dance",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, dance: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quiver Dance", target);
 		},
 		boosts: {
-			atk: 1,
+			atk: 2,
 			def: 1,
 		},
 		secondary: null,
@@ -183,7 +239,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	wavecrash: {
-		shortDesc: "Usually goes first. Fails if target is not attacking. Has 33% recoil.",
+		shortDesc: "Usually goes first. Has 33% recoil.",
 		num: -1008,
 		accuracy: 100,
 		basePower: 75,
@@ -197,15 +253,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Waterfall", target);
 		},
 		recoil: [1, 3],
-		onTry(source, target) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				this.add('-fail', source);
-				this.attrLastMove('[still]');
-				return null;
-			}
-		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -239,14 +286,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	esperwing: {
-		shortDesc: "High critical hit ratio. Full effect unknown - may have a priority-related effect?",
+		shortDesc: "Usually goes first. High critical hit ratio.",
 		num: -1010,
 		accuracy: 90,
 		basePower: 75,
 		category: "Special",
 		name: "Esper Wing",
 		pp: 10,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -285,7 +332,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to make the target flinch.",
 		num: -1011,
 		accuracy: 85,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		name: "Mountain Gale",
 		pp: 5,
@@ -647,28 +694,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Lunar Blessing",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {heal: 1, authentic: 1, mystery: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Moonlight", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite && pokemon.volatiles['lunarblessing']) return false;
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
-			pokemon.cureStatus();
-		},
-		volatileStatus: 'lunarblessing',
-		condition: {
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Lunar Blessing');
-			},
-			onResidualOrder: 6,
-			onResidual(pokemon) {
-				this.heal(pokemon.baseMaxhp / 16);
-			},
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
-		target: "self",
+		target: "allies",
 		type: "Psychic",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
