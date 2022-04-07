@@ -1,6 +1,13 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'm4av6',
 	init() {
+		// MnM4A
+		for (const i in this.data.Items) {
+			if (!this.data.Items[i].megaStone) continue;
+			this.modData('Items', i).onTakeItem = false;
+			const id = this.toID(this.data.Items[i].megaStone);
+			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
+		}
 		// some slight changes around here to account for Legends: Arceus, which I am meant to be adding to the sandbox as convenient presets of sorts (:
 		// first adding new moves to old Pokémon
 		const newMoves = (mon: string, moves: string[]) => {
