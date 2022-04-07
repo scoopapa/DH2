@@ -1,6 +1,6 @@
 const bladeMoves = [
 	'aerialace', 'airslash', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind',
-	'sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade',
+	'sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge',
 ];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
@@ -2388,8 +2388,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -61,
 	},
 	innerfortitude: {
-		desc: "When this Pokémon has 1/2 or less of its maximum HP, rounded down, its Defense and Special Defense are doubled. Immune to Intimidate.",
-		shortDesc: "At 1/2 or less of max HP, Defense and Special Defense are doubled. Immune to Intimidate.",
+		desc: "When this Pokémon has 1/2 or less of its maximum HP, rounded down, its Defense and Special Defense are doubled. This Pokémon also cannot fall asleep. Gaining this Ability while asleep cures it.",
+		shortDesc: "At 1/2 or less of max HP, Defense and Special Defense are doubled. Cannot fall asleep.",
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
@@ -2404,14 +2404,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate') {
-				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Inner Fortitude');
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Inner Fortitude');
+				pokemon.cureStatus();
 			}
 		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Inner Fortitude');
+			}
+			return false;
+		},
 		name: "Inner Fortitude",
-		rating: 3,
+		rating: 4,
 		num: -62,
 	},
 	buildup: {
@@ -2850,5 +2857,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Queen's Gambit",
 		rating: 2,
 		num: -78,
+	},
+	uplifting: {
+		shortDesc: "While this Pokémon is present, all Pokémon are non-grounded.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Uplifting');
+			this.add('-message', `While ${pokemon.name} is present, all Pokémon are non-grounded.`);
+		},
+		// effect is in scripts.ts
+		name: "Uplifting",
+		rating: 4,
+		num: -79,
 	},
 };
