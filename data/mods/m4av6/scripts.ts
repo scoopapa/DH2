@@ -29,6 +29,10 @@ const bminus = ["cresselia", "dragapult", "ferrothorn", "weezinggalar", "gastrod
 const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", "crobat", "articunogalar", "zapdosgalar", "gyarados", "heatran", "jellicent", "liepard", "dragalgemega", "hydreigonmega", "honchkrowmega", "leavannymega", "registeelmega", "swampertmega", "meowsticm", "ninetales", "regigigas", "sirfetchd", "slaking", "staraptor", "suicune", "terrakion", "tornadus", "weavile"];
 
 export const Scripts: ModdedBattleScriptsData = {
+	teambuilderConfig: { // will this maybe work now that inheriting is reduced
+		excludeStandardTiers: true,
+		customTiers: ['Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+	},
 	init() {
 		console.log('init m4a');
 		for (const id in this.dataCache.Pokedex) {
