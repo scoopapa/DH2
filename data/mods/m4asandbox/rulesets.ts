@@ -354,6 +354,7 @@ export const Formats: {[k: string]: FormatData} = {
 				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
 				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
 				target.isModded = true;
+				target.canMegaEvo = null;
 				if (target.species.isMega) {
 					const megaSpecies = this.doGetMixedSpecies(newSpecies, this.getMegaDeltas(this.dex.getSpecies(target.canMegaEvo)));
 					return megaSpecies;
