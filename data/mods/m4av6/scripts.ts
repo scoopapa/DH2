@@ -396,7 +396,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			if ('poolfloaties' in this.volatiles) return false;
-			for (const target of this.getAllActive()) {
+			for (const target of this.battle.getAllActive()) {
 				if (target.hasAbility('uplifting')) {
 					return false;
 				}
