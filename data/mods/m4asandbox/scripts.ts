@@ -156,6 +156,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
 			if (!newMon.color && copyData.color) newMon.color = copyData.color;
 			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			if (!this.dataCache.Learnsets[id]) continue; // just in case
+			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"],
+			for (const move of movepoolAdditions) {
+				this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+			}
 		}
 	},
 
