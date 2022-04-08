@@ -581,26 +581,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		species.deltas = deltas; // preserving deltas for potential form change compatibility
 		return species;
 	},
-
-	runMegaEvo(pokemon) { // you can Mega Evolve as many Pokémon as you want in the Sandierbox
-		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
-		if (!speciesid) return false;
-		const side = pokemon.side;
-
-		// Pokémon affected by Sky Drop cannot mega evolve. Enforce it here for now.
-		for (const foeActive of side.foe.active) {
-			if (foeActive.volatiles['skydrop'] && foeActive.volatiles['skydrop'].source === pokemon) {
-				return false;
-			}
-		}
-
-		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
-		} // only part that's changed
-		pokemon.formeChange(speciesid, pokemon.getItem(), true);
-
-		this.runEvent('AfterMega', pokemon);
-		return true;
-	},
 	
 };
