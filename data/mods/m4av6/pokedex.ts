@@ -452,7 +452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Meganium-Mega"],
 		formeOrder: ["Meganium", "Meganium-Mega"],
-		movepoolAdditions: ["calmmind", "dragondance", "junglehealing", "rockslide", "solarblade", "stringshot", "weatherball"],
+		movepoolAdditions: ["dragondance", "junglehealing", "solarblade", "stringshot", "weatherball"],
 	},
 	meganiummega: {
 		num: 154,
