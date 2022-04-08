@@ -329,38 +329,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	abstractdreams: {
-		num: -10,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "Either burns, badly poisons, or paralyzes the target.",
-		name: "Abstract Dreams",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hypnosis", target);
-		},
-		secondary: {
-			chance: 100,
-			onHit(target, source) {
-				const result = this.random(3);
-				if (result === 0) {
-					target.trySetStatus('brn', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				} else {
-					target.trySetStatus('tox', source);
-				}
-			},
-		},
-		target: "normal",
-		type: "Psychic",
-	},
 	chillburst: {
-		num: -11,
+		num: -10,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -378,7 +348,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	absoluteimpact: {
-		num: -12,
+		num: -11,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -397,7 +367,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	foggymist: {
-		num: -13,
+		num: -12,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -437,7 +407,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	hiddenforce: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -454,7 +424,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	hiddenforcebug: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -472,7 +442,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	hiddenforcedark: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -490,7 +460,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	hiddenforcedragon: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -508,7 +478,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	hiddenforceelectric: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -526,7 +496,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	hiddenforcefighting: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -544,7 +514,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},
 	hiddenforcefire: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -562,7 +532,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 	},
 	hiddenforceflying: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -580,7 +550,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	hiddenforceghost: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -598,7 +568,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	hiddenforcegrass: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -616,7 +586,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 	},
 	hiddenforceground: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -634,7 +604,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 	},
 	hiddenforceice: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -652,7 +622,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	hiddenforcepoison: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -670,7 +640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 	},
 	hiddenforcepsychic: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -688,7 +658,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	hiddenforcerock: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -706,7 +676,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	hiddenforcesteel: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -724,7 +694,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	hiddenforcewater: {
-		num: -14,
+		num: -13,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -742,7 +712,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	perrserkpaw: {
-		num: -15,
+		num: -14,
 		accuracy: 100,
 		basePower: 65,
 		category: "Physical",
