@@ -452,7 +452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Meganium-Mega"],
 		formeOrder: ["Meganium", "Meganium-Mega"],
-		movepoolAdditions: ["calmmind", "dragondance", "rockslide", "solarblade", "weatherball"],
+		movepoolAdditions: ["calmmind", "dragondance", "junglehealing", "rockslide", "solarblade", "stringshot", "weatherball"],
 	},
 	meganiummega: {
 		num: 154,
@@ -461,7 +461,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Grass"],
 		genderRatio: {M: 0.875, F: 0.125},
-		baseStats: {hp: 80, atk: 117, def: 110, spa: 118, spd: 120, spe: 80},
+		baseStats: {hp: 80, atk: 122, def: 115, spa: 103, spd: 110, spe: 95},
 		abilities: {0: "Flower Gift"},
 		heightm: 1.8,
 		weightkg: 100.5,
@@ -1521,6 +1521,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Cinccino-Mega"],
 		formeOrder: ["Cinccino", "Cinccino-Mega"],
+		movepoolAdditions: ["slackoff"],
 	},
 	cinccinomega: {
 		num: 573,
