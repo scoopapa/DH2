@@ -2858,11 +2858,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: -78,
 	},
-	uplifting: {
+	uplifting: { // really lame hack I'm sorry I couldn't get it to work the concise way
 		shortDesc: "While this Pokémon is present, all Pokémon are non-grounded.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Uplifting');
 			this.add('-message', `While ${pokemon.name} is present, all Pokémon are non-grounded.`);
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.volatiles['uplifting']) {
+					pokemon.addVolatile('uplifting');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['uplifting']) {
+				pokemon.addVolatile('uplifting');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('uplifting');
+			}
 		},
 		// effect is in scripts.ts
 		name: "Uplifting",
