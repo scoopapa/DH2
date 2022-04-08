@@ -396,7 +396,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			if ('poolfloaties' in this.volatiles) return false;
-			if ('uplifting' in this.volatiles) return false;
+			for (const target of this.battle.getAllActive()) {
+				if (target.hasAbility('uplifting')) {
+					return null;
+				}
+			}
 			return item !== 'airballoon';
 		},
 		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} {
