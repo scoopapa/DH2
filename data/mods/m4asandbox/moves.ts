@@ -744,4 +744,33 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			pokemon.cureStatus();
 		},
 	},
+	spacialrend: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Palkia-Origin') {
+				return move.basePower - 10;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.name === 'Palkia-Origin') {
+				move.accuracy = 85;
+				move.critRatio = 3;
+			}
+		},
+	},
+	roaroftime: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Dialga-Origin') {
+				return move.basePower + 20;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.name === 'Dialga-Origin') {
+				move.accuracy = 75;
+			}
+		},
+	},
 };
