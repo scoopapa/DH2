@@ -429,8 +429,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	// MnM4A scripts
 
 	canMegaEvo(pokemon) {
-		if (pokemon.species.isMega || pokemon.isModded) return null;
-		// temporary rejection: Sandbox Mod does *not* work with MnM right now
+		if (pokemon.species.isMega) return null;
 
 		const item = pokemon.getItem();
 		if (item.megaStone) {
@@ -549,7 +548,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	doGetMixedSpecies(speciesOrForme, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
-		const preMegaForme = speciesOrForme;
+		const preMegaForme = this.dex.getSpecies(speciesOrForme);
 		let species = this.dex.deepClone(preMegaForme);
 		species.abilities = {'0': deltas.ability};
 		if (deltas.type === 'mono') {
