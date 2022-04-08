@@ -628,6 +628,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('showdown')) return;
+			}
+			for (const target of this.getAllActive()) {
 				target.removeVolatile('healblock');
 			}
 		},
@@ -2534,6 +2538,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('erraticcode')) return;
+			}
+			for (const target of this.getAllActive()) {
 				target.removeVolatile('torment');
 			}
 		},
@@ -2875,6 +2883,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('uplifting')) return;
+			}
 			for (const target of this.getAllActive()) {
 				target.removeVolatile('uplifting');
 			}
