@@ -5,6 +5,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: "Allows customization of a Pokémon's types and stats based on its nickname.",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
+				pokemon.m.originalSpecies = this.dex.getSpecies(pokemon.species.name); // MnM4A
 				if (!pokemon.set.name) return;
 				if (pokemon.set.name.substr(0, 1) === "*") {
 					if (['Mega Stone 1', 'Mega Stone 2', 'Mega Stone H'].includes(pokemon.getItem().name)) {
@@ -353,10 +354,40 @@ export const Formats: {[k: string]: FormatData} = {
 				newSpecies.baseStats.spd = target.set.name.substr(12, 3);
 				newSpecies.baseStats.spe = target.set.name.substr(15, 3);
 				target.isModded = true;
+				target.canMegaEvo = null;
+				if (target.species.isMega) {
+					const megaSpecies = this.doGetMixedSpecies(newSpecies, this.getMegaDeltas(this.dex.getSpecies(target.canMegaEvo)));
+					return megaSpecies;
+				}
+				target.m.originalSpecies = newSpecies;
+				target.m.moddedSpecies = newSpecies;
 				return newSpecies;
 			}
 		},
 		onSwitchIn(pokemon) {
+			// MnM4A
+			if (pokemon.illusion) {
+				const oMegaSpecies = this.dex.getSpecies(pokemon.illusion.species.originalMega);
+				if (oMegaSpecies.exists) {
+					// Place volatiles on the Pokémon to show its mega-evolved condition and details
+					if (oMegaSpecies.requiredItem || oMegaSpecies.requiredMove) this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+					const oSpecies = this.dex.getSpecies(pokemon.illusion.m.originalSpecies);
+					if (oSpecies.types.length !== pokemon.illusion.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+						this.add('-start', pokemon, 'typechange', pokemon.illusion.species.types.join('/'), '[silent]');
+					}
+				}
+			} else {
+				const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+				if (oMegaSpecies.exists) {
+					// Place volatiles on the Pokémon to show its mega-evolved condition and details
+					if (oMegaSpecies.requiredItem || oMegaSpecies.requiredMove) this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+					const oSpecies = this.dex.getSpecies(pokemon.m.originalSpecies);
+					if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+						this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+					}
+				}
+			}
+			// Sandbox
 			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
@@ -380,6 +411,13 @@ export const Formats: {[k: string]: FormatData} = {
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span></li><li style="clear: both"></li></ul>`);
 			}
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+		},
+		onSwitchOut(pokemon) {
+			// @ts-ignore
+			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
+			if (oMegaSpecies.exists) {
+				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
+			}
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) { // making sure the correct information is given when an Illusion breaks

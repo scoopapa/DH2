@@ -1940,40 +1940,22 @@ export const Formats: FormatList = [
 					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade'],
 	},
 */
-	/*
 	{
-		name: "[Gen 8] M4A Doubles",
-		desc: ["&bullet; Megas for All v7 but it's a doubles format",
-		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'Mewtwo', 'Lugia', 'Ho-Oh', 'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Dialga', 'Palkia', 'Giratina',
-			'Giratina-Origin', 'Arceus', 'Volcarona', 'Reshiram', 'Zekrom', 'Kyurem-Black', 'Kyurem-White', 'Xerneas',
-			'Yveltal', 'Solgaleo', 'Lunala', 'Magearna', 'Marshadow', 'Necrozma-Dusk Mane', 'Necrozma-Dawn Wings',
-			'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus', 'Urshifu', 'Calyrex-Ice', 'Calyrex-Shadow',
-		],
-		mod: 'm4av6',
-		gameType: 'doubles',
-		searchShow: false,
-	},
-*/
-	{
-		name: "[Gen 8] M4A UU",
-		desc: ["Megas for All v7 but it's Natdex UU",
+		name: "[Gen 8] M4A Next Season Prelim",
+		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Plays like National Dex, just with more Megas.",
 		      ],
 		threads: [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'OU', 'UUBL',
-			// Abilities
-			'Drizzle', 'Drought',
-		],
-		mod: 'm4auu',
-		// teambuilderFormat: 'UU',
+		onValidateSet(set) { // limited Mega Evolution format
+			const item = this.dex.getItem(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
+		},
+		ruleset: ['Standard NatDex', 'Standard M4A', 'Kalos Pokedex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		mod: 'm4av6',
+		// teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] M4A VGC",
@@ -2033,7 +2015,6 @@ export const Formats: FormatList = [
 			'Battle Bond',
 			'Mew', 'Celebi', 'Jirachi', 'Deoxys', 'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus', 'Victini', 'Keldeo', 'Meloetta',
 			'Genesect', 'Diancie', 'Hoopa', 'Volcanion', 'Magearna', 'Marshadow', 'Zeraora', 'Meltan', 'Melmetal', 'Zarude',
-			'Mewtwonite X', 'Mewtwonite Y', 'Blue Orb', 'Red Orb', 'Dragon Ascent',
 		],
 		restricted: [
 			'Mewtwo', 'Ho-Oh', 'Lugia', 'Kyogre', 'Groudon', 'Rayquaza', 'Dialga', 'Palkia', 'Giratina', 'Reshiram', 'Zekrom', 'Kyurem',
@@ -2049,8 +2030,8 @@ export const Formats: FormatList = [
 				const species = this.dex.getSpecies(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
 			}
-			if (restrictedSpecies.length > 1) {
-				return [`You can only use up to one restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
+			if (restrictedSpecies.length > 2) {
+				return [`You can only use up to two restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
 			}
 		},
 		onValidateSet(set) {
@@ -2074,8 +2055,8 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] M4A Spooky Cup",
-		desc: ["Megas for All v7 but it's a VGC format but it's October",
+		name: "[Gen 8] M4A VGC x Hisui Tour",
+		desc: ["Megas for All v7 but it's a VGC format that features Pokémon from Legends: Arceus",
 		      ],
 		threads: [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/3671140/">Megas for All v7 on Smogon Forums</a>`,
@@ -2089,47 +2070,40 @@ export const Formats: FormatList = [
 			battle: 4,
 		},
 		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
-		banlist: ['All Pokemon'],
+		banlist: ['All Pokemon', 'Porygodite-Z', 'Pichunite'],
 		unbanlist: [
-			'Rattata-Base', 'Rattata-Alola', 'Raticate-Base', 'Raticate-Alola', 'Ekans', 'Arbok', 'Pikachu', 'Clefable', 'Zubat', 'Golbat', 'Vileplume', 'Paras', 'Parasect',
-			'Meowth-Alola', 'Persian-Alola', 'Victreebel', 'Tentacool', 'Tentacruel', 'Grimer', 'Grimer-Alola', 'Muk', 'Muk-Alola', 'Gastly', 'Haunter', 'Gengar', 'Drowzee',
-			'Hypno', 'Cubone', 'Marowak', 'Marowak-Alola', 'Koffing', 'Weezing', 'Weezing-Galar', 'Tangela', 'Mr. Mime', 'Pinsir', 'Ditto', 'Eevee', 'Vaporeon', 'Omanyte',
-			'Omastar', 'Kabuto', 'Kabutops', 'Aerodactyl', 'Hoothoot', 'Noctowl', 'Spinarak', 'Ariados', 'Crobat', 'Espeon', 'Umbreon', 'Murkrow', 'Slowking-Galar', 'Misdreavus',
-			'Unown', 'Wobbuffet', 'Gligar', 'Granbull', 'Sneasel', 'Corsola-Galar', 'Houndour', 'Houndoom', 'Mightyena', 'Zigzagoon-Galar', 'Linoone-Galar', 'Dustox', 'Shiftry',
-			'Shedinja', 'Whismur', 'Loudred', 'Exploud', 'Sableye', 'Mawile', 'Gulpin', 'Swalot', 'Carvanha', 'Sharpedo', 'Cacnea', 'Cacturne', 'Zangoose', 'Seviper', 'Lunatone',
-			'Crawdaunt', 'Baltoy', 'Claydol', 'Shuppet', 'Banette', 'Duskull', 'Dusclops', 'Absol', 'Snorunt', 'Glalie', 'Huntail', 'Drifloon', 'Drifblim', 'Mismagius',
-			'Honchkrow', 'Stunky', 'Skuntank', 'Spiritomb', 'Skorupi', 'Drapion', 'Croagunk', 'Toxicroak', 'Carnivine', 'Abomasnow', 'Weavile', 'Tangrowth', 'Electivire',
-			'Magmortar', 'Yanmega', 'Gliscor', 'Dusknoir', 'Froslass', 'Rotom', 'Purrloin', 'Liepard', 'Simisear', 'Gigalith', 'Woobat', 'Swoobat', 'Leavanny', 'Venipede',
-			'Whirlipede', 'Scolipede', 'Basculin', 'Krokorok', 'Krookodile', 'Yamask', 'Yamask-Galar', 'Cofagrigus', 'Trubbish', 'Garbodor', 'Zorua', 'Zoroark', 'Gothita',
-			'Gothorita', 'Gothitelle', 'Deerling-Autumn', 'Sawsbuck-Autumn', 'Frillish', 'Jellicent', 'Joltik', 'Galvantula', 'Klink', 'Klang', 'Klinklang', 'Elgyem', 'Beheeyem',
-			'Litwick', 'Lampent', 'Chandelure', 'Golett', 'Golurk', 'Bisharp', 'Vullaby', 'Mandibuzz', 'Zweilous', 'Hydreigon', 'Larvesta', 'Volcarona', 'Fennekin', 'Braixen',
-			'Delphox', 'Pancham', 'Pangoro', 'Espurr', 'Meowstic', 'Meowstic-F', 'Honedge', 'Doublade', 'Aegislash', 'Swirlix', 'Slurpuff', 'Spritzee', 'Aromatisse', 'Malamar',
-			'Hawlucha', 'Phantump', 'Trevenant', 'Pumpkaboo', 'Gourgeist', 'Noibat', 'Noivern', 'Decidueye', 'Incineroar', 'Lycanroc-Midnight', 'Mareanie', 'Toxapex', 'Dewpider',
-			'Araquanid', 'Shiinotic', 'Salandit', 'Salazzle', 'Stufful', 'Bewear', 'Golisopod', 'Sandygast', 'Palossand', 'Type: Null', 'Silvally', 'Mimikyu', 'Dhelmise',
-			'Nihilego', 'Xurkitree', 'Guzzlord', 'Poipole', 'Naganadel', 'Blacephalon', 'Inteleon', 'Corviknight', 'Blipbug', 'Dottler', 'Orbeetle', 'Nickit', 'Thievul',
-			'Coalossal', 'Sizzlipede', 'Centiskorch', 'Sinistea', 'Polteageist', 'Hatenna', 'Hattrem', 'Hatterene', 'Impidimp', 'Morgrem', 'Grimmsnarl', 'Obstagoon', 'Cursola',
-			'Runerigus', 'Pincurchin', 'Dracovish', 'Dreepy', 'Drakloak', 'Dragapult', 'Spectrier',
+			'Rowlet', 'Dartrix', 'Decidueye-Hisui', 'Cyndaquil', 'Quilava', 'Typhlosion-Hisui', 'Oshawott', 'Dewott', 'Samurott-Hisui', 'Bidoof', 'Bibarel', 'Starly',
+			'Staravia', 'Staraptor', 'Shinx', 'Luxio', 'Luxray', 'Wurmple', 'Silcoon', 'Beautifly', 'Cascoon', 'Dustox', 'Ponyta-Base', 'Rapidash-Base', 'Eevee',
+			'Vaporeon', 'Jolteon', 'Flareon', 'Espeon', 'Umbreon', 'Leafeon', 'Glaceon', 'Sylveon', 'Zubat', 'Golbat', 'Crobat', 'Drifloon', 'Drifblim', 'Kricketot',
+			'Kricketune', 'Buizel', 'Floatzel', 'Burmy', 'Wormadam', 'Mothim', 'Geodude-Base', 'Graveler-Base', 'Golem-Base', 'Stantler', 'Wyrdeer', 'Munchlax', 'Snorlax',
+			'Paras', 'Parasect', 'Pichu', 'Pikachu', 'Raichu-Base', 'Abra', 'Kadabra', 'Alakazam', 'Chimchar', 'Monferno', 'Infernape', 'Buneary', 'Lopunny', 'Cherubi',
+			'Cherrim', 'Psyduck', 'Golduck', 'Combee', 'Vespiquen', 'Scyther', 'Kleavor', 'Scizor', 'Heracross', 'Mime Jr.', 'Mr. Mime-Base', 'Aipom', 'Ambipom',
+			'Magikarp', 'Gyarados', 'Shellos', 'Gastrodon', 'Qwilfish-Hisui', 'Overqwil', 'Happiny', 'Chansey', 'Blissey', 'Budew', 'Roselia', 'Roserade', 'Carnivine',
+			'Petilil', 'Lilligant-Hisui', 'Tangela', 'Tangrowth', 'Barboach', 'Whiscash', 'Croagunk', 'Toxicroak', 'Ralts', 'Kirlia', 'Gardevoir', 'Gallade', 'Yanma',
+			'Yanmega', 'Hippopotas', 'Hippowdon', 'Pachirisu', 'Stunky', 'Skuntank', 'Teddiursa', 'Ursaring', 'Ursaluna', 'Goomy', 'Sliggoo-Hisui', 'Goodra-Hisui',
+			'Onix', 'Steelix', 'Rhyhorn', 'Rhydon', 'Rhyperior', 'Bonsly', 'Sudowoodo', 'Lickitung', 'Lickilicky', 'Togepi', 'Togetic', 'Togekiss', 'Turtwig', 'Grotle',
+			'Torterra', 'Porygon', 'Porygon2', 'Porygon-Z', 'Gastly', 'Haunter', 'Gengar', 'Spiritomb', 'Murkrow', 'Honchkrow', 'Unown', 'Spheal', 'Sealeo', 'Walrein',
+			'Remoraid', 'Octillery', 'Skorupi', 'Drapion', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Glameow', 'Purugly', 'Machop', 'Machoke', 'Machamp', 'Chatot', 'Duskull',
+			'Dusclops', 'Dusknoir', 'Piplup', 'Prinplup', 'Empoleon', 'Mantyke', 'Mantine', 'Basculin-White-Striped', 'Basculegion', 'Vulpix', 'Ninetales', 'Tentacool',
+			'Tentacruel', 'Finneon', 'Lumineon', 'Magby', 'Magmar', 'Magmortar', 'Magnemite', 'Magneton', 'Magnezone', 'Bronzor', 'Bronzong', 'Elekid', 'Electabuzz',
+			'Electivire', 'Gligar', 'Gliscor', 'Gible', 'Gabite', 'Garchomp', 'Nosepass', 'Probopass', 'Voltorb-Hisui', 'Electrode-Hisui', 'Rotom', 'Chingling',
+			'Chimecho', 'Misdreavus', 'Mismagius', 'Cleffa', 'Clefairy', 'Clefable', 'Sneasel', 'Sneasler', 'Weavile', 'Snorunt', 'Glalie', 'Froslass', 'Cranidos',
+			'Rampardos', 'Shieldon', 'Bastiodon', 'Swinub', 'Piloswine', 'Mamoswine', 'Bergmite', 'Avalugg-Hisui', 'Snover', 'Abomasnow', 'Zorua-Hisui', 'Zoroark-Hisui',
+			'Rufflet', 'Braviary-Hisui', 'Riolu', 'Lucario', 'Uxie', 'Mesprit', 'Azelf', 'Heatran', 'Regigigas', 'Cresselia', 'Tornadus', 'Thundurus', 'Landorus',
+			'Enamorus',
 		],
-		mod: 'm4av6',
-		teambuilderFormat: 'Doubles OU',
+		mod: 'm4asandbox',
+		// teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const offseason = [
-				'Deerling', 'Deerling-Summer', 'Deerling-Winter',
-				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Winter',
-			];
 			const species = this.dex.getSpecies(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
-			}
-			if (offseason.includes(species.name)) {
-				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
-				return [`${set.name || set.species} is not spooky enough! Try fall colors instead. .w.`];
 			}
 			if (species.tier === "Unreleased") {
 				const basePokemon = this.toID(species.baseSpecies);
@@ -2156,21 +2130,6 @@ export const Formats: FormatList = [
 		mod: 'm4asandbox',
 	},
 	{
-		name: "[Gen 8] M4A Sandierbox",
-		desc: ["Megas for All v7 but it's Custom Game. Add custom typings and stats via Sandbox Mod! + Test Abilities",
-		      ],
-		threads: [
-				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		searchShow: false,
-		// now intended as a custom game-esque format with more freedom for testing
-		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
-		mod: 'm4asandierbox',
-	},
-	{
 		name: "[Gen 8] M4A VGC Sandbox",
 		desc: ["Megas for All v7 but it's a VGC format but it's Custom Game. Add custom typings and stats via Sandbox Mod!",
 		      ],
@@ -2191,163 +2150,6 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Team Preview', 'Cancel Mod', 'VGC Timer', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
 		teambuilderFormat: 'Doubles OU',
-	},
-	{
-		name: "[Gen 8] M4A VGC Sandierbox",
-		desc: ["Megas for All v7 but it's a VGC format but it's Custom Game. Add custom typings and stats via Sandbox Mod! + Test Abilities",
-		      ],
-		threads: [
-				`&bullet; <a href="https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/edit">Sandbox Mod Usage Guide</a>`,
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		// now intended as a custom game-esque format with more freedom for testing
-		mod: 'm4asandierbox',
-		searchShow: false,
-		gameType: 'doubles',
-		forcedLevel: 50,
-		teamLength: {
-			validate: [4, 6],
-			battle: 4,
-		},
-		ruleset: ['Team Preview', 'Cancel Mod', 'VGC Timer', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
-		teambuilderFormat: 'Doubles OU',
-	},
-/*
-	{
-		name: "[Gen 8] M4A Suspect",
-		desc: ["Megas for All v7 with specific unbans for upcoming suspects",
-		      ],
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		mod: 'm4av6',
-		searchShow: false,
-	},
-*/
-	{
-		name: "[Gen 8] Mix and M4A",
-		desc: `Mega Evolve any Pokémon with any Mega Stone and no limit. Boosts based on Mega Evolution from Megas for All v7.`,
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		mod: 'mnm4a',
-		searchShow: false,
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Overflow Stat Mod', 'Mega Data Mod'],
-		banlist: [
-			'Calyrex-Shadow', 'Zacian-Crowned',
-			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite',
-			'Araquanite', 'Bastiodite', 'Butterfrite', 'Delibirdite', 'Electrodite', 'Gourgeite', 'Gumshoosite', 'Klinklite', 'Leavannite', 'Lurantisite', 'Luxrite', 'Meowsticite',
-			'Parasite', 'Talonflite',
-			'Moody', 'Shadow Tag', 'Baton Pass', 'Electrify',
-		],
-		restricted: [
-			'Arceus', 'Blissey', 'Calyrex-Ice', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Eternatus', 'Gengar', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre',
-			'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Marshadow', 'Melmetal', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
-			'Palkia', 'Rayquaza', 'Regigigas', 'Reshiram', 'Slaking', 'Xerneas', 'Yveltal', 'Zacian', 'Zekrom', 'Zygarde-Complete',
-		],
-		onValidateTeam(team) {
-			const itemTable = new Set<ID>();
-			for (const set of team) {
-				const item = this.dex.getItem(set.item);
-				if (!item || !item.megaStone) continue;
-				const species = this.dex.getSpecies(set.species);
-				if (species.isNonstandard) return [`${species.baseSpecies} does not exist in gen 8.`];
-				if (this.ruleTable.isRestrictedSpecies(species) || this.toID(set.ability) === 'powerconstruct') {
-					return [`${species.name} is not allowed to hold ${item.name}.`];
-				}
-				if (itemTable.has(item.id)) {
-					return [`You are limited to one of each mega stone.`, `(You have more than one ${item.name})`];
-				}
-				itemTable.add(item.id);
-			}
-		},
-		onBegin() {
-			for (const pokemon of this.getAllPokemon()) {
-				pokemon.m.originalSpecies = pokemon.baseSpecies.name;
-			}
-		},
-		onSwitchIn(pokemon) {
-			// @ts-ignore
-			if (pokemon.illusion) {
-				const oMegaSpecies = this.dex.getSpecies(pokemon.illusion.species.originalMega);
-				if (oMegaSpecies.exists) {
-					// Place volatiles on the Pokémon to show its mega-evolved condition and details
-					this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
-					const oSpecies = this.dex.getSpecies(pokemon.illusion.m.originalSpecies);
-					if (oSpecies.types.length !== pokemon.illusion.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
-						this.add('-start', pokemon, 'typechange', pokemon.illusion.species.types.join('/'), '[silent]');
-					}
-				}
-			} else {
-				const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
-				if (oMegaSpecies.exists) {
-					// Place volatiles on the Pokémon to show its mega-evolved condition and details
-					this.add('-start', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
-					const oSpecies = this.dex.getSpecies(pokemon.m.originalSpecies);
-					if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
-						this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-					}
-				}
-			}
-		},
-		onSwitchOut(pokemon) {
-			// @ts-ignore
-			const oMegaSpecies = this.dex.getSpecies(pokemon.species.originalMega);
-			if (oMegaSpecies.exists) {
-				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
-			}
-		},
-  },
-  {
-		name: "[Gen 8] M4A Monotype",
-		desc: ["Megas for All v7 but it's a Monotype format",
-		      ],
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		ruleset: ['Same Type Clause', 'Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokemon restrictions
-			'Arceus', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dracovish', 'Dragapult', 
-			'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Greninja-Ash', 'Groudon', 'Ho-oh', 'Hoopa-Unbound', 'Kartana', 
-			'Kyogre', 'Kyurem-B', 'Kyurem-W', 'Landorus-Base', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-DW',
-			'Necrozma-DM', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian',
-			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Base',
-			
-			//Ability restrictions
-			'Moody', 'Shadow Tag', 'Power Construct', 'Battle Bond',
-			
-			//Move restrictions
-			'Baton Pass',
-			
-			//Item Restrictions
-			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender',
-			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			//Banned MfA Stones
-			'Butterfrite', 'Dragalgite',
-		],
-		mod: 'm4av6',
-	},
-	{
-		name: "[Gen 8] Megas for Two",
-		desc: ["Megas for All but you get to Mega Evolve two Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: ['Hawluchanite ++ Lurantisite'],
-		mod: 'm4many',
-		searchShow: false,
-		//challengeShow: false,
-		onBegin() {
-			this.battle.megaCap = 2;
-		},
 	},
 	{
 		name: "[Gen 8] Mega Revolution Uber",
@@ -2718,21 +2520,6 @@ export const Formats: FormatList = [
 		team: 'random',
 		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
 	},
-/*
-	{
-		name: "[Gen 8] M4A Random (Dynamax)",
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		mod: 'm4av6',
-		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
-		searchShow: false,
-		challengeShow: false, 
-	},
-*/
 	{
 		name: "[Gen 8] Roulettemons Random",
 		threads: [
@@ -2833,7 +2620,7 @@ export const Formats: FormatList = [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Alakazam', 'Excadrill-Base', 'Lycanroc-Dusk', 'Scolipede-Base', 'Polteageist-Base', 'Baton Pass'],
+		banlist: ['Alakazam', 'Excadrill-Base', 'Lycanroc-Dusk', 'Scolipede-Base', 'Polteageist-Base', 'Polteageist-Antique', 'Baton Pass'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -3945,54 +3732,6 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		searchShow: false,
 		challengeShow: false,
-	},
-	{
-		name: "[Gen 8] Megas for Three Custom Game",
-		desc: ["Megas for All but you get to Mega Evolve three Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: ['Hawluchanite ++ Lurantisite'],
-		mod: 'm4many',
-		searchShow: false,
-		challengeShow: false,
-		onBegin() {
-			this.battle.megaCap = 3;
-		},
-	},
-	{
-		name: "[Gen 8] Megas for Four Custom Game",
-		desc: ["Megas for All but you get to Mega Evolve four Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: ['Hawluchanite ++ Lurantisite'],
-		mod: 'm4many',
-		searchShow: false,
-		challengeShow: false,
-		onBegin() {
-			this.battle.megaCap = 4;
-		},
-	},
-	{
-		name: "[Gen 8] Megas for Five Custom Game",
-		desc: ["Megas for All but you get to Mega Evolve 5 Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: ['Hawluchanite ++ Lurantisite'],
-		mod: 'm4many',
-		searchShow: false,
-		challengeShow: false,
-		onBegin() {
-			this.battle.megaCap = 5;
-		},
-	},
-	{
-		name: "[Gen 8] Megas for Six Custom Game",
-		desc: ["Megas for All but you get to Mega Evolve all of your Pokemon in a battle"],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: ['Hawluchanite ++ Lurantisite'],
-		mod: 'm4many',
-		searchShow: false,
-		challengeShow: false,
-		onBegin() {
-			this.battle.megaCap = 6;
-		},
 	},
 	{
 		section: "Non-Pet Mod Bonus Formats",
