@@ -141,6 +141,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Ragnarok",
+		shortDesc: "This Pokemon has a 30% chance to burn the foe when making contact or getting hit with a contact move.",
 		rating: 3.5,
 		num: -1007,
 	},
@@ -170,6 +171,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Primal Force",
+		shortDesc: "This Pokemon's Electric attacks have 1.5x power.",
 		rating: 3.5,
 		num: -1009,
 	},
@@ -223,7 +225,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				this.heal(target.baseMaxhp / 10);
+				this.heal(pokemon.baseMaxhp / 10);
 			}
 		},
 		name: "Animus",
@@ -334,14 +336,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	divinegrace: {
 		shortDesc: "This Pokemon's healing moves are boosted 1.5x.",
-		onAfterMove(target, source, move) {
-			if (move.flags[heal]) {
-				
-			}
-		},
 		name: "Divine Grace",
 		rating: 3,
 		num: -1020,
+	},
+	absolutezero: {
+		shortDesc: "This Pokemon is immune to Fire-type moves.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				this.add('-immune', target, '[from] ability: Absolute Zero');
+				return null;
+			}
+		},
+		name: "Absolute Zero",
+		rating: 3,
+		num: -1021,
 	},
 	toxicboost: {
 		shortDesc: "If this Pokemon is poisoned, its Attack is 1.5x. This Pokemon takes no damage from poison.",
