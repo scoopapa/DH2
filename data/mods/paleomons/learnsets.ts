@@ -3294,7 +3294,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dreameater: ["8L1"],
 			embargo: ["8L1"],
 			expandingforce: ["8L1"],
-			extasensory: ["8L1"],
+			extrasensory: ["8L1"],
 			fellstinger: ["8L1"],
 			flash: ["8L1"],
 			feintattack: ["8L1"],
