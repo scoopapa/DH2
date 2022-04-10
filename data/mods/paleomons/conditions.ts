@@ -56,4 +56,36 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-activate', target, 'trapped');
 		},
 	},
+
+	persistence: {
+		name: 'persistence',
+		/*
+		onResidual(target) {
+			this.add('-message', "on residual + damage: " + this.effectData.damage);
+			if (this.effectData.damage > 0) {
+				this.add('-message', "boostin' time");
+				const stats: BoostName[] = [];
+				let stat: BoostName;
+				for (stat in target.boosts) {
+					if (target.boosts[stat] < 6) {
+						stats.push(stat);
+					}
+				}
+				if (stats.length) {
+					const randomStat = this.sample(stats);
+					const boost: SparseBoostsTable = {};
+					boost[randomStat] = 2;
+					this.boost(boost);
+				} else {
+					return false;
+				}
+			}
+		},
+		onHit(target, source, damage) {
+			this.effectData.damage = 0;
+			this.effectData.damage += damage;
+			this.add('-message', "on hit + damage dealt: " + this.effectData.damage);
+		}
+		*/
+	},
 };

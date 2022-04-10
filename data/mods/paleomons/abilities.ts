@@ -221,6 +221,50 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -109,
 	},
+
+	natureprowess: {
+		onStart(pokemon){
+			if(pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			let type: string;
+			type = item.naturalGift.type;
+
+			if (!pokemon.hasType(type) && pokemon.addType(type)) {
+				this.add('-start', pokemon, 'typeadd', type, '[from] ability: Nature Prowess');
+			}
+		},
+
+		onUpdate(pokemon) {
+			if ((pokemon.ignoringItem() || !pokemon.item) && Object.keys(pokemon.getTypes()).length === 2) {
+				pokemon.setType("Grass");
+				this.add('-start', pokemon, 'typechange', 'Grass', '[from] ability: Nature Prowess');
+			}
+		},
+
+		name: "Nature Prowess",
+		desc: "Adds a secondary type equal to Natural Gift to this Pokemon. Natural Gift doesn't consume the user's held berry.",
+		shortDesc: "Adds secondary type equal to Natural Gift; berry isn't consumed by Natural Gift."
+	},
+
+	persistence: {
+		onBeforeMove(target, source, move) {
+			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
+			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+			if (target.volatiles['twoturnmove']) {
+				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
+				this.boost({atk: 1});
+			} else if (!this.dex.getImmunity(moveType, target)) {
+				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
+				this.boost({atk: 1});
+			}
+			(move as any).persistence = true;
+		},
+
+		name: "Persistence",
+		desc: "If the user chooses an attacking move but doesn't damage the target on the same turn, raises the user's Attack by 1 stage.",
+		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
+	},
 	
 	//
 	//
