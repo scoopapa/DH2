@@ -253,4 +253,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rampardoscretaceous: {
 		tier: "SSS",
 	},
+	borassa: {
+		tier: "SSS",
+	},
+	brawnkey: {
+		tier: "SSS",
+	},
+	abomasnow: {
+		tier: "SSS",
+	},
 };

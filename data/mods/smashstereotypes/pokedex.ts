@@ -854,4 +854,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Rock Head", H: "Mold Breaker"},
 		weightkg: 102.5,
 	},
+	borassa: {
+		num: 73,
+		name: "Borassa",
+		types: ["Dark", "Grass"],
+		baseStats: {hp: 136, atk: 76, def: 118, spa: 88, spd: 95, spe: 87},
+		abilities: {0: "Thick Fat", 1: "Chlorophyll", H: "Anger Point"},
+		weightkg: 143,
+	},
+	brawnkey: {
+		num: 74,
+		name: "Brawnkey",
+		types: ["Fighting", "Steel"],
+		baseStats: {hp: 95, atk: 105, def: 105, spa: 95, spd: 90, spe: 50},
+		abilities: {0: "Levitate"},
+		weightkg: 85,
+	},
+	abomasnow: {
+		inherit: true,
+		num: 75,
+		name: "Abomasnow",
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 120, atk: 90, def: 120, spa: 130, spd: 120, spe: 60},
+		abilities: {0: "Snow Warning", H: "Soundproof"},
+	},
 };
