@@ -178,6 +178,39 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'marshadow').learnset.hiddenforcerock = ['8L1'];
 		this.modData('Learnsets', 'marshadow').learnset.hiddenforcesteel = ['8L1'];
 		this.modData('Learnsets', 'marshadow').learnset.hiddenforcewater = ['8L1'];
+		
+		
+		//Generation 8
+		this.modData('Learnsets', 'cinderace').learnset.jumpkick = ['8L1'];
+		this.modData('Learnsets', 'cinderace').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'cinderace').learnset.poisonjab = ['8L1'];
+		delete this.modData('Learnsets', 'cinderace').learnset.gunkshot;
+		delete this.modData('Learnsets', 'cinderace').learnset.highjumpkick;
+		delete this.modData('Learnsets', 'raboot').learnset.gunkshot;
+		delete this.modData('Learnsets', 'raboot').learnset.highjumpkick;
+		delete this.modData('Learnsets', 'scorbunny').learnset.gunkshot;
+		delete this.modData('Learnsets', 'scorbunny').learnset.highjumpkick;
+		
+		this.modData('Learnsets', 'perrserker').learnset.bulletpunch = ['8L1'];
+		this.modData('Learnsets', 'perrserker').learnset.drainpunch = ['8L1'];
+		this.modData('Learnsets', 'perrserker').learnset.perrserkpaw = ['8L1'];
+		
+		this.modData('Learnsets', 'corsolagalar').learnset.triattack = ['8L1'];
+		
+		this.modData('Learnsets', 'mrrime').learnset.earthpower = ['8L1'];
+		this.modData('Learnsets', 'mrrime').learnset.hypervoice = ['8L1'];
+		delete this.modData('Learnsets', 'mrrime').learnset.healingwish;
+		delete this.modData('Learnsets', 'mrmimegalar').learnset.healingwish;
+		delete this.modData('Learnsets', 'mimejr').learnset.healingwish;
+		
+		this.modData('Learnsets', 'stonjourner').learnset.trick = ['8L1'];
+		
+		this.modData('Learnsets', 'arctozolt').learnset.plasmafists = ['8L1'];
+		delete this.modData('Learnsets', 'arctozolt').learnset.boltbeak;
+		
+		this.modData('Learnsets', 'calyrex').learnset.synthesis = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.kingsshield = ['8L1'];
+		this.modData('Learnsets', 'calyrex').learnset.superpower = ['8L1'];
 	},
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers

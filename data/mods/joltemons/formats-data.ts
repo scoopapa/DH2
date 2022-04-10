@@ -172,7 +172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	lucariomega: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	lugia: {
@@ -472,7 +472,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	aegislash: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	alomomola: {
@@ -480,7 +480,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	articunogalar: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	beedrillmega: {
@@ -492,11 +492,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	charizardmegay: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	chesnaught: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	corviknight: {
@@ -504,7 +504,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	dianciemega: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	gourgeistsmall: {
@@ -512,15 +512,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hawlucha: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	jirachi: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	mew: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	mukalola: {
@@ -532,23 +532,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rotommow: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	swampertmega: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	swampert: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	alakazam: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
 	terrakion: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	tornadustherian: {
@@ -937,10 +929,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	blaziken: {
 		tier: "UUBL",
-		doublesTier: "DOU",
-	},
-	uxie: {
-		tier: "UU",
 		doublesTier: "DOU",
 	},
 	breloom: {
@@ -1545,6 +1533,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	yanma: {
 		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	swampert: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	alakazam: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	uxie: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	gliscor: {
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 };

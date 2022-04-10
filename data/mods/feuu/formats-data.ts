@@ -1186,7 +1186,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		requiredItem: "Galladite",
 	},
 	genebrogalar: {
-		tier: "FERU",
+		tier: "FERUBL",
 		doublesTier: "DUU",
 		randomBattleMoves: ["shellsidearm", "flamethrower", "slackoff", "calmmind"],
 		randomBattleLevel: 79,

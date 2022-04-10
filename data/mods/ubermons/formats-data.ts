@@ -666,4 +666,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zygardecomplete: {
 		tier: "OU",
 	},
+	calyrexice: {
+		tier: "OU",
+	},
+	calyrexshadow: {
+		tier: "OU",
+	},
 };

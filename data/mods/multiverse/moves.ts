@@ -30,6 +30,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	jumpkick: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	multiattack: {
 		inherit: true,
 		basePower: 90,
@@ -736,5 +740,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+	perrserkpaw: {
+		num: -15,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		shortDesc: "User recovers 75% of the damage dealt.",
+		name: "Perrserk Paw",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Claw", target);
+		},
+		drain: [3, 4],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	courtchange: {
+		inherit: true,
+		basePower: 60,
+		category: "Physical",
+		name: "Court Change",
+		pp: 15,
+		flags: {mirror: 1, protect: 1, contact: 1},
+		target: "normal",
+		type: "Fighting",
 	},
 };

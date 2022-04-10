@@ -182,4 +182,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	marshadow: {
 		tier: "MV",
 	},
+	cinderace: {
+		tier: "MV",
+	},
+	obstagoon: {
+		tier: "MV",
+	},
+	perrserker: {
+		tier: "MV",
+	},
+	corsolagalar: {
+		tier: "MV",
+	},
+	mrrime: {
+		tier: "MV",
+	},
+	stonjourner: {
+		tier: "MV",
+	},
+	arctozolt: {
+		tier: "MV",
+	},
+	calyrex: {
+		tier: "MV",
+	},
 };

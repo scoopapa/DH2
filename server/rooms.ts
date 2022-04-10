@@ -850,12 +850,12 @@ export abstract class BasicRoom {
 		if (user.id === oldid) {
 			return this.onUpdateIdentity(user);
 		}
-		if (!this.users[oldid]) {
-			Monitor.crashlog(new Error(`user ${oldid} not in room ${this.roomid}`));
-		}
-		if (this.users[user.id]) {
-			Monitor.crashlog(new Error(`user ${user.id} already in room ${this.roomid}`));
-		}
+		// if (!this.users[oldid]) {
+			// Monitor.crashlog(new Error(`user ${oldid} not in room ${this.roomid}`));
+		// }
+		// if (this.users[user.id]) {
+			// Monitor.crashlog(new Error(`user ${user.id} already in room ${this.roomid}`));
+		// }
 		delete this.users[oldid];
 		this.users[user.id] = user;
 		if (joining) {

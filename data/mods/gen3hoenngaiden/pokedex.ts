@@ -1544,7 +1544,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ice"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 65, atk: 60, def: 110, spa: 130, spd: 95, spe: 65},
-		abilities: {0: "Compound Eyes", 1: "Ice Body"},
+		abilities: {0: "Ice Body"},
 		heightm: 0.8,
 		weightkg: 25.9,
 		color: "Blue",

@@ -36,10 +36,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			return: ["3M"],
 			secretpower: ["3M"],
 			shadowball: ["3M"],
+			sleeppowder: ["3S0"],
 			sleeptalk: ["3T"],
 			sludgebomb: ["3M"],
 			snore: ["3T"],
 			solarbeam: ["3M"],
+			spikes: ["3S1"],
 			stunspore: ["3L13"],
 			substitute: ["3T"],
 			sunnyday: ["3M"],
@@ -52,7 +54,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["3M", "3L45"],
 		},
 		eventData: [
-			{generation: 3, level: 10, gender: "M", moves: ["absorb", "growth", "poisonsting", "sleeppowder"], pokeball: "pokeball"},
+			{generation: 3, level: 10, moves: ["absorb", "growth", "poisonsting", "sleeppowder"], pokeball: "pokeball"},
 			{generation: 3, level: 22, moves: ["spikes", "magicalleaf", "leechseed", "grasswhistle"]},
 		],
 		eventOnly: true,
@@ -590,7 +592,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			triattack: ["3L1"],
 		},
 	},
-	silvallybug: {
+	/*silvallybug: {
 		learnset: {
 			multiattackbug: ["3L1"],
 		},
@@ -669,7 +671,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			multiattackwater: ["3L1"],
 		},
-	},
+	},*/
 	starly: {
 		learnset: {
 			aerialace: ["3L1"],
@@ -4642,12 +4644,12 @@ corsolagalar: {
 			return: ["3L1"],
 			secretpower: ["3L1"],
 			shadowball: ["3L1"],
-			sleeppowder: ["3L1"],
+			sleeppowder: ["3S0"],
 			sleeptalk: ["3L1"],
 			sludgebomb: ["3L1"],
 			snore: ["3L1"],
 			solarbeam: ["3L1"],
-			spikes: ["3L1"],
+			spikes: ["3S1"],
 			stunspore: ["3L1"],
 			substitute: ["3L1"],
 			sunnyday: ["3L1"],
