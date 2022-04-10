@@ -3384,7 +3384,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Pincurchin",
 		types: ["Electric"],
 		baseStats: {hp: 78, atk: 106, def: 95, spa: 96, spd: 85, spe: 30},
-		abilities: {0: "Volt Absorb", H: "Rough Skin"},
+		abilities: {0: "Volt Absorb", 1: "Rough Skin"},
 		heightm: 0.3,
 		weightkg: 1,
 		color: "Purple",
