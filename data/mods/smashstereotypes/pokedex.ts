@@ -862,13 +862,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Thick Fat", 1: "Chlorophyll", H: "Anger Point"},
 		weightkg: 143,
 	},
-	brawnkey: {
+	panthee: {
 		num: 74,
-		name: "Brawnkey",
-		types: ["Fighting", "Steel"],
-		baseStats: {hp: 95, atk: 105, def: 105, spa: 95, spd: 90, spe: 50},
-		abilities: {0: "Levitate"},
-		weightkg: 85,
+		name: "Panthee",
+		types: ["Steel", "Fighting"],
+		baseStats: {hp: 78, atk: 83, def: 95, spa: 118, spd: 121, spe: 105},
+		abilities: {0: "Sand Spit", H: "White Smoke"},
+		weightkg: 300,
+		eggGroups: ["Undiscovered"],
 	},
 	abomasnow: {
 		inherit: true,

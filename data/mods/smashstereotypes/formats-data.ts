@@ -179,7 +179,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	bisharpmega: {
-		tier: "SSS",
+		tier: "SSS Uber",
 	},
 	undangoose: {
 		tier: "SSS",
@@ -256,7 +256,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	borassa: {
 		tier: "SSS",
 	},
-	brawnkey: {
+	panthee: {
 		tier: "SSS",
 	},
 	abomasnow: {
