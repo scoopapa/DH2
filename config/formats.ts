@@ -534,7 +534,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil',
@@ -1862,11 +1862,9 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL'],
+		ruleset: ['[Gen 3] Hoenn Gaiden'],
+		banlist: ['OU', 'UUBL'],
 		unbanlist: [
-			//Abilities
-			'Sand Veil',
 		],
 		teambuilderFormat: 'UU',
 	},
@@ -1879,11 +1877,9 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'NUBL'],
+		ruleset: ['[Gen 3] Hoenn Gaiden UU'],
+		banlist: ['UU', 'NUBL'],
 		unbanlist: [
-			//Abilities
-			'Sand Veil',
 		],
 		teambuilderFormat: 'NU',
 	},
