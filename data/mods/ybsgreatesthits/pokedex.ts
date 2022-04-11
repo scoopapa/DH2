@@ -318,8 +318,8 @@ alakazam: {
 		inherit: true,
 		name: "Delibird",
 		types: ["Ice", "Flying"],
-		baseStats: {hp: 65, atk: 75, def: 75, spa: 75, spd: 75, spe: 100},
-		abilities: {0: "Vital Spirit", H: "Hustle"},
+		baseStats: {hp: 65, atk: 65, def: 65, spa: 65, spd: 65, spe: 100},
+		abilities: {0: "Santa's Secret"},
 	},
 	vanilluxe: {
 		inherit: true,
