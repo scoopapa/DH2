@@ -2072,6 +2072,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	whitesmoke: {
 		onUpdate(pokemon) {
+			console.log("White Smoke update check");
 			let activate = false;
 			const boosts: SparseBoostsTable = {};
 			let i: BoostName;
@@ -2086,6 +2087,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-activate', pokemon, 'ability: White Smoke');
 				this.add('-clearnegativeboost', pokemon, '[silent]');
 			}
+		},
+		onBoost(boost, target, source, effect) {
+			console.log("White Smoke not suppressing anything");
 		},
 		name: "White Smoke",
 		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
