@@ -257,4 +257,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Soul Strider",
 		rating: 3,
 	},
+	santassecret: {
+		shortDesc: "This Pokemon can Dynamax",
+		onStart(pokemon) {
+			pokemon.canDynamax = true;
+		},
+		name: "Santa's Secret",
+		rating: 5,
+	},
 };
