@@ -239,7 +239,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Noze-Dawn-Wings"],
 		onTakeItem: false,
 		num: -1001,
-		desc: "If held by a Noze-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+		desc: "If held by a Noze-Dawn-Wings or a Phancrozma-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
 	charizarditex: {
 		name: "Charizardite X",

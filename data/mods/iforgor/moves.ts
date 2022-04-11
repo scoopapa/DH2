@@ -16,10 +16,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
             chance: 40,
             onHit(target, source, move) {
-                if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+                if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
                     return !!this.boost({atk: -1}, target, source, move);
                 }
-                if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) {
+                if (target.getStat('atk', false, true) < target.getStat('spa', false, true)) {
                     return !!this.boost({spa: -1}, target, source, move);
                 }
                 return false;
@@ -89,7 +89,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Inferno Overdrive", target);
+		    this.add('-anim', source, "Night Slash", target);
 		},
 		secondary: {
 			chance: 100,
@@ -177,7 +177,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Bounce", target);
+		    this.add('-anim', source, "Sky Attack", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -189,6 +189,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		name: "Draining Wing",
 		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
 		priority: 0,
@@ -208,6 +209,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		name: "ESP Wave",
 		shortDesc: "Lowers Atk/Sp. Atk/Speed of trapped foes by 1.",
 		pp: 20,
 		priority: 0,
@@ -217,7 +219,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		    this.add('-anim', source, "Psywave", target);
 		},
 		onHit(target, source, move) {
-			if (target.volatileStatus === 'partiallytrapped' || target.volatileStatus === 'trapped') {
+			if (target.volatiles['partiallytrapped'] || target.volatiles['trapped']) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -225,12 +227,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Psychic",
+		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
 	rampage: {
 		num: 3019,
 		accuracy: 100,
 		basePower: 100,
+		name: "Rampage",
 		category: "Physical",
 		shortDesc: "Breaks protection. Lowers the user's Defense by 1.",
 		pp: 5,
@@ -249,6 +253,45 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+	},
+	acid: {
+		num: 51,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Def by 2.",
+		name: "Acid",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -2,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	acidspray: {
+		num: 491,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Acid Spray",
+		pp: 20,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -2,
+			},
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
 	},
 	rockwrecker: {
 		num: 439,
@@ -274,6 +317,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Rock",
+		contestType: "Tough",
+	},
+	smog: {
+		num: 123,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "50% chance to badly poison the target.",
+		name: "Smog",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
 		contestType: "Tough",
 	},
 	dynamaxcannon: {
@@ -316,6 +377,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Dragon",
 		contestType: "Beautiful",
+	},
+	dragonclaw: {
+		num: 337,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "20% chance to lower the target's Attack by 1.",
+		name: "Dragon Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
 	},
 	dragonrush: {
 		num: 407,
@@ -466,7 +547,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -522,7 +603,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {heal: 1, bypasssub: 1, allyanim: 1},
 		onHit(pokemon) {
 			let factor = 0.25;
-			if (source.hasAbility('divinegrace')) factor = 0.375;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.375;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			return pokemon.cureStatus() || success;
 		},
@@ -541,7 +622,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1, bypasssub: 1},
 		onHit(pokemon) {
 			let factor = 0.25;
-			if (source.hasAbility('divinegrace')) factor = 0.375;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.375;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -564,7 +645,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -601,7 +682,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (source.hasAbility('divinegrace')) factor = factor * 1.5;
+			if (pokemon.hasAbility('divinegrace')) factor = factor * 1.5;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -638,7 +719,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (source.hasAbility('divinegrace')) factor = factor * 1.5;
+			if (pokemon.hasAbility('divinegrace')) factor = factor * 1.5;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -684,7 +765,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -709,7 +790,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -752,7 +833,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (this.field.isWeather('sandstorm')) {
 				factor = 0.667;
 			}
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -766,6 +847,46 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
+	sheercold: {
+		num: 329,
+		accuracy: 90,
+		basePower: 110,
+		category: "Special",
+		shortDesc: "Lowers the user's Special Attack by 1.",
+		name: "Sheer Cold",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
+	skittersmack: {
+		num: 806,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		name: "Skitter Smack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+	},
 	softboiled: {
 		num: 135,
 		accuracy: true,
@@ -777,7 +898,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (source.hasAbility('divinegrace')) factor = 0.75;
+			if (pokemon.hasAbility('divinegrace')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -827,7 +948,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(pokemon) {
 			const healAmount = [0.25, 0.5, 1];
-			if (source.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
+			if (pokemon.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
 			const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
 			if (!success) this.add('-fail', pokemon, 'heal');
 			pokemon.removeVolatile('stockpile');
@@ -862,7 +983,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (source.hasAbility('divinegrace')) factor = factor * 1.5;
+			if (pokemon.hasAbility('divinegrace')) factor = factor * 1.5;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -907,5 +1028,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
+	},
+	xscissor: {
+		num: 404,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		shortDesc: "Hits twice.",
+		name: "X-Scissor",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
 	},
 };

@@ -11,9 +11,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
       inherit: true,
       baseStats: {hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 91},
    },
+	crobat: {
+      inherit: true,
+      abilities: {0: "Inner Focus", 1: "Tinted Lens", H: "Infiltrator"},
+   },
 	raikou: {
       inherit: true,
       abilities: {0: "Pressure", 1: "Competitive", H: "Inner Focus"},
+   },
+	milotic: {
+      inherit: true,
+      abilities: {0: "Marvel Scale", 1: "Competitive", H: "Pure Power"},
 	},
 	latias: {
 		inherit: true,
@@ -43,6 +51,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cobalion: {
 		inherit: true,
 		baseStats: {hp: 91, atk: 90, def: 129, spa: 90, spd: 72, spe: 128},
+	},
+	sylveon: {
+		inherit: true,
+	   types: ["Fairy", "Ground"],
+		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 130, spe: 60},
 	},
 	golisopod: {
 		inherit: true,
