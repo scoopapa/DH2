@@ -2070,6 +2070,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon and its allies cannot be burned.",
 		block: "  [POKEMON] can't be burned due to a watery veil!",
 	},
+	whitesmoke: {
+		onBoost(boost, target, source, effect) {
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+			}
+		},
+		name: "White Smoke",
+		shortDesc: "Prevents this Pokemon's stat changes from being lowered.",
+		rating: 3,
+		num: 73,
+	},
 	/* Abilities edited as changes to other elements */
 	colorchange: {
 		inherit: true,
