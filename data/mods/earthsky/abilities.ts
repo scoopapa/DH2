@@ -2071,21 +2071,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		block: "  [POKEMON] can't be burned due to a watery veil!",
 	},
 	whitesmoke: {
-		onBoost(boost, target, source, effect) {
-			let showMsg = false;
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
 			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
 				}
 			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+			if (activate) {
+				pokemon.setBoost(boosts);
+				this.add('-activate', pokemon, 'ability: White Smoke');
+				this.add('-clearnegativeboost', pokemon, '[silent]');
 			}
 		},
 		name: "White Smoke",
-		shortDesc: "Prevents this Pokemon's stat changes from being lowered.",
+		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
 		rating: 3,
 		num: 73,
 	},
