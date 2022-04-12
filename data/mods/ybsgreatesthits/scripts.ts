@@ -1346,5 +1346,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
+		  customTiers: ["GH"],
 	},
 };
