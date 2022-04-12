@@ -308,7 +308,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "scyther").learnset.speedswap = ["8L1"];
 		this.modData("Learnsets", "scyther").learnset.flash = ["8L1"];
 		// Probopass
-		this.modData("Learnsets", "probopass").learnset.relicrejuventation = ["8L1"];
+		this.modData("Learnsets", "probopass").learnset.relicrejuvenation = ["8L1"];
 		this.modData("Learnsets", "probopass").learnset.psywave = ["8L1"];
 		this.modData("Learnsets", "probopass").learnset.futuresight = ["8L1"];
 		this.modData("Learnsets", "probopass").learnset.trick = ["8L1"];
