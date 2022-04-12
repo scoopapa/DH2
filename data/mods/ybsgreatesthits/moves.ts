@@ -546,7 +546,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Rare Rune",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poltergeist", target);
