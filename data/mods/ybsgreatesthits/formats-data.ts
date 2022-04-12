@@ -440,7 +440,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GH",
 		doublesTier: "DOU",
 	},
-	slakoth: {
+	slaking: {
 		isNonstandard: null,
 		tier: "GH",
 		doublesTier: "DOU",
@@ -457,7 +457,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GH",
 		doublesTier: "DOU",
 	},
-	kommoo: {
+	goodra: {
 		tier: "GH",
 		doublesTier: "DOU",
 	},
