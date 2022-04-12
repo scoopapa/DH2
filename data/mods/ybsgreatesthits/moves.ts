@@ -239,14 +239,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
-	relicrejuventation: {
+	relicrejuvenation: {
 		accuracy: 100,
 		basePower: 0,
 		damage: 'level',
 		category: "Special",
     shortDesc: "Does damage equal to the user's level. Heals the user by 50% of the damage dealt.",
 		isViable: true,
-		name: "Relic Rejuventation",
+		name: "Relic Rejuvenation",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
