@@ -370,14 +370,12 @@ alakazam: {
 	},
 	rotomfan: {
 		inherit: true,
-		name: "Rotom-Fan",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86},
 		abilities: {0: "Levitate"},
 	},
 	oricoriosensu: {
 		inherit: true,
-		name: "Oricorio-Sensu",
 		types: ["Ghost", "Flying"],
 		baseStats: {hp: 75, atk: 70, def: 70, spa: 108, spd: 70, spe: 103},
 		abilities: {0: "Dancer"},
@@ -587,21 +585,18 @@ alakazam: {
 	},
 	deoxysattack: {
 		inherit: true,
-		name: "Deoxys-Attack",
 		types: ["Psychic"],
 		baseStats: {hp: 50, atk: 130, def: 100, spa: 130, spd: 100, spe: 90},
 		abilities: {0: "Pressure"},
 	},
 	deoxysdefense: {
 		inherit: true,
-		name: "Deoxys-Defense",
 		types: ["Psychic"],
 		baseStats: {hp: 50, atk: 50, def: 170, spa: 90, spd: 170, spe: 70},
 		abilities: {0: "Pressure"},
 	},
 	deoxysspeed: {
 		inherit: true,
-		name: "Deoxys-Speed",
 		types: ["Psychic"],
 		baseStats: {hp: 50, atk: 90, def: 115, spa: 90, spd: 115, spe: 140},
 		abilities: {0: "Pressure"},
@@ -685,7 +680,6 @@ alakazam: {
 	},
 	rotomheat: {
 		inherit: true,
-		name: "Rotom-Heat",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 75, atk: 75, def: 90, spa: 100, spd: 100, spe: 90},
 		abilities: {0: "Levitate"},
@@ -711,9 +705,9 @@ alakazam: {
 		baseStats: {hp: 55, atk: 100, def: 115, spa: 50, spd: 60, spe: 130},
 		abilities: {0: "Technician", 1: "Volt Absorb", H: "Light Metal"},
 	},
-	slakoth: {
+	slaking: {
 		inherit: true,
-		name: "Slakoth",
+		name: "Slaking",
 		types: ["Psychic"],
 		baseStats: {hp: 120, atk: 55, def: 80, spa: 90, spd: 80, spe: 20},
 		abilities: {0: "Levitate", H: "Telepathy"},
@@ -739,16 +733,15 @@ alakazam: {
 		baseStats: {hp: 70, atk: 50, def: 110, spa: 90, spd: 90, spe: 50},
 		abilities: {0: "Solid Rock", 1: "Poison Point", H: "Keen Eye"},
 	},
-	kommoo: {
+	goodra: {
 		inherit: true,
-		name: "Kommo-o",
+		name: "Goodra",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 100, atk: 90, def: 95, spa: 100, spd: 120, spe: 90},
 		abilities: {0: "Long Reach", 1: "Static", H: "Galvanize"},
 	},
 	oricoriopompom: {
 		inherit: true,
-		name: "Oricorio-Pom-Pom",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 65, atk: 108, def: 70, spa: 70, spd: 70, spe: 113},
 		abilities: {0: "Dancer"},
