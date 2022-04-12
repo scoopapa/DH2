@@ -1,6 +1,4 @@
-'use strict';
-
-exports.FormatsData = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	magmortar: {
 		tier: "OU",
 		doublesTier: "DOU",
