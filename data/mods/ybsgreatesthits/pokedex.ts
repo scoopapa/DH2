@@ -36,14 +36,12 @@ alakazam: {
 	},
 	morpekohangry: {
 		inherit: true,
-		name: "Morpeko-Hangry",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 75, atk: 103, def: 67, spa: 103, spd: 67, spe: 113},
 		abilities: {0: "Hunger Switch"},
 	},
 	zapdosgalar: {
 		inherit: true,
-		name: "Zapdos-Galar",
 		types: ["Ground"],
 		baseStats: {hp: 75, atk: 80, def: 65, spa: 60, spd: 75, spe: 130},
 		abilities: {0: "Speed Boost", 1: "Sniper", H: "Sand Rush"},
