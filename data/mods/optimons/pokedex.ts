@@ -1,4 +1,4 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	inteleon: {
 		inherit: true,
 		types: ["Water", "Normal"],
