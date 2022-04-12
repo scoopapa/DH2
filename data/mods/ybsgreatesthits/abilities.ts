@@ -109,7 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	            this.debug('Sensei boost');
 	            let warnBp = move.basePower;
 	            for (const moveSlot of attacker.moveSlots) {
-	                let moves = this.getMove(moveSlot.move);
+	                let moves = this.dex.getMove(moveSlot.move);
 	                let bp = moves.basePower;
 	                if (moves.ohko) bp = 160;
 	                if (moves.id === 'counter' || moves.id === 'metalburst' || moves.id === 'mirrorcoat') bp = 120;
