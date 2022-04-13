@@ -204,7 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
-		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
+		desc: "Holder's Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
 		shortDesc: "Holder Defense is multiplied by 1.1x.",
 	},
 	electirizer: {
@@ -960,6 +960,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix, Scyther into Scizor, and Plecuum into Vorplec when traded.",
+		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 	},
 	mindplate: {
 		inherit: true,
@@ -1019,7 +1020,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Holder's Poison-type attacks have 1.2x power. Evolves Monutra into Twintura when held and leveled up.",
-		shortDesc: "Holder's Dragon-type attacks have 1.2x power.",
+		shortDesc: "Holder's Poison-type attacks have 1.2x power.",
 	},
 	poisongem: {
 		inherit: true,

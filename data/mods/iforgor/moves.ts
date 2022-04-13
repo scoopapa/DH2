@@ -809,7 +809,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectState.typeWas = types;
+				this.effectData.typeWas = types;
 				return types.filter(type => type !== 'Flying');
 			},
 		},

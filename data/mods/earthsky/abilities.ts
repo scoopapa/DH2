@@ -2070,6 +2070,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon and its allies cannot be burned.",
 		block: "  [POKEMON] can't be burned due to a watery veil!",
 	},
+	whitesmoke: {
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
+				}
+			}
+			if (activate) {
+				pokemon.setBoost(boosts);
+				this.add('-activate', pokemon, 'ability: White Smoke');
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+			}
+		},
+		name: "White Smoke",
+		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
+		rating: 3,
+		num: 73,
+	},
 	/* Abilities edited as changes to other elements */
 	colorchange: {
 		inherit: true,

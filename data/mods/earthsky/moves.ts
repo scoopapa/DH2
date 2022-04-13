@@ -1087,14 +1087,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	bonemerang: {
 		inherit: true,
 		basePower: 40,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move.type !== 'Ground') return;
-			if (!target) return; // avoid crashing when called from a chat plugin
-			// ignore effectiveness if the target is Flying type and immune to Ground
-			if (!target.runImmunity('Ground')) {
-				return 0;
-			}
-		},
+		ignoreImmunity: {'Ground': true},
 		shortDesc: "Hits two times in one turn. Can hit floating foe.",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 	},
@@ -3701,9 +3694,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 	},
 	thousandarrows: {
-		inherit: true,
-		volatileStatus: '',
-		desc: "This move can hit airborne Pokemon, which includes Flying-type Pokemon, Pokemon with the Levitate Ability, Pokemon holding an Air Balloon, and Pokemon under the effect of Magnet Rise, Telekinesis, or Rising Chorus. This move can hit a target using Bounce, Fly, or Sky Drop.",
+		num: 614,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Beautiful",
+		desc: "This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 		shortDesc: "Hits adjacent foes. Can hit floating foes.",
 	},
 	thunderfang: {
@@ -4800,7 +4804,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stomping Tantrum", target);
 		},
-		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity, Smack Down, or Thousand Arrows.",
+		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity or Smack Down.",
 		shortDesc: "Power doubles if the user's last move failed.",
 	},
 	stompingtantrum: {
