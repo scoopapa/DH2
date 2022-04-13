@@ -4937,7 +4937,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "scrafty").learnset.powertrip = ["8D"];
 		delete this.modData('Learnsets', 'scrafty').learnset.toxic;
 		// Sigilyph
-		this.modData("Learnsets", "sigilyph").learnset.miracleeye = ["8D"];
+		this.modData("Learnsets", "sigilyph").learnset.speedswap = ["8D"];
 		this.modData("Learnsets", "sigilyph").learnset.flash = ["8M"];
 		this.modData("Learnsets", "sigilyph").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'sigilyph').learnset.toxic;

@@ -517,19 +517,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by Dusk Mane or Dawn Wings Necrozma, this item allows it to Ultra Burst in battle.",
 	},
 	waveincense: {
-		inherit: true,
-		onAllySetStatus(status, target, source, effect) {
-			if (status.id === 'brn') {
-				this.debug('Wave Incense prevents burns');
-				const effectHolder = this.effectData.target;
-				this.add('-block', target, 'item: Wave Incense', '[of] ' + effectHolder);
-				return null;
-			}
-		},
+		name: "Wave Incense",
+		spritenum: 531,
 		fling: {
 			basePower: 20,
 		},
-		desc: "Prevents holder and allies from receiving burns.",
+		onAnyTryMove(target, source, effect) {
+			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
+			}
+		},
+		num: 317,
+		gen: 4,
+		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
+		shortDesc: "Prevents explosion-based moves and Abilities.",
 	},
 	whippeddream: {
 		inherit: true,

@@ -221,30 +221,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1},
 		beforeTurnCallback(pokemon) {
-			/*let this.effectData.execInfo = [ //stores start-of-turn state of anything that could disrupt the move.
-				pokemon.status, pokemon.volatiles, pokemon.getMoveData(('fullcollide' as ID)).pp
-			];*/
 			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
 		},
-		/*onBeforeMovePriority: 100,
-		onBeforeMove(pokemon, target, move) {
-			const execInfo = this.effectData.execInfo;
-			if(
-				//Sleep or freeze inflicted this turn
-				(!(execInfo[0] === 'slp' || execInfo[0] === 'frz') && (pokemon.status === 'slp' || pokemon.status === 'frz')) ||
-				//Stops full paralysis, confusion, and attraction
-				(execInfo[0] === 'prz' || execInfo[1].includes('confusion') || execInfo[1].includes('attract')) ||
-				//Disable/Torment/Encore inflicted this turn
-				(!(execInfo[1].includes('flinch') || execInfo[1].includes('disable') || execInfo[1].includes('encore')) &&
-					(pokemon.volatiles('flinch') || pokemon.volatiles('disable') || pokemon.volatiles.includes('encore')))
-			) return;
-			//Removes obtained choice lock - it re-adds itself later
-			if (!(execInfo[1].includes('choicelock')) && pokemon.volatiles['choicelock']) pokemon.removeVolatile('choicelock');
-			//If move had PP but doesn't now (because it was drained), give it a temp PP to use this turn.
-			if(execInfo[2] > 0 && move.pp === 0) move.pp = 1;
-		},*/
 		secondary: null,
-		condition:{
+		condition: {
 			duration: 1,
 			//All other implementation done in the other statuses
 			onEnd(pokemon) {
@@ -4309,28 +4289,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			source.addVolatile('fling');
 		},
 	},
-	followme: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(target, source, effect) {
-				if (effect?.id === 'zpower') {
-					this.add('-singleturn', target, 'move: Follow Me', '[zeffect]');
-				} else {
-					this.add('-singleturn', target, 'move: Follow Me');
-				}
-			},
-			onFoeRedirectTargetPriority: 1,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				if (!this.effectData.target.isSkyDropped() && this.validTarget(this.effectData.target, source, move.target)) {
-					if (move.smartTarget) move.smartTarget = false;
-					this.debug("Follow Me redirected target of move");
-					return this.effectData.target;
-				}
-			},
-		},
-	},
 	geomancy: {
 		inherit: true,
 		flags: {charge: 1, nonsky: 1, snatch: 1},
@@ -4509,27 +4467,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "The user copies all of the target's current stat stage changes. This move fails if the target has the Ability Own Tempo.",
 	},
-	ragepowder: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Rage Powder');
-			},
-			onFoeRedirectTargetPriority: 1,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				const ragePowderUser = this.effectData.target;
-				if (ragePowderUser.isSkyDropped()) return;
-
-				if (source.runStatusImmunity('powder') && this.validTarget(ragePowderUser, source, move.target)) {
-					if (move.smartTarget) move.smartTarget = false;
-					this.debug("Rage Powder redirected target of move");
-					return ragePowderUser;
-				}
-			},
-		},
-	},
 	reflecttype: {
 		inherit: true,
 		onTryHit(target, source) {
@@ -4586,23 +4523,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		//Spectral Thief getting blocked by Own Tempo implemented in scripts.ts because that's where stat-stealing is implemented
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage. The theft does not occur if the target has the Ability Own Tempo.",
 		contestType: "Clever",
-	},
-	spotlight: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Spotlight');
-			},
-			onFoeRedirectTargetPriority: 2,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				if (this.validTarget(this.effectData.target, source, move.target)) {
-					this.debug("Spotlight redirected target of move");
-					return this.effectData.target;
-				}
-			},
-		},
 	},
 	substitute: {
 		inherit: true,
