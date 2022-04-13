@@ -534,7 +534,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
 			//Abilities
 			'Sand Veil',
@@ -762,7 +762,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Gardevoirite', 'Chillytite', 'Baton Pass'],
+		banlist: ['Gardevoirite', 'Chillytite', 'Bisharpite', 'Baton Pass'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -1862,11 +1862,9 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL'],
+		ruleset: ['[Gen 3] Hoenn Gaiden'],
+		banlist: ['OU', 'UUBL'],
 		unbanlist: [
-			//Abilities
-			'Sand Veil',
 		],
 		teambuilderFormat: 'UU',
 	},
@@ -1879,11 +1877,9 @@ export const Formats: FormatList = [
 
 		mod: 'gen3hoenngaiden',
 		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
-		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'NUBL'],
+		ruleset: ['[Gen 3] Hoenn Gaiden UU'],
+		banlist: ['UU', 'NUBL'],
 		unbanlist: [
-			//Abilities
-			'Sand Veil',
 		],
 		teambuilderFormat: 'NU',
 	},
@@ -3029,12 +3025,12 @@ export const Formats: FormatList = [
 			'Ampharos', 'Arbok', 'Banette', 'Beheeyem', 'Bellossom', 'Boltund', 'Bouffalant', 'Carnivine', 'Castform', 'Cherrim', 'Chimecho', 
 			'Cursola', 'Delcatty', 'Ditto', 'Dubwool', 'Dugtrio', 'Dunsparce', 'Electrode', 'Flareon', 'Furfrou', 'Glaceon', 'Glalie', 'Gogoat', 
 			'Golduck', 'Gorebyss', 'Gothitelle', 'Grapploct', 'Greedent', 'Grumpig', 'Gumshoos', 'Heatmor', 'Huntail', 'Illumise', 'Komala', 
-			'Kricketune', 'Lickilicky', 'Liepard', 'Lopunny', 'Lumineon', 'Lurantis', 'Luvdisc', 'Luxray', 'Lycanroc-Midnight', 'Manectric', 
-			'Maractus', 'Mightyena', 'Minun', 'Octillery', 'Pachirisu', 'Persian', 'Phione', 'Pikachu-Alola', 'Pikachu-Hoenn', 'Pikachu-Kalos', 
-			'Pikachu-Original', 'Pikachu-Partner', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-World', 'Pincurchin', 'Plusle', 'Purugly', 
-			'Pyukumuku', 'Rampardos', 'Raticate', 'Regigigas', 'Seaking', 'Seviper', 'Silvally-Bug', 'Silvally-Fighting', 'Silvally-Fire', 
-			'Silvally-Grass', 'Silvally-Ice', 'Silvally-Psychic', 'Silvally-Rock', 'Slaking', 'Smeargle', 'Spinda', 'Stantler', 'Sudowoodo', 
-			'Sunflora', 'Swalot', 'Thievul', 'Unown', 'Volbeat', 'Wailord', 'Watchog', 'Wishiwashi', 'Wobbuffet', 'Zebstrika',
+			'Kricketune', 'Lickilicky', 'Liepard', 'Lopunny', 'Lumineon', 'Lurantis', 'Luvdisc', 'Luxray', 'Manectric', 'Maractus', 'Mightyena', 
+			'Minun', 'Octillery', 'Pachirisu', 'Persian', 'Phione', 'Pikachu-Alola', 'Pikachu-Hoenn', 'Pikachu-Kalos', 'Pikachu-Original', 
+			'Pikachu-Partner', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-World', 'Pincurchin', 'Plusle', 'Purugly', 'Pyukumuku', 'Rampardos', 
+			'Raticate', 'Seaking', 'Seviper', 'Silvally-Bug', 'Silvally-Fire', 'Silvally-Ice', 'Silvally-Psychic', 'Silvally-Rock', 'Slaking', 
+			'Smeargle', 'Spinda', 'Stantler', 'Sudowoodo', 'Sunflora', 'Swalot', 'Unown', 'Volbeat', 'Wailord', 'Watchog', 'Wishiwashi', 
+			'Wobbuffet', 'Zebstrika',
 		],
 		teambuilderFormat: '(PU)',
 		searchShow: false,

@@ -1832,7 +1832,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	gurdurr: {
-		tier: "PU",
+		tier: "PUBL",
 	},
 	conkeldurr: {
 		tier: "Uber",
@@ -2006,7 +2006,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	vanilluxe: {
-		tier: "NUBL",
+		tier: "RUBL",
 	},
 	emolga: {
 		tier: "Illegal",
@@ -2722,7 +2722,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	silvallyelectric: {
-		tier: "PU",
+		tier: "PUBL",
 	},
 	silvallyfairy: {
 		tier: "UU",
