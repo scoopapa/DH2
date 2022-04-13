@@ -1925,7 +1925,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction. If given a Choice item earlier in the turn, the move locking will be ignored (but the power boost will not be). Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
 		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
 		rating: 1,
-	}.
+	},
 	suctioncups: {
 		inherit: true,
 		onStart(pokemon){
