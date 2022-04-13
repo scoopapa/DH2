@@ -567,7 +567,7 @@ alakazam: {
 		inherit: true,
 		name: "Mawile",
 		types: ["Steel", "Fairy"],
-		baseStats: {hp: 60, atk: 80, def: 125, spa: 55, spd: 65, spe: 40},
+		baseStats: {hp: 60, atk: 65, def: 125, spa: 55, spd: 65, spe: 40},
 		abilities: {0: "Huge Power", H: "Intimidate"},
 	},
 	avalugg: {
