@@ -257,7 +257,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	acid: {
 		num: 51,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 75,
 		category: "Physical",
 		shortDesc: "100% chance to lower the target's Def by 2.",
 		name: "Acid",
@@ -267,7 +267,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -2,
+				def: -1,
 			},
 		},
 		target: "allAdjacentFoes",
@@ -277,7 +277,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	acidspray: {
 		num: 491,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 75,
 		category: "Special",
 		name: "Acid Spray",
 		pp: 20,
@@ -286,7 +286,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 100,
 			boosts: {
-				spd: -2,
+				spd: -1,
 			},
 		},
 		target: "normal",
@@ -871,7 +871,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	skittersmack: {
 		num: 806,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
 		name: "Skitter Smack",
@@ -1044,5 +1044,43 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+	},
+	twineedle: {
+		num: 41,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Twineedle",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Bug",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
+	octazooka: {
+		num: 190,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Octazooka",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
 	},
 };
