@@ -1699,7 +1699,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	relicanth: {
 		inherit: true,
-		abilities: abilities: {0: "Against Current", 1: "Rock Head", H: "Sturdy"},
+		abilities: {0: "Against Current", 1: "Rock Head", H: "Sturdy"},
 	},
 	luvdisc: {
 		inherit: true,
