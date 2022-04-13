@@ -290,7 +290,7 @@ alakazam: {
 		name: "Indeedee-F",
 		types: ["Psychic", "Fairy"],
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 105, spd: 105, spe: 85},
-		abilities: {0: "Own Temp", 1: "Synchronize", H: "Psychic Surge"},
+		abilities: {0: "Own Tempo", 1: "Synchronize", H: "Psychic Surge"},
 	},
 	primarina: {
 		inherit: true,
