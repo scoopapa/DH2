@@ -2188,6 +2188,13 @@ export const Formats: FormatList = [
 
 		mod: 'paleomons',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'All Pokemon',
+		],
+		unbanlist: [
+			'kabuto-ancient', 'omanyte-ancient', 'anorith-ancient', 'lileep-ancient', 'swinub-ancient', 'ghoulipinch', 'shieldon-overgrown', 'cranidos-cretaceous', 'archen-ancient', 'tirtouga-leatherback',
+			'tyrunt-apex', 'amaura-regnant', 'shellos-entity', 'yanma-ancient', 'tangela-ancient', 'liluo', 'wonkway', 'gorlifross', 'dreepy-luminous', 'larvitar-nature', 'gible-persistent',
+		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
