@@ -1,4 +1,6 @@
-export const Scripts: ModdedBattleScriptsData = {
+'use strict';
+
+exports.FormatsData = {
 	magmortar: {
 		tier: "OU",
 		doublesTier: "DOU",
