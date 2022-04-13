@@ -1,7 +1,8 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	//New Abilities
 	againstcurrent: {
-		onModifySpe(pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
+		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
+			console.log("Against Current applying volatile");
 			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
 		},
 		onModifyMove(move) {
@@ -1919,7 +1920,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	stalwart: {
 		inherit: true,
-		onModifySpe(pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
+		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
 			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
 		},
 		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction. If given a Choice item earlier in the turn, the move locking will be ignored (but the power boost will not be). Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
@@ -2132,7 +2133,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (activate) {
 				pokemon.setBoost(boosts);
 				this.add('-activate', pokemon, 'ability: White Smoke');
-				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-clearnegativeboost', pokemon);
 			}
 		},
 		name: "White Smoke",
