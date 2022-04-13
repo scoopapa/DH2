@@ -3026,7 +3026,7 @@ export const Formats: FormatList = [
 		mod: 'monotyped',
 		ruleset: ['[Gen 8] MonoTyped PU'],
 		banlist: [			
-			/*Pokemon*/'PU',
+			/*Pokemon*/'All Pokemon',
 		],
 		unbanlist: [
 			'Ampharos', 'Arbok', 'Banette', 'Beheeyem', 'Bellossom', 'Boltund', 'Bouffalant', 'Carnivine', 'Castform', 'Cherrim', 'Chimecho', 
