@@ -23,7 +23,7 @@ alakazam: {
 	gardevoir: {
 		inherit: true,
 		name: "Gardevoir",
-		types: ["Stee", "Fairy"],
+		types: ["Steel", "Fairy"],
 		baseStats: {hp: 80, atk: 50, def: 85, spa: 90, spd: 120, spe: 70},
 		abilities: {0: "Serene Grace", H: "Volt Absorb"},
 	},
