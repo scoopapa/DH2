@@ -14,7 +14,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
 		rating: 1,
 		num: 1018,
-	}.
+	},
 	bludgeon: {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
