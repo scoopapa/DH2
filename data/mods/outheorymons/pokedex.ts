@@ -39,6 +39,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fire", "Fighting"],
 	},
+	cofagrigus: {
+		inherit: true,
+		types: ["Ghost", "Fighting"],
+	},
 	zoroark: {
 		inherit: true,
 		types: ["Dark", "Fairy"],
@@ -68,6 +72,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	salazzle: {
 		inherit: true,
 		baseStats: {hp: 68, atk: 64, def: 60, spa: 121, spd: 60, spe: 117},
+	},
+	comfey: {
+		inherit: true,
+		types: ["Fairy", "Flying"],
 	},
 	dhelmise: {
 		inherit: true,
