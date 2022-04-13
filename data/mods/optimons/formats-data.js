@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	magmortar: {
 		tier: "OU",
 		doublesTier: "DOU",
