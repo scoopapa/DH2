@@ -525,7 +525,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'item: Wave Incense', effect, '[of] ' + target);
+				this.add('cant', source, 'item: Wave Incense', effect, '[of] ' + target);
 				return false;
 			}
 		},

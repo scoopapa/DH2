@@ -2,7 +2,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	//New Abilities
 	againstcurrent: {
 		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
-			console.log("Against Current applying volatile");
 			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
 		},
 		onModifyMove(move) {
