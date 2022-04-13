@@ -3291,6 +3291,30 @@ export const Formats: FormatList = [
 			}
 		},
     },
+	{
+		name: "[Gen 8] Yoshiblaze's Greatest Hits",
+		desc: [
+			"Yoshiblaze's Greatest Hits",
+		],
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10_bQ22nYNsWUrEyEvl080VaijY1CMZip0x-ItLqXOsk/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'ybsgreatesthits',	
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['All Pokemon', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		unbanlist: ['Decidium Z', 'Revelation Dance',
+					  'Alakazam', 'Riolu', 'Gallade', 'Gardevoir', 'Morpeko', 'Zapdos-Galar', 'Archeops', 'Castform', 'Corsola', 'Chatot', 
+						'Ariados', 'Carnivine', 'Weavile', 'Noctowl', 'Lurantis', 'Octillery', 'Articuno', 'Unfezant', 'Kricketune', 'Leafeon',
+						'Dedenne', 'Electrode', 'Luxray', 'Seviper', 'Kangaskhan', 'Venusaur', 'Charizard', 'Blastoise', 'Houndoom', 'Scyther',
+						'Probopass', 'Luxio', 'Banette', 'Heracross', 'Pidgeot', 'Kirlia', 'Sandslash', 'Pelipper', 'Monferno', 'Greedent', 
+						'Indeedee-F', 'Primarina', 'Hoopa', 'Hoopa-Unbound', 'Delibird', 'Vanilluxe', 'Oranguru', 'Primeape', 'Machamp', 
+						'Wartortle', 'Garbodor', 'Yanmega', 'Rotom-Fan', 'Oricorio-Sensu', 'Ledian', 'Accelgor', 'Floatzel', 'Furret', 'Masquerain',
+						'Arbok', 'Rapidash', 'Flygon', 'Polteageist', 'Decidueye', 'Kyurem-Black', 'Obstagoon', 'Starmie', 'Xurkitree', 'Skuntank',
+						'Tauros', 'Sudowoodo', 'Runerigus', 'Talonflame', 'Incineroar', 'Dracovish', 'Armaldo', 'Hitmonlee', 'Flaaffy', 'Sunflora',
+						'Clefable', 'Mawile', 'Avalugg', 'Deoxys', 'Cherrim', 'Ampharos', 'Centiskorch', 'Magmortar', 'Electivire', 'Swampert', 'Copperajah',
+						'Pyroar', 'Pinsir', 'Toucannon', 'Tapu Koko', 'Rotom-Heat', 'Fearow', 'Mightyena', 'Manectric', 'Slaking', 'Dragapult',
+						'Krookodile', 'Carracosta', 'Goodra', 'Oricorio-Pom-Pom', 'Delcatty', 'Tropius', 'Skitty'],
+	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
 
