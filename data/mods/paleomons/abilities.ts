@@ -252,10 +252,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 			if (target.volatiles['twoturnmove']) {
-				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
 				this.boost({atk: 1});
-			} else if (!this.dex.getImmunity(moveType, target)) {
-				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
+			} else if (!this.dex.getImmunity(moveType, source)) {
 				this.boost({atk: 1});
 			}
 			(move as any).persistence = true;

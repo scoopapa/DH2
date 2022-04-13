@@ -28,6 +28,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Brave Bird", target);
+        },
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -49,6 +53,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Draining Kiss", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -115,6 +123,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.addVolatile('tarshot');
 				},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Stealth Rock", target);
+        },
 		secondary: null,
 		target: "foeSide",
 		type: "Fire",
@@ -133,6 +145,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Energy Ball", target);
+        },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -177,6 +193,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Echoed Voice", target);
+        },
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -204,6 +224,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return priority +1;
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Crunch", target);
+        },
 		target: "normal",
 		type: "Dragon",
 	},
@@ -248,6 +272,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			if (this.field.isWeather('hail')) move.accuracy = true;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Blizzard", target);
+        },
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -271,6 +299,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.infiltrates = true;
 		},
 		multihit: 2,
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dragon Darts", target);
+        },
 		smartTarget: true,
 		secondary: null,
 		target: "normal",
