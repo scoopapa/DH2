@@ -207,12 +207,13 @@ alakazam: {
 		baseStats: {hp: 75, atk: 90, def: 90, spa: 120, spd: 90, spe: 95},
 		abilities: {0: "Intimidate"},
 	},
-	scizor: {
+	scyther: {
 		inherit: true,
-		name: "Scizor",
+		name: "Scyther",
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 65, atk: 100, def: 70, spa: 55, spd: 80, spe: 130},
 		abilities: {0: "Technician", 1: "Telepathy", H: "Dazzling"},
+		evos: null,
 	},
 	probopass: {
 		inherit: true,
