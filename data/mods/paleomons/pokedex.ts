@@ -201,15 +201,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	relicanth: {
 		inherit: true,
-		otherFormes: ["Relicanth-Ancient"],
-		formeOrder: ["Relicant", "Relicanth-Ancient"],
+		otherFormes: ["Relicanth-Scorched"],
+		formeOrder: ["Relicant", "Relicanth-Scorched"],
 	},
 
-	relicanthancient: {
+	relicanthscorched: {
 		num: -109,
-		name: "Relicanth-Ancient",
+		name: "Relicanth-Scorched",
 		baseSpecies: "Relicanth",
-		forme: "Ancient",
+		forme: "Scorched",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 85, atk: 60, def: 80, spa: 85, spd: 75, spe: 100},
 		abilities: {0: "Water Bubble", H: "Rock Head"},
@@ -757,5 +757,170 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Slush Rush", 1: "Frigid Landing", H: "Snow Warning"},
 		weightkg: 150,
 		prevo: "Gorlifross",
+	},
+
+	dreepy: {
+		inherit: true,
+		otherFormes: ["Dreepy-Luminous"],
+		formeOrder: ["Dreepy", "Dreepy-Luminous"],
+	},
+
+	dreepyluminous: {
+		num: -146,
+		name: "Dreepy-Luminous",
+		baseSpecies: "Dreepy",
+		forme: "Luminous",
+		evos: ["Drakloak-Luminous"],
+		types: ["Poison"],
+		baseStats: {hp: 89, atk: 60, def: 65, spa: 70, spd: 85, spe: 71},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 1,
+	},
+
+	drakloak: {
+		inherit: true,
+		otherFormes: ["Drakloak-Luminous"],
+		formeOrder: ["Drakloak", "Drakloak-Luminous"],
+	},
+
+	drakloakluminous: {
+		num: -147,
+		name: "Drakloak-Luminous",
+		baseSpecies: "Drakloak",
+		forme: "Luminous",
+		evos: ["Dragapult-Luminous"],
+		types: ["Poison"],
+		baseStats: {hp: 89, atk: 60, def: 65, spa: 70, spd: 85, spe: 71},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 9,
+		prevo: "Dreepy-Luminous",
+	},
+
+	dragapult: {
+		inherit: true,
+		otherFormes: ["Dragapult-Luminous"],
+		formeOrder: ["Dragapult", "Dragapult-Luminous"],
+	},
+
+	dragapultluminous: {
+		num: -148,
+		name: "Dragapult-Luminous",
+		baseSpecies: "Dragapult",
+		forme: "Luminous",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 109, atk: 90, def: 75, spa: 100, spd: 105, spe: 121},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 46,
+		prevo: "Drakloak-Luminous",
+	},
+
+	larvitar: {
+		inherit: true,
+		otherFormes: ["Larvitar-Nature"],
+		formeOrder: ["Larvitar", "Larvitar-Nature"],
+	},
+
+	larvitarnature: {
+		num: -149,
+		name: "Larvitar-Nature",
+		baseSpecies: "Larvitar",
+		forme: "Nature",
+		evos: ["Pupitar-Nature"],
+		types: ["Grass"],
+		baseStats: {hp: 60, atk: 70, def: 45, spa: 35, spd: 45, spe: 45},
+		abilities: {0: "Natural Cure", H: "Tough Claws"},
+		weightkg: 72,
+	},
+
+	pupitar: {
+		inherit: true,
+		otherFormes: ["Pupitar-Nature"],
+		formeOrder: ["Pupitar", "Pupitar-Nature"],
+	},
+
+	pupitarnature: {
+		num: -150,
+		name: "Pupitar-Nature",
+		baseSpecies: "Pupitar",
+		forme: "Nature",
+		evos: ["Tyranitar-Nature"],
+		types: ["Grass"],
+		baseStats: {hp: 85, atk: 50, def: 90, spa: 60, spd: 85, spe: 45},
+		abilities: {0: "Natural Cure", H: "Flower Veil"},
+		weightkg: 152,
+		prevo: "Larvitar-Nature",
+	},
+
+	tyranitar: {
+		inherit: true,
+		otherFormes: ["Tyranitar-Nature"],
+		formeOrder: ["Tyranitar", "Tyranitar-Nature"],
+	},
+
+	tyranitarnature: {
+		num: -151, //just in case we get prevos in the future
+		name: "Tyranitar-Nature",
+		baseSpecies: "Tyranitar",
+		forme: "Nature",
+		types: ["Grass"],
+		baseStats: {hp: 110, atk: 100, def: 90, spa: 100, spd: 110, spe: 90},
+		abilities: {0: "Natural Cure", H: "Nature Prowess"},
+		weightkg: 202,
+		prevo: "Pupitar-Nature",
+	},
+
+	gible: {
+		inherit: true,
+		otherFormes: ["Gible-Persistent"],
+		formeOrder: ["Gible", "Gible-Persistent"],
+	},
+
+	giblepersistent: {
+		num: -152,
+		name: "Gible-Persistent",
+		baseSpecies: "Gible",
+		forme: "Persistent",
+		evos: ["Gabite-Persistent"],
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 55, atk: 53, def: 49, spa: 55, spd: 55, spe: 33},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 20.5,
+	},
+
+	gabite: {
+		inherit: true,
+		otherFormes: ["Gabite-Peristent"],
+		formeOrder: ["Gabite", "Gabite-Persistent"],
+	},
+
+	gabitepersistent: {
+		num: -153,
+		name: "Gabite-Persistent",
+		baseSpecies: "Gabite",
+		forme: "Persistent",
+		evos: ["Garchomp-Persistent"],
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 63, atk: 83, def: 59, spa: 75, spd: 75, spe: 53},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 56,
+		prevo: "Gible-Persistent",
+	},
+
+	garchomp: {
+		inherit: true,
+		otherFormes: ["Garchomp-Peristent"],
+		formeOrder: ["Garchomp", "Garchomp-Persistent"],
+	},
+
+	garchomppersistent: {
+		num: -154,
+		name: "Garchomp-Persistent",
+		baseSpecies: "Garchomp",
+		forme: "Persistent",
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 95, atk: 113, def: 89, spa: 115, spd: 115, spe: 73},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 95,
+		prevo: "Gabite-Persistent",
 	},
 };

@@ -254,7 +254,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	kadabra: {
-		tier: "NFE",
+		tier: "PU",
 	},
 	alakazam: {
 		tier: "Uber",
@@ -458,7 +458,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	chansey: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	blissey: {
 		tier: "OU",
@@ -1058,7 +1058,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	vigoroth: {
-		tier: "NFE",
+		tier: "PUBL",
 	},
 	slaking: {
 		tier: "(PU)",
@@ -2291,7 +2291,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	frogadier: {
-		tier: "NFE",
+		tier: "PU",
 	},
 	bunnelby: {
 		tier: "LC",
@@ -2916,7 +2916,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	raboot: {
-		tier: "PU",
+		tier: "NFE",
 	},
 	cinderace: {
 		tier: "Uber",

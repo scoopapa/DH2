@@ -352,6 +352,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 60, atk: 55, def: 100, spa: 95, spd: 100, spe: 30},
+		abilities: {0: "Weak Armor", H: "Clear Body"},
 	},
 	mrrime: {
 		inherit: true,

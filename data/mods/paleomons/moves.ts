@@ -256,6 +256,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 	},
 
+	luminousdarts: {
+		num: -108,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Luminous Darts",
+		desc: "Hits the target twice. Each hit bypasses Substitute, Reflect, etc.",
+		shortDesc: "Hits twice. Bypasses Substitute, Reflect, etc.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, authentic: 1},
+		onHit(pokemon, source, move) {
+			move.infiltrates = true;
+		},
+		multihit: 2,
+		smartTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		maxMove: {basePower: 130},
+	},
+
 	//
 	//
 	//
@@ -636,5 +658,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+
+	naturalgift: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			move.type = item.naturalGift.type;
+		},
+		onPrepareHit(target, pokemon, move) {
+			if (pokemon.ignoringItem()) return false;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return false;
+			move.basePower = item.naturalGift.basePower;
+			if (!pokemon.hasAbility('natureprowess')) {
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+			}
+		},
 	},
 };

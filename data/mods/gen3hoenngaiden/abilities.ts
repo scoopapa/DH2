@@ -585,6 +585,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Stakeout",
 		rating: 4.5,
 		num: 198,
+		gen: 3,
 	},
 	furcoat: {
 		onModifyDefPriority: 6,
@@ -594,5 +595,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fur Coat",
 		rating: 4,
 		num: 169,
+		gen: 3,
+	},
+	gluttony: {
+		name: "Gluttony",
+		rating: 1.5,
+		num: 82,
+		gen: 3,
 	},
 };

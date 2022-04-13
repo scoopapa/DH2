@@ -67,7 +67,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	relicanthancient: {
+	relicanthscorched: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
@@ -290,6 +290,60 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	artachoris: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	dreepyluminous: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	drakloakluminous: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	dragapultluminous: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	larvitarnature: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	pupitarnature: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	tyranitarnature: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	giblepersistent: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	gabitepersistent: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	garchomppersistent: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,

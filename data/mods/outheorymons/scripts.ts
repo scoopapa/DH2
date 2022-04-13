@@ -19,6 +19,6 @@ export const Scripts: BattleScriptsData = {
 	   this.modData('Learnsets', 'kommoo').learnset.rapidspin = ['8L1'];
 	   this.modData('Learnsets', 'guzzlord').learnset.slackoff = ['8L1'];
 		this.modData('Learnsets', 'zarude').learnset.swordsdance = ['8L1'];
-     this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1'];
+     this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1']; },
    },
 };

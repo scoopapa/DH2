@@ -485,6 +485,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'snorlax').learnset.splash = ['3L1'];
 		this.modData('Learnsets', 'snorlax').learnset.sweetkiss = ['3L1'];
 		this.modData('Learnsets', 'dratini').learnset.hydropump = ['3L1'];
+		this.modData('Learnsets', 'dratini').learnset.extremespeed = ['3L1'];
 		this.modData('Learnsets', 'chikorita').learnset.petaldance = ['3L1'];
 		this.modData('Learnsets', 'cyndaquil').learnset.doubleedge = ['3L1'];
 		this.modData('Learnsets', 'totodile').learnset.submission = ['3L1'];
@@ -536,9 +537,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tyrogue').learnset.rage = ['3L1'];
 		this.modData('Learnsets', 'smoochum').learnset.metronome = ['3L1'];
 		this.modData('Learnsets', 'smoochum').learnset.petaldance = ['3L1'];
+		this.modData('Learnsets', 'smoochum').learnset.dizzypunch = ['3L1'];
+		this.modData('Learnsets', 'elekid').learnset.petaldance = ['3L1'];
 		this.modData('Learnsets', 'elekid').learnset.dizzypunch = ['3L1'];
 		this.modData('Learnsets', 'elekid').learnset.pursuit = ['3L1'];
 		this.modData('Learnsets', 'magby').learnset.faintattack = ['3L1'];
+		this.modData('Learnsets', 'magby').learnset.dizzypunch = ['3L1'];
 		this.modData('Learnsets', 'miltank').learnset.megakick = ['3L1'];
 		this.modData('Learnsets', 'larvitar').learnset.rage = ['3L1'];
 		
@@ -564,6 +568,34 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'machamp').learnset.circlethrow = ['3L1'];
 		
 		this.modData('Learnsets', 'kleavor').learnset.rockslide = ['3L1'];
+		
+		this.modData("Learnsets", "slowkinggalar").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.doubleteam = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.dreameater = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.focuspunch = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mudsport = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.nightmare = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.return = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "slowkinggalar").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "marowakalola").learnset.sing = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.megakick = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.metronome = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.strength = ["3L1"];
 	},
 	
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
