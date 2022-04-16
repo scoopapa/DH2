@@ -2603,7 +2603,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	salamence: {
-		randomBattleMoves: ["defog", "dragondance", "dualwingbeat", "earthquake", "outrage", "roost"],
+	   randomBattleMoves: ["defog", "dragondance", "dualwingbeat", "earthquake", "outrage", "roost"],
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["dragonclaw", "fireblast", "hurricane", "protect", "tailwind"],
 		randomDoubleBattleLevel: 80,
