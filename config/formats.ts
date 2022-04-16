@@ -1835,6 +1835,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Fusion Evolution LC",
 		mod: "feuu",
+		forcedLevel: 5,
 		maxLevel: 5,
 		desc: [
 			`<b>Fusion Evolution Little Cup</b>: A micrometa Pet Mod including the prevoultions of the balanced fusions featured in Fusion Evolution's Lower Tiers.`
@@ -2206,6 +2207,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		forcedLevel: 5,
 		defaultLevel: 5,
 		maxLevel: 5,
 		teambuilderFormat: "PaLCeomons",
