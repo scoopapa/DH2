@@ -3216,19 +3216,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tiger Pit",
 		shortDesc: "(Bugged) Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
 	},	
-	vengefulshift: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon, source) {
-			if (pokemon.status) {
-				if (!source || source === pokemon) return;
-				this.add('-activate', pokemon, 'ability: Vengeful Shift');
-           	this.useMove("Psycho Shift", pokemon);
-			}
-		},
-		name: "Vengeful Shift",
-		shortDesc: "(Not coded) If statused by a foe, this Pokemon attempts to transfer its status to a foe at the end of each turn.",
-	},	
+    vengefulshift: {
+        onAfterSetStatus(status, target, source, effect) {
+            if (!source || source === target) return;
+            if (effect && effect.id === 'toxicspikes') return;
+            if (status.id === 'slp' || status.id === 'frz') return;
+            this.add('-activate', target, 'ability: Vengeful Shift');
+            // Hack to make status-prevention abilities think Vengeful Shift is a status move
+            // and show messages when activating against it.
+            source.trySetStatus(status, target, {status: status.id, id: 'vengefulshift'} as Effect);
+            target.cureStatus();
+        },
+        name: "Vengeful Shift",
+		  shortDesc: "When this Pokemon is statused by another Pokemon, it will attempt to transfer its status condition to an opposing Pokemon at the end of each turn until it is cured.",
+    },
 	toughskin: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
