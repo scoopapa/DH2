@@ -173,4 +173,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		baseStats: {hp: 100, atk: 70, def: 90, spa: 115, spd: 90, spe: 100},
 		abilities: {0: "Levitate", 1: "Adaptability", H: "Berserk"},
 	},
+	palossand: {
+      inherit: true,
+		baseStats: {hp: 85, atk: 65, def: 110, spa: 100, spd: 95, spe: 35},
+		abilities: {0: "Water Compaction", H: "Sand Stream"},
+	},
+	togedemaru: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 120, def: 94, spa: 35, spd: 73, spe: 103},
+		abilities: {0: "Iron Barbs", 1: "Motor Drive", H: "Sturdy"},
+	},
+	galvantula: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Compound Eyes", H: "Unnerve"},
+	},
 };
