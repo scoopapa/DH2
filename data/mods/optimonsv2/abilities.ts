@@ -62,4 +62,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+ 	watercompaction: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Water') {
+				this.boost({def: 2});
+			}
+		},
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Water Compaction",
+		rating: 1.5,
+		num: 195,
+	      }
+      },
+	},
 };
