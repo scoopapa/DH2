@@ -3210,10 +3210,9 @@ export const Formats: FormatList = [
 		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer', 
 					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig', 
 					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross', 
-					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck-Autumn', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring', 
-					'Sawsbuck-Spring-Mega', 'Sawsbuck-Summer', 'Sawsbuck-Summer-Mega', 'Sawsbuck-Winter', 'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 
-					'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist', 'Swordeo', 'Swordeo', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 
-					'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
+					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring-Mega', 
+					'Sawsbuck-Summer-Mega', 'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist',
+					'Swordeo', 'Swordeo', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
 		],
 	},
 	{
