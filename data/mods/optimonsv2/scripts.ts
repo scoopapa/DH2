@@ -36,6 +36,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('druddigon', ['recover', 'dragondance', 'steelbeam']);
 		addNewMoves('flygon', ['sludgewave', 'powergem']);
 		addNewMoves('togedemaru', ['volttackle', 'drainpunch', 'moonlight', 'stealthrock']);
-		addNewMoves('galvantula', ['taunt', 'memento'];
+		addNewMoves('galvantula', ['taunt', 'memento']);
 	},
 };
