@@ -3216,8 +3216,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 75, def: 90, spa: 75, spd: 105, spe: 60},
 		abilities: {0: "Bombshell"},
 		weightkg: 79.9,
-		otherFormes: ["Minimie-Meteor"],
-		formeOrder: ["Minimie", "Minimie-Meteor"],
+		otherFormes: ["Minimie-Core"],
+		formeOrder: ["Minimie", "Minimie-Core"],
 	},
 	tsarant: {
 		fusion: ['Tsareena', 'Durant'],
