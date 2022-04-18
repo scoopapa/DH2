@@ -944,7 +944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Hawlazzle",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 74, atk: 78, def: 70, spa: 107, spd: 81, spe: 118},
-		abilities: {0: "Toxic Play"},
+		abilities: {0: "Deadly Deft"},
 		weightkg: 21.9,
 	},
 	whimsilotic: {
