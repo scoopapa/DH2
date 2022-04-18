@@ -39,7 +39,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	init() {
-		console.log('init m4a');
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
 			if (pokemon.movepoolAdditions) {
@@ -47,7 +46,6 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
 				}
 			}
-			if (!this.modData('FormatsData', id)) this.modData('FormatsData', id) = {}; // just an experiment
 			if (this.modData('FormatsData', id)) {
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
@@ -292,6 +290,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.hint("Body Press uses Sp. Def boosts when Wonder Room is active.");
 				}
 			}
+		}
+		if (move.useSourceSpeedAsOffensive) { // currently only used by sandbox Abilities, but useful in general
+			attackStat = 'spe';
 		}
 		if (move.useTargetOffensive || (move as any).settleBoosted) {
 			attackStat = 'atk'; // hard-coding for Sleight of Hand: do not use Special Attack
