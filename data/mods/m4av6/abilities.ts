@@ -674,13 +674,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && target.hp && move.type === 'Poison' && ['psn', 'tox'].includes(target.status)) {
 				const r = this.random(11);
 				if (r < 1) {
-					target.setStatus('par', source);
+					if (!target.setStatus('par', source)) {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} couldn't be paralyzed!`);
+					}
 				} else if (r < 2) {
-					target.setStatus('brn', source);
+					if (target.setStatus('brn', source)) {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} couldn't be burned!`);
+					}
 				} else if (r < 3) {
 					if (target.status === 'psn') {
 						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)}'s poison became more severe!`);
 						target.setStatus('tox', source);
+					} else {
+						this.add('-ability', source, 'Alchemist');
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)}'s poison can't get any worse!`);
 					}
 				} else if (r < 4) {
 					this.add('-ability', source, 'Alchemist');
@@ -940,6 +949,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	spectralanger: {
 		shortDesc: "This Pokémon's Attack rises after it uses an attack that is super effective on the target.",
 		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+				this.boost({atk: 1}, source);
+			}
+		},
+		onAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 				this.boost({atk: 1}, source);
@@ -1300,6 +1315,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (bladeMoves.includes(move.id) && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
 		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
+			if (bladeMoves.includes(move.id)) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (bladeMoves.includes(move.id)) {
