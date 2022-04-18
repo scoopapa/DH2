@@ -1124,6 +1124,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "RKS System"},
 		heightm: 2.3,
 		weightkg: 100.5,
+		baseSpecies: null,
+		requiredItem: null,
+		changesFrom: null,
 	},
 	silvallyfighting: {
 		num: 773,
