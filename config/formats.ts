@@ -1949,8 +1949,15 @@ export const Formats: FormatList = [
 			const item = this.dex.getItem(set.item);
 			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
 		},
-		ruleset: ['Standard NatDex', 'Standard M4A', 'Kalos Pokedex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		mod: 'm4av6',
+		ruleset: ['Standard NatDex', 'Kalos Pokedex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: [
+			'AG', 'Uber',
+			'Aegislash', 'Hoopa-Unbound', 'Greninja',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'Baton Pass',
+			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+		],
+		mod: 'gen8', // will be adjusted further
 		// teambuilderFormat: 'OU',
 	},
 	{
@@ -2089,7 +2096,6 @@ export const Formats: FormatList = [
 			'Enamorus',
 		],
 		mod: 'm4asandbox',
-		// teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
