@@ -4247,7 +4247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Toxislash-Alola"],
 	},
 	tentatwig: {
-		fusion: ['Arrokuda', 'Litleo'],
+		fusion: ['Tentacool', 'Turtwig'],
 		num: 1100,
 		name: "Tentatwig",
 		types: ["Poison", "Grass"],
