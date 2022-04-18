@@ -413,6 +413,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "houndoom").learnset.lashout = ["8L1"];
 		// Kingdra
 		this.modData("Learnsets", "kingdra").learnset.sludgebomb = ["8L1"];
+		this.modData("Learnsets", "kingdra").learnset.aquajet = ["8L1"];
 		// Donphan
 		this.modData("Learnsets", "donphan").learnset.spikes = ["8L1"];
 		this.modData("Learnsets", "donphan").learnset.scorchingsands = ["8L1"];

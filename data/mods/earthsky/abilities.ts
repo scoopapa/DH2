@@ -363,7 +363,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'D': //Dry: Desolate Land
 						this.field.setWeather('desolateland');
 						break;
-					case 'F': //Fear: Attack/Sp. Attack/Sp. Defense -1 on foes
+					case 'F': //Fear: Attack/Sp. Attack/Speed -2 on foes
 						for (const target of pokemon.side.foe.active) {
 							if (!target) continue;
 							if(!activated){
@@ -404,7 +404,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							}
 						}
 						break;
-					case 'J': //Join: Split all stats
+					case 'J': //Join: Pain Split, split all stats
+						const targetHP = oppositeFoe.getUndynamaxedHP();
+						const averagehp = Math.floor((targetHP + pokemon.hp) / 2) || 1;
+						const targetChange = targetHP - averagehp;
+						oppositeFoe.sethp(oppositeFoe.hp - targetChange);
+						this.add('-sethp', oppositeFoe, oppositeFoe.getHealth, '[from] move: Pain Split', '[silent]');
+						pokemon.sethp(averagehp);
+						this.add('-sethp', pokemon, pokemon.getHealth, '[from] move: Pain Split', '[silent]');
 						const newatk = Math.floor((oppositeFoe.storedStats.atk + pokemon.storedStats.atk) / 2);
 						oppositeFoe.storedStats.atk = newatk;
 						pokemon.storedStats.atk = newatk;
@@ -456,7 +463,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'M': //Mirror: Wonder Room
 						this.field.addPseudoWeather('wonderroom');
 						break;
-					case 'O': //Observe: Frisk, Forewarn
+					case 'O': //Observe: Frisk, Forewarn, Miracle Eye
 						pokemon.addVolatile('forewarn', "Glyphic Spell");
 						for (const target of pokemon.side.foe.active) {
 							if (!target || target.fainted) continue;
@@ -464,6 +471,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.add('-fitem', target, target.getItem().name, '[from] Glyphic Spell', '[of] ' + pokemon, '[identify]');
 							}
 						}
+						pokemon.addVolatile('miracleeye');
 						break;
 					case 'P': //Power: Sp. Attack to +6
 						this.boost({spa: 12}, pokemon);
@@ -503,10 +511,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'W': //Weird: Psychic Surge
 						this.field.setTerrain('psychicterrain');
 						break;
-					case 'X': //X-Out: Destiny Bond
+					case 'X': //X-Out: Infinite Destiny Bond
 						this.add('-ability', pokemon, 'Glyphic Spell');
-						pokemon.addVolatile('destinybond');
-						pokemon.volatiles['destinybond'].duration = 0;
+						pokemon.addVolatile('destinybond', 'glyphicspell');
 						break;
 					case 'Y': //Yield: Quashes foes
 						if (pokemon.side.active.length < 2) return; // fails in singles
@@ -732,12 +739,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		G - Grow:		Unown's Attack, Defense, Sp. Attack, Sp. Defense, and Speed are raised one stage. Every time Unown scores a KO, all of them raise again.
 		H - Heal:		Fully restores Unown's HP and cures its status conditions.
 		I - Invert:		All foes' stat changes are inverted, and stat changes made to Unown will have the opposite effect.
-		J - Join:		The non-HP stats of Unown and its direct opponent are added up and then split evenly between them.
+		J - Join:		The HPs and non-HP stats of Unown and its direct opponent are added up and then split evenly between them.
 		K - Klepto:		Steals the item of its direct opponent, then removes all remaining foes' items.
 		L - Loop:		All foes are inflicted with an Encore.
 		M - Mirror:		Summons Wonder Room for five turns. Grants Unown the effects of Magic Bounce.
 		N - Negate:		Grants Unown the effects of Neutralizing Gas and Unaware.
-		O - Observe:	Reveals all foes' held items and each of their strongest moves. If the Pokemon uses its identified move on Unown, Unown will become Evasive to it.
+		O - Observe:	Reveals all foes' held items and each of their strongest moves. If the Pokemon uses its identified move on Unown, Unown will become Evasive to it. Grants Unown the effects of Miracle Eye.
 		P - Power:		Raises Unown's Sp. Attack to +6.
 		Q - Quicken:	Raises Unown's Speed to +6.
 		R - Reverse:	Summons Trick Room for five turns.
@@ -751,7 +758,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		Z - Zero-G:		Applies floating status to all Pokémon for five turns.
 		? - ?????:		Randomly uses one of the other letters' effects each time.
 		! - !!!!!:		Unown primes itself. If it takes damage, or at the end of the turn if it doesn't, it uses Explosion, ignoring immunities to the move and always scoring critical hits.
-		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if hacked onto another Pokemon.`,
+		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if acquired through Transform/Imposter or if hacked onto another Pokemon.`,
 		shortDesc: "Has a special effect depending on Unown's letter.",
 		fitem: "  [POKEMON] observed [TARGET]'s [ITEM]!",
 		fmove: "  [TARGET]'s [MOVE] was observed!",
@@ -951,6 +958,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 2.",
 		shortDesc: "While this Pokemon is burned, its special attacks have x2 power.",
 	},
+	flowerveil: {
+		onAllySetStatus(status, target, source, effect) {
+			if (this.field.effectiveTerrain(this.effectData.target) === 'grassyterrain' && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Flower Veil');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectData.target;
+					this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (this.field.effectiveTerrain(this.effectData.target) === 'grassyterrain' && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectData.target;
+				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		name: "Flower Veil",
+		desc: "If Grassy Terrain is active and affecting this Pokemon, itself and its allies cannot gain a non-volatile status condition or the Yawn condition, and Rest will fail for any of them.",
+		shortDesc: "If Grassy Terrain is active, this Pokemon and its allies cannot be statused.",
+		rating: 0.5,
+		num: 166,
+	},
 	forewarn: {
 		inherit: true,
 		onStart(pokemon){
@@ -962,11 +994,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.warnMoves = {};
 				for (let i = 0; i < pokemon.side.foe.active.length; i++) {
 					const target = pokemon.side.foe.active[i];
-					console.log("Forewarn investigating " + target.name);
+					//console.log("Forewarn investigating " + target.name);
 					let warnBp = 1;
 					for (const moveSlot of target.moveSlots) { //Todo: Make this into a function so it's not called both here and in onFoeSwitchIn
 						const move = this.dex.getMove(moveSlot.move);
-						console.log("Forewarn investigating " + move.name);
+						//console.log("Forewarn investigating " + move.name);
 						if(!move) continue;
 						let bp = move.basePower;
 						let direct = false; //direct damage moves won't need additional calcs later
@@ -1075,14 +1107,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							}
 						}
 						if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
-						console.log(move.name + "'s base power is " + bp);
+						//console.log(move.name + "'s base power is " + bp);
 						if(bp >= warnBp){
 							if(bp === warnBp && warnPokeMove){ //Multiple equally valid choices, use both
 								warnPokeMove.push([target.fullname, move.id]);
-								console.log("Adding to Forewarn list. " + warnPokeMove);
+								//console.log("Adding to Forewarn list. " + warnPokeMove);
 							} else {
 								warnPokeMove = [[target.fullname, move.id]];
-								console.log("Overriding Forewarn list. " + warnPokeMove);
+								//console.log("Overriding Forewarn list. " + warnPokeMove);
 							}
 							warnBp = bp;
 						}
@@ -1091,17 +1123,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					const newWarning = this.sample(warnPokeMove);
 					this.effectData.warnMoves[newWarning[0]] = newWarning[1];
 					this.add('-activate', pokemon, `ability: $(this.effectData.source)`, newWarning[0].name, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
-					console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
+					//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 				}
 			},
 			onFoeSwitchIn(target){
 				let warnPokeMove: ([String, String][]) = undefined;
 				const pokemon = this.effectData.target;
-				console.log("Forewarn investigating " + target.name);
+				//console.log("Forewarn investigating " + target.name);
 				let warnBp = 1;
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
-					console.log("Forewarn investigating " + move.name);
+					//console.log("Forewarn investigating " + move.name);
 					if(!move) continue;
 					let bp = move.basePower;
 					let direct = false; //direct damage moves won't need additional calcs later
@@ -1210,14 +1242,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 					}
 					if(!pokemon.runImmunity(move.type) || (move.twoType && !pokemon.runImmunity(move.twoType))) bp = 0;
-					console.log(move.name + "'s base power is " + bp);
+					//console.log(move.name + "'s base power is " + bp);
 					if(bp >= warnBp){
 						if(bp === warnBp && warnPokeMove){ //Multiple equally valid choices, use both
 							warnPokeMove.push([target.fullname, move.id]);
-							console.log("Adding to Forewarn list. " + warnPokeMove);
+							//console.log("Adding to Forewarn list. " + warnPokeMove);
 						} else {
 							warnPokeMove = [[target.fullname, move.id]];
-							console.log("Overriding Forewarn list. " + warnPokeMove);
+							//console.log("Overriding Forewarn list. " + warnPokeMove);
 						}
 						warnBp = bp;
 					}
@@ -1226,15 +1258,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const newWarning = this.sample(warnPokeMove);
 				this.effectData.warnMoves[newWarning[0]] = newWarning[1];
 				this.add('-activate', pokemon, `ability: $(this.effectData.source)`, newWarning[0].name, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
-				console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
+				//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 			},
 			onFoeSwitchOut(target){
 				if(this.effectData.warnMoves[target.fullname]) delete this.effectData.warnMoves[target.fullname];
 			},
 			onAccuracy(accuracy, target, source, move) {
-				console.log(this.effectData.warnMoves);
+				//console.log(this.effectData.warnMoves);
 				if (target === source || typeof(accuracy) !== 'number' || move.ignoreEvasion) return;
-				console.log("Attack by [" + source.fullname + ", " + move.id + "]");
+				//console.log("Attack by [" + source.fullname + ", " + move.id + "]");
 				//console.log(move);
 				//console.log(source);
 				if (this.effectData.warnMoves[source.fullname] === move.id){
@@ -1351,7 +1383,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	//Klutz preventing Speed drops from training items implementd in items.ts on the items themselves.
+	klutz: {
+		//Preventing Speed drops from training items implemented in items.ts on the items themselves.
+		desc: "This Pokemon's held item has no effect. This Pokemon cannot use Fling successfully, and Swing will not have its power boosted if an appropriate item is held.",
+		shortDesc: "This Pokemon's held item has no effect. Fling cannot be used.",
+	},
+	leafguard: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (!['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || (source && target === source)) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				this.add("-fail", target, "unboost", "[from] ability: Leaf Guard", "[of] " + target);
+			}
+		},
+		desc: "If Sunny Day is active, this Pokemon cannot gain a non-volatile status condition or have its stats lowered by an opponent.",
+		shortDesc: "If Sunny Day is active, this Pokemon cannot be statused or have stats lowered.",
+		rating: 1.5,
+	},
 	lightmetal: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
@@ -2013,6 +2069,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 175,
 		shortDesc: "This Pokemon and its allies cannot be burned.",
 		block: "  [POKEMON] can't be burned due to a watery veil!",
+	},
+	whitesmoke: {
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
+				}
+			}
+			if (activate) {
+				pokemon.setBoost(boosts);
+				this.add('-activate', pokemon, 'ability: White Smoke');
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+			}
+		},
+		name: "White Smoke",
+		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
+		rating: 3,
+		num: 73,
 	},
 	/* Abilities edited as changes to other elements */
 	colorchange: {

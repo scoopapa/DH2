@@ -283,7 +283,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "Heals by 33% of its max HP +33% and +1 Atk for every active Water-type. Active Water-types lose 33% of their max HP.",
+    shortDesc: "Heals by 33% of its max HP +33% and +1 Atk for every active Water-type.",
 		name: "Arid Absorption",
 		pp: 10,
 		priority: 0,
@@ -301,7 +301,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType('Water')) {
 				this.heal(source.baseMaxhp / 3, source, target);
 				this.boost({atk: 1}, source);
-				this.damage(target.baseMaxhp / 3, target, source);
 			}
 			if (source.hasType('Water')) {
 				this.heal(source.baseMaxhp / 3, source, target);

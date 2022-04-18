@@ -1113,7 +1113,92 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 100,
 	},
+/*
+	wish: {
+		inherit: true,
+		flags: {heal: 1},
+		slotCondition: 'Wish',
+		condition: {
+			duration: 2,
+			onResidualOrder: 7,
+			onEnd(target) {
+				if (!target.fainted) {
+					const source = this.effectState.source;
+					const damage = this.heal(target.baseMaxhp / 2, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + source.name);
+				}
+			},
+		},
+	},
+*/
 	//Temporary Multi-Attack Fix
+	/*multiattack: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Type varies based on the held Memory.",
+		isViable: true,
+		name: "Multi-Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.item.id) {
+			case 'bugmemory':
+				move.type = 'Bug';
+				break;
+			case 'darkmemory':
+				move.type = 'Dark';
+				break;
+			case 'dragonmemory':
+				move.type = 'Dragon';
+				break;
+			case 'electricmemory':
+				move.type = 'Electric';
+				break;
+			case 'fightingmemory':
+				move.type = 'Fighting';
+				break;
+			case 'firememory':
+				move.type = 'Fire';
+				break;
+			case 'flyingmemory':
+				move.type = 'Flying';
+				break;
+			case 'ghostmemory':
+				move.type = 'Ghost';
+				break;
+			case 'grassmemory':
+				move.type = 'Grass';
+				break;
+			case 'groundmemory':
+				move.type = 'Ground';
+				break;
+			case 'icememory':
+				move.type = 'Ice';
+				break;
+			case 'poisonmemory':
+				move.type = 'Poison';
+				break;
+			case 'psychicmemory':
+				move.type = 'Psychic';
+				break;
+			case 'rockmemory':
+				move.type = 'Rock';
+				break;
+			case 'steelmemory':
+				move.type = 'Steel';
+				break;
+			case 'watermemory':
+				move.type = 'Water';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(pokemon.item.id)) move.category = 'Special';
+		},
+		type: "Normal",
+	},*/
 	multiattack: {
 		accuracy: 100,
 		basePower: 120,
@@ -1127,6 +1212,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		type: "Normal",
+		gen: 3,
 	},
 	multiattackbug: {
 		accuracy: 100,
@@ -1369,6 +1455,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+		gen: 3,
 	},
 	acrobatics: {
 		num: 512,
@@ -1390,6 +1477,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		gen: 3,
 	},
 	lunge: {
 		num: 679,
@@ -1409,6 +1497,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		gen: 3,
 	},
 	foulplay: {
 		num: 492,
@@ -1424,6 +1513,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		gen: 3,
 	},
 	suckerpunch: {
 		num: 389,
@@ -1447,6 +1537,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		gen: 3,
 	},
 	spikyshield: {
 		num: 596,
@@ -1503,6 +1594,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Grass",
 		contestType: "Tough",
+		gen: 3,
 	},
 	junglehealing: {
 		num: 816,
@@ -1520,6 +1612,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allies",
 		type: "Grass",
+		gen: 3,
 	},
 	iceshard: {
 		num: 420,
@@ -1534,6 +1627,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		gen: 3,
 	},
 	bodypress: {
 		num: 776,
@@ -1548,6 +1642,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		gen: 3,
 	},
 	boomburst: {
 		num: 586,
@@ -1562,6 +1657,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Tough",
+		gen: 3,
 	},
 	spiritbreak: {
 		num: 789,
@@ -1580,6 +1676,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fighting",
+		gen: 3,
 	},
 	circlethrow: {
 		num: 509,
@@ -1594,5 +1691,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		gen: 3,
 	},
 };

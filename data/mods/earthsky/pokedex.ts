@@ -222,6 +222,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -517,
 		name: "Utilitron",
 		types: ["Steel", "Electric"],
+		baseForme: "Default",
 		gender: "N",
 		baseStats: {hp: 60, atk: 80, def: 120, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Motor Drive", H: "Download"},
@@ -238,6 +239,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -517,
 		name: "Utilitron-Boat",
 		baseSpecies: "Utilitron",
+		baseForme: "Default",
 		forme: "Boat",
 		types: ["Steel", "Water"],
 		baseStats: {hp: 60, atk: 60, def: 120, spa: 60, spd: 80, spe: 60},
@@ -252,6 +254,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -517,
 		name: "Utilitron-Copter",
 		baseSpecies: "Utilitron",
+		baseForme: "Default",
 		forme: "Copter",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 60, atk: 80, def: 120, spa: 60, spd: 40, spe: 80},
@@ -736,7 +739,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Stegrowth",
 		types: ["Rock", "Grass"],
 		genderRatio: {M: 0.875, F: 0.125},
-		baseStats: {hp: 65, atk: 45, def: 60, spa: 65, spd: 75, spe: 40},
+		baseStats: {hp: 65, atk: 50, def: 60, spa: 60, spd: 75, spe: 40},
 		abilities: {0: "Chlorophyll", H: "Leaf Guard"},
 		heightm: 1.0,
 		weightkg: 27.1,
@@ -749,7 +752,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Stegrove",
 		types: ["Rock", "Grass"],
 		genderRatio: {M: 0.875, F: 0.125},
-		baseStats: {hp: 100, atk: 60, def: 90, spa: 90, spd: 100, spe: 55},
+		baseStats: {hp: 100, atk: 70, def: 90, spa: 80, spd: 100, spe: 55},
 		abilities: {0: "Chlorophyll", H: "Leaf Guard"},
 		heightm: 1.7,
 		weightkg: 72.5,
@@ -1469,15 +1472,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	geodude: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	graveler: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	golem: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Sturdy", H: "Bulletproof"},
+		abilities: {0: "Sand Force", 1: "Sturdy", H: "Bulletproof"},
 	},
 	ponytagalar: {
 		inherit: true,
@@ -1733,19 +1736,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	shieldon: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+		abilities: {0: "Filter", 1: "Stalwart", H: "Soundproof"},
 	},
 	bastiodon: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Soundproof"},
+		abilities: {0: "Filter", 1: "Stalwart", H: "Soundproof"},
 	},
 	buizel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propellor Tail"},
+		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
 	},
 	floatzel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propellor Tail"},
+		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
 	},
 	shellos: {
 		inherit: true,
@@ -2042,6 +2045,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Corrosion"},
 	},
+	tyrunt: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", H: "Anger Point"},
+	},
 	tyrantrum: {
 		inherit: true,
 		abilities: {0: "Strong Jaw", H: "Majesty"},
@@ -2089,6 +2096,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gourgeistsuper: {
 		inherit: true,
 		abilities: {0: "Pickup", 1: "Insomnia", H: "Flare Boost"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Sturdy"},
+		unreleasedHidden: true,
 	},
 	volcanion: {
 		inherit: true,

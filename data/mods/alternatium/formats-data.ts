@@ -135,6 +135,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
+	castformfirestorm: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
 	castformthunderstorm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

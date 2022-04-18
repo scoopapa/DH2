@@ -654,4 +654,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lunala: {
 		tier: "OU",
 	},
+	xerneas: {
+		tier: "OU",
+	},
+	yveltal: {
+		tier: "OU",
+	},
+	zygarde: {
+		tier: "OU",
+	},
+	zygardecomplete: {
+		tier: "OU",
+	},
+	calyrexice: {
+		tier: "OU",
+	},
+	calyrexshadow: {
+		tier: "OU",
+	},
 };

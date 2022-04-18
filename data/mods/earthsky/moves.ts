@@ -609,7 +609,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', target, 'move: Rising Chorus');
 			},
 		},
-		desc: "After dealing damage, the target is made immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Gravity, Smack Down, and an Iron Ball will remove this status if the user is under any of their effects. The effect will not be applied if the user is under the effects of Gravity or Ingrain, or if the user's Ability is Heavy Metal or Suction Cups. While floating in this manner, the moves Dig, Dive, Ingrain, and Roost will fail.",
+		desc: "After dealing damage, the target is made immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability for the next five turns. If the target uses Baton Pass, the replacement will gain the effect. Gravity, Smack Down, and an Iron Ball will remove this status if the user is under any of their effects. The effect will not be applied if the user is under the effects of Gravity or Ingrain, or if the user's Ability is Heavy Metal or Suction Cups. While floating in this manner, the moves Dig, Dive, Ingrain, and Roost will fail.",
 		shortDesc: "Hits adjacent foes, causes floating status.",
 		target: "allAdjacentFoes",
 		type: "Flying",
@@ -733,7 +733,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onStart(pokemon){
 				this.effectData.affectedStatuses = ['confuse','disable','electrify','encore','imprison','laserfocus','leechseed','magnetrise','minimize','nightmare','partiallytrapped','perishsong','powertrick','risingchorus','strongpartialtrap','taunt','telekinesis','throatchop','torment','yawn'], //Volatiles with timers to freeze
-				this.effectData.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','miracleeye','mindreader','obstruct','odorsleuth','powder','preheat','protect','ragepowder','rebound','slipaway','snatch','spikyshield','spotlight','substitute','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
+				this.effectData.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','evade','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','minimize','miracleeye','mindreader','obstruct','odorsleuth','playdead','powder','preheat','protect','ragepowder','rebound','slipaway','snatch','spikyshield','spotlight','substitute','tangledfeet','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
 				this.add('-start', pokemon, 'move: Stasis');
 			},
 			onBoost(boost, pokemon) {
@@ -772,7 +772,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: `For the next three turns, the target's stats cannot be raised or lowered. If the target is frozen or asleep, the duration timers will pause, as will the duration timers of many of its volatile status conditions. Any statuses that can be affected also cannot be added, changed, or removed through any means other than switching. Affected volatile statuses are:
 		Confusion, Disable, Electrify, Encore, Imprison, Laser Focus, Leech Seed, Magnet Rise, Minimize, Nightmare, Partial Trapping, Perish Song, Power Trick, Rising Chorus, Taunt, Telekinesis, Throat Chop, Torment, Yawn
 		Additionally, the following volatile statuses cannot be added to the target:
-		Aqua Ring, Attraction, Bunker Down, Charge, Curse, Destiny Bond, Double Team, Endure, Flash Fire, Focus Energy, Follow Me, Foresight, Grudge, Ingrain, Magic Coat, Miracle Eye, King's Shield, Lock-On, Miracle Eye, Mind Reader, Obstruct, Odor Sleuth, Powder, Preheat, Protect, Rage Powder, Rebound, Slip Away, Snatch, Spiky Shield, Spotlight, Substitute, Tar Shot
+		Aqua Ring, Attraction, Bunker Down, Charge, Curse, Destiny Bond, Endure, Evasiveness, Flash Fire, Focus Energy, Follow Me, Foresight, Grudge, Ingrain, Magic Coat, Miracle Eye, King's Shield, Lock-On, Miracle Eye, Mind Reader, Obstruct, Odor Sleuth, Play Dead, Powder, Preheat, Protect, Rage Powder, Rebound, Slip Away, Snatch, Spiky Shield, Spotlight, Substitute, Tar Shot
 		If possible, these statuses will still fade on their own.`,
 		target: "normal",
 		type: "Psychic",
@@ -789,6 +789,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 1025,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
+			if(pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
 			if (item && !item.consumable) {
 				this.debug("Swing power increase for held item");
@@ -1086,14 +1087,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	bonemerang: {
 		inherit: true,
 		basePower: 40,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move.type !== 'Ground') return;
-			if (!target) return; // avoid crashing when called from a chat plugin
-			// ignore effectiveness if the target is Flying type and immune to Ground
-			if (!target.runImmunity('Ground')) {
-				return 0;
-			}
-		},
+		ignoreImmunity: {'Ground': true},
 		shortDesc: "Hits two times in one turn. Can hit floating foe.",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 	},
@@ -1129,6 +1123,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Has a 30% chance to paralyze the target. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Hurricane, Smack Down, Thousand Arrows, Thunder, and Twister, which have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
+	},
+	brickbreak: {
+		inherit: true,
+		basePower: 80,
 	},
 	bugbite: {
 		inherit: true,
@@ -1762,6 +1760,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	floralhealing: {
 		inherit: true,
+		pp: 5,
 		target: "adjacentAllyOrSelf",
 		desc: "The target restores 1/2 of its maximum HP, rounded half up. If the terrain is Grassy Terrain, the target instead restores 2/3 of its maximum HP, rounded half down. IF any other terrain is set, the target instead restores 1/4 of its maximum HP, rounded half down.",
 		shortDesc: "Heals user or ally by a terrain-dependent amount.",
@@ -2811,6 +2810,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	powertrip: {
 		inherit: true,
 		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * (1 + pokemon.positiveBoosts());
+		},
 	},
 	present: {
 		num: 217,
@@ -2840,6 +2842,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 		desc: "If the target is an ally, this move restores 1/4 of its maximum HP, rounded down, instead of dealing damage.",
 		shortDesc: "If the target is an ally, heals 25% of its max HP.",
+	},
+	psychicfang: {
+		num: 706,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Psychic Fang",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			if (pokemon.runImmunity('Psychic')) {
+				pokemon.side.removeSideCondition('reflect');
+				pokemon.side.removeSideCondition('lightscreen');
+				pokemon.side.removeSideCondition('auroraveil');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cute",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic Fangs", target);
+		},
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
+		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 	punishment: {
 		inherit: true,
@@ -3100,6 +3130,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	shoreup: {
 		inherit: true,
+		pp: 5,
 		onHit(pokemon) {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
@@ -3393,6 +3424,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate or Limber Abilities. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/5 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully, or if any Pokemon uses Defog or Rototiller successfully.",
 	},
+	spiritbreak: {
+		inherit: true,
+		basePower: 70,
+	},
 	spitup: {
 		inherit: true,
 		onTry(pokemon, move) {
@@ -3469,6 +3504,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	storedpower: {
 		inherit: true,
 		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * (1 + pokemon.positiveBoosts());
+		},
 	},
 	strangesmoke: {
 		num: 790,
@@ -3656,9 +3694,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 	},
 	thousandarrows: {
-		inherit: true,
-		volatileStatus: '',
-		desc: "This move can hit airborne Pokemon, which includes Flying-type Pokemon, Pokemon with the Levitate Ability, Pokemon holding an Air Balloon, and Pokemon under the effect of Magnet Rise, Telekinesis, or Rising Chorus. This move can hit a target using Bounce, Fly, or Sky Drop.",
+		num: 614,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Beautiful",
+		desc: "This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 		shortDesc: "Hits adjacent foes. Can hit floating foes.",
 	},
 	thunderfang: {
@@ -3995,6 +4044,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.debug('charge boost');
 					return this.chainModify(2);
 				}
+			},
+		},
+	},
+	destinybond: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.side === source.side) return;
+				if (effect.effectType === 'Move' && !effect.isFutureMove) {
+					if (source.volatiles['dynamax']) {
+						this.add('-hint', "Dynamaxed Pokémon are immune to Destiny Bond.");
+						return;
+					}
+					this.add('-activate', target, 'move: Destiny Bond');
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond' || this.effectData.source === 'glyphicspell') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				if(!this.effectData.source === 'glyphicspell') pokemon.removeVolatile('destinybond');
 			},
 		},
 	},
@@ -4702,34 +4779,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Power doubles if the user had a stat stage lowered this turn.",
 		shortDesc: "2x power if the user had a stat lowered this turn.",
 	},
-	psychicfang: {
-		num: 706,
-		accuracy: 100,
-		basePower: 85,
-		category: "Physical",
-		name: "Psychic Fang",
-		pp: 10,
-		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		onTryHit(pokemon) {
-			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Psychic')) {
-				pokemon.side.removeSideCondition('reflect');
-				pokemon.side.removeSideCondition('lightscreen');
-				pokemon.side.removeSideCondition('auroraveil');
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Cute",
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psychic Fangs", target);
-		},
-		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
-		shortDesc: "Destroys screens, unless the target is immune.",
-	},
 	psychicfangs: {
 		name: "Psychic Fangs",
 		isNonstandard: "Past",
@@ -4755,7 +4804,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stomping Tantrum", target);
 		},
-		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity, Smack Down, or Thousand Arrows.",
+		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity or Smack Down.",
 		shortDesc: "Power doubles if the user's last move failed.",
 	},
 	stompingtantrum: {

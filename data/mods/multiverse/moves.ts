@@ -1,32 +1,27 @@
-/*
-
-List of flags and their descriptions:
-
-authentic: Ignores a target's substitute.
-bite: Power is multiplied by 1.5 when used by a Pokemon with the Strong Jaw Ability.
-bullet: Has no effect on Pokemon with the Bulletproof Ability.
-charge: The user is unable to make a move between turns.
-contact: Makes contact.
-dance: When used by a Pokemon, other Pokemon with the Dancer Ability can attempt to execute the same move.
-defrost: Thaws the user if executed successfully while the user is frozen.
-distance: Can target a Pokemon positioned anywhere in a Triple Battle.
-gravity: Prevented from being executed or selected during Gravity's effect.
-heal: Prevented from being executed or selected during Heal Block's effect.
-mirror: Can be copied by Mirror Move.
-mystery: Unknown effect.
-nonsky: Prevented from being executed or selected in a Sky Battle.
-powder: Has no effect on Grass-type Pokemon, Pokemon with the Overcoat Ability, and Pokemon holding Safety Goggles.
-protect: Blocked by Detect, Protect, Spiky Shield, and if not a Status move, King's Shield.
-pulse: Power is multiplied by 1.5 when used by a Pokemon with the Mega Launcher Ability.
-punch: Power is multiplied by 1.2 when used by a Pokemon with the Iron Fist Ability.
-recharge: If this move is successful, the user must recharge on the following turn and cannot make a move.
-reflectable: Bounced back to the original user by Magic Coat or the Magic Bounce Ability.
-snatch: Can be stolen from the original user and instead used by another Pokemon using Snatch.
-sound: Has no effect on Pokemon with the Soundproof Ability.
-
-*/
-
 export const Moves: {[moveid: string]: MoveData} = {
+	dig: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.species.id === 'greninja' && attacker.hasItem('smokebomb') && move.id === 'dig') return;
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id !== 'greninja') return;
+			if (source.hasItem('smokebomb')) {
+				move.basePower = 100;
+				delete move.flags['charge'];
+				source.useItem();
+			}
+		},
+	},
 	flameburst: {
 		inherit: true,
 		isNonstandard: null,
@@ -34,6 +29,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 	judgment: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	jumpkick: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	multiattack: {
+		inherit: true,
+		basePower: 90,
 	},
 	refresh: {
 		inherit: true,
@@ -326,38 +329,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	abstractdreams: {
-		num: -10,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "Has a 33% chance to either burn, badly poison, or paralyze the target.",
-		name: "Abstract Dreams",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hypnosis", target);
-		},
-		secondary: {
-			chance: 33,
-			onHit(target, source) {
-				const result = this.random(3);
-				if (result === 0) {
-					target.trySetStatus('brn', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				} else {
-					target.trySetStatus('tox', source);
-				}
-			},
-		},
-		target: "normal",
-		type: "Psychic",
-	},
 	chillburst: {
-		num: -11,
+		num: -10,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -373,5 +346,398 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+	},
+	absoluteimpact: {
+		num: -11,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Has 33% recoil.",
+		name: "Absolute Impact",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Giga Impact", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	foggymist: {
+		num: -12,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "-1 evasion; clears user and target side's hazards.",
+		name: "Foggy Mist",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+			];
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			return success;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	hiddenforce: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Hidden Force",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	hiddenforcebug: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Bug",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+	},
+	hiddenforcedark: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Dark",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	hiddenforcedragon: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Dragon",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	hiddenforceelectric: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Electric",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
+	hiddenforcefighting: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Fighting",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	hiddenforcefire: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Fire",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	hiddenforceflying: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Flying",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	hiddenforceghost: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Ghost",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	hiddenforcegrass: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Grass",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
+	hiddenforceground: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Ground",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+	hiddenforceice: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Ice",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	hiddenforcepoison: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Poison",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	hiddenforcepsychic: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Psychic",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	hiddenforcerock: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Rock",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	hiddenforcesteel: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Steel",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	hiddenforcewater: {
+		num: -13,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Force",
+		name: "Hidden Force Water",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Force", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	perrserkpaw: {
+		num: -14,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		shortDesc: "User recovers 75% of the damage dealt.",
+		name: "Perrserk Paw",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Claw", target);
+		},
+		drain: [3, 4],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	courtchange: {
+		inherit: true,
+		basePower: 60,
+		category: "Physical",
+		name: "Court Change",
+		pp: 15,
+		flags: {mirror: 1, protect: 1, contact: 1},
+		target: "all",
+		type: "Fighting",
 	},
 };

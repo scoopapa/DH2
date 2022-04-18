@@ -134,4 +134,76 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	genesectchill: {
 		tier: "MV",
 	},
+	chesnaught: {
+		tier: "MV",
+	},
+	delphox: {
+		tier: "MV",
+	},
+	greninja: {
+		tier: "MV",
+	},
+	gogoat: {
+		tier: "MV",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	tyrantrum: {
+		tier: "MV",
+	},
+	sliggoo: {
+		tier: "MV",
+	},
+	avalugg: {
+		tier: "MV",
+	},
+	vikavolt: {
+		tier: "MV",
+	},
+	araquanid: {
+		tier: "MV",
+	},
+	silvallyfairy: {
+		tier: "MV",
+	},
+	mimikyu: {
+		tier: "MV",
+	},
+	tapukoko: {
+		tier: "MV",
+	},
+	tapufini: {
+		tier: "MV",
+	},
+	solgaleo: {
+		tier: "MV",
+	},
+	marshadow: {
+		tier: "MV",
+	},
+	cinderace: {
+		tier: "MV",
+	},
+	obstagoon: {
+		tier: "MV",
+	},
+	perrserker: {
+		tier: "MV",
+	},
+	corsolagalar: {
+		tier: "MV",
+	},
+	mrrime: {
+		tier: "MV",
+	},
+	stonjourner: {
+		tier: "MV",
+	},
+	arctozolt: {
+		tier: "MV",
+	},
+	calyrex: {
+		tier: "MV",
+	},
 };

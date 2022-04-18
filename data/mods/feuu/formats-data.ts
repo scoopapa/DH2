@@ -369,13 +369,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["willowisp", "recover", "knockoff", "thunderwave", "nightshade"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	absablemegax: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["swordsdance", "knockoff", "poltergeist", "closecombat", "suckerpunch"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Absolite",
 	},
 	absablemegay: {
@@ -488,13 +488,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["swordsdance", "iceshard", "iciclecrash", "earthquake", "auroraveil"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	glasnowmega: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["closecombat", "iceshard", "iciclecrash", "earthquake"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Abomasite",
 	},
 	kokovoir: {
@@ -837,19 +837,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["superpower", "leafblade", "earthquake", "stoneedge"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 	},
 	lurodactylmega: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["superpower", "leafblade", "roost", "stoneedge"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 79,
 		requiredItem: "Aerodactylite",
 	},
 
 // Slate 19
 	regibee: {
-		tier: "FEUU",
+		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["roost", "uturn", "earthquake", "ironhead", "toxicspikes"],
 		randomBattleLevel: 79,
@@ -1186,7 +1186,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		requiredItem: "Galladite",
 	},
 	genebrogalar: {
-		tier: "FERU",
+		tier: "FERUBL",
 		doublesTier: "DUU",
 		randomBattleMoves: ["shellsidearm", "flamethrower", "slackoff", "calmmind"],
 		randomBattleLevel: 79,
@@ -1394,12 +1394,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
-	shellicham: {
+	shellitite: {
+		tier: "FELC",
+		doublesTier: "DUU",
+	},
+	gastrocham: {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
-	shellichammega: {
+	gastrochammega: {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
@@ -1481,6 +1485,47 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
+	},
+	champlume: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	pyraskewda: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	rotofable: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	harisect: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	tapupilo: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	appletomwash: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	phancrozmadawnwings: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	phancrozmaultra: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Depleted Ultranecrozium Z",
 	},
 	
 	//Silvino Nightmare Hours
@@ -2008,6 +2053,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	pinchu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	buixew: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	pawnrunt: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},	
+	tyrunxel: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	oddchop: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	litlokuda: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	makuras: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2048,5 +2121,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-
+	vibrachu: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	chokloom: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
 }; 

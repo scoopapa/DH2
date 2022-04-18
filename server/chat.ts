@@ -855,10 +855,10 @@ export class CommandContext extends MessageContext {
 			return true;
 		}
 
-		if (this.room && !this.user.can('show', null, this.room)) {
-			this.errorReply(`You need to be voiced to broadcast this command's information.`);
-			throw new Chat.ErrorMessage(`To see it for yourself, use: /${this.message.slice(1)}`);
-		}
+		// if (this.room && !this.user.can('show', null, this.room)) {
+			// this.errorReply(`You need to be voiced to broadcast this command's information.`);
+			// throw new Chat.ErrorMessage(`To see it for yourself, use: /${this.message.slice(1)}`);
+		// }
 
 		if (!this.room && !this.pmTarget) {
 			this.errorReply(`Broadcasting a command with "!" in a PM or chatroom will show it that user or room.`);

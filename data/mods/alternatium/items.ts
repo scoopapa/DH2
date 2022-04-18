@@ -23,7 +23,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyMove(move, source) {
 			if (source && source.baseSpecies.num === 649) {
-				if (move.type = 'Fire') {
+				if (move.type === 'Fire') {
 					move.drain = [1, 3];
 				}
 			}

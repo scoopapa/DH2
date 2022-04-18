@@ -888,6 +888,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: null,
 		cosmeticFormes: null,
 		formeOrder: null,
+		forme: null,
+		baseSpecies: null,
 	},
 	vivillonfancy: {
 		num: 666,
@@ -899,7 +901,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 17,
 		eggGroups: ["Bug"],
 		baseSpecies: null,
+		cosmeticFormes: null,
 		forme: null,
+		formeOrder: null,
 		changesFrom: null,
 	},
 	vivilloncombat: {
@@ -912,7 +916,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 17,
 		eggGroups: ["Bug"],
 		baseSpecies: null,
+		cosmeticFormes: null,
 		forme: null,
+		formeOrder: null,
 		changesFrom: null,
 	},
 	aegishield: {
@@ -1297,6 +1303,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 18,
 		eggGroups: ["Water 1", "Flying"],
+		otherFormes: null,
+		formeOrder: null,
 	},
 	cramorantswimmer: {
 		num: 845,
@@ -1317,6 +1325,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 18,
 		eggGroups: ["Water 1", "Flying"],
+		baseSpecies: null,
+		forme: null,
 	},
 	eiscue: {
 		num: 875,

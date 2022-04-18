@@ -1,37 +1,3 @@
-/*
-
-Ratings and how they work:
-
--1: Detrimental
-	  An ability that severely harms the user.
-	ex. Defeatist, Slow Start
-
- 0: Useless
-	  An ability with no overall benefit in a singles battle.
-	ex. Color Change, Plus
-
- 1: Ineffective
-	  An ability that has minimal effect or is only useful in niche situations.
-	ex. Light Metal, Suction Cups
-
- 2: Useful
-	  An ability that can be generally useful.
-	ex. Flame Body, Overcoat
-
- 3: Effective
-	  An ability with a strong effect on the user or foe.
-	ex. Chlorophyll, Sturdy
-
- 4: Very useful
-	  One of the more popular abilities. It requires minimal support to be effective.
-	ex. Adaptability, Magic Bounce
-
- 5: Essential
-	  The sort of ability that defines metagames.
-	ex. Imposter, Shadow Tag
-
-*/
-
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -47,14 +13,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powerofalchemy: {
 		onAnyFaint(target) {
-			if (!this.effectState.target.hp) return;
+			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
 			const additionalBannedAbilities = [
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 			];
 			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectState.target.setAbility(ability);
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
@@ -235,7 +201,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyAtk(atk, source, target, move) {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				return this.chainModify(1.3);
 			}
@@ -368,12 +335,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(1.2);
 			} else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(0.8);
 			}
 		},
@@ -539,8 +506,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Dark Aura",
@@ -554,8 +521,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Fairy Aura",

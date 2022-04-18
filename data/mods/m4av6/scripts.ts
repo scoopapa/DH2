@@ -1,7 +1,7 @@
 // tiering information
 const ag = ["gengarmega", "rayquazamega", "zacian", "zaciancrowned", "calyrexshadow"];
 const uber = ["butterfreemega", "cinderacemega", "rillaboommega", "dragapultmega", "alakazammega", "blastoisemega", "blazikenmega", "cinderace", "darkrai", "darmanitangalar", "deoxysattack", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "kyogre", "kyogreprimal", "kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "tapulele", "urshifu", "xerneas", "yveltal", "zamazenta", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock"];
-const newest = ["grapploctmega", "lickilickymega", "tsareenamega"];
+const newest = ["grapploctmega", "lickilickymega", "tsareenamega", "snorlaxmega", "swalotmega", "wailordmega"];
 const tier1mega = ["corviknightmega", "dhelmisemega", "empoleonmega", "mudsdalemega", "starmiemega"];
 const tier1 = ["blissey", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "rillaboom", "slowbro", "tapufini", "toxapex"];
 const tier2mega = ["dragalgemega", "hydreigonmega", "latiasmega", "lopunnymega", "mawilemega", "medichammega", "raichumega", "reuniclusmega", "scizormega", "talonflamemega", "toxtricitylowkeymega", "vikavoltmega", "walreinmega"];
@@ -17,9 +17,6 @@ const canonmega = ["venusaurmega", "charizardmegax", "charizardmegay", "blastois
 const notier = ["wishiwashimega1", "wishiwashimega2", "wishiwashimega3", "wishiwashimega4", "wishiwashimegaschool", "falinksmegacombat"]; // should not appear in the teambuilder
 const illegal = ["floetteeternal", "pichuspikyeared"];
 
-const ou = ["aerodactylmega", "arctozolt", "blissey", "buzzwole", "charizardmegax", "charizardmegay", "clefable", "corviknight", "deoxysspeed", "dianciemega", "ferrothorn", "gallademega", "garchomp", "garchompmega", "gardevoirmega", "gliscor", "greninja", "greninjaash", "gyaradosmega", "hawluchamega", "heatran", "heracrossmega", "hippowdon", "kartana", "keldeo", "keldeoresolute", "kommoo", "landorustherian", "lopunnymega", "magnezone", "mawilemega", "medichammega", "nidoqueen", "nidoqueenmega", "pelipper", "pinsirmega", "rillaboom", "sableyemega", "scizor", "scizormega", "serperior", "slowbro", "slowbromega", "slowkinggalar", "swampertmega", "tapufini", "tapukoko", "tornadustherian", "toxapex", "tyranitar", "urshifurapidstrike", "venusaurmega", "volcarona", "weavile", "zapdos", "thievulmega", "lycanrocduskmega", "vikavoltmega", "lycanrocmega", "raichumega", "jolteonmega", "slowkingmega", "gothitellemega", "reuniclusmega", "luxraymega", "talonflamemega", "eelektrossmega", "dragalgemega", "dhelmisemega", "registeelmega", "bastiodonmega", "leavannymega", "parasectmega", "samurottmega", "meowsticfmega", "starmiemega", "flygonmega", "drapionmega", "lurantismega", "exploudmega", "noivernmega", "toxtricitylowkeymega", "hawluchamega", "araquanidmega", "wishiwashimega", "krookodilemega", "infernapemega", "empoleonmega", "mudsdalemega", "golurkmega", "silvallymega", "sirfetchdmega", "decidueyemega", "incineroarmega", "primarinamega", "jynxmega", "electiviremega", "magmortarmega"];
-const uubl = ["aegislash", "alakazam", "azumarill", "blacephalon", "blaziken", "gengar", "gyarados", "hawlucha", "hoopaunbound", "hydreigon", "jirachi", "latias", "latios", "manaphy", "melmetal", "mew", "thundurusincarnate", "thundurustherian", "victini", "xurkitree", "zapdosgalar", "goodramega", "toucannonmega", "vanilluxemega", "garbodormega", "conkeldurrmega", "chandeluremega", "bisharpmega", "aurorusmega", "trevenantmega", "typhlosionmega", "magcargomega", "zoroarkmega", "falinksmegalegion", "porygonzmega"];
-
 const vgcbanned = ["mew", "celebi", "jirachi", "deoxys", "deoxysattack", "deoxysdefense", "deoxysspeed", "phione", "manaphy", "darkrai", "shaymin", "shayminsky", "victini", "keldeo", "keldeoresolute", "meloetta", "greninjaash", "diancie", "dianciemega", "hoopa", "hoopaunbound", "volcanion", "magearna", "magearnaoriginal", "marshadow", "zeraora", "zarude", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock"];
 const restricted = ["mewtwo", "hooh", "lugia", "kyogre", "kyogreprimal", "groudon", "groudonprimal", "rayquaza", "rayquazamega", "dialga", "palkia", "giratina", "giratinaorigin", "reshiram", "zekrom", "kyurem", "kyuremblack", "kyuremwhite", "xerneas", "yveltal", "zygarde", "zygarde10", "zygardecomplete", "cosmog", "cosmoem", "solgaleo", "lunala", "necrozma", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "zacian", "zaciancrowned", "zamazenta", "zamazentacrowned", "eternatus", "calyrex", "calyrexice", "calyrexshadow"];
 const s = ["incineroar", "dhelmisemega", "slowkingmega", "tapufini"];
@@ -32,6 +29,10 @@ const bminus = ["cresselia", "dragapult", "ferrothorn", "weezinggalar", "gastrod
 const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", "crobat", "articunogalar", "zapdosgalar", "gyarados", "heatran", "jellicent", "liepard", "dragalgemega", "hydreigonmega", "honchkrowmega", "leavannymega", "registeelmega", "swampertmega", "meowsticm", "ninetales", "regigigas", "sirfetchd", "slaking", "staraptor", "suicune", "terrakion", "tornadus", "weavile"];
 
 export const Scripts: ModdedBattleScriptsData = {
+	teambuilderConfig: { // will this maybe work now that inheriting is reduced
+		excludeStandardTiers: true,
+		customTiers: ['Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+	},
 	init() {
 		console.log('init m4a');
 		for (const id in this.dataCache.Pokedex) {
@@ -63,12 +64,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (id.endsWith('mega')) this.modData('FormatsData', id).tier = "Undecided"; // guaranteeing M4A Megas that haven't been tiered appear in their own place
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "Underrated"; // default (untiered)
 				if (id === 'crucibellemega') this.modData('FormatsData', id).tier = "CAP"; // hard-coding for things that don't exist
-				// truetier (this is for UU purposes but doesn't currently function)
-				if (ag.includes(id)) this.modData('FormatsData', id).truetier = "AG";
-				else if (uber.includes(id)) this.modData('FormatsData', id).truetier = "Uber";
-				else if (ou.includes(id)) this.modData('FormatsData', id).truetier = "OU";
-				else if (uubl.includes(id)) this.modData('FormatsData', id).truetier = "UUBL";
-				else this.modData('FormatsData', id).truetier = "UU";
 				// doubles tiers
 				if (vgcbanned.includes(id)) this.modData('FormatsData', id).doublesTier = "Illegal";
 				else if (restricted.includes(id)) this.modData('FormatsData', id).doublesTier = "Restricted";
@@ -401,6 +396,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			if ('poolfloaties' in this.volatiles) return false;
+			for (const target of this.battle.getAllActive()) {
+				if (target.hasAbility('uplifting')) {
+					return null;
+				}
+			}
 			return item !== 'airballoon';
 		},
 		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} {

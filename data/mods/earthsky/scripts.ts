@@ -531,7 +531,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		singleEvent( //Can't be edited here, this documents what it has been changed to
+		singleEvent(
 			eventid: string, effect: Effect, effectData: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
 			sourceEffect?: Effect | string | null, relayVar?: any
@@ -612,7 +612,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			return returnVal === undefined ? relayVar : returnVal;
 		},
-		runEvent( //Same here
+		runEvent(
 			eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
 			sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
 		) {
@@ -1695,9 +1695,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		/* Delete stuff */
-		for(let moveID in this.data.Moves) { //marks all moves as current gen
+		for(let moveID in this.data.Moves) { //marks all moves as current gen, except renamed ones
 			const move = this.modData('Moves', moveID);
-			if(move.isNonstandard === "Past") delete move.isNonstandard;
+			if(move.isNonstandard === "Past" && !renamedMoves.includes(moveID)) delete move.isNonstandard;
 			if(move.zMove) delete move.zMove;
 		}
 		for(const moveID of deletedMoves) { //then drops removed moves as past-gen so they can't be used
@@ -1725,8 +1725,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		for(let itemID in this.data.Items){
 			const item = this.modData('Items', itemID);
 			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
-			if(item.fling && !item.isBerry && item.fling.basePower === 10){ //Fling BP buffs
-				if(item === "airballoon") continue;
+			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
+				if(item.isBerry || item === "airballoon") continue;
 				item.fling.basePower = 20;
 			}
 		}
@@ -2348,7 +2348,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'exeggutoralola').learnset.toxic;
 		// Cubone
 		this.modData("Learnsets", "cubone").learnset.memento = ["8D"];
-		this.modData("Learnsets", "cubone").learnset.leer = ["8L33"];
+		this.modData("Learnsets", "cubone").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "cubone").learnset.swing = ["8L13"];
 		delete this.modData('Learnsets', 'cubone').learnset.tailwhip;
 		delete this.modData('Learnsets', 'cubone').learnset.toxic;
@@ -2359,7 +2359,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'marowak').learnset.tailwhip;
 		delete this.modData('Learnsets', 'marowak').learnset.toxic;
 		// Marowak Tropical
-		this.modData("Learnsets", "marowakalola").learnset.mysticalfire = ["8D"];
+		this.modData("Learnsets", "marowakalola").learnset.fierydance = ["8D"];
 		this.modData("Learnsets", "marowakalola").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "marowakalola").learnset.swing = ["8L13"];
 		this.modData("Learnsets", "marowakalola").learnset.flash = ["8M"];
@@ -6963,6 +6963,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hattrem").learnset.psychup = ["8M"];
 		this.modData("Learnsets", "hattrem").learnset.signalbeam = ["8M"];
 		this.modData("Learnsets", "hattrem").learnset.telekinesis = ["8M"];
+		this.modData("Learnsets", "hatenna").learnset.drainingkiss = ["8E"];
+		delete this.modData("Learnsets", "hatenna").learnset.nuzzle;
 		// Hatterene
 		this.modData("Learnsets", "hatterene").learnset.imprison = ["8D"];
 		this.modData("Learnsets", "hatterene").learnset.chargebeam = ["8M"];

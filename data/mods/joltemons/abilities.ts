@@ -1,4 +1,35 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	schooling: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4 || pokemon.hasItem('graduationscale')) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4 || pokemon.hasItem('graduationscale')) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		inherit: true,
+	},
 	lightpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
@@ -554,8 +585,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-	scavenge: {
-		shortDesc: "(Bugged) This Pokemon's heals 33% of its HP when another Pokemon faints.",
+  scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'ability: Scavenge'); 

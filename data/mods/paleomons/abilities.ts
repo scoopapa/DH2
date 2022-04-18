@@ -104,9 +104,164 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Corrosive Pincers",
 		desc: "This Pokemon's attacking stat is doubled while using a Poison-type attack. If a Pokemon uses a Poison-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
-		shortDesc: "This Pokemon's Poison power is 2x; it can't be poison; Poison power against it is halved.",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
 		rating: 4.5,
 		num: -104,
+	},
+
+	chaser: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (/* target.newlySwitched || */ this.queue.willMove(target)) {
+					return basePower * 1.3;
+				}
+				return basePower;
+			}
+		},
+		name: "Chaser",
+		desc: "The power of this Pokemon's move is multiplied by 1.3 if it is the first to move in a turn. Does not affect Doom Desire and Future Sight.",
+		shortDesc: "This Pokemon's attacks have 1.3x power if it is the first to move in a turn.",
+		rating: 3,
+		num: -105,
+	},
+
+	absorption: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!this.effectData.switchingIn || this.field.isTerrain('')) {
+				return;
+			}
+			this.add('-message', `Absorption Activated!`);
+			this.field.clearTerrain();
+			this.heal((pokemon.baseMaxhp / 8), pokemon);
+		},
+
+		name: "Absorption",
+		desc: "If there is an active terrain, the terrain ends and the user is healed by 12% of its maximum HP",
+		shortDesc: "If there is a terrain active, ends the terrain and heals the user by 12% of its max HP",
+		rating: 3,
+		num: -106,
+	},
+
+	thunderstruck: {
+		onSetStatus(status, target, source, effect) {
+			if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
+				if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					this.add('-message', `${target.name} was too shocked to stop moving!`);
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+			if (status.id === 'yawn') {
+				this.add('-message', `${target.name} was too shocked to stop moving!`);
+				return null;
+			}
+		},
+		onBasePowerPriority: 6,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+				this.debug('thunderstruck boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+
+		name: "Thunderstruck",
+		desc: "h",
+		shortDesc: "Simulates the effects of Electric Terrain on the user.",
+		rating: 3,
+		num: -107,
+	},
+	fanglock: {
+		onModifyMove(move) {
+			if (!move || !move.flags['bite'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				volatileStatus: 'fanglock',
+			});
+		},
+		onFoeTrapPokemon(pokemon) {
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (pokemon.volatiles['fanglock']) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.volatiles['fanglock']) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+
+		name: "Fanglock",
+		desc: "This Pokemon's bite-based attacks trap their target.",
+		shortDesc: "This Pokemon's bite-based attacks trap their target.",
+		rating: 3,
+		num: -108,
+	},
+
+	frigidlanding: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'scorchedpebbles')) {
+				return false;
+			}
+		},
+
+		name: "Frigid Landing",
+		desc: "On switch-in, this Pokemon avoids all hazard damage.",
+		shortDesc: "On switch-in, this Pokemon avoids all hazard damage.",
+		rating: 3,
+		num: -109,
+	},
+
+	natureprowess: {
+		onStart(pokemon){
+			if(pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			let type: string;
+			type = item.naturalGift.type;
+
+			if (!pokemon.hasType(type) && pokemon.addType(type)) {
+				this.add('-start', pokemon, 'typeadd', type, '[from] ability: Nature Prowess');
+			}
+		},
+
+		onUpdate(pokemon) {
+			if ((pokemon.ignoringItem() || !pokemon.item) && Object.keys(pokemon.getTypes()).length === 2) {
+				pokemon.setType("Grass");
+				this.add('-start', pokemon, 'typechange', 'Grass', '[from] ability: Nature Prowess');
+			}
+		},
+
+		name: "Nature Prowess",
+		desc: "Adds a secondary type equal to Natural Gift to this Pokemon. Natural Gift doesn't consume the user's held berry.",
+		shortDesc: "Adds secondary type equal to Natural Gift; berry isn't consumed by Natural Gift."
+	},
+
+	persistence: {
+		onBeforeMove(target, source, move) {
+			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
+			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+			if (target.volatiles['twoturnmove']) {
+				this.boost({atk: 1});
+			} else if (!this.dex.getImmunity(moveType, source)) {
+				this.boost({atk: 1});
+			}
+			(move as any).persistence = true;
+		},
+
+		name: "Persistence",
+		desc: "If the user chooses an attacking move but doesn't damage the target on the same turn, raises the user's Attack by 1 stage.",
+		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
 	},
 	
 	//
@@ -137,8 +292,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				case 'psychicterrain':
 					newType = 'Psychic';
 					break;
-				case 'tarpit':
-					newType: 'Poison';
+				case 'tarterrain':
+					newType = 'Psychic';
 					break;
 				}
 				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
