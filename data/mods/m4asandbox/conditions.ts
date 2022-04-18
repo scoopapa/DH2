@@ -1,4 +1,6 @@
-// TOP PART INHERITED FROM M4Aconst longwhip: ConditionData = {
+// TOP PART INHERITED FROM M4A
+
+const longwhip: ConditionData = {
 	// this is a slot condition
 	onResidualOrder: 3,
 	onResidual(target) {
