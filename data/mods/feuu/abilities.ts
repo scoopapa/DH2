@@ -3213,8 +3213,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
                 return accuracy * 0.8;
             }
         },
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.isGrounded() || !target.hasAbility('feelnopain') || !target.hasAbility('magneticwaves') || 
+            !target.hasAbility('stickyfloat') || !target.hasAbility('etativel') || !target.hasAbility('lighthearted') || 
+            !target.hasAbility('leviflame') || !target.hasAbility('levitability') || !target.hasAbility('feelsomepain') || !target.hasAbility('aerialbreak') || !target.hasAbility('floatguise') || !target.hasAbility('clearlyfloating') || !target.hasAbility('hoverboard') || !target.hasAbility('levimetal') || !target.hasAbility('levistatic') || !target.hasAbility('lovelessfloat') || !target.hasType('Ghost')) {
+				return this.chainModify(1.5);
+			}
+		},
 		name: "Tiger Pit",
-		shortDesc: "(Bugged) Prevents grounded foes from switching. 0.8x Accuracy against airborne foes.",
+		shortDesc: "(Bugged) Prevents grounded foes from switching and moves have 1.5x power against grounded foes. 0.8x Accuracy against airborne foes.",
 	},	
     vengefulshift: {
         onAfterSetStatus(status, target, source, effect) {
@@ -4413,7 +4420,60 @@ lifedrain: {
 		name: "Percent Yield",
 		shortDesc: "This Pokémon takes 0.75x damage from super effective moves and recycles its held berry when hit by one.",
 	},
-
+	motoroverdrive: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spe: 2})) {
+					this.add('-immune', target, '[from] ability: Motor Drive');
+				}
+				return null;
+			}
+		},
+		name: "Motor Overdrive",
+		shortDesc: "This Pokemon's Speed is raised 2 stages if hit by an Electric move; Electric immunity.",
+	},
+	coldpressor: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Cold Pressor');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Cold Pressor",
+		shortDesc: "Slush Rush + Pressure",
+	},
+	proudpounce: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length, spa: length}, source);
+			}
+		},
+		name: "Proud Pounce",
+		shortDesc: "This Pokemon's Atk & Sp. Atk are raised by 1 stage if it attacks and KOes another Pokemon.",
+	},
+	deadlydeft: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				this.add('-activate', pokemon, 'ability: Deadly Deft');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'par') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Deadly Deft');
+			}
+			return false;
+		},
+		name: "Deadly Deft",
+		shortDesc: "Corrosion + Limber",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
