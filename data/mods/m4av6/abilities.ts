@@ -954,7 +954,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, source);
 			}
 		},
-		onAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 				this.boost({atk: 1}, source);
@@ -1321,7 +1321,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({def: 1}, source);
 			}
 		},
-		onAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (bladeMoves.includes(move.id)) {
