@@ -36,7 +36,7 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+		customTiers: ['Tourbanned (Future Suspect)', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
@@ -51,6 +51,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				// singles tiers
 				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
 				else if (uber.includes(id)) this.modData('FormatsData', id).tier = "Uber";
+				else if (aprilfools.includes(id)) this.modData('FormatsData', id).tier = "April Fools";
+				else if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
 				else if (tourbanned.includes(id)) this.modData('FormatsData', id).tier = "Tourbanned (Future Suspect)";
 				else if (newest.includes(id)) this.modData('FormatsData', id).tier = "Newest";
 				else if (tier1mega.includes(id)) this.modData('FormatsData', id).tier = "Tier 1 Mega";
