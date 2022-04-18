@@ -4474,6 +4474,121 @@ lifedrain: {
 		name: "Deadly Deft",
 		shortDesc: "Corrosion + Limber",
 	},
+	toxinrush: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('toxinrush'),
+			});
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (this.field.isWeather('hail') && secondary.chance && secondary.status === 'psn') secondary.chance *= 2;
+				}
+			}
+		},
+		name: "Toxin Rush",
+		shortDesc: "User's contact moves have a 30% Poison chance, 60% under Hail.",
+	},
+	liquidarmor: {
+		onSourceTryHeal(damage, target, source, effect) {
+			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
+			const canOoze = ['drain', 'leechseed', 'strengthsap'];
+			if (canOoze.includes(effect.id)) {
+				this.damage(damage);
+				return 0;
+			}
+		},
+		onCriticalHit: false,
+		name: "Liquid Armor",
+		shortDesc: "Liquid Ooze + Shell Armor",
+	},
+	bombshell: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Minimie' || attacker.transformed) return;
+			if (this.queue.willMove(defender)) return;
+			const targetForme = (!this.queue.willMove(defender) ? 'Minimie' : 'Minimie-Core');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Bombshell boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Minimie' || pokemon.transformed || !pokemon.hp) return;
+				if (pokemon.species.forme === 'Core') {
+					pokemon.formeChange('Minimie');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shields Down');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Shields Down');
+			return null;
+		},
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Bombshell",
+		shortDesc: "Analytic effects. Transforms into Core form when moving last or if the opponent switches. Transforms into Meteor at the end of each turn.",
+	},
+	eusocial: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectData.target;
+			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Eusocial', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.priority > 0.1) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Eusocial",
+		shortDesc: "This Pokemon's team is immune to priority moves. 1.5x power on priority moves.",
+	},
+	terabyte: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['bite']) {
+				move.type = 'Electric';
+			}
+		},
+		name: "Terabyte",
+		shortDesc: "This Pokemon's biting moves become Electric-type.",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
