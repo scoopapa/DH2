@@ -376,6 +376,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 		baseSpecies: null,
 		changesFrom: null,
+		forme: null,
+		requiredAbility: null,
+		battleOnly: null,
 	},
 	kyogre: {
 		num: 382,
@@ -403,6 +406,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		forme: null,
 		requiredItem: null,
+		changesFrom: null,
+		battleOnly: null,
 	},
 	groudon: {
 		num: 383,
@@ -430,6 +435,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 		forme: null,
 		requiredItem: null,
+		changesFrom: null,
+		battleOnly: null,
 	},
 	deoxyswood: {
 		num: 386,
@@ -1327,6 +1334,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Water 1", "Flying"],
 		baseSpecies: null,
 		forme: null,
+		changesFrom: null,
+		requiredAbility: null,
+		battleOnly: null,
 	},
 	eiscue: {
 		num: 875,
