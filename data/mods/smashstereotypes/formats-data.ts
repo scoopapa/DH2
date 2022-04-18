@@ -262,4 +262,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	abomasnow: {
 		tier: "SSS",
 	},
+	cramorantalola: {
+		tier: "SSS",
+	},
+	cramorantalolagulping: {
+	},
+	cramorantalolagorging: {
+	},
+	drednaw: {
+		tier: "SSS",
+	},
+	drednawgmax: {
+		tier: "SSS",
+	},
+	xurkirat: {
+		tier: "SSS",
+	},
 };

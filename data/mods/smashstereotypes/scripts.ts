@@ -145,6 +145,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData("Learnsets", "mothim").learnset.firelash = ["8L1"];
 		this.modData("Learnsets", "mothim").learnset.zingzap = ["8L1"];
+		
+		
+		this.modData('Learnsets', 'drednaw').learnset.closecombat = ["8M"];
+		this.modData('Learnsets', 'drednaw').learnset.flipturn = ["8M"];
 	},
 	
 	teambuilderConfig: {
