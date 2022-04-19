@@ -398,7 +398,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 25, atk: 40, def: 40, spa: 30, spd: 25, spe: 60},
-		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
+		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 0.6,
 		weightkg: 4.4,
 		color: "Gray",
@@ -410,7 +410,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Beedive",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 55, atk: 75, def: 80, spa: 65, spd: 70, spe: 80},
-		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Propeller Tail"},
+		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 20.0,
 		color: "Green",
@@ -1081,7 +1081,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ground"],
 		gender: "N",
 		baseStats: {hp: 135, atk: 120, def: 105, spa: 120, spd: 105, spe: 95},
-		abilities: {0: "Pressure", H: "Swift Swim"},
+		abilities: {0: "Pressure", H: "Against Current"},
 		heightm: 2.9,
 		weightkg: 380.0,
 		color: "Blue",
@@ -1522,6 +1522,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Neutralizing Gas"},
 	},
+	horsea: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Sniper", H: "Against Current"},
+	},
+	seadra: {
+		inherit: true,
+		abilities: {0: "Poison Point", 1: "Sniper", H: "Against Current"},
+	},
 	mrmimegalar: {
 		inherit: true,
 		types: ["Psychic", "Ice"],
@@ -1585,6 +1593,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Tireless"},
+	},
+	kingdra: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Sniper", H: "Against Current"},
 	},
 	pupitar: {
 		inherit: true,
@@ -1677,6 +1689,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thick Fat", 1: "Ice Breaker", H: "Oblivious"},
 		baseStats: {hp: 110, atk: 90, def: 90, spa: 95, spd: 90, spe: 65},
 	},
+	huntail: {
+		inherit: true,
+		abilities: {0: "Against Current", H: "Water Veil"},
+	},
+	gorebyss: {
+		inherit: true,
+		abilities: {0: "Against Current", H: "Hydration"},
+	},
+	relicanth: {
+		inherit: true,
+		abilities: {0: "Against Current", 1: "Rock Head", H: "Sturdy"},
+	},
 	luvdisc: {
 		inherit: true,
 		abilities: {0: "Swift Swim", H: "Irresistable"},
@@ -1741,14 +1765,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	bastiodon: {
 		inherit: true,
 		abilities: {0: "Filter", 1: "Stalwart", H: "Soundproof"},
-	},
-	buizel: {
-		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
-	},
-	floatzel: {
-		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Propeller Tail"},
 	},
 	shellos: {
 		inherit: true,
@@ -2222,9 +2238,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Pickpocket", 1: "Unburden", H: "Stakeout"},
 	},
+	chewtle: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Shell Armor", H: "Stalwart"},
+	},
+	drednaw: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Shell Armor", H: "Stalwart"},
+	},
 	boltund: {
 		inherit: true,
 		abilities: {0: "Tireless", H: "Competitive"},
+	},
+	arrokuda: {
+		inherit: true,
+		abilities: {0: "Swift Swim", H: "Against Current"},
+	},
+	barraskewda: {
+		inherit: true,
+		abilities: {0: "Swift Swim", H: "Against Current"},
 	},
 	toxtricity: {
 		inherit: true,

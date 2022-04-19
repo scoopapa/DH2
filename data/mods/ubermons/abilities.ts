@@ -448,4 +448,45 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 267,
 	},
+	intrepidsword: {
+		onModifyMove(pokemon, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zacian') {
+				move.basePower *= 0.8;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zaciancrowned') {
+				move.basePower *= 1.2;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zacian') {
+				return priority + 1;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zaciancrowned') {
+				return priority - 1;
+			}
+		},
+		name: "Intrepid Sword",
+		shortDesc: "If Hero: Blade/Slash/Cut moves have +1 priority & 20% less power. Reverse for Crowned.",
+		rating: 3.5,
+		num: 234,
+	},
+	dauntlessshield: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const dauntlessshieldUser = this.effectData.target;
+			if (pokemon === this.activePokemon && dauntlessshieldUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		name: "Dauntless Shield",
+		shortDesc: "This Pokemon ignores other Pokemon's stat stages when taking damage.",
+		rating: 3.5,
+		num: 235,
+	},
 };

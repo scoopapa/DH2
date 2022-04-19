@@ -672,4 +672,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	calyrexshadow: {
 		tier: "OU",
 	},
+	zacian: {
+		tier: "OU",
+	},
+	zaciancrowned: {
+		tier: "OU",
+	},
+	zamazenta: {
+		tier: "OU",
+	},
+	zamazentacrowned: {
+		tier: "OU",
+	},
 };

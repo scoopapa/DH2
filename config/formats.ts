@@ -843,7 +843,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Zacian', 'Zamazenta', 'Rayquaza-Mega',
+			'Arceus', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
 			//Abilities
 			'Moody',
 			//Items
@@ -1835,6 +1835,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Fusion Evolution LC",
 		mod: "feuu",
+		forcedLevel: 5,
 		maxLevel: 5,
 		desc: [
 			`<b>Fusion Evolution Little Cup</b>: A micrometa Pet Mod including the prevoultions of the balanced fusions featured in Fusion Evolution's Lower Tiers.`
@@ -2206,6 +2207,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		forcedLevel: 5,
 		defaultLevel: 5,
 		maxLevel: 5,
 		teambuilderFormat: "PaLCeomons",
@@ -2785,7 +2787,7 @@ export const Formats: FormatList = [
 		mod: 'earthsky',
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blaziken-Mega', 'Blastoise-Mega', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
-			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre',
 			'Kyurem', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
 			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom',
@@ -2937,111 +2939,16 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'OU',
 	},
 	{
-		name: "[Gen 8] MonoTyped Uber",
+		name: "[Gen 8] MonoTyped AG",
 		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'monotyped',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [
-			/*Pokemon*/'AG', 
-			/*Items*/'Rusted Sword', 'Rusted Shield',
-			/*Abilities*/'Moody', 'Shadow Tag', 'Zen Mode', 
-			/*Moves*/'Baton Pass',
-			
-		],
-		teambuilderFormat: 'Uber',
-	},
-	{
-		name: "[Gen 8] MonoTyped UU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped OU'],
-		banlist: [			
-			/*Pokemon*/'OU', 'UUBL',
-		],
-		teambuilderFormat: 'UU',
-		searchShow: false,
-		challengeShow: false,
-	},
-	{
-		name: "[Gen 8] MonoTyped RU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped UU'],
-		banlist: [			
-			/*Pokemon*/'UU', 'RUBL',
-		],
-		teambuilderFormat: 'RU',
-		searchShow: false,
-		challengeShow: false,
-	},
-	{
-		name: "[Gen 8] MonoTyped NU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped RU'],
-		banlist: [			
-			/*Pokemon*/'RU', 'NUBL',
-		],
-		teambuilderFormat: 'NU',
-	},
-	{
-		name: "[Gen 8] MonoTyped PU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped NU'],
-		banlist: [			
-			/*Pokemon*/'NU', 'PUBL',
-		],
-		teambuilderFormat: 'PU',
-		searchShow: false,
-		challengeShow: false,
-	},
-	{
-		name: "[Gen 8] MonoTyped ZU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['[Gen 8] MonoTyped PU'],
-		banlist: [			
-			/*Pokemon*/'PU',
-		],
-		unbanlist: [
-			'Ampharos', 'Arbok', 'Banette', 'Beheeyem', 'Bellossom', 'Boltund', 'Bouffalant', 'Carnivine', 'Castform', 'Cherrim', 'Chimecho', 
-			'Cursola', 'Delcatty', 'Ditto', 'Dubwool', 'Dugtrio', 'Dunsparce', 'Electrode', 'Flareon', 'Furfrou', 'Glaceon', 'Glalie', 'Gogoat', 
-			'Golduck', 'Gorebyss', 'Gothitelle', 'Grapploct', 'Greedent', 'Grumpig', 'Gumshoos', 'Heatmor', 'Huntail', 'Illumise', 'Komala', 
-			'Kricketune', 'Lickilicky', 'Liepard', 'Lopunny', 'Lumineon', 'Lurantis', 'Luvdisc', 'Luxray', 'Manectric', 'Maractus', 'Mightyena', 
-			'Minun', 'Octillery', 'Pachirisu', 'Persian', 'Phione', 'Pikachu-Alola', 'Pikachu-Hoenn', 'Pikachu-Kalos', 'Pikachu-Original', 
-			'Pikachu-Partner', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-World', 'Pincurchin', 'Plusle', 'Purugly', 'Pyukumuku', 'Rampardos', 
-			'Raticate', 'Seaking', 'Seviper', 'Silvally-Bug', 'Silvally-Fire', 'Silvally-Ice', 'Silvally-Psychic', 'Silvally-Rock', 'Slaking', 
-			'Smeargle', 'Spinda', 'Stantler', 'Sudowoodo', 'Sunflora', 'Swalot', 'Unown', 'Volbeat', 'Wailord', 'Watchog', 'Wishiwashi', 
-			'Wobbuffet', 'Zebstrika',
-		],
-		teambuilderFormat: '(PU)',
-		searchShow: false,
-		challengeShow: false,
+		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+		banlist: [],
+		teambuilderFormat: 'AG',
 	},
 	{
 		name: "[Gen 8] MonoTyped LC",
@@ -3290,7 +3197,24 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-    },
+	},
+	{    
+		name: "[Gen 8] ViZar's Bad Influence",
+		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10_bQ22nYNsWUrEyEvl080VaijY1CMZip0x-ItLqXOsk/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: "vizarsbadinfluence",
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer', 
+					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig', 
+					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross', 
+					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring-Mega', 
+					'Sawsbuck-Summer-Mega', 'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist',
+					'Swordeo', 'Swordeo', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
+		],
+	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [

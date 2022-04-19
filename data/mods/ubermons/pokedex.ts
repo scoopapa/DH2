@@ -240,4 +240,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 105, atk: 110, def: 95, spa: 110, spd: 95, spe: 115},
 	},
+	zacian: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 110, def: 85, spa: 100, spd: 85, spe: 108},
+	},
+	zaciancrowned: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 140, def: 105, spa: 130, spd: 105, spe: 68},
+	},
+	zamazenta: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 110, def: 100, spa: 70, spd: 80, spe: 110},
+	},
+	zamazentacrowned: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 95, def: 145, spa: 95, spd: 145, spe: 60},
+	},
 };
