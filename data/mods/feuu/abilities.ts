@@ -3187,6 +3187,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Lighthearted",
 		shortDesc: "Prankster + Levitate",
 	},	
+/*
 	tigerpit: {
         onFoeTrapPokemon(pokemon) {
             if (!this.isAdjacent(pokemon, this.effectData.target)) return;
@@ -3223,6 +3224,42 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tiger Pit",
 		shortDesc: "(Bugged) Prevents grounded foes from switching and moves have 1.5x power against grounded foes. 0.8x Accuracy against airborne foes.",
 	},	
+*/
+	tigerpit: {//test
+		name: "Tiger Pit",
+		shortDesc: "Prevents grounded foes from switching and moves have 1.5x power against grounded foes. 0.8x Accuracy against airborne foes.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Tiger Pit');
+				}
+				activated = true;
+				if (!pokemon.volatiles['trapped'] && (!pokemon.isGrounded() || pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
+            !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal') || !pokemon.hasAbility('levistatic') || !pokemon.hasAbility('lovelessfloat'))) {
+					pokemon.addVolatile('trapped', source, 'trapper');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['trapped'] && (!target.isGrounded() || target.hasAbility('feelnopain') || !target.hasAbility('magneticwaves') || 
+            !target.hasAbility('stickyfloat') || !target.hasAbility('etativel') || !target.hasAbility('lighthearted') 
+            || !target.hasAbility('leviflame') || !target.hasAbility('levitability') || !target.hasAbility('feelsomepain') || !target.hasAbility('aerialbreak') || !target.hasAbility('floatguise') || !target.hasAbility('clearlyfloating') || !target.hasAbility('hoverboard') || !target.hasAbility('levimetal') || !target.hasAbility('levistatic') || !target.hasAbility('lovelessfloat'))) {
+					target.addVolatile('trapped', source, 'trapper');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('trapped');
+			}
+		},
+	},
     vengefulshift: {
         onAfterSetStatus(status, target, source, effect) {
             if (!source || source === target) return;
