@@ -4521,7 +4521,7 @@ lifedrain: {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Minimie' || attacker.transformed) return;
-			if (!this.queue.willMove(defender)) {
+			if (!this.queue.willMove(defender) && defender !== attacker) {
 				if (attacker.species.forme !== 'Core') {
 					attacker.formeChange('Minimie-Core');
 				}
