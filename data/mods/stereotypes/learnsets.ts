@@ -3848,7 +3848,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 	/*
-	pkmn1: {
+	universalmoves: {
 		learnset: {
 			attract: ["8L1"],
 			bide: ["8L1"],

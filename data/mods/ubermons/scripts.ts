@@ -146,6 +146,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'calyrexice').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexshadow').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexshadow').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'zacian').learnset.closecombat;
+		this.modData('Learnsets', 'zacian').learnset.secretsword = ['8L1'];
+		
+		this.modData('Learnsets', 'zamazenta').learnset.toxic = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.bodypress = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.toxic = ['8L1'];
 	},
 	
 	pokemon: {
