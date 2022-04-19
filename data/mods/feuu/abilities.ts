@@ -3187,13 +3187,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Lighthearted",
 		shortDesc: "Prankster + Levitate",
 	},	
-/*
 	tigerpit: {
         onFoeTrapPokemon(pokemon) {
             if (!this.isAdjacent(pokemon, this.effectData.target)) return;
             if (pokemon.isGrounded() || !pokemon.hasAbility('feelnopain') || !pokemon.hasAbility('magneticwaves') || 
             !pokemon.hasAbility('stickyfloat') || !pokemon.hasAbility('etativel') || !pokemon.hasAbility('lighthearted') 
-            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal') || !pokemon.hasAbility('levistatic') || !pokemon.hasAbility('lovelessfloat')) {
+            || !pokemon.hasAbility('leviflame') || !pokemon.hasAbility('levitability') || !pokemon.hasAbility('feelsomepain') || !pokemon.hasAbility('aerialbreak') || !pokemon.hasAbility('floatguise') || !pokemon.hasAbility('clearlyfloating') || !pokemon.hasAbility('hoverboard') || !pokemon.hasAbility('levimetal') || !pokemon.hasAbility('levistatic') || !pokemon.hasAbility('lovelessfloat') || !pokemon.species.name === 'Rotofable') {
                 pokemon.tryTrap(true);
             }
         },
@@ -3224,7 +3223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tiger Pit",
 		shortDesc: "(Bugged) Prevents grounded foes from switching and moves have 1.5x power against grounded foes. 0.8x Accuracy against airborne foes.",
 	},	
-*/
+/*
 	tigerpit: {//test
 		name: "Tiger Pit",
 		shortDesc: "Prevents grounded foes from switching and moves have 1.5x power against grounded foes. 0.8x Accuracy against airborne foes.",
@@ -3260,6 +3259,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+*/
     vengefulshift: {
         onAfterSetStatus(status, target, source, effect) {
             if (!source || source === target) return;
