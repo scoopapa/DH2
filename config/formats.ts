@@ -3275,7 +3275,7 @@ export const Formats: FormatList = [
 		mod: 'the331typechart',
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem', 'Slowking-Base', 'Slowbro-Base'],
 	},
 	{    
         name: "[Gen 8] Under The Weather",
