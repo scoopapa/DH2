@@ -4539,16 +4539,16 @@ lifedrain: {
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if (target.species.id !== 'Minimie' || target.transformed) return;
 			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Shields Down');
+				this.add('-immune', target, '[from] ability: Bombshell');
 			}
 			return false;
 		},
 		onTryAddVolatile(status, target) {
-			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if (target.species.id !== 'Minimie' || target.transformed) return;
 			if (status.id !== 'yawn') return;
-			this.add('-immune', target, '[from] ability: Shields Down');
+			this.add('-immune', target, '[from] ability: Bombshell');
 			return null;
 		},
 		isPermanent: true,
