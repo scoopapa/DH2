@@ -4509,12 +4509,23 @@ lifedrain: {
 		shortDesc: "Liquid Ooze + Shell Armor",
 	},
 	bombshell: {
+/*
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Minimie' || attacker.transformed) return;
 			if (this.queue.willMove(defender)) return;
 			const targetForme = (!this.queue.willMove(defender) ? 'Minimie' : 'Minimie-Core');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+*/
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Minimie' || attacker.transformed) return;
+			if (this.queue.willMove(defender)) {
+				if (attacker.species.forme !== 'Core') {
+					attacker.formeChange('Minimie-Core');
+				}
+			}
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
