@@ -2867,7 +2867,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Rotokyu",
 		forme: "Busted",
 		types: ["Ghost", "Electric"],
-		baseStats: {hp: 55, atk: 85, def: 80, spa: 85, spd: 95, spe: 96},
+		baseStats: {hp: 62, atk: 70, def: 81, spa: 92, spd: 95, spe: 96},
 		abilities: {0: "Float Guise"},
 		weightkg: 0.5,
 		requiredAbility: "Float Guise",
@@ -3196,31 +3196,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Liquid Armor"},
 		weightkg: 182.5,
 	},
-	minimie: {
+	minimiecore: {
 		fusion: ['Minior', 'Starmie'],
 		num: 187,
-		name: "Minimie",
-		/*
-		baseForme: "Blue",
-		*/
+		name: "Minimie-Core",
+		baseSpecies: "Minimie",
+		forme: "Core",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 80, atk: 90, def: 75, spa: 105, spd: 75, spe: 120},
 		abilities: {0: "Bombshell"},
 		weightkg: 40.2,
-		otherFormes: ["Minimie-Meteor"],
-		formeOrder: ["Minimie", "Minimie-Meteor"],
+		battleOnly: "Minimie",
 	},
-	minimiemeteor: {
+	minimie: {
 		fusion: ['Minior', 'Starmie'],
 		num: 187,
-		name: "Minimie-Meteor",
-		baseSpecies: "Minimie",
-		forme: "Meteor",
+		name: "Minimie",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 80, atk: 75, def: 90, spa: 75, spd: 105, spe: 60},
 		abilities: {0: "Bombshell"},
 		weightkg: 79.9,
-		battleOnly: "Minimie",
+		otherFormes: ["Minimie-Core"],
+		formeOrder: ["Minimie", "Minimie-Core"],
 	},
 	tsarant: {
 		fusion: ['Tsareena', 'Durant'],
@@ -4250,7 +4247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Toxislash-Alola"],
 	},
 	tentatwig: {
-		fusion: ['Arrokuda', 'Litleo'],
+		fusion: ['Tentacool', 'Turtwig'],
 		num: 1100,
 		name: "Tentatwig",
 		types: ["Poison", "Grass"],
