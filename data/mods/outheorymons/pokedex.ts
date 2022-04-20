@@ -60,6 +60,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Justified", H: "Poison Heal"},
 	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Poison Heal"},
+	},
 	dragalge: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
