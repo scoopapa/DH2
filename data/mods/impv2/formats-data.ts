@@ -5,3 +5,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dhelmiserillaboom: {
 		tier: "Imp V2",
 	},
+};
