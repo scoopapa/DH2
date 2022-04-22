@@ -2976,6 +2976,14 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] National Dex VGC",
+		mod: 'gen8',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Species Clause', 'Item Clause', '!! Adjust Level = 50', 'VGC Timer', 'Picked Team Size = 4', 'Limit Two Restricted', 'Dynamax Clause'],
+		banlist: ['Mythical'],
+		restricted: ['Restricted Legendary'],
+	},
+	{
 		name: "[Gen 8] PKMN YB OU",
 		desc: [
 			"PKMN YB",
