@@ -945,7 +945,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onAfterMoveSecondary(target, source, move) {
-		if ((target && target.baseSpecies.num !== 889) || target.baseSpecies.num !== 889) return;
+			if ((target && target.baseSpecies.num !== 889) || target.baseSpecies.num !== 889) return;
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
@@ -970,7 +970,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onSourceAfterFaint(length, target, source, effect) {
-			if ((source && source.baseSpecies.num !== 888) || pokemon.baseSpecies.num !== 888) return;
+			if ((source && source.baseSpecies.num !== 888) || source.baseSpecies.num !== 888) return;
 			if (effect && effect.effectType === 'Move') {
 				this.boost({atk: length}, source);
 			}

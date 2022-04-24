@@ -250,7 +250,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	zamazenta: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 110, def: 100, spa: 70, spd: 80, spe: 110},
+		baseStats: {hp: 90, atk: 115, def: 105, spa: 70, spd: 80, spe: 110},
 	},
 	zamazentacrowned: {
 		inherit: true,
