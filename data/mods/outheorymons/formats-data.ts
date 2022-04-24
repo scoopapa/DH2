@@ -4187,7 +4187,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	keldeo: {
 		randomDoubleBattleMoves: ["airslash", "calmmind", "icywind", "muddywater", "protect", "secretsword"],
 		randomDoubleBattleLevel: 82,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	keldeoresolute: {
@@ -4451,7 +4451,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["dracometeor", "dragonpulse", "focusblast", "protect", "sludgebomb"],
 		randomDoubleBattleLevel: 86,
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	clauncher: {

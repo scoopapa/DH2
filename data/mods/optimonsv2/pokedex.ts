@@ -118,7 +118,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 75, atk: 95, def: 67, spa: 125, spd: 95, spe: 83},
-		abilities: {0: "Flame Body", 1: "Sheer Force"},
+		abilities: {0: "Flame Body", H: "Sheer Force"},
 	},
 	electivire: {
 		inherit: true,
@@ -134,7 +134,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 80, atk: 135, def: 100, spa: 65, spd: 100, spe: 65},
-		abilities: {0: "Pressure", 1: "Iron Fist"},
+		abilities: {0: "Pressure", H: "Iron Fist"},
 	},
 	xatu: {
 		inherit: true,

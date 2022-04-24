@@ -63,6 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
  	watercompaction: {
+	  	shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Water') {
 				this.boost({def: 2});
