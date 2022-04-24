@@ -78,7 +78,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Water Compaction",
 		rating: 1.5,
 		num: 195,
-	      }
-      },
 	},
 };
