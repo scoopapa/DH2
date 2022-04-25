@@ -4671,8 +4671,9 @@ lifedrain: {
 	},
 	fruitfulforce: {
 			onModifySpAPriority: 5,
-			onModifySpA(atk, attacker, defender, move) {
-				if (attacker.item.isBerry) {
+			onModifySpA(atk, pokemon) {
+			const item = pokemon.getItem();
+				if (item.isBerry) {
 					this.debug('Fruitful Force boost');
 					return this.chainModify(1.5);
 				}
