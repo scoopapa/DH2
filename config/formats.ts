@@ -574,7 +574,7 @@ export const Formats: FormatList = [
 			'All Pokemon', 'Baton Pass',
 		],
 		unbanlist: [
-			'Throh-Inteleon', 'Dhelmise-Rillaboom'
+			'Throh-Inteleon', 'Dhelmise-Rillaboom, Starmie-Cinderace'
 		],
 	},
 	{
