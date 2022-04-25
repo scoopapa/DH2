@@ -1527,6 +1527,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 		requiredItem: "Depleted Ultranecrozium Z",
 	},
+	toxislashalola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	tentaterra: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	minimie: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	tsarant: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	golevishalola: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2078,6 +2103,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	makuras: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	tentatwig: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	croagshrewalola: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},

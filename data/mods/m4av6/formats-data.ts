@@ -149,6 +149,10 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	lickilickymega: {},
 	tsareenamega: {},
 	grapploctmega: {},
+	// slate 42
+	snorlaxmega: {},
+	swalotmega: {},
+	wailordmega: {},
 };
 
 const randomMoves = (mon: string, moves: string) => {
