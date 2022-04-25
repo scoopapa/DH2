@@ -5,4 +5,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dhelmiserillaboom: {
 		tier: "Imp V2",
 	},
+	starmiecinderace: {
+	tier: "Imp V2",
+	},
 };
