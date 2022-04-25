@@ -3,6 +3,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Cursed Body", H: "Levitate"},
 	},
+	weezinggalar: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 120, spa: 85, spd: 70, spe: 60},
+	},
 	starmie: {
       inherit: true,
       baseStats: {hp: 60, atk: 75, def: 85, spa: 115, spd: 85, spe: 115},
