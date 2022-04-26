@@ -278,4 +278,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	xurkirat: {
 		tier: "SSS",
 	},
+	mesflame: {
+		tier: "SSS",
+	},
+	gourgeistfae: {
+		tier: "SSS",
+	},
+	odonaga: {
+		tier: "SSS",
+	},
 };
