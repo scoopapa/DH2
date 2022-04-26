@@ -545,16 +545,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	genesectburn: {
-		tier: "OU",
 	},
 	genesectchill: {
-		tier: "OU",
 	},
 	genesectdouse: {
-		tier: "OU",
 	},
 	genesectshock: {
-		tier: "OU",
 	},
 	dragapult: {
 		tier: "OU",
