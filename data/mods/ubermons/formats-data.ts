@@ -35,6 +35,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	magnezone: {
 		tier: "OU",
 	},
+	nidoking: {
+		tier: "UU",
+	},
 	pelipper: {
 		tier: "OU",
 	},
@@ -45,7 +48,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tangrowth: {
-		tier: "OU",
+		tier: "UU",
 	},
 	tapufini: {
 		tier: "OU",
@@ -75,7 +78,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	azumarill: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	blacephalon: {
 		tier: "UUBL",
@@ -150,7 +153,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	jirachi: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	keldeo: {
 		tier: "UU",
@@ -213,9 +216,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	slowkinggalar: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	swampert: {
+		tier: "UU",
+	},
+	terrakion: {
 		tier: "UU",
 	},
 	umbreon: {
@@ -225,6 +231,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	weavile: {
+		tier: "OU",
+	},
+	zeraora: {
 		tier: "UU",
 	},
 	victreebel: {
@@ -392,7 +401,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	medichammega: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	medicham: {
@@ -401,6 +410,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	meditite: {
 		tier: "LC",
+		doublesTier: "DUU",
+	},
+	serperior: {
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	tyranitarmega: {
@@ -428,7 +441,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	gyaradosmega: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	beedrillmega: {
@@ -597,6 +610,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dracovish: {
 		tier: "OU",
 	},
+	dracozolt: {
+		tier: "UU",
+	},
 	metagrossmega: {
 		tier: "OU",
 	},
@@ -604,7 +620,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	blaziken: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	mewtwo: {
 		tier: "OU",
