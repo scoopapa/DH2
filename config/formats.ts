@@ -3209,21 +3209,21 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{    
+	{
 		name: "[Gen 8] ViZar's Bad Influence",
 		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10_bQ22nYNsWUrEyEvl080VaijY1CMZip0x-ItLqXOsk/edit?usp=sharing">Spreadsheet</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: "vizarsbadinfluence",
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
 		banlist: ['All Pokemon'],
-		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer', 
-					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig', 
-					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross', 
-					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring-Mega', 
+		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer',
+					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig',
+					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross',
+					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring-Mega',
 					'Sawsbuck-Summer-Mega', 'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist',
-					'Swordeo', 'Swordeo', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
+					'Swordeo', 'Tapu Fini', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
 		],
 	},
 	{
