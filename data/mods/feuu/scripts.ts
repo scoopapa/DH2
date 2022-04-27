@@ -142,6 +142,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
 			return "Gastrocham-Mega"; 
 		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-X"; 
+		}
+		if (item.name === "Pinsirite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-Y"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti") {
+			return "Wishirupti-Mega"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti-School") {
+			return "Wishirupti-School-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
