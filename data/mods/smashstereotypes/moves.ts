@@ -1713,4 +1713,91 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+	cocoonfeeding: {
+		num: 262,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cocoon Feeding",
+		shortDesc: "User faints. Incoming Pokemon gains +1 Def and +1 SpDef.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onTryHit(pokemon, target, move) {
+			if (!this.canSwitch(pokemon.side)) {
+				delete move.selfdestruct;
+				return false;
+			}
+		},
+		slotCondition: 'cocoonfeeding',
+		condition: {
+			onSwap(target) {
+				this.boost({def: 1});
+				this.boost({spd: 1});
+				target.side.removeSlotCondition(target, 'cocoonfeeding');
+			},
+		},
+		selfdestruct: "ifHit",
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Tough",
+	},
+	feudalharpoon: {
+		num: 830,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Feudal Harpoon",
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	banefulbladedance: {
+		num: 1014,
+		accuracy: true,
+		basePower: 160,
+		category: "Special",
+		name: "Baneful Blade Dance",
+		shortDesc: "Guarantees critical hits.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "odonagiumz",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('banefulbladedance');
+				}
+			},
+		},
+		condition: {
+			noCopy: true,
+			onStart(target, source, effect) {
+				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+					this.add('-start', target, 'move: Baneful Blade Dance');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 3;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
 };

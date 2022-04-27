@@ -507,5 +507,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-	}, 
+	},
+	leviflame: {
+		name: "Leviflame",
+		shortDesc: "Levitate + Flame Body",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !target.volatiles['smackdown'] ) {
+				this.add('-immune', target, '[from] ability: Leviflame');
+				return null;
+			}
+		},
+	},
 };

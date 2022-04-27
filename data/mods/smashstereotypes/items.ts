@@ -274,4 +274,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Drednaw, this item allows it to Mega Evolve in battle.",
 	},
+	odonagiumz: {
+		name: "Odonagium Z",
+		desc: "If held by Odonaga with Feudal Harpoon, it can use Baneful Blade Dance.",
+		spritenum: 642,
+		onTakeItem: false,
+		zMove: "Baneful Blade Dance",
+		zMoveFrom: "Feudal Harpoon",
+		itemUser: ["Odonaga"],
+		num: 1010,
+		gen: 7,
+	},
 };

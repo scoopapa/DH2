@@ -2971,6 +2971,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'monotyped',
+		forcedLevel: 5,
+		defaultLevel: 5,
 		maxLevel: 5,
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
