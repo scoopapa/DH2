@@ -308,6 +308,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Null System",
 		shortDesc: "This Pokemon can be any type (selected in teambuilder)."
 	},
+/*
 	inthicktrator: {
 		id: "inthicktrator",
 		name: "Inthicktrator",
@@ -326,6 +327,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			///////////END PLACEHOLDER
 			move.infiltrates = true;
 			move.ignoreAbility = true;
+		},
+	},
+*/
+	inthicktrator: {
+		id: "inthicktrator",
+		name: "Inthicktrator",
+		shortDesc: "This Pokemon's moves ignore Screens/Substitutes/Resistance-based Abilities.",
+		onModifyMove(move, pokemon, target) {
+			move.infiltrates = true;
+		if (target.hasAbility('gulprock') || target.hasAbility('fatfulfloat') || target.hasAbility('porousfat') || target.hasAbility('fridge')) {
+			move.ignoreAbility = true;
+			}
 		},
 	},
 	magicsurge: {
@@ -4637,6 +4650,70 @@ lifedrain: {
 		name: "Terabyte",
 		shortDesc: "This Pokemon's biting moves become Electric-type.",
 	},
+	flamedrive: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Motor Drive');
+				}
+				return null;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Flame Drive",
+		shortDesc: "Flame Body + Motor Drive",
+	},
+	fruitfulforce: {
+			onModifySpAPriority: 5,
+			onModifySpA(atk, pokemon) {
+			const item = pokemon.getItem();
+				if (item.isBerry) {
+					this.debug('Fruitful Force boost');
+					return this.chainModify(1.5);
+				}
+			},
+		name: "Fruitful Force",
+		shortDesc: "If the user is holding a berry, the user's Special Attack is 1.5x.",
+	},
+	bravado: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Bravado');
+			this.add('-message', `Herasir breaks the mold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		name: "Bravado",
+		shortDesc: "Moxie + Mold Breaker",
+	},
+	sandmistsurge: {
+		onStart(source) {
+			this.field.setTerrain('mistyterrain');
+			this.field.setWeather('sandstorm');
+		},
+		name: "Sandmist Surge",
+		shortDesc: "Sand Stream + Misty Surge",
+	},
+	fastmetabolism: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Fast Metabolism",
+		shortDesc: "When this Pokemon has 1/2 or less of its maximum HP, its Speed is doubled.",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -5577,6 +5654,30 @@ lifedrain: {
 		},
 		name: "Stink Guard",
 		shortDesc: "No Guard + Stench",
+	},
+	vitalbody: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Vital Body');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Vital Body');
+			}
+			return false;
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Vital Body",
+		shortDesc: "Flame Body + Vital Spirit",
 	},
 };
  

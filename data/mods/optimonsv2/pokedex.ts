@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	inteleon: {
 		inherit: true,
 		types: ["Water", "Normal"],
@@ -186,5 +186,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	galvantula: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Compound Eyes", H: "Unnerve"},
+	},
+	samurott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 95, atk: 117, def: 85, spa: 118, spd: 70, spe: 70},
+		abilities: {0: "Torrent", H: "Adaptability"},
+	},
+	delphox: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 59, def: 92, spa: 104, spd: 100, spe: 104},
+		abilities: {0: "Blaze", H: "Magic Guard"},
+	},
+	torterra: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 129, def: 105, spa: 65, spd: 105, spe: 36},
+		abilities: {0: "Overgrow", H: "Solid Rock"},
 	},
 };

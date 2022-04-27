@@ -256,7 +256,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (
 				(this.hasAbility('levitate') ||
 				this.hasAbility('leviflame') ||
-				!this.battle.suppressingAttackEvents()
+				!this.battle.suppressingAttackEvents())
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
