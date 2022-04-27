@@ -2792,8 +2792,8 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
 		],
-		ruleset: [ 'Earth & Sky',],
 		mod: 'earthsky',
+		ruleset: [ 'Earth & Sky',],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blaziken-Mega', 'Blastoise-Mega', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
 			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre',
@@ -2802,6 +2802,7 @@ export const Formats: FormatList = [
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom',
 			/*'ES Uber', */'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
+		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 8] Earth & Sky Egelas Dex",
@@ -2809,18 +2810,19 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/u/1/d/1N_kSuPC2XifKplZ9huLVlxmkYv3fCmt2">Egelan Pokedex</a>`,
 		],
-		ruleset: [ '[Gen 8] Earth & Sky OU', 'Egelas Pokedex',],
 		mod: 'earthsky',
+		ruleset: [ '[Gen 8] Earth & Sky OU', 'Egelas Pokedex',],
+		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 8] Earth & Sky Ubers",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1CL_DALzaisaMwr2709KMleWU6ntxBPnzfHukN0SR5Ss">Competitive Cheat Sheet</a>`,
 		],
+		mod: 'earthsky',
 		ruleset: [ 'Earth & Sky',],
 		banlist: [],
-		mod: 'earthsky',
-		teambuilderFormat: 'Ubers',
+		teambuilderFormat: 'National Dex Ubers',
 	},
 	{
 		name: "[Gen 8] Ema Mod",
@@ -2979,7 +2981,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] National Dex VGC",
 		mod: 'gen8',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Species Clause', 'Item Clause', '!! Adjust Level = 50', 'VGC Timer', 'Picked Team Size = 4', 'Limit Two Restricted', 'Dynamax Clause'],
+		ruleset: ['Standard NatDex', 'Species Clause', 'Item Clause', '!! Adjust Level = 50', 'VGC Timer', 'Picked Team Size = 4', 'Limit Two Restricted'],
 		banlist: ['Mythical'],
 		restricted: ['Restricted Legendary'],
 	},
