@@ -416,7 +416,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
-			onResidual(target) {
+			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
@@ -521,7 +521,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
 							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');

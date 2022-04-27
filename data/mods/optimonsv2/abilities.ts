@@ -63,6 +63,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
  	watercompaction: {
+		inherit: true, 
+	  	shortDesc: "When this Pokemon is hit by a Water-type move, damage is halved and its Defense is raised by 2.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Water') {
 				this.boost({def: 2});
