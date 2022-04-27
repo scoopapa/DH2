@@ -2043,6 +2043,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["8L1"],
 			twineedle: ["8L1"],
 			weatherball: ["8L1"],
+			quiverdance: ["8L1"],
 		},
 	},
 	bugpsychic: {
@@ -5335,7 +5336,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			irondefense: ["8L1"],
 			rockblast: ["8L1"],
 			smackdown: ["8L1"],
-			earthquake: ["8L1"],
 			ancientpower: ["8L1"],
 			tackle: ["8L1"],
 			ironhead: ["8L1"],
@@ -7300,10 +7300,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	firepsychic: {
 		learnset: {
-		},
-	},
-	steel: {
-		learnset: {
 			burningpetals: ["8L1"],
 			photongeyser: ["8L1"],
 			allyswitch: ["8L1"],
@@ -7424,7 +7420,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 		},
 	},
-	rock: {
+	steel: {
 		learnset: {
 			behemothblade: ["8L1"],
 			sacredsword: ["8L1"],
@@ -7484,7 +7480,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 		},
 	},
-	firefairy: {
+	rock: {
 		learnset: {
 			rockwrecker: ["8L1"],
 			ancientpower: ["8L1"],
@@ -7576,7 +7572,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			explosion: ["8L1"],
 		},
 	},
-	grassflying: {
+	firefairy: {
 		learnset: {
 			lunardance: ["8L1"],
 			junglehealing: ["8L1"],
@@ -7675,7 +7671,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8L1"],
 		},
 	},
-	fighting: {
+	grassflying: {
 		learnset: {
 			headcharge: ["8L1"],
 			bulletseed: ["8L1"],
@@ -7782,7 +7778,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wingattack: ["8L1"],
 		},
 	},
-	psychicfairy: {
+	fighting: {
 		learnset: {
 			plasmafists: ["8L1"],
 			thunderouskick: ["8L1"],
@@ -7892,7 +7888,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 		},
 	},
-	electricnormal: {
+	psychicfairy: {
 		learnset: {
 			mistball: ["8L1"],
 			rampage: ["8L1"],
@@ -8012,7 +8008,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			mudslap: ["8L1"],
 		},
 	},
-	firedark: {
+	electricnormal: {
 		learnset: {
 			thunderreign: ["8L1"],
 			aerialace: ["8L1"],
@@ -8107,7 +8103,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 		},
 	},
-	iceghost: {
+	firedark: {
 		learnset: {
 			sacredfire: ["8L1"],
 			magmastorm: ["8L1"],
@@ -8200,6 +8196,114 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uproar: ["8L1"],
 			willowisp: ["8L1"],
 			workup: ["8L1"],
+		},
+	},
+	iceghost: {
+		learnset: {
+			diamonddust: ["8L1"],
+			allyswitch: ["8L1"],
+			astonish: ["8L1"],
+			attract: ["8L1"],
+			auroraveil: ["8L1"],
+			avalanche: ["8L1"],
+			blizzard: ["8L1"],
+			bodyslam: ["8L1"],
+			bulldoze: ["8L1"],
+			calmmind: ["8L1"],
+			captivate: ["8L1"],
+			confide: ["8L1"],
+			confuseray: ["8L1"],
+			curse: ["8L1"],
+			darkpulse: ["8L1"],
+			destinybond: ["8L1"],
+			disable: ["8L1"],
+			doubleteam: ["8L1"],
+			doubleedge: ["8L1"],
+			dreameater: ["8L1"],
+			embargo: ["8L1"],
+			encore: ["8L1"],
+			endure: ["8L1"],
+			energyball: ["8L1"],
+			facade: ["8L1"],
+			flash: ["8L1"],
+			fling: ["8L1"],
+			foulplay: ["8L1"],
+			freezedry: ["8L1"],
+			frostbreath: ["8L1"],
+			frustration: ["8L1"],
+			gigadrain: ["8L1"],
+			gigaimpact: ["8L1"],
+			hail: ["8L1"],
+			headbutt: ["8L1"],
+			hex: ["8L1"],
+			hiddenpower: ["8L1"],
+			hyperbeam: ["8L1"],
+			icebeam: ["8L1"],
+			icepunch: ["8L1"],
+			iceshard: ["8L1"],
+			iciclespear: ["8L1"],
+			icywind: ["8L1"],
+			imprison: ["8L1"],
+			irondefense: ["8L1"],
+			ironhead: ["8L1"],
+			irontail: ["8L1"],
+			lightscreen: ["8L1"],
+			magiccoat: ["8L1"],
+			mimic: ["8L1"],
+			mist: ["8L1"],
+			mudslap: ["8L1"],
+			naturalgift: ["8L1"],
+			nightshade: ["8L1"],
+			ominouswind: ["8L1"],
+			painsplit: ["8L1"],
+			payback: ["8L1"],
+			phantomforce: ["8L1"],
+			poltergeist: ["8L1"],
+			powdersnow: ["8L1"],
+			protect: ["8L1"],
+			psychup: ["8L1"],
+			psychic: ["8L1"],
+			raindance: ["8L1"],
+			recover: ["8L1"],
+			reflect: ["8L1"],
+			rest: ["8L1"],
+			return: ["8L1"],
+			rockslide: ["8L1"],
+			rocksmash: ["8L1"],
+			rocktomb: ["8L1"],
+			round: ["8L1"],
+			safeguard: ["8L1"],
+			secretpower: ["8L1"],
+			shadowball: ["8L1"],
+			shadowclaw: ["8L1"],
+			shadowsneak: ["8L1"],
+			sheercold: ["8L1"],
+			shockwave: ["8L1"],
+			signalbeam: ["8L1"],
+			skillswap: ["8L1"],
+			sleeptalk: ["8L1"],
+			snatch: ["8L1"],
+			snore: ["8L1"],
+			spite: ["8L1"],
+			strength: ["8L1"],
+			substitute: ["8L1"],
+			suckerpunch: ["8L1"],
+			sunnyday: ["8L1"],
+			swagger: ["8L1"],
+			taunt: ["8L1"],
+			telekinesis: ["8L1"],
+			thief: ["8L1"],
+			thunder: ["8L1"],
+			thunderbolt: ["8L1"],
+			toxic: ["8L1"],
+			trick: ["8L1"],
+			trickroom: ["8L1"],
+			waterpulse: ["8L1"],
+			weatherball: ["8L1"],
+			willowisp: ["8L1"],
+			wonderroom: ["8L1"],
+			zenheadbutt: ["8L1"],
+			memento: ["8L1"],
 		},
 	},
 };
