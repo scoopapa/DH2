@@ -26,7 +26,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	arceusground: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		requiredItem: "Earth Plate",
 		otherFormes: null,
 		formeOrder: null,
 		baseSpecies: null,
@@ -448,6 +447,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: null,
 		formeOrder: null,
 		changesFrom: null,
+	},
+	zacian: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 110, def: 85, spa: 100, spd: 85, spe: 108},
+		abilities: {0: "Intrepid Blade"},
+	},
+	zaciancrowned: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 140, def: 105, spa: 130, spd: 105, spe: 68},
+		abilities: {0: "Intrepid Crown"},
 	},
 	zarapex: {
 		fusion: ['Zarude', 'Toxapex'],

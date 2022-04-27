@@ -295,6 +295,42 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
+	intrepidblade: {
+		onModifyMove(pokemon, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zacian') {
+				move.basePower *= 0.8;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zacian') {
+				return priority + 1;
+			}
+		},
+		name: "Intrepid Blade",
+		shortDesc: "If Zacian: Blade/Slash/Cut moves have +1 priority & 20% less power.",
+		rating: 3.5,
+		num: 1008,
+	},
+	intrepidcrown: {
+		onModifyMove(pokemon, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zaciancrowned') {
+				move.basePower *= 1.2;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zaciancrowned') {
+				return priority - 1;
+			}
+		},
+		name: "Intrepid Crown",
+		shortDesc: "If Zacian-Crowned: Blade/Slash/Cut moves have -1 priority & 20% more power.",
+		rating: 3.5,
+		num: 1009,
+	},
 	
 	mountaineer: {
 		inherit: true,

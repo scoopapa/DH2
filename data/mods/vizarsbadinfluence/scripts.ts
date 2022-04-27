@@ -83,7 +83,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'tapufini').learnset.foggymist = ['8L1'];
 		delete this.modData('Learnsets', 'tapufini').learnset.defog;
 		delete this.modData('Learnsets', 'tapufini').learnset.drainingkiss;
-
+		
+		delete this.modData('Learnsets', 'zacian').learnset.closecombat;
+		this.modData('Learnsets', 'zacian').learnset.secretsword = ['8L1'];
 	},
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
