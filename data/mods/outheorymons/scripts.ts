@@ -1,8 +1,10 @@
 export const Scripts: BattleScriptsData = {
    init: function() {
+		this.modData('Learnsets', 'weezinggalar').learnset.moonlight = ['8L1'];
 		this.modData('Learnsets', 'starmie').learnset.mysticalfire = ['8L1'];
 	   this.modData('Learnsets', 'gyarados').learnset.dualwingbeat = ['8L1'];
 		this.modData('Learnsets', 'shedinja').learnset.partingshot = ['8L1'];
+		this.modData('Learnsets', 'torkoal').learnset.flipturn = ['8L1'];
 	   this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
 	   this.modData('Learnsets', 'tangrowth').learnset.spikes = ['8L1'];
 	   this.modData('Learnsets', 'darmanitan').learnset.thunderouskick = ['8L1'];
