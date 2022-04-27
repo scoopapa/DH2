@@ -1199,6 +1199,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'nationaldexbalancedhackmons',
+		teambuilderFormat: 'National Dex AG',
 		ruleset: ['Standard NatDex', '+Nonexistent', '!Obtainable Abilities', '!Obtainable Moves', '!Obtainable Formes', 'Forme Clause', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'CFZ Clause', 'Dynamax Clause'/*, 'Arceus Clause'*/],
 		banlist: [
 				'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Cramorant-Gorging', 'Calyrex-Shadow', 'Eternatus-Eternamax',
