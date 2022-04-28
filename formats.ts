@@ -1208,6 +1208,17 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
+	{
+		name: "[Gen 8] Optimons v2",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-8-optimons-v2-3rd-slate-creepy.3700473/">OptiMons v2</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TfbiVvD6JHglCDJKCQeDV9OTKYJqDM5rSJY8zh0bsVA/edit#gid=0">Spreadsheet</a>`,
+		],
+
+		mod: 'optimonsv2',
+   	ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
+	},
 	
 	{
 		name: "[Gen 8] Perfect Galar",
