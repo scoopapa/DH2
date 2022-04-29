@@ -3231,7 +3231,7 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: 'National Dex',
 	},
-	{
+	/*{
 		name: "[Gen 8] ViZar's Bad Teenagers",
 		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
 		threads: [
@@ -3263,7 +3263,7 @@ export const Formats: FormatList = [
 				'Growlithe-Alola', 'Bulbalit',
 		],
 		teambuilderFormat: 'LC',
-	},
+	},*/
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [
