@@ -856,7 +856,7 @@ export const Formats: FormatList = [
 			//Moves
 			'Baton Pass',
 		],
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'National Dex',
 	},
 	{
 		section: "Recent Smogon Mods",
