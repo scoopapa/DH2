@@ -256,4 +256,76 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 95, def: 145, spa: 95, spd: 145, spe: 60},
 	},
+	arceus: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusbug: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusdark: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusdragon: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuselectric: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfairy: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfighting: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfire: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusflying: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusghost: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusgrass: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusground: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusice: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuspoison: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuspsychic: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusrock: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceussteel: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuswater: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
 };

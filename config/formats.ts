@@ -848,7 +848,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
+			'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
 			//Abilities
 			'Moody',
 			//Items

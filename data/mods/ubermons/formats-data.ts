@@ -696,4 +696,41 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zamazentacrowned: {
 		tier: "OU",
 	},
+	arceus: {
+		tier: "OU",
+	},
+	arceusbug: {
+	},
+	arceusdark: {
+	},
+	arceusdragon: {
+	},
+	arceuselectric: {
+	},
+	arceusfairy: {
+	},
+	arceusfighting: {
+	},
+	arceusfire: {
+	},
+	arceusflying: {
+	},
+	arceusghost: {
+	},
+	arceusgrass: {
+	},
+	arceusground: {
+	},
+	arceusice: {
+	},
+	arceuspoison: {
+	},
+	arceuspsychic: {
+	},
+	arceusrock: {
+	},
+	arceussteel: {
+	},
+	arceuswater: {
+	},
 };
