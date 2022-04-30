@@ -43,8 +43,9 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		onBeforeMoveSecondary(target, source, move) {
-			if (source && source.baseSpecies.num === 649) {
-				if (source || source === target && move.category !== 'Status') {
+			if (target && target.baseSpecies.num === 649) {
+				const move = source.lastMove;
+				if (move.category !== 'Status') {
 					this.boost({def: 1}, target);
 					target.useItem();
 				}
