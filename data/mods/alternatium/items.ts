@@ -42,8 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		/*onBeforeMoveSecondaryPriority: 6,
-		onBeforeMoveSecondary(target, source, move) {
+		beforeMoveCallback(target, source, move) {
 			if (target && target.baseSpecies.num === 649) {
 				const move = source.lastMove;
 				if (move.category !== 'Status') {
@@ -51,7 +50,7 @@ export const Items: {[itemid: string]: ItemData} = {
 					target.useItem();
 				}
 			}
-		},*/
+		},
 		onDrive: 'Ice',
 		num: 119,
 		gen: 5,
