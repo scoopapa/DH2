@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onBeforeMove(target, source, move) {
+		onBeforeMoveSecondary(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (source || source === target && move.category !== 'Status') {
 					this.boost({def: 1}, target);
