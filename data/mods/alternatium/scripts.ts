@@ -12,7 +12,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "linoone").learnset.focusblast = ["8L1"];
 		this.modData("Learnsets", "linoone").learnset.vacuumwave = ["8L1"];
 		delete this.modData('Learnsets', 'linoone').learnset.bellydrum;
-	}
+	},
 	
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
