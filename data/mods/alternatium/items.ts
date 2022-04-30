@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		onBeforeMoveSecondary(target, source, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (target && target.baseSpecies.num === 649) {
 				const move = source.lastMove;
 				if (move.category !== 'Status') {
