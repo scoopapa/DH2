@@ -44,7 +44,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onBeforeMove(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
-				if (source || source !== target && move.category !== 'Status') {
+				if (source || source === target && move.category !== 'Status') {
 					this.boost({def: 1}, source);
 					source.useItem();
 				}
