@@ -1417,7 +1417,7 @@ export const Formats: FormatList = [
 		mod: 'alternatium',
 		searchShow: false,
 		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Data Mod', '+Unobtainable', '+Past'],
+		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Data Mod', '+Unobtainable', '+Past', 'Z-Move Clause'],
 		banlist: ['All Pokemon'],
 		unbanlist: [
 					'Silvally', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 
