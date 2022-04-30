@@ -45,13 +45,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBeforeMove(target, source, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (source || source === target && move.category !== 'Status') {
-					this.boost({def: 1}, source);
-					source.useItem();
+					this.boost({def: 1}, target);
+					target.useItem();
 				}
 			}
-		},
-		boosts: {
-			def: 1,
 		},
 		onDrive: 'Ice',
 		num: 119,
