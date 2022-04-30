@@ -3007,7 +3007,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			willowisp: ["8L1"],
 		},
 	},
-	linoone: {
+	/*linoone: {
 		learnset: {
 			attract: ["8L1"],
 			babydolleyes: ["8L1"],
@@ -3104,7 +3104,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			focusblast: ["8L1"],
 			vacuumwave: ["8L1"],
 		},
-	},
+	},*/
 	linoonepunk: {
 		learnset: {
 			partingshot: ["8L1"],

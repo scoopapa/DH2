@@ -308,7 +308,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Liquid Scales"},
 		heightm: 0.6,
 		weightkg: 0.5,
-		evos: ["Cursola"],
 		eggGroups: ["Water 1", "Water 3"],
 	},
 	linoone: {
@@ -320,6 +319,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 32.5,
 		eggGroups: ["Field"],
+		prevo: null,
 	},
 	linoonepunk: {
 		num: 264,
