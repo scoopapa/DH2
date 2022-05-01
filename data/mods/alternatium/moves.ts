@@ -524,7 +524,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}
@@ -847,7 +847,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		shortDesc: "If Cramorant: 1.5x power; if Swimmer: Summons rain, when moves last.",
+		shortDesc: "Cramorant: 1.5x power; Swimmer: Summons rain, when moves last.",
 		name: "Gulp Missle",
 		pp: 10,
 		priority: 0,
@@ -920,7 +920,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes. First hit neutral on Flying.",
+		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes.",
 		name: "Thousand Arrows",
 		pp: 10,
 		priority: 0,
@@ -968,7 +968,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1, heal: 1},
-		drain: [1, 2],
+		drain: [1, 4],
 		secondary: undefined,
 		target: "allAdjacentFoes",
 		type: "Ground",

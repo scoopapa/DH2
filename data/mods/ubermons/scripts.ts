@@ -153,6 +153,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zamazenta').learnset.toxic = ['8L1'];
 		this.modData('Learnsets', 'zamazenta').learnset.bodypress = ['8L1'];
 		this.modData('Learnsets', 'zamazenta').learnset.knockoff = ['8L1'];
+		
+		this.modData('Learnsets', 'arceus').learnset.storedpower = ['8L1'];
+		this.modData('Learnsets', 'arceus').learnset.leechseed = ['8L1'];
 	},
 	
 	pokemon: {

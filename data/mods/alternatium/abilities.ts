@@ -40,7 +40,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 259,
 	},
-	rkssystem: {
+	rkssystem: { //Unused code but I'll keep it cause it can be useful in the future
 		onStart(pokemon) {
 			switch (pokemon.species.id) {
 			case 'silvally':
@@ -163,8 +163,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Static Cling",
-		shortDesc: "This Pokemon cannot lose its held item. Contact: Steals opponent's item on contact, if the user has no item.",
-		rating: 0,
+		shortDesc: "User cannot lose its item. Steals opponent's item on contact.",
+		rating: 4,
 		num: 1001,
 	},
 	rarecold: {
@@ -345,7 +345,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Shadow World",
-		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
+		shortDesc: "While active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
 		rating: 3,
 		num: 1010,
 	},

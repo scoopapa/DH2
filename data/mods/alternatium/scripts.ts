@@ -1,7 +1,19 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	//Included for Burn Heal:
-	//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
-	//So we have to bypass it manually here.
+	init: function () {
+		/*Template:
+		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
+		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
+		
+		//this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
+		this.modData("Learnsets", "linoone").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "linoone").learnset.moonblast = ["8L1"];
+		this.modData("Learnsets", "linoone").learnset.hypervoice = ["8L1"];
+		this.modData("Learnsets", "linoone").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "linoone").learnset.focusblast = ["8L1"];
+		this.modData("Learnsets", "linoone").learnset.vacuumwave = ["8L1"];
+		delete this.modData('Learnsets', 'linoone').learnset.bellydrum;
+	},
+	
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,

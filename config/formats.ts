@@ -848,7 +848,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
 		banlist: [
 			//Pokémon
-			'Arceus', 'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
+			'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
 			//Abilities
 			'Moody',
 			//Items
@@ -856,7 +856,7 @@ export const Formats: FormatList = [
 			//Moves
 			'Baton Pass',
 		],
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'National Dex',
 	},
 	{
 		section: "Recent Smogon Mods",
@@ -1417,7 +1417,7 @@ export const Formats: FormatList = [
 		mod: 'alternatium',
 		searchShow: false,
 		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Data Mod', '+Unobtainable', '+Past'],
+		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Data Mod', '+Unobtainable', '+Past', 'Z-Move Clause'],
 		banlist: ['All Pokemon'],
 		unbanlist: [
 					'Silvally', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 
@@ -3223,23 +3223,57 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{    
+	{
 		name: "[Gen 8] ViZar's Bad Influence",
 		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10_bQ22nYNsWUrEyEvl080VaijY1CMZip0x-ItLqXOsk/edit?usp=sharing">Spreadsheet</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: "vizarsbadinfluence",
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
 		banlist: ['All Pokemon'],
-		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer', 
-					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig', 
-					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross', 
-					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Spring-Mega', 
-					'Sawsbuck-Summer-Mega', 'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist',
-					'Swordeo', 'Swordeo', 'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zarapex',
+		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer',
+					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig',
+					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross',
+					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Mega',	'Sawsbuck-Summer-Mega', 
+					'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist', 'Swordeo', 'Tapu Fini', 
+					'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zacian', 'Zacian-Crowned', 'Zarapex',
 		],
+		teambuilderFormat: 'National Dex',
 	},
+	/*{
+		name: "[Gen 8] ViZar's Bad Teenagers",
+		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: "vizarsbadinfluence",
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Not Fully Evolved'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+				//NFE
+				'Ivycat',
+				
+				//LC
+				'Growlithe-Alola', 'Bulbalit',
+		],
+		teambuilderFormat: 'NFE',
+	},
+	{
+		name: "[Gen 8] ViZar's Bad Children",
+		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: "vizarsbadinfluence",
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Little Cup'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+				//LC
+				'Growlithe-Alola', 'Bulbalit',
+		],
+		teambuilderFormat: 'LC',
+	},*/
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [
