@@ -57,35 +57,45 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 
-	persistence: {
-		name: 'persistence',
-		/*
-		onResidual(target) {
-			this.add('-message', "on residual + damage: " + this.effectData.damage);
-			if (this.effectData.damage > 0) {
-				this.add('-message', "boostin' time");
-				const stats: BoostName[] = [];
-				let stat: BoostName;
-				for (stat in target.boosts) {
-					if (target.boosts[stat] < 6) {
-						stats.push(stat);
-					}
+	absorption: {
+		name: 'absorption',
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) { //i have 0 idea if this will activate when i want it to but whatever lol
+			if (this.field.isTerrain('')) {
+				return;
+			}
+			let type;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					this.effectData.type = 'Electric';
+					break;
+				case 'grassyterrain':
+					this.effectData.type = 'Grass';
+					break;
+				case 'mistyterrain':
+					this.effectData.type = 'Fairy';
+					break;
+				case 'psychicterrain':
+					this.effectData.type = 'Psychic';
+					break;
+				case 'tarterrain':
+					this.effectData.type = 'Poison';
+					break;
+				default:
+					this.effectData.type = '';
+					break;
 				}
-				if (stats.length) {
-					const randomStat = this.sample(stats);
-					const boost: SparseBoostsTable = {};
-					boost[randomStat] = 2;
-					this.boost(boost);
-				} else {
-					return false;
-				}
+			return type;
+		},
+		onTryHit(target, source, move) {
+			if (target.volatiles['absorption'].type === '') return;
+			if (target !== source && move.type === target.volatiles['absorption'].type) {
+				this.add('-immune', target, '[from] ability: Absorption');
+				this.add('-hint', "Absorption gives Tangrowth-A an immunity to the terrain's type!");
+				return null;
 			}
 		},
-		onHit(target, source, damage) {
-			this.effectData.damage = 0;
-			this.effectData.damage += damage;
-			this.add('-message', "on hit + damage dealt: " + this.effectData.damage);
-		}
-		*/
 	},
 };
