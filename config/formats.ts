@@ -3098,64 +3098,23 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon'],
 		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Ultranaut-V', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper', 'Kalover', 'Sophisturn', 'Trestoobee', 'Uractal', 'Venusmog', 'Plutrapeze', 'Mercureign', 'Moncub', 'Rabbear', 'Elephire', 'Centrunkion', 'Hippothesis', 'Hippothalamus', 'Dwole', 'Ducket', 'Swannon', 'Calistone', 'Calistower', 'Dungee', 'Scarobus', 'Seedlim', 'Peetlim', 'Goblone', 'Doduo-Apple', 'Dodrio-Apple', 'Hoothoot-Apple', 'Noctowl-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Donphan-Apple', 'Stunky-Apple', 'Skuntank-Apple', 'Croagunk-Apple', 'Toxicroak-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Odaimyo', 'Anjawoof', 'Threador', 'Goldov'],
 	},
-	{    
-		name: "[Gen 8] Pupumons Ubers",
-		desc: "Pupugugu's fakemon region, the Apple region!",
+	{
+		name: "[Gen 8] Pupumons Natdex",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pBJ8SD-BwSduBQL59pLwEAImxMMK1eabrebSmko1OCI/edit?usp=sharing">Spreadsheet</a>`,
 		],
-		mod: "pupumons",
-		teambuilderFormat: 'Pupumons Ubers',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Ultranaut-V', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Venomab', 'Forganon', 'Isladon', 'Ooreina', 'Ooreina-Flare', 'Rangdemos', 'Baronglaiv', 'Thundra', 'Eruptil', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Batakala', 'Batambu', 'Anjamanis', 'Bonfiper', 'Kalover', 'Sophisturn', 'Trestoobee', 'Uractal', 'Venusmog', 'Plutrapeze', 'Mercureign', 'Moncub', 'Rabbear', 'Elephire', 'Centrunkion', 'Hippothesis', 'Hippothalamus', 'Dwole', 'Ducket', 'Swannon', 'Calistone', 'Calistower', 'Dungee', 'Scarobus', 'Seedlim', 'Peetlim', 'Goblone', 'Doduo-Apple', 'Dodrio-Apple', 'Hoothoot-Apple', 'Noctowl-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Donphan-Apple', 'Stunky-Apple', 'Skuntank-Apple', 'Croagunk-Apple', 'Toxicroak-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Odaimyo', 'Anjawoof', 'Threador', 'Goldov'],
-	},
-	{    
-		name: "[Gen 8] Pupumons VGC",
-		desc: "Pupugugu's fakemon region, the Apple region!",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pBJ8SD-BwSduBQL59pLwEAImxMMK1eabrebSmko1OCI/edit?usp=sharing">Spreadsheet</a>`,
+
+		mod: 'pupumons',
+		teambuilderFormat: 'OU',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
-		mod: "pupumons",
-		gameType: 'doubles',
-		forcedLevel: 50,
-		teamLength: {
-			validate: [4, 6],
-			battle: 4,
-		},
-		ruleset: ['Standard GBU', 'VGC Timer', 'Data Mod', '+Past'],
-		teambuilderFormat: 'PupuVGC',
-		banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Doderrium Z', 'Kingphanium Z', 'Skuntonium Z', 'Croantagium Z', 'Strignium Z', 'Solrockium Z', 'Lunatonium Z', 'Hippothagorium Z', 'Stampyrium Z', 'Grizzealium Z', 'Odonagium Z'],
-		unbanlist: ['Grizzeal', 'Stampyro', 'Hippothagoras', 'Moleder', 'Bombatross', 'Galvia', 'Calistaiji', 'Setstorm', 'Kheprise', 'Weeplim', 'Puddogre', 'Doderror', 'Strignight', 'Coowoo', 'Spectropa', 'Crikeri', 'Boxetta', 'Kingphan', 'Skuntomic', 'Croantagion', 'Gaggular', 'Ultranaut', 'Ultranaut-V', 'Dragulonimbus', 'Dragulare', 'Dragulanche', 'Scrittle', 'Corruptrain', 'Pasdovo', 'Glasiosaur', 'Bellophus', 'Velocust', 'Kuwengu', 'Putango', 'Rishelios', 'Odonaga', 'Solrock-Apple', 'Lunatone-Apple', 'Ooreina', 'Ooreina-Flare', 'Amphikits', 'Detectrice', 'Nosferoyle', 'Amplifire', 'Lumberax', 'Anjamanis', 'Bonfiper', 'Kalover', 'Sophisturn', 'Trestoobee', 'Uractal', 'Venusmog', 'Plutrapeze', 'Mercureign', 'Venomab', 'Forganon', 'Thundra', 'Eruptil', 'Moncub', 'Rabbear', 'Elephire', 'Centrunkion', 'Hippothesis', 'Hippothalamus', 'Dwole', 'Ducket', 'Swannon', 'Calistone', 'Calistower', 'Dungee', 'Scarobus', 'Seedlim', 'Peetlim', 'Goblone', 'Doduo-Apple', 'Dodrio-Apple', 'Hoothoot-Apple', 'Noctowl-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Donphan-Apple', 'Stunky-Apple', 'Skuntank-Apple', 'Croagunk-Apple', 'Toxicroak-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Odaimyo', 'Anjawoof', 'Threador', 'Goldov'],
-	},
-	{    
-		name: "[Gen 8] Pupumons NFE",
-		desc: "Pupugugu's fakemon region, the Apple region!",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pBJ8SD-BwSduBQL59pLwEAImxMMK1eabrebSmko1OCI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "pupumons",
-		searchShow: false,
-		challengeShow: false,
-		teambuilderFormat: 'Pupumons NFE',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod', 'Not Fully Evolved'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Moncub', 'Rabbear', 'Elephire', 'Centrunkion', 'Hippothesis', 'Hippothalamus', 'Dwole', 'Ducket', 'Swannon', 'Calistone', 'Calistower', 'Dungee', 'Scarobus', 'Seedlim', 'Peetlim', 'Goblone', 'Doduo-Apple', 'Dodrio-Apple', 'Hoothoot-Apple', 'Noctowl-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Donphan-Apple', 'Stunky-Apple', 'Skuntank-Apple', 'Croagunk-Apple', 'Toxicroak-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Odaimyo', 'Anjawoof', 'Threador', 'Goldov'],
-	},
-	{    
-		name: "[Gen 8] Pupumons LC",
-		desc: "Pupugugu's fakemon region, the Apple region!",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1pBJ8SD-BwSduBQL59pLwEAImxMMK1eabrebSmko1OCI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "pupumons",
-		maxLevel: 5,
-		searchShow: false,
-		challengeShow: false,
-		teambuilderFormat: 'Pupumons LC',
-		ruleset: ['Little Cup', 'Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Moncub', 'Elephire', 'Hippothesis', 'Dwole', 'Ducket', 'Calistone', 'Dungee', 'Seedlim', 'Goblone', 'Doduo-Apple', 'Hoothoot-Apple', 'Hauntvea', 'Geecrik', 'Hopetta', 'Phanpy-Apple', 'Stunky-Apple', 'Croagunk-Apple', 'Juguler', 'Astromini', 'Dragutus', 'Peeckay', 'Prettysaur', 'Crichus', 'Anthusol', 'Samunata', 'Anjawoof', 'Threador', 'Goldov'],
 	},
 /*
 	{
@@ -3308,6 +3267,18 @@ export const Formats: FormatList = [
 						'Clefable', 'Mawile', 'Avalugg', 'Deoxys', 'Cherrim', 'Ampharos', 'Centiskorch', 'Magmortar', 'Electivire', 'Swampert', 'Copperajah',
 						'Pyroar', 'Pinsir', 'Toucannon', 'Tapu Koko', 'Rotom-Heat', 'Fearow', 'Mightyena', 'Manectric', 'Slaking', 'Dragapult',
 						'Krookodile', 'Carracosta', 'Goodra', 'Oricorio-Pom-Pom', 'Delcatty', 'Tropius', 'Skitty'],
+	},
+	{    
+		name: "[Gen 8] Boatmod OU",
+		desc: "Regic Boat's solomod.",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQoBw-L2HININ-a3khG8iCqIqspSN4IRbifAZsoaGW1BMPlTE95JMxBeCWRPKHWygIdv336kyI4JVhN/pubhtml#">Spreadsheet</a>`,
+		],
+		mod: "boatmod",
+		teambuilderFormat: 'OU',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
+		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'All Pokemon'],
+		unbanlist: ['Chomplow', 'Makokido', 'Aggreshark', 'Aggreshark-Mega', 'Mantisief', 'Cressecata', 'Mantiseth', 'Mantiseth-Mega', 'Methylnedo', 'Philantice', 'Isimist', 'Isimist-Mega', 'Calmird', 'Upsetird', 'Angerird', 'Angerird-Mega', 'Shockral', 'Regaleon', 'Nectareon', 'Ghouleon', 'Blizheat', 'Cosghoul', 'Cosmirus', 'Cosmirus-Mega', 'Mew-Altered', 'Celebi-Altered', 'Jirachi-Altered', 'Shaymin-Altered', 'Shaymin-Sky-Altered', 'Victini-Altered', 'Hoopa-Altered', 'Hoopa-Unbound-Altered', 'Marshadow-Altered', 'Honedge-Venizia', 'Doublade-Venizia', 'Bonedrio']
 	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////

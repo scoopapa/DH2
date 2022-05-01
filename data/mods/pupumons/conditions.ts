@@ -63,22 +63,23 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Ghost') {
 				this.debug('Vacuum ghost boost');
-				return this.chainModify(1.5);
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 			if (move.type === 'Rock') {
 				this.debug('Vacuum rock suppress');
-				return this.chainModify(0.5);
+				return this.chainModify(0.75);
 			}
 			if (move.type === 'Flying') {
 				this.debug('Vacuum flying boost');
-				return this.chainModify(1.5);
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 			if (move.type === 'Ground') {
 				this.debug('Vacuum ground suppress');
-				return this.chainModify(0.5);
+				return this.chainModify(0.75);
 			}
 		},
 		onStart(battle, source, effect) {
+			this.add('-message', `The battlefield is thrown into the vacuum of space!...(Ghost/Flying moves have 1.3x power, Rock/Ground moves have 0.75x power.)`);
 			this.field.clearTerrain();
 			this.field.removePseudoWeather();
 			if (effect?.effectType === 'Ability') {
