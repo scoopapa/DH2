@@ -1382,7 +1382,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Sturdy", H: "Sand Veil"},
 	},
-	carbink: {
+	shuckle: {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Sand Veil", H: "Contrary"},
 	},
