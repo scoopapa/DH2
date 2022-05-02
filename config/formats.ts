@@ -564,7 +564,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Impersonators V2",
 		mod: "impv2",
 		desc: [
-			`<b>Fusion Evolution Rarely Used</b>: The idea of this Pet Mod is for a Pokémon to "replace" another Pokémon, taking some of their key features in the process.`
+			`<b>Impersonators V2</b>: The idea of this Pet Mod is for a Pokémon to "replace" another Pokémon, taking some of their key features in the process.`
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/impersonators-v2-slate-1-winners-tiebreaker.3700611/">Impersonators V2 on Smogon Forums</a>`,
@@ -574,7 +574,7 @@ export const Formats: FormatList = [
 			'All Pokemon', 'Baton Pass',
 		],
 		unbanlist: [
-			'Throh-Inteleon', 'Dhelmise-Rillaboom, Starmie-Cinderace'
+			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus'
 		],
 	},
 	{
