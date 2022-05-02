@@ -3180,7 +3180,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'pupumons',
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'National Dex',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
@@ -3188,7 +3188,8 @@ export const Formats: FormatList = [
 			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
 			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Venomab', 'Forganon', 'Isladon', 'Rangdemos',
+			'Baronglaiv', 'Thundra', 'Eruptil', 'Batakala', 'Batambu'
 		],
 	},
 	{
@@ -3212,10 +3213,16 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQoBw-L2HININ-a3khG8iCqIqspSN4IRbifAZsoaGW1BMPlTE95JMxBeCWRPKHWygIdv336kyI4JVhN/pubhtml#">Spreadsheet</a>`,
 		],
 		mod: "boatmod",
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'boatmod',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'All Pokemon'],
-		unbanlist: ['Chomplow', 'Makokido', 'Aggreshark', 'Aggreshark-Mega', 'Mantisief', 'Cressecata', 'Mantiseth', 'Mantiseth-Mega', 'Methylnedo', 'Philantice', 'Isimist', 'Isimist-Mega', 'Calmird', 'Upsetird', 'Angerird', 'Angerird-Mega', 'Shockral', 'Regaleon', 'Nectareon', 'Ghouleon', 'Blizheat', 'Cosghoul', 'Cosmirus', 'Cosmirus-Mega', 'Mew-Altered', 'Celebi-Altered', 'Jirachi-Altered', 'Shaymin-Altered', 'Shaymin-Sky-Altered', 'Victini-Altered', 'Hoopa-Altered', 'Hoopa-Unbound-Altered', 'Marshadow-Altered', 'Honedge-Venizia', 'Doublade-Venizia', 'Bonedrio']
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+		],
 	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
