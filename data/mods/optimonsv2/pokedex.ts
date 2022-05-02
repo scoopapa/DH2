@@ -203,4 +203,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 105, atk: 129, def: 105, spa: 65, spd: 105, spe: 36},
 		abilities: {0: "Overgrow", H: "Solid Rock"},
 	},
+	vikavolt: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 70, def: 90, spa: 145, spd: 90, spe: 61},
+		abilities: {0: "Levitate", H: "Technician"},
+	},
+	escavalier: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 135, def: 105, spa: 60, spd: 105, spe: 40},
+		abilities: {0: "Swarm", 1: "Shield Dust", H: "Filter"}, 
+	},
+	accelgor: {
+		inherit: true, 
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 80, atk: 60, def: 80, spa: 105, spd: 80, spe: 145},
+		abilities: {0: "Unburden", H: "Infiltrator"},
+	},
 };
