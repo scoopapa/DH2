@@ -40,5 +40,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('samurott', ['flipturn', 'aurasphere']);
 		addNewMoves('delphox', ['recover', 'voltswitch', 'earthpower']);
 		addNewMoves('torterra', ['gravapple', 'bodypress', 'aromatherapy']);
+		addNewMoves('vikavolt', ['uturn', 'defog', 'hurricane']);
+		addNewMoves('escavalier' ['recover', 'uturn', 'earthquake']);
+		addNewMoves('accelgor' ['darkpulse', 'nastyplot']);
 	},
 };
