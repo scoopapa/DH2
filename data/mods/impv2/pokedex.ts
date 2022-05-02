@@ -91,9 +91,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 38,
 		eggGroups: ["Flying"],
 	},
-	chesnaught: {
+	chesnaughtrunerigus: {
 		num: 8,
-		name: "Chesnaught",
+		name: "Chesnaught-Runerigus",
 		types: ["Ghost", "Fighting"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 80, atk: 98, def: 111, spa: 67, spd: 69, spe: 58},
