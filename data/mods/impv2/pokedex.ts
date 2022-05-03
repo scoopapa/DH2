@@ -105,4 +105,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 36,
 		eggGroups: ["Field"],
 	},
+	grimeralolacursola: {
+		num: 88,
+		name: "Grimer-Alola-Cursola",
+		baseSpecies: "Grimer",
+		forme: "Alola",
+		types: ["Ghost", "Dark"],
+		baseStats: {hp: 126, atk: 126, def: 78, spa: 63, spd: 78, spe: 39},
+		abilities: {0: "Weak Armor", H: "Perish Body"},
+		heightm: 0.7,
+		weightkg: 42,
+		color: "Green",
+		evos: ["Muk-Alola"],
+		eggGroups: ["Amorphous"],
+	},
 };
