@@ -4167,7 +4167,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -6044,
 	},
-	infatigable: {
+	indefatigable: {
 		desc: "If this Pokemon's recharge moves faint an opposing Pokemon, the user doesn't have to recharge.",
 		shortDesc: "Recharge moves don't recharge if the opponent faints.",
 		onAfterMove(source, target, move) {
@@ -4179,7 +4179,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		name: "Infatigable",
+		name: "Indefatigable",
 		rating: 4,
 		num: -6045,
 	},
