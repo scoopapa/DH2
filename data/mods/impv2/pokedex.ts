@@ -106,7 +106,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	grimeralolacursola: {
-		num: 88,
+		num: 9,
 		name: "Grimer-Alola-Cursola",
 		baseSpecies: "Grimer",
 		forme: "Alola",
