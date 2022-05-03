@@ -574,7 +574,7 @@ export const Formats: FormatList = [
 			'All Pokemon', 'Baton Pass',
 		],
 		unbanlist: [
-			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus'
+			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus', 'Grimer-Alola-Cursola'
 		],
 	},
 	{
