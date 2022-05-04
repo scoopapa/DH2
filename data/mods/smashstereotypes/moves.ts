@@ -1800,4 +1800,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Cool",
 	},
+	breegullblaster: {
+		num: 40054,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Varies in type based on the user's Sp. Atk IV. (Ice if odd, Fire if even)",
+		id: "breegullblaster",
+		name: "Breegull Blaster",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (!(pokemon.set.ivs['spa'] % 2)){
+				move.type = 'Fire';
+			} else {
+				move.type = 'Ice';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMovePower: 120,
+		contestType: "Clever",
+	},
 };
