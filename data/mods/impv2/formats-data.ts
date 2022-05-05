@@ -23,4 +23,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	chesnaughtrunerigus: {
 		tier: "Imp V2",
 	},
+	grimeralolacursola: {
+		tier: "Imp V2",
+	},
 };
