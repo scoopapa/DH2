@@ -27,6 +27,39 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	aurorabeam: {
+		num: 62,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Aurora Veil",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+	},
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
 	beakblast: {
 		num: 690,
 		accuracy: 100,
@@ -205,6 +238,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+   },
+	dragonhammer: {
+		num: 692,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Dragon Hammer",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
 	},*/
 	dreameater: {
 		num: 138,
