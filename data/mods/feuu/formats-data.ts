@@ -1585,6 +1585,48 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 75,
 		requiredItem: "Pinsirite",
 	},
+	impertfemale: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	impertfemalemega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Swampertite",
+	},
+	koalicunogalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	weezkinggalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	ferrocario: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	ferrocariomega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Lucarionite",
+	},
+	mukreamie: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	acceldrill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 
 	
 	//Silvino Nightmare Hours
@@ -2153,6 +2195,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	elecoink: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	ferrolu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	koffipokegalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	shelbur: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	grimcery: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
