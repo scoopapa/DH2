@@ -2379,11 +2379,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 	},
-	metalsound: {
-		inherit: true,
-		target: "allAdjacentFoes",
-		shortDesc: "Lowers the target(s)' Sp. Def by 2.",
-	},
 	mindreader: {
 		num: 170,
 		accuracy: true,
