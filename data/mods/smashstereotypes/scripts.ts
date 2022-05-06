@@ -227,7 +227,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (message) {
 						if (this.hasAbility('leviflame')) {
 							this.battle.add('-immune', this, '[from] ability: Leviflame');
-						} else {
+						} else if (this.hasAbility('levitate')) {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
 					}
