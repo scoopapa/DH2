@@ -360,7 +360,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 752,
-		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Swampflora or Impert-Female, this item allows it to Mega Evolve in battle.",
 	},
 	mawilite: {
 		name: "Mawilite",
@@ -570,6 +570,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 682,
 		desc: "If held by a Manecpig, this item allows it to Mega Evolve in battle.",
+	},
+	lucarionite: {
+		name: "Lucarionite",
+		spritenum: 594,
+		megaStone: "Ferrocario-Mega",
+		megaEvolves: "Ferrocario",
+		itemUser: ["Ferrocario"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 673,
+		desc: "If held by a Ferrocario, this item allows it to Mega Evolve in battle.",
 	},
 	
 // silvino moment :jokerification:
