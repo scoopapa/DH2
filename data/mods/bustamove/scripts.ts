@@ -3,6 +3,30 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		/*Template:
 		this.modData('Learnsets', 'pokemon').learnset.move = ['8L1'];
 		delete this.modData('Learnsets', 'pokemon').learnset.move;*/
+      this.modData('Learnsets', 'ambipom').learnset.armthrust = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.armthrust = ['8L1'];
+		this.modData('Learnsets', 'grapploct').learnset.armthrust = ['8L1'];
+		
+		this.modData('Learnsets', 'articuno').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'beheeyem').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'chinchou').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'lanturn').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'empoleon').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'glaceon').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'jynx').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'lugia').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'magnemite').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'magneton').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'magnezone').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'mareep').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'flaaffy').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'ampharos').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'nosepass').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'probopass').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'raikou').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.aurorabeam = ['8L1'];
+		this.modData('Learnsets', 'starmie').learnset.aurorabeam = ['8L1'];
+		
 		this.modData('Learnsets', 'honchkrow').learnset.beakblast = ['8L1'];
 		this.modData('Learnsets', 'cramorant').learnset.beakblast = ['8L1'];
 		this.modData('Learnsets', 'mandibuzz').learnset.beakblast = ['8L1'];
