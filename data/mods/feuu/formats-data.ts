@@ -1617,7 +1617,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 		requiredItem: "Lucarionite",
 	},
-	mukreamie: {
+	mukremie: {
 		tier: "FERU",
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
