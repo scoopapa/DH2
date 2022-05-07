@@ -1330,6 +1330,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["stoneedge", "earthquake", "stealthrock", "dragonclaw"],
 		requiredItem: "Garchompite",
 	},
 	zarapex: {
@@ -1372,6 +1373,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["partingshot", "gigadrain", "fireblast", "syntheis"],
 		requiredItem: "Venusaurite",
 	},
 	klefilego: {
@@ -1449,6 +1451,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["roost", "psychic", "focusblast", "overheat"],
 		requiredItem: "Alakazite",
 	},
 	kingfezant: {
@@ -1612,9 +1615,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 	},
 	ferrocariomega: {
-		tier: "FERU",
+		tier: "FEUU",
 		doublesTier: "DUU",
-		randomBattleLevel: 79,
+		randomBattleLevel: 77,
+		randomBattleMoves: ["swordsdance", "bulletpunch", "closecombat", "meteormash"],
 		requiredItem: "Lucarionite",
 	},
 	mukremie: {
