@@ -256,7 +256,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-   },
+   },*/
 	dragonhammer: {
 		num: 692,
 		accuracy: 100,
@@ -271,7 +271,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-	},*/
+	},
 	dreameater: {
 		num: 138,
 		accuracy: 100,
