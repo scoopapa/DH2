@@ -451,21 +451,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	intrepidsword: {
 		onModifyMove(pokemon, move) {
 			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zacian') {
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zacian') {
 				move.basePower *= 0.8;
 			}
 			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id !== 'zaciancrowned') {
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zaciancrowned') {
 				move.basePower *= 1.2;
 			}
 		},
 		onModifyPriority(priority, source, target, move) {
 			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zacian') {
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zacian') {
 				return priority + 1;
 			}
 			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id !== 'zaciancrowned') {
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zaciancrowned') {
 				return priority - 1;
 			}
 		},
