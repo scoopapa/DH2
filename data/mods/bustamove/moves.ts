@@ -32,7 +32,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Aurora Veil",
+		name: "Aurora Beam",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
