@@ -242,8 +242,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return false;
 			}
 			return true;
-		}
-		
+		},
 		
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
@@ -257,6 +256,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
-		}
+		},
     },
 };
