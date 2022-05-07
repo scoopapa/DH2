@@ -27,6 +27,39 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	aurorabeam: {
+		num: 62,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Aurora Veil",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+	},
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
 	beakblast: {
 		num: 690,
 		accuracy: 100,
@@ -49,6 +82,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Flying",
+		contestType: "Tough",
+	},
+	brine: {
+		num: 362,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Brine",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
 		contestType: "Tough",
 	},
 	burningjealousy: {
@@ -205,6 +256,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+   },
+	dragonhammer: {
+		num: 692,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Dragon Hammer",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
 	},*/
 	dreameater: {
 		num: 138,
@@ -243,6 +309,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Psychic",
+	},
+	eggbomb: {
+		num: 121,
+		accuracy: 90,
+		basePower: 0,
+		damage: 'level',
+		category: "Physical",
+		name: "Egg Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, heal: 1},
+    drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+		
 	},
 	fairywind: {
 		num: 263,
@@ -350,6 +433,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+   },
+   horndrill: {
+      num: 32,
+      accuracy: 85,
+      basePower: 130,
+      category: "Physical",
+      name: "Horn Drill",
+      pp: 5,
+      priority: 0,
+      flags: {contact: 1, protect: 1, mirror: 1},
+      secondary: {
+         chance: 20,
+         boosts: {
+           def: -1,
+         },
+      },
+      target: "normal",
+      type: "Normal",
+      contestType: "Cool",
 	},
 	iceball: {
 		num: 301,
@@ -571,6 +673,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		contestType: "Tough",
 	},
+	selfdestruct: {
+		num: 120,
+		accuracy: 100,
+		basePower: 175,
+		category: "Physical",
+		name: "Self-Destruct",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Self-Destruct'), true);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 	sing: {
 		num: 47,
 		accuracy: 60,
@@ -706,6 +827,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Water",
+		contestType: "Tough",
+	},
+	steamroller: {
+		num: 537,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Steamroller",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ground', type);
+		},
+		priority: 0,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
 		contestType: "Tough",
 	},*/
 	steelroller: {
