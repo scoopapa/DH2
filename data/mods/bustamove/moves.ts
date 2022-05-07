@@ -27,6 +27,21 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
 	aurorabeam: {
 		num: 62,
 		accuracy: 100,
@@ -44,21 +59,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Ice",
-	},
-	armthrust: {
-		num: 292,
-		accuracy: 100,
-		basePower: 15,
-		category: "Physical",
-		name: "Arm Thrust",
-		pp: 20,
-		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		multihit: [2, 5],
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
 	},
 	beakblast: {
 		num: 690,
