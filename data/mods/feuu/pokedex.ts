@@ -3344,7 +3344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 65.7,
 	},
 	weezkinggalar: {
-		fusion: ['Weezing', 'Slowking-Galar'],
+		fusion: ['Weezing-Galar', 'Slowking-Galar'],
 		num: 196,
 		name: "Weezking-Galar",
 		types: ["Fairy", "Psychic"],
