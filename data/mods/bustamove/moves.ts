@@ -828,7 +828,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
-	},
+	},*/
 	steamroller: {
 		num: 537,
 		accuracy: 100,
@@ -845,7 +845,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-	},*/
+	},
 	steelroller: {
 		num: 798,
 		accuracy: 100,
