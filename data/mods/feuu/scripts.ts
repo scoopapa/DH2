@@ -154,6 +154,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti-School") {
 			return "Wishirupti-School-Mega"; 
 		}
+		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
+			return "Impert-Female-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
