@@ -225,9 +225,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				isGrounded = this.isGrounded(!negateResult);
 				if (isGrounded === null) {
 					if (message) {
-						if (this.hasAbility('leviflame')) {
+						if (this.battle.hasAbility('leviflame')) {
 							this.battle.add('-immune', this, '[from] ability: Leviflame');
-						} else {
+						} else if (this.battle.hasAbility('levitate')) {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
 					}
@@ -244,7 +244,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		
-		
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
@@ -253,11 +252,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (
-				(this.hasAbility('levitate') ||
-				this.hasAbility('leviflame') ||
-				!this.battle.suppressingAttackEvents())
-			) return null;
+			if ((this.hasAbility('levitate') || this.hasAbility('leviflame'))&& !this.battle.suppressingAttackEvents()) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
