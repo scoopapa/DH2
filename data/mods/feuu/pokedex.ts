@@ -3374,10 +3374,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Lucarionite",
 		battleOnly: "Ferrocario",
 	},
-	mukreamie: {
+	mukremie: {
 		fusion: ['Muk', 'Alcremie'],
 		num: 198,
-		name: "Mukreamie",
+		name: "Mukremie",
 		types: ["Poison", "Fairy"],
 		baseStats: {hp: 100, atk: 102, def: 75, spa: 87, spd: 115, spe: 57},
 		abilities: {0: "Sweet Tooth"},
