@@ -49,6 +49,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'delphox').learnset.eeriespell = ['8L1'];
 		this.modData('Learnsets', 'hatterene').learnset.eeriespell = ['8L1'];
 		this.modData('Learnsets', 'mismagius').learnset.eeriespell = ['8L1'];
+		
+		this.modData('Learnsets', 'togepi').learnset.eggbomb = ['8L1'];
+		this.modData('Learnsets', 'togetic').learnset.eggbomb = ['8L1'];
+		this.modData('Learnsets', 'togekiss').learnset.eggbomb = ['8L1']																		
 	
 		this.modData('Learnsets', 'cleffa').learnset.fairywind = ['8L1'];
 		this.modData('Learnsets', 'clefairy').learnset.fairywind = ['8L1'];
@@ -120,6 +124,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'moltresgalar').learnset.razorwind = ['8L1'];
 		this.modData('Learnsets', 'celesteela').learnset.razorwind = ['8L1'];
 		this.modData('Learnsets', 'xatu').learnset.razorwind = ['8L1'];
+
+      this.modData('Learnsets', 'toucannon').learnset.selfdestruct = ['8L1'];
 		
 		this.modData('Learnsets', 'wailmer').learnset.sing = ['8L1'];
 		this.modData('Learnsets', 'wailord').learnset.sing = ['8L1'];
