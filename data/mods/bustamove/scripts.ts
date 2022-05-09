@@ -35,6 +35,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'infernape').learnset.burningjealousy = ['8L1'];
 		this.modData('Learnsets', 'pyroar').learnset.burningjealousy = ['8L1'];
 		
+		this.modData('Learnsets', 'ambipom').learnset.cometpunch = ['8L1'];
+      this.modData('Learnsets', 'beldum').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'clefable').learnset.cometpunch = ['8L1'];
+      this.modData('Learnsets', 'deoxys').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'lopunny').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'lucario').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'medicham').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'metagross').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'metang').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'minior').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'nidoking').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'nidoqueen').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'riolu').learnset.cometpunch = ['8L1'];
+		this.modData('Learnsets', 'wigglytuff').learnset.cometpunch = ['8L1'];
+		
 		this.modData('Learnsets', 'hatterene').learnset.decorate = ['8L1'];
 		this.modData('Learnsets', 'jirachi').learnset.decorate = ['8L1'];
 		this.modData('Learnsets', 'victini').learnset.decorate = ['8L1'];
