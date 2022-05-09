@@ -105,6 +105,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'meowsticf').learnset.lifedew = ['8L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.lifedew = ['8L1'];
 		
+		this.modData('Learnsets', 'minccino').learnset.lowsweep = ['8L1'];
+		this.modData('Learnsets', 'cinccino').learnset.lowsweep = ['8L1'];
+		
+		this.modData('Learnsets', 'bergmite').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'avalugg').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'bronzor').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'bronzong').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'carbink').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'corviknight').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'diancie').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'duraludon').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'registeel').learnset.mirrorshot = ['8L1'];
+		this.modData('Learnsets', 'sableye').learnset.mirrorshot = ['8L1'];
+		
 		this.modData('Learnsets', 'blastoise').learnset.octazooka = ['8L1'];
 		this.modData('Learnsets', 'malamar').learnset.octazooka = ['8L1'];
 		
@@ -162,6 +177,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'primarina').learnset.synchronoise = ['8L1'];
 		this.modData('Learnsets', 'silvally').learnset.synchronoise = ['8L1'];
 		this.modData('Learnsets', 'toxtricity').learnset.synchronoise = ['8L1'];
+
+		this.modData('Learnsets', 'porygonz').learnset.technoblast = ['8L1'];
 		
 		this.modData('Learnsets', 'raichualola').learnset.terrainpulse = ['8L1'];
 		this.modData('Learnsets', 'tapukoko').learnset.terrainpulse = ['8L1'];
