@@ -1044,6 +1044,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 	},
+	technoblast: {
+		num: 546,
+		accuracy: 85,
+		basePower: 120,
+		category: "Special",
+      shortDesc: "The move's type changes depending on the held Drive. Gains 1.5x power if holding a Drive.",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1, sound: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasItem('burndrive') || pokemon.hasItem('dousedrive') || pokemon.hasItem('chilldrive') || pokemon.hasItem('shockdrive')) {
+				move.basePower *= 1.5;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 	//not finished
 	/*trickortreat: {
 		num: 567,
