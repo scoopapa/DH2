@@ -74,6 +74,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'shiinotic').learnset.forestscurse = ['8L1'];
 		this.modData('Learnsets', 'spiritomb').learnset.forestscurse = ['8L1'];
 		
+		this.modData('Learnsets', 'cobalion').learnset.gearup = ['8L1'];
+		this.modData('Learnsets', 'genesect').learnset.gearup = ['8L1'];
+		this.modData('Learnsets', 'toxtricity').learnset.gearup = ['8L1'];
+		
 		this.modData('Learnsets', 'articuno').learnset.glaciate = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.glaciate = ['8L1'];
 		this.modData('Learnsets', 'suicune').learnset.glaciate = ['8L1'];
