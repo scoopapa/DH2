@@ -219,4 +219,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 80, spa: 105, spd: 80, spe: 145},
 		abilities: {0: "Unburden", H: "Infiltrator"},
 	},
+	aurorus: {
+		inherit: true,
+		baseStats: {hp: 123, atk: 77, def: 92, spa: 109, spd: 92, spe: 28},
+	},
+	avalugg: {
+		inherit: true,
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 105, atk: 117, def: 184, spa: 44, spd: 56, spe: 28},
+	},
+	lapras: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 105, def: 80, spa: 85, spd: 95, spe: 60},
+		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Technician"},
+	},
 };
