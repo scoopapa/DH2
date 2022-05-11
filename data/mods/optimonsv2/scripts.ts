@@ -44,7 +44,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('escavalier', ['recover', 'uturn', 'earthquake']);
 		addNewMoves('accelgor', ['darkpulse', 'nastyplot']);
 		addNewMoves('aurorus', ['boomburst', 'powergem']);
-		addNewMoves('avalugg', ['iciclecrash]);
+		addNewMoves('avalugg', ['iciclecrash']);
 	   addNewMoves('lapras', ['aquajet', 'swordsdance']);
 	},
 };
