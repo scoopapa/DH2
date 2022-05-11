@@ -174,6 +174,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "genesect").learnset.poisonjab = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.iciclecrash = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "genesect").learnset.technoblastbase = ["8L1"];
 		delete this.modData('Learnsets', 'genesect').learnset.shiftgear;
 		delete this.modData('Learnsets', 'genesect').learnset.extremespeed;
 		
