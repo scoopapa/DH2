@@ -105,11 +105,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dugtrio").learnset.psychocut = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.attackorder = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "dugtrio").learnset.pursuit = ["8L1"];
 
 		this.modData("Learnsets", "dugtrioalola").learnset.shoreup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.coil = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.geargrind = ["8L1"];
+		this.modData("Learnsets", "dugtrioalola").learnset.pursuit = ["8L1"];
 		
 		this.modData("Learnsets", "muk").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "muk").learnset.bulkup = ["8L1"];
@@ -119,7 +121,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "muk").learnset.stealthrock = ["8L1"];
 		
 		//Slate 7
-		this.modData("Learnsets", "slowbro").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "slowbro").learnset.earthpower = ["8L1"];
 		this.modData("Learnsets", "slowbro").learnset.stealthrock = ["8L1"];
 		this.modData("Learnsets", "slowbro").learnset.rapidspin = ["8L1"];
@@ -269,7 +270,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "raticate").learnset.icepunch = ["8L1"];
 		this.modData("Learnsets", "raticate").learnset.taunt = ["8L1"];
 		this.modData("Learnsets", "raticate").learnset.bulkup = ["8L1"];
-		delete this.modData('Learnsets', 'raticate').learnset.knockoff;
 		
 		this.modData("Learnsets", "raticatealola").learnset.powertrip = ["8L1"];
 		this.modData("Learnsets", "raticatealola").learnset.poltergeist = ["8L1"];
@@ -350,6 +350,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		this.modData("Learnsets", "meloetta").learnset.recover = ["8L1"];
 		this.modData("Learnsets", "meloetta").learnset.moonblast = ["8L1"];
+		this.modData("Learnsets", "meloetta").learnset.relicsongmeloetta = ["8L1"];
 		
 		//Slate 21
 		this.modData("Learnsets", "lycanrocdusk").learnset.morningsun = ["8L1"];
