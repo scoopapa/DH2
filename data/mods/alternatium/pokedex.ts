@@ -8,7 +8,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 18.5,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	raticatealola: {
 		num: 20,
@@ -19,7 +18,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 25.5,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	pikachu: {
 		num: 25,
@@ -126,7 +124,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 55,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	ninetalessteamwork: {
 		num: 38,
@@ -149,7 +146,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 19.9,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	dugtrio: {
 		num: 51,
@@ -160,7 +156,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 33.3,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	dugtrioalola: {
 		num: 51,
@@ -171,7 +166,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 66.6,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	slowbro: {
 		num: 80,
@@ -182,7 +176,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 78.5,
 		eggGroups: ["Monster", "Water 1"],
-		prevo: null,
 	},
 	slowbrogalar: {
 		num: 80,
@@ -193,7 +186,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 70.5,
 		eggGroups: ["Monster", "Water 1"],
-		prevo: null,
 	},
 	farfetchd: {
 		num: 83,
@@ -225,7 +217,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 30,
 		eggGroups: ["Amorphous"],
-		prevo: null,
 	},
 	mukoilslick: {
 		num: 89,
@@ -246,7 +237,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2,
 		weightkg: 120,
 		eggGroups: ["Grass"],
-		prevo: null,
 	},
 	exeggutorlighthouse: {
 		num: 103,
@@ -267,7 +257,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 9.5,
 		eggGroups: ["Amorphous"],
-		prevo: null,
 	},
 	weezingking: {
 		num: 110,
@@ -330,7 +319,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 32.5,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	linoonepunk: {
 		num: 264,
@@ -503,7 +491,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 6.5,
 		eggGroups: ["Bug"],
-		prevo: null,
 	},
 	wormadamsandy: {
 		num: 413,
@@ -969,7 +956,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 12.5,
 		eggGroups: ["Amorphous"],
-		prevo: null,
 	},
 	gourgeistfae: {
 		num: 711,

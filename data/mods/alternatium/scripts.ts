@@ -141,6 +141,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "slowkinggalar").learnset.corrosivegas = ["8L1"];
 		this.modData("Learnsets", "slowkinggalar").learnset.darkpulse = ["8L1"];
 		delete this.modData('Learnsets', 'slowkinggalar').learnset.expandingforce;
+		delete this.modData('Learnsets', 'slowpokegalar').learnset.expandingforce;
 		
 		
 		//Slate 8
@@ -202,6 +203,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "sandslashalola").learnset.nastyplot = ["8L1"];
 		delete this.modData('Learnsets', 'sandslashalola').learnset.steelroller;
 		delete this.modData('Learnsets', 'sandslashalola').learnset.steelbeam;
+		delete this.modData('Learnsets', 'sandshrewalola').learnset.steelroller;
+		delete this.modData('Learnsets', 'sandshrewalola').learnset.steelbeam;
 		
 		this.modData("Learnsets", "ninetalesalola").learnset.snowstorm = ["8L1"];
 		this.modData("Learnsets", "ninetalesalola").learnset.flashcannon = ["8L1"];
@@ -230,6 +233,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "weezing").learnset.strengthsap = ["8L1"];
 		delete this.modData('Learnsets', 'weezing').learnset.flamethrower;
 		delete this.modData('Learnsets', 'weezing').learnset.fireblast;
+		delete this.modData('Learnsets', 'koffing').learnset.flamethrower;
+		delete this.modData('Learnsets', 'koffing').learnset.fireblast;
 		
 		this.modData("Learnsets", "exeggutor").learnset.bodypress = ["8L1"];
 		this.modData("Learnsets", "exeggutor").learnset.stuffcheeks = ["8L1"];
@@ -247,9 +252,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'exeggutor').learnset.psychic;
 		delete this.modData('Learnsets', 'exeggutor').learnset.psychocut;
 		delete this.modData('Learnsets', 'exeggutor').learnset.psyshock;
-		delete this.modData('Learnsets', 'exeggutor').learnset.stored;
-		delete this.modData('Learnsets', 'exeggutor').learnset.power;
+		delete this.modData('Learnsets', 'exeggutor').learnset.storedpower;
 		delete this.modData('Learnsets', 'exeggutor').learnset.zenheadbutt;
+		delete this.modData('Learnsets', 'exeggcute').learnset.confusion;
+		delete this.modData('Learnsets', 'exeggcute').learnset.extrasensory;
+		delete this.modData('Learnsets', 'exeggcute').learnset.psybeam;
+		delete this.modData('Learnsets', 'exeggcute').learnset.psychic;
 		
 		//Slate 16
 		this.modData("Learnsets", "raticate").learnset.gunkshot = ["8L1"];
@@ -276,6 +284,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "linoone").learnset.focusblast = ["8L1"];
 		this.modData("Learnsets", "linoone").learnset.vacuumwave = ["8L1"];
 		delete this.modData('Learnsets', 'linoone').learnset.bellydrum;
+		delete this.modData('Learnsets', 'zigzagoon').learnset.bellydrum;
 		
 		//Slate 17
 		this.modData("Learnsets", "castform").learnset.freezedry = ["8L1"];
