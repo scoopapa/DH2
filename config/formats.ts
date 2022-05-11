@@ -859,7 +859,7 @@ export const Formats: FormatList = [
 			//Abilities
 			'Moody',
 			//Items
-			'Blazikenite', 'Lucarionite', 'Salamencite', 'Blue Orb', 'Red Orb', 'Mewtwonite X', 'Mewtwonite Y', 'Ultranecrozium Z',
+			'Blue Orb', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Red Orb', 'Ultranecrozium Z',
 			//Moves
 			'Baton Pass',
 		],
