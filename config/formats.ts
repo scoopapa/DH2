@@ -2990,53 +2990,6 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "[Gen 8] MonoTyped OU",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [			
-			/*Pokemon*/'Uber', 'AG', 
-			/*Items*/'Alakazite', 'Blastoisinite', 'Bright Powder', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense',
-			/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Zen Mode',
-			/*Moves*/'Baton Pass',
-		],
-		teambuilderFormat: 'OU',
-	},
-	{
-		name: "[Gen 8] MonoTyped AG",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-		banlist: [],
-		teambuilderFormat: 'AG',
-	},
-	{
-		name: "[Gen 8] MonoTyped LC",
-		desc: '<b>MonoTyped</b>: A Solomod where only Pokemon with one type are allowed.',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EfPc36N7F1I47dkgPf4pPIFsct0-zWVVqUXuyonObh8/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'monotyped',
-		forcedLevel: 5,
-		defaultLevel: 5,
-		maxLevel: 5,
-		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
-		banlist: [
-			/*Pokemon*/'Aipom', 'Corsola-Galar', 'Gothita', 'Swirlix', 'Tangela', 'Vulpix-Alola', 'Zigzagoon', 
-			/*Abilities*/'Moody', 
-			/*Moves*/'Baton Pass', 'Sticky Web',
-		],
-	},
-	{
 		name: "[Gen 8] National Dex VGC",
 		mod: 'gen8',
 		gameType: 'doubles',
@@ -3236,57 +3189,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
-		name: "[Gen 8] ViZar's Bad Influence",
-		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "vizarsbadinfluence",
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Arcanine-Alola', 'Arceus-Ground', 'Arctozolt', 'Catastroform', 'Chesnaught', 'Cinderace', 'Cramorant', 'Cramorant-Swimmer',
-					'Crobat', 'Cryogonal', 'Dugtrio-Alola', 'Eelektross', 'Farfetch\u2019d', 'Flygon', 'Genesect', 'Genesect-Freezer', 'Girafarig',
-					'Giratina', 'Giratina-Origin', 'Giratina-Shadow', 'Gliscor', 'Golurk', 'Groudon-Primal', 'Kyogre-Primal', 'Landorus', 'Metagross',
-					'Mewtwo', 'Pidgeastroph', 'Plubia', 'Rotom-Fan', 'Rotom-Heat', 'Sawsbuck', 'Sawsbuck-Autumn-Mega', 'Sawsbuck-Mega',	'Sawsbuck-Summer-Mega', 
-					'Sawsbuck-Winter-Mega', 'Silvally-Fairy', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Stoutland', 'Supergeist', 'Swordeo', 'Tapu Fini', 
-					'Tapu Fini-Kinolau', 'Tapu Koko-Kinolau', 'Venuroar', 'Venuroar-Mega', 'Vivillon-Fancy', 'Zacian', 'Zacian-Crowned', 'Zarapex',
-		],
-		teambuilderFormat: 'National Dex',
-	},
-	/*{
-		name: "[Gen 8] ViZar's Bad Teenagers",
-		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "vizarsbadinfluence",
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Not Fully Evolved'],
-		banlist: ['All Pokemon'],
-		unbanlist: [
-				//NFE
-				'Ivycat',
-				
-				//LC
-				'Growlithe-Alola', 'Bulbalit',
-		],
-		teambuilderFormat: 'NFE',
-	},
-	{
-		name: "[Gen 8] ViZar's Bad Children",
-		desc: `<b>ViZar's Bad Influence</b>: Only winning submissions from ViZar are playable here.`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NrAdwRPNeaKNxMrFRgcliNnMLh0pIJhDVCopuu92vLU/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "vizarsbadinfluence",
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Little Cup'],
-		banlist: ['All Pokemon'],
-		unbanlist: [
-				//LC
-				'Growlithe-Alola', 'Bulbalit',
-		],
-		teambuilderFormat: 'LC',
-	},*/
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [
