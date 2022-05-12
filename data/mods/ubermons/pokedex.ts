@@ -349,7 +349,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	mewtwomegay: {
 		inherit: true,
-		baseStats: {hp: 106, atk: 119, def: 95, spa: 154, spd: 125, spe: 111},
+		baseStats: {hp: 106, atk: 119, def: 95, spa: 154, spd: 115, spe: 111},
 		abilities: {0: "Neuroforce"},
 	},
 };
