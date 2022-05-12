@@ -145,6 +145,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.5);
+		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
