@@ -165,7 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 		name: "Gorilla Tactics",
-		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		shortDesc: "User's Atk. is 1.5x, but it's locked into first move it uses. Held items have no effect.",
 		rating: 4.5,
 		num: 255,
 	},
