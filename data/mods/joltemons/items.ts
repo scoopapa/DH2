@@ -577,8 +577,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (!randomMove) {
 					return false;
 				}
-				this.useMove(randomMove, pokemon);
-			},*/
+				this.useMove(randomMove, pokemon);*/
+			},
 		},
 		fling: {
 			basePower: 10,
