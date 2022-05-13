@@ -733,6 +733,18 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+	name: "[Gen 1] RBY CAP",
+	   desc: `<b>[Gen 1] RBY CAP</b>: Community-made competitive Pokemon are added into the Gen 1 OU Metagame.`,
+	   threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/rby-cap-cap-2-competitive-learnset.3695740/">RBY CAP on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1twipN48WDYX018Wg8QIEmM65agXuO50RZRrPa8QxdfE/edit#gid=1313603655">Spreadsheet</a>`,
+	   ],
+      mod: 'gen1rbycap',
+      ruleset: ['Standard'],
+		banlist: ['Uber'],
+		unbanlist: ['Lagosnow'],
+    },
+	{
   		name: "[Gen 8] Regional Evolutions",
   		desc: ["<b>Breeding Variants</b>: Have you seen those cool fanart posts where someone makes drawings of a Pokemon and what they would look like if their offspring took traits from their breeding partner? This Pet Mod takes this concept and puts it into a playable form.",
 		      ],
