@@ -553,27 +553,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('pillow');
 			}
 		},
-		onHit(pokemon) {
-			if (!pokemon.volatiles['pillow']) return false;
-			const noPillow = [
-				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
-			];
-			const moves = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				const moveid = moveSlot.id;
-				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
-				if (noPillow.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
-					continue;
+		condition: {
+			onTryHit(pokemon) {
+				if (!pokemon.volatiles['pillow']) return false;
+			},
+			onHit(pokemon) {
+				const noPillow = [
+					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+				];
+				const moves = [];
+				for (const moveSlot of pokemon.moveSlots) {
+					const moveid = moveSlot.id;
+					if (!moveid) continue;
+					const move = this.dex.getMove(moveid);
+					if (noPillow.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+						continue;
+					}
+					moves.push(moveid);
 				}
-				moves.push(moveid);
-			}
-			let randomMove = '';
-			if (moves.length) randomMove = this.sample(moves);
-			if (!randomMove) {
-				return false;
-			}
-			this.useMove(randomMove, pokemon);
+				let randomMove = '';
+				if (moves.length) randomMove = this.sample(moves);
+				if (!randomMove) {
+					return false;
+				}
+				this.useMove(randomMove, pokemon);
+			},
 		},
 		fling: {
 			basePower: 10,
