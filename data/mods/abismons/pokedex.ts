@@ -861,7 +861,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Sandshrew",
 		evoLevel: 22,
 		eggGroups: ["Field"],
-		otherFormes: ["Sandslash-Alola"
+		otherFormes: ["Sandslash-Alola"],
 		formeOrder: ["Sandslash", "Sandslash-Alola"],
 	},	
 	sandslashmega: {
