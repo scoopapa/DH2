@@ -162,13 +162,4 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	pillow: {
-		name: 'pillow',
-		duration: 2,
-		onBeforeMovePriority: 11,
-		onBeforeMove(pokemon) {
-			this.add('cant', pokemon, 'item: Pillow');
-			return null;
-		},
-	},
 };
