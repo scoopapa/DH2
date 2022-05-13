@@ -558,7 +558,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (!pokemon.volatiles['pillow']) return false;
 			},
 			onHit(pokemon) {
-				const noPillow = [
+				this.useMove("Sleep Talk", pokemon);
+				/*const noPillow = [
 					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 				];
 				const moves = [];
@@ -577,7 +578,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					return false;
 				}
 				this.useMove(randomMove, pokemon);
-			},
+			},*/
 		},
 		fling: {
 			basePower: 10,
