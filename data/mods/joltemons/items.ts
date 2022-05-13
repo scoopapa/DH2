@@ -548,10 +548,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onHit(pokemon, target, move) {
-			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				this.useMove("Sleep Talk", pokemon);
+		onHit(pokemon) {
+			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) return false;
+			const noPillow = [
+				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+			];
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				if (!moveid) continue;
+				const move = this.dex.getMove(moveid);
+				if (noPillow.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+					continue;
+				}
+				moves.push(moveid);
 			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
+			}
+			this.useMove(randomMove, pokemon);
 		},
 		fling: {
 			basePower: 10,
