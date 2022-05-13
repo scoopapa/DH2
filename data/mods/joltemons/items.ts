@@ -545,17 +545,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-			this.heal(pokemon.baseMaxhp / 8);
-			}
-		},
-		/*onBeforeMovePriority: 10,
-		onBeforeMove(pokemon) {
-			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				this.attrLastMove('[still]');
-			}
-		},*/
-		onAfterMove(pokemon) {
-			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+				this.heal(pokemon.baseMaxhp / 8);
 				const noSleepTalk = [
 					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 				];
