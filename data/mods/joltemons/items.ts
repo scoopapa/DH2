@@ -553,10 +553,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('pillow');
 			}
 		},
-		onTryHit(pokemon) {
-			if (!pokemon.volatiles['pillow']) return false;
-		},
 		onHit(pokemon) {
+			if (!pokemon.volatiles['pillow']) return false;
 			const noPillow = [
 				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 			];
