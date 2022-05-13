@@ -861,8 +861,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Sandshrew",
 		evoLevel: 22,
 		eggGroups: ["Field"],
-		otherFormes: ["Sandslash-Alola", "Sandslash-Mega"],
-		formeOrder: ["Sandslash", "Sandslash-Mega", "Sandslash-Alola"],
+		otherFormes: ["Sandslash-Alola"],
+		formeOrder: ["Sandslash", "Sandslash-Alola"],
 	},	
 	sandslashmega: {
 		num: 28,
@@ -12145,8 +12145,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Amaura",
 		evoLevel: 39,
 		eggGroups: ["Monster"],
-		otherFormes: ["Aurorus-Mega"],
-		formeOrder: ["Aurorus", "Aurorus-Mega"],
 	},
 	sylveon: {
 		num: 700,

@@ -328,4 +328,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
 	},
+	blazikenmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 107, spa: 120, spd: 107, spe: 96},
+		abilities: {0: "Regenerator"},
+	},
+	lucariomega: {
+		inherit: true,
+		abilities: {0: "Technician"},
+	},
+	salamencemega: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 165, def: 110, spa: 120, spd: 110, spe: 100},
+		abilities: {0: "Overcoat"},
+	},
+	mewtwomegax: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 150, def: 125, spa: 104, spd: 105, spe: 110},
+		abilities: {0: "Iron Fist"},
+	},
+	mewtwomegay: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 119, def: 95, spa: 154, spd: 115, spe: 111},
+		abilities: {0: "Neuroforce"},
+	},
 };
