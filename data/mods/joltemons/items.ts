@@ -548,10 +548,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onTryMove(pokemon, move) {
+		onBeforeMove(pokemon, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+				pokemon.addVolatile('pillow');
 				this.useMove('Sleep Talk', pokemon);
+				pokemon.removeVolatile('pillow');
 			}
+		},
+		condition: {
+			onTryMove(pokemon, move) {
+				if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+					this.attrLastMove('[still]');
+				}
+			},
 		},
 		fling: {
 			basePower: 10,
