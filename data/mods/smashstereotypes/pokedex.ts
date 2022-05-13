@@ -1000,4 +1000,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Poison Heal"},
 		weightkg: 135,
 	},
+	stalagmitar: {
+		num: 85,
+		name: "Stalagmitar",
+		types: ["Rock","Ground"],
+		baseStats: {hp: 100, atk: 100, def: 95, spa: 134, spd: 120, spe: 51},
+		abilities: {0: "Sand Stream", H: "Sturdy"},
+		heightm: 2.5,
+		weightkg: 255,
+		prevo: "pupitar",
+	},
+	psychicdragon: {
+		num: 86,
+		name: "psychicdragon",
+		types: ["Psychic", "Dragon"],
+		baseStats: {hp: 99, atk: 107, def: 75, spa: 81, spd: 75, spe: 113},
+		abilities: {0: "Strong Jaw"},
+	},
+	elichric: {
+		num: 87,
+		name: "Elichric",
+		types: ["Electric", "Dark"],
+		baseStats: {hp: 95, atk: 52, def: 111, spa: 93, spd: 126, spe: 78},
+		abilities: {0: "Levitate", 1: "Cursed Body", H: "Flash Fire"},
+	},
 };
