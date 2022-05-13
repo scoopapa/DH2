@@ -550,7 +550,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBeforeMove(pokemon, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				pokemon.addVolatile('pillow');
+				pokemon.removeVolatile('pillow');
 				const noSleepTalk = [
 					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 				];
@@ -570,14 +570,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
                     return false;
 				}
 				this.useMove(randomMove, pokemon);
-				pokemon.removeVolatile('pillow');
+				pokemon.addVolatile('pillow');
 			}
 		},
 		condition: {
 			onTryMove(pokemon, move) {
-				if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-					this.attrLastMove('[still]');
-				}
+				this.attrLastMove('[still]');
 			},
 		},
 		fling: {
