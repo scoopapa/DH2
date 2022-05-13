@@ -541,16 +541,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 			status: 'slp',
 		},
+		onStart(pokemon) {
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+				pokemon.addVolatile('pillow');
+			}
+		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
-			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-			this.heal(pokemon.baseMaxhp / 8);
+			if (pokemon.volatiles['pillow']) {
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		//onBeforeMovePriority: 10,
 		onModifyMove(pokemon) {
-			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+			if (pokemon.volatiles['pillow']) {
 				this.attrLastMove('[still]');
 				this.useMove('Sleep Talk', pokemon);
 			}
