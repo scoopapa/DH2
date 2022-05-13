@@ -548,36 +548,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onBeforeMove(pokemon, move) {
+/*
+		onStart(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				pokemon.removeVolatile('pillow');
-				const noSleepTalk = [
-					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
-				];
-				const moves = [];
-				for (const moveSlot of pokemon.moveSlots) {
-					const moveid = moveSlot.id;
-					if (!moveid) continue;
-					const move = this.dex.getMove(moveid);
-					if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
-						continue;
-					}
-					moves.push(moveid);
-				}
-				let randomMove = '';
-				if (moves.length) randomMove = this.sample(moves);
-				if (!randomMove) {
-                    return false;
-				}
-				this.useMove(randomMove, pokemon);
 				pokemon.addVolatile('pillow');
 			}
 		},
 		condition: {
-			onTryMove(pokemon, move) {
-				this.attrLastMove('[still]');
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if ((!pokemon.hasItem('pillow') || !pokemon.status === 'slp' || !pokemon.hasAbility('comatose'))) {
+					pokemon.removeVolatile('pillow');
+					return;
+				}
+				if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+           		this.useMove("Sleep Talk", pokemon);
+				}
 			},
 		},
+*/
 		fling: {
 			basePower: 10,
 			status: 'slp',
