@@ -550,7 +550,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onTryMove(pokemon, target, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				this.useMove("Sleep Talk", pokemon);
+				this.attrLastMove('[still]');
 			}
 		},
 		fling: {
