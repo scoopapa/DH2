@@ -740,7 +740,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1twipN48WDYX018Wg8QIEmM65agXuO50RZRrPa8QxdfE/edit#gid=1313603655">Spreadsheet</a>`,
 	   ],
       mod: 'gen1rbycap',
-      ruleset: ['Standard'],
+      ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
 		unbanlist: ['Lagosnow'],
     },
