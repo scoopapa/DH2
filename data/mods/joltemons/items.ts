@@ -548,25 +548,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-/*
-		onStart(pokemon) {
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-				pokemon.addVolatile('pillow');
+				this.attrLastMove('[still]');
+				this.useMove("Sleep Talk", pokemon);
 			}
 		},
-		condition: {
-			onTryMovePriority: -2,
-			onTryMove(pokemon, target, move) {
-				if ((!pokemon.hasItem('pillow') || !pokemon.status === 'slp' || !pokemon.hasAbility('comatose'))) {
-					pokemon.removeVolatile('pillow');
-					return;
-				}
-				if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-           		this.useMove("Sleep Talk", pokemon);
-				}
-			},
-		},
-*/
 		fling: {
 			basePower: 10,
 			//status: 'slp', Fixed
