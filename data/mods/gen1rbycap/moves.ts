@@ -412,6 +412,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	hyperbeam: {
+		num: 63,
+		accuracy: 90,
+		basePower: 150,
+		category: "Physical",
+		name: "Hyper Beam",
+		pp: 5,
+		priority: 0,
+		flags: {recharge: 1, protect: 1, mirror: 1},
+		self: null,
+		onHit(target, source) {
+			if (target.hp) {
+				source.addVolatile('mustrecharge');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 	jumpkick: {
 		inherit: true,
 		onMoveFail(target, source, move) {
