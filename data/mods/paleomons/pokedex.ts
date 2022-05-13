@@ -988,4 +988,94 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 35,
 		requiredItem: "Spinollite",
 	},
+
+	plusle: {
+		inherit: true,
+		otherFormes: ["Plusle-Primal"],
+		formeOrder: ["Pluse", "Plusle-Primal"],
+	},
+
+	plusleprimal: {
+		num: -158,
+		name: "Plusle-Primal",
+		baseSpecies: "Plusle",
+		forme: "Primal",
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 60, atk: 60, def: 70, spa: 95, spd: 115, spe: 105},
+		abilities: {0: "Shadow Shield"},
+		weightkg: 4.0,
+		requiredItem: "Spectral Orb",
+	},
+
+	minun: {
+		inherit: true,
+		otherFormes: ["Minun-Primal"],
+		formeOrder: ["Minun", "Minun-Primal"],
+	},
+
+	minunprimal: {
+		num: -159,
+		name: "Minun-Primal",
+		baseSpecies: "Minun",
+		forme: "Primal",
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 60, atk: 65, def: 80, spa: 75, spd: 130, spe: 95},
+		abilities: {0: "Huge Power"},
+		weightkg: 4.2,
+		requiredItem: "Blue Orb",
+	},
+
+	swalot: {
+		inherit: true,
+		otherFormes: ["Swalot-Primal"],
+		formeOrder: ["Swalot", "Swalot-Primal"],
+	},
+
+	swalotprimal: {
+		num: -160,
+		name: "Swalot-Primal",
+		baseSpecies: "Swalot",
+		forme: "Primal",
+		types: ["Poison", "Fire"],
+		baseStats: {hp: 100, atk: 73, def: 83, spa: 113, spd: 83, spe: 115},
+		abilities: {0: "Storm Drain"},
+		weightkg: 90,
+		requiredItem: "Petrol Orb",
+	},
+
+	hariyama: {
+		inherit: true,
+		otherFormes: ["Hariyama-Primal"],
+		formeOrder: ["Hariyama", "Hariyama-Primal"],
+	},
+
+	hariyamaprimal: {
+		num: -161,
+		name: "Hariyama-Primal",
+		baseSpecies: "Hariyama",
+		forme: "Primal",
+		types: ["Fighting", "Fairy"],
+		baseStats: {hp: 144, atk: 140, def: 80, spa: 40, spd: 100, spe: 70},
+		abilities: {0: "Misty Surge"},
+		weightkg: 253.8,
+		requiredItem: "Crystal Orb",
+	},
+	
+	grumpig: {
+		inherit: true,
+		otherFormes: ["Grumpig-Primal"],
+		formeOrder: ["Grumpig", "Grumpig-Primal"],
+	},
+
+	grumpigprimal: {
+		num: -162,
+		name: "Grumpig-Primal",
+		baseSpecies: "Grumpig",
+		forme: "Primal",
+		types: ["Psychic", "Steel"],
+		baseStats: {hp: 80, atk: 60, def: 90, spa: 130, spd: 125, spe: 85},
+		abilities: {0: "Magic Surge"},
+		weightkg: 71.5,
+		requiredItem: "Black Orb",
+	},
 };

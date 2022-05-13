@@ -12,4 +12,116 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -100,
 		//isNonstandard: "Past",
 	},
+
+	// technically these don't actually *do* anything, since the holder needs to be the base form in order for runPrimal
+	// to be called. But whatever, if its ever decided that the forme change should activate then the codes
+	// already there lol
+	spectralorb: {
+		name: "Spectral Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Plusle') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Plusle-Primal', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Plusle') return false;
+			return true;
+		},
+		itemUser: ["Plusle"],
+		num: -101,
+		gen: 6,
+		//isNonstandard: "Past",
+	},
+
+	blueorb: {
+		name: "Blue Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if ((pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') || (pokemon.isActive && pokemon.baseSpecies.name === 'Minun')) {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			if (pokemon.baseSpecies.name === 'Kyogre') {
+				pokemon.formeChange('Kyogre-Primal', this.effect, true);
+			} else if (pokemon.baseSpecies.name === 'Minun') {
+				pokemon.formeChange('Minun-Primal', this.effect, true);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre' || source.baseSpecies.baseSpecies === 'Minun') return false;
+			return true;
+		}, 
+		itemUser: ["Kyogre", "Minun"],
+		num: -102,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+
+	petrolorb: {
+		name: "Petrol Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Swalot') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Swalot-Primal', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Swalot') return false;
+			return true;
+		},
+		itemUser: ["Swalot"],
+		num: -103,
+		gen: 6,
+		//isNonstandard: "Past",
+	},
+
+	crystalorb: {
+		name: "Crystal Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Hariyama') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Hariyama-Primal', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Hariyama') return false;
+			return true;
+		},
+		itemUser: ["Hariyama"],
+		num: -104,
+		gen: 6,
+		//isNonstandard: "Past",
+	},
+
+	blackorb: {
+		name: "Black Orb",
+		spritenum: 41,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Grumpig') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Grumpig-Primal', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Grumpig') return false;
+			return true;
+		},
+		itemUser: ["Grumpig"],
+		num: -101,
+		gen: 6,
+		//isNonstandard: "Past",
+	},
 };
