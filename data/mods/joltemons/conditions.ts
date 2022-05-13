@@ -179,6 +179,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasAbility('earlybird')) {
+				pokemon.statusData.time--;
+			}
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
+				pokemon.cureStatus();
+				return;
+			}
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
+		onTryMove(pokemon, move) {
 			if (pokemon.hasItem('pillow')) {
 				const noSleepTalk = [
                     'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
@@ -200,19 +215,6 @@ export const Conditions: {[k: string]: ConditionData} = {
                 }
                 this.useMove(randomMove, pokemon);
 			}
-			if (pokemon.hasAbility('earlybird')) {
-				pokemon.statusData.time--;
-			}
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
-				pokemon.cureStatus();
-				return;
-			}
-			this.add('cant', pokemon, 'slp');
-			if (move.sleepUsable) {
-				return;
-			}
-			return false;
 		},
 	},
 };
