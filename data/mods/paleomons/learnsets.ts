@@ -2687,6 +2687,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			psychocut: ["8L1"],
 			psybeam: ["8L1"],
 			confusion: ["8L1"],
+			calmmind: ["8L1"],
 
 			acidarmor: ["8L1"],
 			clearsmog: ["8L1"],
