@@ -162,4 +162,57 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
+	slp: {
+		name: 'slp',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			// 1-3 turns
+			this.effectData.startTime = this.random(2, 5);
+			this.effectData.time = this.effectData.startTime;
+		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasItem('pillow') {
+				const noSleepTalk = [
+                    'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+                ];
+                const moves = [];
+                for (const moveSlot of pokemon.moveSlots) {
+                    const moveid = moveSlot.id;
+                    if (!moveid) continue;
+                    const move = this.dex.getMove(moveid);
+                    if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+                        continue;
+                    }
+                    moves.push(moveid);
+                }
+                let randomMove = '';
+                if (moves.length) randomMove = this.sample(moves);
+                if (!randomMove) {
+                    return false;
+                }
+                this.useMove(randomMove, pokemon);
+			}
+			if (pokemon.hasAbility('earlybird')) {
+				pokemon.statusData.time--;
+			}
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
+				pokemon.cureStatus();
+				return;
+			}
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
+	},
 };
