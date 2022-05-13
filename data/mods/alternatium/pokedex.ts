@@ -319,7 +319,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 32.5,
 		eggGroups: ["Field"],
-		prevo: null,
 	},
 	linoonepunk: {
 		num: 264,

@@ -145,6 +145,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.5);
+		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
@@ -158,7 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 		name: "Gorilla Tactics",
-		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		shortDesc: "User's Atk. is 1.5x, but it's locked into first move it uses. Held items have no effect.",
 		rating: 4.5,
 		num: 255,
 	},

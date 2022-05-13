@@ -197,4 +197,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	arceuswater: {
 	},
+	blazikenmega: {
+		tier: "OU",
+	},
+	lucariomega: {
+		tier: "OU",
+	},
+	salamencemega: {
+		tier: "OU",
+	},
+	mewtwomegax: {
+		tier: "OU",
+	},
+	mewtwomegay: {
+		tier: "OU",
+	},
 };
