@@ -569,7 +569,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 */
 		fling: {
 			basePower: 10,
-			//status: 'slp',
+			//status: 'slp', Fixed
 		},
 		gen: 8,
 		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
