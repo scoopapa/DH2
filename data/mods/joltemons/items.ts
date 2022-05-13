@@ -548,8 +548,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onTryMovePriority: -2,
-		onTryMove(pokemon, target, move) {
+		onTryMove(pokemon, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
 				const noPillow = [
 					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
