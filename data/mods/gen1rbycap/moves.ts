@@ -6,6 +6,7 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	acid: {
 		inherit: true,
+		category: "Physical",
 		secondary: {
 			chance: 33,
 			boosts: {
@@ -164,6 +165,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	clamp: {
 		inherit: true,
+		category: "Special",
 		accuracy: 75,
 		pp: 10,
 		volatileStatus: 'partiallytrapped',
@@ -202,6 +204,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
 		},
 	},
+/*
 	counter: {
 		inherit: true,
 		desc: "Deals damage to the opposing Pokemon equal to twice the damage dealt by the last move used in the battle. This move ignores type immunity. Fails if the user moves first, or if the opposing side's last move was Counter, had 0 power, or was not Normal or Fighting type. Fails if the last move used by either side did 0 damage and was not Confuse Ray, Conversion, Focus Energy, Glare, Haze, Leech Seed, Light Screen, Mimic, Mist, Poison Gas, Poison Powder, Recover, Reflect, Rest, Soft-Boiled, Splash, Stun Spore, Substitute, Supersonic, Teleport, Thunder Wave, Toxic, or Transform.",
@@ -224,8 +227,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return false;
 		},
 	},
+*/
 	crabhammer: {
 		inherit: true,
+		category: "Special",
 		critRatio: 2,
 	},
 	dig: {
@@ -376,6 +381,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	gust: {
 		inherit: true,
+		category: "Physical",
 		type: "Normal",
 	},
 	haze: {
@@ -561,6 +567,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	nightshade: {
 		inherit: true,
+		category: "Physical",
 		ignoreImmunity: true,
 		basePower: 1,
 	},
@@ -619,11 +626,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	razorleaf: {
 		inherit: true,
+		category: "Special",
 		critRatio: 2,
 		target: "normal",
 	},
 	razorwind: {
 		inherit: true,
+		category: "Physical",
 		critRatio: 1,
 		target: "normal",
 	},
@@ -730,6 +739,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	sludge: {
 		inherit: true,
+		category: "Physical",
 		secondary: {
 			chance: 40,
 			status: 'psn',
@@ -872,6 +882,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	triattack: {
 		inherit: true,
+		category: "Physical",
 		onHit() {},
 		secondary: null,
 	},
