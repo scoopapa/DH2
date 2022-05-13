@@ -539,7 +539,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 242,
 		fling: {
 			basePower: 10,
-			status: 'slp',
+			//status: 'slp', Fixed
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
