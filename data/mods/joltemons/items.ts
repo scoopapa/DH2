@@ -548,8 +548,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onBeforeMovePriority: 10,
-		onBeforeMove(pokemon) {
+		//onBeforeMovePriority: 10,
+		onModifyMove(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
 				this.attrLastMove('[still]');
 				this.useMove('Sleep Talk', pokemon);
