@@ -548,7 +548,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
 				const noPillow = [
