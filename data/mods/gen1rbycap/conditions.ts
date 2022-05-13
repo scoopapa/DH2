@@ -31,6 +31,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.damage(this.clampIntRange(Math.floor(pokemon.maxhp / 16), 1));
 		},
 	},
+/*
 	par: {
 		name: 'par',
 		effectType: 'Status',
@@ -56,6 +57,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			pokemon.addVolatile('parspeeddrop');
 		},
 	},
+*/
 	slp: {
 		name: 'slp',
 		effectType: 'Status',
