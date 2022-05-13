@@ -548,8 +548,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
+		onStart(pokemon) {
+			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
+				pokemon.addVolatile('pillow');
+			}
+		},
+		onTryHit(pokemon) {
+			if (!pokemon.volatiles['pillow']) return false;
+		},
 		onHit(pokemon) {
-			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) return false;
 			const noPillow = [
 				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 			];
