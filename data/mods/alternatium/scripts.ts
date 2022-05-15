@@ -105,13 +105,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dugtrio").learnset.psychocut = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.attackorder = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.uturn = ["8L1"];
-		this.modData("Learnsets", "dugtrio").learnset.pursuit = ["8L1"];
 
 		this.modData("Learnsets", "dugtrioalola").learnset.shoreup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.coil = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.geargrind = ["8L1"];
-		this.modData("Learnsets", "dugtrioalola").learnset.pursuit = ["8L1"];
 		
 		this.modData("Learnsets", "muk").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "muk").learnset.bulkup = ["8L1"];
