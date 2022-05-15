@@ -4736,7 +4736,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	minun: {
 		learnset: {
-			//photonball: ["8L1"],
+			photonball: ["8L1"],
 			flashcannon: ["8L1"],
 			gyroball: ["8L1"],
 			ironhead: ["8L1"],
