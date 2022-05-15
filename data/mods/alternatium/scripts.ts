@@ -82,7 +82,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "zacian").learnset.moonlight = ["8L1"];
 		this.modData("Learnsets", "zacian").learnset.behemothblade = ["8L1"];
 		this.modData("Learnsets", "zacian").learnset.uturn = ["8L1"];
-		// Zamazenta
+
 		this.modData("Learnsets", "zamazenta").learnset.bodypress = ["8L1"];
 		this.modData("Learnsets", "zamazenta").learnset.uturn = ["8L1"];
 		this.modData("Learnsets", "zamazenta").learnset.knockoff = ["8L1"];
