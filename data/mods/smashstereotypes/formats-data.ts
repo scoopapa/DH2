@@ -296,4 +296,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	polbearab: {
 		tier: "SSS",
 	},
+	stalagmitar: {
+		tier: "SSS",
+	},
+	psychicdragon: {
+		tier: "SSS",
+	},
+	elichric: {
+		tier: "SSS",
+	},
 };

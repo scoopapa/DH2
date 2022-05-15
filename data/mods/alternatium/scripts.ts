@@ -82,7 +82,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "zacian").learnset.moonlight = ["8L1"];
 		this.modData("Learnsets", "zacian").learnset.behemothblade = ["8L1"];
 		this.modData("Learnsets", "zacian").learnset.uturn = ["8L1"];
-		// Zamazenta
+
 		this.modData("Learnsets", "zamazenta").learnset.bodypress = ["8L1"];
 		this.modData("Learnsets", "zamazenta").learnset.uturn = ["8L1"];
 		this.modData("Learnsets", "zamazenta").learnset.knockoff = ["8L1"];
@@ -105,13 +105,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dugtrio").learnset.psychocut = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.attackorder = ["8L1"];
 		this.modData("Learnsets", "dugtrio").learnset.uturn = ["8L1"];
-		this.modData("Learnsets", "dugtrio").learnset.pursuit = ["8L1"];
 
 		this.modData("Learnsets", "dugtrioalola").learnset.shoreup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.coil = ["8L1"];
 		this.modData("Learnsets", "dugtrioalola").learnset.geargrind = ["8L1"];
-		this.modData("Learnsets", "dugtrioalola").learnset.pursuit = ["8L1"];
 		
 		this.modData("Learnsets", "muk").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "muk").learnset.bulkup = ["8L1"];

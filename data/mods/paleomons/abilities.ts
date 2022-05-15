@@ -291,6 +291,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "Moves with the word 'kick' in their name have their power multiplied by 1.2x.",
 		shortDesc: "Kicking moves deal 1.2x damage.",
 	},
+
+	magicsurge: {
+		onStart(source) {
+			this.useMove('magicroom', source);
+		},
+
+		name: "Magic Surge",
+		desc: "Upon switch-in, summons Mgaic Room",
+		shortDesc: "Upon switch-in, summonns Magic Room"
+	},
 	
 	//
 	//
