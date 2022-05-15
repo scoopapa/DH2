@@ -26,7 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.modData('FormatsData', id)) {
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
-				if (csi.includes(id)) this.modData('FormatsData', id).tier = "C:SI Additions";
+				if (csi.includes(id)) this.modData('FormatsData', id).tier = "C:SI";
 			}
 		};
 		

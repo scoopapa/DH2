@@ -179,7 +179,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	bisharpmega: {
-		tier: "SSS",
+		tier: "SSS Uber",
 	},
 	undangoose: {
 		tier: "SSS",
@@ -251,6 +251,58 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	rampardoscretaceous: {
+		tier: "SSS",
+	},
+	borassa: {
+		tier: "SSS",
+	},
+	panthee: {
+		tier: "SSS",
+	},
+	abomasnow: {
+		tier: "SSS",
+	},
+	cramorantalola: {
+		tier: "SSS",
+	},
+	cramorantalolagulping: {
+	},
+	cramorantalolagorging: {
+	},
+	drednaw: {
+		tier: "SSS",
+	},
+	drednawgmax: {
+		tier: "SSS",
+	},
+	xurkirat: {
+		tier: "SSS",
+	},
+	mesflame: {
+		tier: "SSS",
+	},
+	gourgeistfae: {
+		tier: "SSS",
+	},
+	odonaga: {
+		tier: "SSS",
+	},
+	swampertanti: {
+		tier: "SSS",
+	},
+	banjokazooie: {
+		tier: "SSS",
+	},
+	polbearab: {
+		tier: "SSS",
+	},
+	stalagmitar: {
+		tier: "SSS",
+	},
+	psychicdragon: {
+		tier: "SSS",
+	},
+	elichric: {
 		tier: "SSS",
 	},
 };

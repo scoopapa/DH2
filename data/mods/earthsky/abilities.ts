@@ -1,5 +1,20 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	//New Abilities
+	againstcurrent: {
+		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
+			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
+		},
+		onModifyMove(move) {
+			// this doesn't actually do anything because ModifyMove happens after the tracksTarget check
+			// the actual implementation is in Battle#getTarget
+			move.tracksTarget = true;
+		},
+		name: "Against Current",
+		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction. If given a Choice item earlier in the turn, the move locking will be ignored (but the power boost will not be). Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
+		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
+		rating: 1,
+		num: 1018,
+	},
 	bludgeon: {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
@@ -937,16 +952,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
-				return this.chainModify(0.667);
+				return this.chainModify([0x0AAB,0x1000]);
 			}
 		},
 		onModifySpA(atk, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
-				return this.chainModify(0.667);
+				return this.chainModify([0x0AAB,0x1000]);
 			}
 		},
 		desc: "While this Pokemon has 1/2 or less of its maximum HP, its Attack and Special Attack are reduced by 1/3.",
-		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Attack and Sp. Atk are reduced by 1/3.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, Atk and Sp. Atk are reduced by 1/3.",
 	},
 	flareboost: {
 		inherit: true,
@@ -1362,8 +1377,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	innerfocus: {
 		inherit: true,
-		//Implemented in the move-based redirections themselves
-		shortDesc: "This Pokemon cannot flinch and ignores move-based redirection. Immune to Intimidate.",
+		onModifyMove(move) {
+			// this doesn't actually do anything because ModifyMove happens after the tracksTarget check
+			// the actual implementation is in Battle#getTarget
+			move.tracksTarget = true;
+		},
+		shortDesc: "This Pokemon cannot flinch and ignores redirection. Immune to Intimidate.",
 	},
 	insomnia: {
 		inherit: true,
@@ -1551,6 +1570,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		-Transform and Imposter (and Glyphic Spell Copy) will fail to transform into it.`,
 		shortDesc: "This Pokemon cannot be confused. Attempts to copy or steal its moves and attributes fail.",
 		immune: "  [POKEMON]'s mannerisms couldn't be acquired!"
+	},
+	parentalbond: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'fling', 'rollout'].includes(move.id)) return;
+			if (!move.flags['charge'] && !move.spreadHit && !move.damage) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'parentalbond' && move.hit > 1){
+				if(move.secondary) delete move.secondary;
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Parental Bond",
+		rating: 4.5,
+		num: 184,
 	},
 	pastelveil: {
 		onUpdate(pokemon) {
@@ -1878,6 +1917,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 202,
 		shortDesc: "If Hail is active, this Pokemon's Speed is doubled.",
 	},
+	stalwart: {
+		inherit: true,
+		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
+			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
+		},
+		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction. If given a Choice item earlier in the turn, the move locking will be ignored (but the power boost will not be). Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
+		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
+		rating: 1,
+	},
 	suctioncups: {
 		inherit: true,
 		onStart(pokemon){
@@ -2070,6 +2118,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon and its allies cannot be burned.",
 		block: "  [POKEMON] can't be burned due to a watery veil!",
 	},
+	whitesmoke: {
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
+				}
+			}
+			if (activate) {
+				pokemon.setBoost(boosts);
+				this.add('-activate', pokemon, 'ability: White Smoke');
+				this.add('-clearnegativeboost', pokemon);
+			}
+		},
+		name: "White Smoke",
+		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
+		rating: 3,
+		num: 73,
+	},
 	/* Abilities edited as changes to other elements */
 	colorchange: {
 		inherit: true,
@@ -2243,23 +2313,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon){
 			if(this.effectData.gaveUp) delete this.effectData.gaveUp;
-		},
-	},
-	whitesmoke: {
-		inherit: true,
-		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries) {
-				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
-			}
 		},
 	},
 	/* Abilities edited as part of the dual-type update*/
@@ -2778,7 +2831,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
+			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
 		},
 		rating: 2,
 		num: 152,

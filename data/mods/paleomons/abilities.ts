@@ -1,3 +1,7 @@
+const kickMoves = [
+	'blazekick', 'doublekick', 'highjumpkick', 'jumpkick', 'lowkick',
+	'megakick', 'rollingkick', 'thunderouskick', 'triplekick', 'tropkick', 'stickkick',
+];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	bloodsuck: {
@@ -130,6 +134,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	absorption: {
 		onSwitchIn(pokemon) {
 			this.effectData.switchingIn = true;
+			pokemon.addVolatile('absorption');
 		},
 		onStart(pokemon) {
 			if (!this.effectData.switchingIn || this.field.isTerrain('')) {
@@ -139,6 +144,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.clearTerrain();
 			this.heal((pokemon.baseMaxhp / 8), pokemon);
 		},
+		/*
+		onTryHit(target, source, move) {
+			if (!target.volatiles['absorption']) return;
+			if (!target.volatiles['absorption'].type) return;
+			if (target !== source && move.type === target.volatiles['absorption'].type) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Absorption');
+				}
+				return null;
+			}
+		},
+		*/
 
 		name: "Absorption",
 		desc: "If there is an active terrain, the terrain ends and the user is healed by 12% of its maximum HP",
@@ -247,23 +264,42 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Adds secondary type equal to Natural Gift; berry isn't consumed by Natural Gift."
 	},
 
-	persistence: {
+	persistence: { //currently bugged ):
 		onBeforeMove(target, source, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
-			if (target.volatiles['twoturnmove']) {
-				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
+			if (move.flags['charge'] && !target.volatiles['twoturnmove']) {
 				this.boost({atk: 1});
-			} else if (!this.dex.getImmunity(moveType, target)) {
-				this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
+			} else if (!this.dex.getImmunity(moveType, source)) {
 				this.boost({atk: 1});
 			}
 			(move as any).persistence = true;
 		},
-
 		name: "Persistence",
 		desc: "If the user chooses an attacking move but doesn't damage the target on the same turn, raises the user's Attack by 1 stage.",
 		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
+	},
+
+	thunderthighs: {
+		onBasePowerPriority: 23,
+		onModifyMove(critRatio, source, target, move) {
+			if (kickMoves.includes(move.id)) {
+				move.basePower *= 1.2;
+			}
+		},
+		name: "Thunder Thighs",
+		desc: "Moves with the word 'kick' in their name have their power multiplied by 1.2x.",
+		shortDesc: "Kicking moves deal 1.2x damage.",
+	},
+
+	magicsurge: {
+		onStart(source) {
+			this.useMove('magicroom', source);
+		},
+
+		name: "Magic Surge",
+		desc: "Upon switch-in, summons Mgaic Room",
+		shortDesc: "Upon switch-in, summonns Magic Room"
 	},
 	
 	//

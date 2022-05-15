@@ -20,6 +20,46 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return totalTypeMod;
 		},
+
+		// attempted bug fix for Persistence. currently not in use, but i'll come back to this later
+		/*
+				/ false = immune, true = not immune 
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!(type in this.battle.dex.data.TypeChart)) {
+				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+
+			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+			const persistenceBoost = false;
+			let isGrounded;
+			if (type === 'Ground') {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						this.battle.add('-immune', this, '[from] ability: Levitate');
+					}
+					if(this.hasAbility('persistence')) {
+						this.boostBy({atk: 1});
+					}
+					return false;
+				}
+			}
+			if (!negateResult) return true;
+			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+				if (message) {
+					this.battle.add('-immune', this);
+				}
+				if(this.hasAbility('persistence')) {
+					this.boostBy({atk: 1});
+				}
+				return false;
+			}
+			return true;
+		},
+		*/
 	},
 
 	hitStepAccuracy(targets, pokemon, move) {
@@ -86,7 +126,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.boost({spe: 2}, pokemon);
 				}
 				if ((move as any).persistence) {
-					this.add('-hint', `Persistence raised ${target.name}'s Attack!`);
 					this.boost({atk: 1}, pokemon);
 				}
 				hitResults[i] = false;

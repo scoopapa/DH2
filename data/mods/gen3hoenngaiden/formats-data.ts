@@ -1440,7 +1440,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "LC",
+		tier: "NUBL",
 	},
 	silvally: {
 		isNonstandard: null,
@@ -1685,7 +1685,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mrmimegalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "NUBL",
 	},
 	mrrime: {
 		isNonstandard: null,
@@ -1980,7 +1980,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	corsolagalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "LC",
+		tier: "NUBL",
 	},
 	weezinggalar: {
 		isNonstandard: null,
@@ -2110,7 +2110,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sneaselhisui: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "NUBL",
 	},
 	sneasler: {
 		isNonstandard: null,

@@ -142,6 +142,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
 			return "Gastrocham-Mega"; 
 		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-X"; 
+		}
+		if (item.name === "Pinsirite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-Y"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti") {
+			return "Wishirupti-Mega"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti-School") {
+			return "Wishirupti-School-Mega"; 
+		}
+		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
+			return "Impert-Female-Mega"; 
+		}
 		
 		return item.megaStone;
 	},
@@ -394,7 +409,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  }
 
 			  if (!ignoreImmunities && status.id &&
-						 !(source?.hasAbility(['corrosion', 'toxicplay']) && ['tox', 'psn'].includes(status.id))) {
+						 !(source?.hasAbility(['corrosion', 'toxicplay', 'deadlydeft']) && ['tox', 'psn'].includes(status.id))) {
 					// the game currently never ignores immunities
 					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 						 this.battle.debug('immune to status');

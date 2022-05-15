@@ -935,6 +935,52 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 7,
 		isNonstandard: null,
 	},
+	rustedshield: {
+		name: "Rusted Shield",
+		spritenum: 699,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 889) || pokemon.baseSpecies.num === 889) {
+				return false;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if ((target && target.baseSpecies.num !== 889) || target.baseSpecies.num !== 889) return;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 4 && target.hp + damage > target.maxhp / 4) {
+				this.boost({def: 1});
+			}
+		},
+		forcedForme: "Zamazenta-Crowned",
+		itemUser: ["Zamazenta-Crowned"],
+		num: 1104,
+		gen: 8,
+		shortDesc: "If Zamazenta-Crowned: Defense is raised by 1 when it reaches 1/4 or less of its max HP.",
+	},
+	rustedsword: {
+		name: "Rusted Sword",
+		spritenum: 698,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 888) || pokemon.baseSpecies.num === 888) {
+				return false;
+			}
+			return true;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if ((source && source.baseSpecies.num !== 888) || source.baseSpecies.num !== 888) return;
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		forcedForme: "Zacian-Crowned",
+		itemUser: ["Zacian-Crowned"],
+		num: 1103,
+		gen: 8,
+		shortDesc: "If Zacian-Crowned: Attack is raised by 1 stage if it attacks and KOes another Pokemon.",
+	},
 	sablenite: {
 		name: "Sablenite",
 		spritenum: 614,

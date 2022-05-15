@@ -145,6 +145,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.5);
+		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
@@ -158,7 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 		name: "Gorilla Tactics",
-		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		shortDesc: "User's Atk. is 1.5x, but it's locked into first move it uses. Held items have no effect.",
 		rating: 4.5,
 		num: 255,
 	},
@@ -447,5 +454,46 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "The combination of Harvest and Grim Neigh.",
 		rating: 3.5,
 		num: 267,
+	},
+	intrepidsword: {
+		onModifyMove(pokemon, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zacian') {
+				move.basePower *= 0.8;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zaciancrowned') {
+				move.basePower *= 1.2;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zacian') {
+				return priority + 1;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zaciancrowned') {
+				return priority - 1;
+			}
+		},
+		name: "Intrepid Sword",
+		shortDesc: "If Hero: Blade/Slash/Cut moves have +1 priority & 20% less power. Reverse for Crowned.",
+		rating: 3.5,
+		num: 234,
+	},
+	dauntlessshield: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const dauntlessshieldUser = this.effectData.target;
+			if (pokemon === this.activePokemon && dauntlessshieldUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		name: "Dauntless Shield",
+		shortDesc: "This Pokemon ignores other Pokemon's stat stages when taking damage.",
+		rating: 3.5,
+		num: 235,
 	},
 };

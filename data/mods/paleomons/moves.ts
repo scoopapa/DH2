@@ -28,6 +28,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Brave Bird", target);
+        },
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -49,6 +53,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Draining Kiss", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -115,6 +123,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.addVolatile('tarshot');
 				},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Stealth Rock", target);
+        },
 		secondary: null,
 		target: "foeSide",
 		type: "Fire",
@@ -133,6 +145,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Energy Ball", target);
+        },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -177,6 +193,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Echoed Voice", target);
+        },
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -204,6 +224,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return priority +1;
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Crunch", target);
+        },
 		target: "normal",
 		type: "Dragon",
 	},
@@ -248,6 +272,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			if (this.field.isWeather('hail')) move.accuracy = true;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Blizzard", target);
+        },
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -271,10 +299,76 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.infiltrates = true;
 		},
 		multihit: 2,
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dragon Darts", target);
+        },
 		smartTarget: true,
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		maxMove: {basePower: 130},
+	},
+
+	superdrill: {
+		num: -109,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Super Drill",
+		desc: "If this move is successful, removes all hazards from the user's side of the field. If this move fails, sets one layer of Spikes on the opponent's side of the field..",
+		shortDesc: "Frees user from hazards. If this move fails, sets Spikes on the opponent's side.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Super Drill', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onMoveFail(target, source, move) {
+			source.side.foe.addSideCondition('spikes');
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+
+	stickkick: {
+		num: -110,
+		accuracy: 90, 
+		basePower: 130,
+		category: "Physical",
+		name: "Stick Kick",
+		desc: "If this attack is not successful, the user loses half of its maximum HP, rounded down, as crash damage. Pokemon with the Magic Guard Ability are unaffected by crash damage.",
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
 		maxMove: {basePower: 130},
 	},
 
