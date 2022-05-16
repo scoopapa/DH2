@@ -61,17 +61,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		shortDesc: "(Bugged) If this move is not very effective on a target, it sets a layer of Spikes.",
+		shortDesc: "If this move is not very effective on a target, it sets a layer of Spikes.",
 		name: "Ceaseless Edge",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		/*onHit(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Spikes check');
-				target.side.foe.addSideCondition('spikes');
+		onHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
+				source.side.foe.addSideCondition('spikes');
 			}
-		},*/
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Slash", target);
