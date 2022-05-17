@@ -567,4 +567,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1.5,
 		num: 12,
 	},
+	stakeout: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Stakeout",
+		rating: 4.5,
+		num: 198,
+		gen: 3,
+	},
+	furcoat: {
+		onModifyDefPriority: 6,
+		onModifyDef(def) {
+			return this.chainModify(2);
+		},
+		name: "Fur Coat",
+		rating: 4,
+		num: 169,
+		gen: 3,
+	},
+	gluttony: {
+		name: "Gluttony",
+		rating: 1.5,
+		num: 82,
+		gen: 3,
+	},
 };

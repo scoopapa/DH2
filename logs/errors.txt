@@ -3379,3 +3379,2012 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (domain.js:470:12)
     at finish (internal/child_process.js:895:14)
     at processTicksAndRejections (internal/process/task_queues.js:77:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+ReferenceError: source is not defined
+    at Battle.onDisableMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:63:5)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.nextTurn (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:1450:10)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2775:8)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1172:9)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[6331,11607,64078,16568]}
+>player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||cursedorb|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"adfasdfasvdasdv","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>p1 move cherryblossom
+>p2 switch 2
+  log = 
+|t:|1645505584
+|player|p1|scoopapa|2|
+|player|p2|adfasdfasvdasdv|101|
+|teamsize|p1|1
+|teamsize|p2|5
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645505584
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645505590
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Cherry Blossom|p2a: Extreme Ribbit
+|
+|upkeep
+
+
+TypeError: type is not iterable
+    at Pokemon.hasType (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1313:26)
+    at Battle.onDisableMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:63:17)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.nextTurn (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:1450:10)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2775:8)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[45144,44977,11724,1663]}
+>player p1 {"name":"scoopapa","avatar":"102","team":"Extreme Ribbit||cursedorb|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"asdasdvdv","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||","rating":0}
+>p1 move cherryblossom
+>p2 switch 2
+  log = 
+|t:|1645505736
+|player|p1|scoopapa|102|
+|player|p2|asdasdvdv|265|
+|teamsize|p1|1
+|teamsize|p2|5
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645505736
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645505742
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Cherry Blossom|p2a: Extreme Ribbit
+|
+|upkeep
+
+
+ReferenceError: pokemon is not defined
+    at Battle.onModifyDamage (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\items.js:167:35)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Battle.modifyDamage (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2270:21)
+    at Battle.getDamage (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2200:15)
+    at Battle.getSpreadDamage (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:875:27)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:807:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+
+Additional information:
+  chunk = >p1 move 1
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[32191,7021,507,41581]}
+>player p1 {"name":"scoopapa","avatar":"266","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"bsdfgsdfb","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+>p1 move growthpower
+>p2 move dormantpower
+  log = 
+|t:|1645513324
+|player|p1|scoopapa|266|
+|player|p2|bsdfgsdfb|265|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645513324
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645513330
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645513337
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|3
+|
+|t:|1645513412
+|move|p1a: Extreme Ribbit|Growth Power|p2a: Extreme Ribbit
+|-damage|p2a: Extreme Ribbit|186/304
+|move|p2a: Extreme Ribbit|Dormant Power|p1a: Extreme Ribbit
+
+
+TypeError: Cannot set properties of undefined (setting 'turn')
+    at Battle.onStart (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2256:28)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Field.setTerrain (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\field.js:148:20)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:976:29)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.tryMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:601:15)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:262:18)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[16718,48863,50316,46560]}
+>player p1 {"name":"scoopapa","avatar":"170","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sadvasdvasdf","avatar":"169","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645514497
+|player|p1|scoopapa|170|
+|player|p2|sadvasdvasdf|169|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645514498
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645514505
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645514509
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+
+
+TypeError: Cannot set properties of undefined (setting 'turn')
+    at Battle.onStart (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2256:28)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Field.setTerrain (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\field.js:148:20)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:976:29)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.tryMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:601:15)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:262:18)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[60116,55274,25604,52934]}
+>player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"gfndfgndfng","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516300
+|player|p1|scoopapa|101|
+|player|p2|gfndfgndfng|265|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516300
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516303
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645516312
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2257:20)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[10320,33543,44605,645]}
+>player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"adasdavd","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 move rocketjump
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516672
+|player|p1|scoopapa|101|
+|player|p2|adasdavd|101|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516673
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516677
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Rocket Jump|p1a: Extreme Ribbit
+|-damage|p1a: Extreme Ribbit|248/304
+|
+|upkeep
+|turn|2
+|
+|t:|1645516684
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea|p1a: Extreme Ribbit
+|-heal|p1a: Extreme Ribbit|304/304
+|
+|upkeep
+|turn|3
+|
+|t:|1645516695
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2261:19)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[47433,9148,43475,5694]}
+>player p1 {"name":"scoopapa","avatar":"265","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sdfsdbsdfb","avatar":"101","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645516872
+|player|p1|scoopapa|265|
+|player|p2|sdfsdbsdfb|101|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645516872
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645516894
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645516899
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'lastField')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2262:20)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[32682,28814,39017,42835]}
+>player p1 {"name":"scoopapa","avatar":"102","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"fsdgsdfbsdfb","avatar":"1","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645517146
+|player|p1|scoopapa|102|
+|player|p2|fsdgsdfbsdfb|1|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645517146
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645517149
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645517152
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'sides')
+    at Battle.onResidual (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2261:36)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:492:25)
+    at Battle.residualEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2663:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2771:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2837:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2793:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 move 2
+  inputLog = 
+>version ca4f3743507172763bdcfcd035f70c9e46e25c32
+>start {"formatid":"gen8extremereboot","seed":[16209,48132,21891,58664]}
+>player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||cursedorb|noability|growthpower,panacea,blindsteal,beachday|Bold|252,,252,,,|||||","rating":0}
+>player p2 {"name":"sdfasvsdv","avatar":"266","team":"Extreme Ribbit||cursedorb|noability|growthpower,blindsteal,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||emblematicscarf|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||bloodvial|noability|growthpower,cherryblossom,rosefield,cottonfield|Bold|252,,252,,,|||||]Extreme Ribbit||lifegem|noability|growthpower,cherryblossom,jumpscare,rocketjump|Bold|252,,252,,,|||||]Extreme Ribbit||pokemonstandard|noability|snowfall,cherryblossom,rainyseason,highnoon|Bold|252,,252,,,|||||]Extreme Ribbit||powerstone|noability|dormantpower,pumpkinfield,purification,earthquake|Bold|252,,252,,,|||||","rating":0}
+>p1 move panacea
+>p2 switch 6
+>p1 move panacea
+>p2 move pumpkinfield
+  log = 
+|t:|1645517794
+|player|p1|scoopapa|2|
+|player|p2|sdfasvsdv|266|
+|teamsize|p1|1
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|
+|t:|1645517795
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|304/304
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p1a: Extreme Ribbit|typechange|Spring|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|turn|1
+|
+|t:|1645517798
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|304/304
+|-start|p2a: Extreme Ribbit|typechange|Spring|[silent]
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+|upkeep
+|turn|2
+|
+|t:|1645517801
+|move|p2a: Extreme Ribbit|Pumpkin Field|p2a: Extreme Ribbit
+|-fieldstart|move: Pumpkin Field
+|move|p1a: Extreme Ribbit|Panacea||[still]
+|-fail|p1a: Extreme Ribbit|heal
+|
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Process sockets.js 36536 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"101","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: Cannot read properties of undefined (reading 'get')
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:90
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"170","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[58759,15112,4766,32132]}
+  log = 
+|t:|1645566304
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p1 {"name":"scoopapa","avatar":"2","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+
+
+TypeError: this.dex.getMoves is not a function
+    at C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:84
+    at Array.map (<anonymous>)
+    at Battle.onModifySpecies (C:\Users\pccom\Documents\GitHub\DH\.config-dist\formats.js:372:63)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:751:34)
+    at Pokemon.setSpecies (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1160:31)
+    at Pokemon.clearVolatile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:1304:8)
+    at new Pokemon (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\pokemon.js:429:8)
+    at new Side (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:3005:11)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:110:16)
+
+Additional information:
+  chunk = >player p2 {"name":"avdasdvasdv","avatar":"102","team":"Extreme Ribbit||pokemonstandard|contagious|abyssalslash,25recorders,brazenbash,machinegun|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+  inputLog = 
+>version 6e4a9ce5a796ff7ee64fb23d78c1fd5a6101698d
+>start {"formatid":"gen8extremereboot","seed":[47913,24419,1778,57643]}
+  log = 
+|t:|1645566407
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: target.boost is not a function
+    at Battle.onHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:4551:15)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1002:24)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\scripts.js:69:33)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2572:9)
+
+Additional information:
+  chunk = >p2 move 4
+  inputLog = 
+>version 82ce3e4ee2c85b78d304c611dacf7d5e3356bbc9
+>start {"formatid":"gen8extremereboot","seed":[28038,57342,59961,63912]}
+>player p1 {"name":"scoopapa","avatar":"169","team":"Extreme Ribbit||emblematicscarf|prudentplow|ciderpress,alldayharvest,wilt,fallharvest|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+>player p2 {"name":"sgfdgdsf","avatar":"102","team":"Extreme Ribbit||emblematicscarf|prudentplow|ciderpress,alldayharvest,fallback,fallharvest|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+>p1 team 1, 2, 3
+>p2 team 1, 2, 3
+>p1 move alldayharvest
+>p2 move alldayharvest
+>p1 move wilt
+>p2 move fallharvest
+  log = 
+|t:|1645755347
+|player|p1|scoopapa|169|
+|player|p2|sgfdgdsf|102|
+|teamsize|p1|3
+|teamsize|p2|3
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Camomons Mod: Pokémon have their types set to match their first two moves.
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|clearpoke
+|poke|p1|Extreme Ribbit|
+|poke|p1|Extreme Ribbit|
+|poke|p1|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|teampreview
+|
+|t:|1645755351
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|241/241
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|241/241
+|-start|p1a: Extreme Ribbit|typechange|Autumn|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Extreme Ribbit</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Spring.png" alt="Spring" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Blossom / Absorptive / Contagious</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>50</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>50</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>50</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: Extreme Ribbit|typechange|Autumn|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Extreme Ribbit</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Spring.png" alt="Spring" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Blossom / Absorptive / Contagious</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>50</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>50</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>50</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: Extreme Ribbit|typechange|Autumn|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Autumn|[silent]
+|turn|1
+|
+|t:|1645755354
+|move|p2a: Extreme Ribbit|All-Day Harvest|p1a: Extreme Ribbit
+|-damage|p1a: Extreme Ribbit|124/241
+|-status|p2a: Extreme Ribbit|brn
+|-damage|p1a: Extreme Ribbit|94/241
+|-hitcount|p1a: Extreme Ribbit|2
+|move|p1a: Extreme Ribbit|All-Day Harvest|p2a: Extreme Ribbit
+|-damage|p2a: Extreme Ribbit|100/241 brn
+|-status|p1a: Extreme Ribbit|brn
+|-damage|p2a: Extreme Ribbit|64/241 brn
+|-hitcount|p2a: Extreme Ribbit|2
+|
+|upkeep
+|turn|2
+|
+|t:|1645755362
+|move|p1a: Extreme Ribbit|Wilt|p2a: Extreme Ribbit
+
+
+C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:2459
+		},
+		^
+
+SyntaxError: Unexpected token '}'
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at ModdedDex.loadDataFile (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\dex.js:1370:23)
+    at ModdedDex.loadData (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\dex.js:1449:28)
+
+Additional information:
+  formatid = gen8extremereboot
+  team = Extreme Ribbit||emblematicscarf|prudentplow|ciderpress,alldayharvest,fallback,fallharvest|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,northwind,fallharvest,blossomout|Impish|252,,252,,4,|||||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,decoy|Modest|136,,,252,,120||,0,,,,|||
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Assignment to constant variable.
+    at Battle.onRestart (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\moves.js:3230:46)
+    at Battle.singleEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:487:25)
+    at Side.addSideCondition (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\side.js:204:23)
+    at Battle.runMoveEffects (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:964:30)
+    at Battle.spreadMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:821:17)
+    at Battle.moveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:1084:23)
+    at Battle.tryMoveHit (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:601:15)
+    at Battle.useMoveInner (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:262:18)
+    at Battle.useMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\extremereboot\scripts.js:69:33)
+
+Additional information:
+  chunk = >p1 move 4
+  inputLog = 
+>version 82ce3e4ee2c85b78d304c611dacf7d5e3356bbc9
+>start {"formatid":"gen8extremereboot","seed":[12194,2868,37488,8109]}
+>player p1 {"name":"dfghdfghdf","avatar":"102","team":"Extreme Ribbit||emblematicscarf|prudentplow|ciderpress,alldayharvest,wilt,fallharvest|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,rubbles|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+>player p2 {"name":"scoopapa","avatar":"102","team":"Extreme Ribbit||emblematicscarf|prudentplow|ciderpress,alldayharvest,wilt,fallharvest|Jolly|,252,,,4,252|||||]Extreme Ribbit||cursedorb|blossom|growthpower,panacea,blindsteal,blossomout|Impish|252,,252,,4,||,0,,,,|||]Extreme Ribbit||lifegem|absorptive|ciderpress,drainingroots,relax,rubbles|Modest|136,,,252,,120||,0,,,,|||","rating":0}
+>p1 team 3, 2, 1
+>p2 team 3, 2, 1
+>p1 move rubbles
+>p2 move relax
+>p1 move rubbles
+>p2 move rubbles
+>p1 move rubbles
+>p2 move relax
+>p1 move relax
+>p2 move rubbles
+>p1 move rubbles
+>p2 move rubbles
+>p1 move relax
+>p2 move rubbles
+>p1 move relax
+>p2 move rubbles
+>p1 move relax
+>p2 move rubbles
+>p1 move relax
+>p2 move rubbles
+>p1 move rubbles
+>p2 move relax
+>p1 move rubbles
+>p2 move relax
+  log = 
+|t:|1645785527
+|player|p1|dfghdfghdf|102|
+|player|p2|scoopapa|102|
+|teamsize|p1|3
+|teamsize|p2|3
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Extreme Reboot
+|rule|Camomons Mod: Pokémon have their types set to match their first two moves.
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|clearpoke
+|poke|p1|Extreme Ribbit|
+|poke|p1|Extreme Ribbit|
+|poke|p1|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|poke|p2|Extreme Ribbit|
+|teampreview
+|
+|t:|1645785536
+|start
+|switch|p1a: Extreme Ribbit|Extreme Ribbit|275/275
+|switch|p2a: Extreme Ribbit|Extreme Ribbit|275/275
+|-start|p1a: Extreme Ribbit|typechange|Autumn/Earth|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Extreme Ribbit</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Spring.png" alt="Spring" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Blossom / Absorptive / Contagious</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>50</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>50</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>50</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: Extreme Ribbit|typechange|Autumn/Earth|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Extreme Ribbit</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Spring.png" alt="Spring" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Blossom / Absorptive / Contagious</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>50</span> <span class="col statcol"><em>Atk</em><br>50</span> <span class="col statcol"><em>Def</em><br>50</span> <span class="col statcol"><em>SpA</em><br>50</span> <span class="col statcol"><em>SpD</em><br>50</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: Extreme Ribbit|typechange|Autumn/Earth|[silent]
+|-start|p2a: Extreme Ribbit|typechange|Autumn/Earth|[silent]
+|turn|1
+|
+|t:|1645785541
+|move|p2a: Extreme Ribbit|Relax|p2a: Extreme Ribbit
+|-boost|p2a: Extreme Ribbit|spa|1
+|-boost|p2a: Extreme Ribbit|spd|1
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-sidestart|p2: scoopapa|Rubbles
+|
+|upkeep
+|turn|2
+|
+|t:|1645785550
+|move|p2a: Extreme Ribbit|Rubbles|p1a: Extreme Ribbit
+|-sidestart|p1: dfghdfghdf|Rubbles
+|-sideend|p2: scoopapa|rubbles
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-sidestart|p2: scoopapa|Rubbles
+|-sideend|p1: dfghdfghdf|rubbles
+|
+|upkeep
+|turn|3
+|
+|t:|1645785556
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-message|2 layers of Rubbles were laid!
+|move|p2a: Extreme Ribbit|Relax|p2a: Extreme Ribbit
+|-boost|p2a: Extreme Ribbit|spa|1
+|-boost|p2a: Extreme Ribbit|spd|1
+|
+|upkeep
+|turn|4
+|
+|t:|1645785560
+|move|p2a: Extreme Ribbit|Rubbles|p1a: Extreme Ribbit
+|-sidestart|p1: dfghdfghdf|Rubbles
+|-message|1 layers of Rubbles are left on Extreme Ribbit's side!
+|move|p1a: Extreme Ribbit|Relax|p1a: Extreme Ribbit
+|-boost|p1a: Extreme Ribbit|spa|1
+|-boost|p1a: Extreme Ribbit|spd|1
+|
+|upkeep
+|turn|5
+|
+|t:|1645785581
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-message|2 layers of Rubbles were laid!
+|-sideend|p1: dfghdfghdf|rubbles
+|move|p2a: Extreme Ribbit|Rubbles|p1a: Extreme Ribbit
+|-sidestart|p1: dfghdfghdf|Rubbles
+|-message|1 layers of Rubbles are left on Extreme Ribbit's side!
+|
+|upkeep
+|turn|6
+|
+|t:|1645785586
+|move|p1a: Extreme Ribbit|Relax|p1a: Extreme Ribbit
+|-boost|p1a: Extreme Ribbit|spa|1
+|-boost|p1a: Extreme Ribbit|spd|1
+|move|p2a: Extreme Ribbit|Rubbles|p1a: Extreme Ribbit
+|-message|2 layers of Rubbles were laid!
+|-sideend|p2: scoopapa|rubbles
+|
+|upkeep
+|turn|7
+|
+|t:|1645785594
+|move|p2a: Extreme Ribbit|Rubbles|p1a: Extreme Ribbit
+|-message|3 layers of Rubbles were laid!
+|move|p1a: Extreme Ribbit|Relax|p1a: Extreme Ribbit
+|-boost|p1a: Extreme Ribbit|spa|1
+|-boost|p1a: Extreme Ribbit|spd|1
+|
+|upkeep
+|turn|8
+|
+|t:|1645785604
+|move|p1a: Extreme Ribbit|Relax|p1a: Extreme Ribbit
+|-boost|p1a: Extreme Ribbit|spa|1
+|-boost|p1a: Extreme Ribbit|spd|1
+|move|p2a: Extreme Ribbit|Rubbles||[still]
+|-fail|p2a: Extreme Ribbit
+|
+|upkeep
+|turn|9
+|
+|t:|1645785611
+|move|p1a: Extreme Ribbit|Relax|p1a: Extreme Ribbit
+|-boost|p1a: Extreme Ribbit|spa|1
+|-boost|p1a: Extreme Ribbit|spd|1
+|move|p2a: Extreme Ribbit|Rubbles||[still]
+|-fail|p2a: Extreme Ribbit
+|
+|upkeep
+|turn|10
+|
+|t:|1645785618
+|move|p2a: Extreme Ribbit|Relax|p2a: Extreme Ribbit
+|-boost|p2a: Extreme Ribbit|spa|1
+|-boost|p2a: Extreme Ribbit|spd|1
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-sidestart|p2: scoopapa|Rubbles
+|-message|2 layers of Rubbles are left on Extreme Ribbit's side!
+|
+|upkeep
+|turn|11
+|
+|t:|1645785626
+|move|p1a: Extreme Ribbit|Rubbles|p2a: Extreme Ribbit
+|-message|2 layers of Rubbles were laid!
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+ReferenceError: areboosts is not defined
+    at Battle.onUpdate (C:\Users\pccom\Documents\GitHub\DH\.data-dist\mods\scootopia\abilities.js:173:11)
+    at Battle.runEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:741:34)
+    at Battle.eachEvent (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:378:9)
+    at Battle.runAction (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2698:9)
+    at Battle.go (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\pccom\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\pccom\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 team 321456
+  inputLog = 
+>version 087669bae8261126abd21056480de9ee84f82062
+>version-origin d8a903f66d75eb2f6a53cfb8eef506647b0fb340
+>start {"formatid":"gen8scootopia","seed":[41233,26331,61189,38108]}
+>player p1 {"name":"scoopapa","avatar":"169","team":"Scalaron||leftovers|retaliation|roost,defog,uturn,flamethrower|Impish|252,,252,,4,|||||]Flocura||focussash|xenospore|taunt,stealthrock,bellydrum,poltergeist|Jolly|,252,,,,252|||||]Brawnkey||leftovers|levitate|bulkup,drainpunch,ironhead,rockslide|Adamant|252,252,,,4,|||||]Pythos||chopleberry|longreach|coil,darkfang,suckerpunch,superpower|Adamant|80,252,,,,176|||||]Kelven||heavydutyboots|beastboost|closecombat,sheercold,rapidspin,swordsdance|Jolly|28,228,,,,252|||||]Orchile||leftovers|metamorphosis|energyball,mysticalfire,shadowball,psychic|Modest|,,,252,4,252||,0,,,,|||","rating":0}
+>player p2 {"name":"vasdvasdvsadv","avatar":"2","team":"Flocura||heavydutyboots|xenospore|amnesia,piercinggaze,lunge,strengthsap|Calm|252,,120,,,136|||||","rating":0}
+>p1 team 3, 2, 1, 4, 5, 6
+>p2 team 1
+  log = 
+|t:|1648047413
+|player|p1|scoopapa|169|
+|player|p2|vasdvasdvsadv|2|
+|teamsize|p1|6
+|teamsize|p2|1
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Scootopia
+|clearpoke
+|poke|p1|Scalaron, F|
+|poke|p1|Flocura, M|
+|poke|p1|Brawnkey, F|
+|poke|p1|Pythos, M|
+|poke|p1|Kelven, M|
+|poke|p1|Orchile, M|
+|poke|p2|Flocura, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|rule|Z-Move Clause: Z-Moves are banned
+|teampreview
+|
+|t:|1648047419
+|start
+|switch|p1a: Brawnkey|Brawnkey, F|394/394
+|switch|p2a: Flocura|Flocura, F|314/314
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of undefined (reading '2')
+    at User.getIdentity (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:519:14)
+    at User.getIdentityWithStatus (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:540:25)
+    at User.getUpdateuserText (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:922:30)
+    at User.forceRename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:890:25)
+    at User.handleRename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:848:13)
+    at User.rename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:755:8)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+Additional information:
+  user = wobb troll
+  room = lobby
+  pmTarget = undefined
+  message = /trn wobb troll,0,caa476c82944c856960c47c9452d988459153a6e67fb466dc6023feed9816f74c221a6c0698cf056fe7c319d2be1c3de12ee3825046d20b50abaef2d07cc26c7782abb75a3b9ab44905d3984ad80007a29879cf083f451edcf7ed9e37b4052b94bf05365711de3219a105f82b62a5839a8435047a9ebdb2ef248e5d7caff0a36,wobbtroll,1,1648579132,localhost;c69987515fa7c1882757eabcdff74577b0d6162f24fb17926e09ed62b8060e01e55db784be621ab0d5ea4f4f631dd26c3dd26c60d297262040b8c7315a08bdfdeb5c242cd88457249031a98aacb9fcb46a99e4c0ba5c6caa057ad6b0edee5caec45ea2e009ac05ac166957b17d418e0b42b3b9461a108d48ed62feca5ceb0de90ccf2e9cd94aff86027238e7c06d62fc7a3a054b89e63ce12eb94dcbadd3a5a6e44894a42ecba0306b1081d12087a776581c203367662dbf627dbddfb5002689eb621c7dc7a438356546fd9e60d284be5c67707cb75b8e1b5691285947c200e26a757dee3729a4d342a21ef8620c8a18c795709aa65cf827ac421d9fd41c0bd91d6a5813c4cba7588c16206a3fe56368045fd07bb99e1ab332b4c1f95bf57bb736caa6ed81a0a30aac69abcad0df6bf45202a3c140920601fe1aedfba602958de739862f22991cc1c44a147a2ed93350434b313bcecfa4cce5beaa170f7c346b31fa1d845d7d6e6e45303401e1009bc2ab616210c360c2719170a6641e4130c446106d1c4234b98777567cb0223aab9f420cbcc3b00fdff95ef7d990aef1c340bae90597df6512fee62c4c54edbb24830006034d64386e0c8aa762bfba855c6293127bb5d023f51bdc5514c8ee8428bcdbab433a418fde327393dcb8e290ec8f331f19713d8d40b9c670cfe80804cd6b63c348bd7641bdf985d517b3996fe406
+
+
+TypeError: this.previousIDs.push is not a function
+    at User.forceRename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:881:93)
+    at User.resetName (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:595:15)
+    at _class.checkName (C:\Users\pccom\Documents\GitHub\DH\.server-dist\punishments.js:1412:9)
+    at User.handleRename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:842:15)
+    at User.rename (C:\Users\pccom\Documents\GitHub\DH\.server-dist\users.js:756:8)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+Additional information:
+  user = Idiot Troll
+  room = lobby
+  pmTarget = undefined
+  message = /trn sadvasdgasd,0,44fb91a9a90bfee82286b3f041765febebb36f2cfe10c95a5f47ad949f58a6fcc91b9bbc4f2f2aaf612dfb29ecb53f2841888e36182c34af8242866affe64b954fc460364394c2db0e92e38d3f5a3caa674b0228171c702f6a32ec23bbd5f57b5a8c18ba5ce265417e69df76f1ffd6c7698b34e1d88fca716ccc49b3ea140cef,sadvasdgasd,1,1648579311,localhost;389143be9d598324e03d50dd933f869319aa2842ae54a07686aa0cba18c765bc6485ce9b53afa8e45afe0f158621e1907eec44e6b98dc113f9b79bb613fdff6fb1f665033e9d6018b5f9e37a6188d9bdd95c4bc5cc86cd80889af22ee11da1e1fb806b5a60c86a2528b8c4e09f7dd1e304fff2033c2c6e6dddbf7096a340cd8fb215931ef592d8223041a4c3c657ff56b45f09acb9b6f6dfea43a66a29e4d50cbb5bb8d00fa5de39c884b96c41c37df03f27fe22e66a7cd6d4cfc9bd3a9ea4f885951c48678bd45142f05236c27dfbbe88f8a0e3cefe383e8140ee5aeabcbf37ed2d81dd7a70910f6c17389338cafb5f8ff09bc759a42d9ac717afbb8babdfc3aaf9c8ed023d155d3af388b577884c41e7637a766472883046188c702883442c64862f80cba9d34a50bea207465a1e643553d2ff9d4fb6ae3c83f22771997ebd1f221b173cb92f632073a189e018cacb6a1383e830f53e2b366eee50e8b3c1f76c1db41a03f8f2c74d8a60f12a8514ea9c700c17100cf4862ef5a37c9869f6c66dc2c27e62ea1ec7accc63388df6f49d8dbbd0b4418b124971713e2c9338fc0c66d96472cf5b5fc69535e65c5e5549f686dce3ea757f3b41845e3e10e67d38c111c2891d49cb07467c863266fba7d572b7ccf9fd0b543639afc7aa0fce11e77d40a1cfce70a4a0af800a191158af429506c3f0b36333d5147a8e59b438755dcd
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Process sockets.js 3204 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:439:4)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\pccom\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)

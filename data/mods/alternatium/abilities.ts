@@ -1,37 +1,3 @@
-/*
-
-Ratings and how they work:
-
--1: Detrimental
-	  An ability that severely harms the user.
-	ex. Defeatist, Slow Start
-
- 0: Useless
-	  An ability with no overall benefit in a singles battle.
-	ex. Color Change, Plus
-
- 1: Ineffective
-	  An ability that has minimal effect or is only useful in niche situations.
-	ex. Light Metal, Suction Cups
-
- 2: Useful
-	  An ability that can be generally useful.
-	ex. Flame Body, Overcoat
-
- 3: Effective
-	  An ability with a strong effect on the user or foe.
-	ex. Chlorophyll, Sturdy
-
- 4: Very useful
-	  One of the more popular abilities. It requires minimal support to be effective.
-	ex. Adaptability, Magic Bounce
-
- 5: Essential
-	  The sort of ability that defines metagames.
-	ex. Imposter, Shadow Tag
-
-*/
-
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -47,14 +13,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powerofalchemy: {
 		onAnyFaint(target) {
-			if (!this.effectState.target.hp) return;
+			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
 			const additionalBannedAbilities = [
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 			];
 			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectState.target.setAbility(ability);
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
@@ -74,7 +40,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 259,
 	},
-	rkssystem: {
+	rkssystem: { //Unused code but I'll keep it cause it can be useful in the future
 		onStart(pokemon) {
 			switch (pokemon.species.id) {
 			case 'silvally':
@@ -197,8 +163,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Static Cling",
-		shortDesc: "This Pokemon cannot lose its held item. Contact: Steals opponent's item on contact, if the user has no item.",
-		rating: 0,
+		shortDesc: "User cannot lose its item. Steals opponent's item on contact.",
+		rating: 4,
 		num: 1001,
 	},
 	rarecold: {
@@ -235,7 +201,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1004,
 	},
 	packleader: {
-		onModifyAtk(atk, source, target, move) {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				return this.chainModify(1.3);
 			}
@@ -245,7 +212,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1005,
 	},
-	privatewifi: {
+	/*privatewifi: {
 		onStart(source) {
 			if (source.hasItem('burndrive')) {
 				source.types[1] = 'Fire';
@@ -296,7 +263,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,
 		num: 1006,
-	},
+	},*/
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
@@ -368,17 +335,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(1.2);
 			} else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
-				if (!move.auraBooster) move.auraBooster = this.effectState.target;
-				if (move.auraBooster !== this.effectState.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectData.target;
+				if (move.auraBooster !== this.effectData.target) return;
 				return this.chainModify(0.8);
 			}
 		},
 		name: "Shadow World",
-		shortDesc: "When this Ability is active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
+		shortDesc: "While active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
 		rating: 3,
 		num: 1010,
 	},
@@ -414,53 +381,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 1012,
 	},
 	forecast: {
-		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
-		},
-		onStart(pokemon) {
-			if (this.effectState.switchingIn) {
-				if (this.field.isWeather('raindance')) {
-					this.field.clearWeather();
-					this.field.setWeather('raindance');
-				}
-				if (this.field.isWeather('sunnyday')) {
-					this.field.clearWeather();
-					this.field.setWeather('sunnyday');
-				}
-				if (this.field.isWeather('sandstorm')) {
-					this.field.clearWeather();
-					this.field.setWeather('sandstorm');
-				}
-				if (this.field.isWeather('hail')) {
-					this.field.clearWeather();
-					this.field.setWeather('hail');
-				}
-			}
-		},
-		onUpdate(pokemon) {
-			if (pokemon.species.id !== 'catastroform') return;
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Fire';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Water';
-				break;
-			case 'hail':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Ice';
-				break;
-			case 'sandstorm':
-				if (pokemon.species.id === 'catastroform') pokemon.types[1] = 'Rock';
-				break;
-			default:
-				if (pokemon.species.id === 'catastroform') return;
-				break;
+		onBasePowerPriority: 9,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Water') {
+				this.debug('forecast boost');
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Forecast",
-		shortDesc: "Upon Entry, resets any regular weather. Gets secondary typing matching weather.",
+		shortDesc: "Ice-, Fire-, and Water-type moves deal 1.5x damage.",
 		rating: 2,
 		num: 59,
 	},
@@ -577,8 +506,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Dark Aura",
@@ -592,8 +521,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Fairy Aura",

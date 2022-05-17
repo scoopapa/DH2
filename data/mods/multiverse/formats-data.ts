@@ -71,4 +71,139 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	regice: {
 		tier: "MV",
 	},
+	munchlax: {
+		tier: "MV",
+	},
+	rhyperior: {
+		tier: "MV",
+	},
+	mamoswine: {
+		tier: "MV",
+	},
+	froslass: {
+		tier: "MV",
+	},
+	rotomheat: {
+		tier: "MV",
+	},
+	rotommow: {
+		tier: "MV",
+	},
+	mesprit: {
+		tier: "MV",
+	},
+	arceusground: {
+		tier: "MV",
+	},
+	stoutland: {
+		tier: "MV",
+	},
+	musharna: {
+		tier: "MV",
+	},
+	whimsicott: {
+		tier: "MV",
+	},
+	eelektross: {
+		tier: "MV",
+	},
+	hydreigon: {
+		tier: "MV",
+	},
+	landorus: {
+		tier: "MV",
+	},
+	keldeo: {
+		tier: "MV",
+	},
+	keldeoresolute: {
+		tier: "MV",
+	},
+	genesect: {
+		tier: "MV",
+	},
+	genesectdouse: {
+		tier: "MV",
+	},
+	genesectshock: {
+		tier: "MV",
+	},
+	genesectburn: {
+		tier: "MV",
+	},
+	genesectchill: {
+		tier: "MV",
+	},
+	chesnaught: {
+		tier: "MV",
+	},
+	delphox: {
+		tier: "MV",
+	},
+	greninja: {
+		tier: "MV",
+	},
+	gogoat: {
+		tier: "MV",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	tyrantrum: {
+		tier: "MV",
+	},
+	sliggoo: {
+		tier: "MV",
+	},
+	avalugg: {
+		tier: "MV",
+	},
+	vikavolt: {
+		tier: "MV",
+	},
+	araquanid: {
+		tier: "MV",
+	},
+	silvallyfairy: {
+		tier: "MV",
+	},
+	mimikyu: {
+		tier: "MV",
+	},
+	tapukoko: {
+		tier: "MV",
+	},
+	tapufini: {
+		tier: "MV",
+	},
+	solgaleo: {
+		tier: "MV",
+	},
+	marshadow: {
+		tier: "MV",
+	},
+	cinderace: {
+		tier: "MV",
+	},
+	obstagoon: {
+		tier: "MV",
+	},
+	perrserker: {
+		tier: "MV",
+	},
+	corsolagalar: {
+		tier: "MV",
+	},
+	mrrime: {
+		tier: "MV",
+	},
+	stonjourner: {
+		tier: "MV",
+	},
+	arctozolt: {
+		tier: "MV",
+	},
+	calyrex: {
+		tier: "MV",
+	},
 };

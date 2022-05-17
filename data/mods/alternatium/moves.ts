@@ -1,31 +1,3 @@
-/*
-
-List of flags and their descriptions:
-
-authentic: Ignores a target's substitute.
-bite: Power is multiplied by 1.5 when used by a Pokemon with the Strong Jaw Ability.
-bullet: Has no effect on Pokemon with the Bulletproof Ability.
-charge: The user is unable to make a move between turns.
-contact: Makes contact.
-dance: When used by a Pokemon, other Pokemon with the Dancer Ability can attempt to execute the same move.
-defrost: Thaws the user if executed successfully while the user is frozen.
-distance: Can target a Pokemon positioned anywhere in a Triple Battle.
-gravity: Prevented from being executed or selected during Gravity's effect.
-heal: Prevented from being executed or selected during Heal Block's effect.
-mirror: Can be copied by Mirror Move.
-mystery: Unknown effect.
-nonsky: Prevented from being executed or selected in a Sky Battle.
-powder: Has no effect on Grass-type Pokemon, Pokemon with the Overcoat Ability, and Pokemon holding Safety Goggles.
-protect: Blocked by Detect, Protect, Spiky Shield, and if not a Status move, King's Shield.
-pulse: Power is multiplied by 1.5 when used by a Pokemon with the Mega Launcher Ability.
-punch: Power is multiplied by 1.2 when used by a Pokemon with the Iron Fist Ability.
-recharge: If this move is successful, the user must recharge on the following turn and cannot make a move.
-reflectable: Bounced back to the original user by Magic Coat or the Magic Bounce Ability.
-snatch: Can be stolen from the original user and instead used by another Pokemon using Snatch.
-sound: Has no effect on Pokemon with the Soundproof Ability.
-
-*/
-
 export const Moves: {[moveid: string]: MoveData} = {
 	baddybad: {
 		inherit: true,
@@ -62,6 +34,69 @@ export const Moves: {[moveid: string]: MoveData} = {
 	veeveevolley: {
 		inherit: true,
 		isNonstandard: undefined,
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('burndrive')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('burndrive')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('burndrive')) {
+					return;
+				} else if (this.effectData.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
 	},
 	behemothbash: {
 		num: 782,
@@ -210,6 +245,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	technoblastdouse: {
+		num: 546,
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Type varies based on the held Drive.",
+		name: "Techno Blast (Douse)",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, undefined, move, 'Normal');
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
 	technoblastbase: {
 		num: 546,
 		accuracy: 90,
@@ -227,6 +285,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			let type = pokemon.types[1];
 			if (type === "Bird") type = "???";
 			move.type = type;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
 		},
 		secondary: undefined,
 		target: "normal",
@@ -246,6 +308,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
+		},
 		secondary: undefined,
 		target: "normal",
 		type: "Ice",
@@ -264,6 +330,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Techno Blast", target);
 		},
 		secondary: {
 			chance: 100,
@@ -318,7 +388,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
-			onResidual(target) {
+			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
@@ -423,10 +493,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}
@@ -447,7 +517,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 	},
-	weatherball: {
+	/*weatherball: {
 		shortDesc: "If Catastroform, doubles in Power and changes typing when holding a Weather Rock.",
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -522,7 +592,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
-	},
+	},*/
 	gathermaterials: {
 		num: 1005,
 		accuracy: true,
@@ -669,7 +739,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			noCopy: true,
 			onStart(target) {
 				let layers = 1;
-				if (this.effectState.sourceEffect && this.effectState.sourceEffect.name === "Pulp Up") {
+				if (target.hasAbility('pulpup')) {
 					if (target.hp / target.maxhp <= 0.667) {
 						layers = 2;
 					}
@@ -677,32 +747,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 						layers = 3;
 					}
 				}
-				this.effectState.layers = layers;
-				this.effectState.def = 0;
-				this.effectState.spd = 0;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				this.effectData.layers = layers;
+				this.effectData.def = 0;
+				this.effectData.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: layers, spd: layers}, target, target);
 				for (let i = 0; i < layers; i++) {
-					if (curDef !== target.boosts.def) this.effectState.def--;
-					if (curSpD !== target.boosts.spd) this.effectState.spd--;
+					if (curDef !== target.boosts.def) this.effectData.def--;
+					if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				}
 			},
 			onRestart(target) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				if (this.effectData.layers >= 3) return false;
+				this.effectData.layers++;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const curDef = target.boosts.def;
 				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectState.def--;
-				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			},
 			onEnd(target) {
-				if (this.effectState.def || this.effectState.spd) {
+				if (this.effectData.def || this.effectData.spd) {
 					const boosts: SparseBoostsTable = {};
-					if (this.effectState.def) boosts.def = this.effectState.def;
-					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					if (this.effectData.def) boosts.def = this.effectData.def;
+					if (this.effectData.spd) boosts.spd = this.effectData.spd;
 					this.boost(boosts, target, target);
 				}
 				this.add('-end', target, 'Stockpile');
@@ -738,7 +808,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 	},
-	gulpmissle: {
+	gulpmissile: {
 		num: 1011,
 		accuracy: 100,
 		basePower: 90,
@@ -749,8 +819,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		shortDesc: "If Cramorant: 1.5x power; if Swimmer: Summons rain, when moves last.",
-		name: "Gulp Missle",
+		shortDesc: "Cramorant: 1.5x power; Swimmer: Summons rain, when moves last.",
+		name: "Gulp Missile",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
@@ -822,7 +892,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes. First hit neutral on Flying.",
+		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes.",
 		name: "Thousand Arrows",
 		pp: 10,
 		priority: 0,
@@ -870,7 +940,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1, heal: 1},
-		drain: [1, 2],
+		drain: [1, 4],
 		secondary: undefined,
 		target: "allAdjacentFoes",
 		type: "Ground",

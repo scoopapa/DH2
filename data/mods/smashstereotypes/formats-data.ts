@@ -179,12 +179,130 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	bisharpmega: {
-		tier: "SSS",
+		tier: "SSS Uber",
 	},
 	undangoose: {
 		tier: "SSS",
 	},
 	boreastra: {
+		tier: "SSS",
+	},
+	matsuru: {
+		tier: "SSS",
+	},
+	dolphena: {
+		tier: "SSS",
+	},
+	typhlosion: {
+		tier: "SSS",
+	},
+	hydreigon: {
+		tier: "SSS",
+	},
+	froslass: {
+		tier: "SSS",
+	},
+	vespiquenterra: {
+		tier: "SSS",
+	},
+	miloticalola: {
+		tier: "SSS",
+	},
+	enamorustherian: {
+		tier: "SSS",
+	},
+	grapploct: {
+		tier: "SSS",
+	},
+	highpriest: {
+		tier: "SSS",
+	},
+	firerock: {
+		tier: "SSS",
+	},
+	jungape: {
+		tier: "SSS",
+	},
+	dinodily: {
+		tier: "SSS",
+	},
+	hatterene: {
+		tier: "SSS",
+	},
+	hatterenegmax: {
+		tier: "SSS",
+	},
+	primeape: {
+		tier: "SSS",
+	},
+	teslaple: {
+		tier: "SSS",
+	},
+	octapex: {
+		tier: "SSS",
+	},
+	idk: {
+		tier: "SSS",
+	},
+	articlaus: {
+		tier: "SSS",
+	},
+	mothim: {
+		tier: "SSS",
+	},
+	rampardoscretaceous: {
+		tier: "SSS",
+	},
+	borassa: {
+		tier: "SSS",
+	},
+	panthee: {
+		tier: "SSS",
+	},
+	abomasnow: {
+		tier: "SSS",
+	},
+	cramorantalola: {
+		tier: "SSS",
+	},
+	cramorantalolagulping: {
+	},
+	cramorantalolagorging: {
+	},
+	drednaw: {
+		tier: "SSS",
+	},
+	drednawgmax: {
+		tier: "SSS",
+	},
+	xurkirat: {
+		tier: "SSS",
+	},
+	mesflame: {
+		tier: "SSS",
+	},
+	gourgeistfae: {
+		tier: "SSS",
+	},
+	odonaga: {
+		tier: "SSS",
+	},
+	swampertanti: {
+		tier: "SSS",
+	},
+	banjokazooie: {
+		tier: "SSS",
+	},
+	polbearab: {
+		tier: "SSS",
+	},
+	stalagmitar: {
+		tier: "SSS",
+	},
+	psychicdragon: {
+		tier: "SSS",
+	},
+	elichric: {
 		tier: "SSS",
 	},
 };

@@ -4,7 +4,8 @@
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC Uber" | "LC";
 	export type Other = "Unreleased" | "Illegal" | "ES Uber" | "ES OU" | "ES NFE" | "ES LC" | "CAP" | "CAP NFE" | "CAP LC";
 };*/
-import type {Pokemon} from '../../../sim/pokemon';
+import {Pokemon} from '../../../sim/pokemon';
+import {Battle} from '../../../sim/battle';
 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
@@ -530,7 +531,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		/*singleEvent( //Can't be edited here, this documents what it has been changed to
+		singleEvent(
 			eventid: string, effect: Effect, effectData: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
 			sourceEffect?: Effect | string | null, relayVar?: any
@@ -610,8 +611,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.event = parentEvent;
 
 			return returnVal === undefined ? relayVar : returnVal;
-		},*/
-		/*runEvent( //Same here
+		},
+		runEvent(
 			eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
 			sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
 		) {
@@ -786,7 +787,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.event = parentEvent;
 
 			return Array.isArray(target) ? targetRelayVars : relayVar;
-		},*/
+		},
 		residualEvent(eventid: string, relayVar?: any) { //Stasis
 			let stasisMons: Pokemon[] = [];
 			const callbackName = `on${eventid}`;
@@ -1694,9 +1695,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		/* Delete stuff */
-		for(let moveID in this.data.Moves) { //marks all moves as current gen
+		for(let moveID in this.data.Moves) { //marks all moves as current gen, except renamed ones
 			const move = this.modData('Moves', moveID);
-			if(move.isNonstandard === "Past") delete move.isNonstandard;
+			if(move.isNonstandard === "Past" && !renamedMoves.includes(moveID)) delete move.isNonstandard;
 			if(move.zMove) delete move.zMove;
 		}
 		for(const moveID of deletedMoves) { //then drops removed moves as past-gen so they can't be used
@@ -1724,8 +1725,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		for(let itemID in this.data.Items){
 			const item = this.modData('Items', itemID);
 			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
-			if(item.fling && !item.isBerry && item.fling.basePower === 10){ //Fling BP buffs
-				if(item === "airballoon") continue;
+			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
+				if(item.isBerry || item === "airballoon") continue;
 				item.fling.basePower = 20;
 			}
 		}
@@ -2347,7 +2348,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'exeggutoralola').learnset.toxic;
 		// Cubone
 		this.modData("Learnsets", "cubone").learnset.memento = ["8D"];
-		this.modData("Learnsets", "cubone").learnset.leer = ["8L33"];
+		this.modData("Learnsets", "cubone").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "cubone").learnset.swing = ["8L13"];
 		delete this.modData('Learnsets', 'cubone').learnset.tailwhip;
 		delete this.modData('Learnsets', 'cubone').learnset.toxic;
@@ -2358,7 +2359,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'marowak').learnset.tailwhip;
 		delete this.modData('Learnsets', 'marowak').learnset.toxic;
 		// Marowak Tropical
-		this.modData("Learnsets", "marowakalola").learnset.mysticalfire = ["8D"];
+		this.modData("Learnsets", "marowakalola").learnset.fierydance = ["8D"];
 		this.modData("Learnsets", "marowakalola").learnset.leer = ["8L3"];
 		this.modData("Learnsets", "marowakalola").learnset.swing = ["8L13"];
 		this.modData("Learnsets", "marowakalola").learnset.flash = ["8M"];
@@ -4936,7 +4937,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "scrafty").learnset.powertrip = ["8D"];
 		delete this.modData('Learnsets', 'scrafty').learnset.toxic;
 		// Sigilyph
-		this.modData("Learnsets", "sigilyph").learnset.miracleeye = ["8D"];
+		this.modData("Learnsets", "sigilyph").learnset.speedswap = ["8D"];
 		this.modData("Learnsets", "sigilyph").learnset.flash = ["8M"];
 		this.modData("Learnsets", "sigilyph").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'sigilyph').learnset.toxic;
@@ -6384,9 +6385,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "necrozma").learnset.stealthrock = ["8L13", "8M"];
 		this.modData("Learnsets", "necrozma").learnset.psychocut = ["8L19"];
 		this.modData("Learnsets", "necrozma").learnset.storedpower = ["8L23"];
-		this.modData("Learnsets", "necrozma").learnset.nightslash = ["8L23"];
+		this.modData("Learnsets", "necrozma").learnset.nightslash = ["8L37"];
 		this.modData("Learnsets", "necrozma").learnset.autotomize = ["8L43"];
-		this.modData("Learnsets", "necrozma").learnset.powergem = ["8L47"];
+		this.modData("Learnsets", "necrozma").learnset.powergem = ["8L47", "8M"];
 		this.modData("Learnsets", "necrozma").learnset.photongeyser = ["8L53"];
 		this.modData("Learnsets", "necrozma").learnset.flash = ["8M"];
 		this.modData("Learnsets", "necrozma").learnset.nightmare = ["8M"];
@@ -6962,6 +6963,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hattrem").learnset.psychup = ["8M"];
 		this.modData("Learnsets", "hattrem").learnset.signalbeam = ["8M"];
 		this.modData("Learnsets", "hattrem").learnset.telekinesis = ["8M"];
+		this.modData("Learnsets", "hatenna").learnset.drainingkiss = ["8E"];
+		delete this.modData("Learnsets", "hatenna").learnset.nuzzle;
 		// Hatterene
 		this.modData("Learnsets", "hatterene").learnset.imprison = ["8D"];
 		this.modData("Learnsets", "hatterene").learnset.chargebeam = ["8M"];
@@ -7571,6 +7574,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'voodoll').learnset.toxic;
 		// Voodoom
 		this.modData("Learnsets", "voodoom").learnset.spiritbreak = ["8D"];
+		this.modData("Learnsets", "voodoom").learnset.suckerpunch = ["8L1"];
 		this.modData("Learnsets", "voodoom").learnset.brutalswing = ["8M"];
 		this.modData("Learnsets", "voodoom").learnset.poltergeist = ["8M"];
 		delete this.modData('Learnsets', 'voodoom').learnset.toxic;
@@ -7638,16 +7642,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Brattler
 		this.modData("Learnsets", "brattler").learnset.spikyshield = ["8D"];
 		this.modData("Learnsets", "brattler").learnset.powertrip = ["8L52"]; //Will update when Brattler itself is
+		this.modData("Learnsets", "brattler").learnset.coil = ["8E"];
 		this.modData("Learnsets", "brattler").learnset.compensation = ["8M"];
 		this.modData("Learnsets", "brattler").learnset.nastyplot = ["8M"];
-		delete this.modData('Learnsets', 'brattler').learnset.toxic;
 		// Malaconda
-		this.modData("Learnsets", "malaconda").learnset.spikyshield = ["8D"];
+		this.modData("Learnsets", "malaconda").learnset.rejuvenate = ["8D"];
 		this.modData("Learnsets", "malaconda").learnset.powertrip = ["8L52"];
 		this.modData("Learnsets", "malaconda").learnset.breakingswipe = ["8M"];
 		this.modData("Learnsets", "malaconda").learnset.compensation = ["8M"];
 		this.modData("Learnsets", "malaconda").learnset.nastyplot = ["8M"];
-		delete this.modData('Learnsets', 'malaconda').learnset.toxic;
 		// Cawdet
 		this.modData("Learnsets", "cawdet").learnset.throatchop = ["8D"];
 		this.modData("Learnsets", "cawdet").learnset.whirlpool = ["8M"];
@@ -7828,5 +7831,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chromera").learnset.signalbeam = ["8M"];
 		this.modData("Learnsets", "chromera").learnset.strength = ["8M"];
 		delete this.modData('Learnsets', 'chromera').learnset.decorate;
+		//Venomicon
+		this.modData("Learnsets", "venomicon").learnset.jawlock = ["8D"];
+		this.modData("Learnsets", "venomicon").learnset.curse = ["8L50"];
+		this.modData("Learnsets", "venomicon").learnset.fellswoop = ["8L55"];
+		this.modData("Learnsets", "venomicon").learnset.hurricane = ["8M"];
+		delete this.modData('Learnsets', 'venomicon').learnset.coil;
 	},
 };

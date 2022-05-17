@@ -621,6 +621,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
 		name: "Forecast",
 		rating: 2,
 		num: 59,
@@ -720,7 +732,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 */
 	elementalteething: {
-      shortDesc: "This Pokemon's type changes before using a move and its biting moves are boosted 1.2x",
+      shortDesc: "This Pokemon's type changes before using a move and its biting moves are boosted 1.2x.",
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			const type = move.type;
@@ -737,6 +749,38 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Elemental Teething",
 		rating: 4.5,
+	},
+	shadowtag: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && !source.hasType('Ghost') && source.addType('Ghost')) {
+				this.add('-start', source, 'typeadd', 'Ghost', '[from] ability: Shadow Tag');
+			}
+		},
+		name: "Shadow Tag",
+		rating: 3,
+		num: 23,
+		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
+	},
+	nostalgiatrip: {
+      shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves become Normal-type.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Nostalgia Trip');
+			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Fairy' && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Normal';
+			}
+		},
+		onModifyMovePriority: 8,
+		onModifyMove(move, pokemon) {
+			if ((move.type === 'Fire' || move.type === 'Water' || move.type === 'Grass' || move.type === 'Electric' || move.type === 'Dark' || move.type === 'Psychic' || move.type === 'Dragon')  && move.category === 'Physical') move.category = 'Special';
+			if ((move.type === 'Normal' || move.type === 'Fighting' || move.type === 'Flying' || move.type === 'Ground' || move.type === 'Rock' || move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Poison' || move.type === 'Steel')  && move.category === 'Special') move.category = 'Physical';
+		},
+		name: "Nostalgia Trip",
+		rating: 4,
 	},
 	maximumpotential: {
       shortDesc: "This Pokemon is immune to the same moves Dynamax Pokemon are immune to.",

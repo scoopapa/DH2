@@ -209,4 +209,147 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 110, atk: 90, def: 79, spa: 121, spd: 103, spe: 67},
 		abilities: {0: "Shadow Shield", H: "Illuminate"},
 	},
+	xerneas: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 105, def: 75, spa: 107, spd: 98, spe: 79},
+	},
+	yveltal: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 98, def: 80, spa: 97, spd: 100, spe: 89},
+	},
+	zygarde: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 120, def: 101, spa: 91, spd: 115, spe: 65},
+	},
+	zygardecomplete: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 130, def: 141, spa: 121, spd: 145, spe: 55},
+	},
+	calyrex: {
+		inherit: true,
+		types: ["Grass", "Psychic"],
+		abilities: {0: "Harvest"},
+	},
+	calyrexice: {
+		inherit: true,
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 105, atk: 115, def: 120, spa: 115, spd: 120, spe: 55},
+	},
+	calyrexshadow: {
+		inherit: true,
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 105, atk: 110, def: 95, spa: 110, spd: 95, spe: 115},
+	},
+	zacian: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 110, def: 85, spa: 100, spd: 85, spe: 108},
+	},
+	zaciancrowned: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 140, def: 105, spa: 130, spd: 105, spe: 68},
+	},
+	zamazenta: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 115, def: 105, spa: 70, spd: 80, spe: 110},
+	},
+	zamazentacrowned: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 95, def: 145, spa: 95, spd: 145, spe: 60},
+	},
+	arceus: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusbug: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusdark: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusdragon: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuselectric: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfairy: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfighting: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusfire: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusflying: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusghost: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusgrass: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusground: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusice: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuspoison: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuspsychic: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceusrock: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceussteel: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	arceuswater: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 110, spa: 80, spd: 110, spe: 110},
+	},
+	blazikenmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 107, spa: 120, spd: 107, spe: 96},
+		abilities: {0: "Regenerator"},
+	},
+	lucariomega: {
+		inherit: true,
+		abilities: {0: "Technician"},
+	},
+	salamencemega: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 165, def: 110, spa: 120, spd: 110, spe: 100},
+		abilities: {0: "Overcoat"},
+	},
+	mewtwomegax: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 150, def: 125, spa: 104, spd: 105, spe: 110},
+		abilities: {0: "Iron Fist"},
+	},
+	mewtwomegay: {
+		inherit: true,
+		baseStats: {hp: 106, atk: 119, def: 95, spa: 154, spd: 115, spe: 111},
+		abilities: {0: "Neuroforce"},
+	},
 };

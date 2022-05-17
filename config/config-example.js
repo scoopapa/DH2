@@ -87,6 +87,7 @@ Main's SSL deploy script from Let's Encrypt looks like:
  * @type {false | string[]}.
  */
 exports.proxyip = false;
+exports.isTrustedProxyIp = ip => ["::1", "127.0.0.1"].includes(ip);
 
 /**
  * Various debug options
@@ -170,8 +171,8 @@ Y929lRybWEiKUr+4Yw2O1W0CAwEAAQ==
  *   Don't change this setting - there aren't any other options right now
  */
 exports.routes = {
-	root: 'pokemonshowdown.com',
-	client: 'play.pokemonshowdown.com',
+	root: 'dragonheavenserver.herokuapp.com',
+	client: 'dragonheaven.herokuapp.com',
 	dex: 'dex.pokemonshowdown.com',
 	replays: 'replay.pokemonshowdown.com',
 };
@@ -282,7 +283,7 @@ exports.punishmentautolock = false;
  *   If this is set to `true`, only autoconfirmed users can send links to either chatrooms or other users, except for staff members.
  *   This option can be used if your server has trouble with spammers mass PMing links to users, or trolls sending malicious links.
  */
-exports.restrictLinks = false;
+exports.restrictLinks = true;
 
 /**
  * whitelist - prevent users below a certain group from doing things
@@ -297,7 +298,7 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = false;
+exports.chatmodchat = '+';
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | AuthLevel}
@@ -664,7 +665,7 @@ exports.grouplist = [
 		declare: true,
 		bypassafktimer: true,
 		gamemanagement: true,
-
+		broadcast: true,
 		ip: false,
 		globalban: false,
 		lock: false,
@@ -677,7 +678,7 @@ exports.grouplist = [
 		name: "Player",
 		inherit: '+',
 		battleonly: true,
-
+		broadcast: true,
 		roomvoice: true,
 		modchat: true,
 		editprivacy: true,
@@ -690,7 +691,8 @@ exports.grouplist = [
 		id: "voice",
 		name: "Voice",
 		inherit: ' ',
-
+		broadcast: true,
+		roomvoice: true,
 		altsself: true,
 		makegroupchat: true,
 		joinbattle: true,

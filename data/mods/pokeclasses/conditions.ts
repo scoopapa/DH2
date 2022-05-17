@@ -109,4 +109,33 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-sideend', targetSide, 'Thunder Storm');
 		},
 	},
+	restoration: {
+		name: 'Restoration',
+		id: 'restoration',
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 8);
+		},
+        onTryHeal(damage, target, source, effect) {
+            if (effect.id === 'leftovers' || effect.id === 'blacksludge') {
+                this.heal(target.baseMaxhp / 16);
+            }
+        },
+		onHit(pokemon, source, move) {
+			if (move.id === 'lifedew') {
+				this.add('-activate', source, 'move: Restoration');
+				const side = pokemon.side;
+				let success = false;
+				for (const ally of side.pokemon) {
+					if (ally !== source && ally.hasAbility('soundproof')) continue;
+					if (ally.cureStatus()) success = true;
+				}
+				return success;
+				// if not able to restore hp, doesn't activate heal bell effect
+			}
+			else if (move.id === 'healbell') {
+				pokemon.heal(pokemon.maxhp / 4);
+				// doesn't heal for some reason
+			}
+		},
+	},
 };

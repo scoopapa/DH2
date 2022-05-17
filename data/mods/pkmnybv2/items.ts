@@ -219,6 +219,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 226,
 		gen: 3,
 	},
+	saltcube: {
+		name: "Salt Cube",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Eiscue') {
+				pokemon.formeChange('Eiscue-Noice');
+				let oldAbility = pokemon.setAbility('waterbubble', pokemon, 'waterbubble', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Water Bubble', oldAbility, '[of] ' + pokemon);
+				}
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ice') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Eiscue') return false;
+			return true;
+		},
+		itemUser: ["Eiscue"],
+		num: -1049,
+		gen: 8,
+		desc: "If held by Eiscue: Noice Forme on entry, Water Bubble, Immune to Stealth Rock, & 1.2x power Ice-type attacks.",
+	},
 
 // Z-Crystals
 	rhyperiumz: {

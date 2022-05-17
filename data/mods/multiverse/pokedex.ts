@@ -16,7 +16,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	victreebel: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 105, def: 65, spa: 100, spd: 100, spe: 70},
+		types: ["Grass", "Dark"],
+		baseStats: {hp: 80, atk: 95, def: 65, spa: 100, spd: 100, spe: 80},
 		abilities: {0: "Sniper", H: "Gluttony"},
 	},
 	golem: {
@@ -86,7 +87,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	breloom: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 130, def: 80, spa: 60, spd: 60, spe: 70},
+		baseStats: {hp: 105, atk: 130, def: 80, spa: 60, spd: 70, spe: 70},
 		abilities: {0: "Poison Heal", H: "Technician"},
 	},
 	hariyama: {
@@ -123,5 +124,255 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 90, atk: 50, def: 100, spa: 100, spd: 200, spe: 50},
 		abilities: {0: "Clear Body", H: "Filter"},
+	},
+	munchlax: {
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		baseStats: {hp: 135, atk: 100, def: 80, spa: 60, spd: 100, spe: 65},
+		evos: null,
+	},
+	rhyperior: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 140, def: 130, spa: 55, spd: 65, spe: 55},
+		abilities: {0: "Steam Engine", 1: "Solid Rock", H: "Reckless"},
+	},
+	mamoswine: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 130, def: 90, spa: 70, spd: 80, spe: 80},
+	},
+	froslass: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 80, spa: 85, spd: 80, spe: 120},
+		abilities: {0: "Snow Cloak", 1: "Regenerator", H: "Cursed Body"},
+	},
+	rotom: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	rotomheat: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 107, spa: 115, spd: 107, spe: 91},
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	rotommow: {
+		inherit: true,
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 78, atk: 50, def: 107, spa: 109, spd: 107, spe: 90},
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	mesprit: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 80, def: 115, spa: 120, spd: 105, spe: 90},
+	},
+	arceus: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	arceusground: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
+		requiredItem: "Earth Plate",
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	stoutland: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 120, def: 90, spa: 45, spd: 90, spe: 80},
+	},
+	musharna: {
+		inherit: true,
+		types: ["Psychic", "Fairy"],
+		abilities: {0: "Forewarn", 1: "Magic Bounce", H: "Telepathy"},
+	},
+	whimsicott: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 67, def: 85, spa: 97, spd: 75, spe: 116},
+		abilities: {0: "Prankster", 1: "Infiltrator", H: "Chlorophyll"},
+	},
+	eelektross: {
+		inherit: true,
+		types: ["Electric", "Poison"],
+		baseStats: {hp: 95, atk: 115, def: 80, spa: 115, spd: 80, spe: 50},
+	},
+	hydreigon: {
+		inherit: true,
+	},
+	landorus: {
+		inherit: true,
+		baseStats: {hp: 89, atk: 105, def: 80, spa: 85, spd: 80, spe: 101},
+	},
+	keldeo: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 90, spa: 120, spd: 90, spe: 100},
+		abilities: {0: "Rattled"},
+	},
+	keldeoresolute: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 90, spa: 120, spd: 90, spe: 100},
+		abilities: {0: "Rattled"},
+	},
+	genesect: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectdouse: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectshock: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectburn: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	genesectchill: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 90, def: 95, spa: 90, spd: 95, spe: 89},
+	},
+	chesnaught: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 107, def: 122, spa: 74, spd: 75, spe: 74},
+		abilities: {0: "Rough Skin", H: "Bulletproof"},
+	},
+	delphox: {
+		inherit: true,
+		baseStats: {hp: 79, atk: 64, def: 72, spa: 114, spd: 110, spe: 104},
+		abilities: {0: "Blaze", H: "Magician"},
+	},
+	greninja: {
+		inherit: true,
+		baseStats: {hp: 72, atk: 90, def: 67, spa: 90, spd: 71, spe: 120},
+		abilities: {0: "Torrent", H: "Protean"},
+		otherFormes: null,
+		formeOrder: null,
+	},
+	greninjaash: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	gogoat: {
+		inherit: true,
+		baseStats: {hp: 123, atk: 100, def: 81, spa: 97, spd: 62, spe: 68},
+		abilities: {0: "Sap Sipper", H: "Grass Pelt"},
+	},
+	dragalge: {
+		inherit: true,
+		abilities: {0: "Regenerator", H: "Adaptability"},
+	},
+	tyrantrum: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 121, def: 119, spa: 69, spd: 69, spe: 71},
+	},
+	sliggoo: {
+		inherit: true,
+		types: ["Dragon", "Water"],
+		baseStats: {hp: 78, atk: 90, def: 83, spa: 98, spd: 133, spe: 67},
+		evos: null,
+	},
+	avalugg: {
+		inherit: true,
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 117, def: 184, spa: 44, spd: 76, spe: 28},
+		abilities: {0: "Technician", H: "Sturdy"},
+	},
+	vikavolt: {
+		inherit: true,
+		baseStats: {hp: 97, atk: 70, def: 90, spa: 140, spd: 75, spe: 53},
+		abilities: {0: "Stubborn"},
+	},
+	araquanid: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 75, def: 100, spa: 50, spd: 132, spe: 56},
+	},
+	silvally: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	silvallyfairy: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 115, def: 95, spa: 100, spd: 95, spe: 95},
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
+	},
+	mimikyu: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 110, def: 80, spa: 50, spd: 105, spe: 96},
+	},
+	tapukoko: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 115, def: 85, spa: 65, spd: 75, spe: 110},
+		abilities: {0: "Electric Surge"},
+	},
+	tapufini: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 75, def: 125, spa: 95, spd: 100, spe: 85},
+		abilities: {0: "Misty Surge"},
+	},
+	solgaleo: {
+		inherit: true,
+		baseStats: {hp: 137, atk: 113, def: 63, spa: 89, spd: 59, spe: 97},
+	},
+	marshadow: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 95, def: 80, spa: 90, spd: 90, spe: 90},
+	},
+	cinderace: {
+		inherit: true,
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 85, atk: 104, def: 80, spa: 65, spd: 80, spe: 91},
+		abilities: {0: "Blaze", H: "Tough Claws"},
+	},
+	obstagoon: {
+		inherit: true,
+		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 97},
+	},
+	perrserker: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 115, def: 110, spa: 50, spd: 105, spe: 50},
+	},
+	corsolagalar: {
+		inherit: true,
+		types: ["Ghost", "Normal"],
+		baseStats: {hp: 60, atk: 55, def: 100, spa: 95, spd: 100, spe: 30},
+		abilities: {0: "Weak Armor", H: "Clear Body"},
+	},
+	mrrime: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 110, spd: 100, spe: 75},
+		abilities: {0: "Infiltrator", 1: "Screen Cleaner", H: "Refrigerate"},
+	},
+	stonjourner: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 20, spe: 100},
+		abilities: {0: "Power Spot", H: "No Guard"},
+		weightkg: 999.9,
+	},
+	arctozolt: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 55},
+		abilities: {0: "Slush Rush"},
+	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 80, def: 80, spa: 85, spd: 80, spe: 80},
+		abilities: {0: "Contrary"},
 	},
 };

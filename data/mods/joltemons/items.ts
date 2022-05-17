@@ -95,7 +95,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	chillpill: {
 		name: "Chill Pill",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
+		onStart(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
 				if (!pokemon.species.name.includes('Galar')) {
 					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
@@ -121,21 +121,49 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Darmanitan"],
 		num: -1006,
 		gen: 8,
-		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain (Unova) or Hail (Galar) on entry, 1.2x power Psychic-type (Unova) or Fire (Galar) attacks.",
+		desc: "If held by Darmanitan: Zen Mode and Psychic Terrain on entry, 1.2x power Psychic-type attacks.",
+	},
+	chillpillg: {
+		name: "Chill Pill G",
+		spritenum: 390,
+		onStart: function(pokemon) {
+			this.add('-item', pokemon, 'Chill Pill');
+			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan' && pokemon.species.name.includes('Galar')) {
+				this.add('-formechange', pokemon, 'Darmanitan-Galar-Zen', '[msg]');
+				pokemon.formeChange("Darmanitan-Galar-Zen");
+				let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Snow Warning', oldAbility, '[of] ' + pokemon);
+				}
+			}
+		},
+		onBasePower(basePower, user, target, move) {
+			if (move && (user.species.id === 'darmanitangalarzen') && (move.type === 'Fire')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Darmanitan') return false;
+			return true;
+		},
+		itemUser: ["Darmanitan-Galar"],
+		num: -1006,
+		gen: 8,
+		desc: "If held by Darmanitan: Zen Mode and Hail on entry, 1.2x power Fire-type attacks.",
 	},
 	"graduationscale": {
 		id: "graduationscale",
 		name: "Graduation Scale",
 		onStart: function(pokemon) {
-			this.add('-item', pokemon, 'Graduation Scale');
+			/*this.add('-item', pokemon, 'Graduation Scale');
 			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
-				pokemon.formeChange("Wishiwashi-School");
+				pokemon.formeChange("Wishiwashi-School");*/
 				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
-				if (oldAbility) {
+				/*if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
 				}
-			}
+			}*/
 		},
 		onTakeItem: function(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
@@ -158,6 +186,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 716,
 		fling: {
 			basePower: 80,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.boost({spe: 2});
+				pokemon.useItem();
+			}
 		},
 		// Item activation located in scripts.js
 		num: 1121,
@@ -206,21 +240,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are boosted 1.5x.",
 	},
+/*
 	soulblade: {
 		name: "Soul Blade",
 		spritenum: 297,
 		fling: {
 			basePower: 100,
 		},
-		onBasePowerPriority: 16,
-		onBasePower(basePower, user, target, move) {
-			if (move.category === 'Physical' || move.category === 'Special') {
+		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x1199, 0x1000]);
-			}
 		},
 		gen: 8,
 		desc: "(Non-functional placeholder) The holder's moves deal 1.1x damage + .2x for every KO it has.",
 	},
+*/
 	mentalherb: {
 		name: "Mental Herb",
 		spritenum: 285,
@@ -284,6 +317,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Cherrim') return false;
 			return true;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['embargo']) {
+				this.add('-activate', pokemon, 'item: Morning Blossom');
+				pokemon.removeVolatile('embargo');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'embargo') {
+				this.add('-immune', pokemon, '[from] item: Morning Blossom');
+				return null;
+			}
 		},
 		itemUser: ["Cherrim"],
 		gen: 8,
@@ -455,7 +501,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod > 0) {
+			if (target.getMoveHitData(move).typeMod > 0 && !target.hasAbility('solidrock') && !target.hasAbility('filter')) {
 				this.debug('Protector neutralize');
 				return this.chainModify(0.75);
 			}
@@ -493,12 +539,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 242,
 		fling: {
 			basePower: 10,
+			//status: 'slp', Fixed
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-			this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 /*
@@ -520,9 +567,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 */
-		fling: {
-			basePower: 10,
-		},
 		gen: 8,
 		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
 	},
@@ -629,8 +673,166 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		desc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
+	ironball: {
+		name: "Iron Ball",
+		spritenum: 224,
+		fling: {
+			basePower: 130,
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (target.volatiles['ingrain'] || target.volatiles['smackdown'] || this.field.getPseudoWeather('gravity')) return;
+			if (move.type === 'Ground' && target.hasType('Flying')) return 0;
+		},
+		// airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded
+		num: 278,
+		gen: 4,
+		desc: "Holder's use of Gravity lasts 8 turns instead of 5. Grounds holder.",
+	},
+	cursedbelt: {
+		name: "Cursed Belt",
+		spritenum: 13,
+		fling: {
+			basePower: 10,
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.category === 'Status') {
+				target.addVolatile('disable');
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['disable']) {
+				return this.chainModify(1.2);
+			}
+		},
+		desc: "When the holder uses a status move, it is disabled. Moves deal 1.2x damage while a move is disabled.",
+	},
+	utilityumbrella: {
+		name: "Utility Umbrella",
+		spritenum: 718,
+		fling: {
+			basePower: 60,
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail') return false;
+		},
+		onWeather(target, source, effect) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+				this.heal(target.baseMaxhp / 12);
+			}
+		},
+		// Other effects implemented in statuses.js, moves.js, and abilities.js
+		num: 1123,
+		gen: 8,
+		desc: "The holder ignores rain- and sun-based effects & weather damage. Heals 1/12 of its max HP in weather.",
+	},
+	nightlightball: {
+		name: "Nightlight Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 90,
+			status: 'brn',
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Nightlight Ball');
+			this.add('-message', `Mimikyu's Nightlight Ball has a sinister sheen!`);
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Mimikyu') {
+				return this.chainModify(1.3);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && target.baseSpecies.baseSpecies === 'Mimikyu') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] item: Nightlight Ball');
+				}
+				return null;
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Mimikyu') return false;
+			return true;
+		},
+		itemUser: ["Mimikyu"],
+		desc: "If held by Mimikyu: 1.3x Atk and Def, Heals 1/4 of its max HP when hit by Electric moves.",
+	},
+	seawaterbead: {
+		name: "Seawater Bead",
+		spritenum: 251,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Phione') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Phione') {
+				return this.chainModify(1.5);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Phione') return false;
+			return true;
+		},
+		itemUser: ["Phione"],
+		desc: "If held by Phione: 1.5x Defense & Special Defense.",
+	},
+	sacredropes: {
+		name: "Sacred Ropes",
+		spritenum: 251,
+		fling: {
+			basePower: 130,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Sacred Ropes');
+			this.add('-message', `Regigigas is adorned with continent-towing ropes!`);
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.baseSpecies === 'Regigigas') {
+					let oldAbility = pokemon.setAbility('thickfat', pokemon, 'thickfat', true);
+				if (oldAbility) {
+					this.add('-activate', pokemon, 'ability: Thick Fat', oldAbility, '[of] ' + pokemon);
+				}
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Fighting' || move.type === 'Rock') && defender.baseSpecies.baseSpecies === 'Regigigas') {
+				this.debug('Sacred Ropes weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Fighting' || move.type === 'Rock') && defender.baseSpecies.baseSpecies === 'Regigigas') {
+				this.debug('Sacred Ropes weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Regigigas') return false;
+			return true;
+		},
+		itemUser: ["Regigigas"],
+		desc: "If held by Regigigas: Ability becomes Thick Fat, takes 0.75x damage from Fighting and Rock moves.",
+	},
+
 	
 // making things harder for myself by not learning how to code script.ts part 2
+// lol scavenge
+/*
 		aguavberry: {
 		name: "Aguav Berry",
 		spritenum: 5,
@@ -955,5 +1157,113 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 160,
 		gen: 3,
 	},
-
+*/
+// soul blades
+	soulblade: {
+		name: "Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x1199, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl2');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.1x damage + .2x for every KO it has.",
+	},
+	soulbladelvl2: {
+		name: "Soul Blade Lvl. 2",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x14CC, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl3');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.3x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl3: {
+		name: "Soul Blade Lvl. 3",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.5);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl4');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.5x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl4: {
+		name: "Soul Blade Lvl. 4",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.7);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('soulbladelvl5');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.7x damage + .2x for every additional KO it has.",
+	},
+	soulbladelvl5: {
+		name: "Soul Blade Lvl. 5",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.9);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setItem('ultrasoulblade');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		gen: 8,
+		desc: "The holder's moves deal 1.9x damage + .2x for every additional KO it has.",
+	},
+	ultrasoulblade: {
+		name: "Ultra Soul Blade",
+		spritenum: 297,
+		fling: {
+			basePower: 100,
+		},
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(2.1);
+		},
+		gen: 8,
+		desc: "Strongest Soul Blade. The holder's moves deal 2.1x damage.",
+	},
 };

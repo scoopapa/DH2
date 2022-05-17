@@ -131,6 +131,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
+	castform: {
+		tier: "Alternatium",
+		doublesTier: "Alternatium",
+	},
 	castformfirestorm: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -295,7 +299,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},
-	genesectpassword: {
+	genesectdouse: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
 	},

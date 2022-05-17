@@ -318,4 +318,211 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 137,
 	},
+	lowflight: {
+		name: "Low Flight",
+		shortDesc: "User takes half damage when switching in or at full HP.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns) {
+				this.debug('Low Flight weaken');
+				return this.chainModify(0.5);
+			}
+			else if (target.hp >= target.maxhp) {
+				this.debug('Low Flight weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		rating: 0,
+		num: 123009,
+	},
+	mythicalpresence: {
+		shortDesc: "Lowers adjacent opponents' Special Attack on entry.", // this happened twice independently haha
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Mythical Presence",
+		rating: 4,
+		num: -1013,
+	},
+	kalibersfury: {
+		shortDesc: "Any attacks with 60 bp or less get a +1 to priority.",
+		onModifyPriority: function(priority, pokemon, target, move, basePower) {
+			if (move.category !== "Status" && move.basePower <= 60)
+			return priority + 1;
+		},
+		id: "kalibersfury",
+		name: "Kaliber's Fury"
+	},
+	persistent: {
+		isNonstandard: null,
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
+	veteran: {
+		shortDesc: "Sniper + Merciless; If a move crits, it poisons the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move.crit) {
+				this.debug('Sniper boost');
+				source.trySetStatus('psn', target);
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Veteran",
+	},
+	mythicswordsman: {
+		shortDesc: "The Pokémon's contact moves become special.",
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				if (move.category !== 'Special') move.category = 'Special';
+			}
+		},
+		name: "Mythic Swordsman",
+		rating: 3,
+		num: -1012,
+	},
+	gunkmissile: {
+		onDamagingHit(damage, target, source, move) {
+			if (target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantalolagulping', 'cramorantalolagorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantalolagulping') {
+					this.boost({spd: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('psn', target, move);
+				}
+				target.formeChange('cramorantalola', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'sludgewave' || effect.id === 'gunkshot' && source.hasAbility('gunkmissile') &&
+				source.species.name === 'Cramorant-Alola' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantalolagorging' : 'cramorantalolagulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		isPermanent: true,
+		name: "Gunk Missile",
+		shortDesc: "When hit after Sludge Wave/Gunk Shot, attacker takes 1/4 max HP and -1 Sp. Def. or poisons.",
+		rating: 2.5,
+		num: 241,
+	},
+	ultraimpulse: { 
+		shortDesc: "If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
+		name: "Ultra Impulse",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'atk') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'def') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spa') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spd') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			/** @type {StatNameExceptHP} */
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (pokemon.status && statName === 'spe') {
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	leviflame: {
+		name: "Leviflame",
+		shortDesc: "Levitate + Flame Body",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !target.volatiles['smackdown'] ) {
+				this.add('-immune', target, '[from] ability: Leviflame');
+				return null;
+			}
+		},
+	},
 };

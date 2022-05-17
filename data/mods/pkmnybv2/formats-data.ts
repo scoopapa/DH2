@@ -341,7 +341,7 @@ alakazammega: {
 	   doublesTier: "DOU",
 },
 gengarmega: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 lucariomega: {
@@ -1060,5 +1060,8 @@ urshifu: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
-	
+marshadow: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };

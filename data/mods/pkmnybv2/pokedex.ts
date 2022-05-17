@@ -173,13 +173,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	drowzee: {
     	inherit: true,
 		types: ["Psychic", "Dark"],
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Mental Health"},
+		abilities: {0: "Insomnia", 1: "Nostalgia Trip", H: "Mental Health"},
 	},
 	hypno: {
     	inherit: true,
 		types: ["Psychic", "Dark"],
 		baseStats: {hp: 85, atk: 83, def: 70, spa: 83, spd: 125, spe: 67},
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Mental Health"},
+		abilities: {0: "Insomnia", 1: "Nostalgia Trip", H: "Mental Health"},
 	},
 	kingler: {
     	inherit: true,
@@ -518,7 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corsolagalar: {
     	inherit: true,
-		abilities: {0: "Weak Armor", 1: "Cursed Body", H: "Perish Body"},
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Perish Body"},
 	},
 	remoraid: {
     	inherit: true,
@@ -631,6 +631,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grumpig: {
     	inherit: true,
+		abilities: {0: "Thick Fat", 1: "Magician", H: "Gluttony"},
 		baseStats: {hp: 80, atk: 90, def: 65, spa: 90, spd: 110, spe: 80},
 	},
 	spinda: {
@@ -711,6 +712,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kecleon: {
     	inherit: true,
+		types: ["Normal", "Ghost"],
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 70, spd: 120, spe: 40},
 	},
 	shuppet: {
@@ -720,6 +722,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	banette: {
     	inherit: true,
 		types: ["Ghost", "Normal"],
+		abilities: {0: "Shadow Tag", 1: "Frisk", H: "Cursed Body"},
 	},
 	banettemega: {
     	inherit: true,
@@ -962,6 +965,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 100, atk: 125, def: 52, spa: 105, spd: 52, spe: 91},
+		abilities: {0: "Shadow Tag", 1: "Super Luck", H: "Moxie"},
 	},
 	chingling: {
     	inherit: true,
@@ -1265,6 +1269,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	heatmor: {
     	inherit: true,
+		types: ["Fire", "Steel"],
 		baseStats: {hp: 85, atk: 117, def: 66, spa: 95, spd: 66, spe: 75},
 	},
 	durant: {
@@ -1442,7 +1447,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hoopaunbound: {
     	inherit: true,
-		abilities: {0: "Magician", H: "Cursed Body"},
+		abilities: {0: "Magician", H: "Shadow Tag"},
 	},
 	volcanion: {
     	inherit: true,
@@ -1696,7 +1701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cursola: {
     	inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 95, spa: 145, spd: 120, spe: 30},
-		abilities: {0: "Weak Armor", 1: "Cursed Body", H: "Perish Body"},
+		abilities: {0: "Weak Armor", 1: "Shadow Tag", H: "Perish Body"},
 	},
 	sirfetchd: {
     	inherit: true,
@@ -1823,6 +1828,81 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     	inherit: true,
 		types: ["Bug", "Fairy"],
 	},
+	solrock: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 115, def: 85, spa: 55, spd: 65, spe: 80},
+		abilities: {0: "Levitate", H: "Cloud Nine"},
+	},
+	lunatone: {
+    	inherit: true,
+		baseStats: {hp: 90, atk: 55, def: 65, spa: 115, spd: 85, spe: 80},
+		abilities: {0: "Levitate", H: "Unburden"},
+	},
+	gengarmega: {
+    	inherit: true,
+		baseStats: {hp: 60, atk: 80, def: 95, spa: 150, spd: 95, spe: 120},
+	},
+	stunfiskgalar: {
+    	inherit: true,
+		abilities: {0: "Mimicry", 1: "Strong Jaw", H: "Steely Spirit"},
+	},
+	marshadow: {
+    	inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+	},
+	runerigus: {
+    	inherit: true,
+		abilities: {0: "Wandering Spirit", H: "Shadow Tag"},
+	},
+	cofagrigus: {
+    	inherit: true,
+		abilities: {0: "Mummy", H: "Shadow Tag"},
+	},
+	tyranitar: {
+    	inherit: true,
+		abilities: {0: "Sand Stream", H: "Nostalgia Trip"},
+	},
+	houndour: {
+    	inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+	},
+	houndoom: {
+    	inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Solar Power"},
+	},
+	houndoommega: {
+    	inherit: true,
+		abilities: {0: "Nostalgia Trip"},
+	},
+	cacturne: {
+    	inherit: true,
+		abilities: {0: "Sand Veil", 1: "Nostalgia Trip", H: "Water Absorb"},
+	},
+	kingdra: {
+    	inherit: true,
+		abilities: {0: "Swift Swim", 1: "Sniper", H: "Nostalgia Trip"},
+	},
+	donphan: {
+    	inherit: true,
+		abilities: {0: "Sturdy", 1: "Nostalgia Trip", H: "Sand Veil"},
+	},
+	crobat: {
+    	inherit: true,
+		abilities: {0: "Inner Focus", 1: "Nostalgia Trip", H: "Infiltrator"},
+	},
+	aerodactyl: {
+    	inherit: true,
+		abilities: {0: "Rock Head", 1: "Pressure", H: "Nostalgia Trip"},
+	},
+	mantine: {
+    	inherit: true,
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Nostalgia Trip"},
+	},
+	celebi: {
+    	inherit: true,
+		abilities: {0: "Natural Cure", H: "Nostalgia Trip"},
+	},
+
 
 	// New Mons
 	synthinobi: {
@@ -1974,7 +2054,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Photyrant",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 50},
-		abilities: {0: "Cursed Body", 1: "Sheer Force", H: "Aftermath"},
+		abilities: {0: "Shadow Tag", 1: "Sheer Force", H: "Aftermath"},
 		weightkg: 100,
 	},
 	ghoulgoyle: {

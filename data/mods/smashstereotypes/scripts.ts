@@ -69,6 +69,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 		
 		
+		this.modData("Learnsets", "exploudmeow").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.taunt = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.hypnosis = ["8L1"];
+		this.modData("Learnsets", "exploudmeow").learnset.thunderbolt = ["8L1"];
+		
+		
 		this.modData('Learnsets', 'garbodor').learnset.stealthrock = ["8L1"];
 		this.modData('Learnsets', 'garbodor').learnset.earthquake = ["8L1"];
 		this.modData('Learnsets', 'garbodor').learnset.irondefense = ["8L1"];
@@ -97,6 +104,51 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'stunfisk').learnset.shoreup = ['8L1'];
 		this.modData('Learnsets', 'stunfisk').learnset.voltswitch = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'typhlosion').learnset.earthpower = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.meteorbeam = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.scorchingsands = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.stealthrock = ['8L1'];
+		this.modData('Learnsets', 'typhlosion').learnset.selfdestruct = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'hydreigon').learnset.knockoff = ['8L1'];
+		this.modData('Learnsets', 'hydreigon').learnset.dragonhammer = ['8L1'];
+		
+		delete this.modData('Learnsets', 'froslass').learnset.thunder;
+		delete this.modData('Learnsets', 'froslass').learnset.thunderbolt;
+		
+		this.modData("Learnsets", "vespiquenterra").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.rockpolish = ["8L1"];
+		this.modData("Learnsets", "vespiquenterra").learnset.stoneedge = ["8L1"];
+
+		
+		this.modData("Learnsets", "grapploct").learnset.aquajet = ["8L1"];
+		this.modData("Learnsets", "grapploct").learnset.toxic = ["8L1"];
+		
+		
+		this.modData("Learnsets", "hatterene").learnset.gravity = ["8L1"];
+		this.modData("Learnsets", "hatterene").learnset.moonblast = ["8L1"];
+		
+		this.modData("Learnsets", "primeape").learnset.bellydrum = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.bonemerangpgp = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.doublekick = ["8L1"];
+		this.modData("Learnsets", "primeape").learnset.drainpunch = ["8L1"];
+		this.modData('Learnsets', 'primeape').learnset.machpunch = ["8L1"];
+		this.modData('Learnsets', 'primeape').learnset.strengthpgp = ["8L1"];
+		delete this.modData('Learnsets', 'primeape').learnset.foresight;
+		delete this.modData('Learnsets', 'primeape').learnset.strength;
+		
+		
+		this.modData("Learnsets", "mothim").learnset.firelash = ["8L1"];
+		this.modData("Learnsets", "mothim").learnset.zingzap = ["8L1"];
+		
+		
+		this.modData('Learnsets', 'drednaw').learnset.closecombat = ["8M"];
+		this.modData('Learnsets', 'drednaw').learnset.flipturn = ["8M"];
 	},
 	
 	teambuilderConfig: {
@@ -153,4 +205,57 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.runEvent('AfterMega', pokemon);
 		return true;
 	},
+	pokemon: {
+		//Included for abilities that make the user non-grounded:
+		//Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
+		//So we manually add a check for Magnetic Waves here as well,
+		//Including a diffrent activation message 
+		//so that the game doesn't report it as having Levitate when it procs.
+		//AFFECTED ABILITIES: Leviflame
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!(type in this.battle.dex.data.TypeChart)) {
+				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+			let isGrounded;
+			if (type === 'Ground') {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						if (this.battle.hasAbility('leviflame')) {
+							this.battle.add('-immune', this, '[from] ability: Leviflame');
+						} else if (this.battle.hasAbility('levitate')) {
+							this.battle.add('-immune', this, '[from] ability: Levitate');
+						}
+					}
+					return false;
+				}
+			}
+			if (!negateResult) return true;
+			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+				if (message) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+			return true;
+		},
+		
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if ((this.hasAbility('levitate') || this.hasAbility('leviflame'))&& !this.battle.suppressingAttackEvents()) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+    },
 };

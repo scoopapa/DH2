@@ -435,7 +435,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU",
       isModded: true,
 	},
-	wizmagius: {
+	wizmagis: {
 		randomBattleMoves: ["thunderbolt", "voltswitch", "shadowball", "dazzlinggleam", "willowisp", "taunt", "nastyplot"],
 		tier: "OU",
 		doublesTier: "OU",

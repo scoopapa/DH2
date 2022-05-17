@@ -111,6 +111,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.id !== 'heatmor') return;
 			return accuracy + 15;
 		},
+		onModifyMove(move, source, target) {
+			if (source.species.id !== 'typhlosion') return;
+			if (target.newlySwitched || !this.queue.willMove(target)) move.accuracy = true;
+		},
 	},
 	adaptableattack: {
 		accuracy: 100,
@@ -1258,6 +1262,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	protect: {
+		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'shedinja') {
 				move.type = 'Psychic';
@@ -1320,6 +1325,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	screech: {
+		inherit: true,
 		onSourceModifyAccuracy(accuracy) {
 			if (source.species.id !== 'shedinja') return;
 			return accuracy + 15;
@@ -1421,18 +1427,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'crit2'},
 		contestType: "Cute",
 	},
-/*
 	xscissor: {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'shedinja') {
-				move.basePower = 90,
-				move.ignoreEvasion: true,
-				move.ignoreDefensive: true,
+				move.basePower = 90;
+				move.ignoreEvasion = true;
+				move.ignoreDefensive = true;
 			}
 		},
 	},
-*/
 	solarbeamcfm: {
 		num: 76,
 		accuracy: 100,
@@ -1517,5 +1521,307 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Raises the user's Atk, Def and Spe.",
 		type: "Ice",
 		contestType: "Beautiful",
+	},
+	maelstrom: {
+		num: -1012,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Maelstrom",
+		pp: 10,
+		priority: -6,
+		flags: {mirror: 1},
+		forceSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+		shortDesc: "Forces the target to switch to a random ally.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Whirlpool", target);
+		},
+	},
+	thunderpunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'typhlosion') {
+				move.basePower = 85;
+			}
+		},
+	},
+	firepunch: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'typhlosion') {
+				move.basePower = 85;
+			}
+		},
+	},
+	solventshot: {
+		num: -1030,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "10% chance to toxic. Super effective on Steel.",
+		name: "Solvent Shot",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Poison': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		contestType: "Beautiful",
+	},
+	shortcircuit: {
+		num: -1035,
+		accuracy: 90,
+		basePower: 130,
+		category: "Physical",
+		shortDesc: "Lowers the user's Atk by 2.",
+		name: "Short Circuit",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bolt Strike", target);
+		},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	springtidestorm: {
+		shortDesc: "10% chance to lower all target's stats.",
+		num: -1005,
+		accuracy: 95,
+		basePower: 95,
+		category: "Special",
+		name: "Springtide Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fairy Wind", target);
+		},
+		onTry(pokemon) {
+			if (pokemon.species.baseSpecies === 'Enamorus-Therian') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Enamorus-Therian can use this move.");
+			this.add('-fail', pokemon, 'move: Springtide Storm');
+			return null;
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	dualchop: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'primeape') {
+				move.basePower = 50;
+			}
+		},
+	},
+	bonemerangpgp: {
+		num: 155,
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Hits 2 times in one turn. Hits airbone Pokemon.",
+		name: "Bonemerang (PGP)",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bonemerang", target);
+		},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+	},
+	strengthpgp: {
+		num: 70,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Super effective on Fighting. Removes Spikes and Toxic Spikes",
+		name: "Strength (PGP)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Strength", target);
+		},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+				}
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fighting') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	cocoonfeeding: {
+		num: 262,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cocoon Feeding",
+		shortDesc: "User faints. Incoming Pokemon gains +1 Def and +1 SpDef.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onTryHit(pokemon, target, move) {
+			if (!this.canSwitch(pokemon.side)) {
+				delete move.selfdestruct;
+				return false;
+			}
+		},
+		slotCondition: 'cocoonfeeding',
+		condition: {
+			onSwap(target) {
+				this.boost({def: 1});
+				this.boost({spd: 1});
+				target.side.removeSlotCondition(target, 'cocoonfeeding');
+			},
+		},
+		selfdestruct: "ifHit",
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Tough",
+	},
+	feudalharpoon: {
+		num: 830,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Feudal Harpoon",
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	banefulbladedance: {
+		num: 1014,
+		accuracy: true,
+		basePower: 160,
+		category: "Special",
+		name: "Baneful Blade Dance",
+		shortDesc: "Guarantees critical hits.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "odonagiumz",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('banefulbladedance');
+				}
+			},
+		},
+		condition: {
+			noCopy: true,
+			onStart(target, source, effect) {
+				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+					this.add('-start', target, 'move: Baneful Blade Dance');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 3;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	breegullblaster: {
+		num: 40054,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Varies in type based on the user's Sp. Atk IV. (Ice if odd, Fire if even)",
+		id: "breegullblaster",
+		name: "Breegull Blaster",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (!(pokemon.set.ivs['spa'] % 2)){
+				move.type = 'Fire';
+			} else {
+				move.type = 'Ice';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMovePower: 120,
+		contestType: "Clever",
 	},
 };

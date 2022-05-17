@@ -1,4 +1,35 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	schooling: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4 || pokemon.hasItem('graduationscale')) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4 || pokemon.hasItem('graduationscale')) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		inherit: true,
+	},
 	lightpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
@@ -15,7 +46,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.maxhp / 16);
 		},
 		onWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -194,19 +224,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prickly Coat",
 	},
 	sandveil: {
-		desc: "If Sandstorm is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Sandstorm.",
+		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD is boosted 1.5x; immunity to Sandstorm.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
-			}
-		},
 		onModifySpD(spd, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.25);
+				return this.chainModify(1.5);
 			}
 		},
 		id: "sandveil",
@@ -215,19 +240,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 146,
 	},
 	snowcloak: {
-		desc: "If Hail is active, this Pokemon's Def and SpD are multiplied by 1.25. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon's Def and SpD are boosted 1.25x; immunity to Hail.",
+		desc: "If Hail is active, this Pokemon's Ice, Water, and Fairy-type moves deal 1.3x damage. This Pokemon takes no damage from Hail.",
+		shortDesc: "This Pokemon's Ice/Water/Fairy attacks deal 1.3x damage in Hail; immunity to Hail.",
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyDef(def, pokemon) {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (this.field.isWeather('hail')) {
-				return this.chainModify(1.25);
+				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
+					this.debug('Snow Cloak boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
 			}
 		},
 		id: "snowcloak",
@@ -260,6 +284,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				status: 'psn',
 				ability: this.dex.getAbility('poisontouch'),
 			});
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Muk-Alola)",
@@ -465,7 +495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'concussion', 'gorillatactics',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -555,7 +585,171 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-	
+  scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge'); 
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
+		},
+		name: "Scavenge",
+		rating: 3.5,
+	},
+	unimpressed: {
+		shortDesc: "Moves used against this Pokemon don't receive STAB.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.hasType(move.type) && (!source.hasAbility('adaptability'))) {
+				this.debug('Unimpressed weaken');
+				return this.chainModify(0.67);
+			}
+			if (source.hasType(move.type) && (source.hasAbility('adaptability'))) {
+				this.debug('Unimpressed weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Unimpressed",
+		rating: 3.5,
+	},
+/*
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			pokemon.addVolatile('counterfeit');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (
+					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+				) continue;
+				break;
+			}
+			if (!pokemon.side.pokemon[i]) return;
+			if (pokemon === pokemon.side.pokemon[i]) return;
+			const counterfeit = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Counterfeit');
+			pokemon.item = counterfeit.item;
+			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.getItem(counterfeit.item).name} belonging to ${counterfeit.name}!`);
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && !foeActive.item
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const item = target.getItem();
+				const additionalBannedItems = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+				];
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, item) || additionalBannedItems.includes(target.item)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, item, '[from] ability: Counterfeit', '[of] ' + target);
+				pokemon.setAbility(item);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+
+	counterfeit: {
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
+				if (!pokemon.useItem) return;
+				pokemon.ability = target.item;
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.getItem(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				return;
+			}
+		},
+		name: "Counterfeit",
+		rating: 3.5,
+	},
+*/
+	counterfeit: {
+		shortDesc: "(Non-functional placeholder) On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Counterfeit', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Counterfeit",
+		rating: 1.5,
+	},
+	optimistic: {
+		onBoost(boost, target, source, effect) {
+			if (source && target !== source) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Optimistic", "[of] " + target);
+			}
+		},
+		shortDesc: "This Pokemon can't lower its own stats.",
+		name: "Optimistic",
+		rating: 2,
+	},
+	rivalry: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, pokemon, target) {
+			if (target.hasType(pokemon.getTypes())) {
+				return this.chainModify(1.33);
+			}
+		},
+		name: "Rivalry",
+		rating: 0,
+		num: 79,
+		shortDesc: "This Pokemon's moves deal 1.33x damage to targets that share a type with it.",
+	},
+	vaporcontrol: {
+		onUpdate(pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) && !pokemon.side.getSideCondition('mist')) {
+           	this.useMove("Mist", pokemon);
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
+				if (move.type === 'Water') {
+					this.debug('Vapor Control boost');
+				return this.chainModify(1.5);
+				}
+			}
+		},
+		shortDesc: "If Sun is active, 1.5x power Water moves and sets Mist; Ignores Sun Water drop.",
+		name: "Vapor Control",
+		rating: 2,
+	},
+
 // Edited by proxy
 	oblivious: {
 		onUpdate(pokemon) {
@@ -640,8 +834,120 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 36,
 	},
-
-	
+	concussion: {
+		id: "concussion",
+		name: "Concussion",
+		shortDesc: "While this Pokemon is active, the opponents' held items have no effect.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Concussion');
+				}
+				activated = true;
+				if (!pokemon.volatiles['embargo'] && !pokemon.hasItem('morningblossom')) {
+					pokemon.addVolatile('embargo');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['embargo'] && !target.hasItem('morningblossom')) {
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('embargo');
+			}
+		},
+		rating: 4,
+	},
+	gorillatactics: {
+		name: "Gorilla Tactics",
+		shortDesc: "While this Pokemon is active, the opponents' held items have no effect.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Gorilla Tactics');
+				}
+				activated = true;
+				if (!pokemon.volatiles['embargo'] && !pokemon.hasItem('morningblossom')) {
+					pokemon.addVolatile('embargo');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['embargo'] && !target.hasItem('morningblossom')) {
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('embargo');
+			}
+		},
+		rating: 4,
+		num: 255,
+	},
+	toxicboost: {
+		shortDesc: "1.5x Attack and Defense while poisoned; Immune to poison status damage.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				return false;
+			 }
+		},
+		name: "Toxic Boost",
+		rating: 2.5,
+		num: 137,
+	},
+	flareboost: {
+		shortDesc: "1.5x SpA and SpD while burned; Immune to burn damage.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'brn' && move.category === 'Special') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				return false;
+			 }
+		},
+		name: "Flare Boost",
+		rating: 2,
+		num: 138,
+	},
 
 // The other Power of Alchemies
 		powerofalchemyweezing: {
@@ -847,6 +1153,352 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",
+		rating: 0,
+	},
+	powerofalchemytypenull: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onCriticalHit: false,
+		isPermanent: true,
+		name: "Power of Alchemy (Type: Null)",
+		rating: 0,
+	},
+	powerofalchemysilvally: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(pokemon) {
+			let totaldef = 0;
+			let totalspd = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({spa: 1});
+			} else if (totalspd) {
+				this.boost({atk: 1});
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Silvally)",
+		rating: 0,
+	},
+	powerofalchemyvaporeon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				this.add('-message', `Hydration activated!`);
+				pokemon.cureStatus();
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4) || !target.cureStatus()) {
+					this.add('-immune', target, '[from] ability: Power of Alchemy (Vaporeon)');
+				}
+				return null;
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Vaporeon)",
+		rating: 0,
+	},
+	powerofalchemyjolteon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Volt Absorb');
+				}
+				return null;
+			}
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && (move.type === 'Poison' || target.hasType('Poison'))) {
+				this.add('-ability', target, 'Prickly Coat');
+				target.side.foe.addSideCondition('toxicspikes');
+			} else {
+				if (move.flags['contact']) {
+					this.add('-ability', target, 'Prickly Coat');
+					target.side.foe.addSideCondition('spikes');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Jolteon)",
+		rating: 0,
+	},
+	powerofalchemyflareon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] ability: Flash Fire');
+				}
+				return null;
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Flareon)",
+		rating: 0,
+	},
+	powerofalchemyespeon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Espeon)",
+		rating: 0,
+	},
+	powerofalchemyumbreon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox', 'brn', 'frz', 'slp', 'par'].includes(target.status)) return 5;
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Umbreon)",
+		rating: 0,
+	},
+	powerofalchemyleafeon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onSetStatus(status, target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Leaf Guard');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if ((status.id === 'yawn' || status.id === 'flinch') && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] ability: Leaf Guard');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying' || move.type === 'Bug') {
+				this.debug('Leaf Guard weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Flying' || move.type === 'Bug') {
+				this.debug('Leaf Guard weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Leafeon)",
+		rating: 0,
+	},
+	powerofalchemyglaceon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('hail')) {
+				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
+					this.debug('Snow Cloak boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Glaceon)",
+		rating: 0,
+	},
+	powerofalchemysylveon: {
+		shortDesc: "All of this Pokemon's abilities are active at once.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Power of Alchemy');
+		},
+		onCheckShow(pokemon) {
+			// This is complicated
+			// For the most part, in-game, it's obvious whether or not Natural Cure activated,
+			// since you can see how many of your opponent's pokemon are statused.
+			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
+			// that could have Natural Cure switch out, but only some of them get cured.
+			if (pokemon.side.active.length === 1) return;
+			if (pokemon.showCure === true || pokemon.showCure === false) return;
+
+			const cureList = [];
+			let noCureCount = 0;
+			for (const curPoke of pokemon.side.active) {
+				// pokemon not statused
+				if (!curPoke || !curPoke.status) {
+					// this.add('-message', "" + curPoke + " skipped: not statused or doesn't exist");
+					continue;
+				}
+				if (curPoke.showCure) {
+					// this.add('-message', "" + curPoke + " skipped: Natural Cure already known");
+					continue;
+				}
+				const species = curPoke.species;
+				// pokemon can't get Natural Cure
+				if (!Object.values(species.abilities).includes('Natural Cure')) {
+					// this.add('-message', "" + curPoke + " skipped: no Natural Cure");
+					continue;
+				}
+				// pokemon's ability is known to be Natural Cure
+				if (!species.abilities['1'] && !species.abilities['H']) {
+					// this.add('-message', "" + curPoke + " skipped: only one ability");
+					continue;
+				}
+				// pokemon isn't switching this turn
+				if (curPoke !== pokemon && !this.queue.willSwitch(curPoke)) {
+					// this.add('-message', "" + curPoke + " skipped: not switching");
+					continue;
+				}
+
+				if (curPoke.hasAbility('naturalcure')) {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
+					cureList.push(curPoke);
+				} else {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (but isn't)");
+					noCureCount++;
+				}
+			}
+
+			if (!cureList.length || !noCureCount) {
+				// It's possible to know what pokemon were cured
+				for (const pkmn of cureList) {
+					pkmn.showCure = true;
+				}
+			} else {
+				// It's not possible to know what pokemon were cured
+
+				// Unlike a -hint, this is real information that battlers need, so we use a -message
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
+
+				for (const pkmn of cureList) {
+					pkmn.showCure = false;
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (!pokemon.status) return;
+
+			// if pokemon.showCure is undefined, it was skipped because its ability
+			// is known
+			if (pokemon.showCure === undefined) pokemon.showCure = true;
+
+			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
+			pokemon.setStatus('');
+
+			// only reset .showCure if it's false
+			// (once you know a Pokemon has Natural Cure, its cures are always known)
+			if (!pokemon.showCure) pokemon.showCure = undefined;
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Fairy';
+				move.pixilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		isPermanent: true,
+		name: "Power of Alchemy (Sylveon)",
 		rating: 0,
 	},
 };

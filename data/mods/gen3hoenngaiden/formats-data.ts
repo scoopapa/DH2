@@ -17,7 +17,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	charizard: {
 		randomBattleMoves: ["bellydrum", "dragondance", "earthquake", "fireblast", "hiddenpowerflying", "substitute"],
-		tier: "UU",
+		tier: "OU",
 	},
 	squirtle: {
 		tier: "LC",
@@ -174,7 +174,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	parasect: {
 		randomBattleMoves: ["aromatherapy", "gigadrain", "hiddenpowerbug", "return", "spore", "swordsdance"],
-		tier: "NU",
+		tier: "OU",
 	},
 	venonat: {
 		tier: "LC",
@@ -510,7 +510,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lapras: {
 		randomBattleMoves: ["healbell", "hydropump", "icebeam", "rest", "sleeptalk", "thunderbolt", "toxic"],
-		tier: "UU",
+		tier: "OU",
 	},
 	ditto: {
 		randomBattleMoves: ["transform"],
@@ -521,7 +521,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	vaporeon: {
 		randomBattleMoves: ["icebeam", "protect", "roar", "surf", "toxic", "wish"],
-		tier: "UU",
+		tier: "OU",
 	},
 	jolteon: {
 		randomBattleMoves: ["batonpass", "hiddenpowerice", "substitute", "thunderbolt", "toxic", "wish"],
@@ -739,7 +739,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	misdreavus: {
 		randomBattleMoves: ["calmmind", "hiddenpowerice", "meanlook", "perishsong", "protect", "substitute", "thunderbolt"],
-		tier: "UU",
+		tier: "NU",
 	},
 	unown: {
 		randomBattleMoves: ["hiddenpowerpsychic"],
@@ -765,7 +765,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dunsparce: {
 		randomBattleMoves: ["bodyslam", "curse", "headbutt", "rockslide", "rest", "shadowball", "thunderwave"],
-		tier: "NU",
+		tier: "OU",
 	},
 	gligar: {
 		randomBattleMoves: ["earthquake", "hiddenpowerflying", "irontail", "quickattack", "rockslide", "substitute", "swordsdance"],
@@ -780,7 +780,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	qwilfish: {
 		randomBattleMoves: ["destinybond", "hydropump", "selfdestruct", "shadowball", "sludgebomb", "spikes", "swordsdance"],
-		tier: "UU",
+		tier: "NU",
 	},
 	shuckle: {
 		randomBattleMoves: ["encore", "protect", "rest", "sleeptalk", "toxic", "wrap"],
@@ -792,7 +792,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sneasel: {
 		randomBattleMoves: ["brickbreak", "doubleedge", "hiddenpowerflying", "shadowball", "substitute", "swordsdance"],
-		tier: "UU",
+		tier: "NU",
 	},
 	teddiursa: {
 		tier: "LC",
@@ -813,7 +813,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	piloswine: {
 		randomBattleMoves: ["doubleedge", "earthquake", "icebeam", "protect", "rockslide", "toxic"],
-		tier: "NU",
+		tier: "OU",
 	},
 	corsola: {
 		randomBattleMoves: ["calmmind", "confuseray", "icebeam", "recover", "surf", "toxic"],
@@ -828,7 +828,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	delibird: {
 		randomBattleMoves: ["aerialace", "focuspunch", "hiddenpowerground", "icebeam", "quickattack"],
-		tier: "NU",
+		tier: "Uber",
 	},
 	mantine: {
 		randomBattleMoves: ["haze", "hiddenpowergrass", "icebeam", "surf", "raindance", "rest", "sleeptalk", "toxic"],
@@ -854,7 +854,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stantler: {
 		randomBattleMoves: ["earthquake", "hypnosis", "return", "shadowball", "thunderbolt"],
-		tier: "UU",
+		tier: "OU",
 	},
 	smeargle: {
 		randomBattleMoves: ["batonpass", "encore", "explosion", "spiderweb", "spikes", "spore", "substitute"],
@@ -1073,7 +1073,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mawile: {
 		randomBattleMoves: ["batonpass", "brickbreak", "focuspunch", "hiddenpowersteel", "rockslide", "substitute", "swordsdance"],
-		tier: "NU",
+		tier: "OU",
 	},
 	aron: {
 		tier: "LC",
@@ -1105,19 +1105,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	minun: {
 		randomBattleMoves: ["batonpass", "encore", "lightscreen", "substitute", "thunderbolt", "wish"],
-		tier: "NU",
+		tier: "OU",
 	},
 	volbeat: {
 		randomBattleMoves: ["batonpass", "icepunch", "tailglow", "thunderbolt"],
-		tier: "NU",
+		tier: "OU",
 	},
 	illumise: {
 		randomBattleMoves: ["batonpass", "encore", "icepunch", "substitute", "thunderwave", "wish"],
-		tier: "NU",
+		tier: "OU",
 	},
 	roselia: {
 		randomBattleMoves: ["aromatherapy", "gigadrain", "hiddenpowerfire", "spikes", "stunspore", "synthesis"],
-		tier: "NU",
+		tier: "OU",
 	},
 	gulpin: {
 		tier: "LC",
@@ -1214,7 +1214,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	crawdaunt: {
 		randomBattleMoves: ["brickbreak", "crunch", "doubleedge", "hiddenpowerghost", "icebeam", "surf"],
-		tier: "NU",
+		tier: "OU",
 	},
 	baltoy: {
 		tier: "LC",
@@ -1249,13 +1249,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	castformsunny: {
-		tier: "NU",
 	},
 	castformrainy: {
-		tier: "NU",
 	},
 	castformsnowy: {
-		tier: "NU",
 	},
 	kecleon: {
 		randomBattleMoves: ["brickbreak", "return", "shadowball", "thunderwave", "trick"],
@@ -1277,7 +1274,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tropius: {
 		randomBattleMoves: ["earthquake", "hiddenpowerfire", "solarbeam", "sunnyday", "synthesis"],
-		tier: "NU",
+		tier: "OU",
 	},
 	chimecho: {
 		randomBattleMoves: ["calmmind", "healbell", "hiddenpowerfire", "lightscreen", "psychic", "reflect", "toxic", "yawn"],
@@ -1317,7 +1314,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	relicanth: {
 		randomBattleMoves: ["doubleedge", "earthquake", "hiddenpowerflying", "rest", "rockslide", "sleeptalk", "toxic"],
-		tier: "NU",
+		tier: "OU",
 	},
 	luvdisc: {
 		randomBattleMoves: ["icebeam", "protect", "surf", "sweetkiss", "toxic"],
@@ -1443,7 +1440,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "LC",
+		tier: "NUBL",
 	},
 	silvally: {
 		isNonstandard: null,
@@ -1573,7 +1570,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crabominable: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "UU",
+		tier: "OU",
 	},
 	starly: {
 		isNonstandard: null,
@@ -1688,7 +1685,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mrmimegalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "NFE",
+		tier: "NUBL",
 	},
 	mrrime: {
 		isNonstandard: null,
@@ -1708,7 +1705,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	marowakalola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	marowakalolatotem: {
 		isNonstandard: null,
@@ -1748,7 +1745,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mamoswine: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	roserade: {
 		isNonstandard: null,
@@ -1758,27 +1755,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dusknoir: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	leafeon: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	slowbrogalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	mismagius: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	honchkrow: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	budew: {
 		isNonstandard: null,
@@ -1808,12 +1805,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ambipom: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	weavile: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	magnezone: {
 		isNonstandard: null,
@@ -1823,52 +1820,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonz: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	lickilicky: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	rhyperior: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tangrowth: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	probopass: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	electivire: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	magmortar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	togekiss: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	yanmega: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	gallade: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	froslass: {
 		isNonstandard: null,
@@ -1878,7 +1875,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raticatealola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	rattataalola: {
 		isNonstandard: null,
@@ -1898,7 +1895,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sandslashalola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},	
 	vulpixalola: {
 		isNonstandard: null,
@@ -1908,7 +1905,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ninetalesalola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	diglettalola: {
 		isNonstandard: null,
@@ -1923,7 +1920,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	persianalola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	meowthalola: {
 		isNonstandard: null,
@@ -1938,12 +1935,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	perrserker: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	mukalola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	grimeralola: {
 		isNonstandard: null,
@@ -1953,7 +1950,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	exeggutoralola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	ponytagalar: {
 		isNonstandard: null,
@@ -1963,7 +1960,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rapidashgalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},	
 	farfetchdgalar: {
 		isNonstandard: null,
@@ -1978,17 +1975,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cursola: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	corsolagalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "LC",
+		tier: "NUBL",
 	},
 	weezinggalar: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UU",
 	},
 	articunogalar: {
 		isNonstandard: null,
@@ -2018,7 +2015,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	obstagoon: {
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	munchlax: {
 		isNonstandard: null,
@@ -2091,6 +2088,61 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	stunfiskgalar: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	wyrdeer: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "UU",
+	},
+	kleavor: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "UU",
+	},
+	ursaluna: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "Uber",
+	},
+	sneaselhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NUBL",
+	},
+	sneasler: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "Uber",
+	},
+	qwilfishhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "NFE",
+	},
+	overqwil: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "UU",
+	},
+	voltorbhisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	electrodehisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "OU",
+	},
+	growlithehisui: {
+		isNonstandard: null,
+		gen: 3,
+		tier: "LC",
+	},
+	arcaninehisui: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",
