@@ -1018,7 +1018,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Minun-Primal",
 		baseSpecies: "Minun",
 		forme: "Primal",
-		types: ["Electric", "Normal"],
+		types: ["Electric", "Steel"],
 		baseStats: {hp: 60, atk: 65, def: 80, spa: 75, spd: 130, spe: 95},
 		abilities: {0: "Huge Power"},
 		weightkg: 4.2,

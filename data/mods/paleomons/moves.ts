@@ -372,6 +372,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 	},
 
+	photonball: {
+		num: 783,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Photon Ball",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
 	//
 	//
 	//
