@@ -2673,17 +2673,6 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 	},
-	/*
-	{
-		name: "[Gen 8] Ink's Winter Wonderland",
-		desc: `Play around both your opponent and the treacherous weather conditions in this randomized micrometa!`,
-		mod: 'inksrandbats',
-		team: 'random', 
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Permasnow'],
-		searchShow: false,
-		challengeShow: false,
-	},
-	*/
 	// Non-Smogon Mods
 	{
 		section: "Non-Smogon Mods",
