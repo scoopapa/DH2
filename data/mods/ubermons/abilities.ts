@@ -371,7 +371,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-				pokemon.setAbility('powerconstruct');
+				source.setAbility('powerconstruct');
 			}
 			else if (source.species.id === 'zygarde' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
 				this.add('-activate', source, 'ability: Power Construct');
