@@ -84,26 +84,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 5,
 		num: 141,
 	},
-	powerconstruct: {
-		onResidualOrder: 27,
-		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.hp > pokemon.maxhp / 2) return;
-			this.add('-activate', pokemon, 'ability: Power Construct');
-			pokemon.formeChange('Zygarde-Complete', this.effect, true);
-			pokemon.baseMaxhp = Math.floor(Math.floor(
-				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-			) * pokemon.level / 100 + 10);
-			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-			pokemon.maxhp = newMaxHP;
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-		},
-		isPermanent: true,
-		name: "Power Construct",
-		rating: 5,
-		num: 211,
-	},
 	shadowtag: {
 		onFoeSwitchOut(source, target) {
 			for (const target of source.side.foe.active) {
@@ -384,6 +364,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-activate', source, 'ability: Power Construct');
 			if (source.species.id === 'zygarde10') {
 				source.formeChange('Zygarde', this.effect, true);
+				source.setAbility('powerconstruct');
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
 				) * source.level / 100 + 10);
@@ -391,7 +372,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-				source.setAbility('powerconstruct');
 			}
 			else if (source.species.id === 'zygarde') {
 				source.formeChange('Zygarde-Complete', this.effect, true);
