@@ -2,26 +2,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 	//-------------------------------------------
 	//ITEMS EDITED FOR COMPATIBILITY
 	//-------------------------------------------
-	heavydutyboots: {
-		inherit: true,
-		desc: "When switching in, the holder is unaffected by grounded hazards on its side of the field.",
-		// Hazard Immunity implemented in moves.js
-	},
 	
 	//-------------------------------------------
 	//NEW ITEMS
 	//-------------------------------------------
-	hardhat: {
-		name: "Hard Hat",
-		spritenum: 417,
-		fling: {
-			basePower: 80,
-		},
-		num: 1120,
-		gen: 8,
-		desc: "When switching in, the holder is unaffected by airborne hazards on its side of the field.",
-		// Hazard Immunity implemented in moves.js
-	},
 	
 	//-------------------------------------------
 	//SIGNATURE/MEGA STONE
