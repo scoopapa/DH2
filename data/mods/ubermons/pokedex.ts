@@ -220,6 +220,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	zygarde: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 120, def: 101, spa: 91, spd: 115, spe: 65},
+		abilities: {0: "Aura Break", H: "Power Construct"},
+	},
+	zygarde10: {
+		inherit: true,
+		abilities: {0: "Aura Break", H: "Power Construct"},
 	},
 	zygardecomplete: {
 		inherit: true,
