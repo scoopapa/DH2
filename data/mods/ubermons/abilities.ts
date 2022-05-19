@@ -376,8 +376,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.formeChange('Zygarde-Complete', this.effect, true);
 			}
 		},
-		onBeforeMove(pokemon) {
-			if (pokemon.species.id === 'zygarde' && !pokemon.hasAbility('powerconstruct')) {
+		onPrepareHit(pokemon) {
+			if (pokemon.species.name === 'Zygarde' && !pokemon.hasAbility('powerconstruct')) {
 				pokemon.setAbility('powerconstruct');
 			}
 		},
