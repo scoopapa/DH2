@@ -737,7 +737,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 641,
 		name: "Cummulus",
 		types: ["Flying"],
-		genderRatio: {M: 0.33, F: 0.33, N: 0.33},
+		genderRatio: {M: 0.33, F: 0.33, N: 0.34},
 		baseStats: {hp: 130, atk: 60, def: 60, spa: 90, spd: 100, spe: 100},
 		abilities: {0: "Natural Cure"},
 		heightm: 1.4,
