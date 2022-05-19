@@ -361,8 +361,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerconstruct: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (source.species.id === 'zygardecomplete') return;
-			this.add('-activate', source, 'ability: Power Construct');
-			if (source.species.id === 'zygarde10') {
+			if (source.species.id === 'zygarde10' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde', this.effect, true);
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
@@ -371,14 +371,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
+				pokemon.setAbility('powerconstruct');
 			}
-			else if (source.species.id === 'zygarde') {
+			else if (source.species.id === 'zygarde' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde-Complete', this.effect, true);
 			}
 		},
-		onPrepareHit(pokemon) {
-			if (pokemon.species.name === 'Zygarde' && !pokemon.hasAbility('powerconstruct')) {
-				pokemon.setAbility('powerconstruct');
+		onBeforeMove(pokemon, target, move) {
+			const newAbility = pokemon.setAbility('powerconstruct');
+			if (pokemon.species.name === 'Zygarde' && newAbility) {
+				this.add('-ability', pokemon, 'Power Construct');
 			}
 		},
 		isPermanent: true,
