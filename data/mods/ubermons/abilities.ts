@@ -1,37 +1,3 @@
-/*
-
-Ratings and how they work:
-
--1: Detrimental
-	  An ability that severely harms the user.
-	ex. Defeatist, Slow Start
-
- 0: Useless
-	  An ability with no overall benefit in a singles battle.
-	ex. Color Change, Plus
-
- 1: Ineffective
-	  An ability that has minimal effect or is only useful in niche situations.
-	ex. Light Metal, Suction Cups
-
- 2: Useful
-	  An ability that can be generally useful.
-	ex. Flame Body, Overcoat
-
- 3: Effective
-	  An ability with a strong effect on the user or foe.
-	ex. Chlorophyll, Sturdy
-
- 4: Very useful
-	  One of the more popular abilities. It requires minimal support to be effective.
-	ex. Adaptability, Magic Bounce
-
- 5: Essential
-	  The sort of ability that defines metagames.
-	ex. Imposter, Shadow Tag
-
-*/
-
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
@@ -50,6 +16,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Prevents adjacent Ground-type foes from choosing to switch.",
 		rating: 5,
 		num: 71,
+	},
+	deltastream: {
+		onStart(source) {
+			this.field.setWeather('deltastream');
+			const item = source.getItem();
+			if (source.species.id === 'rayquazamega') {
+				source.useItem();
+			}
+		},
+		inherit: true,
 	},
 	moody: {
 		onResidualOrder: 26,
@@ -371,17 +347,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-				source.setAbility('powerconstruct');
 			}
-			else if (source.species.id === 'zygarde' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+			else if (source.species.id === 'zygarde' && source.hp && source.side.foe.pokemonLeft) {
 				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde-Complete', this.effect, true);
-			}
-		},
-		onBeforeMove(pokemon, target, move) {
-			const newAbility = pokemon.setAbility('powerconstruct');
-			if (pokemon.species.name === 'Zygarde' && newAbility) {
-				this.add('-ability', pokemon, 'Power Construct');
 			}
 		},
 		isPermanent: true,

@@ -752,4 +752,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	mewtwomegay: {
 		tier: "OU",
 	},
+	groudonprimal: {
+		tier: "OU",
+	},
+	kyogreprimal: {
+		tier: "OU",
+	},
+	rayquazamega: {
+		tier: "OU",
+	},
+	necrozmaultra: {
+		tier: "OU",
+	},
 };
