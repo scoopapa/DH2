@@ -316,7 +316,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	uptospeed: {
         onStart(pokemon, target) {
-			pokemon.boosts[spe] = target.boosts[spe];
+			pokemon.boosts.spe = target.boosts.spe;
 		},
 		name: "Up to Speed",
 		shortDesc: "On switch-in, this Pokemon copies the speed boosts of the opponent.",
@@ -382,5 +382,77 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Leaf Guard",
 		rating: 1.5,
 		num: 102,
+	},
+	decelerate: {
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of adjacent opponents.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Decelerate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Decelerate",
+		rating: 4,
+		num: -1022,
+	},
+	locate: {
+		shortDesc: "On switch-in, this Pokemon lowers the Evasion of adjacent opponents.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Locate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({eva: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Locate",
+		rating: 4,
+		num: -1023,
+	},
+	energyburst: {
+		shortDesc: "This Pokemon's Speed is raised by 1 stage after it is damaged by a move.",
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({spe: 1});
+		},
+		name: "Energy Burst",
+		rating: 3.5,
+		num: -1024,
+	},
+	akashiarts: {
+		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a move.",
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({atk: 1});
+		},
+		name: "Akashi Arts",
+		rating: 3.5,
+		num: -1025,
+	},
+	overripe: {
+		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Overripe neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Overripe",
+		rating: 3.5,
+		num: -1026,
 	},
 };
