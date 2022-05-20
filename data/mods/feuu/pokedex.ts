@@ -3387,7 +3387,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Accelgor', 'Excadrill'],
 		num: 199,
 		name: "Acceldrill",
-		types: ["Poison", "Fairy"],
+		types: ["Steel", "Bug"],
 		baseStats: {hp: 105, atk: 105, def: 50, spa: 75, spd: 75, spe: 120},
 		abilities: {0: "Hold Breaker"},
 		weightkg: 32.9,
