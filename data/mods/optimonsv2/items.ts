@@ -11,7 +11,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
       itemUser: ["Talonflame"],
 		num: 210,
 		gen: 4,
-      desc: "If held by Talonflame, Gale Wings can work at any time."
+      desc: "If held by Talonflame, Gale Wings gets changed to work at any time."
 	},
    reaperclothoptimized: {
       name: "Reaper Cloth-Optimized",
