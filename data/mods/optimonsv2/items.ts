@@ -5,13 +5,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 50,
 		},
-    onModifyPriority(priority, pokemon, target, move) {
+      onModifyPriority(priority, pokemon, target, move) {
 		  	if (move?.type === 'Flying') return priority + 1;
 		},
-    itemUser: ["Talonflame"],
+      itemUser: ["Talonflame"],
 		num: 210,
 		gen: 4,
-    desc: "If held by Talonflame, Gale Wings can work at any time."
+      desc: "If held by Talonflame, Gale Wings can work at any time."
 	},
-
-       
+   reaperclothoptimized: {
+      name: "Reaper Cloth-Optimized",
+      spritenum: 385,
+	   fling: {
+			basePower: 100,
+		 },
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Sableye') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Sableye') {
+				return this.chainModify(1.5);
+			}
+		},
+		onTakeItem: false,
+		num: 325,
+		gen: 4,
+	},
+};
