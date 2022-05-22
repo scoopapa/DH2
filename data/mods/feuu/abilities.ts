@@ -662,7 +662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	solarpanel: {
 		id: "solarpanel",
 		name: "Solar Panel",
-		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
+		shortDesc: "If hit by Electric or Fire: +1 SpA; Electric/Fire immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
 				if (!this.boost({spa: 1})) {
