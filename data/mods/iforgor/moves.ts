@@ -1214,7 +1214,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.effectiveWeather() == 'raindance' || pokemon.effectiveWeather() == 'primordialsea') {
 				move.basePower *= 1.5;
 			}
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
