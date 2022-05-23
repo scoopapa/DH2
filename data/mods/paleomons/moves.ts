@@ -373,11 +373,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 
 	photonball: {
-		num: 783,
+		num: -111,
 		accuracy: 100,
 		basePower: 110,
 		category: "Physical",
 		name: "Photon Ball",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -391,6 +393,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Electric",
+	},
+
+	furioustusks: {
+		num: -112,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Furious Tusks",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
+	
+	primevalrock: {
+		num: -113,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Primeval Rock",
+		pp: 5,
+		priority: 0,
+		flags: {authentic: 1, mirror: 1, protect: 1, sound: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
 	},
 	//
 	//

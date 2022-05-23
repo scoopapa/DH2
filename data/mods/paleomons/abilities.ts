@@ -261,10 +261,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 		name: "Nature Prowess",
 		desc: "Adds a secondary type equal to Natural Gift to this Pokemon. Natural Gift doesn't consume the user's held berry.",
-		shortDesc: "Adds secondary type equal to Natural Gift; berry isn't consumed by Natural Gift."
+		shortDesc: "Adds secondary type equal to Natural Gift; berry isn't consumed by Natural Gift.",
+		num: -110,
 	},
 
-	persistence: { //currently bugged ):
+	persistence: { 
 		onBeforeMove(target, source, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
@@ -279,17 +280,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMove(source, target, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			if(source.moveThisTurnResult === null || source.moveThisTurnResult === undefined) return;
-			this.add('-message', "AfterMove activated");
 			if(!source.moveThisTurnResult) {
 				this.boost({atk: 1});
-				this.add('-message', `${source.name}; moveThisTurn is False! target is ${target.name}`);
 			} else if(target.moveThisTurnResult) {
-				this.add('-message', `${source.name}; moveThisTurn is True! target is ${target.name}`);
 			}
 		},
 		name: "Persistence",
 		desc: "If the user chooses an attacking move but doesn't damage the target on the same turn, raises the user's Attack by 1 stage.",
 		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
+		num: -111,
 	},
 
 	thunderthighs: {
@@ -302,6 +301,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Thunder Thighs",
 		desc: "Moves with the word 'kick' in their name have their power multiplied by 1.2x.",
 		shortDesc: "Kicking moves deal 1.2x damage.",
+		num: -112,
 	},
 
 	magicsurge: {
@@ -310,8 +310,54 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 
 		name: "Magic Surge",
-		desc: "Upon switch-in, summons Mgaic Room",
-		shortDesc: "Upon switch-in, summonns Magic Room"
+		desc: "Upon switch-in, summons Magic Room",
+		shortDesc: "Upon switch-in, summonns Magic Room",
+		num: -113,
+	},
+
+	vibrato: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.flags['sound'] && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Electric';
+			}
+		},
+		name: "Vibrato",
+		desc: "This Pokemon's sound-based moves become Electric-type. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's sound-based moves become Electric-type.",
+		rating: 4,
+		num: -114,
+	},
+
+	audiorupture: {
+		onAfterMove(source, target, move) {
+			if(!target) return;
+			const targetAbility = target.getAbility();
+			if (targetAbility.isPermanent || targetAbility.id === 'soundproof') {
+				return;
+			}
+			if (move.flags['sound']) {
+				const oldAbility = target.setAbility('soundproof', target);
+				if (oldAbility) {
+					this.add('-ability', target, 'Soundproof', '[from] Ability: Audio Rupture', '[of] ' + target);
+				}
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound'] && move.category !== "Status") {
+				this.debug('Audio Rupture boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Audio Rupture",
+		desc: "This Pokemon's sound-based moves have their power boosted by 1.3x. When this Pokemon uses a sound-based move, the target's ability becomes Soundproof if it is not already Soundproof.",
+		shortDesc: "This Pokemon's sound-based moves cause the opponent to gain Soundproof and are boosted.",
+		rating: 4,
+		num: -115,
 	},
 	
 	//
