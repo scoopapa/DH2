@@ -220,6 +220,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	zygarde: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 120, def: 101, spa: 91, spd: 115, spe: 65},
+		abilities: {0: "Power Construct", H: "Aura Break"},
+	},
+	zygarde10: {
+		inherit: true,
+		abilities: {0: "Power Construct", H: "Aura Break"},
 	},
 	zygardecomplete: {
 		inherit: true,
@@ -351,5 +356,23 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 106, atk: 119, def: 95, spa: 154, spd: 115, spe: 111},
 		abilities: {0: "Neuroforce"},
+	},
+	groudonprimal: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 160, def: 155, spa: 110, spd: 90, spe: 65},
+	},
+	kyogreprimal: {
+		inherit: true,
+		types: ["Water", "Ground"],
+		baseStats: {hp: 95, atk: 120, def: 120, spa: 140, spd: 120, spe: 75},
+	},
+	rayquazamega: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 145, def: 95, spa: 145, spd: 90, spe: 110},
+	},
+	necrozmaultra: {
+		inherit: true,
+		types: ["Psychic", "Dark"],
+		baseStats: {hp: 97, atk: 139, def: 91, spa: 139, spd: 91, spe: 127},
 	},
 };
