@@ -893,9 +893,13 @@ this.modData('Learnsets', 'guzzlord').learnset.deafeningshriek = ['8L1'];
 this.modData('Learnsets', 'banette').learnset.deafeningshriek = ['8L1'];
 this.modData('Learnsets', 'ludicolo').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'politoed').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'alomomola').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'luvdisc').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'florges').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'xerneas').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'empoleon').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'phione').learnset.lifedew = ['8L1'];
@@ -908,7 +912,9 @@ this.modData('Learnsets', 'meganium').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'wailmer').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'panpour').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'misdreavus').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'hoopa').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'morelull').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'munna').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'litten').learnset.trashtalk = ['8L1'];
@@ -1672,7 +1678,9 @@ this.modData("Learnsets", "keldeo").learnset.bulkup = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.aurasphere = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.brine = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.aquaring = ["8L1"];
+		/*
 this.modData("Learnsets", "keldeo").learnset.lifedew = ["8L1"];
+*/
 this.modData("Learnsets", "keldeo").learnset.signalbeam = ["8L1"];
 this.modData("Learnsets", "cobalion").learnset.vacuumwave = ["8L1"];
 this.modData("Learnsets", "cobalion").learnset.highjumpkick = ["8L1"];
@@ -1892,5 +1900,8 @@ this.modData('Learnsets', 'ledian').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'woobat').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'castform').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'hoppip').learnset.skysoiree = ['8L1'];
+this.modData("Learnsets", "gourgeist").learnset.disarmingvoice = ["8L1"];
+delete this.modData('Learnsets', 'gourgeist').learnset.moonblast;
+delete this.modData('Learnsets', 'jirachi').learnset.lifedew;
 	},
 };
