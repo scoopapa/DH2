@@ -363,4 +363,80 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "IDK",
 		doublesTier: "IDK2",
 	},
+		steelfairy: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	waterpoison: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	firepoison: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	bug: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	buggrass: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	waterfairy: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	firesteel: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	iceelectric: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	groundflying: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	rockflying: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	rockground: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	grassfighting: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	electricdark: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	normaldark: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	ghostfighting: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	dragonice: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	dragonnormal: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	ghostpsychic: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
+	psychic: {
+		tier: "IDK",
+		doublesTier: "IDK2",
+	},
 };
