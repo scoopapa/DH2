@@ -194,4 +194,40 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 672,
 		desc: "If held by a dragonground, this item allows it to Mega Evolve in battle.",
 	},
+	firesteelite: {
+		name: "firesteelite",
+		megaStone: "firesteel-Mega",
+		megaEvolves: "firesteel",
+		itemUser: ["firesteel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1000,
+		desc: "If held by a firesteel, this item allows it to Mega Evolve in battle.",
+	},
+	waterpoisonite: {
+		name: "waterpoisonite",
+		megaStone: "waterpoison-Mega",
+		megaEvolves: "waterpoison",
+		itemUser: ["waterpoison"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1001,
+		desc: "If held by a waterpoison, this item allows it to Mega Evolve in battle.",
+	},
+	groundflyingite: {
+		name: "groundflyingite",
+		megaStone: "groundflying-Mega",
+		megaEvolves: "groundflying",
+		itemUser: ["groundflying"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1002,
+		desc: "If held by a groundflying, this item allows it to Mega Evolve in battle.",
+	},
 };

@@ -866,14 +866,14 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		], 
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Mega Rayquaza Clause'],
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			//Pokémon
-			'Darkrai', 'Eternatus', 'Naganadel', 'Tornadus-Therian', 'Rayquaza-Mega',
+			'Darkrai', 'Eternatus', 'Naganadel',
 			//Abilities
 			'Moody',
 			//Items
-			'Blue Orb', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Red Orb', 'Ultranecrozium Z',
+			'King\'s Rock', 'Quick Claw', 'Razor Fang',
 			//Moves
 			'Baton Pass',
 		],

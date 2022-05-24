@@ -771,7 +771,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cresselia: {
 		inherit: true,
-		types: ["Fairy"],
+		types: ["Psychic", "Fairy"],
 		abilities: {0: "Levitate", 1: "Cloud Nine", H: "Gravitas"},
 	},
 	giratina: {
@@ -1220,7 +1220,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	empoleon: {
 		inherit: true,
-		abilities: {0: "Torrent", H: "Unimpressed"},
+		abilities: {0: "Torrent", H: "Competitive"},
 	},
 	espurr: {
 		inherit: true,

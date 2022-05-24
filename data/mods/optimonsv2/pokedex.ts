@@ -233,4 +233,45 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 130, atk: 105, def: 80, spa: 85, spd: 95, spe: 60},
 		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Technician"},
 	},
+   rampardos: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 155, def: 70, spa: 85, spd: 60, spe: 88},
+		abilities: {0: "No Guard", 1: "Mold Breaker", H: "Sheer Force"},
+	},
+	hitmontop: {
+		inherit: true,
+		types: ["Fighting", "Normal"],
+		baseStats: {hp: 70, atk: 115, def: 95, spa: 35, spd: 110, spe: 90},
+	},
+	gourgeist: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 100, def: 132, spa: 58, spd: 85, spe: 84},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistlarge: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 105, def: 132, spa: 58, spd: 85, spe: 69},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistsmall: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 95, def: 132, spa: 58, spd: 85, spe: 99},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistsuper: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 100, def: 132, spa: 58, spd: 85, spe: 54},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},  
+	},
+	zoroark: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 90, atk: 105, def: 90, spa: 120, spd: 100, spe: 105},
+	},
+	toxicroak: {
+		inherit: true,
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 90, atk: 115, def: 85, spa: 75, spd: 85, spe: 90},
+      abilities: {0: "Emergency Exit", 1: "Dry Skin", H: "Vital Spirit"},
+	},
 };

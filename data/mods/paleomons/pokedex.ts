@@ -1078,4 +1078,58 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 71.5,
 		requiredItem: "Black Orb",
 	},
+
+	flygon: {
+		inherit: true,
+		otherFormes: ["Flygon-Classical"],
+		formeOrder: ["Flygon", "Flygon-Classical"],
+	},
+
+	flygonclassical: {
+		num: -165, // accounting for future prevos
+		name: "Flygon-Classical",
+		baseSpecies: "Flygon",
+		forme: "Classical",
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 100},
+		abilities: {0: "Levitate", H: "Vibrato"},
+		weightkg: 82,
+		//prevo: "Vibrava",
+	},
+
+	walrein: {
+		inherit: true,
+		otherFormes: ["Walrein-Ancient"],
+		formeOrder: ["Walrein-Ancient"],
+	},
+
+	walreinancient: {
+		num: -168, // accounting for future prevos
+		name: "Walrein-Ancient",
+		baseSpecies: "Walrein",
+		forme: "Ancient",
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 90, atk: 110, def: 65, spa: 90, spd: 95, spe: 80},
+		abilities: {0: "Fur Coat", 1: "Ice Body", H: "Oblivious"},
+		weightkg: 105.6,
+		//prevo: "Sealeo",
+	},
+
+	exploud: {
+		inherit: true,
+		otherFormes: ["Exploud-Ancient"],
+		formeOrder: ["Exploud", "Exploud-Ancient"],
+	},
+
+	exploudancient: {
+		num: -171, // accounting for future evos
+		name: "Exploud-Ancient",
+		baseSpecies: "Exploud",
+		forme: "Ancient",
+		types: ["Rock"],
+		baseStats: {hp: 104, atk: 81, def: 73, spa: 86, spd: 53, spe: 93},
+		abilities: {0: "Vital Spirit", H: "Audio Rupture"},
+		weightkg: 84,
+		//prevo: "Loudred",
+	},
 };
