@@ -4860,7 +4860,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			firepunch: ["7T", "6T", "5T", "4T", "3T"],
 			frustration: ["7M", "6M", "5M", "4M", "3M"],
 			gastroacid: ["7T", "7L42", "6T", "6L42", "5T", "5L59", "4T", "4L52"],
-			gigadrain: ["7T", "6T", "5T", "4M", "3M"],
+			//gigadrain: ["7T", "6T", "5T", "4M", "3M"],
 			gigaimpact: ["7M", "6M", "5M", "4M"],
 			gunkshot: ["7T", "7L1", "6T", "6L1", "5T", "5L73", "4T", "4L66"],
 			headbutt: ["4T"],

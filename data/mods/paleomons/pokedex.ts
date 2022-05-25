@@ -889,7 +889,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	gabite: {
 		inherit: true,
-		otherFormes: ["Gabite-Peristent"],
+		otherFormes: ["Gabite-Persistent"],
 		formeOrder: ["Gabite", "Gabite-Persistent"],
 	},
 
@@ -908,7 +908,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	garchomp: {
 		inherit: true,
-		otherFormes: ["Garchomp-Peristent"],
+		otherFormes: ["Garchomp-Persistent"],
 		formeOrder: ["Garchomp", "Garchomp-Persistent"],
 	},
 
