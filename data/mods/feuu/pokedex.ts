@@ -3393,6 +3393,54 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 32.9,
 	},
 	
+// NU
+	appledam: {
+		fusion: ['Appletun', 'Wormadam-Sandy'],
+		num: 200,
+		name: "Appledam",
+		types: ["Grass", "Bug"],
+		baseStats: {hp: 95, atk: 85, def: 110, spa: 85, spd: 85, spe: 33},
+		abilities: {0: "Imposing Adipose"},
+		weightkg: 9.8,
+	},
+	regidurr: {
+		fusion: ['Regice', 'Conkeldurr'],
+		num: 201,
+		name: "Regidurr",
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 115, def: 100, spa: 80, spd: 140, spe: 50},
+		abilities: {0: "Frozen Fist"},
+		weightkg: 131,
+	},
+	duskoma: {
+		fusion: ['Komala', 'Dusknoir'],
+		num: 202,
+		name: "Duskoma",
+		types: ["Normal", "Ghost"],
+		baseStats: {hp: 65, atk: 107, def: 100, spa: 70, spd: 115, spe: 55},
+		abilities: {0: "Shadowy Dreams"},
+		weightkg: 63.3,
+	},
+	fraxblade: {
+		fusion: ['Fraxure', 'Doublade'],
+		num: 203,
+		name: "Fraxblade",
+		types: ["Dragon", "Steel"],
+		baseStats: {hp: 62, atk: 113, def: 110, spa: 42, spd: 55, spe: 51},
+		abilities: {0: "Reguardless"},
+		weightkg: 20.3,
+		evos: ["Haxorus", "Aegislash"],
+	},
+	igglyciancrowned: {
+		fusion: ['Igglybuff', 'Zacian'],
+		num: 204,
+		name: "Igglycian-Crowned",
+		types: ["Fairy"],
+		baseStats: {hp: 111, atk: 100, def: 65, spa: 60, spd: 67, spe: 101},
+		abilities: {0: "Envious Sword"},
+		weightkg: 178,
+	},
+	
 // LC
 	woopopotas: {
 		fusion: ['Wooper', 'Hippopotas'],
@@ -4470,6 +4518,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 8.1,
 		evos: ["Mukreamie"],
 	},
+	burmlin: {
+		fusion: ['Applin', 'Burmy'],
+		num: 1107,
+		name: "Burmlin",
+		types: ["Grass", "Bug"],
+		baseStats: {hp: 50, atk: 37, def: 80, spa: 40, spd: 45, spe: 28},
+		abilities: {0: "Apple Armor"},
+		weightkg: 2,
+		evos: ["Appledam"],
+	},
+/*fraxblade prevo
+	placeholder: {
+		fusion: ['Axew', 'Honedge'],
+		num: 1108,
+		name: "placeholder",
+		types: ["Dragon", "Steel"],
+		baseStats: {hp: 45, atk: 83, def: 80, spa: 32, spd: 44, spe: 42},
+		abilities: {0: "Reguardless"},
+		weightkg: 10,
+		evos: ["Fraxblade"],
+	},
+*/
 
 
 	
