@@ -260,7 +260,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	gourgeistsuper: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 100, def: 132, spa: 58, spd: 85, spe: 54},
+		baseStats: {hp: 105, atk: 110, def: 132, spa: 58, spd: 85, spe: 54},
 		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},  
 	},
 	zoroark: {
