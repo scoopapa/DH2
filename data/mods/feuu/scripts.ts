@@ -37,8 +37,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
 		this.modData('Learnsets', 'rotofable').learnset.overheat = ['7L1'];
 		this.modData('Learnsets', 'appletomwash').learnset.hydropump = ['7L1'];
+		this.modData('Learnsets', 'igglyciancrowned').learnset.behemothblade = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
+		delete this.modData('Learnsets', 'igglyciancrowned').learnset.ironhead;
 	},
 	
 	teambuilderConfig: {
