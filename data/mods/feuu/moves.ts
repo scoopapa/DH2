@@ -606,7 +606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		sleepUsable: true,
 		onTryHit(pokemon) {
-			if (pokemon.status !== 'slp' && (!pokemon.hasAbility('comatose') || !pokemon.hasAbility('shadowydreams'))) return false;
+			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.hasAbility('shadowydreams')) return false;
 		},
 		onHit(pokemon) {
 			const noSleepTalk = [
@@ -646,7 +646,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		sleepUsable: true,
 		onTryHit(target, source) {
-			if (source.status !== 'slp' && (!source.hasAbility('comatose') || !source.hasAbility('shadowydreams'))) return false;
+			if (source.status !== 'slp' && !source.hasAbility('comatose') && !source.hasAbility('shadowydreams')) return false;
 		},
 		secondary: {
 			chance: 30,
