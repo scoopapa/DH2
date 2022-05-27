@@ -468,7 +468,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	deafeningshriek: {
 		accuracy: 100,
-		basePower: 130,
+		basePower: 100,
 		category: "Special",
     shortDesc: "Target becomes immune to sound moves after being hit.",
 		name: "Deafening Shriek",

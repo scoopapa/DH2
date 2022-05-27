@@ -207,14 +207,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onStart(target, source, effect) {
-			this.effectState.move = effect.id;
+			this.effectData.move = effect.id;
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.hasMove(this.effectState.move)) {
+			if (!pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectState.move) {
+				if (moveSlot.id !== this.effectData.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
