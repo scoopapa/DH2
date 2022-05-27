@@ -4528,21 +4528,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 2,
 		evos: ["Appledam"],
 	},
-/*fraxblade prevo
-	placeholder: {
+	axedge: {
 		fusion: ['Axew', 'Honedge'],
 		num: 1108,
-		name: "placeholder",
+		name: "Axedge",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 45, atk: 83, def: 80, spa: 32, spd: 44, spe: 42},
 		abilities: {0: "Reguardless"},
 		weightkg: 10,
 		evos: ["Fraxblade"],
 	},
-*/
 
-
-	
 // NFE
 	corveotto: {
 		fusion: ['Corvisquire', 'Pidgeotto'],
