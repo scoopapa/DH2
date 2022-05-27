@@ -3,6 +3,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Cursed Body", H: "Levitate"},
 	},
+	weezinggalar: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 120, spa: 85, spd: 70, spe: 60},
+	},
 	starmie: {
       inherit: true,
       baseStats: {hp: 60, atk: 75, def: 85, spa: 115, spd: 85, spe: 115},
@@ -56,6 +60,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 91, atk: 90, def: 129, spa: 90, spd: 72, spe: 128},
 	},
+	keldeo: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Poison Heal"},
+	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Poison Heal"},
+	},
+	dragalge: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+	},
 	sylveon: {
 		inherit: true,
 	   types: ["Fairy", "Ground"],
@@ -89,5 +105,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	obstagoon: {
 		inherit: true,
 		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 105},
+	},
+	copperajah: {
+      inherit: true,
+		types: ["Steel", "Water"],
+		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 89, spe: 30},
+	},
+	latios: {
+		inherit: true,
+		types: ["Dragon", "Electric"],
 	}, 
 };

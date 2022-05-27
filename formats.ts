@@ -1217,9 +1217,7 @@ export const Formats: FormatList = [
 
 		mod: 'optimonsv2',
    	ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
-		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
-	
 	{
 		name: "[Gen 8] Perfect Galar",
 		desc: [ "The goal of Perfect Galar is to make a Sword and Shield OU metagame where every single fully evolved Pokemon in the Galar Pokedex has a unique, valuable niche.",

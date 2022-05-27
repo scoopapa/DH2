@@ -67,7 +67,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	relicanthancient: {
+	relicanthscorched: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
@@ -290,6 +290,126 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	artachoris: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	dreepyluminous: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	drakloakluminous: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	dragapultluminous: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	larvitarnature: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	pupitarnature: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	tyranitarnature: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	giblepersistent: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+
+	gabitepersistent: {
+		tier: "Paleomons NFE",
+		doublesTier: "Paleomons NFE",
+		isModded: true,
+	},
+
+	garchomppersistent: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	scorcharnia: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	scorcharniashort: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	scorcharnialong: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	listoxina: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	spinollina: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	spinollinamega: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	plusleprimal: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	minunprimal: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	swalotprimal: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	hariyamaprimal: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+
+	grumpigprimal: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,

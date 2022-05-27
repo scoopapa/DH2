@@ -42,16 +42,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		/*onBeforeMove(attacker, defender) {
-			const action = this.queue.willMove(attacker);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || attacker.volatiles['mustrecharge']) return;
-			if (defender && defender.baseSpecies.num === 649) {
-				defender.useItem();
+		/*beforeMoveCallback(target, source, move) {
+			if (target && target.baseSpecies.num === 649) {
+				const move = source.lastMove;
+				if (move.category !== 'Status') {
+					this.boost({def: 1}, target);
+					target.useItem();
+				}
 			}
-		},
-		boosts: {
-			def: 1,
 		},*/
 		onDrive: 'Ice',
 		num: 119,

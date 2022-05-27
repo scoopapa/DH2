@@ -1,7 +1,6 @@
 export const Items: {[itemid: string]: ItemData} = {
 	powerlink: {
 		name: "Power Link",
-		spritenum: 436,
 		onChargeMove(target, move) {
 			if (target.species.id === 'dodrio' || target.species.id === 'doduo') {
 				this.add("-activate", target, "item: Power Link");
@@ -18,44 +17,19 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	hellfirelantern: {
 		name: "Hellfire Lantern",
-		spritenum: 61,
-		/*onHit(source, move) {
-			for (const pokemon of source.side.foe.active) {
-				if (source.species.id === 'houndoom' || source.species.id === 'houndour' && move.type === 'Fire') {
-					source.trySetStatus('brn', pokemon, move);
-					pokemon.useItem();
-					this.add('-activate', pokemon, 'item: Hellfire Lantern', '[consumed]');
-				}
-			}
-		},*/
-		onAfterMoveSecondary(target, source, move) {
-			if (target.species.id !== 'houndoom' && target.species.id !== 'houndour') return;
+		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
-				target.useItem();
-				source.trySetStatus('brn', target);
-				this.add('-activate', target, 'item: Hellfire Lantern', '[consumed]');
+				target.trySetStatus('brn', source);
+				source.useItem();
 			}
 		},
-		/*onModifyMove(pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Houndoom' || pokemon.baseSpecies.baseSpecies === 'Houndour') {
-				if (!move || !move.type !== 'Fire' || move.target === 'self') return;
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				move.secondaries.push({
-					chance: 100,
-					status: 'brn',
-				});
-			}
-		},*/
 		itemUser: ["Houndoom", "Houndour"],
 		num: 1002,
 		gen: 2,
-		shortDesc: "(Bugged) If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
+		shortDesc: "If held by Houndour or Houndoom, its first fire attack always burns the opponent. Single use.",
     },
 	sandstone: {
 		name: "Sandstone",
-		spritenum: 187,
 		onStart(target) {
 			if (target.species.id === 'sandslash' || target.species.id === 'sandshrew') {
 				this.add("-activate", target, "item: Sandstone");
@@ -67,4 +41,87 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
+	
+	
+	// Vanilla Edits
+	
+	metalpowder: {
+		name: "Metal Powder",
+		spritenum: 287,
+		onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+						this.debug('Aurora Veil weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+				}
+			},
+		itemUser: ["Animon", "Ditto"],
+		num: 257,
+		gen: 2,
+		shortDesc: "(Bugged) Not compatible with Animon."
+	},
+	
+	
+	/*reflect: {
+		num: 115,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Reflect",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'reflect',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onResidualOrder: 21,
+			onEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},*/
+	/*metalpowder: {
+		name: "Metal Powder",
+		spritenum: 287,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'animon' || pokemon.species.id === 'ditto') {
+				return this.chainModify(1.5);
+			}	
+		},
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'animon' || pokemon.species.id === 'ditto') {
+				return this.chainModify(1.5);
+			}	
+		},
+		itemUser: ["Animon", "Ditto"],
+		num: 257,
+		gen: 2,
+	},*/
 };

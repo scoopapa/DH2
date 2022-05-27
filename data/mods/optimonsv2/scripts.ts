@@ -37,5 +37,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('flygon', ['sludgewave', 'powergem']);
 		addNewMoves('togedemaru', ['volttackle', 'drainpunch', 'moonlight', 'stealthrock']);
 		addNewMoves('galvantula', ['taunt', 'memento']);
+		addNewMoves('samurott', ['flipturn', 'aurasphere']);
+		addNewMoves('delphox', ['recover', 'voltswitch', 'earthpower']);
+		addNewMoves('torterra', ['gravapple', 'bodypress', 'aromatherapy']);
+		addNewMoves('vikavolt', ['uturn', 'defog', 'hurricane']);
+		addNewMoves('escavalier', ['recover', 'uturn', 'earthquake']);
+		addNewMoves('accelgor', ['darkpulse', 'nastyplot']);
+		addNewMoves('aurorus', ['boomburst', 'powergem']);
+		addNewMoves('avalugg', ['iciclecrash']);
+	  addNewMoves('lapras', ['aquajet', 'swordsdance']);
+		addNewMoves('hitmontop', ['swordsdance', 'knockoff']);
+		addNewMoves('gourgeist', ['taunt', 'partingshot']);
+		addNewMoves('zoroark', ['moonblast', 'playrough']);
+		addNewMoves('toxicroak', ['uturn']);
 	},
 };

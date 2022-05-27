@@ -260,4 +260,29 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Hatterene, this item allows it to Mega Evolve in battle.",
 	},
+	drednite: {
+		name: "Drednite",
+		spritenum: 583,
+		megaStone: "Drednaw-Gmax",
+		megaEvolves: "Drednaw",
+		itemUser: ["Drednaw"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 10000,
+		gen: 8,
+		desc: "If held by a Drednaw, this item allows it to Mega Evolve in battle.",
+	},
+	odonagiumz: {
+		name: "Odonagium Z",
+		desc: "If held by Odonaga with Feudal Harpoon, it can use Baneful Blade Dance.",
+		spritenum: 642,
+		onTakeItem: false,
+		zMove: "Baneful Blade Dance",
+		zMoveFrom: "Feudal Harpoon",
+		itemUser: ["Odonaga"],
+		num: 1010,
+		gen: 7,
+	},
 };

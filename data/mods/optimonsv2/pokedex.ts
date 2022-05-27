@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	inteleon: {
 		inherit: true,
 		types: ["Water", "Normal"],
@@ -118,7 +118,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 75, atk: 95, def: 67, spa: 125, spd: 95, spe: 83},
-		abilities: {0: "Flame Body", 1: "Sheer Force"},
+		abilities: {0: "Flame Body", H: "Sheer Force"},
 	},
 	electivire: {
 		inherit: true,
@@ -134,7 +134,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 80, atk: 135, def: 100, spa: 65, spd: 100, spe: 65},
-		abilities: {0: "Pressure", 1: "Iron Fist"},
+		abilities: {0: "Pressure", H: "Iron Fist"},
 	},
 	xatu: {
 		inherit: true,
@@ -186,5 +186,92 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	galvantula: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Compound Eyes", H: "Unnerve"},
+	},
+	samurott: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 95, atk: 117, def: 85, spa: 118, spd: 70, spe: 70},
+		abilities: {0: "Torrent", H: "Adaptability"},
+	},
+	delphox: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 59, def: 92, spa: 104, spd: 100, spe: 104},
+		abilities: {0: "Blaze", H: "Magic Guard"},
+	},
+	torterra: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 129, def: 105, spa: 65, spd: 105, spe: 36},
+		abilities: {0: "Overgrow", H: "Solid Rock"},
+	},
+	vikavolt: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 70, def: 90, spa: 145, spd: 90, spe: 61},
+		abilities: {0: "Levitate", H: "Technician"},
+	},
+	escavalier: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 135, def: 105, spa: 60, spd: 105, spe: 40},
+		abilities: {0: "Swarm", 1: "Shield Dust", H: "Filter"}, 
+	},
+	accelgor: {
+		inherit: true, 
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 80, atk: 60, def: 80, spa: 105, spd: 80, spe: 145},
+		abilities: {0: "Unburden", H: "Infiltrator"},
+	},
+	aurorus: {
+		inherit: true,
+		baseStats: {hp: 123, atk: 77, def: 92, spa: 109, spd: 92, spe: 28},
+	},
+	avalugg: {
+		inherit: true,
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 105, atk: 117, def: 184, spa: 44, spd: 56, spe: 28},
+	},
+	lapras: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 105, def: 80, spa: 85, spd: 95, spe: 60},
+		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Technician"},
+	},
+   rampardos: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 155, def: 70, spa: 85, spd: 60, spe: 88},
+		abilities: {0: "No Guard", 1: "Mold Breaker", H: "Sheer Force"},
+	},
+	hitmontop: {
+		inherit: true,
+		types: ["Fighting", "Normal"],
+		baseStats: {hp: 70, atk: 115, def: 95, spa: 35, spd: 110, spe: 90},
+	},
+	gourgeist: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 100, def: 132, spa: 58, spd: 85, spe: 84},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistlarge: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 105, def: 132, spa: 58, spd: 85, spe: 69},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistsmall: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 95, def: 132, spa: 58, spd: 85, spe: 99},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},
+	},
+	gourgeistsuper: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 110, def: 132, spa: 58, spd: 85, spe: 54},
+		abilities: {0: "Prankster", 1: "Insomnia", H: "Adaptability"},  
+	},
+	zoroark: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 90, atk: 105, def: 90, spa: 120, spd: 100, spe: 105},
+	},
+	toxicroak: {
+		inherit: true,
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 90, atk: 115, def: 85, spa: 75, spd: 85, spe: 90},
+      abilities: {0: "Emergency Exit", 1: "Dry Skin", H: "Vital Spirit"},
 	},
 };
