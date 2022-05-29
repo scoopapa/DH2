@@ -4388,7 +4388,7 @@ corsolagalar: {
             thief: ["3L1"],
             thunder: ["3L1"],
             thunderbolt: ["3L1"],
-            thunderounch: ["3L1"],
+            thunderpunch: ["3L1"],
             thunderwave: ["3L1"],
             tickle: ["3L1"],
             toxic: ["3L1"],
