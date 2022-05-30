@@ -13,7 +13,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 201,
 	},
-	dimensionalstream:
+	dimensionalstream: {
 		desc: "On switch-in, the field becomes Trick Room. This room remains in effect until this Ability is no longer active for any Pokémon.",
 		shortDesc: "On switch-in, Trick Room begins until this Ability is not active in battle.",
 		onStart(source) {
@@ -40,7 +40,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 268,
 	},
-  furcoat: {
+	furcoat: {
 		onModifyDefPriority: 6,
 		onModifyDef(def) {
 			return this.chainModify([0x14CD, 0x1000]);
@@ -49,3 +49,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 169,
 	},
+};
