@@ -4823,6 +4823,74 @@ lifedrain: {
 		name: "Hold Breaker",
 		shortDesc: "This Pokemon's moves and their effects ignore the abilities of other Pokemon and can't be removed due to another Pokemon's ability.",
 	},
+	imposingadipose: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Imposing Adipose neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Imposing Adipose",
+		shortDesc: "This Pokémon takes 50% damage from super effective moves.",
+	},
+	frozenfist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Frozen Fist boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onAfterMove(target, source, move){
+			 if (move.flags['punch']) this.heal(target.baseMaxhp / 16);
+		},
+		name: "Frozen Fist",
+		shortDesc: "This Pokemon's punch-based attacks have 1.2x power and heal the user by 1/16th of their max HP.",
+	},
+	shadowydreams: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shadowy Dreams');
+			this.add('-message', `Duskoma is drowsing!`);
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shadowy Dreams');
+			}
+			return false;
+		},
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Shadowy Dreams",
+		shortDesc: "Comatose + Frisk",
+	},
+	reguardless: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Reguardless');
+			this.add('-message', `Fraxblade breaks the hold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Reguardless",
+		shortDesc: "Mold Breaker + No Guard",
+	},
+	envioussword: {
+		onStart(pokemon) {
+			this.boost({spa: 1}, pokemon);
+		},
+		name: "Envious Sword",
+		shortDesc: "On switch-in, this Pokemon's Special Attack is raised by 1 stage.",
+	},
 
 
 // LC Only Abilities
@@ -5800,6 +5868,16 @@ lifedrain: {
 		onCriticalHit: false,
 		name: "Shell Breaker",
 		shortDesc: "Shell Armor + Mold Breaker",
+	},
+	applearmor: {
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Apple Armor');
+			}
+			return false;
+		},
+		name: "Apple Armor",
+		shortDesc: "This Pokemon is immune to status conditions.",
 	},
 };
  
