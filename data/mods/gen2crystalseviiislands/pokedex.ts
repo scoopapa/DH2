@@ -68,6 +68,24 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 3.8,
 		weightkg: 140.4,
 	},
+	skunkle: {
+		num: 259,
+		name: "Skunkle",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 50, atk: 60, def: 50, spa: 65, spd: 70, spe: 55},
+		abilities: {0: "No Ability"},
+		heightm: 0.4,
+		weightkg: 19.2,
+	},
+	skunking: {
+		num: 260,
+		name: "Skunking",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 97, atk: 80, def: 81, spa: 83, spd: 70, spe: 62},
+		abilities: {0: "No Ability"},
+		heightm: 1.2,
+		weightkg: 50,
+	},
 	
 	
 	
