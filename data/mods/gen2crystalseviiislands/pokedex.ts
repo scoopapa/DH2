@@ -76,6 +76,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 0.4,
 		weightkg: 19.2,
+		evos: ["Skunking"],
 	},
 	skunking: {
 		num: 260,
@@ -85,6 +86,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1.2,
 		weightkg: 50,
+		prevo: "Skunkle",
 	},
 	kipuro: {
 		num: 261,
