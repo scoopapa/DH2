@@ -117,8 +117,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	
 // Vanilla Edits
 	
-	
-	
+
 	quagsire: {
 		inherit: true,
 		evos: ["Exoltol"],
