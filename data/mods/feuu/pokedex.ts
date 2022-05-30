@@ -375,7 +375,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 31,
 		name: "Noicity",
 		types: ["Electric", "Flying"],
-		baseStats: {hp: 86, atk: 75, def: 86, spa: 109, spd: 75, spe: 118},
+		baseStats: {hp: 86, atk: 84, def: 86, spa: 109, spd: 75, spe: 118},
 		abilities: {0: "Surround Sound"},
 		weightkg: 62.5,
 	},
