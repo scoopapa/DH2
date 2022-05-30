@@ -45,6 +45,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('accelgor', ['darkpulse', 'nastyplot']);
 		addNewMoves('aurorus', ['boomburst', 'powergem']);
 		addNewMoves('avalugg', ['iciclecrash']);
-	   addNewMoves('lapras', ['aquajet', 'swordsdance']);
+	  addNewMoves('lapras', ['aquajet', 'swordsdance']);
+		addNewMoves('hitmontop', ['swordsdance', 'knockoff']);
+		addNewMoves('gourgeist', ['taunt', 'partingshot']);
+		addNewMoves('zoroark', ['moonblast', 'playrough']);
+		addNewMoves('toxicroak', ['uturn']);
 	},
 };

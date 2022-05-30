@@ -34,5 +34,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		num: 325,
 		gen: 4,
+		desc: "When held by Sableye, its Defense and Sp. Def are 1.5x and it's unable to be removed."
 	},
 };

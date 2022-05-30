@@ -105,5 +105,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	obstagoon: {
 		inherit: true,
 		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 105},
+	},
+	copperajah: {
+      inherit: true,
+		types: ["Steel", "Water"],
+		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 89, spe: 30},
+	},
+	latios: {
+		inherit: true,
+		types: ["Dragon", "Electric"],
 	}, 
 };
