@@ -86,7 +86,33 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 50,
 	},
-	
+	kipuro: {
+		num: 261,
+		name: "Kipuro",
+		types: ["Rock", "Grass"],
+		baseStats: {hp: 100, atk: 90, def: 100, spa: 90, spd: 80, spe: 50},
+		abilities: {0: "No Ability"},
+		heightm: 2.1,
+		weightkg: 360,
+	},
+	kamebi: {
+		num: 262,
+		name: "Kamebi",
+		types: ["Psychic", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 100, spa: 100, spd: 65, spe: 50},
+		abilities: {0: "No Ability"},
+		heightm: 2.1,
+		weightkg: 195.3,
+	},
+	pyronoir: {
+		num: 263,
+		name: "Pyronoir",
+		types: ["Ghost", "Fire"],
+		baseStats: {hp: 85, atk: 125, def: 60, spa: 65, spd: 140, spe: 65},
+		abilities: {0: "No Ability"},
+		heightm: 2.2,
+		weightkg: 106.6,
+	},
 	
 	
 // Vanilla Edits
