@@ -20,4 +20,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	terricks: {
 	gen: 2,
 	},
+	skunking: {
+	gen: 2,
+	},
+	kipuro: {
+	gen: 2,
+	},
+	kamebi: {
+	gen: 2,
+	},
+	pyronoir: {
+	gen: 2,
+	},
 }
