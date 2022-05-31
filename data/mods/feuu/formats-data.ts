@@ -1631,6 +1631,33 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	
+// NU Time
+	appledam: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	regidurr: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	duskoma: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	fraxblade: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	igglyciancrowned: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 
 	
 	//Silvino Nightmare Hours
@@ -2218,6 +2245,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	burmlin: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+/*
+	fraxbladeprevo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+*/
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
