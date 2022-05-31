@@ -3039,6 +3039,17 @@ export const Formats: FormatList = [
        banlist: ['All Pokemon'],
   	   unbanlist: ['grasselectric', 'firerock', 'waterghost', 'darkpoison', 'normalpsychic', 'fightingflying', 'bugice', 'bugicemega', 'bugpsychic', 'bugpsychicmega', 'grassfairy', 'grassfire', 'normalpoison', 'normalpoisonmega', 'groundfairy', 'groundfairymega', 'bugelectric', 'darkflying', 'fightingice', 'fightingsteel', 'dragon', 'steelflying', 'electricpoison', 'electricpoisonmega', 'ground', 'rockghost', 'fairyflying', 'electricsteel', 'rockgrass', 'fairydragon', 'icepoison', 'icerock', 'normal', 'normalmega', 'normalfairy', 'normalfairymega', 'bugfighting', 'ghostdragon', 'waterground', 'watergroundmega', 'watersteel', 'fireground', 'firenormal', 'grassnormal', 'electric', 'dragonpoison', 'darkfairy', 'darkfairymega', 'poisonpsychic', 'poisonpsychicmega', 'darkrock', 'darkrockmega', 'poisonground', 'poisongroundmega', 'rockpsychic', 'rockfighting', 'water', 'waterelectric', 'dragonsteel', 'psychicfighting', 'bugsteel', 'psychicdragon', 'normalghost', 'darksteel', 'ghostground', 'ghostgroundmega', 'electricflying', 'grasspoison', 'dragonfighting', 'waterice', 'watericemega', 'ghostflying', 'bugdark', 'iceground', 'bugwater', 'bugfire', 'grassice', 'dragonground', 'psychicfairy', 'grassflying', 'firepsychic', 'darkghost', 'waterflying', 'steel', 'rock', 'iceghost', 'electricnormal', 'firedark', 'firefairy', 'fighting', 'firepsychic', 'iceghost', 'electricnormal', 'firedark', 'dragongroundmega'],
   },
+	{
+		name: "[Gen 3] Inverse Split",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/posts/8133789/">ADV Sample Teams</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3503019/">ADV OU Viability Rankings</a>`,
+		],
+
+		mod: 'gen3inversesplit',
+		ruleset: ['Standard', '3 Baton Pass Clause'],
+		banlist: ['Uber', 'Smeargle + Baton Pass'],
+	},
 	{    
        name: "[Gen 8] JosMons",
        desc: 'A meta created by JosJet focused on making balance changes to the NatDex OU meta. Ex. Bug-type Buff.',
