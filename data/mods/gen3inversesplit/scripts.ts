@@ -15,5 +15,5 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Movedex', i).category = newCategory;
 			}
 		}
-  },
+	},
 };
