@@ -1,7 +1,7 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen3',
 	gen: 3,
-  init() {
+   init() {
 		for (const i in this.data.Pokedex) {
 			delete this.data.Pokedex[i].abilities['H'];
 		}
