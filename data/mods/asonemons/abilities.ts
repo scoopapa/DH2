@@ -415,24 +415,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Absol)",
 		shortDesc: "The combination of Prankster and Justified.",
 	},
-	asoneabsol: {
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'As One');
-		},
-		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.category === 'Status') {
-				move.pranksterBoosted = true;
-				return priority + 1;
-			}
-		},
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Dark') {
-				this.boost({atk: 1});
-			}
-		},
-		name: "As One (Absol)",
-		shortDesc: "The combination of Prankster and Justified.",
-	},
 	asonesalazzle: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
