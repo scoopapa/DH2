@@ -89,5 +89,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'sableyedoom').learnset.darkfractals = ['8L1'];
 		
+		this.modData('Learnsets', 'mareaniemagma').learnset.sulfuricflame = ['8L1'];
+		
 	},
 };
