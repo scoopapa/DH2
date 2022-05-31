@@ -506,11 +506,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Clever",
 	},
-	sulfuricacid: {
+	sulfuricflame: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Sulfuric Acid",
+		name: "Sulfuric Flame",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
