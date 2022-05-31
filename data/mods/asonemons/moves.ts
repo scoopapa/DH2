@@ -528,7 +528,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else if (target.status === 'frz') target.cureStatus();
 			},
 		},
-		target: "allAdjacent",
+		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
 	},
