@@ -101,7 +101,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (isGrounded === null) {
 					if (message) {
 						if (this.hasAbility('asonelunatone')) {
-							this.battle.add('-immune', this, '[from] ability: asonelunatone');
+							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
 					}
 					return false;
