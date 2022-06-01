@@ -12,11 +12,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('perrserker', ['anchorshot', 'bulletpunch', 'knockoff', 'bulkup']);
 		addNewMoves('mrrime', ['toxic', 'courtchange']);
 		addNewMoves('cursola', ['recover']);
-		addNewMoves('rapidashgalar', ['moonblast', 'moonlight', 'earthpower']);
+		addNewMoves('rapidashgalar', ['moonblast', 'moonlight']);
 		addNewMoves('weezinggalar', ['moonlight', 'nastyplot']);
 		addNewMoves('stunfiskgalar', ['spikes', 'toxicspikes', 'ironhead', 'spikyshield']);
 		addNewMoves('boltund', [
-			'hyperfang', 'nastyplot', 'aurasphere', 'mysticalfire', 'focusblast', 'extremespeed', 'seedbomb', 'icefang', 'poisonfang', 'flamethrower',
+			'hyperfang', 'aurasphere', 'mysticalfire', 'focusblast', 'seedbomb', 'poisonfang', 'flamethrower',
 		]);
 		addNewMoves('eldegoss', ['mysticalfire', 'sludgebomb', 'uturn', 'bodypress']);
 		addNewMoves('greedent', ['recycle', 'uturn']);
@@ -26,6 +26,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('sandaconda', ['recover', 'whirlwind']);
 		addNewMoves('flapple', ['superpower', 'earthquake', 'dragonclaw', 'roost', 'smartstrike']);
 		addNewMoves('appletun', ['dragontail', 'calmmind', 'sludgebomb', 'flamethrower', 'earthquake']);
+		addNewMoves('magmortar', ['aurasphere']);
 		addNewMoves('electivire', ['closecombat', 'knockoff', 'bulkup', 'meteormash']);
 		addNewMoves('yanmega', ['dracometeor', 'dragonpulse', 'focusblast']);
 		addNewMoves('dusknoir', ['bulkup', 'knockoff', 'drainpunch']);
