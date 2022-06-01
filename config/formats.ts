@@ -2910,7 +2910,6 @@ export const Formats: FormatList = [
 		],
 		
 		mod: 'asonemons',
-		teambuilderFormat: 'AsOUne',
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Data Mod','Sleep Clause Mod', 'Species Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause'],
 		banlist: ['All Pokemon', 'Hidden Power', 'Pursuit'],
 		unbanlist: ['Yanmega-Shell', 'Pelipper-Ink', 'Excadrill-Boulder', 'Vanilluxe-Fur', 'Butterfree-Angler', 'Dedenne-Luchador', 'Shuckle-Brick', 'Munchlax-Forest', 'Bunnelby-Worker', 'Sirfetch\u2019d-Fantasy', 'Frogadier-Beetle', 'Chandelure-Balloon', 'Infernape-Climber', 'Ribombee-Charmer', 'Beheeyem-UFO', 'Sableye-Doom', 'Mareanie-Magma', 'Thwackey-Dune', 'Spheal-Siren', 'Pincurchin-Goo', 'Nihilego-Psychosis', 'Stunfisk-Jagged', 'Pawniard-Aviation', 'Watchog-Scout', 'Mothim-Gourd', 'Clefairy-Selene', 'Hoothoot-Perch', 'Swoobat-Aroma', 'Blacephalon-Borealis', 'Malamar-Parallel'],
