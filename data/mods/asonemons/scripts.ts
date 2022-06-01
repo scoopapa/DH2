@@ -23,7 +23,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 		this.modData('Learnsets', 'yanmegashell').learnset.coalsting = ['8L1'];
-		delete this.modData('Learnsets', 'yanmegashell').learnset.shellsmash;
 		
 		this.modData('Learnsets', 'pelipperink').learnset.inkgulp = ['8L1'];
 		
