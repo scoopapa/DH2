@@ -260,7 +260,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Aurorus)"},
 		weightkg: 238,
 	},
-   malamargirafarig: {
+   malamarparallel: {
 		fusion: ['Malamar', 'Girafarig'],
 		num: 30,
 		name: "Malamar-Parallel",
