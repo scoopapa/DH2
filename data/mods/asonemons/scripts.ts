@@ -121,6 +121,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'mareaniemagma').learnset.sulfuricflame = ['8L1'];
 		
+		this.modData('Learnsets', 'thwackeydune').learnset.lushsoil = ['8L1'];
+		
+		this.modData('Learnsets', 'sphealsiren').learnset.entrancingsound = ['8L1'];
+		
+		this.modData('Learnsets', 'pincurchingoo').learnset.paralyzinggoo = ['8L1'];
+		
+		this.modData('Learnsets', 'nihilegopsychosis').learnset.neurodrain = ['8L1'];
+		
+		this.modData('Learnsets', 'stunfiskjagged').learnset.spikeburst = ['8L1'];
+		
+		this.modData('Learnsets', 'pawniardaviation').learnset.aerialstrike = ['8L1'];
+		
+		this.modData('Learnsets', 'watchogscout').learnset.airsurveillance = ['8L1'];
+		
+		this.modData('Learnsets', 'mothimgourd').learnset.gourdspirit = ['8L1'];
+		
+		this.modData('Learnsets', 'clefairyselene').learnset.moonritual = ['8L1'];
+		
+		this.modData('Learnsets', 'hoothootperch').learnset.illomen = ['8L1'];
+		
+		this.modData('Learnsets', 'swoobataroma').learnset.souraroma = ['8L1'];
+		
+		this.modData('Learnsets', 'blacephalonborealis').learnset.vengefulspirit = ['8L1'];
+		
+		this.modData('Learnsets', 'malamarparallel').learnset.innerdeviation = ['8L1'];
+		
 	},
 	teambuilderConfig: {
         // for micrometas to only show custom tiers
