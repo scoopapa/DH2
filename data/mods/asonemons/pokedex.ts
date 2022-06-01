@@ -225,7 +225,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 62.3,
 	},
    clefairyselene: {
-		fusion: ['Clefairy', 'Selene'],
+		fusion: ['Clefairy', 'Lunatone'],
 		num: 26,
 		name: "Clefairy-Selene",
 		types: ["Fairy", "Rock"],
