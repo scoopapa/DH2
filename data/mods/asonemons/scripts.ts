@@ -122,4 +122,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mareaniemagma').learnset.sulfuricflame = ['8L1'];
 		
 	},
+	teambuilderConfig: {
+        // for micrometas to only show custom tiers
+        excludeStandardTiers: true,
+        // only to specify the order of custom tiers
+        customTiers: ['AsOUne'],
+	},
 };
