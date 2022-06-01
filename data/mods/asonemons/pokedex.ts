@@ -116,7 +116,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Exeggutor-Alola)"},
 		weightkg: 470,
 	},
-    ribombeecharmer: {
+   ribombeecharmer: {
 		fusion: ['Ribombee', 'Steelix'],
 		num: 14,
 		name: "Ribombee-Charmer",
@@ -125,7 +125,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Steelix)"},
 		weightkg: 400.5,
 	},
-    beheeyemufo: {
+   beheeyemufo: {
 		fusion: ['Beheeyem', 'Magnezone'],
 		num: 15,
 		name: "Beheeyem-UFO",
@@ -143,7 +143,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "As One (Absol)"},
 		weightkg: 58,
 	},
-    mareaniemagma: {
+   mareaniemagma: {
 		fusion: ['Mareanie', 'Salazzle'],
 		num: 17,
 		name: "Mareanie-Magma",
@@ -171,7 +171,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 60.7,
 	},
    pincurchingoo: {
-		fusion: ['Pincurchin', 'Sligoo'],
+		fusion: ['Pincurchin', 'Sliggoo'],
 		num: 20,
 		name: "Pincurchin-Goo",
 		types: ["Electric", "Dragon"],
