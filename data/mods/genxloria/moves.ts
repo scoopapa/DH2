@@ -719,11 +719,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			return null;
 		},
-		self: {
-			onHit(pokemon) {
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
-				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Heat Release');
-			},
+		onHit(pokemon) {
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Heat Release');
 		},
 		secondary: null,
 		target: "self",
@@ -735,7 +733,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback() {
-			if (this.field.pseudoWeather.echoedvoice) {
+			if (this.field.pseudoWeather.steadystream) {
 				return 50 * this.field.pseudoWeather.steadystream.multiplier;
 			}
 			return 50;
@@ -770,6 +768,447 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		contestType: "Beautiful",
+	},
+	psychicsurf: {
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		shortDesc: "If Psychic Terrain is active, user's Speed goes up by 1 stage.",
+		name: "Psychic Surf",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Expanding Force", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+			onHit(target, source, move) {
+				if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+					return !!this.boost({spe: 1}, source);
+				}
+				return false;
+			},
+		},
+		target: "allAdjacent",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
+	shocktail: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "If the opponent has any stat boosts, they are paralyzed.",
+		name: "Shock Tail",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Iron Tail", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+			onHit(target, source, move) {
+				if (target.positiveBoosts()) {
+					return !!target.trySetStatus('par', source);
+				}
+				return false;
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	bananasplit: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+    	shortDesc: "Hits twice. Doubles: Tries to hit each foe once.",
+		isViable: true,
+		name: "Banana Split",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icy Wind", target);
+		},
+		multihit: 2,
+		smartTarget: true,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
+		maxMove: {basePower: 130},
+	},
+	swindle: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+    	shortDesc: "(Bugged) Switches the user's item with the foes, then switches out if successful.",
+		name: "Swindle",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mystery: 1, reflectable: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Trick", target);
+		},
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
+		onHit(target, source, move) {
+			const yourItem = target.takeItem(source);
+			const myItem = source.takeItem();
+			if (target.item || source.item || (!yourItem && !myItem)) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			if (
+				(myItem && !this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem)) ||
+				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem))
+			) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			this.add('-activate', source, 'move: Trick', '[of] ' + target);
+			if (myItem) {
+				target.setItem(myItem);
+				this.add('-item', target, myItem, '[from] move: Switcheroo');
+			} else {
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Switcheroo');
+			}
+			if (yourItem) {
+				source.setItem(yourItem);
+				this.add('-item', source, yourItem, '[from] move: Switcheroo');
+			} else {
+				this.add('-enditem', source, myItem, '[silent]', '[from] move: Switcheroo');
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {boost: {spe: 2}},
+		contestType: "Clever",
+	},
+	sparkingleap: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    	shortDesc: "High critical hit ratio.",
+		name: "Sparking Leap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bolt Beak", target);
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	pearlbarrage: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+    	shortDesc: "Lowers the foe(s)'s Attack and Special Attack by 1 stage.",
+		name: "Pearl Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+	},
+	fireworkleaf: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+    	shortDesc: "Super effective against Steel-types.",
+		name: "Firework Leaf",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Jungle Healing", target);
+			this.add('-anim', source, "Flame Burst", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	quickshot: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+    	shortDesc: "Usually goes first.",
+		name: "Quick Shot",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ember", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	mercilessrend: {
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+    	shortDesc: "Traps the target and deals damage for 4 turns.",
+		name: "Merciless Rend",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	skylance: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+    	shortDesc: "Fails if the user is grounded.",
+		name: "Sky Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, gravity: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aerial Ace", target);
+		},
+		onTryHit(target, source) {
+			if (source.isGrounded()) return false;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	spellcast: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+    	shortDesc: "20% chance to paralyze or poison or put the target to sleep.",
+		name: "Spell Cast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		secondary: {
+			chance: 20,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('par', source);
+				} else if (result === 1) {
+					target.trySetStatus('slp', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	steamingblast: {
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+    	shortDesc: "Super effective against Water. 30% chance to burn.",
+		name: "Steaming Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		thawsTarget: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steam Eruption", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	jawsoflife: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    	shortDesc: "If used on foe, traps the foe. If used on ally, heals them by 50% of their max HP.",
+		name: "Jaws of Life",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic Fangs", target);
+		},
+		onTryHit(target, source, move) {
+			if (source.side === target.side) {
+				move.basePower = 0;
+				move.infiltrates = true;
+				delete move.secondaries;
+			}
+		},
+		onHit(target, source) {
+			if (source.side === target.side) {
+				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+					this.add('-immune', target);
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	javelinstone: {
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+    	shortDesc: "20% chance to lower the target's Defense by 1 stage.",
+		name: "Javelin Stone",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	crippleclobber: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+    	shortDesc: "Lowers the target's Speed by 1.",
+		name: "Cripple Clobber",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Low Kick", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Cute",
+	},
+	thunderstrike: {
+		accuracy: 70,
+		basePower: 110,
+		category: "Physical",
+    	shortDesc: "30% chance to paralyze foe. Perfect accuracy in Sun.",
+		name: "Thunderstrike",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bolt Strike", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = true;
+				break;
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	aquaballet: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+    	shortDesc: "Raises the user's Special Attack and Speed by 1 stage",
+		name: "Aqua Ballet",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rain Dance", target);
+		},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
 };
