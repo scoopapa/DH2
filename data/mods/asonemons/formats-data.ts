@@ -63,7 +63,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
-    mareaniemagma: {
+   mareaniemagma: {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
