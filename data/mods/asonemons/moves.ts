@@ -532,5 +532,325 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	lushsoil: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Lush Soil",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+   entrancingsound: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Entrancing Sound",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fairy",
+	},
+   paralyzinggoo: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Paralyzing Goo",
+		pp: 10,
+		priority: -1,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "allAdjacent",
+		type: "Dragon",
+	},
+   neurodrain: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Neuro Drain",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		drain: [3, 4],
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+   spikeburst: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Spike Burst",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('spikes');
+			},
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Ground",
+	},
+   aerialassault: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Aerial Assault",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'torment',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.volatiles['dynamax']) {
+					delete pokemon.volatiles['torment'];
+					return false;
+				}
+				this.add('-start', pokemon, 'Torment');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Torment');
+			},
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+   airsurveillance: {
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		name: "Air Surveillance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Flying",
+	},
+   gourdspirit: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Gourd Spirit",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Ghost';
+				break;
+			case 'grassyterrain':
+				move.type = 'Ghost';
+				break;
+			case 'mistyterrain':
+				move.type = 'Ghost';
+				break;
+			case 'psychicterrain':
+				move.type = 'Ghost';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 1.5;
+			}
+		},
+        onHit() {
+			this.field.clearTerrain();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+   moonritual: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Moon Ritual",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+        recoil: [1, 2],
+		sideCondition: 'moonritual',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Moon Ritual weaken');
+						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Moon Ritual');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: Moon Ritual');
+			},
+		},
+        secondary: null,
+		target: "allySide",
+		type: "Fairy",
+	},
+   illomen: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ill Omen",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'trickroom',
+				source: source,
+				moveData: {
+                    id: 'trickroom',
+                    name: "Trick Room",
+                    accuracy: true,
+                    basePower: 0,
+                    category: "Status",
+                    priority: -7,
+		            flags: {mirror: 1},
+                    ignoreImmunity: true,
+		            pseudoWeather: 'trickroom',
+                    condition: {
+                        duration: 5,
+                        durationCallback(source, effect) {
+                            if (source?.hasAbility('persistent')) {
+                                this.add('-activate', source, 'ability: Persistent', effect);
+                                return 7;
+                            }
+                            return 5;
+                        },
+                        onStart(target, source) {
+                            this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+                        },
+                        onRestart(target, source) {
+                            this.field.removePseudoWeather('trickroom');
+                        },
+                        // Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+                        onResidualOrder: 23,
+                        onEnd() {
+                            this.add('-fieldend', 'move: Trick Room');
+                        },
+                    },
+                    effectType: 'Move',
+                    isFutureMove: true,
+					type: 'Psychic',
+				},
+			});
+			this.add('-start', source, 'move: Trick Room');
+			return null;
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+	},
+   souraroma: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sour Aroma",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			spa: 1,
+			def: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+	},
+   vengefulspirit: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Vengeful Spirit",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		self: {
+			onHit(source) {
+				source.side.addSideCondition('safeguard');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+   innerdeviation: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Inner Deviation",
+		pp: 10,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Psychic', type);
+		},
+		priority: 0,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
 };
 
