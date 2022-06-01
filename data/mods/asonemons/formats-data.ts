@@ -67,4 +67,56 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "As OUne",
 		doublesTier: "As OUne",
 	},	
+	thwackeydune: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   sphealsiren: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   pincurchingoo: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   nihilegopsychosis: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   stunfiskjagged: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   pawniardaviation: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   watchogscout: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   mothimgourd: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   clefairyselene: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   hoothootperch: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   swoobataroma: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   blacephalonborealis: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
+   malamarparallel: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
+	},	
 };
