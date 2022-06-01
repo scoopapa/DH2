@@ -230,7 +230,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Clefairy-Selene",
 		types: ["Fairy", "Rock"],
 		baseStats: {hp: 90, atk: 75, def: 90, spa: 91, spd: 90, spe: 77},
-		abilities: {0: "As One (Gigalith)"},
+		abilities: {0: "As One (Lunatone)"},
 		weightkg: 175.5,
 	},
    hoothootperch: {
