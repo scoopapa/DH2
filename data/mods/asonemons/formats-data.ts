@@ -1,11 +1,11 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	yanmegashell: {
-		tier: "AsOUne",
-		doublesTier: "AsDOUne",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},
 	pelipperink: {
-		tier: "AsOUne",
-		doublesTier: "AsOUne",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	excadrillboulder: {
 		tier: "As OUne",
