@@ -1,4 +1,4 @@
-export const Pokedex: {[speciesid: string]: SpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	yanmegashell: {
 		fusion: ['Yanmega', 'Torkoal'],
 		num: 1,
