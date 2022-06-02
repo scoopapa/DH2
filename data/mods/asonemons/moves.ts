@@ -18,7 +18,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-    inkgulp: {
+   inkgulp: {
 		num: 828,
 		accuracy: 100,
 		basePower: 60,
