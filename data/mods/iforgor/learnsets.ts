@@ -110,6 +110,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	firerock: {
 		learnset: {
+			skullbash: ["8L1"],
 			flamewheel: ["8L1"],
 			blazekick: ["8L1"],
 			flareblitz: ["8L1"],
@@ -432,6 +433,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	normalpsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			espwave: ["8L1"],
 			bodyslam: ["8L1"],
 			boomburst: ["8L1"],
@@ -545,6 +547,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	fightingflying: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			drainingwing: ["8L1"],
 			machpunch: ["8L1"],
 			brickbreak: ["8L1"],
@@ -759,6 +763,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugpsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
@@ -872,6 +877,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	grassfairy: {
 		learnset: {
+			flowershield: ["8L1"],
+			earthpower: ["8L1"],
 			rampage: ["8L1"],
 			bulletseed: ["8L1"],
 			razorleaf: ["8L1"],
@@ -1195,6 +1202,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	groundfairy: {
 		learnset: {
+			cosmicpower: ["8L1"],
+			bodypress: ["8L1"],
 			rampage: ["8L1"],
 			magnitude: ["8L1"],
 			bulldoze: ["8L1"],
@@ -1535,6 +1544,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	fightingice: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			machpunch: ["8L1"],
 			karatechop: ["8L1"],
 			brickbreak: ["8L1"],
@@ -1654,6 +1665,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	fightingsteel: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			machpunch: ["8L1"],
 			karatechop: ["8L1"],
 			brickbreak: ["8L1"],
@@ -2069,6 +2082,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	ground: {
 		learnset: {
+			trickroom: ["8L1"],
 			magnitude: ["8L1"],
 			bulldoze: ["8L1"],
 			stompingtantrum: ["8L1"],
@@ -2641,6 +2655,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	rockgrass: {
 		learnset: {
+			skullbash: ["8L1"],
 			rockthrow: ["8L1"],
 			rockslide: ["8L1"],
 			stoneedge: ["8L1"],
@@ -2845,6 +2860,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	icerock: {
 		learnset: {
+			skullbash: ["8L1"],
 			tripleaxel: ["8L1"],
 			iceshard: ["8L1"],
 			iciclecrash: ["8L1"],
@@ -3030,6 +3046,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	normalfairy: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			rampage: ["8L1"],
 			bodyslam: ["8L1"],
 			strength: ["8L1"],
@@ -3141,6 +3158,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
@@ -4247,6 +4266,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	poisonpsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			poisonjab: ["8L1"],
 			acidspray: ["8L1"],
 			smog: ["8L1"],
@@ -4371,6 +4391,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	darkrock: {
 		learnset: {
+			skullbash: ["8L1"],
 			rampage: ["8L1"],
 			pursuit: ["8L1"],
 			payback: ["8L1"],
@@ -4597,6 +4618,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	rockpsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			rockthrow: ["8L1"],
 			rockslide: ["8L1"],
 			stoneedge: ["8L1"],
@@ -4731,6 +4753,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	rockfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			rockthrow: ["8L1"],
 			rockslide: ["8L1"],
 			stoneedge: ["8L1"],
@@ -5166,6 +5190,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	psychicfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
+			cosmicpower: ["8L1"],
 			zenheadbutt: ["8L1"],
 			psychicfangs: ["8L1"],
 			confusion: ["8L1"],
@@ -5404,6 +5431,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	psychicdragon: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			rampage: ["8L1"],
 			zenheadbutt: ["8L1"],
 			psychicfangs: ["8L1"],
@@ -6103,6 +6131,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dragonfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			dragontail: ["8L1"],
 			dragonclaw: ["8L1"],
 			dragonrush: ["8L1"],
@@ -6896,7 +6926,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			venoshock: ["8L1"],
 			coil: ["8L1"],
 			thunder: ["8L1"],
-			calmmind: ["8L1"],
+			workup: ["8L1"],
 			attract: ["8L1"],
 			bide: ["8L1"],
 			captivate: ["8L1"],
@@ -7086,6 +7116,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	psychicfairy: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			mistball: ["8L1"],
 			rampage: ["8L1"],
 			zenheadbutt: ["8L1"],
@@ -7313,6 +7344,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	firepsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			burningpetals: ["8L1"],
 			photongeyser: ["8L1"],
 			allyswitch: ["8L1"],
@@ -7707,6 +7739,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	rock: {
 		learnset: {
+			skullbash: ["8L1"],
 			rockwrecker: ["8L1"],
 			ancientpower: ["8L1"],
 			attract: ["8L1"],
@@ -8196,6 +8229,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	fighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			plasmafists: ["8L1"],
 			thunderouskick: ["8L1"],
 			aerialace: ["8L1"],
@@ -8306,6 +8341,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	steelfairy: {
 		learnset: {
+			cosmicpower: ["8L1"],
+			bodypress: ["8L1"],
 			aerialace: ["8L1"],
 			afteryou: ["8L1"],
 			allyswitch: ["8L1"],
@@ -8736,6 +8773,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	waterfairy: {
 		learnset: {
+			steameruption: ["8L1"],
 			protect: ["8L1"],
 			raindance: ["8L1"],
 			rest: ["8L1"],
@@ -9317,6 +9355,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	grassfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
 			gigadrain: ["8L1"],
 			protect: ["8L1"],
 			rest: ["8L1"],
@@ -9637,7 +9677,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rockslide: ["8L1"],
 			lowkick: ["8L1"],
 			revenge: ["8L1"],
-			roar: ["8L1"],
 			nightslash: ["8L1"],
 			honeclaws: ["8L1"],
 			faketears: ["8L1"],
@@ -9660,6 +9699,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	ghostfighting: {
 		learnset: {
+			vitalthrow: ["8L1"],
+			skullbash: ["8L1"],
+			matblock: ["8L1"],
 			facade: ["8L1"],
 			protect: ["8L1"],
 			rest: ["8L1"],
@@ -9794,6 +9836,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dragonice: {
 		learnset: {
+			glaciallance: ["8L1"],
 			dracometeor: ["8L1"],
 			dragonpulse: ["8L1"],
 			facade: ["8L1"],
@@ -10009,6 +10052,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	ghostpsychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
 			allyswitch: ["8L1"],
 			astonish: ["8L1"],
 			attract: ["8L1"],
@@ -10118,6 +10162,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	psychic: {
 		learnset: {
+			cosmicpower: ["8L1"],
+			lusterpurge: ["8L1"],
 			allyswitch: ["8L1"],
 			attract: ["8L1"],
 			aurasphere: ["8L1"],

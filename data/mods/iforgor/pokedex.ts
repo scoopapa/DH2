@@ -188,7 +188,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1012,
 		name: "ground",
 		types: ["Ground"],
-		baseStats: {hp: 95, atk: 116, def: 116, spa: 74, spd: 74, spe: 30},
+		baseStats: {hp: 95, atk: 116, def: 116, spa: 94, spd: 74, spe: 30},
 		abilities: {0: "Sand Veil", 1: "Guts", H: "Contrary"},
 	},
 	bugice: {
@@ -788,7 +788,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1084,
 		name: "iceelectric",
 		types: ["Ice", "Electric"],
-		baseStats: {hp: 79, atk: 95, def: 79, spa: 95, spd: 79, spe: 123},
+		baseStats: {hp: 79, atk: 100, def: 79, spa: 100, spd: 79, spe: 123},
 		abilities: {0: "Color Change"},
 	},
 	groundflying: {
@@ -842,7 +842,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1090,
 		name: "normaldark",
 		types: ["Normal", "Dark"],
-		baseStats: {hp: 90, atk: 85, def: 90, spa: 95, spd: 83, spe: 87},
+		baseStats: {hp: 90, atk: 95, def: 100, spa: 95, spd: 83, spe: 87},
 		abilities: {0: "Comatose"},
 	},
 	ghostfighting: {
@@ -864,7 +864,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "dragonnormal",
 		types: ["Dragon", "Normal"],
 		baseStats: {hp: 81, atk: 80, def: 81, spa: 80, spd: 81, spe: 122},
-		abilities: {0: "Scrappy", H: "Dragons Maw"},
+		abilities: {0: "Scrappy", H: "Dragon's Maw"},
 	},
 	ghostpsychic: {
 		num: 1094,
