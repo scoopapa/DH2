@@ -1,14 +1,12 @@
+
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){ 
-		//To construct learnsets for these evolutions, I'm gonna cheat and copy the code Scoopapa made for construction FE fusion learnsets
-		//If you delete moves that a prevo learns from a learnset that's constructed via inheriting said moves from a prevo the way Showdown does normally,
-		//it just won't work. 
-		//But if you construct the learnset artificially ahead of time, like this, you can then remove moves from it that it would inherit at initialization. 
+		// Automatically construct fusion learnsets! (Thank u scoopapa)
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
 			const fusionEntry = this.dataCache.Pokedex[id];
-			if (fusionEntry.inheritMoves) {//if the pokedex entry has a fusion field, it's a fusion
+			if (fusionEntry.fusion) {//if the pokedex entry has a fusion field, it's a fusion
 				const learnsetFusionList = [];//list of pokemon whose learnsets need to be fused
-				for (let name of fusionEntry.inheritMoves) {
+				for (let name of fusionEntry.fusion) {
 					let prevo = true;
 					while (prevo) {//make sure prevos of both fused pokemon are added to the list
 						learnsetFusionList.push(name);
@@ -21,12 +19,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (let name of learnsetFusionList) {					
 					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
 					for (const moveid in learnset) {
-						//if (this.dataCache.Moves[moveid].isNonstandard === 'Past') continue; //exclude dexited moves
-						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//hopefully they dont care about compatibility in this mod
+						if (this.dataCache.Moves[moveid].isNonstandard === 'Past') continue; //exclude dexited moves (I hope!) 
+						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
 					}
 				}
 			}
 		}
+		
 		this.modData('Learnsets', 'yanmegashell').learnset.coalsting = ['8L1'];
 		delete this.modData('Learnsets', 'yanmegashell').learnset.shellsmash;
 		
