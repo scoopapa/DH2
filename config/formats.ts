@@ -776,7 +776,7 @@ export const Formats: FormatList = [
 	   ],
       mod: 'gen1rbycap',
       ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'Dracolilla + Recover + Thunder Wave'],
 		unbanlist: ['Lagosnow', 'Dracolilla'],
     },
 	{
