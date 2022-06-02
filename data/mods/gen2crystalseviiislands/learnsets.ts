@@ -544,6 +544,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psychic: ["2L1"],
 			pursuit: ["2L1"],
 			raindance: ["2L1"],
+			recover: ["2L1"],
 			rest: ["2L1"],
 			return: ["2L1"],
 			rockslide: ["2L1"],
