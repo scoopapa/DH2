@@ -2,7 +2,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	yanmegashell: {
 		tier: "OU",
 		doublesTier: "DOU",
-		},
+	},
 	pelipperink: {
 		tier: "OU",
 		doublesTier: "DOU",
