@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-		grasselectric: {
+	grasselectric: {
 		learnset: {
 			bulletseed: ["8L1"],
 			razorleaf: ["8L1"],
@@ -663,6 +663,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugice: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -758,6 +759,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugpsychic: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -1312,6 +1314,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugelectric: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -2293,6 +2296,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	fairyflying: {
 		learnset: {
+			silverwind: ["8L1"],
 			rampage: ["8L1"],
 			playrough: ["8L1"],
 			fairywind: ["8L1"],
@@ -3137,6 +3141,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugfighting: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -3253,6 +3258,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	ghostdragon: {
 		learnset: {
+			silverwind: ["8L1"],
 			spectralthief: ["8L1"],
 			astonish: ["8L1"],
 			shadowsneak: ["8L1"],
@@ -4848,6 +4854,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	water: {
 		learnset: {
+			silverwind: ["8L1"],
 			aquajet: ["8L1"],
 			flipturn: ["8L1"],
 			waterfall: ["8L1"],
@@ -5304,6 +5311,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugsteel: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -6445,6 +6453,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugdark: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -6661,6 +6670,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugwater: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			skittersmack: ["8L1"],
 			leechlife: ["8L1"],
@@ -6763,6 +6773,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bugfire: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			uturn: ["8L1"],
 			skittersmack: ["8L1"],
@@ -6854,6 +6865,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dragonground: {
 		learnset: {
+			silverwind: ["8L1"],
 			coreenforcer: ["8L1"],
 			thousandwaves: ["8L1"],
 			dragontail: ["8L1"],
@@ -8570,6 +8582,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bug: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			snore: ["8L1"],
 			protect: ["8L1"],
@@ -8637,6 +8650,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	buggrass: {
 		learnset: {
+			silverwind: ["8L1"],
 			bugbite: ["8L1"],
 			snore: ["8L1"],
 			protect: ["8L1"],
@@ -10192,6 +10206,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["8L1"],
 			wonderroom: ["8L1"],
 			zenheadbutt: ["8L1"],
+			silverwind: ["8L1"],
 		},
 	},
 };
