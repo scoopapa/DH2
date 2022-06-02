@@ -507,7 +507,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bind: ["2L1"],
 			blizzard: ["2L1"],
 			bodyslam: ["2L1"],
-			brickbreak: ["2L1"],
 			confuseray: ["2L1"],
 			counter: ["2L1"],
 			curse: ["2L1"],
