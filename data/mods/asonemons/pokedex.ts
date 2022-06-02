@@ -180,12 +180,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 151.5,
 	},
    nihilegopsychosis: {
-		fusion: ['Nihilego', 'Indeedee-f'],
+		fusion: ['Nihilego', 'Indeedee-F'],
 		num: 21,
 		name: "Nihilego-Psychosis",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 70, atk: 65, def: 95, spa: 115, spd: 125, spe: 100},
-		abilities: {0: "As One (Indeedee-f)"},
+		abilities: {0: "As One (Indeedee-F)"},
 		weightkg: 83,
 	},
    stunfiskjagged: {
