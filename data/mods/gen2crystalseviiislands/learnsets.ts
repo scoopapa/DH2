@@ -562,7 +562,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["2L1"],
 			thunderpunch: ["2L1"],
 			toxic: ["2L1"],
-			willowisp: ["2L1"],
 		},
 	},
 };
