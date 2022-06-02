@@ -709,8 +709,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-        recoil: [1, 2],
 		sideCondition: 'moonritual',
+		onPrepareHit: function(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source);
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Moonlight", target);
+			this.add('-message', `${source.name} praised the moon!`);
+		},
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
