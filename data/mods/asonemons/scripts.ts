@@ -88,8 +88,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'malamarparallel').learnset.innerdeviation = ['8L1'];
 		
 	},
-	pokemon: {
-		runImmunity(type: string, message?: string | boolean) {
+pokemon: {
+	runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
 				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
