@@ -4453,7 +4453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1100,
 		name: "Tentatwig",
 		types: ["Poison", "Grass"],
-		baseStats: {hp: 49, atk: 68, def: 65, spa: 35, spd: 37, spe: 65},
+		baseStats: {hp: 47, atk: 54, def: 49, spa: 59, spd: 77, spe: 50},
 		abilities: {0: "Liquid Armor"},
 		weightkg: 27.9,
 		evos: ["Tentaterra"],
