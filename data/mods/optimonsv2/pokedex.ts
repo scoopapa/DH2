@@ -57,8 +57,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	rapidashgalar: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 80, def: 75, spa: 100, spd: 80, spe: 105},
-		abilities: {0: "Pastel Veil", 1: "Misty Surge", H: "Psychic Surge"},
+		baseStats: {hp: 70, atk: 80, def: 70, spa: 125, spd: 70, spe: 105},
+		abilities: {0: "Pastel Veil", 1: "Misty Surge", H: "Competitive"},
 	},
 	weezinggalar: {
 		inherit: true,
@@ -89,7 +89,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Dark", "Ground"],
 		baseStats: {hp: 90, atk: 58, def: 78, spa: 107, spd: 92, spe: 95},
-		abilities: {0: "Unburden", 1: "Sheer Force", H: "Stakeout"},
+		abilities: {0: "Unburden", 1: "Prankster", H: "Stakeout"},
 	},
 	grapploct: {
 		inherit: true,
@@ -118,7 +118,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 75, atk: 95, def: 67, spa: 125, spd: 95, spe: 83},
-		abilities: {0: "Flame Body", H: "Sheer Force"},
+		abilities: {0: "Flame Body", H: "Mega Launcher"},
 	},
 	electivire: {
 		inherit: true,
@@ -273,5 +273,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 90, atk: 115, def: 85, spa: 75, spd: 85, spe: 90},
       abilities: {0: "Emergency Exit", 1: "Dry Skin", H: "Vital Spirit"},
+	},
+	golemalola: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 120, def: 120, spa: 45, spd: 85, spe: 85},
+		abilities: {0: "Solid Rock", 1: "Sturdy", H: "Galvanize"},
+	},
+	lycanrocmidnight: {
+		inherit: true,
+		types: ["Rock", "Ground"],
+      baseStats: {hp: 85, atk: 120, def: 75, spa: 55, spd: 75, spe: 87},
+		abilities: {0: "No Guard", 1: "Vital Spirit", H: "Tough Claws"},
+	},
+	corsola: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 55, def: 115, spa: 105, spd: 125, spe: 45},
+      abilities: {0: "Levitate", H: "Regenerator"},
 	},
 };
