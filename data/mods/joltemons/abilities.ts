@@ -1518,6 +1518,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Life Orb",
 	},
+/*
 	assaultvest: {
 		onModifySpDPriority: 1,
 		onModifySpD(spd) {
@@ -1907,5 +1908,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Whipped Dream",
 	},
-	},
+*/
 };
