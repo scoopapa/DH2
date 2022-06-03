@@ -16,7 +16,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						else prevo = false;
 					}
 				}
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}};//create a blank learnset entry so we don't need a learnsets file
+				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}};//create a blank learnset entry so we don't need a learnsets file
 				for (let name of learnsetFusionList) {					
 					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
 					for (const moveid in learnset) {
