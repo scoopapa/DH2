@@ -1713,6 +1713,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Cursed Belt",
 	},
+/*
 	chilipepper: {
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
@@ -1730,7 +1731,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Chili Pepper",
 	},
-/*
 	focussash: {
 		onStart(pokemon) {
 			pokemon.addVolatile('focussash');
