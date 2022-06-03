@@ -1533,6 +1533,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Assault Vest",
 	},
+*/
 	choiceband: {
 		onStart(pokemon) {
 			pokemon.abilityData.choiceLock = "";
@@ -1908,5 +1909,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Whipped Dream",
 	},
-*/
 };
