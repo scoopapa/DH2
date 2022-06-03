@@ -1518,7 +1518,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Life Orb",
 	},
-/*
 	assaultvest: {
 		onModifySpDPriority: 1,
 		onModifySpD(spd) {
@@ -1533,7 +1532,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Assault Vest",
 	},
-*/
 	choiceband: {
 		onStart(pokemon) {
 			pokemon.abilityData.choiceLock = "";
@@ -1732,6 +1730,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Chili Pepper",
 	},
+/*
 	focussash: {
 		onStart(pokemon) {
 			pokemon.addVolatile('focussash');
@@ -1747,6 +1746,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 		name: "Focus Sash",
 	},
+*/
 	leftovers: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
@@ -1769,6 +1769,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Rocky Helmet",
 	},
+/*
 	mentalherb: {
 		onStart(pokemon) {
 			pokemon.addVolatile('mentalherb');
@@ -1786,6 +1787,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 		name: "Mental Herb",
 	},
+*/
 	blacksludge: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
