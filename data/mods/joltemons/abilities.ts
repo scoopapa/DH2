@@ -635,6 +635,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
+*/
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -669,6 +670,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 
+/*
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -684,7 +686,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
-*/
+
 	counterfeit: {
 		shortDesc: "(Non-functional placeholder) On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -699,6 +701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 1.5,
 	},
+*/
 	optimistic: {
 		onBoost(boost, target, source, effect) {
 			if (source && target !== source) return;
@@ -1500,5 +1503,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Power of Alchemy (Sylveon)",
 		rating: 0,
+	},
+	
+// Counterfeit
+	lifeorb: {
+		onModifyDamage(damage, source, target, move) {
+			if (!target.hasAbility("aurabreak")) {
+				return this.chainModify(1.3);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.add('-ability', source, 'Life Gem');
+				this.damage(source.baseMaxhp / 10, source, source);
+			}
+		},
+		name: "Life Orb",
+		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 	},
 };
