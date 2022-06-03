@@ -1,3 +1,4 @@
+
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){ 
 		// *(Referenced from FEUU)* 
