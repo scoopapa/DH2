@@ -1907,4 +1907,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Whipped Dream",
 	},
+	},
 };
