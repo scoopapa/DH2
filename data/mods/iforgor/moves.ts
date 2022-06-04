@@ -1174,7 +1174,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (this.field.isTerrain('grassyterrain')) {
 				move.basePower *= 1.5;
 			}
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -1194,7 +1194,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.effectiveWeather() == 'sunnyday' || pokemon.effectiveWeather() == 'desolateland') {
 				move.basePower *= 1.5;
 			}
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
