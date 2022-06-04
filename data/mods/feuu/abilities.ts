@@ -4851,6 +4851,12 @@ lifedrain: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Shadowy Dreams');
 			this.add('-message', `Duskoma is drowsing!`);
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Shadowy Dreams', '[of] ' + pokemon, '[identify]');
+				}
+			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
@@ -4866,7 +4872,7 @@ lifedrain: {
 	reguardless: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Reguardless');
-			this.add('-message', `Fraxblade breaks the hold!`);
+			this.add('-message', `Fraxblade breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
