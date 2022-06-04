@@ -4872,7 +4872,7 @@ lifedrain: {
 	reguardless: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Reguardless');
-			this.add('-message', `Fraxblade breaks the hold!`);
+			this.add('-message', `Fraxblade breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;

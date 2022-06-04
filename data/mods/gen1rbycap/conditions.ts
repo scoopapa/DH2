@@ -1,14 +1,14 @@
 /**
- * Status worked very differently in Gen 1.
- * - Sleep lasted longer, had no reset on switch and took a whole turn to wake up.
- * - Frozen only thaws when hit by fire or Haze.
+ * Statuses worked way different.
+ * Sleep lasted longer, had no reset on switch and took a whole turn to wake up.
+ * Frozen only thaws when hit by fire or Haze.
  *
- * Stat boosts (-speed, -atk) also worked differently, so they are
+ * Secondary effects to status (-speed, -atk) worked differently, so they are
  * separated as volatile statuses that are applied on switch in, removed
  * under certain conditions and re-applied under other conditions.
  */
 
-export const Conditions: {[id: string]: ModdedConditionData} = {
+export const Conditions: {[k: string]: ConditionData} = {
 	brn: {
 		name: 'brn',
 		effectType: 'Status',
@@ -31,7 +31,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.damage(this.clampIntRange(Math.floor(pokemon.maxhp / 16), 1));
 		},
 	},
-/*
 	par: {
 		name: 'par',
 		effectType: 'Status',
@@ -57,7 +56,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			pokemon.addVolatile('parspeeddrop');
 		},
 	},
-*/
 	slp: {
 		name: 'slp',
 		effectType: 'Status',
@@ -67,21 +65,21 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			} else {
 				this.add('-status', target, 'slp');
 			}
-			// 1-7 turns
-			this.effectState.startTime = this.random(1, 8);
-			this.effectState.time = this.effectState.startTime;
+			// 1-5 turns
+			this.effectData.startTime = this.random(1, 5);
+			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time > 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {
@@ -89,10 +87,16 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		effectType: 'Status',
 		onStart(target) {
 			this.add('-status', target, 'frz');
+			//1-5 turns
+			this.effectData.startTime = this.random(1, 5);
+			this.effectData.time = this.effectData.startTime;
 		},
-		onBeforeMovePriority: 12,
+		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			this.add('cant', pokemon, 'frz');
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time > 0) {
+				this.add('cant', pokemon, 'frz');
+			}
 			pokemon.lastMove = null;
 			return false;
 		},
@@ -133,15 +137,15 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectState.time = this.random(2, 6);
+			this.effectData.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
 		},
 		onBeforeMovePriority: 3,
 		onBeforeMove(pokemon, target) {
-			pokemon.volatiles['confusion'].time--;
-			if (!pokemon.volatiles['confusion'].time) {
+			pokemon.volatiles.confusion.time--;
+			if (!pokemon.volatiles.confusion.time) {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
@@ -179,7 +183,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		name: 'trapped',
 		noCopy: true,
 		onTrapPokemon(pokemon) {
-			if (!this.effectState.source?.isActive) {
+			if (!this.effectData.source || !this.effectData.source.isActive) {
 				delete pokemon.volatiles['trapped'];
 				return;
 			}
@@ -198,7 +202,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	partialtrappinglock: {
 		name: 'partialtrappinglock',
 		durationCallback() {
-			const duration = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+			const duration = this.sample([2, 2, 2, 2, 3, 3, 3, 3]); //edited duration to 2-3
 			return duration;
 		},
 		onResidual(target) {
@@ -222,7 +226,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	},
 	mustrecharge: {
 		inherit: true,
-		duration: 0,
 		onStart() {},
 	},
 	lockedmove: {
@@ -231,11 +234,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		durationCallback() {
 			return this.random(3, 5);
 		},
-		onEnd(target) {
-			// Confusion begins even if already confused
-			delete target.volatiles['confusion'];
-			target.addVolatile('confusion');
-		},
 	},
 	stall: {
 		name: 'stall',
@@ -243,12 +241,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		duration: 2,
 		counterMax: 256,
 		onStart() {
-			this.effectState.counter = 2;
+			this.effectData.counter = 2;
 		},
 		onStallMove() {
-			// this.effectState.counter should never be undefined here.
+			// this.effectData.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectState.counter || 1;
+			const counter = this.effectData.counter || 1;
 			if (counter >= 256) {
 				// 2^32 - special-cased because Battle.random(n) can't handle n > 2^16 - 1
 				return (this.random() * 4294967296 < 1);
@@ -257,10 +255,11 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return this.randomChance(1, counter);
 		},
 		onRestart() {
-			if (this.effectState.counter < (this.effect as Condition).counterMax!) {
-				this.effectState.counter *= 2;
+			// @ts-ignore
+			if (this.effectData.counter < this.effect.counterMax) {
+				this.effectData.counter *= 2;
 			}
-			this.effectState.duration = 2;
+			this.effectData.duration = 2;
 		},
 	},
 };
