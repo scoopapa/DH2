@@ -310,6 +310,131 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 	},
 
+	superdrill: {
+		num: -109,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Super Drill",
+		desc: "If this move is successful, removes all hazards from the user's side of the field. If this move fails, sets one layer of Spikes on the opponent's side of the field..",
+		shortDesc: "Frees user from hazards. If this move fails, sets Spikes on the opponent's side.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Super Drill', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onMoveFail(target, source, move) {
+			source.side.foe.addSideCondition('spikes');
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+
+	stickkick: {
+		num: -110,
+		accuracy: 90, 
+		basePower: 130,
+		category: "Physical",
+		name: "Stick Kick",
+		desc: "If this attack is not successful, the user loses half of its maximum HP, rounded down, as crash damage. Pokemon with the Magic Guard Ability are unaffected by crash damage.",
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		maxMove: {basePower: 130},
+	},
+
+	photonball: {
+		num: -111,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Photon Ball",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+
+	furioustusks: {
+		num: -112,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Furious Tusks",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
+	
+	primevalrock: {
+		num: -113,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Primeval Rock",
+		pp: 5,
+		priority: 0,
+		flags: {authentic: 1, mirror: 1, protect: 1, sound: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
 	//
 	//
 	//

@@ -8,6 +8,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 18.5,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	raticatealola: {
 		num: 20,
@@ -18,6 +19,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 25.5,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	pikachu: {
 		num: 25,
@@ -28,6 +30,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 6,
 		eggGroups: ["Field", "Fairy"],
+		inherit: true,
 	},
 	pikachurockstar: {
 		num: 25,
@@ -124,6 +127,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 55,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	ninetalessteamwork: {
 		num: 38,
@@ -146,6 +150,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 19.9,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	dugtrio: {
 		num: 51,
@@ -156,6 +161,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 33.3,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	dugtrioalola: {
 		num: 51,
@@ -166,6 +172,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 66.6,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	slowbro: {
 		num: 80,
@@ -176,6 +183,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 78.5,
 		eggGroups: ["Monster", "Water 1"],
+		inherit: true,
 	},
 	slowbrogalar: {
 		num: 80,
@@ -186,6 +194,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 70.5,
 		eggGroups: ["Monster", "Water 1"],
+		inherit: true,
 	},
 	farfetchd: {
 		num: 83,
@@ -217,6 +226,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 30,
 		eggGroups: ["Amorphous"],
+		inherit: true,
 	},
 	mukoilslick: {
 		num: 89,
@@ -237,6 +247,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2,
 		weightkg: 120,
 		eggGroups: ["Grass"],
+		inherit: true,
 	},
 	exeggutorlighthouse: {
 		num: 103,
@@ -257,6 +268,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 9.5,
 		eggGroups: ["Amorphous"],
+		inherit: true,
 	},
 	weezingking: {
 		num: 110,
@@ -277,6 +289,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2,
 		weightkg: 79.5,
 		eggGroups: ["Monster", "Water 1"],
+		inherit: true,
 	},
 	slowkinggalar: {
 		num: 199,
@@ -287,6 +300,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 79.5,
 		eggGroups: ["Monster", "Water 1"],
+		inherit: true,
 	},
 	corsola: {
 		num: 222,
@@ -308,7 +322,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Liquid Scales"},
 		heightm: 0.6,
 		weightkg: 0.5,
-		evos: ["Cursola"],
 		eggGroups: ["Water 1", "Water 3"],
 	},
 	linoone: {
@@ -320,6 +333,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 32.5,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	linoonepunk: {
 		num: 264,
@@ -492,6 +506,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 6.5,
 		eggGroups: ["Bug"],
+		inherit: true,
 	},
 	wormadamsandy: {
 		num: 413,
@@ -664,6 +679,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: null,
 		formeOrder: null,
+		inherit: true,
 	},
 	darmanitanzen: {
 		num: 555,
@@ -690,6 +706,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: null,
 		formeOrder: null,
+		inherit: true,
 	},
 	darmanitangalarzen: {
 		num: 555,
@@ -720,7 +737,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 641,
 		name: "Cummulus",
 		types: ["Flying"],
-		gender: "M",
+		genderRatio: {M: 0.33, F: 0.33, N: 0.34},
 		baseStats: {hp: 130, atk: 60, def: 60, spa: 90, spd: 100, spe: 100},
 		abilities: {0: "Natural Cure"},
 		heightm: 1.4,
@@ -957,6 +974,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 12.5,
 		eggGroups: ["Amorphous"],
+		inherit: true,
 	},
 	gourgeistfae: {
 		num: 711,
@@ -1050,6 +1068,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 25,
 		eggGroups: ["Field"],
+		inherit: true,
 	},
 	silvally: {
 		num: 773,
@@ -1062,6 +1081,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 100.5,
 		otherFormes: null,
 		formeOrder: null,
+		inherit: true,
 	},
 	silvallybug: {
 		num: 773,
@@ -1186,7 +1206,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Grass"],
 		gender: "N",
 		baseStats: {hp: 95, atk: 115, def: 95, spa: 95, spd: 95, spe: 105},
-		abilities: {0: "RKS System"},
+		abilities: {0: "Grassy Surge"},
 		heightm: 2.3,
 		weightkg: 100.5,
 		baseSpecies: null,

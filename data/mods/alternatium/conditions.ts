@@ -1,8 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	primordialsea: {
-		name: 'PrimordialSea',
-		effectType: 'Weather',
-		duration: 0,
+		inherit: true,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
 			if (move.id === 'seethingsauna') return;
@@ -13,29 +11,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
-			if (move.type === 'Water') {
-				this.debug('Rain water boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onStart(battle, source, effect) {
-			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
-		},
-		onResidualOrder: 1,
-		onResidual() {
-			this.add('-weather', 'PrimordialSea', '[upkeep]');
-			this.eachEvent('Weather');
-		},
-		onEnd() {
-			this.add('-weather', 'none');
-		},
 	},
 	desolateland: {
-		name: 'DesolateLand',
-		effectType: 'Weather',
-		duration: 0,
+		inherit: true,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
 			if (move.id === 'boilingvortex') return;
@@ -45,28 +23,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.attrLastMove('[still]');
 				return null;
 			}
-		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
-			if (move.type === 'Fire') {
-				this.debug('Sunny Day fire boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onStart(battle, source, effect) {
-			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
-		},
-		onImmunity(type, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (type === 'frz') return false;
-		},
-		onResidualOrder: 1,
-		onResidual() {
-			this.add('-weather', 'DesolateLand', '[upkeep]');
-			this.eachEvent('Weather');
-		},
-		onEnd() {
-			this.add('-weather', 'none');
 		},
 	},
 };

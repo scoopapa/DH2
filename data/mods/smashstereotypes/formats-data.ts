@@ -287,4 +287,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	odonaga: {
 		tier: "SSS",
 	},
+	swampertanti: {
+		tier: "SSS",
+	},
+	banjokazooie: {
+		tier: "SSS",
+	},
+	polbearab: {
+		tier: "SSS",
+	},
+	stalagmitar: {
+		tier: "SSS",
+	},
+	psychicdragon: {
+		tier: "SSS",
+	},
+	elichric: {
+		tier: "SSS",
+	},
 };

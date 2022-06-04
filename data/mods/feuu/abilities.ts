@@ -662,7 +662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	solarpanel: {
 		id: "solarpanel",
 		name: "Solar Panel",
-		shortDesc: "If hit by Grass, Electric or Fire: +1 SpA. Grass/Electric/Fire immunity.",
+		shortDesc: "If hit by Electric or Fire: +1 SpA; Electric/Fire immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && (move.type === 'Electric' || move.type === 'Fire')) {
 				if (!this.boost({spa: 1})) {
@@ -4714,6 +4714,190 @@ lifedrain: {
 		name: "Fast Metabolism",
 		shortDesc: "When this Pokemon has 1/2 or less of its maximum HP, its Speed is doubled.",
 	},
+	psychicflow: {
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water' && this.field.isTerrain('psychicterrain')) {
+				this.debug('Psychic Flow boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Psychic Flow",
+		shortDesc: "On switch-in, this Pokemon summons Psychic Terrain. Its Water-type moves deal 1.5x damage in Psychic Terrain.",
+	},
+	smokegun: {
+		onBoost(boost, target, source, effect) {
+			if (source && target !== source) return;
+			if (boost.spa && boost.spa < 0 || boost.spa > 0) {
+				delete boost.spa;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Smoke Gun", "[of] " + target);
+				}
+			}
+		},
+		name: "Smoke Gun",
+		shortDesc: "This Pokemon cannot raise or lower its own Special Attack.",
+	},
+	stagnantfumes: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Stagnant Fumes');
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		name: "Stagnant Fumes",
+		shortDesc: "While user is active, all stat changes are ignored by all active Pokemon.",
+	},
+	ironwill: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids') {
+				delete boost.atk;
+				this.damage(source.baseMaxhp / 8, source, target);
+				this.add('-immune', target, '[from] ability: Iron Will');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.damage(source.baseMaxhp / 8, source, target);
+				this.add('-immune', target, '[from] ability: Iron Will');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.damage(source.baseMaxhp / 8, source, target);
+				this.add('-immune', target, '[from] ability: Iron Will');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.damage(source.baseMaxhp / 8, source, target);
+				this.add('-immune', target, '[from] ability: IIron Will');
+			}
+		},	
+		name: "Iron Will",
+		shortDesc: "If the foe makes contact with this Pokémon or tries to Intimidate it, they lose 12.5% of their max HP; Intimidate immunity.",
+	},
+	sweettooth: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				volatileStatus: 'taunt',
+				ability: this.dex.getAbility('sweettooth'),
+			});
+		},
+		name: "Sweet Tooth",
+		shortDesc: "This Pokémon’s contact attacks have a 30% to inflict taunt on the opponent.",
+	},
+	holdbreaker: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Hold Breaker');
+			this.add('-message', `Acceldrill breaks the hold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Hold Breaker",
+		shortDesc: "This Pokemon's moves and their effects ignore the abilities of other Pokemon and can't be removed due to another Pokemon's ability.",
+	},
+	imposingadipose: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Imposing Adipose neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Imposing Adipose",
+		shortDesc: "This Pokémon takes 50% damage from super effective moves.",
+	},
+	frozenfist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Frozen Fist boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onAfterMove(target, source, move){
+			 if (move.flags['punch']) this.heal(target.baseMaxhp / 16);
+		},
+		name: "Frozen Fist",
+		shortDesc: "This Pokemon's punch-based attacks have 1.2x power and heal the user by 1/16th of their max HP.",
+	},
+	shadowydreams: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shadowy Dreams');
+			this.add('-message', `Duskoma is drowsing!`);
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Shadowy Dreams', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shadowy Dreams');
+			}
+			return false;
+		},
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Shadowy Dreams",
+		shortDesc: "Comatose + Frisk",
+	},
+	reguardless: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Reguardless');
+			this.add('-message', `Fraxblade breaks the mold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "Reguardless",
+		shortDesc: "Mold Breaker + No Guard",
+	},
+	envioussword: {
+		onStart(pokemon) {
+			this.boost({spa: 1}, pokemon);
+		},
+		name: "Envious Sword",
+		shortDesc: "On switch-in, this Pokemon's Special Attack is raised by 1 stage.",
+	},
+
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -5678,6 +5862,28 @@ lifedrain: {
 		},
 		name: "Vital Body",
 		shortDesc: "Flame Body + Vital Spirit",
+	},
+	shellbreaker: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Shell Breaker');
+			this.add('-message', `Shelbur breaks the mold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onCriticalHit: false,
+		name: "Shell Breaker",
+		shortDesc: "Shell Armor + Mold Breaker",
+	},
+	applearmor: {
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Apple Armor');
+			}
+			return false;
+		},
+		name: "Apple Armor",
+		shortDesc: "This Pokemon is immune to status conditions.",
 	},
 };
  

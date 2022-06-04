@@ -545,12 +545,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	genesectburn: {
+		tier: "(OU)",
 	},
 	genesectchill: {
+		tier: "(OU)",
 	},
 	genesectdouse: {
+		tier: "(OU)",
 	},
 	genesectshock: {
+		tier: "(OU)",
 	},
 	dragapult: {
 		tier: "OU",
@@ -694,6 +698,70 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	zamazentacrowned: {
+		tier: "OU",
+	},
+	arceus: {
+		tier: "OU",
+	},
+	arceusbug: {
+	},
+	arceusdark: {
+	},
+	arceusdragon: {
+	},
+	arceuselectric: {
+	},
+	arceusfairy: {
+	},
+	arceusfighting: {
+	},
+	arceusfire: {
+	},
+	arceusflying: {
+	},
+	arceusghost: {
+	},
+	arceusgrass: {
+	},
+	arceusground: {
+	},
+	arceusice: {
+	},
+	arceuspoison: {
+	},
+	arceuspsychic: {
+	},
+	arceusrock: {
+	},
+	arceussteel: {
+	},
+	arceuswater: {
+	},
+	blazikenmega: {
+		tier: "OU",
+	},
+	lucariomega: {
+		tier: "OU",
+	},
+	salamencemega: {
+		tier: "OU",
+	},
+	mewtwomegax: {
+		tier: "OU",
+	},
+	mewtwomegay: {
+		tier: "OU",
+	},
+	groudonprimal: {
+		tier: "OU",
+	},
+	kyogreprimal: {
+		tier: "OU",
+	},
+	rayquazamega: {
+		tier: "OU",
+	},
+	necrozmaultra: {
 		tier: "OU",
 	},
 };

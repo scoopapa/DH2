@@ -539,13 +539,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 242,
 		fling: {
 			basePower: 10,
-			status: 'slp',
+			//status: 'slp', Fixed
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
-			this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 /*
@@ -567,9 +567,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 */
-		fling: {
-			basePower: 10,
-		},
 		gen: 8,
 		desc: "(Bugged) Holder heals 12.5% HP while asleep. If asleep, calls a random attack.",
 	},

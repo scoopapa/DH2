@@ -4021,7 +4021,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					for (const target of pokemon.side.foe.active) {
 						if (!target || !this.isAdjacent(target, pokemon)) continue;
 						if (!activated) {
-							this.add('-ability', pokemon, 'Pounce', 'boost');
+							this.add('-ability', pokemon, 'Booby Trap', 'boost');
 							activated = true;
 						}
 						if (target.volatiles['substitute']) {
@@ -4194,5 +4194,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Short Circuit",
 		rating: 3.5,
 		num: -6046,
+	},
+	psychopomp: {
+		desc: "This Pokemon switches out after knocking out an opposing Pokemon",
+		shortDesc: "Switches out after KOing an enemy.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.switchFlag = true;
+				this.add('-activate', source, 'ability: Psychopomp');
+			}
+		},
+		name: "Psychopomp",
+		rating: 3.5,
+		num: -6047,
+	},
+	spinaltap: {
+		desc: "This Pokemon's moves deal 30% more damage, but it takes 1/10 damage after attacking.",
+		shortDesc: "1.3x power to all moves, takes 1/10 after attacking.",
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([0x14CC, 0x1000]);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('spinaltap'));
+			}
+		},
+		name: "Spinal Tap",
+		rating: 3.5,
+		num: -6048,
 	},
 };

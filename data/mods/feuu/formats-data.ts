@@ -1330,6 +1330,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["stoneedge", "earthquake", "stealthrock", "dragonclaw"],
 		requiredItem: "Garchompite",
 	},
 	zarapex: {
@@ -1372,6 +1373,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["partingshot", "gigadrain", "fireblast", "syntheis"],
 		requiredItem: "Venusaurite",
 	},
 	klefilego: {
@@ -1449,6 +1451,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleLevel: 77,
+		randomBattleMoves: ["roost", "psychic", "focusblast", "overheat"],
 		requiredItem: "Alakazite",
 	},
 	kingfezant: {
@@ -1584,6 +1587,76 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 75,
 		requiredItem: "Pinsirite",
+	},
+	impertfemale: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	impertfemalemega: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+		requiredItem: "Swampertite",
+	},
+	koalicunogalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	weezkinggalar: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	ferrocario: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	ferrocariomega: {
+		tier: "FEUU",
+		doublesTier: "DUU",
+		randomBattleLevel: 77,
+		randomBattleMoves: ["swordsdance", "bulletpunch", "closecombat", "meteormash"],
+		requiredItem: "Lucarionite",
+	},
+	mukremie: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	acceldrill: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
+	
+// NU Time
+	appledam: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	regidurr: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	duskoma: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	fraxblade: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	igglyciancrowned: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
 	},
 
 	
@@ -2156,6 +2229,32 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	ferrolu: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	koffipokegalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	shelbur: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	grimcery: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	burmlin: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+/*
+	fraxbladeprevo: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+*/
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",

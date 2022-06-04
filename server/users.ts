@@ -508,9 +508,15 @@ export class User extends Chat.MessageContext {
 			return lockedSymbol + this.name;
 		}
 		const idName = toID(this.name);
-		if ((idName.includes("wobb") || idName.includes("w0bb")) ||
-			((idName.includes("wob") || idName.includes("w0b")) &&  (idName.includes("trol") || idName.includes("tr0l") || idName.includes("buf"))) ||
+		idName.replace('0','o');//I know there are better ways but oh well
+		idName.replace('4','a');
+		idName.replace('3','e');
+		idName.replace('1','i');
+		idName.replace('5','s');
+		if ((idName.includes("wobb")) ||
+			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
 			(idName.includes("buz") && idName.includes("car")) ||
+			(idName.includes("necro") && idName.includes("phili")) ||
 			(idName.includes("tkmof") && idName.includes("again"))
 		) {
 			const names = ["12 years old", "Where Are My Parents?", "Moron Troll", "Loser Troll", "Wobbuffet Sucks", "Wasting my Time"];

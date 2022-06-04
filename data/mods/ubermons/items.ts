@@ -181,13 +181,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onDamagingHit(damage, target, source, move) {
+			if (target.baseSpecies.name === 'Kyogre' && target.newlySwitched) {
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+					target.formeChange('Kyogre-Primal', this.effect, true);
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Kyogre-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
@@ -197,6 +196,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 535,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Kyogre's Primal Reversion when switching into a SE move.",
 	},
 	buginiumz: {
 		name: "Buginium Z",
@@ -906,13 +906,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onDamagingHit(damage, target, source, move) {
+			if (target.baseSpecies.name === 'Groudon' && target.newlySwitched) {
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+					target.formeChange('Groudon-Primal', this.effect, true);
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Groudon-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
@@ -922,6 +921,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 534,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Groudon's Primal Reversion when switching into a SE move.",
 	},
 	rockiumz: {
 		name: "Rockium Z",
