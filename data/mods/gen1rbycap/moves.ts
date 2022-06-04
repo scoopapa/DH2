@@ -676,18 +676,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	rest: {
 		inherit: true,
-		onTry() {},
-		onHit(target, source, move) {
-			if (target.hp === target.maxhp) return false;
-			// Fail when health is 255 or 511 less than max
-			if (target.hp === (target.maxhp - 255) || target.hp === (target.maxhp - 511)) {
-				this.hint("In Gen 1, recovery moves fail if (user's maximum HP - user's current HP + 1) is divisible by 256.");
-				return false;
-			}
-			if (!target.setStatus('slp', source, move)) return false;
-			target.statusState.time = 2;
-			target.statusState.startTime = 2;
-			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+		onHit: function (target) {
+			// Fails if the difference between
+			// max HP and current HP is 0
+			if (target.hp >= target.maxhp) return false;
+			if (!target.setStatus('slp')) return false;
+			target.statusData.time = 2;
+			target.statusData.startTime = 2;
+			this.heal(target.maxhp); // Aeshetic only as the healing happens after you fall asleep in-game
+			this.add('-status', target, 'slp', '[from] move: Rest');
 		},
 	},
 	roar: {
