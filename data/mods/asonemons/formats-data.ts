@@ -1,122 +1,70 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	yanmegashell: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},
 	pelipperink: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "AsOUne",
+		doublesTier: "AsOUne",
 	},	
 	excadrillboulder: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	vanilluxefur: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	butterfreeangler: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	dedenneluchador: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	shucklebrick: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},
 	munchlaxforest: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	bunnelbyworker: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},
 	sirfetchdfantasy: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},
 	frogadierbeetle: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	chandelureballoon: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},
-   infernapeclimber: {
-		tier: "OU",
-		doublesTier: "DOU",
+	infernapeclimber: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
-   ribombeecharmer: {
-		tier: "OU",
-		doublesTier: "DOU",
+    ribombeecharmer: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
-   beheeyemufo: {
-		tier: "OU",
-		doublesTier: "DOU",
+    beheeyemufo: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 	sableyedoom: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
-   mareaniemagma: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	thwackeydune: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   sphealsiren: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   pincurchingoo: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   nihilegopsychosis: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   stunfiskjagged: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   pawniardaviation: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   watchogscout: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   mothimgourd: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   clefairyselene: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   hoothootperch: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   swoobataroma: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   blacephalonborealis: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   malamarparallel: {
-		tier: "OU",
-		doublesTier: "DOU",
+    mareaniemagma: {
+		tier: "As OUne",
+		doublesTier: "As OUne",
 	},	
 };

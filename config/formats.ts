@@ -2902,20 +2902,6 @@ export const Formats: FormatList = [
         ruleset: ['Standard NatDex'],
         banlist: [],
 	},
-	/*
-	{    
-		name: "[Gen 8] AsOnemons",
-		desc: 'AsOnemons is a Generation 8 based Solomod that revolves around creating new As One forms for official Pokémon.',
-		threads: [
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TRYfbFkLYSnFrOidd42FvQVlOjgYBzuSoK4tCFZPNOU/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		
-		mod: 'asonemons',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['All Pokemon', 'Baton Pass'],
-		unbanlist: ['Yanmega-Shell', 'Pelipper-Ink', 'Excadrill-Boulder', 'Vanilluxe-Fur', 'Butterfree-Angler', 'Dedenne-Luchador', 'Shuckle-Brick', 'Munchlax-Forest', 'Bunnelby-Worker', 'Sirfetch\u2019d-Fantasy', 'Frogadier-Beetle', 'Chandelure-Balloon', 'Infernape-Climber', 'Ribombee-Charmer', 'Beheeyem-UFO', 'Sableye-Doom', 'Mareanie-Magma', 'Thwackey-Dune', 'Spheal-Siren', 'Pincurchin-Goo', 'Nihilego-Psychosis', 'Stunfisk-Jagged', 'Pawniard-Aviation', 'Watchog-Scout', 'Mothim-Gourd', 'Clefairy-Selene', 'Hoothoot-Perch', 'Swoobat-Aroma', 'Blacephalon-Borealis', 'Malamar-Parallel'],
-	},
-	*/
 	{
 		name: "[Gen 8] Baby Boom",
 		desc: '<b>Baby Boom</b>: A Solomod where only Baby Pokemon are allowed and are balanced around each other.',
@@ -3051,19 +3037,8 @@ export const Formats: FormatList = [
        teambuilderFormat: 'Uber',
        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'OHKO Clause', 'Data Mod', 'Mega Data Mod'],
        banlist: ['All Pokemon'],
-		   unbanlist: ['grasselectric', 'firerock', 'waterghost', 'darkpoison', 'normalpsychic', 'fightingflying', 'bugice', 'bugicemega', 'bugpsychic', 'bugpsychicmega', 'grassfairy', 'grassfire', 'normalpoison', 'normalpoisonmega', 'groundfairy', 'groundfairymega', 'bugelectric', 'darkflying', 'fightingice', 'fightingsteel', 'dragon', 'steelflying', 'electricpoison', 'electricpoisonmega', 'ground', 'rockghost', 'fairyflying', 'electricsteel', 'rockgrass', 'fairydragon', 'icepoison', 'icerock', 'normal', 'normalmega', 'normalfairy', 'normalfairymega', 'bugfighting', 'ghostdragon', 'waterground', 'watergroundmega', 'watersteel', 'fireground', 'firenormal', 'grassnormal', 'electric', 'dragonpoison', 'darkfairy', 'darkfairymega', 'poisonpsychic', 'poisonpsychicmega', 'darkrock', 'darkrockmega', 'poisonground', 'poisongroundmega', 'rockpsychic', 'rockfighting', 'water', 'waterelectric', 'dragonsteel', 'psychicfighting', 'bugsteel', 'psychicdragon', 'normalghost', 'darksteel', 'ghostground', 'ghostgroundmega', 'electricflying', 'grasspoison', 'dragonfighting', 'waterice', 'watericemega', 'ghostflying', 'bugdark', 'iceground', 'bugwater', 'bugfire', 'grassice', 'dragonground', 'psychicfairy', 'grassflying', 'firepsychic', 'darkghost', 'waterflying', 'steel', 'rock', 'iceghost', 'electricnormal', 'firedark', 'firefairy', 'fighting', 'steelfairy', 'waterpoison', 'waterpoisonmega', 'firepoison', 'bug', 'buggrass', 'waterfairy', 'firesteel', 'firesteelmega', 'iceelectric', 'groundflying', 'groundflyingmega', 'rockflying', 'rockground', 'grassfighting', 'electricdark', 'normaldark', 'ghostfighting', 'dragonice', 'dragonnormal', 'ghostpsychic', 'psychic', 'dragongroundmega'], 
-  },
-	{
-		name: "[Gen 3] Inverse Split",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/posts/8133789/">ADV Sample Teams</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3503019/">ADV OU Viability Rankings</a>`,
-		],
-		mod: 'gen3inversesplit',
-		ruleset: ['Standard', '3 Baton Pass Clause'],
-		banlist: ['Uber', 'Smeargle + Baton Pass'],
+		 unbanlist: ['grasselectric', 'firerock', 'waterghost', 'darkpoison', 'normalpsychic', 'fightingflying', 'bugice', 'bugicemega', 'bugpsychic', 'bugpsychicmega', 'grassfairy', 'grassfire', 'normalpoison', 'normalpoisonmega', 'groundfairy', 'groundfairymega', 'bugelectric', 'darkflying', 'fightingice', 'fightingsteel', 'dragon', 'steelflying', 'electricpoison', 'electricpoisonmega', 'ground', 'rockghost', 'fairyflying', 'electricsteel', 'rockgrass', 'fairydragon', 'icepoison', 'icerock', 'normal', 'normalmega', 'normalfairy', 'normalfairymega', 'bugfighting', 'ghostdragon', 'waterground', 'watergroundmega', 'watersteel', 'fireground', 'firenormal', 'grassnormal', 'electric', 'dragonpoison', 'darkfairy', 'darkfairymega', 'poisonpsychic', 'poisonpsychicmega', 'darkrock', 'darkrockmega', 'poisonground', 'poisongroundmega', 'rockpsychic', 'rockfighting', 'water', 'waterelectric', 'dragonsteel', 'psychicfighting', 'bugsteel', 'psychicdragon', 'normalghost', 'darksteel', 'ghostground', 'ghostgroundmega', 'electricflying', 'grasspoison', 'dragonfighting', 'waterice', 'watericemega', 'ghostflying', 'bugdark', 'iceground', 'bugwater', 'bugfire', 'grassice', 'dragonground', 'psychicfairy', 'grassflying', 'firepsychic', 'darkghost', 'waterflying', 'steel', 'rock', 'iceghost', 'electricnormal', 'firedark', 'firefairy', 'fighting', 'steelfairy', 'waterpoison', 'waterpoisonmega', 'firepoison', 'bug', 'buggrass', 'waterfairy', 'firesteel', 'firesteelmega', 'iceelectric', 'groundflying', 'groundflyingmega', 'rockflying', 'rockground', 'grassfighting', 'electricdark', 'normaldark', 'ghostfighting', 'dragonice', 'dragonnormal', 'ghostpsychic', 'psychic', 'dragongroundmega'], 
 	},
-	/*
 	{    
        name: "[Gen 8] JosMons",
        desc: 'A meta created by JosJet focused on making balance changes to the NatDex OU meta. Ex. Bug-type Buff.',
@@ -3071,8 +3046,7 @@ export const Formats: FormatList = [
        teambuilderFormat: 'OU',
        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause'],
        banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Cinderace', 'Magearna', 'Darmanitan-Galar', 'Dracovish', 'Dragapult', 'Metagross-Mega', 'Tornadus-Therian', 'Urshifu'],
-   },
-	*/
+    },
 	{
 		name: "[Gen 8] Journey to Kilirthy",
 		desc: '<b>Journey to Kilirthy</b>: A solomod, where Fakemons are added as if it was a new game.',
