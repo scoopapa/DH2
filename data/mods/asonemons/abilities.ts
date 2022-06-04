@@ -1,3 +1,4 @@
+/*
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorkoal: {
 		onPreStart(pokemon) {
@@ -724,3 +725,4 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "The combination of Contrary and Early Bird.",
 	},
 };
+*/
