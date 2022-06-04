@@ -1,3 +1,4 @@
+/*
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	yanmegashell: {
 		fusion: ['Yanmega', 'Torkoal'],
@@ -270,3 +271,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 88.5,
 	},
 };
+*/
