@@ -2125,6 +2125,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x1199, 0x1000]);
 		},
+		/*
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'item: Soul Blade'); 
@@ -2132,8 +2133,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
 		},
+		*/
 		name: "Soul Blade",
 	},
+/*
 	soulbladelvl2: {
 		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x14CC, 0x1000]);
@@ -2192,4 +2195,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Ultra Soul Blade",
 	},
+*/
 };
