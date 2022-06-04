@@ -11,7 +11,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bullet Seed", target);
-		}
+		},
 		multihit: [3, 6],
 		secondary: null,
 		target: "normal",
@@ -32,7 +32,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Apple Acid", target);
-		}
+		},
     onTry(pokemon) {
       if (!pokemon.ateBerry) {
         this.add('-fail', pokemon, 'move: Citrus Blast');
@@ -57,7 +57,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Extreme Evoboost", target);
-		}
+		},
 		boosts: {
 			spa: 2,
 			spe: 1,
@@ -81,7 +81,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bulldoze", target);
-		}
+		},
 		onHit(target, source, move) {
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
@@ -126,7 +126,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Fire Punch", target);
-		}
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -151,7 +151,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bloom Doom", target);
-		}
+		},
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
@@ -215,7 +215,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Tri Attack", target);
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -237,7 +237,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Protect", target);
-		}
+		},
 		onTryHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
