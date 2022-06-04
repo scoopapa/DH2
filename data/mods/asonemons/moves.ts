@@ -1,3 +1,4 @@
+/*
 export const Moves: {[k: string]: ModdedMoveData} = {
 	coalsting: {
 		num: 827,
@@ -858,4 +859,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 };
-
+*/
