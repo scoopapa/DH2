@@ -1,3 +1,4 @@
+/*
 export const Conditions: {[k: string]: ConditionData} = {
     slp: {
 		name: 'slp',
@@ -34,4 +35,4 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 };
-
+*/
