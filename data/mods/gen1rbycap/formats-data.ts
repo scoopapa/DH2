@@ -1,6 +1,9 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lagosnow: {
-		tier: "RBYCAP",
+		tier: "OU",
+	},
+	dracolilla: {
+		tier: "OU",
 	},
 
 // don't touch

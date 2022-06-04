@@ -776,8 +776,8 @@ export const Formats: FormatList = [
 	   ],
       mod: 'gen1rbycap',
       ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber'],
-		unbanlist: ['Lagosnow'],
+		banlist: ['Uber', 'Dracolilla + Recover + Thunder Wave'],
+		unbanlist: ['Lagosnow', 'Dracolilla'],
     },
 	{
   		name: "[Gen 8] Regional Evolutions",
