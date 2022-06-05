@@ -1,6 +1,5 @@
 
 export const Conditions: {[k: string]: ConditionData} = {
-	/*
     slp: {
 		name: 'slp',
 		effectType: 'Status',
@@ -35,6 +34,5 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
-*/
 };
 
