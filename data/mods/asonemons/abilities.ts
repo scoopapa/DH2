@@ -1,5 +1,4 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	/*
 	asonetorkoal: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
@@ -724,5 +723,4 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Girafarig)",
 		shortDesc: "The combination of Contrary and Early Bird.",
 	},
-	*/
 };
