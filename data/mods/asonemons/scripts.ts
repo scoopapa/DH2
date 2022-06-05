@@ -1,4 +1,3 @@
-
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){ 
 		
