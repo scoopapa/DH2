@@ -1,6 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){ 
-		this.modData('Learnsets', 'yanmega').learnset.coalsting = ['8L1'];
+		this.modData('Learnsets', 'yanmegashell').learnset.coalsting = ['8L1'];
 		delete this.modData('Learnsets', 'torkoal').learnset.shellsmash;
 		
 		this.modData('Learnsets', 'pelipper').learnset.inkgulp = ['8L1'];
