@@ -1731,6 +1731,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Chili Pepper",
 	},
+*/
 	focussash: {
 		onStart(pokemon) {
 			pokemon.addVolatile('focussash');
