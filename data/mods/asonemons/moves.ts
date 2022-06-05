@@ -1,5 +1,6 @@
-/*
+
 export const Moves: {[k: string]: ModdedMoveData} = {
+	/*
 	coalsting: {
 		num: 827,
 		accuracy: 100,
@@ -858,5 +859,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	*/
 };
-*/
+

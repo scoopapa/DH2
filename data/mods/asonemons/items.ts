@@ -1,5 +1,6 @@
-/*
+
 export const Items: {[k: string]: ModdedItemData} = {
+	/*
 	leek: {
 		name: "Leek",
 		fling: {
@@ -16,5 +17,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
     desc: "If held by a Farfetch’d, Sirfetch’d, or Sirfetch'd-Fantasy, its critical hit ratio is raised by 2 stages.",
 	},
+	*/
 };
-*/
+

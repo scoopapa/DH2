@@ -1,5 +1,6 @@
-/*
+
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	/*
 	yanmegashell: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -120,5 +121,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},	
+	*/
 };
-*/
+
