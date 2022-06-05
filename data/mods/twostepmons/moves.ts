@@ -80,12 +80,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		secondaries: [
-			self: {
+			self: [
 				{
 					chance: 30,
 					volatileStatus: 'confusion',
 				}, 
-			}
+			],
 		],
 		target: "normal",
 		type: "Grass",
