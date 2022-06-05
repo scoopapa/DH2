@@ -313,7 +313,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (accuracy !== true && !this.randomChance(accuracy, 256)) {
 			this.attrLastMove('[miss]');
 			this.add('-miss', pokemon);
-			if (accuracy === 255) this.hint("You were supposed to miss the 1/256 chance here, but I should have removed that!");
+			if (accuracy === 255) this.hint("This move missed because of the 1/256 glitch.");
 			damage = false;
 		}
 
