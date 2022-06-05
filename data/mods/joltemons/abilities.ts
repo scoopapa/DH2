@@ -1744,9 +1744,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					target.removeVolatile('focussash');
 				}
 			},
+		},
 		name: "Focus Sash",
 	},
-*/
 	leftovers: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
@@ -2073,15 +2073,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Silver Powder",
 	},
-	silverpowder: {
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (move && move.type === 'Bug') {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		name: "Silver Powder",
-	},
 	protectivepads: {
 		onModifyMove(move) {
 			delete move.flags['contact'];
@@ -2196,4 +2187,260 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ultra Soul Blade",
 	},
 */
+	fistplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Fist Plate",
+	},
+	dreadplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dark') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Dread Plate",
+	},
+	flameplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fire') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Flame Plate",
+	},
+	dracoplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dragon') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Draco Plate",
+	},
+	stoneplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Rock') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Stone Plate",
+	},
+	rockincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Rock') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Rock Incense",
+	},
+	zapplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Electric') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Zap Plate",
+	},
+	ironplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Steel') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Iron Plate",
+	},
+	meadowplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Meadow Plate",
+	},
+	roseincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Rose Incense",
+	},
+	splashplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Splash Plate",
+	},
+	seaincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sea Incense",
+	},
+	waveincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Wave Incense",
+	},
+	icicleplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ice') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Icicle Plate",
+	},
+	toxicplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Poison') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Toxic Plate",
+	},
+	skyplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Flying') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sky Plate",
+	},
+	earthplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ground') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Earth Plate",
+	},
+	spookyplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ghost') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Spooky Plate",
+	},
+	mindplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Psychic') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Mind Plate",
+	},
+	oddincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Psychic') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Odd Incense",
+	},
+	insectplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Bug') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Insect Plate",
+	},
+	fullincense: {
+		onFractionalPriority: -0.1,
+		name: "Full Incense",
+	},
+	laggingtail: {
+		onFractionalPriority: -0.1,
+		name: "Lagging Tail",
+	},
+	muscleband: {
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Physical') {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		name: "Muscle Band",
+	},
+	wiseglasses: {
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		name: "Wise Glasses",
+	},
+	focusband: {
+		onDamage(damage, target, source, effect) {
+			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add("-activate", target, "ability: Focus Band");
+				return target.hp - 1;
+			}
+		},
+		name: "Focus Band",
+	},
+	metronome: {
+		onStart(pokemon) {
+			pokemon.addVolatile('metronome');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectData.lastMove = '';
+				this.effectData.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasItem('metronome')) {
+					pokemon.removeVolatile('metronome');
+					return;
+				}
+				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {
+					this.effectData.numConsecutive = 1;
+				} else {
+					this.effectData.numConsecutive = 0;
+				}
+				this.effectData.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
+				const numConsecutive = this.effectData.numConsecutive > 5 ? 5 : this.effectData.numConsecutive;
+				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
+			},
+		},
+		name: "Metronome",
+	},
 };
