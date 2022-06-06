@@ -1,63 +1,63 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	guemanon: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	snoorwill: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	aterrundu: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	sharpedo: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	eelektross: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	sableye: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	rotom: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	porygon: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	tentacruel: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	rillaboom: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	nihilego: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	oricorio: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	archeops: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	camerupt: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 	carkol: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "TSM",
+		DTSMblesTier: "DTSM",
 	},
 };
 

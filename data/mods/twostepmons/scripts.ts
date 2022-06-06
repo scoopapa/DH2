@@ -1,5 +1,8 @@
 
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+	}
 	init(){ 
 		// Sharpedo
 		this.modData("Learnsets", "sharpedo").learnset.swordsdance = ["8L1"];
