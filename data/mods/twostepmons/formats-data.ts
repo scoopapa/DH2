@@ -1,126 +1,63 @@
-
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	/*
-	yanmegashell: {
+	guemanon: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	pelipperink: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	excadrillboulder: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	vanilluxefur: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	butterfreeangler: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	dedenneluchador: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	shucklebrick: {
+	snoorwill: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	munchlaxforest: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	bunnelbyworker: {
+	aterrundu: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	sirfetchdfantasy: {
+	sharpedo: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	frogadierbeetle: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	chandelureballoon: {
+	eelektross: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-   infernapeclimber: {
+	sableye: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   ribombeecharmer: {
+	},
+	rotom: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   beheeyemufo: {
+	},
+	porygon: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-	sableyedoom: {
+	},
+	tentacruel: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   mareaniemagma: {
+	},
+	rillaboom: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-	thwackeydune: {
+	},
+	nihilego: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   sphealsiren: {
+	},
+	oricorio: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   pincurchingoo: {
+	},
+	archeops: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   nihilegopsychosis: {
+	},
+	camerupt: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   stunfiskjagged: {
+	},
+	carkol: {
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
-   pawniardaviation: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   watchogscout: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   mothimgourd: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   clefairyselene: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   hoothootperch: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   swoobataroma: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   blacephalonborealis: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-   malamarparallel: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},	
-	*/
+	},
 };
 

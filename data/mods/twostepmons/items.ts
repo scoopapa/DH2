@@ -1,22 +1,23 @@
 
 export const Items: {[k: string]: ModdedItemData} = {
-	/*
-	leek: {
-		name: "Leek",
+	moltenrock: {
+		name: "Molten Rock",
 		fling: {
 			basePower: 60,
 		},
-		spritenum: 475,
-		onModifyCritRatio(critRatio, user) {
-			if (["farfetchd", "sirfetchd", "sirfetchdfantasy"].includes(this.toID(user.baseSpecies.baseSpecies))) {
-				return critRatio + 2;
-			}
+		spritenum: 1001,
+		onModifyMove(move) {
+			if (move.type !== "Rock" && move.type !== "Ground") return;
+			const brnChance = {chance: 20, status: 'brn'};
+			if (!move.secondaries) move.secondaries = [];
+			if (move.secondary) move.secondaries.push(move.secondary);
+			move.secondary = null;
+			move.secondaries.push(brnChance);
 		},
-		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d", "Sirfetch\u2019d-Fantasy"],
-		num: 259,
+		itemUser: ["Camerupt"],
+		num: 10001,
 		gen: 8,
-    desc: "If held by a Farfetch’d, Sirfetch’d, or Sirfetch'd-Fantasy, its critical hit ratio is raised by 2 stages.",
+    desc: "If held by a Camerupt, Rock and Ground moves have a 20% chance to burn.",
 	},
-	*/
 };
 

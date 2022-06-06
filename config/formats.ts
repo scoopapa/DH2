@@ -891,7 +891,19 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['Standard GBU', 'VGC Timer'],
 		minSourceGen: 8,
-	},	
+	},
+	{
+		name: "[Gen 8] Two-Step Mons",
+		desc: `<b>Restrictions</b>: A metagame where we first make moves and abilities, then build pokemon around them.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3694386/">Two-Step Mons on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ON4XRtxK2WA55812tPPKrezUcDi2kSriZ1QnDaQgSO8/edit#gid=0">Spreadsheet</a>`,
+		],
+		mod: 'twostepmons',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['all pokemon'],
+		unbanlist: ['Sharpedo', 'Eelektross', 'Sableye', 'Rotom', 'Porygon', 'Tentacruel', 'Rillaboom', 'Nihilego', 'Oricorio', 'Archeops', 'Camerupt', 'Carkol', 'Guemanon', 'Snoorwill', 'Aterrundu'],
+	},
 	{
 		name: "[Gen 8] Ubermons",	
 		mod: 'ubermons',
