@@ -2,8 +2,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorkoal: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add('Speed Boost and Drought!');
 		},
-		start: "Speed Boost and Drought!",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
