@@ -4897,7 +4897,102 @@ lifedrain: {
 		name: "Envious Sword",
 		shortDesc: "On switch-in, this Pokemon's Special Attack is raised by 1 stage.",
 	},
-
+	icebreaker: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'eiscudile' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Icebreaker');
+				source.formeChange('Eiscudile-Noice', this.effect, true);
+			}
+		},
+		isPermanent: true,
+		name: "Icebreaker",
+		shortDesc: "When this Pokemon KOes a Pokemon with an attack, it transforms into Noice form.",
+	},
+	flameforce: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.status === 'brn') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Flame Force",
+		shortDesc: "This Pokemon's moves deal 1.3x damage against burned opponents.",
+	},
+	hydroelectric: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Hydroelectric');
+				}
+				return null;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		name: "Hydroelectric",
+		shortDesc: "Static + Water Absorb",
+	},
+	waterbreak: {
+		onStart(pokemon) {
+			pokemon.removeVolatile('waterbreak');
+			if (pokemon.activeTurns && (pokemon.moveThisTurnResult !== undefined || !this.queue.willMove(pokemon))) {
+				pokemon.addVolatile('waterbreak');
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && pokemon.removeVolatile('truant')) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Water Break');
+				pokemon.cureStatus();
+			}
+		},
+		condition: {},
+		name: "Water Break",
+		shortDesc: "This Pokemon heals its status every other turn.",
+	},
+	menacing: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterMove(basePower, source, target, move) {
+			if (!move || !source) return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				let activated = false;
+				for (const target of this.effectData.target.side.foe.active) {
+					if (!target || !this.isAdjacent(target, this.effectData.target)) continue;
+					if (!activated) {
+						this.add('-ability', this.effectData.target, 'Menacing', 'boost');
+						activated = true;
+					}
+					if ((target.volatiles['substitute'] || target.hasType('Dark'))) {
+						this.add('-immune', target);
+					} else {
+						this.boost({atk: -1}, target, this.effectData.target, null, true);
+					}
+				}
+			}
+		},
+		name: "Menacing",
+		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
+	},
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -5884,6 +5979,79 @@ lifedrain: {
 		},
 		name: "Apple Armor",
 		shortDesc: "This Pokemon is immune to status conditions.",
+	},
+	winterhoard: {
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = [];
+			for (const target of this.getAllActive()) {
+				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
+					pickupTargets.push(target);
+				}
+			}
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Winter Hoard');
+			pokemon.setItem(item);
+		},
+		name: "Winter Hoard",
+		shortDesc: "Heatproof + Pickup",
+	},
+	wetfood: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Wet Food boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Wet Food boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Wet Food', pokemon.side.foe);
+		},
+		onFoeTryEatItem: false,
+		name: "Wet Food",
+		shortDesc: "Torrent + Unnerve",
+	},
+	stoneage: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Stone Age boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		name: "Stone Age",
+		shortDesc: "Rock Head + Technician",
 	},
 };
  
