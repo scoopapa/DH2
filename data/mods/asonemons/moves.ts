@@ -767,8 +767,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move: 'trickroom',
 				source: source,
 				moveData: {
-                    id: 'trickroom',
-                    name: "Trick Room",
+                    id: 'illomen',
+                    name: "Ill Omen",
                     accuracy: true,
                     basePower: 0,
                     category: "Status",
