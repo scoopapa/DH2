@@ -760,6 +760,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		ignoreImmunity: true,
 		isFutureMove: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mean Look", target);
+			this.add('-message', `${source.name} had a vision...`);
+		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -781,7 +786,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                         duration: 5,
                         onStart(target, source) {
                             this.add('-fieldstart', 'move: Ill Omen', '[of] ' + source);
-									this.add('-start', 'Hoothoot-Perch had a vision...');
                         },
                         onRestart(target, source) {
                             this.field.removePseudoWeather('trickroom');
