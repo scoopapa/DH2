@@ -93,7 +93,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Carkol",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 60, atk: 75, def: 70, spa: 120, spd: 60, spe: 110},
-		abilities: {0: "Steam Engine", 1: "Flash Fire", H: "Crystalize"},
+		abilities: {0: "Steam Engine", 1: "Flash Fire", H: "Crystallize"},
 	},
 	guemanon: {
 		num: 1013,
