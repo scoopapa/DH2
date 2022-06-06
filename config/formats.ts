@@ -3066,8 +3066,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 3] Inverse Split",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/posts/8133789/">ADV Sample Teams</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3503019/">ADV OU Viability Rankings</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9230529">Solomod Post</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1dzHPJfiqSyvTeZkeBmJOI7OfUIEb6SVDjb7P3vrX9L4/edit">Spreadsheet</a>`,
 		],
 		mod: 'gen3inversesplit',
 		ruleset: ['Standard', '3 Baton Pass Clause'],
