@@ -775,11 +775,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     priority: -7,
 		            flags: {mirror: 1},
                     ignoreImmunity: true,
+					
 		            pseudoWeather: 'trickroom',
                     condition: {
                         duration: 5,
                         onStart(target, source) {
                             this.add('-fieldstart', 'move: Ill Omen', '[of] ' + source);
+									this.add('-start', 'Hoothoot-Perch had a vision...');
                         },
                         onRestart(target, source) {
                             this.field.removePseudoWeather('trickroom');
