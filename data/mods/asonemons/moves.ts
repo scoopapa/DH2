@@ -775,19 +775,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     priority: -7,
 		            flags: {mirror: 1},
                     ignoreImmunity: true,
-		            pseudoWeather: 'illomen',
+		            pseudoWeather: 'trickroom',
                     condition: {
                         duration: 5,
                         onStart(target, source) {
-                            this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+                            this.add('-fieldstart', 'move: Ill Omen', '[of] ' + source);
                         },
                         onRestart(target, source) {
-                            this.field.removePseudoWeather('illomen');
+                            this.field.removePseudoWeather('trickroom');
                         },
                         // Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
                         onResidualOrder: 23,
                         onEnd() {
-                            this.add('-fieldend', 'move: Trick Room');
+                            this.add('-fieldend', 'move: Ill Omen');
                         },
                     },
                     effectType: 'Move',
