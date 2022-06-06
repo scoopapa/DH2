@@ -778,13 +778,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		            pseudoWeather: 'illomen',
                     condition: {
                         duration: 5,
-                        durationCallback(source, effect) {
-                            if (source?.hasAbility('persistent')) {
-                                this.add('-activate', source, 'ability: Persistent', effect);
-                                return 7;
-                            }
-                            return 5;
-                        },
                         onStart(target, source) {
                             this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
                         },
