@@ -201,6 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		slotCondition: 'jovialdrums',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				target.addVolatile('moraleboost');
 			},

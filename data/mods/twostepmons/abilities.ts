@@ -4,7 +4,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onSourceDamagingHit: 1,
 		onSourceDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 10, target, source);
+				this.damage(target.baseMaxhp / 10, target, source);
 			}
 		},
 		name: "Serrated Skin",
