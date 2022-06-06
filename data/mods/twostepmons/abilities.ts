@@ -109,7 +109,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.crystallizeBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
-		name: "Galvanize",
+		name: "Crystallize",
 		rating: 4,
 		num: 206,
 	},
