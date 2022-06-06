@@ -6,18 +6,29 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		spritenum: 1001,
-		onModifyMove(move) {
+		onSourceHit(target, source, move) {
 			if (move.type !== "Rock" && move.type !== "Ground") return;
-			const brnChance = {chance: 20, status: 'brn'};
-			if (!move.secondaries) move.secondaries = [];
-			if (move.secondary) move.secondaries.push(move.secondary);
-			move.secondary = null;
-			move.secondaries.push(brnChance);
+			const brnChance = true;
+			if (!source.hasAbility("Sheer Force")) {
+				if (move.secondaries) {
+					for (const sec of move.secondaries) {
+						if (sec.status && sec.status === 'brn') brnChance = false;
+					}
+				} else if (move.secondary && move.secondary.status && move.secondary.status === 'brn') {
+					brnChance = false;
+				}
+			}
+			if (brnChance) {
+				const r = this.random(100);
+				if (r < 20) {
+					target.trySetStatus('brn');
+				}
+			}
 		},
 		itemUser: ["Camerupt"],
 		num: 10001,
 		gen: 8,
-    desc: "If held by a Camerupt, Rock and Ground moves have a 20% chance to burn.",
+    desc: "If held by a Camerupt, Rock and Ground moves have a 20% chance to burn. Doesn't effect moves that already have a burn chance.",
 	},
 };
 
