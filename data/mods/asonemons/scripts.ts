@@ -1,67 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init(){ 
-		this.modData('Learnsets', 'yanmega').learnset.coalsting = ['8L1'];
-		
-		this.modData('Learnsets', 'pelipper').learnset.inkgulp = ['8L1'];
-		
-		this.modData('Learnsets', 'excadrill').learnset.bouldertoss = ['8L1'];
-		
-		this.modData('Learnsets', 'vanilluxe').learnset.icescream = ['8L1'];
-		
-		this.modData('Learnsets', 'butterfree').learnset.baitsplash = ['8L1'];
-		
-		this.modData('Learnsets', 'dedenne').learnset.hamsterslam = ['8L1'];
-		
-		this.modData('Learnsets', 'shuckle').learnset.shellstack = ['8L1'];
-		
-		this.modData('Learnsets', 'munchlax').learnset.biobelly = ['8L1'];
-		
-		this.modData('Learnsets', 'bunnelby').learnset.hardwork = ['8L1'];
-		
-		this.modData('Learnsets', 'sirfetchd').learnset.excaliburslash = ['8L1'];
-		
-		this.modData('Learnsets', 'frogadier').learnset.bubbleblades = ['8L1'];
-		
-		this.modData('Learnsets', 'chandelure').learnset.balloonburner = ['8L1'];
-
-		this.modData('Learnsets', 'infernape').learnset.extendneck = ['8L1'];
-		
-		this.modData('Learnsets', 'ribombee').learnset.pungiblow = ['8L1'];
-		
-		this.modData('Learnsets', 'beheeyem').learnset.beamup = ['8L1'];
-		
-		this.modData('Learnsets', 'sableye').learnset.darkfractals = ['8L1'];
-		
-		this.modData('Learnsets', 'mareanie').learnset.sulfuricflame = ['8L1'];
-		
-		this.modData('Learnsets', 'thwackey').learnset.lushsoil = ['8L1'];
-		
-		this.modData('Learnsets', 'spheal').learnset.entrancingsound = ['8L1'];
-		
-		this.modData('Learnsets', 'pincurchin').learnset.paralyzinggoo = ['8L1'];
-		
-		this.modData('Learnsets', 'nihilego').learnset.neurodrain = ['8L1'];
-		
-		this.modData('Learnsets', 'stunfisk').learnset.spikeburst = ['8L1'];
-		
-		this.modData('Learnsets', 'pawniard').learnset.aerialstrike = ['8L1'];
-		
-		this.modData('Learnsets', 'watchog').learnset.airsurveillance = ['8L1'];
-		
-		this.modData('Learnsets', 'mothim').learnset.gourdspirit = ['8L1'];
-		
-		this.modData('Learnsets', 'clefairy').learnset.moonritual = ['8L1'];
-		
-		this.modData('Learnsets', 'hoothoot').learnset.illomen = ['8L1'];
-		
-		this.modData('Learnsets', 'swoobat').learnset.souraroma = ['8L1'];
-		
-		this.modData('Learnsets', 'blacephalon').learnset.vengefulspirit = ['8L1'];
-		
-		this.modData('Learnsets', 'malamar').learnset.innerdeviation = ['8L1'];
-	},
-pokemon: {
-	runImmunity(type: string, message?: string | boolean) {
+	pokemon: {
+		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
 				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
@@ -124,5 +63,66 @@ pokemon: {
 			}
    	}
 	},	
+	init(){ 
+		this.modData('Learnsets', 'yanmega').learnset.coalsting = ['8L1'];
+		
+		this.modData('Learnsets', 'pelipper').learnset.inkgulp = ['8L1'];
+		
+		this.modData('Learnsets', 'excadrill').learnset.bouldertoss = ['8L1'];
+		
+		this.modData('Learnsets', 'vanilluxe').learnset.icescream = ['8L1'];
+		
+		this.modData('Learnsets', 'butterfree').learnset.baitsplash = ['8L1'];
+		
+		this.modData('Learnsets', 'dedenne').learnset.hamsterslam = ['8L1'];
+		
+		this.modData('Learnsets', 'shuckle').learnset.shellstack = ['8L1'];
+		
+		this.modData('Learnsets', 'munchlax').learnset.biobelly = ['8L1'];
+		
+		this.modData('Learnsets', 'bunnelby').learnset.hardwork = ['8L1'];
+		
+		this.modData('Learnsets', 'sirfetchd').learnset.excaliburslash = ['8L1'];
+		
+		this.modData('Learnsets', 'frogadier').learnset.bubbleblades = ['8L1'];
+		
+		this.modData('Learnsets', 'chandelure').learnset.balloonburner = ['8L1'];
+
+		this.modData('Learnsets', 'infernape').learnset.extendneck = ['8L1'];
+		
+		this.modData('Learnsets', 'ribombee').learnset.pungiblow = ['8L1'];
+		
+		this.modData('Learnsets', 'beheeyem').learnset.beamup = ['8L1'];
+		
+		this.modData('Learnsets', 'sableye').learnset.darkfractals = ['8L1'];
+		
+		this.modData('Learnsets', 'mareanie').learnset.sulfuricflame = ['8L1'];
+		
+		this.modData('Learnsets', 'thwackey').learnset.lushsoil = ['8L1'];
+		
+		this.modData('Learnsets', 'spheal').learnset.entrancingsound = ['8L1'];
+		
+		this.modData('Learnsets', 'pincurchin').learnset.paralyzinggoo = ['8L1'];
+		
+		this.modData('Learnsets', 'nihilego').learnset.neurodrain = ['8L1'];
+		
+		this.modData('Learnsets', 'stunfisk').learnset.spikeburst = ['8L1'];
+		
+		this.modData('Learnsets', 'pawniard').learnset.aerialstrike = ['8L1'];
+		
+		this.modData('Learnsets', 'watchog').learnset.airsurveillance = ['8L1'];
+		
+		this.modData('Learnsets', 'mothim').learnset.gourdspirit = ['8L1'];
+		
+		this.modData('Learnsets', 'clefairy').learnset.moonritual = ['8L1'];
+		
+		this.modData('Learnsets', 'hoothoot').learnset.illomen = ['8L1'];
+		
+		this.modData('Learnsets', 'swoobat').learnset.souraroma = ['8L1'];
+		
+		this.modData('Learnsets', 'blacephalon').learnset.vengefulspirit = ['8L1'];
+		
+		this.modData('Learnsets', 'malamar').learnset.innerdeviation = ['8L1'];
+	},
 };
 
