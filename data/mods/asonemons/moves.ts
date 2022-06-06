@@ -785,7 +785,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     condition: {
                         duration: 5,
                         onStart(target, source) {
-                            this.add('-fieldstart', 'move: Ill Omen', '[of] ' + source);
+                            this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
                         },
                         onRestart(target, source) {
                             this.field.removePseudoWeather('trickroom');
@@ -793,7 +793,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                         // Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
                         onResidualOrder: 23,
                         onEnd() {
-                            this.add('-fieldend', 'move: Ill Omen');
+                            this.add('-fieldend', 'move: Trick Room');
                         },
                     },
                     effectType: 'Move',
