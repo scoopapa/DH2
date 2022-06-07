@@ -3071,7 +3071,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen3inversesplit',
 		ruleset: ['Standard', '3 Baton Pass Clause'],
-		banlist: ['Uber', 'Smeargle + Baton Pass'],
+		banlist: ['Uber', 'Smeargle + Baton Pass', 'Overheat', 'Psycho Boost'],
 	},
 	/*
 	{    
