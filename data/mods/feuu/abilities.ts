@@ -4941,22 +4941,14 @@ lifedrain: {
 		shortDesc: "Static + Water Absorb",
 	},
 	waterbreak: {
-		onStart(pokemon) {
-			pokemon.removeVolatile('waterbreak');
-			if (pokemon.activeTurns) {
-				pokemon.addVolatile('waterbreak');
-			}
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (pokemon.status && pokemon.removeVolatile('waterbreak')) {
-				this.debug('waterbreak');
+			if (pokemon.activeTurns % 2 === 0) {
 				this.add('-activate', pokemon, 'ability: Water Break');
 				pokemon.cureStatus();
 			}
 		},
-		condition: {},
 		name: "Water Break",
 		shortDesc: "This Pokemon heals its status every other turn.",
 	},
