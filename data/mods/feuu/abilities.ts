@@ -4962,6 +4962,7 @@ lifedrain: {
 				return this.chainModify(1.5);
 			}
 		},
+/*
 		onAfterMove(basePower, source, target, move) {
 			if (!move || !source) return;
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -4981,6 +4982,20 @@ lifedrain: {
 					}
 				}
 			}
+		},
+	*/
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 100,
+				boosts: {
+					atk: -1,
+				},
+				ability: this.dex.getAbility('menace'),
+			});
 		},
 		name: "Menace",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
