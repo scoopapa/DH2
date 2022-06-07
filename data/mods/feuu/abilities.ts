@@ -4943,7 +4943,7 @@ lifedrain: {
 	waterbreak: {
 		onStart(pokemon) {
 			pokemon.removeVolatile('waterbreak');
-			if (pokemon.activeTurns && (pokemon.moveThisTurnResult !== undefined || !this.queue.willMove(pokemon))) {
+			if (pokemon.activeTurns) {
 				pokemon.addVolatile('waterbreak');
 			}
 		},
@@ -4951,7 +4951,7 @@ lifedrain: {
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			if (pokemon.status && pokemon.removeVolatile('waterbreak')) {
-				this.debug('hydration');
+				this.debug('waterbreak');
 				this.add('-activate', pokemon, 'ability: Water Break');
 				pokemon.cureStatus();
 			}
@@ -4966,7 +4966,7 @@ lifedrain: {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Technician boost');
+				this.debug('Menacing boost');
 				return this.chainModify(1.5);
 			}
 		},
