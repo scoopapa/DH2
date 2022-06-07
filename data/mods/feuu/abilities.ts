@@ -4952,7 +4952,7 @@ lifedrain: {
 		name: "Water Break",
 		shortDesc: "This Pokemon heals its status every other turn.",
 	},
-	menace: {
+	menacing: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -4994,10 +4994,10 @@ lifedrain: {
 				boosts: {
 					atk: -1,
 				},
-				ability: this.dex.getAbility('menace'),
+				ability: this.dex.getAbility('menacing'),
 			});
 		},
-		name: "Menace",
+		name: "Menacing",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
 	},
 
