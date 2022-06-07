@@ -740,9 +740,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonegirafarig: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
-			this.add( '-message', 'Contrary and Early Bird!');
+			this.add( '-message', 'Contrary and Inner Focus!');
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
 		},
 		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostName;
 			for (i in boost) {
@@ -750,6 +757,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "As One (Girafarig)",
-		shortDesc: "The combination of Contrary and Early Bird.",
+		shortDesc: "The combination of Contrary and Inner Focus.",
 	},
 };
