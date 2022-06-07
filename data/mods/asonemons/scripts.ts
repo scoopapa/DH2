@@ -30,6 +30,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return true;
 		},
+		
 	isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
@@ -44,13 +45,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if ('float' in this.volatiles) return false;
 		return item !== 'airballoon';
 		},
-		setStatus(
+		
+	setStatus(
 		status: string | Condition,
 		source: Pokemon | null = null,
 		sourceEffect: Effect | null = null,
 		ignoreImmunities = false
 	) {
-    if (!ignoreImmunities && status.id &&
+		if (!this.hp) return false;
+		status = this.battle.dex.getEffect(status);
+		if (this.battle.event) {
+			if (!source) source = this.battle.event.source;
+			if (!sourceEffect) sourceEffect = this.battle.effect;
+		}
+		if (!source) source = this;
+
+		if (this.status === status.id) {
+			if ((sourceEffect as Move)?.status === this.status) {
+				this.battle.add('-fail', this, this.status);
+			} else if ((sourceEffect as Move)?.status) {
+				this.battle.add('-fail', source);
+				this.battle.attrLastMove('[still]');
+			}
+			return false;
+		}
+
+		if (!ignoreImmunities && status.id &&
 				!(source?.hasAbility('asonesalazzle') && ['tox', 'psn'].includes(status.id))) {
 			// the game currently never ignores immunities
 			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
@@ -59,9 +79,36 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-immune', this);
 				}
 				return false;
-				}
 			}
-   	}
-	},	
-};
+		}
+		const prevStatus = this.status;
+		const prevStatusData = this.statusData;
+		if (status.id) {
+			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (!result) {
+				this.battle.debug('set status [' + status.id + '] interrupted');
+				return result;
+			}
+		}
 
+		this.status = status.id;
+		this.statusData = {id: status.id, target: this};
+		if (source) this.statusData.source = source;
+		if (status.duration) this.statusData.duration = status.duration;
+		if (status.durationCallback) {
+			this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+		}
+
+		if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+			this.battle.debug('status start [' + status.id + '] interrupted');
+			// cancel the setstatus
+			this.status = prevStatus;
+			this.statusData = prevStatusData;
+			return false;
+		}
+		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			return false;
+		}
+		return true;
+	}
+};
