@@ -4950,7 +4950,7 @@ lifedrain: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.status && pokemon.removeVolatile('truant')) {
+			if (pokemon.status && pokemon.removeVolatile('waterbreak')) {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Water Break');
 				pokemon.cureStatus();
@@ -4960,7 +4960,7 @@ lifedrain: {
 		name: "Water Break",
 		shortDesc: "This Pokemon heals its status every other turn.",
 	},
-	menacing: {
+	menace: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -4990,7 +4990,7 @@ lifedrain: {
 				}
 			}
 		},
-		name: "Menacing",
+		name: "Menace",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
 	},
 
