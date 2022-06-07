@@ -24,6 +24,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetentacruel: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Drizzle and Rain Dish!');
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
@@ -44,6 +45,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonegigalith: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Sand Stream and Sand Force!');
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
@@ -63,6 +65,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonebeartic: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Snow Warning and Slush Rush!');
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('hail')) {
@@ -78,6 +81,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonelanturn: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Compound Eyes and Volt Absorb!');
 		},
 		onSourceModifyAccuracyPriority: 9,
 		onSourceModifyAccuracy(accuracy) {
@@ -99,6 +103,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonehawlucha: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Cheek Pouch and Unburden!');
 		},
 		onEatItem(item, pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -127,6 +132,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Gluttony');
+			this.add( '-message', 'Gluttony and Beast Boost!');
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -148,6 +154,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorterra: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Thick Fat and Overgrow!');
 		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -170,6 +177,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonemudsdale: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Huge Power and Stamina!');
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
@@ -184,6 +192,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonerapidashgalar: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Scrappy and Pastel Veil!');
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -240,6 +249,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoneheracross: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Protein and Skill Link!');
 		},
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
@@ -263,6 +273,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonedrifblim: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Flash Fire and Unburden!');
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -322,6 +333,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoneexeggutoralola: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Iron Fist and Frisk!');
 		},
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
@@ -344,6 +356,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonesteelix: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Shield Dust and Sheer Force!');
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Shield Dust prevent secondary');
@@ -369,6 +382,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonemagnezone: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Synchronize and Analytic!');
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
@@ -395,11 +409,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			source.trySetStatus(status, target, {status: status.id, id: 'synchronize'} as Effect);
 		},
 		name: "As One (Magnezone)",
-		shortDesc: "The combination of Syncronize and Analytic.",
+		shortDesc: "The combination of Synchronize and Analytic.",
 	},
 	asoneabsol: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Prankster and Justified!');
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.category === 'Status') {
@@ -418,6 +433,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonesalazzle: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Merciless and Corrosion!');
 		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && ['psn', 'tox'].includes(target.status)) return 5;
@@ -428,6 +444,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonehippowdon: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Grassy Surge and Sand Force!');
 		},
 		onStart(source) {
 			this.field.setTerrain('grassyterrain');
@@ -450,6 +467,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonetapufini: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Thick Fat and Misty Surge!');
 		},
 		onStart(source) {
 			this.field.setTerrain('mistyterrain');
@@ -474,6 +492,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonesliggoo: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Electric Surge and Gooey!');
 		},
 		onStart(source) {
 			this.field.setTerrain('electricterrain');
@@ -490,6 +509,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asoneindeedeef: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Beast Boost and Psychic Surge!');
 		},
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
@@ -514,6 +534,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonedruddigon: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Static and Rough Skin!');
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
@@ -529,6 +550,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonemandibuzz: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Defiant and Overcoat!');
 		},
         onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
@@ -565,6 +587,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonebraviary: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Analytic and Sheer Force!');
 		},
 		onBasePower(basePower, pokemon) {
 			let boosted = true;
@@ -600,6 +623,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonegourgeistsuper: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Tinted Lens and Frisk!');
 		},
         onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
@@ -621,6 +645,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonelunatone: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Magic Guard and Levitate!');
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move') {
@@ -634,6 +659,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asoneslowkinggalar: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Tinted Lens and Regenerator!');
 		},
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
@@ -650,6 +676,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asoneswoobat: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Unaware and Chlorophyll!');
 		},
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectData.target;
@@ -677,6 +704,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asoneblacephalon: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Beast Boost and Refrigerate!');
 		},
         onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -712,6 +740,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
    asonegirafarig: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Contrary and Early Bird!');
 		},
 		onBoost(boost, target, source, effect) {
 			if (effect && effect.id === 'zpower') return;
