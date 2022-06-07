@@ -110,5 +110,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		return true;
-	}
+	},
 };
