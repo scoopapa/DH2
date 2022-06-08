@@ -1658,7 +1658,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
 	},
+	eiscudile: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	carcannon: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	lapfisk: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	whisdur: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	emposerker: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	salasianalola: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	salasianalolamega: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 
+	
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2249,12 +2285,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
-/*
-	fraxbladeprevo: {
+	axedge: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
-*/
+	rolypek: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	piplouthgalar: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	bagouthalola: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
