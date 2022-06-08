@@ -3081,6 +3081,15 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
+		name: "[Gen 8] Kanto Dex",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'kantodex',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
+	},
+	{
 		name: "[Gen 8] National Dex VGC",
 		mod: 'gen8',
 		gameType: 'doubles',
