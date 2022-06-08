@@ -1,97 +1,6 @@
-
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	/*
-	init(){ 
-		// *(Referenced from FEUU)* 
-		// Automatically construct fusion learnsets! (Thank u scoopapa)
-		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
-			const fusionEntry = this.dataCache.Pokedex[id];
-			if (fusionEntry.fusion) {//if the pokedex entry has a fusion field, it's a fusion
-				const learnsetFusionList = [];//list of pokemon whose learnsets need to be fused
-				for (let name of fusionEntry.fusion) {
-					let prevo = true;
-					while (prevo) {//make sure prevos of both fused pokemon are added to the list
-						learnsetFusionList.push(name);
-						const dexEntry = this.dataCache.Pokedex[this.toID(name)];
-						if (dexEntry.prevo) name = dexEntry.prevo;
-						else prevo = false;
-					}
-				}
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}};//create a blank learnset entry so we don't need a learnsets file
-				for (let name of learnsetFusionList) {					
-					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
-					for (const moveid in learnset) {
-						if (this.dataCache.Moves[moveid].isNonstandard === 'Past') continue; //exclude dexited moves (I hope!) 
-						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
-					}
-				}
-			}
-		}
-
-		this.modData('Learnsets', 'yanmegashell').learnset.coalsting = ['8L1'];
-		delete this.modData('Learnsets', 'yanmegashell').learnset.shellsmash;
-		
-		this.modData('Learnsets', 'pelipperink').learnset.inkgulp = ['8L1'];
-		
-		this.modData('Learnsets', 'excadrillboulder').learnset.bouldertoss = ['8L1'];
-		
-		this.modData('Learnsets', 'vanilluxefur').learnset.icescream = ['8L1'];
-		
-		this.modData('Learnsets', 'butterfreeangler').learnset.baitsplash = ['8L1'];
-		
-		this.modData('Learnsets', 'dedenneluchador').learnset.hamsterslam = ['8L1'];
-		
-		this.modData('Learnsets', 'shucklebrick').learnset.shellstack = ['8L1'];
-		
-		this.modData('Learnsets', 'munchlaxforest').learnset.biobelly = ['8L1'];
-		
-		this.modData('Learnsets', 'bunnelbyworker').learnset.hardwork = ['8L1'];
-		
-		this.modData('Learnsets', 'sirfetchdfantasy').learnset.excaliburslash = ['8L1'];
-		
-		this.modData('Learnsets', 'frogadierbeetle').learnset.bubbleblades = ['8L1'];
-		
-		this.modData('Learnsets', 'chandelureballoon').learnset.balloonburner = ['8L1'];
-
-		this.modData('Learnsets', 'infernapeclimber').learnset.extendneck = ['8L1'];
-		
-		this.modData('Learnsets', 'ribombeecharmer').learnset.pungiblow = ['8L1'];
-		
-		this.modData('Learnsets', 'beheeyemufo').learnset.beamup = ['8L1'];
-		
-		this.modData('Learnsets', 'sableyedoom').learnset.darkfractals = ['8L1'];
-		
-		this.modData('Learnsets', 'mareaniemagma').learnset.sulfuricflame = ['8L1'];
-		
-		this.modData('Learnsets', 'thwackeydune').learnset.lushsoil = ['8L1'];
-		
-		this.modData('Learnsets', 'sphealsiren').learnset.entrancingsound = ['8L1'];
-		
-		this.modData('Learnsets', 'pincurchingoo').learnset.paralyzinggoo = ['8L1'];
-		
-		this.modData('Learnsets', 'nihilegopsychosis').learnset.neurodrain = ['8L1'];
-		
-		this.modData('Learnsets', 'stunfiskjagged').learnset.spikeburst = ['8L1'];
-		
-		this.modData('Learnsets', 'pawniardaviation').learnset.aerialstrike = ['8L1'];
-		
-		this.modData('Learnsets', 'watchogscout').learnset.airsurveillance = ['8L1'];
-		
-		this.modData('Learnsets', 'mothimgourd').learnset.gourdspirit = ['8L1'];
-		
-		this.modData('Learnsets', 'clefairyselene').learnset.moonritual = ['8L1'];
-		
-		this.modData('Learnsets', 'hoothootperch').learnset.illomen = ['8L1'];
-		
-		this.modData('Learnsets', 'swoobataroma').learnset.souraroma = ['8L1'];
-		
-		this.modData('Learnsets', 'blacephalonborealis').learnset.vengefulspirit = ['8L1'];
-		
-		this.modData('Learnsets', 'malamarparallel').learnset.innerdeviation = ['8L1'];
-		
-	},
-pokemon: {
-	runImmunity(type: string, message?: string | boolean) {
+	pokemon: {
+		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
 				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
@@ -121,7 +30,8 @@ pokemon: {
 			}
 			return true;
 		},
-		isGrounded(negateImmunity = false) {
+		
+	isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 		if ('smackdown' in this.volatiles) return true;
@@ -135,13 +45,32 @@ pokemon: {
 		if ('float' in this.volatiles) return false;
 		return item !== 'airballoon';
 		},
-		setStatus(
+		
+	setStatus(
 		status: string | Condition,
 		source: Pokemon | null = null,
 		sourceEffect: Effect | null = null,
 		ignoreImmunities = false
 	) {
-    if (!ignoreImmunities && status.id &&
+		if (!this.hp) return false;
+		status = this.battle.dex.getEffect(status);
+		if (this.battle.event) {
+			if (!source) source = this.battle.event.source;
+			if (!sourceEffect) sourceEffect = this.battle.effect;
+		}
+		if (!source) source = this;
+
+		if (this.status === status.id) {
+			if ((sourceEffect as Move)?.status === this.status) {
+				this.battle.add('-fail', this, this.status);
+			} else if ((sourceEffect as Move)?.status) {
+				this.battle.add('-fail', source);
+				this.battle.attrLastMove('[still]');
+			}
+			return false;
+		}
+
+		if (!ignoreImmunities && status.id &&
 				!(source?.hasAbility('asonesalazzle') && ['tox', 'psn'].includes(status.id))) {
 			// the game currently never ignores immunities
 			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
@@ -150,10 +79,37 @@ pokemon: {
 					this.battle.add('-immune', this);
 				}
 				return false;
-				}
 			}
-   	}
-	},	
-	*/
-};
+		}
+		const prevStatus = this.status;
+		const prevStatusData = this.statusData;
+		if (status.id) {
+			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (!result) {
+				this.battle.debug('set status [' + status.id + '] interrupted');
+				return result;
+			}
+		}
 
+		this.status = status.id;
+		this.statusData = {id: status.id, target: this};
+		if (source) this.statusData.source = source;
+		if (status.duration) this.statusData.duration = status.duration;
+		if (status.durationCallback) {
+			this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+		}
+
+		if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+			this.battle.debug('status start [' + status.id + '] interrupted');
+			// cancel the setstatus
+			this.status = prevStatus;
+			this.statusData = prevStatusData;
+			return false;
+		}
+		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			return false;
+		}
+		return true;
+		},
+	},
+};
