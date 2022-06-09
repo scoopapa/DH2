@@ -126,5 +126,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	wishiwashischool: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 140, def: 130, spa: 140, spd: 135, spe: 30},
+	},
+	celebi: {
+		inherit: true,
+		types: ["Grass", "Fairy"],
+		abilities: {0: "Natural Cure", H: "Flower Veil"},
 	}, 
 };
