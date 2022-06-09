@@ -114,5 +114,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	latios: {
 		inherit: true,
 		types: ["Dragon", "Electric"],
+	},
+	virizion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Adaptability"},
+	},
+	wishiwashi: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 20, def: 20, spa: 25, spd: 25, spe: 40},
+	},
+	wishiwashischool: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 140, def: 130, spa: 140, spd: 135, spe: 30},
 	}, 
 };
