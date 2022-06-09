@@ -4944,7 +4944,7 @@ lifedrain: {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (pokemon.activeTurns % 2 === 0) {
+			if (pokemon.activeTurns % 2 === 1) {
 				this.add('-activate', pokemon, 'ability: Water Break');
 				pokemon.cureStatus();
 			}
