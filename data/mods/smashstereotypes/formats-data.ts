@@ -305,4 +305,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	elichric: {
 		tier: "SSS",
 	},
+	escavaliereiscue: {
+		tier: "SSS",
+	},
+	escavaliereiscuenoice: {
+		tier: "Illegal",
+	},
+	waterghost: {
+		tier: "SSS",
+	},
+	toxicargo: {
+		tier: "SSS",
+	},
 };
