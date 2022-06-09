@@ -902,7 +902,9 @@ export const Formats: FormatList = [
 		mod: 'twostepmons',
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 		banlist: ['all pokemon'],
-		unbanlist: ['Sharpedo', 'Eelektross', 'Sableye', 'Rotom', 'Porygon', 'Tentacruel', 'Rillaboom', 'Nihilego', 'Oricorio', 'Archeops', 'Camerupt', 'Carkol', 'Guemanon', 'Snoorwill', 'Aterrundu'],
+		unbanlist: ['Sharpedo', 'Eelektross', 'Sableye', 'Rotom', 'Porygon', 'Tentacruel', 'Rillaboom', 'Nihilego', 'Oricorio', 'Archeops', 'Camerupt', 'Carkol', 
+			'Guemanon', 'Snoorwill', 'Aterrundu', 'Metagross', 'Zygarde', 'Groudon'
+		],
 	},
 	{
 		name: "[Gen 8] Ubermons",	

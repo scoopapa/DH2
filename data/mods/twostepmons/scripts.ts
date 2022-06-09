@@ -71,6 +71,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Carkol
 		this.modData("Learnsets", "carkol").learnset.hypervoice = ["8L1"];
 		this.modData("Learnsets", "carkol").learnset.earthpower = ["8L1"];
+		// Metagross
+		this.modData("Learnsets", "metagross").learnset.neurohammer = ["8L1"];
+		// Zygarde
+		this.modData("Learnsets", "zygarde").learnset.leechlife = ["8L1"];
+		this.modData("Learnsets", "zygarde").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "zygarde").learnset.bugbuzz = ["8L1"];
+		this.modData("Learnsets", "zygarde").learnset.agility = ["8L1"];
+		delete this.modData('Learnsets', 'zygarde').learnset.breakingswipe;
+		delete this.modData('Learnsets', 'zygarde').learnset.coreenforcer;
+		delete this.modData('Learnsets', 'zygarde').learnset.dracometeor;
+		delete this.modData('Learnsets', 'zygarde').learnset.dragonbreath;
+		delete this.modData('Learnsets', 'zygarde').learnset.dragondance;
+		delete this.modData('Learnsets', 'zygarde').learnset.dragonpulse;
+		delete this.modData('Learnsets', 'zygarde').learnset.dragontail;
+		delete this.modData('Learnsets', 'zygarde').learnset.outrage;
+		delete this.modData('Learnsets', 'zygarde').learnset.scaleshot;
+		// Groudon
+		this.modData("Learnsets", "groudon").learnset.steamchute = ["8L1"];
+		this.modData("Learnsets", "groudon").learnset.scald = ["8L1"];
+		this.modData("Learnsets", "groudon").learnset.surf = ["8L1"];
+		this.modData("Learnsets", "groudon").learnset.hydropump = ["8L1"];
+		this.modData("Learnsets", "groudon").learnset.weatherball = ["8L1"];
+		delete this.modData('Learnsets', 'groudon').learnset.heatcrash;
+		delete this.modData('Learnsets', 'groudon').learnset.firepunch;
+		delete this.modData('Learnsets', 'groudon').learnset.overheat;
+		delete this.modData('Learnsets', 'groudon').learnset.solarbeam;
 	},
 };
 
