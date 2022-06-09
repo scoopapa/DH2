@@ -4959,6 +4959,7 @@ lifedrain: {
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
 				this.debug('Catastrophic boost');
+	         move.catastrophic = true;
 				return this.chainModify(1.5);
 			}
 		},
@@ -4983,7 +4984,6 @@ lifedrain: {
 				}
 			}
 		},
-	*/
 		onModifyMove(move) {
 			if (!move || !move.basePower > 60 || move.target === 'self') return;
 			if (!move.secondaries) {
@@ -4996,6 +4996,10 @@ lifedrain: {
 				},
 				ability: this.dex.getAbility('catastrophic'),
 			});
+		},
+	*/
+	  onAfterMove(target, source, move){
+		   if (move.catastrophic) this.boost({atk: -1}, source);
 		},
 		name: "Catastrophic",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
