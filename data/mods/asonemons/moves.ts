@@ -389,7 +389,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Extend Neck",
 		pp: 20,
 		priority: 0,
