@@ -3506,7 +3506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Salasian-Alola",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 80, atk: 97, def: 70, spa: 92, spd: 72, spe: 107},
-		abilities: {0: "Menacing"},
+		abilities: {0: "Catastrophic"},
 		weightkg: 67.8,
 	},
 	salasianalolamega: {
