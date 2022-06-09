@@ -14,7 +14,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 78, def: 85, spa: 100, spd: 135, spe: 105},
 		abilities: {0: "As One (Tentacruel)"},
 		weightkg: 83,
-		prevo: "Tentacool",
+		prevo: ["Wingull", "Tentacool"],
 	},
 	excadrillboulder: {
 		fusion: ['Excadrill', 'Gigalith'],
