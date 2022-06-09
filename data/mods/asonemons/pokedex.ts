@@ -167,7 +167,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Spheal-Siren",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 70, atk: 105, def: 125, spa: 95, spd: 130, spe: 93},
-		abilities: {0: "As One (Tapu-Fini)"},
+		abilities: {0: "As One (Tapu Fini)"},
 		weightkg: 60.7,
 	},
    pincurchingoo: {
