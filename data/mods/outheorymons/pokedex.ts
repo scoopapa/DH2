@@ -131,5 +131,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Grass", "Fairy"],
 		abilities: {0: "Natural Cure", H: "Flower Veil"},
+        },
+        articunogalar: {
+                inherit: true, 
+                abilities: {0: "Competitive", H: "Trace"},
 	}, 
 };
