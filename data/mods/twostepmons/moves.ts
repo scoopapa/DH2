@@ -256,13 +256,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [33, 100],
-		secondary: {
-			chance: 100,
-			volatilestatus: 'torment',
+		onHit(target) {
+			if (target.hp) {
+				target.addVolatile('torment');
+			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gravity", target);
+			this.add('-anim', source, "Steamroller", target);
 		},
 		target: "normal",
 		type: "Psychic",
