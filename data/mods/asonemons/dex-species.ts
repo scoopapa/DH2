@@ -112,7 +112,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	/** Added type (used in OMs). */
 	readonly addedType?: string;
 	/** Pre-evolution. '' if nothing evolves into this Pokemon. */
-	readonly prevo: string [];
+	readonly prevo: string[];
 	/** Evolutions. Array because many Pokemon have multiple evolutions. */
 	readonly evos: string[];
 	readonly evoType?: 'trade' | 'useItem' | 'levelMove' | 'levelExtra' | 'levelFriendship' | 'levelHold' | 'other';
