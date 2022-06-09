@@ -159,6 +159,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
 			return "Impert-Female-Mega"; 
 		}
+		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salasian-Alola") {
+			return "Salasian-Alola-Mega"; 
+		}
 		
 		return item.megaStone;
 	},

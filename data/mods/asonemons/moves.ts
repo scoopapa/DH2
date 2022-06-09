@@ -1,6 +1,4 @@
-
 export const Moves: {[k: string]: ModdedMoveData} = {
-	/*
 	coalsting: {
 		num: 827,
 		accuracy: 100,
@@ -762,6 +760,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		ignoreImmunity: true,
 		isFutureMove: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mean Look", target);
+			this.add('-message', `${source.name} had a vision...`);
+		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -769,24 +772,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move: 'trickroom',
 				source: source,
 				moveData: {
-                    id: 'trickroom',
-                    name: "Trick Room",
+                    id: 'illomen',
+                    name: "Ill Omen",
                     accuracy: true,
                     basePower: 0,
                     category: "Status",
                     priority: -7,
 		            flags: {mirror: 1},
                     ignoreImmunity: true,
+					
 		            pseudoWeather: 'trickroom',
                     condition: {
                         duration: 5,
-                        durationCallback(source, effect) {
-                            if (source?.hasAbility('persistent')) {
-                                this.add('-activate', source, 'ability: Persistent', effect);
-                                return 7;
-                            }
-                            return 5;
-                        },
                         onStart(target, source) {
                             this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
                         },
@@ -801,7 +798,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     },
                     effectType: 'Move',
                     isFutureMove: true,
-					type: 'Psychic',
+					type: 'Poison',
 				},
 			});
 			this.add('-start', source, 'move: Trick Room');
@@ -859,6 +856,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	*/
 };
 
