@@ -50,7 +50,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move) {
 			if (move.type === "Dark") {
 				move.category === 'Special';
-			},
+			}
 			if (move.type === "Steel") {
 				move.category === 'Physical';
 			},
