@@ -82,7 +82,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	oricoriopau: {
 		num: 741,
 		name: "Oricorio-Pa'u",
-		types: ["Grass", "Flying"],
+		types: ["Grass", "Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
 		baseStats: {hp: 90, atk: 75, def: 90, spa: 110, spd: 90, spe: 75},
 		abilities: {0: "Dancer", H: "Grassy Surge"},

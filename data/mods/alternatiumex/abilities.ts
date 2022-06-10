@@ -22,6 +22,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -2,
 	},
+	necrodancer: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				target.addVolatile('necrodancer');
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('necrodancer');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Necro Dancer');
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				if (move?.flags['dance'] && attacker.hasAbility('necrodancer')) return priority + 1;
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Necro Dancer', '[silent]');
+			},
+		},
+		name: "Necro Dancer",
+		shortDesc: "This Pokemon's next dance move gains +1 priority when another Pokémon faints.",
+		rating: 3.5,
+		num: -3,
+	},
 	electricfusion: {
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'electricfusion') return;
@@ -43,7 +69,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Electric Fusion",
 		shortDesc: "This Pokemon's stat changes to Sp. Atk. are shared with Sp. Def. and vice versa.",
 		rating: 4,
-		num: -3,
+		num: -4,
 	},
 	splitsystem: {
 		onModifyMovePriority: -1,
@@ -58,7 +84,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Split System",
 		shortDesc: "This Pokemon's Dark-type moves are special and its Steel-type moves are physical.",
 		rating: 2,
-		num: -4,
+		num: -5,
 	},
 	surgesurfer: {
 		onModifySpe(spe) {
