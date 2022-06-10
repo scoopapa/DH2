@@ -227,7 +227,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 29,
 		name: "Blacephalon-Borealis",
 		types: ["Ghost", "Ice"],
-		baseStats: {hp: 123, atk: 113, def: 72, spa: 113, spd: 92, spe: 104},
+		baseStats: {hp: 123, atk: 112, def: 72, spa: 113, spd: 92, spe: 104},
 		abilities: {0: "As One (Aurorus)"},
 		weightkg: 238,
 	},
