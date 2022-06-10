@@ -346,7 +346,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			harden: ["8L1", "7L1", "6L1", "5L1"],
 			hypervoice: ["8M"],
 			imprison: ["8M"],
-iceshard: ["8L1"],
+			iceshard: ["8L1"],
 			irondefense: ["8M", "7T", "6T", "5T"],
 			lightscreen: ["8M", "7M", "6M", "5M"],
 			magiccoat: ["7T", "6T", "5T"],
