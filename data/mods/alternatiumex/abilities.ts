@@ -50,10 +50,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move) {
 			if (move.type === "Dark") {
 				move.category === 'Special';
-			},
+			}
 			if (move.type === "Steel") {
 				move.category === 'Physical';
-			},
+			}
 		},
 		name: "Split System",
 		shortDesc: "This Pokemon's Dark-type moves are special and its Steel-type moves are physical.",
