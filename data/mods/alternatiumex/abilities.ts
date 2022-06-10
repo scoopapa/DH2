@@ -75,10 +75,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.type === "Dark") {
-				move.category = 'Special';
+				move.category === 'Special';
 			}
 			if (move.type === "Steel") {
-				move.category = 'Physical';
+				move.category === 'Physical';
 			}
 		},
 		name: "Split System",
