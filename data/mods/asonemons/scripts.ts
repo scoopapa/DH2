@@ -202,7 +202,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		
 		if (!sourceEffect || sourceEffect.id === 'pursuit') {
-			return;
+			return true;
 		}
 
 		if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
