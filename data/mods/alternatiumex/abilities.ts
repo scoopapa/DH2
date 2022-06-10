@@ -30,7 +30,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (boost.spa) {
 				electricfusionBoost.spd = 1 * boost.spa;
 				activated = true;
-			},
+			}
 			if (boost.spd) {
 				electricfusionBoost.spa = 1 * boost.spd;
 				activated = true;
@@ -53,7 +53,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (move.type === "Steel") {
 				move.category === 'Physical';
-			},
+			}
 		},
 		name: "Split System",
 		shortDesc: "This Pokemon's Dark-type moves are special and its Steel-type moves are physical.",
@@ -64,7 +64,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpe(spe) {
 			if (!this.field.isTerrain('')) {
 				return this.chainModify(2);
-			},
+			}
 		},
 		name: "Surge Surfer",
 		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
