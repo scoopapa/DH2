@@ -75,11 +75,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.type === "Dark") {
-				move.category === 'Special';
-			},
+				move.category = 'Special';
+			}
 			if (move.type === "Steel") {
-				move.category === 'Physical';
-			},
+				move.category = 'Physical';
+			}
 		},
 		name: "Split System",
 		shortDesc: "This Pokemon's Dark-type moves are special and its Steel-type moves are physical.",
@@ -90,7 +90,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpe(spe) {
 			if (!this.field.isTerrain('')) {
 				return this.chainModify(2);
-			},
+			}
 		},
 		name: "Surge Surfer",
 		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
