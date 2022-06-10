@@ -64,7 +64,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpe(spe) {
 			if (!this.field.isTerrain('')) {
 				return this.chainModify(2);
-			},
+			}
 		},
 		name: "Surge Surfer",
 		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
