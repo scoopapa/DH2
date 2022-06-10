@@ -208,6 +208,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			protect: ["8M", "8V", "7M", "7V", "6M", "5M", "4M", "3M"],
 			rage: ["7V"],
 			raindance: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
+			rapidspin: ["8L1"],
 			reflect: ["8V", "7V"],
 			reflecttype: ["8L1", "7L1", "6L1"],
 			rest: ["8M", "8V", "7M", "7V", "6M", "5M", "4M", "3M"],
