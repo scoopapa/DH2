@@ -394,8 +394,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
 				if (side === pokemon.side) continue;
-				side.addSideCondition('pursuit', pokemon);
-				const data = side.getSideConditionData('pursuit');
+				side.addSideCondition('extendneck', pokemon);
+				const data = side.getSideConditionData('extendneck');
 				if (!data.sources) {
 					data.sources = [];
 				}
@@ -404,20 +404,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, source, target) {
 			if (target?.beingCalledBack) move.accuracy = true;
+			if (target?.beingCalledBack) move.pp = true;
 		},
 		onTryHit(target, pokemon) {
-			target.side.removeSideCondition('pursuit');
+			target.side.removeSideCondition('extendneck');
 		},
 		condition: {
 			duration: 1,
 			onBeforeSwitchOut(pokemon) {
-				this.debug('Pursuit start');
+				this.debug('Extend Neck start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
 				for (const source of this.effectData.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Pursuit');
+						this.add('-activate', pokemon, 'move: Extend Neck');
 						alreadyAdded = true;
 					}
 					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
