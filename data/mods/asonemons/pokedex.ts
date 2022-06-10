@@ -203,7 +203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 26,
 		name: "Clefairy-Selene",
 		types: ["Fairy", "Rock"],
-		baseStats: {hp: 90, atk: 75, def: 90, spa: 91, spd: 90, spe: 77},
+		baseStats: {hp: 90, atk: 71, def: 90, spa: 95, spd: 90, spe: 77},
 		abilities: {0: "As One (Lunatone)"},
 		weightkg: 175.5,
 	},
