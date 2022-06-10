@@ -108,7 +108,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
    },
 	shellstack: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Physical",
 		name: "Shell Stack",
 		pp: 10,
