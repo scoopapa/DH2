@@ -200,6 +200,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (targets.length) {
 			target = targets[targets.length - 1]; // in case of redirection
 		}
+		
+		if (!sourceEffect || sourceEffect.id === 'pursuit') {
+			return;
+		}
 
 		if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
 			!this.runEvent('TryMove', pokemon, target, move)) {
