@@ -88,26 +88,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hamsterslam: {
         accuracy: 100,
-        basePower: 45,
+        basePower: 50,
         category: "Physical",
         name: "Hamster Slam",
         pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
-        onModifyType(move, source) {
-            move.type = source.getTypes()[0];
-        },
-        onHit(target, source, move) {
-            if (source.getTypes().length === 1) {
-                move.type = source.getTypes()[0];
-            } else {
-                move.type = source.getTypes()[1];
-            }
-        },
-        multihit: 2,
+        basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+		     }
+			   return move.basePower;
+	  	  },
         secondary: null,
         target: "normal",
-        type: "Normal",
+        type: "Electric",
         contestType: "Tough",
    },
 	shellstack: {
@@ -183,14 +179,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	bubbleblades: {
-		accuracy: 90,
-		basePower: 18,
+		accuracy: 100,
+		basePower: 60,
 		category: "Physical",
 		name: "Bubble Blades",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		multihit: [2, 5],
+		flags: {contact: 1, protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+				return move.basePower + 15 * pokemon.positiveBoosts();
+		  },
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -842,14 +840,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 	},
    innerdeviation: {
-		accuracy: 100,
-		basePower: 90,
+		accuracy: 90,
+		basePower: 100,
 		category: "Special",
 		name: "Inner Deviation",
 		pp: 10,
 		flags: {protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Psychic', type);
+		self: {
+			boosts: {
+				spe: -1,
+			},
 		},
 		priority: 0,
 		secondary: null,
