@@ -80,4 +80,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	gearup: {
+		num: 674,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises user's Attack and Sp. Atk by 1; 2 in Electric Terrain.",
+		name: "Gear Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, authentic: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('electricterrain') && pokemon.isGrounded()) move.boosts = {atk: 2, spa: 2};
+		},
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
 };
