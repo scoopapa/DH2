@@ -3517,6 +3517,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			flamethrower: ["8M", "7M"],
 			fling: ["8M", "7M"],
 			foulplay: ["8M", "7T"],
+			haze: ["8L1"],
 			heatwave: ["8M", "7T"],
 			hypnosis: ["8L35"],
 			incinerate: ["8L30"],
