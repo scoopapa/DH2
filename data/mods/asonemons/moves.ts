@@ -432,7 +432,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							}
 						}
 					}
-					this.runMove('pursuit', source, this.getTargetLoc(pokemon, source));
+					this.runMove('extendneck', source, this.getTargetLoc(pokemon, source));
 				}
 			},
 		},
