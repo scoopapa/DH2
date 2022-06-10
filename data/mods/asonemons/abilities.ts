@@ -259,16 +259,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
 			}
 		},
-		onModifyMove(move) {
-			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
-				move.multihit = move.multihit[1];
-			}
-			if (move.multiaccuracy) {
-				delete move.multiaccuracy;
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
 			}
 		},
 		name: "As One (Heracross)",
-		shortDesc: "The combination of Protean and Skill Link.",
+		shortDesc: "The combination of Protean and Moxie.",
 	},
 	asonedrifblim: {
 		onPreStart(pokemon) {
