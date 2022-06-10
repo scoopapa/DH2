@@ -135,5 +135,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    articunogalar: {
       inherit: true, 
       abilities: {0: "Competitive", H: "Trace"},
+   }, 
+   krookodile: {
+      inherit: true,
+      baseStats: {hp: 95, atk: 117, def: 80, spa: 65, spd: 70, spe: 103},
+   }, 
+   goodra: {
+      inherit: true,
+      abilities: {0: "Sap Sipper", 1: "Analytic", H: "Gooey"},
 	}, 
 };
