@@ -28,6 +28,8 @@ export const Scripts: BattleScriptsData = {
       this.modData('Learnsets', 'celebi').learnset.moonblast = ['8L1'];
       this.modData('Learnsets', 'articunogalar').learnset.focusblast = ['8L1'];
       this.modData('Learnsets', 'krookodile').learnset.uturn = ['8L1'];
-      this.modData('Learnsets', 'goodra').learnset.recover = ['8L1];
+      this.modData('Learnsets', 'goodra').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'virizion').learnset.hornleech = ['8L1'];
+      this.modData('Learnsets', 'wishiwashi').learnset.recover = ['8L1'];
    },
 };
