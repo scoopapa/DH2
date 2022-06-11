@@ -540,7 +540,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Lush Soil",
-		shortDesc: "User on Grassy Terrain: 1.5x power.",
+		shortDesc: "User on Grassy Terrain: 1.5x power. Ends Grassy Terrain.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -555,8 +555,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.target = 'allAdjacentFoes';
 			}
 		},
-		onHit() {
+		onHit(move, source, target) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
 			this.field.clearTerrain();
+			}
 		},
 		secondary: null,
 		target: "normal",
