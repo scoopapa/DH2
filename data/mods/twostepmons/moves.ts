@@ -123,20 +123,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1},
-		sideCondition: 'bindingvow',
+		volatileStatus: 'bindingvow',
 		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				return 4;
 			},
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Binding Vow');
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Binding Vow');
 			},
 			onDamagingHit(damage, target, source, move) {
 				this.damage(damage, source, target);
 			},
-			onEnd(side) {
-				this.add('-sideend', side, 'move: Binding Vow');
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Binding Vow');
 			},
 		},
 		onPrepareHit: function(target, source, move) {
