@@ -754,6 +754,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			sludgewave: ["8M", "7M", "6M", "5M"],
 			strength: ["7V", "6M", "5M", "4M", "3M"],
 			stringshot: ["4T"],
+			stickyweb: ["8L1"],
 			strugglebug: ["8L10", "7L12", "6M", "6L12", "5M", "5L1"],
 			sunnyday: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			swagger: ["7M", "7V", "6M", "5M", "4M", "3T"],
