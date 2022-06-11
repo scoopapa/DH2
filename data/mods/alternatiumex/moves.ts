@@ -80,6 +80,97 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	twirlingdance: {
+		num: -4,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		category: "Physical",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+		name: "Twirling Dance",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fiery Dance", target);
+		},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	pompomdance: {
+		num: -5,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Type varies matches the user's primary type. The user is flung into the air.",
+		name: "Pom-pom Dance",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Revelation Dance", target);
+		},
+		self: {
+			volatileStatus: 'telekinesis',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	skirtdance: {
+		num: -6,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
+		name: "Skirt Dance",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Quiver Dance", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	deathlyskirt: {
+		num: -7,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		name: "Deathly Skirt",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Shade", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
 	gearup: {
 		num: 674,
 		accuracy: true,
