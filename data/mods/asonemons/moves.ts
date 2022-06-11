@@ -555,6 +555,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.target = 'allAdjacentFoes';
 			}
 		},
+		onHit() {
+			this.field.clearTerrain();
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ground",
@@ -705,7 +708,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.basePower *= 1.5;
 			}
 		},
-        onHit() {
+      onHit() {
 			this.field.clearTerrain();
 		},
 		secondary: null,
