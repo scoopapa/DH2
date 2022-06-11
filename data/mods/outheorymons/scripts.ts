@@ -25,5 +25,11 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'copperajah').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'zarude').learnset.swordsdance = ['8L1'];
       this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1']; 
+      this.modData('Learnsets', 'celebi').learnset.moonblast = ['8L1'];
+      this.modData('Learnsets', 'articunogalar').learnset.focusblast = ['8L1'];
+      this.modData('Learnsets', 'krookodile').learnset.uturn = ['8L1'];
+      this.modData('Learnsets', 'goodra').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'virizion').learnset.hornleech = ['8L1'];
+      this.modData('Learnsets', 'wishiwashi').learnset.recover = ['8L1'];
    },
 };
