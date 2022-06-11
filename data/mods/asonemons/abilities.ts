@@ -259,16 +259,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
 			}
 		},
-		onModifyMove(move) {
-			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
-				move.multihit = move.multihit[1];
-			}
-			if (move.multiaccuracy) {
-				delete move.multiaccuracy;
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
 			}
 		},
 		name: "As One (Heracross)",
-		shortDesc: "The combination of Protean and Skill Link.",
+		shortDesc: "The combination of Protean and Moxie.",
 	},
 	asonedrifblim: {
 		onPreStart(pokemon) {
@@ -673,7 +670,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "As One (Slowking-Galar)",
 		shortDesc: "The combination of Tinted Lens and Regenerator.",
 	},
-   asoneswoobat: {
+   asonevileplume: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 			this.add( '-message', 'Unaware and Chlorophyll!');
@@ -698,10 +695,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
-		name: "As One (Swoobat)",
+		name: "As One (Vileplume)",
 		shortDesc: "The combination of Unaware and Chlorophyll.",
 	},
-   asoneblacephalon: {
+   asoneaurorus: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 			this.add( '-message', 'Beast Boost and Refrigerate!');
@@ -734,7 +731,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[statName]: length}, source);
 			}
 		},
-		name: "As One (Blacephalon)",
+		name: "As One (Aurorus)",
 		shortDesc: "The combination of Beast Boost and Refrigerate.",
 	},
    asonegirafarig: {
