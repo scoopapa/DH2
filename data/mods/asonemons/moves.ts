@@ -72,12 +72,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	baitsplash: {
 		num: 831,
-		accuracy: 75,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Bait Splash",
       shortDesc: "Traps and damages the target for 4-5 turns.",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
@@ -540,7 +540,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Lush Soil",
-		shortDesc: "User on Grassy Terrain: 1.5x power.",
+		shortDesc: "User on Grassy Terrain: 1.5x power. Ends Grassy Terrain.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -555,8 +555,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.target = 'allAdjacentFoes';
 			}
 		},
-		onHit() {
+		onHit(move, source, target) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
 			this.field.clearTerrain();
+			}
 		},
 		secondary: null,
 		target: "normal",
