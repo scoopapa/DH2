@@ -1689,9 +1689,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 81,
 	},
 	salasianalolamega: {
-		tier: "FENU",
+		tier: "FERU",
 		doublesTier: "DUU",
-		randomBattleLevel: 81,
+		randomBattleLevel: 79,
+		requiredItem: "Salamencite",
 	},
 
 	
