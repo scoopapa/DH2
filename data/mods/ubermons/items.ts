@@ -193,7 +193,7 @@ export const Items: {[itemid: string]: ItemData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						target.formeChange('Kyogre-Primal', this.effect, true);
+						pokemon.formeChange('Kyogre-Primal', this.effect, true);
 						return;
 					}
 				}
@@ -929,7 +929,7 @@ export const Items: {[itemid: string]: ItemData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						target.formeChange('Groudon-Primal', this.effect, true);
+						pokemon.formeChange('Groudon-Primal', this.effect, true);
 						return;
 					}
 				}
