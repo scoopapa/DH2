@@ -1331,7 +1331,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	skyattack: {
 		num: 143,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 90,
 		category: "Physical",
 		name: "Sky Attack",
 		shortDesc: "High critical hit ratio.",
