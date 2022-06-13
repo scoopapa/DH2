@@ -133,7 +133,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: -6,
 		accuracy: 100,
 		basePower: 80,
-		category: "Physical",
+		category: "Special",
 		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
 		name: "Skirt Dance",
 		pp: 15,
