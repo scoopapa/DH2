@@ -109,7 +109,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
    },
 	shellstack: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		category: "Physical",
 		name: "Shell Stack",
 		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
