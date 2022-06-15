@@ -357,4 +357,259 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	//Loria Region
 	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
+	ravenous: {
+		shortDesc: "Placeholder, does nothing right now.",
+		name: "Ravenous",
+	},
+	precision: {
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3.",
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return accuracy * 1.3;
+		},
+		name: "Precision",
+	},
+	energize: {
+		shortDesc: "When this Pokemon uses a two-turn move, it recovers 1/6 of its max HP on the first turn.",
+		onChargeMove(pokemon, target, move) {
+			this.heal(pokemon.baseMaxhp / 6);
+		},
+		name: "Energize",
+	},
+	phaseshift: {
+		shortDesc: "Becomes a Water-type if using a Water move or burned, becomes Ice-type if using an Ice and not burned.",
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			if (move.type === 'Water' || source.status === 'brn') {
+				if (!source.setType('Water')) return;
+				if (source.getTypes().join() === 'Water') return;
+				this.add('-start', source, 'typechange', 'Water', '[from] ability: Phase Shift');
+			}
+			if (move.type === 'Ice' && source.status === 'brn') {
+				if (!source.setType('Ice')) return;
+				if (source.getTypes().join() === 'Ice') return;
+				this.add('-start', source, 'typechange', 'Ice', '[from] ability: Phase Shift');
+			}
+		},
+		name: "Phase Shift",
+	},
+	bombadier: {
+		shortDesc: "This Pokémon explosion, ball, and bomb moves have 1.3x power.",
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet'] || move.name === 'Explosion' || move.name === 'Misty Explosion' || move.name === 'Self-Destruct' || move.name === 'Mind Blown') {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Bombadier",
+	},
+	soaringspirit: {
+		shortDesc: "This Pokemon's Flying-type moves have 1.5x power and it's immune to Ground; Gravity/Ingrain/Smack Down/Iron Ball nullify the latter.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Soaring Spirit boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Soaring Spirit boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Soaring Spirit",
+	},
+	suddenguard: {
+		shortDesc: "While switching-in, this Pokemon is immune to all non-Super Effective moves.",
+		onTryHit(target, source, move) {
+			if (target.activeTurns || target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Sudden Guard immunity: ' + move.id);
+			if (target.runEffectiveness(move) <= 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Sudden Guard');
+				}
+				return null;
+			}
+		},
+		name: "Sudden Guard",
+	},
+	bewitch: {
+		shortDesc: "Moves that can inflict a status condition have their secondary chance doubled.",
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries && !move.secondaries.chance.boosts) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+		},
+		name: "Bewitch",
+	},
+	ambitious: {
+		shortDesc: "This Pokemon's Speed is raised by 2 for each of its stats that is lowered by a foe.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Ambitious only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Ambitious');
+				this.boost({spe: 2}, target, target, null, true);
+			}
+		},
+		name: "Ambitious",
+	},
+	surfsup: {
+		shortDesc: "Before using a Water-type move or if Rain is active, this Pokémon changes to its Surfing form. This Pokémon's Water-type moves deal 1.3x damage.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Tsunamey' || attacker.transformed) return;
+			const targetForme = (move.type === 'Water' ? 'Tsunamey' : 'Tsunamey-Surfing');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		onAnyWeatherStart() {
+			const pokemon = this.effectData.target;
+			if ((this.field.isWeather('raindance') || this.field.isWeather('primordialsea'))  && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Surf\'s Up');
+				this.effectData.busted = false;
+				pokemon.formeChange('Tsunamey-Surfing', this.effect, true);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Surf\'s Up boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Surf\'s Up boost');
+				return this.chainModify(1.3);
+			}
+		},
+		isPermanent: true,
+		name: "Surf's Up",
+	},
+	battletide: {
+		shortDesc: "This Pokemon's Attack goes up by 1 stage when hit by a Water-type move; Water immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Battle Tide');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Battle Tide');
+				}
+				return this.effectData.target;
+			}
+		},
+		name: "Battle Tide",
+	},
+	solarcharge: {
+		shortDesc: "This Pokemon's Attack goes up by 1 stage when hit by a Water-type move; Water immunity.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Solar Charge",
+	},
+	eternalice: {
+		shortDesc: "This Pokemon is immune to Fire and Fighting-type moves, but it always moves with -1 priority.",
+		onTryHit(target, source, move) {
+			if (move.target !== 'self' && ['Fighting', 'Fire'].includes(move.type)) {
+				this.add('-immune', target, '[from] ability: Eternal Ice');
+				return null;
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+				return priority - 1;
+		},
+		name: "Eternal Ice",
+	},
+	traveler: {
+		shortDesc: "Removes hazards upon switch-in.",
+		onSwitchInPriority: 6,
+		onSwitchIn(pokemon, target, source) {
+         const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+         for (const condition of sideConditions) {
+            if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+               this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
+            }
+          }
+		},
+		id: "traveler",
+		name: "Traveler",
+	},
+	magmaabsorb: {
+		shortDesc: "This Pokemon's Defense goes up by 1 stage when hit by a Fire-type move; Fire immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({def: 1})) {
+					this.add('-immune', target, '[from] ability: Magma Absorb');
+				}
+				return null;
+			}
+		},
+		name: "Magma Absorb",
+	},
+	disastrous: {
+		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
+		onTryHit(target, source, move) {
+			if (move.target !== 'self' && ['Dark'].includes(move.type)) {
+				this.add('-immune', target, '[from] ability: Disastrous');
+				this.damage(source.baseMaxhp / 8, source, target);
+				return null;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Disastrous');
+			}
+		},
+		name: "Disastrous",
+	},
+	potionbrewer: {
+		shortDesc: "Upon using a Psychic-type move, this Pokémon consumes its berry.",
+	  	onAfterMove(target, source, move){
+			const item = source.getItem();
+		   if (move.type === 'Psychic' && item.isBerry) target.eatItem(true));
+		},
+		name: "Potion Brewer",
+	},
 };
