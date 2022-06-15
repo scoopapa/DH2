@@ -68,6 +68,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Dancer", H: "Victory Star"},
 		heightm: 0.6,
 		weightkg: 3.4,
+		otherFormes: null,
+		formeOrder: null,
 	},
 	oricoriocheerleader: {
 		num: 741,
@@ -88,6 +90,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Dancer", H: "Grassy Surge"},
 		heightm: 0.6,
 		weightkg: 3.4,
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
 	},
 	horrorcorio: {
 		num: 741,
