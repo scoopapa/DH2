@@ -290,7 +290,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swampertanti: {
 		tier: "SSS",
 	},
-	banjokazooie: {
+	banjoandkazooie: {
 		tier: "SSS",
 	},
 	polbearab: {

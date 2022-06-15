@@ -3325,7 +3325,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8L1"],
 		},
 	},
-	banjokazooie: {learnset: {
+	banjoandkazooie: {learnset: {
 		breegullblaster: ["7L1"],
 		doubleedge: ["7L1"],
 		eggbomb: ["7L1"],
