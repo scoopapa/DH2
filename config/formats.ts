@@ -3053,6 +3053,16 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber'],
 	},
+    {
+		name: "[Gen 3] Hoennification",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-6#post-9240115">Post in Solomods Megathread</a>`,
+		],
+
+		mod: 'gen3hoennification',
+		ruleset: ['Standard', '3 Baton Pass Clause'],
+		banlist: ['Uber', 'Smeargle + Baton Pass'],
+	},
 	{    
        name: "[Gen 8] i forgor OU",
        desc: 'i forgor :skull: (the anaconja solomod)',
